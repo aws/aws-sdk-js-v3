@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartDashboardSnapshotJobRequest, StartDashboardSnapshotJobResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { StartDashboardSnapshotJob } from "../schemas/schemas_0";
+import { StartDashboardSnapshotJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,14 +94,14 @@ export interface StartDashboardSnapshotJobCommandOutput extends StartDashboardSn
  *          <p>To generate snapshots for registered Quick Sight users, you need to:</p>
  *          <ul>
  *             <li>
- *                <p>Obtain identity-enhanced IAM role session credentials from AWS Security Token Service (STS).</p>
+ *                <p>Obtain identity-enhanced IAM role session credentials from Amazon Web Services Security Token Service (STS).</p>
  *             </li>
  *             <li>
  *                <p>Use these credentials to call the Snapshot Job APIs.</p>
  *             </li>
  *          </ul>
  *          <p>Identity-enhanced credentials are credentials that contain information about the end user (e.g., registered Quick Sight user).</p>
- *          <p>If your Quick Sight users are backed by <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">AWS Identity Center</a>, then you need to set up a <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/setuptrustedtokenissuer.html">trusted token issuer</a>. Then, getting identity-enhanced IAM credentials for a Quick Sight user will look like the following:</p>
+ *          <p>If your Quick Sight users are backed by <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">Amazon Web Services Identity Center</a>, then you need to set up a <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/setuptrustedtokenissuer.html">trusted token issuer</a>. Then, getting identity-enhanced IAM credentials for a Quick Sight user will look like the following:</p>
  *          <ul>
  *             <li>
  *                <p>Authenticate user with your OIDC compliant Identity Provider. You should get auth tokens back.</p>
@@ -310,7 +310,7 @@ export class StartDashboardSnapshotJobCommand extends $Command
   })
   .s("QuickSight_20180401", "StartDashboardSnapshotJob", {})
   .n("QuickSightClient", "StartDashboardSnapshotJobCommand")
-  .sc(StartDashboardSnapshotJob)
+  .sc(StartDashboardSnapshotJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

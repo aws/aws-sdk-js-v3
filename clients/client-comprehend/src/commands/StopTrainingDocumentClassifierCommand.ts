@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopTrainingDocumentClassifierRequest, StopTrainingDocumentClassifierResponse } from "../models/models_0";
-import { StopTrainingDocumentClassifier } from "../schemas/schemas_0";
+import { StopTrainingDocumentClassifier$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface StopTrainingDocumentClassifierCommandInput extends StopTraining
  *
  * The output of {@link StopTrainingDocumentClassifierCommand}.
  */
-export interface StopTrainingDocumentClassifierCommandOutput
-  extends StopTrainingDocumentClassifierResponse,
-    __MetadataBearer {}
+export interface StopTrainingDocumentClassifierCommandOutput extends StopTrainingDocumentClassifierResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a document classifier training job while in progress.</p>
@@ -90,7 +88,7 @@ export class StopTrainingDocumentClassifierCommand extends $Command
   })
   .s("Comprehend_20171127", "StopTrainingDocumentClassifier", {})
   .n("ComprehendClient", "StopTrainingDocumentClassifierCommand")
-  .sc(StopTrainingDocumentClassifier)
+  .sc(StopTrainingDocumentClassifier$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

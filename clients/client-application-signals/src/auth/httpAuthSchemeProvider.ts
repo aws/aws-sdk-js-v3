@@ -49,11 +49,9 @@ export const defaultApplicationSignalsHttpAuthSchemeParametersProvider = async (
 ): Promise<ApplicationSignalsHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -85,9 +83,7 @@ export interface ApplicationSignalsHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultApplicationSignalsHttpAuthSchemeProvider: ApplicationSignalsHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultApplicationSignalsHttpAuthSchemeProvider: ApplicationSignalsHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

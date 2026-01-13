@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { AdvertiseByoipCidrRequest, AdvertiseByoipCidrResponse } from "../models/models_0";
-import { AdvertiseByoipCidr } from "../schemas/schemas_0";
+import { AdvertiseByoipCidr$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class AdvertiseByoipCidrCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "AdvertiseByoipCidr", {})
   .n("GlobalAcceleratorClient", "AdvertiseByoipCidrCommand")
-  .sc(AdvertiseByoipCidr)
+  .sc(AdvertiseByoipCidr$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

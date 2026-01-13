@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateOutboundConnectionRequest, CreateOutboundConnectionResponse } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { CreateOutboundConnection } from "../schemas/schemas_0";
+import { CreateOutboundConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -134,7 +134,7 @@ export class CreateOutboundConnectionCommand extends $Command
   })
   .s("AmazonOpenSearchService", "CreateOutboundConnection", {})
   .n("OpenSearchClient", "CreateOutboundConnectionCommand")
-  .sc(CreateOutboundConnection)
+  .sc(CreateOutboundConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdatePodIdentityAssociationRequest, UpdatePodIdentityAssociationResponse } from "../models/models_0";
-import { UpdatePodIdentityAssociation } from "../schemas/schemas_0";
+import { UpdatePodIdentityAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdatePodIdentityAssociationCommandInput extends UpdatePodIdent
  *
  * The output of {@link UpdatePodIdentityAssociationCommand}.
  */
-export interface UpdatePodIdentityAssociationCommandOutput
-  extends UpdatePodIdentityAssociationResponse,
-    __MetadataBearer {}
+export interface UpdatePodIdentityAssociationCommandOutput extends UpdatePodIdentityAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a EKS Pod Identity association. In an update, you can change the IAM role, the target IAM role, or <code>disableSessionTags</code>.
@@ -129,7 +127,7 @@ export class UpdatePodIdentityAssociationCommand extends $Command
   })
   .s("AWSWesleyFrontend", "UpdatePodIdentityAssociation", {})
   .n("EKSClient", "UpdatePodIdentityAssociationCommand")
-  .sc(UpdatePodIdentityAssociation)
+  .sc(UpdatePodIdentityAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

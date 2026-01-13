@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import type { DescribeMultiRegionClustersRequest, DescribeMultiRegionClustersResponse } from "../models/models_0";
-import { DescribeMultiRegionClusters } from "../schemas/schemas_0";
+import { DescribeMultiRegionClusters$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeMultiRegionClustersCommandInput extends DescribeMultiRe
  *
  * The output of {@link DescribeMultiRegionClustersCommand}.
  */
-export interface DescribeMultiRegionClustersCommandOutput
-  extends DescribeMultiRegionClustersResponse,
-    __MetadataBearer {}
+export interface DescribeMultiRegionClustersCommandOutput extends DescribeMultiRegionClustersResponse, __MetadataBearer {}
 
 /**
  * <p>Returns details about one or more multi-Region clusters.</p>
@@ -112,7 +110,7 @@ export class DescribeMultiRegionClustersCommand extends $Command
   })
   .s("AmazonMemoryDB", "DescribeMultiRegionClusters", {})
   .n("MemoryDBClient", "DescribeMultiRegionClustersCommand")
-  .sc(DescribeMultiRegionClusters)
+  .sc(DescribeMultiRegionClusters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

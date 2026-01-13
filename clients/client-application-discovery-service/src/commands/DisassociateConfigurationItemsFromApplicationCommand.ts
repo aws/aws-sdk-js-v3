@@ -13,7 +13,7 @@ import type {
   DisassociateConfigurationItemsFromApplicationRequest,
   DisassociateConfigurationItemsFromApplicationResponse,
 } from "../models/models_0";
-import { DisassociateConfigurationItemsFromApplication } from "../schemas/schemas_0";
+import { DisassociateConfigurationItemsFromApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DisassociateConfigurationItemsFromApplicationCommand}.
  */
-export interface DisassociateConfigurationItemsFromApplicationCommandInput
-  extends DisassociateConfigurationItemsFromApplicationRequest {}
+export interface DisassociateConfigurationItemsFromApplicationCommandInput extends DisassociateConfigurationItemsFromApplicationRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateConfigurationItemsFromApplicationCommand}.
  */
-export interface DisassociateConfigurationItemsFromApplicationCommandOutput
-  extends DisassociateConfigurationItemsFromApplicationResponse,
-    __MetadataBearer {}
+export interface DisassociateConfigurationItemsFromApplicationCommandOutput extends DisassociateConfigurationItemsFromApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates one or more configuration items from an application.</p>
@@ -101,7 +98,7 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
   })
   .s("AWSPoseidonService_V2015_11_01", "DisassociateConfigurationItemsFromApplication", {})
   .n("ApplicationDiscoveryServiceClient", "DisassociateConfigurationItemsFromApplicationCommand")
-  .sc(DisassociateConfigurationItemsFromApplication)
+  .sc(DisassociateConfigurationItemsFromApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

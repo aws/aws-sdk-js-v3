@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetIndexRequest, GetIndexResponse } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { GetIndex } from "../schemas/schemas_0";
+import { GetIndex$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class GetIndexCommand extends $Command
   })
   .s("AmazonOpenSearchService", "GetIndex", {})
   .n("OpenSearchClient", "GetIndexCommand")
-  .sc(GetIndex)
+  .sc(GetIndex$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

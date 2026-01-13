@@ -10,7 +10,7 @@ import type {
 } from "../AppIntegrationsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDataIntegrationRequest, GetDataIntegrationResponse } from "../models/models_0";
-import { GetDataIntegration } from "../schemas/schemas_0";
+import { GetDataIntegration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class GetDataIntegrationCommand extends $Command
   })
   .s("AmazonAppIntegrationService", "GetDataIntegration", {})
   .n("AppIntegrationsClient", "GetDataIntegrationCommand")
-  .sc(GetDataIntegration)
+  .sc(GetDataIntegration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

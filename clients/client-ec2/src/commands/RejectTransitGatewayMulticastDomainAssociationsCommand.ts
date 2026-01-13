@@ -9,7 +9,7 @@ import type {
   RejectTransitGatewayMulticastDomainAssociationsRequest,
   RejectTransitGatewayMulticastDomainAssociationsResult,
 } from "../models/models_7";
-import { RejectTransitGatewayMulticastDomainAssociations } from "../schemas/schemas_0";
+import { RejectTransitGatewayMulticastDomainAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link RejectTransitGatewayMulticastDomainAssociationsCommand}.
  */
-export interface RejectTransitGatewayMulticastDomainAssociationsCommandInput
-  extends RejectTransitGatewayMulticastDomainAssociationsRequest {}
+export interface RejectTransitGatewayMulticastDomainAssociationsCommandInput extends RejectTransitGatewayMulticastDomainAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link RejectTransitGatewayMulticastDomainAssociationsCommand}.
  */
-export interface RejectTransitGatewayMulticastDomainAssociationsCommandOutput
-  extends RejectTransitGatewayMulticastDomainAssociationsResult,
-    __MetadataBearer {}
+export interface RejectTransitGatewayMulticastDomainAssociationsCommandOutput extends RejectTransitGatewayMulticastDomainAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Rejects a request to associate cross-account subnets with a transit gateway multicast domain.</p>
@@ -96,7 +93,7 @@ export class RejectTransitGatewayMulticastDomainAssociationsCommand extends $Com
   })
   .s("AmazonEC2", "RejectTransitGatewayMulticastDomainAssociations", {})
   .n("EC2Client", "RejectTransitGatewayMulticastDomainAssociationsCommand")
-  .sc(RejectTransitGatewayMulticastDomainAssociations)
+  .sc(RejectTransitGatewayMulticastDomainAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

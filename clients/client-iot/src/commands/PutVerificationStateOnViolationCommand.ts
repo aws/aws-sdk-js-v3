@@ -9,7 +9,7 @@ import type {
   PutVerificationStateOnViolationRequest,
   PutVerificationStateOnViolationResponse,
 } from "../models/models_2";
-import { PutVerificationStateOnViolation } from "../schemas/schemas_0";
+import { PutVerificationStateOnViolation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface PutVerificationStateOnViolationCommandInput extends PutVerifica
  *
  * The output of {@link PutVerificationStateOnViolationCommand}.
  */
-export interface PutVerificationStateOnViolationCommandOutput
-  extends PutVerificationStateOnViolationResponse,
-    __MetadataBearer {}
+export interface PutVerificationStateOnViolationCommandOutput extends PutVerificationStateOnViolationResponse, __MetadataBearer {}
 
 /**
  * <p>Set a verification state and provide a description of that verification state on a violation (detect alarm).</p>
@@ -87,7 +85,7 @@ export class PutVerificationStateOnViolationCommand extends $Command
   })
   .s("AWSIotService", "PutVerificationStateOnViolation", {})
   .n("IoTClient", "PutVerificationStateOnViolationCommand")
-  .sc(PutVerificationStateOnViolation)
+  .sc(PutVerificationStateOnViolation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

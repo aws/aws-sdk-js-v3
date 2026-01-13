@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AttachLoadBalancersResultType, AttachLoadBalancersType } from "../models/models_0";
-import { AttachLoadBalancers } from "../schemas/schemas_0";
+import { AttachLoadBalancers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class AttachLoadBalancersCommand extends $Command
   })
   .s("AutoScaling_2011_01_01", "AttachLoadBalancers", {})
   .n("AutoScalingClient", "AttachLoadBalancersCommand")
-  .sc(AttachLoadBalancers)
+  .sc(AttachLoadBalancers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

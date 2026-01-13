@@ -10,7 +10,7 @@ import type {
 } from "../ConnectCampaignsV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateCampaignFlowAssociationRequest } from "../models/models_0";
-import { UpdateCampaignFlowAssociation } from "../schemas/schemas_0";
+import { UpdateCampaignFlowAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class UpdateCampaignFlowAssociationCommand extends $Command
   })
   .s("AmazonConnectCampaignServiceV2", "UpdateCampaignFlowAssociation", {})
   .n("ConnectCampaignsV2Client", "UpdateCampaignFlowAssociationCommand")
-  .sc(UpdateCampaignFlowAssociation)
+  .sc(UpdateCampaignFlowAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegisterTargetsInput, RegisterTargetsOutput } from "../models/models_0";
-import { RegisterTargets } from "../schemas/schemas_0";
+import { RegisterTargets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -168,7 +168,7 @@ export class RegisterTargetsCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "RegisterTargets", {})
   .n("ElasticLoadBalancingV2Client", "RegisterTargetsCommand")
-  .sc(RegisterTargets)
+  .sc(RegisterTargets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

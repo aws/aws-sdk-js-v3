@@ -14,7 +14,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { StreamingTraits } from "../schemas/schemas_0";
+import { StreamingTraits$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class StreamingTraitsCommand extends $Command
   })
   .s("RestJson", "StreamingTraits", {})
   .n("RestJsonProtocolClient", "StreamingTraitsCommand")
-  .sc(StreamingTraits)
+  .sc(StreamingTraits$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

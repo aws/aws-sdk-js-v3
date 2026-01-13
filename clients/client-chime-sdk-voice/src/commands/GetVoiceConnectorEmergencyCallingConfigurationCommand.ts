@@ -9,7 +9,7 @@ import type {
   GetVoiceConnectorEmergencyCallingConfigurationRequest,
   GetVoiceConnectorEmergencyCallingConfigurationResponse,
 } from "../models/models_0";
-import { GetVoiceConnectorEmergencyCallingConfiguration } from "../schemas/schemas_0";
+import { GetVoiceConnectorEmergencyCallingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetVoiceConnectorEmergencyCallingConfigurationCommand}.
  */
-export interface GetVoiceConnectorEmergencyCallingConfigurationCommandInput
-  extends GetVoiceConnectorEmergencyCallingConfigurationRequest {}
+export interface GetVoiceConnectorEmergencyCallingConfigurationCommandInput extends GetVoiceConnectorEmergencyCallingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link GetVoiceConnectorEmergencyCallingConfigurationCommand}.
  */
-export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
-  extends GetVoiceConnectorEmergencyCallingConfigurationResponse,
-    __MetadataBearer {}
+export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput extends GetVoiceConnectorEmergencyCallingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the emergency calling configuration details for the specified Voice Connector.</p>
@@ -108,7 +105,7 @@ export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
   })
   .s("ChimeSDKTelephonyService", "GetVoiceConnectorEmergencyCallingConfiguration", {})
   .n("ChimeSDKVoiceClient", "GetVoiceConnectorEmergencyCallingConfigurationCommand")
-  .sc(GetVoiceConnectorEmergencyCallingConfiguration)
+  .sc(GetVoiceConnectorEmergencyCallingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

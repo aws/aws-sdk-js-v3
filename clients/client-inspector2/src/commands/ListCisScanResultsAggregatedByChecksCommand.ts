@@ -9,7 +9,7 @@ import type {
   ListCisScanResultsAggregatedByChecksRequest,
   ListCisScanResultsAggregatedByChecksResponse,
 } from "../models/models_0";
-import { ListCisScanResultsAggregatedByChecks } from "../schemas/schemas_0";
+import { ListCisScanResultsAggregatedByChecks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListCisScanResultsAggregatedByChecksCommandInput extends ListCi
  *
  * The output of {@link ListCisScanResultsAggregatedByChecksCommand}.
  */
-export interface ListCisScanResultsAggregatedByChecksCommandOutput
-  extends ListCisScanResultsAggregatedByChecksResponse,
-    __MetadataBearer {}
+export interface ListCisScanResultsAggregatedByChecksCommandOutput extends ListCisScanResultsAggregatedByChecksResponse, __MetadataBearer {}
 
 /**
  * <p>Lists scan results aggregated by checks.</p>
@@ -181,7 +179,7 @@ export class ListCisScanResultsAggregatedByChecksCommand extends $Command
   })
   .s("Inspector2", "ListCisScanResultsAggregatedByChecks", {})
   .n("Inspector2Client", "ListCisScanResultsAggregatedByChecksCommand")
-  .sc(ListCisScanResultsAggregatedByChecks)
+  .sc(ListCisScanResultsAggregatedByChecks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

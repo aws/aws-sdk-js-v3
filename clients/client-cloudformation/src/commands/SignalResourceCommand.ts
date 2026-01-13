@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SignalResourceInput } from "../models/models_0";
-import { SignalResource } from "../schemas/schemas_0";
+import { SignalResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class SignalResourceCommand extends $Command
   })
   .s("CloudFormation", "SignalResource", {})
   .n("CloudFormationClient", "SignalResourceCommand")
-  .sc(SignalResource)
+  .sc(SignalResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

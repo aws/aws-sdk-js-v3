@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListNotificationConfigurationsRequest, ListNotificationConfigurationsResponse } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { ListNotificationConfigurations } from "../schemas/schemas_0";
+import { ListNotificationConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListNotificationConfigurationsCommandInput extends ListNotifica
  *
  * The output of {@link ListNotificationConfigurationsCommand}.
  */
-export interface ListNotificationConfigurationsCommandOutput
-  extends ListNotificationConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListNotificationConfigurationsCommandOutput extends ListNotificationConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of abbreviated <code>NotificationConfigurations</code> according to specified filters, in reverse chronological order (newest first).</p>
@@ -103,7 +101,7 @@ export class ListNotificationConfigurationsCommand extends $Command
   })
   .s("Notifications", "ListNotificationConfigurations", {})
   .n("NotificationsClient", "ListNotificationConfigurationsCommand")
-  .sc(ListNotificationConfigurations)
+  .sc(ListNotificationConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

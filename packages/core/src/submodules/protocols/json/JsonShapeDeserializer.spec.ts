@@ -2,7 +2,7 @@ import { NumericValue } from "@smithy/core/serde";
 import type { TimestampEpochSecondsSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
-import { createNestingWidget, nestingWidget, widget } from "../test-schema.spec";
+import { createNestingWidget, nestingWidget, unionStruct, unionStructControl, widget } from "../test-schema.spec";
 import { JsonShapeDeserializer } from "./JsonShapeDeserializer";
 import { JsonShapeSerializer } from "./JsonShapeSerializer";
 
@@ -155,6 +155,30 @@ describe(JsonShapeDeserializer.name, () => {
     expect(await deserializer.read(widget, JSON.stringify({ scalar: "NaN" }))).toEqual({ scalar: NaN });
   });
 
+  it("deserializes $unknown union members", async () => {
+    const json = `{"union":{"unknownKey":{"timestamp":0,"blob":"AAECAw=="}}}`;
+    {
+      const deserialization = await deserializer.read(unionStruct, json);
+      expect(deserialization).toEqual({
+        union: {
+          $unknown: [
+            "unknownKey",
+            {
+              blob: "AAECAw==",
+              timestamp: 0,
+            },
+          ],
+        },
+      });
+    }
+    {
+      const deserialization = await deserializer.read(unionStructControl, json);
+      expect(deserialization).toEqual({
+        union: {},
+      });
+    }
+  });
+
   describe("performance baseline indicator", () => {
     const serializer = new JsonShapeSerializer({
       jsonName: true,
@@ -171,7 +195,7 @@ describe(JsonShapeDeserializer.name, () => {
       const strings = [];
 
       // warmup
-      for (let i = 0; i < 12; ++i) {
+      for (let i = 0; i < 10; ++i) {
         const o = createNestingWidget(2 ** i);
         serializer.write(nestingWidget, o);
         const json = serializer.flush();

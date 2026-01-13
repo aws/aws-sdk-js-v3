@@ -10,7 +10,7 @@ import type {
 } from "../CodeGuruReviewerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateRepositoryRequest, DisassociateRepositoryResponse } from "../models/models_0";
-import { DisassociateRepository } from "../schemas/schemas_0";
+import { DisassociateRepository$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class DisassociateRepositoryCommand extends $Command
   })
   .s("AWSGuruFrontendService", "DisassociateRepository", {})
   .n("CodeGuruReviewerClient", "DisassociateRepositoryCommand")
-  .sc(DisassociateRepository)
+  .sc(DisassociateRepository$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -477,6 +477,11 @@ import {
   DescribeRoleCustomPermissionCommandOutput,
 } from "./commands/DescribeRoleCustomPermissionCommand";
 import {
+  DescribeSelfUpgradeConfigurationCommand,
+  DescribeSelfUpgradeConfigurationCommandInput,
+  DescribeSelfUpgradeConfigurationCommandOutput,
+} from "./commands/DescribeSelfUpgradeConfigurationCommand";
+import {
   DescribeTemplateAliasCommand,
   DescribeTemplateAliasCommandInput,
   DescribeTemplateAliasCommandOutput,
@@ -680,6 +685,11 @@ import {
   ListRoleMembershipsCommandInput,
   ListRoleMembershipsCommandOutput,
 } from "./commands/ListRoleMembershipsCommand";
+import {
+  ListSelfUpgradesCommand,
+  ListSelfUpgradesCommandInput,
+  ListSelfUpgradesCommandOutput,
+} from "./commands/ListSelfUpgradesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -988,6 +998,16 @@ import {
   UpdateRoleCustomPermissionCommandOutput,
 } from "./commands/UpdateRoleCustomPermissionCommand";
 import {
+  UpdateSelfUpgradeCommand,
+  UpdateSelfUpgradeCommandInput,
+  UpdateSelfUpgradeCommandOutput,
+} from "./commands/UpdateSelfUpgradeCommand";
+import {
+  UpdateSelfUpgradeConfigurationCommand,
+  UpdateSelfUpgradeConfigurationCommandInput,
+  UpdateSelfUpgradeConfigurationCommandOutput,
+} from "./commands/UpdateSelfUpgradeConfigurationCommand";
+import {
   UpdateSPICECapacityConfigurationCommand,
   UpdateSPICECapacityConfigurationCommandInput,
   UpdateSPICECapacityConfigurationCommandOutput,
@@ -1145,6 +1165,7 @@ const commands = {
   DescribeQuickSightQSearchConfigurationCommand,
   DescribeRefreshScheduleCommand,
   DescribeRoleCustomPermissionCommand,
+  DescribeSelfUpgradeConfigurationCommand,
   DescribeTemplateCommand,
   DescribeTemplateAliasCommand,
   DescribeTemplateDefinitionCommand,
@@ -1189,6 +1210,7 @@ const commands = {
   ListNamespacesCommand,
   ListRefreshSchedulesCommand,
   ListRoleMembershipsCommand,
+  ListSelfUpgradesCommand,
   ListTagsForResourceCommand,
   ListTemplateAliasesCommand,
   ListTemplatesCommand,
@@ -1256,6 +1278,8 @@ const commands = {
   UpdateQuickSightQSearchConfigurationCommand,
   UpdateRefreshScheduleCommand,
   UpdateRoleCustomPermissionCommand,
+  UpdateSelfUpgradeCommand,
+  UpdateSelfUpgradeConfigurationCommand,
   UpdateSPICECapacityConfigurationCommand,
   UpdateTemplateCommand,
   UpdateTemplateAliasCommand,
@@ -1313,7 +1337,10 @@ export interface QuickSight {
     args: CancelIngestionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CancelIngestionCommandOutput>;
-  cancelIngestion(args: CancelIngestionCommandInput, cb: (err: any, data?: CancelIngestionCommandOutput) => void): void;
+  cancelIngestion(
+    args: CancelIngestionCommandInput,
+    cb: (err: any, data?: CancelIngestionCommandOutput) => void
+  ): void;
   cancelIngestion(
     args: CancelIngestionCommandInput,
     options: __HttpHandlerOptions,
@@ -1378,7 +1405,10 @@ export interface QuickSight {
     args: CreateAnalysisCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateAnalysisCommandOutput>;
-  createAnalysis(args: CreateAnalysisCommandInput, cb: (err: any, data?: CreateAnalysisCommandOutput) => void): void;
+  createAnalysis(
+    args: CreateAnalysisCommandInput,
+    cb: (err: any, data?: CreateAnalysisCommandOutput) => void
+  ): void;
   createAnalysis(
     args: CreateAnalysisCommandInput,
     options: __HttpHandlerOptions,
@@ -1388,8 +1418,14 @@ export interface QuickSight {
   /**
    * @see {@link CreateBrandCommand}
    */
-  createBrand(args: CreateBrandCommandInput, options?: __HttpHandlerOptions): Promise<CreateBrandCommandOutput>;
-  createBrand(args: CreateBrandCommandInput, cb: (err: any, data?: CreateBrandCommandOutput) => void): void;
+  createBrand(
+    args: CreateBrandCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBrandCommandOutput>;
+  createBrand(
+    args: CreateBrandCommandInput,
+    cb: (err: any, data?: CreateBrandCommandOutput) => void
+  ): void;
   createBrand(
     args: CreateBrandCommandInput,
     options: __HttpHandlerOptions,
@@ -1420,7 +1456,10 @@ export interface QuickSight {
     args: CreateDashboardCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDashboardCommandOutput>;
-  createDashboard(args: CreateDashboardCommandInput, cb: (err: any, data?: CreateDashboardCommandOutput) => void): void;
+  createDashboard(
+    args: CreateDashboardCommandInput,
+    cb: (err: any, data?: CreateDashboardCommandOutput) => void
+  ): void;
   createDashboard(
     args: CreateDashboardCommandInput,
     options: __HttpHandlerOptions,
@@ -1430,8 +1469,14 @@ export interface QuickSight {
   /**
    * @see {@link CreateDataSetCommand}
    */
-  createDataSet(args: CreateDataSetCommandInput, options?: __HttpHandlerOptions): Promise<CreateDataSetCommandOutput>;
-  createDataSet(args: CreateDataSetCommandInput, cb: (err: any, data?: CreateDataSetCommandOutput) => void): void;
+  createDataSet(
+    args: CreateDataSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataSetCommandOutput>;
+  createDataSet(
+    args: CreateDataSetCommandInput,
+    cb: (err: any, data?: CreateDataSetCommandOutput) => void
+  ): void;
   createDataSet(
     args: CreateDataSetCommandInput,
     options: __HttpHandlerOptions,
@@ -1458,8 +1503,14 @@ export interface QuickSight {
   /**
    * @see {@link CreateFolderCommand}
    */
-  createFolder(args: CreateFolderCommandInput, options?: __HttpHandlerOptions): Promise<CreateFolderCommandOutput>;
-  createFolder(args: CreateFolderCommandInput, cb: (err: any, data?: CreateFolderCommandOutput) => void): void;
+  createFolder(
+    args: CreateFolderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFolderCommandOutput>;
+  createFolder(
+    args: CreateFolderCommandInput,
+    cb: (err: any, data?: CreateFolderCommandOutput) => void
+  ): void;
   createFolder(
     args: CreateFolderCommandInput,
     options: __HttpHandlerOptions,
@@ -1486,8 +1537,14 @@ export interface QuickSight {
   /**
    * @see {@link CreateGroupCommand}
    */
-  createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
-  createGroup(args: CreateGroupCommandInput, cb: (err: any, data?: CreateGroupCommandOutput) => void): void;
+  createGroup(
+    args: CreateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGroupCommandOutput>;
+  createGroup(
+    args: CreateGroupCommandInput,
+    cb: (err: any, data?: CreateGroupCommandOutput) => void
+  ): void;
   createGroup(
     args: CreateGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1535,7 +1592,10 @@ export interface QuickSight {
     args: CreateIngestionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateIngestionCommandOutput>;
-  createIngestion(args: CreateIngestionCommandInput, cb: (err: any, data?: CreateIngestionCommandOutput) => void): void;
+  createIngestion(
+    args: CreateIngestionCommandInput,
+    cb: (err: any, data?: CreateIngestionCommandOutput) => void
+  ): void;
   createIngestion(
     args: CreateIngestionCommandInput,
     options: __HttpHandlerOptions,
@@ -1549,7 +1609,10 @@ export interface QuickSight {
     args: CreateNamespaceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateNamespaceCommandOutput>;
-  createNamespace(args: CreateNamespaceCommandInput, cb: (err: any, data?: CreateNamespaceCommandOutput) => void): void;
+  createNamespace(
+    args: CreateNamespaceCommandInput,
+    cb: (err: any, data?: CreateNamespaceCommandOutput) => void
+  ): void;
   createNamespace(
     args: CreateNamespaceCommandInput,
     options: __HttpHandlerOptions,
@@ -1597,7 +1660,10 @@ export interface QuickSight {
     args: CreateTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateTemplateCommandOutput>;
-  createTemplate(args: CreateTemplateCommandInput, cb: (err: any, data?: CreateTemplateCommandOutput) => void): void;
+  createTemplate(
+    args: CreateTemplateCommandInput,
+    cb: (err: any, data?: CreateTemplateCommandOutput) => void
+  ): void;
   createTemplate(
     args: CreateTemplateCommandInput,
     options: __HttpHandlerOptions,
@@ -1624,8 +1690,14 @@ export interface QuickSight {
   /**
    * @see {@link CreateThemeCommand}
    */
-  createTheme(args: CreateThemeCommandInput, options?: __HttpHandlerOptions): Promise<CreateThemeCommandOutput>;
-  createTheme(args: CreateThemeCommandInput, cb: (err: any, data?: CreateThemeCommandOutput) => void): void;
+  createTheme(
+    args: CreateThemeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateThemeCommandOutput>;
+  createTheme(
+    args: CreateThemeCommandInput,
+    cb: (err: any, data?: CreateThemeCommandOutput) => void
+  ): void;
   createTheme(
     args: CreateThemeCommandInput,
     options: __HttpHandlerOptions,
@@ -1652,8 +1724,14 @@ export interface QuickSight {
   /**
    * @see {@link CreateTopicCommand}
    */
-  createTopic(args: CreateTopicCommandInput, options?: __HttpHandlerOptions): Promise<CreateTopicCommandOutput>;
-  createTopic(args: CreateTopicCommandInput, cb: (err: any, data?: CreateTopicCommandOutput) => void): void;
+  createTopic(
+    args: CreateTopicCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTopicCommandOutput>;
+  createTopic(
+    args: CreateTopicCommandInput,
+    cb: (err: any, data?: CreateTopicCommandOutput) => void
+  ): void;
   createTopic(
     args: CreateTopicCommandInput,
     options: __HttpHandlerOptions,
@@ -1769,7 +1847,10 @@ export interface QuickSight {
     args: DeleteAnalysisCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteAnalysisCommandOutput>;
-  deleteAnalysis(args: DeleteAnalysisCommandInput, cb: (err: any, data?: DeleteAnalysisCommandOutput) => void): void;
+  deleteAnalysis(
+    args: DeleteAnalysisCommandInput,
+    cb: (err: any, data?: DeleteAnalysisCommandOutput) => void
+  ): void;
   deleteAnalysis(
     args: DeleteAnalysisCommandInput,
     options: __HttpHandlerOptions,
@@ -1779,8 +1860,14 @@ export interface QuickSight {
   /**
    * @see {@link DeleteBrandCommand}
    */
-  deleteBrand(args: DeleteBrandCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBrandCommandOutput>;
-  deleteBrand(args: DeleteBrandCommandInput, cb: (err: any, data?: DeleteBrandCommandOutput) => void): void;
+  deleteBrand(
+    args: DeleteBrandCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBrandCommandOutput>;
+  deleteBrand(
+    args: DeleteBrandCommandInput,
+    cb: (err: any, data?: DeleteBrandCommandOutput) => void
+  ): void;
   deleteBrand(
     args: DeleteBrandCommandInput,
     options: __HttpHandlerOptions,
@@ -1828,7 +1915,10 @@ export interface QuickSight {
     args: DeleteDashboardCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDashboardCommandOutput>;
-  deleteDashboard(args: DeleteDashboardCommandInput, cb: (err: any, data?: DeleteDashboardCommandOutput) => void): void;
+  deleteDashboard(
+    args: DeleteDashboardCommandInput,
+    cb: (err: any, data?: DeleteDashboardCommandOutput) => void
+  ): void;
   deleteDashboard(
     args: DeleteDashboardCommandInput,
     options: __HttpHandlerOptions,
@@ -1838,8 +1928,14 @@ export interface QuickSight {
   /**
    * @see {@link DeleteDataSetCommand}
    */
-  deleteDataSet(args: DeleteDataSetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDataSetCommandOutput>;
-  deleteDataSet(args: DeleteDataSetCommandInput, cb: (err: any, data?: DeleteDataSetCommandOutput) => void): void;
+  deleteDataSet(
+    args: DeleteDataSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataSetCommandOutput>;
+  deleteDataSet(
+    args: DeleteDataSetCommandInput,
+    cb: (err: any, data?: DeleteDataSetCommandOutput) => void
+  ): void;
   deleteDataSet(
     args: DeleteDataSetCommandInput,
     options: __HttpHandlerOptions,
@@ -1900,8 +1996,14 @@ export interface QuickSight {
   /**
    * @see {@link DeleteFolderCommand}
    */
-  deleteFolder(args: DeleteFolderCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFolderCommandOutput>;
-  deleteFolder(args: DeleteFolderCommandInput, cb: (err: any, data?: DeleteFolderCommandOutput) => void): void;
+  deleteFolder(
+    args: DeleteFolderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFolderCommandOutput>;
+  deleteFolder(
+    args: DeleteFolderCommandInput,
+    cb: (err: any, data?: DeleteFolderCommandOutput) => void
+  ): void;
   deleteFolder(
     args: DeleteFolderCommandInput,
     options: __HttpHandlerOptions,
@@ -1928,8 +2030,14 @@ export interface QuickSight {
   /**
    * @see {@link DeleteGroupCommand}
    */
-  deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
-  deleteGroup(args: DeleteGroupCommandInput, cb: (err: any, data?: DeleteGroupCommandOutput) => void): void;
+  deleteGroup(
+    args: DeleteGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGroupCommandOutput>;
+  deleteGroup(
+    args: DeleteGroupCommandInput,
+    cb: (err: any, data?: DeleteGroupCommandOutput) => void
+  ): void;
   deleteGroup(
     args: DeleteGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1994,7 +2102,10 @@ export interface QuickSight {
     args: DeleteNamespaceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteNamespaceCommandOutput>;
-  deleteNamespace(args: DeleteNamespaceCommandInput, cb: (err: any, data?: DeleteNamespaceCommandOutput) => void): void;
+  deleteNamespace(
+    args: DeleteNamespaceCommandInput,
+    cb: (err: any, data?: DeleteNamespaceCommandOutput) => void
+  ): void;
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
     options: __HttpHandlerOptions,
@@ -2059,7 +2170,10 @@ export interface QuickSight {
     args: DeleteTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteTemplateCommandOutput>;
-  deleteTemplate(args: DeleteTemplateCommandInput, cb: (err: any, data?: DeleteTemplateCommandOutput) => void): void;
+  deleteTemplate(
+    args: DeleteTemplateCommandInput,
+    cb: (err: any, data?: DeleteTemplateCommandOutput) => void
+  ): void;
   deleteTemplate(
     args: DeleteTemplateCommandInput,
     options: __HttpHandlerOptions,
@@ -2086,8 +2200,14 @@ export interface QuickSight {
   /**
    * @see {@link DeleteThemeCommand}
    */
-  deleteTheme(args: DeleteThemeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteThemeCommandOutput>;
-  deleteTheme(args: DeleteThemeCommandInput, cb: (err: any, data?: DeleteThemeCommandOutput) => void): void;
+  deleteTheme(
+    args: DeleteThemeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteThemeCommandOutput>;
+  deleteTheme(
+    args: DeleteThemeCommandInput,
+    cb: (err: any, data?: DeleteThemeCommandOutput) => void
+  ): void;
   deleteTheme(
     args: DeleteThemeCommandInput,
     options: __HttpHandlerOptions,
@@ -2114,8 +2234,14 @@ export interface QuickSight {
   /**
    * @see {@link DeleteTopicCommand}
    */
-  deleteTopic(args: DeleteTopicCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTopicCommandOutput>;
-  deleteTopic(args: DeleteTopicCommandInput, cb: (err: any, data?: DeleteTopicCommandOutput) => void): void;
+  deleteTopic(
+    args: DeleteTopicCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTopicCommandOutput>;
+  deleteTopic(
+    args: DeleteTopicCommandInput,
+    cb: (err: any, data?: DeleteTopicCommandOutput) => void
+  ): void;
   deleteTopic(
     args: DeleteTopicCommandInput,
     options: __HttpHandlerOptions,
@@ -2142,8 +2268,14 @@ export interface QuickSight {
   /**
    * @see {@link DeleteUserCommand}
    */
-  deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
-  deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUserCommandOutput>;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    cb: (err: any, data?: DeleteUserCommandOutput) => void
+  ): void;
   deleteUser(
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
@@ -2391,8 +2523,14 @@ export interface QuickSight {
   /**
    * @see {@link DescribeBrandCommand}
    */
-  describeBrand(args: DescribeBrandCommandInput, options?: __HttpHandlerOptions): Promise<DescribeBrandCommandOutput>;
-  describeBrand(args: DescribeBrandCommandInput, cb: (err: any, data?: DescribeBrandCommandOutput) => void): void;
+  describeBrand(
+    args: DescribeBrandCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBrandCommandOutput>;
+  describeBrand(
+    args: DescribeBrandCommandInput,
+    cb: (err: any, data?: DescribeBrandCommandOutput) => void
+  ): void;
   describeBrand(
     args: DescribeBrandCommandInput,
     options: __HttpHandlerOptions,
@@ -2559,7 +2697,10 @@ export interface QuickSight {
     args: DescribeDataSetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDataSetCommandOutput>;
-  describeDataSet(args: DescribeDataSetCommandInput, cb: (err: any, data?: DescribeDataSetCommandOutput) => void): void;
+  describeDataSet(
+    args: DescribeDataSetCommandInput,
+    cb: (err: any, data?: DescribeDataSetCommandOutput) => void
+  ): void;
   describeDataSet(
     args: DescribeDataSetCommandInput,
     options: __HttpHandlerOptions,
@@ -2658,7 +2799,10 @@ export interface QuickSight {
     args: DescribeFolderCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeFolderCommandOutput>;
-  describeFolder(args: DescribeFolderCommandInput, cb: (err: any, data?: DescribeFolderCommandOutput) => void): void;
+  describeFolder(
+    args: DescribeFolderCommandInput,
+    cb: (err: any, data?: DescribeFolderCommandOutput) => void
+  ): void;
   describeFolder(
     args: DescribeFolderCommandInput,
     options: __HttpHandlerOptions,
@@ -2702,8 +2846,14 @@ export interface QuickSight {
   /**
    * @see {@link DescribeGroupCommand}
    */
-  describeGroup(args: DescribeGroupCommandInput, options?: __HttpHandlerOptions): Promise<DescribeGroupCommandOutput>;
-  describeGroup(args: DescribeGroupCommandInput, cb: (err: any, data?: DescribeGroupCommandOutput) => void): void;
+  describeGroup(
+    args: DescribeGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeGroupCommandOutput>;
+  describeGroup(
+    args: DescribeGroupCommandInput,
+    cb: (err: any, data?: DescribeGroupCommandOutput) => void
+  ): void;
   describeGroup(
     args: DescribeGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -2881,6 +3031,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DescribeSelfUpgradeConfigurationCommand}
+   */
+  describeSelfUpgradeConfiguration(
+    args: DescribeSelfUpgradeConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSelfUpgradeConfigurationCommandOutput>;
+  describeSelfUpgradeConfiguration(
+    args: DescribeSelfUpgradeConfigurationCommandInput,
+    cb: (err: any, data?: DescribeSelfUpgradeConfigurationCommandOutput) => void
+  ): void;
+  describeSelfUpgradeConfiguration(
+    args: DescribeSelfUpgradeConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSelfUpgradeConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeTemplateCommand}
    */
   describeTemplate(
@@ -2951,8 +3118,14 @@ export interface QuickSight {
   /**
    * @see {@link DescribeThemeCommand}
    */
-  describeTheme(args: DescribeThemeCommandInput, options?: __HttpHandlerOptions): Promise<DescribeThemeCommandOutput>;
-  describeTheme(args: DescribeThemeCommandInput, cb: (err: any, data?: DescribeThemeCommandOutput) => void): void;
+  describeTheme(
+    args: DescribeThemeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeThemeCommandOutput>;
+  describeTheme(
+    args: DescribeThemeCommandInput,
+    cb: (err: any, data?: DescribeThemeCommandOutput) => void
+  ): void;
   describeTheme(
     args: DescribeThemeCommandInput,
     options: __HttpHandlerOptions,
@@ -2996,8 +3169,14 @@ export interface QuickSight {
   /**
    * @see {@link DescribeTopicCommand}
    */
-  describeTopic(args: DescribeTopicCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTopicCommandOutput>;
-  describeTopic(args: DescribeTopicCommandInput, cb: (err: any, data?: DescribeTopicCommandOutput) => void): void;
+  describeTopic(
+    args: DescribeTopicCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTopicCommandOutput>;
+  describeTopic(
+    args: DescribeTopicCommandInput,
+    cb: (err: any, data?: DescribeTopicCommandOutput) => void
+  ): void;
   describeTopic(
     args: DescribeTopicCommandInput,
     options: __HttpHandlerOptions,
@@ -3058,8 +3237,14 @@ export interface QuickSight {
   /**
    * @see {@link DescribeUserCommand}
    */
-  describeUser(args: DescribeUserCommandInput, options?: __HttpHandlerOptions): Promise<DescribeUserCommandOutput>;
-  describeUser(args: DescribeUserCommandInput, cb: (err: any, data?: DescribeUserCommandOutput) => void): void;
+  describeUser(
+    args: DescribeUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeUserCommandOutput>;
+  describeUser(
+    args: DescribeUserCommandInput,
+    cb: (err: any, data?: DescribeUserCommandOutput) => void
+  ): void;
   describeUser(
     args: DescribeUserCommandInput,
     options: __HttpHandlerOptions,
@@ -3158,7 +3343,10 @@ export interface QuickSight {
     args: GetFlowMetadataCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetFlowMetadataCommandOutput>;
-  getFlowMetadata(args: GetFlowMetadataCommandInput, cb: (err: any, data?: GetFlowMetadataCommandOutput) => void): void;
+  getFlowMetadata(
+    args: GetFlowMetadataCommandInput,
+    cb: (err: any, data?: GetFlowMetadataCommandOutput) => void
+  ): void;
   getFlowMetadata(
     args: GetFlowMetadataCommandInput,
     options: __HttpHandlerOptions,
@@ -3236,8 +3424,14 @@ export interface QuickSight {
   /**
    * @see {@link ListAnalysesCommand}
    */
-  listAnalyses(args: ListAnalysesCommandInput, options?: __HttpHandlerOptions): Promise<ListAnalysesCommandOutput>;
-  listAnalyses(args: ListAnalysesCommandInput, cb: (err: any, data?: ListAnalysesCommandOutput) => void): void;
+  listAnalyses(
+    args: ListAnalysesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAnalysesCommandOutput>;
+  listAnalyses(
+    args: ListAnalysesCommandInput,
+    cb: (err: any, data?: ListAnalysesCommandOutput) => void
+  ): void;
   listAnalyses(
     args: ListAnalysesCommandInput,
     options: __HttpHandlerOptions,
@@ -3281,8 +3475,14 @@ export interface QuickSight {
   /**
    * @see {@link ListBrandsCommand}
    */
-  listBrands(args: ListBrandsCommandInput, options?: __HttpHandlerOptions): Promise<ListBrandsCommandOutput>;
-  listBrands(args: ListBrandsCommandInput, cb: (err: any, data?: ListBrandsCommandOutput) => void): void;
+  listBrands(
+    args: ListBrandsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBrandsCommandOutput>;
+  listBrands(
+    args: ListBrandsCommandInput,
+    cb: (err: any, data?: ListBrandsCommandOutput) => void
+  ): void;
   listBrands(
     args: ListBrandsCommandInput,
     options: __HttpHandlerOptions,
@@ -3313,7 +3513,10 @@ export interface QuickSight {
     args: ListDashboardsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDashboardsCommandOutput>;
-  listDashboards(args: ListDashboardsCommandInput, cb: (err: any, data?: ListDashboardsCommandOutput) => void): void;
+  listDashboards(
+    args: ListDashboardsCommandInput,
+    cb: (err: any, data?: ListDashboardsCommandOutput) => void
+  ): void;
   listDashboards(
     args: ListDashboardsCommandInput,
     options: __HttpHandlerOptions,
@@ -3340,8 +3543,14 @@ export interface QuickSight {
   /**
    * @see {@link ListDataSetsCommand}
    */
-  listDataSets(args: ListDataSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDataSetsCommandOutput>;
-  listDataSets(args: ListDataSetsCommandInput, cb: (err: any, data?: ListDataSetsCommandOutput) => void): void;
+  listDataSets(
+    args: ListDataSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataSetsCommandOutput>;
+  listDataSets(
+    args: ListDataSetsCommandInput,
+    cb: (err: any, data?: ListDataSetsCommandOutput) => void
+  ): void;
   listDataSets(
     args: ListDataSetsCommandInput,
     options: __HttpHandlerOptions,
@@ -3355,7 +3564,10 @@ export interface QuickSight {
     args: ListDataSourcesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDataSourcesCommandOutput>;
-  listDataSources(args: ListDataSourcesCommandInput, cb: (err: any, data?: ListDataSourcesCommandOutput) => void): void;
+  listDataSources(
+    args: ListDataSourcesCommandInput,
+    cb: (err: any, data?: ListDataSourcesCommandOutput) => void
+  ): void;
   listDataSources(
     args: ListDataSourcesCommandInput,
     options: __HttpHandlerOptions,
@@ -3365,8 +3577,14 @@ export interface QuickSight {
   /**
    * @see {@link ListFlowsCommand}
    */
-  listFlows(args: ListFlowsCommandInput, options?: __HttpHandlerOptions): Promise<ListFlowsCommandOutput>;
-  listFlows(args: ListFlowsCommandInput, cb: (err: any, data?: ListFlowsCommandOutput) => void): void;
+  listFlows(
+    args: ListFlowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFlowsCommandOutput>;
+  listFlows(
+    args: ListFlowsCommandInput,
+    cb: (err: any, data?: ListFlowsCommandOutput) => void
+  ): void;
   listFlows(
     args: ListFlowsCommandInput,
     options: __HttpHandlerOptions,
@@ -3393,8 +3611,14 @@ export interface QuickSight {
   /**
    * @see {@link ListFoldersCommand}
    */
-  listFolders(args: ListFoldersCommandInput, options?: __HttpHandlerOptions): Promise<ListFoldersCommandOutput>;
-  listFolders(args: ListFoldersCommandInput, cb: (err: any, data?: ListFoldersCommandOutput) => void): void;
+  listFolders(
+    args: ListFoldersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFoldersCommandOutput>;
+  listFolders(
+    args: ListFoldersCommandInput,
+    cb: (err: any, data?: ListFoldersCommandOutput) => void
+  ): void;
   listFolders(
     args: ListFoldersCommandInput,
     options: __HttpHandlerOptions,
@@ -3438,8 +3662,14 @@ export interface QuickSight {
   /**
    * @see {@link ListGroupsCommand}
    */
-  listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
-  listGroups(args: ListGroupsCommandInput, cb: (err: any, data?: ListGroupsCommandOutput) => void): void;
+  listGroups(
+    args: ListGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGroupsCommandOutput>;
+  listGroups(
+    args: ListGroupsCommandInput,
+    cb: (err: any, data?: ListGroupsCommandOutput) => void
+  ): void;
   listGroups(
     args: ListGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -3504,7 +3734,10 @@ export interface QuickSight {
     args: ListIngestionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListIngestionsCommandOutput>;
-  listIngestions(args: ListIngestionsCommandInput, cb: (err: any, data?: ListIngestionsCommandOutput) => void): void;
+  listIngestions(
+    args: ListIngestionsCommandInput,
+    cb: (err: any, data?: ListIngestionsCommandOutput) => void
+  ): void;
   listIngestions(
     args: ListIngestionsCommandInput,
     options: __HttpHandlerOptions,
@@ -3518,7 +3751,10 @@ export interface QuickSight {
     args: ListNamespacesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListNamespacesCommandOutput>;
-  listNamespaces(args: ListNamespacesCommandInput, cb: (err: any, data?: ListNamespacesCommandOutput) => void): void;
+  listNamespaces(
+    args: ListNamespacesCommandInput,
+    cb: (err: any, data?: ListNamespacesCommandOutput) => void
+  ): void;
   listNamespaces(
     args: ListNamespacesCommandInput,
     options: __HttpHandlerOptions,
@@ -3560,6 +3796,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link ListSelfUpgradesCommand}
+   */
+  listSelfUpgrades(
+    args: ListSelfUpgradesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSelfUpgradesCommandOutput>;
+  listSelfUpgrades(
+    args: ListSelfUpgradesCommandInput,
+    cb: (err: any, data?: ListSelfUpgradesCommandOutput) => void
+  ): void;
+  listSelfUpgrades(
+    args: ListSelfUpgradesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSelfUpgradesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -3596,8 +3849,14 @@ export interface QuickSight {
   /**
    * @see {@link ListTemplatesCommand}
    */
-  listTemplates(args: ListTemplatesCommandInput, options?: __HttpHandlerOptions): Promise<ListTemplatesCommandOutput>;
-  listTemplates(args: ListTemplatesCommandInput, cb: (err: any, data?: ListTemplatesCommandOutput) => void): void;
+  listTemplates(
+    args: ListTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTemplatesCommandOutput>;
+  listTemplates(
+    args: ListTemplatesCommandInput,
+    cb: (err: any, data?: ListTemplatesCommandOutput) => void
+  ): void;
   listTemplates(
     args: ListTemplatesCommandInput,
     options: __HttpHandlerOptions,
@@ -3641,8 +3900,14 @@ export interface QuickSight {
   /**
    * @see {@link ListThemesCommand}
    */
-  listThemes(args: ListThemesCommandInput, options?: __HttpHandlerOptions): Promise<ListThemesCommandOutput>;
-  listThemes(args: ListThemesCommandInput, cb: (err: any, data?: ListThemesCommandOutput) => void): void;
+  listThemes(
+    args: ListThemesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListThemesCommandOutput>;
+  listThemes(
+    args: ListThemesCommandInput,
+    cb: (err: any, data?: ListThemesCommandOutput) => void
+  ): void;
   listThemes(
     args: ListThemesCommandInput,
     options: __HttpHandlerOptions,
@@ -3703,8 +3968,14 @@ export interface QuickSight {
   /**
    * @see {@link ListTopicsCommand}
    */
-  listTopics(args: ListTopicsCommandInput, options?: __HttpHandlerOptions): Promise<ListTopicsCommandOutput>;
-  listTopics(args: ListTopicsCommandInput, cb: (err: any, data?: ListTopicsCommandOutput) => void): void;
+  listTopics(
+    args: ListTopicsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTopicsCommandOutput>;
+  listTopics(
+    args: ListTopicsCommandInput,
+    cb: (err: any, data?: ListTopicsCommandOutput) => void
+  ): void;
   listTopics(
     args: ListTopicsCommandInput,
     options: __HttpHandlerOptions,
@@ -3718,7 +3989,10 @@ export interface QuickSight {
     args: ListUserGroupsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListUserGroupsCommandOutput>;
-  listUserGroups(args: ListUserGroupsCommandInput, cb: (err: any, data?: ListUserGroupsCommandOutput) => void): void;
+  listUserGroups(
+    args: ListUserGroupsCommandInput,
+    cb: (err: any, data?: ListUserGroupsCommandOutput) => void
+  ): void;
   listUserGroups(
     args: ListUserGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -3728,8 +4002,14 @@ export interface QuickSight {
   /**
    * @see {@link ListUsersCommand}
    */
-  listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
-  listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
+  listUsers(
+    args: ListUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUsersCommandOutput>;
+  listUsers(
+    args: ListUsersCommandInput,
+    cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
   listUsers(
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -3790,8 +4070,14 @@ export interface QuickSight {
   /**
    * @see {@link RegisterUserCommand}
    */
-  registerUser(args: RegisterUserCommandInput, options?: __HttpHandlerOptions): Promise<RegisterUserCommandOutput>;
-  registerUser(args: RegisterUserCommandInput, cb: (err: any, data?: RegisterUserCommandOutput) => void): void;
+  registerUser(
+    args: RegisterUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterUserCommandOutput>;
+  registerUser(
+    args: RegisterUserCommandInput,
+    cb: (err: any, data?: RegisterUserCommandOutput) => void
+  ): void;
   registerUser(
     args: RegisterUserCommandInput,
     options: __HttpHandlerOptions,
@@ -3805,7 +4091,10 @@ export interface QuickSight {
     args: RestoreAnalysisCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RestoreAnalysisCommandOutput>;
-  restoreAnalysis(args: RestoreAnalysisCommandInput, cb: (err: any, data?: RestoreAnalysisCommandOutput) => void): void;
+  restoreAnalysis(
+    args: RestoreAnalysisCommandInput,
+    cb: (err: any, data?: RestoreAnalysisCommandOutput) => void
+  ): void;
   restoreAnalysis(
     args: RestoreAnalysisCommandInput,
     options: __HttpHandlerOptions,
@@ -3836,7 +4125,10 @@ export interface QuickSight {
     args: SearchAnalysesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SearchAnalysesCommandOutput>;
-  searchAnalyses(args: SearchAnalysesCommandInput, cb: (err: any, data?: SearchAnalysesCommandOutput) => void): void;
+  searchAnalyses(
+    args: SearchAnalysesCommandInput,
+    cb: (err: any, data?: SearchAnalysesCommandOutput) => void
+  ): void;
   searchAnalyses(
     args: SearchAnalysesCommandInput,
     options: __HttpHandlerOptions,
@@ -3867,7 +4159,10 @@ export interface QuickSight {
     args: SearchDataSetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SearchDataSetsCommandOutput>;
-  searchDataSets(args: SearchDataSetsCommandInput, cb: (err: any, data?: SearchDataSetsCommandOutput) => void): void;
+  searchDataSets(
+    args: SearchDataSetsCommandInput,
+    cb: (err: any, data?: SearchDataSetsCommandOutput) => void
+  ): void;
   searchDataSets(
     args: SearchDataSetsCommandInput,
     options: __HttpHandlerOptions,
@@ -3894,8 +4189,14 @@ export interface QuickSight {
   /**
    * @see {@link SearchFlowsCommand}
    */
-  searchFlows(args: SearchFlowsCommandInput, options?: __HttpHandlerOptions): Promise<SearchFlowsCommandOutput>;
-  searchFlows(args: SearchFlowsCommandInput, cb: (err: any, data?: SearchFlowsCommandOutput) => void): void;
+  searchFlows(
+    args: SearchFlowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchFlowsCommandOutput>;
+  searchFlows(
+    args: SearchFlowsCommandInput,
+    cb: (err: any, data?: SearchFlowsCommandOutput) => void
+  ): void;
   searchFlows(
     args: SearchFlowsCommandInput,
     options: __HttpHandlerOptions,
@@ -3905,8 +4206,14 @@ export interface QuickSight {
   /**
    * @see {@link SearchFoldersCommand}
    */
-  searchFolders(args: SearchFoldersCommandInput, options?: __HttpHandlerOptions): Promise<SearchFoldersCommandOutput>;
-  searchFolders(args: SearchFoldersCommandInput, cb: (err: any, data?: SearchFoldersCommandOutput) => void): void;
+  searchFolders(
+    args: SearchFoldersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchFoldersCommandOutput>;
+  searchFolders(
+    args: SearchFoldersCommandInput,
+    cb: (err: any, data?: SearchFoldersCommandOutput) => void
+  ): void;
   searchFolders(
     args: SearchFoldersCommandInput,
     options: __HttpHandlerOptions,
@@ -3916,8 +4223,14 @@ export interface QuickSight {
   /**
    * @see {@link SearchGroupsCommand}
    */
-  searchGroups(args: SearchGroupsCommandInput, options?: __HttpHandlerOptions): Promise<SearchGroupsCommandOutput>;
-  searchGroups(args: SearchGroupsCommandInput, cb: (err: any, data?: SearchGroupsCommandOutput) => void): void;
+  searchGroups(
+    args: SearchGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchGroupsCommandOutput>;
+  searchGroups(
+    args: SearchGroupsCommandInput,
+    cb: (err: any, data?: SearchGroupsCommandOutput) => void
+  ): void;
   searchGroups(
     args: SearchGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -3927,8 +4240,14 @@ export interface QuickSight {
   /**
    * @see {@link SearchTopicsCommand}
    */
-  searchTopics(args: SearchTopicsCommandInput, options?: __HttpHandlerOptions): Promise<SearchTopicsCommandOutput>;
-  searchTopics(args: SearchTopicsCommandInput, cb: (err: any, data?: SearchTopicsCommandOutput) => void): void;
+  searchTopics(
+    args: SearchTopicsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchTopicsCommandOutput>;
+  searchTopics(
+    args: SearchTopicsCommandInput,
+    cb: (err: any, data?: SearchTopicsCommandOutput) => void
+  ): void;
   searchTopics(
     args: SearchTopicsCommandInput,
     options: __HttpHandlerOptions,
@@ -4006,8 +4325,14 @@ export interface QuickSight {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -4017,8 +4342,14 @@ export interface QuickSight {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -4117,7 +4448,10 @@ export interface QuickSight {
     args: UpdateAnalysisCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateAnalysisCommandOutput>;
-  updateAnalysis(args: UpdateAnalysisCommandInput, cb: (err: any, data?: UpdateAnalysisCommandOutput) => void): void;
+  updateAnalysis(
+    args: UpdateAnalysisCommandInput,
+    cb: (err: any, data?: UpdateAnalysisCommandOutput) => void
+  ): void;
   updateAnalysis(
     args: UpdateAnalysisCommandInput,
     options: __HttpHandlerOptions,
@@ -4161,8 +4495,14 @@ export interface QuickSight {
   /**
    * @see {@link UpdateBrandCommand}
    */
-  updateBrand(args: UpdateBrandCommandInput, options?: __HttpHandlerOptions): Promise<UpdateBrandCommandOutput>;
-  updateBrand(args: UpdateBrandCommandInput, cb: (err: any, data?: UpdateBrandCommandOutput) => void): void;
+  updateBrand(
+    args: UpdateBrandCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBrandCommandOutput>;
+  updateBrand(
+    args: UpdateBrandCommandInput,
+    cb: (err: any, data?: UpdateBrandCommandOutput) => void
+  ): void;
   updateBrand(
     args: UpdateBrandCommandInput,
     options: __HttpHandlerOptions,
@@ -4227,7 +4567,10 @@ export interface QuickSight {
     args: UpdateDashboardCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateDashboardCommandOutput>;
-  updateDashboard(args: UpdateDashboardCommandInput, cb: (err: any, data?: UpdateDashboardCommandOutput) => void): void;
+  updateDashboard(
+    args: UpdateDashboardCommandInput,
+    cb: (err: any, data?: UpdateDashboardCommandOutput) => void
+  ): void;
   updateDashboard(
     args: UpdateDashboardCommandInput,
     options: __HttpHandlerOptions,
@@ -4305,8 +4648,14 @@ export interface QuickSight {
   /**
    * @see {@link UpdateDataSetCommand}
    */
-  updateDataSet(args: UpdateDataSetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateDataSetCommandOutput>;
-  updateDataSet(args: UpdateDataSetCommandInput, cb: (err: any, data?: UpdateDataSetCommandOutput) => void): void;
+  updateDataSet(
+    args: UpdateDataSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataSetCommandOutput>;
+  updateDataSet(
+    args: UpdateDataSetCommandInput,
+    cb: (err: any, data?: UpdateDataSetCommandOutput) => void
+  ): void;
   updateDataSet(
     args: UpdateDataSetCommandInput,
     options: __HttpHandlerOptions,
@@ -4401,8 +4750,14 @@ export interface QuickSight {
   /**
    * @see {@link UpdateFolderCommand}
    */
-  updateFolder(args: UpdateFolderCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFolderCommandOutput>;
-  updateFolder(args: UpdateFolderCommandInput, cb: (err: any, data?: UpdateFolderCommandOutput) => void): void;
+  updateFolder(
+    args: UpdateFolderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFolderCommandOutput>;
+  updateFolder(
+    args: UpdateFolderCommandInput,
+    cb: (err: any, data?: UpdateFolderCommandOutput) => void
+  ): void;
   updateFolder(
     args: UpdateFolderCommandInput,
     options: __HttpHandlerOptions,
@@ -4429,8 +4784,14 @@ export interface QuickSight {
   /**
    * @see {@link UpdateGroupCommand}
    */
-  updateGroup(args: UpdateGroupCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGroupCommandOutput>;
-  updateGroup(args: UpdateGroupCommandInput, cb: (err: any, data?: UpdateGroupCommandOutput) => void): void;
+  updateGroup(
+    args: UpdateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGroupCommandOutput>;
+  updateGroup(
+    args: UpdateGroupCommandInput,
+    cb: (err: any, data?: UpdateGroupCommandOutput) => void
+  ): void;
   updateGroup(
     args: UpdateGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -4591,6 +4952,40 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link UpdateSelfUpgradeCommand}
+   */
+  updateSelfUpgrade(
+    args: UpdateSelfUpgradeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSelfUpgradeCommandOutput>;
+  updateSelfUpgrade(
+    args: UpdateSelfUpgradeCommandInput,
+    cb: (err: any, data?: UpdateSelfUpgradeCommandOutput) => void
+  ): void;
+  updateSelfUpgrade(
+    args: UpdateSelfUpgradeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSelfUpgradeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSelfUpgradeConfigurationCommand}
+   */
+  updateSelfUpgradeConfiguration(
+    args: UpdateSelfUpgradeConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSelfUpgradeConfigurationCommandOutput>;
+  updateSelfUpgradeConfiguration(
+    args: UpdateSelfUpgradeConfigurationCommandInput,
+    cb: (err: any, data?: UpdateSelfUpgradeConfigurationCommandOutput) => void
+  ): void;
+  updateSelfUpgradeConfiguration(
+    args: UpdateSelfUpgradeConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSelfUpgradeConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateSPICECapacityConfigurationCommand}
    */
   updateSPICECapacityConfiguration(
@@ -4614,7 +5009,10 @@ export interface QuickSight {
     args: UpdateTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateTemplateCommandOutput>;
-  updateTemplate(args: UpdateTemplateCommandInput, cb: (err: any, data?: UpdateTemplateCommandOutput) => void): void;
+  updateTemplate(
+    args: UpdateTemplateCommandInput,
+    cb: (err: any, data?: UpdateTemplateCommandOutput) => void
+  ): void;
   updateTemplate(
     args: UpdateTemplateCommandInput,
     options: __HttpHandlerOptions,
@@ -4658,8 +5056,14 @@ export interface QuickSight {
   /**
    * @see {@link UpdateThemeCommand}
    */
-  updateTheme(args: UpdateThemeCommandInput, options?: __HttpHandlerOptions): Promise<UpdateThemeCommandOutput>;
-  updateTheme(args: UpdateThemeCommandInput, cb: (err: any, data?: UpdateThemeCommandOutput) => void): void;
+  updateTheme(
+    args: UpdateThemeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateThemeCommandOutput>;
+  updateTheme(
+    args: UpdateThemeCommandInput,
+    cb: (err: any, data?: UpdateThemeCommandOutput) => void
+  ): void;
   updateTheme(
     args: UpdateThemeCommandInput,
     options: __HttpHandlerOptions,
@@ -4703,8 +5107,14 @@ export interface QuickSight {
   /**
    * @see {@link UpdateTopicCommand}
    */
-  updateTopic(args: UpdateTopicCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTopicCommandOutput>;
-  updateTopic(args: UpdateTopicCommandInput, cb: (err: any, data?: UpdateTopicCommandOutput) => void): void;
+  updateTopic(
+    args: UpdateTopicCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTopicCommandOutput>;
+  updateTopic(
+    args: UpdateTopicCommandInput,
+    cb: (err: any, data?: UpdateTopicCommandOutput) => void
+  ): void;
   updateTopic(
     args: UpdateTopicCommandInput,
     options: __HttpHandlerOptions,
@@ -4748,8 +5158,14 @@ export interface QuickSight {
   /**
    * @see {@link UpdateUserCommand}
    */
-  updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
-  updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
+  updateUser(
+    args: UpdateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserCommandOutput>;
+  updateUser(
+    args: UpdateUserCommandInput,
+    cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): void;
   updateUser(
     args: UpdateUserCommandInput,
     options: __HttpHandlerOptions,

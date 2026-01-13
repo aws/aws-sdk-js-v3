@@ -9,7 +9,7 @@ import type {
   DisassociateTransitGatewayRouteTableRequest,
   DisassociateTransitGatewayRouteTableResult,
 } from "../models/models_5";
-import { DisassociateTransitGatewayRouteTable } from "../schemas/schemas_0";
+import { DisassociateTransitGatewayRouteTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DisassociateTransitGatewayRouteTableCommandInput extends Disass
  *
  * The output of {@link DisassociateTransitGatewayRouteTableCommand}.
  */
-export interface DisassociateTransitGatewayRouteTableCommandOutput
-  extends DisassociateTransitGatewayRouteTableResult,
-    __MetadataBearer {}
+export interface DisassociateTransitGatewayRouteTableCommandOutput extends DisassociateTransitGatewayRouteTableResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates a resource attachment from a transit gateway route table.</p>
@@ -86,7 +84,7 @@ export class DisassociateTransitGatewayRouteTableCommand extends $Command
   })
   .s("AmazonEC2", "DisassociateTransitGatewayRouteTable", {})
   .n("EC2Client", "DisassociateTransitGatewayRouteTableCommand")
-  .sc(DisassociateTransitGatewayRouteTable)
+  .sc(DisassociateTransitGatewayRouteTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

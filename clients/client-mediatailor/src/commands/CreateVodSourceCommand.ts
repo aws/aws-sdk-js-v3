@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import type { CreateVodSourceRequest, CreateVodSourceResponse } from "../models/models_0";
-import { CreateVodSource } from "../schemas/schemas_0";
+import { CreateVodSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class CreateVodSourceCommand extends $Command
   })
   .s("MediaTailor", "CreateVodSource", {})
   .n("MediaTailorClient", "CreateVodSourceCommand")
-  .sc(CreateVodSource)
+  .sc(CreateVodSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
 import type { AddApplicationVpcConfigurationRequest, AddApplicationVpcConfigurationResponse } from "../models/models_0";
-import { AddApplicationVpcConfiguration } from "../schemas/schemas_0";
+import { AddApplicationVpcConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface AddApplicationVpcConfigurationCommandInput extends AddApplicati
  *
  * The output of {@link AddApplicationVpcConfigurationCommand}.
  */
-export interface AddApplicationVpcConfigurationCommandOutput
-  extends AddApplicationVpcConfigurationResponse,
-    __MetadataBearer {}
+export interface AddApplicationVpcConfigurationCommandOutput extends AddApplicationVpcConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a Virtual Private Cloud (VPC) configuration to the application. Applications can use VPCs to store
@@ -129,7 +127,7 @@ export class AddApplicationVpcConfigurationCommand extends $Command
   })
   .s("KinesisAnalytics_20180523", "AddApplicationVpcConfiguration", {})
   .n("KinesisAnalyticsV2Client", "AddApplicationVpcConfigurationCommand")
-  .sc(AddApplicationVpcConfiguration)
+  .sc(AddApplicationVpcConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

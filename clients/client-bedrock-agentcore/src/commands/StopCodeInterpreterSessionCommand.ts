@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopCodeInterpreterSessionRequest, StopCodeInterpreterSessionResponse } from "../models/models_0";
-import { StopCodeInterpreterSession } from "../schemas/schemas_0";
+import { StopCodeInterpreterSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class StopCodeInterpreterSessionCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "StopCodeInterpreterSession", {})
   .n("BedrockAgentCoreClient", "StopCodeInterpreterSessionCommand")
-  .sc(StopCodeInterpreterSession)
+  .sc(StopCodeInterpreterSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

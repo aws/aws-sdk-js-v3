@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegisterEventTopicRequest, RegisterEventTopicResult } from "../models/models_0";
-import { RegisterEventTopic } from "../schemas/schemas_0";
+import { RegisterEventTopic$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class RegisterEventTopicCommand extends $Command
   })
   .s("DirectoryService_20150416", "RegisterEventTopic", {})
   .n("DirectoryServiceClient", "RegisterEventTopicCommand")
-  .sc(RegisterEventTopic)
+  .sc(RegisterEventTopic$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

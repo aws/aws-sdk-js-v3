@@ -246,8 +246,14 @@ export interface RUM {
   /**
    * @see {@link GetAppMonitorCommand}
    */
-  getAppMonitor(args: GetAppMonitorCommandInput, options?: __HttpHandlerOptions): Promise<GetAppMonitorCommandOutput>;
-  getAppMonitor(args: GetAppMonitorCommandInput, cb: (err: any, data?: GetAppMonitorCommandOutput) => void): void;
+  getAppMonitor(
+    args: GetAppMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAppMonitorCommandOutput>;
+  getAppMonitor(
+    args: GetAppMonitorCommandInput,
+    cb: (err: any, data?: GetAppMonitorCommandOutput) => void
+  ): void;
   getAppMonitor(
     args: GetAppMonitorCommandInput,
     options: __HttpHandlerOptions,
@@ -296,7 +302,10 @@ export interface RUM {
     args: ListAppMonitorsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAppMonitorsCommandOutput>;
-  listAppMonitors(args: ListAppMonitorsCommandInput, cb: (err: any, data?: ListAppMonitorsCommandOutput) => void): void;
+  listAppMonitors(
+    args: ListAppMonitorsCommandInput,
+    cb: (err: any, data?: ListAppMonitorsCommandOutput) => void
+  ): void;
   listAppMonitors(
     args: ListAppMonitorsCommandInput,
     options: __HttpHandlerOptions,
@@ -357,8 +366,14 @@ export interface RUM {
   /**
    * @see {@link PutRumEventsCommand}
    */
-  putRumEvents(args: PutRumEventsCommandInput, options?: __HttpHandlerOptions): Promise<PutRumEventsCommandOutput>;
-  putRumEvents(args: PutRumEventsCommandInput, cb: (err: any, data?: PutRumEventsCommandOutput) => void): void;
+  putRumEvents(
+    args: PutRumEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutRumEventsCommandOutput>;
+  putRumEvents(
+    args: PutRumEventsCommandInput,
+    cb: (err: any, data?: PutRumEventsCommandOutput) => void
+  ): void;
   putRumEvents(
     args: PutRumEventsCommandInput,
     options: __HttpHandlerOptions,
@@ -385,8 +400,14 @@ export interface RUM {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -396,8 +417,14 @@ export interface RUM {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteExpressGatewayServiceRequest, DeleteExpressGatewayServiceResponse } from "../models/models_0";
-import { DeleteExpressGatewayService } from "../schemas/schemas_0";
+import { DeleteExpressGatewayService$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteExpressGatewayServiceCommandInput extends DeleteExpressGa
  *
  * The output of {@link DeleteExpressGatewayServiceCommand}.
  */
-export interface DeleteExpressGatewayServiceCommandOutput
-  extends DeleteExpressGatewayServiceResponse,
-    __MetadataBearer {}
+export interface DeleteExpressGatewayServiceCommandOutput extends DeleteExpressGatewayServiceResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an Express service and removes all associated Amazon Web Services resources. This operation
@@ -188,7 +186,7 @@ export class DeleteExpressGatewayServiceCommand extends $Command
   })
   .s("AmazonEC2ContainerServiceV20141113", "DeleteExpressGatewayService", {})
   .n("ECSClient", "DeleteExpressGatewayServiceCommand")
-  .sc(DeleteExpressGatewayService)
+  .sc(DeleteExpressGatewayService$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

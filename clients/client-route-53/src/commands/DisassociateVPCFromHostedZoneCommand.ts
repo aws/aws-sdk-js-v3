@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateVPCFromHostedZoneRequest, DisassociateVPCFromHostedZoneResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { DisassociateVPCFromHostedZone } from "../schemas/schemas_0";
+import { DisassociateVPCFromHostedZone$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,9 +25,7 @@ export interface DisassociateVPCFromHostedZoneCommandInput extends DisassociateV
  *
  * The output of {@link DisassociateVPCFromHostedZoneCommand}.
  */
-export interface DisassociateVPCFromHostedZoneCommandOutput
-  extends DisassociateVPCFromHostedZoneResponse,
-    __MetadataBearer {}
+export interface DisassociateVPCFromHostedZoneCommandOutput extends DisassociateVPCFromHostedZoneResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates an Amazon Virtual Private Cloud (Amazon VPC) from an Amazon Route 53
@@ -148,11 +146,14 @@ export class DisassociateVPCFromHostedZoneCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "DisassociateVPCFromHostedZone", {})
   .n("Route53Client", "DisassociateVPCFromHostedZoneCommand")
-  .sc(DisassociateVPCFromHostedZone)
+  .sc(DisassociateVPCFromHostedZone$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateWhatsAppMessageTemplateInput, UpdateWhatsAppMessageTemplateOutput } from "../models/models_0";
-import { UpdateWhatsAppMessageTemplate } from "../schemas/schemas_0";
+import { UpdateWhatsAppMessageTemplate$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -28,9 +28,7 @@ export interface UpdateWhatsAppMessageTemplateCommandInput extends UpdateWhatsAp
  *
  * The output of {@link UpdateWhatsAppMessageTemplateCommand}.
  */
-export interface UpdateWhatsAppMessageTemplateCommandOutput
-  extends UpdateWhatsAppMessageTemplateOutput,
-    __MetadataBearer {}
+export interface UpdateWhatsAppMessageTemplateCommandOutput extends UpdateWhatsAppMessageTemplateOutput, __MetadataBearer {}
 
 /**
  * <p>Updates an existing WhatsApp message template.</p>
@@ -102,7 +100,7 @@ export class UpdateWhatsAppMessageTemplateCommand extends $Command
   })
   .s("SocialMessaging", "UpdateWhatsAppMessageTemplate", {})
   .n("SocialMessagingClient", "UpdateWhatsAppMessageTemplateCommand")
-  .sc(UpdateWhatsAppMessageTemplate)
+  .sc(UpdateWhatsAppMessageTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

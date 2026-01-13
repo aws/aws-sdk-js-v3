@@ -161,8 +161,14 @@ export interface MigrationHubRefactorSpaces {
   /**
    * @see {@link CreateRouteCommand}
    */
-  createRoute(args: CreateRouteCommandInput, options?: __HttpHandlerOptions): Promise<CreateRouteCommandOutput>;
-  createRoute(args: CreateRouteCommandInput, cb: (err: any, data?: CreateRouteCommandOutput) => void): void;
+  createRoute(
+    args: CreateRouteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRouteCommandOutput>;
+  createRoute(
+    args: CreateRouteCommandInput,
+    cb: (err: any, data?: CreateRouteCommandOutput) => void
+  ): void;
   createRoute(
     args: CreateRouteCommandInput,
     options: __HttpHandlerOptions,
@@ -172,8 +178,14 @@ export interface MigrationHubRefactorSpaces {
   /**
    * @see {@link CreateServiceCommand}
    */
-  createService(args: CreateServiceCommandInput, options?: __HttpHandlerOptions): Promise<CreateServiceCommandOutput>;
-  createService(args: CreateServiceCommandInput, cb: (err: any, data?: CreateServiceCommandOutput) => void): void;
+  createService(
+    args: CreateServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateServiceCommandOutput>;
+  createService(
+    args: CreateServiceCommandInput,
+    cb: (err: any, data?: CreateServiceCommandOutput) => void
+  ): void;
   createService(
     args: CreateServiceCommandInput,
     options: __HttpHandlerOptions,
@@ -234,8 +246,14 @@ export interface MigrationHubRefactorSpaces {
   /**
    * @see {@link DeleteRouteCommand}
    */
-  deleteRoute(args: DeleteRouteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRouteCommandOutput>;
-  deleteRoute(args: DeleteRouteCommandInput, cb: (err: any, data?: DeleteRouteCommandOutput) => void): void;
+  deleteRoute(
+    args: DeleteRouteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRouteCommandOutput>;
+  deleteRoute(
+    args: DeleteRouteCommandInput,
+    cb: (err: any, data?: DeleteRouteCommandOutput) => void
+  ): void;
   deleteRoute(
     args: DeleteRouteCommandInput,
     options: __HttpHandlerOptions,
@@ -245,8 +263,14 @@ export interface MigrationHubRefactorSpaces {
   /**
    * @see {@link DeleteServiceCommand}
    */
-  deleteService(args: DeleteServiceCommandInput, options?: __HttpHandlerOptions): Promise<DeleteServiceCommandOutput>;
-  deleteService(args: DeleteServiceCommandInput, cb: (err: any, data?: DeleteServiceCommandOutput) => void): void;
+  deleteService(
+    args: DeleteServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteServiceCommandOutput>;
+  deleteService(
+    args: DeleteServiceCommandInput,
+    cb: (err: any, data?: DeleteServiceCommandOutput) => void
+  ): void;
   deleteService(
     args: DeleteServiceCommandInput,
     options: __HttpHandlerOptions,
@@ -260,7 +284,10 @@ export interface MigrationHubRefactorSpaces {
     args: GetApplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetApplicationCommandOutput>;
-  getApplication(args: GetApplicationCommandInput, cb: (err: any, data?: GetApplicationCommandOutput) => void): void;
+  getApplication(
+    args: GetApplicationCommandInput,
+    cb: (err: any, data?: GetApplicationCommandOutput) => void
+  ): void;
   getApplication(
     args: GetApplicationCommandInput,
     options: __HttpHandlerOptions,
@@ -274,7 +301,10 @@ export interface MigrationHubRefactorSpaces {
     args: GetEnvironmentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEnvironmentCommandOutput>;
-  getEnvironment(args: GetEnvironmentCommandInput, cb: (err: any, data?: GetEnvironmentCommandOutput) => void): void;
+  getEnvironment(
+    args: GetEnvironmentCommandInput,
+    cb: (err: any, data?: GetEnvironmentCommandOutput) => void
+  ): void;
   getEnvironment(
     args: GetEnvironmentCommandInput,
     options: __HttpHandlerOptions,
@@ -301,8 +331,14 @@ export interface MigrationHubRefactorSpaces {
   /**
    * @see {@link GetRouteCommand}
    */
-  getRoute(args: GetRouteCommandInput, options?: __HttpHandlerOptions): Promise<GetRouteCommandOutput>;
-  getRoute(args: GetRouteCommandInput, cb: (err: any, data?: GetRouteCommandOutput) => void): void;
+  getRoute(
+    args: GetRouteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRouteCommandOutput>;
+  getRoute(
+    args: GetRouteCommandInput,
+    cb: (err: any, data?: GetRouteCommandOutput) => void
+  ): void;
   getRoute(
     args: GetRouteCommandInput,
     options: __HttpHandlerOptions,
@@ -312,8 +348,14 @@ export interface MigrationHubRefactorSpaces {
   /**
    * @see {@link GetServiceCommand}
    */
-  getService(args: GetServiceCommandInput, options?: __HttpHandlerOptions): Promise<GetServiceCommandOutput>;
-  getService(args: GetServiceCommandInput, cb: (err: any, data?: GetServiceCommandOutput) => void): void;
+  getService(
+    args: GetServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetServiceCommandOutput>;
+  getService(
+    args: GetServiceCommandInput,
+    cb: (err: any, data?: GetServiceCommandOutput) => void
+  ): void;
   getService(
     args: GetServiceCommandInput,
     options: __HttpHandlerOptions,
@@ -375,8 +417,14 @@ export interface MigrationHubRefactorSpaces {
   /**
    * @see {@link ListRoutesCommand}
    */
-  listRoutes(args: ListRoutesCommandInput, options?: __HttpHandlerOptions): Promise<ListRoutesCommandOutput>;
-  listRoutes(args: ListRoutesCommandInput, cb: (err: any, data?: ListRoutesCommandOutput) => void): void;
+  listRoutes(
+    args: ListRoutesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRoutesCommandOutput>;
+  listRoutes(
+    args: ListRoutesCommandInput,
+    cb: (err: any, data?: ListRoutesCommandOutput) => void
+  ): void;
   listRoutes(
     args: ListRoutesCommandInput,
     options: __HttpHandlerOptions,
@@ -386,8 +434,14 @@ export interface MigrationHubRefactorSpaces {
   /**
    * @see {@link ListServicesCommand}
    */
-  listServices(args: ListServicesCommandInput, options?: __HttpHandlerOptions): Promise<ListServicesCommandOutput>;
-  listServices(args: ListServicesCommandInput, cb: (err: any, data?: ListServicesCommandOutput) => void): void;
+  listServices(
+    args: ListServicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServicesCommandOutput>;
+  listServices(
+    args: ListServicesCommandInput,
+    cb: (err: any, data?: ListServicesCommandOutput) => void
+  ): void;
   listServices(
     args: ListServicesCommandInput,
     options: __HttpHandlerOptions,
@@ -431,8 +485,14 @@ export interface MigrationHubRefactorSpaces {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -442,8 +502,14 @@ export interface MigrationHubRefactorSpaces {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -453,8 +519,14 @@ export interface MigrationHubRefactorSpaces {
   /**
    * @see {@link UpdateRouteCommand}
    */
-  updateRoute(args: UpdateRouteCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRouteCommandOutput>;
-  updateRoute(args: UpdateRouteCommandInput, cb: (err: any, data?: UpdateRouteCommandOutput) => void): void;
+  updateRoute(
+    args: UpdateRouteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRouteCommandOutput>;
+  updateRoute(
+    args: UpdateRouteCommandInput,
+    cb: (err: any, data?: UpdateRouteCommandOutput) => void
+  ): void;
   updateRoute(
     args: UpdateRouteCommandInput,
     options: __HttpHandlerOptions,
@@ -473,7 +545,5 @@ export interface MigrationHubRefactorSpaces {
  *       and their OUs, use Resource Access Manager's <code>CreateResourceShare</code> API. See <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> in the <i>Amazon Web Services RAM API Reference</i>.</p>
  * @public
  */
-export class MigrationHubRefactorSpaces
-  extends MigrationHubRefactorSpacesClient
-  implements MigrationHubRefactorSpaces {}
+export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient implements MigrationHubRefactorSpaces {}
 createAggregatedClient(commands, MigrationHubRefactorSpaces);

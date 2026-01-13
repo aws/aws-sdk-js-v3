@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { DescribeAccountConfigurationRequest, DescribeAccountConfigurationResponse } from "../models/models_1";
-import { DescribeAccountConfiguration } from "../schemas/schemas_0";
+import { DescribeAccountConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeAccountConfigurationCommandInput extends DescribeAccoun
  *
  * The output of {@link DescribeAccountConfigurationCommand}.
  */
-export interface DescribeAccountConfigurationCommandOutput
-  extends DescribeAccountConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeAccountConfigurationCommandOutput extends DescribeAccountConfigurationResponse, __MetadataBearer {}
 
 /**
  * Describe account configuration
@@ -93,7 +91,7 @@ export class DescribeAccountConfigurationCommand extends $Command
   })
   .s("MediaLive", "DescribeAccountConfiguration", {})
   .n("MediaLiveClient", "DescribeAccountConfigurationCommand")
-  .sc(DescribeAccountConfiguration)
+  .sc(DescribeAccountConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

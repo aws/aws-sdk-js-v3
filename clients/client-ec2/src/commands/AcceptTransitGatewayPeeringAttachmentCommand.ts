@@ -9,7 +9,7 @@ import type {
   AcceptTransitGatewayPeeringAttachmentRequest,
   AcceptTransitGatewayPeeringAttachmentResult,
 } from "../models/models_0";
-import { AcceptTransitGatewayPeeringAttachment } from "../schemas/schemas_0";
+import { AcceptTransitGatewayPeeringAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AcceptTransitGatewayPeeringAttachmentCommand}.
  */
-export interface AcceptTransitGatewayPeeringAttachmentCommandInput
-  extends AcceptTransitGatewayPeeringAttachmentRequest {}
+export interface AcceptTransitGatewayPeeringAttachmentCommandInput extends AcceptTransitGatewayPeeringAttachmentRequest {}
 /**
  * @public
  *
  * The output of {@link AcceptTransitGatewayPeeringAttachmentCommand}.
  */
-export interface AcceptTransitGatewayPeeringAttachmentCommandOutput
-  extends AcceptTransitGatewayPeeringAttachmentResult,
-    __MetadataBearer {}
+export interface AcceptTransitGatewayPeeringAttachmentCommandOutput extends AcceptTransitGatewayPeeringAttachmentResult, __MetadataBearer {}
 
 /**
  * <p>Accepts a transit gateway peering attachment request. The peering attachment must be
@@ -111,7 +108,7 @@ export class AcceptTransitGatewayPeeringAttachmentCommand extends $Command
   })
   .s("AmazonEC2", "AcceptTransitGatewayPeeringAttachment", {})
   .n("EC2Client", "AcceptTransitGatewayPeeringAttachmentCommand")
-  .sc(AcceptTransitGatewayPeeringAttachment)
+  .sc(AcceptTransitGatewayPeeringAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

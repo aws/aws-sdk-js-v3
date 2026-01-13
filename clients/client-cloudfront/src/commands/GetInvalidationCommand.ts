@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetInvalidationRequest, GetInvalidationResult } from "../models/models_0";
-import { GetInvalidation } from "../schemas/schemas_0";
+import { GetInvalidation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class GetInvalidationCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "GetInvalidation", {})
   .n("CloudFrontClient", "GetInvalidationCommand")
-  .sc(GetInvalidation)
+  .sc(GetInvalidation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

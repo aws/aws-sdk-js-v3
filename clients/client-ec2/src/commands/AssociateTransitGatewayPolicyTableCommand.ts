@@ -9,7 +9,7 @@ import type {
   AssociateTransitGatewayPolicyTableRequest,
   AssociateTransitGatewayPolicyTableResult,
 } from "../models/models_0";
-import { AssociateTransitGatewayPolicyTable } from "../schemas/schemas_0";
+import { AssociateTransitGatewayPolicyTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface AssociateTransitGatewayPolicyTableCommandInput extends Associat
  *
  * The output of {@link AssociateTransitGatewayPolicyTableCommand}.
  */
-export interface AssociateTransitGatewayPolicyTableCommandOutput
-  extends AssociateTransitGatewayPolicyTableResult,
-    __MetadataBearer {}
+export interface AssociateTransitGatewayPolicyTableCommandOutput extends AssociateTransitGatewayPolicyTableResult, __MetadataBearer {}
 
 /**
  * <p>Associates the specified transit gateway attachment with a transit gateway policy table.</p>
@@ -86,7 +84,7 @@ export class AssociateTransitGatewayPolicyTableCommand extends $Command
   })
   .s("AmazonEC2", "AssociateTransitGatewayPolicyTable", {})
   .n("EC2Client", "AssociateTransitGatewayPolicyTableCommand")
-  .sc(AssociateTransitGatewayPolicyTable)
+  .sc(AssociateTransitGatewayPolicyTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

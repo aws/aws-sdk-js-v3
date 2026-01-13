@@ -9,7 +9,7 @@ import type {
   AssociateResourceSharePermissionResponse,
 } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { AssociateResourceSharePermission } from "../schemas/schemas_0";
+import { AssociateResourceSharePermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface AssociateResourceSharePermissionCommandInput extends AssociateR
  *
  * The output of {@link AssociateResourceSharePermissionCommand}.
  */
-export interface AssociateResourceSharePermissionCommandOutput
-  extends AssociateResourceSharePermissionResponse,
-    __MetadataBearer {}
+export interface AssociateResourceSharePermissionCommandOutput extends AssociateResourceSharePermissionResponse, __MetadataBearer {}
 
 /**
  * <p>Adds or replaces the RAM permission for a resource type included in a resource share. You can
@@ -109,7 +107,7 @@ export class AssociateResourceSharePermissionCommand extends $Command
   })
   .s("AmazonResourceSharing", "AssociateResourceSharePermission", {})
   .n("RAMClient", "AssociateResourceSharePermissionCommand")
-  .sc(AssociateResourceSharePermission)
+  .sc(AssociateResourceSharePermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

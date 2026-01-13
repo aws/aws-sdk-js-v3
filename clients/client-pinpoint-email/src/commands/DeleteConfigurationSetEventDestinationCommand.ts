@@ -9,7 +9,7 @@ import type {
   DeleteConfigurationSetEventDestinationResponse,
 } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { DeleteConfigurationSetEventDestination } from "../schemas/schemas_0";
+import { DeleteConfigurationSetEventDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteConfigurationSetEventDestinationCommand}.
  */
-export interface DeleteConfigurationSetEventDestinationCommandInput
-  extends DeleteConfigurationSetEventDestinationRequest {}
+export interface DeleteConfigurationSetEventDestinationCommandInput extends DeleteConfigurationSetEventDestinationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteConfigurationSetEventDestinationCommand}.
  */
-export interface DeleteConfigurationSetEventDestinationCommandOutput
-  extends DeleteConfigurationSetEventDestinationResponse,
-    __MetadataBearer {}
+export interface DeleteConfigurationSetEventDestinationCommandOutput extends DeleteConfigurationSetEventDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Delete an event destination.</p>
@@ -92,7 +89,7 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "DeleteConfigurationSetEventDestination", {})
   .n("PinpointEmailClient", "DeleteConfigurationSetEventDestinationCommand")
-  .sc(DeleteConfigurationSetEventDestination)
+  .sc(DeleteConfigurationSetEventDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

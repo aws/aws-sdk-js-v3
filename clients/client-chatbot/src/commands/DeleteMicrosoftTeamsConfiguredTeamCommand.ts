@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTeamsConfiguredTeamRequest, DeleteTeamsConfiguredTeamResult } from "../models/models_0";
-import { DeleteMicrosoftTeamsConfiguredTeam } from "../schemas/schemas_0";
+import { DeleteMicrosoftTeamsConfiguredTeam$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteMicrosoftTeamsConfiguredTeamCommandInput extends DeleteTe
  *
  * The output of {@link DeleteMicrosoftTeamsConfiguredTeamCommand}.
  */
-export interface DeleteMicrosoftTeamsConfiguredTeamCommandOutput
-  extends DeleteTeamsConfiguredTeamResult,
-    __MetadataBearer {}
+export interface DeleteMicrosoftTeamsConfiguredTeamCommandOutput extends DeleteTeamsConfiguredTeamResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the Microsoft Teams team authorization allowing for channels to be configured in that Microsoft Teams team. Note that the Microsoft Teams team must have no channels configured to remove it.
@@ -80,7 +78,7 @@ export class DeleteMicrosoftTeamsConfiguredTeamCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "DeleteMicrosoftTeamsConfiguredTeam", {})
   .n("ChatbotClient", "DeleteMicrosoftTeamsConfiguredTeamCommand")
-  .sc(DeleteMicrosoftTeamsConfiguredTeam)
+  .sc(DeleteMicrosoftTeamsConfiguredTeam$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -178,7 +178,10 @@ export interface Grafana {
     args: CreateWorkspaceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateWorkspaceCommandOutput>;
-  createWorkspace(args: CreateWorkspaceCommandInput, cb: (err: any, data?: CreateWorkspaceCommandOutput) => void): void;
+  createWorkspace(
+    args: CreateWorkspaceCommandInput,
+    cb: (err: any, data?: CreateWorkspaceCommandOutput) => void
+  ): void;
   createWorkspace(
     args: CreateWorkspaceCommandInput,
     options: __HttpHandlerOptions,
@@ -243,7 +246,10 @@ export interface Grafana {
     args: DeleteWorkspaceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteWorkspaceCommandOutput>;
-  deleteWorkspace(args: DeleteWorkspaceCommandInput, cb: (err: any, data?: DeleteWorkspaceCommandOutput) => void): void;
+  deleteWorkspace(
+    args: DeleteWorkspaceCommandInput,
+    cb: (err: any, data?: DeleteWorkspaceCommandOutput) => void
+  ): void;
   deleteWorkspace(
     args: DeleteWorkspaceCommandInput,
     options: __HttpHandlerOptions,
@@ -376,7 +382,10 @@ export interface Grafana {
     args: ListPermissionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListPermissionsCommandOutput>;
-  listPermissions(args: ListPermissionsCommandInput, cb: (err: any, data?: ListPermissionsCommandOutput) => void): void;
+  listPermissions(
+    args: ListPermissionsCommandInput,
+    cb: (err: any, data?: ListPermissionsCommandOutput) => void
+  ): void;
   listPermissions(
     args: ListPermissionsCommandInput,
     options: __HttpHandlerOptions,
@@ -404,8 +413,14 @@ export interface Grafana {
    * @see {@link ListVersionsCommand}
    */
   listVersions(): Promise<ListVersionsCommandOutput>;
-  listVersions(args: ListVersionsCommandInput, options?: __HttpHandlerOptions): Promise<ListVersionsCommandOutput>;
-  listVersions(args: ListVersionsCommandInput, cb: (err: any, data?: ListVersionsCommandOutput) => void): void;
+  listVersions(
+    args: ListVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVersionsCommandOutput>;
+  listVersions(
+    args: ListVersionsCommandInput,
+    cb: (err: any, data?: ListVersionsCommandOutput) => void
+  ): void;
   listVersions(
     args: ListVersionsCommandInput,
     options: __HttpHandlerOptions,
@@ -420,7 +435,10 @@ export interface Grafana {
     args: ListWorkspacesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListWorkspacesCommandOutput>;
-  listWorkspaces(args: ListWorkspacesCommandInput, cb: (err: any, data?: ListWorkspacesCommandOutput) => void): void;
+  listWorkspaces(
+    args: ListWorkspacesCommandInput,
+    cb: (err: any, data?: ListWorkspacesCommandOutput) => void
+  ): void;
   listWorkspaces(
     args: ListWorkspacesCommandInput,
     options: __HttpHandlerOptions,
@@ -464,8 +482,14 @@ export interface Grafana {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -475,8 +499,14 @@ export interface Grafana {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -507,7 +537,10 @@ export interface Grafana {
     args: UpdateWorkspaceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateWorkspaceCommandOutput>;
-  updateWorkspace(args: UpdateWorkspaceCommandInput, cb: (err: any, data?: UpdateWorkspaceCommandOutput) => void): void;
+  updateWorkspace(
+    args: UpdateWorkspaceCommandInput,
+    cb: (err: any, data?: UpdateWorkspaceCommandOutput) => void
+  ): void;
   updateWorkspace(
     args: UpdateWorkspaceCommandInput,
     options: __HttpHandlerOptions,

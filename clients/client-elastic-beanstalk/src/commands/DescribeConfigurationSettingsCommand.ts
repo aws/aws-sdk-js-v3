@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ConfigurationSettingsDescriptions, DescribeConfigurationSettingsMessage } from "../models/models_0";
-import { DescribeConfigurationSettings } from "../schemas/schemas_0";
+import { DescribeConfigurationSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeConfigurationSettingsCommandInput extends DescribeConfi
  *
  * The output of {@link DescribeConfigurationSettingsCommand}.
  */
-export interface DescribeConfigurationSettingsCommandOutput
-  extends ConfigurationSettingsDescriptions,
-    __MetadataBearer {}
+export interface DescribeConfigurationSettingsCommandOutput extends ConfigurationSettingsDescriptions, __MetadataBearer {}
 
 /**
  * <p>Returns a description of the settings for the specified configuration set, that is,
@@ -170,7 +168,7 @@ export class DescribeConfigurationSettingsCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "DescribeConfigurationSettings", {})
   .n("ElasticBeanstalkClient", "DescribeConfigurationSettingsCommand")
-  .sc(DescribeConfigurationSettings)
+  .sc(DescribeConfigurationSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

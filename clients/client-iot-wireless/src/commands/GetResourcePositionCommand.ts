@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { type GetResourcePositionRequest, GetResourcePositionResponse } from "../models/models_0";
-import { GetResourcePosition } from "../schemas/schemas_0";
+import { GetResourcePosition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class GetResourcePositionCommand extends $Command
   })
   .s("iotwireless", "GetResourcePosition", {})
   .n("IoTWirelessClient", "GetResourcePositionCommand")
-  .sc(GetResourcePosition)
+  .sc(GetResourcePosition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

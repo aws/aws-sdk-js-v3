@@ -10,7 +10,7 @@ import type {
 } from "../BCMDataExportsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateExportRequest, UpdateExportResponse } from "../models/models_0";
-import { UpdateExport } from "../schemas/schemas_0";
+import { UpdateExport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class UpdateExportCommand extends $Command
   })
   .s("AWSBillingAndCostManagementDataExports", "UpdateExport", {})
   .n("BCMDataExportsClient", "UpdateExportCommand")
-  .sc(UpdateExport)
+  .sc(UpdateExport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateNotificationSubscriptionRequest, CreateNotificationSubscriptionResponse } from "../models/models_0";
-import { CreateNotificationSubscription } from "../schemas/schemas_0";
+import { CreateNotificationSubscription$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -24,9 +24,7 @@ export interface CreateNotificationSubscriptionCommandInput extends CreateNotifi
  *
  * The output of {@link CreateNotificationSubscriptionCommand}.
  */
-export interface CreateNotificationSubscriptionCommandOutput
-  extends CreateNotificationSubscriptionResponse,
-    __MetadataBearer {}
+export interface CreateNotificationSubscriptionCommandOutput extends CreateNotificationSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a
@@ -98,7 +96,7 @@ export class CreateNotificationSubscriptionCommand extends $Command
   })
   .s("AWSGorillaBoyService", "CreateNotificationSubscription", {})
   .n("WorkDocsClient", "CreateNotificationSubscriptionCommand")
-  .sc(CreateNotificationSubscription)
+  .sc(CreateNotificationSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   GetTransitGatewayPrefixListReferencesRequest,
   GetTransitGatewayPrefixListReferencesResult,
 } from "../models/models_6";
-import { GetTransitGatewayPrefixListReferences } from "../schemas/schemas_0";
+import { GetTransitGatewayPrefixListReferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetTransitGatewayPrefixListReferencesCommand}.
  */
-export interface GetTransitGatewayPrefixListReferencesCommandInput
-  extends GetTransitGatewayPrefixListReferencesRequest {}
+export interface GetTransitGatewayPrefixListReferencesCommandInput extends GetTransitGatewayPrefixListReferencesRequest {}
 /**
  * @public
  *
  * The output of {@link GetTransitGatewayPrefixListReferencesCommand}.
  */
-export interface GetTransitGatewayPrefixListReferencesCommandOutput
-  extends GetTransitGatewayPrefixListReferencesResult,
-    __MetadataBearer {}
+export interface GetTransitGatewayPrefixListReferencesCommandOutput extends GetTransitGatewayPrefixListReferencesResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about the prefix list references in a specified transit gateway route table.</p>
@@ -104,7 +101,7 @@ export class GetTransitGatewayPrefixListReferencesCommand extends $Command
   })
   .s("AmazonEC2", "GetTransitGatewayPrefixListReferences", {})
   .n("EC2Client", "GetTransitGatewayPrefixListReferencesCommand")
-  .sc(GetTransitGatewayPrefixListReferences)
+  .sc(GetTransitGatewayPrefixListReferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

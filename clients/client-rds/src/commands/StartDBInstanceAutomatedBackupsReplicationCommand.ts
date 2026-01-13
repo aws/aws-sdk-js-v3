@@ -10,7 +10,7 @@ import type {
   StartDBInstanceAutomatedBackupsReplicationResult,
 } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { StartDBInstanceAutomatedBackupsReplication } from "../schemas/schemas_0";
+import { StartDBInstanceAutomatedBackupsReplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -22,16 +22,13 @@ export { $Command };
  *
  * The input for {@link StartDBInstanceAutomatedBackupsReplicationCommand}.
  */
-export interface StartDBInstanceAutomatedBackupsReplicationCommandInput
-  extends StartDBInstanceAutomatedBackupsReplicationMessage {}
+export interface StartDBInstanceAutomatedBackupsReplicationCommandInput extends StartDBInstanceAutomatedBackupsReplicationMessage {}
 /**
  * @public
  *
  * The output of {@link StartDBInstanceAutomatedBackupsReplicationCommand}.
  */
-export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
-  extends StartDBInstanceAutomatedBackupsReplicationResult,
-    __MetadataBearer {}
+export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput extends StartDBInstanceAutomatedBackupsReplicationResult, __MetadataBearer {}
 
 /**
  * <p>Enables replication of automated backups to a different Amazon Web Services Region.</p>
@@ -209,7 +206,7 @@ export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command
   })
   .s("AmazonRDSv19", "StartDBInstanceAutomatedBackupsReplication", {})
   .n("RDSClient", "StartDBInstanceAutomatedBackupsReplicationCommand")
-  .sc(StartDBInstanceAutomatedBackupsReplication)
+  .sc(StartDBInstanceAutomatedBackupsReplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

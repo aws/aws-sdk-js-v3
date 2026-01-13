@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetProxySessionRequest, GetProxySessionResponse } from "../models/models_0";
-import { GetProxySession } from "../schemas/schemas_0";
+import { GetProxySession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class GetProxySessionCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "GetProxySession", {})
   .n("ChimeSDKVoiceClient", "GetProxySessionCommand")
-  .sc(GetProxySession)
+  .sc(GetProxySession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

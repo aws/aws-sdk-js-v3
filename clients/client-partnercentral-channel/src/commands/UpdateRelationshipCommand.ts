@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralChannelClient";
-import { UpdateRelationship } from "../schemas/schemas_0";
+import { UpdateRelationship$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -143,7 +143,7 @@ export class UpdateRelationshipCommand extends $Command
   })
   .s("PartnerCentralChannel", "UpdateRelationship", {})
   .n("PartnerCentralChannelClient", "UpdateRelationshipCommand")
-  .sc(UpdateRelationship)
+  .sc(UpdateRelationship$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

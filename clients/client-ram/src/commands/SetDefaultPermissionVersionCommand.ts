@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SetDefaultPermissionVersionRequest, SetDefaultPermissionVersionResponse } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { SetDefaultPermissionVersion } from "../schemas/schemas_0";
+import { SetDefaultPermissionVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface SetDefaultPermissionVersionCommandInput extends SetDefaultPermi
  *
  * The output of {@link SetDefaultPermissionVersionCommand}.
  */
-export interface SetDefaultPermissionVersionCommandOutput
-  extends SetDefaultPermissionVersionResponse,
-    __MetadataBearer {}
+export interface SetDefaultPermissionVersionCommandOutput extends SetDefaultPermissionVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Designates the specified version number as the default version for the specified
@@ -105,7 +103,7 @@ export class SetDefaultPermissionVersionCommand extends $Command
   })
   .s("AmazonResourceSharing", "SetDefaultPermissionVersion", {})
   .n("RAMClient", "SetDefaultPermissionVersionCommand")
-  .sc(SetDefaultPermissionVersion)
+  .sc(SetDefaultPermissionVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

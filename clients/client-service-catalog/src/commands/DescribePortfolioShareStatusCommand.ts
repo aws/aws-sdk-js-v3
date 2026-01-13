@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribePortfolioShareStatusInput, DescribePortfolioShareStatusOutput } from "../models/models_0";
-import { DescribePortfolioShareStatus } from "../schemas/schemas_0";
+import { DescribePortfolioShareStatus$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -28,9 +28,7 @@ export interface DescribePortfolioShareStatusCommandInput extends DescribePortfo
  *
  * The output of {@link DescribePortfolioShareStatusCommand}.
  */
-export interface DescribePortfolioShareStatusCommandOutput
-  extends DescribePortfolioShareStatusOutput,
-    __MetadataBearer {}
+export interface DescribePortfolioShareStatusCommandOutput extends DescribePortfolioShareStatusOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the status of the specified portfolio share operation. This API can only be called
@@ -106,7 +104,7 @@ export class DescribePortfolioShareStatusCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "DescribePortfolioShareStatus", {})
   .n("ServiceCatalogClient", "DescribePortfolioShareStatusCommand")
-  .sc(DescribePortfolioShareStatus)
+  .sc(DescribePortfolioShareStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

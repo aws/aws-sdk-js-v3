@@ -9,7 +9,7 @@ import type {
   PutVoiceConnectorStreamingConfigurationRequest,
   PutVoiceConnectorStreamingConfigurationResponse,
 } from "../models/models_0";
-import { PutVoiceConnectorStreamingConfiguration } from "../schemas/schemas_0";
+import { PutVoiceConnectorStreamingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutVoiceConnectorStreamingConfigurationCommand}.
  */
-export interface PutVoiceConnectorStreamingConfigurationCommandInput
-  extends PutVoiceConnectorStreamingConfigurationRequest {}
+export interface PutVoiceConnectorStreamingConfigurationCommandInput extends PutVoiceConnectorStreamingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link PutVoiceConnectorStreamingConfigurationCommand}.
  */
-export interface PutVoiceConnectorStreamingConfigurationCommandOutput
-  extends PutVoiceConnectorStreamingConfigurationResponse,
-    __MetadataBearer {}
+export interface PutVoiceConnectorStreamingConfigurationCommandOutput extends PutVoiceConnectorStreamingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a Voice Connector's streaming configuration settings.</p>
@@ -125,7 +122,7 @@ export class PutVoiceConnectorStreamingConfigurationCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "PutVoiceConnectorStreamingConfiguration", {})
   .n("ChimeSDKVoiceClient", "PutVoiceConnectorStreamingConfigurationCommand")
-  .sc(PutVoiceConnectorStreamingConfiguration)
+  .sc(PutVoiceConnectorStreamingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

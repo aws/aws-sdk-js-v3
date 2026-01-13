@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
 import type { RegisterMemberToAddressListRequest, RegisterMemberToAddressListResponse } from "../models/models_0";
-import { RegisterMemberToAddressList } from "../schemas/schemas_0";
+import { RegisterMemberToAddressList$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface RegisterMemberToAddressListCommandInput extends RegisterMemberT
  *
  * The output of {@link RegisterMemberToAddressListCommand}.
  */
-export interface RegisterMemberToAddressListCommandOutput
-  extends RegisterMemberToAddressListResponse,
-    __MetadataBearer {}
+export interface RegisterMemberToAddressListCommandOutput extends RegisterMemberToAddressListResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a member to an address list.</p>
@@ -89,7 +87,7 @@ export class RegisterMemberToAddressListCommand extends $Command
   })
   .s("MailManagerSvc", "RegisterMemberToAddressList", {})
   .n("MailManagerClient", "RegisterMemberToAddressListCommand")
-  .sc(RegisterMemberToAddressList)
+  .sc(RegisterMemberToAddressList$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

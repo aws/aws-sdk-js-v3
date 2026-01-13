@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AIOpsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AIOpsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetInvestigationGroupPolicyRequest, GetInvestigationGroupPolicyResponse } from "../models/models_0";
-import { GetInvestigationGroupPolicy } from "../schemas/schemas_0";
+import { GetInvestigationGroupPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetInvestigationGroupPolicyCommandInput extends GetInvestigatio
  *
  * The output of {@link GetInvestigationGroupPolicyCommand}.
  */
-export interface GetInvestigationGroupPolicyCommandOutput
-  extends GetInvestigationGroupPolicyResponse,
-    __MetadataBearer {}
+export interface GetInvestigationGroupPolicyCommandOutput extends GetInvestigationGroupPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the JSON of the IAM resource policy associated with the specified investigation group in a string. For example, <code>\{\"Version\":\"2012-10-17\",\"Statement\":[\{\"Effect\":\"Allow\",\"Principal\":\{\"Service\":\"aiops.alarms.cloudwatch.amazonaws.com\"\},\"Action\":[\"aiops:CreateInvestigation\",\"aiops:CreateInvestigationEvent\"],\"Resource\":\"*\",\"Condition\":\{\"StringEquals\":\{\"aws:SourceAccount\":\"111122223333\"\},\"ArnLike\":\{\"aws:SourceArn\":\"arn:aws:cloudwatch:us-east-1:111122223333:alarm:*\"\}\}\}]\}</code>.</p>
@@ -97,7 +95,7 @@ export class GetInvestigationGroupPolicyCommand extends $Command
   })
   .s("AIOps", "GetInvestigationGroupPolicy", {})
   .n("AIOpsClient", "GetInvestigationGroupPolicyCommand")
-  .sc(GetInvestigationGroupPolicy)
+  .sc(GetInvestigationGroupPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

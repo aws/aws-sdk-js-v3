@@ -117,277 +117,271 @@ import type {
 } from "@smithy/types";
 
 import {
-  InternalServerException as __InternalServerException,
-  ResourceLimitException as __ResourceLimitException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ValidationException as __ValidationException,
+  InternalServerException,
+  ResourceLimitException,
+  ResourceNotFoundException,
+  ValidationException,
 } from "../models/errors";
-import { LaunchWizardServiceException as __LaunchWizardServiceException } from "../models/LaunchWizardServiceException";
+import { LaunchWizardServiceException } from "../models/LaunchWizardServiceException";
 
 /* eslint no-var: 0 */
-export var CreateDeploymentInput: StaticStructureSchema = [
-  3,
-  n0,
-  _CDI,
+export var CreateDeploymentInput$: StaticStructureSchema = [3, n0, _CDI,
   0,
   [_wN, _dPN, _n, _s, _dR, _t],
-  [0, 0, 0, [() => DeploymentSpecifications, 0], 2, 128 | 0],
+  [0, 0, 0, [() => DeploymentSpecifications, 0], 2, 128 | 0]
 ];
-export var CreateDeploymentOutput: StaticStructureSchema = [3, n0, _CDO, 0, [_dI], [0]];
-export var DeleteDeploymentInput: StaticStructureSchema = [3, n0, _DDI, 0, [_dI], [0]];
-export var DeleteDeploymentOutput: StaticStructureSchema = [3, n0, _DDO, 0, [_st, _sR], [0, 0]];
-export var DeploymentConditionalField: StaticStructureSchema = [3, n0, _DCF, 0, [_n, _v, _c], [0, 0, 0]];
-export var DeploymentData: StaticStructureSchema = [
-  3,
-  n0,
-  _DD,
+export var CreateDeploymentOutput$: StaticStructureSchema = [3, n0, _CDO,
+  0,
+  [_dI],
+  [0]
+];
+export var DeleteDeploymentInput$: StaticStructureSchema = [3, n0, _DDI,
+  0,
+  [_dI],
+  [0]
+];
+export var DeleteDeploymentOutput$: StaticStructureSchema = [3, n0, _DDO,
+  0,
+  [_st, _sR],
+  [0, 0]
+];
+export var DeploymentConditionalField$: StaticStructureSchema = [3, n0, _DCF,
+  0,
+  [_n, _v, _c],
+  [0, 0, 0]
+];
+export var DeploymentData$: StaticStructureSchema = [3, n0, _DD,
   0,
   [_n, _i, _wN, _pN, _st, _cA, _s, _rG, _dA, _t, _dAe],
-  [0, 0, 0, 0, 0, 4, [() => DeploymentSpecifications, 0], 0, 4, 128 | 0, 0],
+  [0, 0, 0, 0, 0, 4, [() => DeploymentSpecifications, 0], 0, 4, 128 | 0, 0]
 ];
-export var DeploymentDataSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _DDS,
+export var DeploymentDataSummary$: StaticStructureSchema = [3, n0, _DDS,
   0,
   [_n, _i, _wN, _pN, _st, _cA],
-  [0, 0, 0, 0, 0, 4],
+  [0, 0, 0, 0, 0, 4]
 ];
-export var DeploymentEventDataSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _DEDS,
+export var DeploymentEventDataSummary$: StaticStructureSchema = [3, n0, _DEDS,
   0,
   [_n, _d, _st, _sR, _ti],
-  [0, 0, 0, 0, 4],
+  [0, 0, 0, 0, 4]
 ];
-export var DeploymentFilter: StaticStructureSchema = [3, n0, _DF, 0, [_n, _va], [0, 64 | 0]];
-export var DeploymentSpecificationsField: StaticStructureSchema = [
-  3,
-  n0,
-  _DSF,
+export var DeploymentFilter$: StaticStructureSchema = [3, n0, _DF,
+  0,
+  [_n, _va],
+  [0, 64 | 0]
+];
+export var DeploymentSpecificationsField$: StaticStructureSchema = [3, n0, _DSF,
   0,
   [_n, _d, _aV, _r, _co],
-  [0, 0, 64 | 0, 0, () => SpecificationsConditionalData],
+  [0, 0, 64 | 0, 0, () => SpecificationsConditionalData]
 ];
-export var GetDeploymentInput: StaticStructureSchema = [3, n0, _GDI, 0, [_dI], [0]];
-export var GetDeploymentOutput: StaticStructureSchema = [3, n0, _GDO, 0, [_de], [[() => DeploymentData, 0]]];
-export var GetWorkloadDeploymentPatternInput: StaticStructureSchema = [3, n0, _GWDPI, 0, [_wN, _dPN], [0, 0]];
-export var GetWorkloadDeploymentPatternOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GWDPO,
+export var GetDeploymentInput$: StaticStructureSchema = [3, n0, _GDI,
+  0,
+  [_dI],
+  [0]
+];
+export var GetDeploymentOutput$: StaticStructureSchema = [3, n0, _GDO,
+  0,
+  [_de],
+  [[() => DeploymentData$, 0]]
+];
+export var GetWorkloadDeploymentPatternInput$: StaticStructureSchema = [3, n0, _GWDPI,
+  0,
+  [_wN, _dPN],
+  [0, 0]
+];
+export var GetWorkloadDeploymentPatternOutput$: StaticStructureSchema = [3, n0, _GWDPO,
   0,
   [_wDP],
-  [() => WorkloadDeploymentPatternData],
+  [() => WorkloadDeploymentPatternData$]
 ];
-export var GetWorkloadInput: StaticStructureSchema = [3, n0, _GWI, 0, [_wN], [0]];
-export var GetWorkloadOutput: StaticStructureSchema = [3, n0, _GWO, 0, [_w], [() => WorkloadData]];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var ListDeploymentEventsInput: StaticStructureSchema = [3, n0, _LDEI, 0, [_dI, _mR, _nT], [0, 1, 0]];
-export var ListDeploymentEventsOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _LDEO,
+export var GetWorkloadInput$: StaticStructureSchema = [3, n0, _GWI,
+  0,
+  [_wN],
+  [0]
+];
+export var GetWorkloadOutput$: StaticStructureSchema = [3, n0, _GWO,
+  0,
+  [_w],
+  [() => WorkloadData$]
+];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var ListDeploymentEventsInput$: StaticStructureSchema = [3, n0, _LDEI,
+  0,
+  [_dI, _mR, _nT],
+  [0, 1, 0]
+];
+export var ListDeploymentEventsOutput$: StaticStructureSchema = [3, n0, _LDEO,
   0,
   [_dE, _nT],
-  [() => DeploymentEventDataSummaryList, 0],
+  [() => DeploymentEventDataSummaryList, 0]
 ];
-export var ListDeploymentsInput: StaticStructureSchema = [
-  3,
-  n0,
-  _LDI,
+export var ListDeploymentsInput$: StaticStructureSchema = [3, n0, _LDI,
   0,
   [_f, _mR, _nT],
-  [() => DeploymentFilterList, 1, 0],
+  [() => DeploymentFilterList, 1, 0]
 ];
-export var ListDeploymentsOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _LDO,
+export var ListDeploymentsOutput$: StaticStructureSchema = [3, n0, _LDO,
   0,
   [_dep, _nT],
-  [() => DeploymentDataSummaryList, 0],
+  [() => DeploymentDataSummaryList, 0]
 ];
-export var ListTagsForResourceInput: StaticStructureSchema = [3, n0, _LTFRI, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceOutput: StaticStructureSchema = [3, n0, _LTFRO, 0, [_t], [128 | 0]];
-export var ListWorkloadDeploymentPatternsInput: StaticStructureSchema = [3, n0, _LWDPI, 0, [_wN, _mR, _nT], [0, 1, 0]];
-export var ListWorkloadDeploymentPatternsOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _LWDPO,
+export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
+  0,
+  [_rA],
+  [[0, 1]]
+];
+export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
+  0,
+  [_t],
+  [128 | 0]
+];
+export var ListWorkloadDeploymentPatternsInput$: StaticStructureSchema = [3, n0, _LWDPI,
+  0,
+  [_wN, _mR, _nT],
+  [0, 1, 0]
+];
+export var ListWorkloadDeploymentPatternsOutput$: StaticStructureSchema = [3, n0, _LWDPO,
   0,
   [_wDPo, _nT],
-  [() => WorkloadDeploymentPatternDataSummaryList, 0],
+  [() => WorkloadDeploymentPatternDataSummaryList, 0]
 ];
-export var ListWorkloadsInput: StaticStructureSchema = [3, n0, _LWI, 0, [_mR, _nT], [1, 0]];
-export var ListWorkloadsOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _LWO,
+export var ListWorkloadsInput$: StaticStructureSchema = [3, n0, _LWI,
+  0,
+  [_mR, _nT],
+  [1, 0]
+];
+export var ListWorkloadsOutput$: StaticStructureSchema = [3, n0, _LWO,
   0,
   [_wo, _nT],
-  [() => WorkloadDataSummaryList, 0],
+  [() => WorkloadDataSummaryList, 0]
 ];
-export var ResourceLimitException: StaticErrorSchema = [-3, n0, _RLE, { [_e]: _cl, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceLimitException, __ResourceLimitException);
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _cl, [_hE]: 404 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_rA, _t], [[0, 1], 128 | 0]];
-export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
-export var UntagResourceInput: StaticStructureSchema = [
-  3,
-  n0,
-  _URI,
+export var ResourceLimitException$: StaticErrorSchema = [-3, n0, _RLE,
+  { [_e]: _cl, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ResourceLimitException$, ResourceLimitException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _cl, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
+  0,
+  [_rA, _t],
+  [[0, 1], 128 | 0]
+];
+export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
+  0,
+  [],
+  []
+];
+export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tK],
-  [
-    [0, 1],
-    [64 | 0, { [_hQ]: _tK }],
-  ],
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
 ];
-export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _cl, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var WorkloadData: StaticStructureSchema = [
-  3,
-  n0,
-  _WD,
+export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
+  0,
+  [],
+  []
+];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _cl, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var WorkloadData$: StaticStructureSchema = [3, n0, _WD,
   0,
   [_wN, _dN, _d, _dU, _iU, _st, _sM],
-  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0]
 ];
-export var WorkloadDataSummary: StaticStructureSchema = [3, n0, _WDS, 0, [_wN, _dN], [0, 0]];
-export var WorkloadDeploymentPatternData: StaticStructureSchema = [
-  3,
-  n0,
-  _WDPD,
+export var WorkloadDataSummary$: StaticStructureSchema = [3, n0, _WDS,
+  0,
+  [_wN, _dN],
+  [0, 0]
+];
+export var WorkloadDeploymentPatternData$: StaticStructureSchema = [3, n0, _WDPD,
   0,
   [_wN, _dPN, _wVN, _dN, _d, _st, _sM, _s],
-  [0, 0, 0, 0, 0, 0, 0, () => DeploymentSpecificationsData],
+  [0, 0, 0, 0, 0, 0, 0, () => DeploymentSpecificationsData]
 ];
-export var WorkloadDeploymentPatternDataSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _WDPDS,
+export var WorkloadDeploymentPatternDataSummary$: StaticStructureSchema = [3, n0, _WDPDS,
   0,
   [_wN, _dPN, _wVN, _dN, _d, _st, _sM],
-  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0]
 ];
-export var LaunchWizardServiceException: StaticErrorSchema = [-3, _sm, "LaunchWizardServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(LaunchWizardServiceException, __LaunchWizardServiceException);
-export var AllowedValues = 64 | 0;
-export var DeploymentDataSummaryList: StaticListSchema = [1, n0, _DDSL, 0, () => DeploymentDataSummary];
-export var DeploymentEventDataSummaryList: StaticListSchema = [1, n0, _DEDSL, 0, () => DeploymentEventDataSummary];
-export var DeploymentFilterList: StaticListSchema = [1, n0, _DFL, 0, () => DeploymentFilter];
-export var DeploymentFilterValues = 64 | 0;
-export var DeploymentSpecificationsData: StaticListSchema = [1, n0, _DSD, 0, () => DeploymentSpecificationsField];
-export var SpecificationsConditionalData: StaticListSchema = [1, n0, _SCD, 0, () => DeploymentConditionalField];
-export var TagKeyList = 64 | 0;
-export var WorkloadDataSummaryList: StaticListSchema = [1, n0, _WDSL, 0, () => WorkloadDataSummary];
-export var WorkloadDeploymentPatternDataSummaryList: StaticListSchema = [
-  1,
-  n0,
-  _WDPDSL,
-  0,
-  () => WorkloadDeploymentPatternDataSummary,
+export var LaunchWizardServiceException$: StaticErrorSchema = [-3, _sm, "LaunchWizardServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(LaunchWizardServiceException$, LaunchWizardServiceException);
+var AllowedValues = 64 | 0;
+var DeploymentDataSummaryList: StaticListSchema = [1, n0, _DDSL,
+  0, () => DeploymentDataSummary$
 ];
-export var DeploymentSpecifications: StaticMapSchema = [2, n0, _DS, 8, 0, 0];
-export var Tags = 128 | 0;
-export var CreateDeployment: StaticOperationSchema = [
-  9,
-  n0,
-  _CD,
-  { [_h]: ["POST", "/createDeployment", 200] },
-  () => CreateDeploymentInput,
-  () => CreateDeploymentOutput,
+var DeploymentEventDataSummaryList: StaticListSchema = [1, n0, _DEDSL,
+  0, () => DeploymentEventDataSummary$
 ];
-export var DeleteDeployment: StaticOperationSchema = [
-  9,
-  n0,
-  _DDe,
-  { [_h]: ["POST", "/deleteDeployment", 200] },
-  () => DeleteDeploymentInput,
-  () => DeleteDeploymentOutput,
+var DeploymentFilterList: StaticListSchema = [1, n0, _DFL,
+  0, () => DeploymentFilter$
 ];
-export var GetDeployment: StaticOperationSchema = [
-  9,
-  n0,
-  _GD,
-  { [_h]: ["POST", "/getDeployment", 200] },
-  () => GetDeploymentInput,
-  () => GetDeploymentOutput,
+var DeploymentFilterValues = 64 | 0;
+var DeploymentSpecificationsData: StaticListSchema = [1, n0, _DSD,
+  0, () => DeploymentSpecificationsField$
 ];
-export var GetWorkload: StaticOperationSchema = [
-  9,
-  n0,
-  _GW,
-  { [_h]: ["POST", "/getWorkload", 200] },
-  () => GetWorkloadInput,
-  () => GetWorkloadOutput,
+var SpecificationsConditionalData: StaticListSchema = [1, n0, _SCD,
+  0, () => DeploymentConditionalField$
 ];
-export var GetWorkloadDeploymentPattern: StaticOperationSchema = [
-  9,
-  n0,
-  _GWDP,
-  { [_h]: ["POST", "/getWorkloadDeploymentPattern", 200] },
-  () => GetWorkloadDeploymentPatternInput,
-  () => GetWorkloadDeploymentPatternOutput,
+var TagKeyList = 64 | 0;
+var WorkloadDataSummaryList: StaticListSchema = [1, n0, _WDSL,
+  0, () => WorkloadDataSummary$
 ];
-export var ListDeploymentEvents: StaticOperationSchema = [
-  9,
-  n0,
-  _LDE,
-  { [_h]: ["POST", "/listDeploymentEvents", 200] },
-  () => ListDeploymentEventsInput,
-  () => ListDeploymentEventsOutput,
+var WorkloadDeploymentPatternDataSummaryList: StaticListSchema = [1, n0, _WDPDSL,
+  0, () => WorkloadDeploymentPatternDataSummary$
 ];
-export var ListDeployments: StaticOperationSchema = [
-  9,
-  n0,
-  _LD,
-  { [_h]: ["POST", "/listDeployments", 200] },
-  () => ListDeploymentsInput,
-  () => ListDeploymentsOutput,
+var DeploymentSpecifications: StaticMapSchema = [2, n0, _DS,
+  8, 0, 0
 ];
-export var ListTagsForResource: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceInput,
-  () => ListTagsForResourceOutput,
+var Tags = 128 | 0;
+export var CreateDeployment$: StaticOperationSchema = [9, n0, _CD,
+  { [_h]: ["POST", "/createDeployment", 200] }, () => CreateDeploymentInput$, () => CreateDeploymentOutput$
 ];
-export var ListWorkloadDeploymentPatterns: StaticOperationSchema = [
-  9,
-  n0,
-  _LWDP,
-  { [_h]: ["POST", "/listWorkloadDeploymentPatterns", 200] },
-  () => ListWorkloadDeploymentPatternsInput,
-  () => ListWorkloadDeploymentPatternsOutput,
+export var DeleteDeployment$: StaticOperationSchema = [9, n0, _DDe,
+  { [_h]: ["POST", "/deleteDeployment", 200] }, () => DeleteDeploymentInput$, () => DeleteDeploymentOutput$
 ];
-export var ListWorkloads: StaticOperationSchema = [
-  9,
-  n0,
-  _LW,
-  { [_h]: ["POST", "/listWorkloads", 200] },
-  () => ListWorkloadsInput,
-  () => ListWorkloadsOutput,
+export var GetDeployment$: StaticOperationSchema = [9, n0, _GD,
+  { [_h]: ["POST", "/getDeployment", 200] }, () => GetDeploymentInput$, () => GetDeploymentOutput$
 ];
-export var TagResource: StaticOperationSchema = [
-  9,
-  n0,
-  _TR,
-  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceInput,
-  () => TagResourceOutput,
+export var GetWorkload$: StaticOperationSchema = [9, n0, _GW,
+  { [_h]: ["POST", "/getWorkload", 200] }, () => GetWorkloadInput$, () => GetWorkloadOutput$
 ];
-export var UntagResource: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceInput,
-  () => UntagResourceOutput,
+export var GetWorkloadDeploymentPattern$: StaticOperationSchema = [9, n0, _GWDP,
+  { [_h]: ["POST", "/getWorkloadDeploymentPattern", 200] }, () => GetWorkloadDeploymentPatternInput$, () => GetWorkloadDeploymentPatternOutput$
+];
+export var ListDeploymentEvents$: StaticOperationSchema = [9, n0, _LDE,
+  { [_h]: ["POST", "/listDeploymentEvents", 200] }, () => ListDeploymentEventsInput$, () => ListDeploymentEventsOutput$
+];
+export var ListDeployments$: StaticOperationSchema = [9, n0, _LD,
+  { [_h]: ["POST", "/listDeployments", 200] }, () => ListDeploymentsInput$, () => ListDeploymentsOutput$
+];
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] }, () => ListTagsForResourceInput$, () => ListTagsForResourceOutput$
+];
+export var ListWorkloadDeploymentPatterns$: StaticOperationSchema = [9, n0, _LWDP,
+  { [_h]: ["POST", "/listWorkloadDeploymentPatterns", 200] }, () => ListWorkloadDeploymentPatternsInput$, () => ListWorkloadDeploymentPatternsOutput$
+];
+export var ListWorkloads$: StaticOperationSchema = [9, n0, _LW,
+  { [_h]: ["POST", "/listWorkloads", 200] }, () => ListWorkloadsInput$, () => ListWorkloadsOutput$
+];
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] }, () => TagResourceInput$, () => TagResourceOutput$
+];
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] }, () => UntagResourceInput$, () => UntagResourceOutput$
 ];

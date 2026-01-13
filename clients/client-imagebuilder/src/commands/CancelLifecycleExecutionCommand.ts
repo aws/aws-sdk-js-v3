@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import type { CancelLifecycleExecutionRequest, CancelLifecycleExecutionResponse } from "../models/models_0";
-import { CancelLifecycleExecution } from "../schemas/schemas_0";
+import { CancelLifecycleExecution$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class CancelLifecycleExecutionCommand extends $Command
   })
   .s("imagebuilder", "CancelLifecycleExecution", {})
   .n("ImagebuilderClient", "CancelLifecycleExecutionCommand")
-  .sc(CancelLifecycleExecution)
+  .sc(CancelLifecycleExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

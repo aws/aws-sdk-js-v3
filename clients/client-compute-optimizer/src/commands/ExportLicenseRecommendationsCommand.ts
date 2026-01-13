@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ExportLicenseRecommendationsRequest, ExportLicenseRecommendationsResponse } from "../models/models_0";
-import { ExportLicenseRecommendations } from "../schemas/schemas_0";
+import { ExportLicenseRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ExportLicenseRecommendationsCommandInput extends ExportLicenseR
  *
  * The output of {@link ExportLicenseRecommendationsCommand}.
  */
-export interface ExportLicenseRecommendationsCommandOutput
-  extends ExportLicenseRecommendationsResponse,
-    __MetadataBearer {}
+export interface ExportLicenseRecommendationsCommandOutput extends ExportLicenseRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -135,7 +133,7 @@ export class ExportLicenseRecommendationsCommand extends $Command
   })
   .s("ComputeOptimizerService", "ExportLicenseRecommendations", {})
   .n("ComputeOptimizerClient", "ExportLicenseRecommendationsCommand")
-  .sc(ExportLicenseRecommendations)
+  .sc(ExportLicenseRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

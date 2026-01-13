@@ -9,7 +9,7 @@ import type {
   GetDataCatalogEncryptionSettingsRequest,
   GetDataCatalogEncryptionSettingsResponse,
 } from "../models/models_1";
-import { GetDataCatalogEncryptionSettings } from "../schemas/schemas_0";
+import { GetDataCatalogEncryptionSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetDataCatalogEncryptionSettingsCommandInput extends GetDataCat
  *
  * The output of {@link GetDataCatalogEncryptionSettingsCommand}.
  */
-export interface GetDataCatalogEncryptionSettingsCommandOutput
-  extends GetDataCatalogEncryptionSettingsResponse,
-    __MetadataBearer {}
+export interface GetDataCatalogEncryptionSettingsCommandOutput extends GetDataCatalogEncryptionSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the security configuration for a specified catalog.</p>
@@ -97,7 +95,7 @@ export class GetDataCatalogEncryptionSettingsCommand extends $Command
   })
   .s("AWSGlue", "GetDataCatalogEncryptionSettings", {})
   .n("GlueClient", "GetDataCatalogEncryptionSettingsCommand")
-  .sc(GetDataCatalogEncryptionSettings)
+  .sc(GetDataCatalogEncryptionSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

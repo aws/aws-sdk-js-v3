@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableAWSOrganizationsAccessInput, EnableAWSOrganizationsAccessOutput } from "../models/models_0";
-import { EnableAWSOrganizationsAccess } from "../schemas/schemas_0";
+import { EnableAWSOrganizationsAccess$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -28,9 +28,7 @@ export interface EnableAWSOrganizationsAccessCommandInput extends EnableAWSOrgan
  *
  * The output of {@link EnableAWSOrganizationsAccessCommand}.
  */
-export interface EnableAWSOrganizationsAccessCommandOutput
-  extends EnableAWSOrganizationsAccessOutput,
-    __MetadataBearer {}
+export interface EnableAWSOrganizationsAccessCommandOutput extends EnableAWSOrganizationsAccessOutput, __MetadataBearer {}
 
 /**
  * <p>Enable portfolio sharing feature through Organizations. This API will allow Service Catalog to receive updates on your organization in order to sync your shares with the
@@ -97,7 +95,7 @@ export class EnableAWSOrganizationsAccessCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "EnableAWSOrganizationsAccess", {})
   .n("ServiceCatalogClient", "EnableAWSOrganizationsAccessCommand")
-  .sc(EnableAWSOrganizationsAccess)
+  .sc(EnableAWSOrganizationsAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

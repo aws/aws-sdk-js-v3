@@ -13,7 +13,7 @@ import type {
   AddApplicationCloudWatchLoggingOptionRequest,
   AddApplicationCloudWatchLoggingOptionResponse,
 } from "../models/models_0";
-import { AddApplicationCloudWatchLoggingOption } from "../schemas/schemas_0";
+import { AddApplicationCloudWatchLoggingOption$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link AddApplicationCloudWatchLoggingOptionCommand}.
  */
-export interface AddApplicationCloudWatchLoggingOptionCommandInput
-  extends AddApplicationCloudWatchLoggingOptionRequest {}
+export interface AddApplicationCloudWatchLoggingOptionCommandInput extends AddApplicationCloudWatchLoggingOptionRequest {}
 /**
  * @public
  *
  * The output of {@link AddApplicationCloudWatchLoggingOptionCommand}.
  */
-export interface AddApplicationCloudWatchLoggingOptionCommandOutput
-  extends AddApplicationCloudWatchLoggingOptionResponse,
-    __MetadataBearer {}
+export interface AddApplicationCloudWatchLoggingOptionCommandOutput extends AddApplicationCloudWatchLoggingOptionResponse, __MetadataBearer {}
 
 /**
  * <p>Adds an Amazon CloudWatch log stream to monitor application configuration errors.</p>
@@ -117,7 +114,7 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command
   })
   .s("KinesisAnalytics_20180523", "AddApplicationCloudWatchLoggingOption", {})
   .n("KinesisAnalyticsV2Client", "AddApplicationCloudWatchLoggingOptionCommand")
-  .sc(AddApplicationCloudWatchLoggingOption)
+  .sc(AddApplicationCloudWatchLoggingOption$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

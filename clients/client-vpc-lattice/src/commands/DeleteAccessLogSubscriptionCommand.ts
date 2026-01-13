@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAccessLogSubscriptionRequest, DeleteAccessLogSubscriptionResponse } from "../models/models_0";
-import { DeleteAccessLogSubscription } from "../schemas/schemas_0";
+import { DeleteAccessLogSubscription$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DeleteAccessLogSubscriptionCommandInput extends DeleteAccessLog
  *
  * The output of {@link DeleteAccessLogSubscriptionCommand}.
  */
-export interface DeleteAccessLogSubscriptionCommandOutput
-  extends DeleteAccessLogSubscriptionResponse,
-    __MetadataBearer {}
+export interface DeleteAccessLogSubscriptionCommandOutput extends DeleteAccessLogSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified access log subscription.</p>
@@ -88,7 +86,7 @@ export class DeleteAccessLogSubscriptionCommand extends $Command
   })
   .s("MercuryControlPlane", "DeleteAccessLogSubscription", {})
   .n("VPCLatticeClient", "DeleteAccessLogSubscriptionCommand")
-  .sc(DeleteAccessLogSubscription)
+  .sc(DeleteAccessLogSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

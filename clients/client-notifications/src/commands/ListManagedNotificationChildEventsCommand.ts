@@ -9,7 +9,7 @@ import type {
   ListManagedNotificationChildEventsResponse,
 } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { ListManagedNotificationChildEvents } from "../schemas/schemas_0";
+import { ListManagedNotificationChildEvents$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListManagedNotificationChildEventsCommandInput extends ListMana
  *
  * The output of {@link ListManagedNotificationChildEventsCommand}.
  */
-export interface ListManagedNotificationChildEventsCommandOutput
-  extends ListManagedNotificationChildEventsResponse,
-    __MetadataBearer {}
+export interface ListManagedNotificationChildEventsCommandOutput extends ListManagedNotificationChildEventsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of <code>ManagedNotificationChildEvents</code> for a specified aggregate <code>ManagedNotificationEvent</code>, ordered by creation time in reverse chronological order (newest first).</p>
@@ -128,7 +126,7 @@ export class ListManagedNotificationChildEventsCommand extends $Command
   })
   .s("Notifications", "ListManagedNotificationChildEvents", {})
   .n("NotificationsClient", "ListManagedNotificationChildEventsCommand")
-  .sc(ListManagedNotificationChildEvents)
+  .sc(ListManagedNotificationChildEvents$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   GetMessagingStreamingConfigurationsRequest,
   GetMessagingStreamingConfigurationsResponse,
 } from "../models/models_0";
-import { GetMessagingStreamingConfigurations } from "../schemas/schemas_0";
+import { GetMessagingStreamingConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetMessagingStreamingConfigurationsCommandInput extends GetMess
  *
  * The output of {@link GetMessagingStreamingConfigurationsCommand}.
  */
-export interface GetMessagingStreamingConfigurationsCommandOutput
-  extends GetMessagingStreamingConfigurationsResponse,
-    __MetadataBearer {}
+export interface GetMessagingStreamingConfigurationsCommandOutput extends GetMessagingStreamingConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the data streaming configuration for an <code>AppInstance</code>. For more information, see
@@ -109,7 +107,7 @@ export class GetMessagingStreamingConfigurationsCommand extends $Command
   })
   .s("ChimeMessagingService", "GetMessagingStreamingConfigurations", {})
   .n("ChimeSDKMessagingClient", "GetMessagingStreamingConfigurationsCommand")
-  .sc(GetMessagingStreamingConfigurations)
+  .sc(GetMessagingStreamingConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

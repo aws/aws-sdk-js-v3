@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralChannelClient";
-import { UpdateProgramManagementAccount } from "../schemas/schemas_0";
+import { UpdateProgramManagementAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface UpdateProgramManagementAccountCommandInput extends UpdateProgra
  *
  * The output of {@link UpdateProgramManagementAccountCommand}.
  */
-export interface UpdateProgramManagementAccountCommandOutput
-  extends UpdateProgramManagementAccountResponse,
-    __MetadataBearer {}
+export interface UpdateProgramManagementAccountCommandOutput extends UpdateProgramManagementAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the properties of a program management account.</p>
@@ -128,7 +126,7 @@ export class UpdateProgramManagementAccountCommand extends $Command
   })
   .s("PartnerCentralChannel", "UpdateProgramManagementAccount", {})
   .n("PartnerCentralChannelClient", "UpdateProgramManagementAccountCommand")
-  .sc(UpdateProgramManagementAccount)
+  .sc(UpdateProgramManagementAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

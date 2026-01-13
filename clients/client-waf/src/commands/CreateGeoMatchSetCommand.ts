@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateGeoMatchSetRequest, CreateGeoMatchSetResponse } from "../models/models_0";
-import { CreateGeoMatchSet } from "../schemas/schemas_0";
+import { CreateGeoMatchSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -169,7 +169,7 @@ export class CreateGeoMatchSetCommand extends $Command
   })
   .s("AWSWAF_20150824", "CreateGeoMatchSet", {})
   .n("WAFClient", "CreateGeoMatchSetCommand")
-  .sc(CreateGeoMatchSet)
+  .sc(CreateGeoMatchSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

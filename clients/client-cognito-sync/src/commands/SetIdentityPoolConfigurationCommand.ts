@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SetIdentityPoolConfigurationRequest, SetIdentityPoolConfigurationResponse } from "../models/models_0";
-import { SetIdentityPoolConfiguration } from "../schemas/schemas_0";
+import { SetIdentityPoolConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface SetIdentityPoolConfigurationCommandInput extends SetIdentityPoo
  *
  * The output of {@link SetIdentityPoolConfigurationCommand}.
  */
-export interface SetIdentityPoolConfigurationCommandOutput
-  extends SetIdentityPoolConfigurationResponse,
-    __MetadataBearer {}
+export interface SetIdentityPoolConfigurationCommandOutput extends SetIdentityPoolConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the necessary configuration for push sync.</p><p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
@@ -170,7 +168,7 @@ export class SetIdentityPoolConfigurationCommand extends $Command
   })
   .s("AWSCognitoSyncService", "SetIdentityPoolConfiguration", {})
   .n("CognitoSyncClient", "SetIdentityPoolConfigurationCommand")
-  .sc(SetIdentityPoolConfiguration)
+  .sc(SetIdentityPoolConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

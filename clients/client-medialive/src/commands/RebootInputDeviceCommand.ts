@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { RebootInputDeviceRequest, RebootInputDeviceResponse } from "../models/models_1";
-import { RebootInputDevice } from "../schemas/schemas_0";
+import { RebootInputDevice$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class RebootInputDeviceCommand extends $Command
   })
   .s("MediaLive", "RebootInputDevice", {})
   .n("MediaLiveClient", "RebootInputDeviceCommand")
-  .sc(RebootInputDevice)
+  .sc(RebootInputDevice$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

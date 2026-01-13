@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyClient";
-import { RemoveKeyReplicationRegions } from "../schemas/schemas_0";
+import { RemoveKeyReplicationRegions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class RemoveKeyReplicationRegionsCommand extends $Command
   })
   .s("PaymentCryptographyControlPlane", "RemoveKeyReplicationRegions", {})
   .n("PaymentCryptographyClient", "RemoveKeyReplicationRegionsCommand")
-  .sc(RemoveKeyReplicationRegions)
+  .sc(RemoveKeyReplicationRegions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

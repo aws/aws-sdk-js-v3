@@ -9,7 +9,7 @@ import type {
   DescribeClientVpnAuthorizationRulesRequest,
   DescribeClientVpnAuthorizationRulesResult,
 } from "../models/models_3";
-import { DescribeClientVpnAuthorizationRules } from "../schemas/schemas_0";
+import { DescribeClientVpnAuthorizationRules$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeClientVpnAuthorizationRulesCommandInput extends Describ
  *
  * The output of {@link DescribeClientVpnAuthorizationRulesCommand}.
  */
-export interface DescribeClientVpnAuthorizationRulesCommandOutput
-  extends DescribeClientVpnAuthorizationRulesResult,
-    __MetadataBearer {}
+export interface DescribeClientVpnAuthorizationRulesCommandOutput extends DescribeClientVpnAuthorizationRulesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the authorization rules for a specified Client VPN endpoint.</p>
@@ -102,7 +100,7 @@ export class DescribeClientVpnAuthorizationRulesCommand extends $Command
   })
   .s("AmazonEC2", "DescribeClientVpnAuthorizationRules", {})
   .n("EC2Client", "DescribeClientVpnAuthorizationRulesCommand")
-  .sc(DescribeClientVpnAuthorizationRules)
+  .sc(DescribeClientVpnAuthorizationRules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

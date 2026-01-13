@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationDiscoveryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAgentsRequest, DescribeAgentsResponse } from "../models/models_0";
-import { DescribeAgents } from "../schemas/schemas_0";
+import { DescribeAgents$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class DescribeAgentsCommand extends $Command
   })
   .s("AWSPoseidonService_V2015_11_01", "DescribeAgents", {})
   .n("ApplicationDiscoveryServiceClient", "DescribeAgentsCommand")
-  .sc(DescribeAgents)
+  .sc(DescribeAgents$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

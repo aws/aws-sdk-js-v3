@@ -9,7 +9,7 @@ import type {
   ModifyVerifiedAccessInstanceLoggingConfigurationRequest,
   ModifyVerifiedAccessInstanceLoggingConfigurationResult,
 } from "../models/models_6";
-import { ModifyVerifiedAccessInstanceLoggingConfiguration } from "../schemas/schemas_0";
+import { ModifyVerifiedAccessInstanceLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ModifyVerifiedAccessInstanceLoggingConfigurationCommand}.
  */
-export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput
-  extends ModifyVerifiedAccessInstanceLoggingConfigurationRequest {}
+export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput extends ModifyVerifiedAccessInstanceLoggingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link ModifyVerifiedAccessInstanceLoggingConfigurationCommand}.
  */
-export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput
-  extends ModifyVerifiedAccessInstanceLoggingConfigurationResult,
-    __MetadataBearer {}
+export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput extends ModifyVerifiedAccessInstanceLoggingConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the logging configuration for the specified Amazon Web Services Verified Access instance.</p>
@@ -131,7 +128,7 @@ export class ModifyVerifiedAccessInstanceLoggingConfigurationCommand extends $Co
   })
   .s("AmazonEC2", "ModifyVerifiedAccessInstanceLoggingConfiguration", {})
   .n("EC2Client", "ModifyVerifiedAccessInstanceLoggingConfigurationCommand")
-  .sc(ModifyVerifiedAccessInstanceLoggingConfiguration)
+  .sc(ModifyVerifiedAccessInstanceLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

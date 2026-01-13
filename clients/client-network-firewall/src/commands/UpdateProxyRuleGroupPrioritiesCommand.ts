@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { UpdateProxyRuleGroupPriorities } from "../schemas/schemas_0";
+import { UpdateProxyRuleGroupPriorities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface UpdateProxyRuleGroupPrioritiesCommandInput extends UpdateProxyR
  *
  * The output of {@link UpdateProxyRuleGroupPrioritiesCommand}.
  */
-export interface UpdateProxyRuleGroupPrioritiesCommandOutput
-  extends UpdateProxyRuleGroupPrioritiesResponse,
-    __MetadataBearer {}
+export interface UpdateProxyRuleGroupPrioritiesCommandOutput extends UpdateProxyRuleGroupPrioritiesResponse, __MetadataBearer {}
 
 /**
  * <p>Updates proxy rule group priorities within a proxy configuration.</p>
@@ -119,7 +117,7 @@ export class UpdateProxyRuleGroupPrioritiesCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "UpdateProxyRuleGroupPriorities", {})
   .n("NetworkFirewallClient", "UpdateProxyRuleGroupPrioritiesCommand")
-  .sc(UpdateProxyRuleGroupPriorities)
+  .sc(UpdateProxyRuleGroupPriorities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

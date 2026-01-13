@@ -10,7 +10,7 @@ import type {
   GetAccessPointConfigurationForObjectLambdaResult,
 } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { GetAccessPointConfigurationForObjectLambda } from "../schemas/schemas_0";
+import { GetAccessPointConfigurationForObjectLambda$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -22,16 +22,13 @@ export { $Command };
  *
  * The input for {@link GetAccessPointConfigurationForObjectLambdaCommand}.
  */
-export interface GetAccessPointConfigurationForObjectLambdaCommandInput
-  extends GetAccessPointConfigurationForObjectLambdaRequest {}
+export interface GetAccessPointConfigurationForObjectLambdaCommandInput extends GetAccessPointConfigurationForObjectLambdaRequest {}
 /**
  * @public
  *
  * The output of {@link GetAccessPointConfigurationForObjectLambdaCommand}.
  */
-export interface GetAccessPointConfigurationForObjectLambdaCommandOutput
-  extends GetAccessPointConfigurationForObjectLambdaResult,
-    __MetadataBearer {}
+export interface GetAccessPointConfigurationForObjectLambdaCommandOutput extends GetAccessPointConfigurationForObjectLambdaResult, __MetadataBearer {}
 
 /**
  * <note>
@@ -112,11 +109,14 @@ export class GetAccessPointConfigurationForObjectLambdaCommand extends $Command
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getProcessArnablesPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getProcessArnablesPlugin(config),
+    ];
   })
   .s("AWSS3ControlServiceV20180820", "GetAccessPointConfigurationForObjectLambda", {})
   .n("S3ControlClient", "GetAccessPointConfigurationForObjectLambdaCommand")
-  .sc(GetAccessPointConfigurationForObjectLambda)
+  .sc(GetAccessPointConfigurationForObjectLambda$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

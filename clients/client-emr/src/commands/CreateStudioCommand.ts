@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateStudioInput, CreateStudioOutput } from "../models/models_0";
-import { CreateStudio } from "../schemas/schemas_0";
+import { CreateStudio$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class CreateStudioCommand extends $Command
   })
   .s("ElasticMapReduce", "CreateStudio", {})
   .n("EMRClient", "CreateStudioCommand")
-  .sc(CreateStudio)
+  .sc(CreateStudio$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

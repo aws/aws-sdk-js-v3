@@ -421,7 +421,10 @@ export interface Rekognition {
     args: AssociateFacesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AssociateFacesCommandOutput>;
-  associateFaces(args: AssociateFacesCommandInput, cb: (err: any, data?: AssociateFacesCommandOutput) => void): void;
+  associateFaces(
+    args: AssociateFacesCommandInput,
+    cb: (err: any, data?: AssociateFacesCommandOutput) => void
+  ): void;
   associateFaces(
     args: AssociateFacesCommandInput,
     options: __HttpHandlerOptions,
@@ -431,8 +434,14 @@ export interface Rekognition {
   /**
    * @see {@link CompareFacesCommand}
    */
-  compareFaces(args: CompareFacesCommandInput, options?: __HttpHandlerOptions): Promise<CompareFacesCommandOutput>;
-  compareFaces(args: CompareFacesCommandInput, cb: (err: any, data?: CompareFacesCommandOutput) => void): void;
+  compareFaces(
+    args: CompareFacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CompareFacesCommandOutput>;
+  compareFaces(
+    args: CompareFacesCommandInput,
+    cb: (err: any, data?: CompareFacesCommandOutput) => void
+  ): void;
   compareFaces(
     args: CompareFacesCommandInput,
     options: __HttpHandlerOptions,
@@ -476,8 +485,14 @@ export interface Rekognition {
   /**
    * @see {@link CreateDatasetCommand}
    */
-  createDataset(args: CreateDatasetCommandInput, options?: __HttpHandlerOptions): Promise<CreateDatasetCommandOutput>;
-  createDataset(args: CreateDatasetCommandInput, cb: (err: any, data?: CreateDatasetCommandOutput) => void): void;
+  createDataset(
+    args: CreateDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDatasetCommandOutput>;
+  createDataset(
+    args: CreateDatasetCommandInput,
+    cb: (err: any, data?: CreateDatasetCommandOutput) => void
+  ): void;
   createDataset(
     args: CreateDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -505,8 +520,14 @@ export interface Rekognition {
   /**
    * @see {@link CreateProjectCommand}
    */
-  createProject(args: CreateProjectCommandInput, options?: __HttpHandlerOptions): Promise<CreateProjectCommandOutput>;
-  createProject(args: CreateProjectCommandInput, cb: (err: any, data?: CreateProjectCommandOutput) => void): void;
+  createProject(
+    args: CreateProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProjectCommandOutput>;
+  createProject(
+    args: CreateProjectCommandInput,
+    cb: (err: any, data?: CreateProjectCommandOutput) => void
+  ): void;
   createProject(
     args: CreateProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -550,8 +571,14 @@ export interface Rekognition {
   /**
    * @see {@link CreateUserCommand}
    */
-  createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
-  createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
+  createUser(
+    args: CreateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUserCommandOutput>;
+  createUser(
+    args: CreateUserCommandInput,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
   createUser(
     args: CreateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -578,8 +605,14 @@ export interface Rekognition {
   /**
    * @see {@link DeleteDatasetCommand}
    */
-  deleteDataset(args: DeleteDatasetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDatasetCommandOutput>;
-  deleteDataset(args: DeleteDatasetCommandInput, cb: (err: any, data?: DeleteDatasetCommandOutput) => void): void;
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDatasetCommandOutput>;
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    cb: (err: any, data?: DeleteDatasetCommandOutput) => void
+  ): void;
   deleteDataset(
     args: DeleteDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -589,8 +622,14 @@ export interface Rekognition {
   /**
    * @see {@link DeleteFacesCommand}
    */
-  deleteFaces(args: DeleteFacesCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFacesCommandOutput>;
-  deleteFaces(args: DeleteFacesCommandInput, cb: (err: any, data?: DeleteFacesCommandOutput) => void): void;
+  deleteFaces(
+    args: DeleteFacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFacesCommandOutput>;
+  deleteFaces(
+    args: DeleteFacesCommandInput,
+    cb: (err: any, data?: DeleteFacesCommandOutput) => void
+  ): void;
   deleteFaces(
     args: DeleteFacesCommandInput,
     options: __HttpHandlerOptions,
@@ -600,8 +639,14 @@ export interface Rekognition {
   /**
    * @see {@link DeleteProjectCommand}
    */
-  deleteProject(args: DeleteProjectCommandInput, options?: __HttpHandlerOptions): Promise<DeleteProjectCommandOutput>;
-  deleteProject(args: DeleteProjectCommandInput, cb: (err: any, data?: DeleteProjectCommandOutput) => void): void;
+  deleteProject(
+    args: DeleteProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProjectCommandOutput>;
+  deleteProject(
+    args: DeleteProjectCommandInput,
+    cb: (err: any, data?: DeleteProjectCommandOutput) => void
+  ): void;
   deleteProject(
     args: DeleteProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -662,8 +707,14 @@ export interface Rekognition {
   /**
    * @see {@link DeleteUserCommand}
    */
-  deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
-  deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUserCommandOutput>;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    cb: (err: any, data?: DeleteUserCommandOutput) => void
+  ): void;
   deleteUser(
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
@@ -694,7 +745,10 @@ export interface Rekognition {
     args: DescribeDatasetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDatasetCommandOutput>;
-  describeDataset(args: DescribeDatasetCommandInput, cb: (err: any, data?: DescribeDatasetCommandOutput) => void): void;
+  describeDataset(
+    args: DescribeDatasetCommandInput,
+    cb: (err: any, data?: DescribeDatasetCommandOutput) => void
+  ): void;
   describeDataset(
     args: DescribeDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -773,8 +827,14 @@ export interface Rekognition {
   /**
    * @see {@link DetectFacesCommand}
    */
-  detectFaces(args: DetectFacesCommandInput, options?: __HttpHandlerOptions): Promise<DetectFacesCommandOutput>;
-  detectFaces(args: DetectFacesCommandInput, cb: (err: any, data?: DetectFacesCommandOutput) => void): void;
+  detectFaces(
+    args: DetectFacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetectFacesCommandOutput>;
+  detectFaces(
+    args: DetectFacesCommandInput,
+    cb: (err: any, data?: DetectFacesCommandOutput) => void
+  ): void;
   detectFaces(
     args: DetectFacesCommandInput,
     options: __HttpHandlerOptions,
@@ -784,8 +844,14 @@ export interface Rekognition {
   /**
    * @see {@link DetectLabelsCommand}
    */
-  detectLabels(args: DetectLabelsCommandInput, options?: __HttpHandlerOptions): Promise<DetectLabelsCommandOutput>;
-  detectLabels(args: DetectLabelsCommandInput, cb: (err: any, data?: DetectLabelsCommandOutput) => void): void;
+  detectLabels(
+    args: DetectLabelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetectLabelsCommandOutput>;
+  detectLabels(
+    args: DetectLabelsCommandInput,
+    cb: (err: any, data?: DetectLabelsCommandOutput) => void
+  ): void;
   detectLabels(
     args: DetectLabelsCommandInput,
     options: __HttpHandlerOptions,
@@ -829,8 +895,14 @@ export interface Rekognition {
   /**
    * @see {@link DetectTextCommand}
    */
-  detectText(args: DetectTextCommandInput, options?: __HttpHandlerOptions): Promise<DetectTextCommandOutput>;
-  detectText(args: DetectTextCommandInput, cb: (err: any, data?: DetectTextCommandOutput) => void): void;
+  detectText(
+    args: DetectTextCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetectTextCommandOutput>;
+  detectText(
+    args: DetectTextCommandInput,
+    cb: (err: any, data?: DetectTextCommandOutput) => void
+  ): void;
   detectText(
     args: DetectTextCommandInput,
     options: __HttpHandlerOptions,
@@ -959,8 +1031,14 @@ export interface Rekognition {
   /**
    * @see {@link GetFaceSearchCommand}
    */
-  getFaceSearch(args: GetFaceSearchCommandInput, options?: __HttpHandlerOptions): Promise<GetFaceSearchCommandOutput>;
-  getFaceSearch(args: GetFaceSearchCommandInput, cb: (err: any, data?: GetFaceSearchCommandOutput) => void): void;
+  getFaceSearch(
+    args: GetFaceSearchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFaceSearchCommandOutput>;
+  getFaceSearch(
+    args: GetFaceSearchCommandInput,
+    cb: (err: any, data?: GetFaceSearchCommandOutput) => void
+  ): void;
   getFaceSearch(
     args: GetFaceSearchCommandInput,
     options: __HttpHandlerOptions,
@@ -1055,8 +1133,14 @@ export interface Rekognition {
   /**
    * @see {@link IndexFacesCommand}
    */
-  indexFaces(args: IndexFacesCommandInput, options?: __HttpHandlerOptions): Promise<IndexFacesCommandOutput>;
-  indexFaces(args: IndexFacesCommandInput, cb: (err: any, data?: IndexFacesCommandOutput) => void): void;
+  indexFaces(
+    args: IndexFacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<IndexFacesCommandOutput>;
+  indexFaces(
+    args: IndexFacesCommandInput,
+    cb: (err: any, data?: IndexFacesCommandOutput) => void
+  ): void;
   indexFaces(
     args: IndexFacesCommandInput,
     options: __HttpHandlerOptions,
@@ -1071,7 +1155,10 @@ export interface Rekognition {
     args: ListCollectionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListCollectionsCommandOutput>;
-  listCollections(args: ListCollectionsCommandInput, cb: (err: any, data?: ListCollectionsCommandOutput) => void): void;
+  listCollections(
+    args: ListCollectionsCommandInput,
+    cb: (err: any, data?: ListCollectionsCommandOutput) => void
+  ): void;
   listCollections(
     args: ListCollectionsCommandInput,
     options: __HttpHandlerOptions,
@@ -1115,8 +1202,14 @@ export interface Rekognition {
   /**
    * @see {@link ListFacesCommand}
    */
-  listFaces(args: ListFacesCommandInput, options?: __HttpHandlerOptions): Promise<ListFacesCommandOutput>;
-  listFaces(args: ListFacesCommandInput, cb: (err: any, data?: ListFacesCommandOutput) => void): void;
+  listFaces(
+    args: ListFacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFacesCommandOutput>;
+  listFaces(
+    args: ListFacesCommandInput,
+    cb: (err: any, data?: ListFacesCommandOutput) => void
+  ): void;
   listFaces(
     args: ListFacesCommandInput,
     options: __HttpHandlerOptions,
@@ -1196,8 +1289,14 @@ export interface Rekognition {
   /**
    * @see {@link ListUsersCommand}
    */
-  listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
-  listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
+  listUsers(
+    args: ListUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUsersCommandOutput>;
+  listUsers(
+    args: ListUsersCommandInput,
+    cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
   listUsers(
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -1241,8 +1340,14 @@ export interface Rekognition {
   /**
    * @see {@link SearchFacesCommand}
    */
-  searchFaces(args: SearchFacesCommandInput, options?: __HttpHandlerOptions): Promise<SearchFacesCommandOutput>;
-  searchFaces(args: SearchFacesCommandInput, cb: (err: any, data?: SearchFacesCommandOutput) => void): void;
+  searchFaces(
+    args: SearchFacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchFacesCommandOutput>;
+  searchFaces(
+    args: SearchFacesCommandInput,
+    cb: (err: any, data?: SearchFacesCommandOutput) => void
+  ): void;
   searchFaces(
     args: SearchFacesCommandInput,
     options: __HttpHandlerOptions,
@@ -1269,8 +1374,14 @@ export interface Rekognition {
   /**
    * @see {@link SearchUsersCommand}
    */
-  searchUsers(args: SearchUsersCommandInput, options?: __HttpHandlerOptions): Promise<SearchUsersCommandOutput>;
-  searchUsers(args: SearchUsersCommandInput, cb: (err: any, data?: SearchUsersCommandOutput) => void): void;
+  searchUsers(
+    args: SearchUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchUsersCommandOutput>;
+  searchUsers(
+    args: SearchUsersCommandInput,
+    cb: (err: any, data?: SearchUsersCommandOutput) => void
+  ): void;
   searchUsers(
     args: SearchUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -1352,7 +1463,10 @@ export interface Rekognition {
     args: StartFaceSearchCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartFaceSearchCommandOutput>;
-  startFaceSearch(args: StartFaceSearchCommandInput, cb: (err: any, data?: StartFaceSearchCommandOutput) => void): void;
+  startFaceSearch(
+    args: StartFaceSearchCommandInput,
+    cb: (err: any, data?: StartFaceSearchCommandOutput) => void
+  ): void;
   startFaceSearch(
     args: StartFaceSearchCommandInput,
     options: __HttpHandlerOptions,
@@ -1515,8 +1629,14 @@ export interface Rekognition {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1526,8 +1646,14 @@ export interface Rekognition {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

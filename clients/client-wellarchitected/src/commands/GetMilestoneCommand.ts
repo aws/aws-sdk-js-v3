@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMilestoneInput, GetMilestoneOutput } from "../models/models_0";
-import { GetMilestone } from "../schemas/schemas_0";
+import { GetMilestone$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -161,7 +161,7 @@ export class GetMilestoneCommand extends $Command
   })
   .s("WellArchitectedApiServiceLambda", "GetMilestone", {})
   .n("WellArchitectedClient", "GetMilestoneCommand")
-  .sc(GetMilestone)
+  .sc(GetMilestone$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

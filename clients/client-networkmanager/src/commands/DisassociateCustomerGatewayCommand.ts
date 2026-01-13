@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { DisassociateCustomerGateway } from "../schemas/schemas_0";
+import { DisassociateCustomerGateway$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DisassociateCustomerGatewayCommandInput extends DisassociateCus
  *
  * The output of {@link DisassociateCustomerGatewayCommand}.
  */
-export interface DisassociateCustomerGatewayCommandOutput
-  extends DisassociateCustomerGatewayResponse,
-    __MetadataBearer {}
+export interface DisassociateCustomerGatewayCommandOutput extends DisassociateCustomerGatewayResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a customer gateway from a device and a link.</p>
@@ -105,7 +103,7 @@ export class DisassociateCustomerGatewayCommand extends $Command
   })
   .s("NetworkManager", "DisassociateCustomerGateway", {})
   .n("NetworkManagerClient", "DisassociateCustomerGatewayCommand")
-  .sc(DisassociateCustomerGateway)
+  .sc(DisassociateCustomerGateway$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

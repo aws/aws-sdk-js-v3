@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { UpdateLakehouseConfiguration } from "../schemas/schemas_0";
+import { UpdateLakehouseConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface UpdateLakehouseConfigurationCommandInput extends UpdateLakehous
  *
  * The output of {@link UpdateLakehouseConfigurationCommand}.
  */
-export interface UpdateLakehouseConfigurationCommandOutput
-  extends UpdateLakehouseConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateLakehouseConfigurationCommandOutput extends UpdateLakehouseConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the lakehouse configuration for a namespace. This operation allows you to manage Amazon Redshift federated permissions and Amazon Web Services IAM Identity Center trusted identity propagation.</p>
@@ -102,7 +100,7 @@ export class UpdateLakehouseConfigurationCommand extends $Command
   })
   .s("RedshiftServerless", "UpdateLakehouseConfiguration", {})
   .n("RedshiftServerlessClient", "UpdateLakehouseConfigurationCommand")
-  .sc(UpdateLakehouseConfiguration)
+  .sc(UpdateLakehouseConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

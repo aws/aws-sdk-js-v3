@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MergeBranchesByFastForwardInput, MergeBranchesByFastForwardOutput } from "../models/models_0";
-import { MergeBranchesByFastForward } from "../schemas/schemas_0";
+import { MergeBranchesByFastForward$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -141,7 +141,7 @@ export class MergeBranchesByFastForwardCommand extends $Command
   })
   .s("CodeCommit_20150413", "MergeBranchesByFastForward", {})
   .n("CodeCommitClient", "MergeBranchesByFastForwardCommand")
-  .sc(MergeBranchesByFastForward)
+  .sc(MergeBranchesByFastForward$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

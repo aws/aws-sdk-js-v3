@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetServiceInstanceSyncStatusInput, GetServiceInstanceSyncStatusOutput } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { GetServiceInstanceSyncStatus } from "../schemas/schemas_0";
+import { GetServiceInstanceSyncStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetServiceInstanceSyncStatusCommandInput extends GetServiceInst
  *
  * The output of {@link GetServiceInstanceSyncStatusCommand}.
  */
-export interface GetServiceInstanceSyncStatusCommandOutput
-  extends GetServiceInstanceSyncStatusOutput,
-    __MetadataBearer {}
+export interface GetServiceInstanceSyncStatusCommandOutput extends GetServiceInstanceSyncStatusOutput, __MetadataBearer {}
 
 /**
  * <p>Get the status of the synced service instance.</p>
@@ -153,7 +151,7 @@ export class GetServiceInstanceSyncStatusCommand extends $Command
   })
   .s("AwsProton20200720", "GetServiceInstanceSyncStatus", {})
   .n("ProtonClient", "GetServiceInstanceSyncStatusCommand")
-  .sc(GetServiceInstanceSyncStatus)
+  .sc(GetServiceInstanceSyncStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

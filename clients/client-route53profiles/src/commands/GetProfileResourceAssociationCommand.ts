@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ProfilesClient";
-import { GetProfileResourceAssociation } from "../schemas/schemas_0";
+import { GetProfileResourceAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetProfileResourceAssociationCommandInput extends GetProfileRes
  *
  * The output of {@link GetProfileResourceAssociationCommand}.
  */
-export interface GetProfileResourceAssociationCommandOutput
-  extends GetProfileResourceAssociationResponse,
-    __MetadataBearer {}
+export interface GetProfileResourceAssociationCommandOutput extends GetProfileResourceAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -118,7 +116,7 @@ export class GetProfileResourceAssociationCommand extends $Command
   })
   .s("Route53Profiles", "GetProfileResourceAssociation", {})
   .n("Route53ProfilesClient", "GetProfileResourceAssociationCommand")
-  .sc(GetProfileResourceAssociation)
+  .sc(GetProfileResourceAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

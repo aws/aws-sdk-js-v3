@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutPublicAccessBlockRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { PutPublicAccessBlock } from "../schemas/schemas_0";
+import { PutPublicAccessBlock$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,14 +126,14 @@ export class PutPublicAccessBlockCommand extends $Command
     return [
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
+        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
         requestChecksumRequired: true,
       }),
     ];
   })
   .s("AmazonS3", "PutPublicAccessBlock", {})
   .n("S3Client", "PutPublicAccessBlockCommand")
-  .sc(PutPublicAccessBlock)
+  .sc(PutPublicAccessBlock$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

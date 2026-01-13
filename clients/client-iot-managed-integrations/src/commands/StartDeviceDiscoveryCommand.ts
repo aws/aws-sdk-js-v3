@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { StartDeviceDiscoveryRequest, StartDeviceDiscoveryResponse } from "../models/models_0";
-import { StartDeviceDiscovery } from "../schemas/schemas_0";
+import { StartDeviceDiscovery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -41,7 +41,7 @@ export interface StartDeviceDiscoveryCommandOutput extends StartDeviceDiscoveryR
  * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // StartDeviceDiscoveryRequest
- *   DiscoveryType: "ZWAVE" || "ZIGBEE" || "CLOUD" || "CUSTOM", // required
+ *   DiscoveryType: "ZWAVE" || "ZIGBEE" || "CLOUD" || "CUSTOM" || "CONTROLLER_CAPABILITY_REDISCOVERY", // required
  *   CustomProtocolDetail: { // CustomProtocolDetail
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -54,6 +54,8 @@ export interface StartDeviceDiscoveryCommandOutput extends StartDeviceDiscoveryR
  *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   Protocol: "ZWAVE" || "ZIGBEE" || "CUSTOM",
+ *   EndDeviceIdentifier: "STRING_VALUE",
  * };
  * const command = new StartDeviceDiscoveryCommand(input);
  * const response = await client.send(command);
@@ -114,7 +116,7 @@ export class StartDeviceDiscoveryCommand extends $Command
   })
   .s("IotManagedIntegrations", "StartDeviceDiscovery", {})
   .n("IoTManagedIntegrationsClient", "StartDeviceDiscoveryCommand")
-  .sc(StartDeviceDiscovery)
+  .sc(StartDeviceDiscovery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

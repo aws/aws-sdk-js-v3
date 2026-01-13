@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { AllQueryStringTypes } from "../schemas/schemas_0";
+import { AllQueryStringTypes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class AllQueryStringTypesCommand extends $Command
   })
   .s("RestXml", "AllQueryStringTypes", {})
   .n("RestXmlProtocolClient", "AllQueryStringTypesCommand")
-  .sc(AllQueryStringTypes)
+  .sc(AllQueryStringTypes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

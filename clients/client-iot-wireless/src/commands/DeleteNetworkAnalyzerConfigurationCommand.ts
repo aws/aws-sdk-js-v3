@@ -9,7 +9,7 @@ import type {
   DeleteNetworkAnalyzerConfigurationRequest,
   DeleteNetworkAnalyzerConfigurationResponse,
 } from "../models/models_0";
-import { DeleteNetworkAnalyzerConfiguration } from "../schemas/schemas_0";
+import { DeleteNetworkAnalyzerConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteNetworkAnalyzerConfigurationCommandInput extends DeleteNe
  *
  * The output of {@link DeleteNetworkAnalyzerConfigurationCommand}.
  */
-export interface DeleteNetworkAnalyzerConfigurationCommandOutput
-  extends DeleteNetworkAnalyzerConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteNetworkAnalyzerConfigurationCommandOutput extends DeleteNetworkAnalyzerConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a network analyzer configuration.</p>
@@ -94,7 +92,7 @@ export class DeleteNetworkAnalyzerConfigurationCommand extends $Command
   })
   .s("iotwireless", "DeleteNetworkAnalyzerConfiguration", {})
   .n("IoTWirelessClient", "DeleteNetworkAnalyzerConfigurationCommand")
-  .sc(DeleteNetworkAnalyzerConfiguration)
+  .sc(DeleteNetworkAnalyzerConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

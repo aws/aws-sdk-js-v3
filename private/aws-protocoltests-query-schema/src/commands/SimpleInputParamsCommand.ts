@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SimpleInputParamsInput } from "../models/models_0";
 import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { SimpleInputParams } from "../schemas/schemas_0";
+import { SimpleInputParams$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,7 +79,7 @@ export class SimpleInputParamsCommand extends $Command
   })
   .s("AwsQuery", "SimpleInputParams", {})
   .n("QueryProtocolClient", "SimpleInputParamsCommand")
-  .sc(SimpleInputParams)
+  .sc(SimpleInputParams$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

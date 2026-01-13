@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListProfileObjectTypeTemplatesRequest, ListProfileObjectTypeTemplatesResponse } from "../models/models_0";
-import { ListProfileObjectTypeTemplates } from "../schemas/schemas_0";
+import { ListProfileObjectTypeTemplates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListProfileObjectTypeTemplatesCommandInput extends ListProfileO
  *
  * The output of {@link ListProfileObjectTypeTemplatesCommand}.
  */
-export interface ListProfileObjectTypeTemplatesCommandOutput
-  extends ListProfileObjectTypeTemplatesResponse,
-    __MetadataBearer {}
+export interface ListProfileObjectTypeTemplatesCommandOutput extends ListProfileObjectTypeTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all of the template information for object types.</p>
@@ -102,7 +100,7 @@ export class ListProfileObjectTypeTemplatesCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "ListProfileObjectTypeTemplates", {})
   .n("CustomerProfilesClient", "ListProfileObjectTypeTemplatesCommand")
-  .sc(ListProfileObjectTypeTemplates)
+  .sc(ListProfileObjectTypeTemplates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

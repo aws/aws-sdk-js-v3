@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAutoManagementConfigurationRequest, GetAutoManagementConfigurationResponse } from "../models/models_0";
-import { GetAutoManagementConfiguration } from "../schemas/schemas_0";
+import { GetAutoManagementConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -24,9 +24,7 @@ export interface GetAutoManagementConfigurationCommandInput extends GetAutoManag
  *
  * The output of {@link GetAutoManagementConfigurationCommand}.
  */
-export interface GetAutoManagementConfigurationCommandOutput
-  extends GetAutoManagementConfigurationResponse,
-    __MetadataBearer {}
+export interface GetAutoManagementConfigurationCommandOutput extends GetAutoManagementConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about your <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html">Service Quotas Automatic Management</a> configuration. Automatic Management monitors your Service Quotas utilization and notifies you before you
@@ -101,7 +99,7 @@ export class GetAutoManagementConfigurationCommand extends $Command
   })
   .s("ServiceQuotasV20190624", "GetAutoManagementConfiguration", {})
   .n("ServiceQuotasClient", "GetAutoManagementConfigurationCommand")
-  .sc(GetAutoManagementConfiguration)
+  .sc(GetAutoManagementConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

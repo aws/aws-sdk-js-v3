@@ -9,7 +9,7 @@ import type {
   ReservedDBInstancesOfferingMessage,
 } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DescribeReservedDBInstancesOfferings } from "../schemas/schemas_0";
+import { DescribeReservedDBInstancesOfferings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeReservedDBInstancesOfferingsCommandInput extends Descri
  *
  * The output of {@link DescribeReservedDBInstancesOfferingsCommand}.
  */
-export interface DescribeReservedDBInstancesOfferingsCommandOutput
-  extends ReservedDBInstancesOfferingMessage,
-    __MetadataBearer {}
+export interface DescribeReservedDBInstancesOfferingsCommandOutput extends ReservedDBInstancesOfferingMessage, __MetadataBearer {}
 
 /**
  * <p>Lists available reserved DB instance offerings.</p>
@@ -148,7 +146,7 @@ export class DescribeReservedDBInstancesOfferingsCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeReservedDBInstancesOfferings", {})
   .n("RDSClient", "DescribeReservedDBInstancesOfferingsCommand")
-  .sc(DescribeReservedDBInstancesOfferings)
+  .sc(DescribeReservedDBInstancesOfferings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

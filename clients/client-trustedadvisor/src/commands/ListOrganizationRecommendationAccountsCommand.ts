@@ -8,7 +8,7 @@ import type {
   ListOrganizationRecommendationAccountsRequest,
   ListOrganizationRecommendationAccountsResponse,
 } from "../models/models_0";
-import { ListOrganizationRecommendationAccounts } from "../schemas/schemas_0";
+import { ListOrganizationRecommendationAccounts$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListOrganizationRecommendationAccountsCommand}.
  */
-export interface ListOrganizationRecommendationAccountsCommandInput
-  extends ListOrganizationRecommendationAccountsRequest {}
+export interface ListOrganizationRecommendationAccountsCommandInput extends ListOrganizationRecommendationAccountsRequest {}
 /**
  * @public
  *
  * The output of {@link ListOrganizationRecommendationAccountsCommand}.
  */
-export interface ListOrganizationRecommendationAccountsCommandOutput
-  extends ListOrganizationRecommendationAccountsResponse,
-    __MetadataBearer {}
+export interface ListOrganizationRecommendationAccountsCommandOutput extends ListOrganizationRecommendationAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the accounts that own the resources for an organization aggregate recommendation. This API only
@@ -140,7 +137,7 @@ export class ListOrganizationRecommendationAccountsCommand extends $Command
   })
   .s("TrustedAdvisor", "ListOrganizationRecommendationAccounts", {})
   .n("TrustedAdvisorClient", "ListOrganizationRecommendationAccountsCommand")
-  .sc(ListOrganizationRecommendationAccounts)
+  .sc(ListOrganizationRecommendationAccounts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

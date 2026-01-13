@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchGetProfileRequest, BatchGetProfileResponse } from "../models/models_0";
-import { BatchGetProfile } from "../schemas/schemas_0";
+import { BatchGetProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -202,7 +202,7 @@ export class BatchGetProfileCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "BatchGetProfile", {})
   .n("CustomerProfilesClient", "BatchGetProfileCommand")
-  .sc(BatchGetProfile)
+  .sc(BatchGetProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

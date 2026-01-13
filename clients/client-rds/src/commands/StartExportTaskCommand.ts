@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { ExportTask } from "../models/models_0";
 import type { StartExportTaskMessage } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { StartExportTask } from "../schemas/schemas_0";
+import { StartExportTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -172,7 +172,7 @@ export class StartExportTaskCommand extends $Command
   })
   .s("AmazonRDSv19", "StartExportTask", {})
   .n("RDSClient", "StartExportTaskCommand")
-  .sc(StartExportTask)
+  .sc(StartExportTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

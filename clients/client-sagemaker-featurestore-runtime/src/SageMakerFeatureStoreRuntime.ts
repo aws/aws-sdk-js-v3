@@ -31,7 +31,10 @@ export interface SageMakerFeatureStoreRuntime {
     args: BatchGetRecordCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchGetRecordCommandOutput>;
-  batchGetRecord(args: BatchGetRecordCommandInput, cb: (err: any, data?: BatchGetRecordCommandOutput) => void): void;
+  batchGetRecord(
+    args: BatchGetRecordCommandInput,
+    cb: (err: any, data?: BatchGetRecordCommandOutput) => void
+  ): void;
   batchGetRecord(
     args: BatchGetRecordCommandInput,
     options: __HttpHandlerOptions,
@@ -41,8 +44,14 @@ export interface SageMakerFeatureStoreRuntime {
   /**
    * @see {@link DeleteRecordCommand}
    */
-  deleteRecord(args: DeleteRecordCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRecordCommandOutput>;
-  deleteRecord(args: DeleteRecordCommandInput, cb: (err: any, data?: DeleteRecordCommandOutput) => void): void;
+  deleteRecord(
+    args: DeleteRecordCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRecordCommandOutput>;
+  deleteRecord(
+    args: DeleteRecordCommandInput,
+    cb: (err: any, data?: DeleteRecordCommandOutput) => void
+  ): void;
   deleteRecord(
     args: DeleteRecordCommandInput,
     options: __HttpHandlerOptions,
@@ -52,8 +61,14 @@ export interface SageMakerFeatureStoreRuntime {
   /**
    * @see {@link GetRecordCommand}
    */
-  getRecord(args: GetRecordCommandInput, options?: __HttpHandlerOptions): Promise<GetRecordCommandOutput>;
-  getRecord(args: GetRecordCommandInput, cb: (err: any, data?: GetRecordCommandOutput) => void): void;
+  getRecord(
+    args: GetRecordCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRecordCommandOutput>;
+  getRecord(
+    args: GetRecordCommandInput,
+    cb: (err: any, data?: GetRecordCommandOutput) => void
+  ): void;
   getRecord(
     args: GetRecordCommandInput,
     options: __HttpHandlerOptions,
@@ -63,8 +78,14 @@ export interface SageMakerFeatureStoreRuntime {
   /**
    * @see {@link PutRecordCommand}
    */
-  putRecord(args: PutRecordCommandInput, options?: __HttpHandlerOptions): Promise<PutRecordCommandOutput>;
-  putRecord(args: PutRecordCommandInput, cb: (err: any, data?: PutRecordCommandOutput) => void): void;
+  putRecord(
+    args: PutRecordCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutRecordCommandOutput>;
+  putRecord(
+    args: PutRecordCommandInput,
+    cb: (err: any, data?: PutRecordCommandOutput) => void
+  ): void;
   putRecord(
     args: PutRecordCommandInput,
     options: __HttpHandlerOptions,
@@ -102,7 +123,5 @@ export interface SageMakerFeatureStoreRuntime {
  *          </ul>
  * @public
  */
-export class SageMakerFeatureStoreRuntime
-  extends SageMakerFeatureStoreRuntimeClient
-  implements SageMakerFeatureStoreRuntime {}
+export class SageMakerFeatureStoreRuntime extends SageMakerFeatureStoreRuntimeClient implements SageMakerFeatureStoreRuntime {}
 createAggregatedClient(commands, SageMakerFeatureStoreRuntime);

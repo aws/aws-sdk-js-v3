@@ -9,7 +9,7 @@ import type {
   ListCloudWatchAlarmTemplateGroupsRequest,
   ListCloudWatchAlarmTemplateGroupsResponse,
 } from "../models/models_1";
-import { ListCloudWatchAlarmTemplateGroups } from "../schemas/schemas_0";
+import { ListCloudWatchAlarmTemplateGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListCloudWatchAlarmTemplateGroupsCommandInput extends ListCloud
  *
  * The output of {@link ListCloudWatchAlarmTemplateGroupsCommand}.
  */
-export interface ListCloudWatchAlarmTemplateGroupsCommandOutput
-  extends ListCloudWatchAlarmTemplateGroupsResponse,
-    __MetadataBearer {}
+export interface ListCloudWatchAlarmTemplateGroupsCommandOutput extends ListCloudWatchAlarmTemplateGroupsResponse, __MetadataBearer {}
 
 /**
  * Lists cloudwatch alarm template groups.
@@ -110,7 +108,7 @@ export class ListCloudWatchAlarmTemplateGroupsCommand extends $Command
   })
   .s("MediaLive", "ListCloudWatchAlarmTemplateGroups", {})
   .n("MediaLiveClient", "ListCloudWatchAlarmTemplateGroupsCommand")
-  .sc(ListCloudWatchAlarmTemplateGroups)
+  .sc(ListCloudWatchAlarmTemplateGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

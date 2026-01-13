@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
 import type { DeleteSegmentRequest, DeleteSegmentResponse } from "../models/models_0";
-import { DeleteSegment } from "../schemas/schemas_0";
+import { DeleteSegment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteSegmentCommand extends $Command
   })
   .s("Evidently", "DeleteSegment", {})
   .n("EvidentlyClient", "DeleteSegmentCommand")
-  .sc(DeleteSegment)
+  .sc(DeleteSegment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

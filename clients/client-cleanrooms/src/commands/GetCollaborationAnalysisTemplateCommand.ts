@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCollaborationAnalysisTemplateInput, GetCollaborationAnalysisTemplateOutput } from "../models/models_0";
-import { GetCollaborationAnalysisTemplate } from "../schemas/schemas_0";
+import { GetCollaborationAnalysisTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetCollaborationAnalysisTemplateCommandInput extends GetCollabo
  *
  * The output of {@link GetCollaborationAnalysisTemplateCommand}.
  */
-export interface GetCollaborationAnalysisTemplateCommandOutput
-  extends GetCollaborationAnalysisTemplateOutput,
-    __MetadataBearer {}
+export interface GetCollaborationAnalysisTemplateCommandOutput extends GetCollaborationAnalysisTemplateOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves an analysis template within a collaboration.</p>
@@ -175,7 +173,7 @@ export class GetCollaborationAnalysisTemplateCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "GetCollaborationAnalysisTemplate", {})
   .n("CleanRoomsClient", "GetCollaborationAnalysisTemplateCommand")
-  .sc(GetCollaborationAnalysisTemplate)
+  .sc(GetCollaborationAnalysisTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

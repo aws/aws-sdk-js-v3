@@ -7,18 +7,15 @@ import {
 } from "../commands/DescribeFHIRExportJobCommand";
 import { HealthLakeClient } from "../HealthLakeClient";
 
-const checkState = async (
-  client: HealthLakeClient,
-  input: DescribeFHIRExportJobCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: HealthLakeClient, input: DescribeFHIRExportJobCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeFHIRExportJobCommand(input));
+    let result: any = await client.send(new DescribeFHIRExportJobCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.ExportJobProperties.JobStatus;
-      };
+      }
       if (returnComparator() === "COMPLETED") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -26,7 +23,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.ExportJobProperties.JobStatus;
-      };
+      }
       if (returnComparator() === "COMPLETED_WITH_ERRORS") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -34,7 +31,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.ExportJobProperties.JobStatus;
-      };
+      }
       if (returnComparator() === "CANCEL_COMPLETED") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -42,7 +39,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.ExportJobProperties.JobStatus;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -50,7 +47,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.ExportJobProperties.JobStatus;
-      };
+      }
       if (returnComparator() === "CANCEL_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

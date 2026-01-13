@@ -9,7 +9,7 @@ import type {
   GetSubscriptionDefinitionVersionRequest,
   GetSubscriptionDefinitionVersionResponse,
 } from "../models/models_0";
-import { GetSubscriptionDefinitionVersion } from "../schemas/schemas_0";
+import { GetSubscriptionDefinitionVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetSubscriptionDefinitionVersionCommandInput extends GetSubscri
  *
  * The output of {@link GetSubscriptionDefinitionVersionCommand}.
  */
-export interface GetSubscriptionDefinitionVersionCommandOutput
-  extends GetSubscriptionDefinitionVersionResponse,
-    __MetadataBearer {}
+export interface GetSubscriptionDefinitionVersionCommandOutput extends GetSubscriptionDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Retrieves information about a subscription definition version.
@@ -97,7 +95,7 @@ export class GetSubscriptionDefinitionVersionCommand extends $Command
   })
   .s("Greengrass", "GetSubscriptionDefinitionVersion", {})
   .n("GreengrassClient", "GetSubscriptionDefinitionVersionCommand")
-  .sc(GetSubscriptionDefinitionVersion)
+  .sc(GetSubscriptionDefinitionVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

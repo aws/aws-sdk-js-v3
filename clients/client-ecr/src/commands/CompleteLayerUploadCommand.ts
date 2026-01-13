@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CompleteLayerUploadRequest, CompleteLayerUploadResponse } from "../models/models_0";
-import { CompleteLayerUpload } from "../schemas/schemas_0";
+import { CompleteLayerUpload$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class CompleteLayerUploadCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "CompleteLayerUpload", {})
   .n("ECRClient", "CompleteLayerUploadCommand")
-  .sc(CompleteLayerUpload)
+  .sc(CompleteLayerUpload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

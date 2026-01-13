@@ -6,6 +6,7 @@ import { dateToUtcString } from "@smithy/smithy-client";
 import type {
   Schema as ISchema,
   ShapeSerializer,
+  StringSchema,
   TimestampDateTimeSchema,
   TimestampEpochSecondsSchema,
   TimestampHttpDateSchema,
@@ -110,6 +111,25 @@ export class XmlShapeSerializer extends SerdeContextConfig implements ShapeSeria
           structXmlNode.addChildNode(memberNode);
         }
       }
+    }
+
+    const { $unknown } = value as any;
+
+    if ($unknown && ns.isUnionSchema() && Array.isArray($unknown) && Object.keys(value as any).length === 1) {
+      const [k, v] = $unknown;
+      const node = XmlNode.of(k);
+      if (typeof v !== "string") {
+        if (value instanceof XmlNode || value instanceof XmlText) {
+          structXmlNode.addChildNode(value);
+        } else {
+          throw new Error(
+            `@aws-sdk - $unknown union member in XML requires ` +
+              `value of type string, @aws-sdk/xml-builder::XmlNode or XmlText.`
+          );
+        }
+      }
+      this.writeSimpleInto(0 satisfies StringSchema, v, node, xmlns);
+      structXmlNode.addChildNode(node);
     }
 
     if (xmlns) {

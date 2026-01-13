@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeTenantDatabasesMessage } from "../models/models_0";
 import type { TenantDatabasesMessage } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DescribeTenantDatabases } from "../schemas/schemas_0";
+import { DescribeTenantDatabases$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class DescribeTenantDatabasesCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeTenantDatabases", {})
   .n("RDSClient", "DescribeTenantDatabasesCommand")
-  .sc(DescribeTenantDatabases)
+  .sc(DescribeTenantDatabases$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteWorkloadInput } from "../models/models_0";
-import { DeleteWorkload } from "../schemas/schemas_0";
+import { DeleteWorkload$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -94,7 +94,7 @@ export class DeleteWorkloadCommand extends $Command
   })
   .s("WellArchitectedApiServiceLambda", "DeleteWorkload", {})
   .n("WellArchitectedClient", "DeleteWorkloadCommand")
-  .sc(DeleteWorkload)
+  .sc(DeleteWorkload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

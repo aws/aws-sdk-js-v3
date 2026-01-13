@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AttachLoadBalancerToSubnetsInput, AttachLoadBalancerToSubnetsOutput } from "../models/models_0";
-import { AttachLoadBalancerToSubnets } from "../schemas/schemas_0";
+import { AttachLoadBalancerToSubnets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class AttachLoadBalancerToSubnetsCommand extends $Command
   })
   .s("ElasticLoadBalancing_v7", "AttachLoadBalancerToSubnets", {})
   .n("ElasticLoadBalancingClient", "AttachLoadBalancerToSubnetsCommand")
-  .sc(AttachLoadBalancerToSubnets)
+  .sc(AttachLoadBalancerToSubnets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

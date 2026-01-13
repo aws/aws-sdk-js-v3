@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EmptyStructure } from "../models/models_0";
 import type { RpcV2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RpcV2ProtocolClient";
-import { EmptyInputOutput } from "../schemas/schemas_0";
+import { EmptyInputOutput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -69,7 +69,7 @@ export class EmptyInputOutputCommand extends $Command
   })
   .s("RpcV2Protocol", "EmptyInputOutput", {})
   .n("RpcV2ProtocolClient", "EmptyInputOutputCommand")
-  .sc(EmptyInputOutput)
+  .sc(EmptyInputOutput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

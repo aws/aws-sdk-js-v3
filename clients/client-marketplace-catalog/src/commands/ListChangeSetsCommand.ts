@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
 import type { ListChangeSetsRequest, ListChangeSetsResponse } from "../models/models_0";
-import { ListChangeSets } from "../schemas/schemas_0";
+import { ListChangeSets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class ListChangeSetsCommand extends $Command
   })
   .s("AWSMPSeymour", "ListChangeSets", {})
   .n("MarketplaceCatalogClient", "ListChangeSetsCommand")
-  .sc(ListChangeSets)
+  .sc(ListChangeSets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

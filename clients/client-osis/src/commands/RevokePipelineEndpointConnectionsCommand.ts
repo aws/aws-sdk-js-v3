@@ -9,7 +9,7 @@ import type {
   RevokePipelineEndpointConnectionsResponse,
 } from "../models/models_0";
 import type { OSISClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OSISClient";
-import { RevokePipelineEndpointConnections } from "../schemas/schemas_0";
+import { RevokePipelineEndpointConnections$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface RevokePipelineEndpointConnectionsCommandInput extends RevokePip
  *
  * The output of {@link RevokePipelineEndpointConnectionsCommand}.
  */
-export interface RevokePipelineEndpointConnectionsCommandOutput
-  extends RevokePipelineEndpointConnectionsResponse,
-    __MetadataBearer {}
+export interface RevokePipelineEndpointConnectionsCommandOutput extends RevokePipelineEndpointConnectionsResponse, __MetadataBearer {}
 
 /**
  * <p>Revokes pipeline endpoints from specified endpoint IDs.</p>
@@ -97,7 +95,7 @@ export class RevokePipelineEndpointConnectionsCommand extends $Command
   })
   .s("AmazonOpenSearchIngestionService", "RevokePipelineEndpointConnections", {})
   .n("OSISClient", "RevokePipelineEndpointConnectionsCommand")
-  .sc(RevokePipelineEndpointConnections)
+  .sc(RevokePipelineEndpointConnections$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

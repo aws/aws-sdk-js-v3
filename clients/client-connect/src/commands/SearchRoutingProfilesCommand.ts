@@ -7,7 +7,7 @@ import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchRoutingProfilesResponse } from "../models/models_2";
 import type { SearchRoutingProfilesRequest } from "../models/models_3";
-import { SearchRoutingProfiles } from "../schemas/schemas_0";
+import { SearchRoutingProfiles$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -176,7 +176,7 @@ export class SearchRoutingProfilesCommand extends $Command
   })
   .s("AmazonConnectService", "SearchRoutingProfiles", {})
   .n("ConnectClient", "SearchRoutingProfilesCommand")
-  .sc(SearchRoutingProfiles)
+  .sc(SearchRoutingProfiles$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

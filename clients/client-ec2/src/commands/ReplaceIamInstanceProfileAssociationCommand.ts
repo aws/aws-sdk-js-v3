@@ -9,7 +9,7 @@ import type {
   ReplaceIamInstanceProfileAssociationRequest,
   ReplaceIamInstanceProfileAssociationResult,
 } from "../models/models_7";
-import { ReplaceIamInstanceProfileAssociation } from "../schemas/schemas_0";
+import { ReplaceIamInstanceProfileAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ReplaceIamInstanceProfileAssociationCommandInput extends Replac
  *
  * The output of {@link ReplaceIamInstanceProfileAssociationCommand}.
  */
-export interface ReplaceIamInstanceProfileAssociationCommandOutput
-  extends ReplaceIamInstanceProfileAssociationResult,
-    __MetadataBearer {}
+export interface ReplaceIamInstanceProfileAssociationCommandOutput extends ReplaceIamInstanceProfileAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Replaces an IAM instance profile for the specified running instance. You can use
@@ -95,7 +93,7 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command
   })
   .s("AmazonEC2", "ReplaceIamInstanceProfileAssociation", {})
   .n("EC2Client", "ReplaceIamInstanceProfileAssociationCommand")
-  .sc(ReplaceIamInstanceProfileAssociation)
+  .sc(ReplaceIamInstanceProfileAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

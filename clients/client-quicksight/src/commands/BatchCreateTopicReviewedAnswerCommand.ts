@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchCreateTopicReviewedAnswerResponse } from "../models/models_2";
 import type { BatchCreateTopicReviewedAnswerRequest } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { BatchCreateTopicReviewedAnswer } from "../schemas/schemas_0";
+import { BatchCreateTopicReviewedAnswer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,9 +25,7 @@ export interface BatchCreateTopicReviewedAnswerCommandInput extends BatchCreateT
  *
  * The output of {@link BatchCreateTopicReviewedAnswerCommand}.
  */
-export interface BatchCreateTopicReviewedAnswerCommandOutput
-  extends BatchCreateTopicReviewedAnswerResponse,
-    __MetadataBearer {}
+export interface BatchCreateTopicReviewedAnswerCommandOutput extends BatchCreateTopicReviewedAnswerResponse, __MetadataBearer {}
 
 /**
  * <p>Creates new reviewed answers for a Q Topic.</p>
@@ -582,7 +580,7 @@ export class BatchCreateTopicReviewedAnswerCommand extends $Command
   })
   .s("QuickSight_20180401", "BatchCreateTopicReviewedAnswer", {})
   .n("QuickSightClient", "BatchCreateTopicReviewedAnswerCommand")
-  .sc(BatchCreateTopicReviewedAnswer)
+  .sc(BatchCreateTopicReviewedAnswer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

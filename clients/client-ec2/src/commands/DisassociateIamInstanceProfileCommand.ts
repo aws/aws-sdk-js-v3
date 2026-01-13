@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateIamInstanceProfileRequest, DisassociateIamInstanceProfileResult } from "../models/models_5";
-import { DisassociateIamInstanceProfile } from "../schemas/schemas_0";
+import { DisassociateIamInstanceProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DisassociateIamInstanceProfileCommandInput extends Disassociate
  *
  * The output of {@link DisassociateIamInstanceProfileCommand}.
  */
-export interface DisassociateIamInstanceProfileCommandOutput
-  extends DisassociateIamInstanceProfileResult,
-    __MetadataBearer {}
+export interface DisassociateIamInstanceProfileCommandOutput extends DisassociateIamInstanceProfileResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates an IAM instance profile from a running or stopped instance.</p>
@@ -109,7 +107,7 @@ export class DisassociateIamInstanceProfileCommand extends $Command
   })
   .s("AmazonEC2", "DisassociateIamInstanceProfile", {})
   .n("EC2Client", "DisassociateIamInstanceProfileCommand")
-  .sc(DisassociateIamInstanceProfile)
+  .sc(DisassociateIamInstanceProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

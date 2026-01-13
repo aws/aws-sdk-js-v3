@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateVPCEConfigurationRequest, UpdateVPCEConfigurationResult } from "../models/models_0";
-import { UpdateVPCEConfiguration } from "../schemas/schemas_0";
+import { UpdateVPCEConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class UpdateVPCEConfigurationCommand extends $Command
   })
   .s("DeviceFarm_20150623", "UpdateVPCEConfiguration", {})
   .n("DeviceFarmClient", "UpdateVPCEConfigurationCommand")
-  .sc(UpdateVPCEConfiguration)
+  .sc(UpdateVPCEConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

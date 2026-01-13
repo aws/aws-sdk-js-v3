@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeIndexFieldsRequest, DescribeIndexFieldsResponse } from "../models/models_0";
-import { DescribeIndexFields } from "../schemas/schemas_0";
+import { DescribeIndexFields$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -186,7 +186,7 @@ export class DescribeIndexFieldsCommand extends $Command
   })
   .s("A9SearchCloudConfigService2013", "DescribeIndexFields", {})
   .n("CloudSearchClient", "DescribeIndexFieldsCommand")
-  .sc(DescribeIndexFields)
+  .sc(DescribeIndexFields$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

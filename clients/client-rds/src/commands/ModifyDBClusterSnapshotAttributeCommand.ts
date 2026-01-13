@@ -9,7 +9,7 @@ import type {
   ModifyDBClusterSnapshotAttributeResult,
 } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { ModifyDBClusterSnapshotAttribute } from "../schemas/schemas_0";
+import { ModifyDBClusterSnapshotAttribute$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ModifyDBClusterSnapshotAttributeCommandInput extends ModifyDBCl
  *
  * The output of {@link ModifyDBClusterSnapshotAttributeCommand}.
  */
-export interface ModifyDBClusterSnapshotAttributeCommandOutput
-  extends ModifyDBClusterSnapshotAttributeResult,
-    __MetadataBearer {}
+export interface ModifyDBClusterSnapshotAttributeCommandOutput extends ModifyDBClusterSnapshotAttributeResult, __MetadataBearer {}
 
 /**
  * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB cluster snapshot.</p>
@@ -152,7 +150,7 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command
   })
   .s("AmazonRDSv19", "ModifyDBClusterSnapshotAttribute", {})
   .n("RDSClient", "ModifyDBClusterSnapshotAttributeCommand")
-  .sc(ModifyDBClusterSnapshotAttribute)
+  .sc(ModifyDBClusterSnapshotAttribute$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

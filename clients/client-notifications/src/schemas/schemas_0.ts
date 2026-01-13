@@ -300,1034 +300,794 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { NotificationsServiceException as __NotificationsServiceException } from "../models/NotificationsServiceException";
+import { NotificationsServiceException } from "../models/NotificationsServiceException";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AggregationDetail: StaticStructureSchema = [3, n0, _AD, 0, [_sD], [() => SummarizationDimensionDetails]];
-export var AggregationKey: StaticStructureSchema = [3, n0, _AK, 0, [_n, _v], [0, 0]];
-export var AggregationSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _AS,
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AggregationDetail$: StaticStructureSchema = [3, n0, _AD,
+  0,
+  [_sD],
+  [() => SummarizationDimensionDetails]
+];
+export var AggregationKey$: StaticStructureSchema = [3, n0, _AK,
+  0,
+  [_n, _v],
+  [0, 0]
+];
+export var AggregationSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_eC, _aB, _aA, _aR, _aOU, _aSD],
-  [
-    1,
-    () => AggregationKeys,
-    () => SummarizationDimensionOverview,
-    () => SummarizationDimensionOverview,
-    () => SummarizationDimensionOverview,
-    () => SummarizationDimensionOverviews,
-  ],
+  [1, () => AggregationKeys, () => SummarizationDimensionOverview$, () => SummarizationDimensionOverview$, () => SummarizationDimensionOverview$, () => SummarizationDimensionOverviews]
 ];
-export var AssociateChannelRequest: StaticStructureSchema = [3, n0, _ACR, 0, [_a, _nCA], [[0, 1], 0]];
-export var AssociateChannelResponse: StaticStructureSchema = [3, n0, _ACRs, 0, [], []];
-export var AssociateManagedNotificationAccountContactRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _AMNACR,
+export var AssociateChannelRequest$: StaticStructureSchema = [3, n0, _ACR,
+  0,
+  [_a, _nCA],
+  [[0, 1], 0]
+];
+export var AssociateChannelResponse$: StaticStructureSchema = [3, n0, _ACRs,
+  0,
+  [],
+  []
+];
+export var AssociateManagedNotificationAccountContactRequest$: StaticStructureSchema = [3, n0, _AMNACR,
   0,
   [_cI, _mNCA],
-  [[0, 1], 0],
+  [[0, 1], 0]
 ];
-export var AssociateManagedNotificationAccountContactResponse: StaticStructureSchema = [3, n0, _AMNACRs, 0, [], []];
-export var AssociateManagedNotificationAdditionalChannelRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _AMNACRss,
+export var AssociateManagedNotificationAccountContactResponse$: StaticStructureSchema = [3, n0, _AMNACRs,
+  0,
+  [],
+  []
+];
+export var AssociateManagedNotificationAdditionalChannelRequest$: StaticStructureSchema = [3, n0, _AMNACRss,
   0,
   [_cA, _mNCA],
-  [[0, 1], 0],
+  [[0, 1], 0]
 ];
-export var AssociateManagedNotificationAdditionalChannelResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _AMNACRsso,
+export var AssociateManagedNotificationAdditionalChannelResponse$: StaticStructureSchema = [3, n0, _AMNACRsso,
   0,
   [],
-  [],
+  []
 ];
-export var AssociateOrganizationalUnitRequest: StaticStructureSchema = [3, n0, _AOUR, 0, [_oUI, _nCA], [[0, 1], 0]];
-export var AssociateOrganizationalUnitResponse: StaticStructureSchema = [3, n0, _AOURs, 0, [], []];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI], [0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateEventRuleRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CERR,
+export var AssociateOrganizationalUnitRequest$: StaticStructureSchema = [3, n0, _AOUR,
+  0,
+  [_oUI, _nCA],
+  [[0, 1], 0]
+];
+export var AssociateOrganizationalUnitResponse$: StaticStructureSchema = [3, n0, _AOURs,
+  0,
+  [],
+  []
+];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI],
+  [0, 0]
+];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateEventRuleRequest$: StaticStructureSchema = [3, n0, _CERR,
   0,
   [_nCA, _s, _eT, _eP, _r],
-  [0, 0, 0, 0, 64 | 0],
+  [0, 0, 0, 0, 64 | 0]
 ];
-export var CreateEventRuleResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CERRr,
+export var CreateEventRuleResponse$: StaticStructureSchema = [3, n0, _CERRr,
   0,
   [_a, _nCA, _sSBR],
-  [0, 0, () => StatusSummaryByRegion],
+  [0, 0, () => StatusSummaryByRegion]
 ];
-export var CreateNotificationConfigurationRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CNCR,
+export var CreateNotificationConfigurationRequest$: StaticStructureSchema = [3, n0, _CNCR,
   0,
   [_n, _d, _aD, _t],
-  [0, 0, 0, 128 | 0],
+  [0, 0, 0, 128 | 0]
 ];
-export var CreateNotificationConfigurationResponse: StaticStructureSchema = [3, n0, _CNCRr, 0, [_a, _st], [0, 0]];
-export var DeleteEventRuleRequest: StaticStructureSchema = [3, n0, _DERR, 0, [_a], [[0, 1]]];
-export var DeleteEventRuleResponse: StaticStructureSchema = [3, n0, _DERRe, 0, [], []];
-export var DeleteNotificationConfigurationRequest: StaticStructureSchema = [3, n0, _DNCR, 0, [_a], [[0, 1]]];
-export var DeleteNotificationConfigurationResponse: StaticStructureSchema = [3, n0, _DNCRe, 0, [], []];
-export var DeregisterNotificationHubRequest: StaticStructureSchema = [3, n0, _DNHR, 0, [_nHR], [[0, 1]]];
-export var DeregisterNotificationHubResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _DNHRe,
+export var CreateNotificationConfigurationResponse$: StaticStructureSchema = [3, n0, _CNCRr,
+  0,
+  [_a, _st],
+  [0, 0]
+];
+export var DeleteEventRuleRequest$: StaticStructureSchema = [3, n0, _DERR,
+  0,
+  [_a],
+  [[0, 1]]
+];
+export var DeleteEventRuleResponse$: StaticStructureSchema = [3, n0, _DERRe,
+  0,
+  [],
+  []
+];
+export var DeleteNotificationConfigurationRequest$: StaticStructureSchema = [3, n0, _DNCR,
+  0,
+  [_a],
+  [[0, 1]]
+];
+export var DeleteNotificationConfigurationResponse$: StaticStructureSchema = [3, n0, _DNCRe,
+  0,
+  [],
+  []
+];
+export var DeregisterNotificationHubRequest$: StaticStructureSchema = [3, n0, _DNHR,
+  0,
+  [_nHR],
+  [[0, 1]]
+];
+export var DeregisterNotificationHubResponse$: StaticStructureSchema = [3, n0, _DNHRe,
   0,
   [_nHR, _sS],
-  [0, () => NotificationHubStatusSummary],
+  [0, () => NotificationHubStatusSummary$]
 ];
-export var Dimension: StaticStructureSchema = [3, n0, _D, 0, [_n, _v], [0, 0]];
-export var DisableNotificationsAccessForOrganizationRequest: StaticStructureSchema = [3, n0, _DNAFOR, 0, [], []];
-export var DisableNotificationsAccessForOrganizationResponse: StaticStructureSchema = [3, n0, _DNAFORi, 0, [], []];
-export var DisassociateChannelRequest: StaticStructureSchema = [3, n0, _DCR, 0, [_a, _nCA], [[0, 1], 0]];
-export var DisassociateChannelResponse: StaticStructureSchema = [3, n0, _DCRi, 0, [], []];
-export var DisassociateManagedNotificationAccountContactRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DMNACR,
+export var Dimension$: StaticStructureSchema = [3, n0, _D,
+  0,
+  [_n, _v],
+  [0, 0]
+];
+export var DisableNotificationsAccessForOrganizationRequest$: StaticStructureSchema = [3, n0, _DNAFOR,
+  0,
+  [],
+  []
+];
+export var DisableNotificationsAccessForOrganizationResponse$: StaticStructureSchema = [3, n0, _DNAFORi,
+  0,
+  [],
+  []
+];
+export var DisassociateChannelRequest$: StaticStructureSchema = [3, n0, _DCR,
+  0,
+  [_a, _nCA],
+  [[0, 1], 0]
+];
+export var DisassociateChannelResponse$: StaticStructureSchema = [3, n0, _DCRi,
+  0,
+  [],
+  []
+];
+export var DisassociateManagedNotificationAccountContactRequest$: StaticStructureSchema = [3, n0, _DMNACR,
   0,
   [_cI, _mNCA],
-  [[0, 1], 0],
+  [[0, 1], 0]
 ];
-export var DisassociateManagedNotificationAccountContactResponse: StaticStructureSchema = [3, n0, _DMNACRi, 0, [], []];
-export var DisassociateManagedNotificationAdditionalChannelRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DMNACRis,
+export var DisassociateManagedNotificationAccountContactResponse$: StaticStructureSchema = [3, n0, _DMNACRi,
+  0,
+  [],
+  []
+];
+export var DisassociateManagedNotificationAdditionalChannelRequest$: StaticStructureSchema = [3, n0, _DMNACRis,
   0,
   [_cA, _mNCA],
-  [[0, 1], 0],
+  [[0, 1], 0]
 ];
-export var DisassociateManagedNotificationAdditionalChannelResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _DMNACRisa,
+export var DisassociateManagedNotificationAdditionalChannelResponse$: StaticStructureSchema = [3, n0, _DMNACRisa,
   0,
   [],
+  []
+];
+export var DisassociateOrganizationalUnitRequest$: StaticStructureSchema = [3, n0, _DOUR,
+  0,
+  [_oUI, _nCA],
+  [[0, 1], 0]
+];
+export var DisassociateOrganizationalUnitResponse$: StaticStructureSchema = [3, n0, _DOURi,
+  0,
   [],
+  []
 ];
-export var DisassociateOrganizationalUnitRequest: StaticStructureSchema = [3, n0, _DOUR, 0, [_oUI, _nCA], [[0, 1], 0]];
-export var DisassociateOrganizationalUnitResponse: StaticStructureSchema = [3, n0, _DOURi, 0, [], []];
-export var EnableNotificationsAccessForOrganizationRequest: StaticStructureSchema = [3, n0, _ENAFOR, 0, [], []];
-export var EnableNotificationsAccessForOrganizationResponse: StaticStructureSchema = [3, n0, _ENAFORn, 0, [], []];
-export var EventRuleStatusSummary: StaticStructureSchema = [3, n0, _ERSS, 0, [_st, _re], [0, 0]];
-export var EventRuleStructure: StaticStructureSchema = [
-  3,
-  n0,
-  _ERS,
+export var EnableNotificationsAccessForOrganizationRequest$: StaticStructureSchema = [3, n0, _ENAFOR,
+  0,
+  [],
+  []
+];
+export var EnableNotificationsAccessForOrganizationResponse$: StaticStructureSchema = [3, n0, _ENAFORn,
+  0,
+  [],
+  []
+];
+export var EventRuleStatusSummary$: StaticStructureSchema = [3, n0, _ERSS,
+  0,
+  [_st, _re],
+  [0, 0]
+];
+export var EventRuleStructure$: StaticStructureSchema = [3, n0, _ERS,
   0,
   [_a, _nCA, _cT, _s, _eT, _eP, _r, _mR, _sSBR],
-  [0, 0, 5, 0, 0, 0, 64 | 0, 64 | 0, () => StatusSummaryByRegion],
+  [0, 0, 5, 0, 0, 0, 64 | 0, 64 | 0, () => StatusSummaryByRegion]
 ];
-export var GetEventRuleRequest: StaticStructureSchema = [3, n0, _GERR, 0, [_a], [[0, 1]]];
-export var GetEventRuleResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GERRe,
+export var GetEventRuleRequest$: StaticStructureSchema = [3, n0, _GERR,
+  0,
+  [_a],
+  [[0, 1]]
+];
+export var GetEventRuleResponse$: StaticStructureSchema = [3, n0, _GERRe,
   0,
   [_a, _nCA, _cT, _s, _eT, _eP, _r, _mR, _sSBR],
-  [0, 0, 5, 0, 0, 0, 64 | 0, 64 | 0, () => StatusSummaryByRegion],
+  [0, 0, 5, 0, 0, 0, 64 | 0, 64 | 0, () => StatusSummaryByRegion]
 ];
-export var GetManagedNotificationChildEventRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GMNCER,
+export var GetManagedNotificationChildEventRequest$: StaticStructureSchema = [3, n0, _GMNCER,
   0,
   [_a, _l],
-  [
-    [0, 1],
-    [0, { [_hQ]: _l }],
-  ],
+  [[0, 1], [0, { [_hQ]: _l }]]
 ];
-export var GetManagedNotificationChildEventResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GMNCERe,
+export var GetManagedNotificationChildEventResponse$: StaticStructureSchema = [3, n0, _GMNCERe,
   0,
   [_a, _mNCA, _cT, _co],
-  [0, 0, 5, () => ManagedNotificationChildEvent],
+  [0, 0, 5, () => ManagedNotificationChildEvent$]
 ];
-export var GetManagedNotificationConfigurationRequest: StaticStructureSchema = [3, n0, _GMNCR, 0, [_a], [[0, 1]]];
-export var GetManagedNotificationConfigurationResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GMNCRe,
+export var GetManagedNotificationConfigurationRequest$: StaticStructureSchema = [3, n0, _GMNCR,
+  0,
+  [_a],
+  [[0, 1]]
+];
+export var GetManagedNotificationConfigurationResponse$: StaticStructureSchema = [3, n0, _GMNCRe,
   0,
   [_a, _n, _d, _ca, _sC],
-  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0]
 ];
-export var GetManagedNotificationEventRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GMNER,
+export var GetManagedNotificationEventRequest$: StaticStructureSchema = [3, n0, _GMNER,
   0,
   [_a, _l],
-  [
-    [0, 1],
-    [0, { [_hQ]: _l }],
-  ],
+  [[0, 1], [0, { [_hQ]: _l }]]
 ];
-export var GetManagedNotificationEventResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GMNERe,
+export var GetManagedNotificationEventResponse$: StaticStructureSchema = [3, n0, _GMNERe,
   0,
   [_a, _mNCA, _cT, _co],
-  [0, 0, 5, () => ManagedNotificationEvent],
+  [0, 0, 5, () => ManagedNotificationEvent$]
 ];
-export var GetNotificationConfigurationRequest: StaticStructureSchema = [3, n0, _GNCR, 0, [_a], [[0, 1]]];
-export var GetNotificationConfigurationResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GNCRe,
+export var GetNotificationConfigurationRequest$: StaticStructureSchema = [3, n0, _GNCR,
+  0,
+  [_a],
+  [[0, 1]]
+];
+export var GetNotificationConfigurationResponse$: StaticStructureSchema = [3, n0, _GNCRe,
   0,
   [_a, _n, _d, _st, _cT, _aD, _su],
-  [0, 0, 0, 0, 5, 0, 0],
+  [0, 0, 0, 0, 5, 0, 0]
 ];
-export var GetNotificationEventRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GNER,
+export var GetNotificationEventRequest$: StaticStructureSchema = [3, n0, _GNER,
   0,
   [_a, _l],
-  [
-    [0, 1],
-    [0, { [_hQ]: _l }],
-  ],
+  [[0, 1], [0, { [_hQ]: _l }]]
 ];
-export var GetNotificationEventResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GNERe,
+export var GetNotificationEventResponse$: StaticStructureSchema = [3, n0, _GNERe,
   0,
   [_a, _nCA, _cT, _co],
-  [0, 0, 5, () => NotificationEventSchema],
+  [0, 0, 5, () => NotificationEventSchema$]
 ];
-export var GetNotificationsAccessForOrganizationRequest: StaticStructureSchema = [3, n0, _GNAFOR, 0, [], []];
-export var GetNotificationsAccessForOrganizationResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GNAFORe,
+export var GetNotificationsAccessForOrganizationRequest$: StaticStructureSchema = [3, n0, _GNAFOR,
+  0,
+  [],
+  []
+];
+export var GetNotificationsAccessForOrganizationResponse$: StaticStructureSchema = [3, n0, _GNAFORe,
   0,
   [_nAFO],
-  [() => NotificationsAccessForOrganization],
+  [() => NotificationsAccessForOrganization$]
 ];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var ListChannelsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LCR,
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var ListChannelsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_nCA, _mRa, _nT],
-  [
-    [0, { [_hQ]: _nCA }],
-    [1, { [_hQ]: _mRa }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, { [_hQ]: _nCA }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
 ];
-export var ListChannelsResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_nT, _ch], [0, 64 | 0]];
-export var ListEventRulesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LERR,
+export var ListChannelsResponse$: StaticStructureSchema = [3, n0, _LCRi,
+  0,
+  [_nT, _ch],
+  [0, 64 | 0]
+];
+export var ListEventRulesRequest$: StaticStructureSchema = [3, n0, _LERR,
   0,
   [_nCA, _mRa, _nT],
-  [
-    [0, { [_hQ]: _nCA }],
-    [1, { [_hQ]: _mRa }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, { [_hQ]: _nCA }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
 ];
-export var ListEventRulesResponse: StaticStructureSchema = [3, n0, _LERRi, 0, [_nT, _eR], [0, () => EventRules]];
-export var ListManagedNotificationChannelAssociationsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LMNCAR,
+export var ListEventRulesResponse$: StaticStructureSchema = [3, n0, _LERRi,
+  0,
+  [_nT, _eR],
+  [0, () => EventRules]
+];
+export var ListManagedNotificationChannelAssociationsRequest$: StaticStructureSchema = [3, n0, _LMNCAR,
   0,
   [_mNCA, _mRa, _nT],
-  [
-    [0, { [_hQ]: _mNCA }],
-    [1, { [_hQ]: _mRa }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, { [_hQ]: _mNCA }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
 ];
-export var ListManagedNotificationChannelAssociationsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LMNCARi,
+export var ListManagedNotificationChannelAssociationsResponse$: StaticStructureSchema = [3, n0, _LMNCARi,
   0,
   [_nT, _cAh],
-  [0, () => ManagedNotificationChannelAssociations],
+  [0, () => ManagedNotificationChannelAssociations]
 ];
-export var ListManagedNotificationChildEventsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LMNCER,
+export var ListManagedNotificationChildEventsRequest$: StaticStructureSchema = [3, n0, _LMNCER,
   0,
   [_aMNEA, _sT, _eTn, _l, _mRa, _rA, _oUI, _nT],
-  [
-    [0, 1],
-    [5, { [_hQ]: _sT }],
-    [5, { [_hQ]: _eTn }],
-    [0, { [_hQ]: _l }],
-    [1, { [_hQ]: _mRa }],
-    [0, { [_hQ]: _rA }],
-    [0, { [_hQ]: _oUI }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, 1], [5, { [_hQ]: _sT }], [5, { [_hQ]: _eTn }], [0, { [_hQ]: _l }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _rA }], [0, { [_hQ]: _oUI }], [0, { [_hQ]: _nT }]]
 ];
-export var ListManagedNotificationChildEventsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LMNCERi,
+export var ListManagedNotificationChildEventsResponse$: StaticStructureSchema = [3, n0, _LMNCERi,
   0,
   [_nT, _mNCE],
-  [0, () => ManagedNotificationChildEvents],
+  [0, () => ManagedNotificationChildEvents]
 ];
-export var ListManagedNotificationConfigurationsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LMNCR,
+export var ListManagedNotificationConfigurationsRequest$: StaticStructureSchema = [3, n0, _LMNCR,
   0,
   [_cIh, _mRa, _nT],
-  [
-    [0, { [_hQ]: _cIh }],
-    [1, { [_hQ]: _mRa }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, { [_hQ]: _cIh }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
 ];
-export var ListManagedNotificationConfigurationsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LMNCRi,
+export var ListManagedNotificationConfigurationsResponse$: StaticStructureSchema = [3, n0, _LMNCRi,
   0,
   [_nT, _mNC],
-  [0, () => ManagedNotificationConfigurations],
+  [0, () => ManagedNotificationConfigurations]
 ];
-export var ListManagedNotificationEventsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LMNER,
+export var ListManagedNotificationEventsRequest$: StaticStructureSchema = [3, n0, _LMNER,
   0,
   [_sT, _eTn, _l, _s, _mRa, _nT, _oUI, _rA],
-  [
-    [5, { [_hQ]: _sT }],
-    [5, { [_hQ]: _eTn }],
-    [0, { [_hQ]: _l }],
-    [0, { [_hQ]: _s }],
-    [1, { [_hQ]: _mRa }],
-    [0, { [_hQ]: _nT }],
-    [0, { [_hQ]: _oUI }],
-    [0, { [_hQ]: _rA }],
-  ],
+  [[5, { [_hQ]: _sT }], [5, { [_hQ]: _eTn }], [0, { [_hQ]: _l }], [0, { [_hQ]: _s }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _oUI }], [0, { [_hQ]: _rA }]]
 ];
-export var ListManagedNotificationEventsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LMNERi,
+export var ListManagedNotificationEventsResponse$: StaticStructureSchema = [3, n0, _LMNERi,
   0,
   [_nT, _mNE],
-  [0, () => ManagedNotificationEvents],
+  [0, () => ManagedNotificationEvents]
 ];
-export var ListMemberAccountsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LMAR,
+export var ListMemberAccountsRequest$: StaticStructureSchema = [3, n0, _LMAR,
   0,
   [_nCA, _mRa, _nT, _mA, _st, _oUI],
-  [
-    [0, { [_hQ]: _nCA }],
-    [1, { [_hQ]: _mRa }],
-    [0, { [_hQ]: _nT }],
-    [0, { [_hQ]: _mA }],
-    [0, { [_hQ]: _st }],
-    [0, { [_hQ]: _oUI }],
-  ],
+  [[0, { [_hQ]: _nCA }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _mA }], [0, { [_hQ]: _st }], [0, { [_hQ]: _oUI }]]
 ];
-export var ListMemberAccountsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LMARi,
+export var ListMemberAccountsResponse$: StaticStructureSchema = [3, n0, _LMARi,
   0,
   [_mAe, _nT],
-  [() => MemberAccounts, 0],
+  [() => MemberAccounts, 0]
 ];
-export var ListNotificationConfigurationsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LNCR,
+export var ListNotificationConfigurationsRequest$: StaticStructureSchema = [3, n0, _LNCR,
   0,
   [_eRS, _cA, _st, _su, _mRa, _nT],
-  [
-    [0, { [_hQ]: _eRS }],
-    [0, { [_hQ]: _cA }],
-    [0, { [_hQ]: _st }],
-    [0, { [_hQ]: _su }],
-    [1, { [_hQ]: _mRa }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, { [_hQ]: _eRS }], [0, { [_hQ]: _cA }], [0, { [_hQ]: _st }], [0, { [_hQ]: _su }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
 ];
-export var ListNotificationConfigurationsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LNCRi,
+export var ListNotificationConfigurationsResponse$: StaticStructureSchema = [3, n0, _LNCRi,
   0,
   [_nT, _nC],
-  [0, () => NotificationConfigurations],
+  [0, () => NotificationConfigurations]
 ];
-export var ListNotificationEventsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LNER,
+export var ListNotificationEventsRequest$: StaticStructureSchema = [3, n0, _LNER,
   0,
   [_sT, _eTn, _l, _s, _iCE, _aNEA, _mRa, _nT, _oUI],
-  [
-    [5, { [_hQ]: _sT }],
-    [5, { [_hQ]: _eTn }],
-    [0, { [_hQ]: _l }],
-    [0, { [_hQ]: _s }],
-    [2, { [_hQ]: _iCE }],
-    [0, { [_hQ]: _aNEA }],
-    [1, { [_hQ]: _mRa }],
-    [0, { [_hQ]: _nT }],
-    [0, { [_hQ]: _oUI }],
-  ],
+  [[5, { [_hQ]: _sT }], [5, { [_hQ]: _eTn }], [0, { [_hQ]: _l }], [0, { [_hQ]: _s }], [2, { [_hQ]: _iCE }], [0, { [_hQ]: _aNEA }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _oUI }]]
 ];
-export var ListNotificationEventsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LNERi,
+export var ListNotificationEventsResponse$: StaticStructureSchema = [3, n0, _LNERi,
   0,
   [_nT, _nE],
-  [0, () => NotificationEvents],
+  [0, () => NotificationEvents]
 ];
-export var ListNotificationHubsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LNHR,
+export var ListNotificationHubsRequest$: StaticStructureSchema = [3, n0, _LNHR,
   0,
   [_mRa, _nT],
-  [
-    [1, { [_hQ]: _mRa }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
 ];
-export var ListNotificationHubsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LNHRi,
+export var ListNotificationHubsResponse$: StaticStructureSchema = [3, n0, _LNHRi,
   0,
   [_nH, _nT],
-  [() => NotificationHubs, 0],
+  [() => NotificationHubs, 0]
 ];
-export var ListOrganizationalUnitsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LOUR,
+export var ListOrganizationalUnitsRequest$: StaticStructureSchema = [3, n0, _LOUR,
   0,
   [_nCA, _mRa, _nT],
-  [
-    [0, { [_hQ]: _nCA }],
-    [1, { [_hQ]: _mRa }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, { [_hQ]: _nCA }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
 ];
-export var ListOrganizationalUnitsResponse: StaticStructureSchema = [3, n0, _LOURi, 0, [_oU, _nT], [64 | 0, 0]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_a], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
-export var ManagedNotificationChannelAssociationSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _MNCAS,
+export var ListOrganizationalUnitsResponse$: StaticStructureSchema = [3, n0, _LOURi,
+  0,
+  [_oU, _nT],
+  [64 | 0, 0]
+];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
+  0,
+  [_a],
+  [[0, 1]]
+];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
+  0,
+  [_t],
+  [128 | 0]
+];
+export var ManagedNotificationChannelAssociationSummary$: StaticStructureSchema = [3, n0, _MNCAS,
   0,
   [_cIh, _cTh, _oO],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-export var ManagedNotificationChildEvent: StaticStructureSchema = [
-  3,
-  n0,
-  _MNCE,
+export var ManagedNotificationChildEvent$: StaticStructureSchema = [3, n0, _MNCE,
   0,
   [_sV, _i, _mC, _sEDU, _sEDUDT, _nTo, _eS, _aMNEA, _sT, _eTn, _tP, _oUI, _aDg],
-  [0, 0, () => MessageComponents, 0, 0, 0, 0, 0, 5, 5, () => TextParts, 0, () => AggregationDetail],
+  [0, 0, () => MessageComponents$, 0, 0, 0, 0, 0, 5, 5, () => TextParts, 0, () => AggregationDetail$]
 ];
-export var ManagedNotificationChildEventOverview: StaticStructureSchema = [
-  3,
-  n0,
-  _MNCEO,
+export var ManagedNotificationChildEventOverview$: StaticStructureSchema = [3, n0, _MNCEO,
   0,
   [_a, _mNCA, _rA, _cT, _cE, _aMNEA, _oUI],
-  [0, 0, 0, 5, () => ManagedNotificationChildEventSummary, 0, 0],
+  [0, 0, 0, 5, () => ManagedNotificationChildEventSummary$, 0, 0]
 ];
-export var ManagedNotificationChildEventSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _MNCES,
+export var ManagedNotificationChildEventSummary$: StaticStructureSchema = [3, n0, _MNCES,
   0,
   [_sV, _sEM, _mC, _aDg, _eS, _nTo],
-  [0, () => ManagedSourceEventMetadataSummary, () => MessageComponentsSummary, () => AggregationDetail, 0, 0],
+  [0, () => ManagedSourceEventMetadataSummary$, () => MessageComponentsSummary$, () => AggregationDetail$, 0, 0]
 ];
-export var ManagedNotificationConfigurationStructure: StaticStructureSchema = [
-  3,
-  n0,
-  _MNCS,
+export var ManagedNotificationConfigurationStructure$: StaticStructureSchema = [3, n0, _MNCS,
   0,
   [_a, _n, _d],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-export var ManagedNotificationEvent: StaticStructureSchema = [
-  3,
-  n0,
-  _MNE,
+export var ManagedNotificationEvent$: StaticStructureSchema = [3, n0, _MNE,
   0,
   [_sV, _i, _mC, _sEDU, _sEDUDT, _nTo, _eS, _aET, _aS, _sT, _eTn, _tP, _oUI],
-  [0, 0, () => MessageComponents, 0, 0, 0, 0, 0, () => AggregationSummary, 5, 5, () => TextParts, 0],
+  [0, 0, () => MessageComponents$, 0, 0, 0, 0, 0, () => AggregationSummary$, 5, 5, () => TextParts, 0]
 ];
-export var ManagedNotificationEventOverview: StaticStructureSchema = [
-  3,
-  n0,
-  _MNEO,
+export var ManagedNotificationEventOverview$: StaticStructureSchema = [3, n0, _MNEO,
   0,
   [_a, _mNCA, _rA, _cT, _nEo, _aET, _oUI, _aS, _aNR],
-  [0, 0, 0, 5, () => ManagedNotificationEventSummary, 0, 0, () => AggregationSummary, 64 | 0],
+  [0, 0, 0, 5, () => ManagedNotificationEventSummary$, 0, 0, () => AggregationSummary$, 64 | 0]
 ];
-export var ManagedNotificationEventSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _MNES,
+export var ManagedNotificationEventSummary$: StaticStructureSchema = [3, n0, _MNES,
   0,
   [_sV, _sEM, _mC, _eS, _nTo],
-  [0, () => ManagedSourceEventMetadataSummary, () => MessageComponentsSummary, 0, 0],
+  [0, () => ManagedSourceEventMetadataSummary$, () => MessageComponentsSummary$, 0, 0]
 ];
-export var ManagedSourceEventMetadataSummary: StaticStructureSchema = [3, n0, _MSEMS, 0, [_eOR, _s, _eT], [0, 0, 0]];
-export var MediaElement: StaticStructureSchema = [3, n0, _ME, 0, [_mI, _ty, _u, _cap], [0, 0, 0, 0]];
-export var MemberAccount: StaticStructureSchema = [3, n0, _MA, 0, [_nCA, _aI, _st, _sR, _oUI], [0, 0, 0, 0, 0]];
-export var MessageComponents: StaticStructureSchema = [3, n0, _MC, 0, [_h, _pS, _cD, _di], [0, 0, 0, () => Dimensions]];
-export var MessageComponentsSummary: StaticStructureSchema = [3, n0, _MCS, 0, [_h], [0]];
-export var NotificationConfigurationStructure: StaticStructureSchema = [
-  3,
-  n0,
-  _NCS,
+export var ManagedSourceEventMetadataSummary$: StaticStructureSchema = [3, n0, _MSEMS,
+  0,
+  [_eOR, _s, _eT],
+  [0, 0, 0]
+];
+export var MediaElement$: StaticStructureSchema = [3, n0, _ME,
+  0,
+  [_mI, _ty, _u, _cap],
+  [0, 0, 0, 0]
+];
+export var MemberAccount$: StaticStructureSchema = [3, n0, _MA,
+  0,
+  [_nCA, _aI, _st, _sR, _oUI],
+  [0, 0, 0, 0, 0]
+];
+export var MessageComponents$: StaticStructureSchema = [3, n0, _MC,
+  0,
+  [_h, _pS, _cD, _di],
+  [0, 0, 0, () => Dimensions]
+];
+export var MessageComponentsSummary$: StaticStructureSchema = [3, n0, _MCS,
+  0,
+  [_h],
+  [0]
+];
+export var NotificationConfigurationStructure$: StaticStructureSchema = [3, n0, _NCS,
   0,
   [_a, _n, _d, _st, _cT, _aD, _su],
-  [0, 0, 0, 0, 5, 0, 0],
+  [0, 0, 0, 0, 5, 0, 0]
 ];
-export var NotificationEventOverview: StaticStructureSchema = [
-  3,
-  n0,
-  _NEO,
+export var NotificationEventOverview$: StaticStructureSchema = [3, n0, _NEO,
   0,
   [_a, _nCA, _rA, _cT, _nEo, _aET, _aNEA, _aS, _oUI],
-  [0, 0, 0, 5, () => NotificationEventSummary, 0, 0, () => AggregationSummary, 0],
+  [0, 0, 0, 5, () => NotificationEventSummary$, 0, 0, () => AggregationSummary$, 0]
 ];
-export var NotificationEventSchema: StaticStructureSchema = [
-  3,
-  n0,
-  _NES,
+export var NotificationEventSchema$: StaticStructureSchema = [3, n0, _NES,
   0,
   [_sV, _i, _sEM, _mC, _sEDU, _sEDUDT, _nTo, _eS, _aET, _aNEA, _aS, _sT, _eTn, _tP, _me, _oUI],
-  [
-    0,
-    0,
-    () => SourceEventMetadata,
-    () => MessageComponents,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    () => AggregationSummary,
-    5,
-    5,
-    () => TextParts,
-    () => Media,
-    0,
-  ],
+  [0, 0, () => SourceEventMetadata$, () => MessageComponents$, 0, 0, 0, 0, 0, 0, () => AggregationSummary$, 5, 5, () => TextParts, () => Media, 0]
 ];
-export var NotificationEventSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _NESo,
+export var NotificationEventSummary$: StaticStructureSchema = [3, n0, _NESo,
   0,
   [_sV, _sEM, _mC, _eS, _nTo],
-  [0, () => SourceEventMetadataSummary, () => MessageComponentsSummary, 0, 0],
+  [0, () => SourceEventMetadataSummary$, () => MessageComponentsSummary$, 0, 0]
 ];
-export var NotificationHubOverview: StaticStructureSchema = [
-  3,
-  n0,
-  _NHO,
+export var NotificationHubOverview$: StaticStructureSchema = [3, n0, _NHO,
   0,
   [_nHR, _sS, _cT, _lAT],
-  [0, () => NotificationHubStatusSummary, 5, 5],
+  [0, () => NotificationHubStatusSummary$, 5, 5]
 ];
-export var NotificationHubStatusSummary: StaticStructureSchema = [3, n0, _NHSS, 0, [_st, _re], [0, 0]];
-export var NotificationsAccessForOrganization: StaticStructureSchema = [3, n0, _NAFO, 0, [_aSc], [0]];
-export var RegisterNotificationHubRequest: StaticStructureSchema = [3, n0, _RNHR, 0, [_nHR], [0]];
-export var RegisterNotificationHubResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _RNHRe,
+export var NotificationHubStatusSummary$: StaticStructureSchema = [3, n0, _NHSS,
+  0,
+  [_st, _re],
+  [0, 0]
+];
+export var NotificationsAccessForOrganization$: StaticStructureSchema = [3, n0, _NAFO,
+  0,
+  [_aSc],
+  [0]
+];
+export var RegisterNotificationHubRequest$: StaticStructureSchema = [3, n0, _RNHR,
+  0,
+  [_nHR],
+  [0]
+];
+export var RegisterNotificationHubResponse$: StaticStructureSchema = [3, n0, _RNHRe,
   0,
   [_nHR, _sS, _cT, _lAT],
-  [0, () => NotificationHubStatusSummary, 5, 5],
+  [0, () => NotificationHubStatusSummary$, 5, 5]
 ];
-export var Resource: StaticStructureSchema = [3, n0, _R, 0, [_i, _a, _dU, _t], [0, 0, 0, 64 | 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m, _rI], [0, 0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
+export var Resource$: StaticStructureSchema = [3, n0, _R,
+  0,
+  [_i, _a, _dU, _t],
+  [0, 0, 0, 64 | 0]
+];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI],
+  [0, 0]
+];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m, _rT, _rI, _sCe, _qC],
-  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var SourceEventMetadata: StaticStructureSchema = [
-  3,
-  n0,
-  _SEM,
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SourceEventMetadata$: StaticStructureSchema = [3, n0, _SEM,
   0,
   [_eTV, _sEI, _eOR, _rA, _s, _eOT, _eT, _rR],
-  [0, 0, 0, 0, 0, 5, 0, () => Resources],
+  [0, 0, 0, 0, 0, 5, 0, () => Resources]
 ];
-export var SourceEventMetadataSummary: StaticStructureSchema = [3, n0, _SEMS, 0, [_eOR, _s, _eT], [0, 0, 0]];
-export var SummarizationDimensionDetail: StaticStructureSchema = [3, n0, _SDD, 0, [_n, _v], [0, 0]];
-export var SummarizationDimensionOverview: StaticStructureSchema = [3, n0, _SDO, 0, [_n, _cou, _sVa], [0, 1, 64 | 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_a, _t], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TextPartValue: StaticStructureSchema = [3, n0, _TPV, 0, [_ty, _dT, _tBL, _u], [0, 0, 128 | 0, 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
+export var SourceEventMetadataSummary$: StaticStructureSchema = [3, n0, _SEMS,
+  0,
+  [_eOR, _s, _eT],
+  [0, 0, 0]
+];
+export var SummarizationDimensionDetail$: StaticStructureSchema = [3, n0, _SDD,
+  0,
+  [_n, _v],
+  [0, 0]
+];
+export var SummarizationDimensionOverview$: StaticStructureSchema = [3, n0, _SDO,
+  0,
+  [_n, _cou, _sVa],
+  [0, 1, 64 | 0]
+];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
+  0,
+  [_a, _t],
+  [[0, 1], 128 | 0]
+];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
+  0,
+  [],
+  []
+];
+export var TextPartValue$: StaticStructureSchema = [3, n0, _TPV,
+  0,
+  [_ty, _dT, _tBL, _u],
+  [0, 0, 128 | 0, 0]
+];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _sCe, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]],
+  [0, 0, 0, [1, { [_hH]: _RA }]]
 ];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UntagResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _URR,
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_a, _tK],
-  [
-    [0, 1],
-    [64 | 0, { [_hQ]: _tK }],
-  ],
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateEventRuleRequest: StaticStructureSchema = [3, n0, _UERR, 0, [_a, _eP, _r], [[0, 1], 0, 64 | 0]];
-export var UpdateEventRuleResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _UERRp,
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
+  0,
+  [],
+  []
+];
+export var UpdateEventRuleRequest$: StaticStructureSchema = [3, n0, _UERR,
+  0,
+  [_a, _eP, _r],
+  [[0, 1], 0, 64 | 0]
+];
+export var UpdateEventRuleResponse$: StaticStructureSchema = [3, n0, _UERRp,
   0,
   [_a, _nCA, _sSBR],
-  [0, 0, () => StatusSummaryByRegion],
+  [0, 0, () => StatusSummaryByRegion]
 ];
-export var UpdateNotificationConfigurationRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UNCR,
+export var UpdateNotificationConfigurationRequest$: StaticStructureSchema = [3, n0, _UNCR,
   0,
   [_a, _n, _d, _aD],
-  [[0, 1], 0, 0, 0],
+  [[0, 1], 0, 0, 0]
 ];
-export var UpdateNotificationConfigurationResponse: StaticStructureSchema = [3, n0, _UNCRp, 0, [_a], [0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
+export var UpdateNotificationConfigurationResponse$: StaticStructureSchema = [3, n0, _UNCRp,
+  0,
+  [_a],
+  [0]
+];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _re, _fL],
-  [0, 0, () => ValidationExceptionFieldList],
+  [0, 0, () => ValidationExceptionFieldList]
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var NotificationsServiceException: StaticErrorSchema = [-3, _sm, "NotificationsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(NotificationsServiceException, __NotificationsServiceException);
-export var AggregatedNotificationRegions = 64 | 0;
-export var AggregationKeys: StaticListSchema = [1, n0, _AKg, 0, () => AggregationKey];
-export var Channels = 64 | 0;
-export var Dimensions: StaticListSchema = [1, n0, _Di, 0, () => Dimension];
-export var EventRules: StaticListSchema = [1, n0, _ER, 0, () => EventRuleStructure];
-export var ManagedNotificationChannelAssociations: StaticListSchema = [
-  1,
-  n0,
-  _MNCA,
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
-  () => ManagedNotificationChannelAssociationSummary,
+  [_n, _m],
+  [0, 0]
 ];
-export var ManagedNotificationChildEvents: StaticListSchema = [
-  1,
-  n0,
-  _MNCEa,
-  0,
-  () => ManagedNotificationChildEventOverview,
+export var NotificationsServiceException$: StaticErrorSchema = [-3, _sm, "NotificationsServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(NotificationsServiceException$, NotificationsServiceException);
+var AggregatedNotificationRegions = 64 | 0;
+var AggregationKeys: StaticListSchema = [1, n0, _AKg,
+  0, () => AggregationKey$
 ];
-export var ManagedNotificationConfigurations: StaticListSchema = [
-  1,
-  n0,
-  _MNC,
-  0,
-  () => ManagedNotificationConfigurationStructure,
+var Channels = 64 | 0;
+var Dimensions: StaticListSchema = [1, n0, _Di,
+  0, () => Dimension$
 ];
-export var ManagedNotificationEvents: StaticListSchema = [1, n0, _MNEa, 0, () => ManagedNotificationEventOverview];
-export var ManagedRuleArns = 64 | 0;
-export var Media: StaticListSchema = [1, n0, _M, 0, () => MediaElement];
-export var MemberAccounts: StaticListSchema = [1, n0, _MAe, 0, () => MemberAccount];
-export var NotificationConfigurations: StaticListSchema = [1, n0, _NC, 0, () => NotificationConfigurationStructure];
-export var NotificationEvents: StaticListSchema = [1, n0, _NE, 0, () => NotificationEventOverview];
-export var NotificationHubs: StaticListSchema = [1, n0, _NH, 0, () => NotificationHubOverview];
-export var OrganizationalUnits = 64 | 0;
-export var Regions = 64 | 0;
-export var Resources: StaticListSchema = [1, n0, _Re, 0, () => Resource];
-export var SampleAggregationDimensionValues = 64 | 0;
-export var SummarizationDimensionDetails: StaticListSchema = [1, n0, _SDDu, 0, () => SummarizationDimensionDetail];
-export var SummarizationDimensionOverviews: StaticListSchema = [1, n0, _SDOu, 0, () => SummarizationDimensionOverview];
-export var TagKeys = 64 | 0;
-export var Tags = 64 | 0;
-export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
-export var StatusSummaryByRegion: StaticMapSchema = [2, n0, _SSBR, 0, 0, () => EventRuleStatusSummary];
-export var TagMap = 128 | 0;
-export var TextByLocale = 128 | 0;
-export var TextParts: StaticMapSchema = [2, n0, _TP, 0, 0, () => TextPartValue];
-export var AssociateChannel: StaticOperationSchema = [
-  9,
-  n0,
-  _AC,
-  { [_ht]: ["POST", "/channels/associate/{arn}", 201] },
-  () => AssociateChannelRequest,
-  () => AssociateChannelResponse,
+var EventRules: StaticListSchema = [1, n0, _ER,
+  0, () => EventRuleStructure$
 ];
-export var AssociateManagedNotificationAccountContact: StaticOperationSchema = [
-  9,
-  n0,
-  _AMNAC,
-  { [_ht]: ["PUT", "/contacts/associate-managed-notification/{contactIdentifier}", 201] },
-  () => AssociateManagedNotificationAccountContactRequest,
-  () => AssociateManagedNotificationAccountContactResponse,
+var ManagedNotificationChannelAssociations: StaticListSchema = [1, n0, _MNCA,
+  0, () => ManagedNotificationChannelAssociationSummary$
 ];
-export var AssociateManagedNotificationAdditionalChannel: StaticOperationSchema = [
-  9,
-  n0,
-  _AMNACs,
-  { [_ht]: ["PUT", "/channels/associate-managed-notification/{channelArn}", 201] },
-  () => AssociateManagedNotificationAdditionalChannelRequest,
-  () => AssociateManagedNotificationAdditionalChannelResponse,
+var ManagedNotificationChildEvents: StaticListSchema = [1, n0, _MNCEa,
+  0, () => ManagedNotificationChildEventOverview$
 ];
-export var AssociateOrganizationalUnit: StaticOperationSchema = [
-  9,
-  n0,
-  _AOU,
-  { [_ht]: ["POST", "/organizational-units/associate/{organizationalUnitId}", 201] },
-  () => AssociateOrganizationalUnitRequest,
-  () => AssociateOrganizationalUnitResponse,
+var ManagedNotificationConfigurations: StaticListSchema = [1, n0, _MNC,
+  0, () => ManagedNotificationConfigurationStructure$
 ];
-export var CreateEventRule: StaticOperationSchema = [
-  9,
-  n0,
-  _CER,
-  { [_ht]: ["POST", "/event-rules", 201] },
-  () => CreateEventRuleRequest,
-  () => CreateEventRuleResponse,
+var ManagedNotificationEvents: StaticListSchema = [1, n0, _MNEa,
+  0, () => ManagedNotificationEventOverview$
 ];
-export var CreateNotificationConfiguration: StaticOperationSchema = [
-  9,
-  n0,
-  _CNC,
-  { [_ht]: ["POST", "/notification-configurations", 201] },
-  () => CreateNotificationConfigurationRequest,
-  () => CreateNotificationConfigurationResponse,
+var ManagedRuleArns = 64 | 0;
+var Media: StaticListSchema = [1, n0, _M,
+  0, () => MediaElement$
 ];
-export var DeleteEventRule: StaticOperationSchema = [
-  9,
-  n0,
-  _DER,
-  { [_ht]: ["DELETE", "/event-rules/{arn}", 200] },
-  () => DeleteEventRuleRequest,
-  () => DeleteEventRuleResponse,
+var MemberAccounts: StaticListSchema = [1, n0, _MAe,
+  0, () => MemberAccount$
 ];
-export var DeleteNotificationConfiguration: StaticOperationSchema = [
-  9,
-  n0,
-  _DNC,
-  { [_ht]: ["DELETE", "/notification-configurations/{arn}", 200] },
-  () => DeleteNotificationConfigurationRequest,
-  () => DeleteNotificationConfigurationResponse,
+var NotificationConfigurations: StaticListSchema = [1, n0, _NC,
+  0, () => NotificationConfigurationStructure$
 ];
-export var DeregisterNotificationHub: StaticOperationSchema = [
-  9,
-  n0,
-  _DNH,
-  { [_ht]: ["DELETE", "/notification-hubs/{notificationHubRegion}", 200] },
-  () => DeregisterNotificationHubRequest,
-  () => DeregisterNotificationHubResponse,
+var NotificationEvents: StaticListSchema = [1, n0, _NE,
+  0, () => NotificationEventOverview$
 ];
-export var DisableNotificationsAccessForOrganization: StaticOperationSchema = [
-  9,
-  n0,
-  _DNAFO,
-  { [_ht]: ["DELETE", "/organization/access", 200] },
-  () => DisableNotificationsAccessForOrganizationRequest,
-  () => DisableNotificationsAccessForOrganizationResponse,
+var NotificationHubs: StaticListSchema = [1, n0, _NH,
+  0, () => NotificationHubOverview$
 ];
-export var DisassociateChannel: StaticOperationSchema = [
-  9,
-  n0,
-  _DC,
-  { [_ht]: ["POST", "/channels/disassociate/{arn}", 200] },
-  () => DisassociateChannelRequest,
-  () => DisassociateChannelResponse,
+var OrganizationalUnits = 64 | 0;
+var Regions = 64 | 0;
+var Resources: StaticListSchema = [1, n0, _Re,
+  0, () => Resource$
 ];
-export var DisassociateManagedNotificationAccountContact: StaticOperationSchema = [
-  9,
-  n0,
-  _DMNAC,
-  { [_ht]: ["PUT", "/contacts/disassociate-managed-notification/{contactIdentifier}", 200] },
-  () => DisassociateManagedNotificationAccountContactRequest,
-  () => DisassociateManagedNotificationAccountContactResponse,
+var SampleAggregationDimensionValues = 64 | 0;
+var SummarizationDimensionDetails: StaticListSchema = [1, n0, _SDDu,
+  0, () => SummarizationDimensionDetail$
 ];
-export var DisassociateManagedNotificationAdditionalChannel: StaticOperationSchema = [
-  9,
-  n0,
-  _DMNACi,
-  { [_ht]: ["PUT", "/channels/disassociate-managed-notification/{channelArn}", 200] },
-  () => DisassociateManagedNotificationAdditionalChannelRequest,
-  () => DisassociateManagedNotificationAdditionalChannelResponse,
+var SummarizationDimensionOverviews: StaticListSchema = [1, n0, _SDOu,
+  0, () => SummarizationDimensionOverview$
 ];
-export var DisassociateOrganizationalUnit: StaticOperationSchema = [
-  9,
-  n0,
-  _DOU,
-  { [_ht]: ["POST", "/organizational-units/disassociate/{organizationalUnitId}", 200] },
-  () => DisassociateOrganizationalUnitRequest,
-  () => DisassociateOrganizationalUnitResponse,
+var TagKeys = 64 | 0;
+var Tags = 64 | 0;
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
+  0, () => ValidationExceptionField$
 ];
-export var EnableNotificationsAccessForOrganization: StaticOperationSchema = [
-  9,
-  n0,
-  _ENAFO,
-  { [_ht]: ["POST", "/organization/access", 200] },
-  () => EnableNotificationsAccessForOrganizationRequest,
-  () => EnableNotificationsAccessForOrganizationResponse,
+var StatusSummaryByRegion: StaticMapSchema = [2, n0, _SSBR,
+  0, 0, () => EventRuleStatusSummary$
 ];
-export var GetEventRule: StaticOperationSchema = [
-  9,
-  n0,
-  _GER,
-  { [_ht]: ["GET", "/event-rules/{arn}", 200] },
-  () => GetEventRuleRequest,
-  () => GetEventRuleResponse,
+var TagMap = 128 | 0;
+var TextByLocale = 128 | 0;
+var TextParts: StaticMapSchema = [2, n0, _TP,
+  0, 0, () => TextPartValue$
 ];
-export var GetManagedNotificationChildEvent: StaticOperationSchema = [
-  9,
-  n0,
-  _GMNCE,
-  { [_ht]: ["GET", "/managed-notification-child-events/{arn}", 200] },
-  () => GetManagedNotificationChildEventRequest,
-  () => GetManagedNotificationChildEventResponse,
+export var AssociateChannel$: StaticOperationSchema = [9, n0, _AC,
+  { [_ht]: ["POST", "/channels/associate/{arn}", 201] }, () => AssociateChannelRequest$, () => AssociateChannelResponse$
 ];
-export var GetManagedNotificationConfiguration: StaticOperationSchema = [
-  9,
-  n0,
-  _GMNC,
-  { [_ht]: ["GET", "/managed-notification-configurations/{arn}", 200] },
-  () => GetManagedNotificationConfigurationRequest,
-  () => GetManagedNotificationConfigurationResponse,
+export var AssociateManagedNotificationAccountContact$: StaticOperationSchema = [9, n0, _AMNAC,
+  { [_ht]: ["PUT", "/contacts/associate-managed-notification/{contactIdentifier}", 201] }, () => AssociateManagedNotificationAccountContactRequest$, () => AssociateManagedNotificationAccountContactResponse$
 ];
-export var GetManagedNotificationEvent: StaticOperationSchema = [
-  9,
-  n0,
-  _GMNE,
-  { [_ht]: ["GET", "/managed-notification-events/{arn}", 200] },
-  () => GetManagedNotificationEventRequest,
-  () => GetManagedNotificationEventResponse,
+export var AssociateManagedNotificationAdditionalChannel$: StaticOperationSchema = [9, n0, _AMNACs,
+  { [_ht]: ["PUT", "/channels/associate-managed-notification/{channelArn}", 201] }, () => AssociateManagedNotificationAdditionalChannelRequest$, () => AssociateManagedNotificationAdditionalChannelResponse$
 ];
-export var GetNotificationConfiguration: StaticOperationSchema = [
-  9,
-  n0,
-  _GNC,
-  { [_ht]: ["GET", "/notification-configurations/{arn}", 200] },
-  () => GetNotificationConfigurationRequest,
-  () => GetNotificationConfigurationResponse,
+export var AssociateOrganizationalUnit$: StaticOperationSchema = [9, n0, _AOU,
+  { [_ht]: ["POST", "/organizational-units/associate/{organizationalUnitId}", 201] }, () => AssociateOrganizationalUnitRequest$, () => AssociateOrganizationalUnitResponse$
 ];
-export var GetNotificationEvent: StaticOperationSchema = [
-  9,
-  n0,
-  _GNE,
-  { [_ht]: ["GET", "/notification-events/{arn}", 200] },
-  () => GetNotificationEventRequest,
-  () => GetNotificationEventResponse,
+export var CreateEventRule$: StaticOperationSchema = [9, n0, _CER,
+  { [_ht]: ["POST", "/event-rules", 201] }, () => CreateEventRuleRequest$, () => CreateEventRuleResponse$
 ];
-export var GetNotificationsAccessForOrganization: StaticOperationSchema = [
-  9,
-  n0,
-  _GNAFO,
-  { [_ht]: ["GET", "/organization/access", 200] },
-  () => GetNotificationsAccessForOrganizationRequest,
-  () => GetNotificationsAccessForOrganizationResponse,
+export var CreateNotificationConfiguration$: StaticOperationSchema = [9, n0, _CNC,
+  { [_ht]: ["POST", "/notification-configurations", 201] }, () => CreateNotificationConfigurationRequest$, () => CreateNotificationConfigurationResponse$
 ];
-export var ListChannels: StaticOperationSchema = [
-  9,
-  n0,
-  _LC,
-  { [_ht]: ["GET", "/channels", 200] },
-  () => ListChannelsRequest,
-  () => ListChannelsResponse,
+export var DeleteEventRule$: StaticOperationSchema = [9, n0, _DER,
+  { [_ht]: ["DELETE", "/event-rules/{arn}", 200] }, () => DeleteEventRuleRequest$, () => DeleteEventRuleResponse$
 ];
-export var ListEventRules: StaticOperationSchema = [
-  9,
-  n0,
-  _LER,
-  { [_ht]: ["GET", "/event-rules", 200] },
-  () => ListEventRulesRequest,
-  () => ListEventRulesResponse,
+export var DeleteNotificationConfiguration$: StaticOperationSchema = [9, n0, _DNC,
+  { [_ht]: ["DELETE", "/notification-configurations/{arn}", 200] }, () => DeleteNotificationConfigurationRequest$, () => DeleteNotificationConfigurationResponse$
 ];
-export var ListManagedNotificationChannelAssociations: StaticOperationSchema = [
-  9,
-  n0,
-  _LMNCA,
-  { [_ht]: ["GET", "/channels/list-managed-notification-channel-associations", 200] },
-  () => ListManagedNotificationChannelAssociationsRequest,
-  () => ListManagedNotificationChannelAssociationsResponse,
+export var DeregisterNotificationHub$: StaticOperationSchema = [9, n0, _DNH,
+  { [_ht]: ["DELETE", "/notification-hubs/{notificationHubRegion}", 200] }, () => DeregisterNotificationHubRequest$, () => DeregisterNotificationHubResponse$
 ];
-export var ListManagedNotificationChildEvents: StaticOperationSchema = [
-  9,
-  n0,
-  _LMNCE,
-  { [_ht]: ["GET", "/list-managed-notification-child-events/{aggregateManagedNotificationEventArn}", 200] },
-  () => ListManagedNotificationChildEventsRequest,
-  () => ListManagedNotificationChildEventsResponse,
+export var DisableNotificationsAccessForOrganization$: StaticOperationSchema = [9, n0, _DNAFO,
+  { [_ht]: ["DELETE", "/organization/access", 200] }, () => DisableNotificationsAccessForOrganizationRequest$, () => DisableNotificationsAccessForOrganizationResponse$
 ];
-export var ListManagedNotificationConfigurations: StaticOperationSchema = [
-  9,
-  n0,
-  _LMNC,
-  { [_ht]: ["GET", "/managed-notification-configurations", 200] },
-  () => ListManagedNotificationConfigurationsRequest,
-  () => ListManagedNotificationConfigurationsResponse,
+export var DisassociateChannel$: StaticOperationSchema = [9, n0, _DC,
+  { [_ht]: ["POST", "/channels/disassociate/{arn}", 200] }, () => DisassociateChannelRequest$, () => DisassociateChannelResponse$
 ];
-export var ListManagedNotificationEvents: StaticOperationSchema = [
-  9,
-  n0,
-  _LMNE,
-  { [_ht]: ["GET", "/managed-notification-events", 200] },
-  () => ListManagedNotificationEventsRequest,
-  () => ListManagedNotificationEventsResponse,
+export var DisassociateManagedNotificationAccountContact$: StaticOperationSchema = [9, n0, _DMNAC,
+  { [_ht]: ["PUT", "/contacts/disassociate-managed-notification/{contactIdentifier}", 200] }, () => DisassociateManagedNotificationAccountContactRequest$, () => DisassociateManagedNotificationAccountContactResponse$
 ];
-export var ListMemberAccounts: StaticOperationSchema = [
-  9,
-  n0,
-  _LMA,
-  { [_ht]: ["GET", "/list-member-accounts", 200] },
-  () => ListMemberAccountsRequest,
-  () => ListMemberAccountsResponse,
+export var DisassociateManagedNotificationAdditionalChannel$: StaticOperationSchema = [9, n0, _DMNACi,
+  { [_ht]: ["PUT", "/channels/disassociate-managed-notification/{channelArn}", 200] }, () => DisassociateManagedNotificationAdditionalChannelRequest$, () => DisassociateManagedNotificationAdditionalChannelResponse$
 ];
-export var ListNotificationConfigurations: StaticOperationSchema = [
-  9,
-  n0,
-  _LNC,
-  { [_ht]: ["GET", "/notification-configurations", 200] },
-  () => ListNotificationConfigurationsRequest,
-  () => ListNotificationConfigurationsResponse,
+export var DisassociateOrganizationalUnit$: StaticOperationSchema = [9, n0, _DOU,
+  { [_ht]: ["POST", "/organizational-units/disassociate/{organizationalUnitId}", 200] }, () => DisassociateOrganizationalUnitRequest$, () => DisassociateOrganizationalUnitResponse$
 ];
-export var ListNotificationEvents: StaticOperationSchema = [
-  9,
-  n0,
-  _LNE,
-  { [_ht]: ["GET", "/notification-events", 200] },
-  () => ListNotificationEventsRequest,
-  () => ListNotificationEventsResponse,
+export var EnableNotificationsAccessForOrganization$: StaticOperationSchema = [9, n0, _ENAFO,
+  { [_ht]: ["POST", "/organization/access", 200] }, () => EnableNotificationsAccessForOrganizationRequest$, () => EnableNotificationsAccessForOrganizationResponse$
 ];
-export var ListNotificationHubs: StaticOperationSchema = [
-  9,
-  n0,
-  _LNH,
-  { [_ht]: ["GET", "/notification-hubs", 200] },
-  () => ListNotificationHubsRequest,
-  () => ListNotificationHubsResponse,
+export var GetEventRule$: StaticOperationSchema = [9, n0, _GER,
+  { [_ht]: ["GET", "/event-rules/{arn}", 200] }, () => GetEventRuleRequest$, () => GetEventRuleResponse$
 ];
-export var ListOrganizationalUnits: StaticOperationSchema = [
-  9,
-  n0,
-  _LOU,
-  { [_ht]: ["GET", "/organizational-units", 200] },
-  () => ListOrganizationalUnitsRequest,
-  () => ListOrganizationalUnitsResponse,
+export var GetManagedNotificationChildEvent$: StaticOperationSchema = [9, n0, _GMNCE,
+  { [_ht]: ["GET", "/managed-notification-child-events/{arn}", 200] }, () => GetManagedNotificationChildEventRequest$, () => GetManagedNotificationChildEventResponse$
 ];
-export var ListTagsForResource: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  { [_ht]: ["GET", "/tags/{arn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+export var GetManagedNotificationConfiguration$: StaticOperationSchema = [9, n0, _GMNC,
+  { [_ht]: ["GET", "/managed-notification-configurations/{arn}", 200] }, () => GetManagedNotificationConfigurationRequest$, () => GetManagedNotificationConfigurationResponse$
 ];
-export var RegisterNotificationHub: StaticOperationSchema = [
-  9,
-  n0,
-  _RNH,
-  { [_ht]: ["POST", "/notification-hubs", 201] },
-  () => RegisterNotificationHubRequest,
-  () => RegisterNotificationHubResponse,
+export var GetManagedNotificationEvent$: StaticOperationSchema = [9, n0, _GMNE,
+  { [_ht]: ["GET", "/managed-notification-events/{arn}", 200] }, () => GetManagedNotificationEventRequest$, () => GetManagedNotificationEventResponse$
 ];
-export var TagResource: StaticOperationSchema = [
-  9,
-  n0,
-  _TR,
-  { [_ht]: ["POST", "/tags/{arn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+export var GetNotificationConfiguration$: StaticOperationSchema = [9, n0, _GNC,
+  { [_ht]: ["GET", "/notification-configurations/{arn}", 200] }, () => GetNotificationConfigurationRequest$, () => GetNotificationConfigurationResponse$
 ];
-export var UntagResource: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  { [_ht]: ["DELETE", "/tags/{arn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+export var GetNotificationEvent$: StaticOperationSchema = [9, n0, _GNE,
+  { [_ht]: ["GET", "/notification-events/{arn}", 200] }, () => GetNotificationEventRequest$, () => GetNotificationEventResponse$
 ];
-export var UpdateEventRule: StaticOperationSchema = [
-  9,
-  n0,
-  _UER,
-  { [_ht]: ["PUT", "/event-rules/{arn}", 200] },
-  () => UpdateEventRuleRequest,
-  () => UpdateEventRuleResponse,
+export var GetNotificationsAccessForOrganization$: StaticOperationSchema = [9, n0, _GNAFO,
+  { [_ht]: ["GET", "/organization/access", 200] }, () => GetNotificationsAccessForOrganizationRequest$, () => GetNotificationsAccessForOrganizationResponse$
 ];
-export var UpdateNotificationConfiguration: StaticOperationSchema = [
-  9,
-  n0,
-  _UNC,
-  { [_ht]: ["PUT", "/notification-configurations/{arn}", 200] },
-  () => UpdateNotificationConfigurationRequest,
-  () => UpdateNotificationConfigurationResponse,
+export var ListChannels$: StaticOperationSchema = [9, n0, _LC,
+  { [_ht]: ["GET", "/channels", 200] }, () => ListChannelsRequest$, () => ListChannelsResponse$
+];
+export var ListEventRules$: StaticOperationSchema = [9, n0, _LER,
+  { [_ht]: ["GET", "/event-rules", 200] }, () => ListEventRulesRequest$, () => ListEventRulesResponse$
+];
+export var ListManagedNotificationChannelAssociations$: StaticOperationSchema = [9, n0, _LMNCA,
+  { [_ht]: ["GET", "/channels/list-managed-notification-channel-associations", 200] }, () => ListManagedNotificationChannelAssociationsRequest$, () => ListManagedNotificationChannelAssociationsResponse$
+];
+export var ListManagedNotificationChildEvents$: StaticOperationSchema = [9, n0, _LMNCE,
+  { [_ht]: ["GET", "/list-managed-notification-child-events/{aggregateManagedNotificationEventArn}", 200] }, () => ListManagedNotificationChildEventsRequest$, () => ListManagedNotificationChildEventsResponse$
+];
+export var ListManagedNotificationConfigurations$: StaticOperationSchema = [9, n0, _LMNC,
+  { [_ht]: ["GET", "/managed-notification-configurations", 200] }, () => ListManagedNotificationConfigurationsRequest$, () => ListManagedNotificationConfigurationsResponse$
+];
+export var ListManagedNotificationEvents$: StaticOperationSchema = [9, n0, _LMNE,
+  { [_ht]: ["GET", "/managed-notification-events", 200] }, () => ListManagedNotificationEventsRequest$, () => ListManagedNotificationEventsResponse$
+];
+export var ListMemberAccounts$: StaticOperationSchema = [9, n0, _LMA,
+  { [_ht]: ["GET", "/list-member-accounts", 200] }, () => ListMemberAccountsRequest$, () => ListMemberAccountsResponse$
+];
+export var ListNotificationConfigurations$: StaticOperationSchema = [9, n0, _LNC,
+  { [_ht]: ["GET", "/notification-configurations", 200] }, () => ListNotificationConfigurationsRequest$, () => ListNotificationConfigurationsResponse$
+];
+export var ListNotificationEvents$: StaticOperationSchema = [9, n0, _LNE,
+  { [_ht]: ["GET", "/notification-events", 200] }, () => ListNotificationEventsRequest$, () => ListNotificationEventsResponse$
+];
+export var ListNotificationHubs$: StaticOperationSchema = [9, n0, _LNH,
+  { [_ht]: ["GET", "/notification-hubs", 200] }, () => ListNotificationHubsRequest$, () => ListNotificationHubsResponse$
+];
+export var ListOrganizationalUnits$: StaticOperationSchema = [9, n0, _LOU,
+  { [_ht]: ["GET", "/organizational-units", 200] }, () => ListOrganizationalUnitsRequest$, () => ListOrganizationalUnitsResponse$
+];
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  { [_ht]: ["GET", "/tags/{arn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
+];
+export var RegisterNotificationHub$: StaticOperationSchema = [9, n0, _RNH,
+  { [_ht]: ["POST", "/notification-hubs", 201] }, () => RegisterNotificationHubRequest$, () => RegisterNotificationHubResponse$
+];
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  { [_ht]: ["POST", "/tags/{arn}", 200] }, () => TagResourceRequest$, () => TagResourceResponse$
+];
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  { [_ht]: ["DELETE", "/tags/{arn}", 200] }, () => UntagResourceRequest$, () => UntagResourceResponse$
+];
+export var UpdateEventRule$: StaticOperationSchema = [9, n0, _UER,
+  { [_ht]: ["PUT", "/event-rules/{arn}", 200] }, () => UpdateEventRuleRequest$, () => UpdateEventRuleResponse$
+];
+export var UpdateNotificationConfiguration$: StaticOperationSchema = [9, n0, _UNC,
+  { [_ht]: ["PUT", "/notification-configurations/{arn}", 200] }, () => UpdateNotificationConfigurationRequest$, () => UpdateNotificationConfigurationResponse$
 ];

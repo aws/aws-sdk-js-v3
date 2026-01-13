@@ -8,7 +8,7 @@ import type {
   DescribeMaintenanceWindowExecutionTasksRequest,
   DescribeMaintenanceWindowExecutionTasksResult,
 } from "../models/models_0";
-import { DescribeMaintenanceWindowExecutionTasks } from "../schemas/schemas_0";
+import { DescribeMaintenanceWindowExecutionTasks$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeMaintenanceWindowExecutionTasksCommand}.
  */
-export interface DescribeMaintenanceWindowExecutionTasksCommandInput
-  extends DescribeMaintenanceWindowExecutionTasksRequest {}
+export interface DescribeMaintenanceWindowExecutionTasksCommandInput extends DescribeMaintenanceWindowExecutionTasksRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeMaintenanceWindowExecutionTasksCommand}.
  */
-export interface DescribeMaintenanceWindowExecutionTasksCommandOutput
-  extends DescribeMaintenanceWindowExecutionTasksResult,
-    __MetadataBearer {}
+export interface DescribeMaintenanceWindowExecutionTasksCommandOutput extends DescribeMaintenanceWindowExecutionTasksResult, __MetadataBearer {}
 
 /**
  * <p>For a given maintenance window execution, lists the tasks that were run.</p>
@@ -124,7 +121,7 @@ export class DescribeMaintenanceWindowExecutionTasksCommand extends $Command
   })
   .s("AmazonSSM", "DescribeMaintenanceWindowExecutionTasks", {})
   .n("SSMClient", "DescribeMaintenanceWindowExecutionTasksCommand")
-  .sc(DescribeMaintenanceWindowExecutionTasks)
+  .sc(DescribeMaintenanceWindowExecutionTasks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

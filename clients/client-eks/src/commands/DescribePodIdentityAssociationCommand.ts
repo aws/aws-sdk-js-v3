@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribePodIdentityAssociationRequest, DescribePodIdentityAssociationResponse } from "../models/models_0";
-import { DescribePodIdentityAssociation } from "../schemas/schemas_0";
+import { DescribePodIdentityAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribePodIdentityAssociationCommandInput extends DescribePodI
  *
  * The output of {@link DescribePodIdentityAssociationCommand}.
  */
-export interface DescribePodIdentityAssociationCommandOutput
-  extends DescribePodIdentityAssociationResponse,
-    __MetadataBearer {}
+export interface DescribePodIdentityAssociationCommandOutput extends DescribePodIdentityAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns descriptive information about an EKS Pod Identity association.</p>
@@ -113,7 +111,7 @@ export class DescribePodIdentityAssociationCommand extends $Command
   })
   .s("AWSWesleyFrontend", "DescribePodIdentityAssociation", {})
   .n("EKSClient", "DescribePodIdentityAssociationCommand")
-  .sc(DescribePodIdentityAssociation)
+  .sc(DescribePodIdentityAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

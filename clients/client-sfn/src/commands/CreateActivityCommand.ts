@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateActivityInput, CreateActivityOutput } from "../models/models_0";
-import { CreateActivity } from "../schemas/schemas_0";
+import { CreateActivity$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -124,7 +124,7 @@ export class CreateActivityCommand extends $Command
   })
   .s("AWSStepFunctions", "CreateActivity", {})
   .n("SFNClient", "CreateActivityCommand")
-  .sc(CreateActivity)
+  .sc(CreateActivity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

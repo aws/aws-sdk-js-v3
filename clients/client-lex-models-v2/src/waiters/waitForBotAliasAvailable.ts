@@ -7,12 +7,12 @@ import { LexModelsV2Client } from "../LexModelsV2Client";
 const checkState = async (client: LexModelsV2Client, input: DescribeBotAliasCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeBotAliasCommand(input));
+    let result: any = await client.send(new DescribeBotAliasCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.botAliasStatus;
-      };
+      }
       if (returnComparator() === "Available") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeBotAliasComm
     try {
       const returnComparator = () => {
         return result.botAliasStatus;
-      };
+      }
       if (returnComparator() === "Failed") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -28,7 +28,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeBotAliasComm
     try {
       const returnComparator = () => {
         return result.botAliasStatus;
-      };
+      }
       if (returnComparator() === "Deleting") {
         return { state: WaiterState.FAILURE, reason };
       }

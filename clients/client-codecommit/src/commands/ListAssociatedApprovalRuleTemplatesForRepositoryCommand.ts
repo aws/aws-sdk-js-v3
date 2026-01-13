@@ -9,7 +9,7 @@ import type {
   ListAssociatedApprovalRuleTemplatesForRepositoryInput,
   ListAssociatedApprovalRuleTemplatesForRepositoryOutput,
 } from "../models/models_0";
-import { ListAssociatedApprovalRuleTemplatesForRepository } from "../schemas/schemas_0";
+import { ListAssociatedApprovalRuleTemplatesForRepository$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommand}.
  */
-export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput
-  extends ListAssociatedApprovalRuleTemplatesForRepositoryInput {}
+export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput extends ListAssociatedApprovalRuleTemplatesForRepositoryInput {}
 /**
  * @public
  *
  * The output of {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommand}.
  */
-export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
-  extends ListAssociatedApprovalRuleTemplatesForRepositoryOutput,
-    __MetadataBearer {}
+export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput extends ListAssociatedApprovalRuleTemplatesForRepositoryOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all approval rule templates that are associated with a specified repository.</p>
@@ -119,7 +116,7 @@ export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends $Co
   })
   .s("CodeCommit_20150413", "ListAssociatedApprovalRuleTemplatesForRepository", {})
   .n("CodeCommitClient", "ListAssociatedApprovalRuleTemplatesForRepositoryCommand")
-  .sc(ListAssociatedApprovalRuleTemplatesForRepository)
+  .sc(ListAssociatedApprovalRuleTemplatesForRepository$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListRestoreTestingSelectionsInput, ListRestoreTestingSelectionsOutput } from "../models/models_0";
-import { ListRestoreTestingSelections } from "../schemas/schemas_0";
+import { ListRestoreTestingSelections$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListRestoreTestingSelectionsCommandInput extends ListRestoreTes
  *
  * The output of {@link ListRestoreTestingSelectionsCommand}.
  */
-export interface ListRestoreTestingSelectionsCommandOutput
-  extends ListRestoreTestingSelectionsOutput,
-    __MetadataBearer {}
+export interface ListRestoreTestingSelectionsCommandOutput extends ListRestoreTestingSelectionsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of restore testing selections. Can be filtered
@@ -98,7 +96,7 @@ export class ListRestoreTestingSelectionsCommand extends $Command
   })
   .s("CryoControllerUserManager", "ListRestoreTestingSelections", {})
   .n("BackupClient", "ListRestoreTestingSelectionsCommand")
-  .sc(ListRestoreTestingSelections)
+  .sc(ListRestoreTestingSelections$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

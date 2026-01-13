@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListManagedSchemaArnsRequest, ListManagedSchemaArnsResponse } from "../models/models_0";
-import { ListManagedSchemaArns } from "../schemas/schemas_0";
+import { ListManagedSchemaArns$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class ListManagedSchemaArnsCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "ListManagedSchemaArns", {})
   .n("CloudDirectoryClient", "ListManagedSchemaArnsCommand")
-  .sc(ListManagedSchemaArns)
+  .sc(ListManagedSchemaArns$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

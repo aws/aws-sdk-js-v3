@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPersonalAccessTokenMetadataRequest, GetPersonalAccessTokenMetadataResponse } from "../models/models_0";
-import { GetPersonalAccessTokenMetadata } from "../schemas/schemas_0";
+import { GetPersonalAccessTokenMetadata$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -24,9 +24,7 @@ export interface GetPersonalAccessTokenMetadataCommandInput extends GetPersonalA
  *
  * The output of {@link GetPersonalAccessTokenMetadataCommand}.
  */
-export interface GetPersonalAccessTokenMetadataCommandOutput
-  extends GetPersonalAccessTokenMetadataResponse,
-    __MetadataBearer {}
+export interface GetPersonalAccessTokenMetadataCommandOutput extends GetPersonalAccessTokenMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -100,7 +98,7 @@ export class GetPersonalAccessTokenMetadataCommand extends $Command
   })
   .s("WorkMailService", "GetPersonalAccessTokenMetadata", {})
   .n("WorkMailClient", "GetPersonalAccessTokenMetadataCommand")
-  .sc(GetPersonalAccessTokenMetadata)
+  .sc(GetPersonalAccessTokenMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

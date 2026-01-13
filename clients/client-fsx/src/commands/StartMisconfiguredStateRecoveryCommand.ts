@@ -9,7 +9,7 @@ import type {
   StartMisconfiguredStateRecoveryRequest,
   StartMisconfiguredStateRecoveryResponse,
 } from "../models/models_0";
-import { StartMisconfiguredStateRecovery } from "../schemas/schemas_0";
+import { StartMisconfiguredStateRecovery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface StartMisconfiguredStateRecoveryCommandInput extends StartMiscon
  *
  * The output of {@link StartMisconfiguredStateRecoveryCommand}.
  */
-export interface StartMisconfiguredStateRecoveryCommandOutput
-  extends StartMisconfiguredStateRecoveryResponse,
-    __MetadataBearer {}
+export interface StartMisconfiguredStateRecoveryCommandOutput extends StartMisconfiguredStateRecoveryResponse, __MetadataBearer {}
 
 /**
  * <p>After performing steps to repair the Active Directory configuration of an FSx for Windows File Server file system, use this action to
@@ -701,7 +699,7 @@ export class StartMisconfiguredStateRecoveryCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "StartMisconfiguredStateRecovery", {})
   .n("FSxClient", "StartMisconfiguredStateRecoveryCommand")
-  .sc(StartMisconfiguredStateRecovery)
+  .sc(StartMisconfiguredStateRecovery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

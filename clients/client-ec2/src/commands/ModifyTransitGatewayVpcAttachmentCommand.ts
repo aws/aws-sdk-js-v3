@@ -9,7 +9,7 @@ import type {
   ModifyTransitGatewayVpcAttachmentRequest,
   ModifyTransitGatewayVpcAttachmentResult,
 } from "../models/models_6";
-import { ModifyTransitGatewayVpcAttachment } from "../schemas/schemas_0";
+import { ModifyTransitGatewayVpcAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ModifyTransitGatewayVpcAttachmentCommandInput extends ModifyTra
  *
  * The output of {@link ModifyTransitGatewayVpcAttachmentCommand}.
  */
-export interface ModifyTransitGatewayVpcAttachmentCommandOutput
-  extends ModifyTransitGatewayVpcAttachmentResult,
-    __MetadataBearer {}
+export interface ModifyTransitGatewayVpcAttachmentCommandOutput extends ModifyTransitGatewayVpcAttachmentResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the specified VPC attachment.</p>
@@ -113,7 +111,7 @@ export class ModifyTransitGatewayVpcAttachmentCommand extends $Command
   })
   .s("AmazonEC2", "ModifyTransitGatewayVpcAttachment", {})
   .n("EC2Client", "ModifyTransitGatewayVpcAttachmentCommand")
-  .sc(ModifyTransitGatewayVpcAttachment)
+  .sc(ModifyTransitGatewayVpcAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   StartMLLabelingSetGenerationTaskRunRequest,
   StartMLLabelingSetGenerationTaskRunResponse,
 } from "../models/models_2";
-import { StartMLLabelingSetGenerationTaskRun } from "../schemas/schemas_0";
+import { StartMLLabelingSetGenerationTaskRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface StartMLLabelingSetGenerationTaskRunCommandInput extends StartML
  *
  * The output of {@link StartMLLabelingSetGenerationTaskRunCommand}.
  */
-export interface StartMLLabelingSetGenerationTaskRunCommandOutput
-  extends StartMLLabelingSetGenerationTaskRunResponse,
-    __MetadataBearer {}
+export interface StartMLLabelingSetGenerationTaskRunCommandOutput extends StartMLLabelingSetGenerationTaskRunResponse, __MetadataBearer {}
 
 /**
  * <p>Starts the active learning workflow for your machine learning transform to improve the
@@ -106,7 +104,7 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command
   })
   .s("AWSGlue", "StartMLLabelingSetGenerationTaskRun", {})
   .n("GlueClient", "StartMLLabelingSetGenerationTaskRunCommand")
-  .sc(StartMLLabelingSetGenerationTaskRun)
+  .sc(StartMLLabelingSetGenerationTaskRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

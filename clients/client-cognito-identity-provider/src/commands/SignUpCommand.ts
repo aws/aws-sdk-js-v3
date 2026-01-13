@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SignUpRequest, SignUpResponse } from "../models/models_0";
-import { SignUp } from "../schemas/schemas_0";
+import { SignUp$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -200,7 +200,7 @@ export class SignUpCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "SignUp", {})
   .n("CognitoIdentityProviderClient", "SignUpCommand")
-  .sc(SignUp)
+  .sc(SignUp$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

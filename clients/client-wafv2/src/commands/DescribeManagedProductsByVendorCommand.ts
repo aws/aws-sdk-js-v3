@@ -8,7 +8,7 @@ import type {
   DescribeManagedProductsByVendorRequest,
   DescribeManagedProductsByVendorResponse,
 } from "../models/models_0";
-import { DescribeManagedProductsByVendor } from "../schemas/schemas_0";
+import { DescribeManagedProductsByVendor$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -27,9 +27,7 @@ export interface DescribeManagedProductsByVendorCommandInput extends DescribeMan
  *
  * The output of {@link DescribeManagedProductsByVendorCommand}.
  */
-export interface DescribeManagedProductsByVendorCommandOutput
-  extends DescribeManagedProductsByVendorResponse,
-    __MetadataBearer {}
+export interface DescribeManagedProductsByVendorCommandOutput extends DescribeManagedProductsByVendorResponse, __MetadataBearer {}
 
 /**
  * <p>Provides high-level information for the managed rule groups owned by a specific vendor.  </p>
@@ -119,7 +117,7 @@ export class DescribeManagedProductsByVendorCommand extends $Command
   })
   .s("AWSWAF_20190729", "DescribeManagedProductsByVendor", {})
   .n("WAFV2Client", "DescribeManagedProductsByVendorCommand")
-  .sc(DescribeManagedProductsByVendor)
+  .sc(DescribeManagedProductsByVendor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

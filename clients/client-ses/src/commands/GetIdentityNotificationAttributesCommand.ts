@@ -8,7 +8,7 @@ import type {
   GetIdentityNotificationAttributesRequest,
   GetIdentityNotificationAttributesResponse,
 } from "../models/models_0";
-import { GetIdentityNotificationAttributes } from "../schemas/schemas_0";
+import { GetIdentityNotificationAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -27,9 +27,7 @@ export interface GetIdentityNotificationAttributesCommandInput extends GetIdenti
  *
  * The output of {@link GetIdentityNotificationAttributesCommand}.
  */
-export interface GetIdentityNotificationAttributesCommandOutput
-  extends GetIdentityNotificationAttributesResponse,
-    __MetadataBearer {}
+export interface GetIdentityNotificationAttributesCommandOutput extends GetIdentityNotificationAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Given a list of verified identities (email addresses and/or domains), returns a
@@ -122,7 +120,7 @@ export class GetIdentityNotificationAttributesCommand extends $Command
   })
   .s("SimpleEmailService", "GetIdentityNotificationAttributes", {})
   .n("SESClient", "GetIdentityNotificationAttributesCommand")
-  .sc(GetIdentityNotificationAttributes)
+  .sc(GetIdentityNotificationAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

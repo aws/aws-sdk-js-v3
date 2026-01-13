@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RestoreDBInstanceToPointInTimeMessage, RestoreDBInstanceToPointInTimeResult } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { RestoreDBInstanceToPointInTime } from "../schemas/schemas_0";
+import { RestoreDBInstanceToPointInTime$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface RestoreDBInstanceToPointInTimeCommandInput extends RestoreDBIns
  *
  * The output of {@link RestoreDBInstanceToPointInTimeCommand}.
  */
-export interface RestoreDBInstanceToPointInTimeCommandOutput
-  extends RestoreDBInstanceToPointInTimeResult,
-    __MetadataBearer {}
+export interface RestoreDBInstanceToPointInTimeCommandOutput extends RestoreDBInstanceToPointInTimeResult, __MetadataBearer {}
 
 /**
  * <p>Restores a DB instance to an arbitrary point in time. You can restore to any point in time before the time identified by the <code>LatestRestorableTime</code> property. You can restore to a point up to the number of days specified by the <code>BackupRetentionPeriod</code> property.</p>
@@ -606,7 +604,7 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command
   })
   .s("AmazonRDSv19", "RestoreDBInstanceToPointInTime", {})
   .n("RDSClient", "RestoreDBInstanceToPointInTimeCommand")
-  .sc(RestoreDBInstanceToPointInTime)
+  .sc(RestoreDBInstanceToPointInTime$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

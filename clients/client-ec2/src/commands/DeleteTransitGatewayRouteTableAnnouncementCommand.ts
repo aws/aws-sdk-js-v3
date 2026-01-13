@@ -9,7 +9,7 @@ import type {
   DeleteTransitGatewayRouteTableAnnouncementRequest,
   DeleteTransitGatewayRouteTableAnnouncementResult,
 } from "../models/models_3";
-import { DeleteTransitGatewayRouteTableAnnouncement } from "../schemas/schemas_0";
+import { DeleteTransitGatewayRouteTableAnnouncement$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteTransitGatewayRouteTableAnnouncementCommand}.
  */
-export interface DeleteTransitGatewayRouteTableAnnouncementCommandInput
-  extends DeleteTransitGatewayRouteTableAnnouncementRequest {}
+export interface DeleteTransitGatewayRouteTableAnnouncementCommandInput extends DeleteTransitGatewayRouteTableAnnouncementRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteTransitGatewayRouteTableAnnouncementCommand}.
  */
-export interface DeleteTransitGatewayRouteTableAnnouncementCommandOutput
-  extends DeleteTransitGatewayRouteTableAnnouncementResult,
-    __MetadataBearer {}
+export interface DeleteTransitGatewayRouteTableAnnouncementCommandOutput extends DeleteTransitGatewayRouteTableAnnouncementResult, __MetadataBearer {}
 
 /**
  * <p>Advertises to the transit gateway that a transit gateway route table is deleted.</p>
@@ -97,7 +94,7 @@ export class DeleteTransitGatewayRouteTableAnnouncementCommand extends $Command
   })
   .s("AmazonEC2", "DeleteTransitGatewayRouteTableAnnouncement", {})
   .n("EC2Client", "DeleteTransitGatewayRouteTableAnnouncementCommand")
-  .sc(DeleteTransitGatewayRouteTableAnnouncement)
+  .sc(DeleteTransitGatewayRouteTableAnnouncement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

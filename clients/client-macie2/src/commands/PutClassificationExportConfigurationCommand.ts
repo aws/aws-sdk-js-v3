@@ -9,7 +9,7 @@ import type {
   PutClassificationExportConfigurationRequest,
   PutClassificationExportConfigurationResponse,
 } from "../models/models_0";
-import { PutClassificationExportConfiguration } from "../schemas/schemas_0";
+import { PutClassificationExportConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface PutClassificationExportConfigurationCommandInput extends PutCla
  *
  * The output of {@link PutClassificationExportConfigurationCommand}.
  */
-export interface PutClassificationExportConfigurationCommandOutput
-  extends PutClassificationExportConfigurationResponse,
-    __MetadataBearer {}
+export interface PutClassificationExportConfigurationCommandOutput extends PutClassificationExportConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Adds or updates the configuration settings for storing data classification results.</p>
@@ -111,7 +109,7 @@ export class PutClassificationExportConfigurationCommand extends $Command
   })
   .s("Macie2", "PutClassificationExportConfiguration", {})
   .n("Macie2Client", "PutClassificationExportConfigurationCommand")
-  .sc(PutClassificationExportConfiguration)
+  .sc(PutClassificationExportConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

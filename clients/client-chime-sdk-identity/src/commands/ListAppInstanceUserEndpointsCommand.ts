@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAppInstanceUserEndpointsRequest, ListAppInstanceUserEndpointsResponse } from "../models/models_0";
-import { ListAppInstanceUserEndpoints } from "../schemas/schemas_0";
+import { ListAppInstanceUserEndpoints$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListAppInstanceUserEndpointsCommandInput extends ListAppInstanc
  *
  * The output of {@link ListAppInstanceUserEndpointsCommand}.
  */
-export interface ListAppInstanceUserEndpointsCommandOutput
-  extends ListAppInstanceUserEndpointsResponse,
-    __MetadataBearer {}
+export interface ListAppInstanceUserEndpointsCommandOutput extends ListAppInstanceUserEndpointsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the <code>AppInstanceUserEndpoints</code> created under a single <code>AppInstanceUser</code>.</p>
@@ -112,7 +110,7 @@ export class ListAppInstanceUserEndpointsCommand extends $Command
   })
   .s("ChimeIdentityService", "ListAppInstanceUserEndpoints", {})
   .n("ChimeSDKIdentityClient", "ListAppInstanceUserEndpointsCommand")
-  .sc(ListAppInstanceUserEndpoints)
+  .sc(ListAppInstanceUserEndpoints$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

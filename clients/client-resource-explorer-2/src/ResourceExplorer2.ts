@@ -177,8 +177,14 @@ export interface ResourceExplorer2 {
    * @see {@link BatchGetViewCommand}
    */
   batchGetView(): Promise<BatchGetViewCommandOutput>;
-  batchGetView(args: BatchGetViewCommandInput, options?: __HttpHandlerOptions): Promise<BatchGetViewCommandOutput>;
-  batchGetView(args: BatchGetViewCommandInput, cb: (err: any, data?: BatchGetViewCommandOutput) => void): void;
+  batchGetView(
+    args: BatchGetViewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetViewCommandOutput>;
+  batchGetView(
+    args: BatchGetViewCommandInput,
+    cb: (err: any, data?: BatchGetViewCommandOutput) => void
+  ): void;
   batchGetView(
     args: BatchGetViewCommandInput,
     options: __HttpHandlerOptions,
@@ -189,8 +195,14 @@ export interface ResourceExplorer2 {
    * @see {@link CreateIndexCommand}
    */
   createIndex(): Promise<CreateIndexCommandOutput>;
-  createIndex(args: CreateIndexCommandInput, options?: __HttpHandlerOptions): Promise<CreateIndexCommandOutput>;
-  createIndex(args: CreateIndexCommandInput, cb: (err: any, data?: CreateIndexCommandOutput) => void): void;
+  createIndex(
+    args: CreateIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIndexCommandOutput>;
+  createIndex(
+    args: CreateIndexCommandInput,
+    cb: (err: any, data?: CreateIndexCommandOutput) => void
+  ): void;
   createIndex(
     args: CreateIndexCommandInput,
     options: __HttpHandlerOptions,
@@ -217,8 +229,14 @@ export interface ResourceExplorer2 {
   /**
    * @see {@link CreateViewCommand}
    */
-  createView(args: CreateViewCommandInput, options?: __HttpHandlerOptions): Promise<CreateViewCommandOutput>;
-  createView(args: CreateViewCommandInput, cb: (err: any, data?: CreateViewCommandOutput) => void): void;
+  createView(
+    args: CreateViewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateViewCommandOutput>;
+  createView(
+    args: CreateViewCommandInput,
+    cb: (err: any, data?: CreateViewCommandOutput) => void
+  ): void;
   createView(
     args: CreateViewCommandInput,
     options: __HttpHandlerOptions,
@@ -228,8 +246,14 @@ export interface ResourceExplorer2 {
   /**
    * @see {@link DeleteIndexCommand}
    */
-  deleteIndex(args: DeleteIndexCommandInput, options?: __HttpHandlerOptions): Promise<DeleteIndexCommandOutput>;
-  deleteIndex(args: DeleteIndexCommandInput, cb: (err: any, data?: DeleteIndexCommandOutput) => void): void;
+  deleteIndex(
+    args: DeleteIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIndexCommandOutput>;
+  deleteIndex(
+    args: DeleteIndexCommandInput,
+    cb: (err: any, data?: DeleteIndexCommandOutput) => void
+  ): void;
   deleteIndex(
     args: DeleteIndexCommandInput,
     options: __HttpHandlerOptions,
@@ -257,8 +281,14 @@ export interface ResourceExplorer2 {
   /**
    * @see {@link DeleteViewCommand}
    */
-  deleteView(args: DeleteViewCommandInput, options?: __HttpHandlerOptions): Promise<DeleteViewCommandOutput>;
-  deleteView(args: DeleteViewCommandInput, cb: (err: any, data?: DeleteViewCommandOutput) => void): void;
+  deleteView(
+    args: DeleteViewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteViewCommandOutput>;
+  deleteView(
+    args: DeleteViewCommandInput,
+    cb: (err: any, data?: DeleteViewCommandOutput) => void
+  ): void;
   deleteView(
     args: DeleteViewCommandInput,
     options: __HttpHandlerOptions,
@@ -309,7 +339,10 @@ export interface ResourceExplorer2 {
     args: GetDefaultViewCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDefaultViewCommandOutput>;
-  getDefaultView(args: GetDefaultViewCommandInput, cb: (err: any, data?: GetDefaultViewCommandOutput) => void): void;
+  getDefaultView(
+    args: GetDefaultViewCommandInput,
+    cb: (err: any, data?: GetDefaultViewCommandOutput) => void
+  ): void;
   getDefaultView(
     args: GetDefaultViewCommandInput,
     options: __HttpHandlerOptions,
@@ -320,8 +353,14 @@ export interface ResourceExplorer2 {
    * @see {@link GetIndexCommand}
    */
   getIndex(): Promise<GetIndexCommandOutput>;
-  getIndex(args: GetIndexCommandInput, options?: __HttpHandlerOptions): Promise<GetIndexCommandOutput>;
-  getIndex(args: GetIndexCommandInput, cb: (err: any, data?: GetIndexCommandOutput) => void): void;
+  getIndex(
+    args: GetIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIndexCommandOutput>;
+  getIndex(
+    args: GetIndexCommandInput,
+    cb: (err: any, data?: GetIndexCommandOutput) => void
+  ): void;
   getIndex(
     args: GetIndexCommandInput,
     options: __HttpHandlerOptions,
@@ -335,7 +374,10 @@ export interface ResourceExplorer2 {
     args: GetManagedViewCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetManagedViewCommandOutput>;
-  getManagedView(args: GetManagedViewCommandInput, cb: (err: any, data?: GetManagedViewCommandOutput) => void): void;
+  getManagedView(
+    args: GetManagedViewCommandInput,
+    cb: (err: any, data?: GetManagedViewCommandOutput) => void
+  ): void;
   getManagedView(
     args: GetManagedViewCommandInput,
     options: __HttpHandlerOptions,
@@ -367,7 +409,10 @@ export interface ResourceExplorer2 {
     args: GetServiceIndexCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetServiceIndexCommandOutput>;
-  getServiceIndex(args: GetServiceIndexCommandInput, cb: (err: any, data?: GetServiceIndexCommandOutput) => void): void;
+  getServiceIndex(
+    args: GetServiceIndexCommandInput,
+    cb: (err: any, data?: GetServiceIndexCommandOutput) => void
+  ): void;
   getServiceIndex(
     args: GetServiceIndexCommandInput,
     options: __HttpHandlerOptions,
@@ -381,7 +426,10 @@ export interface ResourceExplorer2 {
     args: GetServiceViewCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetServiceViewCommandOutput>;
-  getServiceView(args: GetServiceViewCommandInput, cb: (err: any, data?: GetServiceViewCommandOutput) => void): void;
+  getServiceView(
+    args: GetServiceViewCommandInput,
+    cb: (err: any, data?: GetServiceViewCommandOutput) => void
+  ): void;
   getServiceView(
     args: GetServiceViewCommandInput,
     options: __HttpHandlerOptions,
@@ -391,8 +439,14 @@ export interface ResourceExplorer2 {
   /**
    * @see {@link GetViewCommand}
    */
-  getView(args: GetViewCommandInput, options?: __HttpHandlerOptions): Promise<GetViewCommandOutput>;
-  getView(args: GetViewCommandInput, cb: (err: any, data?: GetViewCommandOutput) => void): void;
+  getView(
+    args: GetViewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetViewCommandOutput>;
+  getView(
+    args: GetViewCommandInput,
+    cb: (err: any, data?: GetViewCommandOutput) => void
+  ): void;
   getView(
     args: GetViewCommandInput,
     options: __HttpHandlerOptions,
@@ -403,8 +457,14 @@ export interface ResourceExplorer2 {
    * @see {@link ListIndexesCommand}
    */
   listIndexes(): Promise<ListIndexesCommandOutput>;
-  listIndexes(args: ListIndexesCommandInput, options?: __HttpHandlerOptions): Promise<ListIndexesCommandOutput>;
-  listIndexes(args: ListIndexesCommandInput, cb: (err: any, data?: ListIndexesCommandOutput) => void): void;
+  listIndexes(
+    args: ListIndexesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIndexesCommandOutput>;
+  listIndexes(
+    args: ListIndexesCommandInput,
+    cb: (err: any, data?: ListIndexesCommandOutput) => void
+  ): void;
   listIndexes(
     args: ListIndexesCommandInput,
     options: __HttpHandlerOptions,
@@ -450,8 +510,14 @@ export interface ResourceExplorer2 {
    * @see {@link ListResourcesCommand}
    */
   listResources(): Promise<ListResourcesCommandOutput>;
-  listResources(args: ListResourcesCommandInput, options?: __HttpHandlerOptions): Promise<ListResourcesCommandOutput>;
-  listResources(args: ListResourcesCommandInput, cb: (err: any, data?: ListResourcesCommandOutput) => void): void;
+  listResources(
+    args: ListResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourcesCommandOutput>;
+  listResources(
+    args: ListResourcesCommandInput,
+    cb: (err: any, data?: ListResourcesCommandOutput) => void
+  ): void;
   listResources(
     args: ListResourcesCommandInput,
     options: __HttpHandlerOptions,
@@ -551,8 +617,14 @@ export interface ResourceExplorer2 {
    * @see {@link ListViewsCommand}
    */
   listViews(): Promise<ListViewsCommandOutput>;
-  listViews(args: ListViewsCommandInput, options?: __HttpHandlerOptions): Promise<ListViewsCommandOutput>;
-  listViews(args: ListViewsCommandInput, cb: (err: any, data?: ListViewsCommandOutput) => void): void;
+  listViews(
+    args: ListViewsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListViewsCommandOutput>;
+  listViews(
+    args: ListViewsCommandInput,
+    cb: (err: any, data?: ListViewsCommandOutput) => void
+  ): void;
   listViews(
     args: ListViewsCommandInput,
     options: __HttpHandlerOptions,
@@ -562,8 +634,14 @@ export interface ResourceExplorer2 {
   /**
    * @see {@link SearchCommand}
    */
-  search(args: SearchCommandInput, options?: __HttpHandlerOptions): Promise<SearchCommandOutput>;
-  search(args: SearchCommandInput, cb: (err: any, data?: SearchCommandOutput) => void): void;
+  search(
+    args: SearchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchCommandOutput>;
+  search(
+    args: SearchCommandInput,
+    cb: (err: any, data?: SearchCommandOutput) => void
+  ): void;
   search(
     args: SearchCommandInput,
     options: __HttpHandlerOptions,
@@ -573,8 +651,14 @@ export interface ResourceExplorer2 {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -584,8 +668,14 @@ export interface ResourceExplorer2 {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -599,7 +689,10 @@ export interface ResourceExplorer2 {
     args: UpdateIndexTypeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateIndexTypeCommandOutput>;
-  updateIndexType(args: UpdateIndexTypeCommandInput, cb: (err: any, data?: UpdateIndexTypeCommandOutput) => void): void;
+  updateIndexType(
+    args: UpdateIndexTypeCommandInput,
+    cb: (err: any, data?: UpdateIndexTypeCommandOutput) => void
+  ): void;
   updateIndexType(
     args: UpdateIndexTypeCommandInput,
     options: __HttpHandlerOptions,
@@ -609,8 +702,14 @@ export interface ResourceExplorer2 {
   /**
    * @see {@link UpdateViewCommand}
    */
-  updateView(args: UpdateViewCommandInput, options?: __HttpHandlerOptions): Promise<UpdateViewCommandOutput>;
-  updateView(args: UpdateViewCommandInput, cb: (err: any, data?: UpdateViewCommandOutput) => void): void;
+  updateView(
+    args: UpdateViewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateViewCommandOutput>;
+  updateView(
+    args: UpdateViewCommandInput,
+    cb: (err: any, data?: UpdateViewCommandOutput) => void
+  ): void;
   updateView(
     args: UpdateViewCommandInput,
     options: __HttpHandlerOptions,

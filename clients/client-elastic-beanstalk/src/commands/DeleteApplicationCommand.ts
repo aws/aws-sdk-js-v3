@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteApplicationMessage } from "../models/models_0";
-import { DeleteApplication } from "../schemas/schemas_0";
+import { DeleteApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DeleteApplicationCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "DeleteApplication", {})
   .n("ElasticBeanstalkClient", "DeleteApplicationCommand")
-  .sc(DeleteApplication)
+  .sc(DeleteApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

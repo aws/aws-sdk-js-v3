@@ -9,7 +9,7 @@ import type {
   GetTransitGatewayMulticastDomainAssociationsRequest,
   GetTransitGatewayMulticastDomainAssociationsResult,
 } from "../models/models_6";
-import { GetTransitGatewayMulticastDomainAssociations } from "../schemas/schemas_0";
+import { GetTransitGatewayMulticastDomainAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetTransitGatewayMulticastDomainAssociationsCommand}.
  */
-export interface GetTransitGatewayMulticastDomainAssociationsCommandInput
-  extends GetTransitGatewayMulticastDomainAssociationsRequest {}
+export interface GetTransitGatewayMulticastDomainAssociationsCommandInput extends GetTransitGatewayMulticastDomainAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link GetTransitGatewayMulticastDomainAssociationsCommand}.
  */
-export interface GetTransitGatewayMulticastDomainAssociationsCommandOutput
-  extends GetTransitGatewayMulticastDomainAssociationsResult,
-    __MetadataBearer {}
+export interface GetTransitGatewayMulticastDomainAssociationsCommandOutput extends GetTransitGatewayMulticastDomainAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about the associations for the transit gateway multicast domain.</p>
@@ -102,7 +99,7 @@ export class GetTransitGatewayMulticastDomainAssociationsCommand extends $Comman
   })
   .s("AmazonEC2", "GetTransitGatewayMulticastDomainAssociations", {})
   .n("EC2Client", "GetTransitGatewayMulticastDomainAssociationsCommand")
-  .sc(GetTransitGatewayMulticastDomainAssociations)
+  .sc(GetTransitGatewayMulticastDomainAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

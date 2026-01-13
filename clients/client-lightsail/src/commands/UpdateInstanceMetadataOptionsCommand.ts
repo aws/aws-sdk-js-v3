@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { UpdateInstanceMetadataOptionsRequest, UpdateInstanceMetadataOptionsResult } from "../models/models_1";
-import { UpdateInstanceMetadataOptions } from "../schemas/schemas_0";
+import { UpdateInstanceMetadataOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateInstanceMetadataOptionsCommandInput extends UpdateInstanc
  *
  * The output of {@link UpdateInstanceMetadataOptionsCommand}.
  */
-export interface UpdateInstanceMetadataOptionsCommandOutput
-  extends UpdateInstanceMetadataOptionsResult,
-    __MetadataBearer {}
+export interface UpdateInstanceMetadataOptionsCommandOutput extends UpdateInstanceMetadataOptionsResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the Amazon Lightsail instance metadata parameters on a running or stopped
@@ -134,7 +132,7 @@ export class UpdateInstanceMetadataOptionsCommand extends $Command
   })
   .s("Lightsail_20161128", "UpdateInstanceMetadataOptions", {})
   .n("LightsailClient", "UpdateInstanceMetadataOptionsCommand")
-  .sc(UpdateInstanceMetadataOptions)
+  .sc(UpdateInstanceMetadataOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

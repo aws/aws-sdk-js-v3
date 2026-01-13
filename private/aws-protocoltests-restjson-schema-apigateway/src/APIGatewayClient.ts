@@ -49,13 +49,10 @@ import {
   type BodyLengthCalculator as __BodyLengthCalculator,
   type CheckOptionalClientConfig as __CheckOptionalClientConfig,
   type ChecksumConstructor as __ChecksumConstructor,
-  type ClientProtocol,
   type Decoder as __Decoder,
   type Encoder as __Encoder,
   type HashConstructor as __HashConstructor,
   type HttpHandlerOptions as __HttpHandlerOptions,
-  type HttpRequest,
-  type HttpResponse,
   type Logger as __Logger,
   type Provider as __Provider,
   type StreamCollector as __StreamCollector,
@@ -87,12 +84,14 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = GetRestApisCommandInput;
+export type ServiceInputTypes =
+  | GetRestApisCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = GetRestApisCommandOutput;
+export type ServiceOutputTypes =
+  | GetRestApisCommandOutput;
 
 /**
  * @public
@@ -238,16 +237,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * Optional extensions
    */
   extensions?: RuntimeExtension[];
-
-  /**
-   * The protocol controlling the message type (e.g. HTTP) and format (e.g. JSON)
-   * may be overridden. A default will always be set by the client.
-   * Available options depend on the service's supported protocols and will not be validated by
-   * the client.
-   * @alpha
-   *
-   */
-  protocol?: ClientProtocol<HttpRequest, HttpResponse>;
 
   /**
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { ListTargetsForPolicyRequest, ListTargetsForPolicyResponse } from "../models/models_1";
-import { ListTargetsForPolicy } from "../schemas/schemas_0";
+import { ListTargetsForPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ListTargetsForPolicyCommand extends $Command
   })
   .s("AWSIotService", "ListTargetsForPolicy", {})
   .n("IoTClient", "ListTargetsForPolicyCommand")
-  .sc(ListTargetsForPolicy)
+  .sc(ListTargetsForPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

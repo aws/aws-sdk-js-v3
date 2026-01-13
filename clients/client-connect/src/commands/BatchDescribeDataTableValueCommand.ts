@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchDescribeDataTableValueRequest, BatchDescribeDataTableValueResponse } from "../models/models_0";
-import { BatchDescribeDataTableValue } from "../schemas/schemas_0";
+import { BatchDescribeDataTableValue$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface BatchDescribeDataTableValueCommandInput extends BatchDescribeDa
  *
  * The output of {@link BatchDescribeDataTableValueCommand}.
  */
-export interface BatchDescribeDataTableValueCommandOutput
-  extends BatchDescribeDataTableValueResponse,
-    __MetadataBearer {}
+export interface BatchDescribeDataTableValueCommandOutput extends BatchDescribeDataTableValueResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves multiple values from a data table without evaluating expressions. Returns the raw stored values along
@@ -141,7 +139,7 @@ export class BatchDescribeDataTableValueCommand extends $Command
   })
   .s("AmazonConnectService", "BatchDescribeDataTableValue", {})
   .n("ConnectClient", "BatchDescribeDataTableValueCommand")
-  .sc(BatchDescribeDataTableValue)
+  .sc(BatchDescribeDataTableValue$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

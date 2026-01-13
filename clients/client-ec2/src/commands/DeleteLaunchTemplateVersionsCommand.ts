@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteLaunchTemplateVersionsRequest, DeleteLaunchTemplateVersionsResult } from "../models/models_2";
-import { DeleteLaunchTemplateVersions } from "../schemas/schemas_0";
+import { DeleteLaunchTemplateVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteLaunchTemplateVersionsCommandInput extends DeleteLaunchTe
  *
  * The output of {@link DeleteLaunchTemplateVersionsCommand}.
  */
-export interface DeleteLaunchTemplateVersionsCommandOutput
-  extends DeleteLaunchTemplateVersionsResult,
-    __MetadataBearer {}
+export interface DeleteLaunchTemplateVersionsCommandOutput extends DeleteLaunchTemplateVersionsResult, __MetadataBearer {}
 
 /**
  * <p>Deletes one or more versions of a launch template.</p>
@@ -130,7 +128,7 @@ export class DeleteLaunchTemplateVersionsCommand extends $Command
   })
   .s("AmazonEC2", "DeleteLaunchTemplateVersions", {})
   .n("EC2Client", "DeleteLaunchTemplateVersionsCommand")
-  .sc(DeleteLaunchTemplateVersions)
+  .sc(DeleteLaunchTemplateVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

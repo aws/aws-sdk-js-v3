@@ -13,7 +13,7 @@ import type {
   ListFailuresForLicenseConfigurationOperationsRequest,
   ListFailuresForLicenseConfigurationOperationsResponse,
 } from "../models/models_0";
-import { ListFailuresForLicenseConfigurationOperations } from "../schemas/schemas_0";
+import { ListFailuresForLicenseConfigurationOperations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListFailuresForLicenseConfigurationOperationsCommand}.
  */
-export interface ListFailuresForLicenseConfigurationOperationsCommandInput
-  extends ListFailuresForLicenseConfigurationOperationsRequest {}
+export interface ListFailuresForLicenseConfigurationOperationsCommandInput extends ListFailuresForLicenseConfigurationOperationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListFailuresForLicenseConfigurationOperationsCommand}.
  */
-export interface ListFailuresForLicenseConfigurationOperationsCommandOutput
-  extends ListFailuresForLicenseConfigurationOperationsResponse,
-    __MetadataBearer {}
+export interface ListFailuresForLicenseConfigurationOperationsCommandOutput extends ListFailuresForLicenseConfigurationOperationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the license configuration operations that failed.</p>
@@ -118,7 +115,7 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
   })
   .s("AWSLicenseManager", "ListFailuresForLicenseConfigurationOperations", {})
   .n("LicenseManagerClient", "ListFailuresForLicenseConfigurationOperationsCommand")
-  .sc(ListFailuresForLicenseConfigurationOperations)
+  .sc(ListFailuresForLicenseConfigurationOperations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

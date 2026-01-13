@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteIpamPrefixListResolverRequest, DeleteIpamPrefixListResolverResult } from "../models/models_2";
-import { DeleteIpamPrefixListResolver } from "../schemas/schemas_0";
+import { DeleteIpamPrefixListResolver$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteIpamPrefixListResolverCommandInput extends DeleteIpamPref
  *
  * The output of {@link DeleteIpamPrefixListResolverCommand}.
  */
-export interface DeleteIpamPrefixListResolverCommandOutput
-  extends DeleteIpamPrefixListResolverResult,
-    __MetadataBearer {}
+export interface DeleteIpamPrefixListResolverCommandOutput extends DeleteIpamPrefixListResolverResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an IPAM prefix list resolver. Before deleting a resolver, you must first delete all resolver targets associated with it.</p>
@@ -93,7 +91,7 @@ export class DeleteIpamPrefixListResolverCommand extends $Command
   })
   .s("AmazonEC2", "DeleteIpamPrefixListResolver", {})
   .n("EC2Client", "DeleteIpamPrefixListResolverCommand")
-  .sc(DeleteIpamPrefixListResolver)
+  .sc(DeleteIpamPrefixListResolver$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

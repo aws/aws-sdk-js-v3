@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { GetUserDefinedFunctionsRequest, GetUserDefinedFunctionsResponse } from "../models/models_2";
-import { GetUserDefinedFunctions } from "../schemas/schemas_0";
+import { GetUserDefinedFunctions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class GetUserDefinedFunctionsCommand extends $Command
   })
   .s("AWSGlue", "GetUserDefinedFunctions", {})
   .n("GlueClient", "GetUserDefinedFunctionsCommand")
-  .sc(GetUserDefinedFunctions)
+  .sc(GetUserDefinedFunctions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   GetManagedPrefixListAssociationsRequest,
   GetManagedPrefixListAssociationsResult,
 } from "../models/models_6";
-import { GetManagedPrefixListAssociations } from "../schemas/schemas_0";
+import { GetManagedPrefixListAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetManagedPrefixListAssociationsCommandInput extends GetManaged
  *
  * The output of {@link GetManagedPrefixListAssociationsCommand}.
  */
-export interface GetManagedPrefixListAssociationsCommandOutput
-  extends GetManagedPrefixListAssociationsResult,
-    __MetadataBearer {}
+export interface GetManagedPrefixListAssociationsCommandOutput extends GetManagedPrefixListAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about the resources that are associated with the specified managed prefix list.</p>
@@ -87,7 +85,7 @@ export class GetManagedPrefixListAssociationsCommand extends $Command
   })
   .s("AmazonEC2", "GetManagedPrefixListAssociations", {})
   .n("EC2Client", "GetManagedPrefixListAssociationsCommand")
-  .sc(GetManagedPrefixListAssociations)
+  .sc(GetManagedPrefixListAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

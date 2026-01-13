@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import type { ListAssetModelCompositeModelsRequest, ListAssetModelCompositeModelsResponse } from "../models/models_0";
-import { ListAssetModelCompositeModels } from "../schemas/schemas_0";
+import { ListAssetModelCompositeModels$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListAssetModelCompositeModelsCommandInput extends ListAssetMode
  *
  * The output of {@link ListAssetModelCompositeModelsCommand}.
  */
-export interface ListAssetModelCompositeModelsCommandOutput
-  extends ListAssetModelCompositeModelsResponse,
-    __MetadataBearer {}
+export interface ListAssetModelCompositeModelsCommandOutput extends ListAssetModelCompositeModelsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a paginated list of composite models associated with the asset model</p>
@@ -109,7 +107,7 @@ export class ListAssetModelCompositeModelsCommand extends $Command
   })
   .s("AWSIoTSiteWise", "ListAssetModelCompositeModels", {})
   .n("IoTSiteWiseClient", "ListAssetModelCompositeModelsCommand")
-  .sc(ListAssetModelCompositeModels)
+  .sc(ListAssetModelCompositeModels$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelBundleTaskRequest, CancelBundleTaskResult } from "../models/models_0";
-import { CancelBundleTask } from "../schemas/schemas_0";
+import { CancelBundleTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class CancelBundleTaskCommand extends $Command
   })
   .s("AmazonEC2", "CancelBundleTask", {})
   .n("EC2Client", "CancelBundleTaskCommand")
-  .sc(CancelBundleTask)
+  .sc(CancelBundleTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

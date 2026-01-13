@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import type { AssociateCreatedArtifactRequest, AssociateCreatedArtifactResult } from "../models/models_0";
-import { AssociateCreatedArtifact } from "../schemas/schemas_0";
+import { AssociateCreatedArtifact$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class AssociateCreatedArtifactCommand extends $Command
   })
   .s("AWSMigrationHub", "AssociateCreatedArtifact", {})
   .n("MigrationHubClient", "AssociateCreatedArtifactCommand")
-  .sc(AssociateCreatedArtifact)
+  .sc(AssociateCreatedArtifact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

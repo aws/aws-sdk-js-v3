@@ -9,7 +9,7 @@ import type {
   DisassociateWirelessDeviceFromFuotaTaskRequest,
   DisassociateWirelessDeviceFromFuotaTaskResponse,
 } from "../models/models_0";
-import { DisassociateWirelessDeviceFromFuotaTask } from "../schemas/schemas_0";
+import { DisassociateWirelessDeviceFromFuotaTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateWirelessDeviceFromFuotaTaskCommand}.
  */
-export interface DisassociateWirelessDeviceFromFuotaTaskCommandInput
-  extends DisassociateWirelessDeviceFromFuotaTaskRequest {}
+export interface DisassociateWirelessDeviceFromFuotaTaskCommandInput extends DisassociateWirelessDeviceFromFuotaTaskRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateWirelessDeviceFromFuotaTaskCommand}.
  */
-export interface DisassociateWirelessDeviceFromFuotaTaskCommandOutput
-  extends DisassociateWirelessDeviceFromFuotaTaskResponse,
-    __MetadataBearer {}
+export interface DisassociateWirelessDeviceFromFuotaTaskCommandOutput extends DisassociateWirelessDeviceFromFuotaTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a wireless device from a FUOTA task.</p>
@@ -96,7 +93,7 @@ export class DisassociateWirelessDeviceFromFuotaTaskCommand extends $Command
   })
   .s("iotwireless", "DisassociateWirelessDeviceFromFuotaTask", {})
   .n("IoTWirelessClient", "DisassociateWirelessDeviceFromFuotaTaskCommand")
-  .sc(DisassociateWirelessDeviceFromFuotaTask)
+  .sc(DisassociateWirelessDeviceFromFuotaTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -269,7 +269,10 @@ export interface S3Bucket {
  * <p>Contains information about an audit log destination.</p>
  * @public
  */
-export type Destination = Destination.FirehoseStreamMember | Destination.S3BucketMember | Destination.$UnknownMember;
+export type Destination =
+  | Destination.FirehoseStreamMember
+  | Destination.S3BucketMember
+  | Destination.$UnknownMember;
 
 /**
  * @public
@@ -1058,7 +1061,9 @@ export namespace DestinationConfiguration {
  * <p>Contains information about how ingested data is processed.</p>
  * @public
  */
-export type ProcessingConfiguration = ProcessingConfiguration.AuditLogMember | ProcessingConfiguration.$UnknownMember;
+export type ProcessingConfiguration =
+  | ProcessingConfiguration.AuditLogMember
+  | ProcessingConfiguration.$UnknownMember;
 
 /**
  * @public

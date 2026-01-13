@@ -121,13 +121,7 @@ export const se_FractionalSecondsCommand = async (
   const headers: __HeaderBag = { ...SHARED_HEADERS };
   delete headers["content-type"];
 
-  return buildHttpRpcRequest(
-    context,
-    headers,
-    "/service/RpcV2Protocol/operation/FractionalSeconds",
-    undefined,
-    undefined
-  );
+  return buildHttpRpcRequest(context, headers, "/service/RpcV2Protocol/operation/FractionalSeconds", undefined, undefined);
 };
 
 /**
@@ -140,13 +134,7 @@ export const se_GreetingWithErrorsCommand = async (
   const headers: __HeaderBag = { ...SHARED_HEADERS };
   delete headers["content-type"];
 
-  return buildHttpRpcRequest(
-    context,
-    headers,
-    "/service/RpcV2Protocol/operation/GreetingWithErrors",
-    undefined,
-    undefined
-  );
+  return buildHttpRpcRequest(context, headers, "/service/RpcV2Protocol/operation/GreetingWithErrors", undefined, undefined);
 };
 
 /**
@@ -172,13 +160,7 @@ export const se_OperationWithDefaultsCommand = async (
   const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = cbor.serialize(se_OperationWithDefaultsInput(input, context));
-  return buildHttpRpcRequest(
-    context,
-    headers,
-    "/service/RpcV2Protocol/operation/OperationWithDefaults",
-    undefined,
-    body
-  );
+  return buildHttpRpcRequest(context, headers, "/service/RpcV2Protocol/operation/OperationWithDefaults", undefined, body);
 };
 
 /**
@@ -256,13 +238,7 @@ export const se_SimpleScalarPropertiesCommand = async (
   const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = cbor.serialize(se_SimpleScalarStructure(input, context));
-  return buildHttpRpcRequest(
-    context,
-    headers,
-    "/service/RpcV2Protocol/operation/SimpleScalarProperties",
-    undefined,
-    body
-  );
+  return buildHttpRpcRequest(context, headers, "/service/RpcV2Protocol/operation/SimpleScalarProperties", undefined, body);
 };
 
 /**
@@ -275,13 +251,7 @@ export const se_SparseNullsOperationCommand = async (
   const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = cbor.serialize(se_SparseNullsOperationInputOutput(input, context));
-  return buildHttpRpcRequest(
-    context,
-    headers,
-    "/service/RpcV2Protocol/operation/SparseNullsOperation",
-    undefined,
-    body
-  );
+  return buildHttpRpcRequest(context, headers, "/service/RpcV2Protocol/operation/SparseNullsOperation", undefined, body);
 };
 
 /**
@@ -296,14 +266,14 @@ export const de_EmptyInputOutputCommand = async (
     return de_CommandError(output, context);
   }
 
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = _json(data);
   const response: EmptyInputOutputCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
+    $metadata: deserializeMetadata(output), ...contents,
   };
   return response;
+
 };
 
 /**
@@ -318,14 +288,14 @@ export const de_Float16Command = async (
     return de_CommandError(output, context);
   }
 
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = de_Float16Output(data, context);
   const response: Float16CommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
+    $metadata: deserializeMetadata(output), ...contents,
   };
   return response;
+
 };
 
 /**
@@ -340,14 +310,14 @@ export const de_FractionalSecondsCommand = async (
     return de_CommandError(output, context);
   }
 
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = de_FractionalSecondsOutput(data, context);
   const response: FractionalSecondsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
+    $metadata: deserializeMetadata(output), ...contents,
   };
   return response;
+
 };
 
 /**
@@ -362,14 +332,14 @@ export const de_GreetingWithErrorsCommand = async (
     return de_CommandError(output, context);
   }
 
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = _json(data);
   const response: GreetingWithErrorsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
+    $metadata: deserializeMetadata(output), ...contents,
   };
   return response;
+
 };
 
 /**
@@ -389,6 +359,7 @@ export const de_NoInputOutputCommand = async (
     $metadata: deserializeMetadata(output),
   };
   return response;
+
 };
 
 /**
@@ -403,14 +374,14 @@ export const de_OperationWithDefaultsCommand = async (
     return de_CommandError(output, context);
   }
 
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = de_OperationWithDefaultsOutput(data, context);
   const response: OperationWithDefaultsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
+    $metadata: deserializeMetadata(output), ...contents,
   };
   return response;
+
 };
 
 /**
@@ -425,14 +396,14 @@ export const de_OptionalInputOutputCommand = async (
     return de_CommandError(output, context);
   }
 
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = _json(data);
   const response: OptionalInputOutputCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
+    $metadata: deserializeMetadata(output), ...contents,
   };
   return response;
+
 };
 
 /**
@@ -447,14 +418,14 @@ export const de_RecursiveShapesCommand = async (
     return de_CommandError(output, context);
   }
 
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = de_RecursiveShapesInputOutput(data, context);
   const response: RecursiveShapesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
+    $metadata: deserializeMetadata(output), ...contents,
   };
   return response;
+
 };
 
 /**
@@ -469,14 +440,14 @@ export const de_RpcV2CborDenseMapsCommand = async (
     return de_CommandError(output, context);
   }
 
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = _json(data);
   const response: RpcV2CborDenseMapsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
+    $metadata: deserializeMetadata(output), ...contents,
   };
   return response;
+
 };
 
 /**
@@ -491,14 +462,14 @@ export const de_RpcV2CborListsCommand = async (
     return de_CommandError(output, context);
   }
 
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = de_RpcV2CborListInputOutput(data, context);
   const response: RpcV2CborListsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
+    $metadata: deserializeMetadata(output), ...contents,
   };
   return response;
+
 };
 
 /**
@@ -513,14 +484,14 @@ export const de_RpcV2CborSparseMapsCommand = async (
     return de_CommandError(output, context);
   }
 
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = de_RpcV2CborSparseMapsInputOutput(data, context);
   const response: RpcV2CborSparseMapsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
+    $metadata: deserializeMetadata(output), ...contents,
   };
   return response;
+
 };
 
 /**
@@ -535,14 +506,14 @@ export const de_SimpleScalarPropertiesCommand = async (
     return de_CommandError(output, context);
   }
 
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = de_SimpleScalarStructure(data, context);
   const response: SimpleScalarPropertiesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
+    $metadata: deserializeMetadata(output), ...contents,
   };
   return response;
+
 };
 
 /**
@@ -557,23 +528,26 @@ export const de_SparseNullsOperationCommand = async (
     return de_CommandError(output, context);
   }
 
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = de_SparseNullsOperationInputOutput(data, context);
   const response: SparseNullsOperationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
+    $metadata: deserializeMetadata(output), ...contents,
   };
   return response;
+
 };
 
 /**
  * deserialize_Rpcv2cborCommandError
  */
-const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
+const de_CommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext,
+): Promise<never> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseErrorBody(output.body, context),
+    body: await parseErrorBody(output.body, context)
   };
   const errorCode = loadSmithyRpcV2CborErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -591,20 +565,23 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
       return throwDefaultError({
         output,
         parsedBody,
-        errorCode,
+        errorCode
       }) as never;
   }
-};
+}
 
 /**
  * deserializeRpcv2cborValidationExceptionRes
  */
-const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
-  const body = parsedOutput.body;
+const de_ValidationExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ValidationException> => {
+  const body = parsedOutput.body
   const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
+    ...deserialized
   });
   return __decorateServiceException(exception, body);
 };
@@ -612,12 +589,15 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 /**
  * deserializeRpcv2cborComplexErrorRes
  */
-const de_ComplexErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<ComplexError> => {
-  const body = parsedOutput.body;
+const de_ComplexErrorRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ComplexError> => {
+  const body = parsedOutput.body
   const deserialized: any = _json(body);
   const exception = new ComplexError({
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
+    ...deserialized
   });
   return __decorateServiceException(exception, body);
 };
@@ -625,12 +605,15 @@ const de_ComplexErrorRes = async (parsedOutput: any, context: __SerdeContext): P
 /**
  * deserializeRpcv2cborInvalidGreetingRes
  */
-const de_InvalidGreetingRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidGreeting> => {
-  const body = parsedOutput.body;
+const de_InvalidGreetingRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidGreeting> => {
+  const body = parsedOutput.body
   const deserialized: any = _json(body);
   const exception = new InvalidGreeting({
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
+    ...deserialized
   });
   return __decorateServiceException(exception, body);
 };
@@ -640,33 +623,36 @@ const de_InvalidGreetingRes = async (parsedOutput: any, context: __SerdeContext)
 /**
  * serializeRpcv2cborDefaults
  */
-const se_Defaults = (input: Defaults, context: __SerdeContext): any => {
+const se_Defaults = (
+  input: Defaults,
+  context: __SerdeContext
+): any => {
   return take(input, {
-    defaultBlob: [],
-    defaultBoolean: [],
-    defaultByte: [],
-    defaultDouble: [],
-    defaultEnum: [],
-    defaultFloat: [],
-    defaultIntEnum: [],
-    defaultInteger: [],
-    defaultList: _json,
-    defaultLong: [],
-    defaultMap: _json,
-    defaultShort: [],
-    defaultString: [],
-    defaultTimestamp: __dateToTag,
-    emptyBlob: [],
-    emptyString: [],
-    falseBoolean: [],
-    zeroByte: [],
-    zeroDouble: [],
-    zeroFloat: [],
-    zeroInteger: [],
-    zeroLong: [],
-    zeroShort: [],
+    'defaultBlob': [],
+    'defaultBoolean': [],
+    'defaultByte': [],
+    'defaultDouble': [],
+    'defaultEnum': [],
+    'defaultFloat': [],
+    'defaultIntEnum': [],
+    'defaultInteger': [],
+    'defaultList': _json,
+    'defaultLong': [],
+    'defaultMap': _json,
+    'defaultShort': [],
+    'defaultString': [],
+    'defaultTimestamp': __dateToTag,
+    'emptyBlob': [],
+    'emptyString': [],
+    'falseBoolean': [],
+    'zeroByte': [],
+    'zeroDouble': [],
+    'zeroFloat': [],
+    'zeroInteger': [],
+    'zeroLong': [],
+    'zeroShort': [],
   });
-};
+}
 
 // se_DenseBooleanMap omitted.
 
@@ -683,23 +669,29 @@ const se_Defaults = (input: Defaults, context: __SerdeContext): any => {
 /**
  * serializeRpcv2cborOperationWithDefaultsInput
  */
-const se_OperationWithDefaultsInput = (input: OperationWithDefaultsInput, context: __SerdeContext): any => {
+const se_OperationWithDefaultsInput = (
+  input: OperationWithDefaultsInput,
+  context: __SerdeContext
+): any => {
   return take(input, {
-    clientOptionalDefaults: _json,
-    defaults: (_) => se_Defaults(_, context),
-    otherTopLevelDefault: [],
-    topLevelDefault: [],
+    'clientOptionalDefaults': _json,
+    'defaults': _ => se_Defaults(_, context),
+    'otherTopLevelDefault': [],
+    'topLevelDefault': [],
   });
-};
+}
 
 /**
  * serializeRpcv2cborRecursiveShapesInputOutput
  */
-const se_RecursiveShapesInputOutput = (input: RecursiveShapesInputOutput, context: __SerdeContext): any => {
+const se_RecursiveShapesInputOutput = (
+  input: RecursiveShapesInputOutput,
+  context: __SerdeContext
+): any => {
   return take(input, {
-    nested: (_) => se_RecursiveShapesInputOutputNested1(_, context),
+    'nested': _ => se_RecursiveShapesInputOutputNested1(_, context),
   });
-};
+}
 
 /**
  * serializeRpcv2cborRecursiveShapesInputOutputNested1
@@ -709,10 +701,10 @@ const se_RecursiveShapesInputOutputNested1 = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    foo: [],
-    nested: (_) => se_RecursiveShapesInputOutputNested2(_, context),
+    'foo': [],
+    'nested': _ => se_RecursiveShapesInputOutputNested2(_, context),
   });
-};
+}
 
 /**
  * serializeRpcv2cborRecursiveShapesInputOutputNested2
@@ -722,133 +714,165 @@ const se_RecursiveShapesInputOutputNested2 = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    bar: [],
-    recursiveMember: (_) => se_RecursiveShapesInputOutputNested1(_, context),
+    'bar': [],
+    'recursiveMember': _ => se_RecursiveShapesInputOutputNested1(_, context),
   });
-};
+}
 
 // se_RpcV2CborDenseMapsInputOutput omitted.
 
 /**
  * serializeRpcv2cborRpcV2CborListInputOutput
  */
-const se_RpcV2CborListInputOutput = (input: RpcV2CborListInputOutput, context: __SerdeContext): any => {
+const se_RpcV2CborListInputOutput = (
+  input: RpcV2CborListInputOutput,
+  context: __SerdeContext
+): any => {
   return take(input, {
-    blobList: (_) => se_BlobList(_, context),
-    booleanList: _json,
-    enumList: _json,
-    intEnumList: _json,
-    integerList: _json,
-    nestedStringList: _json,
-    stringList: _json,
-    stringSet: _json,
-    structureList: _json,
-    timestampList: (_) => se_TimestampList(_, context),
+    'blobList': _ => se_BlobList(_, context),
+    'booleanList': _json,
+    'enumList': _json,
+    'intEnumList': _json,
+    'integerList': _json,
+    'nestedStringList': _json,
+    'stringList': _json,
+    'stringSet': _json,
+    'structureList': _json,
+    'timestampList': _ => se_TimestampList(_, context),
   });
-};
+}
 
 /**
  * serializeRpcv2cborRpcV2CborSparseMapsInputOutput
  */
-const se_RpcV2CborSparseMapsInputOutput = (input: RpcV2CborSparseMapsInputOutput, context: __SerdeContext): any => {
+const se_RpcV2CborSparseMapsInputOutput = (
+  input: RpcV2CborSparseMapsInputOutput,
+  context: __SerdeContext
+): any => {
   return take(input, {
-    sparseBooleanMap: (_) => se_SparseBooleanMap(_, context),
-    sparseNumberMap: (_) => se_SparseNumberMap(_, context),
-    sparseSetMap: (_) => se_SparseSetMap(_, context),
-    sparseStringMap: (_) => se_SparseStringMap(_, context),
-    sparseStructMap: (_) => se_SparseStructMap(_, context),
+    'sparseBooleanMap': _ => se_SparseBooleanMap(_, context),
+    'sparseNumberMap': _ => se_SparseNumberMap(_, context),
+    'sparseSetMap': _ => se_SparseSetMap(_, context),
+    'sparseStringMap': _ => se_SparseStringMap(_, context),
+    'sparseStructMap': _ => se_SparseStructMap(_, context),
   });
-};
+}
 
 /**
  * serializeRpcv2cborSimpleScalarStructure
  */
-const se_SimpleScalarStructure = (input: SimpleScalarStructure, context: __SerdeContext): any => {
+const se_SimpleScalarStructure = (
+  input: SimpleScalarStructure,
+  context: __SerdeContext
+): any => {
   return take(input, {
-    blobValue: [],
-    byteValue: [],
-    doubleValue: [],
-    falseBooleanValue: [],
-    floatValue: [],
-    integerValue: [],
-    longValue: [],
-    shortValue: [],
-    stringValue: [],
-    trueBooleanValue: [],
+    'blobValue': [],
+    'byteValue': [],
+    'doubleValue': [],
+    'falseBooleanValue': [],
+    'floatValue': [],
+    'integerValue': [],
+    'longValue': [],
+    'shortValue': [],
+    'stringValue': [],
+    'trueBooleanValue': [],
   });
-};
+}
 
 // se_SimpleStructure omitted.
 
 /**
  * serializeRpcv2cborSparseBooleanMap
  */
-const se_SparseBooleanMap = (input: Record<string, boolean>, context: __SerdeContext): any => {
+const se_SparseBooleanMap = (
+  input: Record<string, boolean>,
+  context: __SerdeContext
+): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value !== null) {
-      acc[key] = value;
-    } else {
-      acc[key] = null as any;
+        acc[key] = value;
+    }
+
+    else {
+        acc[key] = null as any;
     }
 
     return acc;
   }, {});
-};
+}
 
 /**
  * serializeRpcv2cborSparseNullsOperationInputOutput
  */
-const se_SparseNullsOperationInputOutput = (input: SparseNullsOperationInputOutput, context: __SerdeContext): any => {
+const se_SparseNullsOperationInputOutput = (
+  input: SparseNullsOperationInputOutput,
+  context: __SerdeContext
+): any => {
   return take(input, {
-    sparseStringList: (_) => se_SparseStringList(_, context),
-    sparseStringMap: (_) => se_SparseStringMap(_, context),
+    'sparseStringList': _ => se_SparseStringList(_, context),
+    'sparseStringMap': _ => se_SparseStringMap(_, context),
   });
-};
+}
 
 /**
  * serializeRpcv2cborSparseNumberMap
  */
-const se_SparseNumberMap = (input: Record<string, number>, context: __SerdeContext): any => {
+const se_SparseNumberMap = (
+  input: Record<string, number>,
+  context: __SerdeContext
+): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value !== null) {
-      acc[key] = value;
-    } else {
-      acc[key] = null as any;
+        acc[key] = value;
+    }
+
+    else {
+        acc[key] = null as any;
     }
 
     return acc;
   }, {});
-};
+}
 
 /**
  * serializeRpcv2cborSparseSetMap
  */
-const se_SparseSetMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
+const se_SparseSetMap = (
+  input: Record<string, string[]>,
+  context: __SerdeContext
+): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value !== null) {
-      acc[key] = _json(value);
-    } else {
-      acc[key] = null as any;
+        acc[key] = _json(value);
+    }
+
+    else {
+        acc[key] = null as any;
     }
 
     return acc;
   }, {});
-};
+}
 
 /**
  * serializeRpcv2cborSparseStructMap
  */
-const se_SparseStructMap = (input: Record<string, GreetingStruct>, context: __SerdeContext): any => {
+const se_SparseStructMap = (
+  input: Record<string, GreetingStruct>,
+  context: __SerdeContext
+): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value !== null) {
-      acc[key] = _json(value);
-    } else {
-      acc[key] = null as any;
+        acc[key] = _json(value);
+    }
+
+    else {
+        acc[key] = null as any;
     }
 
     return acc;
   }, {});
-};
+}
 
 // se_StructureList omitted.
 
@@ -861,9 +885,12 @@ const se_SparseStructMap = (input: Record<string, GreetingStruct>, context: __Se
 /**
  * serializeRpcv2cborBlobList
  */
-const se_BlobList = (input: Uint8Array[], context: __SerdeContext): any => {
+const se_BlobList = (
+  input: Uint8Array[],
+  context: __SerdeContext
+): any => {
   return input.filter((e: any) => e != null);
-};
+}
 
 // se_BooleanList omitted.
 
@@ -880,24 +907,32 @@ const se_BlobList = (input: Uint8Array[], context: __SerdeContext): any => {
 /**
  * serializeRpcv2cborSparseStringList
  */
-const se_SparseStringList = (input: string[], context: __SerdeContext): any => {
+const se_SparseStringList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
   return input;
-};
+}
 
 /**
  * serializeRpcv2cborSparseStringMap
  */
-const se_SparseStringMap = (input: Record<string, string>, context: __SerdeContext): any => {
+const se_SparseStringMap = (
+  input: Record<string, string>,
+  context: __SerdeContext
+): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value !== null) {
-      acc[key] = value;
-    } else {
-      acc[key] = null as any;
+        acc[key] = value;
+    }
+
+    else {
+        acc[key] = null as any;
     }
 
     return acc;
   }, {});
-};
+}
 
 // se_StringList omitted.
 
@@ -906,13 +941,14 @@ const se_SparseStringMap = (input: Record<string, string>, context: __SerdeConte
 /**
  * serializeRpcv2cborTimestampList
  */
-const se_TimestampList = (input: Date[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return __dateToTag(entry);
-    });
-};
+const se_TimestampList = (
+  input: Date[],
+  context: __SerdeContext
+): any => {
+  return input.filter((e: any) => e != null).map(entry => {
+    return __dateToTag(entry);
+  });
+}
 
 // de_ValidationException omitted.
 
@@ -939,20 +975,26 @@ const se_TimestampList = (input: Date[], context: __SerdeContext): any => {
 /**
  * deserializeRpcv2cborFloat16Output
  */
-const de_Float16Output = (output: any, context: __SerdeContext): Float16Output => {
+const de_Float16Output = (
+  output: any,
+  context: __SerdeContext
+): Float16Output => {
   return take(output, {
-    value: __limitedParseDouble,
+    'value': __limitedParseDouble,
   }) as any;
-};
+}
 
 /**
  * deserializeRpcv2cborFractionalSecondsOutput
  */
-const de_FractionalSecondsOutput = (output: any, context: __SerdeContext): FractionalSecondsOutput => {
+const de_FractionalSecondsOutput = (
+  output: any,
+  context: __SerdeContext
+): FractionalSecondsOutput => {
   return take(output, {
-    datetime: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
+    'datetime': (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
   }) as any;
-};
+}
 
 // de_GreetingWithErrorsOutput omitted.
 
@@ -961,42 +1003,48 @@ const de_FractionalSecondsOutput = (output: any, context: __SerdeContext): Fract
 /**
  * deserializeRpcv2cborOperationWithDefaultsOutput
  */
-const de_OperationWithDefaultsOutput = (output: any, context: __SerdeContext): OperationWithDefaultsOutput => {
+const de_OperationWithDefaultsOutput = (
+  output: any,
+  context: __SerdeContext
+): OperationWithDefaultsOutput => {
   return take(output, {
-    defaultBlob: [],
-    defaultBoolean: __expectBoolean,
-    defaultByte: __expectByte,
-    defaultDouble: __limitedParseDouble,
-    defaultEnum: __expectString,
-    defaultFloat: __limitedParseFloat32,
-    defaultIntEnum: __expectInt32,
-    defaultInteger: __expectInt32,
-    defaultList: _json,
-    defaultLong: __expectLong,
-    defaultMap: _json,
-    defaultShort: __expectShort,
-    defaultString: __expectString,
-    defaultTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
-    emptyBlob: [],
-    emptyString: __expectString,
-    falseBoolean: __expectBoolean,
-    zeroByte: __expectByte,
-    zeroDouble: __limitedParseDouble,
-    zeroFloat: __limitedParseFloat32,
-    zeroInteger: __expectInt32,
-    zeroLong: __expectLong,
-    zeroShort: __expectShort,
+    'defaultBlob': [],
+    'defaultBoolean': __expectBoolean,
+    'defaultByte': __expectByte,
+    'defaultDouble': __limitedParseDouble,
+    'defaultEnum': __expectString,
+    'defaultFloat': __limitedParseFloat32,
+    'defaultIntEnum': __expectInt32,
+    'defaultInteger': __expectInt32,
+    'defaultList': _json,
+    'defaultLong': __expectLong,
+    'defaultMap': _json,
+    'defaultShort': __expectShort,
+    'defaultString': __expectString,
+    'defaultTimestamp': (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
+    'emptyBlob': [],
+    'emptyString': __expectString,
+    'falseBoolean': __expectBoolean,
+    'zeroByte': __expectByte,
+    'zeroDouble': __limitedParseDouble,
+    'zeroFloat': __limitedParseFloat32,
+    'zeroInteger': __expectInt32,
+    'zeroLong': __expectLong,
+    'zeroShort': __expectShort,
   }) as any;
-};
+}
 
 /**
  * deserializeRpcv2cborRecursiveShapesInputOutput
  */
-const de_RecursiveShapesInputOutput = (output: any, context: __SerdeContext): RecursiveShapesInputOutput => {
+const de_RecursiveShapesInputOutput = (
+  output: any,
+  context: __SerdeContext
+): RecursiveShapesInputOutput => {
   return take(output, {
-    nested: (_: any) => de_RecursiveShapesInputOutputNested1(_, context),
+    'nested': (_: any) => de_RecursiveShapesInputOutputNested1(_, context),
   }) as any;
-};
+}
 
 /**
  * deserializeRpcv2cborRecursiveShapesInputOutputNested1
@@ -1006,10 +1054,10 @@ const de_RecursiveShapesInputOutputNested1 = (
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested1 => {
   return take(output, {
-    foo: __expectString,
-    nested: (_: any) => de_RecursiveShapesInputOutputNested2(_, context),
+    'foo': __expectString,
+    'nested': (_: any) => de_RecursiveShapesInputOutputNested2(_, context),
   }) as any;
-};
+}
 
 /**
  * deserializeRpcv2cborRecursiveShapesInputOutputNested2
@@ -1019,129 +1067,157 @@ const de_RecursiveShapesInputOutputNested2 = (
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested2 => {
   return take(output, {
-    bar: __expectString,
-    recursiveMember: (_: any) => de_RecursiveShapesInputOutputNested1(_, context),
+    'bar': __expectString,
+    'recursiveMember': (_: any) => de_RecursiveShapesInputOutputNested1(_, context),
   }) as any;
-};
+}
 
 // de_RpcV2CborDenseMapsInputOutput omitted.
 
 /**
  * deserializeRpcv2cborRpcV2CborListInputOutput
  */
-const de_RpcV2CborListInputOutput = (output: any, context: __SerdeContext): RpcV2CborListInputOutput => {
+const de_RpcV2CborListInputOutput = (
+  output: any,
+  context: __SerdeContext
+): RpcV2CborListInputOutput => {
   return take(output, {
-    blobList: (_: any) => de_BlobList(_, context),
-    booleanList: _json,
-    enumList: _json,
-    intEnumList: _json,
-    integerList: _json,
-    nestedStringList: _json,
-    stringList: _json,
-    stringSet: _json,
-    structureList: _json,
-    timestampList: (_: any) => de_TimestampList(_, context),
+    'blobList': (_: any) => de_BlobList(_, context),
+    'booleanList': _json,
+    'enumList': _json,
+    'intEnumList': _json,
+    'integerList': _json,
+    'nestedStringList': _json,
+    'stringList': _json,
+    'stringSet': _json,
+    'structureList': _json,
+    'timestampList': (_: any) => de_TimestampList(_, context),
   }) as any;
-};
+}
 
 /**
  * deserializeRpcv2cborRpcV2CborSparseMapsInputOutput
  */
-const de_RpcV2CborSparseMapsInputOutput = (output: any, context: __SerdeContext): RpcV2CborSparseMapsInputOutput => {
+const de_RpcV2CborSparseMapsInputOutput = (
+  output: any,
+  context: __SerdeContext
+): RpcV2CborSparseMapsInputOutput => {
   return take(output, {
-    sparseBooleanMap: (_: any) => de_SparseBooleanMap(_, context),
-    sparseNumberMap: (_: any) => de_SparseNumberMap(_, context),
-    sparseSetMap: (_: any) => de_SparseSetMap(_, context),
-    sparseStringMap: (_: any) => de_SparseStringMap(_, context),
-    sparseStructMap: (_: any) => de_SparseStructMap(_, context),
+    'sparseBooleanMap': (_: any) => de_SparseBooleanMap(_, context),
+    'sparseNumberMap': (_: any) => de_SparseNumberMap(_, context),
+    'sparseSetMap': (_: any) => de_SparseSetMap(_, context),
+    'sparseStringMap': (_: any) => de_SparseStringMap(_, context),
+    'sparseStructMap': (_: any) => de_SparseStructMap(_, context),
   }) as any;
-};
+}
 
 /**
  * deserializeRpcv2cborSimpleScalarStructure
  */
-const de_SimpleScalarStructure = (output: any, context: __SerdeContext): SimpleScalarStructure => {
+const de_SimpleScalarStructure = (
+  output: any,
+  context: __SerdeContext
+): SimpleScalarStructure => {
   return take(output, {
-    blobValue: [],
-    byteValue: __expectByte,
-    doubleValue: __limitedParseDouble,
-    falseBooleanValue: __expectBoolean,
-    floatValue: __limitedParseFloat32,
-    integerValue: __expectInt32,
-    longValue: __expectLong,
-    shortValue: __expectShort,
-    stringValue: __expectString,
-    trueBooleanValue: __expectBoolean,
+    'blobValue': [],
+    'byteValue': __expectByte,
+    'doubleValue': __limitedParseDouble,
+    'falseBooleanValue': __expectBoolean,
+    'floatValue': __limitedParseFloat32,
+    'integerValue': __expectInt32,
+    'longValue': __expectLong,
+    'shortValue': __expectShort,
+    'stringValue': __expectString,
+    'trueBooleanValue': __expectBoolean,
   }) as any;
-};
+}
 
 // de_SimpleStructure omitted.
 
 /**
  * deserializeRpcv2cborSparseBooleanMap
  */
-const de_SparseBooleanMap = (output: any, context: __SerdeContext): Record<string, boolean> => {
+const de_SparseBooleanMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, boolean> => {
   return Object.entries(output).reduce((acc: Record<string, boolean>, [key, value]: [string, any]) => {
     if (value !== null) {
       acc[key as string] = __expectBoolean(value) as any;
-    } else {
+    }
+    else {
       acc[key as string] = null as any;
     }
     return acc;
-  }, {} as Record<string, boolean>);
-};
+
+  }, {} as Record<string, boolean>);}
 
 /**
  * deserializeRpcv2cborSparseNullsOperationInputOutput
  */
-const de_SparseNullsOperationInputOutput = (output: any, context: __SerdeContext): SparseNullsOperationInputOutput => {
+const de_SparseNullsOperationInputOutput = (
+  output: any,
+  context: __SerdeContext
+): SparseNullsOperationInputOutput => {
   return take(output, {
-    sparseStringList: (_: any) => de_SparseStringList(_, context),
-    sparseStringMap: (_: any) => de_SparseStringMap(_, context),
+    'sparseStringList': (_: any) => de_SparseStringList(_, context),
+    'sparseStringMap': (_: any) => de_SparseStringMap(_, context),
   }) as any;
-};
+}
 
 /**
  * deserializeRpcv2cborSparseNumberMap
  */
-const de_SparseNumberMap = (output: any, context: __SerdeContext): Record<string, number> => {
+const de_SparseNumberMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, number> => {
   return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value !== null) {
       acc[key as string] = __expectInt32(value) as any;
-    } else {
+    }
+    else {
       acc[key as string] = null as any;
     }
     return acc;
-  }, {} as Record<string, number>);
-};
+
+  }, {} as Record<string, number>);}
 
 /**
  * deserializeRpcv2cborSparseSetMap
  */
-const de_SparseSetMap = (output: any, context: __SerdeContext): Record<string, string[]> => {
+const de_SparseSetMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, string[]> => {
   return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value !== null) {
       acc[key as string] = _json(value);
-    } else {
+    }
+    else {
       acc[key as string] = null as any;
     }
     return acc;
-  }, {} as Record<string, string[]>);
-};
+
+  }, {} as Record<string, string[]>);}
 
 /**
  * deserializeRpcv2cborSparseStructMap
  */
-const de_SparseStructMap = (output: any, context: __SerdeContext): Record<string, GreetingStruct> => {
+const de_SparseStructMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, GreetingStruct> => {
   return Object.entries(output).reduce((acc: Record<string, GreetingStruct>, [key, value]: [string, any]) => {
     if (value !== null) {
       acc[key as string] = _json(value);
-    } else {
+    }
+    else {
       acc[key as string] = null as any;
     }
     return acc;
-  }, {} as Record<string, GreetingStruct>);
-};
+
+  }, {} as Record<string, GreetingStruct>);}
 
 // de_StructureList omitted.
 
@@ -1154,10 +1230,13 @@ const de_SparseStructMap = (output: any, context: __SerdeContext): Record<string
 /**
  * deserializeRpcv2cborBlobList
  */
-const de_BlobList = (output: any, context: __SerdeContext): Uint8Array[] => {
-  const collection = (output || []).filter((e: any) => e != null);
+const de_BlobList = (
+  output: any,
+  context: __SerdeContext
+): Uint8Array[] => {
+  const collection = (output || []).filter((e: any) => e != null)
   return collection;
-};
+}
 
 // de_BooleanList omitted.
 
@@ -1174,7 +1253,10 @@ const de_BlobList = (output: any, context: __SerdeContext): Uint8Array[] => {
 /**
  * deserializeRpcv2cborSparseStringList
  */
-const de_SparseStringList = (output: any, context: __SerdeContext): string[] => {
+const de_SparseStringList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
   const collection = (output || []).map((entry: any) => {
     if (entry === null) {
       return null as any;
@@ -1182,21 +1264,25 @@ const de_SparseStringList = (output: any, context: __SerdeContext): string[] => 
     return __expectString(entry) as any;
   });
   return collection;
-};
+}
 
 /**
  * deserializeRpcv2cborSparseStringMap
  */
-const de_SparseStringMap = (output: any, context: __SerdeContext): Record<string, string> => {
+const de_SparseStringMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value !== null) {
       acc[key as string] = __expectString(value) as any;
-    } else {
+    }
+    else {
       acc[key as string] = null as any;
     }
     return acc;
-  }, {} as Record<string, string>);
-};
+
+  }, {} as Record<string, string>);}
 
 // de_StringList omitted.
 
@@ -1205,26 +1291,27 @@ const de_SparseStringMap = (output: any, context: __SerdeContext): Record<string
 /**
  * deserializeRpcv2cborTimestampList
  */
-const de_TimestampList = (output: any, context: __SerdeContext): Date[] => {
-  const collection = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      return __expectNonNull(__parseEpochTimestamp(entry));
-    });
+const de_TimestampList = (
+  output: any,
+  context: __SerdeContext
+): Date[] => {
+  const collection = (output || []).filter((e: any) => e != null).map((entry: any) => {
+    return __expectNonNull(__parseEpochTimestamp(entry));
+  });
   return collection;
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId:
-    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
+  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
 
 const throwDefaultError = withBaseException(__BaseException);
 const SHARED_HEADERS: __HeaderBag = {
-  "content-type": "application/cbor",
+  'content-type': "application/cbor",
   "smithy-protocol": "rpc-v2-cbor",
-  accept: "application/cbor",
+  "accept": "application/cbor",
+
 };

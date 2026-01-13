@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeWorkspaceDirectoriesRequest, DescribeWorkspaceDirectoriesResult } from "../models/models_0";
-import { DescribeWorkspaceDirectories } from "../schemas/schemas_0";
+import { DescribeWorkspaceDirectories$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DescribeWorkspaceDirectoriesCommandInput extends DescribeWorksp
  *
  * The output of {@link DescribeWorkspaceDirectoriesCommand}.
  */
-export interface DescribeWorkspaceDirectoriesCommandOutput
-  extends DescribeWorkspaceDirectoriesResult,
-    __MetadataBearer {}
+export interface DescribeWorkspaceDirectoriesCommandOutput extends DescribeWorkspaceDirectoriesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the available directories that are registered with Amazon WorkSpaces.</p>
@@ -203,7 +201,7 @@ export class DescribeWorkspaceDirectoriesCommand extends $Command
   })
   .s("WorkspacesService", "DescribeWorkspaceDirectories", {})
   .n("WorkSpacesClient", "DescribeWorkspaceDirectoriesCommand")
-  .sc(DescribeWorkspaceDirectories)
+  .sc(DescribeWorkspaceDirectories$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

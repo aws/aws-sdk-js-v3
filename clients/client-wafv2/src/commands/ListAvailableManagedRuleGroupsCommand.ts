@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAvailableManagedRuleGroupsRequest, ListAvailableManagedRuleGroupsResponse } from "../models/models_0";
-import { ListAvailableManagedRuleGroups } from "../schemas/schemas_0";
+import { ListAvailableManagedRuleGroups$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -24,9 +24,7 @@ export interface ListAvailableManagedRuleGroupsCommandInput extends ListAvailabl
  *
  * The output of {@link ListAvailableManagedRuleGroupsCommand}.
  */
-export interface ListAvailableManagedRuleGroupsCommandOutput
-  extends ListAvailableManagedRuleGroupsResponse,
-    __MetadataBearer {}
+export interface ListAvailableManagedRuleGroupsCommandOutput extends ListAvailableManagedRuleGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves an array of managed rule groups that are available for you to use. This list
@@ -115,7 +113,7 @@ export class ListAvailableManagedRuleGroupsCommand extends $Command
   })
   .s("AWSWAF_20190729", "ListAvailableManagedRuleGroups", {})
   .n("WAFV2Client", "ListAvailableManagedRuleGroupsCommand")
-  .sc(ListAvailableManagedRuleGroups)
+  .sc(ListAvailableManagedRuleGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

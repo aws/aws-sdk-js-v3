@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateApplicationAssignmentRequest, CreateApplicationAssignmentResponse } from "../models/models_0";
-import { CreateApplicationAssignment } from "../schemas/schemas_0";
+import { CreateApplicationAssignment$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -24,9 +24,7 @@ export interface CreateApplicationAssignmentCommandInput extends CreateApplicati
  *
  * The output of {@link CreateApplicationAssignmentCommand}.
  */
-export interface CreateApplicationAssignmentCommandOutput
-  extends CreateApplicationAssignmentResponse,
-    __MetadataBearer {}
+export interface CreateApplicationAssignmentCommandOutput extends CreateApplicationAssignmentResponse, __MetadataBearer {}
 
 /**
  * <p>Grant application access to a user or group.</p>
@@ -96,7 +94,7 @@ export class CreateApplicationAssignmentCommand extends $Command
   })
   .s("SWBExternalService", "CreateApplicationAssignment", {})
   .n("SSOAdminClient", "CreateApplicationAssignmentCommand")
-  .sc(CreateApplicationAssignment)
+  .sc(CreateApplicationAssignment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { PutAttachmentRoutingPolicyLabel } from "../schemas/schemas_0";
+import { PutAttachmentRoutingPolicyLabel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface PutAttachmentRoutingPolicyLabelCommandInput extends PutAttachme
  *
  * The output of {@link PutAttachmentRoutingPolicyLabelCommand}.
  */
-export interface PutAttachmentRoutingPolicyLabelCommandOutput
-  extends PutAttachmentRoutingPolicyLabelResponse,
-    __MetadataBearer {}
+export interface PutAttachmentRoutingPolicyLabelCommandOutput extends PutAttachmentRoutingPolicyLabelResponse, __MetadataBearer {}
 
 /**
  * <p>Applies a routing policy label to an attachment for traffic routing decisions.</p>
@@ -109,7 +107,7 @@ export class PutAttachmentRoutingPolicyLabelCommand extends $Command
   })
   .s("NetworkManager", "PutAttachmentRoutingPolicyLabel", {})
   .n("NetworkManagerClient", "PutAttachmentRoutingPolicyLabelCommand")
-  .sc(PutAttachmentRoutingPolicyLabel)
+  .sc(PutAttachmentRoutingPolicyLabel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteAccessControlConfigurationRequest,
   DeleteAccessControlConfigurationResponse,
 } from "../models/models_0";
-import { DeleteAccessControlConfiguration } from "../schemas/schemas_0";
+import { DeleteAccessControlConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteAccessControlConfigurationCommandInput extends DeleteAcce
  *
  * The output of {@link DeleteAccessControlConfigurationCommand}.
  */
-export interface DeleteAccessControlConfigurationCommandOutput
-  extends DeleteAccessControlConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteAccessControlConfigurationCommandOutput extends DeleteAccessControlConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an access control configuration that you created for your documents in an
@@ -104,7 +102,7 @@ export class DeleteAccessControlConfigurationCommand extends $Command
   })
   .s("AWSKendraFrontendService", "DeleteAccessControlConfiguration", {})
   .n("KendraClient", "DeleteAccessControlConfigurationCommand")
-  .sc(DeleteAccessControlConfiguration)
+  .sc(DeleteAccessControlConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

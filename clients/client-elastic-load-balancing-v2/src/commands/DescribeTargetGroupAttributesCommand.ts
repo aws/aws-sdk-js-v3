@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeTargetGroupAttributesInput, DescribeTargetGroupAttributesOutput } from "../models/models_0";
-import { DescribeTargetGroupAttributes } from "../schemas/schemas_0";
+import { DescribeTargetGroupAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeTargetGroupAttributesCommandInput extends DescribeTarge
  *
  * The output of {@link DescribeTargetGroupAttributesCommand}.
  */
-export interface DescribeTargetGroupAttributesCommandOutput
-  extends DescribeTargetGroupAttributesOutput,
-    __MetadataBearer {}
+export interface DescribeTargetGroupAttributesCommandOutput extends DescribeTargetGroupAttributesOutput, __MetadataBearer {}
 
 /**
  * <p>Describes the attributes for the specified target group.</p>
@@ -140,7 +138,7 @@ export class DescribeTargetGroupAttributesCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "DescribeTargetGroupAttributes", {})
   .n("ElasticLoadBalancingV2Client", "DescribeTargetGroupAttributesCommand")
-  .sc(DescribeTargetGroupAttributes)
+  .sc(DescribeTargetGroupAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

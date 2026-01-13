@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ScanInput, ScanOutput } from "../models/models_0";
-import { Scan } from "../schemas/schemas_0";
+import { Scan$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -339,7 +339,7 @@ export class ScanCommand extends $Command
   })
   .s("DynamoDB_20120810", "Scan", {})
   .n("DynamoDBClient", "ScanCommand")
-  .sc(Scan)
+  .sc(Scan$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

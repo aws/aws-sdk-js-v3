@@ -9,7 +9,7 @@ import type {
   BatchAssociateCodeSecurityScanConfigurationRequest,
   BatchAssociateCodeSecurityScanConfigurationResponse,
 } from "../models/models_0";
-import { BatchAssociateCodeSecurityScanConfiguration } from "../schemas/schemas_0";
+import { BatchAssociateCodeSecurityScanConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchAssociateCodeSecurityScanConfigurationCommand}.
  */
-export interface BatchAssociateCodeSecurityScanConfigurationCommandInput
-  extends BatchAssociateCodeSecurityScanConfigurationRequest {}
+export interface BatchAssociateCodeSecurityScanConfigurationCommandInput extends BatchAssociateCodeSecurityScanConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link BatchAssociateCodeSecurityScanConfigurationCommand}.
  */
-export interface BatchAssociateCodeSecurityScanConfigurationCommandOutput
-  extends BatchAssociateCodeSecurityScanConfigurationResponse,
-    __MetadataBearer {}
+export interface BatchAssociateCodeSecurityScanConfigurationCommandOutput extends BatchAssociateCodeSecurityScanConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Associates multiple code repositories with an Amazon Inspector code security scan
@@ -127,7 +124,7 @@ export class BatchAssociateCodeSecurityScanConfigurationCommand extends $Command
   })
   .s("Inspector2", "BatchAssociateCodeSecurityScanConfiguration", {})
   .n("Inspector2Client", "BatchAssociateCodeSecurityScanConfigurationCommand")
-  .sc(BatchAssociateCodeSecurityScanConfiguration)
+  .sc(BatchAssociateCodeSecurityScanConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

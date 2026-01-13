@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutUseCaseForModelAccessRequest, PutUseCaseForModelAccessResponse } from "../models/models_0";
-import { PutUseCaseForModelAccess } from "../schemas/schemas_0";
+import { PutUseCaseForModelAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class PutUseCaseForModelAccessCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "PutUseCaseForModelAccess", {})
   .n("BedrockClient", "PutUseCaseForModelAccessCommand")
-  .sc(PutUseCaseForModelAccess)
+  .sc(PutUseCaseForModelAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

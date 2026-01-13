@@ -9,7 +9,7 @@ import type {
   CreateAutomatedReasoningPolicyTestCaseRequest,
   CreateAutomatedReasoningPolicyTestCaseResponse,
 } from "../models/models_0";
-import { CreateAutomatedReasoningPolicyTestCase } from "../schemas/schemas_0";
+import { CreateAutomatedReasoningPolicyTestCase$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateAutomatedReasoningPolicyTestCaseCommand}.
  */
-export interface CreateAutomatedReasoningPolicyTestCaseCommandInput
-  extends CreateAutomatedReasoningPolicyTestCaseRequest {}
+export interface CreateAutomatedReasoningPolicyTestCaseCommandInput extends CreateAutomatedReasoningPolicyTestCaseRequest {}
 /**
  * @public
  *
  * The output of {@link CreateAutomatedReasoningPolicyTestCaseCommand}.
  */
-export interface CreateAutomatedReasoningPolicyTestCaseCommandOutput
-  extends CreateAutomatedReasoningPolicyTestCaseResponse,
-    __MetadataBearer {}
+export interface CreateAutomatedReasoningPolicyTestCaseCommandOutput extends CreateAutomatedReasoningPolicyTestCaseResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a test for an Automated Reasoning policy. Tests validate that your policy works as expected by providing sample inputs and expected outcomes. Use tests to verify policy behavior before deploying to production.</p>
@@ -106,7 +103,7 @@ export class CreateAutomatedReasoningPolicyTestCaseCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "CreateAutomatedReasoningPolicyTestCase", {})
   .n("BedrockClient", "CreateAutomatedReasoningPolicyTestCaseCommand")
-  .sc(CreateAutomatedReasoningPolicyTestCase)
+  .sc(CreateAutomatedReasoningPolicyTestCase$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

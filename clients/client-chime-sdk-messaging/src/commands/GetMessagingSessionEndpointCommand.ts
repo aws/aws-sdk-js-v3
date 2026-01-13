@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMessagingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMessagingSessionEndpointRequest, GetMessagingSessionEndpointResponse } from "../models/models_0";
-import { GetMessagingSessionEndpoint } from "../schemas/schemas_0";
+import { GetMessagingSessionEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetMessagingSessionEndpointCommandInput extends GetMessagingSes
  *
  * The output of {@link GetMessagingSessionEndpointCommand}.
  */
-export interface GetMessagingSessionEndpointCommandOutput
-  extends GetMessagingSessionEndpointResponse,
-    __MetadataBearer {}
+export interface GetMessagingSessionEndpointCommandOutput extends GetMessagingSessionEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>The details of the endpoint for the messaging session.</p>
@@ -96,7 +94,7 @@ export class GetMessagingSessionEndpointCommand extends $Command
   })
   .s("ChimeMessagingService", "GetMessagingSessionEndpoint", {})
   .n("ChimeSDKMessagingClient", "GetMessagingSessionEndpointCommand")
-  .sc(GetMessagingSessionEndpoint)
+  .sc(GetMessagingSessionEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

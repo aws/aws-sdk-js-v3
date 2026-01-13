@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationInsightsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeComponentConfigurationRequest, DescribeComponentConfigurationResponse } from "../models/models_0";
-import { DescribeComponentConfiguration } from "../schemas/schemas_0";
+import { DescribeComponentConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeComponentConfigurationCommandInput extends DescribeComp
  *
  * The output of {@link DescribeComponentConfigurationCommand}.
  */
-export interface DescribeComponentConfigurationCommandOutput
-  extends DescribeComponentConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeComponentConfigurationCommandOutput extends DescribeComponentConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the monitoring configuration of the component.</p>
@@ -92,7 +90,7 @@ export class DescribeComponentConfigurationCommand extends $Command
   })
   .s("EC2WindowsBarleyService", "DescribeComponentConfiguration", {})
   .n("ApplicationInsightsClient", "DescribeComponentConfigurationCommand")
-  .sc(DescribeComponentConfiguration)
+  .sc(DescribeComponentConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

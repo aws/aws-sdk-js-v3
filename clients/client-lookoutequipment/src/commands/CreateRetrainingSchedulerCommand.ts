@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LookoutEquipmentClient";
 import type { CreateRetrainingSchedulerRequest, CreateRetrainingSchedulerResponse } from "../models/models_0";
-import { CreateRetrainingScheduler } from "../schemas/schemas_0";
+import { CreateRetrainingScheduler$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -149,7 +149,7 @@ export class CreateRetrainingSchedulerCommand extends $Command
   })
   .s("AWSLookoutEquipmentFrontendService", "CreateRetrainingScheduler", {})
   .n("LookoutEquipmentClient", "CreateRetrainingSchedulerCommand")
-  .sc(CreateRetrainingScheduler)
+  .sc(CreateRetrainingScheduler$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeComplianceByConfigRuleRequest, DescribeComplianceByConfigRuleResponse } from "../models/models_0";
-import { DescribeComplianceByConfigRule } from "../schemas/schemas_0";
+import { DescribeComplianceByConfigRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeComplianceByConfigRuleCommandInput extends DescribeComp
  *
  * The output of {@link DescribeComplianceByConfigRuleCommand}.
  */
-export interface DescribeComplianceByConfigRuleCommandOutput
-  extends DescribeComplianceByConfigRuleResponse,
-    __MetadataBearer {}
+export interface DescribeComplianceByConfigRuleCommandOutput extends DescribeComplianceByConfigRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Indicates whether the specified Config rules are compliant.
@@ -137,7 +135,7 @@ export class DescribeComplianceByConfigRuleCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeComplianceByConfigRule", {})
   .n("ConfigServiceClient", "DescribeComplianceByConfigRuleCommand")
-  .sc(DescribeComplianceByConfigRule)
+  .sc(DescribeComplianceByConfigRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

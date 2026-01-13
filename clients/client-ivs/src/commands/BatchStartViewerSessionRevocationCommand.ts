@@ -9,7 +9,7 @@ import type {
   BatchStartViewerSessionRevocationRequest,
   BatchStartViewerSessionRevocationResponse,
 } from "../models/models_0";
-import { BatchStartViewerSessionRevocation } from "../schemas/schemas_0";
+import { BatchStartViewerSessionRevocation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface BatchStartViewerSessionRevocationCommandInput extends BatchStar
  *
  * The output of {@link BatchStartViewerSessionRevocationCommand}.
  */
-export interface BatchStartViewerSessionRevocationCommandOutput
-  extends BatchStartViewerSessionRevocationResponse,
-    __MetadataBearer {}
+export interface BatchStartViewerSessionRevocationCommandOutput extends BatchStartViewerSessionRevocationResponse, __MetadataBearer {}
 
 /**
  * <p>Performs <a>StartViewerSessionRevocation</a> on multiple channel ARN and viewer
@@ -104,7 +102,7 @@ export class BatchStartViewerSessionRevocationCommand extends $Command
   })
   .s("AmazonInteractiveVideoService", "BatchStartViewerSessionRevocation", {})
   .n("IvsClient", "BatchStartViewerSessionRevocationCommand")
-  .sc(BatchStartViewerSessionRevocation)
+  .sc(BatchStartViewerSessionRevocation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

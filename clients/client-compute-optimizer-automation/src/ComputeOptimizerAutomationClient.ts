@@ -43,13 +43,10 @@ import {
   type BodyLengthCalculator as __BodyLengthCalculator,
   type CheckOptionalClientConfig as __CheckOptionalClientConfig,
   type ChecksumConstructor as __ChecksumConstructor,
-  type ClientProtocol,
   type Decoder as __Decoder,
   type Encoder as __Encoder,
   type HashConstructor as __HashConstructor,
   type HttpHandlerOptions as __HttpHandlerOptions,
-  type HttpRequest,
-  type HttpResponse,
   type Logger as __Logger,
   type Provider as __Provider,
   type StreamCollector as __StreamCollector,
@@ -353,16 +350,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   extensions?: RuntimeExtension[];
 
   /**
-   * The protocol controlling the message type (e.g. HTTP) and format (e.g. JSON)
-   * may be overridden. A default will always be set by the client.
-   * Available options depend on the service's supported protocols and will not be validated by
-   * the client.
-   * @alpha
-   *
-   */
-  protocol?: ClientProtocol<HttpRequest, HttpResponse>;
-
-  /**
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
@@ -405,8 +392,7 @@ export type ComputeOptimizerAutomationClientResolvedConfigType = __SmithyResolve
  *
  *  The resolved configuration interface of ComputeOptimizerAutomationClient class. This is resolved and normalized from the {@link ComputeOptimizerAutomationClientConfig | constructor configuration interface}.
  */
-export interface ComputeOptimizerAutomationClientResolvedConfig
-  extends ComputeOptimizerAutomationClientResolvedConfigType {}
+export interface ComputeOptimizerAutomationClientResolvedConfig extends ComputeOptimizerAutomationClientResolvedConfigType {}
 
 /**
  * <p> Automation is a feature within Amazon Web Services Compute Optimizer that enables you to apply optimization recommendations to your Amazon Web Services resources, reducing costs and improving performance. You can apply recommended actions directly or create automation rules that implement recommendations on a recurring schedule when they match your specified criteria. With automation rules, set criteria such as Amazon Web Services Region and Resource Tags to target specific geographies and workloads. Configure rules to run daily, weekly, or monthly, and Compute Optimizer continuously evaluates new recommendations against your criteria. Track automation events over time, examine detailed step history, estimate savings achieved, and reverse actions directly from Compute Optimizer when needed. </p>

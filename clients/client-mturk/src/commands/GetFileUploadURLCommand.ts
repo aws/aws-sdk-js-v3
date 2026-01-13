@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetFileUploadURLRequest, GetFileUploadURLResponse } from "../models/models_0";
 import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { GetFileUploadURL } from "../schemas/schemas_0";
+import { GetFileUploadURL$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetFileUploadURLCommand extends $Command
   })
   .s("MTurkRequesterServiceV20170117", "GetFileUploadURL", {})
   .n("MTurkClient", "GetFileUploadURLCommand")
-  .sc(GetFileUploadURL)
+  .sc(GetFileUploadURL$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LaunchWizardClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LaunchWizardClient";
 import type { ListWorkloadDeploymentPatternsInput, ListWorkloadDeploymentPatternsOutput } from "../models/models_0";
-import { ListWorkloadDeploymentPatterns } from "../schemas/schemas_0";
+import { ListWorkloadDeploymentPatterns$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListWorkloadDeploymentPatternsCommandInput extends ListWorkload
  *
  * The output of {@link ListWorkloadDeploymentPatternsCommand}.
  */
-export interface ListWorkloadDeploymentPatternsCommandOutput
-  extends ListWorkloadDeploymentPatternsOutput,
-    __MetadataBearer {}
+export interface ListWorkloadDeploymentPatternsCommandOutput extends ListWorkloadDeploymentPatternsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the workload deployment patterns for a given workload name. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html">ListWorkloads</a> operation to discover the available workload names.</p>
@@ -130,7 +128,7 @@ export class ListWorkloadDeploymentPatternsCommand extends $Command
   })
   .s("LaunchWizard", "ListWorkloadDeploymentPatterns", {})
   .n("LaunchWizardClient", "ListWorkloadDeploymentPatternsCommand")
-  .sc(ListWorkloadDeploymentPatterns)
+  .sc(ListWorkloadDeploymentPatterns$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

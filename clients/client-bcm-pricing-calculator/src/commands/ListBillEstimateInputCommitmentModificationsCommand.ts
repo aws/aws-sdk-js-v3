@@ -13,7 +13,7 @@ import type {
   ListBillEstimateInputCommitmentModificationsRequest,
   ListBillEstimateInputCommitmentModificationsResponse,
 } from "../models/models_0";
-import { ListBillEstimateInputCommitmentModifications } from "../schemas/schemas_0";
+import { ListBillEstimateInputCommitmentModifications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListBillEstimateInputCommitmentModificationsCommand}.
  */
-export interface ListBillEstimateInputCommitmentModificationsCommandInput
-  extends ListBillEstimateInputCommitmentModificationsRequest {}
+export interface ListBillEstimateInputCommitmentModificationsCommandInput extends ListBillEstimateInputCommitmentModificationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListBillEstimateInputCommitmentModificationsCommand}.
  */
-export interface ListBillEstimateInputCommitmentModificationsCommandOutput
-  extends ListBillEstimateInputCommitmentModificationsResponse,
-    __MetadataBearer {}
+export interface ListBillEstimateInputCommitmentModificationsCommandOutput extends ListBillEstimateInputCommitmentModificationsResponse, __MetadataBearer {}
 
 /**
  * <p> Lists the input commitment modifications associated with a bill estimate. </p>
@@ -126,7 +123,7 @@ export class ListBillEstimateInputCommitmentModificationsCommand extends $Comman
   })
   .s("AWSBCMPricingCalculator", "ListBillEstimateInputCommitmentModifications", {})
   .n("BCMPricingCalculatorClient", "ListBillEstimateInputCommitmentModificationsCommand")
-  .sc(ListBillEstimateInputCommitmentModifications)
+  .sc(ListBillEstimateInputCommitmentModifications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

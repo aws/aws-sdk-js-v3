@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
 import type { UpdateRouteRequest, UpdateRouteResponse } from "../models/models_0";
-import { UpdateRoute } from "../schemas/schemas_0";
+import { UpdateRoute$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class UpdateRouteCommand extends $Command
   })
   .s("RefactorSpaces", "UpdateRoute", {})
   .n("MigrationHubRefactorSpacesClient", "UpdateRouteCommand")
-  .sc(UpdateRoute)
+  .sc(UpdateRoute$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

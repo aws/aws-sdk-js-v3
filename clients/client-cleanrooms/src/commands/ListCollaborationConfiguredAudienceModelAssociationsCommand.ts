@@ -9,7 +9,7 @@ import type {
   ListCollaborationConfiguredAudienceModelAssociationsInput,
   ListCollaborationConfiguredAudienceModelAssociationsOutput,
 } from "../models/models_0";
-import { ListCollaborationConfiguredAudienceModelAssociations } from "../schemas/schemas_0";
+import { ListCollaborationConfiguredAudienceModelAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListCollaborationConfiguredAudienceModelAssociationsCommand}.
  */
-export interface ListCollaborationConfiguredAudienceModelAssociationsCommandInput
-  extends ListCollaborationConfiguredAudienceModelAssociationsInput {}
+export interface ListCollaborationConfiguredAudienceModelAssociationsCommandInput extends ListCollaborationConfiguredAudienceModelAssociationsInput {}
 /**
  * @public
  *
  * The output of {@link ListCollaborationConfiguredAudienceModelAssociationsCommand}.
  */
-export interface ListCollaborationConfiguredAudienceModelAssociationsCommandOutput
-  extends ListCollaborationConfiguredAudienceModelAssociationsOutput,
-    __MetadataBearer {}
+export interface ListCollaborationConfiguredAudienceModelAssociationsCommandOutput extends ListCollaborationConfiguredAudienceModelAssociationsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists configured audience model associations within a collaboration.</p>
@@ -109,7 +106,7 @@ export class ListCollaborationConfiguredAudienceModelAssociationsCommand extends
   })
   .s("AWSBastionControlPlaneServiceLambda", "ListCollaborationConfiguredAudienceModelAssociations", {})
   .n("CleanRoomsClient", "ListCollaborationConfiguredAudienceModelAssociationsCommand")
-  .sc(ListCollaborationConfiguredAudienceModelAssociations)
+  .sc(ListCollaborationConfiguredAudienceModelAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

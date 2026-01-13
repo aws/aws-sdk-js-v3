@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeResponsibilityTransferRequest, DescribeResponsibilityTransferResponse } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { DescribeResponsibilityTransfer } from "../schemas/schemas_0";
+import { DescribeResponsibilityTransfer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeResponsibilityTransferCommandInput extends DescribeResp
  *
  * The output of {@link DescribeResponsibilityTransferCommand}.
  */
-export interface DescribeResponsibilityTransferCommandOutput
-  extends DescribeResponsibilityTransferResponse,
-    __MetadataBearer {}
+export interface DescribeResponsibilityTransferCommandOutput extends DescribeResponsibilityTransferResponse, __MetadataBearer {}
 
 /**
  * <p>Returns details for a transfer. A <i>transfer</i> is an arrangement
@@ -268,7 +266,7 @@ export class DescribeResponsibilityTransferCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "DescribeResponsibilityTransfer", {})
   .n("OrganizationsClient", "DescribeResponsibilityTransferCommand")
-  .sc(DescribeResponsibilityTransfer)
+  .sc(DescribeResponsibilityTransfer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

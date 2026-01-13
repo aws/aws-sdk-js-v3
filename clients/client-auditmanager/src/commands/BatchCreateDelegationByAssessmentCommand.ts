@@ -9,7 +9,7 @@ import type {
   BatchCreateDelegationByAssessmentRequest,
   BatchCreateDelegationByAssessmentResponse,
 } from "../models/models_0";
-import { BatchCreateDelegationByAssessment } from "../schemas/schemas_0";
+import { BatchCreateDelegationByAssessment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface BatchCreateDelegationByAssessmentCommandInput extends BatchCrea
  *
  * The output of {@link BatchCreateDelegationByAssessmentCommand}.
  */
-export interface BatchCreateDelegationByAssessmentCommandOutput
-  extends BatchCreateDelegationByAssessmentResponse,
-    __MetadataBearer {}
+export interface BatchCreateDelegationByAssessmentCommandOutput extends BatchCreateDelegationByAssessmentResponse, __MetadataBearer {}
 
 /**
  * <p> Creates a batch of delegations for an assessment in Audit Manager. </p>
@@ -126,7 +124,7 @@ export class BatchCreateDelegationByAssessmentCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "BatchCreateDelegationByAssessment", {})
   .n("AuditManagerClient", "BatchCreateDelegationByAssessmentCommand")
-  .sc(BatchCreateDelegationByAssessment)
+  .sc(BatchCreateDelegationByAssessment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetCloudFormationStackRecordsRequest, GetCloudFormationStackRecordsResult } from "../models/models_0";
-import { GetCloudFormationStackRecords } from "../schemas/schemas_0";
+import { GetCloudFormationStackRecords$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetCloudFormationStackRecordsCommandInput extends GetCloudForma
  *
  * The output of {@link GetCloudFormationStackRecordsCommand}.
  */
-export interface GetCloudFormationStackRecordsCommandOutput
-  extends GetCloudFormationStackRecordsResult,
-    __MetadataBearer {}
+export interface GetCloudFormationStackRecordsCommandOutput extends GetCloudFormationStackRecordsResult, __MetadataBearer {}
 
 /**
  * <p>Returns the CloudFormation stack record created as a result of the <code>create cloud
@@ -136,7 +134,7 @@ export class GetCloudFormationStackRecordsCommand extends $Command
   })
   .s("Lightsail_20161128", "GetCloudFormationStackRecords", {})
   .n("LightsailClient", "GetCloudFormationStackRecordsCommand")
-  .sc(GetCloudFormationStackRecords)
+  .sc(GetCloudFormationStackRecords$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -322,8 +322,14 @@ export interface ElasticsearchService {
   /**
    * @see {@link AddTagsCommand}
    */
-  addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
-  addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
+  addTags(
+    args: AddTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddTagsCommandOutput>;
+  addTags(
+    args: AddTagsCommandInput,
+    cb: (err: any, data?: AddTagsCommandOutput) => void
+  ): void;
   addTags(
     args: AddTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -435,8 +441,14 @@ export interface ElasticsearchService {
   /**
    * @see {@link CreatePackageCommand}
    */
-  createPackage(args: CreatePackageCommandInput, options?: __HttpHandlerOptions): Promise<CreatePackageCommandOutput>;
-  createPackage(args: CreatePackageCommandInput, cb: (err: any, data?: CreatePackageCommandOutput) => void): void;
+  createPackage(
+    args: CreatePackageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePackageCommandOutput>;
+  createPackage(
+    args: CreatePackageCommandInput,
+    cb: (err: any, data?: CreatePackageCommandOutput) => void
+  ): void;
   createPackage(
     args: CreatePackageCommandInput,
     options: __HttpHandlerOptions,
@@ -532,8 +544,14 @@ export interface ElasticsearchService {
   /**
    * @see {@link DeletePackageCommand}
    */
-  deletePackage(args: DeletePackageCommandInput, options?: __HttpHandlerOptions): Promise<DeletePackageCommandOutput>;
-  deletePackage(args: DeletePackageCommandInput, cb: (err: any, data?: DeletePackageCommandOutput) => void): void;
+  deletePackage(
+    args: DeletePackageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePackageCommandOutput>;
+  deletePackage(
+    args: DeletePackageCommandInput,
+    cb: (err: any, data?: DeletePackageCommandOutput) => void
+  ): void;
   deletePackage(
     args: DeletePackageCommandInput,
     options: __HttpHandlerOptions,
@@ -860,7 +878,10 @@ export interface ElasticsearchService {
     args: ListDomainNamesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDomainNamesCommandOutput>;
-  listDomainNames(args: ListDomainNamesCommandInput, cb: (err: any, data?: ListDomainNamesCommandOutput) => void): void;
+  listDomainNames(
+    args: ListDomainNamesCommandInput,
+    cb: (err: any, data?: ListDomainNamesCommandOutput) => void
+  ): void;
   listDomainNames(
     args: ListDomainNamesCommandInput,
     options: __HttpHandlerOptions,
@@ -939,8 +960,14 @@ export interface ElasticsearchService {
   /**
    * @see {@link ListTagsCommand}
    */
-  listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
-  listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
+  listTags(
+    args: ListTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsCommandOutput>;
+  listTags(
+    args: ListTagsCommandInput,
+    cb: (err: any, data?: ListTagsCommandOutput) => void
+  ): void;
   listTags(
     args: ListTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -1036,8 +1063,14 @@ export interface ElasticsearchService {
   /**
    * @see {@link RemoveTagsCommand}
    */
-  removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;
-  removeTags(args: RemoveTagsCommandInput, cb: (err: any, data?: RemoveTagsCommandOutput) => void): void;
+  removeTags(
+    args: RemoveTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveTagsCommandOutput>;
+  removeTags(
+    args: RemoveTagsCommandInput,
+    cb: (err: any, data?: RemoveTagsCommandOutput) => void
+  ): void;
   removeTags(
     args: RemoveTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -1098,8 +1131,14 @@ export interface ElasticsearchService {
   /**
    * @see {@link UpdatePackageCommand}
    */
-  updatePackage(args: UpdatePackageCommandInput, options?: __HttpHandlerOptions): Promise<UpdatePackageCommandOutput>;
-  updatePackage(args: UpdatePackageCommandInput, cb: (err: any, data?: UpdatePackageCommandOutput) => void): void;
+  updatePackage(
+    args: UpdatePackageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePackageCommandOutput>;
+  updatePackage(
+    args: UpdatePackageCommandInput,
+    cb: (err: any, data?: UpdatePackageCommandOutput) => void
+  ): void;
   updatePackage(
     args: UpdatePackageCommandInput,
     options: __HttpHandlerOptions,

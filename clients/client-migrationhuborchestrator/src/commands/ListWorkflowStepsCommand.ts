@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
 import type { ListWorkflowStepsRequest, ListWorkflowStepsResponse } from "../models/models_0";
-import { ListWorkflowSteps } from "../schemas/schemas_0";
+import { ListWorkflowSteps$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class ListWorkflowStepsCommand extends $Command
   })
   .s("AWSMigrationHubOrchestrator", "ListWorkflowSteps", {})
   .n("MigrationHubOrchestratorClient", "ListWorkflowStepsCommand")
-  .sc(ListWorkflowSteps)
+  .sc(ListWorkflowSteps$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

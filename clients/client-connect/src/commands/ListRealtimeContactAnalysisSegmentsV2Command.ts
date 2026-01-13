@@ -9,7 +9,7 @@ import type {
   ListRealtimeContactAnalysisSegmentsV2Request,
   ListRealtimeContactAnalysisSegmentsV2Response,
 } from "../models/models_2";
-import { ListRealtimeContactAnalysisSegmentsV2 } from "../schemas/schemas_0";
+import { ListRealtimeContactAnalysisSegmentsV2$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListRealtimeContactAnalysisSegmentsV2Command}.
  */
-export interface ListRealtimeContactAnalysisSegmentsV2CommandInput
-  extends ListRealtimeContactAnalysisSegmentsV2Request {}
+export interface ListRealtimeContactAnalysisSegmentsV2CommandInput extends ListRealtimeContactAnalysisSegmentsV2Request {}
 /**
  * @public
  *
  * The output of {@link ListRealtimeContactAnalysisSegmentsV2Command}.
  */
-export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput
-  extends ListRealtimeContactAnalysisSegmentsV2Response,
-    __MetadataBearer {}
+export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput extends ListRealtimeContactAnalysisSegmentsV2Response, __MetadataBearer {}
 
 /**
  * <p>Provides a list of analysis segments for a real-time chat analysis session. This API supports CHAT channels
@@ -200,7 +197,7 @@ export class ListRealtimeContactAnalysisSegmentsV2Command extends $Command
   })
   .s("AmazonConnectService", "ListRealtimeContactAnalysisSegmentsV2", {})
   .n("ConnectClient", "ListRealtimeContactAnalysisSegmentsV2Command")
-  .sc(ListRealtimeContactAnalysisSegmentsV2)
+  .sc(ListRealtimeContactAnalysisSegmentsV2$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

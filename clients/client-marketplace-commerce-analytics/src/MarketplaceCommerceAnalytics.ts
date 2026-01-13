@@ -27,7 +27,10 @@ export interface MarketplaceCommerceAnalytics {
     args: GenerateDataSetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GenerateDataSetCommandOutput>;
-  generateDataSet(args: GenerateDataSetCommandInput, cb: (err: any, data?: GenerateDataSetCommandOutput) => void): void;
+  generateDataSet(
+    args: GenerateDataSetCommandInput,
+    cb: (err: any, data?: GenerateDataSetCommandOutput) => void
+  ): void;
   generateDataSet(
     args: GenerateDataSetCommandInput,
     options: __HttpHandlerOptions,
@@ -56,7 +59,5 @@ export interface MarketplaceCommerceAnalytics {
  * Provides AWS Marketplace business intelligence data on-demand.
  * @public
  */
-export class MarketplaceCommerceAnalytics
-  extends MarketplaceCommerceAnalyticsClient
-  implements MarketplaceCommerceAnalytics {}
+export class MarketplaceCommerceAnalytics extends MarketplaceCommerceAnalyticsClient implements MarketplaceCommerceAnalytics {}
 createAggregatedClient(commands, MarketplaceCommerceAnalytics);

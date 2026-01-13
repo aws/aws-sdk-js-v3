@@ -153,7 +153,10 @@ export interface Textract {
     args: AnalyzeDocumentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AnalyzeDocumentCommandOutput>;
-  analyzeDocument(args: AnalyzeDocumentCommandInput, cb: (err: any, data?: AnalyzeDocumentCommandOutput) => void): void;
+  analyzeDocument(
+    args: AnalyzeDocumentCommandInput,
+    cb: (err: any, data?: AnalyzeDocumentCommandOutput) => void
+  ): void;
   analyzeDocument(
     args: AnalyzeDocumentCommandInput,
     options: __HttpHandlerOptions,
@@ -167,7 +170,10 @@ export interface Textract {
     args: AnalyzeExpenseCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AnalyzeExpenseCommandOutput>;
-  analyzeExpense(args: AnalyzeExpenseCommandInput, cb: (err: any, data?: AnalyzeExpenseCommandOutput) => void): void;
+  analyzeExpense(
+    args: AnalyzeExpenseCommandInput,
+    cb: (err: any, data?: AnalyzeExpenseCommandOutput) => void
+  ): void;
   analyzeExpense(
     args: AnalyzeExpenseCommandInput,
     options: __HttpHandlerOptions,
@@ -177,8 +183,14 @@ export interface Textract {
   /**
    * @see {@link AnalyzeIDCommand}
    */
-  analyzeID(args: AnalyzeIDCommandInput, options?: __HttpHandlerOptions): Promise<AnalyzeIDCommandOutput>;
-  analyzeID(args: AnalyzeIDCommandInput, cb: (err: any, data?: AnalyzeIDCommandOutput) => void): void;
+  analyzeID(
+    args: AnalyzeIDCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AnalyzeIDCommandOutput>;
+  analyzeID(
+    args: AnalyzeIDCommandInput,
+    cb: (err: any, data?: AnalyzeIDCommandOutput) => void
+  ): void;
   analyzeID(
     args: AnalyzeIDCommandInput,
     options: __HttpHandlerOptions,
@@ -188,8 +200,14 @@ export interface Textract {
   /**
    * @see {@link CreateAdapterCommand}
    */
-  createAdapter(args: CreateAdapterCommandInput, options?: __HttpHandlerOptions): Promise<CreateAdapterCommandOutput>;
-  createAdapter(args: CreateAdapterCommandInput, cb: (err: any, data?: CreateAdapterCommandOutput) => void): void;
+  createAdapter(
+    args: CreateAdapterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAdapterCommandOutput>;
+  createAdapter(
+    args: CreateAdapterCommandInput,
+    cb: (err: any, data?: CreateAdapterCommandOutput) => void
+  ): void;
   createAdapter(
     args: CreateAdapterCommandInput,
     options: __HttpHandlerOptions,
@@ -216,8 +234,14 @@ export interface Textract {
   /**
    * @see {@link DeleteAdapterCommand}
    */
-  deleteAdapter(args: DeleteAdapterCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAdapterCommandOutput>;
-  deleteAdapter(args: DeleteAdapterCommandInput, cb: (err: any, data?: DeleteAdapterCommandOutput) => void): void;
+  deleteAdapter(
+    args: DeleteAdapterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAdapterCommandOutput>;
+  deleteAdapter(
+    args: DeleteAdapterCommandInput,
+    cb: (err: any, data?: DeleteAdapterCommandOutput) => void
+  ): void;
   deleteAdapter(
     args: DeleteAdapterCommandInput,
     options: __HttpHandlerOptions,
@@ -261,8 +285,14 @@ export interface Textract {
   /**
    * @see {@link GetAdapterCommand}
    */
-  getAdapter(args: GetAdapterCommandInput, options?: __HttpHandlerOptions): Promise<GetAdapterCommandOutput>;
-  getAdapter(args: GetAdapterCommandInput, cb: (err: any, data?: GetAdapterCommandOutput) => void): void;
+  getAdapter(
+    args: GetAdapterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAdapterCommandOutput>;
+  getAdapter(
+    args: GetAdapterCommandInput,
+    cb: (err: any, data?: GetAdapterCommandOutput) => void
+  ): void;
   getAdapter(
     args: GetAdapterCommandInput,
     options: __HttpHandlerOptions,
@@ -375,8 +405,14 @@ export interface Textract {
    * @see {@link ListAdaptersCommand}
    */
   listAdapters(): Promise<ListAdaptersCommandOutput>;
-  listAdapters(args: ListAdaptersCommandInput, options?: __HttpHandlerOptions): Promise<ListAdaptersCommandOutput>;
-  listAdapters(args: ListAdaptersCommandInput, cb: (err: any, data?: ListAdaptersCommandOutput) => void): void;
+  listAdapters(
+    args: ListAdaptersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAdaptersCommandOutput>;
+  listAdapters(
+    args: ListAdaptersCommandInput,
+    cb: (err: any, data?: ListAdaptersCommandOutput) => void
+  ): void;
   listAdapters(
     args: ListAdaptersCommandInput,
     options: __HttpHandlerOptions,
@@ -489,8 +525,14 @@ export interface Textract {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -500,8 +542,14 @@ export interface Textract {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -511,8 +559,14 @@ export interface Textract {
   /**
    * @see {@link UpdateAdapterCommand}
    */
-  updateAdapter(args: UpdateAdapterCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAdapterCommandOutput>;
-  updateAdapter(args: UpdateAdapterCommandInput, cb: (err: any, data?: UpdateAdapterCommandOutput) => void): void;
+  updateAdapter(
+    args: UpdateAdapterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAdapterCommandOutput>;
+  updateAdapter(
+    args: UpdateAdapterCommandInput,
+    cb: (err: any, data?: UpdateAdapterCommandOutput) => void
+  ): void;
   updateAdapter(
     args: UpdateAdapterCommandInput,
     options: __HttpHandlerOptions,

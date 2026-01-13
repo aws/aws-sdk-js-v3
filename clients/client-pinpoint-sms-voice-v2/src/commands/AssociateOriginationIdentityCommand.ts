@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { AssociateOriginationIdentity } from "../schemas/schemas_0";
+import { AssociateOriginationIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface AssociateOriginationIdentityCommandInput extends AssociateOrigi
  *
  * The output of {@link AssociateOriginationIdentityCommand}.
  */
-export interface AssociateOriginationIdentityCommandOutput
-  extends AssociateOriginationIdentityResult,
-    __MetadataBearer {}
+export interface AssociateOriginationIdentityCommandOutput extends AssociateOriginationIdentityResult, __MetadataBearer {}
 
 /**
  * <p>Associates the specified origination identity with a pool.</p> <p>If the origination identity is a phone number and is already associated with another pool, an error is returned. A sender ID can be associated with multiple pools.</p> <p>If the origination identity configuration doesn't match the pool's configuration, an error is returned.</p>
@@ -107,7 +105,7 @@ export class AssociateOriginationIdentityCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "AssociateOriginationIdentity", {})
   .n("PinpointSMSVoiceV2Client", "AssociateOriginationIdentityCommand")
-  .sc(AssociateOriginationIdentity)
+  .sc(AssociateOriginationIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

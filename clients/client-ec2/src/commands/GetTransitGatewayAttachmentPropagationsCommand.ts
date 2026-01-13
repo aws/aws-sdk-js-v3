@@ -9,7 +9,7 @@ import type {
   GetTransitGatewayAttachmentPropagationsRequest,
   GetTransitGatewayAttachmentPropagationsResult,
 } from "../models/models_6";
-import { GetTransitGatewayAttachmentPropagations } from "../schemas/schemas_0";
+import { GetTransitGatewayAttachmentPropagations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetTransitGatewayAttachmentPropagationsCommand}.
  */
-export interface GetTransitGatewayAttachmentPropagationsCommandInput
-  extends GetTransitGatewayAttachmentPropagationsRequest {}
+export interface GetTransitGatewayAttachmentPropagationsCommandInput extends GetTransitGatewayAttachmentPropagationsRequest {}
 /**
  * @public
  *
  * The output of {@link GetTransitGatewayAttachmentPropagationsCommand}.
  */
-export interface GetTransitGatewayAttachmentPropagationsCommandOutput
-  extends GetTransitGatewayAttachmentPropagationsResult,
-    __MetadataBearer {}
+export interface GetTransitGatewayAttachmentPropagationsCommandOutput extends GetTransitGatewayAttachmentPropagationsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the route tables to which the specified resource attachment propagates routes.</p>
@@ -96,7 +93,7 @@ export class GetTransitGatewayAttachmentPropagationsCommand extends $Command
   })
   .s("AmazonEC2", "GetTransitGatewayAttachmentPropagations", {})
   .n("EC2Client", "GetTransitGatewayAttachmentPropagationsCommand")
-  .sc(GetTransitGatewayAttachmentPropagations)
+  .sc(GetTransitGatewayAttachmentPropagations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

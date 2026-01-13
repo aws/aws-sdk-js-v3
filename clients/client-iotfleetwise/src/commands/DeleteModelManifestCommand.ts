@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import type { DeleteModelManifestRequest, DeleteModelManifestResponse } from "../models/models_0";
-import { DeleteModelManifest } from "../schemas/schemas_0";
+import { DeleteModelManifest$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteModelManifestCommand extends $Command
   })
   .s("IoTAutobahnControlPlane", "DeleteModelManifest", {})
   .n("IoTFleetWiseClient", "DeleteModelManifestCommand")
-  .sc(DeleteModelManifest)
+  .sc(DeleteModelManifest$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

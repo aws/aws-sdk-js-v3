@@ -9,7 +9,7 @@ import type {
   AssociatePhoneNumbersWithVoiceConnectorRequest,
   AssociatePhoneNumbersWithVoiceConnectorResponse,
 } from "../models/models_0";
-import { AssociatePhoneNumbersWithVoiceConnector } from "../schemas/schemas_0";
+import { AssociatePhoneNumbersWithVoiceConnector$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AssociatePhoneNumbersWithVoiceConnectorCommand}.
  */
-export interface AssociatePhoneNumbersWithVoiceConnectorCommandInput
-  extends AssociatePhoneNumbersWithVoiceConnectorRequest {}
+export interface AssociatePhoneNumbersWithVoiceConnectorCommandInput extends AssociatePhoneNumbersWithVoiceConnectorRequest {}
 /**
  * @public
  *
  * The output of {@link AssociatePhoneNumbersWithVoiceConnectorCommand}.
  */
-export interface AssociatePhoneNumbersWithVoiceConnectorCommandOutput
-  extends AssociatePhoneNumbersWithVoiceConnectorResponse,
-    __MetadataBearer {}
+export interface AssociatePhoneNumbersWithVoiceConnectorCommandOutput extends AssociatePhoneNumbersWithVoiceConnectorResponse, __MetadataBearer {}
 
 /**
  * <p>Associates phone numbers with the specified Amazon Chime SDK Voice Connector.</p>
@@ -113,7 +110,7 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "AssociatePhoneNumbersWithVoiceConnector", {})
   .n("ChimeSDKVoiceClient", "AssociatePhoneNumbersWithVoiceConnectorCommand")
-  .sc(AssociatePhoneNumbersWithVoiceConnector)
+  .sc(AssociatePhoneNumbersWithVoiceConnector$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

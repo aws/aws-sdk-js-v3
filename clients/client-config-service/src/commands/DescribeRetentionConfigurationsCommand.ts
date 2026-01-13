@@ -9,7 +9,7 @@ import type {
   DescribeRetentionConfigurationsRequest,
   DescribeRetentionConfigurationsResponse,
 } from "../models/models_0";
-import { DescribeRetentionConfigurations } from "../schemas/schemas_0";
+import { DescribeRetentionConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeRetentionConfigurationsCommandInput extends DescribeRet
  *
  * The output of {@link DescribeRetentionConfigurationsCommand}.
  */
-export interface DescribeRetentionConfigurationsCommandOutput
-  extends DescribeRetentionConfigurationsResponse,
-    __MetadataBearer {}
+export interface DescribeRetentionConfigurationsCommandOutput extends DescribeRetentionConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the details of one or more retention configurations. If
@@ -106,7 +104,7 @@ export class DescribeRetentionConfigurationsCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeRetentionConfigurations", {})
   .n("ConfigServiceClient", "DescribeRetentionConfigurationsCommand")
-  .sc(DescribeRetentionConfigurations)
+  .sc(DescribeRetentionConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

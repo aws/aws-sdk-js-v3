@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateGlobalSettingsRequest } from "../models/models_0";
-import { UpdateGlobalSettings } from "../schemas/schemas_0";
+import { UpdateGlobalSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class UpdateGlobalSettingsCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "UpdateGlobalSettings", {})
   .n("ChimeSDKVoiceClient", "UpdateGlobalSettingsCommand")
-  .sc(UpdateGlobalSettings)
+  .sc(UpdateGlobalSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

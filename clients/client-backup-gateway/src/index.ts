@@ -19,10 +19,11 @@ export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { BackupGatewayExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
+export * from "./schemas/schemas_0";
 export * from "./pagination";
 
 export * from "./models/enums";
 export * from "./models/errors";
-export type * from "./models/models_0";
+export * from "./models/models_0";
 
 export { BackupGatewayServiceException } from "./models/BackupGatewayServiceException";

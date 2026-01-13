@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { UpdateFirewallRuleGroupAssociation } from "../schemas/schemas_0";
+import { UpdateFirewallRuleGroupAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface UpdateFirewallRuleGroupAssociationCommandInput extends UpdateFi
  *
  * The output of {@link UpdateFirewallRuleGroupAssociationCommand}.
  */
-export interface UpdateFirewallRuleGroupAssociationCommandOutput
-  extends UpdateFirewallRuleGroupAssociationResponse,
-    __MetadataBearer {}
+export interface UpdateFirewallRuleGroupAssociationCommandOutput extends UpdateFirewallRuleGroupAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Changes the association of a <a>FirewallRuleGroup</a> with a VPC. The association enables DNS filtering for the VPC. </p>
@@ -122,7 +120,7 @@ export class UpdateFirewallRuleGroupAssociationCommand extends $Command
   })
   .s("Route53Resolver", "UpdateFirewallRuleGroupAssociation", {})
   .n("Route53ResolverClient", "UpdateFirewallRuleGroupAssociationCommand")
-  .sc(UpdateFirewallRuleGroupAssociation)
+  .sc(UpdateFirewallRuleGroupAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

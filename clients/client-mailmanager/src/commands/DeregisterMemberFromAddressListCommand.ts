@@ -9,7 +9,7 @@ import type {
   DeregisterMemberFromAddressListRequest,
   DeregisterMemberFromAddressListResponse,
 } from "../models/models_0";
-import { DeregisterMemberFromAddressList } from "../schemas/schemas_0";
+import { DeregisterMemberFromAddressList$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeregisterMemberFromAddressListCommandInput extends DeregisterM
  *
  * The output of {@link DeregisterMemberFromAddressListCommand}.
  */
-export interface DeregisterMemberFromAddressListCommandOutput
-  extends DeregisterMemberFromAddressListResponse,
-    __MetadataBearer {}
+export interface DeregisterMemberFromAddressListCommandOutput extends DeregisterMemberFromAddressListResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a member from an address list.</p>
@@ -89,7 +87,7 @@ export class DeregisterMemberFromAddressListCommand extends $Command
   })
   .s("MailManagerSvc", "DeregisterMemberFromAddressList", {})
   .n("MailManagerClient", "DeregisterMemberFromAddressListCommand")
-  .sc(DeregisterMemberFromAddressList)
+  .sc(DeregisterMemberFromAddressList$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

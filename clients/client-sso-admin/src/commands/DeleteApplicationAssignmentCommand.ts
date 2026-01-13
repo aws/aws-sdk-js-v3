@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteApplicationAssignmentRequest, DeleteApplicationAssignmentResponse } from "../models/models_0";
-import { DeleteApplicationAssignment } from "../schemas/schemas_0";
+import { DeleteApplicationAssignment$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DeleteApplicationAssignmentCommandInput extends DeleteApplicati
  *
  * The output of {@link DeleteApplicationAssignmentCommand}.
  */
-export interface DeleteApplicationAssignmentCommandOutput
-  extends DeleteApplicationAssignmentResponse,
-    __MetadataBearer {}
+export interface DeleteApplicationAssignmentCommandOutput extends DeleteApplicationAssignmentResponse, __MetadataBearer {}
 
 /**
  * <p>Revoke application access to an application by deleting application assignments for a user or group.</p>
@@ -93,7 +91,7 @@ export class DeleteApplicationAssignmentCommand extends $Command
   })
   .s("SWBExternalService", "DeleteApplicationAssignment", {})
   .n("SSOAdminClient", "DeleteApplicationAssignmentCommand")
-  .sc(DeleteApplicationAssignment)
+  .sc(DeleteApplicationAssignment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

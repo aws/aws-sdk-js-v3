@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { CreateTelemetryPipeline } from "../schemas/schemas_0";
+import { CreateTelemetryPipeline$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class CreateTelemetryPipelineCommand extends $Command
   })
   .s("ObservabilityAdmin", "CreateTelemetryPipeline", {})
   .n("ObservabilityAdminClient", "CreateTelemetryPipelineCommand")
-  .sc(CreateTelemetryPipeline)
+  .sc(CreateTelemetryPipeline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

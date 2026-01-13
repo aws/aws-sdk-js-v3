@@ -9,7 +9,7 @@ import type {
   DescribeHoursOfOperationOverrideRequest,
   DescribeHoursOfOperationOverrideResponse,
 } from "../models/models_1";
-import { DescribeHoursOfOperationOverride } from "../schemas/schemas_0";
+import { DescribeHoursOfOperationOverride$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeHoursOfOperationOverrideCommandInput extends DescribeHo
  *
  * The output of {@link DescribeHoursOfOperationOverrideCommand}.
  */
-export interface DescribeHoursOfOperationOverrideCommandOutput
-  extends DescribeHoursOfOperationOverrideResponse,
-    __MetadataBearer {}
+export interface DescribeHoursOfOperationOverrideCommandOutput extends DescribeHoursOfOperationOverrideResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the hours of operation override.</p>
@@ -116,7 +114,7 @@ export class DescribeHoursOfOperationOverrideCommand extends $Command
   })
   .s("AmazonConnectService", "DescribeHoursOfOperationOverride", {})
   .n("ConnectClient", "DescribeHoursOfOperationOverrideCommand")
-  .sc(DescribeHoursOfOperationOverride)
+  .sc(DescribeHoursOfOperationOverride$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { ListSnapshotCopyConfigurations } from "../schemas/schemas_0";
+import { ListSnapshotCopyConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListSnapshotCopyConfigurationsCommandInput extends ListSnapshot
  *
  * The output of {@link ListSnapshotCopyConfigurationsCommand}.
  */
-export interface ListSnapshotCopyConfigurationsCommandOutput
-  extends ListSnapshotCopyConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListSnapshotCopyConfigurationsCommandOutput extends ListSnapshotCopyConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of snapshot copy configurations.</p>
@@ -106,7 +104,7 @@ export class ListSnapshotCopyConfigurationsCommand extends $Command
   })
   .s("RedshiftServerless", "ListSnapshotCopyConfigurations", {})
   .n("RedshiftServerlessClient", "ListSnapshotCopyConfigurationsCommand")
-  .sc(ListSnapshotCopyConfigurations)
+  .sc(ListSnapshotCopyConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

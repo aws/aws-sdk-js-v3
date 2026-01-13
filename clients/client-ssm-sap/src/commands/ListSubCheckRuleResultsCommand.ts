@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSubCheckRuleResultsInput, ListSubCheckRuleResultsOutput } from "../models/models_0";
-import { ListSubCheckRuleResults } from "../schemas/schemas_0";
+import { ListSubCheckRuleResults$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -92,7 +92,7 @@ export class ListSubCheckRuleResultsCommand extends $Command
   })
   .s("SsmSap", "ListSubCheckRuleResults", {})
   .n("SsmSapClient", "ListSubCheckRuleResultsCommand")
-  .sc(ListSubCheckRuleResults)
+  .sc(ListSubCheckRuleResults$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

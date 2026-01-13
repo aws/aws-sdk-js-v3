@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveKnowledgeBaseTemplateUriRequest, RemoveKnowledgeBaseTemplateUriResponse } from "../models/models_0";
-import { RemoveKnowledgeBaseTemplateUri } from "../schemas/schemas_0";
+import { RemoveKnowledgeBaseTemplateUri$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -24,9 +24,7 @@ export interface RemoveKnowledgeBaseTemplateUriCommandInput extends RemoveKnowle
  *
  * The output of {@link RemoveKnowledgeBaseTemplateUriCommand}.
  */
-export interface RemoveKnowledgeBaseTemplateUriCommandOutput
-  extends RemoveKnowledgeBaseTemplateUriResponse,
-    __MetadataBearer {}
+export interface RemoveKnowledgeBaseTemplateUriCommandOutput extends RemoveKnowledgeBaseTemplateUriResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a URI template from a knowledge base.</p>
@@ -82,7 +80,7 @@ export class RemoveKnowledgeBaseTemplateUriCommand extends $Command
   })
   .s("WisdomService", "RemoveKnowledgeBaseTemplateUri", {})
   .n("WisdomClient", "RemoveKnowledgeBaseTemplateUriCommand")
-  .sc(RemoveKnowledgeBaseTemplateUri)
+  .sc(RemoveKnowledgeBaseTemplateUri$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

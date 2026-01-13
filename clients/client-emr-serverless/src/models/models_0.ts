@@ -32,6 +32,24 @@ export interface AutoStopConfig {
 }
 
 /**
+ * <p>The configuration object that allows encrypting local disks.</p>
+ * @public
+ */
+export interface DiskEncryptionConfiguration {
+  /**
+   * <p>Specifies the optional encryption context that will be used when encrypting the data. An encryption context is a collection of non-secret key-value pairs that represent additional authenticated data. </p>
+   * @public
+   */
+  encryptionContext?: Record<string, string> | undefined;
+
+  /**
+   * <p>The KMS key ARN to encrypt local disks.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+}
+
+/**
  * <p>The IAM Identity Center Configuration accepts the Identity Center instance parameter required to enable trusted identity propagation. This configuration allows identity propagation between integrated services and the Identity Center instance.</p>
  * @public
  */
@@ -137,6 +155,18 @@ export interface InteractiveConfiguration {
    * @public
    */
   livyEndpointEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>The configuration object that enables job level cost allocation.</p>
+ * @public
+ */
+export interface JobLevelCostAllocationConfiguration {
+  /**
+   * <p>Enables job level cost allocation for the application.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
 }
 
 /**
@@ -752,7 +782,10 @@ export interface SparkSubmit {
  * <p>The driver that the job runs on.</p>
  * @public
  */
-export type JobDriver = JobDriver.HiveMember | JobDriver.SparkSubmitMember | JobDriver.$UnknownMember;
+export type JobDriver =
+  | JobDriver.HiveMember
+  | JobDriver.SparkSubmitMember
+  | JobDriver.$UnknownMember;
 
 /**
  * @public
@@ -1387,6 +1420,12 @@ export interface Application {
   monitoringConfiguration?: MonitoringConfiguration | undefined;
 
   /**
+   * <p>The configuration object that allows encrypting local disks.</p>
+   * @public
+   */
+  diskEncryptionConfiguration?: DiskEncryptionConfiguration | undefined;
+
+  /**
    * <p>The interactive configuration object that enables the interactive use cases for an application.</p>
    * @public
    */
@@ -1403,6 +1442,12 @@ export interface Application {
    * @public
    */
   identityCenterConfiguration?: IdentityCenterConfiguration | undefined;
+
+  /**
+   * <p>The configuration object that enables job level cost allocation.</p>
+   * @public
+   */
+  jobLevelCostAllocationConfiguration?: JobLevelCostAllocationConfiguration | undefined;
 }
 
 /**
@@ -1421,6 +1466,12 @@ export interface ConfigurationOverrides {
    * @public
    */
   monitoringConfiguration?: MonitoringConfiguration | undefined;
+
+  /**
+   * <p>The override configuration to encrypt local disks.</p>
+   * @public
+   */
+  diskEncryptionConfiguration?: DiskEncryptionConfiguration | undefined;
 }
 
 /**
@@ -1518,6 +1569,12 @@ export interface CreateApplicationRequest {
   monitoringConfiguration?: MonitoringConfiguration | undefined;
 
   /**
+   * <p>The configuration object that allows encrypting local disks.</p>
+   * @public
+   */
+  diskEncryptionConfiguration?: DiskEncryptionConfiguration | undefined;
+
+  /**
    * <p>The interactive configuration object that enables the interactive use cases to use when running an application.</p>
    * @public
    */
@@ -1534,6 +1591,12 @@ export interface CreateApplicationRequest {
    * @public
    */
   identityCenterConfiguration?: IdentityCenterConfigurationInput | undefined;
+
+  /**
+   * <p>The configuration object that enables job level cost allocation.</p>
+   * @public
+   */
+  jobLevelCostAllocationConfiguration?: JobLevelCostAllocationConfiguration | undefined;
 }
 
 /**
@@ -1625,6 +1688,12 @@ export interface UpdateApplicationRequest {
   monitoringConfiguration?: MonitoringConfiguration | undefined;
 
   /**
+   * <p>The configuration object that allows encrypting local disks.</p>
+   * @public
+   */
+  diskEncryptionConfiguration?: DiskEncryptionConfiguration | undefined;
+
+  /**
    * <p>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</p>
    * @public
    */
@@ -1635,6 +1704,12 @@ export interface UpdateApplicationRequest {
    * @public
    */
   identityCenterConfiguration?: IdentityCenterConfigurationInput | undefined;
+
+  /**
+   * <p>The configuration object that enables job level cost allocation.</p>
+   * @public
+   */
+  jobLevelCostAllocationConfiguration?: JobLevelCostAllocationConfiguration | undefined;
 }
 
 /**

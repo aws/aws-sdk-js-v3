@@ -9,7 +9,7 @@ import type {
   GetContinuousDeploymentPolicyConfigRequest,
   GetContinuousDeploymentPolicyConfigResult,
 } from "../models/models_0";
-import { GetContinuousDeploymentPolicyConfig } from "../schemas/schemas_0";
+import { GetContinuousDeploymentPolicyConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetContinuousDeploymentPolicyConfigCommandInput extends GetCont
  *
  * The output of {@link GetContinuousDeploymentPolicyConfigCommand}.
  */
-export interface GetContinuousDeploymentPolicyConfigCommandOutput
-  extends GetContinuousDeploymentPolicyConfigResult,
-    __MetadataBearer {}
+export interface GetContinuousDeploymentPolicyConfigCommandOutput extends GetContinuousDeploymentPolicyConfigResult, __MetadataBearer {}
 
 /**
  * <p>Gets configuration information about a continuous deployment policy.</p>
@@ -107,7 +105,7 @@ export class GetContinuousDeploymentPolicyConfigCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "GetContinuousDeploymentPolicyConfig", {})
   .n("CloudFrontClient", "GetContinuousDeploymentPolicyConfigCommand")
-  .sc(GetContinuousDeploymentPolicyConfig)
+  .sc(GetContinuousDeploymentPolicyConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

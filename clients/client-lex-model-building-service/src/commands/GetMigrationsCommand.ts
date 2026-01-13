@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import type { GetMigrationsRequest, GetMigrationsResponse } from "../models/models_0";
-import { GetMigrations } from "../schemas/schemas_0";
+import { GetMigrations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class GetMigrationsCommand extends $Command
   })
   .s("AWSDeepSenseModelBuildingService", "GetMigrations", {})
   .n("LexModelBuildingServiceClient", "GetMigrationsCommand")
-  .sc(GetMigrations)
+  .sc(GetMigrations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

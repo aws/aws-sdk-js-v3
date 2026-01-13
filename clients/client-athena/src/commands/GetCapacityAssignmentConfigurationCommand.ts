@@ -9,7 +9,7 @@ import type {
   GetCapacityAssignmentConfigurationInput,
   GetCapacityAssignmentConfigurationOutput,
 } from "../models/models_0";
-import { GetCapacityAssignmentConfiguration } from "../schemas/schemas_0";
+import { GetCapacityAssignmentConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetCapacityAssignmentConfigurationCommandInput extends GetCapac
  *
  * The output of {@link GetCapacityAssignmentConfigurationCommand}.
  */
-export interface GetCapacityAssignmentConfigurationCommandOutput
-  extends GetCapacityAssignmentConfigurationOutput,
-    __MetadataBearer {}
+export interface GetCapacityAssignmentConfigurationCommandOutput extends GetCapacityAssignmentConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the capacity assignment configuration for a capacity reservation, if one
@@ -96,7 +94,7 @@ export class GetCapacityAssignmentConfigurationCommand extends $Command
   })
   .s("AmazonAthena", "GetCapacityAssignmentConfiguration", {})
   .n("AthenaClient", "GetCapacityAssignmentConfigurationCommand")
-  .sc(GetCapacityAssignmentConfiguration)
+  .sc(GetCapacityAssignmentConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetFoundationModelAvailabilityRequest, GetFoundationModelAvailabilityResponse } from "../models/models_1";
-import { GetFoundationModelAvailability } from "../schemas/schemas_0";
+import { GetFoundationModelAvailability$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetFoundationModelAvailabilityCommandInput extends GetFoundatio
  *
  * The output of {@link GetFoundationModelAvailabilityCommand}.
  */
-export interface GetFoundationModelAvailabilityCommandOutput
-  extends GetFoundationModelAvailabilityResponse,
-    __MetadataBearer {}
+export interface GetFoundationModelAvailabilityCommandOutput extends GetFoundationModelAvailabilityResponse, __MetadataBearer {}
 
 /**
  * <p>Get information about the Foundation model availability.</p>
@@ -97,7 +95,7 @@ export class GetFoundationModelAvailabilityCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "GetFoundationModelAvailability", {})
   .n("BedrockClient", "GetFoundationModelAvailabilityCommand")
-  .sc(GetFoundationModelAvailability)
+  .sc(GetFoundationModelAvailability$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

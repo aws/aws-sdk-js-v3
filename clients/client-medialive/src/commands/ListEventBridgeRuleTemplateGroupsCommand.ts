@@ -9,7 +9,7 @@ import type {
   ListEventBridgeRuleTemplateGroupsRequest,
   ListEventBridgeRuleTemplateGroupsResponse,
 } from "../models/models_1";
-import { ListEventBridgeRuleTemplateGroups } from "../schemas/schemas_0";
+import { ListEventBridgeRuleTemplateGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListEventBridgeRuleTemplateGroupsCommandInput extends ListEvent
  *
  * The output of {@link ListEventBridgeRuleTemplateGroupsCommand}.
  */
-export interface ListEventBridgeRuleTemplateGroupsCommandOutput
-  extends ListEventBridgeRuleTemplateGroupsResponse,
-    __MetadataBearer {}
+export interface ListEventBridgeRuleTemplateGroupsCommandOutput extends ListEventBridgeRuleTemplateGroupsResponse, __MetadataBearer {}
 
 /**
  * Lists eventbridge rule template groups.
@@ -109,7 +107,7 @@ export class ListEventBridgeRuleTemplateGroupsCommand extends $Command
   })
   .s("MediaLive", "ListEventBridgeRuleTemplateGroups", {})
   .n("MediaLiveClient", "ListEventBridgeRuleTemplateGroupsCommand")
-  .sc(ListEventBridgeRuleTemplateGroups)
+  .sc(ListEventBridgeRuleTemplateGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

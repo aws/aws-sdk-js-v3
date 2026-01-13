@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreatePracticeRunConfigurationRequest, CreatePracticeRunConfigurationResponse } from "../models/models_0";
-import { CreatePracticeRunConfiguration } from "../schemas/schemas_0";
+import { CreatePracticeRunConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreatePracticeRunConfigurationCommandInput extends CreatePracti
  *
  * The output of {@link CreatePracticeRunConfigurationCommand}.
  */
-export interface CreatePracticeRunConfigurationCommandOutput
-  extends CreatePracticeRunConfigurationResponse,
-    __MetadataBearer {}
+export interface CreatePracticeRunConfigurationCommandOutput extends CreatePracticeRunConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>A practice run configuration for zonal autoshift is required when you enable zonal autoshift. A practice run configuration includes specifications for blocked dates and blocked time windows, and for Amazon CloudWatch alarms that you create to use with practice runs. The alarms that you specify are an <i>outcome alarm</i>, to monitor application health during practice runs and, optionally, a <i>blocking alarm</i>, to block practice runs from starting.</p> <p>When a resource has a practice run configuration, ARC starts zonal shifts for the resource weekly, to shift traffic for practice runs. Practice runs help you to ensure that shifting away traffic from an Availability Zone during an autoshift is safe for your application.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html"> Considerations when you configure zonal autoshift</a> in the Amazon Application Recovery Controller Developer Guide.</p>
@@ -139,7 +137,7 @@ export class CreatePracticeRunConfigurationCommand extends $Command
   })
   .s("PercDataPlane", "CreatePracticeRunConfiguration", {})
   .n("ARCZonalShiftClient", "CreatePracticeRunConfigurationCommand")
-  .sc(CreatePracticeRunConfiguration)
+  .sc(CreatePracticeRunConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

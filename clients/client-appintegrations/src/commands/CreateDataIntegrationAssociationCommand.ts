@@ -13,7 +13,7 @@ import type {
   CreateDataIntegrationAssociationRequest,
   CreateDataIntegrationAssociationResponse,
 } from "../models/models_0";
-import { CreateDataIntegrationAssociation } from "../schemas/schemas_0";
+import { CreateDataIntegrationAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface CreateDataIntegrationAssociationCommandInput extends CreateData
  *
  * The output of {@link CreateDataIntegrationAssociationCommand}.
  */
-export interface CreateDataIntegrationAssociationCommandOutput
-  extends CreateDataIntegrationAssociationResponse,
-    __MetadataBearer {}
+export interface CreateDataIntegrationAssociationCommandOutput extends CreateDataIntegrationAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates and persists a DataIntegrationAssociation resource.</p>
@@ -126,7 +124,7 @@ export class CreateDataIntegrationAssociationCommand extends $Command
   })
   .s("AmazonAppIntegrationService", "CreateDataIntegrationAssociation", {})
   .n("AppIntegrationsClient", "CreateDataIntegrationAssociationCommand")
-  .sc(CreateDataIntegrationAssociation)
+  .sc(CreateDataIntegrationAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

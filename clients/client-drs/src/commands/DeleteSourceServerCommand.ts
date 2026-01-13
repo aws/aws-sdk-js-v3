@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSourceServerRequest, DeleteSourceServerResponse } from "../models/models_0";
-import { DeleteSourceServer } from "../schemas/schemas_0";
+import { DeleteSourceServer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class DeleteSourceServerCommand extends $Command
   })
   .s("ElasticDisasterRecoveryService", "DeleteSourceServer", {})
   .n("DrsClient", "DeleteSourceServerCommand")
-  .sc(DeleteSourceServer)
+  .sc(DeleteSourceServer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

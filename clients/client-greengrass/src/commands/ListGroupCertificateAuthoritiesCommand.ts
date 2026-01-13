@@ -9,7 +9,7 @@ import type {
   ListGroupCertificateAuthoritiesRequest,
   ListGroupCertificateAuthoritiesResponse,
 } from "../models/models_0";
-import { ListGroupCertificateAuthorities } from "../schemas/schemas_0";
+import { ListGroupCertificateAuthorities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListGroupCertificateAuthoritiesCommandInput extends ListGroupCe
  *
  * The output of {@link ListGroupCertificateAuthoritiesCommand}.
  */
-export interface ListGroupCertificateAuthoritiesCommandOutput
-  extends ListGroupCertificateAuthoritiesResponse,
-    __MetadataBearer {}
+export interface ListGroupCertificateAuthoritiesCommandOutput extends ListGroupCertificateAuthoritiesResponse, __MetadataBearer {}
 
 /**
  * Retrieves the current CAs for a group.
@@ -89,7 +87,7 @@ export class ListGroupCertificateAuthoritiesCommand extends $Command
   })
   .s("Greengrass", "ListGroupCertificateAuthorities", {})
   .n("GreengrassClient", "ListGroupCertificateAuthoritiesCommand")
-  .sc(ListGroupCertificateAuthorities)
+  .sc(ListGroupCertificateAuthorities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListHyperParameterTuningJobsRequest, ListHyperParameterTuningJobsResponse } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListHyperParameterTuningJobs } from "../schemas/schemas_0";
+import { ListHyperParameterTuningJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListHyperParameterTuningJobsCommandInput extends ListHyperParam
  *
  * The output of {@link ListHyperParameterTuningJobsCommand}.
  */
-export interface ListHyperParameterTuningJobsCommandOutput
-  extends ListHyperParameterTuningJobsResponse,
-    __MetadataBearer {}
+export interface ListHyperParameterTuningJobsCommandOutput extends ListHyperParameterTuningJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobSummary.html">HyperParameterTuningJobSummary</a> objects that describe the hyperparameter tuning jobs launched in your account.</p>
@@ -112,7 +110,7 @@ export class ListHyperParameterTuningJobsCommand extends $Command
   })
   .s("SageMaker", "ListHyperParameterTuningJobs", {})
   .n("SageMakerClient", "ListHyperParameterTuningJobsCommand")
-  .sc(ListHyperParameterTuningJobs)
+  .sc(ListHyperParameterTuningJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

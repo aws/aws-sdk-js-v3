@@ -13,7 +13,7 @@ import type {
   UpdateLicenseSpecificationsForResourceRequest,
   UpdateLicenseSpecificationsForResourceResponse,
 } from "../models/models_0";
-import { UpdateLicenseSpecificationsForResource } from "../schemas/schemas_0";
+import { UpdateLicenseSpecificationsForResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link UpdateLicenseSpecificationsForResourceCommand}.
  */
-export interface UpdateLicenseSpecificationsForResourceCommandInput
-  extends UpdateLicenseSpecificationsForResourceRequest {}
+export interface UpdateLicenseSpecificationsForResourceCommandInput extends UpdateLicenseSpecificationsForResourceRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateLicenseSpecificationsForResourceCommand}.
  */
-export interface UpdateLicenseSpecificationsForResourceCommandOutput
-  extends UpdateLicenseSpecificationsForResourceResponse,
-    __MetadataBearer {}
+export interface UpdateLicenseSpecificationsForResourceCommandOutput extends UpdateLicenseSpecificationsForResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Adds or removes the specified license configurations for the specified Amazon Web Services resource.</p>
@@ -123,7 +120,7 @@ export class UpdateLicenseSpecificationsForResourceCommand extends $Command
   })
   .s("AWSLicenseManager", "UpdateLicenseSpecificationsForResource", {})
   .n("LicenseManagerClient", "UpdateLicenseSpecificationsForResourceCommand")
-  .sc(UpdateLicenseSpecificationsForResource)
+  .sc(UpdateLicenseSpecificationsForResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

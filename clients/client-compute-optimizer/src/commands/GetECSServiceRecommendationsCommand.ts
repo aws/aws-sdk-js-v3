@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetECSServiceRecommendationsRequest, GetECSServiceRecommendationsResponse } from "../models/models_0";
-import { GetECSServiceRecommendations } from "../schemas/schemas_0";
+import { GetECSServiceRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetECSServiceRecommendationsCommandInput extends GetECSServiceR
  *
  * The output of {@link GetECSServiceRecommendationsCommand}.
  */
-export interface GetECSServiceRecommendationsCommandOutput
-  extends GetECSServiceRecommendationsResponse,
-    __MetadataBearer {}
+export interface GetECSServiceRecommendationsCommandOutput extends GetECSServiceRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -221,7 +219,7 @@ export class GetECSServiceRecommendationsCommand extends $Command
   })
   .s("ComputeOptimizerService", "GetECSServiceRecommendations", {})
   .n("ComputeOptimizerClient", "GetECSServiceRecommendationsCommand")
-  .sc(GetECSServiceRecommendations)
+  .sc(GetECSServiceRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

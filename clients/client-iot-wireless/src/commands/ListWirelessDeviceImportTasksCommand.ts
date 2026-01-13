@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import type { ListWirelessDeviceImportTasksRequest, ListWirelessDeviceImportTasksResponse } from "../models/models_0";
-import { ListWirelessDeviceImportTasks } from "../schemas/schemas_0";
+import { ListWirelessDeviceImportTasks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListWirelessDeviceImportTasksCommandInput extends ListWirelessD
  *
  * The output of {@link ListWirelessDeviceImportTasksCommand}.
  */
-export interface ListWirelessDeviceImportTasksCommandOutput
-  extends ListWirelessDeviceImportTasksResponse,
-    __MetadataBearer {}
+export interface ListWirelessDeviceImportTasksCommandOutput extends ListWirelessDeviceImportTasksResponse, __MetadataBearer {}
 
 /**
  * <p>List of import tasks and summary information of onboarding status of devices in each
@@ -119,7 +117,7 @@ export class ListWirelessDeviceImportTasksCommand extends $Command
   })
   .s("iotwireless", "ListWirelessDeviceImportTasks", {})
   .n("IoTWirelessClient", "ListWirelessDeviceImportTasksCommand")
-  .sc(ListWirelessDeviceImportTasks)
+  .sc(ListWirelessDeviceImportTasks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

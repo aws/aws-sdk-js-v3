@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListPermissionSetsRequest, ListPermissionSetsResponse } from "../models/models_0";
-import { ListPermissionSets } from "../schemas/schemas_0";
+import { ListPermissionSets$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -93,7 +93,7 @@ export class ListPermissionSetsCommand extends $Command
   })
   .s("SWBExternalService", "ListPermissionSets", {})
   .n("SSOAdminClient", "ListPermissionSetsCommand")
-  .sc(ListPermissionSets)
+  .sc(ListPermissionSets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

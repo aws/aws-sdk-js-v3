@@ -18,10 +18,8 @@ recommendations about which variations perform better. You can test both user-fa
 and backend features.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-evidently
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-evidently`
 - `yarn add @aws-sdk/client-evidently`
 - `pnpm add @aws-sdk/client-evidently`
@@ -57,9 +55,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new EvidentlyClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListProjectsCommand(params);
 ```
 
@@ -218,7 +214,6 @@ BatchEvaluateFeature
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/BatchEvaluateFeatureCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/BatchEvaluateFeatureCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/BatchEvaluateFeatureCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -226,7 +221,6 @@ CreateExperiment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/CreateExperimentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/CreateExperimentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/CreateExperimentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -234,7 +228,6 @@ CreateFeature
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/CreateFeatureCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/CreateFeatureCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/CreateFeatureCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -242,7 +235,6 @@ CreateLaunch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/CreateLaunchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/CreateLaunchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/CreateLaunchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -250,7 +242,6 @@ CreateProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/CreateProjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/CreateProjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/CreateProjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -258,7 +249,6 @@ CreateSegment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/CreateSegmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/CreateSegmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/CreateSegmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -266,7 +256,6 @@ DeleteExperiment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/DeleteExperimentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/DeleteExperimentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/DeleteExperimentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -274,7 +263,6 @@ DeleteFeature
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/DeleteFeatureCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/DeleteFeatureCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/DeleteFeatureCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -282,7 +270,6 @@ DeleteLaunch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/DeleteLaunchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/DeleteLaunchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/DeleteLaunchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -290,7 +277,6 @@ DeleteProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/DeleteProjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/DeleteProjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/DeleteProjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -298,7 +284,6 @@ DeleteSegment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/DeleteSegmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/DeleteSegmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/DeleteSegmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -306,7 +291,6 @@ EvaluateFeature
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/EvaluateFeatureCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/EvaluateFeatureCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/EvaluateFeatureCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -314,7 +298,6 @@ GetExperiment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/GetExperimentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/GetExperimentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/GetExperimentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -322,7 +305,6 @@ GetExperimentResults
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/GetExperimentResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/GetExperimentResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/GetExperimentResultsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -330,7 +312,6 @@ GetFeature
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/GetFeatureCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/GetFeatureCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/GetFeatureCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -338,7 +319,6 @@ GetLaunch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/GetLaunchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/GetLaunchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/GetLaunchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -346,7 +326,6 @@ GetProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/GetProjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/GetProjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/GetProjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -354,7 +333,6 @@ GetSegment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/GetSegmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/GetSegmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/GetSegmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -362,7 +340,6 @@ ListExperiments
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/ListExperimentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/ListExperimentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/ListExperimentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -370,7 +347,6 @@ ListFeatures
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/ListFeaturesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/ListFeaturesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/ListFeaturesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -378,7 +354,6 @@ ListLaunches
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/ListLaunchesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/ListLaunchesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/ListLaunchesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -386,7 +361,6 @@ ListProjects
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/ListProjectsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/ListProjectsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/ListProjectsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -394,7 +368,6 @@ ListSegmentReferences
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/ListSegmentReferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/ListSegmentReferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/ListSegmentReferencesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -402,7 +375,6 @@ ListSegments
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/ListSegmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/ListSegmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/ListSegmentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -410,7 +382,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -418,7 +389,6 @@ PutProjectEvents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/PutProjectEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/PutProjectEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/PutProjectEventsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -426,7 +396,6 @@ StartExperiment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/StartExperimentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/StartExperimentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/StartExperimentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -434,7 +403,6 @@ StartLaunch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/StartLaunchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/StartLaunchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/StartLaunchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -442,7 +410,6 @@ StopExperiment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/StopExperimentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/StopExperimentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/StopExperimentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -450,7 +417,6 @@ StopLaunch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/StopLaunchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/StopLaunchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/StopLaunchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -458,7 +424,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -466,7 +431,6 @@ TestSegmentPattern
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/TestSegmentPatternCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/TestSegmentPatternCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/TestSegmentPatternCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -474,7 +438,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -482,7 +445,6 @@ UpdateExperiment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/UpdateExperimentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/UpdateExperimentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/UpdateExperimentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -490,7 +452,6 @@ UpdateFeature
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/UpdateFeatureCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/UpdateFeatureCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/UpdateFeatureCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -498,7 +459,6 @@ UpdateLaunch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/UpdateLaunchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/UpdateLaunchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/UpdateLaunchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -506,7 +466,6 @@ UpdateProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/UpdateProjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/UpdateProjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/UpdateProjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -514,5 +473,4 @@ UpdateProjectDataDelivery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/command/UpdateProjectDataDeliveryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/UpdateProjectDataDeliveryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evidently/Interface/UpdateProjectDataDeliveryCommandOutput/)
-
 </details>

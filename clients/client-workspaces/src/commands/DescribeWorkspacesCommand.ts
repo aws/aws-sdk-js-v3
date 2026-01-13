@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeWorkspacesRequest, DescribeWorkspacesResult } from "../models/models_0";
-import { DescribeWorkspaces } from "../schemas/schemas_0";
+import { DescribeWorkspaces$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -148,7 +148,7 @@ export class DescribeWorkspacesCommand extends $Command
   })
   .s("WorkspacesService", "DescribeWorkspaces", {})
   .n("WorkSpacesClient", "DescribeWorkspacesCommand")
-  .sc(DescribeWorkspaces)
+  .sc(DescribeWorkspaces$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

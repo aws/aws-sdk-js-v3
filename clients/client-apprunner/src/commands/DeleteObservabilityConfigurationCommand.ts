@@ -9,7 +9,7 @@ import type {
   DeleteObservabilityConfigurationRequest,
   DeleteObservabilityConfigurationResponse,
 } from "../models/models_0";
-import { DeleteObservabilityConfiguration } from "../schemas/schemas_0";
+import { DeleteObservabilityConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteObservabilityConfigurationCommandInput extends DeleteObse
  *
  * The output of {@link DeleteObservabilityConfigurationCommand}.
  */
-export interface DeleteObservabilityConfigurationCommandOutput
-  extends DeleteObservabilityConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteObservabilityConfigurationCommandOutput extends DeleteObservabilityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Delete an App Runner observability configuration resource. You can delete a specific revision or the latest active revision. You can't delete a
@@ -99,7 +97,7 @@ export class DeleteObservabilityConfigurationCommand extends $Command
   })
   .s("AppRunner", "DeleteObservabilityConfiguration", {})
   .n("AppRunnerClient", "DeleteObservabilityConfigurationCommand")
-  .sc(DeleteObservabilityConfiguration)
+  .sc(DeleteObservabilityConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

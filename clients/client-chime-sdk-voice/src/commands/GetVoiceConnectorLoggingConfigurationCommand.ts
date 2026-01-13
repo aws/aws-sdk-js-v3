@@ -9,7 +9,7 @@ import type {
   GetVoiceConnectorLoggingConfigurationRequest,
   GetVoiceConnectorLoggingConfigurationResponse,
 } from "../models/models_0";
-import { GetVoiceConnectorLoggingConfiguration } from "../schemas/schemas_0";
+import { GetVoiceConnectorLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetVoiceConnectorLoggingConfigurationCommand}.
  */
-export interface GetVoiceConnectorLoggingConfigurationCommandInput
-  extends GetVoiceConnectorLoggingConfigurationRequest {}
+export interface GetVoiceConnectorLoggingConfigurationCommandInput extends GetVoiceConnectorLoggingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link GetVoiceConnectorLoggingConfigurationCommand}.
  */
-export interface GetVoiceConnectorLoggingConfigurationCommandOutput
-  extends GetVoiceConnectorLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface GetVoiceConnectorLoggingConfigurationCommandOutput extends GetVoiceConnectorLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the logging configuration settings for the specified Voice Connector.
@@ -104,7 +101,7 @@ export class GetVoiceConnectorLoggingConfigurationCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "GetVoiceConnectorLoggingConfiguration", {})
   .n("ChimeSDKVoiceClient", "GetVoiceConnectorLoggingConfigurationCommand")
-  .sc(GetVoiceConnectorLoggingConfiguration)
+  .sc(GetVoiceConnectorLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

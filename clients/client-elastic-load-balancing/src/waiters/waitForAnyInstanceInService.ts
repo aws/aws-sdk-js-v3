@@ -7,23 +7,20 @@ import {
 } from "../commands/DescribeInstanceHealthCommand";
 import { ElasticLoadBalancingClient } from "../ElasticLoadBalancingClient";
 
-const checkState = async (
-  client: ElasticLoadBalancingClient,
-  input: DescribeInstanceHealthCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: ElasticLoadBalancingClient, input: DescribeInstanceHealthCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeInstanceHealthCommand(input));
+    let result: any = await client.send(new DescribeInstanceHealthCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.InstanceStates);
-        const projection_3 = flat_1.map((element_2: any) => {
+        let flat_1: any[] = [].concat(...result.InstanceStates);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.State;
         });
         return projection_3;
-      };
-      for (const anyStringEq_4 of returnComparator()) {
+      }
+      for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "InService") {
           return { state: WaiterState.SUCCESS, reason };
         }

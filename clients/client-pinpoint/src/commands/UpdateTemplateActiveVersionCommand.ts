@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateTemplateActiveVersionRequest, UpdateTemplateActiveVersionResponse } from "../models/models_1";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { UpdateTemplateActiveVersion } from "../schemas/schemas_0";
+import { UpdateTemplateActiveVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateTemplateActiveVersionCommandInput extends UpdateTemplateA
  *
  * The output of {@link UpdateTemplateActiveVersionCommand}.
  */
-export interface UpdateTemplateActiveVersionCommandOutput
-  extends UpdateTemplateActiveVersionResponse,
-    __MetadataBearer {}
+export interface UpdateTemplateActiveVersionCommandOutput extends UpdateTemplateActiveVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Changes the status of a specific version of a message template to <i>active</i>.</p>
@@ -103,7 +101,7 @@ export class UpdateTemplateActiveVersionCommand extends $Command
   })
   .s("Pinpoint", "UpdateTemplateActiveVersion", {})
   .n("PinpointClient", "UpdateTemplateActiveVersionCommand")
-  .sc(UpdateTemplateActiveVersion)
+  .sc(UpdateTemplateActiveVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

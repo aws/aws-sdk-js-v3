@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdatePracticeRunConfigurationRequest, UpdatePracticeRunConfigurationResponse } from "../models/models_0";
-import { UpdatePracticeRunConfiguration } from "../schemas/schemas_0";
+import { UpdatePracticeRunConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdatePracticeRunConfigurationCommandInput extends UpdatePracti
  *
  * The output of {@link UpdatePracticeRunConfigurationCommand}.
  */
-export interface UpdatePracticeRunConfigurationCommandOutput
-  extends UpdatePracticeRunConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdatePracticeRunConfigurationCommandOutput extends UpdatePracticeRunConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Update a practice run configuration to change one or more of the following: add, change, or remove the blocking alarm; change the outcome alarm; or add, change, or remove blocking dates or time windows.</p>
@@ -139,7 +137,7 @@ export class UpdatePracticeRunConfigurationCommand extends $Command
   })
   .s("PercDataPlane", "UpdatePracticeRunConfiguration", {})
   .n("ARCZonalShiftClient", "UpdatePracticeRunConfigurationCommand")
-  .sc(UpdatePracticeRunConfiguration)
+  .sc(UpdatePracticeRunConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

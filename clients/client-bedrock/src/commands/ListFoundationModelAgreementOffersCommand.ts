@@ -9,7 +9,7 @@ import type {
   ListFoundationModelAgreementOffersRequest,
   ListFoundationModelAgreementOffersResponse,
 } from "../models/models_1";
-import { ListFoundationModelAgreementOffers } from "../schemas/schemas_0";
+import { ListFoundationModelAgreementOffers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListFoundationModelAgreementOffersCommandInput extends ListFoun
  *
  * The output of {@link ListFoundationModelAgreementOffersCommand}.
  */
-export interface ListFoundationModelAgreementOffersCommandOutput
-  extends ListFoundationModelAgreementOffersResponse,
-    __MetadataBearer {}
+export interface ListFoundationModelAgreementOffersCommandOutput extends ListFoundationModelAgreementOffersResponse, __MetadataBearer {}
 
 /**
  * <p>Get the offers associated with the specified model.</p>
@@ -121,7 +119,7 @@ export class ListFoundationModelAgreementOffersCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "ListFoundationModelAgreementOffers", {})
   .n("BedrockClient", "ListFoundationModelAgreementOffersCommand")
-  .sc(ListFoundationModelAgreementOffers)
+  .sc(ListFoundationModelAgreementOffers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

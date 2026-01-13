@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelSubscriptionRequest, CancelSubscriptionResponse } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { CancelSubscription } from "../schemas/schemas_0";
+import { CancelSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class CancelSubscriptionCommand extends $Command
   })
   .s("ExpertQ", "CancelSubscription", {})
   .n("QBusinessClient", "CancelSubscriptionCommand")
-  .sc(CancelSubscription)
+  .sc(CancelSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

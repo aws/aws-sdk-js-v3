@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { PutProtectConfigurationRuleSetNumberOverride } from "../schemas/schemas_0";
+import { PutProtectConfigurationRuleSetNumberOverride$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link PutProtectConfigurationRuleSetNumberOverrideCommand}.
  */
-export interface PutProtectConfigurationRuleSetNumberOverrideCommandInput
-  extends PutProtectConfigurationRuleSetNumberOverrideRequest {}
+export interface PutProtectConfigurationRuleSetNumberOverrideCommandInput extends PutProtectConfigurationRuleSetNumberOverrideRequest {}
 /**
  * @public
  *
  * The output of {@link PutProtectConfigurationRuleSetNumberOverrideCommand}.
  */
-export interface PutProtectConfigurationRuleSetNumberOverrideCommandOutput
-  extends PutProtectConfigurationRuleSetNumberOverrideResult,
-    __MetadataBearer {}
+export interface PutProtectConfigurationRuleSetNumberOverrideCommandOutput extends PutProtectConfigurationRuleSetNumberOverrideResult, __MetadataBearer {}
 
 /**
  * <p>Create or update a phone number rule override and associate it with a protect configuration.</p>
@@ -111,7 +108,7 @@ export class PutProtectConfigurationRuleSetNumberOverrideCommand extends $Comman
   })
   .s("PinpointSMSVoiceV2", "PutProtectConfigurationRuleSetNumberOverride", {})
   .n("PinpointSMSVoiceV2Client", "PutProtectConfigurationRuleSetNumberOverrideCommand")
-  .sc(PutProtectConfigurationRuleSetNumberOverride)
+  .sc(PutProtectConfigurationRuleSetNumberOverride$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

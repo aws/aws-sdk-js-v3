@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSpaceInput } from "../models/models_0";
 import type { RepostspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RepostspaceClient";
-import { DeleteSpace } from "../schemas/schemas_0";
+import { DeleteSpace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class DeleteSpaceCommand extends $Command
   })
   .s("RepostSpace", "DeleteSpace", {})
   .n("RepostspaceClient", "DeleteSpaceCommand")
-  .sc(DeleteSpace)
+  .sc(DeleteSpace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

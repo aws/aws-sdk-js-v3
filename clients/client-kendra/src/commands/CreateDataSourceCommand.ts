@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import type { CreateDataSourceRequest, CreateDataSourceResponse } from "../models/models_0";
-import { CreateDataSource } from "../schemas/schemas_0";
+import { CreateDataSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -683,7 +683,7 @@ export class CreateDataSourceCommand extends $Command
   })
   .s("AWSKendraFrontendService", "CreateDataSource", {})
   .n("KendraClient", "CreateDataSourceCommand")
-  .sc(CreateDataSource)
+  .sc(CreateDataSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

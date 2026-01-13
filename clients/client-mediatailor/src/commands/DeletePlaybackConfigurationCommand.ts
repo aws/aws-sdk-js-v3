@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import type { DeletePlaybackConfigurationRequest, DeletePlaybackConfigurationResponse } from "../models/models_0";
-import { DeletePlaybackConfiguration } from "../schemas/schemas_0";
+import { DeletePlaybackConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeletePlaybackConfigurationCommandInput extends DeletePlaybackC
  *
  * The output of {@link DeletePlaybackConfigurationCommand}.
  */
-export interface DeletePlaybackConfigurationCommandOutput
-  extends DeletePlaybackConfigurationResponse,
-    __MetadataBearer {}
+export interface DeletePlaybackConfigurationCommandOutput extends DeletePlaybackConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a playback configuration. For information about MediaTailor configurations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working with configurations in AWS Elemental MediaTailor</a>.</p>
@@ -73,7 +71,7 @@ export class DeletePlaybackConfigurationCommand extends $Command
   })
   .s("MediaTailor", "DeletePlaybackConfiguration", {})
   .n("MediaTailorClient", "DeletePlaybackConfigurationCommand")
-  .sc(DeletePlaybackConfiguration)
+  .sc(DeletePlaybackConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

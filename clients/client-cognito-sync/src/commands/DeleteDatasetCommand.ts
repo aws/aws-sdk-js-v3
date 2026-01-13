@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDatasetRequest, DeleteDatasetResponse } from "../models/models_0";
-import { DeleteDataset } from "../schemas/schemas_0";
+import { DeleteDataset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class DeleteDatasetCommand extends $Command
   })
   .s("AWSCognitoSyncService", "DeleteDataset", {})
   .n("CognitoSyncClient", "DeleteDatasetCommand")
-  .sc(DeleteDataset)
+  .sc(DeleteDataset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

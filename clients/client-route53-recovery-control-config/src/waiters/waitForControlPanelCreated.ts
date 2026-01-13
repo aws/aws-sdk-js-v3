@@ -4,18 +4,15 @@ import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, Waite
 import { DescribeControlPanelCommand, DescribeControlPanelCommandInput } from "../commands/DescribeControlPanelCommand";
 import { Route53RecoveryControlConfigClient } from "../Route53RecoveryControlConfigClient";
 
-const checkState = async (
-  client: Route53RecoveryControlConfigClient,
-  input: DescribeControlPanelCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: Route53RecoveryControlConfigClient, input: DescribeControlPanelCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeControlPanelCommand(input));
+    let result: any = await client.send(new DescribeControlPanelCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.ControlPanel.Status;
-      };
+      }
       if (returnComparator() === "DEPLOYED") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -23,7 +20,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.ControlPanel.Status;
-      };
+      }
       if (returnComparator() === "PENDING") {
         return { state: WaiterState.RETRY, reason };
       }

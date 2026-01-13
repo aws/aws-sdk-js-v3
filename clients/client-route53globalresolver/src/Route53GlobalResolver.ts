@@ -387,8 +387,14 @@ export interface Route53GlobalResolver {
   /**
    * @see {@link CreateDNSViewCommand}
    */
-  createDNSView(args: CreateDNSViewCommandInput, options?: __HttpHandlerOptions): Promise<CreateDNSViewCommandOutput>;
-  createDNSView(args: CreateDNSViewCommandInput, cb: (err: any, data?: CreateDNSViewCommandOutput) => void): void;
+  createDNSView(
+    args: CreateDNSViewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDNSViewCommandOutput>;
+  createDNSView(
+    args: CreateDNSViewCommandInput,
+    cb: (err: any, data?: CreateDNSViewCommandOutput) => void
+  ): void;
   createDNSView(
     args: CreateDNSViewCommandInput,
     options: __HttpHandlerOptions,
@@ -483,8 +489,14 @@ export interface Route53GlobalResolver {
   /**
    * @see {@link DeleteDNSViewCommand}
    */
-  deleteDNSView(args: DeleteDNSViewCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDNSViewCommandOutput>;
-  deleteDNSView(args: DeleteDNSViewCommandInput, cb: (err: any, data?: DeleteDNSViewCommandOutput) => void): void;
+  deleteDNSView(
+    args: DeleteDNSViewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDNSViewCommandOutput>;
+  deleteDNSView(
+    args: DeleteDNSViewCommandInput,
+    cb: (err: any, data?: DeleteDNSViewCommandOutput) => void
+  ): void;
   deleteDNSView(
     args: DeleteDNSViewCommandInput,
     options: __HttpHandlerOptions,
@@ -549,7 +561,10 @@ export interface Route53GlobalResolver {
     args: DisableDNSViewCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DisableDNSViewCommandOutput>;
-  disableDNSView(args: DisableDNSViewCommandInput, cb: (err: any, data?: DisableDNSViewCommandOutput) => void): void;
+  disableDNSView(
+    args: DisableDNSViewCommandInput,
+    cb: (err: any, data?: DisableDNSViewCommandOutput) => void
+  ): void;
   disableDNSView(
     args: DisableDNSViewCommandInput,
     options: __HttpHandlerOptions,
@@ -576,8 +591,14 @@ export interface Route53GlobalResolver {
   /**
    * @see {@link EnableDNSViewCommand}
    */
-  enableDNSView(args: EnableDNSViewCommandInput, options?: __HttpHandlerOptions): Promise<EnableDNSViewCommandOutput>;
-  enableDNSView(args: EnableDNSViewCommandInput, cb: (err: any, data?: EnableDNSViewCommandOutput) => void): void;
+  enableDNSView(
+    args: EnableDNSViewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableDNSViewCommandOutput>;
+  enableDNSView(
+    args: EnableDNSViewCommandInput,
+    cb: (err: any, data?: EnableDNSViewCommandOutput) => void
+  ): void;
   enableDNSView(
     args: EnableDNSViewCommandInput,
     options: __HttpHandlerOptions,
@@ -591,7 +612,10 @@ export interface Route53GlobalResolver {
     args: GetAccessSourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAccessSourceCommandOutput>;
-  getAccessSource(args: GetAccessSourceCommandInput, cb: (err: any, data?: GetAccessSourceCommandOutput) => void): void;
+  getAccessSource(
+    args: GetAccessSourceCommandInput,
+    cb: (err: any, data?: GetAccessSourceCommandOutput) => void
+  ): void;
   getAccessSource(
     args: GetAccessSourceCommandInput,
     options: __HttpHandlerOptions,
@@ -605,7 +629,10 @@ export interface Route53GlobalResolver {
     args: GetAccessTokenCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAccessTokenCommandOutput>;
-  getAccessToken(args: GetAccessTokenCommandInput, cb: (err: any, data?: GetAccessTokenCommandOutput) => void): void;
+  getAccessToken(
+    args: GetAccessTokenCommandInput,
+    cb: (err: any, data?: GetAccessTokenCommandOutput) => void
+  ): void;
   getAccessToken(
     args: GetAccessTokenCommandInput,
     options: __HttpHandlerOptions,
@@ -615,8 +642,14 @@ export interface Route53GlobalResolver {
   /**
    * @see {@link GetDNSViewCommand}
    */
-  getDNSView(args: GetDNSViewCommandInput, options?: __HttpHandlerOptions): Promise<GetDNSViewCommandOutput>;
-  getDNSView(args: GetDNSViewCommandInput, cb: (err: any, data?: GetDNSViewCommandOutput) => void): void;
+  getDNSView(
+    args: GetDNSViewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDNSViewCommandOutput>;
+  getDNSView(
+    args: GetDNSViewCommandInput,
+    cb: (err: any, data?: GetDNSViewCommandOutput) => void
+  ): void;
   getDNSView(
     args: GetDNSViewCommandInput,
     options: __HttpHandlerOptions,
@@ -647,7 +680,10 @@ export interface Route53GlobalResolver {
     args: GetFirewallRuleCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetFirewallRuleCommandOutput>;
-  getFirewallRule(args: GetFirewallRuleCommandInput, cb: (err: any, data?: GetFirewallRuleCommandOutput) => void): void;
+  getFirewallRule(
+    args: GetFirewallRuleCommandInput,
+    cb: (err: any, data?: GetFirewallRuleCommandOutput) => void
+  ): void;
   getFirewallRule(
     args: GetFirewallRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -760,8 +796,14 @@ export interface Route53GlobalResolver {
   /**
    * @see {@link ListDNSViewsCommand}
    */
-  listDNSViews(args: ListDNSViewsCommandInput, options?: __HttpHandlerOptions): Promise<ListDNSViewsCommandOutput>;
-  listDNSViews(args: ListDNSViewsCommandInput, cb: (err: any, data?: ListDNSViewsCommandOutput) => void): void;
+  listDNSViews(
+    args: ListDNSViewsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDNSViewsCommandOutput>;
+  listDNSViews(
+    args: ListDNSViewsCommandInput,
+    cb: (err: any, data?: ListDNSViewsCommandOutput) => void
+  ): void;
   listDNSViews(
     args: ListDNSViewsCommandInput,
     options: __HttpHandlerOptions,
@@ -892,8 +934,14 @@ export interface Route53GlobalResolver {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -903,8 +951,14 @@ export interface Route53GlobalResolver {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -948,8 +1002,14 @@ export interface Route53GlobalResolver {
   /**
    * @see {@link UpdateDNSViewCommand}
    */
-  updateDNSView(args: UpdateDNSViewCommandInput, options?: __HttpHandlerOptions): Promise<UpdateDNSViewCommandOutput>;
-  updateDNSView(args: UpdateDNSViewCommandInput, cb: (err: any, data?: UpdateDNSViewCommandOutput) => void): void;
+  updateDNSView(
+    args: UpdateDNSViewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDNSViewCommandOutput>;
+  updateDNSView(
+    args: UpdateDNSViewCommandInput,
+    cb: (err: any, data?: UpdateDNSViewCommandOutput) => void
+  ): void;
   updateDNSView(
     args: UpdateDNSViewCommandInput,
     options: __HttpHandlerOptions,

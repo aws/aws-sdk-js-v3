@@ -9,7 +9,7 @@ import type {
   DisassociateResourceSharePermissionResponse,
 } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { DisassociateResourceSharePermission } from "../schemas/schemas_0";
+import { DisassociateResourceSharePermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DisassociateResourceSharePermissionCommandInput extends Disasso
  *
  * The output of {@link DisassociateResourceSharePermissionCommand}.
  */
-export interface DisassociateResourceSharePermissionCommandOutput
-  extends DisassociateResourceSharePermissionResponse,
-    __MetadataBearer {}
+export interface DisassociateResourceSharePermissionCommandOutput extends DisassociateResourceSharePermissionResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a managed permission from a resource share. Permission changes take effect immediately. You can
@@ -110,7 +108,7 @@ export class DisassociateResourceSharePermissionCommand extends $Command
   })
   .s("AmazonResourceSharing", "DisassociateResourceSharePermission", {})
   .n("RAMClient", "DisassociateResourceSharePermissionCommand")
-  .sc(DisassociateResourceSharePermission)
+  .sc(DisassociateResourceSharePermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

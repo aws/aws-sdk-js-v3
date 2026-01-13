@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53GlobalResolverClient";
-import { UpdateAccessToken } from "../schemas/schemas_0";
+import { UpdateAccessToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class UpdateAccessTokenCommand extends $Command
   })
   .s("EC2DNSGlobalResolverCustomerAPI", "UpdateAccessToken", {})
   .n("Route53GlobalResolverClient", "UpdateAccessTokenCommand")
-  .sc(UpdateAccessToken)
+  .sc(UpdateAccessToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

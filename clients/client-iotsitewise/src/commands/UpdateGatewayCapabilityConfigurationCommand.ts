@@ -9,7 +9,7 @@ import type {
   UpdateGatewayCapabilityConfigurationRequest,
   UpdateGatewayCapabilityConfigurationResponse,
 } from "../models/models_1";
-import { UpdateGatewayCapabilityConfiguration } from "../schemas/schemas_0";
+import { UpdateGatewayCapabilityConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateGatewayCapabilityConfigurationCommandInput extends Update
  *
  * The output of {@link UpdateGatewayCapabilityConfigurationCommand}.
  */
-export interface UpdateGatewayCapabilityConfigurationCommandOutput
-  extends UpdateGatewayCapabilityConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateGatewayCapabilityConfigurationCommandOutput extends UpdateGatewayCapabilityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a gateway capability configuration or defines a new capability configuration. Each gateway capability defines data sources for a gateway.</p>
@@ -126,7 +124,7 @@ export class UpdateGatewayCapabilityConfigurationCommand extends $Command
   })
   .s("AWSIoTSiteWise", "UpdateGatewayCapabilityConfiguration", {})
   .n("IoTSiteWiseClient", "UpdateGatewayCapabilityConfigurationCommand")
-  .sc(UpdateGatewayCapabilityConfiguration)
+  .sc(UpdateGatewayCapabilityConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

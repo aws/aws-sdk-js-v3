@@ -13,7 +13,7 @@ import type {
   ListAutomationRulePreviewSummariesRequest,
   ListAutomationRulePreviewSummariesResponse,
 } from "../models/models_0";
-import { ListAutomationRulePreviewSummaries } from "../schemas/schemas_0";
+import { ListAutomationRulePreviewSummaries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ListAutomationRulePreviewSummariesCommandInput extends ListAuto
  *
  * The output of {@link ListAutomationRulePreviewSummariesCommand}.
  */
-export interface ListAutomationRulePreviewSummariesCommandOutput
-  extends ListAutomationRulePreviewSummariesResponse,
-    __MetadataBearer {}
+export interface ListAutomationRulePreviewSummariesCommandOutput extends ListAutomationRulePreviewSummariesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a summary of the recommended actions that match your rule preview configuration and criteria. </p>
@@ -194,7 +192,7 @@ export class ListAutomationRulePreviewSummariesCommand extends $Command
   })
   .s("ComputeOptimizerAutomationService", "ListAutomationRulePreviewSummaries", {})
   .n("ComputeOptimizerAutomationClient", "ListAutomationRulePreviewSummariesCommand")
-  .sc(ListAutomationRulePreviewSummaries)
+  .sc(ListAutomationRulePreviewSummaries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

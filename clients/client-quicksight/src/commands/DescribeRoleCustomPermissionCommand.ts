@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeRoleCustomPermissionRequest, DescribeRoleCustomPermissionResponse } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeRoleCustomPermission } from "../schemas/schemas_0";
+import { DescribeRoleCustomPermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeRoleCustomPermissionCommandInput extends DescribeRoleCu
  *
  * The output of {@link DescribeRoleCustomPermissionCommand}.
  */
-export interface DescribeRoleCustomPermissionCommandOutput
-  extends DescribeRoleCustomPermissionResponse,
-    __MetadataBearer {}
+export interface DescribeRoleCustomPermissionCommandOutput extends DescribeRoleCustomPermissionResponse, __MetadataBearer {}
 
 /**
  * <p>Describes all custom permissions that are  mapped to a role.</p>
@@ -103,7 +101,7 @@ export class DescribeRoleCustomPermissionCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeRoleCustomPermission", {})
   .n("QuickSightClient", "DescribeRoleCustomPermissionCommand")
-  .sc(DescribeRoleCustomPermission)
+  .sc(DescribeRoleCustomPermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

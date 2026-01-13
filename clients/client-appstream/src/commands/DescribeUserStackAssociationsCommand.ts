@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeUserStackAssociationsRequest, DescribeUserStackAssociationsResult } from "../models/models_0";
-import { DescribeUserStackAssociations } from "../schemas/schemas_0";
+import { DescribeUserStackAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeUserStackAssociationsCommandInput extends DescribeUserS
  *
  * The output of {@link DescribeUserStackAssociationsCommand}.
  */
-export interface DescribeUserStackAssociationsCommandOutput
-  extends DescribeUserStackAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeUserStackAssociationsCommandOutput extends DescribeUserStackAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the following:</p>
@@ -101,7 +99,7 @@ export class DescribeUserStackAssociationsCommand extends $Command
   })
   .s("PhotonAdminProxyService", "DescribeUserStackAssociations", {})
   .n("AppStreamClient", "DescribeUserStackAssociationsCommand")
-  .sc(DescribeUserStackAssociations)
+  .sc(DescribeUserStackAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

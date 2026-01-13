@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTagsRequest, GetTagsResponse } from "../models/models_0";
-import { GetTags } from "../schemas/schemas_0";
+import { GetTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -184,7 +184,7 @@ export class GetTagsCommand extends $Command
   })
   .s("AWSInsightsIndexService", "GetTags", {})
   .n("CostExplorerClient", "GetTagsCommand")
-  .sc(GetTags)
+  .sc(GetTags$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

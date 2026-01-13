@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AddListenerCertificatesInput, AddListenerCertificatesOutput } from "../models/models_0";
-import { AddListenerCertificates } from "../schemas/schemas_0";
+import { AddListenerCertificates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class AddListenerCertificatesCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "AddListenerCertificates", {})
   .n("ElasticLoadBalancingV2Client", "AddListenerCertificatesCommand")
-  .sc(AddListenerCertificates)
+  .sc(AddListenerCertificates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   AssociateAssessmentReportEvidenceFolderRequest,
   AssociateAssessmentReportEvidenceFolderResponse,
 } from "../models/models_0";
-import { AssociateAssessmentReportEvidenceFolder } from "../schemas/schemas_0";
+import { AssociateAssessmentReportEvidenceFolder$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AssociateAssessmentReportEvidenceFolderCommand}.
  */
-export interface AssociateAssessmentReportEvidenceFolderCommandInput
-  extends AssociateAssessmentReportEvidenceFolderRequest {}
+export interface AssociateAssessmentReportEvidenceFolderCommandInput extends AssociateAssessmentReportEvidenceFolderRequest {}
 /**
  * @public
  *
  * The output of {@link AssociateAssessmentReportEvidenceFolderCommand}.
  */
-export interface AssociateAssessmentReportEvidenceFolderCommandOutput
-  extends AssociateAssessmentReportEvidenceFolderResponse,
-    __MetadataBearer {}
+export interface AssociateAssessmentReportEvidenceFolderCommandOutput extends AssociateAssessmentReportEvidenceFolderResponse, __MetadataBearer {}
 
 /**
  * <p> Associates an evidence folder to an assessment report in an Audit Manager
@@ -93,7 +90,7 @@ export class AssociateAssessmentReportEvidenceFolderCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "AssociateAssessmentReportEvidenceFolder", {})
   .n("AuditManagerClient", "AssociateAssessmentReportEvidenceFolderCommand")
-  .sc(AssociateAssessmentReportEvidenceFolder)
+  .sc(AssociateAssessmentReportEvidenceFolder$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

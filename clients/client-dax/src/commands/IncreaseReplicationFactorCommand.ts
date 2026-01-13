@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IncreaseReplicationFactorRequest, IncreaseReplicationFactorResponse } from "../models/models_0";
-import { IncreaseReplicationFactor } from "../schemas/schemas_0";
+import { IncreaseReplicationFactor$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -163,7 +163,7 @@ export class IncreaseReplicationFactorCommand extends $Command
   })
   .s("AmazonDAXV3", "IncreaseReplicationFactor", {})
   .n("DAXClient", "IncreaseReplicationFactorCommand")
-  .sc(IncreaseReplicationFactor)
+  .sc(IncreaseReplicationFactor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

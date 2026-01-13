@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeStandardsControlsRequest, DescribeStandardsControlsResponse } from "../models/models_2";
-import { DescribeStandardsControls } from "../schemas/schemas_0";
+import { DescribeStandardsControls$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -107,7 +107,7 @@ export class DescribeStandardsControlsCommand extends $Command
   })
   .s("SecurityHubAPIService", "DescribeStandardsControls", {})
   .n("SecurityHubClient", "DescribeStandardsControlsCommand")
-  .sc(DescribeStandardsControls)
+  .sc(DescribeStandardsControls$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

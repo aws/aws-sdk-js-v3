@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateReplicationTaskMessage, CreateReplicationTaskResponse } from "../models/models_0";
-import { CreateReplicationTask } from "../schemas/schemas_0";
+import { CreateReplicationTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -185,7 +185,7 @@ export class CreateReplicationTaskCommand extends $Command
   })
   .s("AmazonDMSv20160101", "CreateReplicationTask", {})
   .n("DatabaseMigrationServiceClient", "CreateReplicationTaskCommand")
-  .sc(CreateReplicationTask)
+  .sc(CreateReplicationTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

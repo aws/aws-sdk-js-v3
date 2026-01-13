@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { AssociateTransitGatewayConnectPeer } from "../schemas/schemas_0";
+import { AssociateTransitGatewayConnectPeer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface AssociateTransitGatewayConnectPeerCommandInput extends Associat
  *
  * The output of {@link AssociateTransitGatewayConnectPeerCommand}.
  */
-export interface AssociateTransitGatewayConnectPeerCommandOutput
-  extends AssociateTransitGatewayConnectPeerResponse,
-    __MetadataBearer {}
+export interface AssociateTransitGatewayConnectPeerCommandOutput extends AssociateTransitGatewayConnectPeerResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a transit gateway Connect peer with a device, and optionally, with a link. If you
@@ -117,7 +115,7 @@ export class AssociateTransitGatewayConnectPeerCommand extends $Command
   })
   .s("NetworkManager", "AssociateTransitGatewayConnectPeer", {})
   .n("NetworkManagerClient", "AssociateTransitGatewayConnectPeerCommand")
-  .sc(AssociateTransitGatewayConnectPeer)
+  .sc(AssociateTransitGatewayConnectPeer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

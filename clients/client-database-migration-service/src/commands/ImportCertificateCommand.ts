@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImportCertificateMessage, ImportCertificateResponse } from "../models/models_0";
-import { ImportCertificate } from "../schemas/schemas_0";
+import { ImportCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class ImportCertificateCommand extends $Command
   })
   .s("AmazonDMSv20160101", "ImportCertificate", {})
   .n("DatabaseMigrationServiceClient", "ImportCertificateCommand")
-  .sc(ImportCertificate)
+  .sc(ImportCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

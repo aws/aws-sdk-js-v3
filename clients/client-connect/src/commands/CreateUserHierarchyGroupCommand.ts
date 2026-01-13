@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateUserHierarchyGroupRequest, CreateUserHierarchyGroupResponse } from "../models/models_0";
-import { CreateUserHierarchyGroup } from "../schemas/schemas_0";
+import { CreateUserHierarchyGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class CreateUserHierarchyGroupCommand extends $Command
   })
   .s("AmazonConnectService", "CreateUserHierarchyGroup", {})
   .n("ConnectClient", "CreateUserHierarchyGroupCommand")
-  .sc(CreateUserHierarchyGroup)
+  .sc(CreateUserHierarchyGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

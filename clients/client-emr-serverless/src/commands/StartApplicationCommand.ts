@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartApplicationRequest, StartApplicationResponse } from "../models/models_0";
-import { StartApplication } from "../schemas/schemas_0";
+import { StartApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class StartApplicationCommand extends $Command
   })
   .s("AwsToledoWebService", "StartApplication", {})
   .n("EMRServerlessClient", "StartApplicationCommand")
-  .sc(StartApplication)
+  .sc(StartApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

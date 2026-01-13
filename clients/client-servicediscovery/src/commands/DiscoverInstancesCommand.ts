@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DiscoverInstancesRequest, DiscoverInstancesResponse } from "../models/models_0";
-import { DiscoverInstances } from "../schemas/schemas_0";
+import { DiscoverInstances$ } from "../schemas/schemas_0";
 import type {
   ServiceDiscoveryClientResolvedConfig,
   ServiceInputTypes,
@@ -185,7 +185,7 @@ export class DiscoverInstancesCommand extends $Command
   })
   .s("Route53AutoNaming_v20170314", "DiscoverInstances", {})
   .n("ServiceDiscoveryClient", "DiscoverInstancesCommand")
-  .sc(DiscoverInstances)
+  .sc(DiscoverInstances$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

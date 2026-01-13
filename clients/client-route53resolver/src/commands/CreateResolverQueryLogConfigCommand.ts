@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { CreateResolverQueryLogConfig } from "../schemas/schemas_0";
+import { CreateResolverQueryLogConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface CreateResolverQueryLogConfigCommandInput extends CreateResolver
  *
  * The output of {@link CreateResolverQueryLogConfigCommand}.
  */
-export interface CreateResolverQueryLogConfigCommandOutput
-  extends CreateResolverQueryLogConfigResponse,
-    __MetadataBearer {}
+export interface CreateResolverQueryLogConfigCommandOutput extends CreateResolverQueryLogConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a Resolver query logging configuration, which defines where you want Resolver to save DNS query logs that originate in your VPCs.
@@ -130,7 +128,7 @@ export class CreateResolverQueryLogConfigCommand extends $Command
   })
   .s("Route53Resolver", "CreateResolverQueryLogConfig", {})
   .n("Route53ResolverClient", "CreateResolverQueryLogConfigCommand")
-  .sc(CreateResolverQueryLogConfig)
+  .sc(CreateResolverQueryLogConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

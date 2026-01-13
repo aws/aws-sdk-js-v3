@@ -6,8 +6,8 @@ import {
   parseJsonErrorBody as parseErrorBody,
 } from "@aws-sdk/core";
 import {
-  HttpRequest as __HttpRequest,
   HttpRequest,
+  HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
   isValidHostname as __isValidHostname,
 } from "@smithy/protocol-http";
@@ -119,7 +119,7 @@ export const se_ContentTypeParametersCommand = async (
   input: ContentTypeParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("ContentTypeParameters");
+  const headers: __HeaderBag = sharedHeaders("ContentTypeParameters")
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -132,8 +132,8 @@ export const se_DatetimeOffsetsCommand = async (
   input: DatetimeOffsetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("DatetimeOffsets");
-  const body = "{}";
+  const headers: __HeaderBag = sharedHeaders("DatetimeOffsets")
+  const body = '{}';
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -144,8 +144,8 @@ export const se_EmptyOperationCommand = async (
   input: EmptyOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("EmptyOperation");
-  const body = "{}";
+  const headers: __HeaderBag = sharedHeaders("EmptyOperation")
+  const body = '{}';
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -156,8 +156,8 @@ export const se_EndpointOperationCommand = async (
   input: EndpointOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("EndpointOperation");
-  const body = "{}";
+  const headers: __HeaderBag = sharedHeaders("EndpointOperation")
+  const body = '{}';
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "foo." + resolvedHostname;
@@ -175,16 +175,16 @@ export const se_EndpointWithHostLabelOperationCommand = async (
   input: EndpointWithHostLabelOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("EndpointWithHostLabelOperation");
+  const headers: __HeaderBag = sharedHeaders("EndpointWithHostLabelOperation")
   let body: any;
   body = JSON.stringify(_json(input));
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "foo.{label}." + resolvedHostname;
     if (input.label === undefined) {
-      throw new Error("Empty value provided for input host prefix: label.");
+      throw new Error('Empty value provided for input host prefix: label.');
     }
-    resolvedHostname = resolvedHostname.replace("{label}", input.label!);
+    resolvedHostname = resolvedHostname.replace("{label}", input.label!)
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -199,8 +199,8 @@ export const se_FractionalSecondsCommand = async (
   input: FractionalSecondsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("FractionalSeconds");
-  const body = "{}";
+  const headers: __HeaderBag = sharedHeaders("FractionalSeconds")
+  const body = '{}';
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -211,8 +211,8 @@ export const se_GreetingWithErrorsCommand = async (
   input: GreetingWithErrorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("GreetingWithErrors");
-  const body = "{}";
+  const headers: __HeaderBag = sharedHeaders("GreetingWithErrors")
+  const body = '{}';
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -223,8 +223,8 @@ export const se_HostWithPathOperationCommand = async (
   input: HostWithPathOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("HostWithPathOperation");
-  const body = "{}";
+  const headers: __HeaderBag = sharedHeaders("HostWithPathOperation")
+  const body = '{}';
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -235,7 +235,7 @@ export const se_JsonEnumsCommand = async (
   input: JsonEnumsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("JsonEnums");
+  const headers: __HeaderBag = sharedHeaders("JsonEnums")
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -248,7 +248,7 @@ export const se_JsonIntEnumsCommand = async (
   input: JsonIntEnumsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("JsonIntEnums");
+  const headers: __HeaderBag = sharedHeaders("JsonIntEnums")
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -261,7 +261,7 @@ export const se_JsonUnionsCommand = async (
   input: JsonUnionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("JsonUnions");
+  const headers: __HeaderBag = sharedHeaders("JsonUnions")
   let body: any;
   body = JSON.stringify(se_UnionInputOutput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -274,7 +274,7 @@ export const se_KitchenSinkOperationCommand = async (
   input: KitchenSinkOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("KitchenSinkOperation");
+  const headers: __HeaderBag = sharedHeaders("KitchenSinkOperation")
   let body: any;
   body = JSON.stringify(se_KitchenSink(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -287,7 +287,7 @@ export const se_NullOperationCommand = async (
   input: NullOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("NullOperation");
+  const headers: __HeaderBag = sharedHeaders("NullOperation")
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -300,7 +300,7 @@ export const se_OperationWithOptionalInputOutputCommand = async (
   input: OperationWithOptionalInputOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("OperationWithOptionalInputOutput");
+  const headers: __HeaderBag = sharedHeaders("OperationWithOptionalInputOutput")
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -313,7 +313,7 @@ export const se_PutAndGetInlineDocumentsCommand = async (
   input: PutAndGetInlineDocumentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("PutAndGetInlineDocuments");
+  const headers: __HeaderBag = sharedHeaders("PutAndGetInlineDocuments")
   let body: any;
   body = JSON.stringify(se_PutAndGetInlineDocumentsInputOutput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -326,7 +326,7 @@ export const se_PutWithContentEncodingCommand = async (
   input: PutWithContentEncodingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("PutWithContentEncoding");
+  const headers: __HeaderBag = sharedHeaders("PutWithContentEncoding")
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -339,7 +339,7 @@ export const se_SimpleScalarPropertiesCommand = async (
   input: SimpleScalarPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("SimpleScalarProperties");
+  const headers: __HeaderBag = sharedHeaders("SimpleScalarProperties")
   let body: any;
   body = JSON.stringify(se_SimpleScalarPropertiesInputOutput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -352,7 +352,7 @@ export const se_SparseNullsOperationCommand = async (
   input: SparseNullsOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("SparseNullsOperation");
+  const headers: __HeaderBag = sharedHeaders("SparseNullsOperation")
   let body: any;
   body = JSON.stringify(se_SparseNullsOperationInputOutput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -368,7 +368,7 @@ export const de_ContentTypeParametersCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = _json(data);
   const response: ContentTypeParametersCommandOutput = {
@@ -388,7 +388,7 @@ export const de_DatetimeOffsetsCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = de_DatetimeOffsetsOutput(data, context);
   const response: DatetimeOffsetsCommandOutput = {
@@ -459,7 +459,7 @@ export const de_FractionalSecondsCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = de_FractionalSecondsOutput(data, context);
   const response: FractionalSecondsCommandOutput = {
@@ -479,7 +479,7 @@ export const de_GreetingWithErrorsCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = _json(data);
   const response: GreetingWithErrorsCommandOutput = {
@@ -516,7 +516,7 @@ export const de_JsonEnumsCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = _json(data);
   const response: JsonEnumsCommandOutput = {
@@ -536,7 +536,7 @@ export const de_JsonIntEnumsCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = _json(data);
   const response: JsonIntEnumsCommandOutput = {
@@ -556,7 +556,7 @@ export const de_JsonUnionsCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = de_UnionInputOutput(data, context);
   const response: JsonUnionsCommandOutput = {
@@ -576,7 +576,7 @@ export const de_KitchenSinkOperationCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = de_KitchenSink(data, context);
   const response: KitchenSinkOperationCommandOutput = {
@@ -596,7 +596,7 @@ export const de_NullOperationCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = _json(data);
   const response: NullOperationCommandOutput = {
@@ -616,7 +616,7 @@ export const de_OperationWithOptionalInputOutputCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = _json(data);
   const response: OperationWithOptionalInputOutputCommandOutput = {
@@ -636,7 +636,7 @@ export const de_PutAndGetInlineDocumentsCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = de_PutAndGetInlineDocumentsInputOutput(data, context);
   const response: PutAndGetInlineDocumentsCommandOutput = {
@@ -673,7 +673,7 @@ export const de_SimpleScalarPropertiesCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = de_SimpleScalarPropertiesInputOutput(data, context);
   const response: SimpleScalarPropertiesCommandOutput = {
@@ -693,7 +693,7 @@ export const de_SparseNullsOperationCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = de_SparseNullsOperationInputOutput(data, context);
   const response: SparseNullsOperationCommandOutput = {
@@ -706,10 +706,13 @@ export const de_SparseNullsOperationCommand = async (
 /**
  * deserialize_Aws_json1_1CommandError
  */
-const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
+const de_CommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext,
+): Promise<never> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseErrorBody(output.body, context),
+    body: await parseErrorBody(output.body, context)
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -733,20 +736,23 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
       return throwDefaultError({
         output,
         parsedBody,
-        errorCode,
+        errorCode
       }) as never;
   }
-};
+}
 
 /**
  * deserializeAws_json1_1ComplexErrorRes
  */
-const de_ComplexErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<ComplexError> => {
-  const body = parsedOutput.body;
+const de_ComplexErrorRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ComplexError> => {
+  const body = parsedOutput.body
   const deserialized: any = de_ComplexError(body, context);
   const exception = new ComplexError({
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
+    ...deserialized
   });
   return __decorateServiceException(exception, body);
 };
@@ -754,12 +760,15 @@ const de_ComplexErrorRes = async (parsedOutput: any, context: __SerdeContext): P
 /**
  * deserializeAws_json1_1ErrorWithMembersRes
  */
-const de_ErrorWithMembersRes = async (parsedOutput: any, context: __SerdeContext): Promise<ErrorWithMembers> => {
-  const body = parsedOutput.body;
+const de_ErrorWithMembersRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ErrorWithMembers> => {
+  const body = parsedOutput.body
   const deserialized: any = de_ErrorWithMembers(body, context);
   const exception = new ErrorWithMembers({
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
+    ...deserialized
   });
   return __decorateServiceException(exception, body);
 };
@@ -767,12 +776,15 @@ const de_ErrorWithMembersRes = async (parsedOutput: any, context: __SerdeContext
 /**
  * deserializeAws_json1_1ErrorWithoutMembersRes
  */
-const de_ErrorWithoutMembersRes = async (parsedOutput: any, context: __SerdeContext): Promise<ErrorWithoutMembers> => {
-  const body = parsedOutput.body;
+const de_ErrorWithoutMembersRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ErrorWithoutMembers> => {
+  const body = parsedOutput.body
   const deserialized: any = _json(body);
   const exception = new ErrorWithoutMembers({
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
+    ...deserialized
   });
   return __decorateServiceException(exception, body);
 };
@@ -780,12 +792,15 @@ const de_ErrorWithoutMembersRes = async (parsedOutput: any, context: __SerdeCont
 /**
  * deserializeAws_json1_1FooErrorRes
  */
-const de_FooErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<FooError> => {
-  const body = parsedOutput.body;
+const de_FooErrorRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<FooError> => {
+  const body = parsedOutput.body
   const deserialized: any = _json(body);
   const exception = new FooError({
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
+    ...deserialized
   });
   return __decorateServiceException(exception, body);
 };
@@ -793,12 +808,15 @@ const de_FooErrorRes = async (parsedOutput: any, context: __SerdeContext): Promi
 /**
  * deserializeAws_json1_1InvalidGreetingRes
  */
-const de_InvalidGreetingRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidGreeting> => {
-  const body = parsedOutput.body;
+const de_InvalidGreetingRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidGreeting> => {
+  const body = parsedOutput.body
   const deserialized: any = _json(body);
   const exception = new InvalidGreeting({
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
+    ...deserialized
   });
   return __decorateServiceException(exception, body);
 };
@@ -808,9 +826,12 @@ const de_InvalidGreetingRes = async (parsedOutput: any, context: __SerdeContext)
 /**
  * serializeAws_json1_1Document
  */
-const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
+const se_Document = (
+  input: __DocumentType,
+  context: __SerdeContext
+): any => {
   return input;
-};
+}
 
 // se_EmptyStruct omitted.
 
@@ -823,47 +844,51 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 /**
  * serializeAws_json1_1KitchenSink
  */
-const se_KitchenSink = (input: KitchenSink, context: __SerdeContext): any => {
+const se_KitchenSink = (
+  input: KitchenSink,
+  context: __SerdeContext
+): any => {
   return take(input, {
-    Blob: context.base64Encoder,
-    Boolean: [],
-    Double: __serializeFloat,
-    EmptyStruct: _json,
-    Float: __serializeFloat,
-    HttpdateTimestamp: __dateToUtcString,
-    Integer: [],
-    Iso8601Timestamp: __serializeDateTime,
-    JsonValue: __LazyJsonString.from,
-    ListOfLists: _json,
-    ListOfMapsOfStrings: _json,
-    ListOfStrings: _json,
-    ListOfStructs: _json,
-    Long: [],
-    MapOfListsOfStrings: _json,
-    MapOfMaps: _json,
-    MapOfStrings: _json,
-    MapOfStructs: _json,
-    RecursiveList: (_) => se_ListOfKitchenSinks(_, context),
-    RecursiveMap: (_) => se_MapOfKitchenSinks(_, context),
-    RecursiveStruct: (_) => se_KitchenSink(_, context),
-    SimpleStruct: _json,
-    String: [],
-    StructWithJsonName: (_) => se_StructWithJsonName(_, context),
-    Timestamp: (_) => _.getTime() / 1_000,
-    UnixTimestamp: (_) => _.getTime() / 1_000,
+    'Blob': context.base64Encoder,
+    'Boolean': [],
+    'Double': __serializeFloat,
+    'EmptyStruct': _json,
+    'Float': __serializeFloat,
+    'HttpdateTimestamp': __dateToUtcString,
+    'Integer': [],
+    'Iso8601Timestamp': __serializeDateTime,
+    'JsonValue': __LazyJsonString.from,
+    'ListOfLists': _json,
+    'ListOfMapsOfStrings': _json,
+    'ListOfStrings': _json,
+    'ListOfStructs': _json,
+    'Long': [],
+    'MapOfListsOfStrings': _json,
+    'MapOfMaps': _json,
+    'MapOfStrings': _json,
+    'MapOfStructs': _json,
+    'RecursiveList': _ => se_ListOfKitchenSinks(_, context),
+    'RecursiveMap': _ => se_MapOfKitchenSinks(_, context),
+    'RecursiveStruct': _ => se_KitchenSink(_, context),
+    'SimpleStruct': _json,
+    'String': [],
+    'StructWithJsonName': _ => se_StructWithJsonName(_, context),
+    'Timestamp': _ => (_.getTime() / 1_000),
+    'UnixTimestamp': _ => (_.getTime() / 1_000),
   });
-};
+}
 
 /**
  * serializeAws_json1_1ListOfKitchenSinks
  */
-const se_ListOfKitchenSinks = (input: KitchenSink[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_KitchenSink(entry, context);
-    });
-};
+const se_ListOfKitchenSinks = (
+  input: KitchenSink[],
+  context: __SerdeContext
+): any => {
+  return input.filter((e: any) => e != null).map(entry => {
+    return se_KitchenSink(entry, context);
+  });
+}
 
 // se_ListOfListOfStrings omitted.
 
@@ -876,7 +901,10 @@ const se_ListOfKitchenSinks = (input: KitchenSink[], context: __SerdeContext): a
 /**
  * serializeAws_json1_1MapOfKitchenSinks
  */
-const se_MapOfKitchenSinks = (input: Record<string, KitchenSink>, context: __SerdeContext): any => {
+const se_MapOfKitchenSinks = (
+  input: Record<string, KitchenSink>,
+  context: __SerdeContext
+): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -884,7 +912,7 @@ const se_MapOfKitchenSinks = (input: Record<string, KitchenSink>, context: __Ser
     acc[key] = se_KitchenSink(value, context);
     return acc;
   }, {});
-};
+}
 
 // se_MapOfListsOfStrings omitted.
 
@@ -897,20 +925,23 @@ const se_MapOfKitchenSinks = (input: Record<string, KitchenSink>, context: __Ser
 /**
  * serializeAws_json1_1MyUnion
  */
-const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
+const se_MyUnion = (
+  input: MyUnion,
+  context: __SerdeContext
+): any => {
   return MyUnion.visit(input, {
-    blobValue: (value) => ({ blobValue: context.base64Encoder(value) }),
-    booleanValue: (value) => ({ booleanValue: value }),
-    enumValue: (value) => ({ enumValue: value }),
-    listValue: (value) => ({ listValue: _json(value) }),
-    mapValue: (value) => ({ mapValue: _json(value) }),
-    numberValue: (value) => ({ numberValue: value }),
-    stringValue: (value) => ({ stringValue: value }),
-    structureValue: (value) => ({ structureValue: _json(value) }),
-    timestampValue: (value) => ({ timestampValue: value.getTime() / 1_000 }),
-    _: (name, value) => ({ [name]: value } as any),
+    blobValue: value => ({ "blobValue": context.base64Encoder(value) }),
+    booleanValue: value => ({ "booleanValue": value }),
+    enumValue: value => ({ "enumValue": value }),
+    listValue: value => ({ "listValue": _json(value) }),
+    mapValue: value => ({ "mapValue": _json(value) }),
+    numberValue: value => ({ "numberValue": value }),
+    stringValue: value => ({ "stringValue": value }),
+    structureValue: value => ({ "structureValue": _json(value) }),
+    timestampValue: value => ({ "timestampValue": (value.getTime() / 1_000) }),
+    _: (name, value) => ({ [name]: value } as any)
   });
-};
+}
 
 // se_NullOperationInputOutput omitted.
 
@@ -924,9 +955,9 @@ const se_PutAndGetInlineDocumentsInputOutput = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    inlineDocument: (_) => se_Document(_, context),
+    'inlineDocument': _ => se_Document(_, context),
   });
-};
+}
 
 // se_PutWithContentEncodingInput omitted.
 
@@ -938,40 +969,49 @@ const se_SimpleScalarPropertiesInputOutput = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    doubleValue: __serializeFloat,
-    floatValue: __serializeFloat,
+    'doubleValue': __serializeFloat,
+    'floatValue': __serializeFloat,
   });
-};
+}
 
 // se_SimpleStruct omitted.
 
 /**
  * serializeAws_json1_1SparseNullsOperationInputOutput
  */
-const se_SparseNullsOperationInputOutput = (input: SparseNullsOperationInputOutput, context: __SerdeContext): any => {
+const se_SparseNullsOperationInputOutput = (
+  input: SparseNullsOperationInputOutput,
+  context: __SerdeContext
+): any => {
   return take(input, {
-    sparseStringList: (_) => se_SparseStringList(_, context),
-    sparseStringMap: (_) => se_SparseStringMap(_, context),
+    'sparseStringList': _ => se_SparseStringList(_, context),
+    'sparseStringMap': _ => se_SparseStringMap(_, context),
   });
-};
+}
 
 /**
  * serializeAws_json1_1StructWithJsonName
  */
-const se_StructWithJsonName = (input: StructWithJsonName, context: __SerdeContext): any => {
+const se_StructWithJsonName = (
+  input: StructWithJsonName,
+  context: __SerdeContext
+): any => {
   return take(input, {
-    Value: [, , `Value`],
+    'Value': [,,`Value`],
   });
-};
+}
 
 /**
  * serializeAws_json1_1UnionInputOutput
  */
-const se_UnionInputOutput = (input: UnionInputOutput, context: __SerdeContext): any => {
+const se_UnionInputOutput = (
+  input: UnionInputOutput,
+  context: __SerdeContext
+): any => {
   return take(input, {
-    contents: (_) => se_MyUnion(_, context),
+    'contents': _ => se_MyUnion(_, context),
   });
-};
+}
 
 // se_FooEnumList omitted.
 
@@ -990,14 +1030,20 @@ const se_UnionInputOutput = (input: UnionInputOutput, context: __SerdeContext): 
 /**
  * serializeAws_json1_1SparseStringList
  */
-const se_SparseStringList = (input: string[], context: __SerdeContext): any => {
+const se_SparseStringList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
   return input;
-};
+}
 
 /**
  * serializeAws_json1_1SparseStringMap
  */
-const se_SparseStringMap = (input: Record<string, string>, context: __SerdeContext): any => {
+const se_SparseStringMap = (
+  input: Record<string, string>,
+  context: __SerdeContext
+): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       acc[key] = null as any;
@@ -1006,7 +1052,7 @@ const se_SparseStringMap = (input: Record<string, string>, context: __SerdeConte
     acc[key] = value;
     return acc;
   }, {});
-};
+}
 
 // se_StringList omitted.
 
@@ -1015,56 +1061,71 @@ const se_SparseStringMap = (input: Record<string, string>, context: __SerdeConte
 /**
  * deserializeAws_json1_1ComplexError
  */
-const de_ComplexError = (output: any, context: __SerdeContext): ComplexError => {
+const de_ComplexError = (
+  output: any,
+  context: __SerdeContext
+): ComplexError => {
   return take(output, {
-    Nested: (_: any) => de_ComplexNestedErrorData(_, context),
-    TopLevel: __expectString,
+    'Nested': (_: any) => de_ComplexNestedErrorData(_, context),
+    'TopLevel': __expectString,
   }) as any;
-};
+}
 
 /**
  * deserializeAws_json1_1ComplexNestedErrorData
  */
-const de_ComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
+const de_ComplexNestedErrorData = (
+  output: any,
+  context: __SerdeContext
+): ComplexNestedErrorData => {
   return take(output, {
-    Foo: [, __expectString, `Foo`],
+    'Foo': [,__expectString,`Foo`],
   }) as any;
-};
+}
 
 // de_ContentTypeParametersOutput omitted.
 
 /**
  * deserializeAws_json1_1DatetimeOffsetsOutput
  */
-const de_DatetimeOffsetsOutput = (output: any, context: __SerdeContext): DatetimeOffsetsOutput => {
+const de_DatetimeOffsetsOutput = (
+  output: any,
+  context: __SerdeContext
+): DatetimeOffsetsOutput => {
   return take(output, {
-    datetime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    'datetime': (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
-};
+}
 
 /**
  * deserializeAws_json1_1Document
  */
-const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
+const de_Document = (
+  output: any,
+  context: __SerdeContext
+): __DocumentType => {
   return output;
-};
+}
 
 // de_EmptyStruct omitted.
 
 /**
  * deserializeAws_json1_1ErrorWithMembers
  */
-const de_ErrorWithMembers = (output: any, context: __SerdeContext): ErrorWithMembers => {
+const de_ErrorWithMembers = (
+  output: any,
+  context: __SerdeContext
+): ErrorWithMembers => {
   return take(output, {
-    Code: __expectString,
-    ComplexData: (_: any) => de_KitchenSink(_, context),
-    IntegerField: __expectInt32,
-    ListField: _json,
-    MapField: _json,
-    Message: __expectString,
-    StringField: __expectString,
+    'Code': __expectString,
+    'ComplexData': (_: any) => de_KitchenSink(_, context),
+    'IntegerField': __expectInt32,
+    'ListField': _json,
+    'MapField': _json,
+    'Message': __expectString,
+    'StringField': __expectString,
   }) as any;
-};
+}
 
 // de_ErrorWithoutMembers omitted.
 
@@ -1073,11 +1134,14 @@ const de_ErrorWithMembers = (output: any, context: __SerdeContext): ErrorWithMem
 /**
  * deserializeAws_json1_1FractionalSecondsOutput
  */
-const de_FractionalSecondsOutput = (output: any, context: __SerdeContext): FractionalSecondsOutput => {
+const de_FractionalSecondsOutput = (
+  output: any,
+  context: __SerdeContext
+): FractionalSecondsOutput => {
   return take(output, {
-    datetime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    'datetime': (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
-};
+}
 
 // de_GreetingWithErrorsOutput omitted.
 
@@ -1090,48 +1154,52 @@ const de_FractionalSecondsOutput = (output: any, context: __SerdeContext): Fract
 /**
  * deserializeAws_json1_1KitchenSink
  */
-const de_KitchenSink = (output: any, context: __SerdeContext): KitchenSink => {
+const de_KitchenSink = (
+  output: any,
+  context: __SerdeContext
+): KitchenSink => {
   return take(output, {
-    Blob: context.base64Decoder,
-    Boolean: __expectBoolean,
-    Double: __limitedParseDouble,
-    EmptyStruct: _json,
-    Float: __limitedParseFloat32,
-    HttpdateTimestamp: (_: any) => __expectNonNull(__parseRfc7231DateTime(_)),
-    Integer: __expectInt32,
-    Iso8601Timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
-    JsonValue: __LazyJsonString.from,
-    ListOfLists: _json,
-    ListOfMapsOfStrings: _json,
-    ListOfStrings: _json,
-    ListOfStructs: _json,
-    Long: __expectLong,
-    MapOfListsOfStrings: _json,
-    MapOfMaps: _json,
-    MapOfStrings: _json,
-    MapOfStructs: _json,
-    RecursiveList: (_: any) => de_ListOfKitchenSinks(_, context),
-    RecursiveMap: (_: any) => de_MapOfKitchenSinks(_, context),
-    RecursiveStruct: (_: any) => de_KitchenSink(_, context),
-    SimpleStruct: _json,
-    String: __expectString,
-    StructWithJsonName: (_: any) => de_StructWithJsonName(_, context),
-    Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    UnixTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    'Blob': context.base64Decoder,
+    'Boolean': __expectBoolean,
+    'Double': __limitedParseDouble,
+    'EmptyStruct': _json,
+    'Float': __limitedParseFloat32,
+    'HttpdateTimestamp': (_: any) => __expectNonNull(__parseRfc7231DateTime(_)),
+    'Integer': __expectInt32,
+    'Iso8601Timestamp': (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    'JsonValue': __LazyJsonString.from,
+    'ListOfLists': _json,
+    'ListOfMapsOfStrings': _json,
+    'ListOfStrings': _json,
+    'ListOfStructs': _json,
+    'Long': __expectLong,
+    'MapOfListsOfStrings': _json,
+    'MapOfMaps': _json,
+    'MapOfStrings': _json,
+    'MapOfStructs': _json,
+    'RecursiveList': (_: any) => de_ListOfKitchenSinks(_, context),
+    'RecursiveMap': (_: any) => de_MapOfKitchenSinks(_, context),
+    'RecursiveStruct': (_: any) => de_KitchenSink(_, context),
+    'SimpleStruct': _json,
+    'String': __expectString,
+    'StructWithJsonName': (_: any) => de_StructWithJsonName(_, context),
+    'Timestamp': (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    'UnixTimestamp': (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
-};
+}
 
 /**
  * deserializeAws_json1_1ListOfKitchenSinks
  */
-const de_ListOfKitchenSinks = (output: any, context: __SerdeContext): KitchenSink[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      return de_KitchenSink(entry, context);
-    });
+const de_ListOfKitchenSinks = (
+  output: any,
+  context: __SerdeContext
+): KitchenSink[] => {
+  const retVal = (output || []).filter((e: any) => e != null).map((entry: any) => {
+    return de_KitchenSink(entry, context);
+  });
   return retVal;
-};
+}
 
 // de_ListOfListOfStrings omitted.
 
@@ -1144,15 +1212,18 @@ const de_ListOfKitchenSinks = (output: any, context: __SerdeContext): KitchenSin
 /**
  * deserializeAws_json1_1MapOfKitchenSinks
  */
-const de_MapOfKitchenSinks = (output: any, context: __SerdeContext): Record<string, KitchenSink> => {
+const de_MapOfKitchenSinks = (
+  output: any,
+  context: __SerdeContext
+): Record<string, KitchenSink> => {
   return Object.entries(output).reduce((acc: Record<string, KitchenSink>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
     acc[key as string] = de_KitchenSink(value, context);
     return acc;
-  }, {} as Record<string, KitchenSink>);
-};
+
+  }, {} as Record<string, KitchenSink>);}
 
 // de_MapOfListsOfStrings omitted.
 
@@ -1165,46 +1236,49 @@ const de_MapOfKitchenSinks = (output: any, context: __SerdeContext): Record<stri
 /**
  * deserializeAws_json1_1MyUnion
  */
-const de_MyUnion = (output: any, context: __SerdeContext): MyUnion => {
+const de_MyUnion = (
+  output: any,
+  context: __SerdeContext
+): MyUnion => {
   if (output.blobValue != null) {
     return {
-      blobValue: context.base64Decoder(output.blobValue),
+      blobValue: context.base64Decoder(output.blobValue)
     };
   }
   if (__expectBoolean(output.booleanValue) !== undefined) {
-    return { booleanValue: __expectBoolean(output.booleanValue) as any };
+    return { booleanValue: __expectBoolean(output.booleanValue) as any }
   }
   if (__expectString(output.enumValue) !== undefined) {
-    return { enumValue: __expectString(output.enumValue) as any };
+    return { enumValue: __expectString(output.enumValue) as any }
   }
   if (output.listValue != null) {
     return {
-      listValue: _json(output.listValue),
+      listValue: _json(output.listValue)
     };
   }
   if (output.mapValue != null) {
     return {
-      mapValue: _json(output.mapValue),
+      mapValue: _json(output.mapValue)
     };
   }
   if (__expectInt32(output.numberValue) !== undefined) {
-    return { numberValue: __expectInt32(output.numberValue) as any };
+    return { numberValue: __expectInt32(output.numberValue) as any }
   }
   if (__expectString(output.stringValue) !== undefined) {
-    return { stringValue: __expectString(output.stringValue) as any };
+    return { stringValue: __expectString(output.stringValue) as any }
   }
   if (output.structureValue != null) {
     return {
-      structureValue: _json(output.structureValue),
+      structureValue: _json(output.structureValue)
     };
   }
   if (output.timestampValue != null) {
     return {
-      timestampValue: __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestampValue))),
+      timestampValue: __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestampValue)))
     };
   }
   return { $unknown: Object.entries(output)[0] };
-};
+}
 
 // de_NullOperationInputOutput omitted.
 
@@ -1218,9 +1292,9 @@ const de_PutAndGetInlineDocumentsInputOutput = (
   context: __SerdeContext
 ): PutAndGetInlineDocumentsInputOutput => {
   return take(output, {
-    inlineDocument: (_: any) => de_Document(_, context),
+    'inlineDocument': (_: any) => de_Document(_, context),
   }) as any;
-};
+}
 
 /**
  * deserializeAws_json1_1SimpleScalarPropertiesInputOutput
@@ -1230,40 +1304,49 @@ const de_SimpleScalarPropertiesInputOutput = (
   context: __SerdeContext
 ): SimpleScalarPropertiesInputOutput => {
   return take(output, {
-    doubleValue: __limitedParseDouble,
-    floatValue: __limitedParseFloat32,
+    'doubleValue': __limitedParseDouble,
+    'floatValue': __limitedParseFloat32,
   }) as any;
-};
+}
 
 // de_SimpleStruct omitted.
 
 /**
  * deserializeAws_json1_1SparseNullsOperationInputOutput
  */
-const de_SparseNullsOperationInputOutput = (output: any, context: __SerdeContext): SparseNullsOperationInputOutput => {
+const de_SparseNullsOperationInputOutput = (
+  output: any,
+  context: __SerdeContext
+): SparseNullsOperationInputOutput => {
   return take(output, {
-    sparseStringList: (_: any) => de_SparseStringList(_, context),
-    sparseStringMap: (_: any) => de_SparseStringMap(_, context),
+    'sparseStringList': (_: any) => de_SparseStringList(_, context),
+    'sparseStringMap': (_: any) => de_SparseStringMap(_, context),
   }) as any;
-};
+}
 
 /**
  * deserializeAws_json1_1StructWithJsonName
  */
-const de_StructWithJsonName = (output: any, context: __SerdeContext): StructWithJsonName => {
+const de_StructWithJsonName = (
+  output: any,
+  context: __SerdeContext
+): StructWithJsonName => {
   return take(output, {
-    Value: [, __expectString, `Value`],
+    'Value': [,__expectString,`Value`],
   }) as any;
-};
+}
 
 /**
  * deserializeAws_json1_1UnionInputOutput
  */
-const de_UnionInputOutput = (output: any, context: __SerdeContext): UnionInputOutput => {
+const de_UnionInputOutput = (
+  output: any,
+  context: __SerdeContext
+): UnionInputOutput => {
   return take(output, {
-    contents: (_: any) => de_MyUnion(__expectUnion(_), context),
+    'contents': (_: any) => de_MyUnion(__expectUnion(_), context),
   }) as any;
-};
+}
 
 // de_FooEnumList omitted.
 
@@ -1282,7 +1365,10 @@ const de_UnionInputOutput = (output: any, context: __SerdeContext): UnionInputOu
 /**
  * deserializeAws_json1_1SparseStringList
  */
-const de_SparseStringList = (output: any, context: __SerdeContext): string[] => {
+const de_SparseStringList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       return null as any;
@@ -1290,12 +1376,15 @@ const de_SparseStringList = (output: any, context: __SerdeContext): string[] => 
     return __expectString(entry) as any;
   });
   return retVal;
-};
+}
 
 /**
  * deserializeAws_json1_1SparseStringMap
  */
-const de_SparseStringMap = (output: any, context: __SerdeContext): Record<string, string> => {
+const de_SparseStringMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       acc[key as string] = null as any;
@@ -1303,8 +1392,8 @@ const de_SparseStringMap = (output: any, context: __SerdeContext): Record<string
     }
     acc[key as string] = __expectString(value) as any;
     return acc;
-  }, {} as Record<string, string>);
-};
+
+  }, {} as Record<string, string>);}
 
 // de_StringList omitted.
 
@@ -1312,15 +1401,13 @@ const de_SparseStringMap = (output: any, context: __SerdeContext): Record<string
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId:
-    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
+  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
-  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> => collectBody(streamBody, context).then(body => context.utf8Encoder(body))
 
 const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
@@ -1328,9 +1415,9 @@ const buildHttpRpcRequest = async (
   headers: __HeaderBag,
   path: string,
   resolvedHostname: string | undefined,
-  body: any
+  body: any,
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const {hostname, protocol = "https", port, path: basePath} = await context.endpoint();
   const contents: any = {
     protocol,
     hostname,
@@ -1347,9 +1434,7 @@ const buildHttpRpcRequest = async (
   }
   return new HttpRequest(contents);
 };
-function sharedHeaders(operation: string): __HeaderBag {
-  return {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": `JsonProtocol.${operation}`,
-  };
-}
+function sharedHeaders(operation: string): __HeaderBag { return {
+  'content-type': "application/x-amz-json-1.1",
+  'x-amz-target': `JsonProtocol.${operation}`,
+}};

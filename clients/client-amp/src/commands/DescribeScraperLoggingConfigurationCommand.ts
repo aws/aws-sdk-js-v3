@@ -9,7 +9,7 @@ import type {
   DescribeScraperLoggingConfigurationRequest,
   DescribeScraperLoggingConfigurationResponse,
 } from "../models/models_0";
-import { DescribeScraperLoggingConfiguration } from "../schemas/schemas_0";
+import { DescribeScraperLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeScraperLoggingConfigurationCommandInput extends Describ
  *
  * The output of {@link DescribeScraperLoggingConfigurationCommand}.
  */
-export interface DescribeScraperLoggingConfigurationCommandOutput
-  extends DescribeScraperLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeScraperLoggingConfigurationCommandOutput extends DescribeScraperLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the logging configuration for a Amazon Managed Service for Prometheus scraper.</p>
@@ -110,7 +108,7 @@ export class DescribeScraperLoggingConfigurationCommand extends $Command
   })
   .s("AmazonPrometheusService", "DescribeScraperLoggingConfiguration", {})
   .n("AmpClient", "DescribeScraperLoggingConfigurationCommand")
-  .sc(DescribeScraperLoggingConfiguration)
+  .sc(DescribeScraperLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
 import type { CreateUserRequest, CreateUserResponse } from "../models/models_0";
-import { CreateUser } from "../schemas/schemas_0";
+import { CreateUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,6 +91,13 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *   ],
  *   Website: "STRING_VALUE",
  *   Birthdate: "STRING_VALUE",
+ *   Roles: [ // Roles
+ *     { // Role
+ *       Value: "STRING_VALUE",
+ *       Type: "STRING_VALUE",
+ *       Primary: true || false,
+ *     },
+ *   ],
  *   Extensions: { // Extensions
  *     "<keys>": "DOCUMENT_VALUE",
  *   },
@@ -151,7 +158,7 @@ export class CreateUserCommand extends $Command
   })
   .s("AWSIdentityStore", "CreateUser", {})
   .n("IdentitystoreClient", "CreateUserCommand")
-  .sc(CreateUser)
+  .sc(CreateUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

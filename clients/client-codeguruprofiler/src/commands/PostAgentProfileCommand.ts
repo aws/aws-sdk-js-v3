@@ -10,7 +10,7 @@ import type {
 } from "../CodeGuruProfilerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type PostAgentProfileResponse, PostAgentProfileRequest } from "../models/models_0";
-import { PostAgentProfile } from "../schemas/schemas_0";
+import { PostAgentProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class PostAgentProfileCommand extends $Command
   })
   .s("CodeGuruProfiler", "PostAgentProfile", {})
   .n("CodeGuruProfilerClient", "PostAgentProfileCommand")
-  .sc(PostAgentProfile)
+  .sc(PostAgentProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

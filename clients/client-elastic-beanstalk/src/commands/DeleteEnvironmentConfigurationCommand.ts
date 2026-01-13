@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteEnvironmentConfigurationMessage } from "../models/models_0";
-import { DeleteEnvironmentConfiguration } from "../schemas/schemas_0";
+import { DeleteEnvironmentConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeleteEnvironmentConfigurationCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "DeleteEnvironmentConfiguration", {})
   .n("ElasticBeanstalkClient", "DeleteEnvironmentConfigurationCommand")
-  .sc(DeleteEnvironmentConfiguration)
+  .sc(DeleteEnvironmentConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   AddSourceIdentifierToSubscriptionResult,
 } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { AddSourceIdentifierToSubscription } from "../schemas/schemas_0";
+import { AddSourceIdentifierToSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface AddSourceIdentifierToSubscriptionCommandInput extends AddSource
  *
  * The output of {@link AddSourceIdentifierToSubscriptionCommand}.
  */
-export interface AddSourceIdentifierToSubscriptionCommandOutput
-  extends AddSourceIdentifierToSubscriptionResult,
-    __MetadataBearer {}
+export interface AddSourceIdentifierToSubscriptionCommandOutput extends AddSourceIdentifierToSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Adds a source identifier to an existing RDS event notification subscription.</p>
@@ -133,7 +131,7 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command
   })
   .s("AmazonRDSv19", "AddSourceIdentifierToSubscription", {})
   .n("RDSClient", "AddSourceIdentifierToSubscriptionCommand")
-  .sc(AddSourceIdentifierToSubscription)
+  .sc(AddSourceIdentifierToSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

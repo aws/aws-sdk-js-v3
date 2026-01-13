@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteNetworkAclRequest } from "../models/models_2";
-import { DeleteNetworkAcl } from "../schemas/schemas_0";
+import { DeleteNetworkAcl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DeleteNetworkAclCommand extends $Command
   })
   .s("AmazonEC2", "DeleteNetworkAcl", {})
   .n("EC2Client", "DeleteNetworkAclCommand")
-  .sc(DeleteNetworkAcl)
+  .sc(DeleteNetworkAcl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

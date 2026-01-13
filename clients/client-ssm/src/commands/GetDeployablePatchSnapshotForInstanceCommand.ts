@@ -8,7 +8,7 @@ import type {
   GetDeployablePatchSnapshotForInstanceRequest,
   GetDeployablePatchSnapshotForInstanceResult,
 } from "../models/models_0";
-import { GetDeployablePatchSnapshotForInstance } from "../schemas/schemas_0";
+import { GetDeployablePatchSnapshotForInstance$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetDeployablePatchSnapshotForInstanceCommand}.
  */
-export interface GetDeployablePatchSnapshotForInstanceCommandInput
-  extends GetDeployablePatchSnapshotForInstanceRequest {}
+export interface GetDeployablePatchSnapshotForInstanceCommandInput extends GetDeployablePatchSnapshotForInstanceRequest {}
 /**
  * @public
  *
  * The output of {@link GetDeployablePatchSnapshotForInstanceCommand}.
  */
-export interface GetDeployablePatchSnapshotForInstanceCommandOutput
-  extends GetDeployablePatchSnapshotForInstanceResult,
-    __MetadataBearer {}
+export interface GetDeployablePatchSnapshotForInstanceCommandOutput extends GetDeployablePatchSnapshotForInstanceResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the current snapshot for the patch baseline the managed node uses. This API is
@@ -157,7 +154,7 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command
   })
   .s("AmazonSSM", "GetDeployablePatchSnapshotForInstance", {})
   .n("SSMClient", "GetDeployablePatchSnapshotForInstanceCommand")
-  .sc(GetDeployablePatchSnapshotForInstance)
+  .sc(GetDeployablePatchSnapshotForInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

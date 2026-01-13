@@ -1,5 +1,5 @@
 // @ts-check
-import parallelLimit from "async/parallelLimit";
+import parallelLimit from "async/parallelLimit.js";
 import { cpus } from "os";
 import yargs from "yargs";
 

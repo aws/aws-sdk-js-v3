@@ -9,7 +9,7 @@ import type {
   DescribeTrunkInterfaceAssociationsRequest,
   DescribeTrunkInterfaceAssociationsResult,
 } from "../models/models_4";
-import { DescribeTrunkInterfaceAssociations } from "../schemas/schemas_0";
+import { DescribeTrunkInterfaceAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeTrunkInterfaceAssociationsCommandInput extends Describe
  *
  * The output of {@link DescribeTrunkInterfaceAssociationsCommand}.
  */
-export interface DescribeTrunkInterfaceAssociationsCommandOutput
-  extends DescribeTrunkInterfaceAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeTrunkInterfaceAssociationsCommandOutput extends DescribeTrunkInterfaceAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more network interface trunk associations.</p>
@@ -107,7 +105,7 @@ export class DescribeTrunkInterfaceAssociationsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeTrunkInterfaceAssociations", {})
   .n("EC2Client", "DescribeTrunkInterfaceAssociationsCommand")
-  .sc(DescribeTrunkInterfaceAssociations)
+  .sc(DescribeTrunkInterfaceAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDomainAssociationRequest, UpdateDomainAssociationResult } from "../models/models_1";
-import { UpdateDomainAssociation } from "../schemas/schemas_0";
+import { UpdateDomainAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class UpdateDomainAssociationCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "UpdateDomainAssociation", {})
   .n("CloudFrontClient", "UpdateDomainAssociationCommand")
-  .sc(UpdateDomainAssociation)
+  .sc(UpdateDomainAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

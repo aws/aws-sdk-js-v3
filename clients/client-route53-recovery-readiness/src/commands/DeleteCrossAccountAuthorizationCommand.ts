@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
-import { DeleteCrossAccountAuthorization } from "../schemas/schemas_0";
+import { DeleteCrossAccountAuthorization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DeleteCrossAccountAuthorizationCommandInput extends DeleteCross
  *
  * The output of {@link DeleteCrossAccountAuthorizationCommand}.
  */
-export interface DeleteCrossAccountAuthorizationCommandOutput
-  extends DeleteCrossAccountAuthorizationResponse,
-    __MetadataBearer {}
+export interface DeleteCrossAccountAuthorizationCommandOutput extends DeleteCrossAccountAuthorizationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes cross account readiness authorization.</p>
@@ -92,7 +90,7 @@ export class DeleteCrossAccountAuthorizationCommand extends $Command
   })
   .s("Route53RecoveryReadiness", "DeleteCrossAccountAuthorization", {})
   .n("Route53RecoveryReadinessClient", "DeleteCrossAccountAuthorizationCommand")
-  .sc(DeleteCrossAccountAuthorization)
+  .sc(DeleteCrossAccountAuthorization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import type { GetSensitiveDataOccurrencesRequest, GetSensitiveDataOccurrencesResponse } from "../models/models_0";
-import { GetSensitiveDataOccurrences } from "../schemas/schemas_0";
+import { GetSensitiveDataOccurrences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetSensitiveDataOccurrencesCommandInput extends GetSensitiveDat
  *
  * The output of {@link GetSensitiveDataOccurrencesCommand}.
  */
-export interface GetSensitiveDataOccurrencesCommandOutput
-  extends GetSensitiveDataOccurrencesResponse,
-    __MetadataBearer {}
+export interface GetSensitiveDataOccurrencesCommandOutput extends GetSensitiveDataOccurrencesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves occurrences of sensitive data reported by a finding.</p>
@@ -101,7 +99,7 @@ export class GetSensitiveDataOccurrencesCommand extends $Command
   })
   .s("Macie2", "GetSensitiveDataOccurrences", {})
   .n("Macie2Client", "GetSensitiveDataOccurrencesCommand")
-  .sc(GetSensitiveDataOccurrences)
+  .sc(GetSensitiveDataOccurrences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   DescribeTrustedAdvisorCheckResultRequest,
   DescribeTrustedAdvisorCheckResultResponse,
 } from "../models/models_0";
-import { DescribeTrustedAdvisorCheckResult } from "../schemas/schemas_0";
+import { DescribeTrustedAdvisorCheckResult$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DescribeTrustedAdvisorCheckResultCommandInput extends DescribeT
  *
  * The output of {@link DescribeTrustedAdvisorCheckResultCommand}.
  */
-export interface DescribeTrustedAdvisorCheckResultCommandOutput
-  extends DescribeTrustedAdvisorCheckResultResponse,
-    __MetadataBearer {}
+export interface DescribeTrustedAdvisorCheckResultCommandOutput extends DescribeTrustedAdvisorCheckResultResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the results of the Trusted Advisor check that has the specified check ID. You
@@ -172,7 +170,7 @@ export class DescribeTrustedAdvisorCheckResultCommand extends $Command
   })
   .s("AWSSupport_20130415", "DescribeTrustedAdvisorCheckResult", {})
   .n("SupportClient", "DescribeTrustedAdvisorCheckResultCommand")
-  .sc(DescribeTrustedAdvisorCheckResult)
+  .sc(DescribeTrustedAdvisorCheckResult$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

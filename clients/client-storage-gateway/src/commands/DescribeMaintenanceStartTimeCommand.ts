@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeMaintenanceStartTimeInput, DescribeMaintenanceStartTimeOutput } from "../models/models_0";
-import { DescribeMaintenanceStartTime } from "../schemas/schemas_0";
+import { DescribeMaintenanceStartTime$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -28,9 +28,7 @@ export interface DescribeMaintenanceStartTimeCommandInput extends DescribeMainte
  *
  * The output of {@link DescribeMaintenanceStartTimeCommand}.
  */
-export interface DescribeMaintenanceStartTimeCommandOutput
-  extends DescribeMaintenanceStartTimeOutput,
-    __MetadataBearer {}
+export interface DescribeMaintenanceStartTimeCommandOutput extends DescribeMaintenanceStartTimeOutput, __MetadataBearer {}
 
 /**
  * <p>Returns your gateway's maintenance window schedule information, with values for
@@ -116,7 +114,7 @@ export class DescribeMaintenanceStartTimeCommand extends $Command
   })
   .s("StorageGateway_20130630", "DescribeMaintenanceStartTime", {})
   .n("StorageGatewayClient", "DescribeMaintenanceStartTimeCommand")
-  .sc(DescribeMaintenanceStartTime)
+  .sc(DescribeMaintenanceStartTime$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

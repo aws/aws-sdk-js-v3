@@ -13,7 +13,7 @@ import type {
   StartMetadataModelExportAsScriptMessage,
   StartMetadataModelExportAsScriptResponse,
 } from "../models/models_1";
-import { StartMetadataModelExportAsScript } from "../schemas/schemas_0";
+import { StartMetadataModelExportAsScript$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface StartMetadataModelExportAsScriptCommandInput extends StartMetad
  *
  * The output of {@link StartMetadataModelExportAsScriptCommand}.
  */
-export interface StartMetadataModelExportAsScriptCommandOutput
-  extends StartMetadataModelExportAsScriptResponse,
-    __MetadataBearer {}
+export interface StartMetadataModelExportAsScriptCommandOutput extends StartMetadataModelExportAsScriptResponse, __MetadataBearer {}
 
 /**
  * <p>Saves your converted code to a file as a SQL script, and stores this file on your Amazon S3
@@ -130,7 +128,7 @@ export class StartMetadataModelExportAsScriptCommand extends $Command
   })
   .s("AmazonDMSv20160101", "StartMetadataModelExportAsScript", {})
   .n("DatabaseMigrationServiceClient", "StartMetadataModelExportAsScriptCommand")
-  .sc(StartMetadataModelExportAsScript)
+  .sc(StartMetadataModelExportAsScript$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

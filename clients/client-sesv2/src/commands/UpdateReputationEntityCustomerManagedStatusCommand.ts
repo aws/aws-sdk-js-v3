@@ -8,7 +8,7 @@ import type {
   UpdateReputationEntityCustomerManagedStatusRequest,
   UpdateReputationEntityCustomerManagedStatusResponse,
 } from "../models/models_1";
-import { UpdateReputationEntityCustomerManagedStatus } from "../schemas/schemas_0";
+import { UpdateReputationEntityCustomerManagedStatus$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateReputationEntityCustomerManagedStatusCommand}.
  */
-export interface UpdateReputationEntityCustomerManagedStatusCommandInput
-  extends UpdateReputationEntityCustomerManagedStatusRequest {}
+export interface UpdateReputationEntityCustomerManagedStatusCommandInput extends UpdateReputationEntityCustomerManagedStatusRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateReputationEntityCustomerManagedStatusCommand}.
  */
-export interface UpdateReputationEntityCustomerManagedStatusCommandOutput
-  extends UpdateReputationEntityCustomerManagedStatusResponse,
-    __MetadataBearer {}
+export interface UpdateReputationEntityCustomerManagedStatusCommandOutput extends UpdateReputationEntityCustomerManagedStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Update the customer-managed sending status for a reputation entity. This allows
@@ -96,7 +93,7 @@ export class UpdateReputationEntityCustomerManagedStatusCommand extends $Command
   })
   .s("SimpleEmailService_v2", "UpdateReputationEntityCustomerManagedStatus", {})
   .n("SESv2Client", "UpdateReputationEntityCustomerManagedStatusCommand")
-  .sc(UpdateReputationEntityCustomerManagedStatus)
+  .sc(UpdateReputationEntityCustomerManagedStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

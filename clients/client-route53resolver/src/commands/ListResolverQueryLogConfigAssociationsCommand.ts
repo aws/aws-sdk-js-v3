@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { ListResolverQueryLogConfigAssociations } from "../schemas/schemas_0";
+import { ListResolverQueryLogConfigAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListResolverQueryLogConfigAssociationsCommand}.
  */
-export interface ListResolverQueryLogConfigAssociationsCommandInput
-  extends ListResolverQueryLogConfigAssociationsRequest {}
+export interface ListResolverQueryLogConfigAssociationsCommandInput extends ListResolverQueryLogConfigAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListResolverQueryLogConfigAssociationsCommand}.
  */
-export interface ListResolverQueryLogConfigAssociationsCommandOutput
-  extends ListResolverQueryLogConfigAssociationsResponse,
-    __MetadataBearer {}
+export interface ListResolverQueryLogConfigAssociationsCommandOutput extends ListResolverQueryLogConfigAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists information about associations between Amazon VPCs and query logging configurations.</p>
@@ -127,7 +124,7 @@ export class ListResolverQueryLogConfigAssociationsCommand extends $Command
   })
   .s("Route53Resolver", "ListResolverQueryLogConfigAssociations", {})
   .n("Route53ResolverClient", "ListResolverQueryLogConfigAssociationsCommand")
-  .sc(ListResolverQueryLogConfigAssociations)
+  .sc(ListResolverQueryLogConfigAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

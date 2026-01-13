@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageV2Client";
 import type { GetOriginEndpointRequest, GetOriginEndpointResponse } from "../models/models_0";
-import { GetOriginEndpoint } from "../schemas/schemas_0";
+import { GetOriginEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,6 +85,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //         ],
  * //         RoleArn: "STRING_VALUE", // required
  * //         Url: "STRING_VALUE", // required
+ * //         CertificateArn: "STRING_VALUE",
  * //       },
  * //     },
  * //   },
@@ -345,6 +346,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  *       },
  *       KeyRotationIntervalSeconds: 300,
  *       SpekeKeyProvider: {
+ *         CertificateArn: "arn:aws:acm:us-west-2:123456789012:certificate/0c6a65f1-7bd3-48ac-be17-f38675def22e",
  *         DrmSystems: [
  *           "CLEAR_KEY_AES_128"
  *         ],
@@ -467,7 +469,7 @@ export class GetOriginEndpointCommand extends $Command
   })
   .s("mediapackagev2", "GetOriginEndpoint", {})
   .n("MediaPackageV2Client", "GetOriginEndpointCommand")
-  .sc(GetOriginEndpoint)
+  .sc(GetOriginEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

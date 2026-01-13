@@ -12,7 +12,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RekognitionStreamingClient";
-import { StartFaceLivenessSession } from "../schemas/schemas_0";
+import { StartFaceLivenessSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -277,7 +277,7 @@ export class StartFaceLivenessSessionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEventStreamPlugin(config),
       getWebSocketPlugin(config, {
-        headerPrefix: "x-amz-rekognition-streaming-liveness-",
+        headerPrefix: 'x-amz-rekognition-streaming-liveness-',
       }),
     ];
   })
@@ -291,7 +291,7 @@ export class StartFaceLivenessSessionCommand extends $Command
     },
   })
   .n("RekognitionStreamingClient", "StartFaceLivenessSessionCommand")
-  .sc(StartFaceLivenessSession)
+  .sc(StartFaceLivenessSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

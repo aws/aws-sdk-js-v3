@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CompleteLayerUploadRequest, CompleteLayerUploadResponse } from "../models/models_0";
-import { CompleteLayerUpload } from "../schemas/schemas_0";
+import { CompleteLayerUpload$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class CompleteLayerUploadCommand extends $Command
   })
   .s("SpencerFrontendService", "CompleteLayerUpload", {})
   .n("ECRPUBLICClient", "CompleteLayerUploadCommand")
-  .sc(CompleteLayerUpload)
+  .sc(CompleteLayerUpload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

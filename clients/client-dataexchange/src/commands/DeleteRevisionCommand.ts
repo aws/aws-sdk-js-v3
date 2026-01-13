@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRevisionRequest } from "../models/models_0";
-import { DeleteRevision } from "../schemas/schemas_0";
+import { DeleteRevision$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteRevisionCommand extends $Command
   })
   .s("DataExchange", "DeleteRevision", {})
   .n("DataExchangeClient", "DeleteRevisionCommand")
-  .sc(DeleteRevision)
+  .sc(DeleteRevision$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

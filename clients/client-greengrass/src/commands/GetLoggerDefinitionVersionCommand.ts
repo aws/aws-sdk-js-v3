@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import type { GetLoggerDefinitionVersionRequest, GetLoggerDefinitionVersionResponse } from "../models/models_0";
-import { GetLoggerDefinitionVersion } from "../schemas/schemas_0";
+import { GetLoggerDefinitionVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class GetLoggerDefinitionVersionCommand extends $Command
   })
   .s("Greengrass", "GetLoggerDefinitionVersion", {})
   .n("GreengrassClient", "GetLoggerDefinitionVersionCommand")
-  .sc(GetLoggerDefinitionVersion)
+  .sc(GetLoggerDefinitionVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

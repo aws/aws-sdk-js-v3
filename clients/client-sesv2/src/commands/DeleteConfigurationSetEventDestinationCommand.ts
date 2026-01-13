@@ -8,7 +8,7 @@ import type {
   DeleteConfigurationSetEventDestinationRequest,
   DeleteConfigurationSetEventDestinationResponse,
 } from "../models/models_0";
-import { DeleteConfigurationSetEventDestination } from "../schemas/schemas_0";
+import { DeleteConfigurationSetEventDestination$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteConfigurationSetEventDestinationCommand}.
  */
-export interface DeleteConfigurationSetEventDestinationCommandInput
-  extends DeleteConfigurationSetEventDestinationRequest {}
+export interface DeleteConfigurationSetEventDestinationCommandInput extends DeleteConfigurationSetEventDestinationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteConfigurationSetEventDestinationCommand}.
  */
-export interface DeleteConfigurationSetEventDestinationCommandOutput
-  extends DeleteConfigurationSetEventDestinationResponse,
-    __MetadataBearer {}
+export interface DeleteConfigurationSetEventDestinationCommandOutput extends DeleteConfigurationSetEventDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Delete an event destination.</p>
@@ -92,7 +89,7 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command
   })
   .s("SimpleEmailService_v2", "DeleteConfigurationSetEventDestination", {})
   .n("SESv2Client", "DeleteConfigurationSetEventDestinationCommand")
-  .sc(DeleteConfigurationSetEventDestination)
+  .sc(DeleteConfigurationSetEventDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

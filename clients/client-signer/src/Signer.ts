@@ -241,7 +241,10 @@ export interface Signer {
     args: ListSigningJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListSigningJobsCommandOutput>;
-  listSigningJobs(args: ListSigningJobsCommandInput, cb: (err: any, data?: ListSigningJobsCommandOutput) => void): void;
+  listSigningJobs(
+    args: ListSigningJobsCommandInput,
+    cb: (err: any, data?: ListSigningJobsCommandOutput) => void
+  ): void;
   listSigningJobs(
     args: ListSigningJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -342,7 +345,10 @@ export interface Signer {
     args: RevokeSignatureCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RevokeSignatureCommandOutput>;
-  revokeSignature(args: RevokeSignatureCommandInput, cb: (err: any, data?: RevokeSignatureCommandOutput) => void): void;
+  revokeSignature(
+    args: RevokeSignatureCommandInput,
+    cb: (err: any, data?: RevokeSignatureCommandOutput) => void
+  ): void;
   revokeSignature(
     args: RevokeSignatureCommandInput,
     options: __HttpHandlerOptions,
@@ -369,8 +375,14 @@ export interface Signer {
   /**
    * @see {@link SignPayloadCommand}
    */
-  signPayload(args: SignPayloadCommandInput, options?: __HttpHandlerOptions): Promise<SignPayloadCommandOutput>;
-  signPayload(args: SignPayloadCommandInput, cb: (err: any, data?: SignPayloadCommandOutput) => void): void;
+  signPayload(
+    args: SignPayloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SignPayloadCommandOutput>;
+  signPayload(
+    args: SignPayloadCommandInput,
+    cb: (err: any, data?: SignPayloadCommandOutput) => void
+  ): void;
   signPayload(
     args: SignPayloadCommandInput,
     options: __HttpHandlerOptions,
@@ -384,7 +396,10 @@ export interface Signer {
     args: StartSigningJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartSigningJobCommandOutput>;
-  startSigningJob(args: StartSigningJobCommandInput, cb: (err: any, data?: StartSigningJobCommandOutput) => void): void;
+  startSigningJob(
+    args: StartSigningJobCommandInput,
+    cb: (err: any, data?: StartSigningJobCommandOutput) => void
+  ): void;
   startSigningJob(
     args: StartSigningJobCommandInput,
     options: __HttpHandlerOptions,
@@ -394,8 +409,14 @@ export interface Signer {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -405,8 +426,14 @@ export interface Signer {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -426,7 +453,7 @@ export interface Signer {
  *          <p>With code signing for IoT, you can sign code for any IoT device that is supported by AWS.
  * 			IoT code signing is available for <a href="http://docs.aws.amazon.com/freertos/latest/userguide/">Amazon FreeRTOS</a> and <a href="http://docs.aws.amazon.com/iot/latest/developerguide/">AWS IoT Device Management</a>, and is integrated with <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager (ACM)</a>. In order to sign code, you import a third-party code-signing
  * 			certificate using ACM, and use that to sign updates in Amazon FreeRTOS and AWS IoT Device Management. </p>
- *          <p>With Signer and the Notation CLI from the <a href="https://notaryproject.dev/">Notary
+ *          <p>With Signer and the Notation CLI from the <a href="https://notaryproject.dev/">Notary 
  * 				Project</a>, you can sign container images stored in a container registry such
  * 			as Amazon Elastic Container Registry (ECR). The signatures are stored in the registry
  * 			alongside the images, where they are available for verifying image authenticity and

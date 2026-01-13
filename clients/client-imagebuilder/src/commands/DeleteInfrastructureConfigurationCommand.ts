@@ -9,7 +9,7 @@ import type {
   DeleteInfrastructureConfigurationRequest,
   DeleteInfrastructureConfigurationResponse,
 } from "../models/models_0";
-import { DeleteInfrastructureConfiguration } from "../schemas/schemas_0";
+import { DeleteInfrastructureConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteInfrastructureConfigurationCommandInput extends DeleteInf
  *
  * The output of {@link DeleteInfrastructureConfigurationCommand}.
  */
-export interface DeleteInfrastructureConfigurationCommandOutput
-  extends DeleteInfrastructureConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteInfrastructureConfigurationCommandOutput extends DeleteInfrastructureConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an infrastructure configuration.</p>
@@ -104,7 +102,7 @@ export class DeleteInfrastructureConfigurationCommand extends $Command
   })
   .s("imagebuilder", "DeleteInfrastructureConfiguration", {})
   .n("ImagebuilderClient", "DeleteInfrastructureConfigurationCommand")
-  .sc(DeleteInfrastructureConfiguration)
+  .sc(DeleteInfrastructureConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

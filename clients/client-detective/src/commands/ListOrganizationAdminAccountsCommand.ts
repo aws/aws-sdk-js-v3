@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListOrganizationAdminAccountsRequest, ListOrganizationAdminAccountsResponse } from "../models/models_0";
-import { ListOrganizationAdminAccounts } from "../schemas/schemas_0";
+import { ListOrganizationAdminAccounts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListOrganizationAdminAccountsCommandInput extends ListOrganizat
  *
  * The output of {@link ListOrganizationAdminAccountsCommand}.
  */
-export interface ListOrganizationAdminAccountsCommandOutput
-  extends ListOrganizationAdminAccountsResponse,
-    __MetadataBearer {}
+export interface ListOrganizationAdminAccountsCommandOutput extends ListOrganizationAdminAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the Detective administrator account for an
@@ -98,7 +96,7 @@ export class ListOrganizationAdminAccountsCommand extends $Command
   })
   .s("AmazonDetective", "ListOrganizationAdminAccounts", {})
   .n("DetectiveClient", "ListOrganizationAdminAccountsCommand")
-  .sc(ListOrganizationAdminAccounts)
+  .sc(ListOrganizationAdminAccounts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

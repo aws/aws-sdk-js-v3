@@ -8,7 +8,7 @@ import type {
   DetachManagedPolicyFromPermissionSetRequest,
   DetachManagedPolicyFromPermissionSetResponse,
 } from "../models/models_0";
-import { DetachManagedPolicyFromPermissionSet } from "../schemas/schemas_0";
+import { DetachManagedPolicyFromPermissionSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DetachManagedPolicyFromPermissionSetCommandInput extends Detach
  *
  * The output of {@link DetachManagedPolicyFromPermissionSetCommand}.
  */
-export interface DetachManagedPolicyFromPermissionSetCommandOutput
-  extends DetachManagedPolicyFromPermissionSetResponse,
-    __MetadataBearer {}
+export interface DetachManagedPolicyFromPermissionSetCommandOutput extends DetachManagedPolicyFromPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Detaches the attached Amazon Web Services managed policy ARN from the specified permission set.</p>
@@ -96,7 +94,7 @@ export class DetachManagedPolicyFromPermissionSetCommand extends $Command
   })
   .s("SWBExternalService", "DetachManagedPolicyFromPermissionSet", {})
   .n("SSOAdminClient", "DetachManagedPolicyFromPermissionSetCommand")
-  .sc(DetachManagedPolicyFromPermissionSet)
+  .sc(DetachManagedPolicyFromPermissionSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

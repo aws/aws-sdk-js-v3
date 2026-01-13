@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { CreateTransitGatewayPeering } from "../schemas/schemas_0";
+import { CreateTransitGatewayPeering$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface CreateTransitGatewayPeeringCommandInput extends CreateTransitGa
  *
  * The output of {@link CreateTransitGatewayPeeringCommand}.
  */
-export interface CreateTransitGatewayPeeringCommandOutput
-  extends CreateTransitGatewayPeeringResponse,
-    __MetadataBearer {}
+export interface CreateTransitGatewayPeeringCommandOutput extends CreateTransitGatewayPeeringResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a transit gateway peering connection.</p>
@@ -137,7 +135,7 @@ export class CreateTransitGatewayPeeringCommand extends $Command
   })
   .s("NetworkManager", "CreateTransitGatewayPeering", {})
   .n("NetworkManagerClient", "CreateTransitGatewayPeeringCommand")
-  .sc(CreateTransitGatewayPeering)
+  .sc(CreateTransitGatewayPeering$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageVodClient";
 import type { DeletePackagingGroupRequest, DeletePackagingGroupResponse } from "../models/models_0";
-import { DeletePackagingGroup } from "../schemas/schemas_0";
+import { DeletePackagingGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeletePackagingGroupCommand extends $Command
   })
   .s("MediaPackageVod", "DeletePackagingGroup", {})
   .n("MediaPackageVodClient", "DeletePackagingGroupCommand")
-  .sc(DeletePackagingGroup)
+  .sc(DeletePackagingGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

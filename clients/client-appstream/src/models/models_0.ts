@@ -1367,7 +1367,7 @@ export interface CreateApplicationRequest {
   LaunchParameters?: string | undefined;
 
   /**
-   * <p>The platforms the application supports. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for Elastic fleets.</p>
+   * <p>The platforms the application supports. WINDOWS_SERVER_2019, AMAZON_LINUX2 and UBUNTU_PRO_2404 are supported for Elastic fleets.</p>
    * @public
    */
   Platforms: PlatformType[] | undefined;
@@ -1881,18 +1881,6 @@ export interface CreateFleetRequest {
    *                <p>stream.memory.z1d.12xlarge</p>
    *             </li>
    *             <li>
-   *                <p>stream.graphics-design.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-design.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-design.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-design.4xlarge</p>
-   *             </li>
-   *             <li>
    *                <p>stream.graphics.g4dn.xlarge</p>
    *             </li>
    *             <li>
@@ -2109,7 +2097,7 @@ export interface CreateFleetRequest {
   StreamView?: StreamView | undefined;
 
   /**
-   * <p>The fleet platform. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for Elastic
+   * <p>The fleet platform. WINDOWS_SERVER_2019, AMAZON_LINUX2 and UBUNTU_PRO_2404 are supported for Elastic
    *             fleets. </p>
    * @public
    */
@@ -2265,18 +2253,6 @@ export interface Fleet {
    *             </li>
    *             <li>
    *                <p>stream.memory.z1d.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-design.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-design.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-design.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-design.4xlarge</p>
    *             </li>
    *             <li>
    *                <p>stream.graphics.g4dn.xlarge</p>
@@ -2601,18 +2577,6 @@ export interface CreateImageBuilderRequest {
    *             </li>
    *             <li>
    *                <p>stream.memory.z1d.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-design.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-design.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-design.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-design.4xlarge</p>
    *             </li>
    *             <li>
    *                <p>stream.graphics.g4dn.xlarge</p>
@@ -3072,18 +3036,6 @@ export interface ImageBuilder {
    *                <p>stream.memory.z1d.12xlarge</p>
    *             </li>
    *             <li>
-   *                <p>stream.graphics-design.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-design.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-design.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-design.4xlarge</p>
-   *             </li>
-   *             <li>
    *                <p>stream.graphics.g4dn.xlarge</p>
    *             </li>
    *             <li>
@@ -3536,19 +3488,13 @@ export interface Image {
    *                <p>Memory Optimized</p>
    *             </li>
    *             <li>
-   *                <p>Graphics</p>
-   *             </li>
-   *             <li>
-   *                <p>Graphics Design</p>
-   *             </li>
-   *             <li>
-   *                <p>Graphics Pro</p>
-   *             </li>
-   *             <li>
    *                <p>Graphics G4</p>
    *             </li>
    *             <li>
    *                <p>Graphics G5</p>
+   *             </li>
+   *             <li>
+   *                <p>Graphics G6</p>
    *             </li>
    *          </ul>
    * @public
@@ -6605,18 +6551,6 @@ export interface UpdateFleetRequest {
    *                <p>stream.memory.z1d.12xlarge</p>
    *             </li>
    *             <li>
-   *                <p>stream.graphics-design.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-design.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-design.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-design.4xlarge</p>
-   *             </li>
-   *             <li>
    *                <p>stream.graphics.g4dn.xlarge</p>
    *             </li>
    *             <li>
@@ -6818,7 +6752,7 @@ export interface UpdateFleetRequest {
   StreamView?: StreamView | undefined;
 
   /**
-   * <p>The platform of the fleet. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for Elastic fleets. </p>
+   * <p>The platform of the fleet. WINDOWS_SERVER_2019, AMAZON_LINUX2 and UBUNTU_PRO_2404 are supported for Elastic fleets. </p>
    * @public
    */
   Platform?: PlatformType | undefined;

@@ -752,7 +752,10 @@ export interface Bedrock {
     args: CreateGuardrailCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateGuardrailCommandOutput>;
-  createGuardrail(args: CreateGuardrailCommandInput, cb: (err: any, data?: CreateGuardrailCommandOutput) => void): void;
+  createGuardrail(
+    args: CreateGuardrailCommandInput,
+    cb: (err: any, data?: CreateGuardrailCommandOutput) => void
+  ): void;
   createGuardrail(
     args: CreateGuardrailCommandInput,
     options: __HttpHandlerOptions,
@@ -1038,7 +1041,10 @@ export interface Bedrock {
     args: DeleteGuardrailCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteGuardrailCommandOutput>;
-  deleteGuardrail(args: DeleteGuardrailCommandInput, cb: (err: any, data?: DeleteGuardrailCommandOutput) => void): void;
+  deleteGuardrail(
+    args: DeleteGuardrailCommandInput,
+    cb: (err: any, data?: DeleteGuardrailCommandOutput) => void
+  ): void;
   deleteGuardrail(
     args: DeleteGuardrailCommandInput,
     options: __HttpHandlerOptions,
@@ -1308,7 +1314,10 @@ export interface Bedrock {
     args: GetCustomModelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCustomModelCommandOutput>;
-  getCustomModel(args: GetCustomModelCommandInput, cb: (err: any, data?: GetCustomModelCommandOutput) => void): void;
+  getCustomModel(
+    args: GetCustomModelCommandInput,
+    cb: (err: any, data?: GetCustomModelCommandOutput) => void
+  ): void;
   getCustomModel(
     args: GetCustomModelCommandInput,
     options: __HttpHandlerOptions,
@@ -1386,8 +1395,14 @@ export interface Bedrock {
   /**
    * @see {@link GetGuardrailCommand}
    */
-  getGuardrail(args: GetGuardrailCommandInput, options?: __HttpHandlerOptions): Promise<GetGuardrailCommandOutput>;
-  getGuardrail(args: GetGuardrailCommandInput, cb: (err: any, data?: GetGuardrailCommandOutput) => void): void;
+  getGuardrail(
+    args: GetGuardrailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGuardrailCommandOutput>;
+  getGuardrail(
+    args: GetGuardrailCommandInput,
+    cb: (err: any, data?: GetGuardrailCommandOutput) => void
+  ): void;
   getGuardrail(
     args: GetGuardrailCommandInput,
     options: __HttpHandlerOptions,
@@ -1452,7 +1467,10 @@ export interface Bedrock {
     args: GetModelCopyJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetModelCopyJobCommandOutput>;
-  getModelCopyJob(args: GetModelCopyJobCommandInput, cb: (err: any, data?: GetModelCopyJobCommandOutput) => void): void;
+  getModelCopyJob(
+    args: GetModelCopyJobCommandInput,
+    cb: (err: any, data?: GetModelCopyJobCommandOutput) => void
+  ): void;
   getModelCopyJob(
     args: GetModelCopyJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1535,7 +1553,10 @@ export interface Bedrock {
     args: GetPromptRouterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPromptRouterCommandOutput>;
-  getPromptRouter(args: GetPromptRouterCommandInput, cb: (err: any, data?: GetPromptRouterCommandOutput) => void): void;
+  getPromptRouter(
+    args: GetPromptRouterCommandInput,
+    cb: (err: any, data?: GetPromptRouterCommandOutput) => void
+  ): void;
   getPromptRouter(
     args: GetPromptRouterCommandInput,
     options: __HttpHandlerOptions,
@@ -1761,7 +1782,10 @@ export interface Bedrock {
     args: ListGuardrailsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListGuardrailsCommandOutput>;
-  listGuardrails(args: ListGuardrailsCommandInput, cb: (err: any, data?: ListGuardrailsCommandOutput) => void): void;
+  listGuardrails(
+    args: ListGuardrailsCommandInput,
+    cb: (err: any, data?: ListGuardrailsCommandOutput) => void
+  ): void;
   listGuardrails(
     args: ListGuardrailsCommandInput,
     options: __HttpHandlerOptions,
@@ -2103,8 +2127,14 @@ export interface Bedrock {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2114,8 +2144,14 @@ export interface Bedrock {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2197,7 +2233,10 @@ export interface Bedrock {
     args: UpdateGuardrailCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateGuardrailCommandOutput>;
-  updateGuardrail(args: UpdateGuardrailCommandInput, cb: (err: any, data?: UpdateGuardrailCommandOutput) => void): void;
+  updateGuardrail(
+    args: UpdateGuardrailCommandInput,
+    cb: (err: any, data?: UpdateGuardrailCommandOutput) => void
+  ): void;
   updateGuardrail(
     args: UpdateGuardrailCommandInput,
     options: __HttpHandlerOptions,

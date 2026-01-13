@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeADAssessmentRequest, DescribeADAssessmentResult } from "../models/models_0";
-import { DescribeADAssessment } from "../schemas/schemas_0";
+import { DescribeADAssessment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -134,7 +134,7 @@ export class DescribeADAssessmentCommand extends $Command
   })
   .s("DirectoryService_20150416", "DescribeADAssessment", {})
   .n("DirectoryServiceClient", "DescribeADAssessmentCommand")
-  .sc(DescribeADAssessment)
+  .sc(DescribeADAssessment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

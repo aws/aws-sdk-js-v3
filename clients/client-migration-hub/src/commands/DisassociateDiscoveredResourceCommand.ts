@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import type { DisassociateDiscoveredResourceRequest, DisassociateDiscoveredResourceResult } from "../models/models_0";
-import { DisassociateDiscoveredResource } from "../schemas/schemas_0";
+import { DisassociateDiscoveredResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DisassociateDiscoveredResourceCommandInput extends Disassociate
  *
  * The output of {@link DisassociateDiscoveredResourceCommand}.
  */
-export interface DisassociateDiscoveredResourceCommandOutput
-  extends DisassociateDiscoveredResourceResult,
-    __MetadataBearer {}
+export interface DisassociateDiscoveredResourceCommandOutput extends DisassociateDiscoveredResourceResult, __MetadataBearer {}
 
 /**
  * <p>Disassociate an Application Discovery Service discovered resource from a migration
@@ -111,7 +109,7 @@ export class DisassociateDiscoveredResourceCommand extends $Command
   })
   .s("AWSMigrationHub", "DisassociateDiscoveredResource", {})
   .n("MigrationHubClient", "DisassociateDiscoveredResourceCommand")
-  .sc(DisassociateDiscoveredResource)
+  .sc(DisassociateDiscoveredResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListOrganizationPortfolioAccessInput, ListOrganizationPortfolioAccessOutput } from "../models/models_0";
-import { ListOrganizationPortfolioAccess } from "../schemas/schemas_0";
+import { ListOrganizationPortfolioAccess$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -28,9 +28,7 @@ export interface ListOrganizationPortfolioAccessCommandInput extends ListOrganiz
  *
  * The output of {@link ListOrganizationPortfolioAccessCommand}.
  */
-export interface ListOrganizationPortfolioAccessCommandOutput
-  extends ListOrganizationPortfolioAccessOutput,
-    __MetadataBearer {}
+export interface ListOrganizationPortfolioAccessCommandOutput extends ListOrganizationPortfolioAccessOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the organization nodes that have access to the specified portfolio. This API can
@@ -101,7 +99,7 @@ export class ListOrganizationPortfolioAccessCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "ListOrganizationPortfolioAccess", {})
   .n("ServiceCatalogClient", "ListOrganizationPortfolioAccessCommand")
-  .sc(ListOrganizationPortfolioAccess)
+  .sc(ListOrganizationPortfolioAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

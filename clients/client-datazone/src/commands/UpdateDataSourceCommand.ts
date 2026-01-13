@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDataSourceInput, UpdateDataSourceOutput } from "../models/models_1";
-import { UpdateDataSource } from "../schemas/schemas_0";
+import { UpdateDataSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -288,7 +288,7 @@ export class UpdateDataSourceCommand extends $Command
   })
   .s("DataZone", "UpdateDataSource", {})
   .n("DataZoneClient", "UpdateDataSourceCommand")
-  .sc(UpdateDataSource)
+  .sc(UpdateDataSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchEventsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutTargetsRequest, PutTargetsResponse } from "../models/models_0";
-import { PutTargets } from "../schemas/schemas_0";
+import { PutTargets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -380,7 +380,7 @@ export class PutTargetsCommand extends $Command
   })
   .s("AWSEvents", "PutTargets", {})
   .n("CloudWatchEventsClient", "PutTargetsCommand")
-  .sc(PutTargets)
+  .sc(PutTargets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

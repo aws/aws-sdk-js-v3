@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AdminDisableProviderForUserRequest, AdminDisableProviderForUserResponse } from "../models/models_0";
-import { AdminDisableProviderForUser } from "../schemas/schemas_0";
+import { AdminDisableProviderForUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface AdminDisableProviderForUserCommandInput extends AdminDisablePro
  *
  * The output of {@link AdminDisableProviderForUserCommand}.
  */
-export interface AdminDisableProviderForUserCommandOutput
-  extends AdminDisableProviderForUserResponse,
-    __MetadataBearer {}
+export interface AdminDisableProviderForUserCommandOutput extends AdminDisableProviderForUserResponse, __MetadataBearer {}
 
 /**
  * <p>Prevents the user from signing in with the specified external (SAML or social)
@@ -152,7 +150,7 @@ export class AdminDisableProviderForUserCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "AdminDisableProviderForUser", {})
   .n("CognitoIdentityProviderClient", "AdminDisableProviderForUserCommand")
-  .sc(AdminDisableProviderForUser)
+  .sc(AdminDisableProviderForUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

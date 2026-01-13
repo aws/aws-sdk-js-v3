@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDBClusterParameterGroupMessage, CreateDBClusterParameterGroupResult } from "../models/models_0";
-import { CreateDBClusterParameterGroup } from "../schemas/schemas_0";
+import { CreateDBClusterParameterGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateDBClusterParameterGroupCommandInput extends CreateDBClust
  *
  * The output of {@link CreateDBClusterParameterGroupCommand}.
  */
-export interface CreateDBClusterParameterGroupCommandOutput
-  extends CreateDBClusterParameterGroupResult,
-    __MetadataBearer {}
+export interface CreateDBClusterParameterGroupCommandOutput extends CreateDBClusterParameterGroupResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new cluster parameter group.</p>
@@ -112,7 +110,7 @@ export class CreateDBClusterParameterGroupCommand extends $Command
   })
   .s("AmazonRDSv19", "CreateDBClusterParameterGroup", {})
   .n("DocDBClient", "CreateDBClusterParameterGroupCommand")
-  .sc(CreateDBClusterParameterGroup)
+  .sc(CreateDBClusterParameterGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

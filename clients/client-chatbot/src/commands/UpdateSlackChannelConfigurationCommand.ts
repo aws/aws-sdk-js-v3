@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateSlackChannelConfigurationRequest, UpdateSlackChannelConfigurationResult } from "../models/models_0";
-import { UpdateSlackChannelConfiguration } from "../schemas/schemas_0";
+import { UpdateSlackChannelConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateSlackChannelConfigurationCommandInput extends UpdateSlack
  *
  * The output of {@link UpdateSlackChannelConfigurationCommand}.
  */
-export interface UpdateSlackChannelConfigurationCommandOutput
-  extends UpdateSlackChannelConfigurationResult,
-    __MetadataBearer {}
+export interface UpdateSlackChannelConfigurationCommandOutput extends UpdateSlackChannelConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Updates a Slack channel configuration.</p>
@@ -122,7 +120,7 @@ export class UpdateSlackChannelConfigurationCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "UpdateSlackChannelConfiguration", {})
   .n("ChatbotClient", "UpdateSlackChannelConfigurationCommand")
-  .sc(UpdateSlackChannelConfiguration)
+  .sc(UpdateSlackChannelConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

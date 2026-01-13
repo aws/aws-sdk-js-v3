@@ -9,7 +9,7 @@ import type {
   CancelDetectMitigationActionsTaskRequest,
   CancelDetectMitigationActionsTaskResponse,
 } from "../models/models_0";
-import { CancelDetectMitigationActionsTask } from "../schemas/schemas_0";
+import { CancelDetectMitigationActionsTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CancelDetectMitigationActionsTaskCommandInput extends CancelDet
  *
  * The output of {@link CancelDetectMitigationActionsTaskCommand}.
  */
-export interface CancelDetectMitigationActionsTaskCommandOutput
-  extends CancelDetectMitigationActionsTaskResponse,
-    __MetadataBearer {}
+export interface CancelDetectMitigationActionsTaskCommandOutput extends CancelDetectMitigationActionsTaskResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -91,7 +89,7 @@ export class CancelDetectMitigationActionsTaskCommand extends $Command
   })
   .s("AWSIotService", "CancelDetectMitigationActionsTask", {})
   .n("IoTClient", "CancelDetectMitigationActionsTaskCommand")
-  .sc(CancelDetectMitigationActionsTask)
+  .sc(CancelDetectMitigationActionsTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

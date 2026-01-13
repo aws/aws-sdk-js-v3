@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { GetIntegrationTablePropertiesRequest, GetIntegrationTablePropertiesResponse } from "../models/models_1";
-import { GetIntegrationTableProperties } from "../schemas/schemas_0";
+import { GetIntegrationTableProperties$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetIntegrationTablePropertiesCommandInput extends GetIntegratio
  *
  * The output of {@link GetIntegrationTablePropertiesCommand}.
  */
-export interface GetIntegrationTablePropertiesCommandOutput
-  extends GetIntegrationTablePropertiesResponse,
-    __MetadataBearer {}
+export interface GetIntegrationTablePropertiesCommandOutput extends GetIntegrationTablePropertiesResponse, __MetadataBearer {}
 
 /**
  * <p>This API is used to retrieve optional override properties for the tables that need to be replicated. These properties can include properties for filtering and partition for source and target tables.</p>
@@ -119,7 +117,7 @@ export class GetIntegrationTablePropertiesCommand extends $Command
   })
   .s("AWSGlue", "GetIntegrationTableProperties", {})
   .n("GlueClient", "GetIntegrationTablePropertiesCommand")
-  .sc(GetIntegrationTableProperties)
+  .sc(GetIntegrationTableProperties$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

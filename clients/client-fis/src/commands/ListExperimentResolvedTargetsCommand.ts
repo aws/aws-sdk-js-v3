@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
 import type { ListExperimentResolvedTargetsRequest, ListExperimentResolvedTargetsResponse } from "../models/models_0";
-import { ListExperimentResolvedTargets } from "../schemas/schemas_0";
+import { ListExperimentResolvedTargets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListExperimentResolvedTargetsCommandInput extends ListExperimen
  *
  * The output of {@link ListExperimentResolvedTargetsCommand}.
  */
-export interface ListExperimentResolvedTargetsCommandOutput
-  extends ListExperimentResolvedTargetsResponse,
-    __MetadataBearer {}
+export interface ListExperimentResolvedTargetsCommandOutput extends ListExperimentResolvedTargetsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the resolved targets information of the specified experiment.</p>
@@ -93,7 +91,7 @@ export class ListExperimentResolvedTargetsCommand extends $Command
   })
   .s("FaultInjectionSimulator", "ListExperimentResolvedTargets", {})
   .n("FisClient", "ListExperimentResolvedTargetsCommand")
-  .sc(ListExperimentResolvedTargets)
+  .sc(ListExperimentResolvedTargets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

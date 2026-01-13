@@ -9,7 +9,7 @@ import type {
   DescribeSlackChannelConfigurationsRequest,
   DescribeSlackChannelConfigurationsResult,
 } from "../models/models_0";
-import { DescribeSlackChannelConfigurations } from "../schemas/schemas_0";
+import { DescribeSlackChannelConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeSlackChannelConfigurationsCommandInput extends Describe
  *
  * The output of {@link DescribeSlackChannelConfigurationsCommand}.
  */
-export interface DescribeSlackChannelConfigurationsCommandOutput
-  extends DescribeSlackChannelConfigurationsResult,
-    __MetadataBearer {}
+export interface DescribeSlackChannelConfigurationsCommandOutput extends DescribeSlackChannelConfigurationsResult, __MetadataBearer {}
 
 /**
  * <p>Lists Slack channel configurations optionally filtered by ChatConfigurationArn</p>
@@ -116,7 +114,7 @@ export class DescribeSlackChannelConfigurationsCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "DescribeSlackChannelConfigurations", {})
   .n("ChatbotClient", "DescribeSlackChannelConfigurationsCommand")
-  .sc(DescribeSlackChannelConfigurations)
+  .sc(DescribeSlackChannelConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

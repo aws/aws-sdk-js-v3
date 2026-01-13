@@ -26,17 +26,19 @@ export const getRuntimeConfig = (config: CloudFrontClientConfig) => {
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsRestXmlProtocol({
-        defaultNamespace: "com.amazonaws.cloudfront",
-        xmlNamespace: "http://cloudfront.amazonaws.com/doc/2020-05-31/",
-      }),
+    protocol: config?.protocol ?? AwsRestXmlProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.cloudfront",
+      xmlNamespace: "http://cloudfront.amazonaws.com/doc/2020-05-31/",
+      version: "2020-05-31",
+      serviceTarget: "Cloudfront2020_05_31",
+    },
     serviceId: config?.serviceId ?? "CloudFront",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

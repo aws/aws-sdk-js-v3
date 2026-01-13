@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutRecommendationPreferencesRequest, PutRecommendationPreferencesResponse } from "../models/models_0";
-import { PutRecommendationPreferences } from "../schemas/schemas_0";
+import { PutRecommendationPreferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface PutRecommendationPreferencesCommandInput extends PutRecommendat
  *
  * The output of {@link PutRecommendationPreferencesCommand}.
  */
-export interface PutRecommendationPreferencesCommandOutput
-  extends PutRecommendationPreferencesResponse,
-    __MetadataBearer {}
+export interface PutRecommendationPreferencesCommandOutput extends PutRecommendationPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new recommendation preference or updates an existing recommendation
@@ -137,7 +135,7 @@ export class PutRecommendationPreferencesCommand extends $Command
   })
   .s("ComputeOptimizerService", "PutRecommendationPreferences", {})
   .n("ComputeOptimizerClient", "PutRecommendationPreferencesCommand")
-  .sc(PutRecommendationPreferences)
+  .sc(PutRecommendationPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DescribeAssetModelInterfaceRelationshipRequest,
   DescribeAssetModelInterfaceRelationshipResponse,
 } from "../models/models_0";
-import { DescribeAssetModelInterfaceRelationship } from "../schemas/schemas_0";
+import { DescribeAssetModelInterfaceRelationship$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeAssetModelInterfaceRelationshipCommand}.
  */
-export interface DescribeAssetModelInterfaceRelationshipCommandInput
-  extends DescribeAssetModelInterfaceRelationshipRequest {}
+export interface DescribeAssetModelInterfaceRelationshipCommandInput extends DescribeAssetModelInterfaceRelationshipRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeAssetModelInterfaceRelationshipCommand}.
  */
-export interface DescribeAssetModelInterfaceRelationshipCommandOutput
-  extends DescribeAssetModelInterfaceRelationshipResponse,
-    __MetadataBearer {}
+export interface DescribeAssetModelInterfaceRelationshipCommandOutput extends DescribeAssetModelInterfaceRelationshipResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about an interface relationship between an asset model and an
@@ -110,7 +107,7 @@ export class DescribeAssetModelInterfaceRelationshipCommand extends $Command
   })
   .s("AWSIoTSiteWise", "DescribeAssetModelInterfaceRelationship", {})
   .n("IoTSiteWiseClient", "DescribeAssetModelInterfaceRelationshipCommand")
-  .sc(DescribeAssetModelInterfaceRelationship)
+  .sc(DescribeAssetModelInterfaceRelationship$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

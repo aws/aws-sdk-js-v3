@@ -9,7 +9,7 @@ import type {
   DescribeScheduledInstanceAvailabilityRequest,
   DescribeScheduledInstanceAvailabilityResult,
 } from "../models/models_4";
-import { DescribeScheduledInstanceAvailability } from "../schemas/schemas_0";
+import { DescribeScheduledInstanceAvailability$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeScheduledInstanceAvailabilityCommand}.
  */
-export interface DescribeScheduledInstanceAvailabilityCommandInput
-  extends DescribeScheduledInstanceAvailabilityRequest {}
+export interface DescribeScheduledInstanceAvailabilityCommandInput extends DescribeScheduledInstanceAvailabilityRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeScheduledInstanceAvailabilityCommand}.
  */
-export interface DescribeScheduledInstanceAvailabilityCommandOutput
-  extends DescribeScheduledInstanceAvailabilityResult,
-    __MetadataBearer {}
+export interface DescribeScheduledInstanceAvailabilityCommandOutput extends DescribeScheduledInstanceAvailabilityResult, __MetadataBearer {}
 
 /**
  * <p>Finds available schedules that meet the specified criteria.</p>
@@ -132,7 +129,7 @@ export class DescribeScheduledInstanceAvailabilityCommand extends $Command
   })
   .s("AmazonEC2", "DescribeScheduledInstanceAvailability", {})
   .n("EC2Client", "DescribeScheduledInstanceAvailabilityCommand")
-  .sc(DescribeScheduledInstanceAvailability)
+  .sc(DescribeScheduledInstanceAvailability$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   ListServicePipelineProvisionedResourcesOutput,
 } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { ListServicePipelineProvisionedResources } from "../schemas/schemas_0";
+import { ListServicePipelineProvisionedResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListServicePipelineProvisionedResourcesCommand}.
  */
-export interface ListServicePipelineProvisionedResourcesCommandInput
-  extends ListServicePipelineProvisionedResourcesInput {}
+export interface ListServicePipelineProvisionedResourcesCommandInput extends ListServicePipelineProvisionedResourcesInput {}
 /**
  * @public
  *
  * The output of {@link ListServicePipelineProvisionedResourcesCommand}.
  */
-export interface ListServicePipelineProvisionedResourcesCommandOutput
-  extends ListServicePipelineProvisionedResourcesOutput,
-    __MetadataBearer {}
+export interface ListServicePipelineProvisionedResourcesCommandOutput extends ListServicePipelineProvisionedResourcesOutput, __MetadataBearer {}
 
 /**
  * <p>List provisioned resources for a service and pipeline with details.</p>
@@ -104,7 +101,7 @@ export class ListServicePipelineProvisionedResourcesCommand extends $Command
   })
   .s("AwsProton20200720", "ListServicePipelineProvisionedResources", {})
   .n("ProtonClient", "ListServicePipelineProvisionedResourcesCommand")
-  .sc(ListServicePipelineProvisionedResources)
+  .sc(ListServicePipelineProvisionedResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

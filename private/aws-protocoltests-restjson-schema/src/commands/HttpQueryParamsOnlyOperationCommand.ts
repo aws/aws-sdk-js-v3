@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { HttpQueryParamsOnlyOperation } from "../schemas/schemas_0";
+import { HttpQueryParamsOnlyOperation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class HttpQueryParamsOnlyOperationCommand extends $Command
   })
   .s("RestJson", "HttpQueryParamsOnlyOperation", {})
   .n("RestJsonProtocolClient", "HttpQueryParamsOnlyOperationCommand")
-  .sc(HttpQueryParamsOnlyOperation)
+  .sc(HttpQueryParamsOnlyOperation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

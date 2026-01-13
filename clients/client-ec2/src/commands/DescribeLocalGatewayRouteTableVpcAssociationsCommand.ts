@@ -9,7 +9,7 @@ import type {
   DescribeLocalGatewayRouteTableVpcAssociationsRequest,
   DescribeLocalGatewayRouteTableVpcAssociationsResult,
 } from "../models/models_4";
-import { DescribeLocalGatewayRouteTableVpcAssociations } from "../schemas/schemas_0";
+import { DescribeLocalGatewayRouteTableVpcAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeLocalGatewayRouteTableVpcAssociationsCommand}.
  */
-export interface DescribeLocalGatewayRouteTableVpcAssociationsCommandInput
-  extends DescribeLocalGatewayRouteTableVpcAssociationsRequest {}
+export interface DescribeLocalGatewayRouteTableVpcAssociationsCommandInput extends DescribeLocalGatewayRouteTableVpcAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeLocalGatewayRouteTableVpcAssociationsCommand}.
  */
-export interface DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
-  extends DescribeLocalGatewayRouteTableVpcAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput extends DescribeLocalGatewayRouteTableVpcAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified associations between VPCs and local gateway route tables.</p>
@@ -109,7 +106,7 @@ export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Comma
   })
   .s("AmazonEC2", "DescribeLocalGatewayRouteTableVpcAssociations", {})
   .n("EC2Client", "DescribeLocalGatewayRouteTableVpcAssociationsCommand")
-  .sc(DescribeLocalGatewayRouteTableVpcAssociations)
+  .sc(DescribeLocalGatewayRouteTableVpcAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

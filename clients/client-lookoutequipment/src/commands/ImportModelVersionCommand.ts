@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LookoutEquipmentClient";
 import type { ImportModelVersionRequest, ImportModelVersionResponse } from "../models/models_0";
-import { ImportModelVersion } from "../schemas/schemas_0";
+import { ImportModelVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class ImportModelVersionCommand extends $Command
   })
   .s("AWSLookoutEquipmentFrontendService", "ImportModelVersion", {})
   .n("LookoutEquipmentClient", "ImportModelVersionCommand")
-  .sc(ImportModelVersion)
+  .sc(ImportModelVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

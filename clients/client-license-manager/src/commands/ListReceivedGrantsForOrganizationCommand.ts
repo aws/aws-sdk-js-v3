@@ -13,7 +13,7 @@ import type {
   ListReceivedGrantsForOrganizationRequest,
   ListReceivedGrantsForOrganizationResponse,
 } from "../models/models_0";
-import { ListReceivedGrantsForOrganization } from "../schemas/schemas_0";
+import { ListReceivedGrantsForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ListReceivedGrantsForOrganizationCommandInput extends ListRecei
  *
  * The output of {@link ListReceivedGrantsForOrganizationCommand}.
  */
-export interface ListReceivedGrantsForOrganizationCommandOutput
-  extends ListReceivedGrantsForOrganizationResponse,
-    __MetadataBearer {}
+export interface ListReceivedGrantsForOrganizationCommandOutput extends ListReceivedGrantsForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the grants received for all accounts in the organization.</p>
@@ -133,7 +131,7 @@ export class ListReceivedGrantsForOrganizationCommand extends $Command
   })
   .s("AWSLicenseManager", "ListReceivedGrantsForOrganization", {})
   .n("LicenseManagerClient", "ListReceivedGrantsForOrganizationCommand")
-  .sc(ListReceivedGrantsForOrganization)
+  .sc(ListReceivedGrantsForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

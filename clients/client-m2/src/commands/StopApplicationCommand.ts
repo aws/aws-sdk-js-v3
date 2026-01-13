@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
 import type { StopApplicationRequest, StopApplicationResponse } from "../models/models_0";
-import { StopApplication } from "../schemas/schemas_0";
+import { StopApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class StopApplicationCommand extends $Command
   })
   .s("AwsSupernovaControlPlaneService", "StopApplication", {})
   .n("M2Client", "StopApplicationCommand")
-  .sc(StopApplication)
+  .sc(StopApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

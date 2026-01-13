@@ -13,7 +13,7 @@ import type {
   DescribeExtensionPackAssociationsMessage,
   DescribeExtensionPackAssociationsResponse,
 } from "../models/models_0";
-import { DescribeExtensionPackAssociations } from "../schemas/schemas_0";
+import { DescribeExtensionPackAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DescribeExtensionPackAssociationsCommandInput extends DescribeE
  *
  * The output of {@link DescribeExtensionPackAssociationsCommand}.
  */
-export interface DescribeExtensionPackAssociationsCommandOutput
-  extends DescribeExtensionPackAssociationsResponse,
-    __MetadataBearer {}
+export interface DescribeExtensionPackAssociationsCommandOutput extends DescribeExtensionPackAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of extension pack associations for the specified migration
@@ -152,7 +150,7 @@ export class DescribeExtensionPackAssociationsCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeExtensionPackAssociations", {})
   .n("DatabaseMigrationServiceClient", "DescribeExtensionPackAssociationsCommand")
-  .sc(DescribeExtensionPackAssociations)
+  .sc(DescribeExtensionPackAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

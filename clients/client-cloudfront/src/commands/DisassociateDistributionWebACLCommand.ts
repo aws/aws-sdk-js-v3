@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateDistributionWebACLRequest, DisassociateDistributionWebACLResult } from "../models/models_0";
-import { DisassociateDistributionWebACL } from "../schemas/schemas_0";
+import { DisassociateDistributionWebACL$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DisassociateDistributionWebACLCommandInput extends Disassociate
  *
  * The output of {@link DisassociateDistributionWebACLCommand}.
  */
-export interface DisassociateDistributionWebACLCommandOutput
-  extends DisassociateDistributionWebACLResult,
-    __MetadataBearer {}
+export interface DisassociateDistributionWebACLCommandOutput extends DisassociateDistributionWebACLResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates a distribution from the WAF web ACL.</p>
@@ -92,7 +90,7 @@ export class DisassociateDistributionWebACLCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "DisassociateDistributionWebACL", {})
   .n("CloudFrontClient", "DisassociateDistributionWebACLCommand")
-  .sc(DisassociateDistributionWebACL)
+  .sc(DisassociateDistributionWebACL$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

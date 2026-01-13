@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateWhatsAppBusinessAccountInput, AssociateWhatsAppBusinessAccountOutput } from "../models/models_0";
-import { AssociateWhatsAppBusinessAccount } from "../schemas/schemas_0";
+import { AssociateWhatsAppBusinessAccount$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -28,9 +28,7 @@ export interface AssociateWhatsAppBusinessAccountCommandInput extends AssociateW
  *
  * The output of {@link AssociateWhatsAppBusinessAccountCommand}.
  */
-export interface AssociateWhatsAppBusinessAccountCommandOutput
-  extends AssociateWhatsAppBusinessAccountOutput,
-    __MetadataBearer {}
+export interface AssociateWhatsAppBusinessAccountCommandOutput extends AssociateWhatsAppBusinessAccountOutput, __MetadataBearer {}
 
 /**
  * <p>This is only used through the Amazon Web Services console during sign-up to associate your WhatsApp Business Account to your Amazon Web Services account.</p>
@@ -154,7 +152,7 @@ export class AssociateWhatsAppBusinessAccountCommand extends $Command
   })
   .s("SocialMessaging", "AssociateWhatsAppBusinessAccount", {})
   .n("SocialMessagingClient", "AssociateWhatsAppBusinessAccountCommand")
-  .sc(AssociateWhatsAppBusinessAccount)
+  .sc(AssociateWhatsAppBusinessAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

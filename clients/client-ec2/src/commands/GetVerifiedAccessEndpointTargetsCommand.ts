@@ -9,7 +9,7 @@ import type {
   GetVerifiedAccessEndpointTargetsRequest,
   GetVerifiedAccessEndpointTargetsResult,
 } from "../models/models_6";
-import { GetVerifiedAccessEndpointTargets } from "../schemas/schemas_0";
+import { GetVerifiedAccessEndpointTargets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetVerifiedAccessEndpointTargetsCommandInput extends GetVerifie
  *
  * The output of {@link GetVerifiedAccessEndpointTargetsCommand}.
  */
-export interface GetVerifiedAccessEndpointTargetsCommandOutput
-  extends GetVerifiedAccessEndpointTargetsResult,
-    __MetadataBearer {}
+export interface GetVerifiedAccessEndpointTargetsCommandOutput extends GetVerifiedAccessEndpointTargetsResult, __MetadataBearer {}
 
 /**
  * <p>Gets the targets for the specified network CIDR endpoint for Verified Access.</p>
@@ -88,7 +86,7 @@ export class GetVerifiedAccessEndpointTargetsCommand extends $Command
   })
   .s("AmazonEC2", "GetVerifiedAccessEndpointTargets", {})
   .n("EC2Client", "GetVerifiedAccessEndpointTargetsCommand")
-  .sc(GetVerifiedAccessEndpointTargets)
+  .sc(GetVerifiedAccessEndpointTargets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

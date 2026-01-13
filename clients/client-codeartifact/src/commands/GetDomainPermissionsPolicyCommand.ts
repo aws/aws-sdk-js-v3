@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDomainPermissionsPolicyRequest, GetDomainPermissionsPolicyResult } from "../models/models_0";
-import { GetDomainPermissionsPolicy } from "../schemas/schemas_0";
+import { GetDomainPermissionsPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class GetDomainPermissionsPolicyCommand extends $Command
   })
   .s("CodeArtifactControlPlaneService", "GetDomainPermissionsPolicy", {})
   .n("CodeartifactClient", "GetDomainPermissionsPolicyCommand")
-  .sc(GetDomainPermissionsPolicy)
+  .sc(GetDomainPermissionsPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

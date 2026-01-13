@@ -9,7 +9,7 @@ import type {
   GetProvisionedConcurrencyConfigRequest,
   GetProvisionedConcurrencyConfigResponse,
 } from "../models/models_0";
-import { GetProvisionedConcurrencyConfig } from "../schemas/schemas_0";
+import { GetProvisionedConcurrencyConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetProvisionedConcurrencyConfigCommandInput extends GetProvisio
  *
  * The output of {@link GetProvisionedConcurrencyConfigCommand}.
  */
-export interface GetProvisionedConcurrencyConfigCommandOutput
-  extends GetProvisionedConcurrencyConfigResponse,
-    __MetadataBearer {}
+export interface GetProvisionedConcurrencyConfigCommandOutput extends GetProvisionedConcurrencyConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the provisioned concurrency configuration for a function's alias or version.</p>
@@ -139,7 +137,7 @@ export class GetProvisionedConcurrencyConfigCommand extends $Command
   })
   .s("AWSGirApiService", "GetProvisionedConcurrencyConfig", {})
   .n("LambdaClient", "GetProvisionedConcurrencyConfigCommand")
-  .sc(GetProvisionedConcurrencyConfig)
+  .sc(GetProvisionedConcurrencyConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

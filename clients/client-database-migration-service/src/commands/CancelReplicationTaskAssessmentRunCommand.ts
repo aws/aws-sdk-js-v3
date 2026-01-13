@@ -13,7 +13,7 @@ import type {
   CancelReplicationTaskAssessmentRunMessage,
   CancelReplicationTaskAssessmentRunResponse,
 } from "../models/models_0";
-import { CancelReplicationTaskAssessmentRun } from "../schemas/schemas_0";
+import { CancelReplicationTaskAssessmentRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface CancelReplicationTaskAssessmentRunCommandInput extends CancelRe
  *
  * The output of {@link CancelReplicationTaskAssessmentRunCommand}.
  */
-export interface CancelReplicationTaskAssessmentRunCommandOutput
-  extends CancelReplicationTaskAssessmentRunResponse,
-    __MetadataBearer {}
+export interface CancelReplicationTaskAssessmentRunCommandOutput extends CancelReplicationTaskAssessmentRunResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a single premigration assessment run.</p>
@@ -120,7 +118,7 @@ export class CancelReplicationTaskAssessmentRunCommand extends $Command
   })
   .s("AmazonDMSv20160101", "CancelReplicationTaskAssessmentRun", {})
   .n("DatabaseMigrationServiceClient", "CancelReplicationTaskAssessmentRunCommand")
-  .sc(CancelReplicationTaskAssessmentRun)
+  .sc(CancelReplicationTaskAssessmentRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

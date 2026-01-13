@@ -13,7 +13,7 @@ import type {
   ListLicenseSpecificationsForResourceRequest,
   ListLicenseSpecificationsForResourceResponse,
 } from "../models/models_0";
-import { ListLicenseSpecificationsForResource } from "../schemas/schemas_0";
+import { ListLicenseSpecificationsForResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ListLicenseSpecificationsForResourceCommandInput extends ListLi
  *
  * The output of {@link ListLicenseSpecificationsForResourceCommand}.
  */
-export interface ListLicenseSpecificationsForResourceCommandOutput
-  extends ListLicenseSpecificationsForResourceResponse,
-    __MetadataBearer {}
+export interface ListLicenseSpecificationsForResourceCommandOutput extends ListLicenseSpecificationsForResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the license configurations for the specified resource.</p>
@@ -106,7 +104,7 @@ export class ListLicenseSpecificationsForResourceCommand extends $Command
   })
   .s("AWSLicenseManager", "ListLicenseSpecificationsForResource", {})
   .n("LicenseManagerClient", "ListLicenseSpecificationsForResourceCommand")
-  .sc(ListLicenseSpecificationsForResource)
+  .sc(ListLicenseSpecificationsForResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

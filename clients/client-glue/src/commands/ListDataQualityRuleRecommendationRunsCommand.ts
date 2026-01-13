@@ -9,7 +9,7 @@ import type {
   ListDataQualityRuleRecommendationRunsRequest,
   ListDataQualityRuleRecommendationRunsResponse,
 } from "../models/models_2";
-import { ListDataQualityRuleRecommendationRuns } from "../schemas/schemas_0";
+import { ListDataQualityRuleRecommendationRuns$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListDataQualityRuleRecommendationRunsCommand}.
  */
-export interface ListDataQualityRuleRecommendationRunsCommandInput
-  extends ListDataQualityRuleRecommendationRunsRequest {}
+export interface ListDataQualityRuleRecommendationRunsCommandInput extends ListDataQualityRuleRecommendationRunsRequest {}
 /**
  * @public
  *
  * The output of {@link ListDataQualityRuleRecommendationRunsCommand}.
  */
-export interface ListDataQualityRuleRecommendationRunsCommandOutput
-  extends ListDataQualityRuleRecommendationRunsResponse,
-    __MetadataBearer {}
+export interface ListDataQualityRuleRecommendationRunsCommandOutput extends ListDataQualityRuleRecommendationRunsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the recommendation runs meeting the filter criteria.</p>
@@ -142,7 +139,7 @@ export class ListDataQualityRuleRecommendationRunsCommand extends $Command
   })
   .s("AWSGlue", "ListDataQualityRuleRecommendationRuns", {})
   .n("GlueClient", "ListDataQualityRuleRecommendationRunsCommand")
-  .sc(ListDataQualityRuleRecommendationRuns)
+  .sc(ListDataQualityRuleRecommendationRuns$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

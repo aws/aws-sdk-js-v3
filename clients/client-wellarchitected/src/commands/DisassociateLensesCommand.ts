@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateLensesInput } from "../models/models_0";
-import { DisassociateLenses } from "../schemas/schemas_0";
+import { DisassociateLenses$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -101,7 +101,7 @@ export class DisassociateLensesCommand extends $Command
   })
   .s("WellArchitectedApiServiceLambda", "DisassociateLenses", {})
   .n("WellArchitectedClient", "DisassociateLensesCommand")
-  .sc(DisassociateLenses)
+  .sc(DisassociateLenses$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   DescribeEffectiveInstanceAssociationsRequest,
   DescribeEffectiveInstanceAssociationsResult,
 } from "../models/models_0";
-import { DescribeEffectiveInstanceAssociations } from "../schemas/schemas_0";
+import { DescribeEffectiveInstanceAssociations$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeEffectiveInstanceAssociationsCommand}.
  */
-export interface DescribeEffectiveInstanceAssociationsCommandInput
-  extends DescribeEffectiveInstanceAssociationsRequest {}
+export interface DescribeEffectiveInstanceAssociationsCommandInput extends DescribeEffectiveInstanceAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeEffectiveInstanceAssociationsCommand}.
  */
-export interface DescribeEffectiveInstanceAssociationsCommandOutput
-  extends DescribeEffectiveInstanceAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeEffectiveInstanceAssociationsCommandOutput extends DescribeEffectiveInstanceAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>All associations for the managed nodes.</p>
@@ -115,7 +112,7 @@ export class DescribeEffectiveInstanceAssociationsCommand extends $Command
   })
   .s("AmazonSSM", "DescribeEffectiveInstanceAssociations", {})
   .n("SSMClient", "DescribeEffectiveInstanceAssociationsCommand")
-  .sc(DescribeEffectiveInstanceAssociations)
+  .sc(DescribeEffectiveInstanceAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

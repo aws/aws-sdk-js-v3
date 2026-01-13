@@ -8,7 +8,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAccessGrantsLocationRequest, GetAccessGrantsLocationResult } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { GetAccessGrantsLocation } from "../schemas/schemas_0";
+import { GetAccessGrantsLocation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class GetAccessGrantsLocationCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "GetAccessGrantsLocation", {})
   .n("S3ControlClient", "GetAccessGrantsLocationCommand")
-  .sc(GetAccessGrantsLocation)
+  .sc(GetAccessGrantsLocation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeReservedCapacityRequest, DescribeReservedCapacityResponse } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribeReservedCapacity } from "../schemas/schemas_0";
+import { DescribeReservedCapacity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -50,13 +50,13 @@ export interface DescribeReservedCapacityCommandOutput extends DescribeReservedC
  * //   DurationMinutes: Number("long"),
  * //   StartTime: new Date("TIMESTAMP"),
  * //   EndTime: new Date("TIMESTAMP"),
- * //   InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge" || "ml.p6-b200.48xlarge" || "ml.p4de.24xlarge" || "ml.p6e-gb200.36xlarge" || "ml.p5.4xlarge", // required
+ * //   InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge" || "ml.p6-b200.48xlarge" || "ml.p4de.24xlarge" || "ml.p6e-gb200.36xlarge" || "ml.p5.4xlarge" || "ml.p6-b300.48xlarge", // required
  * //   TotalInstanceCount: Number("int"), // required
  * //   AvailableInstanceCount: Number("int"),
  * //   InUseInstanceCount: Number("int"),
  * //   UltraServerSummary: { // UltraServerSummary
  * //     UltraServerType: "STRING_VALUE", // required
- * //     InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge" || "ml.p6-b200.48xlarge" || "ml.p4de.24xlarge" || "ml.p6e-gb200.36xlarge" || "ml.p5.4xlarge", // required
+ * //     InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge" || "ml.p6-b200.48xlarge" || "ml.p4de.24xlarge" || "ml.p6e-gb200.36xlarge" || "ml.p5.4xlarge" || "ml.p6-b300.48xlarge", // required
  * //     UltraServerCount: Number("int"),
  * //     AvailableSpareInstanceCount: Number("int"),
  * //     UnhealthyInstanceCount: Number("int"),
@@ -94,7 +94,7 @@ export class DescribeReservedCapacityCommand extends $Command
   })
   .s("SageMaker", "DescribeReservedCapacity", {})
   .n("SageMakerClient", "DescribeReservedCapacityCommand")
-  .sc(DescribeReservedCapacity)
+  .sc(DescribeReservedCapacity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

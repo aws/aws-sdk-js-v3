@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMemoryInput, GetMemoryOutput } from "../models/models_0";
-import { GetMemory } from "../schemas/schemas_0";
+import { GetMemory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -42,6 +42,7 @@ export interface GetMemoryCommandOutput extends GetMemoryOutput, __MetadataBeare
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // GetMemoryInput
  *   memoryId: "STRING_VALUE", // required
+ *   view: "full" || "without_decryption",
  * };
  * const command = new GetMemoryCommand(input);
  * const response = await client.send(command);
@@ -191,7 +192,7 @@ export class GetMemoryCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "GetMemory", {})
   .n("BedrockAgentCoreControlClient", "GetMemoryCommand")
-  .sc(GetMemory)
+  .sc(GetMemory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

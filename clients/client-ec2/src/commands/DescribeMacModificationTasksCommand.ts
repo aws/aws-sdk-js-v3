@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeMacModificationTasksRequest, DescribeMacModificationTasksResult } from "../models/models_4";
-import { DescribeMacModificationTasks } from "../schemas/schemas_0";
+import { DescribeMacModificationTasks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeMacModificationTasksCommandInput extends DescribeMacMod
  *
  * The output of {@link DescribeMacModificationTasksCommand}.
  */
-export interface DescribeMacModificationTasksCommandOutput
-  extends DescribeMacModificationTasksResult,
-    __MetadataBearer {}
+export interface DescribeMacModificationTasksCommandOutput extends DescribeMacModificationTasksResult, __MetadataBearer {}
 
 /**
  * <p>Describes a System Integrity Protection (SIP) modification task or volume ownership delegation
@@ -115,7 +113,7 @@ export class DescribeMacModificationTasksCommand extends $Command
   })
   .s("AmazonEC2", "DescribeMacModificationTasks", {})
   .n("EC2Client", "DescribeMacModificationTasksCommand")
-  .sc(DescribeMacModificationTasks)
+  .sc(DescribeMacModificationTasks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   DeregisterDataLakeDelegatedAdministratorRequest,
   DeregisterDataLakeDelegatedAdministratorResponse,
 } from "../models/models_0";
-import { DeregisterDataLakeDelegatedAdministrator } from "../schemas/schemas_0";
+import { DeregisterDataLakeDelegatedAdministrator$ } from "../schemas/schemas_0";
 import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeregisterDataLakeDelegatedAdministratorCommand}.
  */
-export interface DeregisterDataLakeDelegatedAdministratorCommandInput
-  extends DeregisterDataLakeDelegatedAdministratorRequest {}
+export interface DeregisterDataLakeDelegatedAdministratorCommandInput extends DeregisterDataLakeDelegatedAdministratorRequest {}
 /**
  * @public
  *
  * The output of {@link DeregisterDataLakeDelegatedAdministratorCommand}.
  */
-export interface DeregisterDataLakeDelegatedAdministratorCommandOutput
-  extends DeregisterDataLakeDelegatedAdministratorResponse,
-    __MetadataBearer {}
+export interface DeregisterDataLakeDelegatedAdministratorCommandOutput extends DeregisterDataLakeDelegatedAdministratorResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the Amazon Security Lake delegated administrator account for the organization. This API
@@ -102,7 +99,7 @@ export class DeregisterDataLakeDelegatedAdministratorCommand extends $Command
   })
   .s("SecurityLake", "DeregisterDataLakeDelegatedAdministrator", {})
   .n("SecurityLakeClient", "DeregisterDataLakeDelegatedAdministratorCommand")
-  .sc(DeregisterDataLakeDelegatedAdministrator)
+  .sc(DeregisterDataLakeDelegatedAdministrator$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

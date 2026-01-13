@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { PutResolverQueryLogConfigPolicy } from "../schemas/schemas_0";
+import { PutResolverQueryLogConfigPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface PutResolverQueryLogConfigPolicyCommandInput extends PutResolver
  *
  * The output of {@link PutResolverQueryLogConfigPolicyCommand}.
  */
-export interface PutResolverQueryLogConfigPolicyCommandOutput
-  extends PutResolverQueryLogConfigPolicyResponse,
-    __MetadataBearer {}
+export interface PutResolverQueryLogConfigPolicyCommandOutput extends PutResolverQueryLogConfigPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Specifies an Amazon Web Services account that you want to share a query logging configuration with, the query logging configuration that you want to share,
@@ -104,7 +102,7 @@ export class PutResolverQueryLogConfigPolicyCommand extends $Command
   })
   .s("Route53Resolver", "PutResolverQueryLogConfigPolicy", {})
   .n("Route53ResolverClient", "PutResolverQueryLogConfigPolicyCommand")
-  .sc(PutResolverQueryLogConfigPolicy)
+  .sc(PutResolverQueryLogConfigPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

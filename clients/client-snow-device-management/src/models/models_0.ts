@@ -84,7 +84,10 @@ export interface Unlock {}
  * <p>The command given to the device to execute.</p>
  * @public
  */
-export type Command = Command.RebootMember | Command.UnlockMember | Command.$UnknownMember;
+export type Command =
+  | Command.RebootMember
+  | Command.UnlockMember
+  | Command.$UnknownMember;
 
 /**
  * @public

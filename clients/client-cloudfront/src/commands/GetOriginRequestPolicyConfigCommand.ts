@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetOriginRequestPolicyConfigRequest, GetOriginRequestPolicyConfigResult } from "../models/models_1";
-import { GetOriginRequestPolicyConfig } from "../schemas/schemas_0";
+import { GetOriginRequestPolicyConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetOriginRequestPolicyConfigCommandInput extends GetOriginReque
  *
  * The output of {@link GetOriginRequestPolicyConfigCommand}.
  */
-export interface GetOriginRequestPolicyConfigCommandOutput
-  extends GetOriginRequestPolicyConfigResult,
-    __MetadataBearer {}
+export interface GetOriginRequestPolicyConfigCommandOutput extends GetOriginRequestPolicyConfigResult, __MetadataBearer {}
 
 /**
  * <p>Gets an origin request policy configuration.</p> <p>To get an origin request policy configuration, you must provide the policy's identifier. If the origin request policy is attached to a distribution's cache behavior, you can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the origin request policy is not attached to a cache behavior, you can get the identifier using <code>ListOriginRequestPolicies</code>.</p>
@@ -112,7 +110,7 @@ export class GetOriginRequestPolicyConfigCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "GetOriginRequestPolicyConfig", {})
   .n("CloudFrontClient", "GetOriginRequestPolicyConfigCommand")
-  .sc(GetOriginRequestPolicyConfig)
+  .sc(GetOriginRequestPolicyConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

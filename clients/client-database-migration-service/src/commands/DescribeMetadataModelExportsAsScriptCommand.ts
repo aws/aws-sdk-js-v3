@@ -13,7 +13,7 @@ import type {
   DescribeMetadataModelExportsAsScriptMessage,
   DescribeMetadataModelExportsAsScriptResponse,
 } from "../models/models_0";
-import { DescribeMetadataModelExportsAsScript } from "../schemas/schemas_0";
+import { DescribeMetadataModelExportsAsScript$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DescribeMetadataModelExportsAsScriptCommandInput extends Descri
  *
  * The output of {@link DescribeMetadataModelExportsAsScriptCommand}.
  */
-export interface DescribeMetadataModelExportsAsScriptCommandOutput
-  extends DescribeMetadataModelExportsAsScriptResponse,
-    __MetadataBearer {}
+export interface DescribeMetadataModelExportsAsScriptCommandOutput extends DescribeMetadataModelExportsAsScriptResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of metadata model exports.</p>
@@ -153,7 +151,7 @@ export class DescribeMetadataModelExportsAsScriptCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeMetadataModelExportsAsScript", {})
   .n("DatabaseMigrationServiceClient", "DescribeMetadataModelExportsAsScriptCommand")
-  .sc(DescribeMetadataModelExportsAsScript)
+  .sc(DescribeMetadataModelExportsAsScript$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

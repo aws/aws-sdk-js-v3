@@ -9,7 +9,7 @@ import type {
   AttachVerifiedAccessTrustProviderRequest,
   AttachVerifiedAccessTrustProviderResult,
 } from "../models/models_0";
-import { AttachVerifiedAccessTrustProvider } from "../schemas/schemas_0";
+import { AttachVerifiedAccessTrustProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface AttachVerifiedAccessTrustProviderCommandInput extends AttachVer
  *
  * The output of {@link AttachVerifiedAccessTrustProviderCommand}.
  */
-export interface AttachVerifiedAccessTrustProviderCommandOutput
-  extends AttachVerifiedAccessTrustProviderResult,
-    __MetadataBearer {}
+export interface AttachVerifiedAccessTrustProviderCommandOutput extends AttachVerifiedAccessTrustProviderResult, __MetadataBearer {}
 
 /**
  * <p>Attaches the specified Amazon Web Services Verified Access trust provider to the specified Amazon Web Services Verified Access instance.</p>
@@ -150,7 +148,7 @@ export class AttachVerifiedAccessTrustProviderCommand extends $Command
   })
   .s("AmazonEC2", "AttachVerifiedAccessTrustProvider", {})
   .n("EC2Client", "AttachVerifiedAccessTrustProviderCommand")
-  .sc(AttachVerifiedAccessTrustProvider)
+  .sc(AttachVerifiedAccessTrustProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

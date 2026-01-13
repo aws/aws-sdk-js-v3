@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LookoutEquipmentClient";
 import type { StartInferenceSchedulerRequest, StartInferenceSchedulerResponse } from "../models/models_0";
-import { StartInferenceScheduler } from "../schemas/schemas_0";
+import { StartInferenceScheduler$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class StartInferenceSchedulerCommand extends $Command
   })
   .s("AWSLookoutEquipmentFrontendService", "StartInferenceScheduler", {})
   .n("LookoutEquipmentClient", "StartInferenceSchedulerCommand")
-  .sc(StartInferenceScheduler)
+  .sc(StartInferenceScheduler$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

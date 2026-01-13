@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { DeleteOutpostResolver } from "../schemas/schemas_0";
+import { DeleteOutpostResolver$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class DeleteOutpostResolverCommand extends $Command
   })
   .s("Route53Resolver", "DeleteOutpostResolver", {})
   .n("Route53ResolverClient", "DeleteOutpostResolverCommand")
-  .sc(DeleteOutpostResolver)
+  .sc(DeleteOutpostResolver$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

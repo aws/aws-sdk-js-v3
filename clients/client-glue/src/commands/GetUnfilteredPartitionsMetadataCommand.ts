@@ -9,7 +9,7 @@ import type {
   GetUnfilteredPartitionsMetadataRequest,
   GetUnfilteredPartitionsMetadataResponse,
 } from "../models/models_2";
-import { GetUnfilteredPartitionsMetadata } from "../schemas/schemas_0";
+import { GetUnfilteredPartitionsMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetUnfilteredPartitionsMetadataCommandInput extends GetUnfilter
  *
  * The output of {@link GetUnfilteredPartitionsMetadataCommand}.
  */
-export interface GetUnfilteredPartitionsMetadataCommandOutput
-  extends GetUnfilteredPartitionsMetadataResponse,
-    __MetadataBearer {}
+export interface GetUnfilteredPartitionsMetadataCommandOutput extends GetUnfilteredPartitionsMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves partition metadata from the Data Catalog that contains unfiltered
@@ -209,7 +207,7 @@ export class GetUnfilteredPartitionsMetadataCommand extends $Command
   })
   .s("AWSGlue", "GetUnfilteredPartitionsMetadata", {})
   .n("GlueClient", "GetUnfilteredPartitionsMetadataCommand")
-  .sc(GetUnfilteredPartitionsMetadata)
+  .sc(GetUnfilteredPartitionsMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

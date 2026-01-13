@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAuthorizersRequest, GetAuthorizersResponse } from "../models/models_0";
-import { GetAuthorizers } from "../schemas/schemas_0";
+import { GetAuthorizers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class GetAuthorizersCommand extends $Command
   })
   .s("ApiGatewayV2", "GetAuthorizers", {})
   .n("ApiGatewayV2Client", "GetAuthorizersCommand")
-  .sc(GetAuthorizers)
+  .sc(GetAuthorizers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetWorkflowRequest, GetWorkflowResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { GetWorkflow } from "../schemas/schemas_0";
+import { GetWorkflow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -157,7 +157,7 @@ export class GetWorkflowCommand extends $Command
   })
   .s("Omics", "GetWorkflow", {})
   .n("OmicsClient", "GetWorkflowCommand")
-  .sc(GetWorkflow)
+  .sc(GetWorkflow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

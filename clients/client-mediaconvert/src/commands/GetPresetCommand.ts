@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import type { GetPresetRequest, GetPresetResponse } from "../models/models_0";
-import { GetPreset } from "../schemas/schemas_0";
+import { GetPreset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -602,6 +602,8 @@ export interface GetPresetCommandOutput extends GetPresetResponse, __MetadataBea
  * //             InterlaceMode: "PROGRESSIVE" || "TOP_FIELD" || "BOTTOM_FIELD" || "FOLLOW_TOP_FIELD" || "FOLLOW_BOTTOM_FIELD",
  * //             MaxBitrate: Number("int"),
  * //             MinIInterval: Number("int"),
+ * //             MvOverPictureBoundaries: "ENABLED" || "DISABLED",
+ * //             MvTemporalPredictor: "ENABLED" || "DISABLED",
  * //             NumberBFramesBetweenReferenceFrames: Number("int"),
  * //             NumberReferenceFrames: Number("int"),
  * //             ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
@@ -626,7 +628,11 @@ export interface GetPresetCommandOutput extends GetPresetResponse, __MetadataBea
  * //             Telecine: "NONE" || "SOFT" || "HARD",
  * //             TemporalAdaptiveQuantization: "DISABLED" || "ENABLED",
  * //             TemporalIds: "DISABLED" || "ENABLED",
+ * //             TileHeight: Number("int"),
+ * //             TilePadding: "NONE" || "PADDED",
+ * //             TileWidth: Number("int"),
  * //             Tiles: "DISABLED" || "ENABLED",
+ * //             TreeBlockSize: "AUTO" || "TREE_SIZE_32X32",
  * //             UnregisteredSeiTimecode: "DISABLED" || "ENABLED",
  * //             WriteMp4PackagingType: "HVC1" || "HEV1",
  * //           },
@@ -962,7 +968,7 @@ export class GetPresetCommand extends $Command
   })
   .s("MediaConvert", "GetPreset", {})
   .n("MediaConvertClient", "GetPresetCommand")
-  .sc(GetPreset)
+  .sc(GetPreset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import type { DeleteIndexRequest } from "../models/models_0";
-import { DeleteIndex } from "../schemas/schemas_0";
+import { DeleteIndex$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DeleteIndexCommand extends $Command
   })
   .s("AWSKendraFrontendService", "DeleteIndex", {})
   .n("KendraClient", "DeleteIndexCommand")
-  .sc(DeleteIndex)
+  .sc(DeleteIndex$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

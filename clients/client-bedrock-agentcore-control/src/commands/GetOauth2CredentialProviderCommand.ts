@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetOauth2CredentialProviderRequest, GetOauth2CredentialProviderResponse } from "../models/models_0";
-import { GetOauth2CredentialProvider } from "../schemas/schemas_0";
+import { GetOauth2CredentialProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetOauth2CredentialProviderCommandInput extends GetOauth2Creden
  *
  * The output of {@link GetOauth2CredentialProviderCommand}.
  */
-export interface GetOauth2CredentialProviderCommandOutput
-  extends GetOauth2CredentialProviderResponse,
-    __MetadataBearer {}
+export interface GetOauth2CredentialProviderCommandOutput extends GetOauth2CredentialProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about an OAuth2 credential provider.</p>
@@ -211,7 +209,7 @@ export class GetOauth2CredentialProviderCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "GetOauth2CredentialProvider", {})
   .n("BedrockAgentCoreControlClient", "GetOauth2CredentialProviderCommand")
-  .sc(GetOauth2CredentialProvider)
+  .sc(GetOauth2CredentialProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

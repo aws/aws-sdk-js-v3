@@ -9,7 +9,7 @@ import type {
   DescribeLakeFormationIdentityCenterConfigurationRequest,
   DescribeLakeFormationIdentityCenterConfigurationResponse,
 } from "../models/models_0";
-import { DescribeLakeFormationIdentityCenterConfiguration } from "../schemas/schemas_0";
+import { DescribeLakeFormationIdentityCenterConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeLakeFormationIdentityCenterConfigurationCommand}.
  */
-export interface DescribeLakeFormationIdentityCenterConfigurationCommandInput
-  extends DescribeLakeFormationIdentityCenterConfigurationRequest {}
+export interface DescribeLakeFormationIdentityCenterConfigurationCommandInput extends DescribeLakeFormationIdentityCenterConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeLakeFormationIdentityCenterConfigurationCommand}.
  */
-export interface DescribeLakeFormationIdentityCenterConfigurationCommandOutput
-  extends DescribeLakeFormationIdentityCenterConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeLakeFormationIdentityCenterConfigurationCommandOutput extends DescribeLakeFormationIdentityCenterConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the instance ARN and application ARN for the connection.</p>
@@ -119,7 +116,7 @@ export class DescribeLakeFormationIdentityCenterConfigurationCommand extends $Co
   })
   .s("AWSLakeFormation", "DescribeLakeFormationIdentityCenterConfiguration", {})
   .n("LakeFormationClient", "DescribeLakeFormationIdentityCenterConfigurationCommand")
-  .sc(DescribeLakeFormationIdentityCenterConfiguration)
+  .sc(DescribeLakeFormationIdentityCenterConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

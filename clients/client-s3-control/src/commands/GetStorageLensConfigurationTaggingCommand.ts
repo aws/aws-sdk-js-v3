@@ -10,7 +10,7 @@ import type {
   GetStorageLensConfigurationTaggingResult,
 } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { GetStorageLensConfigurationTagging } from "../schemas/schemas_0";
+import { GetStorageLensConfigurationTagging$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetStorageLensConfigurationTaggingCommandInput extends GetStora
  *
  * The output of {@link GetStorageLensConfigurationTaggingCommand}.
  */
-export interface GetStorageLensConfigurationTaggingCommandOutput
-  extends GetStorageLensConfigurationTaggingResult,
-    __MetadataBearer {}
+export interface GetStorageLensConfigurationTaggingCommandOutput extends GetStorageLensConfigurationTaggingResult, __MetadataBearer {}
 
 /**
  * <note>
@@ -97,11 +95,14 @@ export class GetStorageLensConfigurationTaggingCommand extends $Command
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getProcessArnablesPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getProcessArnablesPlugin(config),
+    ];
   })
   .s("AWSS3ControlServiceV20180820", "GetStorageLensConfigurationTagging", {})
   .n("S3ControlClient", "GetStorageLensConfigurationTaggingCommand")
-  .sc(GetStorageLensConfigurationTagging)
+  .sc(GetStorageLensConfigurationTagging$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateEmailAddressAliasRequest, DisassociateEmailAddressAliasResponse } from "../models/models_1";
-import { DisassociateEmailAddressAlias } from "../schemas/schemas_0";
+import { DisassociateEmailAddressAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DisassociateEmailAddressAliasCommandInput extends DisassociateE
  *
  * The output of {@link DisassociateEmailAddressAliasCommand}.
  */
-export interface DisassociateEmailAddressAliasCommandOutput
-  extends DisassociateEmailAddressAliasResponse,
-    __MetadataBearer {}
+export interface DisassociateEmailAddressAliasCommandOutput extends DisassociateEmailAddressAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the alias association between two email addresses in an Amazon Connect instance. After
@@ -187,7 +185,7 @@ export class DisassociateEmailAddressAliasCommand extends $Command
   })
   .s("AmazonConnectService", "DisassociateEmailAddressAlias", {})
   .n("ConnectClient", "DisassociateEmailAddressAliasCommand")
-  .sc(DisassociateEmailAddressAlias)
+  .sc(DisassociateEmailAddressAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

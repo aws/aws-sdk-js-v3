@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { DeleteCoreNetworkPolicyVersion } from "../schemas/schemas_0";
+import { DeleteCoreNetworkPolicyVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DeleteCoreNetworkPolicyVersionCommandInput extends DeleteCoreNe
  *
  * The output of {@link DeleteCoreNetworkPolicyVersionCommand}.
  */
-export interface DeleteCoreNetworkPolicyVersionCommandOutput
-  extends DeleteCoreNetworkPolicyVersionResponse,
-    __MetadataBearer {}
+export interface DeleteCoreNetworkPolicyVersionCommandOutput extends DeleteCoreNetworkPolicyVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a policy version from a core network. You can't delete the current LIVE policy.</p>
@@ -114,7 +112,7 @@ export class DeleteCoreNetworkPolicyVersionCommand extends $Command
   })
   .s("NetworkManager", "DeleteCoreNetworkPolicyVersion", {})
   .n("NetworkManagerClient", "DeleteCoreNetworkPolicyVersionCommand")
-  .sc(DeleteCoreNetworkPolicyVersion)
+  .sc(DeleteCoreNetworkPolicyVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

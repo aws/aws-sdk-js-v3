@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTThingsGraphClient";
 import type { DeleteSystemInstanceRequest, DeleteSystemInstanceResponse } from "../models/models_0";
-import { DeleteSystemInstance } from "../schemas/schemas_0";
+import { DeleteSystemInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteSystemInstanceCommand extends $Command
   })
   .s("IotThingsGraphFrontEndService", "DeleteSystemInstance", {})
   .n("IoTThingsGraphClient", "DeleteSystemInstanceCommand")
-  .sc(DeleteSystemInstance)
+  .sc(DeleteSystemInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

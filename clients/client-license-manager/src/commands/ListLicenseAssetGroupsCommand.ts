@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LicenseManagerClient";
 import type { ListLicenseAssetGroupsRequest, ListLicenseAssetGroupsResponse } from "../models/models_0";
-import { ListLicenseAssetGroups } from "../schemas/schemas_0";
+import { ListLicenseAssetGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class ListLicenseAssetGroupsCommand extends $Command
   })
   .s("AWSLicenseManager", "ListLicenseAssetGroups", {})
   .n("LicenseManagerClient", "ListLicenseAssetGroupsCommand")
-  .sc(ListLicenseAssetGroups)
+  .sc(ListLicenseAssetGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

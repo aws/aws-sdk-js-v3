@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import type { PurchaseReservedNodesOfferingRequest, PurchaseReservedNodesOfferingResponse } from "../models/models_0";
-import { PurchaseReservedNodesOffering } from "../schemas/schemas_0";
+import { PurchaseReservedNodesOffering$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface PurchaseReservedNodesOfferingCommandInput extends PurchaseReser
  *
  * The output of {@link PurchaseReservedNodesOfferingCommand}.
  */
-export interface PurchaseReservedNodesOfferingCommandOutput
-  extends PurchaseReservedNodesOfferingResponse,
-    __MetadataBearer {}
+export interface PurchaseReservedNodesOfferingCommandOutput extends PurchaseReservedNodesOfferingResponse, __MetadataBearer {}
 
 /**
  * <p>Allows you to purchase a reserved  node offering. Reserved nodes are not eligible for cancellation and are non-refundable.</p>
@@ -123,7 +121,7 @@ export class PurchaseReservedNodesOfferingCommand extends $Command
   })
   .s("AmazonMemoryDB", "PurchaseReservedNodesOffering", {})
   .n("MemoryDBClient", "PurchaseReservedNodesOfferingCommand")
-  .sc(PurchaseReservedNodesOffering)
+  .sc(PurchaseReservedNodesOffering$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

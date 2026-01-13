@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import { DeleteSecurityPolicy } from "../schemas/schemas_0";
+import { DeleteSecurityPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeleteSecurityPolicyCommand extends $Command
   })
   .s("OpenSearchServerless", "DeleteSecurityPolicy", {})
   .n("OpenSearchServerlessClient", "DeleteSecurityPolicyCommand")
-  .sc(DeleteSecurityPolicy)
+  .sc(DeleteSecurityPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

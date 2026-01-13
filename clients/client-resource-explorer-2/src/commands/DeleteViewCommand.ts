@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
-import { DeleteView } from "../schemas/schemas_0";
+import { DeleteView$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeleteViewCommand extends $Command
   })
   .s("ResourceExplorer", "DeleteView", {})
   .n("ResourceExplorer2Client", "DeleteViewCommand")
-  .sc(DeleteView)
+  .sc(DeleteView$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

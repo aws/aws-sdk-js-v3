@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateRotationOverrideRequest, CreateRotationOverrideResult } from "../models/models_0";
-import { CreateRotationOverride } from "../schemas/schemas_0";
+import { CreateRotationOverride$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -98,7 +98,7 @@ export class CreateRotationOverrideCommand extends $Command
   })
   .s("SSMContacts", "CreateRotationOverride", {})
   .n("SSMContactsClient", "CreateRotationOverrideCommand")
-  .sc(CreateRotationOverride)
+  .sc(CreateRotationOverride$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

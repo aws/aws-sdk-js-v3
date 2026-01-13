@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateStateMachineAliasInput, CreateStateMachineAliasOutput } from "../models/models_0";
-import { CreateStateMachineAlias } from "../schemas/schemas_0";
+import { CreateStateMachineAlias$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -144,7 +144,7 @@ export class CreateStateMachineAliasCommand extends $Command
   })
   .s("AWSStepFunctions", "CreateStateMachineAlias", {})
   .n("SFNClient", "CreateStateMachineAliasCommand")
-  .sc(CreateStateMachineAlias)
+  .sc(CreateStateMachineAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

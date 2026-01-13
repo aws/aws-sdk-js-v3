@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateReviewTemplateLensReviewInput, UpdateReviewTemplateLensReviewOutput } from "../models/models_0";
-import { UpdateReviewTemplateLensReview } from "../schemas/schemas_0";
+import { UpdateReviewTemplateLensReview$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -28,9 +28,7 @@ export interface UpdateReviewTemplateLensReviewCommandInput extends UpdateReview
  *
  * The output of {@link UpdateReviewTemplateLensReviewCommand}.
  */
-export interface UpdateReviewTemplateLensReviewCommandOutput
-  extends UpdateReviewTemplateLensReviewOutput,
-    __MetadataBearer {}
+export interface UpdateReviewTemplateLensReviewCommandOutput extends UpdateReviewTemplateLensReviewOutput, __MetadataBearer {}
 
 /**
  * <p>Update a lens review associated with a review template.</p>
@@ -125,7 +123,7 @@ export class UpdateReviewTemplateLensReviewCommand extends $Command
   })
   .s("WellArchitectedApiServiceLambda", "UpdateReviewTemplateLensReview", {})
   .n("WellArchitectedClient", "UpdateReviewTemplateLensReviewCommand")
-  .sc(UpdateReviewTemplateLensReview)
+  .sc(UpdateReviewTemplateLensReview$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

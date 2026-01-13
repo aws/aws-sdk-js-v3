@@ -9,7 +9,7 @@ import type {
   UpdateFieldLevelEncryptionConfigRequest,
   UpdateFieldLevelEncryptionConfigResult,
 } from "../models/models_1";
-import { UpdateFieldLevelEncryptionConfig } from "../schemas/schemas_0";
+import { UpdateFieldLevelEncryptionConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateFieldLevelEncryptionConfigCommandInput extends UpdateFiel
  *
  * The output of {@link UpdateFieldLevelEncryptionConfigCommand}.
  */
-export interface UpdateFieldLevelEncryptionConfigCommandOutput
-  extends UpdateFieldLevelEncryptionConfigResult,
-    __MetadataBearer {}
+export interface UpdateFieldLevelEncryptionConfigCommandOutput extends UpdateFieldLevelEncryptionConfigResult, __MetadataBearer {}
 
 /**
  * <p>Update a field-level encryption configuration.</p>
@@ -174,7 +172,7 @@ export class UpdateFieldLevelEncryptionConfigCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "UpdateFieldLevelEncryptionConfig", {})
   .n("CloudFrontClient", "UpdateFieldLevelEncryptionConfigCommand")
-  .sc(UpdateFieldLevelEncryptionConfig)
+  .sc(UpdateFieldLevelEncryptionConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

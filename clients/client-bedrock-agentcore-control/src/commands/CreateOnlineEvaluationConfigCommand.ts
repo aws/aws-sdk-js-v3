@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateOnlineEvaluationConfigRequest, CreateOnlineEvaluationConfigResponse } from "../models/models_0";
-import { CreateOnlineEvaluationConfig } from "../schemas/schemas_0";
+import { CreateOnlineEvaluationConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface CreateOnlineEvaluationConfigCommandInput extends CreateOnlineEv
  *
  * The output of {@link CreateOnlineEvaluationConfigCommand}.
  */
-export interface CreateOnlineEvaluationConfigCommandOutput
-  extends CreateOnlineEvaluationConfigResponse,
-    __MetadataBearer {}
+export interface CreateOnlineEvaluationConfigCommandOutput extends CreateOnlineEvaluationConfigResponse, __MetadataBearer {}
 
 /**
  * <p> Creates an online evaluation configuration for continuous monitoring of agent performance. Online evaluation automatically samples live traffic from CloudWatch logs at specified rates and applies evaluators to assess agent quality in production. </p>
@@ -145,7 +143,7 @@ export class CreateOnlineEvaluationConfigCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "CreateOnlineEvaluationConfig", {})
   .n("BedrockAgentCoreControlClient", "CreateOnlineEvaluationConfigCommand")
-  .sc(CreateOnlineEvaluationConfig)
+  .sc(CreateOnlineEvaluationConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

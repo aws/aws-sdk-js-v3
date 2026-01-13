@@ -13,7 +13,7 @@ import type {
   AssociateConfigurationItemsToApplicationRequest,
   AssociateConfigurationItemsToApplicationResponse,
 } from "../models/models_0";
-import { AssociateConfigurationItemsToApplication } from "../schemas/schemas_0";
+import { AssociateConfigurationItemsToApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link AssociateConfigurationItemsToApplicationCommand}.
  */
-export interface AssociateConfigurationItemsToApplicationCommandInput
-  extends AssociateConfigurationItemsToApplicationRequest {}
+export interface AssociateConfigurationItemsToApplicationCommandInput extends AssociateConfigurationItemsToApplicationRequest {}
 /**
  * @public
  *
  * The output of {@link AssociateConfigurationItemsToApplicationCommand}.
  */
-export interface AssociateConfigurationItemsToApplicationCommandOutput
-  extends AssociateConfigurationItemsToApplicationResponse,
-    __MetadataBearer {}
+export interface AssociateConfigurationItemsToApplicationCommandOutput extends AssociateConfigurationItemsToApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Associates one or more configuration items with an application.</p>
@@ -101,7 +98,7 @@ export class AssociateConfigurationItemsToApplicationCommand extends $Command
   })
   .s("AWSPoseidonService_V2015_11_01", "AssociateConfigurationItemsToApplication", {})
   .n("ApplicationDiscoveryServiceClient", "AssociateConfigurationItemsToApplicationCommand")
-  .sc(AssociateConfigurationItemsToApplication)
+  .sc(AssociateConfigurationItemsToApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

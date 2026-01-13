@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { EndpointAuthorization } from "../models/models_0";
 import type { RevokeEndpointAccessMessage } from "../models/models_1";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { RevokeEndpointAccess } from "../schemas/schemas_0";
+import { RevokeEndpointAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class RevokeEndpointAccessCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "RevokeEndpointAccess", {})
   .n("RedshiftClient", "RevokeEndpointAccessCommand")
-  .sc(RevokeEndpointAccess)
+  .sc(RevokeEndpointAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

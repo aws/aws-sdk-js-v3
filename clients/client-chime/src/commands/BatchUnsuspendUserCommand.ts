@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchUnsuspendUserRequest, BatchUnsuspendUserResponse } from "../models/models_0";
-import { BatchUnsuspendUser } from "../schemas/schemas_0";
+import { BatchUnsuspendUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class BatchUnsuspendUserCommand extends $Command
   })
   .s("UCBuzzConsoleService", "BatchUnsuspendUser", {})
   .n("ChimeClient", "BatchUnsuspendUserCommand")
-  .sc(BatchUnsuspendUser)
+  .sc(BatchUnsuspendUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateContactFlowModuleAliasRequest, UpdateContactFlowModuleAliasResponse } from "../models/models_3";
-import { UpdateContactFlowModuleAlias } from "../schemas/schemas_0";
+import { UpdateContactFlowModuleAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateContactFlowModuleAliasCommandInput extends UpdateContactF
  *
  * The output of {@link UpdateContactFlowModuleAliasCommand}.
  */
-export interface UpdateContactFlowModuleAliasCommandOutput
-  extends UpdateContactFlowModuleAliasResponse,
-    __MetadataBearer {}
+export interface UpdateContactFlowModuleAliasCommandOutput extends UpdateContactFlowModuleAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a specific Aliases metadata, including the version it’s tied to, it’s name, and description.</p>
@@ -102,7 +100,7 @@ export class UpdateContactFlowModuleAliasCommand extends $Command
   })
   .s("AmazonConnectService", "UpdateContactFlowModuleAlias", {})
   .n("ConnectClient", "UpdateContactFlowModuleAliasCommand")
-  .sc(UpdateContactFlowModuleAlias)
+  .sc(UpdateContactFlowModuleAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "
 import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DocumentationPartIds, ImportDocumentationPartsRequest } from "../models/models_0";
-import { ImportDocumentationParts } from "../schemas/schemas_0";
+import { ImportDocumentationParts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class ImportDocumentationPartsCommand extends $Command
   })
   .s("BackplaneControlService", "ImportDocumentationParts", {})
   .n("APIGatewayClient", "ImportDocumentationPartsCommand")
-  .sc(ImportDocumentationParts)
+  .sc(ImportDocumentationParts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

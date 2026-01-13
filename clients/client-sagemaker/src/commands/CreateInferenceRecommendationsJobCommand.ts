@@ -9,7 +9,7 @@ import type {
   CreateInferenceRecommendationsJobResponse,
 } from "../models/models_1";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateInferenceRecommendationsJob } from "../schemas/schemas_0";
+import { CreateInferenceRecommendationsJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateInferenceRecommendationsJobCommandInput extends CreateInf
  *
  * The output of {@link CreateInferenceRecommendationsJobCommand}.
  */
-export interface CreateInferenceRecommendationsJobCommandOutput
-  extends CreateInferenceRecommendationsJobResponse,
-    __MetadataBearer {}
+export interface CreateInferenceRecommendationsJobCommandOutput extends CreateInferenceRecommendationsJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a recommendation job. You can create either an instance recommendation or load test job.</p>
@@ -189,7 +187,7 @@ export class CreateInferenceRecommendationsJobCommand extends $Command
   })
   .s("SageMaker", "CreateInferenceRecommendationsJob", {})
   .n("SageMakerClient", "CreateInferenceRecommendationsJobCommand")
-  .sc(CreateInferenceRecommendationsJob)
+  .sc(CreateInferenceRecommendationsJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { StopResourceSnapshotJob } from "../schemas/schemas_0";
+import { StopResourceSnapshotJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class StopResourceSnapshotJobCommand extends $Command
   })
   .s("AWSPartnerCentralSelling", "StopResourceSnapshotJob", {})
   .n("PartnerCentralSellingClient", "StopResourceSnapshotJobCommand")
-  .sc(StopResourceSnapshotJob)
+  .sc(StopResourceSnapshotJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

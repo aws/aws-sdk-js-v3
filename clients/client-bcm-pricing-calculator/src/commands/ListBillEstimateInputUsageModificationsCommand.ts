@@ -13,7 +13,7 @@ import type {
   ListBillEstimateInputUsageModificationsRequest,
   ListBillEstimateInputUsageModificationsResponse,
 } from "../models/models_0";
-import { ListBillEstimateInputUsageModifications } from "../schemas/schemas_0";
+import { ListBillEstimateInputUsageModifications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListBillEstimateInputUsageModificationsCommand}.
  */
-export interface ListBillEstimateInputUsageModificationsCommandInput
-  extends ListBillEstimateInputUsageModificationsRequest {}
+export interface ListBillEstimateInputUsageModificationsCommandInput extends ListBillEstimateInputUsageModificationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListBillEstimateInputUsageModificationsCommand}.
  */
-export interface ListBillEstimateInputUsageModificationsCommandOutput
-  extends ListBillEstimateInputUsageModificationsResponse,
-    __MetadataBearer {}
+export interface ListBillEstimateInputUsageModificationsCommandOutput extends ListBillEstimateInputUsageModificationsResponse, __MetadataBearer {}
 
 /**
  * <p> Lists the input usage modifications associated with a bill estimate. </p>
@@ -195,7 +192,7 @@ export class ListBillEstimateInputUsageModificationsCommand extends $Command
   })
   .s("AWSBCMPricingCalculator", "ListBillEstimateInputUsageModifications", {})
   .n("BCMPricingCalculatorClient", "ListBillEstimateInputUsageModificationsCommand")
-  .sc(ListBillEstimateInputUsageModifications)
+  .sc(ListBillEstimateInputUsageModifications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

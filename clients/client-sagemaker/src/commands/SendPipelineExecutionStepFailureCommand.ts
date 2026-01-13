@@ -9,7 +9,7 @@ import type {
   SendPipelineExecutionStepFailureResponse,
 } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { SendPipelineExecutionStepFailure } from "../schemas/schemas_0";
+import { SendPipelineExecutionStepFailure$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface SendPipelineExecutionStepFailureCommandInput extends SendPipeli
  *
  * The output of {@link SendPipelineExecutionStepFailureCommand}.
  */
-export interface SendPipelineExecutionStepFailureCommandOutput
-  extends SendPipelineExecutionStepFailureResponse,
-    __MetadataBearer {}
+export interface SendPipelineExecutionStepFailureCommandOutput extends SendPipelineExecutionStepFailureResponse, __MetadataBearer {}
 
 /**
  * <p>Notifies the pipeline that the execution of a callback step failed, along with a message describing why. When a callback step is run, the pipeline generates a callback token and includes the token in a message sent to Amazon Simple Queue Service (Amazon SQS).</p>
@@ -89,7 +87,7 @@ export class SendPipelineExecutionStepFailureCommand extends $Command
   })
   .s("SageMaker", "SendPipelineExecutionStepFailure", {})
   .n("SageMakerClient", "SendPipelineExecutionStepFailureCommand")
-  .sc(SendPipelineExecutionStepFailure)
+  .sc(SendPipelineExecutionStepFailure$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

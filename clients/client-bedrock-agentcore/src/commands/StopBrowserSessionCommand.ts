@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopBrowserSessionRequest, StopBrowserSessionResponse } from "../models/models_0";
-import { StopBrowserSession } from "../schemas/schemas_0";
+import { StopBrowserSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class StopBrowserSessionCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "StopBrowserSession", {})
   .n("BedrockAgentCoreClient", "StopBrowserSessionCommand")
-  .sc(StopBrowserSession)
+  .sc(StopBrowserSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeactivateMessageTemplateRequest, DeactivateMessageTemplateResponse } from "../models/models_0";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { DeactivateMessageTemplate } from "../schemas/schemas_0";
+import { DeactivateMessageTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DeactivateMessageTemplateCommand extends $Command
   })
   .s("WisdomService", "DeactivateMessageTemplate", {})
   .n("QConnectClient", "DeactivateMessageTemplateCommand")
-  .sc(DeactivateMessageTemplate)
+  .sc(DeactivateMessageTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

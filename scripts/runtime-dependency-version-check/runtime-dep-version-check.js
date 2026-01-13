@@ -29,6 +29,7 @@ const root = path.join(__dirname, "..", "..");
 const clients = listFolders(path.join(root, "clients"), false);
 const lib = listFolders(path.join(root, "lib"), false);
 const packages = listFolders(path.join(root, "packages"), false);
+const packagesInternal = listFolders(path.join(root, "packages-internal"), false);
 const _private = listFolders(path.join(root, "private"), false);
 
 const setCanonicalVersion = process.argv.includes("--set-smithy-version");
@@ -36,7 +37,7 @@ const colocatedSmithy = fs.existsSync(path.join(root, "..", "smithy-typescript",
 
 const clientPackages = [...clients, ..._private.filter((p) => !p.endsWith("-test"))];
 
-const nonClientPackages = [...lib, ...packages, ..._private.filter((p) => p.endsWith("-test"))];
+const nonClientPackages = [...lib, ...packages, ...packagesInternal, ..._private.filter((p) => p.endsWith("-test"))];
 
 const deps = {
   /* @namespace/name: {

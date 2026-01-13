@@ -9,7 +9,7 @@ import type {
   DeleteAutomatedReasoningPolicyTestCaseRequest,
   DeleteAutomatedReasoningPolicyTestCaseResponse,
 } from "../models/models_0";
-import { DeleteAutomatedReasoningPolicyTestCase } from "../schemas/schemas_0";
+import { DeleteAutomatedReasoningPolicyTestCase$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteAutomatedReasoningPolicyTestCaseCommand}.
  */
-export interface DeleteAutomatedReasoningPolicyTestCaseCommandInput
-  extends DeleteAutomatedReasoningPolicyTestCaseRequest {}
+export interface DeleteAutomatedReasoningPolicyTestCaseCommandInput extends DeleteAutomatedReasoningPolicyTestCaseRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteAutomatedReasoningPolicyTestCaseCommand}.
  */
-export interface DeleteAutomatedReasoningPolicyTestCaseCommandOutput
-  extends DeleteAutomatedReasoningPolicyTestCaseResponse,
-    __MetadataBearer {}
+export interface DeleteAutomatedReasoningPolicyTestCaseCommandOutput extends DeleteAutomatedReasoningPolicyTestCaseResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an Automated Reasoning policy test. This operation is idempotent; if you delete a test more than once, each call succeeds.</p>
@@ -100,7 +97,7 @@ export class DeleteAutomatedReasoningPolicyTestCaseCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "DeleteAutomatedReasoningPolicyTestCase", {})
   .n("BedrockClient", "DeleteAutomatedReasoningPolicyTestCaseCommand")
-  .sc(DeleteAutomatedReasoningPolicyTestCase)
+  .sc(DeleteAutomatedReasoningPolicyTestCase$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

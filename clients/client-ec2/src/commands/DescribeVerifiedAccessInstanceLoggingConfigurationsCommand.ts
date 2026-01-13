@@ -7,7 +7,7 @@ import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeVerifiedAccessInstanceLoggingConfigurationsRequest } from "../models/models_4";
 import type { DescribeVerifiedAccessInstanceLoggingConfigurationsResult } from "../models/models_5";
-import { DescribeVerifiedAccessInstanceLoggingConfigurations } from "../schemas/schemas_0";
+import { DescribeVerifiedAccessInstanceLoggingConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -19,16 +19,13 @@ export { $Command };
  *
  * The input for {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommand}.
  */
-export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput
-  extends DescribeVerifiedAccessInstanceLoggingConfigurationsRequest {}
+export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput extends DescribeVerifiedAccessInstanceLoggingConfigurationsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommand}.
  */
-export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput
-  extends DescribeVerifiedAccessInstanceLoggingConfigurationsResult,
-    __MetadataBearer {}
+export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput extends DescribeVerifiedAccessInstanceLoggingConfigurationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified Amazon Web Services Verified Access instances.</p>
@@ -125,7 +122,7 @@ export class DescribeVerifiedAccessInstanceLoggingConfigurationsCommand extends 
   })
   .s("AmazonEC2", "DescribeVerifiedAccessInstanceLoggingConfigurations", {})
   .n("EC2Client", "DescribeVerifiedAccessInstanceLoggingConfigurationsCommand")
-  .sc(DescribeVerifiedAccessInstanceLoggingConfigurations)
+  .sc(DescribeVerifiedAccessInstanceLoggingConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

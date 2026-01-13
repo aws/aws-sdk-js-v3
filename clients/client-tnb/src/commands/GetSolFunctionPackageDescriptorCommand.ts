@@ -6,7 +6,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type GetSolFunctionPackageDescriptorInput, GetSolFunctionPackageDescriptorOutput } from "../models/models_0";
-import { GetSolFunctionPackageDescriptor } from "../schemas/schemas_0";
+import { GetSolFunctionPackageDescriptor$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -32,9 +32,7 @@ export type GetSolFunctionPackageDescriptorCommandOutputType = Omit<GetSolFuncti
  *
  * The output of {@link GetSolFunctionPackageDescriptorCommand}.
  */
-export interface GetSolFunctionPackageDescriptorCommandOutput
-  extends GetSolFunctionPackageDescriptorCommandOutputType,
-    __MetadataBearer {}
+export interface GetSolFunctionPackageDescriptorCommandOutput extends GetSolFunctionPackageDescriptorCommandOutputType, __MetadataBearer {}
 
 /**
  * <p>Gets a function package descriptor in a function package.</p>
@@ -120,7 +118,7 @@ export class GetSolFunctionPackageDescriptorCommand extends $Command
   })
   .s("TNB", "GetSolFunctionPackageDescriptor", {})
   .n("TnbClient", "GetSolFunctionPackageDescriptorCommand")
-  .sc(GetSolFunctionPackageDescriptor)
+  .sc(GetSolFunctionPackageDescriptor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

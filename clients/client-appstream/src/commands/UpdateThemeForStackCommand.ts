@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateThemeForStackRequest, UpdateThemeForStackResult } from "../models/models_0";
-import { UpdateThemeForStack } from "../schemas/schemas_0";
+import { UpdateThemeForStack$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class UpdateThemeForStackCommand extends $Command
   })
   .s("PhotonAdminProxyService", "UpdateThemeForStack", {})
   .n("AppStreamClient", "UpdateThemeForStackCommand")
-  .sc(UpdateThemeForStack)
+  .sc(UpdateThemeForStack$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

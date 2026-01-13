@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { DetachRuleGroupsFromProxyConfiguration } from "../schemas/schemas_0";
+import { DetachRuleGroupsFromProxyConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DetachRuleGroupsFromProxyConfigurationCommand}.
  */
-export interface DetachRuleGroupsFromProxyConfigurationCommandInput
-  extends DetachRuleGroupsFromProxyConfigurationRequest {}
+export interface DetachRuleGroupsFromProxyConfigurationCommandInput extends DetachRuleGroupsFromProxyConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DetachRuleGroupsFromProxyConfigurationCommand}.
  */
-export interface DetachRuleGroupsFromProxyConfigurationCommandOutput
-  extends DetachRuleGroupsFromProxyConfigurationResponse,
-    __MetadataBearer {}
+export interface DetachRuleGroupsFromProxyConfigurationCommandOutput extends DetachRuleGroupsFromProxyConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Detaches <a>ProxyRuleGroup</a> resources from a <a>ProxyConfiguration</a>
@@ -145,7 +142,7 @@ export class DetachRuleGroupsFromProxyConfigurationCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "DetachRuleGroupsFromProxyConfiguration", {})
   .n("NetworkFirewallClient", "DetachRuleGroupsFromProxyConfigurationCommand")
-  .sc(DetachRuleGroupsFromProxyConfiguration)
+  .sc(DetachRuleGroupsFromProxyConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

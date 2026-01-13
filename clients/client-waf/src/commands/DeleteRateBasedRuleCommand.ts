@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRateBasedRuleRequest, DeleteRateBasedRuleResponse } from "../models/models_0";
-import { DeleteRateBasedRule } from "../schemas/schemas_0";
+import { DeleteRateBasedRule$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -148,7 +148,7 @@ export class DeleteRateBasedRuleCommand extends $Command
   })
   .s("AWSWAF_20150824", "DeleteRateBasedRule", {})
   .n("WAFClient", "DeleteRateBasedRuleCommand")
-  .sc(DeleteRateBasedRule)
+  .sc(DeleteRateBasedRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

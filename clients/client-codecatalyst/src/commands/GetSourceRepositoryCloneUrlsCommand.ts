@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSourceRepositoryCloneUrlsRequest, GetSourceRepositoryCloneUrlsResponse } from "../models/models_0";
-import { GetSourceRepositoryCloneUrls } from "../schemas/schemas_0";
+import { GetSourceRepositoryCloneUrls$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetSourceRepositoryCloneUrlsCommandInput extends GetSourceRepos
  *
  * The output of {@link GetSourceRepositoryCloneUrlsCommand}.
  */
-export interface GetSourceRepositoryCloneUrlsCommandOutput
-  extends GetSourceRepositoryCloneUrlsResponse,
-    __MetadataBearer {}
+export interface GetSourceRepositoryCloneUrlsCommandOutput extends GetSourceRepositoryCloneUrlsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the URLs that can be used with a Git client to clone a source
@@ -98,7 +96,7 @@ export class GetSourceRepositoryCloneUrlsCommand extends $Command
   })
   .s("CodeCatalyst", "GetSourceRepositoryCloneUrls", {})
   .n("CodeCatalystClient", "GetSourceRepositoryCloneUrlsCommand")
-  .sc(GetSourceRepositoryCloneUrls)
+  .sc(GetSourceRepositoryCloneUrls$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

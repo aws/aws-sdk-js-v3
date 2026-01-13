@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMediaPipelinesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteMediaCapturePipelineRequest } from "../models/models_0";
-import { DeleteMediaCapturePipeline } from "../schemas/schemas_0";
+import { DeleteMediaCapturePipeline$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DeleteMediaCapturePipelineCommand extends $Command
   })
   .s("ChimeSDKMediaPipelinesService", "DeleteMediaCapturePipeline", {})
   .n("ChimeSDKMediaPipelinesClient", "DeleteMediaCapturePipelineCommand")
-  .sc(DeleteMediaCapturePipeline)
+  .sc(DeleteMediaCapturePipeline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

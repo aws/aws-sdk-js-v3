@@ -9,7 +9,7 @@ import type {
   DeleteCodeSecurityScanConfigurationRequest,
   DeleteCodeSecurityScanConfigurationResponse,
 } from "../models/models_0";
-import { DeleteCodeSecurityScanConfiguration } from "../schemas/schemas_0";
+import { DeleteCodeSecurityScanConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteCodeSecurityScanConfigurationCommandInput extends DeleteC
  *
  * The output of {@link DeleteCodeSecurityScanConfigurationCommand}.
  */
-export interface DeleteCodeSecurityScanConfigurationCommandOutput
-  extends DeleteCodeSecurityScanConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteCodeSecurityScanConfigurationCommandOutput extends DeleteCodeSecurityScanConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a code security scan configuration.</p>
@@ -97,7 +95,7 @@ export class DeleteCodeSecurityScanConfigurationCommand extends $Command
   })
   .s("Inspector2", "DeleteCodeSecurityScanConfiguration", {})
   .n("Inspector2Client", "DeleteCodeSecurityScanConfigurationCommand")
-  .sc(DeleteCodeSecurityScanConfiguration)
+  .sc(DeleteCodeSecurityScanConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

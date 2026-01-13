@@ -9,7 +9,7 @@ import type {
   BatchPutDataQualityStatisticAnnotationRequest,
   BatchPutDataQualityStatisticAnnotationResponse,
 } from "../models/models_0";
-import { BatchPutDataQualityStatisticAnnotation } from "../schemas/schemas_0";
+import { BatchPutDataQualityStatisticAnnotation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchPutDataQualityStatisticAnnotationCommand}.
  */
-export interface BatchPutDataQualityStatisticAnnotationCommandInput
-  extends BatchPutDataQualityStatisticAnnotationRequest {}
+export interface BatchPutDataQualityStatisticAnnotationCommandInput extends BatchPutDataQualityStatisticAnnotationRequest {}
 /**
  * @public
  *
  * The output of {@link BatchPutDataQualityStatisticAnnotationCommand}.
  */
-export interface BatchPutDataQualityStatisticAnnotationCommandOutput
-  extends BatchPutDataQualityStatisticAnnotationResponse,
-    __MetadataBearer {}
+export interface BatchPutDataQualityStatisticAnnotationCommandOutput extends BatchPutDataQualityStatisticAnnotationResponse, __MetadataBearer {}
 
 /**
  * <p>Annotate datapoints over time for a specific data quality statistic.
@@ -106,7 +103,7 @@ export class BatchPutDataQualityStatisticAnnotationCommand extends $Command
   })
   .s("AWSGlue", "BatchPutDataQualityStatisticAnnotation", {})
   .n("GlueClient", "BatchPutDataQualityStatisticAnnotationCommand")
-  .sc(BatchPutDataQualityStatisticAnnotation)
+  .sc(BatchPutDataQualityStatisticAnnotation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

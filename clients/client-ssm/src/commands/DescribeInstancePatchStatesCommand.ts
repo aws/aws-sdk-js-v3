@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeInstancePatchStatesRequest, DescribeInstancePatchStatesResult } from "../models/models_0";
-import { DescribeInstancePatchStates } from "../schemas/schemas_0";
+import { DescribeInstancePatchStates$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -110,7 +110,7 @@ export class DescribeInstancePatchStatesCommand extends $Command
   })
   .s("AmazonSSM", "DescribeInstancePatchStates", {})
   .n("SSMClient", "DescribeInstancePatchStatesCommand")
-  .sc(DescribeInstancePatchStates)
+  .sc(DescribeInstancePatchStates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

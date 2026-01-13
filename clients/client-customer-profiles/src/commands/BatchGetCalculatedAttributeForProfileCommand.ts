@@ -13,7 +13,7 @@ import type {
   BatchGetCalculatedAttributeForProfileRequest,
   BatchGetCalculatedAttributeForProfileResponse,
 } from "../models/models_0";
-import { BatchGetCalculatedAttributeForProfile } from "../schemas/schemas_0";
+import { BatchGetCalculatedAttributeForProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link BatchGetCalculatedAttributeForProfileCommand}.
  */
-export interface BatchGetCalculatedAttributeForProfileCommandInput
-  extends BatchGetCalculatedAttributeForProfileRequest {}
+export interface BatchGetCalculatedAttributeForProfileCommandInput extends BatchGetCalculatedAttributeForProfileRequest {}
 /**
  * @public
  *
  * The output of {@link BatchGetCalculatedAttributeForProfileCommand}.
  */
-export interface BatchGetCalculatedAttributeForProfileCommandOutput
-  extends BatchGetCalculatedAttributeForProfileResponse,
-    __MetadataBearer {}
+export interface BatchGetCalculatedAttributeForProfileCommandOutput extends BatchGetCalculatedAttributeForProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Fetch the possible attribute values given the attribute name.</p>
@@ -132,7 +129,7 @@ export class BatchGetCalculatedAttributeForProfileCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "BatchGetCalculatedAttributeForProfile", {})
   .n("CustomerProfilesClient", "BatchGetCalculatedAttributeForProfileCommand")
-  .sc(BatchGetCalculatedAttributeForProfile)
+  .sc(BatchGetCalculatedAttributeForProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateSpaceInput, CreateSpaceOutput } from "../models/models_0";
 import type { RepostspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RepostspaceClient";
-import { CreateSpace } from "../schemas/schemas_0";
+import { CreateSpace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class CreateSpaceCommand extends $Command
   })
   .s("RepostSpace", "CreateSpace", {})
   .n("RepostspaceClient", "CreateSpaceCommand")
-  .sc(CreateSpace)
+  .sc(CreateSpace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

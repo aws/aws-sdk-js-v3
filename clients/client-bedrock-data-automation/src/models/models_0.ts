@@ -3,6 +3,7 @@ import {
   AudioExtractionCategoryType,
   AudioGenerativeOutputLanguage,
   AudioStandardGenerativeFieldType,
+  BlueprintOptimizationJobStatus,
   BlueprintStage,
   BlueprintStageFilter,
   DataAutomationProjectStage,
@@ -27,6 +28,114 @@ import {
 } from "./enums";
 
 /**
+ * Structure for request of GetBlueprintOptimizationStatus API.
+ * @public
+ */
+export interface GetBlueprintOptimizationStatusRequest {
+  /**
+   * Invocation arn.
+   * @public
+   */
+  invocationArn: string | undefined;
+}
+
+/**
+ * S3 object
+ * @public
+ */
+export interface S3Object {
+  /**
+   * S3 uri.
+   * @public
+   */
+  s3Uri: string | undefined;
+
+  /**
+   * S3 object version.
+   * @public
+   */
+  version?: string | undefined;
+}
+
+/**
+ * Blueprint Optimization Output configuration.
+ * @public
+ */
+export interface BlueprintOptimizationOutputConfiguration {
+  /**
+   * S3 object.
+   * @public
+   */
+  s3Object: S3Object | undefined;
+}
+
+/**
+ * Response of GetBlueprintOptimizationStatus API.
+ * @public
+ */
+export interface GetBlueprintOptimizationStatusResponse {
+  /**
+   * Job Status.
+   * @public
+   */
+  status?: BlueprintOptimizationJobStatus | undefined;
+
+  /**
+   * Error Type.
+   * @public
+   */
+  errorType?: string | undefined;
+
+  /**
+   * Error Message.
+   * @public
+   */
+  errorMessage?: string | undefined;
+
+  /**
+   * Output configuration.
+   * @public
+   */
+  outputConfiguration?: BlueprintOptimizationOutputConfiguration | undefined;
+}
+
+/**
+ * Stores information about a field passed inside a request that resulted in an exception
+ * @public
+ */
+export interface ValidationExceptionField {
+  /**
+   * Non Blank String
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * Non Blank String
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * Structure for single blueprint entity.
+ * @public
+ */
+export interface BlueprintOptimizationObject {
+  /**
+   * Arn of blueprint.
+   * @public
+   */
+  blueprintArn: string | undefined;
+
+  /**
+   * Stage of blueprint.
+   * @public
+   */
+  stage?: BlueprintStage | undefined;
+}
+
+/**
  * KMS Encryption Configuration
  * @public
  */
@@ -45,6 +154,24 @@ export interface EncryptionConfiguration {
 }
 
 /**
+ * Blueprint Recommendation Sample
+ * @public
+ */
+export interface BlueprintOptimizationSample {
+  /**
+   * S3 Object of the asset
+   * @public
+   */
+  assetS3Object: S3Object | undefined;
+
+  /**
+   * Ground truth for the Blueprint and Asset combination
+   * @public
+   */
+  groundTruthS3Object: S3Object | undefined;
+}
+
+/**
  * Key value pair of a tag
  * @public
  */
@@ -60,6 +187,60 @@ export interface Tag {
    * @public
    */
   value: string | undefined;
+}
+
+/**
+ * Invoke Blueprint Optimization Async Request
+ * @public
+ */
+export interface InvokeBlueprintOptimizationAsyncRequest {
+  /**
+   * Blueprint to be optimized
+   * @public
+   */
+  blueprint: BlueprintOptimizationObject | undefined;
+
+  /**
+   * List of Blueprint Optimization Samples
+   * @public
+   */
+  samples: BlueprintOptimizationSample[] | undefined;
+
+  /**
+   * Output configuration where the results should be placed
+   * @public
+   */
+  outputConfiguration: BlueprintOptimizationOutputConfiguration | undefined;
+
+  /**
+   * Data automation profile ARN
+   * @public
+   */
+  dataAutomationProfileArn: string | undefined;
+
+  /**
+   * Encryption configuration.
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * List of tags.
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * Invoke Blueprint Optimization Async Response
+ * @public
+ */
+export interface InvokeBlueprintOptimizationAsyncResponse {
+  /**
+   * ARN of the blueprint optimization job
+   * @public
+   */
+  invocationArn: string | undefined;
 }
 
 /**
@@ -174,6 +355,18 @@ export interface Blueprint {
    * @public
    */
   kmsEncryptionContext?: Record<string, string> | undefined;
+
+  /**
+   * List of Blueprint Optimization Samples
+   * @public
+   */
+  optimizationSamples?: BlueprintOptimizationSample[] | undefined;
+
+  /**
+   * Time Stamp
+   * @public
+   */
+  optimizationTime?: Date | undefined;
 }
 
 /**
@@ -186,24 +379,6 @@ export interface CreateBlueprintResponse {
    * @public
    */
   blueprint: Blueprint | undefined;
-}
-
-/**
- * Stores information about a field passed inside a request that resulted in an exception
- * @public
- */
-export interface ValidationExceptionField {
-  /**
-   * Non Blank String
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * Non Blank String
-   * @public
-   */
-  message: string | undefined;
 }
 
 /**
@@ -427,6 +602,42 @@ export interface UpdateBlueprintResponse {
    */
   blueprint: Blueprint | undefined;
 }
+
+/**
+ * CopyBlueprintStage Request
+ * @public
+ */
+export interface CopyBlueprintStageRequest {
+  /**
+   * Blueprint to be copied
+   * @public
+   */
+  blueprintArn: string | undefined;
+
+  /**
+   * Source stage to copy from
+   * @public
+   */
+  sourceStage: BlueprintStage | undefined;
+
+  /**
+   * Target stage to copy to
+   * @public
+   */
+  targetStage: BlueprintStage | undefined;
+
+  /**
+   * Client token for idempotency
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * CopyBlueprintStage Response
+ * @public
+ */
+export interface CopyBlueprintStageResponse {}
 
 /**
  * Create Blueprint Version Request

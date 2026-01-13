@@ -13,7 +13,7 @@ import type {
   GetIdentityProviderByIdentifierRequest,
   GetIdentityProviderByIdentifierResponse,
 } from "../models/models_0";
-import { GetIdentityProviderByIdentifier } from "../schemas/schemas_0";
+import { GetIdentityProviderByIdentifier$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetIdentityProviderByIdentifierCommandInput extends GetIdentity
  *
  * The output of {@link GetIdentityProviderByIdentifierCommand}.
  */
-export interface GetIdentityProviderByIdentifierCommandOutput
-  extends GetIdentityProviderByIdentifierResponse,
-    __MetadataBearer {}
+export interface GetIdentityProviderByIdentifierCommandOutput extends GetIdentityProviderByIdentifierResponse, __MetadataBearer {}
 
 /**
  * <p>Given the identifier of an identity provider (IdP), for example
@@ -118,7 +116,7 @@ export class GetIdentityProviderByIdentifierCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "GetIdentityProviderByIdentifier", {})
   .n("CognitoIdentityProviderClient", "GetIdentityProviderByIdentifierCommand")
-  .sc(GetIdentityProviderByIdentifier)
+  .sc(GetIdentityProviderByIdentifier$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

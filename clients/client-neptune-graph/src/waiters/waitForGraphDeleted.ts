@@ -7,12 +7,12 @@ import { NeptuneGraphClient } from "../NeptuneGraphClient";
 const checkState = async (client: NeptuneGraphClient, input: GetGraphCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetGraphCommand(input));
+    let result: any = await client.send(new GetGraphCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
-        return result.status != "DELETING";
-      };
+        return (result.status != "DELETING");
+      }
       if (returnComparator() == true) {
         return { state: WaiterState.FAILURE, reason };
       }

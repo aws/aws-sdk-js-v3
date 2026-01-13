@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import type { DeleteSlotTypeVersionRequest } from "../models/models_0";
-import { DeleteSlotTypeVersion } from "../schemas/schemas_0";
+import { DeleteSlotTypeVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class DeleteSlotTypeVersionCommand extends $Command
   })
   .s("AWSDeepSenseModelBuildingService", "DeleteSlotTypeVersion", {})
   .n("LexModelBuildingServiceClient", "DeleteSlotTypeVersionCommand")
-  .sc(DeleteSlotTypeVersion)
+  .sc(DeleteSlotTypeVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

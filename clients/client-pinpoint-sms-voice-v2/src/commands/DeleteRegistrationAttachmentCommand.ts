@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DeleteRegistrationAttachment } from "../schemas/schemas_0";
+import { DeleteRegistrationAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DeleteRegistrationAttachmentCommandInput extends DeleteRegistra
  *
  * The output of {@link DeleteRegistrationAttachmentCommand}.
  */
-export interface DeleteRegistrationAttachmentCommandOutput
-  extends DeleteRegistrationAttachmentResult,
-    __MetadataBearer {}
+export interface DeleteRegistrationAttachmentCommandOutput extends DeleteRegistrationAttachmentResult, __MetadataBearer {}
 
 /**
  * <p>Permanently delete the specified registration attachment.</p>
@@ -101,7 +99,7 @@ export class DeleteRegistrationAttachmentCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DeleteRegistrationAttachment", {})
   .n("PinpointSMSVoiceV2Client", "DeleteRegistrationAttachmentCommand")
-  .sc(DeleteRegistrationAttachment)
+  .sc(DeleteRegistrationAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

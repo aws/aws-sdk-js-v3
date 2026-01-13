@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyConversionConfigurationMessage, ModifyConversionConfigurationResponse } from "../models/models_0";
-import { ModifyConversionConfiguration } from "../schemas/schemas_0";
+import { ModifyConversionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ModifyConversionConfigurationCommandInput extends ModifyConvers
  *
  * The output of {@link ModifyConversionConfigurationCommand}.
  */
-export interface ModifyConversionConfigurationCommandOutput
-  extends ModifyConversionConfigurationResponse,
-    __MetadataBearer {}
+export interface ModifyConversionConfigurationCommandOutput extends ModifyConversionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the specified schema conversion configuration using the provided parameters. </p>
@@ -102,7 +100,7 @@ export class ModifyConversionConfigurationCommand extends $Command
   })
   .s("AmazonDMSv20160101", "ModifyConversionConfiguration", {})
   .n("DatabaseMigrationServiceClient", "ModifyConversionConfigurationCommand")
-  .sc(ModifyConversionConfiguration)
+  .sc(ModifyConversionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

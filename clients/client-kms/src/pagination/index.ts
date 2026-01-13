@@ -1,6 +1,6 @@
-export * from "./DescribeCustomKeyStoresPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeCustomKeyStoresPaginator";
 export * from "./ListAliasesPaginator";
 export * from "./ListGrantsPaginator";
 export * from "./ListKeyPoliciesPaginator";

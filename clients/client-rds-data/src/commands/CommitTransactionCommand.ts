@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CommitTransactionRequest, CommitTransactionResponse } from "../models/models_0";
 import type { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
-import { CommitTransaction } from "../schemas/schemas_0";
+import { CommitTransaction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,7 +133,7 @@ export class CommitTransactionCommand extends $Command
   })
   .s("RdsDataService", "CommitTransaction", {})
   .n("RDSDataClient", "CommitTransactionCommand")
-  .sc(CommitTransaction)
+  .sc(CommitTransaction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

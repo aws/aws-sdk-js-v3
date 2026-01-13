@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetObjectAttributesRequest, GetObjectAttributesResponse } from "../models/models_0";
-import { GetObjectAttributes } from "../schemas/schemas_0";
+import { GetObjectAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class GetObjectAttributesCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "GetObjectAttributes", {})
   .n("CloudDirectoryClient", "GetObjectAttributesCommand")
-  .sc(GetObjectAttributes)
+  .sc(GetObjectAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

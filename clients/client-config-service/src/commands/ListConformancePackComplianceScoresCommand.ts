@@ -9,7 +9,7 @@ import type {
   ListConformancePackComplianceScoresRequest,
   ListConformancePackComplianceScoresResponse,
 } from "../models/models_0";
-import { ListConformancePackComplianceScores } from "../schemas/schemas_0";
+import { ListConformancePackComplianceScores$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListConformancePackComplianceScoresCommandInput extends ListCon
  *
  * The output of {@link ListConformancePackComplianceScoresCommand}.
  */
-export interface ListConformancePackComplianceScoresCommandOutput
-  extends ListConformancePackComplianceScoresResponse,
-    __MetadataBearer {}
+export interface ListConformancePackComplianceScoresCommandOutput extends ListConformancePackComplianceScoresResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of conformance pack compliance scores.
@@ -111,7 +109,7 @@ export class ListConformancePackComplianceScoresCommand extends $Command
   })
   .s("StarlingDoveService", "ListConformancePackComplianceScores", {})
   .n("ConfigServiceClient", "ListConformancePackComplianceScoresCommand")
-  .sc(ListConformancePackComplianceScores)
+  .sc(ListConformancePackComplianceScores$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LogoutRequest } from "../models/models_0";
-import { Logout } from "../schemas/schemas_0";
+import { Logout$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOClientResolvedConfig } from "../SSOClient";
 
 /**
@@ -96,7 +96,7 @@ export class LogoutCommand extends $Command
   })
   .s("SWBPortalService", "Logout", {})
   .n("SSOClient", "LogoutCommand")
-  .sc(Logout)
+  .sc(Logout$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

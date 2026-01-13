@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPortalRequest, GetPortalResponse } from "../models/models_0";
-import { GetPortal } from "../schemas/schemas_0";
+import { GetPortal$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -112,7 +112,7 @@ export class GetPortalCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "GetPortal", {})
   .n("WorkSpacesWebClient", "GetPortalCommand")
-  .sc(GetPortal)
+  .sc(GetPortal$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

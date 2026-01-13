@@ -9,7 +9,7 @@ import type {
   ListSuggestedResiliencyPoliciesResponse,
 } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { ListSuggestedResiliencyPolicies } from "../schemas/schemas_0";
+import { ListSuggestedResiliencyPolicies$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListSuggestedResiliencyPoliciesCommandInput extends ListSuggest
  *
  * The output of {@link ListSuggestedResiliencyPoliciesCommand}.
  */
-export interface ListSuggestedResiliencyPoliciesCommandOutput
-  extends ListSuggestedResiliencyPoliciesResponse,
-    __MetadataBearer {}
+export interface ListSuggestedResiliencyPoliciesCommandOutput extends ListSuggestedResiliencyPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the suggested resiliency policies for the Resilience Hub
@@ -118,7 +116,7 @@ export class ListSuggestedResiliencyPoliciesCommand extends $Command
   })
   .s("AwsResilienceHub", "ListSuggestedResiliencyPolicies", {})
   .n("ResiliencehubClient", "ListSuggestedResiliencyPoliciesCommand")
-  .sc(ListSuggestedResiliencyPolicies)
+  .sc(ListSuggestedResiliencyPolicies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

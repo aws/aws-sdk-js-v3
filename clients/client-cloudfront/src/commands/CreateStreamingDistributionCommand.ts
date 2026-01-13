@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateStreamingDistributionRequest, CreateStreamingDistributionResult } from "../models/models_0";
-import { CreateStreamingDistribution } from "../schemas/schemas_0";
+import { CreateStreamingDistribution$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -190,7 +190,7 @@ export class CreateStreamingDistributionCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "CreateStreamingDistribution", {})
   .n("CloudFrontClient", "CreateStreamingDistributionCommand")
-  .sc(CreateStreamingDistribution)
+  .sc(CreateStreamingDistribution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import type { DeleteStorageVirtualMachineRequest, DeleteStorageVirtualMachineResponse } from "../models/models_0";
-import { DeleteStorageVirtualMachine } from "../schemas/schemas_0";
+import { DeleteStorageVirtualMachine$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteStorageVirtualMachineCommandInput extends DeleteStorageVi
  *
  * The output of {@link DeleteStorageVirtualMachineCommand}.
  */
-export interface DeleteStorageVirtualMachineCommandOutput
-  extends DeleteStorageVirtualMachineResponse,
-    __MetadataBearer {}
+export interface DeleteStorageVirtualMachineCommandOutput extends DeleteStorageVirtualMachineResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing Amazon FSx for ONTAP storage virtual machine (SVM). Prior
@@ -92,7 +90,7 @@ export class DeleteStorageVirtualMachineCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "DeleteStorageVirtualMachine", {})
   .n("FSxClient", "DeleteStorageVirtualMachineCommand")
-  .sc(DeleteStorageVirtualMachine)
+  .sc(DeleteStorageVirtualMachine$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

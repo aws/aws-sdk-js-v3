@@ -26,6 +26,11 @@ import {
 } from "./commands/ListCustomerAgreementsCommand";
 import { ListReportsCommand, ListReportsCommandInput, ListReportsCommandOutput } from "./commands/ListReportsCommand";
 import {
+  ListReportVersionsCommand,
+  ListReportVersionsCommandInput,
+  ListReportVersionsCommandOutput,
+} from "./commands/ListReportVersionsCommand";
+import {
   PutAccountSettingsCommand,
   PutAccountSettingsCommandInput,
   PutAccountSettingsCommandOutput,
@@ -38,6 +43,7 @@ const commands = {
   GetTermForReportCommand,
   ListCustomerAgreementsCommand,
   ListReportsCommand,
+  ListReportVersionsCommand,
   PutAccountSettingsCommand,
 };
 
@@ -63,8 +69,14 @@ export interface Artifact {
   /**
    * @see {@link GetReportCommand}
    */
-  getReport(args: GetReportCommandInput, options?: __HttpHandlerOptions): Promise<GetReportCommandOutput>;
-  getReport(args: GetReportCommandInput, cb: (err: any, data?: GetReportCommandOutput) => void): void;
+  getReport(
+    args: GetReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetReportCommandOutput>;
+  getReport(
+    args: GetReportCommandInput,
+    cb: (err: any, data?: GetReportCommandOutput) => void
+  ): void;
   getReport(
     args: GetReportCommandInput,
     options: __HttpHandlerOptions,
@@ -127,12 +139,35 @@ export interface Artifact {
    * @see {@link ListReportsCommand}
    */
   listReports(): Promise<ListReportsCommandOutput>;
-  listReports(args: ListReportsCommandInput, options?: __HttpHandlerOptions): Promise<ListReportsCommandOutput>;
-  listReports(args: ListReportsCommandInput, cb: (err: any, data?: ListReportsCommandOutput) => void): void;
+  listReports(
+    args: ListReportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReportsCommandOutput>;
+  listReports(
+    args: ListReportsCommandInput,
+    cb: (err: any, data?: ListReportsCommandOutput) => void
+  ): void;
   listReports(
     args: ListReportsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListReportsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListReportVersionsCommand}
+   */
+  listReportVersions(
+    args: ListReportVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReportVersionsCommandOutput>;
+  listReportVersions(
+    args: ListReportVersionsCommandInput,
+    cb: (err: any, data?: ListReportVersionsCommandOutput) => void
+  ): void;
+  listReportVersions(
+    args: ListReportVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReportVersionsCommandOutput) => void
   ): void;
 
   /**

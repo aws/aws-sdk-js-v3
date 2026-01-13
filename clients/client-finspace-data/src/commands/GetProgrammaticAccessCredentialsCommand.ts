@@ -9,7 +9,7 @@ import type {
   GetProgrammaticAccessCredentialsRequest,
   GetProgrammaticAccessCredentialsResponse,
 } from "../models/models_0";
-import { GetProgrammaticAccessCredentials } from "../schemas/schemas_0";
+import { GetProgrammaticAccessCredentials$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetProgrammaticAccessCredentialsCommandInput extends GetProgram
  *
  * The output of {@link GetProgrammaticAccessCredentialsCommand}.
  */
-export interface GetProgrammaticAccessCredentialsCommandOutput
-  extends GetProgrammaticAccessCredentialsResponse,
-    __MetadataBearer {}
+export interface GetProgrammaticAccessCredentialsCommandOutput extends GetProgrammaticAccessCredentialsResponse, __MetadataBearer {}
 
 /**
  * <p>Request programmatic credentials to use with FinSpace SDK. For more information, see <a href="https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#accessing-credentials">Step 2. Access credentials programmatically using IAM access key id and secret access key</a>.</p>
@@ -99,7 +97,7 @@ export class GetProgrammaticAccessCredentialsCommand extends $Command
   })
   .s("AWSHabaneroPublicAPI", "GetProgrammaticAccessCredentials", {})
   .n("FinspaceDataClient", "GetProgrammaticAccessCredentialsCommand")
-  .sc(GetProgrammaticAccessCredentials)
+  .sc(GetProgrammaticAccessCredentials$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

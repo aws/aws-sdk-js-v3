@@ -8,7 +8,7 @@ import type {
   ExecuteProvisionedProductServiceActionInput,
   ExecuteProvisionedProductServiceActionOutput,
 } from "../models/models_0";
-import { ExecuteProvisionedProductServiceAction } from "../schemas/schemas_0";
+import { ExecuteProvisionedProductServiceAction$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ExecuteProvisionedProductServiceActionCommand}.
  */
-export interface ExecuteProvisionedProductServiceActionCommandInput
-  extends ExecuteProvisionedProductServiceActionInput {}
+export interface ExecuteProvisionedProductServiceActionCommandInput extends ExecuteProvisionedProductServiceActionInput {}
 /**
  * @public
  *
  * The output of {@link ExecuteProvisionedProductServiceActionCommand}.
  */
-export interface ExecuteProvisionedProductServiceActionCommandOutput
-  extends ExecuteProvisionedProductServiceActionOutput,
-    __MetadataBearer {}
+export interface ExecuteProvisionedProductServiceActionCommandOutput extends ExecuteProvisionedProductServiceActionOutput, __MetadataBearer {}
 
 /**
  * <p>Executes a self-service action against a provisioned product.</p>
@@ -126,7 +123,7 @@ export class ExecuteProvisionedProductServiceActionCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "ExecuteProvisionedProductServiceAction", {})
   .n("ServiceCatalogClient", "ExecuteProvisionedProductServiceActionCommand")
-  .sc(ExecuteProvisionedProductServiceAction)
+  .sc(ExecuteProvisionedProductServiceAction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

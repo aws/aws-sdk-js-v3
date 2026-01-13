@@ -9,7 +9,7 @@ import type {
   ListVirtualInterfaceTestHistoryRequest,
   ListVirtualInterfaceTestHistoryResponse,
 } from "../models/models_0";
-import { ListVirtualInterfaceTestHistory } from "../schemas/schemas_0";
+import { ListVirtualInterfaceTestHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListVirtualInterfaceTestHistoryCommandInput extends ListVirtual
  *
  * The output of {@link ListVirtualInterfaceTestHistoryCommand}.
  */
-export interface ListVirtualInterfaceTestHistoryCommandOutput
-  extends ListVirtualInterfaceTestHistoryResponse,
-    __MetadataBearer {}
+export interface ListVirtualInterfaceTestHistoryCommandOutput extends ListVirtualInterfaceTestHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the virtual interface failover test history.</p>
@@ -105,7 +103,7 @@ export class ListVirtualInterfaceTestHistoryCommand extends $Command
   })
   .s("OvertureService", "ListVirtualInterfaceTestHistory", {})
   .n("DirectConnectClient", "ListVirtualInterfaceTestHistoryCommand")
-  .sc(ListVirtualInterfaceTestHistory)
+  .sc(ListVirtualInterfaceTestHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

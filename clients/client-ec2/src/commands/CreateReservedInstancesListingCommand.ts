@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateReservedInstancesListingRequest, CreateReservedInstancesListingResult } from "../models/models_1";
-import { CreateReservedInstancesListing } from "../schemas/schemas_0";
+import { CreateReservedInstancesListing$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateReservedInstancesListingCommandInput extends CreateReserv
  *
  * The output of {@link CreateReservedInstancesListingCommand}.
  */
-export interface CreateReservedInstancesListingCommandOutput
-  extends CreateReservedInstancesListingResult,
-    __MetadataBearer {}
+export interface CreateReservedInstancesListingCommandOutput extends CreateReservedInstancesListingResult, __MetadataBearer {}
 
 /**
  * <p>Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the Reserved
@@ -132,7 +130,7 @@ export class CreateReservedInstancesListingCommand extends $Command
   })
   .s("AmazonEC2", "CreateReservedInstancesListing", {})
   .n("EC2Client", "CreateReservedInstancesListingCommand")
-  .sc(CreateReservedInstancesListing)
+  .sc(CreateReservedInstancesListing$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

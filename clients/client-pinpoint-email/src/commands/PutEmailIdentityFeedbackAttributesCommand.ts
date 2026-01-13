@@ -9,7 +9,7 @@ import type {
   PutEmailIdentityFeedbackAttributesResponse,
 } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { PutEmailIdentityFeedbackAttributes } from "../schemas/schemas_0";
+import { PutEmailIdentityFeedbackAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface PutEmailIdentityFeedbackAttributesCommandInput extends PutEmail
  *
  * The output of {@link PutEmailIdentityFeedbackAttributesCommand}.
  */
-export interface PutEmailIdentityFeedbackAttributesCommandOutput
-  extends PutEmailIdentityFeedbackAttributesResponse,
-    __MetadataBearer {}
+export interface PutEmailIdentityFeedbackAttributesCommandOutput extends PutEmailIdentityFeedbackAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Used to enable or disable feedback forwarding for an identity. This setting determines
@@ -96,7 +94,7 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "PutEmailIdentityFeedbackAttributes", {})
   .n("PinpointEmailClient", "PutEmailIdentityFeedbackAttributesCommand")
-  .sc(PutEmailIdentityFeedbackAttributes)
+  .sc(PutEmailIdentityFeedbackAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

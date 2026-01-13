@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateMembershipInput, CreateMembershipOutput } from "../models/models_0";
-import { CreateMembership } from "../schemas/schemas_0";
+import { CreateMembership$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,6 +82,7 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  *       isResponsible: true || false, // required
  *     },
  *   },
+ *   isMetricsEnabled: true || false,
  * };
  * const command = new CreateMembershipCommand(input);
  * const response = await client.send(command);
@@ -146,6 +147,7 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  * //         isResponsible: true || false, // required
  * //       },
  * //     },
+ * //     isMetricsEnabled: true || false,
  * //   },
  * // };
  *
@@ -198,7 +200,7 @@ export class CreateMembershipCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "CreateMembership", {})
   .n("CleanRoomsClient", "CreateMembershipCommand")
-  .sc(CreateMembership)
+  .sc(CreateMembership$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

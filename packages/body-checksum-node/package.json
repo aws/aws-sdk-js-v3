@@ -1,11 +1,11 @@
 {
   "name": "@aws-sdk/body-checksum-node",
-  "version": "3.936.0",
+  "version": "3.965.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline body-checksum-node",
     "build:es": "tsc -p tsconfig.es.json",
-    "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
+    "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
@@ -26,8 +26,8 @@
     "@aws-sdk/sha256-tree-hash": "*",
     "@aws-sdk/types": "*",
     "@smithy/is-array-buffer": "^4.2.0",
-    "@smithy/protocol-http": "^5.3.5",
-    "@smithy/types": "^4.9.0",
+    "@smithy/protocol-http": "^5.3.7",
+    "@smithy/types": "^4.11.0",
     "@smithy/util-hex-encoding": "^4.2.0",
     "@smithy/util-utf8": "^4.2.0",
     "tslib": "^2.6.2"
@@ -37,7 +37,7 @@
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
-    "rimraf": "3.0.2",
+    "rimraf": "5.0.10",
     "typescript": "~5.8.3"
   },
   "engines": {

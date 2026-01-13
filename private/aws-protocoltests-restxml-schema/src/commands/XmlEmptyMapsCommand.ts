@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { XmlEmptyMaps } from "../schemas/schemas_0";
+import { XmlEmptyMaps$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class XmlEmptyMapsCommand extends $Command
   })
   .s("RestXml", "XmlEmptyMaps", {})
   .n("RestXmlProtocolClient", "XmlEmptyMapsCommand")
-  .sc(XmlEmptyMaps)
+  .sc(XmlEmptyMaps$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

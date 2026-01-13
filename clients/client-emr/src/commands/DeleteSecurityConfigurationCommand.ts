@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSecurityConfigurationInput, DeleteSecurityConfigurationOutput } from "../models/models_0";
-import { DeleteSecurityConfiguration } from "../schemas/schemas_0";
+import { DeleteSecurityConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -78,7 +78,7 @@ export class DeleteSecurityConfigurationCommand extends $Command
   })
   .s("ElasticMapReduce", "DeleteSecurityConfiguration", {})
   .n("EMRClient", "DeleteSecurityConfigurationCommand")
-  .sc(DeleteSecurityConfiguration)
+  .sc(DeleteSecurityConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

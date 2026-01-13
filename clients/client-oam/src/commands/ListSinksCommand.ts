@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSinksInput, ListSinksOutput } from "../models/models_0";
 import type { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import { ListSinks } from "../schemas/schemas_0";
+import { ListSinks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class ListSinksCommand extends $Command
   })
   .s("oamservice", "ListSinks", {})
   .n("OAMClient", "ListSinksCommand")
-  .sc(ListSinks)
+  .sc(ListSinks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

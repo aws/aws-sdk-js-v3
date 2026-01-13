@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import type { CreateExclusionsPreviewRequest, CreateExclusionsPreviewResponse } from "../models/models_0";
-import { CreateExclusionsPreview } from "../schemas/schemas_0";
+import { CreateExclusionsPreview$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class CreateExclusionsPreviewCommand extends $Command
   })
   .s("InspectorService", "CreateExclusionsPreview", {})
   .n("InspectorClient", "CreateExclusionsPreviewCommand")
-  .sc(CreateExclusionsPreview)
+  .sc(CreateExclusionsPreview$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

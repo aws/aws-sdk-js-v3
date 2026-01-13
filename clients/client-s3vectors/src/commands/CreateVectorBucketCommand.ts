@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateVectorBucketInput, CreateVectorBucketOutput } from "../models/models_0";
 import type { S3VectorsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3VectorsClient";
-import { CreateVectorBucket } from "../schemas/schemas_0";
+import { CreateVectorBucket$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class CreateVectorBucketCommand extends $Command
   })
   .s("S3Vectors", "CreateVectorBucket", {})
   .n("S3VectorsClient", "CreateVectorBucketCommand")
-  .sc(CreateVectorBucket)
+  .sc(CreateVectorBucket$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

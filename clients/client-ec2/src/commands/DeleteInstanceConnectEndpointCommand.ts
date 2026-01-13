@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteInstanceConnectEndpointRequest, DeleteInstanceConnectEndpointResult } from "../models/models_2";
-import { DeleteInstanceConnectEndpoint } from "../schemas/schemas_0";
+import { DeleteInstanceConnectEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteInstanceConnectEndpointCommandInput extends DeleteInstanc
  *
  * The output of {@link DeleteInstanceConnectEndpointCommand}.
  */
-export interface DeleteInstanceConnectEndpointCommandOutput
-  extends DeleteInstanceConnectEndpointResult,
-    __MetadataBearer {}
+export interface DeleteInstanceConnectEndpointCommandOutput extends DeleteInstanceConnectEndpointResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified EC2 Instance Connect Endpoint.</p>
@@ -113,7 +111,7 @@ export class DeleteInstanceConnectEndpointCommand extends $Command
   })
   .s("AmazonEC2", "DeleteInstanceConnectEndpoint", {})
   .n("EC2Client", "DeleteInstanceConnectEndpointCommand")
-  .sc(DeleteInstanceConnectEndpoint)
+  .sc(DeleteInstanceConnectEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

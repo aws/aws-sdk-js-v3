@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeResourceServerRequest, DescribeResourceServerResponse } from "../models/models_0";
-import { DescribeResourceServer } from "../schemas/schemas_0";
+import { DescribeResourceServer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class DescribeResourceServerCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "DescribeResourceServer", {})
   .n("CognitoIdentityProviderClient", "DescribeResourceServerCommand")
-  .sc(DescribeResourceServer)
+  .sc(DescribeResourceServer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateServiceTemplateVersionInput, UpdateServiceTemplateVersionOutput } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { UpdateServiceTemplateVersion } from "../schemas/schemas_0";
+import { UpdateServiceTemplateVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateServiceTemplateVersionCommandInput extends UpdateServiceT
  *
  * The output of {@link UpdateServiceTemplateVersionCommand}.
  */
-export interface UpdateServiceTemplateVersionCommandOutput
-  extends UpdateServiceTemplateVersionOutput,
-    __MetadataBearer {}
+export interface UpdateServiceTemplateVersionCommandOutput extends UpdateServiceTemplateVersionOutput, __MetadataBearer {}
 
 /**
  * <p>Update a major or minor version of a service template.</p>
@@ -129,7 +127,7 @@ export class UpdateServiceTemplateVersionCommand extends $Command
   })
   .s("AwsProton20200720", "UpdateServiceTemplateVersion", {})
   .n("ProtonClient", "UpdateServiceTemplateVersionCommand")
-  .sc(UpdateServiceTemplateVersion)
+  .sc(UpdateServiceTemplateVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

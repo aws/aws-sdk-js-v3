@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListRegionalBucketsRequest, ListRegionalBucketsResult } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { ListRegionalBuckets } from "../schemas/schemas_0";
+import { ListRegionalBuckets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,11 +94,14 @@ export class ListRegionalBucketsCommand extends $Command
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getRedirectFromPostIdPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getRedirectFromPostIdPlugin(config),
+    ];
   })
   .s("AWSS3ControlServiceV20180820", "ListRegionalBuckets", {})
   .n("S3ControlClient", "ListRegionalBucketsCommand")
-  .sc(ListRegionalBuckets)
+  .sc(ListRegionalBuckets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateApplicationRequest, UpdateApplicationResponse } from "../models/models_0";
-import { UpdateApplication } from "../schemas/schemas_0";
+import { UpdateApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,6 +127,12 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *       remoteWriteUrl: "STRING_VALUE",
  *     },
  *   },
+ *   diskEncryptionConfiguration: { // DiskEncryptionConfiguration
+ *     encryptionContext: { // EncryptionContext
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     encryptionKeyArn: "STRING_VALUE",
+ *   },
  *   schedulerConfiguration: { // SchedulerConfiguration
  *     queueTimeoutMinutes: Number("int"),
  *     maxConcurrentRuns: Number("int"),
@@ -134,6 +140,9 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *   identityCenterConfiguration: { // IdentityCenterConfigurationInput
  *     identityCenterInstanceArn: "STRING_VALUE",
  *     userBackgroundSessionsEnabled: true || false,
+ *   },
+ *   jobLevelCostAllocationConfiguration: { // JobLevelCostAllocationConfiguration
+ *     enabled: true || false,
  *   },
  * };
  * const command = new UpdateApplicationCommand(input);
@@ -237,6 +246,12 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //         remoteWriteUrl: "STRING_VALUE",
  * //       },
  * //     },
+ * //     diskEncryptionConfiguration: { // DiskEncryptionConfiguration
+ * //       encryptionContext: { // EncryptionContext
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       encryptionKeyArn: "STRING_VALUE",
+ * //     },
  * //     interactiveConfiguration: { // InteractiveConfiguration
  * //       studioEnabled: true || false,
  * //       livyEndpointEnabled: true || false,
@@ -249,6 +264,9 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //       identityCenterInstanceArn: "STRING_VALUE",
  * //       identityCenterApplicationArn: "STRING_VALUE",
  * //       userBackgroundSessionsEnabled: true || false,
+ * //     },
+ * //     jobLevelCostAllocationConfiguration: { // JobLevelCostAllocationConfiguration
+ * //       enabled: true || false,
  * //     },
  * //   },
  * // };
@@ -290,7 +308,7 @@ export class UpdateApplicationCommand extends $Command
   })
   .s("AwsToledoWebService", "UpdateApplication", {})
   .n("EMRServerlessClient", "UpdateApplicationCommand")
-  .sc(UpdateApplication)
+  .sc(UpdateApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

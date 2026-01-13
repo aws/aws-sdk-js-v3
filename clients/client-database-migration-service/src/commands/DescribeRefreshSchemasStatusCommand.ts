@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeRefreshSchemasStatusMessage, DescribeRefreshSchemasStatusResponse } from "../models/models_0";
-import { DescribeRefreshSchemasStatus } from "../schemas/schemas_0";
+import { DescribeRefreshSchemasStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeRefreshSchemasStatusCommandInput extends DescribeRefres
  *
  * The output of {@link DescribeRefreshSchemasStatusCommand}.
  */
-export interface DescribeRefreshSchemasStatusCommandOutput
-  extends DescribeRefreshSchemasStatusResponse,
-    __MetadataBearer {}
+export interface DescribeRefreshSchemasStatusCommandOutput extends DescribeRefreshSchemasStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the status of the RefreshSchemas operation.</p>
@@ -106,7 +104,7 @@ export class DescribeRefreshSchemasStatusCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeRefreshSchemasStatus", {})
   .n("DatabaseMigrationServiceClient", "DescribeRefreshSchemasStatusCommand")
-  .sc(DescribeRefreshSchemasStatus)
+  .sc(DescribeRefreshSchemasStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

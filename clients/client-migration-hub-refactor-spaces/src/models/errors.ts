@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { MigrationHubRefactorSpacesServiceException as __BaseException } from "./MigrationHubRefactorSpacesServiceException";
+import {
+  MigrationHubRefactorSpacesServiceException as __BaseException,
+} from "./MigrationHubRefactorSpacesServiceException";
 
 /**
  * <p>The user does not have sufficient access to perform this action. </p>

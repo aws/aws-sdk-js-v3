@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { ListCustomRoutingListenersRequest, ListCustomRoutingListenersResponse } from "../models/models_0";
-import { ListCustomRoutingListeners } from "../schemas/schemas_0";
+import { ListCustomRoutingListeners$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class ListCustomRoutingListenersCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "ListCustomRoutingListeners", {})
   .n("GlobalAcceleratorClient", "ListCustomRoutingListenersCommand")
-  .sc(ListCustomRoutingListeners)
+  .sc(ListCustomRoutingListeners$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

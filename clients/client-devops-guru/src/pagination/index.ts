@@ -1,12 +1,9 @@
-export * from "./DescribeOrganizationResourceCollectionHealthPaginator";
-
-export * from "./DescribeResourceCollectionHealthPaginator";
-
-export * from "./GetCostEstimationPaginator";
-
-export * from "./GetResourceCollectionPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeOrganizationResourceCollectionHealthPaginator";
+export * from "./DescribeResourceCollectionHealthPaginator";
+export * from "./GetCostEstimationPaginator";
+export * from "./GetResourceCollectionPaginator";
 export * from "./ListAnomaliesForInsightPaginator";
 export * from "./ListAnomalousLogGroupsPaginator";
 export * from "./ListEventsPaginator";

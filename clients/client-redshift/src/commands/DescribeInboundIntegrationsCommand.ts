@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeInboundIntegrationsMessage, InboundIntegrationsMessage } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeInboundIntegrations } from "../schemas/schemas_0";
+import { DescribeInboundIntegrations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class DescribeInboundIntegrationsCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DescribeInboundIntegrations", {})
   .n("RedshiftClient", "DescribeInboundIntegrationsCommand")
-  .sc(DescribeInboundIntegrations)
+  .sc(DescribeInboundIntegrations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

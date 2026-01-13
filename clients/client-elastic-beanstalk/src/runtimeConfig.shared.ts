@@ -26,18 +26,19 @@ export const getRuntimeConfig = (config: ElasticBeanstalkClientConfig) => {
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsQueryProtocol({
-        defaultNamespace: "com.amazonaws.elasticbeanstalk",
-        xmlNamespace: "http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/",
-        version: "2010-12-01",
-      }),
+    protocol: config?.protocol ?? AwsQueryProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.elasticbeanstalk",
+      xmlNamespace: "http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/",
+      version: "2010-12-01",
+      serviceTarget: "AWSElasticBeanstalkService",
+    },
     serviceId: config?.serviceId ?? "Elastic Beanstalk",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

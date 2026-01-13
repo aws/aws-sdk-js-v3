@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
-import { ListCrossAccountAuthorizations } from "../schemas/schemas_0";
+import { ListCrossAccountAuthorizations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListCrossAccountAuthorizationsCommandInput extends ListCrossAcc
  *
  * The output of {@link ListCrossAccountAuthorizationsCommand}.
  */
-export interface ListCrossAccountAuthorizationsCommandOutput
-  extends ListCrossAccountAuthorizationsResponse,
-    __MetadataBearer {}
+export interface ListCrossAccountAuthorizationsCommandOutput extends ListCrossAccountAuthorizationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the cross-account readiness authorizations that are in place for an account.</p>
@@ -95,7 +93,7 @@ export class ListCrossAccountAuthorizationsCommand extends $Command
   })
   .s("Route53RecoveryReadiness", "ListCrossAccountAuthorizations", {})
   .n("Route53RecoveryReadinessClient", "ListCrossAccountAuthorizationsCommand")
-  .sc(ListCrossAccountAuthorizations)
+  .sc(ListCrossAccountAuthorizations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

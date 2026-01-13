@@ -33,7 +33,9 @@ export interface MofNApprovalStrategy {
  * <p>Strategy for how an approval team grants approval.</p>
  * @public
  */
-export type ApprovalStrategy = ApprovalStrategy.MofNMember | ApprovalStrategy.$UnknownMember;
+export type ApprovalStrategy =
+  | ApprovalStrategy.MofNMember
+  | ApprovalStrategy.$UnknownMember;
 
 /**
  * @public
@@ -70,7 +72,9 @@ export namespace ApprovalStrategy {
  * <p>Contains details for how an approval team grants approval.</p>
  * @public
  */
-export type ApprovalStrategyResponse = ApprovalStrategyResponse.MofNMember | ApprovalStrategyResponse.$UnknownMember;
+export type ApprovalStrategyResponse =
+  | ApprovalStrategyResponse.MofNMember
+  | ApprovalStrategyResponse.$UnknownMember;
 
 /**
  * @public

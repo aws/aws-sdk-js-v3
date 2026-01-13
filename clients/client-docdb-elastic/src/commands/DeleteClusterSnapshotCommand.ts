@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteClusterSnapshotInput, DeleteClusterSnapshotOutput } from "../models/models_0";
-import { DeleteClusterSnapshot } from "../schemas/schemas_0";
+import { DeleteClusterSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class DeleteClusterSnapshotCommand extends $Command
   })
   .s("ChimeraDbLionfishServiceLambda", "DeleteClusterSnapshot", {})
   .n("DocDBElasticClient", "DeleteClusterSnapshotCommand")
-  .sc(DeleteClusterSnapshot)
+  .sc(DeleteClusterSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

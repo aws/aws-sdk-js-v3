@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DeleteAccountDefaultProtectConfiguration } from "../schemas/schemas_0";
+import { DeleteAccountDefaultProtectConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DeleteAccountDefaultProtectConfigurationCommand}.
  */
-export interface DeleteAccountDefaultProtectConfigurationCommandInput
-  extends DeleteAccountDefaultProtectConfigurationRequest {}
+export interface DeleteAccountDefaultProtectConfigurationCommandInput extends DeleteAccountDefaultProtectConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteAccountDefaultProtectConfigurationCommand}.
  */
-export interface DeleteAccountDefaultProtectConfigurationCommandOutput
-  extends DeleteAccountDefaultProtectConfigurationResult,
-    __MetadataBearer {}
+export interface DeleteAccountDefaultProtectConfigurationCommandOutput extends DeleteAccountDefaultProtectConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Removes the current account default protect configuration.</p>
@@ -97,7 +94,7 @@ export class DeleteAccountDefaultProtectConfigurationCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DeleteAccountDefaultProtectConfiguration", {})
   .n("PinpointSMSVoiceV2Client", "DeleteAccountDefaultProtectConfigurationCommand")
-  .sc(DeleteAccountDefaultProtectConfiguration)
+  .sc(DeleteAccountDefaultProtectConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

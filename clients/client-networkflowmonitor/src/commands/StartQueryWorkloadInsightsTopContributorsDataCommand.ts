@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFlowMonitorClient";
-import { StartQueryWorkloadInsightsTopContributorsData } from "../schemas/schemas_0";
+import { StartQueryWorkloadInsightsTopContributorsData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link StartQueryWorkloadInsightsTopContributorsDataCommand}.
  */
-export interface StartQueryWorkloadInsightsTopContributorsDataCommandInput
-  extends StartQueryWorkloadInsightsTopContributorsDataInput {}
+export interface StartQueryWorkloadInsightsTopContributorsDataCommandInput extends StartQueryWorkloadInsightsTopContributorsDataInput {}
 /**
  * @public
  *
  * The output of {@link StartQueryWorkloadInsightsTopContributorsDataCommand}.
  */
-export interface StartQueryWorkloadInsightsTopContributorsDataCommandOutput
-  extends StartQueryWorkloadInsightsTopContributorsDataOutput,
-    __MetadataBearer {}
+export interface StartQueryWorkloadInsightsTopContributorsDataCommandOutput extends StartQueryWorkloadInsightsTopContributorsDataOutput, __MetadataBearer {}
 
 /**
  * <p>Create a query with the Network Flow Monitor query interface that you can run to return data for workload insights top contributors. Specify the scope that you want to create a query for.</p> <p>The call returns a query ID that you can use with <a href="https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsWorkloadInsightsTopContributorsData.html"> GetQueryResultsWorkloadInsightsTopContributorsData</a> to run the query and return the data for the top contributors for the workload insights for a scope.</p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned.</p>
@@ -102,7 +99,7 @@ export class StartQueryWorkloadInsightsTopContributorsDataCommand extends $Comma
   })
   .s("NetworkFlowMonitor", "StartQueryWorkloadInsightsTopContributorsData", {})
   .n("NetworkFlowMonitorClient", "StartQueryWorkloadInsightsTopContributorsDataCommand")
-  .sc(StartQueryWorkloadInsightsTopContributorsData)
+  .sc(StartQueryWorkloadInsightsTopContributorsData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

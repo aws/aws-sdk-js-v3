@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateProfileRequest, UpdateProfileResponse } from "../models/models_1";
-import { UpdateProfile } from "../schemas/schemas_0";
+import { UpdateProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -185,7 +185,7 @@ export class UpdateProfileCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "UpdateProfile", {})
   .n("CustomerProfilesClient", "UpdateProfileCommand")
-  .sc(UpdateProfile)
+  .sc(UpdateProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

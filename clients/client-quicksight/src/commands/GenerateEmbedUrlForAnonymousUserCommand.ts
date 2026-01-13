@@ -9,7 +9,7 @@ import type {
   GenerateEmbedUrlForAnonymousUserResponse,
 } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { GenerateEmbedUrlForAnonymousUser } from "../schemas/schemas_0";
+import { GenerateEmbedUrlForAnonymousUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GenerateEmbedUrlForAnonymousUserCommandInput extends GenerateEm
  *
  * The output of {@link GenerateEmbedUrlForAnonymousUserCommand}.
  */
-export interface GenerateEmbedUrlForAnonymousUserCommandOutput
-  extends GenerateEmbedUrlForAnonymousUserResponse,
-    __MetadataBearer {}
+export interface GenerateEmbedUrlForAnonymousUserCommandOutput extends GenerateEmbedUrlForAnonymousUserResponse, __MetadataBearer {}
 
 /**
  * <p>Generates an embed URL that you can use to embed an Amazon Quick Suite dashboard or
@@ -188,7 +186,7 @@ export class GenerateEmbedUrlForAnonymousUserCommand extends $Command
   })
   .s("QuickSight_20180401", "GenerateEmbedUrlForAnonymousUser", {})
   .n("QuickSightClient", "GenerateEmbedUrlForAnonymousUserCommand")
-  .sc(GenerateEmbedUrlForAnonymousUser)
+  .sc(GenerateEmbedUrlForAnonymousUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

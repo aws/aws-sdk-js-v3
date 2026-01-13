@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateConnectClientAddInRequest, UpdateConnectClientAddInResult } from "../models/models_0";
-import { UpdateConnectClientAddIn } from "../schemas/schemas_0";
+import { UpdateConnectClientAddIn$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -84,7 +84,7 @@ export class UpdateConnectClientAddInCommand extends $Command
   })
   .s("WorkspacesService", "UpdateConnectClientAddIn", {})
   .n("WorkSpacesClient", "UpdateConnectClientAddInCommand")
-  .sc(UpdateConnectClientAddIn)
+  .sc(UpdateConnectClientAddIn$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

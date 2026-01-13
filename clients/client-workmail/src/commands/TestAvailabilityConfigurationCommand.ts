@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TestAvailabilityConfigurationRequest, TestAvailabilityConfigurationResponse } from "../models/models_0";
-import { TestAvailabilityConfiguration } from "../schemas/schemas_0";
+import { TestAvailabilityConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -24,9 +24,7 @@ export interface TestAvailabilityConfigurationCommandInput extends TestAvailabil
  *
  * The output of {@link TestAvailabilityConfigurationCommand}.
  */
-export interface TestAvailabilityConfigurationCommandOutput
-  extends TestAvailabilityConfigurationResponse,
-    __MetadataBearer {}
+export interface TestAvailabilityConfigurationCommandOutput extends TestAvailabilityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Performs a test on an availability provider to ensure that access is allowed. For EWS, it verifies the provided credentials can be used to successfully log in. For Lambda, it verifies that the Lambda function can be invoked and that the resource access
@@ -106,7 +104,7 @@ export class TestAvailabilityConfigurationCommand extends $Command
   })
   .s("WorkMailService", "TestAvailabilityConfiguration", {})
   .n("WorkMailClient", "TestAvailabilityConfigurationCommand")
-  .sc(TestAvailabilityConfiguration)
+  .sc(TestAvailabilityConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

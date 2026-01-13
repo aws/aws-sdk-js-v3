@@ -9,7 +9,7 @@ import type {
   GenerateOrganizationsAccessReportRequest,
   GenerateOrganizationsAccessReportResponse,
 } from "../models/models_0";
-import { GenerateOrganizationsAccessReport } from "../schemas/schemas_0";
+import { GenerateOrganizationsAccessReport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GenerateOrganizationsAccessReportCommandInput extends GenerateO
  *
  * The output of {@link GenerateOrganizationsAccessReportCommand}.
  */
-export interface GenerateOrganizationsAccessReportCommandOutput
-  extends GenerateOrganizationsAccessReportResponse,
-    __MetadataBearer {}
+export interface GenerateOrganizationsAccessReportCommandOutput extends GenerateOrganizationsAccessReportResponse, __MetadataBearer {}
 
 /**
  * <p>Generates a report for service last accessed data for Organizations. You can generate a
@@ -228,7 +226,7 @@ export class GenerateOrganizationsAccessReportCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "GenerateOrganizationsAccessReport", {})
   .n("IAMClient", "GenerateOrganizationsAccessReportCommand")
-  .sc(GenerateOrganizationsAccessReport)
+  .sc(GenerateOrganizationsAccessReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

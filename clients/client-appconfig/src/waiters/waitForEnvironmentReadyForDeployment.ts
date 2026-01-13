@@ -7,12 +7,12 @@ import { GetEnvironmentCommand, GetEnvironmentCommandInput } from "../commands/G
 const checkState = async (client: AppConfigClient, input: GetEnvironmentCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetEnvironmentCommand(input));
+    let result: any = await client.send(new GetEnvironmentCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "ReadyForDeployment") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: AppConfigClient, input: GetEnvironmentCommandI
     try {
       const returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "RolledBack") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -28,7 +28,7 @@ const checkState = async (client: AppConfigClient, input: GetEnvironmentCommandI
     try {
       const returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "Reverted") {
         return { state: WaiterState.FAILURE, reason };
       }

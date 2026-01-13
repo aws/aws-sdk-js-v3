@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import type { PutRuntimeManagementConfigRequest, PutRuntimeManagementConfigResponse } from "../models/models_0";
-import { PutRuntimeManagementConfig } from "../schemas/schemas_0";
+import { PutRuntimeManagementConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class PutRuntimeManagementConfigCommand extends $Command
   })
   .s("AWSGirApiService", "PutRuntimeManagementConfig", {})
   .n("LambdaClient", "PutRuntimeManagementConfigCommand")
-  .sc(PutRuntimeManagementConfig)
+  .sc(PutRuntimeManagementConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

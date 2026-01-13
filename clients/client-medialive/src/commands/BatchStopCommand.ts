@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { BatchStopRequest, BatchStopResponse } from "../models/models_0";
-import { BatchStop } from "../schemas/schemas_0";
+import { BatchStop$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class BatchStopCommand extends $Command
   })
   .s("MediaLive", "BatchStop", {})
   .n("MediaLiveClient", "BatchStopCommand")
-  .sc(BatchStop)
+  .sc(BatchStop$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

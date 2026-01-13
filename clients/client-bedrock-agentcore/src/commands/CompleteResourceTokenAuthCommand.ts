@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CompleteResourceTokenAuthRequest, CompleteResourceTokenAuthResponse } from "../models/models_0";
-import { CompleteResourceTokenAuth } from "../schemas/schemas_0";
+import { CompleteResourceTokenAuth$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class CompleteResourceTokenAuthCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "CompleteResourceTokenAuth", {})
   .n("BedrockAgentCoreClient", "CompleteResourceTokenAuthCommand")
-  .sc(CompleteResourceTokenAuth)
+  .sc(CompleteResourceTokenAuth$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

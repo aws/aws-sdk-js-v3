@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import type { CreateDeviceDefinitionVersionRequest, CreateDeviceDefinitionVersionResponse } from "../models/models_0";
-import { CreateDeviceDefinitionVersion } from "../schemas/schemas_0";
+import { CreateDeviceDefinitionVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateDeviceDefinitionVersionCommandInput extends CreateDeviceD
  *
  * The output of {@link CreateDeviceDefinitionVersionCommand}.
  */
-export interface CreateDeviceDefinitionVersionCommandOutput
-  extends CreateDeviceDefinitionVersionResponse,
-    __MetadataBearer {}
+export interface CreateDeviceDefinitionVersionCommandOutput extends CreateDeviceDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Creates a version of a device definition that has already been defined.
@@ -90,7 +88,7 @@ export class CreateDeviceDefinitionVersionCommand extends $Command
   })
   .s("Greengrass", "CreateDeviceDefinitionVersion", {})
   .n("GreengrassClient", "CreateDeviceDefinitionVersionCommand")
-  .sc(CreateDeviceDefinitionVersion)
+  .sc(CreateDeviceDefinitionVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

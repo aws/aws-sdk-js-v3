@@ -21,10 +21,4 @@ export const paginateDescribeReplicationTaskIndividualAssessments: (
   DatabaseMigrationServicePaginationConfiguration,
   DescribeReplicationTaskIndividualAssessmentsCommandInput,
   DescribeReplicationTaskIndividualAssessmentsCommandOutput
->(
-  DatabaseMigrationServiceClient,
-  DescribeReplicationTaskIndividualAssessmentsCommand,
-  "Marker",
-  "Marker",
-  "MaxRecords"
-);
+>(DatabaseMigrationServiceClient, DescribeReplicationTaskIndividualAssessmentsCommand, "Marker", "Marker", "MaxRecords");

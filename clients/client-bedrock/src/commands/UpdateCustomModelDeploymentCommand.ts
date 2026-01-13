@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateCustomModelDeploymentRequest, UpdateCustomModelDeploymentResponse } from "../models/models_0";
-import { UpdateCustomModelDeployment } from "../schemas/schemas_0";
+import { UpdateCustomModelDeployment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateCustomModelDeploymentCommandInput extends UpdateCustomMod
  *
  * The output of {@link UpdateCustomModelDeploymentCommand}.
  */
-export interface UpdateCustomModelDeploymentCommandOutput
-  extends UpdateCustomModelDeploymentResponse,
-    __MetadataBearer {}
+export interface UpdateCustomModelDeploymentCommandOutput extends UpdateCustomModelDeploymentResponse, __MetadataBearer {}
 
 /**
  * <p> Updates a custom model deployment with a new custom model. This allows you to deploy updated models without creating new deployment endpoints. </p>
@@ -91,7 +89,7 @@ export class UpdateCustomModelDeploymentCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "UpdateCustomModelDeployment", {})
   .n("BedrockClient", "UpdateCustomModelDeploymentCommand")
-  .sc(UpdateCustomModelDeployment)
+  .sc(UpdateCustomModelDeployment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -126,6 +126,19 @@ export type ManagedTerminationProtection =
  * @public
  * @enum
  */
+export const CapacityOptionType = {
+  ON_DEMAND: "ON_DEMAND",
+  SPOT: "SPOT",
+} as const;
+/**
+ * @public
+ */
+export type CapacityOptionType = (typeof CapacityOptionType)[keyof typeof CapacityOptionType];
+
+/**
+ * @public
+ * @enum
+ */
 export const BareMetal = {
   EXCLUDED: "excluded",
   INCLUDED: "included",
@@ -617,6 +630,7 @@ export const SettingName = {
   CONTAINER_INSIGHTS: "containerInsights",
   CONTAINER_INSTANCE_LONG_ARN_FORMAT: "containerInstanceLongArnFormat",
   DEFAULT_LOG_DRIVER_MODE: "defaultLogDriverMode",
+  FARGATE_EVENT_WINDOWS: "fargateEventWindows",
   FARGATE_FIPS_MODE: "fargateFIPSMode",
   FARGATE_TASK_RETIREMENT_WAIT_PERIOD: "fargateTaskRetirementWaitPeriod",
   GUARD_DUTY_ACTIVATE: "guardDutyActivate",

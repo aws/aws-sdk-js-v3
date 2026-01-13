@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetQAppInput, GetQAppOutput } from "../models/models_0";
 import type { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
-import { GetQApp } from "../schemas/schemas_0";
+import { GetQApp$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -302,7 +302,7 @@ export class GetQAppCommand extends $Command
   })
   .s("QAppsService", "GetQApp", {})
   .n("QAppsClient", "GetQAppCommand")
-  .sc(GetQApp)
+  .sc(GetQApp$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeGroupRequest, DescribeGroupResponse } from "../models/models_0";
-import { DescribeGroup } from "../schemas/schemas_0";
+import { DescribeGroup$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -95,7 +95,7 @@ export class DescribeGroupCommand extends $Command
   })
   .s("WorkMailService", "DescribeGroup", {})
   .n("WorkMailClient", "DescribeGroupCommand")
-  .sc(DescribeGroup)
+  .sc(DescribeGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

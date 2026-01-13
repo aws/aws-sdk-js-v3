@@ -9,7 +9,7 @@ import type {
   EnableImageDeregistrationProtectionRequest,
   EnableImageDeregistrationProtectionResult,
 } from "../models/models_5";
-import { EnableImageDeregistrationProtection } from "../schemas/schemas_0";
+import { EnableImageDeregistrationProtection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface EnableImageDeregistrationProtectionCommandInput extends EnableI
  *
  * The output of {@link EnableImageDeregistrationProtectionCommand}.
  */
-export interface EnableImageDeregistrationProtectionCommandOutput
-  extends EnableImageDeregistrationProtectionResult,
-    __MetadataBearer {}
+export interface EnableImageDeregistrationProtectionCommandOutput extends EnableImageDeregistrationProtectionResult, __MetadataBearer {}
 
 /**
  * <p>Enables deregistration protection for an AMI. When deregistration protection is enabled,
@@ -84,7 +82,7 @@ export class EnableImageDeregistrationProtectionCommand extends $Command
   })
   .s("AmazonEC2", "EnableImageDeregistrationProtection", {})
   .n("EC2Client", "EnableImageDeregistrationProtectionCommand")
-  .sc(EnableImageDeregistrationProtection)
+  .sc(EnableImageDeregistrationProtection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

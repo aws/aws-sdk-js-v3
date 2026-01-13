@@ -13,7 +13,7 @@ import type {
   PutChannelMembershipPreferencesRequest,
   PutChannelMembershipPreferencesResponse,
 } from "../models/models_0";
-import { PutChannelMembershipPreferences } from "../schemas/schemas_0";
+import { PutChannelMembershipPreferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface PutChannelMembershipPreferencesCommandInput extends PutChannelM
  *
  * The output of {@link PutChannelMembershipPreferencesCommand}.
  */
-export interface PutChannelMembershipPreferencesCommandOutput
-  extends PutChannelMembershipPreferencesResponse,
-    __MetadataBearer {}
+export interface PutChannelMembershipPreferencesCommandOutput extends PutChannelMembershipPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
@@ -131,7 +129,7 @@ export class PutChannelMembershipPreferencesCommand extends $Command
   })
   .s("ChimeMessagingService", "PutChannelMembershipPreferences", {})
   .n("ChimeSDKMessagingClient", "PutChannelMembershipPreferencesCommand")
-  .sc(PutChannelMembershipPreferences)
+  .sc(PutChannelMembershipPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

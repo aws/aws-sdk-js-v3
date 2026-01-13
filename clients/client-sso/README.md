@@ -24,10 +24,8 @@ information about the AWS SDKs, including how to download and install them, see 
 </note>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-sso
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-sso`
 - `yarn add @aws-sdk/client-sso`
 - `pnpm add @aws-sdk/client-sso`
@@ -63,9 +61,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new SSOClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListAccountsCommand(params);
 ```
 
@@ -224,7 +220,6 @@ GetRoleCredentials
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sso/command/GetRoleCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso/Interface/GetRoleCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso/Interface/GetRoleCredentialsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -232,7 +227,6 @@ ListAccountRoles
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sso/command/ListAccountRolesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso/Interface/ListAccountRolesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso/Interface/ListAccountRolesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -240,7 +234,6 @@ ListAccounts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sso/command/ListAccountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso/Interface/ListAccountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso/Interface/ListAccountsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -248,5 +241,4 @@ Logout
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sso/command/LogoutCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso/Interface/LogoutCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso/Interface/LogoutCommandOutput/)
-
 </details>

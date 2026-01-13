@@ -9,7 +9,7 @@ import type {
   DescribeDataSetRefreshPropertiesResponse,
 } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeDataSetRefreshProperties } from "../schemas/schemas_0";
+import { DescribeDataSetRefreshProperties$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeDataSetRefreshPropertiesCommandInput extends DescribeDa
  *
  * The output of {@link DescribeDataSetRefreshPropertiesCommand}.
  */
-export interface DescribeDataSetRefreshPropertiesCommandOutput
-  extends DescribeDataSetRefreshPropertiesResponse,
-    __MetadataBearer {}
+export interface DescribeDataSetRefreshPropertiesCommandOutput extends DescribeDataSetRefreshPropertiesResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the refresh properties of a dataset.</p>
@@ -120,7 +118,7 @@ export class DescribeDataSetRefreshPropertiesCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeDataSetRefreshProperties", {})
   .n("QuickSightClient", "DescribeDataSetRefreshPropertiesCommand")
-  .sc(DescribeDataSetRefreshProperties)
+  .sc(DescribeDataSetRefreshProperties$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

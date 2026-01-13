@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { DetachInstancesFromLoadBalancerRequest, DetachInstancesFromLoadBalancerResult } from "../models/models_0";
-import { DetachInstancesFromLoadBalancer } from "../schemas/schemas_0";
+import { DetachInstancesFromLoadBalancer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DetachInstancesFromLoadBalancerCommandInput extends DetachInsta
  *
  * The output of {@link DetachInstancesFromLoadBalancerCommand}.
  */
-export interface DetachInstancesFromLoadBalancerCommandOutput
-  extends DetachInstancesFromLoadBalancerResult,
-    __MetadataBearer {}
+export interface DetachInstancesFromLoadBalancerCommandOutput extends DetachInstancesFromLoadBalancerResult, __MetadataBearer {}
 
 /**
  * <p>Detaches the specified instances from a Lightsail load balancer.</p>
@@ -135,7 +133,7 @@ export class DetachInstancesFromLoadBalancerCommand extends $Command
   })
   .s("Lightsail_20161128", "DetachInstancesFromLoadBalancer", {})
   .n("LightsailClient", "DetachInstancesFromLoadBalancerCommand")
-  .sc(DetachInstancesFromLoadBalancer)
+  .sc(DetachInstancesFromLoadBalancer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

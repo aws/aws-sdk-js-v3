@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import type { ListTargetsForSecurityProfileRequest, ListTargetsForSecurityProfileResponse } from "../models/models_1";
-import { ListTargetsForSecurityProfile } from "../schemas/schemas_0";
+import type { ListTargetsForSecurityProfileRequest, ListTargetsForSecurityProfileResponse } from "../models/models_2";
+import { ListTargetsForSecurityProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListTargetsForSecurityProfileCommandInput extends ListTargetsFo
  *
  * The output of {@link ListTargetsForSecurityProfileCommand}.
  */
-export interface ListTargetsForSecurityProfileCommandOutput
-  extends ListTargetsForSecurityProfileResponse,
-    __MetadataBearer {}
+export interface ListTargetsForSecurityProfileCommandOutput extends ListTargetsForSecurityProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the targets (thing groups) associated with a given Device Defender security profile.</p>
@@ -95,7 +93,7 @@ export class ListTargetsForSecurityProfileCommand extends $Command
   })
   .s("AWSIotService", "ListTargetsForSecurityProfile", {})
   .n("IoTClient", "ListTargetsForSecurityProfileCommand")
-  .sc(ListTargetsForSecurityProfile)
+  .sc(ListTargetsForSecurityProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteMessageTemplateAttachmentResponse,
 } from "../models/models_1";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { DeleteMessageTemplateAttachment } from "../schemas/schemas_0";
+import { DeleteMessageTemplateAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteMessageTemplateAttachmentCommandInput extends DeleteMessa
  *
  * The output of {@link DeleteMessageTemplateAttachmentCommand}.
  */
-export interface DeleteMessageTemplateAttachmentCommandOutput
-  extends DeleteMessageTemplateAttachmentResponse,
-    __MetadataBearer {}
+export interface DeleteMessageTemplateAttachmentCommandOutput extends DeleteMessageTemplateAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the attachment file from the Amazon Q in Connect message template that is referenced by <code>$LATEST</code> qualifier. Attachments on available message template versions will remain unchanged.</p>
@@ -93,7 +91,7 @@ export class DeleteMessageTemplateAttachmentCommand extends $Command
   })
   .s("WisdomService", "DeleteMessageTemplateAttachment", {})
   .n("QConnectClient", "DeleteMessageTemplateAttachmentCommand")
-  .sc(DeleteMessageTemplateAttachment)
+  .sc(DeleteMessageTemplateAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

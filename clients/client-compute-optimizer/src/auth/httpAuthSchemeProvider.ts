@@ -46,11 +46,9 @@ export const defaultComputeOptimizerHttpAuthSchemeParametersProvider = async (
 ): Promise<ComputeOptimizerHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -82,9 +80,7 @@ export interface ComputeOptimizerHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultComputeOptimizerHttpAuthSchemeProvider: ComputeOptimizerHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultComputeOptimizerHttpAuthSchemeProvider: ComputeOptimizerHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

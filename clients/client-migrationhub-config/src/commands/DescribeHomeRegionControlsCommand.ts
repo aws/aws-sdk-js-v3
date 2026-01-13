@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubConfigClient";
 import type { DescribeHomeRegionControlsRequest, DescribeHomeRegionControlsResult } from "../models/models_0";
-import { DescribeHomeRegionControls } from "../schemas/schemas_0";
+import { DescribeHomeRegionControls$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class DescribeHomeRegionControlsCommand extends $Command
   })
   .s("AWSMigrationHubMultiAccountService", "DescribeHomeRegionControls", {})
   .n("MigrationHubConfigClient", "DescribeHomeRegionControlsCommand")
-  .sc(DescribeHomeRegionControls)
+  .sc(DescribeHomeRegionControls$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

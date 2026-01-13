@@ -8,7 +8,7 @@ import type {
   PutConfigurationSetDeliveryOptionsRequest,
   PutConfigurationSetDeliveryOptionsResponse,
 } from "../models/models_0";
-import { PutConfigurationSetDeliveryOptions } from "../schemas/schemas_0";
+import { PutConfigurationSetDeliveryOptions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -27,9 +27,7 @@ export interface PutConfigurationSetDeliveryOptionsCommandInput extends PutConfi
  *
  * The output of {@link PutConfigurationSetDeliveryOptionsCommand}.
  */
-export interface PutConfigurationSetDeliveryOptionsCommandOutput
-  extends PutConfigurationSetDeliveryOptionsResponse,
-    __MetadataBearer {}
+export interface PutConfigurationSetDeliveryOptionsCommandOutput extends PutConfigurationSetDeliveryOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Adds or updates the delivery options for a configuration set.</p>
@@ -85,7 +83,7 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command
   })
   .s("SimpleEmailService", "PutConfigurationSetDeliveryOptions", {})
   .n("SESClient", "PutConfigurationSetDeliveryOptionsCommand")
-  .sc(PutConfigurationSetDeliveryOptions)
+  .sc(PutConfigurationSetDeliveryOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

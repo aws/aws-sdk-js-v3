@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeDBProxyTargetGroupsRequest, DescribeDBProxyTargetGroupsResponse } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DescribeDBProxyTargetGroups } from "../schemas/schemas_0";
+import { DescribeDBProxyTargetGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeDBProxyTargetGroupsCommandInput extends DescribeDBProxy
  *
  * The output of {@link DescribeDBProxyTargetGroupsCommand}.
  */
-export interface DescribeDBProxyTargetGroupsCommandOutput
-  extends DescribeDBProxyTargetGroupsResponse,
-    __MetadataBearer {}
+export interface DescribeDBProxyTargetGroupsCommandOutput extends DescribeDBProxyTargetGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about DB proxy target groups, represented by <code>DBProxyTargetGroup</code> data structures.</p>
@@ -115,7 +113,7 @@ export class DescribeDBProxyTargetGroupsCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeDBProxyTargetGroups", {})
   .n("RDSClient", "DescribeDBProxyTargetGroupsCommand")
-  .sc(DescribeDBProxyTargetGroups)
+  .sc(DescribeDBProxyTargetGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

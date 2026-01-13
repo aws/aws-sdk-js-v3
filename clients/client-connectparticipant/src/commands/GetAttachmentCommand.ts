@@ -10,7 +10,7 @@ import type {
 } from "../ConnectParticipantClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAttachmentRequest, GetAttachmentResponse } from "../models/models_0";
-import { GetAttachment } from "../schemas/schemas_0";
+import { GetAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class GetAttachmentCommand extends $Command
   })
   .s("AmazonConnectParticipantServiceLambda", "GetAttachment", {})
   .n("ConnectParticipantClient", "GetAttachmentCommand")
-  .sc(GetAttachment)
+  .sc(GetAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

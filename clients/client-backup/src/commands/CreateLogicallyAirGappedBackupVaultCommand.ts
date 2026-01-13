@@ -9,7 +9,7 @@ import type {
   CreateLogicallyAirGappedBackupVaultInput,
   CreateLogicallyAirGappedBackupVaultOutput,
 } from "../models/models_0";
-import { CreateLogicallyAirGappedBackupVault } from "../schemas/schemas_0";
+import { CreateLogicallyAirGappedBackupVault$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateLogicallyAirGappedBackupVaultCommandInput extends CreateL
  *
  * The output of {@link CreateLogicallyAirGappedBackupVaultCommand}.
  */
-export interface CreateLogicallyAirGappedBackupVaultCommandOutput
-  extends CreateLogicallyAirGappedBackupVaultOutput,
-    __MetadataBearer {}
+export interface CreateLogicallyAirGappedBackupVaultCommandOutput extends CreateLogicallyAirGappedBackupVaultOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a logical container to where backups may be copied.</p>
@@ -116,7 +114,7 @@ export class CreateLogicallyAirGappedBackupVaultCommand extends $Command
   })
   .s("CryoControllerUserManager", "CreateLogicallyAirGappedBackupVault", {})
   .n("BackupClient", "CreateLogicallyAirGappedBackupVaultCommand")
-  .sc(CreateLogicallyAirGappedBackupVault)
+  .sc(CreateLogicallyAirGappedBackupVault$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelTaskExecutionRequest, CancelTaskExecutionResponse } from "../models/models_0";
-import { CancelTaskExecution } from "../schemas/schemas_0";
+import { CancelTaskExecution$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class CancelTaskExecutionCommand extends $Command
   })
   .s("FmrsService", "CancelTaskExecution", {})
   .n("DataSyncClient", "CancelTaskExecutionCommand")
-  .sc(CancelTaskExecution)
+  .sc(CancelTaskExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

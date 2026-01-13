@@ -10,7 +10,7 @@ import type {
 } from "../CodestarNotificationsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTargetRequest, DeleteTargetResult } from "../models/models_0";
-import { DeleteTarget } from "../schemas/schemas_0";
+import { DeleteTarget$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,7 +79,7 @@ export class DeleteTargetCommand extends $Command
   })
   .s("CodeStarNotifications_20191015", "DeleteTarget", {})
   .n("CodestarNotificationsClient", "DeleteTargetCommand")
-  .sc(DeleteTarget)
+  .sc(DeleteTarget$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

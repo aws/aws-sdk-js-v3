@@ -416,8 +416,14 @@ export interface RAM {
   /**
    * @see {@link GetPermissionCommand}
    */
-  getPermission(args: GetPermissionCommandInput, options?: __HttpHandlerOptions): Promise<GetPermissionCommandOutput>;
-  getPermission(args: GetPermissionCommandInput, cb: (err: any, data?: GetPermissionCommandOutput) => void): void;
+  getPermission(
+    args: GetPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPermissionCommandOutput>;
+  getPermission(
+    args: GetPermissionCommandInput,
+    cb: (err: any, data?: GetPermissionCommandOutput) => void
+  ): void;
   getPermission(
     args: GetPermissionCommandInput,
     options: __HttpHandlerOptions,
@@ -536,7 +542,10 @@ export interface RAM {
     args: ListPermissionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListPermissionsCommandOutput>;
-  listPermissions(args: ListPermissionsCommandInput, cb: (err: any, data?: ListPermissionsCommandOutput) => void): void;
+  listPermissions(
+    args: ListPermissionsCommandInput,
+    cb: (err: any, data?: ListPermissionsCommandOutput) => void
+  ): void;
   listPermissions(
     args: ListPermissionsCommandInput,
     options: __HttpHandlerOptions,
@@ -567,7 +576,10 @@ export interface RAM {
     args: ListPrincipalsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListPrincipalsCommandOutput>;
-  listPrincipals(args: ListPrincipalsCommandInput, cb: (err: any, data?: ListPrincipalsCommandOutput) => void): void;
+  listPrincipals(
+    args: ListPrincipalsCommandInput,
+    cb: (err: any, data?: ListPrincipalsCommandOutput) => void
+  ): void;
   listPrincipals(
     args: ListPrincipalsCommandInput,
     options: __HttpHandlerOptions,
@@ -595,8 +607,14 @@ export interface RAM {
   /**
    * @see {@link ListResourcesCommand}
    */
-  listResources(args: ListResourcesCommandInput, options?: __HttpHandlerOptions): Promise<ListResourcesCommandOutput>;
-  listResources(args: ListResourcesCommandInput, cb: (err: any, data?: ListResourcesCommandOutput) => void): void;
+  listResources(
+    args: ListResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourcesCommandOutput>;
+  listResources(
+    args: ListResourcesCommandInput,
+    cb: (err: any, data?: ListResourcesCommandOutput) => void
+  ): void;
   listResources(
     args: ListResourcesCommandInput,
     options: __HttpHandlerOptions,
@@ -726,8 +744,14 @@ export interface RAM {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -737,8 +761,14 @@ export interface RAM {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

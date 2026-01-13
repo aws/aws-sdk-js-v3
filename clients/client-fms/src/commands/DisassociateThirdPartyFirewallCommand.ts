@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import type { DisassociateThirdPartyFirewallRequest, DisassociateThirdPartyFirewallResponse } from "../models/models_0";
-import { DisassociateThirdPartyFirewall } from "../schemas/schemas_0";
+import { DisassociateThirdPartyFirewall$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DisassociateThirdPartyFirewallCommandInput extends Disassociate
  *
  * The output of {@link DisassociateThirdPartyFirewallCommand}.
  */
-export interface DisassociateThirdPartyFirewallCommandOutput
-  extends DisassociateThirdPartyFirewallResponse,
-    __MetadataBearer {}
+export interface DisassociateThirdPartyFirewallCommandOutput extends DisassociateThirdPartyFirewallResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a Firewall Manager policy administrator from a third-party firewall tenant. When you call <code>DisassociateThirdPartyFirewall</code>, the third-party firewall vendor deletes all of the firewalls that are associated with the account.</p>
@@ -92,7 +90,7 @@ export class DisassociateThirdPartyFirewallCommand extends $Command
   })
   .s("AWSFMS_20180101", "DisassociateThirdPartyFirewall", {})
   .n("FMSClient", "DisassociateThirdPartyFirewallCommand")
-  .sc(DisassociateThirdPartyFirewall)
+  .sc(DisassociateThirdPartyFirewall$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

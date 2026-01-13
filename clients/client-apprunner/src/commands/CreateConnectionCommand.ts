@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateConnectionRequest, CreateConnectionResponse } from "../models/models_0";
-import { CreateConnection } from "../schemas/schemas_0";
+import { CreateConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class CreateConnectionCommand extends $Command
   })
   .s("AppRunner", "CreateConnection", {})
   .n("AppRunnerClient", "CreateConnectionCommand")
-  .sc(CreateConnection)
+  .sc(CreateConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

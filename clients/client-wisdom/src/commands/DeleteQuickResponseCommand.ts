@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteQuickResponseRequest, DeleteQuickResponseResponse } from "../models/models_0";
-import { DeleteQuickResponse } from "../schemas/schemas_0";
+import { DeleteQuickResponse$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -81,7 +81,7 @@ export class DeleteQuickResponseCommand extends $Command
   })
   .s("WisdomService", "DeleteQuickResponse", {})
   .n("WisdomClient", "DeleteQuickResponseCommand")
-  .sc(DeleteQuickResponse)
+  .sc(DeleteQuickResponse$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

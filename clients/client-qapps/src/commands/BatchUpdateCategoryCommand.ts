@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchUpdateCategoryInput } from "../models/models_0";
 import type { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
-import { BatchUpdateCategory } from "../schemas/schemas_0";
+import { BatchUpdateCategory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class BatchUpdateCategoryCommand extends $Command
   })
   .s("QAppsService", "BatchUpdateCategory", {})
   .n("QAppsClient", "BatchUpdateCategoryCommand")
-  .sc(BatchUpdateCategory)
+  .sc(BatchUpdateCategory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

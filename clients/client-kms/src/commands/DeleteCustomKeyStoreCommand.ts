@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import type { DeleteCustomKeyStoreRequest, DeleteCustomKeyStoreResponse } from "../models/models_0";
-import { DeleteCustomKeyStore } from "../schemas/schemas_0";
+import { DeleteCustomKeyStore$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -195,7 +195,7 @@ export class DeleteCustomKeyStoreCommand extends $Command
   })
   .s("TrentService", "DeleteCustomKeyStore", {})
   .n("KMSClient", "DeleteCustomKeyStoreCommand")
-  .sc(DeleteCustomKeyStore)
+  .sc(DeleteCustomKeyStore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { ListSdiSourcesRequest, ListSdiSourcesResponse } from "../models/models_1";
-import { ListSdiSources } from "../schemas/schemas_0";
+import { ListSdiSources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class ListSdiSourcesCommand extends $Command
   })
   .s("MediaLive", "ListSdiSources", {})
   .n("MediaLiveClient", "ListSdiSourcesCommand")
-  .sc(ListSdiSources)
+  .sc(ListSdiSources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

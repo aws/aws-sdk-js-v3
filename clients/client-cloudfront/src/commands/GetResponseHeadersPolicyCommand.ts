@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetResponseHeadersPolicyRequest, GetResponseHeadersPolicyResult } from "../models/models_1";
-import { GetResponseHeadersPolicy } from "../schemas/schemas_0";
+import { GetResponseHeadersPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -167,7 +167,7 @@ export class GetResponseHeadersPolicyCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "GetResponseHeadersPolicy", {})
   .n("CloudFrontClient", "GetResponseHeadersPolicyCommand")
-  .sc(GetResponseHeadersPolicy)
+  .sc(GetResponseHeadersPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

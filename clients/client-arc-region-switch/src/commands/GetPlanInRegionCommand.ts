@@ -10,7 +10,7 @@ import type {
 } from "../ARCRegionSwitchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPlanInRegionRequest, GetPlanInRegionResponse } from "../models/models_0";
-import { GetPlanInRegion } from "../schemas/schemas_0";
+import { GetPlanInRegion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -249,8 +249,21 @@ export interface GetPlanInRegionCommandOutput extends GetPlanInRegionResponse, _
  * //                           },
  * //                         ],
  * //                       },
+ * //                       documentDbConfig: { // DocumentDbConfiguration
+ * //                         timeoutMinutes: Number("int"),
+ * //                         crossAccountRole: "STRING_VALUE",
+ * //                         externalId: "STRING_VALUE",
+ * //                         behavior: "switchoverOnly" || "failover", // required
+ * //                         ungraceful: { // DocumentDbUngraceful
+ * //                           ungraceful: "failover",
+ * //                         },
+ * //                         globalClusterIdentifier: "STRING_VALUE", // required
+ * //                         databaseClusterArns: [ // DocumentDbClusterArns // required
+ * //                           "STRING_VALUE",
+ * //                         ],
+ * //                       },
  * //                     },
- * //                     executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck", // required
+ * //                     executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb", // required
  * //                   },
  * //                 ],
  * //               },
@@ -318,8 +331,21 @@ export interface GetPlanInRegionCommandOutput extends GetPlanInRegionResponse, _
  * //                   },
  * //                 ],
  * //               },
+ * //               documentDbConfig: {
+ * //                 timeoutMinutes: Number("int"),
+ * //                 crossAccountRole: "STRING_VALUE",
+ * //                 externalId: "STRING_VALUE",
+ * //                 behavior: "switchoverOnly" || "failover", // required
+ * //                 ungraceful: {
+ * //                   ungraceful: "failover",
+ * //                 },
+ * //                 globalClusterIdentifier: "STRING_VALUE", // required
+ * //                 databaseClusterArns: [ // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
  * //             },
- * //             executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck", // required
+ * //             executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb", // required
  * //           },
  * //         ],
  * //         workflowTargetAction: "activate" || "deactivate", // required
@@ -351,6 +377,16 @@ export interface GetPlanInRegionCommandOutput extends GetPlanInRegionResponse, _
  * //         minDelayMinutesBetweenExecutions: Number("int"), // required
  * //       },
  * //     ],
+ * //     reportConfiguration: { // ReportConfiguration
+ * //       reportOutput: [ // ReportOutputList
+ * //         { // ReportOutputConfiguration Union: only one key present
+ * //           s3Configuration: { // S3ReportOutputConfiguration
+ * //             bucketPath: "STRING_VALUE",
+ * //             bucketOwner: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
  * //     name: "STRING_VALUE", // required
  * //     regions: [ // RegionList // required
  * //       "STRING_VALUE",
@@ -397,7 +433,7 @@ export class GetPlanInRegionCommand extends $Command
   })
   .s("ArcRegionSwitch", "GetPlanInRegion", {})
   .n("ARCRegionSwitchClient", "GetPlanInRegionCommand")
-  .sc(GetPlanInRegion)
+  .sc(GetPlanInRegion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

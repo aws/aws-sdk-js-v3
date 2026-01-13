@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAccountSettingsRequest, DescribeAccountSettingsResponse } from "../models/models_0";
-import { DescribeAccountSettings } from "../schemas/schemas_0";
+import { DescribeAccountSettings$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -114,7 +114,7 @@ export class DescribeAccountSettingsCommand extends $Command
   })
   .s("Timestream_20181101", "DescribeAccountSettings", {})
   .n("TimestreamQueryClient", "DescribeAccountSettingsCommand")
-  .sc(DescribeAccountSettings)
+  .sc(DescribeAccountSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

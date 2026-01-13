@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDimensionKeyDetailsRequest, GetDimensionKeyDetailsResponse } from "../models/models_0";
 import type { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
-import { GetDimensionKeyDetails } from "../schemas/schemas_0";
+import { GetDimensionKeyDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetDimensionKeyDetailsCommand extends $Command
   })
   .s("PerformanceInsightsv20180227", "GetDimensionKeyDetails", {})
   .n("PIClient", "GetDimensionKeyDetailsCommand")
-  .sc(GetDimensionKeyDetails)
+  .sc(GetDimensionKeyDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

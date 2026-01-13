@@ -866,7 +866,10 @@ export interface DatabaseMigrationService {
     args: CreateEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateEndpointCommandOutput>;
-  createEndpoint(args: CreateEndpointCommandInput, cb: (err: any, data?: CreateEndpointCommandOutput) => void): void;
+  createEndpoint(
+    args: CreateEndpointCommandInput,
+    cb: (err: any, data?: CreateEndpointCommandOutput) => void
+  ): void;
   createEndpoint(
     args: CreateEndpointCommandInput,
     options: __HttpHandlerOptions,
@@ -1085,7 +1088,10 @@ export interface DatabaseMigrationService {
     args: DeleteEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEndpointCommandOutput>;
-  deleteEndpoint(args: DeleteEndpointCommandInput, cb: (err: any, data?: DeleteEndpointCommandOutput) => void): void;
+  deleteEndpoint(
+    args: DeleteEndpointCommandInput,
+    cb: (err: any, data?: DeleteEndpointCommandOutput) => void
+  ): void;
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
     options: __HttpHandlerOptions,
@@ -1484,7 +1490,10 @@ export interface DatabaseMigrationService {
     args: DescribeEventsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeEventsCommandOutput>;
-  describeEvents(args: DescribeEventsCommandInput, cb: (err: any, data?: DescribeEventsCommandOutput) => void): void;
+  describeEvents(
+    args: DescribeEventsCommandInput,
+    cb: (err: any, data?: DescribeEventsCommandOutput) => void
+  ): void;
   describeEvents(
     args: DescribeEventsCommandInput,
     options: __HttpHandlerOptions,
@@ -2062,7 +2071,10 @@ export interface DatabaseMigrationService {
     args: DescribeSchemasCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeSchemasCommandOutput>;
-  describeSchemas(args: DescribeSchemasCommandInput, cb: (err: any, data?: DescribeSchemasCommandOutput) => void): void;
+  describeSchemas(
+    args: DescribeSchemasCommandInput,
+    cb: (err: any, data?: DescribeSchemasCommandOutput) => void
+  ): void;
   describeSchemas(
     args: DescribeSchemasCommandInput,
     options: __HttpHandlerOptions,
@@ -2213,7 +2225,10 @@ export interface DatabaseMigrationService {
     args: ModifyEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ModifyEndpointCommandOutput>;
-  modifyEndpoint(args: ModifyEndpointCommandInput, cb: (err: any, data?: ModifyEndpointCommandOutput) => void): void;
+  modifyEndpoint(
+    args: ModifyEndpointCommandInput,
+    cb: (err: any, data?: ModifyEndpointCommandOutput) => void
+  ): void;
   modifyEndpoint(
     args: ModifyEndpointCommandInput,
     options: __HttpHandlerOptions,
@@ -2380,7 +2395,10 @@ export interface DatabaseMigrationService {
     args: RefreshSchemasCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RefreshSchemasCommandOutput>;
-  refreshSchemas(args: RefreshSchemasCommandInput, cb: (err: any, data?: RefreshSchemasCommandOutput) => void): void;
+  refreshSchemas(
+    args: RefreshSchemasCommandInput,
+    cb: (err: any, data?: RefreshSchemasCommandOutput) => void
+  ): void;
   refreshSchemas(
     args: RefreshSchemasCommandInput,
     options: __HttpHandlerOptions,
@@ -2407,8 +2425,14 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link ReloadTablesCommand}
    */
-  reloadTables(args: ReloadTablesCommandInput, options?: __HttpHandlerOptions): Promise<ReloadTablesCommandOutput>;
-  reloadTables(args: ReloadTablesCommandInput, cb: (err: any, data?: ReloadTablesCommandOutput) => void): void;
+  reloadTables(
+    args: ReloadTablesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReloadTablesCommandOutput>;
+  reloadTables(
+    args: ReloadTablesCommandInput,
+    cb: (err: any, data?: ReloadTablesCommandOutput) => void
+  ): void;
   reloadTables(
     args: ReloadTablesCommandInput,
     options: __HttpHandlerOptions,
@@ -2695,7 +2719,10 @@ export interface DatabaseMigrationService {
     args: StopReplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopReplicationCommandOutput>;
-  stopReplication(args: StopReplicationCommandInput, cb: (err: any, data?: StopReplicationCommandOutput) => void): void;
+  stopReplication(
+    args: StopReplicationCommandInput,
+    cb: (err: any, data?: StopReplicationCommandOutput) => void
+  ): void;
   stopReplication(
     args: StopReplicationCommandInput,
     options: __HttpHandlerOptions,
@@ -2726,7 +2753,10 @@ export interface DatabaseMigrationService {
     args: TestConnectionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<TestConnectionCommandOutput>;
-  testConnection(args: TestConnectionCommandInput, cb: (err: any, data?: TestConnectionCommandOutput) => void): void;
+  testConnection(
+    args: TestConnectionCommandInput,
+    cb: (err: any, data?: TestConnectionCommandOutput) => void
+  ): void;
   testConnection(
     args: TestConnectionCommandInput,
     options: __HttpHandlerOptions,

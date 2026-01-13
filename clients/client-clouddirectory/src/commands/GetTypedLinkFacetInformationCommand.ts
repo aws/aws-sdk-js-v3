@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTypedLinkFacetInformationRequest, GetTypedLinkFacetInformationResponse } from "../models/models_0";
-import { GetTypedLinkFacetInformation } from "../schemas/schemas_0";
+import { GetTypedLinkFacetInformation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetTypedLinkFacetInformationCommandInput extends GetTypedLinkFa
  *
  * The output of {@link GetTypedLinkFacetInformationCommand}.
  */
-export interface GetTypedLinkFacetInformationCommandOutput
-  extends GetTypedLinkFacetInformationResponse,
-    __MetadataBearer {}
+export interface GetTypedLinkFacetInformationCommandOutput extends GetTypedLinkFacetInformationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the identity attribute order for a specific <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
@@ -128,7 +126,7 @@ export class GetTypedLinkFacetInformationCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "GetTypedLinkFacetInformation", {})
   .n("CloudDirectoryClient", "GetTypedLinkFacetInformationCommand")
-  .sc(GetTypedLinkFacetInformation)
+  .sc(GetTypedLinkFacetInformation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

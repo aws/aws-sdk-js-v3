@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import type { StartCutoverRequest, StartCutoverResponse } from "../models/models_0";
-import { StartCutover } from "../schemas/schemas_0";
+import { StartCutover$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,7 +136,7 @@ export class StartCutoverCommand extends $Command
   })
   .s("ApplicationMigrationService", "StartCutover", {})
   .n("MgnClient", "StartCutoverCommand")
-  .sc(StartCutover)
+  .sc(StartCutover$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

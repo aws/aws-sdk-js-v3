@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetKeyGroupConfigRequest, GetKeyGroupConfigResult } from "../models/models_0";
-import { GetKeyGroupConfig } from "../schemas/schemas_0";
+import { GetKeyGroupConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class GetKeyGroupConfigCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "GetKeyGroupConfig", {})
   .n("CloudFrontClient", "GetKeyGroupConfigCommand")
-  .sc(GetKeyGroupConfig)
+  .sc(GetKeyGroupConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

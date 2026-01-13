@@ -13,7 +13,7 @@ import type {
   DeleteApplicationReferenceDataSourceRequest,
   DeleteApplicationReferenceDataSourceResponse,
 } from "../models/models_0";
-import { DeleteApplicationReferenceDataSource } from "../schemas/schemas_0";
+import { DeleteApplicationReferenceDataSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DeleteApplicationReferenceDataSourceCommandInput extends Delete
  *
  * The output of {@link DeleteApplicationReferenceDataSourceCommand}.
  */
-export interface DeleteApplicationReferenceDataSourceCommandOutput
-  extends DeleteApplicationReferenceDataSourceResponse,
-    __MetadataBearer {}
+export interface DeleteApplicationReferenceDataSourceCommandOutput extends DeleteApplicationReferenceDataSourceResponse, __MetadataBearer {}
 
 /**
  * <note>
@@ -105,7 +103,7 @@ export class DeleteApplicationReferenceDataSourceCommand extends $Command
   })
   .s("KinesisAnalytics_20150814", "DeleteApplicationReferenceDataSource", {})
   .n("KinesisAnalyticsClient", "DeleteApplicationReferenceDataSourceCommand")
-  .sc(DeleteApplicationReferenceDataSource)
+  .sc(DeleteApplicationReferenceDataSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

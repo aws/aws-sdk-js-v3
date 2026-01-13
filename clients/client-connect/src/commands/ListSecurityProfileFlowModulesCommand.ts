@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSecurityProfileFlowModulesRequest, ListSecurityProfileFlowModulesResponse } from "../models/models_2";
-import { ListSecurityProfileFlowModules } from "../schemas/schemas_0";
+import { ListSecurityProfileFlowModules$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListSecurityProfileFlowModulesCommandInput extends ListSecurity
  *
  * The output of {@link ListSecurityProfileFlowModulesCommand}.
  */
-export interface ListSecurityProfileFlowModulesCommandOutput
-  extends ListSecurityProfileFlowModulesResponse,
-    __MetadataBearer {}
+export interface ListSecurityProfileFlowModulesCommandOutput extends ListSecurityProfileFlowModulesResponse, __MetadataBearer {}
 
 /**
  * <p> A list of Flow Modules an AI Agent can invoke as a tool </p>
@@ -101,7 +99,7 @@ export class ListSecurityProfileFlowModulesCommand extends $Command
   })
   .s("AmazonConnectService", "ListSecurityProfileFlowModules", {})
   .n("ConnectClient", "ListSecurityProfileFlowModulesCommand")
-  .sc(ListSecurityProfileFlowModules)
+  .sc(ListSecurityProfileFlowModules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

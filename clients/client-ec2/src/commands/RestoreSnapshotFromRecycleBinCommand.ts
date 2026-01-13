@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RestoreSnapshotFromRecycleBinRequest, RestoreSnapshotFromRecycleBinResult } from "../models/models_7";
-import { RestoreSnapshotFromRecycleBin } from "../schemas/schemas_0";
+import { RestoreSnapshotFromRecycleBin$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface RestoreSnapshotFromRecycleBinCommandInput extends RestoreSnapsh
  *
  * The output of {@link RestoreSnapshotFromRecycleBinCommand}.
  */
-export interface RestoreSnapshotFromRecycleBinCommandOutput
-  extends RestoreSnapshotFromRecycleBinResult,
-    __MetadataBearer {}
+export interface RestoreSnapshotFromRecycleBinCommandOutput extends RestoreSnapshotFromRecycleBinResult, __MetadataBearer {}
 
 /**
  * <p>Restores a snapshot from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin-working-with-snaps.html#recycle-bin-restore-snaps">Restore
@@ -87,7 +85,7 @@ export class RestoreSnapshotFromRecycleBinCommand extends $Command
   })
   .s("AmazonEC2", "RestoreSnapshotFromRecycleBin", {})
   .n("EC2Client", "RestoreSnapshotFromRecycleBinCommand")
-  .sc(RestoreSnapshotFromRecycleBin)
+  .sc(RestoreSnapshotFromRecycleBin$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

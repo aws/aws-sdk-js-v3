@@ -13,7 +13,7 @@ import type {
   DescribePendingMaintenanceActionsMessage,
   DescribePendingMaintenanceActionsResponse,
 } from "../models/models_0";
-import { DescribePendingMaintenanceActions } from "../schemas/schemas_0";
+import { DescribePendingMaintenanceActions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DescribePendingMaintenanceActionsCommandInput extends DescribeP
  *
  * The output of {@link DescribePendingMaintenanceActionsCommand}.
  */
-export interface DescribePendingMaintenanceActionsCommandOutput
-  extends DescribePendingMaintenanceActionsResponse,
-    __MetadataBearer {}
+export interface DescribePendingMaintenanceActionsCommandOutput extends DescribePendingMaintenanceActionsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of upcoming maintenance events for replication instances in your account
@@ -111,7 +109,7 @@ export class DescribePendingMaintenanceActionsCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribePendingMaintenanceActions", {})
   .n("DatabaseMigrationServiceClient", "DescribePendingMaintenanceActionsCommand")
-  .sc(DescribePendingMaintenanceActions)
+  .sc(DescribePendingMaintenanceActions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

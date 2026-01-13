@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateMemberToGroupRequest, AssociateMemberToGroupResponse } from "../models/models_0";
-import { AssociateMemberToGroup } from "../schemas/schemas_0";
+import { AssociateMemberToGroup$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -101,7 +101,7 @@ export class AssociateMemberToGroupCommand extends $Command
   })
   .s("WorkMailService", "AssociateMemberToGroup", {})
   .n("WorkMailClient", "AssociateMemberToGroupCommand")
-  .sc(AssociateMemberToGroup)
+  .sc(AssociateMemberToGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteQueryLoggingConfigurationRequest } from "../models/models_0";
-import { DeleteQueryLoggingConfiguration } from "../schemas/schemas_0";
+import { DeleteQueryLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteQueryLoggingConfigurationCommand extends $Command
   })
   .s("AmazonPrometheusService", "DeleteQueryLoggingConfiguration", {})
   .n("AmpClient", "DeleteQueryLoggingConfigurationCommand")
-  .sc(DeleteQueryLoggingConfiguration)
+  .sc(DeleteQueryLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

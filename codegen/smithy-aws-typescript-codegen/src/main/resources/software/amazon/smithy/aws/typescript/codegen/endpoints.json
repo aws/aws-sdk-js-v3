@@ -1823,6 +1823,7 @@
             "ap-southeast-3": {},
             "ap-southeast-4": {},
             "ap-southeast-5": {},
+            "ap-southeast-6": {},
             "ap-southeast-7": {},
             "ca-central-1": {
               "variants": [
@@ -3754,6 +3755,7 @@
                 }
               ]
             },
+            "ap-southeast-6": {},
             "ap-southeast-7": {},
             "ca-central-1": {
               "variants": [
@@ -4777,6 +4779,7 @@
         },
         "cases": {
           "endpoints": {
+            "af-south-1": {},
             "ap-northeast-1": {},
             "ap-northeast-2": {},
             "ap-southeast-1": {},
@@ -5825,6 +5828,7 @@
                 }
               ]
             },
+            "ap-southeast-5": {},
             "ca-central-1": {
               "variants": [
                 {
@@ -5833,6 +5837,7 @@
                 }
               ]
             },
+            "ca-west-1": {},
             "eu-central-1": {
               "variants": [
                 {
@@ -5914,6 +5919,7 @@
                 }
               ]
             },
+            "mx-central-1": {},
             "sa-east-1": {
               "variants": [
                 {
@@ -11681,18 +11687,6 @@
             }
           }
         },
-        "elastictranscoder": {
-          "endpoints": {
-            "ap-northeast-1": {},
-            "ap-south-1": {},
-            "ap-southeast-1": {},
-            "ap-southeast-2": {},
-            "eu-west-1": {},
-            "us-east-1": {},
-            "us-west-1": {},
-            "us-west-2": {}
-          }
-        },
         "email": {
           "endpoints": {
             "af-south-1": {},
@@ -14061,6 +14055,7 @@
                 }
               ]
             },
+            "ap-southeast-6": {},
             "ap-southeast-7": {
               "variants": [
                 {
@@ -16144,6 +16139,7 @@
             "ap-southeast-3": {},
             "ap-southeast-4": {},
             "ap-southeast-5": {},
+            "ap-southeast-6": {},
             "ap-southeast-7": {},
             "ca-central-1": {
               "variants": [
@@ -16265,6 +16261,7 @@
             "ap-southeast-3": {},
             "ap-southeast-4": {},
             "ap-southeast-5": {},
+            "ap-southeast-6": {},
             "ap-southeast-7": {},
             "ca-central-1": {},
             "ca-west-1": {},
@@ -17318,6 +17315,7 @@
                 }
               ]
             },
+            "ap-southeast-6": {},
             "ap-southeast-7": {
               "variants": [
                 {
@@ -21839,6 +21837,7 @@
               },
               "hostname": "portal.sso.ap-east-1.amazonaws.com"
             },
+            "ap-east-2": {},
             "ap-northeast-1": {
               "credentialScope": {
                 "region": "ap-northeast-1"
@@ -23337,6 +23336,7 @@
             "ap-southeast-2": {},
             "ap-southeast-3": {},
             "ap-southeast-5": {},
+            "ap-southeast-6": {},
             "ap-southeast-7": {},
             "ca-central-1": {
               "variants": [
@@ -30250,6 +30250,7 @@
           "endpoints": {
             "af-south-1": {},
             "ap-east-1": {},
+            "ap-east-2": {},
             "ap-northeast-1": {},
             "ap-northeast-2": {},
             "ap-northeast-3": {},
@@ -31867,6 +31868,7 @@
             "ap-southeast-3": {},
             "ap-southeast-4": {},
             "ap-southeast-5": {},
+            "ap-southeast-6": {},
             "ap-southeast-7": {},
             "ca-central-1": {
               "variants": [
@@ -33187,6 +33189,7 @@
                 }
               ]
             },
+            "ap-southeast-6": {},
             "ap-southeast-7": {
               "credentialScope": {
                 "region": "ap-southeast-7"
@@ -39264,6 +39267,12 @@
             }
           }
         },
+        "kafkaconnect": {
+          "endpoints": {
+            "us-gov-east-1": {},
+            "us-gov-west-1": {}
+          }
+        },
         "kendra": {
           "endpoints": {
             "fips-us-gov-west-1": {
@@ -43806,6 +43815,11 @@
         }
       },
       "services": {
+        "agreement-marketplace": {
+          "endpoints": {
+            "us-isob-east-1": {}
+          }
+        },
         "api.ecr": {
           "endpoints": {
             "us-isob-east-1": {
@@ -45799,6 +45813,11 @@
           "isRegionalized": false,
           "partitionEndpoint": "aws-iso-f-global"
         },
+        "identitystore": {
+          "endpoints": {
+            "us-isof-east-1": {}
+          }
+        },
         "kinesis": {
           "endpoints": {
             "us-isof-east-1": {},
@@ -46236,7 +46255,7 @@
       "regionRegex": "^eusc\\-(de)\\-\\w+\\-\\d+$",
       "regions": {
         "eusc-de-east-1": {
-          "description": "EU (Germany)"
+          "description": "AWS European Sovereign Cloud (Germany)"
         }
       },
       "services": {
@@ -46456,6 +46475,11 @@
           }
         },
         "firehose": {
+          "endpoints": {
+            "eusc-de-east-1": {}
+          }
+        },
+        "fsx": {
           "endpoints": {
             "eusc-de-east-1": {}
           }
@@ -46708,6 +46732,11 @@
           }
         },
         "trustedadvisor": {
+          "endpoints": {
+            "eusc-de-east-1": {}
+          }
+        },
+        "wafv2": {
           "endpoints": {
             "eusc-de-east-1": {}
           }

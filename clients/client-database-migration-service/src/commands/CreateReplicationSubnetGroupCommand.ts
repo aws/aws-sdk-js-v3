@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateReplicationSubnetGroupMessage, CreateReplicationSubnetGroupResponse } from "../models/models_0";
-import { CreateReplicationSubnetGroup } from "../schemas/schemas_0";
+import { CreateReplicationSubnetGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface CreateReplicationSubnetGroupCommandInput extends CreateReplicat
  *
  * The output of {@link CreateReplicationSubnetGroupCommand}.
  */
-export interface CreateReplicationSubnetGroupCommandOutput
-  extends CreateReplicationSubnetGroupResponse,
-    __MetadataBearer {}
+export interface CreateReplicationSubnetGroupCommandOutput extends CreateReplicationSubnetGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a replication subnet group given a list of the subnet IDs in a VPC.</p>
@@ -161,7 +159,7 @@ export class CreateReplicationSubnetGroupCommand extends $Command
   })
   .s("AmazonDMSv20160101", "CreateReplicationSubnetGroup", {})
   .n("DatabaseMigrationServiceClient", "CreateReplicationSubnetGroupCommand")
-  .sc(CreateReplicationSubnetGroup)
+  .sc(CreateReplicationSubnetGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

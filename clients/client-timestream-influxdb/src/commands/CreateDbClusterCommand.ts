@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDbClusterInput, CreateDbClusterOutput } from "../models/models_0";
-import { CreateDbCluster } from "../schemas/schemas_0";
+import { CreateDbCluster$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -75,7 +75,7 @@ export interface CreateDbClusterCommandOutput extends CreateDbClusterOutput, __M
  * const response = await client.send(command);
  * // { // CreateDbClusterOutput
  * //   dbClusterId: "STRING_VALUE",
- * //   dbClusterStatus: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE",
+ * //   dbClusterStatus: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE" || "UPDATING_INSTANCE_TYPE" || "REBOOTING" || "REBOOT_FAILED" || "PARTIALLY_AVAILABLE",
  * // };
  *
  * ```
@@ -127,7 +127,7 @@ export class CreateDbClusterCommand extends $Command
   })
   .s("AmazonTimestreamInfluxDB", "CreateDbCluster", {})
   .n("TimestreamInfluxDBClient", "CreateDbClusterCommand")
-  .sc(CreateDbCluster)
+  .sc(CreateDbCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

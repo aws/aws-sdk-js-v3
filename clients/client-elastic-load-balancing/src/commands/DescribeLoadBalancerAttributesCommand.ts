@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeLoadBalancerAttributesInput, DescribeLoadBalancerAttributesOutput } from "../models/models_0";
-import { DescribeLoadBalancerAttributes } from "../schemas/schemas_0";
+import { DescribeLoadBalancerAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeLoadBalancerAttributesCommandInput extends DescribeLoad
  *
  * The output of {@link DescribeLoadBalancerAttributesCommand}.
  */
-export interface DescribeLoadBalancerAttributesCommandOutput
-  extends DescribeLoadBalancerAttributesOutput,
-    __MetadataBearer {}
+export interface DescribeLoadBalancerAttributesCommandOutput extends DescribeLoadBalancerAttributesOutput, __MetadataBearer {}
 
 /**
  * <p>Describes the attributes for the specified load balancer.</p>
@@ -137,7 +135,7 @@ export class DescribeLoadBalancerAttributesCommand extends $Command
   })
   .s("ElasticLoadBalancing_v7", "DescribeLoadBalancerAttributes", {})
   .n("ElasticLoadBalancingClient", "DescribeLoadBalancerAttributesCommand")
-  .sc(DescribeLoadBalancerAttributes)
+  .sc(DescribeLoadBalancerAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

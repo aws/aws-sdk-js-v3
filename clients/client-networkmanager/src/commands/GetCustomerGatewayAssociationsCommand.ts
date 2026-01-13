@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { GetCustomerGatewayAssociations } from "../schemas/schemas_0";
+import { GetCustomerGatewayAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetCustomerGatewayAssociationsCommandInput extends GetCustomerG
  *
  * The output of {@link GetCustomerGatewayAssociationsCommand}.
  */
-export interface GetCustomerGatewayAssociationsCommandOutput
-  extends GetCustomerGatewayAssociationsResponse,
-    __MetadataBearer {}
+export interface GetCustomerGatewayAssociationsCommandOutput extends GetCustomerGatewayAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the association information for customer gateways that are associated with
@@ -113,7 +111,7 @@ export class GetCustomerGatewayAssociationsCommand extends $Command
   })
   .s("NetworkManager", "GetCustomerGatewayAssociations", {})
   .n("NetworkManagerClient", "GetCustomerGatewayAssociationsCommand")
-  .sc(GetCustomerGatewayAssociations)
+  .sc(GetCustomerGatewayAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

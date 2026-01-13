@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { RemoveEndpointsRequest } from "../models/models_0";
-import { RemoveEndpoints } from "../schemas/schemas_0";
+import { RemoveEndpoints$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class RemoveEndpointsCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "RemoveEndpoints", {})
   .n("GlobalAcceleratorClient", "RemoveEndpointsCommand")
-  .sc(RemoveEndpoints)
+  .sc(RemoveEndpoints$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   UpdateContinuousDeploymentPolicyRequest,
   UpdateContinuousDeploymentPolicyResult,
 } from "../models/models_1";
-import { UpdateContinuousDeploymentPolicy } from "../schemas/schemas_0";
+import { UpdateContinuousDeploymentPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateContinuousDeploymentPolicyCommandInput extends UpdateCont
  *
  * The output of {@link UpdateContinuousDeploymentPolicyCommand}.
  */
-export interface UpdateContinuousDeploymentPolicyCommandOutput
-  extends UpdateContinuousDeploymentPolicyResult,
-    __MetadataBearer {}
+export interface UpdateContinuousDeploymentPolicyCommandOutput extends UpdateContinuousDeploymentPolicyResult, __MetadataBearer {}
 
 /**
  * <p>Updates a continuous deployment policy. You can update a continuous deployment policy to enable or disable it, to change the percentage of traffic that it sends to the staging distribution, or to change the staging distribution that it sends traffic to.</p> <p>When you update a continuous deployment policy configuration, all the fields are updated with the values that are provided in the request. You cannot update some fields independent of others. To update a continuous deployment policy configuration:</p> <ol> <li> <p>Use <code>GetContinuousDeploymentPolicyConfig</code> to get the current configuration.</p> </li> <li> <p>Locally modify the fields in the continuous deployment policy configuration that you want to update.</p> </li> <li> <p>Use <code>UpdateContinuousDeploymentPolicy</code>, providing the entire continuous deployment policy configuration, including the fields that you modified and those that you didn't.</p> </li> </ol>
@@ -150,7 +148,7 @@ export class UpdateContinuousDeploymentPolicyCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "UpdateContinuousDeploymentPolicy", {})
   .n("CloudFrontClient", "UpdateContinuousDeploymentPolicyCommand")
-  .sc(UpdateContinuousDeploymentPolicy)
+  .sc(UpdateContinuousDeploymentPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

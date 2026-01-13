@@ -8,7 +8,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutObjectRetentionOutput, PutObjectRetentionRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { PutObjectRetention } from "../schemas/schemas_0";
+import { PutObjectRetention$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class PutObjectRetentionCommand extends $Command
     return [
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
+        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
         requestChecksumRequired: true,
       }),
       getThrow200ExceptionsPlugin(config),
@@ -106,7 +106,7 @@ export class PutObjectRetentionCommand extends $Command
   })
   .s("AmazonS3", "PutObjectRetention", {})
   .n("S3Client", "PutObjectRetentionCommand")
-  .sc(PutObjectRetention)
+  .sc(PutObjectRetention$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

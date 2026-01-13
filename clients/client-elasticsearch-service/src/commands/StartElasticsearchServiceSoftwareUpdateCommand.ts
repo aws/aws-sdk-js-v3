@@ -13,7 +13,7 @@ import type {
   StartElasticsearchServiceSoftwareUpdateRequest,
   StartElasticsearchServiceSoftwareUpdateResponse,
 } from "../models/models_0";
-import { StartElasticsearchServiceSoftwareUpdate } from "../schemas/schemas_0";
+import { StartElasticsearchServiceSoftwareUpdate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link StartElasticsearchServiceSoftwareUpdateCommand}.
  */
-export interface StartElasticsearchServiceSoftwareUpdateCommandInput
-  extends StartElasticsearchServiceSoftwareUpdateRequest {}
+export interface StartElasticsearchServiceSoftwareUpdateCommandInput extends StartElasticsearchServiceSoftwareUpdateRequest {}
 /**
  * @public
  *
  * The output of {@link StartElasticsearchServiceSoftwareUpdateCommand}.
  */
-export interface StartElasticsearchServiceSoftwareUpdateCommandOutput
-  extends StartElasticsearchServiceSoftwareUpdateResponse,
-    __MetadataBearer {}
+export interface StartElasticsearchServiceSoftwareUpdateCommandOutput extends StartElasticsearchServiceSoftwareUpdateResponse, __MetadataBearer {}
 
 /**
  * <p>Schedules a service software update for an Amazon ES domain.</p>
@@ -104,7 +101,7 @@ export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "StartElasticsearchServiceSoftwareUpdate", {})
   .n("ElasticsearchServiceClient", "StartElasticsearchServiceSoftwareUpdateCommand")
-  .sc(StartElasticsearchServiceSoftwareUpdate)
+  .sc(StartElasticsearchServiceSoftwareUpdate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

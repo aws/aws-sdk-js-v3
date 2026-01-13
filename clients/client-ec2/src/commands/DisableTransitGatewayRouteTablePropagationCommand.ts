@@ -9,7 +9,7 @@ import type {
   DisableTransitGatewayRouteTablePropagationRequest,
   DisableTransitGatewayRouteTablePropagationResult,
 } from "../models/models_5";
-import { DisableTransitGatewayRouteTablePropagation } from "../schemas/schemas_0";
+import { DisableTransitGatewayRouteTablePropagation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisableTransitGatewayRouteTablePropagationCommand}.
  */
-export interface DisableTransitGatewayRouteTablePropagationCommandInput
-  extends DisableTransitGatewayRouteTablePropagationRequest {}
+export interface DisableTransitGatewayRouteTablePropagationCommandInput extends DisableTransitGatewayRouteTablePropagationRequest {}
 /**
  * @public
  *
  * The output of {@link DisableTransitGatewayRouteTablePropagationCommand}.
  */
-export interface DisableTransitGatewayRouteTablePropagationCommandOutput
-  extends DisableTransitGatewayRouteTablePropagationResult,
-    __MetadataBearer {}
+export interface DisableTransitGatewayRouteTablePropagationCommandOutput extends DisableTransitGatewayRouteTablePropagationResult, __MetadataBearer {}
 
 /**
  * <p>Disables the specified resource attachment from propagating routes to the specified
@@ -90,7 +87,7 @@ export class DisableTransitGatewayRouteTablePropagationCommand extends $Command
   })
   .s("AmazonEC2", "DisableTransitGatewayRouteTablePropagation", {})
   .n("EC2Client", "DisableTransitGatewayRouteTablePropagationCommand")
-  .sc(DisableTransitGatewayRouteTablePropagation)
+  .sc(DisableTransitGatewayRouteTablePropagation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

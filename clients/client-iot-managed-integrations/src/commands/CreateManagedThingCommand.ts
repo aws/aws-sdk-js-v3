@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { CreateManagedThingRequest, CreateManagedThingResponse } from "../models/models_0";
-import { CreateManagedThing } from "../schemas/schemas_0";
+import { CreateManagedThing$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -46,6 +46,11 @@ export interface CreateManagedThingCommandOutput extends CreateManagedThingRespo
  *   CredentialLockerId: "STRING_VALUE",
  *   AuthenticationMaterial: "STRING_VALUE", // required
  *   AuthenticationMaterialType: "CUSTOM_PROTOCOL_QR_BAR_CODE" || "WIFI_SETUP_QR_BAR_CODE" || "ZWAVE_QR_BAR_CODE" || "ZIGBEE_QR_BAR_CODE" || "DISCOVERED_DEVICE", // required
+ *   WiFiSimpleSetupConfiguration: { // WiFiSimpleSetupConfiguration
+ *     EnableAsProvisioner: true || false,
+ *     EnableAsProvisionee: true || false,
+ *     TimeoutInMinutes: Number("int"),
+ *   },
  *   SerialNumber: "STRING_VALUE",
  *   Brand: "STRING_VALUE",
  *   Model: "STRING_VALUE",
@@ -157,7 +162,7 @@ export class CreateManagedThingCommand extends $Command
   })
   .s("IotManagedIntegrations", "CreateManagedThing", {})
   .n("IoTManagedIntegrationsClient", "CreateManagedThingCommand")
-  .sc(CreateManagedThing)
+  .sc(CreateManagedThing$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

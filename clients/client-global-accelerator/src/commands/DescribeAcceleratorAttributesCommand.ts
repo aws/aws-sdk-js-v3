@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { DescribeAcceleratorAttributesRequest, DescribeAcceleratorAttributesResponse } from "../models/models_0";
-import { DescribeAcceleratorAttributes } from "../schemas/schemas_0";
+import { DescribeAcceleratorAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeAcceleratorAttributesCommandInput extends DescribeAccel
  *
  * The output of {@link DescribeAcceleratorAttributesCommand}.
  */
-export interface DescribeAcceleratorAttributesCommandOutput
-  extends DescribeAcceleratorAttributesResponse,
-    __MetadataBearer {}
+export interface DescribeAcceleratorAttributesCommandOutput extends DescribeAcceleratorAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Describe the attributes of an accelerator.
@@ -93,7 +91,7 @@ export class DescribeAcceleratorAttributesCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "DescribeAcceleratorAttributes", {})
   .n("GlobalAcceleratorClient", "DescribeAcceleratorAttributesCommand")
-  .sc(DescribeAcceleratorAttributes)
+  .sc(DescribeAcceleratorAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

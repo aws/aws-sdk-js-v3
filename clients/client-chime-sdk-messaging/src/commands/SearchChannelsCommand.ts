@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMessagingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchChannelsRequest, SearchChannelsResponse } from "../models/models_0";
-import { SearchChannels } from "../schemas/schemas_0";
+import { SearchChannels$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class SearchChannelsCommand extends $Command
   })
   .s("ChimeMessagingService", "SearchChannels", {})
   .n("ChimeSDKMessagingClient", "SearchChannelsCommand")
-  .sc(SearchChannels)
+  .sc(SearchChannels$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

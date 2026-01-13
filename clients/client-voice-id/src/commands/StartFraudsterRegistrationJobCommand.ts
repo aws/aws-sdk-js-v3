@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartFraudsterRegistrationJobRequest, StartFraudsterRegistrationJobResponse } from "../models/models_0";
-import { StartFraudsterRegistrationJob } from "../schemas/schemas_0";
+import { StartFraudsterRegistrationJob$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -24,9 +24,7 @@ export interface StartFraudsterRegistrationJobCommandInput extends StartFraudste
  *
  * The output of {@link StartFraudsterRegistrationJobCommand}.
  */
-export interface StartFraudsterRegistrationJobCommandOutput
-  extends StartFraudsterRegistrationJobResponse,
-    __MetadataBearer {}
+export interface StartFraudsterRegistrationJobCommandOutput extends StartFraudsterRegistrationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a new batch fraudster registration job using provided details.</p>
@@ -149,7 +147,7 @@ export class StartFraudsterRegistrationJobCommand extends $Command
   })
   .s("VoiceID", "StartFraudsterRegistrationJob", {})
   .n("VoiceIDClient", "StartFraudsterRegistrationJobCommand")
-  .sc(StartFraudsterRegistrationJob)
+  .sc(StartFraudsterRegistrationJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

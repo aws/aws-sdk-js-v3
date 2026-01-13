@@ -13,7 +13,7 @@ import type {
   RejectInboundCrossClusterSearchConnectionRequest,
   RejectInboundCrossClusterSearchConnectionResponse,
 } from "../models/models_0";
-import { RejectInboundCrossClusterSearchConnection } from "../schemas/schemas_0";
+import { RejectInboundCrossClusterSearchConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link RejectInboundCrossClusterSearchConnectionCommand}.
  */
-export interface RejectInboundCrossClusterSearchConnectionCommandInput
-  extends RejectInboundCrossClusterSearchConnectionRequest {}
+export interface RejectInboundCrossClusterSearchConnectionCommandInput extends RejectInboundCrossClusterSearchConnectionRequest {}
 /**
  * @public
  *
  * The output of {@link RejectInboundCrossClusterSearchConnectionCommand}.
  */
-export interface RejectInboundCrossClusterSearchConnectionCommandOutput
-  extends RejectInboundCrossClusterSearchConnectionResponse,
-    __MetadataBearer {}
+export interface RejectInboundCrossClusterSearchConnectionCommandOutput extends RejectInboundCrossClusterSearchConnectionResponse, __MetadataBearer {}
 
 /**
  * <p>Allows the destination domain owner to reject an inbound cross-cluster search connection request.</p>
@@ -105,7 +102,7 @@ export class RejectInboundCrossClusterSearchConnectionCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "RejectInboundCrossClusterSearchConnection", {})
   .n("ElasticsearchServiceClient", "RejectInboundCrossClusterSearchConnectionCommand")
-  .sc(RejectInboundCrossClusterSearchConnection)
+  .sc(RejectInboundCrossClusterSearchConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

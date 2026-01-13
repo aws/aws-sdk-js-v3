@@ -9,7 +9,7 @@ import type {
   DeleteNetworkInsightsAccessScopeAnalysisRequest,
   DeleteNetworkInsightsAccessScopeAnalysisResult,
 } from "../models/models_2";
-import { DeleteNetworkInsightsAccessScopeAnalysis } from "../schemas/schemas_0";
+import { DeleteNetworkInsightsAccessScopeAnalysis$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteNetworkInsightsAccessScopeAnalysisCommand}.
  */
-export interface DeleteNetworkInsightsAccessScopeAnalysisCommandInput
-  extends DeleteNetworkInsightsAccessScopeAnalysisRequest {}
+export interface DeleteNetworkInsightsAccessScopeAnalysisCommandInput extends DeleteNetworkInsightsAccessScopeAnalysisRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteNetworkInsightsAccessScopeAnalysisCommand}.
  */
-export interface DeleteNetworkInsightsAccessScopeAnalysisCommandOutput
-  extends DeleteNetworkInsightsAccessScopeAnalysisResult,
-    __MetadataBearer {}
+export interface DeleteNetworkInsightsAccessScopeAnalysisCommandOutput extends DeleteNetworkInsightsAccessScopeAnalysisResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Network Access Scope analysis.</p>
@@ -80,7 +77,7 @@ export class DeleteNetworkInsightsAccessScopeAnalysisCommand extends $Command
   })
   .s("AmazonEC2", "DeleteNetworkInsightsAccessScopeAnalysis", {})
   .n("EC2Client", "DeleteNetworkInsightsAccessScopeAnalysisCommand")
-  .sc(DeleteNetworkInsightsAccessScopeAnalysis)
+  .sc(DeleteNetworkInsightsAccessScopeAnalysis$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -290,7 +290,10 @@ export interface Neptunedata {
     args: CancelLoaderJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CancelLoaderJobCommandOutput>;
-  cancelLoaderJob(args: CancelLoaderJobCommandInput, cb: (err: any, data?: CancelLoaderJobCommandOutput) => void): void;
+  cancelLoaderJob(
+    args: CancelLoaderJobCommandInput,
+    cb: (err: any, data?: CancelLoaderJobCommandOutput) => void
+  ): void;
   cancelLoaderJob(
     args: CancelLoaderJobCommandInput,
     options: __HttpHandlerOptions,
@@ -546,7 +549,10 @@ export interface Neptunedata {
     args: GetEngineStatusCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEngineStatusCommandOutput>;
-  getEngineStatus(args: GetEngineStatusCommandInput, cb: (err: any, data?: GetEngineStatusCommandOutput) => void): void;
+  getEngineStatus(
+    args: GetEngineStatusCommandInput,
+    cb: (err: any, data?: GetEngineStatusCommandOutput) => void
+  ): void;
   getEngineStatus(
     args: GetEngineStatusCommandInput,
     options: __HttpHandlerOptions,
@@ -607,8 +613,14 @@ export interface Neptunedata {
   /**
    * @see {@link GetMLEndpointCommand}
    */
-  getMLEndpoint(args: GetMLEndpointCommandInput, options?: __HttpHandlerOptions): Promise<GetMLEndpointCommandOutput>;
-  getMLEndpoint(args: GetMLEndpointCommandInput, cb: (err: any, data?: GetMLEndpointCommandOutput) => void): void;
+  getMLEndpoint(
+    args: GetMLEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMLEndpointCommandOutput>;
+  getMLEndpoint(
+    args: GetMLEndpointCommandInput,
+    cb: (err: any, data?: GetMLEndpointCommandOutput) => void
+  ): void;
   getMLEndpoint(
     args: GetMLEndpointCommandInput,
     options: __HttpHandlerOptions,
@@ -764,7 +776,10 @@ export interface Neptunedata {
     args: GetSparqlStreamCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSparqlStreamCommandOutput>;
-  getSparqlStream(args: GetSparqlStreamCommandInput, cb: (err: any, data?: GetSparqlStreamCommandOutput) => void): void;
+  getSparqlStream(
+    args: GetSparqlStreamCommandInput,
+    cb: (err: any, data?: GetSparqlStreamCommandOutput) => void
+  ): void;
   getSparqlStream(
     args: GetSparqlStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -797,7 +812,10 @@ export interface Neptunedata {
     args: ListLoaderJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListLoaderJobsCommandOutput>;
-  listLoaderJobs(args: ListLoaderJobsCommandInput, cb: (err: any, data?: ListLoaderJobsCommandOutput) => void): void;
+  listLoaderJobs(
+    args: ListLoaderJobsCommandInput,
+    cb: (err: any, data?: ListLoaderJobsCommandOutput) => void
+  ): void;
   listLoaderJobs(
     args: ListLoaderJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -830,7 +848,10 @@ export interface Neptunedata {
     args: ListMLEndpointsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListMLEndpointsCommandOutput>;
-  listMLEndpoints(args: ListMLEndpointsCommandInput, cb: (err: any, data?: ListMLEndpointsCommandOutput) => void): void;
+  listMLEndpoints(
+    args: ListMLEndpointsCommandInput,
+    cb: (err: any, data?: ListMLEndpointsCommandOutput) => void
+  ): void;
   listMLEndpoints(
     args: ListMLEndpointsCommandInput,
     options: __HttpHandlerOptions,
@@ -934,7 +955,10 @@ export interface Neptunedata {
     args: StartLoaderJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartLoaderJobCommandOutput>;
-  startLoaderJob(args: StartLoaderJobCommandInput, cb: (err: any, data?: StartLoaderJobCommandOutput) => void): void;
+  startLoaderJob(
+    args: StartLoaderJobCommandInput,
+    cb: (err: any, data?: StartLoaderJobCommandOutput) => void
+  ): void;
   startLoaderJob(
     args: StartLoaderJobCommandInput,
     options: __HttpHandlerOptions,

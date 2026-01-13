@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { ListChannelsRequest, ListChannelsResponse } from "../models/models_1";
-import { ListChannels } from "../schemas/schemas_0";
+import { ListChannels$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -58,6 +58,8 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //               ChannelId: "STRING_VALUE",
  * //               ChannelGroup: "STRING_VALUE",
  * //               ChannelName: "STRING_VALUE",
+ * //               ChannelEndpointId: "STRING_VALUE",
+ * //               MediaPackageRegionName: "STRING_VALUE",
  * //             },
  * //           ],
  * //           MultiplexSettings: { // MultiplexProgramChannelDestinationSettings
@@ -273,6 +275,16 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //           Version: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       LinkedChannelSettings: { // DescribeLinkedChannelSettings
+ * //         FollowerChannelSettings: { // DescribeFollowerChannelSettings
+ * //           LinkedChannelType: "FOLLOWING_CHANNEL" || "PRIMARY_CHANNEL",
+ * //           PrimaryChannelArn: "STRING_VALUE",
+ * //         },
+ * //         PrimaryChannelSettings: { // DescribePrimaryChannelSettings
+ * //           FollowingChannelArns: "<__listOf__string>",
+ * //           LinkedChannelType: "FOLLOWING_CHANNEL" || "PRIMARY_CHANNEL",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -324,7 +336,7 @@ export class ListChannelsCommand extends $Command
   })
   .s("MediaLive", "ListChannels", {})
   .n("MediaLiveClient", "ListChannelsCommand")
-  .sc(ListChannels)
+  .sc(ListChannels$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

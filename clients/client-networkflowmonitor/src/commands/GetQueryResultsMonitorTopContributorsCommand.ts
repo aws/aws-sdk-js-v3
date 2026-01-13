@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFlowMonitorClient";
-import { GetQueryResultsMonitorTopContributors } from "../schemas/schemas_0";
+import { GetQueryResultsMonitorTopContributors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetQueryResultsMonitorTopContributorsCommandInput extends GetQu
  *
  * The output of {@link GetQueryResultsMonitorTopContributorsCommand}.
  */
-export interface GetQueryResultsMonitorTopContributorsCommandOutput
-  extends GetQueryResultsMonitorTopContributorsOutput,
-    __MetadataBearer {}
+export interface GetQueryResultsMonitorTopContributorsCommandOutput extends GetQueryResultsMonitorTopContributorsOutput, __MetadataBearer {}
 
 /**
  * <p>Return the data for a query with the Network Flow Monitor query interface. You specify the query that you want to return results for by providing a query ID and a monitor name. This query returns the top contributors for a specific monitor.</p> <p>Create a query ID for this call by calling the corresponding API call to start the query, <code>StartQueryMonitorTopContributors</code>. Use the scope ID that was returned for your account by <code>CreateScope</code>.</p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned.</p>
@@ -147,7 +145,7 @@ export class GetQueryResultsMonitorTopContributorsCommand extends $Command
   })
   .s("NetworkFlowMonitor", "GetQueryResultsMonitorTopContributors", {})
   .n("NetworkFlowMonitorClient", "GetQueryResultsMonitorTopContributorsCommand")
-  .sc(GetQueryResultsMonitorTopContributors)
+  .sc(GetQueryResultsMonitorTopContributors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

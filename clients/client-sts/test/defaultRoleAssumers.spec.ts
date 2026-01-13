@@ -282,7 +282,9 @@ describe("getDefaultRoleAssumer", () => {
         expect(console.warn).not.toHaveBeenCalled();
       }
       {
-        const roleAssumer = getDefaultRoleAssumer({});
+        const roleAssumer = getDefaultRoleAssumer({
+          profile: "non-existent",
+        });
         await roleAssumer(sourceCred, params);
         expect(console.warn).toHaveBeenCalledTimes(1);
       }

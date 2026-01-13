@@ -8,7 +8,7 @@ import type {
   DescribeInstancePatchStatesForPatchGroupRequest,
   DescribeInstancePatchStatesForPatchGroupResult,
 } from "../models/models_0";
-import { DescribeInstancePatchStatesForPatchGroup } from "../schemas/schemas_0";
+import { DescribeInstancePatchStatesForPatchGroup$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeInstancePatchStatesForPatchGroupCommand}.
  */
-export interface DescribeInstancePatchStatesForPatchGroupCommandInput
-  extends DescribeInstancePatchStatesForPatchGroupRequest {}
+export interface DescribeInstancePatchStatesForPatchGroupCommandInput extends DescribeInstancePatchStatesForPatchGroupRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeInstancePatchStatesForPatchGroupCommand}.
  */
-export interface DescribeInstancePatchStatesForPatchGroupCommandOutput
-  extends DescribeInstancePatchStatesForPatchGroupResult,
-    __MetadataBearer {}
+export interface DescribeInstancePatchStatesForPatchGroupCommandOutput extends DescribeInstancePatchStatesForPatchGroupResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the high-level patch state for the managed nodes in the specified patch
@@ -127,7 +124,7 @@ export class DescribeInstancePatchStatesForPatchGroupCommand extends $Command
   })
   .s("AmazonSSM", "DescribeInstancePatchStatesForPatchGroup", {})
   .n("SSMClient", "DescribeInstancePatchStatesForPatchGroupCommand")
-  .sc(DescribeInstancePatchStatesForPatchGroup)
+  .sc(DescribeInstancePatchStatesForPatchGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

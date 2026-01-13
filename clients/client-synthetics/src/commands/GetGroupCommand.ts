@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetGroupRequest, GetGroupResponse } from "../models/models_0";
-import { GetGroup } from "../schemas/schemas_0";
+import { GetGroup$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
@@ -95,7 +95,7 @@ export class GetGroupCommand extends $Command
   })
   .s("Synthetics", "GetGroup", {})
   .n("SyntheticsClient", "GetGroupCommand")
-  .sc(GetGroup)
+  .sc(GetGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartRecommendationsRequest } from "../models/models_1";
-import { StartRecommendations } from "../schemas/schemas_0";
+import { StartRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class StartRecommendationsCommand extends $Command
   })
   .s("AmazonDMSv20160101", "StartRecommendations", {})
   .n("DatabaseMigrationServiceClient", "StartRecommendationsCommand")
-  .sc(StartRecommendations)
+  .sc(StartRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

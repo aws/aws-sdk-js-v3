@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateRetrieverRequest, CreateRetrieverResponse } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { CreateRetriever } from "../schemas/schemas_0";
+import { CreateRetriever$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -135,7 +135,7 @@ export class CreateRetrieverCommand extends $Command
   })
   .s("ExpertQ", "CreateRetriever", {})
   .n("QBusinessClient", "CreateRetrieverCommand")
-  .sc(CreateRetriever)
+  .sc(CreateRetriever$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

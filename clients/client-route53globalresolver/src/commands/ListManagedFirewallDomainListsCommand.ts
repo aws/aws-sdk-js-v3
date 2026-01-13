@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53GlobalResolverClient";
-import { ListManagedFirewallDomainLists } from "../schemas/schemas_0";
+import { ListManagedFirewallDomainLists$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListManagedFirewallDomainListsCommandInput extends ListManagedF
  *
  * The output of {@link ListManagedFirewallDomainListsCommand}.
  */
-export interface ListManagedFirewallDomainListsCommandOutput
-  extends ListManagedFirewallDomainListsOutput,
-    __MetadataBearer {}
+export interface ListManagedFirewallDomainListsCommandOutput extends ListManagedFirewallDomainListsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of the AWS Managed DNS Lists and the categories for DNS Firewall. The categories are either <code>THREAT</code> or <code>CONTENT</code>.</p>
@@ -101,7 +99,7 @@ export class ListManagedFirewallDomainListsCommand extends $Command
   })
   .s("EC2DNSGlobalResolverCustomerAPI", "ListManagedFirewallDomainLists", {})
   .n("Route53GlobalResolverClient", "ListManagedFirewallDomainListsCommand")
-  .sc(ListManagedFirewallDomainLists)
+  .sc(ListManagedFirewallDomainLists$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

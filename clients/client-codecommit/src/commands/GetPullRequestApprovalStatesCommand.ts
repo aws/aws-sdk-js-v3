@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPullRequestApprovalStatesInput, GetPullRequestApprovalStatesOutput } from "../models/models_0";
-import { GetPullRequestApprovalStates } from "../schemas/schemas_0";
+import { GetPullRequestApprovalStates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetPullRequestApprovalStatesCommandInput extends GetPullRequest
  *
  * The output of {@link GetPullRequestApprovalStatesCommand}.
  */
-export interface GetPullRequestApprovalStatesCommandOutput
-  extends GetPullRequestApprovalStatesOutput,
-    __MetadataBearer {}
+export interface GetPullRequestApprovalStatesCommandOutput extends GetPullRequestApprovalStatesOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about the approval states for a specified pull request. Approval states only apply to pull requests that have one or more
@@ -112,7 +110,7 @@ export class GetPullRequestApprovalStatesCommand extends $Command
   })
   .s("CodeCommit_20150413", "GetPullRequestApprovalStates", {})
   .n("CodeCommitClient", "GetPullRequestApprovalStatesCommand")
-  .sc(GetPullRequestApprovalStates)
+  .sc(GetPullRequestApprovalStates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

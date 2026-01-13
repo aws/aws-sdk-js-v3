@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { CreateEventLogConfigurationRequest, CreateEventLogConfigurationResponse } from "../models/models_0";
-import { CreateEventLogConfiguration } from "../schemas/schemas_0";
+import { CreateEventLogConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface CreateEventLogConfigurationCommandInput extends CreateEventLogC
  *
  * The output of {@link CreateEventLogConfigurationCommand}.
  */
-export interface CreateEventLogConfigurationCommandOutput
-  extends CreateEventLogConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateEventLogConfigurationCommandOutput extends CreateEventLogConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Set the event log configuration for the account, resource type, or specific resource.</p>
@@ -100,7 +98,7 @@ export class CreateEventLogConfigurationCommand extends $Command
   })
   .s("IotManagedIntegrations", "CreateEventLogConfiguration", {})
   .n("IoTManagedIntegrationsClient", "CreateEventLogConfigurationCommand")
-  .sc(CreateEventLogConfiguration)
+  .sc(CreateEventLogConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

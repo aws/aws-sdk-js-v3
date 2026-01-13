@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import type { AssociateEntitiesToExperienceRequest, AssociateEntitiesToExperienceResponse } from "../models/models_0";
-import { AssociateEntitiesToExperience } from "../schemas/schemas_0";
+import { AssociateEntitiesToExperience$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface AssociateEntitiesToExperienceCommandInput extends AssociateEnti
  *
  * The output of {@link AssociateEntitiesToExperienceCommand}.
  */
-export interface AssociateEntitiesToExperienceCommandOutput
-  extends AssociateEntitiesToExperienceResponse,
-    __MetadataBearer {}
+export interface AssociateEntitiesToExperienceCommandOutput extends AssociateEntitiesToExperienceResponse, __MetadataBearer {}
 
 /**
  * <p>Grants users or groups in your IAM Identity Center identity source access
@@ -115,7 +113,7 @@ export class AssociateEntitiesToExperienceCommand extends $Command
   })
   .s("AWSKendraFrontendService", "AssociateEntitiesToExperience", {})
   .n("KendraClient", "AssociateEntitiesToExperienceCommand")
-  .sc(AssociateEntitiesToExperience)
+  .sc(AssociateEntitiesToExperience$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

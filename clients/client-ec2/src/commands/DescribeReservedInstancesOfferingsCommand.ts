@@ -9,7 +9,7 @@ import type {
   DescribeReservedInstancesOfferingsRequest,
   DescribeReservedInstancesOfferingsResult,
 } from "../models/models_4";
-import { DescribeReservedInstancesOfferings } from "../schemas/schemas_0";
+import { DescribeReservedInstancesOfferings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeReservedInstancesOfferingsCommandInput extends Describe
  *
  * The output of {@link DescribeReservedInstancesOfferingsCommand}.
  */
-export interface DescribeReservedInstancesOfferingsCommandOutput
-  extends DescribeReservedInstancesOfferingsResult,
-    __MetadataBearer {}
+export interface DescribeReservedInstancesOfferingsCommandOutput extends DescribeReservedInstancesOfferingsResult, __MetadataBearer {}
 
 /**
  * <p>Describes Reserved Instance offerings that are available for purchase. With Reserved
@@ -144,7 +142,7 @@ export class DescribeReservedInstancesOfferingsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeReservedInstancesOfferings", {})
   .n("EC2Client", "DescribeReservedInstancesOfferingsCommand")
-  .sc(DescribeReservedInstancesOfferings)
+  .sc(DescribeReservedInstancesOfferings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchEventsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateArchiveRequest, CreateArchiveResponse } from "../models/models_0";
-import { CreateArchive } from "../schemas/schemas_0";
+import { CreateArchive$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class CreateArchiveCommand extends $Command
   })
   .s("AWSEvents", "CreateArchive", {})
   .n("CloudWatchEventsClient", "CreateArchiveCommand")
-  .sc(CreateArchive)
+  .sc(CreateArchive$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

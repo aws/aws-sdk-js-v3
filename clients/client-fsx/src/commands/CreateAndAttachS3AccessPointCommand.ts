@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import type { CreateAndAttachS3AccessPointRequest, CreateAndAttachS3AccessPointResponse } from "../models/models_0";
-import { CreateAndAttachS3AccessPoint } from "../schemas/schemas_0";
+import { CreateAndAttachS3AccessPoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateAndAttachS3AccessPointCommandInput extends CreateAndAttac
  *
  * The output of {@link CreateAndAttachS3AccessPointCommand}.
  */
-export interface CreateAndAttachS3AccessPointCommandOutput
-  extends CreateAndAttachS3AccessPointResponse,
-    __MetadataBearer {}
+export interface CreateAndAttachS3AccessPointCommandOutput extends CreateAndAttachS3AccessPointResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an S3 access point and attaches it to an Amazon FSx volume. For FSx for OpenZFS file systems, the
@@ -223,7 +221,7 @@ export class CreateAndAttachS3AccessPointCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "CreateAndAttachS3AccessPoint", {})
   .n("FSxClient", "CreateAndAttachS3AccessPointCommand")
-  .sc(CreateAndAttachS3AccessPoint)
+  .sc(CreateAndAttachS3AccessPoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

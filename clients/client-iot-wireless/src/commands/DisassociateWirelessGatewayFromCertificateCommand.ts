@@ -9,7 +9,7 @@ import type {
   DisassociateWirelessGatewayFromCertificateRequest,
   DisassociateWirelessGatewayFromCertificateResponse,
 } from "../models/models_0";
-import { DisassociateWirelessGatewayFromCertificate } from "../schemas/schemas_0";
+import { DisassociateWirelessGatewayFromCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateWirelessGatewayFromCertificateCommand}.
  */
-export interface DisassociateWirelessGatewayFromCertificateCommandInput
-  extends DisassociateWirelessGatewayFromCertificateRequest {}
+export interface DisassociateWirelessGatewayFromCertificateCommandInput extends DisassociateWirelessGatewayFromCertificateRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateWirelessGatewayFromCertificateCommand}.
  */
-export interface DisassociateWirelessGatewayFromCertificateCommandOutput
-  extends DisassociateWirelessGatewayFromCertificateResponse,
-    __MetadataBearer {}
+export interface DisassociateWirelessGatewayFromCertificateCommandOutput extends DisassociateWirelessGatewayFromCertificateResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a wireless gateway from its currently associated certificate.</p>
@@ -92,7 +89,7 @@ export class DisassociateWirelessGatewayFromCertificateCommand extends $Command
   })
   .s("iotwireless", "DisassociateWirelessGatewayFromCertificate", {})
   .n("IoTWirelessClient", "DisassociateWirelessGatewayFromCertificateCommand")
-  .sc(DisassociateWirelessGatewayFromCertificate)
+  .sc(DisassociateWirelessGatewayFromCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

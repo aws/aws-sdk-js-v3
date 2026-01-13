@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { DeleteDomain } from "../schemas/schemas_0";
+import { DeleteDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class DeleteDomainCommand extends $Command
   })
   .s("Route53Domains_v20140515", "DeleteDomain", {})
   .n("Route53DomainsClient", "DeleteDomainCommand")
-  .sc(DeleteDomain)
+  .sc(DeleteDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

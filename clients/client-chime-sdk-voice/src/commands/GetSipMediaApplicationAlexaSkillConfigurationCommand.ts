@@ -9,7 +9,7 @@ import type {
   GetSipMediaApplicationAlexaSkillConfigurationRequest,
   GetSipMediaApplicationAlexaSkillConfigurationResponse,
 } from "../models/models_0";
-import { GetSipMediaApplicationAlexaSkillConfiguration } from "../schemas/schemas_0";
+import { GetSipMediaApplicationAlexaSkillConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetSipMediaApplicationAlexaSkillConfigurationCommand}.
  */
-export interface GetSipMediaApplicationAlexaSkillConfigurationCommandInput
-  extends GetSipMediaApplicationAlexaSkillConfigurationRequest {}
+export interface GetSipMediaApplicationAlexaSkillConfigurationCommandInput extends GetSipMediaApplicationAlexaSkillConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link GetSipMediaApplicationAlexaSkillConfigurationCommand}.
  */
-export interface GetSipMediaApplicationAlexaSkillConfigurationCommandOutput
-  extends GetSipMediaApplicationAlexaSkillConfigurationResponse,
-    __MetadataBearer {}
+export interface GetSipMediaApplicationAlexaSkillConfigurationCommandOutput extends GetSipMediaApplicationAlexaSkillConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the Alexa Skill configuration for the SIP media application.</p>
@@ -111,7 +108,7 @@ export class GetSipMediaApplicationAlexaSkillConfigurationCommand extends $Comma
   })
   .s("ChimeSDKTelephonyService", "GetSipMediaApplicationAlexaSkillConfiguration", {})
   .n("ChimeSDKVoiceClient", "GetSipMediaApplicationAlexaSkillConfigurationCommand")
-  .sc(GetSipMediaApplicationAlexaSkillConfiguration)
+  .sc(GetSipMediaApplicationAlexaSkillConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

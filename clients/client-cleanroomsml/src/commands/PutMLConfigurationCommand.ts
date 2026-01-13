@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutMLConfigurationRequest } from "../models/models_0";
-import { PutMLConfiguration } from "../schemas/schemas_0";
+import { PutMLConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class PutMLConfigurationCommand extends $Command
   })
   .s("AWSStarkControlService", "PutMLConfiguration", {})
   .n("CleanRoomsMLClient", "PutMLConfigurationCommand")
-  .sc(PutMLConfiguration)
+  .sc(PutMLConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   BatchDisassociateAnalyticsDataSetRequest,
   BatchDisassociateAnalyticsDataSetResponse,
 } from "../models/models_0";
-import { BatchDisassociateAnalyticsDataSet } from "../schemas/schemas_0";
+import { BatchDisassociateAnalyticsDataSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface BatchDisassociateAnalyticsDataSetCommandInput extends BatchDisa
  *
  * The output of {@link BatchDisassociateAnalyticsDataSetCommand}.
  */
-export interface BatchDisassociateAnalyticsDataSetCommandOutput
-  extends BatchDisassociateAnalyticsDataSetResponse,
-    __MetadataBearer {}
+export interface BatchDisassociateAnalyticsDataSetCommandOutput extends BatchDisassociateAnalyticsDataSetResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a list of analytics datasets associated with a given Amazon Connect instance. You can disassociate
@@ -106,7 +104,7 @@ export class BatchDisassociateAnalyticsDataSetCommand extends $Command
   })
   .s("AmazonConnectService", "BatchDisassociateAnalyticsDataSet", {})
   .n("ConnectClient", "BatchDisassociateAnalyticsDataSetCommand")
-  .sc(BatchDisassociateAnalyticsDataSet)
+  .sc(BatchDisassociateAnalyticsDataSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

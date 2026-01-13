@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyClient";
-import { GetCertificateSigningRequest } from "../schemas/schemas_0";
+import { GetCertificateSigningRequest$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetCertificateSigningRequestCommandInput extends GetCertificate
  *
  * The output of {@link GetCertificateSigningRequestCommand}.
  */
-export interface GetCertificateSigningRequestCommandOutput
-  extends GetCertificateSigningRequestOutput,
-    __MetadataBearer {}
+export interface GetCertificateSigningRequestCommandOutput extends GetCertificateSigningRequestOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a certificate signing request (CSR) from a key pair.</p>
@@ -107,7 +105,7 @@ export class GetCertificateSigningRequestCommand extends $Command
   })
   .s("PaymentCryptographyControlPlane", "GetCertificateSigningRequest", {})
   .n("PaymentCryptographyClient", "GetCertificateSigningRequestCommand")
-  .sc(GetCertificateSigningRequest)
+  .sc(GetCertificateSigningRequest$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

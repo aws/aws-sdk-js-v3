@@ -9,7 +9,7 @@ import type {
   CreateQueryLoggingConfigurationRequest,
   CreateQueryLoggingConfigurationResponse,
 } from "../models/models_0";
-import { CreateQueryLoggingConfiguration } from "../schemas/schemas_0";
+import { CreateQueryLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateQueryLoggingConfigurationCommandInput extends CreateQuery
  *
  * The output of {@link CreateQueryLoggingConfigurationCommand}.
  */
-export interface CreateQueryLoggingConfigurationCommandOutput
-  extends CreateQueryLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateQueryLoggingConfigurationCommandOutput extends CreateQueryLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a query logging configuration for the specified workspace. This operation enables logging of queries that exceed the specified QSP threshold.</p>
@@ -104,7 +102,7 @@ export class CreateQueryLoggingConfigurationCommand extends $Command
   })
   .s("AmazonPrometheusService", "CreateQueryLoggingConfiguration", {})
   .n("AmpClient", "CreateQueryLoggingConfigurationCommand")
-  .sc(CreateQueryLoggingConfiguration)
+  .sc(CreateQueryLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetServiceNetworkRequest, GetServiceNetworkResponse } from "../models/models_0";
-import { GetServiceNetwork } from "../schemas/schemas_0";
+import { GetServiceNetwork$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -98,7 +98,7 @@ export class GetServiceNetworkCommand extends $Command
   })
   .s("MercuryControlPlane", "GetServiceNetwork", {})
   .n("VPCLatticeClient", "GetServiceNetworkCommand")
-  .sc(GetServiceNetwork)
+  .sc(GetServiceNetwork$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

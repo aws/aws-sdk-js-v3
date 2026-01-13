@@ -9,7 +9,7 @@ import type {
   ListCollaborationPrivacyBudgetTemplatesInput,
   ListCollaborationPrivacyBudgetTemplatesOutput,
 } from "../models/models_0";
-import { ListCollaborationPrivacyBudgetTemplates } from "../schemas/schemas_0";
+import { ListCollaborationPrivacyBudgetTemplates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListCollaborationPrivacyBudgetTemplatesCommand}.
  */
-export interface ListCollaborationPrivacyBudgetTemplatesCommandInput
-  extends ListCollaborationPrivacyBudgetTemplatesInput {}
+export interface ListCollaborationPrivacyBudgetTemplatesCommandInput extends ListCollaborationPrivacyBudgetTemplatesInput {}
 /**
  * @public
  *
  * The output of {@link ListCollaborationPrivacyBudgetTemplatesCommand}.
  */
-export interface ListCollaborationPrivacyBudgetTemplatesCommandOutput
-  extends ListCollaborationPrivacyBudgetTemplatesOutput,
-    __MetadataBearer {}
+export interface ListCollaborationPrivacyBudgetTemplatesCommandOutput extends ListCollaborationPrivacyBudgetTemplatesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns an array that summarizes each privacy budget template in a specified collaboration.</p>
@@ -108,7 +105,7 @@ export class ListCollaborationPrivacyBudgetTemplatesCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "ListCollaborationPrivacyBudgetTemplates", {})
   .n("CleanRoomsClient", "ListCollaborationPrivacyBudgetTemplatesCommand")
-  .sc(ListCollaborationPrivacyBudgetTemplates)
+  .sc(ListCollaborationPrivacyBudgetTemplates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

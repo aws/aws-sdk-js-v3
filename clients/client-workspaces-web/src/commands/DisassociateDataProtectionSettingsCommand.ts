@@ -8,7 +8,7 @@ import type {
   DisassociateDataProtectionSettingsRequest,
   DisassociateDataProtectionSettingsResponse,
 } from "../models/models_0";
-import { DisassociateDataProtectionSettings } from "../schemas/schemas_0";
+import { DisassociateDataProtectionSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DisassociateDataProtectionSettingsCommandInput extends Disassoc
  *
  * The output of {@link DisassociateDataProtectionSettingsCommand}.
  */
-export interface DisassociateDataProtectionSettingsCommandOutput
-  extends DisassociateDataProtectionSettingsResponse,
-    __MetadataBearer {}
+export interface DisassociateDataProtectionSettingsCommandOutput extends DisassociateDataProtectionSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates data protection settings from a web portal.</p>
@@ -94,7 +92,7 @@ export class DisassociateDataProtectionSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "DisassociateDataProtectionSettings", {})
   .n("WorkSpacesWebClient", "DisassociateDataProtectionSettingsCommand")
-  .sc(DisassociateDataProtectionSettings)
+  .sc(DisassociateDataProtectionSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

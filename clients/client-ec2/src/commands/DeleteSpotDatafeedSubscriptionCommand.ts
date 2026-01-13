@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSpotDatafeedSubscriptionRequest } from "../models/models_2";
-import { DeleteSpotDatafeedSubscription } from "../schemas/schemas_0";
+import { DeleteSpotDatafeedSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class DeleteSpotDatafeedSubscriptionCommand extends $Command
   })
   .s("AmazonEC2", "DeleteSpotDatafeedSubscription", {})
   .n("EC2Client", "DeleteSpotDatafeedSubscriptionCommand")
-  .sc(DeleteSpotDatafeedSubscription)
+  .sc(DeleteSpotDatafeedSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

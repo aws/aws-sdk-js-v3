@@ -9,7 +9,7 @@ import type {
   DescribeInstanceConnectEndpointsRequest,
   DescribeInstanceConnectEndpointsResult,
 } from "../models/models_3";
-import { DescribeInstanceConnectEndpoints } from "../schemas/schemas_0";
+import { DescribeInstanceConnectEndpoints$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeInstanceConnectEndpointsCommandInput extends DescribeIn
  *
  * The output of {@link DescribeInstanceConnectEndpointsCommand}.
  */
-export interface DescribeInstanceConnectEndpointsCommandOutput
-  extends DescribeInstanceConnectEndpointsResult,
-    __MetadataBearer {}
+export interface DescribeInstanceConnectEndpointsCommandOutput extends DescribeInstanceConnectEndpointsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified EC2 Instance Connect Endpoints or all EC2 Instance Connect Endpoints.</p>
@@ -131,7 +129,7 @@ export class DescribeInstanceConnectEndpointsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeInstanceConnectEndpoints", {})
   .n("EC2Client", "DescribeInstanceConnectEndpointsCommand")
-  .sc(DescribeInstanceConnectEndpoints)
+  .sc(DescribeInstanceConnectEndpoints$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

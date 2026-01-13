@@ -9,7 +9,7 @@ import type {
   UpdateContactFlowModuleMetadataRequest,
   UpdateContactFlowModuleMetadataResponse,
 } from "../models/models_3";
-import { UpdateContactFlowModuleMetadata } from "../schemas/schemas_0";
+import { UpdateContactFlowModuleMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateContactFlowModuleMetadataCommandInput extends UpdateConta
  *
  * The output of {@link UpdateContactFlowModuleMetadataCommand}.
  */
-export interface UpdateContactFlowModuleMetadataCommandOutput
-  extends UpdateContactFlowModuleMetadataResponse,
-    __MetadataBearer {}
+export interface UpdateContactFlowModuleMetadataCommandOutput extends UpdateContactFlowModuleMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Updates metadata about specified flow module.</p>
@@ -101,7 +99,7 @@ export class UpdateContactFlowModuleMetadataCommand extends $Command
   })
   .s("AmazonConnectService", "UpdateContactFlowModuleMetadata", {})
   .n("ConnectClient", "UpdateContactFlowModuleMetadataCommand")
-  .sc(UpdateContactFlowModuleMetadata)
+  .sc(UpdateContactFlowModuleMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

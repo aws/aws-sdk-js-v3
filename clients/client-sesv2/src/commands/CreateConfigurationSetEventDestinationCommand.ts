@@ -8,7 +8,7 @@ import type {
   CreateConfigurationSetEventDestinationRequest,
   CreateConfigurationSetEventDestinationResponse,
 } from "../models/models_0";
-import { CreateConfigurationSetEventDestination } from "../schemas/schemas_0";
+import { CreateConfigurationSetEventDestination$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateConfigurationSetEventDestinationCommand}.
  */
-export interface CreateConfigurationSetEventDestinationCommandInput
-  extends CreateConfigurationSetEventDestinationRequest {}
+export interface CreateConfigurationSetEventDestinationCommandInput extends CreateConfigurationSetEventDestinationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateConfigurationSetEventDestinationCommand}.
  */
-export interface CreateConfigurationSetEventDestinationCommandOutput
-  extends CreateConfigurationSetEventDestinationResponse,
-    __MetadataBearer {}
+export interface CreateConfigurationSetEventDestinationCommandOutput extends CreateConfigurationSetEventDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Create an event destination. <i>Events</i> include message sends,
@@ -126,7 +123,7 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command
   })
   .s("SimpleEmailService_v2", "CreateConfigurationSetEventDestination", {})
   .n("SESv2Client", "CreateConfigurationSetEventDestinationCommand")
-  .sc(CreateConfigurationSetEventDestination)
+  .sc(CreateConfigurationSetEventDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

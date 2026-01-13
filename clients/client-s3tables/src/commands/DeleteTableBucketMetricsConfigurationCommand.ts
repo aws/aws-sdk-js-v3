@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTableBucketMetricsConfigurationRequest } from "../models/models_0";
 import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
-import { DeleteTableBucketMetricsConfiguration } from "../schemas/schemas_0";
+import { DeleteTableBucketMetricsConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link DeleteTableBucketMetricsConfigurationCommand}.
  */
-export interface DeleteTableBucketMetricsConfigurationCommandInput
-  extends DeleteTableBucketMetricsConfigurationRequest {}
+export interface DeleteTableBucketMetricsConfigurationCommandInput extends DeleteTableBucketMetricsConfigurationRequest {}
 /**
  * @public
  *
@@ -90,7 +89,7 @@ export class DeleteTableBucketMetricsConfigurationCommand extends $Command
   })
   .s("S3TableBuckets", "DeleteTableBucketMetricsConfiguration", {})
   .n("S3TablesClient", "DeleteTableBucketMetricsConfigurationCommand")
-  .sc(DeleteTableBucketMetricsConfiguration)
+  .sc(DeleteTableBucketMetricsConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

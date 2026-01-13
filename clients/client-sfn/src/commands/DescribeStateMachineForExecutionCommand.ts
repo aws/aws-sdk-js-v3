@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeStateMachineForExecutionInput, DescribeStateMachineForExecutionOutput } from "../models/models_0";
-import { DescribeStateMachineForExecution } from "../schemas/schemas_0";
+import { DescribeStateMachineForExecution$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DescribeStateMachineForExecutionCommandInput extends DescribeSt
  *
  * The output of {@link DescribeStateMachineForExecutionCommand}.
  */
-export interface DescribeStateMachineForExecutionCommandOutput
-  extends DescribeStateMachineForExecutionOutput,
-    __MetadataBearer {}
+export interface DescribeStateMachineForExecutionCommandOutput extends DescribeStateMachineForExecutionOutput, __MetadataBearer {}
 
 /**
  * <p>Provides information about a state machine's definition, its execution role ARN, and
@@ -129,7 +127,7 @@ export class DescribeStateMachineForExecutionCommand extends $Command
   })
   .s("AWSStepFunctions", "DescribeStateMachineForExecution", {})
   .n("SFNClient", "DescribeStateMachineForExecutionCommand")
-  .sc(DescribeStateMachineForExecution)
+  .sc(DescribeStateMachineForExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

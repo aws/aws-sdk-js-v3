@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateThemeAliasRequest, UpdateThemeAliasResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateThemeAlias } from "../schemas/schemas_0";
+import { UpdateThemeAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class UpdateThemeAliasCommand extends $Command
   })
   .s("QuickSight_20180401", "UpdateThemeAlias", {})
   .n("QuickSightClient", "UpdateThemeAliasCommand")
-  .sc(UpdateThemeAlias)
+  .sc(UpdateThemeAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

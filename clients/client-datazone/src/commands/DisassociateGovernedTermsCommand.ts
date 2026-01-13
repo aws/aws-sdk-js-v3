@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateGovernedTermsInput, DisassociateGovernedTermsOutput } from "../models/models_1";
-import { DisassociateGovernedTerms } from "../schemas/schemas_0";
+import { DisassociateGovernedTerms$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DisassociateGovernedTermsCommand extends $Command
   })
   .s("DataZone", "DisassociateGovernedTerms", {})
   .n("DataZoneClient", "DisassociateGovernedTermsCommand")
-  .sc(DisassociateGovernedTerms)
+  .sc(DisassociateGovernedTerms$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

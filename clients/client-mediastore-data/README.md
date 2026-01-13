@@ -11,10 +11,8 @@ service. Objects are the fundamental entities that are stored in AWS Elemental
 MediaStore.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-mediastore-data
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-mediastore-data`
 - `yarn add @aws-sdk/client-mediastore-data`
 - `pnpm add @aws-sdk/client-mediastore-data`
@@ -50,9 +48,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new MediaStoreDataClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListItemsCommand(params);
 ```
 
@@ -211,7 +207,6 @@ DeleteObject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediastore-data/command/DeleteObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/DeleteObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/DeleteObjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -219,7 +214,6 @@ DescribeObject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediastore-data/command/DescribeObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/DescribeObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/DescribeObjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -227,7 +221,6 @@ GetObject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediastore-data/command/GetObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/GetObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/GetObjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -235,7 +228,6 @@ ListItems
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediastore-data/command/ListItemsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/ListItemsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/ListItemsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -243,5 +235,4 @@ PutObject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediastore-data/command/PutObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/PutObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/PutObjectCommandOutput/)
-
 </details>

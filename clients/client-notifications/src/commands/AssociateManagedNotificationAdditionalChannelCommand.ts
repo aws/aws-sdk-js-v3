@@ -9,7 +9,7 @@ import type {
   AssociateManagedNotificationAdditionalChannelResponse,
 } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { AssociateManagedNotificationAdditionalChannel } from "../schemas/schemas_0";
+import { AssociateManagedNotificationAdditionalChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AssociateManagedNotificationAdditionalChannelCommand}.
  */
-export interface AssociateManagedNotificationAdditionalChannelCommandInput
-  extends AssociateManagedNotificationAdditionalChannelRequest {}
+export interface AssociateManagedNotificationAdditionalChannelCommandInput extends AssociateManagedNotificationAdditionalChannelRequest {}
 /**
  * @public
  *
  * The output of {@link AssociateManagedNotificationAdditionalChannelCommand}.
  */
-export interface AssociateManagedNotificationAdditionalChannelCommandOutput
-  extends AssociateManagedNotificationAdditionalChannelResponse,
-    __MetadataBearer {}
+export interface AssociateManagedNotificationAdditionalChannelCommandOutput extends AssociateManagedNotificationAdditionalChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Associates an additional Channel with a particular <code>ManagedNotificationConfiguration</code>.</p> <p>Supported Channels include Amazon Q Developer in chat applications, the Console Mobile Application, and emails (notifications-contacts).</p>
@@ -99,7 +96,7 @@ export class AssociateManagedNotificationAdditionalChannelCommand extends $Comma
   })
   .s("Notifications", "AssociateManagedNotificationAdditionalChannel", {})
   .n("NotificationsClient", "AssociateManagedNotificationAdditionalChannelCommand")
-  .sc(AssociateManagedNotificationAdditionalChannel)
+  .sc(AssociateManagedNotificationAdditionalChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

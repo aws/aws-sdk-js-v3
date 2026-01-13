@@ -10,7 +10,7 @@ import type {
 } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateFindingsRequest } from "../models/models_0";
-import { UpdateFindings } from "../schemas/schemas_0";
+import { UpdateFindings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class UpdateFindingsCommand extends $Command
   })
   .s("AccessAnalyzer", "UpdateFindings", {})
   .n("AccessAnalyzerClient", "UpdateFindingsCommand")
-  .sc(UpdateFindings)
+  .sc(UpdateFindings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

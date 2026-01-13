@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SendHeartbeatRequest } from "../models/models_0";
 import type { SagemakerEdgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SagemakerEdgeClient";
-import { SendHeartbeat } from "../schemas/schemas_0";
+import { SendHeartbeat$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class SendHeartbeatCommand extends $Command
   })
   .s("AmazonSageMakerEdge", "SendHeartbeat", {})
   .n("SagemakerEdgeClient", "SendHeartbeatCommand")
-  .sc(SendHeartbeat)
+  .sc(SendHeartbeat$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetGroupsForCapacityReservationRequest, GetGroupsForCapacityReservationResult } from "../models/models_5";
-import { GetGroupsForCapacityReservation } from "../schemas/schemas_0";
+import { GetGroupsForCapacityReservation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetGroupsForCapacityReservationCommandInput extends GetGroupsFo
  *
  * The output of {@link GetGroupsForCapacityReservationCommand}.
  */
-export interface GetGroupsForCapacityReservationCommandOutput
-  extends GetGroupsForCapacityReservationResult,
-    __MetadataBearer {}
+export interface GetGroupsForCapacityReservationCommandOutput extends GetGroupsForCapacityReservationResult, __MetadataBearer {}
 
 /**
  * <p>Lists the resource groups to which a Capacity Reservation has been added.</p>
@@ -84,7 +82,7 @@ export class GetGroupsForCapacityReservationCommand extends $Command
   })
   .s("AmazonEC2", "GetGroupsForCapacityReservation", {})
   .n("EC2Client", "GetGroupsForCapacityReservationCommand")
-  .sc(GetGroupsForCapacityReservation)
+  .sc(GetGroupsForCapacityReservation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

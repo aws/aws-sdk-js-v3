@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import type { ListWorkspaceServiceAccountsRequest, ListWorkspaceServiceAccountsResponse } from "../models/models_0";
-import { ListWorkspaceServiceAccounts } from "../schemas/schemas_0";
+import { ListWorkspaceServiceAccounts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListWorkspaceServiceAccountsCommandInput extends ListWorkspaceS
  *
  * The output of {@link ListWorkspaceServiceAccountsCommand}.
  */
-export interface ListWorkspaceServiceAccountsCommandOutput
-  extends ListWorkspaceServiceAccountsResponse,
-    __MetadataBearer {}
+export interface ListWorkspaceServiceAccountsCommandOutput extends ListWorkspaceServiceAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of service accounts for a workspace.</p>
@@ -106,7 +104,7 @@ export class ListWorkspaceServiceAccountsCommand extends $Command
   })
   .s("AWSGrafanaControlPlane", "ListWorkspaceServiceAccounts", {})
   .n("GrafanaClient", "ListWorkspaceServiceAccountsCommand")
-  .sc(ListWorkspaceServiceAccounts)
+  .sc(ListWorkspaceServiceAccounts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -264,686 +264,650 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { SageMakerGeospatialServiceException as __SageMakerGeospatialServiceException } from "../models/SageMakerGeospatialServiceException";
+import { SageMakerGeospatialServiceException } from "../models/SageMakerGeospatialServiceException";
 
 /* eslint no-var: 0 */
-export var BinaryFile: StaticSimpleSchema = [0, n0, _BF, { [_mT]: _ab, [_s]: 1 }, 42];
-export var NextToken: StaticSimpleSchema = [0, n0, _NT, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AssetValue: StaticStructureSchema = [3, n0, _AV, 0, [_H], [0]];
-export var BandMathConfigInput: StaticStructureSchema = [
-  3,
-  n0,
-  _BMCI,
+var BinaryFile: StaticSimpleSchema = [0, n0, _BF, { [_mT]: _ab, [_s]: 1 }, 42];
+var NextToken: StaticSimpleSchema = [0, n0, _NT, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AssetValue$: StaticStructureSchema = [3, n0, _AV,
+  0,
+  [_H],
+  [0]
+];
+export var BandMathConfigInput$: StaticStructureSchema = [3, n0, _BMCI,
   0,
   [_PI, _CI],
-  [64 | 0, () => CustomIndicesInput],
+  [64 | 0, () => CustomIndicesInput$]
 ];
-export var CloudMaskingConfigInput: StaticStructureSchema = [3, n0, _CMCI, 0, [], []];
-export var CloudRemovalConfigInput: StaticStructureSchema = [3, n0, _CRCI, 0, [_AN, _IV, _TB], [0, 0, 64 | 0]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RI], [0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CustomIndicesInput: StaticStructureSchema = [3, n0, _CII, 0, [_O], [() => OperationsListInput]];
-export var DeleteEarthObservationJobInput: StaticStructureSchema = [3, n0, _DEOJI, 0, [_A], [[0, 1]]];
-export var DeleteEarthObservationJobOutput: StaticStructureSchema = [3, n0, _DEOJO, 0, [], []];
-export var DeleteVectorEnrichmentJobInput: StaticStructureSchema = [3, n0, _DVEJI, 0, [_A], [[0, 1]]];
-export var DeleteVectorEnrichmentJobOutput: StaticStructureSchema = [3, n0, _DVEJO, 0, [], []];
-export var EarthObservationJobErrorDetails: StaticStructureSchema = [3, n0, _EOJED, 0, [_T, _M], [0, 0]];
-export var EoCloudCoverInput: StaticStructureSchema = [3, n0, _ECCI, 0, [_LB, _UB], [1, 1]];
-export var ExportEarthObservationJobInput: StaticStructureSchema = [
-  3,
-  n0,
-  _EEOJI,
+export var CloudMaskingConfigInput$: StaticStructureSchema = [3, n0, _CMCI,
+  0,
+  [],
+  []
+];
+export var CloudRemovalConfigInput$: StaticStructureSchema = [3, n0, _CRCI,
+  0,
+  [_AN, _IV, _TB],
+  [0, 0, 64 | 0]
+];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RI],
+  [0, 0]
+];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CustomIndicesInput$: StaticStructureSchema = [3, n0, _CII,
+  0,
+  [_O],
+  [() => OperationsListInput]
+];
+export var DeleteEarthObservationJobInput$: StaticStructureSchema = [3, n0, _DEOJI,
+  0,
+  [_A],
+  [[0, 1]]
+];
+export var DeleteEarthObservationJobOutput$: StaticStructureSchema = [3, n0, _DEOJO,
+  0,
+  [],
+  []
+];
+export var DeleteVectorEnrichmentJobInput$: StaticStructureSchema = [3, n0, _DVEJI,
+  0,
+  [_A],
+  [[0, 1]]
+];
+export var DeleteVectorEnrichmentJobOutput$: StaticStructureSchema = [3, n0, _DVEJO,
+  0,
+  [],
+  []
+];
+export var EarthObservationJobErrorDetails$: StaticStructureSchema = [3, n0, _EOJED,
+  0,
+  [_T, _M],
+  [0, 0]
+];
+export var EoCloudCoverInput$: StaticStructureSchema = [3, n0, _ECCI,
+  0,
+  [_LB, _UB],
+  [1, 1]
+];
+export var ExportEarthObservationJobInput$: StaticStructureSchema = [3, n0, _EEOJI,
   0,
   [_A, _CT, _ERA, _OC, _ESI],
-  [0, [0, 4], 0, () => OutputConfigInput, 2],
+  [0, [0, 4], 0, () => OutputConfigInput$, 2]
 ];
-export var ExportEarthObservationJobOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _EEOJO,
+export var ExportEarthObservationJobOutput$: StaticStructureSchema = [3, n0, _EEOJO,
   0,
   [_A, _CTr, _ES, _ERA, _OC, _ESI],
-  [0, 5, 0, 0, () => OutputConfigInput, 2],
+  [0, 5, 0, 0, () => OutputConfigInput$, 2]
 ];
-export var ExportErrorDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _EED,
+export var ExportErrorDetails$: StaticStructureSchema = [3, n0, _EED,
   0,
   [_ER, _ESI],
-  [() => ExportErrorDetailsOutput, () => ExportErrorDetailsOutput],
+  [() => ExportErrorDetailsOutput$, () => ExportErrorDetailsOutput$]
 ];
-export var ExportErrorDetailsOutput: StaticStructureSchema = [3, n0, _EEDO, 0, [_T, _M], [0, 0]];
-export var ExportS3DataInput: StaticStructureSchema = [3, n0, _ESDI, 0, [_SU, _KKI], [0, 0]];
-export var ExportVectorEnrichmentJobInput: StaticStructureSchema = [
-  3,
-  n0,
-  _EVEJI,
+export var ExportErrorDetailsOutput$: StaticStructureSchema = [3, n0, _EEDO,
+  0,
+  [_T, _M],
+  [0, 0]
+];
+export var ExportS3DataInput$: StaticStructureSchema = [3, n0, _ESDI,
+  0,
+  [_SU, _KKI],
+  [0, 0]
+];
+export var ExportVectorEnrichmentJobInput$: StaticStructureSchema = [3, n0, _EVEJI,
   0,
   [_A, _CT, _ERA, _OC],
-  [0, [0, 4], 0, () => ExportVectorEnrichmentJobOutputConfig],
+  [0, [0, 4], 0, () => ExportVectorEnrichmentJobOutputConfig$]
 ];
-export var ExportVectorEnrichmentJobOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _EVEJO,
+export var ExportVectorEnrichmentJobOutput$: StaticStructureSchema = [3, n0, _EVEJO,
   0,
   [_A, _CTr, _ERA, _ES, _OC],
-  [0, 5, 0, 0, () => ExportVectorEnrichmentJobOutputConfig],
+  [0, 5, 0, 0, () => ExportVectorEnrichmentJobOutputConfig$]
 ];
-export var ExportVectorEnrichmentJobOutputConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _EVEJOC,
+export var ExportVectorEnrichmentJobOutputConfig$: StaticStructureSchema = [3, n0, _EVEJOC,
   0,
   [_SD],
-  [() => VectorEnrichmentJobS3Data],
+  [() => VectorEnrichmentJobS3Data$]
 ];
-export var Filter: StaticStructureSchema = [3, n0, _F, 0, [_N, _T, _Mi, _Ma], [0, 0, 1, 1]];
-export var Geometry: StaticStructureSchema = [3, n0, _G, 0, [_T, _C], [0, [() => LinearRings, 0]]];
-export var GeoMosaicConfigInput: StaticStructureSchema = [3, n0, _GMCI, 0, [_AN, _TB], [0, 64 | 0]];
-export var GetEarthObservationJobInput: StaticStructureSchema = [3, n0, _GEOJI, 0, [_A], [[0, 1]]];
-export var GetEarthObservationJobOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GEOJO,
+export var Filter$: StaticStructureSchema = [3, n0, _F,
+  0,
+  [_N, _T, _Mi, _Ma],
+  [0, 0, 1, 1]
+];
+export var Geometry$: StaticStructureSchema = [3, n0, _G,
+  0,
+  [_T, _C],
+  [0, [() => LinearRings, 0]]
+];
+export var GeoMosaicConfigInput$: StaticStructureSchema = [3, n0, _GMCI,
+  0,
+  [_AN, _TB],
+  [0, 64 | 0]
+];
+export var GetEarthObservationJobInput$: StaticStructureSchema = [3, n0, _GEOJI,
+  0,
+  [_A],
+  [[0, 1]]
+];
+export var GetEarthObservationJobOutput$: StaticStructureSchema = [3, n0, _GEOJO,
   0,
   [_A, _N, _CTr, _DIS, _S, _KKI, _IC, _JC, _OB, _ERA, _ED, _ES, _EED, _Ta],
-  [
-    0,
-    0,
-    5,
-    1,
-    0,
-    0,
-    [() => InputConfigOutput, 0],
-    () => JobConfigInput,
-    () => EarthObservationJobOutputBands,
-    0,
-    () => EarthObservationJobErrorDetails,
-    0,
-    () => ExportErrorDetails,
-    128 | 0,
-  ],
+  [0, 0, 5, 1, 0, 0, [() => InputConfigOutput$, 0], () => JobConfigInput$, () => EarthObservationJobOutputBands, 0, () => EarthObservationJobErrorDetails$, 0, () => ExportErrorDetails$, 128 | 0]
 ];
-export var GetRasterDataCollectionInput: StaticStructureSchema = [3, n0, _GRDCI, 0, [_A], [[0, 1]]];
-export var GetRasterDataCollectionOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GRDCO,
+export var GetRasterDataCollectionInput$: StaticStructureSchema = [3, n0, _GRDCI,
+  0,
+  [_A],
+  [[0, 1]]
+];
+export var GetRasterDataCollectionOutput$: StaticStructureSchema = [3, n0, _GRDCO,
   0,
   [_N, _A, _T, _D, _DPU, _SF, _ISB, _Ta],
-  [0, 0, 0, 0, 0, () => FilterList, 64 | 0, 128 | 0],
+  [0, 0, 0, 0, 0, () => FilterList, 64 | 0, 128 | 0]
 ];
-export var GetTileInput: StaticStructureSchema = [
-  3,
-  n0,
-  _GTI,
+export var GetTileInput$: StaticStructureSchema = [3, n0, _GTI,
   0,
   [_x, _y, _z, _IA, _Tar, _A, _IM, _OF, _TRF, _PF, _ODT, _ERA],
-  [
-    [1, 1],
-    [1, 1],
-    [1, 1],
-    [64 | 0, { [_hQ]: _IA }],
-    [0, { [_hQ]: _Tar }],
-    [0, { [_hQ]: _A }],
-    [2, { [_hQ]: _IM }],
-    [0, { [_hQ]: _OF }],
-    [0, { [_hQ]: _TRF }],
-    [0, { [_hQ]: _PF }],
-    [0, { [_hQ]: _ODT }],
-    [0, { [_hQ]: _ERA }],
-  ],
+  [[1, 1], [1, 1], [1, 1], [64 | 0, { [_hQ]: _IA }], [0, { [_hQ]: _Tar }], [0, { [_hQ]: _A }], [2, { [_hQ]: _IM }], [0, { [_hQ]: _OF }], [0, { [_hQ]: _TRF }], [0, { [_hQ]: _PF }], [0, { [_hQ]: _ODT }], [0, { [_hQ]: _ERA }]]
 ];
-export var GetTileOutput: StaticStructureSchema = [3, n0, _GTO, 0, [_BF], [[() => BinaryFile, 16]]];
-export var GetVectorEnrichmentJobInput: StaticStructureSchema = [3, n0, _GVEJI, 0, [_A], [[0, 1]]];
-export var GetVectorEnrichmentJobOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GVEJO,
+export var GetTileOutput$: StaticStructureSchema = [3, n0, _GTO,
+  0,
+  [_BF],
+  [[() => BinaryFile, 16]]
+];
+export var GetVectorEnrichmentJobInput$: StaticStructureSchema = [3, n0, _GVEJI,
+  0,
+  [_A],
+  [[0, 1]]
+];
+export var GetVectorEnrichmentJobOutput$: StaticStructureSchema = [3, n0, _GVEJO,
   0,
   [_A, _T, _N, _CTr, _DIS, _S, _KKI, _IC, _JC, _ERA, _ED, _ES, _EED, _Ta],
-  [
-    0,
-    0,
-    0,
-    5,
-    1,
-    0,
-    0,
-    () => VectorEnrichmentJobInputConfig,
-    () => VectorEnrichmentJobConfig,
-    0,
-    () => VectorEnrichmentJobErrorDetails,
-    0,
-    () => VectorEnrichmentJobExportErrorDetails,
-    128 | 0,
-  ],
+  [0, 0, 0, 5, 1, 0, 0, () => VectorEnrichmentJobInputConfig$, () => VectorEnrichmentJobConfig$, 0, () => VectorEnrichmentJobErrorDetails$, 0, () => VectorEnrichmentJobExportErrorDetails$, 128 | 0]
 ];
-export var InputConfigInput: StaticStructureSchema = [
-  3,
-  n0,
-  _ICI,
+export var InputConfigInput$: StaticStructureSchema = [3, n0, _ICI,
   0,
   [_PEOJA, _RDCQ],
-  [0, [() => RasterDataCollectionQueryInput, 0]],
+  [0, [() => RasterDataCollectionQueryInput$, 0]]
 ];
-export var InputConfigOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _ICO,
+export var InputConfigOutput$: StaticStructureSchema = [3, n0, _ICO,
   0,
   [_PEOJA, _RDCQ],
-  [0, [() => RasterDataCollectionQueryOutput, 0]],
+  [0, [() => RasterDataCollectionQueryOutput$, 0]]
 ];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_M, _RI], [0, 0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var ItemSource: StaticStructureSchema = [
-  3,
-  n0,
-  _IS,
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _RI],
+  [0, 0]
+];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var ItemSource$: StaticStructureSchema = [3, n0, _IS,
   0,
   [_I, _G, _As, _DT, _P],
-  [0, [() => Geometry, 0], () => AssetsMap, 4, () => Properties],
+  [0, [() => Geometry$, 0], () => AssetsMap, 4, () => Properties$]
 ];
-export var LandCoverSegmentationConfigInput: StaticStructureSchema = [3, n0, _LCSCI, 0, [], []];
-export var LandsatCloudCoverLandInput: StaticStructureSchema = [3, n0, _LCCLI, 0, [_LB, _UB], [1, 1]];
-export var ListEarthObservationJobInput: StaticStructureSchema = [
-  3,
-  n0,
-  _LEOJI,
+export var LandCoverSegmentationConfigInput$: StaticStructureSchema = [3, n0, _LCSCI,
+  0,
+  [],
+  []
+];
+export var LandsatCloudCoverLandInput$: StaticStructureSchema = [3, n0, _LCCLI,
+  0,
+  [_LB, _UB],
+  [1, 1]
+];
+export var ListEarthObservationJobInput$: StaticStructureSchema = [3, n0, _LEOJI,
   0,
   [_SE, _SO, _SB, _NT, _MR],
-  [0, 0, 0, [() => NextToken, 0], 1],
+  [0, 0, 0, [() => NextToken, 0], 1]
 ];
-export var ListEarthObservationJobOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _LEOJO,
+export var ListEarthObservationJobOutput$: StaticStructureSchema = [3, n0, _LEOJO,
   0,
   [_EOJS, _NT],
-  [() => EarthObservationJobList, [() => NextToken, 0]],
+  [() => EarthObservationJobList, [() => NextToken, 0]]
 ];
-export var ListEarthObservationJobOutputConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _LEOJOC,
+export var ListEarthObservationJobOutputConfig$: StaticStructureSchema = [3, n0, _LEOJOC,
   0,
   [_A, _N, _CTr, _DIS, _S, _OT, _Ta],
-  [0, 0, 5, 1, 0, 0, 128 | 0],
+  [0, 0, 5, 1, 0, 0, 128 | 0]
 ];
-export var ListRasterDataCollectionsInput: StaticStructureSchema = [
-  3,
-  n0,
-  _LRDCI,
+export var ListRasterDataCollectionsInput$: StaticStructureSchema = [3, n0, _LRDCI,
   0,
   [_NT, _MR],
-  [
-    [() => NextToken, { [_hQ]: _NT }],
-    [1, { [_hQ]: _MR }],
-  ],
+  [[() => NextToken, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]]
 ];
-export var ListRasterDataCollectionsOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _LRDCO,
+export var ListRasterDataCollectionsOutput$: StaticStructureSchema = [3, n0, _LRDCO,
   0,
   [_RDCS, _NT],
-  [() => DataCollectionsList, [() => NextToken, 0]],
+  [() => DataCollectionsList, [() => NextToken, 0]]
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [128 | 0]];
-export var ListVectorEnrichmentJobInput: StaticStructureSchema = [
-  3,
-  n0,
-  _LVEJI,
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
+  0,
+  [_RA],
+  [[0, 1]]
+];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
+  0,
+  [_Ta],
+  [128 | 0]
+];
+export var ListVectorEnrichmentJobInput$: StaticStructureSchema = [3, n0, _LVEJI,
   0,
   [_SE, _SO, _SB, _NT, _MR],
-  [0, 0, 0, [() => NextToken, 0], 1],
+  [0, 0, 0, [() => NextToken, 0], 1]
 ];
-export var ListVectorEnrichmentJobOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _LVEJO,
+export var ListVectorEnrichmentJobOutput$: StaticStructureSchema = [3, n0, _LVEJO,
   0,
   [_VEJS, _NT],
-  [() => VectorEnrichmentJobList, [() => NextToken, 0]],
+  [() => VectorEnrichmentJobList, [() => NextToken, 0]]
 ];
-export var ListVectorEnrichmentJobOutputConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _LVEJOC,
+export var ListVectorEnrichmentJobOutputConfig$: StaticStructureSchema = [3, n0, _LVEJOC,
   0,
   [_A, _N, _T, _CTr, _DIS, _S, _Ta],
-  [0, 0, 0, 5, 1, 0, 128 | 0],
+  [0, 0, 0, 5, 1, 0, 128 | 0]
 ];
-export var MapMatchingConfig: StaticStructureSchema = [3, n0, _MMC, 0, [_IAN, _YAN, _XAN, _TAN], [0, 0, 0, 0]];
-export var MultiPolygonGeometryInput: StaticStructureSchema = [3, n0, _MPGI, 0, [_C], [[() => LinearRingsList, 0]]];
-export var Operation: StaticStructureSchema = [3, n0, _Op, 0, [_N, _E, _OTu], [0, 0, 0]];
-export var OutputBand: StaticStructureSchema = [3, n0, _OBu, 0, [_BN, _ODT], [0, 0]];
-export var OutputConfigInput: StaticStructureSchema = [3, n0, _OCI, 0, [_SD], [() => ExportS3DataInput]];
-export var OutputResolutionResamplingInput: StaticStructureSchema = [3, n0, _ORRI, 0, [_UD], [() => UserDefined]];
-export var OutputResolutionStackInput: StaticStructureSchema = [3, n0, _ORSI, 0, [_Pr, _UD], [0, () => UserDefined]];
-export var PlatformInput: StaticStructureSchema = [3, n0, _PIl, 0, [_V, _CO], [0, 0]];
-export var PolygonGeometryInput: StaticStructureSchema = [3, n0, _PGI, 0, [_C], [[() => LinearRings, 0]]];
-export var Properties: StaticStructureSchema = [3, n0, _P, 0, [_ECC, _VON, _VSA, _VSE, _Pl, _LCCL], [1, 1, 1, 1, 0, 1]];
-export var PropertyFilter: StaticStructureSchema = [3, n0, _PFr, 0, [_Pro], [() => Property]];
-export var PropertyFilters: StaticStructureSchema = [3, n0, _PF, 0, [_P, _LO], [() => PropertyFiltersList, 0]];
-export var RasterDataCollectionMetadata: StaticStructureSchema = [
-  3,
-  n0,
-  _RDCM,
+export var MapMatchingConfig$: StaticStructureSchema = [3, n0, _MMC,
   0,
-  [_N, _A, _T, _D, _DPU, _SF, _Ta],
-  [0, 0, 0, 0, 0, () => FilterList, 128 | 0],
+  [_IAN, _YAN, _XAN, _TAN],
+  [0, 0, 0, 0]
 ];
-export var RasterDataCollectionQueryInput: StaticStructureSchema = [
-  3,
-  n0,
-  _RDCQI,
+export var MultiPolygonGeometryInput$: StaticStructureSchema = [3, n0, _MPGI,
   0,
-  [_RDCA, _TRF, _AOI, _PF],
-  [0, [() => TimeRangeFilterInput, 0], [() => AreaOfInterest, 0], () => PropertyFilters],
+  [_C],
+  [[() => LinearRingsList, 0]]
 ];
-export var RasterDataCollectionQueryOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _RDCQO,
+export var Operation$: StaticStructureSchema = [3, n0, _Op,
   0,
-  [_RDCA, _RDCN, _TRF, _AOI, _PF],
-  [0, 0, [() => TimeRangeFilterOutput, 0], [() => AreaOfInterest, 0], () => PropertyFilters],
+  [_N, _E, _OTu],
+  [0, 0, 0]
 ];
-export var RasterDataCollectionQueryWithBandFilterInput: StaticStructureSchema = [
-  3,
-  n0,
-  _RDCQWBFI,
+export var OutputBand$: StaticStructureSchema = [3, n0, _OBu,
   0,
-  [_TRF, _AOI, _PF, _BFa],
-  [[() => TimeRangeFilterInput, 0], [() => AreaOfInterest, 0], () => PropertyFilters, 64 | 0],
+  [_BN, _ODT],
+  [0, 0]
 ];
-export var ResamplingConfigInput: StaticStructureSchema = [
-  3,
-  n0,
-  _RCI,
-  0,
-  [_OR, _AN, _TB],
-  [() => OutputResolutionResamplingInput, 0, 64 | 0],
-];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M, _RI], [0, 0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ReverseGeocodingConfig: StaticStructureSchema = [3, n0, _RGC, 0, [_YAN, _XAN], [0, 0]];
-export var SearchRasterDataCollectionInput: StaticStructureSchema = [
-  3,
-  n0,
-  _SRDCI,
-  0,
-  [_A, _RDCQ, _NT],
-  [0, [() => RasterDataCollectionQueryWithBandFilterInput, 0], [() => NextToken, 0]],
-];
-export var SearchRasterDataCollectionOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _SRDCO,
-  0,
-  [_ARC, _NT, _It],
-  [1, [() => NextToken, 0], [() => ItemSourceList, 0]],
-];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _RI],
-  [0, 0],
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var StackConfigInput: StaticStructureSchema = [
-  3,
-  n0,
-  _SCI,
-  0,
-  [_OR, _TB],
-  [() => OutputResolutionStackInput, 64 | 0],
-];
-export var StartEarthObservationJobInput: StaticStructureSchema = [
-  3,
-  n0,
-  _SEOJI,
-  0,
-  [_N, _CT, _KKI, _IC, _JC, _ERA, _Ta],
-  [0, [0, 4], 0, [() => InputConfigInput, 0], () => JobConfigInput, 0, 128 | 0],
-];
-export var StartEarthObservationJobOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _SEOJO,
-  0,
-  [_N, _A, _CTr, _DIS, _S, _KKI, _IC, _JC, _ERA, _Ta],
-  [0, 0, 5, 1, 0, 0, [() => InputConfigOutput, 0], () => JobConfigInput, 0, 128 | 0],
-];
-export var StartVectorEnrichmentJobInput: StaticStructureSchema = [
-  3,
-  n0,
-  _SVEJI,
-  0,
-  [_N, _CT, _KKI, _IC, _JC, _ERA, _Ta],
-  [0, [0, 4], 0, () => VectorEnrichmentJobInputConfig, () => VectorEnrichmentJobConfig, 0, 128 | 0],
-];
-export var StartVectorEnrichmentJobOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _SVEJO,
-  0,
-  [_N, _A, _T, _CTr, _DIS, _S, _KKI, _IC, _JC, _ERA, _Ta],
-  [0, 0, 0, 5, 1, 0, 0, () => VectorEnrichmentJobInputConfig, () => VectorEnrichmentJobConfig, 0, 128 | 0],
-];
-export var StopEarthObservationJobInput: StaticStructureSchema = [3, n0, _SEOJIt, 0, [_A], [0]];
-export var StopEarthObservationJobOutput: StaticStructureSchema = [3, n0, _SEOJOt, 0, [], []];
-export var StopVectorEnrichmentJobInput: StaticStructureSchema = [3, n0, _SVEJIt, 0, [_A], [0]];
-export var StopVectorEnrichmentJobOutput: StaticStructureSchema = [3, n0, _SVEJOt, 0, [], []];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _Ta], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TemporalStatisticsConfigInput: StaticStructureSchema = [
-  3,
-  n0,
-  _TSCI,
-  0,
-  [_GB, _St, _TB],
-  [0, 64 | 0, 64 | 0],
-];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M, _RI], [0, 0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TimeRangeFilterInput: StaticStructureSchema = [3, n0, _TRFI, 8, [_ST, _ET], [4, 4]];
-export var TimeRangeFilterOutput: StaticStructureSchema = [3, n0, _TRFO, 8, [_ST, _ET], [5, 5]];
-export var UntagResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _URR,
-  0,
-  [_RA, _TK],
-  [
-    [0, 1],
-    [64 | 0, { [_hQ]: _tK }],
-  ],
-];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UserDefined: StaticStructureSchema = [3, n0, _UD, 0, [_V, _U], [1, 0]];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M, _RI], [0, 0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var VectorEnrichmentJobErrorDetails: StaticStructureSchema = [3, n0, _VEJED, 0, [_ETr, _EM], [0, 0]];
-export var VectorEnrichmentJobExportErrorDetails: StaticStructureSchema = [3, n0, _VEJEED, 0, [_T, _M], [0, 0]];
-export var VectorEnrichmentJobInputConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _VEJIC,
-  0,
-  [_DTo, _DSC],
-  [0, () => VectorEnrichmentJobDataSourceConfigInput],
-];
-export var VectorEnrichmentJobS3Data: StaticStructureSchema = [3, n0, _VEJSD, 0, [_SU, _KKI], [0, 0]];
-export var ViewOffNadirInput: StaticStructureSchema = [3, n0, _VONI, 0, [_LB, _UB], [1, 1]];
-export var ViewSunAzimuthInput: StaticStructureSchema = [3, n0, _VSAI, 0, [_LB, _UB], [1, 1]];
-export var ViewSunElevationInput: StaticStructureSchema = [3, n0, _VSEI, 0, [_LB, _UB], [1, 1]];
-export var ZonalStatisticsConfigInput: StaticStructureSchema = [
-  3,
-  n0,
-  _ZSCI,
-  0,
-  [_ZSP, _St, _TB, _ZSPKKI],
-  [0, 64 | 0, 64 | 0, 0],
-];
-export var SageMakerGeospatialServiceException: StaticErrorSchema = [
-  -3,
-  _sm,
-  "SageMakerGeospatialServiceException",
-  0,
-  [],
-  [],
-];
-TypeRegistry.for(_sm).registerError(SageMakerGeospatialServiceException, __SageMakerGeospatialServiceException);
-export var DataCollectionsList: StaticListSchema = [1, n0, _DCL, 0, () => RasterDataCollectionMetadata];
-export var EarthObservationJobList: StaticListSchema = [1, n0, _EOJL, 0, () => ListEarthObservationJobOutputConfig];
-export var EarthObservationJobOutputBands: StaticListSchema = [1, n0, _EOJOB, 0, () => OutputBand];
-export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
-export var ImageSourceBandList = 64 | 0;
-export var ItemSourceList: StaticListSchema = [1, n0, _ISL, 0, [() => ItemSource, 0]];
-export var LinearRing: StaticListSchema = [1, n0, _LR, 0, [() => Position, 0]];
-export var LinearRings: StaticListSchema = [1, n0, _LRi, 0, [() => LinearRing, 0]];
-export var LinearRingsList: StaticListSchema = [1, n0, _LRL, 0, [() => LinearRings, 0]];
-export var OperationsListInput: StaticListSchema = [1, n0, _OLI, 0, () => Operation];
-export var Position: StaticListSchema = [1, n0, _Po, 8, 1];
-export var PropertyFiltersList: StaticListSchema = [1, n0, _PFL, 0, () => PropertyFilter];
-export var StringListInput = 64 | 0;
-export var TagKeyList = 64 | 0;
-export var TemporalStatisticsListInput = 64 | 0;
-export var VectorEnrichmentJobList: StaticListSchema = [1, n0, _VEJL, 0, () => ListVectorEnrichmentJobOutputConfig];
-export var ZonalStatisticsListInput = 64 | 0;
-export var AssetsMap: StaticMapSchema = [2, n0, _AM, 0, 0, () => AssetValue];
-export var Tags = 128 | 0;
-export var AreaOfInterest: StaticStructureSchema = [3, n0, _AOI, 0, [_AOIG], [[() => AreaOfInterestGeometry, 0]]];
-export var AreaOfInterestGeometry: StaticStructureSchema = [
-  3,
-  n0,
-  _AOIG,
-  0,
-  [_PG, _MPG],
-  [
-    [() => PolygonGeometryInput, 0],
-    [() => MultiPolygonGeometryInput, 0],
-  ],
-];
-export var JobConfigInput: StaticStructureSchema = [
-  3,
-  n0,
-  _JCI,
-  0,
-  [_BMC, _RC, _TSC, _CRC, _ZSC, _GMC, _SC, _CMC, _LCSC],
-  [
-    () => BandMathConfigInput,
-    () => ResamplingConfigInput,
-    () => TemporalStatisticsConfigInput,
-    () => CloudRemovalConfigInput,
-    () => ZonalStatisticsConfigInput,
-    () => GeoMosaicConfigInput,
-    () => StackConfigInput,
-    () => CloudMaskingConfigInput,
-    () => LandCoverSegmentationConfigInput,
-  ],
-];
-export var Property: StaticStructureSchema = [
-  3,
-  n0,
-  _Pro,
-  0,
-  [_ECC, _VON, _VSA, _VSE, _Pl, _LCCL],
-  [
-    () => EoCloudCoverInput,
-    () => ViewOffNadirInput,
-    () => ViewSunAzimuthInput,
-    () => ViewSunElevationInput,
-    () => PlatformInput,
-    () => LandsatCloudCoverLandInput,
-  ],
-];
-export var VectorEnrichmentJobConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _VEJC,
-  0,
-  [_RGC, _MMC],
-  [() => ReverseGeocodingConfig, () => MapMatchingConfig],
-];
-export var VectorEnrichmentJobDataSourceConfigInput: StaticStructureSchema = [
-  3,
-  n0,
-  _VEJDSCI,
+export var OutputConfigInput$: StaticStructureSchema = [3, n0, _OCI,
   0,
   [_SD],
-  [() => VectorEnrichmentJobS3Data],
+  [() => ExportS3DataInput$]
 ];
-export var DeleteEarthObservationJob: StaticOperationSchema = [
-  9,
-  n0,
-  _DEOJ,
-  { [_h]: ["DELETE", "/earth-observation-jobs/{Arn}", 200] },
-  () => DeleteEarthObservationJobInput,
-  () => DeleteEarthObservationJobOutput,
+export var OutputResolutionResamplingInput$: StaticStructureSchema = [3, n0, _ORRI,
+  0,
+  [_UD],
+  [() => UserDefined$]
 ];
-export var DeleteVectorEnrichmentJob: StaticOperationSchema = [
-  9,
-  n0,
-  _DVEJ,
-  { [_h]: ["DELETE", "/vector-enrichment-jobs/{Arn}", 200] },
-  () => DeleteVectorEnrichmentJobInput,
-  () => DeleteVectorEnrichmentJobOutput,
+export var OutputResolutionStackInput$: StaticStructureSchema = [3, n0, _ORSI,
+  0,
+  [_Pr, _UD],
+  [0, () => UserDefined$]
 ];
-export var ExportEarthObservationJob: StaticOperationSchema = [
-  9,
-  n0,
-  _EEOJ,
-  { [_h]: ["POST", "/export-earth-observation-job", 200] },
-  () => ExportEarthObservationJobInput,
-  () => ExportEarthObservationJobOutput,
+export var PlatformInput$: StaticStructureSchema = [3, n0, _PIl,
+  0,
+  [_V, _CO],
+  [0, 0]
 ];
-export var ExportVectorEnrichmentJob: StaticOperationSchema = [
-  9,
-  n0,
-  _EVEJ,
-  { [_h]: ["POST", "/export-vector-enrichment-jobs", 200] },
-  () => ExportVectorEnrichmentJobInput,
-  () => ExportVectorEnrichmentJobOutput,
+export var PolygonGeometryInput$: StaticStructureSchema = [3, n0, _PGI,
+  0,
+  [_C],
+  [[() => LinearRings, 0]]
 ];
-export var GetEarthObservationJob: StaticOperationSchema = [
-  9,
-  n0,
-  _GEOJ,
-  { [_h]: ["GET", "/earth-observation-jobs/{Arn}", 200] },
-  () => GetEarthObservationJobInput,
-  () => GetEarthObservationJobOutput,
+export var Properties$: StaticStructureSchema = [3, n0, _P,
+  0,
+  [_ECC, _VON, _VSA, _VSE, _Pl, _LCCL],
+  [1, 1, 1, 1, 0, 1]
 ];
-export var GetRasterDataCollection: StaticOperationSchema = [
-  9,
-  n0,
-  _GRDC,
-  { [_h]: ["GET", "/raster-data-collection/{Arn}", 200] },
-  () => GetRasterDataCollectionInput,
-  () => GetRasterDataCollectionOutput,
+export var PropertyFilter$: StaticStructureSchema = [3, n0, _PFr,
+  0,
+  [_Pro],
+  [() => Property$]
 ];
-export var GetTile: StaticOperationSchema = [
-  9,
-  n0,
-  _GT,
-  { [_h]: ["GET", "/tile/{z}/{x}/{y}", 200] },
-  () => GetTileInput,
-  () => GetTileOutput,
+export var PropertyFilters$: StaticStructureSchema = [3, n0, _PF,
+  0,
+  [_P, _LO],
+  [() => PropertyFiltersList, 0]
 ];
-export var GetVectorEnrichmentJob: StaticOperationSchema = [
-  9,
-  n0,
-  _GVEJ,
-  { [_h]: ["GET", "/vector-enrichment-jobs/{Arn}", 200] },
-  () => GetVectorEnrichmentJobInput,
-  () => GetVectorEnrichmentJobOutput,
+export var RasterDataCollectionMetadata$: StaticStructureSchema = [3, n0, _RDCM,
+  0,
+  [_N, _A, _T, _D, _DPU, _SF, _Ta],
+  [0, 0, 0, 0, 0, () => FilterList, 128 | 0]
 ];
-export var ListEarthObservationJobs: StaticOperationSchema = [
-  9,
-  n0,
-  _LEOJ,
-  { [_h]: ["POST", "/list-earth-observation-jobs", 200] },
-  () => ListEarthObservationJobInput,
-  () => ListEarthObservationJobOutput,
+export var RasterDataCollectionQueryInput$: StaticStructureSchema = [3, n0, _RDCQI,
+  0,
+  [_RDCA, _TRF, _AOI, _PF],
+  [0, [() => TimeRangeFilterInput$, 0], [() => AreaOfInterest$, 0], () => PropertyFilters$]
 ];
-export var ListRasterDataCollections: StaticOperationSchema = [
-  9,
-  n0,
-  _LRDC,
-  { [_h]: ["GET", "/raster-data-collections", 200] },
-  () => ListRasterDataCollectionsInput,
-  () => ListRasterDataCollectionsOutput,
+export var RasterDataCollectionQueryOutput$: StaticStructureSchema = [3, n0, _RDCQO,
+  0,
+  [_RDCA, _RDCN, _TRF, _AOI, _PF],
+  [0, 0, [() => TimeRangeFilterOutput$, 0], [() => AreaOfInterest$, 0], () => PropertyFilters$]
 ];
-export var ListTagsForResource: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+export var RasterDataCollectionQueryWithBandFilterInput$: StaticStructureSchema = [3, n0, _RDCQWBFI,
+  0,
+  [_TRF, _AOI, _PF, _BFa],
+  [[() => TimeRangeFilterInput$, 0], [() => AreaOfInterest$, 0], () => PropertyFilters$, 64 | 0]
 ];
-export var ListVectorEnrichmentJobs: StaticOperationSchema = [
-  9,
-  n0,
-  _LVEJ,
-  { [_h]: ["POST", "/list-vector-enrichment-jobs", 200] },
-  () => ListVectorEnrichmentJobInput,
-  () => ListVectorEnrichmentJobOutput,
+export var ResamplingConfigInput$: StaticStructureSchema = [3, n0, _RCI,
+  0,
+  [_OR, _AN, _TB],
+  [() => OutputResolutionResamplingInput$, 0, 64 | 0]
 ];
-export var SearchRasterDataCollection: StaticOperationSchema = [
-  9,
-  n0,
-  _SRDC,
-  { [_h]: ["POST", "/search-raster-data-collection", 200] },
-  () => SearchRasterDataCollectionInput,
-  () => SearchRasterDataCollectionOutput,
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI],
+  [0, 0]
 ];
-export var StartEarthObservationJob: StaticOperationSchema = [
-  9,
-  n0,
-  _SEOJ,
-  { [_h]: ["POST", "/earth-observation-jobs", 200] },
-  () => StartEarthObservationJobInput,
-  () => StartEarthObservationJobOutput,
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ReverseGeocodingConfig$: StaticStructureSchema = [3, n0, _RGC,
+  0,
+  [_YAN, _XAN],
+  [0, 0]
 ];
-export var StartVectorEnrichmentJob: StaticOperationSchema = [
-  9,
-  n0,
-  _SVEJ,
-  { [_h]: ["POST", "/vector-enrichment-jobs", 200] },
-  () => StartVectorEnrichmentJobInput,
-  () => StartVectorEnrichmentJobOutput,
+export var SearchRasterDataCollectionInput$: StaticStructureSchema = [3, n0, _SRDCI,
+  0,
+  [_A, _RDCQ, _NT],
+  [0, [() => RasterDataCollectionQueryWithBandFilterInput$, 0], [() => NextToken, 0]]
 ];
-export var StopEarthObservationJob: StaticOperationSchema = [
-  9,
-  n0,
-  _SEOJt,
-  { [_h]: ["POST", "/earth-observation-jobs/stop", 200] },
-  () => StopEarthObservationJobInput,
-  () => StopEarthObservationJobOutput,
+export var SearchRasterDataCollectionOutput$: StaticStructureSchema = [3, n0, _SRDCO,
+  0,
+  [_ARC, _NT, _It],
+  [1, [() => NextToken, 0], [() => ItemSourceList, 0]]
 ];
-export var StopVectorEnrichmentJob: StaticOperationSchema = [
-  9,
-  n0,
-  _SVEJt,
-  { [_h]: ["POST", "/vector-enrichment-jobs/stop", 200] },
-  () => StopVectorEnrichmentJobInput,
-  () => StopVectorEnrichmentJobOutput,
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _RI],
+  [0, 0]
 ];
-export var TagResource: StaticOperationSchema = [
-  9,
-  n0,
-  _TR,
-  { [_h]: ["PUT", "/tags/{ResourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var StackConfigInput$: StaticStructureSchema = [3, n0, _SCI,
+  0,
+  [_OR, _TB],
+  [() => OutputResolutionStackInput$, 64 | 0]
 ];
-export var UntagResource: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+export var StartEarthObservationJobInput$: StaticStructureSchema = [3, n0, _SEOJI,
+  0,
+  [_N, _CT, _KKI, _IC, _JC, _ERA, _Ta],
+  [0, [0, 4], 0, [() => InputConfigInput$, 0], () => JobConfigInput$, 0, 128 | 0]
+];
+export var StartEarthObservationJobOutput$: StaticStructureSchema = [3, n0, _SEOJO,
+  0,
+  [_N, _A, _CTr, _DIS, _S, _KKI, _IC, _JC, _ERA, _Ta],
+  [0, 0, 5, 1, 0, 0, [() => InputConfigOutput$, 0], () => JobConfigInput$, 0, 128 | 0]
+];
+export var StartVectorEnrichmentJobInput$: StaticStructureSchema = [3, n0, _SVEJI,
+  0,
+  [_N, _CT, _KKI, _IC, _JC, _ERA, _Ta],
+  [0, [0, 4], 0, () => VectorEnrichmentJobInputConfig$, () => VectorEnrichmentJobConfig$, 0, 128 | 0]
+];
+export var StartVectorEnrichmentJobOutput$: StaticStructureSchema = [3, n0, _SVEJO,
+  0,
+  [_N, _A, _T, _CTr, _DIS, _S, _KKI, _IC, _JC, _ERA, _Ta],
+  [0, 0, 0, 5, 1, 0, 0, () => VectorEnrichmentJobInputConfig$, () => VectorEnrichmentJobConfig$, 0, 128 | 0]
+];
+export var StopEarthObservationJobInput$: StaticStructureSchema = [3, n0, _SEOJIt,
+  0,
+  [_A],
+  [0]
+];
+export var StopEarthObservationJobOutput$: StaticStructureSchema = [3, n0, _SEOJOt,
+  0,
+  [],
+  []
+];
+export var StopVectorEnrichmentJobInput$: StaticStructureSchema = [3, n0, _SVEJIt,
+  0,
+  [_A],
+  [0]
+];
+export var StopVectorEnrichmentJobOutput$: StaticStructureSchema = [3, n0, _SVEJOt,
+  0,
+  [],
+  []
+];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
+  0,
+  [_RA, _Ta],
+  [[0, 1], 128 | 0]
+];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
+  0,
+  [],
+  []
+];
+export var TemporalStatisticsConfigInput$: StaticStructureSchema = [3, n0, _TSCI,
+  0,
+  [_GB, _St, _TB],
+  [0, 64 | 0, 64 | 0]
+];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _RI],
+  [0, 0]
+];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TimeRangeFilterInput$: StaticStructureSchema = [3, n0, _TRFI,
+  8,
+  [_ST, _ET],
+  [4, 4]
+];
+export var TimeRangeFilterOutput$: StaticStructureSchema = [3, n0, _TRFO,
+  8,
+  [_ST, _ET],
+  [5, 5]
+];
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
+  0,
+  [_RA, _TK],
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
+  0,
+  [],
+  []
+];
+export var UserDefined$: StaticStructureSchema = [3, n0, _UD,
+  0,
+  [_V, _U],
+  [1, 0]
+];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _RI],
+  [0, 0]
+];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var VectorEnrichmentJobErrorDetails$: StaticStructureSchema = [3, n0, _VEJED,
+  0,
+  [_ETr, _EM],
+  [0, 0]
+];
+export var VectorEnrichmentJobExportErrorDetails$: StaticStructureSchema = [3, n0, _VEJEED,
+  0,
+  [_T, _M],
+  [0, 0]
+];
+export var VectorEnrichmentJobInputConfig$: StaticStructureSchema = [3, n0, _VEJIC,
+  0,
+  [_DTo, _DSC],
+  [0, () => VectorEnrichmentJobDataSourceConfigInput$]
+];
+export var VectorEnrichmentJobS3Data$: StaticStructureSchema = [3, n0, _VEJSD,
+  0,
+  [_SU, _KKI],
+  [0, 0]
+];
+export var ViewOffNadirInput$: StaticStructureSchema = [3, n0, _VONI,
+  0,
+  [_LB, _UB],
+  [1, 1]
+];
+export var ViewSunAzimuthInput$: StaticStructureSchema = [3, n0, _VSAI,
+  0,
+  [_LB, _UB],
+  [1, 1]
+];
+export var ViewSunElevationInput$: StaticStructureSchema = [3, n0, _VSEI,
+  0,
+  [_LB, _UB],
+  [1, 1]
+];
+export var ZonalStatisticsConfigInput$: StaticStructureSchema = [3, n0, _ZSCI,
+  0,
+  [_ZSP, _St, _TB, _ZSPKKI],
+  [0, 64 | 0, 64 | 0, 0]
+];
+export var SageMakerGeospatialServiceException$: StaticErrorSchema = [-3, _sm, "SageMakerGeospatialServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(SageMakerGeospatialServiceException$, SageMakerGeospatialServiceException);
+var DataCollectionsList: StaticListSchema = [1, n0, _DCL,
+  0, () => RasterDataCollectionMetadata$
+];
+var EarthObservationJobList: StaticListSchema = [1, n0, _EOJL,
+  0, () => ListEarthObservationJobOutputConfig$
+];
+var EarthObservationJobOutputBands: StaticListSchema = [1, n0, _EOJOB,
+  0, () => OutputBand$
+];
+var FilterList: StaticListSchema = [1, n0, _FL,
+  0, () => Filter$
+];
+var ImageSourceBandList = 64 | 0;
+var ItemSourceList: StaticListSchema = [1, n0, _ISL,
+  0, [() => ItemSource$,
+    0]
+];
+var LinearRing: StaticListSchema = [1, n0, _LR,
+  0, [() => Position,
+    0]
+];
+var LinearRings: StaticListSchema = [1, n0, _LRi,
+  0, [() => LinearRing,
+    0]
+];
+var LinearRingsList: StaticListSchema = [1, n0, _LRL,
+  0, [() => LinearRings,
+    0]
+];
+var OperationsListInput: StaticListSchema = [1, n0, _OLI,
+  0, () => Operation$
+];
+var Position: StaticListSchema = [1, n0, _Po,
+  8, 1
+];
+var PropertyFiltersList: StaticListSchema = [1, n0, _PFL,
+  0, () => PropertyFilter$
+];
+var StringListInput = 64 | 0;
+var TagKeyList = 64 | 0;
+var TemporalStatisticsListInput = 64 | 0;
+var VectorEnrichmentJobList: StaticListSchema = [1, n0, _VEJL,
+  0, () => ListVectorEnrichmentJobOutputConfig$
+];
+var ZonalStatisticsListInput = 64 | 0;
+var AssetsMap: StaticMapSchema = [2, n0, _AM,
+  0, 0, () => AssetValue$
+];
+var Tags = 128 | 0;
+export var AreaOfInterest$: StaticUnionSchema = [4, n0, _AOI,
+  0,
+  [_AOIG],
+  [[() => AreaOfInterestGeometry$, 0]]
+];
+export var AreaOfInterestGeometry$: StaticUnionSchema = [4, n0, _AOIG,
+  0,
+  [_PG, _MPG],
+  [[() => PolygonGeometryInput$, 0], [() => MultiPolygonGeometryInput$, 0]]
+];
+export var JobConfigInput$: StaticUnionSchema = [4, n0, _JCI,
+  0,
+  [_BMC, _RC, _TSC, _CRC, _ZSC, _GMC, _SC, _CMC, _LCSC],
+  [() => BandMathConfigInput$, () => ResamplingConfigInput$, () => TemporalStatisticsConfigInput$, () => CloudRemovalConfigInput$, () => ZonalStatisticsConfigInput$, () => GeoMosaicConfigInput$, () => StackConfigInput$, () => CloudMaskingConfigInput$, () => LandCoverSegmentationConfigInput$]
+];
+export var Property$: StaticUnionSchema = [4, n0, _Pro,
+  0,
+  [_ECC, _VON, _VSA, _VSE, _Pl, _LCCL],
+  [() => EoCloudCoverInput$, () => ViewOffNadirInput$, () => ViewSunAzimuthInput$, () => ViewSunElevationInput$, () => PlatformInput$, () => LandsatCloudCoverLandInput$]
+];
+export var VectorEnrichmentJobConfig$: StaticUnionSchema = [4, n0, _VEJC,
+  0,
+  [_RGC, _MMC],
+  [() => ReverseGeocodingConfig$, () => MapMatchingConfig$]
+];
+export var VectorEnrichmentJobDataSourceConfigInput$: StaticUnionSchema = [4, n0, _VEJDSCI,
+  0,
+  [_SD],
+  [() => VectorEnrichmentJobS3Data$]
+];
+export var DeleteEarthObservationJob$: StaticOperationSchema = [9, n0, _DEOJ,
+  { [_h]: ["DELETE", "/earth-observation-jobs/{Arn}", 200] }, () => DeleteEarthObservationJobInput$, () => DeleteEarthObservationJobOutput$
+];
+export var DeleteVectorEnrichmentJob$: StaticOperationSchema = [9, n0, _DVEJ,
+  { [_h]: ["DELETE", "/vector-enrichment-jobs/{Arn}", 200] }, () => DeleteVectorEnrichmentJobInput$, () => DeleteVectorEnrichmentJobOutput$
+];
+export var ExportEarthObservationJob$: StaticOperationSchema = [9, n0, _EEOJ,
+  { [_h]: ["POST", "/export-earth-observation-job", 200] }, () => ExportEarthObservationJobInput$, () => ExportEarthObservationJobOutput$
+];
+export var ExportVectorEnrichmentJob$: StaticOperationSchema = [9, n0, _EVEJ,
+  { [_h]: ["POST", "/export-vector-enrichment-jobs", 200] }, () => ExportVectorEnrichmentJobInput$, () => ExportVectorEnrichmentJobOutput$
+];
+export var GetEarthObservationJob$: StaticOperationSchema = [9, n0, _GEOJ,
+  { [_h]: ["GET", "/earth-observation-jobs/{Arn}", 200] }, () => GetEarthObservationJobInput$, () => GetEarthObservationJobOutput$
+];
+export var GetRasterDataCollection$: StaticOperationSchema = [9, n0, _GRDC,
+  { [_h]: ["GET", "/raster-data-collection/{Arn}", 200] }, () => GetRasterDataCollectionInput$, () => GetRasterDataCollectionOutput$
+];
+export var GetTile$: StaticOperationSchema = [9, n0, _GT,
+  { [_h]: ["GET", "/tile/{z}/{x}/{y}", 200] }, () => GetTileInput$, () => GetTileOutput$
+];
+export var GetVectorEnrichmentJob$: StaticOperationSchema = [9, n0, _GVEJ,
+  { [_h]: ["GET", "/vector-enrichment-jobs/{Arn}", 200] }, () => GetVectorEnrichmentJobInput$, () => GetVectorEnrichmentJobOutput$
+];
+export var ListEarthObservationJobs$: StaticOperationSchema = [9, n0, _LEOJ,
+  { [_h]: ["POST", "/list-earth-observation-jobs", 200] }, () => ListEarthObservationJobInput$, () => ListEarthObservationJobOutput$
+];
+export var ListRasterDataCollections$: StaticOperationSchema = [9, n0, _LRDC,
+  { [_h]: ["GET", "/raster-data-collections", 200] }, () => ListRasterDataCollectionsInput$, () => ListRasterDataCollectionsOutput$
+];
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
+];
+export var ListVectorEnrichmentJobs$: StaticOperationSchema = [9, n0, _LVEJ,
+  { [_h]: ["POST", "/list-vector-enrichment-jobs", 200] }, () => ListVectorEnrichmentJobInput$, () => ListVectorEnrichmentJobOutput$
+];
+export var SearchRasterDataCollection$: StaticOperationSchema = [9, n0, _SRDC,
+  { [_h]: ["POST", "/search-raster-data-collection", 200] }, () => SearchRasterDataCollectionInput$, () => SearchRasterDataCollectionOutput$
+];
+export var StartEarthObservationJob$: StaticOperationSchema = [9, n0, _SEOJ,
+  { [_h]: ["POST", "/earth-observation-jobs", 200] }, () => StartEarthObservationJobInput$, () => StartEarthObservationJobOutput$
+];
+export var StartVectorEnrichmentJob$: StaticOperationSchema = [9, n0, _SVEJ,
+  { [_h]: ["POST", "/vector-enrichment-jobs", 200] }, () => StartVectorEnrichmentJobInput$, () => StartVectorEnrichmentJobOutput$
+];
+export var StopEarthObservationJob$: StaticOperationSchema = [9, n0, _SEOJt,
+  { [_h]: ["POST", "/earth-observation-jobs/stop", 200] }, () => StopEarthObservationJobInput$, () => StopEarthObservationJobOutput$
+];
+export var StopVectorEnrichmentJob$: StaticOperationSchema = [9, n0, _SVEJt,
+  { [_h]: ["POST", "/vector-enrichment-jobs/stop", 200] }, () => StopVectorEnrichmentJobInput$, () => StopVectorEnrichmentJobOutput$
+];
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  { [_h]: ["PUT", "/tags/{ResourceArn}", 200] }, () => TagResourceRequest$, () => TagResourceResponse$
+];
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] }, () => UntagResourceRequest$, () => UntagResourceResponse$
 ];

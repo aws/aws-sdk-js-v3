@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralBenefitsClient";
-import { DisassociateBenefitApplicationResource } from "../schemas/schemas_0";
+import { DisassociateBenefitApplicationResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DisassociateBenefitApplicationResourceCommand}.
  */
-export interface DisassociateBenefitApplicationResourceCommandInput
-  extends DisassociateBenefitApplicationResourceInput {}
+export interface DisassociateBenefitApplicationResourceCommandInput extends DisassociateBenefitApplicationResourceInput {}
 /**
  * @public
  *
  * The output of {@link DisassociateBenefitApplicationResourceCommand}.
  */
-export interface DisassociateBenefitApplicationResourceCommandOutput
-  extends DisassociateBenefitApplicationResourceOutput,
-    __MetadataBearer {}
+export interface DisassociateBenefitApplicationResourceCommandOutput extends DisassociateBenefitApplicationResourceOutput, __MetadataBearer {}
 
 /**
  * <p>Removes the association between an AWS resource and a benefit application.</p>
@@ -105,7 +102,7 @@ export class DisassociateBenefitApplicationResourceCommand extends $Command
   })
   .s("PartnerCentralBenefitsService", "DisassociateBenefitApplicationResource", {})
   .n("PartnerCentralBenefitsClient", "DisassociateBenefitApplicationResourceCommand")
-  .sc(DisassociateBenefitApplicationResource)
+  .sc(DisassociateBenefitApplicationResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

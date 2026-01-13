@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetInstanceRequest, GetInstanceResponse } from "../models/models_0";
-import { GetInstance } from "../schemas/schemas_0";
+import { GetInstance$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
@@ -157,7 +157,7 @@ export class GetInstanceCommand extends $Command
   })
   .s("GalaxyPublicAPIGateway", "GetInstance", {})
   .n("SupplyChainClient", "GetInstanceCommand")
-  .sc(GetInstance)
+  .sc(GetInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

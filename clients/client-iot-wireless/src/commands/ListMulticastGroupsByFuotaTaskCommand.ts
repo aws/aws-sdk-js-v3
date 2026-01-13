@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import type { ListMulticastGroupsByFuotaTaskRequest, ListMulticastGroupsByFuotaTaskResponse } from "../models/models_0";
-import { ListMulticastGroupsByFuotaTask } from "../schemas/schemas_0";
+import { ListMulticastGroupsByFuotaTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListMulticastGroupsByFuotaTaskCommandInput extends ListMulticas
  *
  * The output of {@link ListMulticastGroupsByFuotaTaskCommand}.
  */
-export interface ListMulticastGroupsByFuotaTaskCommandOutput
-  extends ListMulticastGroupsByFuotaTaskResponse,
-    __MetadataBearer {}
+export interface ListMulticastGroupsByFuotaTaskCommandOutput extends ListMulticastGroupsByFuotaTaskResponse, __MetadataBearer {}
 
 /**
  * <p>List all multicast groups associated with a FUOTA task.</p>
@@ -97,7 +95,7 @@ export class ListMulticastGroupsByFuotaTaskCommand extends $Command
   })
   .s("iotwireless", "ListMulticastGroupsByFuotaTask", {})
   .n("IoTWirelessClient", "ListMulticastGroupsByFuotaTaskCommand")
-  .sc(ListMulticastGroupsByFuotaTask)
+  .sc(ListMulticastGroupsByFuotaTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

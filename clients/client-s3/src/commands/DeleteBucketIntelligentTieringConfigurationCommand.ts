@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteBucketIntelligentTieringConfigurationRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { DeleteBucketIntelligentTieringConfiguration } from "../schemas/schemas_0";
+import { DeleteBucketIntelligentTieringConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link DeleteBucketIntelligentTieringConfigurationCommand}.
  */
-export interface DeleteBucketIntelligentTieringConfigurationCommandInput
-  extends DeleteBucketIntelligentTieringConfigurationRequest {}
+export interface DeleteBucketIntelligentTieringConfigurationCommandInput extends DeleteBucketIntelligentTieringConfigurationRequest {}
 /**
  * @public
  *
@@ -105,7 +104,7 @@ export class DeleteBucketIntelligentTieringConfigurationCommand extends $Command
   })
   .s("AmazonS3", "DeleteBucketIntelligentTieringConfiguration", {})
   .n("S3Client", "DeleteBucketIntelligentTieringConfigurationCommand")
-  .sc(DeleteBucketIntelligentTieringConfiguration)
+  .sc(DeleteBucketIntelligentTieringConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

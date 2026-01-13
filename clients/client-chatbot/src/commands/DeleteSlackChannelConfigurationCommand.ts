@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSlackChannelConfigurationRequest, DeleteSlackChannelConfigurationResult } from "../models/models_0";
-import { DeleteSlackChannelConfiguration } from "../schemas/schemas_0";
+import { DeleteSlackChannelConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteSlackChannelConfigurationCommandInput extends DeleteSlack
  *
  * The output of {@link DeleteSlackChannelConfigurationCommand}.
  */
-export interface DeleteSlackChannelConfigurationCommandOutput
-  extends DeleteSlackChannelConfigurationResult,
-    __MetadataBearer {}
+export interface DeleteSlackChannelConfigurationCommandOutput extends DeleteSlackChannelConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a Slack channel configuration for AWS Chatbot</p>
@@ -85,7 +83,7 @@ export class DeleteSlackChannelConfigurationCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "DeleteSlackChannelConfiguration", {})
   .n("ChatbotClient", "DeleteSlackChannelConfigurationCommand")
-  .sc(DeleteSlackChannelConfiguration)
+  .sc(DeleteSlackChannelConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

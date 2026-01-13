@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateStudioLifecycleConfigRequest, CreateStudioLifecycleConfigResponse } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateStudioLifecycleConfig } from "../schemas/schemas_0";
+import { CreateStudioLifecycleConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateStudioLifecycleConfigCommandInput extends CreateStudioLif
  *
  * The output of {@link CreateStudioLifecycleConfigCommand}.
  */
-export interface CreateStudioLifecycleConfigCommandOutput
-  extends CreateStudioLifecycleConfigResponse,
-    __MetadataBearer {}
+export interface CreateStudioLifecycleConfigCommandOutput extends CreateStudioLifecycleConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new Amazon SageMaker AI Studio Lifecycle Configuration.</p>
@@ -86,7 +84,7 @@ export class CreateStudioLifecycleConfigCommand extends $Command
   })
   .s("SageMaker", "CreateStudioLifecycleConfig", {})
   .n("SageMakerClient", "CreateStudioLifecycleConfigCommand")
-  .sc(CreateStudioLifecycleConfig)
+  .sc(CreateStudioLifecycleConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

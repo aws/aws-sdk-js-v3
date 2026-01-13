@@ -11,10 +11,8 @@ provision security certificates for AD signed by a private CA that you own. For 
 information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/ad-connector.html">Amazon Web Services Private CA Connector for Active Directory</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-pca-connector-ad
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-pca-connector-ad`
 - `yarn add @aws-sdk/client-pca-connector-ad`
 - `pnpm add @aws-sdk/client-pca-connector-ad`
@@ -50,9 +48,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new PcaConnectorAdClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListConnectorsCommand(params);
 ```
 
@@ -211,7 +207,6 @@ CreateConnector
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/CreateConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/CreateConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/CreateConnectorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -219,7 +214,6 @@ CreateDirectoryRegistration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/CreateDirectoryRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/CreateDirectoryRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/CreateDirectoryRegistrationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -227,7 +221,6 @@ CreateServicePrincipalName
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/CreateServicePrincipalNameCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/CreateServicePrincipalNameCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/CreateServicePrincipalNameCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -235,7 +228,6 @@ CreateTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/CreateTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/CreateTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/CreateTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -243,7 +235,6 @@ CreateTemplateGroupAccessControlEntry
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/CreateTemplateGroupAccessControlEntryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/CreateTemplateGroupAccessControlEntryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/CreateTemplateGroupAccessControlEntryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -251,7 +242,6 @@ DeleteConnector
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/DeleteConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/DeleteConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/DeleteConnectorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -259,7 +249,6 @@ DeleteDirectoryRegistration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/DeleteDirectoryRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/DeleteDirectoryRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/DeleteDirectoryRegistrationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -267,7 +256,6 @@ DeleteServicePrincipalName
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/DeleteServicePrincipalNameCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/DeleteServicePrincipalNameCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/DeleteServicePrincipalNameCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -275,7 +263,6 @@ DeleteTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/DeleteTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/DeleteTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/DeleteTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -283,7 +270,6 @@ DeleteTemplateGroupAccessControlEntry
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/DeleteTemplateGroupAccessControlEntryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/DeleteTemplateGroupAccessControlEntryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/DeleteTemplateGroupAccessControlEntryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -291,7 +277,6 @@ GetConnector
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/GetConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/GetConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/GetConnectorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -299,7 +284,6 @@ GetDirectoryRegistration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/GetDirectoryRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/GetDirectoryRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/GetDirectoryRegistrationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -307,7 +291,6 @@ GetServicePrincipalName
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/GetServicePrincipalNameCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/GetServicePrincipalNameCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/GetServicePrincipalNameCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -315,7 +298,6 @@ GetTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/GetTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/GetTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/GetTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -323,7 +305,6 @@ GetTemplateGroupAccessControlEntry
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/GetTemplateGroupAccessControlEntryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/GetTemplateGroupAccessControlEntryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/GetTemplateGroupAccessControlEntryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -331,7 +312,6 @@ ListConnectors
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/ListConnectorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/ListConnectorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/ListConnectorsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -339,7 +319,6 @@ ListDirectoryRegistrations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/ListDirectoryRegistrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/ListDirectoryRegistrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/ListDirectoryRegistrationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -347,7 +326,6 @@ ListServicePrincipalNames
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/ListServicePrincipalNamesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/ListServicePrincipalNamesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/ListServicePrincipalNamesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -355,7 +333,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -363,7 +340,6 @@ ListTemplateGroupAccessControlEntries
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/ListTemplateGroupAccessControlEntriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/ListTemplateGroupAccessControlEntriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/ListTemplateGroupAccessControlEntriesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -371,7 +347,6 @@ ListTemplates
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/ListTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/ListTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/ListTemplatesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -379,7 +354,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -387,7 +361,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -395,7 +368,6 @@ UpdateTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/UpdateTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/UpdateTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/UpdateTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -403,5 +375,4 @@ UpdateTemplateGroupAccessControlEntry
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-ad/command/UpdateTemplateGroupAccessControlEntryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/UpdateTemplateGroupAccessControlEntryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-ad/Interface/UpdateTemplateGroupAccessControlEntryCommandOutput/)
-
 </details>

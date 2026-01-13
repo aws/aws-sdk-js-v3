@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateApiRequest, CreateApiResponse } from "../models/models_0";
-import { CreateApi } from "../schemas/schemas_0";
+import { CreateApi$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -194,7 +194,7 @@ export class CreateApiCommand extends $Command
   })
   .s("AWSDeepdishControlPlaneService", "CreateApi", {})
   .n("AppSyncClient", "CreateApiCommand")
-  .sc(CreateApi)
+  .sc(CreateApi$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

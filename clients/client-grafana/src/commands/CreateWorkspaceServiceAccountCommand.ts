@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import type { CreateWorkspaceServiceAccountRequest, CreateWorkspaceServiceAccountResponse } from "../models/models_0";
-import { CreateWorkspaceServiceAccount } from "../schemas/schemas_0";
+import { CreateWorkspaceServiceAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateWorkspaceServiceAccountCommandInput extends CreateWorkspa
  *
  * The output of {@link CreateWorkspaceServiceAccountCommand}.
  */
-export interface CreateWorkspaceServiceAccountCommandOutput
-  extends CreateWorkspaceServiceAccountResponse,
-    __MetadataBearer {}
+export interface CreateWorkspaceServiceAccountCommandOutput extends CreateWorkspaceServiceAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a service account for the workspace. A service account can be used to call
@@ -113,7 +111,7 @@ export class CreateWorkspaceServiceAccountCommand extends $Command
   })
   .s("AWSGrafanaControlPlane", "CreateWorkspaceServiceAccount", {})
   .n("GrafanaClient", "CreateWorkspaceServiceAccountCommand")
-  .sc(CreateWorkspaceServiceAccount)
+  .sc(CreateWorkspaceServiceAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

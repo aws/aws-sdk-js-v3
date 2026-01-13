@@ -9,7 +9,7 @@ import type {
   GetConfiguredAudienceModelAssociationInput,
   GetConfiguredAudienceModelAssociationOutput,
 } from "../models/models_0";
-import { GetConfiguredAudienceModelAssociation } from "../schemas/schemas_0";
+import { GetConfiguredAudienceModelAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetConfiguredAudienceModelAssociationCommandInput extends GetCo
  *
  * The output of {@link GetConfiguredAudienceModelAssociationCommand}.
  */
-export interface GetConfiguredAudienceModelAssociationCommandOutput
-  extends GetConfiguredAudienceModelAssociationOutput,
-    __MetadataBearer {}
+export interface GetConfiguredAudienceModelAssociationCommandOutput extends GetConfiguredAudienceModelAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about a configured audience model association.</p>
@@ -107,7 +105,7 @@ export class GetConfiguredAudienceModelAssociationCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "GetConfiguredAudienceModelAssociation", {})
   .n("CleanRoomsClient", "GetConfiguredAudienceModelAssociationCommand")
-  .sc(GetConfiguredAudienceModelAssociation)
+  .sc(GetConfiguredAudienceModelAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

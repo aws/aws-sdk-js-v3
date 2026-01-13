@@ -550,7 +550,10 @@ export interface AwsSsoAuthentication {
  *             error.</p>
  * @public
  */
-export type IdpMetadata = IdpMetadata.UrlMember | IdpMetadata.XmlMember | IdpMetadata.$UnknownMember;
+export type IdpMetadata =
+  | IdpMetadata.UrlMember
+  | IdpMetadata.XmlMember
+  | IdpMetadata.$UnknownMember;
 
 /**
  * @public

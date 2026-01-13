@@ -9,7 +9,7 @@ import type {
   UpdateQueryLoggingConfigurationRequest,
   UpdateQueryLoggingConfigurationResponse,
 } from "../models/models_0";
-import { UpdateQueryLoggingConfiguration } from "../schemas/schemas_0";
+import { UpdateQueryLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateQueryLoggingConfigurationCommandInput extends UpdateQuery
  *
  * The output of {@link UpdateQueryLoggingConfigurationCommand}.
  */
-export interface UpdateQueryLoggingConfigurationCommandOutput
-  extends UpdateQueryLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateQueryLoggingConfigurationCommandOutput extends UpdateQueryLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the query logging configuration for the specified workspace.</p>
@@ -107,7 +105,7 @@ export class UpdateQueryLoggingConfigurationCommand extends $Command
   })
   .s("AmazonPrometheusService", "UpdateQueryLoggingConfiguration", {})
   .n("AmpClient", "UpdateQueryLoggingConfigurationCommand")
-  .sc(UpdateQueryLoggingConfiguration)
+  .sc(UpdateQueryLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

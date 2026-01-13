@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53GlobalResolverClient";
-import { CreateAccessSource } from "../schemas/schemas_0";
+import { CreateAccessSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -147,7 +147,7 @@ export class CreateAccessSourceCommand extends $Command
   })
   .s("EC2DNSGlobalResolverCustomerAPI", "CreateAccessSource", {})
   .n("Route53GlobalResolverClient", "CreateAccessSourceCommand")
-  .sc(CreateAccessSource)
+  .sc(CreateAccessSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -32,7 +32,9 @@ export interface ActError {
  * <p>The schema definition for tool input parameters.</p>
  * @public
  */
-export type ToolInputSchema = ToolInputSchema.JsonMember | ToolInputSchema.$UnknownMember;
+export type ToolInputSchema =
+  | ToolInputSchema.JsonMember
+  | ToolInputSchema.$UnknownMember;
 
 /**
  * @public
@@ -169,7 +171,9 @@ export interface ValidationExceptionField {
  * <p>Content returned from a tool call execution.</p>
  * @public
  */
-export type CallResultContent = CallResultContent.TextMember | CallResultContent.$UnknownMember;
+export type CallResultContent =
+  | CallResultContent.TextMember
+  | CallResultContent.$UnknownMember;
 
 /**
  * @public

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateResourceConfigurationRequest, UpdateResourceConfigurationResponse } from "../models/models_0";
-import { UpdateResourceConfiguration } from "../schemas/schemas_0";
+import { UpdateResourceConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -24,9 +24,7 @@ export interface UpdateResourceConfigurationCommandInput extends UpdateResourceC
  *
  * The output of {@link UpdateResourceConfigurationCommand}.
  */
-export interface UpdateResourceConfigurationCommandOutput
-  extends UpdateResourceConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateResourceConfigurationCommandOutput extends UpdateResourceConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the specified resource configuration.</p>
@@ -132,7 +130,7 @@ export class UpdateResourceConfigurationCommand extends $Command
   })
   .s("MercuryControlPlane", "UpdateResourceConfiguration", {})
   .n("VPCLatticeClient", "UpdateResourceConfigurationCommand")
-  .sc(UpdateResourceConfiguration)
+  .sc(UpdateResourceConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

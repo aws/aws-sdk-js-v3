@@ -9,7 +9,7 @@ import type {
   DisassociatePhoneNumbersFromVoiceConnectorGroupRequest,
   DisassociatePhoneNumbersFromVoiceConnectorGroupResponse,
 } from "../models/models_0";
-import { DisassociatePhoneNumbersFromVoiceConnectorGroup } from "../schemas/schemas_0";
+import { DisassociatePhoneNumbersFromVoiceConnectorGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociatePhoneNumbersFromVoiceConnectorGroupCommand}.
  */
-export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput
-  extends DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {}
+export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput extends DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociatePhoneNumbersFromVoiceConnectorGroupCommand}.
  */
-export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
-  extends DisassociatePhoneNumbersFromVoiceConnectorGroupResponse,
-    __MetadataBearer {}
+export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput extends DisassociatePhoneNumbersFromVoiceConnectorGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified phone numbers from the specified Amazon Chime SDK Voice
@@ -110,7 +107,7 @@ export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Com
   })
   .s("ChimeSDKTelephonyService", "DisassociatePhoneNumbersFromVoiceConnectorGroup", {})
   .n("ChimeSDKVoiceClient", "DisassociatePhoneNumbersFromVoiceConnectorGroupCommand")
-  .sc(DisassociatePhoneNumbersFromVoiceConnectorGroup)
+  .sc(DisassociatePhoneNumbersFromVoiceConnectorGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

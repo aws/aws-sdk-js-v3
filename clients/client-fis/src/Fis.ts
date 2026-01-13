@@ -223,8 +223,14 @@ export interface Fis {
   /**
    * @see {@link GetActionCommand}
    */
-  getAction(args: GetActionCommandInput, options?: __HttpHandlerOptions): Promise<GetActionCommandOutput>;
-  getAction(args: GetActionCommandInput, cb: (err: any, data?: GetActionCommandOutput) => void): void;
+  getAction(
+    args: GetActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetActionCommandOutput>;
+  getAction(
+    args: GetActionCommandInput,
+    cb: (err: any, data?: GetActionCommandOutput) => void
+  ): void;
   getAction(
     args: GetActionCommandInput,
     options: __HttpHandlerOptions,
@@ -234,8 +240,14 @@ export interface Fis {
   /**
    * @see {@link GetExperimentCommand}
    */
-  getExperiment(args: GetExperimentCommandInput, options?: __HttpHandlerOptions): Promise<GetExperimentCommandOutput>;
-  getExperiment(args: GetExperimentCommandInput, cb: (err: any, data?: GetExperimentCommandOutput) => void): void;
+  getExperiment(
+    args: GetExperimentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExperimentCommandOutput>;
+  getExperiment(
+    args: GetExperimentCommandInput,
+    cb: (err: any, data?: GetExperimentCommandOutput) => void
+  ): void;
   getExperiment(
     args: GetExperimentCommandInput,
     options: __HttpHandlerOptions,
@@ -283,7 +295,10 @@ export interface Fis {
     args: GetSafetyLeverCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSafetyLeverCommandOutput>;
-  getSafetyLever(args: GetSafetyLeverCommandInput, cb: (err: any, data?: GetSafetyLeverCommandOutput) => void): void;
+  getSafetyLever(
+    args: GetSafetyLeverCommandInput,
+    cb: (err: any, data?: GetSafetyLeverCommandOutput) => void
+  ): void;
   getSafetyLever(
     args: GetSafetyLeverCommandInput,
     options: __HttpHandlerOptions,
@@ -328,8 +343,14 @@ export interface Fis {
    * @see {@link ListActionsCommand}
    */
   listActions(): Promise<ListActionsCommandOutput>;
-  listActions(args: ListActionsCommandInput, options?: __HttpHandlerOptions): Promise<ListActionsCommandOutput>;
-  listActions(args: ListActionsCommandInput, cb: (err: any, data?: ListActionsCommandOutput) => void): void;
+  listActions(
+    args: ListActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListActionsCommandOutput>;
+  listActions(
+    args: ListActionsCommandInput,
+    cb: (err: any, data?: ListActionsCommandOutput) => void
+  ): void;
   listActions(
     args: ListActionsCommandInput,
     options: __HttpHandlerOptions,
@@ -361,7 +382,10 @@ export interface Fis {
     args: ListExperimentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListExperimentsCommandOutput>;
-  listExperiments(args: ListExperimentsCommandInput, cb: (err: any, data?: ListExperimentsCommandOutput) => void): void;
+  listExperiments(
+    args: ListExperimentsCommandInput,
+    cb: (err: any, data?: ListExperimentsCommandOutput) => void
+  ): void;
   listExperiments(
     args: ListExperimentsCommandInput,
     options: __HttpHandlerOptions,
@@ -462,7 +486,10 @@ export interface Fis {
     args: StartExperimentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartExperimentCommandOutput>;
-  startExperiment(args: StartExperimentCommandInput, cb: (err: any, data?: StartExperimentCommandOutput) => void): void;
+  startExperiment(
+    args: StartExperimentCommandInput,
+    cb: (err: any, data?: StartExperimentCommandOutput) => void
+  ): void;
   startExperiment(
     args: StartExperimentCommandInput,
     options: __HttpHandlerOptions,
@@ -476,7 +503,10 @@ export interface Fis {
     args: StopExperimentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopExperimentCommandOutput>;
-  stopExperiment(args: StopExperimentCommandInput, cb: (err: any, data?: StopExperimentCommandOutput) => void): void;
+  stopExperiment(
+    args: StopExperimentCommandInput,
+    cb: (err: any, data?: StopExperimentCommandOutput) => void
+  ): void;
   stopExperiment(
     args: StopExperimentCommandInput,
     options: __HttpHandlerOptions,
@@ -486,8 +516,14 @@ export interface Fis {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -497,8 +533,14 @@ export interface Fis {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

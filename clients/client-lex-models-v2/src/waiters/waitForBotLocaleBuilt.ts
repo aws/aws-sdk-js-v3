@@ -7,12 +7,12 @@ import { LexModelsV2Client } from "../LexModelsV2Client";
 const checkState = async (client: LexModelsV2Client, input: DescribeBotLocaleCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeBotLocaleCommand(input));
+    let result: any = await client.send(new DescribeBotLocaleCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.botLocaleStatus;
-      };
+      }
       if (returnComparator() === "Built") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeBotLocaleCom
     try {
       const returnComparator = () => {
         return result.botLocaleStatus;
-      };
+      }
       if (returnComparator() === "Deleting") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -28,7 +28,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeBotLocaleCom
     try {
       const returnComparator = () => {
         return result.botLocaleStatus;
-      };
+      }
       if (returnComparator() === "Failed") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -36,7 +36,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeBotLocaleCom
     try {
       const returnComparator = () => {
         return result.botLocaleStatus;
-      };
+      }
       if (returnComparator() === "NotBuilt") {
         return { state: WaiterState.FAILURE, reason };
       }

@@ -9,7 +9,7 @@ import type {
   DeleteAutomatedReasoningPolicyBuildWorkflowRequest,
   DeleteAutomatedReasoningPolicyBuildWorkflowResponse,
 } from "../models/models_0";
-import { DeleteAutomatedReasoningPolicyBuildWorkflow } from "../schemas/schemas_0";
+import { DeleteAutomatedReasoningPolicyBuildWorkflow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteAutomatedReasoningPolicyBuildWorkflowCommand}.
  */
-export interface DeleteAutomatedReasoningPolicyBuildWorkflowCommandInput
-  extends DeleteAutomatedReasoningPolicyBuildWorkflowRequest {}
+export interface DeleteAutomatedReasoningPolicyBuildWorkflowCommandInput extends DeleteAutomatedReasoningPolicyBuildWorkflowRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteAutomatedReasoningPolicyBuildWorkflowCommand}.
  */
-export interface DeleteAutomatedReasoningPolicyBuildWorkflowCommandOutput
-  extends DeleteAutomatedReasoningPolicyBuildWorkflowResponse,
-    __MetadataBearer {}
+export interface DeleteAutomatedReasoningPolicyBuildWorkflowCommandOutput extends DeleteAutomatedReasoningPolicyBuildWorkflowResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an Automated Reasoning policy build workflow and its associated artifacts. This permanently removes the workflow history and any generated assets.</p>
@@ -100,7 +97,7 @@ export class DeleteAutomatedReasoningPolicyBuildWorkflowCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "DeleteAutomatedReasoningPolicyBuildWorkflow", {})
   .n("BedrockClient", "DeleteAutomatedReasoningPolicyBuildWorkflowCommand")
-  .sc(DeleteAutomatedReasoningPolicyBuildWorkflow)
+  .sc(DeleteAutomatedReasoningPolicyBuildWorkflow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

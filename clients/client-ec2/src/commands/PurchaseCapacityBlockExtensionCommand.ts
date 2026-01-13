@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PurchaseCapacityBlockExtensionRequest, PurchaseCapacityBlockExtensionResult } from "../models/models_7";
-import { PurchaseCapacityBlockExtension } from "../schemas/schemas_0";
+import { PurchaseCapacityBlockExtension$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface PurchaseCapacityBlockExtensionCommandInput extends PurchaseCapa
  *
  * The output of {@link PurchaseCapacityBlockExtensionCommand}.
  */
-export interface PurchaseCapacityBlockExtensionCommandOutput
-  extends PurchaseCapacityBlockExtensionResult,
-    __MetadataBearer {}
+export interface PurchaseCapacityBlockExtensionCommandOutput extends PurchaseCapacityBlockExtensionResult, __MetadataBearer {}
 
 /**
  * <p>Purchase the Capacity Block extension for use with your account. You must specify the
@@ -94,7 +92,7 @@ export class PurchaseCapacityBlockExtensionCommand extends $Command
   })
   .s("AmazonEC2", "PurchaseCapacityBlockExtension", {})
   .n("EC2Client", "PurchaseCapacityBlockExtensionCommand")
-  .sc(PurchaseCapacityBlockExtension)
+  .sc(PurchaseCapacityBlockExtension$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

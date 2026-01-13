@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteInboundConnectionRequest, DeleteInboundConnectionResponse } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { DeleteInboundConnection } from "../schemas/schemas_0";
+import { DeleteInboundConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DeleteInboundConnectionCommand extends $Command
   })
   .s("AmazonOpenSearchService", "DeleteInboundConnection", {})
   .n("OpenSearchClient", "DeleteInboundConnectionCommand")
-  .sc(DeleteInboundConnection)
+  .sc(DeleteInboundConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

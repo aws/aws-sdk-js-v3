@@ -32,9 +32,7 @@ export interface OperationWithNestedStructureCommandInput extends OperationWithN
  *
  * The output of {@link OperationWithNestedStructureCommand}.
  */
-export interface OperationWithNestedStructureCommandOutput
-  extends OperationWithNestedStructureOutput,
-    __MetadataBearer {}
+export interface OperationWithNestedStructureCommandOutput extends OperationWithNestedStructureOutput, __MetadataBearer {}
 
 /**
  * @public

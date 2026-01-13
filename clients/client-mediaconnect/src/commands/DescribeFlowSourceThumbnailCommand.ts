@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import type { DescribeFlowSourceThumbnailRequest, DescribeFlowSourceThumbnailResponse } from "../models/models_0";
-import { DescribeFlowSourceThumbnail } from "../schemas/schemas_0";
+import { DescribeFlowSourceThumbnail$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeFlowSourceThumbnailCommandInput extends DescribeFlowSou
  *
  * The output of {@link DescribeFlowSourceThumbnailCommand}.
  */
-export interface DescribeFlowSourceThumbnailCommandOutput
-  extends DescribeFlowSourceThumbnailResponse,
-    __MetadataBearer {}
+export interface DescribeFlowSourceThumbnailCommandOutput extends DescribeFlowSourceThumbnailResponse, __MetadataBearer {}
 
 /**
  * <p> Describes the thumbnail for the flow source. </p>
@@ -105,7 +103,7 @@ export class DescribeFlowSourceThumbnailCommand extends $Command
   })
   .s("MediaConnect", "DescribeFlowSourceThumbnail", {})
   .n("MediaConnectClient", "DescribeFlowSourceThumbnailCommand")
-  .sc(DescribeFlowSourceThumbnail)
+  .sc(DescribeFlowSourceThumbnail$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

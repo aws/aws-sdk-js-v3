@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { ResponseCodeRequired } from "../schemas/schemas_0";
+import { ResponseCodeRequired$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -75,7 +75,7 @@ export class ResponseCodeRequiredCommand extends $Command
   })
   .s("RestJson", "ResponseCodeRequired", {})
   .n("RestJsonProtocolClient", "ResponseCodeRequiredCommand")
-  .sc(ResponseCodeRequired)
+  .sc(ResponseCodeRequired$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

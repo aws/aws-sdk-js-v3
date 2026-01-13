@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetBucketLifecycleConfigurationOutput, GetBucketLifecycleConfigurationRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketLifecycleConfiguration } from "../schemas/schemas_0";
+import { GetBucketLifecycleConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,9 +25,7 @@ export interface GetBucketLifecycleConfigurationCommandInput extends GetBucketLi
  *
  * The output of {@link GetBucketLifecycleConfigurationCommand}.
  */
-export interface GetBucketLifecycleConfigurationCommandOutput
-  extends GetBucketLifecycleConfigurationOutput,
-    __MetadataBearer {}
+export interface GetBucketLifecycleConfigurationCommandOutput extends GetBucketLifecycleConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the lifecycle configuration information set on the bucket. For information about lifecycle
@@ -252,11 +250,14 @@ export class GetBucketLifecycleConfigurationCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
+    ];
   })
   .s("AmazonS3", "GetBucketLifecycleConfiguration", {})
   .n("S3Client", "GetBucketLifecycleConfigurationCommand")
-  .sc(GetBucketLifecycleConfiguration)
+  .sc(GetBucketLifecycleConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

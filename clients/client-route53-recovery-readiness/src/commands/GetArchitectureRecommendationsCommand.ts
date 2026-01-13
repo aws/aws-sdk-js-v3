@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
-import { GetArchitectureRecommendations } from "../schemas/schemas_0";
+import { GetArchitectureRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetArchitectureRecommendationsCommandInput extends GetArchitect
  *
  * The output of {@link GetArchitectureRecommendationsCommand}.
  */
-export interface GetArchitectureRecommendationsCommandOutput
-  extends GetArchitectureRecommendationsResponse,
-    __MetadataBearer {}
+export interface GetArchitectureRecommendationsCommandOutput extends GetArchitectureRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets recommendations about architecture designs for improving resiliency for an application, based on a recovery group.</p>
@@ -102,7 +100,7 @@ export class GetArchitectureRecommendationsCommand extends $Command
   })
   .s("Route53RecoveryReadiness", "GetArchitectureRecommendations", {})
   .n("Route53RecoveryReadinessClient", "GetArchitectureRecommendationsCommand")
-  .sc(GetArchitectureRecommendations)
+  .sc(GetArchitectureRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DescribeDirectConnectGatewayAssociationProposalsRequest,
   DescribeDirectConnectGatewayAssociationProposalsResult,
 } from "../models/models_0";
-import { DescribeDirectConnectGatewayAssociationProposals } from "../schemas/schemas_0";
+import { DescribeDirectConnectGatewayAssociationProposals$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeDirectConnectGatewayAssociationProposalsCommand}.
  */
-export interface DescribeDirectConnectGatewayAssociationProposalsCommandInput
-  extends DescribeDirectConnectGatewayAssociationProposalsRequest {}
+export interface DescribeDirectConnectGatewayAssociationProposalsCommandInput extends DescribeDirectConnectGatewayAssociationProposalsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeDirectConnectGatewayAssociationProposalsCommand}.
  */
-export interface DescribeDirectConnectGatewayAssociationProposalsCommandOutput
-  extends DescribeDirectConnectGatewayAssociationProposalsResult,
-    __MetadataBearer {}
+export interface DescribeDirectConnectGatewayAssociationProposalsCommandOutput extends DescribeDirectConnectGatewayAssociationProposalsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more association proposals for connection between a virtual private gateway or transit gateway and a Direct Connect gateway. </p>
@@ -113,7 +110,7 @@ export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Co
   })
   .s("OvertureService", "DescribeDirectConnectGatewayAssociationProposals", {})
   .n("DirectConnectClient", "DescribeDirectConnectGatewayAssociationProposalsCommand")
-  .sc(DescribeDirectConnectGatewayAssociationProposals)
+  .sc(DescribeDirectConnectGatewayAssociationProposals$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

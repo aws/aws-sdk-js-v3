@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import type { JsonEnumsInputOutput } from "../models/models_0";
-import { JsonEnums } from "../schemas/schemas_0";
+import { JsonEnums$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class JsonEnumsCommand extends $Command
   })
   .s("JsonProtocol", "JsonEnums", {})
   .n("JsonProtocolClient", "JsonEnumsCommand")
-  .sc(JsonEnums)
+  .sc(JsonEnums$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

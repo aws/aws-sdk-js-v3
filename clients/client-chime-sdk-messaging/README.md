@@ -12,10 +12,8 @@ provided by the Amazon Chime SDK identity APIs. For more information about the m
 APIs, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging.html">Amazon Chime SDK messaging</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-chime-sdk-messaging
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-chime-sdk-messaging`
 - `yarn add @aws-sdk/client-chime-sdk-messaging`
 - `pnpm add @aws-sdk/client-chime-sdk-messaging`
@@ -51,9 +49,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new ChimeSDKMessagingClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListChannelFlowsCommand(params);
 ```
 
@@ -212,7 +208,6 @@ AssociateChannelFlow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/AssociateChannelFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/AssociateChannelFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/AssociateChannelFlowCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -220,7 +215,6 @@ BatchCreateChannelMembership
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/BatchCreateChannelMembershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/BatchCreateChannelMembershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/BatchCreateChannelMembershipCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -228,7 +222,6 @@ ChannelFlowCallback
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/ChannelFlowCallbackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ChannelFlowCallbackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ChannelFlowCallbackCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -236,7 +229,6 @@ CreateChannel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/CreateChannelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/CreateChannelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/CreateChannelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -244,7 +236,6 @@ CreateChannelBan
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/CreateChannelBanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/CreateChannelBanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/CreateChannelBanCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -252,7 +243,6 @@ CreateChannelFlow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/CreateChannelFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/CreateChannelFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/CreateChannelFlowCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -260,7 +250,6 @@ CreateChannelMembership
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/CreateChannelMembershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/CreateChannelMembershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/CreateChannelMembershipCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -268,7 +257,6 @@ CreateChannelModerator
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/CreateChannelModeratorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/CreateChannelModeratorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/CreateChannelModeratorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -276,7 +264,6 @@ DeleteChannel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/DeleteChannelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DeleteChannelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DeleteChannelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -284,7 +271,6 @@ DeleteChannelBan
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/DeleteChannelBanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DeleteChannelBanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DeleteChannelBanCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -292,7 +278,6 @@ DeleteChannelFlow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/DeleteChannelFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DeleteChannelFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DeleteChannelFlowCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -300,7 +285,6 @@ DeleteChannelMembership
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/DeleteChannelMembershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DeleteChannelMembershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DeleteChannelMembershipCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -308,7 +292,6 @@ DeleteChannelMessage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/DeleteChannelMessageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DeleteChannelMessageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DeleteChannelMessageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -316,7 +299,6 @@ DeleteChannelModerator
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/DeleteChannelModeratorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DeleteChannelModeratorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DeleteChannelModeratorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -324,7 +306,6 @@ DeleteMessagingStreamingConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/DeleteMessagingStreamingConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DeleteMessagingStreamingConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DeleteMessagingStreamingConfigurationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -332,7 +313,6 @@ DescribeChannel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/DescribeChannelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DescribeChannelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DescribeChannelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -340,7 +320,6 @@ DescribeChannelBan
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/DescribeChannelBanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DescribeChannelBanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DescribeChannelBanCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -348,7 +327,6 @@ DescribeChannelFlow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/DescribeChannelFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DescribeChannelFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DescribeChannelFlowCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -356,7 +334,6 @@ DescribeChannelMembership
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/DescribeChannelMembershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DescribeChannelMembershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DescribeChannelMembershipCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -364,7 +341,6 @@ DescribeChannelMembershipForAppInstanceUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/DescribeChannelMembershipForAppInstanceUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DescribeChannelMembershipForAppInstanceUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DescribeChannelMembershipForAppInstanceUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -372,7 +348,6 @@ DescribeChannelModeratedByAppInstanceUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/DescribeChannelModeratedByAppInstanceUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DescribeChannelModeratedByAppInstanceUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DescribeChannelModeratedByAppInstanceUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -380,7 +355,6 @@ DescribeChannelModerator
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/DescribeChannelModeratorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DescribeChannelModeratorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DescribeChannelModeratorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -388,7 +362,6 @@ DisassociateChannelFlow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/DisassociateChannelFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DisassociateChannelFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/DisassociateChannelFlowCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -396,7 +369,6 @@ GetChannelMembershipPreferences
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/GetChannelMembershipPreferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/GetChannelMembershipPreferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/GetChannelMembershipPreferencesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -404,7 +376,6 @@ GetChannelMessage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/GetChannelMessageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/GetChannelMessageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/GetChannelMessageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -412,7 +383,6 @@ GetChannelMessageStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/GetChannelMessageStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/GetChannelMessageStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/GetChannelMessageStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -420,7 +390,6 @@ GetMessagingSessionEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/GetMessagingSessionEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/GetMessagingSessionEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/GetMessagingSessionEndpointCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -428,7 +397,6 @@ GetMessagingStreamingConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/GetMessagingStreamingConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/GetMessagingStreamingConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/GetMessagingStreamingConfigurationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -436,7 +404,6 @@ ListChannelBans
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/ListChannelBansCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListChannelBansCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListChannelBansCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -444,7 +411,6 @@ ListChannelFlows
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/ListChannelFlowsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListChannelFlowsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListChannelFlowsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -452,7 +418,6 @@ ListChannelMemberships
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/ListChannelMembershipsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListChannelMembershipsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListChannelMembershipsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -460,7 +425,6 @@ ListChannelMembershipsForAppInstanceUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/ListChannelMembershipsForAppInstanceUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListChannelMembershipsForAppInstanceUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListChannelMembershipsForAppInstanceUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -468,7 +432,6 @@ ListChannelMessages
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/ListChannelMessagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListChannelMessagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListChannelMessagesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -476,7 +439,6 @@ ListChannelModerators
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/ListChannelModeratorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListChannelModeratorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListChannelModeratorsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -484,7 +446,6 @@ ListChannels
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/ListChannelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListChannelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListChannelsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -492,7 +453,6 @@ ListChannelsAssociatedWithChannelFlow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/ListChannelsAssociatedWithChannelFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListChannelsAssociatedWithChannelFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListChannelsAssociatedWithChannelFlowCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -500,7 +460,6 @@ ListChannelsModeratedByAppInstanceUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/ListChannelsModeratedByAppInstanceUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListChannelsModeratedByAppInstanceUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListChannelsModeratedByAppInstanceUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -508,7 +467,6 @@ ListSubChannels
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/ListSubChannelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListSubChannelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListSubChannelsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -516,7 +474,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -524,7 +481,6 @@ PutChannelExpirationSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/PutChannelExpirationSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/PutChannelExpirationSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/PutChannelExpirationSettingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -532,7 +488,6 @@ PutChannelMembershipPreferences
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/PutChannelMembershipPreferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/PutChannelMembershipPreferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/PutChannelMembershipPreferencesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -540,7 +495,6 @@ PutMessagingStreamingConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/PutMessagingStreamingConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/PutMessagingStreamingConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/PutMessagingStreamingConfigurationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -548,7 +502,6 @@ RedactChannelMessage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/RedactChannelMessageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/RedactChannelMessageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/RedactChannelMessageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -556,7 +509,6 @@ SearchChannels
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/SearchChannelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/SearchChannelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/SearchChannelsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -564,7 +516,6 @@ SendChannelMessage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/SendChannelMessageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/SendChannelMessageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/SendChannelMessageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -572,7 +523,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -580,7 +530,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -588,7 +537,6 @@ UpdateChannel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/UpdateChannelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/UpdateChannelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/UpdateChannelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -596,7 +544,6 @@ UpdateChannelFlow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/UpdateChannelFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/UpdateChannelFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/UpdateChannelFlowCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -604,7 +551,6 @@ UpdateChannelMessage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/UpdateChannelMessageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/UpdateChannelMessageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/UpdateChannelMessageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -612,5 +558,4 @@ UpdateChannelReadMarker
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-messaging/command/UpdateChannelReadMarkerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/UpdateChannelReadMarkerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-messaging/Interface/UpdateChannelReadMarkerCommandOutput/)
-
 </details>

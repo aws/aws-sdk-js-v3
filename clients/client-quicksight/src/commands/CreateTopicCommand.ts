@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateTopicRequest, CreateTopicResponse } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { CreateTopic } from "../schemas/schemas_0";
+import { CreateTopic$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -376,7 +376,7 @@ export class CreateTopicCommand extends $Command
   })
   .s("QuickSight_20180401", "CreateTopic", {})
   .n("QuickSightClient", "CreateTopicCommand")
-  .sc(CreateTopic)
+  .sc(CreateTopic$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

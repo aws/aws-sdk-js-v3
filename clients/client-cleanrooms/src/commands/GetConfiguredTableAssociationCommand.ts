@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetConfiguredTableAssociationInput, GetConfiguredTableAssociationOutput } from "../models/models_0";
-import { GetConfiguredTableAssociation } from "../schemas/schemas_0";
+import { GetConfiguredTableAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetConfiguredTableAssociationCommandInput extends GetConfigured
  *
  * The output of {@link GetConfiguredTableAssociationCommand}.
  */
-export interface GetConfiguredTableAssociationCommandOutput
-  extends GetConfiguredTableAssociationOutput,
-    __MetadataBearer {}
+export interface GetConfiguredTableAssociationCommandOutput extends GetConfiguredTableAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves a configured table association.</p>
@@ -106,7 +104,7 @@ export class GetConfiguredTableAssociationCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "GetConfiguredTableAssociation", {})
   .n("CleanRoomsClient", "GetConfiguredTableAssociationCommand")
-  .sc(GetConfiguredTableAssociation)
+  .sc(GetConfiguredTableAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

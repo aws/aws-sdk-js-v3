@@ -38,7 +38,6 @@ import {
   SuppressionUnit,
   Type,
 } from "./enums";
-
 import { InternalStreamingException, SessionStreamingException, SessionTimeoutException } from "./errors";
 
 /**
@@ -7721,7 +7720,9 @@ export interface OpenSearchResourceConfig {
  * <p>This structure contains configuration details about an integration between CloudWatch Logs and another entity.</p>
  * @public
  */
-export type ResourceConfig = ResourceConfig.OpenSearchResourceConfigMember | ResourceConfig.$UnknownMember;
+export type ResourceConfig =
+  | ResourceConfig.OpenSearchResourceConfigMember
+  | ResourceConfig.$UnknownMember;
 
 /**
  * @public

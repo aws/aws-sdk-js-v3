@@ -10,7 +10,7 @@ import type {
 } from "../CloudFrontKeyValueStoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetKeyRequest, GetKeyResponse } from "../models/models_0";
-import { GetKey } from "../schemas/schemas_0";
+import { GetKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class GetKeyCommand extends $Command
   })
   .s("CloudFrontKeyValueStore", "GetKey", {})
   .n("CloudFrontKeyValueStoreClient", "GetKeyCommand")
-  .sc(GetKey)
+  .sc(GetKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

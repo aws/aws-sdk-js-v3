@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListJobsByConsumableResourceRequest, ListJobsByConsumableResourceResponse } from "../models/models_0";
-import { ListJobsByConsumableResource } from "../schemas/schemas_0";
+import { ListJobsByConsumableResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListJobsByConsumableResourceCommandInput extends ListJobsByCons
  *
  * The output of {@link ListJobsByConsumableResourceCommand}.
  */
-export interface ListJobsByConsumableResourceCommandOutput
-  extends ListJobsByConsumableResourceResponse,
-    __MetadataBearer {}
+export interface ListJobsByConsumableResourceCommandOutput extends ListJobsByConsumableResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of Batch jobs that require a specific consumable resource.</p>
@@ -157,7 +155,7 @@ export class ListJobsByConsumableResourceCommand extends $Command
   })
   .s("AWSBatchV20160810", "ListJobsByConsumableResource", {})
   .n("BatchClient", "ListJobsByConsumableResourceCommand")
-  .sc(ListJobsByConsumableResource)
+  .sc(ListJobsByConsumableResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

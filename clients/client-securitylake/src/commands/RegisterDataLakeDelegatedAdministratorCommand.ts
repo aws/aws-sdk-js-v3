@@ -8,7 +8,7 @@ import type {
   RegisterDataLakeDelegatedAdministratorRequest,
   RegisterDataLakeDelegatedAdministratorResponse,
 } from "../models/models_0";
-import { RegisterDataLakeDelegatedAdministrator } from "../schemas/schemas_0";
+import { RegisterDataLakeDelegatedAdministrator$ } from "../schemas/schemas_0";
 import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link RegisterDataLakeDelegatedAdministratorCommand}.
  */
-export interface RegisterDataLakeDelegatedAdministratorCommandInput
-  extends RegisterDataLakeDelegatedAdministratorRequest {}
+export interface RegisterDataLakeDelegatedAdministratorCommandInput extends RegisterDataLakeDelegatedAdministratorRequest {}
 /**
  * @public
  *
  * The output of {@link RegisterDataLakeDelegatedAdministratorCommand}.
  */
-export interface RegisterDataLakeDelegatedAdministratorCommandOutput
-  extends RegisterDataLakeDelegatedAdministratorResponse,
-    __MetadataBearer {}
+export interface RegisterDataLakeDelegatedAdministratorCommandOutput extends RegisterDataLakeDelegatedAdministratorResponse, __MetadataBearer {}
 
 /**
  * <p>Designates the Amazon Security Lake delegated administrator account for the organization. This
@@ -104,7 +101,7 @@ export class RegisterDataLakeDelegatedAdministratorCommand extends $Command
   })
   .s("SecurityLake", "RegisterDataLakeDelegatedAdministrator", {})
   .n("SecurityLakeClient", "RegisterDataLakeDelegatedAdministratorCommand")
-  .sc(RegisterDataLakeDelegatedAdministrator)
+  .sc(RegisterDataLakeDelegatedAdministrator$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

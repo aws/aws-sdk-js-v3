@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteVirtualGatewayInput, DeleteVirtualGatewayOutput } from "../models/models_0";
-import { DeleteVirtualGateway } from "../schemas/schemas_0";
+import { DeleteVirtualGateway$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -236,7 +236,7 @@ export class DeleteVirtualGatewayCommand extends $Command
   })
   .s("AppMesh", "DeleteVirtualGateway", {})
   .n("AppMeshClient", "DeleteVirtualGatewayCommand")
-  .sc(DeleteVirtualGateway)
+  .sc(DeleteVirtualGateway$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

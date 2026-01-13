@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { DetachStaticIpRequest, DetachStaticIpResult } from "../models/models_0";
-import { DetachStaticIp } from "../schemas/schemas_0";
+import { DetachStaticIp$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class DetachStaticIpCommand extends $Command
   })
   .s("Lightsail_20161128", "DetachStaticIp", {})
   .n("LightsailClient", "DetachStaticIpCommand")
-  .sc(DetachStaticIp)
+  .sc(DetachStaticIp$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

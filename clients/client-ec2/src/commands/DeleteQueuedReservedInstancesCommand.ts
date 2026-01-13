@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteQueuedReservedInstancesRequest, DeleteQueuedReservedInstancesResult } from "../models/models_2";
-import { DeleteQueuedReservedInstances } from "../schemas/schemas_0";
+import { DeleteQueuedReservedInstances$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteQueuedReservedInstancesCommandInput extends DeleteQueuedR
  *
  * The output of {@link DeleteQueuedReservedInstancesCommand}.
  */
-export interface DeleteQueuedReservedInstancesCommandOutput
-  extends DeleteQueuedReservedInstancesResult,
-    __MetadataBearer {}
+export interface DeleteQueuedReservedInstancesCommandOutput extends DeleteQueuedReservedInstancesResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the queued purchases for the specified Reserved Instances.</p>
@@ -91,7 +89,7 @@ export class DeleteQueuedReservedInstancesCommand extends $Command
   })
   .s("AmazonEC2", "DeleteQueuedReservedInstances", {})
   .n("EC2Client", "DeleteQueuedReservedInstancesCommand")
-  .sc(DeleteQueuedReservedInstances)
+  .sc(DeleteQueuedReservedInstances$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type GetSolFunctionPackageContentInput, GetSolFunctionPackageContentOutput } from "../models/models_0";
-import { GetSolFunctionPackageContent } from "../schemas/schemas_0";
+import { GetSolFunctionPackageContent$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -23,10 +23,7 @@ export interface GetSolFunctionPackageContentCommandInput extends GetSolFunction
 /**
  * @public
  */
-export type GetSolFunctionPackageContentCommandOutputType = Omit<
-  GetSolFunctionPackageContentOutput,
-  "packageContent"
-> & {
+export type GetSolFunctionPackageContentCommandOutputType = Omit<GetSolFunctionPackageContentOutput, "packageContent"> & {
   packageContent?: Uint8ArrayBlobAdapter;
 };
 
@@ -35,9 +32,7 @@ export type GetSolFunctionPackageContentCommandOutputType = Omit<
  *
  * The output of {@link GetSolFunctionPackageContentCommand}.
  */
-export interface GetSolFunctionPackageContentCommandOutput
-  extends GetSolFunctionPackageContentCommandOutputType,
-    __MetadataBearer {}
+export interface GetSolFunctionPackageContentCommandOutput extends GetSolFunctionPackageContentCommandOutputType, __MetadataBearer {}
 
 /**
  * <p>Gets the contents of a function package.</p>
@@ -122,7 +117,7 @@ export class GetSolFunctionPackageContentCommand extends $Command
   })
   .s("TNB", "GetSolFunctionPackageContent", {})
   .n("TnbClient", "GetSolFunctionPackageContentCommand")
-  .sc(GetSolFunctionPackageContent)
+  .sc(GetSolFunctionPackageContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

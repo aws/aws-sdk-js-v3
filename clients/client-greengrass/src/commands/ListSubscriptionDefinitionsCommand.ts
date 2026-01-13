@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import type { ListSubscriptionDefinitionsRequest, ListSubscriptionDefinitionsResponse } from "../models/models_0";
-import { ListSubscriptionDefinitions } from "../schemas/schemas_0";
+import { ListSubscriptionDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListSubscriptionDefinitionsCommandInput extends ListSubscriptio
  *
  * The output of {@link ListSubscriptionDefinitionsCommand}.
  */
-export interface ListSubscriptionDefinitionsCommandOutput
-  extends ListSubscriptionDefinitionsResponse,
-    __MetadataBearer {}
+export interface ListSubscriptionDefinitionsCommandOutput extends ListSubscriptionDefinitionsResponse, __MetadataBearer {}
 
 /**
  * Retrieves a list of subscription definitions.
@@ -90,7 +88,7 @@ export class ListSubscriptionDefinitionsCommand extends $Command
   })
   .s("Greengrass", "ListSubscriptionDefinitions", {})
   .n("GreengrassClient", "ListSubscriptionDefinitionsCommand")
-  .sc(ListSubscriptionDefinitions)
+  .sc(ListSubscriptionDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

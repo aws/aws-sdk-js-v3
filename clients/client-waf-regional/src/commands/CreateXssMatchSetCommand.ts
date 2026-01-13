@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateXssMatchSetRequest, CreateXssMatchSetResponse } from "../models/models_0";
-import { CreateXssMatchSet } from "../schemas/schemas_0";
+import { CreateXssMatchSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -201,7 +201,7 @@ export class CreateXssMatchSetCommand extends $Command
   })
   .s("AWSWAF_Regional_20161128", "CreateXssMatchSet", {})
   .n("WAFRegionalClient", "CreateXssMatchSetCommand")
-  .sc(CreateXssMatchSet)
+  .sc(CreateXssMatchSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

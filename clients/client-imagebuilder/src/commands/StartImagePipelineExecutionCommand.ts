@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import type { StartImagePipelineExecutionRequest, StartImagePipelineExecutionResponse } from "../models/models_0";
-import { StartImagePipelineExecution } from "../schemas/schemas_0";
+import { StartImagePipelineExecution$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface StartImagePipelineExecutionCommandInput extends StartImagePipel
  *
  * The output of {@link StartImagePipelineExecutionCommand}.
  */
-export interface StartImagePipelineExecutionCommandOutput
-  extends StartImagePipelineExecutionResponse,
-    __MetadataBearer {}
+export interface StartImagePipelineExecutionCommandOutput extends StartImagePipelineExecutionResponse, __MetadataBearer {}
 
 /**
  * <p>Manually triggers a pipeline to create an image.</p>
@@ -113,7 +111,7 @@ export class StartImagePipelineExecutionCommand extends $Command
   })
   .s("imagebuilder", "StartImagePipelineExecution", {})
   .n("ImagebuilderClient", "StartImagePipelineExecutionCommand")
-  .sc(StartImagePipelineExecution)
+  .sc(StartImagePipelineExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

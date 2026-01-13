@@ -9,7 +9,7 @@ import type {
   PurchaseReservedCacheNodesOfferingMessage,
   PurchaseReservedCacheNodesOfferingResult,
 } from "../models/models_0";
-import { PurchaseReservedCacheNodesOffering } from "../schemas/schemas_0";
+import { PurchaseReservedCacheNodesOffering$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface PurchaseReservedCacheNodesOfferingCommandInput extends Purchase
  *
  * The output of {@link PurchaseReservedCacheNodesOfferingCommand}.
  */
-export interface PurchaseReservedCacheNodesOfferingCommandOutput
-  extends PurchaseReservedCacheNodesOfferingResult,
-    __MetadataBearer {}
+export interface PurchaseReservedCacheNodesOfferingCommandOutput extends PurchaseReservedCacheNodesOfferingResult, __MetadataBearer {}
 
 /**
  * <p>Allows you to purchase a reserved cache node offering. Reserved nodes are not eligible
@@ -140,7 +138,7 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "PurchaseReservedCacheNodesOffering", {})
   .n("ElastiCacheClient", "PurchaseReservedCacheNodesOfferingCommand")
-  .sc(PurchaseReservedCacheNodesOffering)
+  .sc(PurchaseReservedCacheNodesOffering$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

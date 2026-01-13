@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import type { GetServiceRoleForAccountRequest, GetServiceRoleForAccountResponse } from "../models/models_0";
-import { GetServiceRoleForAccount } from "../schemas/schemas_0";
+import { GetServiceRoleForAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -78,7 +78,7 @@ export class GetServiceRoleForAccountCommand extends $Command
   })
   .s("GreengrassV2", "GetServiceRoleForAccount", {})
   .n("GreengrassV2Client", "GetServiceRoleForAccountCommand")
-  .sc(GetServiceRoleForAccount)
+  .sc(GetServiceRoleForAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

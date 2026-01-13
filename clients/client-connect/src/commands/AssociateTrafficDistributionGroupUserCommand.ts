@@ -9,7 +9,7 @@ import type {
   AssociateTrafficDistributionGroupUserRequest,
   AssociateTrafficDistributionGroupUserResponse,
 } from "../models/models_0";
-import { AssociateTrafficDistributionGroupUser } from "../schemas/schemas_0";
+import { AssociateTrafficDistributionGroupUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AssociateTrafficDistributionGroupUserCommand}.
  */
-export interface AssociateTrafficDistributionGroupUserCommandInput
-  extends AssociateTrafficDistributionGroupUserRequest {}
+export interface AssociateTrafficDistributionGroupUserCommandInput extends AssociateTrafficDistributionGroupUserRequest {}
 /**
  * @public
  *
  * The output of {@link AssociateTrafficDistributionGroupUserCommand}.
  */
-export interface AssociateTrafficDistributionGroupUserCommandOutput
-  extends AssociateTrafficDistributionGroupUserResponse,
-    __MetadataBearer {}
+export interface AssociateTrafficDistributionGroupUserCommandOutput extends AssociateTrafficDistributionGroupUserResponse, __MetadataBearer {}
 
 /**
  * <p>Associates an agent with a traffic distribution group. This API can be called only in the Region where the traffic distribution group
@@ -98,7 +95,7 @@ export class AssociateTrafficDistributionGroupUserCommand extends $Command
   })
   .s("AmazonConnectService", "AssociateTrafficDistributionGroupUser", {})
   .n("ConnectClient", "AssociateTrafficDistributionGroupUserCommand")
-  .sc(AssociateTrafficDistributionGroupUser)
+  .sc(AssociateTrafficDistributionGroupUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

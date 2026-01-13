@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerAutomationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListRecommendedActionSummariesRequest, ListRecommendedActionSummariesResponse } from "../models/models_0";
-import { ListRecommendedActionSummaries } from "../schemas/schemas_0";
+import { ListRecommendedActionSummaries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListRecommendedActionSummariesCommandInput extends ListRecommen
  *
  * The output of {@link ListRecommendedActionSummariesCommand}.
  */
-export interface ListRecommendedActionSummariesCommandOutput
-  extends ListRecommendedActionSummariesResponse,
-    __MetadataBearer {}
+export interface ListRecommendedActionSummariesCommandOutput extends ListRecommendedActionSummariesResponse, __MetadataBearer {}
 
 /**
  * <p> Provides a summary of recommended actions based on specified filters. </p> <note> <p>Management accounts and delegated administrators can retrieve recommended actions that include associated member accounts. You can associate a member account using <code>AssociateAccounts</code>.</p> </note>
@@ -123,7 +121,7 @@ export class ListRecommendedActionSummariesCommand extends $Command
   })
   .s("ComputeOptimizerAutomationService", "ListRecommendedActionSummaries", {})
   .n("ComputeOptimizerAutomationClient", "ListRecommendedActionSummariesCommand")
-  .sc(ListRecommendedActionSummaries)
+  .sc(ListRecommendedActionSummaries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

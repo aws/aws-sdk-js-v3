@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetRelationalDatabaseSnapshotRequest, GetRelationalDatabaseSnapshotResult } from "../models/models_1";
-import { GetRelationalDatabaseSnapshot } from "../schemas/schemas_0";
+import { GetRelationalDatabaseSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetRelationalDatabaseSnapshotCommandInput extends GetRelational
  *
  * The output of {@link GetRelationalDatabaseSnapshotCommand}.
  */
-export interface GetRelationalDatabaseSnapshotCommandOutput
-  extends GetRelationalDatabaseSnapshotResult,
-    __MetadataBearer {}
+export interface GetRelationalDatabaseSnapshotCommandOutput extends GetRelationalDatabaseSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about a specific database snapshot in Amazon Lightsail.</p>
@@ -133,7 +131,7 @@ export class GetRelationalDatabaseSnapshotCommand extends $Command
   })
   .s("Lightsail_20161128", "GetRelationalDatabaseSnapshot", {})
   .n("LightsailClient", "GetRelationalDatabaseSnapshotCommand")
-  .sc(GetRelationalDatabaseSnapshot)
+  .sc(GetRelationalDatabaseSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMLInputChannelRequest, GetMLInputChannelResponse } from "../models/models_0";
-import { GetMLInputChannel } from "../schemas/schemas_0";
+import { GetMLInputChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,6 +117,11 @@ export interface GetMLInputChannelCommandOutput extends GetMLInputChannelRespons
  * //           worker: { // WorkerComputeConfiguration
  * //             type: "CR.1X" || "CR.4X",
  * //             number: Number("int"),
+ * //             properties: { // WorkerComputeConfigurationProperties Union: only one key present
+ * //               spark: { // SparkProperties
+ * //                 "<keys>": "STRING_VALUE",
+ * //               },
+ * //             },
  * //           },
  * //         },
  * //         resultFormat: "CSV" || "PARQUET",
@@ -173,7 +178,7 @@ export class GetMLInputChannelCommand extends $Command
   })
   .s("AWSStarkControlService", "GetMLInputChannel", {})
   .n("CleanRoomsMLClient", "GetMLInputChannelCommand")
-  .sc(GetMLInputChannel)
+  .sc(GetMLInputChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

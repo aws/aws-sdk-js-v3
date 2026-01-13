@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRecommendationTemplateRequest, DeleteRecommendationTemplateResponse } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { DeleteRecommendationTemplate } from "../schemas/schemas_0";
+import { DeleteRecommendationTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteRecommendationTemplateCommandInput extends DeleteRecommen
  *
  * The output of {@link DeleteRecommendationTemplateCommand}.
  */
-export interface DeleteRecommendationTemplateCommandOutput
-  extends DeleteRecommendationTemplateResponse,
-    __MetadataBearer {}
+export interface DeleteRecommendationTemplateCommandOutput extends DeleteRecommendationTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a recommendation template. This is a destructive action that can't be
@@ -96,7 +94,7 @@ export class DeleteRecommendationTemplateCommand extends $Command
   })
   .s("AwsResilienceHub", "DeleteRecommendationTemplate", {})
   .n("ResiliencehubClient", "DeleteRecommendationTemplateCommand")
-  .sc(DeleteRecommendationTemplate)
+  .sc(DeleteRecommendationTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

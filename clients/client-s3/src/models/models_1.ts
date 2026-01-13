@@ -17,7 +17,6 @@ import {
   StorageClass,
   Tier,
 } from "./enums";
-
 import type {
   CSVInput,
   GlacierJobParameters,

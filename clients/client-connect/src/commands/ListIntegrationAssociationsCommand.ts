@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListIntegrationAssociationsRequest, ListIntegrationAssociationsResponse } from "../models/models_2";
-import { ListIntegrationAssociations } from "../schemas/schemas_0";
+import { ListIntegrationAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListIntegrationAssociationsCommandInput extends ListIntegration
  *
  * The output of {@link ListIntegrationAssociationsCommand}.
  */
-export interface ListIntegrationAssociationsCommandOutput
-  extends ListIntegrationAssociationsResponse,
-    __MetadataBearer {}
+export interface ListIntegrationAssociationsCommandOutput extends ListIntegrationAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides summary information about the Amazon Web Services resource associations for the specified Amazon Connect instance.</p>
@@ -103,7 +101,7 @@ export class ListIntegrationAssociationsCommand extends $Command
   })
   .s("AmazonConnectService", "ListIntegrationAssociations", {})
   .n("ConnectClient", "ListIntegrationAssociationsCommand")
-  .sc(ListIntegrationAssociations)
+  .sc(ListIntegrationAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

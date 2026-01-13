@@ -13,7 +13,7 @@ import type {
   DeleteApplicationVpcConfigurationRequest,
   DeleteApplicationVpcConfigurationResponse,
 } from "../models/models_0";
-import { DeleteApplicationVpcConfiguration } from "../schemas/schemas_0";
+import { DeleteApplicationVpcConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DeleteApplicationVpcConfigurationCommandInput extends DeleteApp
  *
  * The output of {@link DeleteApplicationVpcConfigurationCommand}.
  */
-export interface DeleteApplicationVpcConfigurationCommandOutput
-  extends DeleteApplicationVpcConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteApplicationVpcConfigurationCommandOutput extends DeleteApplicationVpcConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a VPC configuration from a Managed Service for Apache Flink application.</p>
@@ -104,7 +102,7 @@ export class DeleteApplicationVpcConfigurationCommand extends $Command
   })
   .s("KinesisAnalytics_20180523", "DeleteApplicationVpcConfiguration", {})
   .n("KinesisAnalyticsV2Client", "DeleteApplicationVpcConfigurationCommand")
-  .sc(DeleteApplicationVpcConfiguration)
+  .sc(DeleteApplicationVpcConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

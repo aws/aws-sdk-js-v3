@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeTrafficMirrorTargetsRequest, DescribeTrafficMirrorTargetsResult } from "../models/models_4";
-import { DescribeTrafficMirrorTargets } from "../schemas/schemas_0";
+import { DescribeTrafficMirrorTargets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeTrafficMirrorTargetsCommandInput extends DescribeTraffi
  *
  * The output of {@link DescribeTrafficMirrorTargetsCommand}.
  */
-export interface DescribeTrafficMirrorTargetsCommandOutput
-  extends DescribeTrafficMirrorTargetsResult,
-    __MetadataBearer {}
+export interface DescribeTrafficMirrorTargetsCommandOutput extends DescribeTrafficMirrorTargetsResult, __MetadataBearer {}
 
 /**
  * <p>Information about one or more Traffic Mirror targets.</p>
@@ -105,7 +103,7 @@ export class DescribeTrafficMirrorTargetsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeTrafficMirrorTargets", {})
   .n("EC2Client", "DescribeTrafficMirrorTargetsCommand")
-  .sc(DescribeTrafficMirrorTargets)
+  .sc(DescribeTrafficMirrorTargets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

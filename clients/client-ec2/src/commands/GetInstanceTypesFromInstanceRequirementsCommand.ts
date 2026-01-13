@@ -9,7 +9,7 @@ import type {
   GetInstanceTypesFromInstanceRequirementsRequest,
   GetInstanceTypesFromInstanceRequirementsResult,
 } from "../models/models_5";
-import { GetInstanceTypesFromInstanceRequirements } from "../schemas/schemas_0";
+import { GetInstanceTypesFromInstanceRequirements$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetInstanceTypesFromInstanceRequirementsCommand}.
  */
-export interface GetInstanceTypesFromInstanceRequirementsCommandInput
-  extends GetInstanceTypesFromInstanceRequirementsRequest {}
+export interface GetInstanceTypesFromInstanceRequirementsCommandInput extends GetInstanceTypesFromInstanceRequirementsRequest {}
 /**
  * @public
  *
  * The output of {@link GetInstanceTypesFromInstanceRequirementsCommand}.
  */
-export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
-  extends GetInstanceTypesFromInstanceRequirementsResult,
-    __MetadataBearer {}
+export interface GetInstanceTypesFromInstanceRequirementsCommandOutput extends GetInstanceTypesFromInstanceRequirementsResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of instance types with the specified instance attributes. You can
@@ -181,7 +178,7 @@ export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command
   })
   .s("AmazonEC2", "GetInstanceTypesFromInstanceRequirements", {})
   .n("EC2Client", "GetInstanceTypesFromInstanceRequirementsCommand")
-  .sc(GetInstanceTypesFromInstanceRequirements)
+  .sc(GetInstanceTypesFromInstanceRequirements$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetJourneyRunExecutionMetricsRequest, GetJourneyRunExecutionMetricsResponse } from "../models/models_1";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetJourneyRunExecutionMetrics } from "../schemas/schemas_0";
+import { GetJourneyRunExecutionMetrics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetJourneyRunExecutionMetricsCommandInput extends GetJourneyRun
  *
  * The output of {@link GetJourneyRunExecutionMetricsCommand}.
  */
-export interface GetJourneyRunExecutionMetricsCommandOutput
-  extends GetJourneyRunExecutionMetricsResponse,
-    __MetadataBearer {}
+export interface GetJourneyRunExecutionMetricsCommandOutput extends GetJourneyRunExecutionMetricsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves (queries) pre-aggregated data for a standard run execution metric that applies to a journey.</p>
@@ -135,7 +133,7 @@ export class GetJourneyRunExecutionMetricsCommand extends $Command
   })
   .s("Pinpoint", "GetJourneyRunExecutionMetrics", {})
   .n("PinpointClient", "GetJourneyRunExecutionMetricsCommand")
-  .sc(GetJourneyRunExecutionMetrics)
+  .sc(GetJourneyRunExecutionMetrics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   PutAccountSuppressionAttributesRequest,
   PutAccountSuppressionAttributesResponse,
 } from "../models/models_0";
-import { PutAccountSuppressionAttributes } from "../schemas/schemas_0";
+import { PutAccountSuppressionAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -27,9 +27,7 @@ export interface PutAccountSuppressionAttributesCommandInput extends PutAccountS
  *
  * The output of {@link PutAccountSuppressionAttributesCommand}.
  */
-export interface PutAccountSuppressionAttributesCommandOutput
-  extends PutAccountSuppressionAttributesResponse,
-    __MetadataBearer {}
+export interface PutAccountSuppressionAttributesCommandOutput extends PutAccountSuppressionAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Change the settings for the account-level suppression list.</p>
@@ -45,6 +43,14 @@ export interface PutAccountSuppressionAttributesCommandOutput
  *   SuppressedReasons: [ // SuppressionListReasons
  *     "BOUNCE" || "COMPLAINT",
  *   ],
+ *   ValidationAttributes: { // SuppressionValidationAttributes
+ *     ConditionThreshold: { // SuppressionConditionThreshold
+ *       ConditionThresholdEnabled: "ENABLED" || "DISABLED", // required
+ *       OverallConfidenceThreshold: { // SuppressionConfidenceThreshold
+ *         ConfidenceVerdictThreshold: "MEDIUM" || "HIGH" || "MANAGED", // required
+ *       },
+ *     },
+ *   },
  * };
  * const command = new PutAccountSuppressionAttributesCommand(input);
  * const response = await client.send(command);
@@ -84,7 +90,7 @@ export class PutAccountSuppressionAttributesCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutAccountSuppressionAttributes", {})
   .n("SESv2Client", "PutAccountSuppressionAttributesCommand")
-  .sc(PutAccountSuppressionAttributes)
+  .sc(PutAccountSuppressionAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

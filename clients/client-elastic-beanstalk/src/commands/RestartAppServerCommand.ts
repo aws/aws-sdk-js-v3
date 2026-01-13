@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RestartAppServerMessage } from "../models/models_0";
-import { RestartAppServer } from "../schemas/schemas_0";
+import { RestartAppServer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class RestartAppServerCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "RestartAppServer", {})
   .n("ElasticBeanstalkClient", "RestartAppServerCommand")
-  .sc(RestartAppServer)
+  .sc(RestartAppServer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

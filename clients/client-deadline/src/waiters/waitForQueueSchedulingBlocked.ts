@@ -7,12 +7,12 @@ import { DeadlineClient } from "../DeadlineClient";
 const checkState = async (client: DeadlineClient, input: GetQueueCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetQueueCommand(input));
+    let result: any = await client.send(new GetQueueCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "SCHEDULING_BLOCKED") {
         return { state: WaiterState.SUCCESS, reason };
       }

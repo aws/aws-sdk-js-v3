@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DescribeRegistrationFieldDefinitions } from "../schemas/schemas_0";
+import { DescribeRegistrationFieldDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DescribeRegistrationFieldDefinitionsCommandInput extends Descri
  *
  * The output of {@link DescribeRegistrationFieldDefinitionsCommand}.
  */
-export interface DescribeRegistrationFieldDefinitionsCommandOutput
-  extends DescribeRegistrationFieldDefinitionsResult,
-    __MetadataBearer {}
+export interface DescribeRegistrationFieldDefinitionsCommandOutput extends DescribeRegistrationFieldDefinitionsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified registration type field definitions. You can use DescribeRegistrationFieldDefinitions to view the requirements for creating, filling out, and submitting each registration type.</p>
@@ -137,7 +135,7 @@ export class DescribeRegistrationFieldDefinitionsCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DescribeRegistrationFieldDefinitions", {})
   .n("PinpointSMSVoiceV2Client", "DescribeRegistrationFieldDefinitionsCommand")
-  .sc(DescribeRegistrationFieldDefinitions)
+  .sc(DescribeRegistrationFieldDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

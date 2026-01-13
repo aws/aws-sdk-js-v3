@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SetTypeDefaultVersionInput, SetTypeDefaultVersionOutput } from "../models/models_0";
-import { SetTypeDefaultVersion } from "../schemas/schemas_0";
+import { SetTypeDefaultVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class SetTypeDefaultVersionCommand extends $Command
   })
   .s("CloudFormation", "SetTypeDefaultVersion", {})
   .n("CloudFormationClient", "SetTypeDefaultVersionCommand")
-  .sc(SetTypeDefaultVersion)
+  .sc(SetTypeDefaultVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

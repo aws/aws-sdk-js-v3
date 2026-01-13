@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListTrafficDistributionGroupsRequest, ListTrafficDistributionGroupsResponse } from "../models/models_2";
-import { ListTrafficDistributionGroups } from "../schemas/schemas_0";
+import { ListTrafficDistributionGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListTrafficDistributionGroupsCommandInput extends ListTrafficDi
  *
  * The output of {@link ListTrafficDistributionGroupsCommand}.
  */
-export interface ListTrafficDistributionGroupsCommandOutput
-  extends ListTrafficDistributionGroupsResponse,
-    __MetadataBearer {}
+export interface ListTrafficDistributionGroupsCommandOutput extends ListTrafficDistributionGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists traffic distribution groups.</p>
@@ -99,7 +97,7 @@ export class ListTrafficDistributionGroupsCommand extends $Command
   })
   .s("AmazonConnectService", "ListTrafficDistributionGroups", {})
   .n("ConnectClient", "ListTrafficDistributionGroupsCommand")
-  .sc(ListTrafficDistributionGroups)
+  .sc(ListTrafficDistributionGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

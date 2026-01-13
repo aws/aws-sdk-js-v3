@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MergeDeveloperIdentitiesInput, MergeDeveloperIdentitiesResponse } from "../models/models_0";
-import { MergeDeveloperIdentities } from "../schemas/schemas_0";
+import { MergeDeveloperIdentities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class MergeDeveloperIdentitiesCommand extends $Command
   })
   .s("AWSCognitoIdentityService", "MergeDeveloperIdentities", {})
   .n("CognitoIdentityClient", "MergeDeveloperIdentitiesCommand")
-  .sc(MergeDeveloperIdentities)
+  .sc(MergeDeveloperIdentities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

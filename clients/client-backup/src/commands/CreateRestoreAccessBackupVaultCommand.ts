@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateRestoreAccessBackupVaultInput, CreateRestoreAccessBackupVaultOutput } from "../models/models_0";
-import { CreateRestoreAccessBackupVault } from "../schemas/schemas_0";
+import { CreateRestoreAccessBackupVault$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateRestoreAccessBackupVaultCommandInput extends CreateRestor
  *
  * The output of {@link CreateRestoreAccessBackupVaultCommand}.
  */
-export interface CreateRestoreAccessBackupVaultCommandOutput
-  extends CreateRestoreAccessBackupVaultOutput,
-    __MetadataBearer {}
+export interface CreateRestoreAccessBackupVaultCommandOutput extends CreateRestoreAccessBackupVaultOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a restore access backup vault that provides temporary access to recovery points in a logically air-gapped backup vault, subject to MPA approval.</p>
@@ -108,7 +106,7 @@ export class CreateRestoreAccessBackupVaultCommand extends $Command
   })
   .s("CryoControllerUserManager", "CreateRestoreAccessBackupVault", {})
   .n("BackupClient", "CreateRestoreAccessBackupVaultCommand")
-  .sc(CreateRestoreAccessBackupVault)
+  .sc(CreateRestoreAccessBackupVault$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

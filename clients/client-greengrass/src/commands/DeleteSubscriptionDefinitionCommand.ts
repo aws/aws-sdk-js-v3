@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import type { DeleteSubscriptionDefinitionRequest, DeleteSubscriptionDefinitionResponse } from "../models/models_0";
-import { DeleteSubscriptionDefinition } from "../schemas/schemas_0";
+import { DeleteSubscriptionDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteSubscriptionDefinitionCommandInput extends DeleteSubscrip
  *
  * The output of {@link DeleteSubscriptionDefinitionCommand}.
  */
-export interface DeleteSubscriptionDefinitionCommandOutput
-  extends DeleteSubscriptionDefinitionResponse,
-    __MetadataBearer {}
+export interface DeleteSubscriptionDefinitionCommandOutput extends DeleteSubscriptionDefinitionResponse, __MetadataBearer {}
 
 /**
  * Deletes a subscription definition.
@@ -76,7 +74,7 @@ export class DeleteSubscriptionDefinitionCommand extends $Command
   })
   .s("Greengrass", "DeleteSubscriptionDefinition", {})
   .n("GreengrassClient", "DeleteSubscriptionDefinitionCommand")
-  .sc(DeleteSubscriptionDefinition)
+  .sc(DeleteSubscriptionDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

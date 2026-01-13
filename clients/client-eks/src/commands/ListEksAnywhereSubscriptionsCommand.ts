@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListEksAnywhereSubscriptionsRequest, ListEksAnywhereSubscriptionsResponse } from "../models/models_0";
-import { ListEksAnywhereSubscriptions } from "../schemas/schemas_0";
+import { ListEksAnywhereSubscriptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListEksAnywhereSubscriptionsCommandInput extends ListEksAnywher
  *
  * The output of {@link ListEksAnywhereSubscriptionsCommand}.
  */
-export interface ListEksAnywhereSubscriptionsCommandOutput
-  extends ListEksAnywhereSubscriptionsResponse,
-    __MetadataBearer {}
+export interface ListEksAnywhereSubscriptionsCommandOutput extends ListEksAnywhereSubscriptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Displays the full description of the subscription.</p>
@@ -123,7 +121,7 @@ export class ListEksAnywhereSubscriptionsCommand extends $Command
   })
   .s("AWSWesleyFrontend", "ListEksAnywhereSubscriptions", {})
   .n("EKSClient", "ListEksAnywhereSubscriptionsCommand")
-  .sc(ListEksAnywhereSubscriptions)
+  .sc(ListEksAnywhereSubscriptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

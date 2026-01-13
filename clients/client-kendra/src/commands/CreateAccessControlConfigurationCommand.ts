@@ -9,7 +9,7 @@ import type {
   CreateAccessControlConfigurationRequest,
   CreateAccessControlConfigurationResponse,
 } from "../models/models_0";
-import { CreateAccessControlConfiguration } from "../schemas/schemas_0";
+import { CreateAccessControlConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateAccessControlConfigurationCommandInput extends CreateAcce
  *
  * The output of {@link CreateAccessControlConfigurationCommand}.
  */
-export interface CreateAccessControlConfigurationCommandOutput
-  extends CreateAccessControlConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateAccessControlConfigurationCommandOutput extends CreateAccessControlConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an access configuration for your documents. This includes user and group
@@ -155,7 +153,7 @@ export class CreateAccessControlConfigurationCommand extends $Command
   })
   .s("AWSKendraFrontendService", "CreateAccessControlConfiguration", {})
   .n("KendraClient", "CreateAccessControlConfigurationCommand")
-  .sc(CreateAccessControlConfiguration)
+  .sc(CreateAccessControlConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

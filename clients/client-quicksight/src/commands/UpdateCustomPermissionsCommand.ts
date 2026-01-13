@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateCustomPermissionsRequest, UpdateCustomPermissionsResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateCustomPermissions } from "../schemas/schemas_0";
+import { UpdateCustomPermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,6 +77,7 @@ export interface UpdateCustomPermissionsCommandOutput extends UpdateCustomPermis
  *     ChatAgent: "DENY",
  *     CreateChatAgents: "DENY",
  *     Research: "DENY",
+ *     SelfUpgradeUserRole: "DENY",
  *   },
  * };
  * const command = new UpdateCustomPermissionsCommand(input);
@@ -142,7 +143,7 @@ export class UpdateCustomPermissionsCommand extends $Command
   })
   .s("QuickSight_20180401", "UpdateCustomPermissions", {})
   .n("QuickSightClient", "UpdateCustomPermissionsCommand")
-  .sc(UpdateCustomPermissions)
+  .sc(UpdateCustomPermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

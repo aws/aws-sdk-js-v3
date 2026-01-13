@@ -9,7 +9,7 @@ import type {
   DescribeResourceGroupingRecommendationTaskResponse,
 } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { DescribeResourceGroupingRecommendationTask } from "../schemas/schemas_0";
+import { DescribeResourceGroupingRecommendationTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeResourceGroupingRecommendationTaskCommand}.
  */
-export interface DescribeResourceGroupingRecommendationTaskCommandInput
-  extends DescribeResourceGroupingRecommendationTaskRequest {}
+export interface DescribeResourceGroupingRecommendationTaskCommandInput extends DescribeResourceGroupingRecommendationTaskRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeResourceGroupingRecommendationTaskCommand}.
  */
-export interface DescribeResourceGroupingRecommendationTaskCommandOutput
-  extends DescribeResourceGroupingRecommendationTaskResponse,
-    __MetadataBearer {}
+export interface DescribeResourceGroupingRecommendationTaskCommandOutput extends DescribeResourceGroupingRecommendationTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the resource grouping recommendation tasks run by Resilience Hub for your application.</p>
@@ -100,7 +97,7 @@ export class DescribeResourceGroupingRecommendationTaskCommand extends $Command
   })
   .s("AwsResilienceHub", "DescribeResourceGroupingRecommendationTask", {})
   .n("ResiliencehubClient", "DescribeResourceGroupingRecommendationTaskCommand")
-  .sc(DescribeResourceGroupingRecommendationTask)
+  .sc(DescribeResourceGroupingRecommendationTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

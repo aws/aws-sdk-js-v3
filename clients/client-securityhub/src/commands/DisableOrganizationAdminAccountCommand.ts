@@ -8,7 +8,7 @@ import type {
   DisableOrganizationAdminAccountRequest,
   DisableOrganizationAdminAccountResponse,
 } from "../models/models_2";
-import { DisableOrganizationAdminAccount } from "../schemas/schemas_0";
+import { DisableOrganizationAdminAccount$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DisableOrganizationAdminAccountCommandInput extends DisableOrga
  *
  * The output of {@link DisableOrganizationAdminAccountCommand}.
  */
-export interface DisableOrganizationAdminAccountCommandOutput
-  extends DisableOrganizationAdminAccountResponse,
-    __MetadataBearer {}
+export interface DisableOrganizationAdminAccountCommandOutput extends DisableOrganizationAdminAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Disables a Security Hub administrator account. Can only be called by the organization
@@ -108,7 +106,7 @@ export class DisableOrganizationAdminAccountCommand extends $Command
   })
   .s("SecurityHubAPIService", "DisableOrganizationAdminAccount", {})
   .n("SecurityHubClient", "DisableOrganizationAdminAccountCommand")
-  .sc(DisableOrganizationAdminAccount)
+  .sc(DisableOrganizationAdminAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

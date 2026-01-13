@@ -8,7 +8,7 @@ import type {
   RegisterPatchBaselineForPatchGroupRequest,
   RegisterPatchBaselineForPatchGroupResult,
 } from "../models/models_1";
-import { RegisterPatchBaselineForPatchGroup } from "../schemas/schemas_0";
+import { RegisterPatchBaselineForPatchGroup$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -27,9 +27,7 @@ export interface RegisterPatchBaselineForPatchGroupCommandInput extends Register
  *
  * The output of {@link RegisterPatchBaselineForPatchGroupCommand}.
  */
-export interface RegisterPatchBaselineForPatchGroupCommandOutput
-  extends RegisterPatchBaselineForPatchGroupResult,
-    __MetadataBearer {}
+export interface RegisterPatchBaselineForPatchGroupCommandOutput extends RegisterPatchBaselineForPatchGroupResult, __MetadataBearer {}
 
 /**
  * <p>Registers a patch baseline for a patch group.</p>
@@ -102,7 +100,7 @@ export class RegisterPatchBaselineForPatchGroupCommand extends $Command
   })
   .s("AmazonSSM", "RegisterPatchBaselineForPatchGroup", {})
   .n("SSMClient", "RegisterPatchBaselineForPatchGroupCommand")
-  .sc(RegisterPatchBaselineForPatchGroup)
+  .sc(RegisterPatchBaselineForPatchGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

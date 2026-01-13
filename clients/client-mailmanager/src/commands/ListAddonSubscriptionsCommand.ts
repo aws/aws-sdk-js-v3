@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
 import type { ListAddonSubscriptionsRequest, ListAddonSubscriptionsResponse } from "../models/models_0";
-import { ListAddonSubscriptions } from "../schemas/schemas_0";
+import { ListAddonSubscriptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class ListAddonSubscriptionsCommand extends $Command
   })
   .s("MailManagerSvc", "ListAddonSubscriptions", {})
   .n("MailManagerClient", "ListAddonSubscriptionsCommand")
-  .sc(ListAddonSubscriptions)
+  .sc(ListAddonSubscriptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

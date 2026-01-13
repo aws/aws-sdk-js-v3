@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteEventSubscriptionMessage } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DeleteEventSubscription } from "../schemas/schemas_0";
+import { DeleteEventSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,7 +79,7 @@ export class DeleteEventSubscriptionCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DeleteEventSubscription", {})
   .n("RedshiftClient", "DeleteEventSubscriptionCommand")
-  .sc(DeleteEventSubscription)
+  .sc(DeleteEventSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

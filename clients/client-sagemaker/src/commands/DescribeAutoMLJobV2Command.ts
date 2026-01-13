@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAutoMLJobV2Request, DescribeAutoMLJobV2Response } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribeAutoMLJobV2 } from "../schemas/schemas_0";
+import { DescribeAutoMLJobV2$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -311,7 +311,7 @@ export class DescribeAutoMLJobV2Command extends $Command
   })
   .s("SageMaker", "DescribeAutoMLJobV2", {})
   .n("SageMakerClient", "DescribeAutoMLJobV2Command")
-  .sc(DescribeAutoMLJobV2)
+  .sc(DescribeAutoMLJobV2$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

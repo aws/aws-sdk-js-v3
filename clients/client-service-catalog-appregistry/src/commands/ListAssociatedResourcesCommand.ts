@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAssociatedResourcesRequest, ListAssociatedResourcesResponse } from "../models/models_0";
-import { ListAssociatedResources } from "../schemas/schemas_0";
+import { ListAssociatedResources$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -121,7 +121,7 @@ export class ListAssociatedResourcesCommand extends $Command
   })
   .s("AWS242AppRegistry", "ListAssociatedResources", {})
   .n("ServiceCatalogAppRegistryClient", "ListAssociatedResourcesCommand")
-  .sc(ListAssociatedResources)
+  .sc(ListAssociatedResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
 import type { DeleteTypeRequest, DeleteTypeResponse } from "../models/models_0";
-import { DeleteType } from "../schemas/schemas_0";
+import { DeleteType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteTypeCommand extends $Command
   })
   .s("KeyspacesService", "DeleteType", {})
   .n("KeyspacesClient", "DeleteTypeCommand")
-  .sc(DeleteType)
+  .sc(DeleteType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

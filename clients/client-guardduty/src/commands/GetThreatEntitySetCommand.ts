@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import type { GetThreatEntitySetRequest, GetThreatEntitySetResponse } from "../models/models_1";
-import { GetThreatEntitySet } from "../schemas/schemas_0";
+import { GetThreatEntitySet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class GetThreatEntitySetCommand extends $Command
   })
   .s("GuardDutyAPIService", "GetThreatEntitySet", {})
   .n("GuardDutyClient", "GetThreatEntitySetCommand")
-  .sc(GetThreatEntitySet)
+  .sc(GetThreatEntitySet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

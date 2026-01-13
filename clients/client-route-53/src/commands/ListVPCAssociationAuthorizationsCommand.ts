@@ -10,7 +10,7 @@ import type {
   ListVPCAssociationAuthorizationsResponse,
 } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { ListVPCAssociationAuthorizations } from "../schemas/schemas_0";
+import { ListVPCAssociationAuthorizations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListVPCAssociationAuthorizationsCommandInput extends ListVPCAss
  *
  * The output of {@link ListVPCAssociationAuthorizationsCommand}.
  */
-export interface ListVPCAssociationAuthorizationsCommandOutput
-  extends ListVPCAssociationAuthorizationsResponse,
-    __MetadataBearer {}
+export interface ListVPCAssociationAuthorizationsCommandOutput extends ListVPCAssociationAuthorizationsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of the VPCs that were created by other accounts and that can be associated
@@ -98,11 +96,14 @@ export class ListVPCAssociationAuthorizationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "ListVPCAssociationAuthorizations", {})
   .n("Route53Client", "ListVPCAssociationAuthorizationsCommand")
-  .sc(ListVPCAssociationAuthorizations)
+  .sc(ListVPCAssociationAuthorizations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

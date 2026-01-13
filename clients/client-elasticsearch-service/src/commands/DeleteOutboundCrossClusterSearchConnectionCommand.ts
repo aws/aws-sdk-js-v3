@@ -13,7 +13,7 @@ import type {
   DeleteOutboundCrossClusterSearchConnectionRequest,
   DeleteOutboundCrossClusterSearchConnectionResponse,
 } from "../models/models_0";
-import { DeleteOutboundCrossClusterSearchConnection } from "../schemas/schemas_0";
+import { DeleteOutboundCrossClusterSearchConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DeleteOutboundCrossClusterSearchConnectionCommand}.
  */
-export interface DeleteOutboundCrossClusterSearchConnectionCommandInput
-  extends DeleteOutboundCrossClusterSearchConnectionRequest {}
+export interface DeleteOutboundCrossClusterSearchConnectionCommandInput extends DeleteOutboundCrossClusterSearchConnectionRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteOutboundCrossClusterSearchConnectionCommand}.
  */
-export interface DeleteOutboundCrossClusterSearchConnectionCommandOutput
-  extends DeleteOutboundCrossClusterSearchConnectionResponse,
-    __MetadataBearer {}
+export interface DeleteOutboundCrossClusterSearchConnectionCommandOutput extends DeleteOutboundCrossClusterSearchConnectionResponse, __MetadataBearer {}
 
 /**
  * <p>Allows the source domain owner to delete an existing outbound cross-cluster search connection.</p>
@@ -106,7 +103,7 @@ export class DeleteOutboundCrossClusterSearchConnectionCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "DeleteOutboundCrossClusterSearchConnection", {})
   .n("ElasticsearchServiceClient", "DeleteOutboundCrossClusterSearchConnectionCommand")
-  .sc(DeleteOutboundCrossClusterSearchConnection)
+  .sc(DeleteOutboundCrossClusterSearchConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeProvisioningArtifactInput, DescribeProvisioningArtifactOutput } from "../models/models_0";
-import { DescribeProvisioningArtifact } from "../schemas/schemas_0";
+import { DescribeProvisioningArtifact$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -28,9 +28,7 @@ export interface DescribeProvisioningArtifactCommandInput extends DescribeProvis
  *
  * The output of {@link DescribeProvisioningArtifactCommand}.
  */
-export interface DescribeProvisioningArtifactCommandOutput
-  extends DescribeProvisioningArtifactOutput,
-    __MetadataBearer {}
+export interface DescribeProvisioningArtifactCommandOutput extends DescribeProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about the specified provisioning artifact (also known as a version) for the specified product.</p>
@@ -124,7 +122,7 @@ export class DescribeProvisioningArtifactCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "DescribeProvisioningArtifact", {})
   .n("ServiceCatalogClient", "DescribeProvisioningArtifactCommand")
-  .sc(DescribeProvisioningArtifact)
+  .sc(DescribeProvisioningArtifact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

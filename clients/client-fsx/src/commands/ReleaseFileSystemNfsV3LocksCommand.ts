@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import type { ReleaseFileSystemNfsV3LocksRequest, ReleaseFileSystemNfsV3LocksResponse } from "../models/models_0";
-import { ReleaseFileSystemNfsV3Locks } from "../schemas/schemas_0";
+import { ReleaseFileSystemNfsV3Locks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ReleaseFileSystemNfsV3LocksCommandInput extends ReleaseFileSyst
  *
  * The output of {@link ReleaseFileSystemNfsV3LocksCommand}.
  */
-export interface ReleaseFileSystemNfsV3LocksCommandOutput
-  extends ReleaseFileSystemNfsV3LocksResponse,
-    __MetadataBearer {}
+export interface ReleaseFileSystemNfsV3LocksCommandOutput extends ReleaseFileSystemNfsV3LocksResponse, __MetadataBearer {}
 
 /**
  * <p>Releases the file system lock from an Amazon FSx for OpenZFS file
@@ -707,7 +705,7 @@ export class ReleaseFileSystemNfsV3LocksCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "ReleaseFileSystemNfsV3Locks", {})
   .n("FSxClient", "ReleaseFileSystemNfsV3LocksCommand")
-  .sc(ReleaseFileSystemNfsV3Locks)
+  .sc(ReleaseFileSystemNfsV3Locks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

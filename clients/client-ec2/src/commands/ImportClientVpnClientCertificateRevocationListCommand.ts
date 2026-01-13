@@ -9,7 +9,7 @@ import type {
   ImportClientVpnClientCertificateRevocationListRequest,
   ImportClientVpnClientCertificateRevocationListResult,
 } from "../models/models_6";
-import { ImportClientVpnClientCertificateRevocationList } from "../schemas/schemas_0";
+import { ImportClientVpnClientCertificateRevocationList$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ImportClientVpnClientCertificateRevocationListCommand}.
  */
-export interface ImportClientVpnClientCertificateRevocationListCommandInput
-  extends ImportClientVpnClientCertificateRevocationListRequest {}
+export interface ImportClientVpnClientCertificateRevocationListCommandInput extends ImportClientVpnClientCertificateRevocationListRequest {}
 /**
  * @public
  *
  * The output of {@link ImportClientVpnClientCertificateRevocationListCommand}.
  */
-export interface ImportClientVpnClientCertificateRevocationListCommandOutput
-  extends ImportClientVpnClientCertificateRevocationListResult,
-    __MetadataBearer {}
+export interface ImportClientVpnClientCertificateRevocationListCommandOutput extends ImportClientVpnClientCertificateRevocationListResult, __MetadataBearer {}
 
 /**
  * <p>Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.</p>
@@ -82,7 +79,7 @@ export class ImportClientVpnClientCertificateRevocationListCommand extends $Comm
   })
   .s("AmazonEC2", "ImportClientVpnClientCertificateRevocationList", {})
   .n("EC2Client", "ImportClientVpnClientCertificateRevocationListCommand")
-  .sc(ImportClientVpnClientCertificateRevocationList)
+  .sc(ImportClientVpnClientCertificateRevocationList$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -14,11 +14,9 @@ export const getRuntimeConfig = (config: QBusinessClientConfig) => {
     ...browserDefaults,
     ...config,
     runtime: "react-native",
-    eventStreamPayloadHandlerProvider:
-      config?.eventStreamPayloadHandlerProvider ??
-      (() => ({
-        handle: invalidFunction("event stream request is not supported in ReactNative."),
-      })),
+    eventStreamPayloadHandlerProvider: config?.eventStreamPayloadHandlerProvider ?? (() => ({
+      handle: invalidFunction("event stream request is not supported in ReactNative."),
+    })),
     sha256: config?.sha256 ?? Sha256,
   };
 };

@@ -9,7 +9,7 @@ import type {
   CreateConnectorDefinitionVersionRequest,
   CreateConnectorDefinitionVersionResponse,
 } from "../models/models_0";
-import { CreateConnectorDefinitionVersion } from "../schemas/schemas_0";
+import { CreateConnectorDefinitionVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateConnectorDefinitionVersionCommandInput extends CreateConn
  *
  * The output of {@link CreateConnectorDefinitionVersionCommand}.
  */
-export interface CreateConnectorDefinitionVersionCommandOutput
-  extends CreateConnectorDefinitionVersionResponse,
-    __MetadataBearer {}
+export interface CreateConnectorDefinitionVersionCommandOutput extends CreateConnectorDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Creates a version of a connector definition which has already been defined.
@@ -94,7 +92,7 @@ export class CreateConnectorDefinitionVersionCommand extends $Command
   })
   .s("Greengrass", "CreateConnectorDefinitionVersion", {})
   .n("GreengrassClient", "CreateConnectorDefinitionVersionCommand")
-  .sc(CreateConnectorDefinitionVersion)
+  .sc(CreateConnectorDefinitionVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

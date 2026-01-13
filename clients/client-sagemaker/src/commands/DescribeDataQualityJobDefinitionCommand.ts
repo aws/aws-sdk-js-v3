@@ -9,7 +9,7 @@ import type {
   DescribeDataQualityJobDefinitionResponse,
 } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribeDataQualityJobDefinition } from "../schemas/schemas_0";
+import { DescribeDataQualityJobDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeDataQualityJobDefinitionCommandInput extends DescribeDa
  *
  * The output of {@link DescribeDataQualityJobDefinitionCommand}.
  */
-export interface DescribeDataQualityJobDefinitionCommandOutput
-  extends DescribeDataQualityJobDefinitionResponse,
-    __MetadataBearer {}
+export interface DescribeDataQualityJobDefinitionCommandOutput extends DescribeDataQualityJobDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the details of a data quality monitoring job definition.</p>
@@ -179,7 +177,7 @@ export class DescribeDataQualityJobDefinitionCommand extends $Command
   })
   .s("SageMaker", "DescribeDataQualityJobDefinition", {})
   .n("SageMakerClient", "DescribeDataQualityJobDefinitionCommand")
-  .sc(DescribeDataQualityJobDefinition)
+  .sc(DescribeDataQualityJobDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

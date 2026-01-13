@@ -9,7 +9,7 @@ import type {
   PutEnvironmentBlueprintConfigurationInput,
   PutEnvironmentBlueprintConfigurationOutput,
 } from "../models/models_1";
-import { PutEnvironmentBlueprintConfiguration } from "../schemas/schemas_0";
+import { PutEnvironmentBlueprintConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface PutEnvironmentBlueprintConfigurationCommandInput extends PutEnv
  *
  * The output of {@link PutEnvironmentBlueprintConfigurationCommand}.
  */
-export interface PutEnvironmentBlueprintConfigurationCommandOutput
-  extends PutEnvironmentBlueprintConfigurationOutput,
-    __MetadataBearer {}
+export interface PutEnvironmentBlueprintConfigurationCommandOutput extends PutEnvironmentBlueprintConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Writes the configuration for the specified environment blueprint in Amazon DataZone.</p>
@@ -148,7 +146,7 @@ export class PutEnvironmentBlueprintConfigurationCommand extends $Command
   })
   .s("DataZone", "PutEnvironmentBlueprintConfiguration", {})
   .n("DataZoneClient", "PutEnvironmentBlueprintConfigurationCommand")
-  .sc(PutEnvironmentBlueprintConfiguration)
+  .sc(PutEnvironmentBlueprintConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutObjectAclOutput, PutObjectAclRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { PutObjectAcl } from "../schemas/schemas_0";
+import { PutObjectAcl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -319,7 +319,7 @@ export class PutObjectAclCommand extends $Command
     return [
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
+        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
         requestChecksumRequired: true,
       }),
       getThrow200ExceptionsPlugin(config),
@@ -327,7 +327,7 @@ export class PutObjectAclCommand extends $Command
   })
   .s("AmazonS3", "PutObjectAcl", {})
   .n("S3Client", "PutObjectAclCommand")
-  .sc(PutObjectAcl)
+  .sc(PutObjectAcl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

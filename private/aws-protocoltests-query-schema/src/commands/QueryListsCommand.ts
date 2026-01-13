@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { QueryListsInput } from "../models/models_0";
 import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { QueryLists } from "../schemas/schemas_0";
+import { QueryLists$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class QueryListsCommand extends $Command
   })
   .s("AwsQuery", "QueryLists", {})
   .n("QueryProtocolClient", "QueryListsCommand")
-  .sc(QueryLists)
+  .sc(QueryLists$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

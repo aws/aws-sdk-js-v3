@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableOrganizationAdminAccountRequest, EnableOrganizationAdminAccountResponse } from "../models/models_2";
-import { EnableOrganizationAdminAccount } from "../schemas/schemas_0";
+import { EnableOrganizationAdminAccount$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -24,9 +24,7 @@ export interface EnableOrganizationAdminAccountCommandInput extends EnableOrgani
  *
  * The output of {@link EnableOrganizationAdminAccountCommand}.
  */
-export interface EnableOrganizationAdminAccountCommandOutput
-  extends EnableOrganizationAdminAccountResponse,
-    __MetadataBearer {}
+export interface EnableOrganizationAdminAccountCommandOutput extends EnableOrganizationAdminAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Designates the Security Hub administrator account for an organization. Can only be called by
@@ -108,7 +106,7 @@ export class EnableOrganizationAdminAccountCommand extends $Command
   })
   .s("SecurityHubAPIService", "EnableOrganizationAdminAccount", {})
   .n("SecurityHubClient", "EnableOrganizationAdminAccountCommand")
-  .sc(EnableOrganizationAdminAccount)
+  .sc(EnableOrganizationAdminAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

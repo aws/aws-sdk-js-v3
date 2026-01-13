@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { OperationWithNestedStructure } from "../schemas/schemas_0";
+import { OperationWithNestedStructure$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface OperationWithNestedStructureCommandInput extends OperationWithN
  *
  * The output of {@link OperationWithNestedStructureCommand}.
  */
-export interface OperationWithNestedStructureCommandOutput
-  extends OperationWithNestedStructureOutput,
-    __MetadataBearer {}
+export interface OperationWithNestedStructureCommandOutput extends OperationWithNestedStructureOutput, __MetadataBearer {}
 
 /**
  * @public
@@ -129,7 +127,7 @@ export class OperationWithNestedStructureCommand extends $Command
   })
   .s("RestJson", "OperationWithNestedStructure", {})
   .n("RestJsonProtocolClient", "OperationWithNestedStructureCommand")
-  .sc(OperationWithNestedStructure)
+  .sc(OperationWithNestedStructure$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListLabelingJobsForWorkteamRequest, ListLabelingJobsForWorkteamResponse } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListLabelingJobsForWorkteam } from "../schemas/schemas_0";
+import { ListLabelingJobsForWorkteam$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListLabelingJobsForWorkteamCommandInput extends ListLabelingJob
  *
  * The output of {@link ListLabelingJobsForWorkteamCommand}.
  */
-export interface ListLabelingJobsForWorkteamCommandOutput
-  extends ListLabelingJobsForWorkteamResponse,
-    __MetadataBearer {}
+export interface ListLabelingJobsForWorkteamCommandOutput extends ListLabelingJobsForWorkteamResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of labeling jobs assigned to a specified work team.</p>
@@ -99,7 +97,7 @@ export class ListLabelingJobsForWorkteamCommand extends $Command
   })
   .s("SageMaker", "ListLabelingJobsForWorkteam", {})
   .n("SageMakerClient", "ListLabelingJobsForWorkteamCommand")
-  .sc(ListLabelingJobsForWorkteam)
+  .sc(ListLabelingJobsForWorkteam$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

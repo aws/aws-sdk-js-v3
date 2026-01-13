@@ -101,7 +101,9 @@ export interface SsmAutomation {
  *       action.</p>
  * @public
  */
-export type Action = Action.SsmAutomationMember | Action.$UnknownMember;
+export type Action =
+  | Action.SsmAutomationMember
+  | Action.$UnknownMember;
 
 /**
  * @public
@@ -212,7 +214,9 @@ export namespace AttributeValueList {
  *       beginning of the incident.</p>
  * @public
  */
-export type AutomationExecution = AutomationExecution.SsmExecutionArnMember | AutomationExecution.$UnknownMember;
+export type AutomationExecution =
+  | AutomationExecution.SsmExecutionArnMember
+  | AutomationExecution.$UnknownMember;
 
 /**
  * @public
@@ -465,7 +469,10 @@ export interface EmptyChatChannel {}
  * <p>The Chatbot chat channel used for collaboration during an incident.</p>
  * @public
  */
-export type ChatChannel = ChatChannel.ChatbotSnsMember | ChatChannel.EmptyMember | ChatChannel.$UnknownMember;
+export type ChatChannel =
+  | ChatChannel.ChatbotSnsMember
+  | ChatChannel.EmptyMember
+  | ChatChannel.$UnknownMember;
 
 /**
  * @public
@@ -638,7 +645,9 @@ export interface CreateReplicationSetOutput {
  * <p>The SNS targets that are notified when updates are made to an incident.</p>
  * @public
  */
-export type NotificationTargetItem = NotificationTargetItem.SnsTopicArnMember | NotificationTargetItem.$UnknownMember;
+export type NotificationTargetItem =
+  | NotificationTargetItem.SnsTopicArnMember
+  | NotificationTargetItem.$UnknownMember;
 
 /**
  * @public
@@ -795,7 +804,9 @@ export interface PagerDutyConfiguration {
  * <p>Information about third-party services integrated into a response plan.</p>
  * @public
  */
-export type Integration = Integration.PagerDutyConfigurationMember | Integration.$UnknownMember;
+export type Integration =
+  | Integration.PagerDutyConfigurationMember
+  | Integration.$UnknownMember;
 
 /**
  * @public

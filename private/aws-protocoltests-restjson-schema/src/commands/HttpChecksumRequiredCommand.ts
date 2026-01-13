@@ -11,7 +11,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { HttpChecksumRequired } from "../schemas/schemas_0";
+import { HttpChecksumRequired$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,7 +81,7 @@ export class HttpChecksumRequiredCommand extends $Command
   })
   .s("RestJson", "HttpChecksumRequired", {})
   .n("RestJsonProtocolClient", "HttpChecksumRequiredCommand")
-  .sc(HttpChecksumRequired)
+  .sc(HttpChecksumRequired$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

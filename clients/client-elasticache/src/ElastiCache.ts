@@ -551,8 +551,14 @@ export interface ElastiCache {
   /**
    * @see {@link CopySnapshotCommand}
    */
-  copySnapshot(args: CopySnapshotCommandInput, options?: __HttpHandlerOptions): Promise<CopySnapshotCommandOutput>;
-  copySnapshot(args: CopySnapshotCommandInput, cb: (err: any, data?: CopySnapshotCommandOutput) => void): void;
+  copySnapshot(
+    args: CopySnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CopySnapshotCommandOutput>;
+  copySnapshot(
+    args: CopySnapshotCommandInput,
+    cb: (err: any, data?: CopySnapshotCommandOutput) => void
+  ): void;
   copySnapshot(
     args: CopySnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -702,7 +708,10 @@ export interface ElastiCache {
     args: CreateSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateSnapshotCommandOutput>;
-  createSnapshot(args: CreateSnapshotCommandInput, cb: (err: any, data?: CreateSnapshotCommandOutput) => void): void;
+  createSnapshot(
+    args: CreateSnapshotCommandInput,
+    cb: (err: any, data?: CreateSnapshotCommandOutput) => void
+  ): void;
   createSnapshot(
     args: CreateSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -712,8 +721,14 @@ export interface ElastiCache {
   /**
    * @see {@link CreateUserCommand}
    */
-  createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
-  createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
+  createUser(
+    args: CreateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUserCommandOutput>;
+  createUser(
+    args: CreateUserCommandInput,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
   createUser(
     args: CreateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -727,7 +742,10 @@ export interface ElastiCache {
     args: CreateUserGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateUserGroupCommandOutput>;
-  createUserGroup(args: CreateUserGroupCommandInput, cb: (err: any, data?: CreateUserGroupCommandOutput) => void): void;
+  createUserGroup(
+    args: CreateUserGroupCommandInput,
+    cb: (err: any, data?: CreateUserGroupCommandOutput) => void
+  ): void;
   createUserGroup(
     args: CreateUserGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -911,7 +929,10 @@ export interface ElastiCache {
     args: DeleteSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteSnapshotCommandOutput>;
-  deleteSnapshot(args: DeleteSnapshotCommandInput, cb: (err: any, data?: DeleteSnapshotCommandOutput) => void): void;
+  deleteSnapshot(
+    args: DeleteSnapshotCommandInput,
+    cb: (err: any, data?: DeleteSnapshotCommandOutput) => void
+  ): void;
   deleteSnapshot(
     args: DeleteSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -921,8 +942,14 @@ export interface ElastiCache {
   /**
    * @see {@link DeleteUserCommand}
    */
-  deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
-  deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUserCommandOutput>;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    cb: (err: any, data?: DeleteUserCommandOutput) => void
+  ): void;
   deleteUser(
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
@@ -936,7 +963,10 @@ export interface ElastiCache {
     args: DeleteUserGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteUserGroupCommandOutput>;
-  deleteUserGroup(args: DeleteUserGroupCommandInput, cb: (err: any, data?: DeleteUserGroupCommandOutput) => void): void;
+  deleteUserGroup(
+    args: DeleteUserGroupCommandInput,
+    cb: (err: any, data?: DeleteUserGroupCommandOutput) => void
+  ): void;
   deleteUserGroup(
     args: DeleteUserGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1075,7 +1105,10 @@ export interface ElastiCache {
     args: DescribeEventsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeEventsCommandOutput>;
-  describeEvents(args: DescribeEventsCommandInput, cb: (err: any, data?: DescribeEventsCommandOutput) => void): void;
+  describeEvents(
+    args: DescribeEventsCommandInput,
+    cb: (err: any, data?: DescribeEventsCommandOutput) => void
+  ): void;
   describeEvents(
     args: DescribeEventsCommandInput,
     options: __HttpHandlerOptions,
@@ -1266,8 +1299,14 @@ export interface ElastiCache {
    * @see {@link DescribeUsersCommand}
    */
   describeUsers(): Promise<DescribeUsersCommandOutput>;
-  describeUsers(args: DescribeUsersCommandInput, options?: __HttpHandlerOptions): Promise<DescribeUsersCommandOutput>;
-  describeUsers(args: DescribeUsersCommandInput, cb: (err: any, data?: DescribeUsersCommandOutput) => void): void;
+  describeUsers(
+    args: DescribeUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeUsersCommandOutput>;
+  describeUsers(
+    args: DescribeUsersCommandInput,
+    cb: (err: any, data?: DescribeUsersCommandOutput) => void
+  ): void;
   describeUsers(
     args: DescribeUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -1516,8 +1555,14 @@ export interface ElastiCache {
   /**
    * @see {@link ModifyUserCommand}
    */
-  modifyUser(args: ModifyUserCommandInput, options?: __HttpHandlerOptions): Promise<ModifyUserCommandOutput>;
-  modifyUser(args: ModifyUserCommandInput, cb: (err: any, data?: ModifyUserCommandOutput) => void): void;
+  modifyUser(
+    args: ModifyUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyUserCommandOutput>;
+  modifyUser(
+    args: ModifyUserCommandInput,
+    cb: (err: any, data?: ModifyUserCommandOutput) => void
+  ): void;
   modifyUser(
     args: ModifyUserCommandInput,
     options: __HttpHandlerOptions,
@@ -1531,7 +1576,10 @@ export interface ElastiCache {
     args: ModifyUserGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ModifyUserGroupCommandOutput>;
-  modifyUserGroup(args: ModifyUserGroupCommandInput, cb: (err: any, data?: ModifyUserGroupCommandOutput) => void): void;
+  modifyUserGroup(
+    args: ModifyUserGroupCommandInput,
+    cb: (err: any, data?: ModifyUserGroupCommandOutput) => void
+  ): void;
   modifyUserGroup(
     args: ModifyUserGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1647,7 +1695,10 @@ export interface ElastiCache {
     args: StartMigrationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartMigrationCommandOutput>;
-  startMigration(args: StartMigrationCommandInput, cb: (err: any, data?: StartMigrationCommandOutput) => void): void;
+  startMigration(
+    args: StartMigrationCommandInput,
+    cb: (err: any, data?: StartMigrationCommandOutput) => void
+  ): void;
   startMigration(
     args: StartMigrationCommandInput,
     options: __HttpHandlerOptions,
@@ -1657,8 +1708,14 @@ export interface ElastiCache {
   /**
    * @see {@link TestFailoverCommand}
    */
-  testFailover(args: TestFailoverCommandInput, options?: __HttpHandlerOptions): Promise<TestFailoverCommandOutput>;
-  testFailover(args: TestFailoverCommandInput, cb: (err: any, data?: TestFailoverCommandOutput) => void): void;
+  testFailover(
+    args: TestFailoverCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestFailoverCommandOutput>;
+  testFailover(
+    args: TestFailoverCommandInput,
+    cb: (err: any, data?: TestFailoverCommandOutput) => void
+  ): void;
   testFailover(
     args: TestFailoverCommandInput,
     options: __HttpHandlerOptions,
@@ -1668,8 +1725,14 @@ export interface ElastiCache {
   /**
    * @see {@link TestMigrationCommand}
    */
-  testMigration(args: TestMigrationCommandInput, options?: __HttpHandlerOptions): Promise<TestMigrationCommandOutput>;
-  testMigration(args: TestMigrationCommandInput, cb: (err: any, data?: TestMigrationCommandOutput) => void): void;
+  testMigration(
+    args: TestMigrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestMigrationCommandOutput>;
+  testMigration(
+    args: TestMigrationCommandInput,
+    cb: (err: any, data?: TestMigrationCommandOutput) => void
+  ): void;
   testMigration(
     args: TestMigrationCommandInput,
     options: __HttpHandlerOptions,

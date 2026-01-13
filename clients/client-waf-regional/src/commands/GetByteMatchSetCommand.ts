@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetByteMatchSetRequest, GetByteMatchSetResponse } from "../models/models_0";
-import { GetByteMatchSet } from "../schemas/schemas_0";
+import { GetByteMatchSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -133,7 +133,7 @@ export class GetByteMatchSetCommand extends $Command
   })
   .s("AWSWAF_Regional_20161128", "GetByteMatchSet", {})
   .n("WAFRegionalClient", "GetByteMatchSetCommand")
-  .sc(GetByteMatchSet)
+  .sc(GetByteMatchSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

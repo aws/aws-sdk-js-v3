@@ -1,3 +1,3 @@
-export * from "./GetRestApisPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./GetRestApisPaginator";

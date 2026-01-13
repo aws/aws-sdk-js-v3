@@ -9,7 +9,7 @@ import type {
   ListAvailableResourceDimensionsResponse,
 } from "../models/models_0";
 import type { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
-import { ListAvailableResourceDimensions } from "../schemas/schemas_0";
+import { ListAvailableResourceDimensions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListAvailableResourceDimensionsCommandInput extends ListAvailab
  *
  * The output of {@link ListAvailableResourceDimensionsCommand}.
  */
-export interface ListAvailableResourceDimensionsCommandOutput
-  extends ListAvailableResourceDimensionsResponse,
-    __MetadataBearer {}
+export interface ListAvailableResourceDimensionsCommandOutput extends ListAvailableResourceDimensionsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve the dimensions that can be queried for each specified metric type on a specified DB instance.</p>
@@ -111,7 +109,7 @@ export class ListAvailableResourceDimensionsCommand extends $Command
   })
   .s("PerformanceInsightsv20180227", "ListAvailableResourceDimensions", {})
   .n("PIClient", "ListAvailableResourceDimensionsCommand")
-  .sc(ListAvailableResourceDimensions)
+  .sc(ListAvailableResourceDimensions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

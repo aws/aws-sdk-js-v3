@@ -8,7 +8,7 @@ import type {
   UpdateAutomaticTapeCreationPolicyInput,
   UpdateAutomaticTapeCreationPolicyOutput,
 } from "../models/models_0";
-import { UpdateAutomaticTapeCreationPolicy } from "../schemas/schemas_0";
+import { UpdateAutomaticTapeCreationPolicy$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -31,9 +31,7 @@ export interface UpdateAutomaticTapeCreationPolicyCommandInput extends UpdateAut
  *
  * The output of {@link UpdateAutomaticTapeCreationPolicyCommand}.
  */
-export interface UpdateAutomaticTapeCreationPolicyCommandOutput
-  extends UpdateAutomaticTapeCreationPolicyOutput,
-    __MetadataBearer {}
+export interface UpdateAutomaticTapeCreationPolicyCommandOutput extends UpdateAutomaticTapeCreationPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the automatic tape creation policy of a gateway. Use this to update the policy
@@ -105,7 +103,7 @@ export class UpdateAutomaticTapeCreationPolicyCommand extends $Command
   })
   .s("StorageGateway_20130630", "UpdateAutomaticTapeCreationPolicy", {})
   .n("StorageGatewayClient", "UpdateAutomaticTapeCreationPolicyCommand")
-  .sc(UpdateAutomaticTapeCreationPolicy)
+  .sc(UpdateAutomaticTapeCreationPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -37,8 +37,14 @@ export interface GeoPlaces {
   /**
    * @see {@link AutocompleteCommand}
    */
-  autocomplete(args: AutocompleteCommandInput, options?: __HttpHandlerOptions): Promise<AutocompleteCommandOutput>;
-  autocomplete(args: AutocompleteCommandInput, cb: (err: any, data?: AutocompleteCommandOutput) => void): void;
+  autocomplete(
+    args: AutocompleteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AutocompleteCommandOutput>;
+  autocomplete(
+    args: AutocompleteCommandInput,
+    cb: (err: any, data?: AutocompleteCommandOutput) => void
+  ): void;
   autocomplete(
     args: AutocompleteCommandInput,
     options: __HttpHandlerOptions,
@@ -49,8 +55,14 @@ export interface GeoPlaces {
    * @see {@link GeocodeCommand}
    */
   geocode(): Promise<GeocodeCommandOutput>;
-  geocode(args: GeocodeCommandInput, options?: __HttpHandlerOptions): Promise<GeocodeCommandOutput>;
-  geocode(args: GeocodeCommandInput, cb: (err: any, data?: GeocodeCommandOutput) => void): void;
+  geocode(
+    args: GeocodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GeocodeCommandOutput>;
+  geocode(
+    args: GeocodeCommandInput,
+    cb: (err: any, data?: GeocodeCommandOutput) => void
+  ): void;
   geocode(
     args: GeocodeCommandInput,
     options: __HttpHandlerOptions,
@@ -60,8 +72,14 @@ export interface GeoPlaces {
   /**
    * @see {@link GetPlaceCommand}
    */
-  getPlace(args: GetPlaceCommandInput, options?: __HttpHandlerOptions): Promise<GetPlaceCommandOutput>;
-  getPlace(args: GetPlaceCommandInput, cb: (err: any, data?: GetPlaceCommandOutput) => void): void;
+  getPlace(
+    args: GetPlaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPlaceCommandOutput>;
+  getPlace(
+    args: GetPlaceCommandInput,
+    cb: (err: any, data?: GetPlaceCommandOutput) => void
+  ): void;
   getPlace(
     args: GetPlaceCommandInput,
     options: __HttpHandlerOptions,
@@ -75,7 +93,10 @@ export interface GeoPlaces {
     args: ReverseGeocodeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ReverseGeocodeCommandOutput>;
-  reverseGeocode(args: ReverseGeocodeCommandInput, cb: (err: any, data?: ReverseGeocodeCommandOutput) => void): void;
+  reverseGeocode(
+    args: ReverseGeocodeCommandInput,
+    cb: (err: any, data?: ReverseGeocodeCommandOutput) => void
+  ): void;
   reverseGeocode(
     args: ReverseGeocodeCommandInput,
     options: __HttpHandlerOptions,
@@ -85,8 +106,14 @@ export interface GeoPlaces {
   /**
    * @see {@link SearchNearbyCommand}
    */
-  searchNearby(args: SearchNearbyCommandInput, options?: __HttpHandlerOptions): Promise<SearchNearbyCommandOutput>;
-  searchNearby(args: SearchNearbyCommandInput, cb: (err: any, data?: SearchNearbyCommandOutput) => void): void;
+  searchNearby(
+    args: SearchNearbyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchNearbyCommandOutput>;
+  searchNearby(
+    args: SearchNearbyCommandInput,
+    cb: (err: any, data?: SearchNearbyCommandOutput) => void
+  ): void;
   searchNearby(
     args: SearchNearbyCommandInput,
     options: __HttpHandlerOptions,
@@ -97,8 +124,14 @@ export interface GeoPlaces {
    * @see {@link SearchTextCommand}
    */
   searchText(): Promise<SearchTextCommandOutput>;
-  searchText(args: SearchTextCommandInput, options?: __HttpHandlerOptions): Promise<SearchTextCommandOutput>;
-  searchText(args: SearchTextCommandInput, cb: (err: any, data?: SearchTextCommandOutput) => void): void;
+  searchText(
+    args: SearchTextCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchTextCommandOutput>;
+  searchText(
+    args: SearchTextCommandInput,
+    cb: (err: any, data?: SearchTextCommandOutput) => void
+  ): void;
   searchText(
     args: SearchTextCommandInput,
     options: __HttpHandlerOptions,
@@ -108,8 +141,14 @@ export interface GeoPlaces {
   /**
    * @see {@link SuggestCommand}
    */
-  suggest(args: SuggestCommandInput, options?: __HttpHandlerOptions): Promise<SuggestCommandOutput>;
-  suggest(args: SuggestCommandInput, cb: (err: any, data?: SuggestCommandOutput) => void): void;
+  suggest(
+    args: SuggestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SuggestCommandOutput>;
+  suggest(
+    args: SuggestCommandInput,
+    cb: (err: any, data?: SuggestCommandOutput) => void
+  ): void;
   suggest(
     args: SuggestCommandInput,
     options: __HttpHandlerOptions,

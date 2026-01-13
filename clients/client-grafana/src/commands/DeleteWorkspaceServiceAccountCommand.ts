@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import type { DeleteWorkspaceServiceAccountRequest, DeleteWorkspaceServiceAccountResponse } from "../models/models_0";
-import { DeleteWorkspaceServiceAccount } from "../schemas/schemas_0";
+import { DeleteWorkspaceServiceAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteWorkspaceServiceAccountCommandInput extends DeleteWorkspa
  *
  * The output of {@link DeleteWorkspaceServiceAccountCommand}.
  */
-export interface DeleteWorkspaceServiceAccountCommandOutput
-  extends DeleteWorkspaceServiceAccountResponse,
-    __MetadataBearer {}
+export interface DeleteWorkspaceServiceAccountCommandOutput extends DeleteWorkspaceServiceAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a workspace service account from the workspace.</p>
@@ -100,7 +98,7 @@ export class DeleteWorkspaceServiceAccountCommand extends $Command
   })
   .s("AWSGrafanaControlPlane", "DeleteWorkspaceServiceAccount", {})
   .n("GrafanaClient", "DeleteWorkspaceServiceAccountCommand")
-  .sc(DeleteWorkspaceServiceAccount)
+  .sc(DeleteWorkspaceServiceAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

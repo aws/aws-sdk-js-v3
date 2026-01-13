@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateIdNamespaceAssociationInput, UpdateIdNamespaceAssociationOutput } from "../models/models_0";
-import { UpdateIdNamespaceAssociation } from "../schemas/schemas_0";
+import { UpdateIdNamespaceAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateIdNamespaceAssociationCommandInput extends UpdateIdNamesp
  *
  * The output of {@link UpdateIdNamespaceAssociationCommand}.
  */
-export interface UpdateIdNamespaceAssociationCommandOutput
-  extends UpdateIdNamespaceAssociationOutput,
-    __MetadataBearer {}
+export interface UpdateIdNamespaceAssociationCommandOutput extends UpdateIdNamespaceAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Provides the details that are necessary to update an ID namespace association.</p>
@@ -120,7 +118,7 @@ export class UpdateIdNamespaceAssociationCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "UpdateIdNamespaceAssociation", {})
   .n("CleanRoomsClient", "UpdateIdNamespaceAssociationCommand")
-  .sc(UpdateIdNamespaceAssociation)
+  .sc(UpdateIdNamespaceAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

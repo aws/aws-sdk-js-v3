@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateBucketMetadataConfigurationRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { CreateBucketMetadataConfiguration } from "../schemas/schemas_0";
+import { CreateBucketMetadataConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -190,14 +190,14 @@ export class CreateBucketMetadataConfigurationCommand extends $Command
     return [
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
+        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
         requestChecksumRequired: true,
       }),
     ];
   })
   .s("AmazonS3", "CreateBucketMetadataConfiguration", {})
   .n("S3Client", "CreateBucketMetadataConfigurationCommand")
-  .sc(CreateBucketMetadataConfiguration)
+  .sc(CreateBucketMetadataConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -401,8 +401,14 @@ export interface Transfer {
   /**
    * @see {@link CreateAccessCommand}
    */
-  createAccess(args: CreateAccessCommandInput, options?: __HttpHandlerOptions): Promise<CreateAccessCommandOutput>;
-  createAccess(args: CreateAccessCommandInput, cb: (err: any, data?: CreateAccessCommandOutput) => void): void;
+  createAccess(
+    args: CreateAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAccessCommandOutput>;
+  createAccess(
+    args: CreateAccessCommandInput,
+    cb: (err: any, data?: CreateAccessCommandOutput) => void
+  ): void;
   createAccess(
     args: CreateAccessCommandInput,
     options: __HttpHandlerOptions,
@@ -416,7 +422,10 @@ export interface Transfer {
     args: CreateAgreementCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateAgreementCommandOutput>;
-  createAgreement(args: CreateAgreementCommandInput, cb: (err: any, data?: CreateAgreementCommandOutput) => void): void;
+  createAgreement(
+    args: CreateAgreementCommandInput,
+    cb: (err: any, data?: CreateAgreementCommandOutput) => void
+  ): void;
   createAgreement(
     args: CreateAgreementCommandInput,
     options: __HttpHandlerOptions,
@@ -430,7 +439,10 @@ export interface Transfer {
     args: CreateConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateConnectorCommandOutput>;
-  createConnector(args: CreateConnectorCommandInput, cb: (err: any, data?: CreateConnectorCommandOutput) => void): void;
+  createConnector(
+    args: CreateConnectorCommandInput,
+    cb: (err: any, data?: CreateConnectorCommandOutput) => void
+  ): void;
   createConnector(
     args: CreateConnectorCommandInput,
     options: __HttpHandlerOptions,
@@ -440,8 +452,14 @@ export interface Transfer {
   /**
    * @see {@link CreateProfileCommand}
    */
-  createProfile(args: CreateProfileCommandInput, options?: __HttpHandlerOptions): Promise<CreateProfileCommandOutput>;
-  createProfile(args: CreateProfileCommandInput, cb: (err: any, data?: CreateProfileCommandOutput) => void): void;
+  createProfile(
+    args: CreateProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProfileCommandOutput>;
+  createProfile(
+    args: CreateProfileCommandInput,
+    cb: (err: any, data?: CreateProfileCommandOutput) => void
+  ): void;
   createProfile(
     args: CreateProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -452,8 +470,14 @@ export interface Transfer {
    * @see {@link CreateServerCommand}
    */
   createServer(): Promise<CreateServerCommandOutput>;
-  createServer(args: CreateServerCommandInput, options?: __HttpHandlerOptions): Promise<CreateServerCommandOutput>;
-  createServer(args: CreateServerCommandInput, cb: (err: any, data?: CreateServerCommandOutput) => void): void;
+  createServer(
+    args: CreateServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateServerCommandOutput>;
+  createServer(
+    args: CreateServerCommandInput,
+    cb: (err: any, data?: CreateServerCommandOutput) => void
+  ): void;
   createServer(
     args: CreateServerCommandInput,
     options: __HttpHandlerOptions,
@@ -463,8 +487,14 @@ export interface Transfer {
   /**
    * @see {@link CreateUserCommand}
    */
-  createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
-  createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
+  createUser(
+    args: CreateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUserCommandOutput>;
+  createUser(
+    args: CreateUserCommandInput,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
   createUser(
     args: CreateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -474,8 +504,14 @@ export interface Transfer {
   /**
    * @see {@link CreateWebAppCommand}
    */
-  createWebApp(args: CreateWebAppCommandInput, options?: __HttpHandlerOptions): Promise<CreateWebAppCommandOutput>;
-  createWebApp(args: CreateWebAppCommandInput, cb: (err: any, data?: CreateWebAppCommandOutput) => void): void;
+  createWebApp(
+    args: CreateWebAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWebAppCommandOutput>;
+  createWebApp(
+    args: CreateWebAppCommandInput,
+    cb: (err: any, data?: CreateWebAppCommandOutput) => void
+  ): void;
   createWebApp(
     args: CreateWebAppCommandInput,
     options: __HttpHandlerOptions,
@@ -489,7 +525,10 @@ export interface Transfer {
     args: CreateWorkflowCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateWorkflowCommandOutput>;
-  createWorkflow(args: CreateWorkflowCommandInput, cb: (err: any, data?: CreateWorkflowCommandOutput) => void): void;
+  createWorkflow(
+    args: CreateWorkflowCommandInput,
+    cb: (err: any, data?: CreateWorkflowCommandOutput) => void
+  ): void;
   createWorkflow(
     args: CreateWorkflowCommandInput,
     options: __HttpHandlerOptions,
@@ -499,8 +538,14 @@ export interface Transfer {
   /**
    * @see {@link DeleteAccessCommand}
    */
-  deleteAccess(args: DeleteAccessCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAccessCommandOutput>;
-  deleteAccess(args: DeleteAccessCommandInput, cb: (err: any, data?: DeleteAccessCommandOutput) => void): void;
+  deleteAccess(
+    args: DeleteAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccessCommandOutput>;
+  deleteAccess(
+    args: DeleteAccessCommandInput,
+    cb: (err: any, data?: DeleteAccessCommandOutput) => void
+  ): void;
   deleteAccess(
     args: DeleteAccessCommandInput,
     options: __HttpHandlerOptions,
@@ -514,7 +559,10 @@ export interface Transfer {
     args: DeleteAgreementCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteAgreementCommandOutput>;
-  deleteAgreement(args: DeleteAgreementCommandInput, cb: (err: any, data?: DeleteAgreementCommandOutput) => void): void;
+  deleteAgreement(
+    args: DeleteAgreementCommandInput,
+    cb: (err: any, data?: DeleteAgreementCommandOutput) => void
+  ): void;
   deleteAgreement(
     args: DeleteAgreementCommandInput,
     options: __HttpHandlerOptions,
@@ -545,7 +593,10 @@ export interface Transfer {
     args: DeleteConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteConnectorCommandOutput>;
-  deleteConnector(args: DeleteConnectorCommandInput, cb: (err: any, data?: DeleteConnectorCommandOutput) => void): void;
+  deleteConnector(
+    args: DeleteConnectorCommandInput,
+    cb: (err: any, data?: DeleteConnectorCommandOutput) => void
+  ): void;
   deleteConnector(
     args: DeleteConnectorCommandInput,
     options: __HttpHandlerOptions,
@@ -555,8 +606,14 @@ export interface Transfer {
   /**
    * @see {@link DeleteHostKeyCommand}
    */
-  deleteHostKey(args: DeleteHostKeyCommandInput, options?: __HttpHandlerOptions): Promise<DeleteHostKeyCommandOutput>;
-  deleteHostKey(args: DeleteHostKeyCommandInput, cb: (err: any, data?: DeleteHostKeyCommandOutput) => void): void;
+  deleteHostKey(
+    args: DeleteHostKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHostKeyCommandOutput>;
+  deleteHostKey(
+    args: DeleteHostKeyCommandInput,
+    cb: (err: any, data?: DeleteHostKeyCommandOutput) => void
+  ): void;
   deleteHostKey(
     args: DeleteHostKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -566,8 +623,14 @@ export interface Transfer {
   /**
    * @see {@link DeleteProfileCommand}
    */
-  deleteProfile(args: DeleteProfileCommandInput, options?: __HttpHandlerOptions): Promise<DeleteProfileCommandOutput>;
-  deleteProfile(args: DeleteProfileCommandInput, cb: (err: any, data?: DeleteProfileCommandOutput) => void): void;
+  deleteProfile(
+    args: DeleteProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProfileCommandOutput>;
+  deleteProfile(
+    args: DeleteProfileCommandInput,
+    cb: (err: any, data?: DeleteProfileCommandOutput) => void
+  ): void;
   deleteProfile(
     args: DeleteProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -577,8 +640,14 @@ export interface Transfer {
   /**
    * @see {@link DeleteServerCommand}
    */
-  deleteServer(args: DeleteServerCommandInput, options?: __HttpHandlerOptions): Promise<DeleteServerCommandOutput>;
-  deleteServer(args: DeleteServerCommandInput, cb: (err: any, data?: DeleteServerCommandOutput) => void): void;
+  deleteServer(
+    args: DeleteServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteServerCommandOutput>;
+  deleteServer(
+    args: DeleteServerCommandInput,
+    cb: (err: any, data?: DeleteServerCommandOutput) => void
+  ): void;
   deleteServer(
     args: DeleteServerCommandInput,
     options: __HttpHandlerOptions,
@@ -605,8 +674,14 @@ export interface Transfer {
   /**
    * @see {@link DeleteUserCommand}
    */
-  deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
-  deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUserCommandOutput>;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    cb: (err: any, data?: DeleteUserCommandOutput) => void
+  ): void;
   deleteUser(
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
@@ -616,8 +691,14 @@ export interface Transfer {
   /**
    * @see {@link DeleteWebAppCommand}
    */
-  deleteWebApp(args: DeleteWebAppCommandInput, options?: __HttpHandlerOptions): Promise<DeleteWebAppCommandOutput>;
-  deleteWebApp(args: DeleteWebAppCommandInput, cb: (err: any, data?: DeleteWebAppCommandOutput) => void): void;
+  deleteWebApp(
+    args: DeleteWebAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWebAppCommandOutput>;
+  deleteWebApp(
+    args: DeleteWebAppCommandInput,
+    cb: (err: any, data?: DeleteWebAppCommandOutput) => void
+  ): void;
   deleteWebApp(
     args: DeleteWebAppCommandInput,
     options: __HttpHandlerOptions,
@@ -648,7 +729,10 @@ export interface Transfer {
     args: DeleteWorkflowCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteWorkflowCommandOutput>;
-  deleteWorkflow(args: DeleteWorkflowCommandInput, cb: (err: any, data?: DeleteWorkflowCommandOutput) => void): void;
+  deleteWorkflow(
+    args: DeleteWorkflowCommandInput,
+    cb: (err: any, data?: DeleteWorkflowCommandOutput) => void
+  ): void;
   deleteWorkflow(
     args: DeleteWorkflowCommandInput,
     options: __HttpHandlerOptions,
@@ -662,7 +746,10 @@ export interface Transfer {
     args: DescribeAccessCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeAccessCommandOutput>;
-  describeAccess(args: DescribeAccessCommandInput, cb: (err: any, data?: DescribeAccessCommandOutput) => void): void;
+  describeAccess(
+    args: DescribeAccessCommandInput,
+    cb: (err: any, data?: DescribeAccessCommandOutput) => void
+  ): void;
   describeAccess(
     args: DescribeAccessCommandInput,
     options: __HttpHandlerOptions,
@@ -744,7 +831,10 @@ export interface Transfer {
     args: DescribeHostKeyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeHostKeyCommandOutput>;
-  describeHostKey(args: DescribeHostKeyCommandInput, cb: (err: any, data?: DescribeHostKeyCommandOutput) => void): void;
+  describeHostKey(
+    args: DescribeHostKeyCommandInput,
+    cb: (err: any, data?: DescribeHostKeyCommandOutput) => void
+  ): void;
   describeHostKey(
     args: DescribeHostKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -758,7 +848,10 @@ export interface Transfer {
     args: DescribeProfileCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeProfileCommandOutput>;
-  describeProfile(args: DescribeProfileCommandInput, cb: (err: any, data?: DescribeProfileCommandOutput) => void): void;
+  describeProfile(
+    args: DescribeProfileCommandInput,
+    cb: (err: any, data?: DescribeProfileCommandOutput) => void
+  ): void;
   describeProfile(
     args: DescribeProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -789,7 +882,10 @@ export interface Transfer {
     args: DescribeServerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeServerCommandOutput>;
-  describeServer(args: DescribeServerCommandInput, cb: (err: any, data?: DescribeServerCommandOutput) => void): void;
+  describeServer(
+    args: DescribeServerCommandInput,
+    cb: (err: any, data?: DescribeServerCommandOutput) => void
+  ): void;
   describeServer(
     args: DescribeServerCommandInput,
     options: __HttpHandlerOptions,
@@ -799,8 +895,14 @@ export interface Transfer {
   /**
    * @see {@link DescribeUserCommand}
    */
-  describeUser(args: DescribeUserCommandInput, options?: __HttpHandlerOptions): Promise<DescribeUserCommandOutput>;
-  describeUser(args: DescribeUserCommandInput, cb: (err: any, data?: DescribeUserCommandOutput) => void): void;
+  describeUser(
+    args: DescribeUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeUserCommandOutput>;
+  describeUser(
+    args: DescribeUserCommandInput,
+    cb: (err: any, data?: DescribeUserCommandOutput) => void
+  ): void;
   describeUser(
     args: DescribeUserCommandInput,
     options: __HttpHandlerOptions,
@@ -814,7 +916,10 @@ export interface Transfer {
     args: DescribeWebAppCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeWebAppCommandOutput>;
-  describeWebApp(args: DescribeWebAppCommandInput, cb: (err: any, data?: DescribeWebAppCommandOutput) => void): void;
+  describeWebApp(
+    args: DescribeWebAppCommandInput,
+    cb: (err: any, data?: DescribeWebAppCommandOutput) => void
+  ): void;
   describeWebApp(
     args: DescribeWebAppCommandInput,
     options: __HttpHandlerOptions,
@@ -875,8 +980,14 @@ export interface Transfer {
   /**
    * @see {@link ImportHostKeyCommand}
    */
-  importHostKey(args: ImportHostKeyCommandInput, options?: __HttpHandlerOptions): Promise<ImportHostKeyCommandOutput>;
-  importHostKey(args: ImportHostKeyCommandInput, cb: (err: any, data?: ImportHostKeyCommandOutput) => void): void;
+  importHostKey(
+    args: ImportHostKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportHostKeyCommandOutput>;
+  importHostKey(
+    args: ImportHostKeyCommandInput,
+    cb: (err: any, data?: ImportHostKeyCommandOutput) => void
+  ): void;
   importHostKey(
     args: ImportHostKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -903,8 +1014,14 @@ export interface Transfer {
   /**
    * @see {@link ListAccessesCommand}
    */
-  listAccesses(args: ListAccessesCommandInput, options?: __HttpHandlerOptions): Promise<ListAccessesCommandOutput>;
-  listAccesses(args: ListAccessesCommandInput, cb: (err: any, data?: ListAccessesCommandOutput) => void): void;
+  listAccesses(
+    args: ListAccessesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccessesCommandOutput>;
+  listAccesses(
+    args: ListAccessesCommandInput,
+    cb: (err: any, data?: ListAccessesCommandOutput) => void
+  ): void;
   listAccesses(
     args: ListAccessesCommandInput,
     options: __HttpHandlerOptions,
@@ -918,7 +1035,10 @@ export interface Transfer {
     args: ListAgreementsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAgreementsCommandOutput>;
-  listAgreements(args: ListAgreementsCommandInput, cb: (err: any, data?: ListAgreementsCommandOutput) => void): void;
+  listAgreements(
+    args: ListAgreementsCommandInput,
+    cb: (err: any, data?: ListAgreementsCommandOutput) => void
+  ): void;
   listAgreements(
     args: ListAgreementsCommandInput,
     options: __HttpHandlerOptions,
@@ -951,7 +1071,10 @@ export interface Transfer {
     args: ListConnectorsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListConnectorsCommandOutput>;
-  listConnectors(args: ListConnectorsCommandInput, cb: (err: any, data?: ListConnectorsCommandOutput) => void): void;
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    cb: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): void;
   listConnectors(
     args: ListConnectorsCommandInput,
     options: __HttpHandlerOptions,
@@ -965,7 +1088,10 @@ export interface Transfer {
     args: ListExecutionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListExecutionsCommandOutput>;
-  listExecutions(args: ListExecutionsCommandInput, cb: (err: any, data?: ListExecutionsCommandOutput) => void): void;
+  listExecutions(
+    args: ListExecutionsCommandInput,
+    cb: (err: any, data?: ListExecutionsCommandOutput) => void
+  ): void;
   listExecutions(
     args: ListExecutionsCommandInput,
     options: __HttpHandlerOptions,
@@ -992,8 +1118,14 @@ export interface Transfer {
   /**
    * @see {@link ListHostKeysCommand}
    */
-  listHostKeys(args: ListHostKeysCommandInput, options?: __HttpHandlerOptions): Promise<ListHostKeysCommandOutput>;
-  listHostKeys(args: ListHostKeysCommandInput, cb: (err: any, data?: ListHostKeysCommandOutput) => void): void;
+  listHostKeys(
+    args: ListHostKeysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHostKeysCommandOutput>;
+  listHostKeys(
+    args: ListHostKeysCommandInput,
+    cb: (err: any, data?: ListHostKeysCommandOutput) => void
+  ): void;
   listHostKeys(
     args: ListHostKeysCommandInput,
     options: __HttpHandlerOptions,
@@ -1004,8 +1136,14 @@ export interface Transfer {
    * @see {@link ListProfilesCommand}
    */
   listProfiles(): Promise<ListProfilesCommandOutput>;
-  listProfiles(args: ListProfilesCommandInput, options?: __HttpHandlerOptions): Promise<ListProfilesCommandOutput>;
-  listProfiles(args: ListProfilesCommandInput, cb: (err: any, data?: ListProfilesCommandOutput) => void): void;
+  listProfiles(
+    args: ListProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProfilesCommandOutput>;
+  listProfiles(
+    args: ListProfilesCommandInput,
+    cb: (err: any, data?: ListProfilesCommandOutput) => void
+  ): void;
   listProfiles(
     args: ListProfilesCommandInput,
     options: __HttpHandlerOptions,
@@ -1034,8 +1172,14 @@ export interface Transfer {
    * @see {@link ListServersCommand}
    */
   listServers(): Promise<ListServersCommandOutput>;
-  listServers(args: ListServersCommandInput, options?: __HttpHandlerOptions): Promise<ListServersCommandOutput>;
-  listServers(args: ListServersCommandInput, cb: (err: any, data?: ListServersCommandOutput) => void): void;
+  listServers(
+    args: ListServersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServersCommandOutput>;
+  listServers(
+    args: ListServersCommandInput,
+    cb: (err: any, data?: ListServersCommandOutput) => void
+  ): void;
   listServers(
     args: ListServersCommandInput,
     options: __HttpHandlerOptions,
@@ -1062,8 +1206,14 @@ export interface Transfer {
   /**
    * @see {@link ListUsersCommand}
    */
-  listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
-  listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
+  listUsers(
+    args: ListUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUsersCommandOutput>;
+  listUsers(
+    args: ListUsersCommandInput,
+    cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
   listUsers(
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -1074,8 +1224,14 @@ export interface Transfer {
    * @see {@link ListWebAppsCommand}
    */
   listWebApps(): Promise<ListWebAppsCommandOutput>;
-  listWebApps(args: ListWebAppsCommandInput, options?: __HttpHandlerOptions): Promise<ListWebAppsCommandOutput>;
-  listWebApps(args: ListWebAppsCommandInput, cb: (err: any, data?: ListWebAppsCommandOutput) => void): void;
+  listWebApps(
+    args: ListWebAppsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWebAppsCommandOutput>;
+  listWebApps(
+    args: ListWebAppsCommandInput,
+    cb: (err: any, data?: ListWebAppsCommandOutput) => void
+  ): void;
   listWebApps(
     args: ListWebAppsCommandInput,
     options: __HttpHandlerOptions,
@@ -1086,8 +1242,14 @@ export interface Transfer {
    * @see {@link ListWorkflowsCommand}
    */
   listWorkflows(): Promise<ListWorkflowsCommandOutput>;
-  listWorkflows(args: ListWorkflowsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkflowsCommandOutput>;
-  listWorkflows(args: ListWorkflowsCommandInput, cb: (err: any, data?: ListWorkflowsCommandOutput) => void): void;
+  listWorkflows(
+    args: ListWorkflowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkflowsCommandOutput>;
+  listWorkflows(
+    args: ListWorkflowsCommandInput,
+    cb: (err: any, data?: ListWorkflowsCommandOutput) => void
+  ): void;
   listWorkflows(
     args: ListWorkflowsCommandInput,
     options: __HttpHandlerOptions,
@@ -1169,7 +1331,10 @@ export interface Transfer {
     args: StartRemoteMoveCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartRemoteMoveCommandOutput>;
-  startRemoteMove(args: StartRemoteMoveCommandInput, cb: (err: any, data?: StartRemoteMoveCommandOutput) => void): void;
+  startRemoteMove(
+    args: StartRemoteMoveCommandInput,
+    cb: (err: any, data?: StartRemoteMoveCommandOutput) => void
+  ): void;
   startRemoteMove(
     args: StartRemoteMoveCommandInput,
     options: __HttpHandlerOptions,
@@ -1179,8 +1344,14 @@ export interface Transfer {
   /**
    * @see {@link StartServerCommand}
    */
-  startServer(args: StartServerCommandInput, options?: __HttpHandlerOptions): Promise<StartServerCommandOutput>;
-  startServer(args: StartServerCommandInput, cb: (err: any, data?: StartServerCommandOutput) => void): void;
+  startServer(
+    args: StartServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartServerCommandOutput>;
+  startServer(
+    args: StartServerCommandInput,
+    cb: (err: any, data?: StartServerCommandOutput) => void
+  ): void;
   startServer(
     args: StartServerCommandInput,
     options: __HttpHandlerOptions,
@@ -1190,8 +1361,14 @@ export interface Transfer {
   /**
    * @see {@link StopServerCommand}
    */
-  stopServer(args: StopServerCommandInput, options?: __HttpHandlerOptions): Promise<StopServerCommandOutput>;
-  stopServer(args: StopServerCommandInput, cb: (err: any, data?: StopServerCommandOutput) => void): void;
+  stopServer(
+    args: StopServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopServerCommandOutput>;
+  stopServer(
+    args: StopServerCommandInput,
+    cb: (err: any, data?: StopServerCommandOutput) => void
+  ): void;
   stopServer(
     args: StopServerCommandInput,
     options: __HttpHandlerOptions,
@@ -1201,8 +1378,14 @@ export interface Transfer {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1216,7 +1399,10 @@ export interface Transfer {
     args: TestConnectionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<TestConnectionCommandOutput>;
-  testConnection(args: TestConnectionCommandInput, cb: (err: any, data?: TestConnectionCommandOutput) => void): void;
+  testConnection(
+    args: TestConnectionCommandInput,
+    cb: (err: any, data?: TestConnectionCommandOutput) => void
+  ): void;
   testConnection(
     args: TestConnectionCommandInput,
     options: __HttpHandlerOptions,
@@ -1243,8 +1429,14 @@ export interface Transfer {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1254,8 +1446,14 @@ export interface Transfer {
   /**
    * @see {@link UpdateAccessCommand}
    */
-  updateAccess(args: UpdateAccessCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAccessCommandOutput>;
-  updateAccess(args: UpdateAccessCommandInput, cb: (err: any, data?: UpdateAccessCommandOutput) => void): void;
+  updateAccess(
+    args: UpdateAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccessCommandOutput>;
+  updateAccess(
+    args: UpdateAccessCommandInput,
+    cb: (err: any, data?: UpdateAccessCommandOutput) => void
+  ): void;
   updateAccess(
     args: UpdateAccessCommandInput,
     options: __HttpHandlerOptions,
@@ -1269,7 +1467,10 @@ export interface Transfer {
     args: UpdateAgreementCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateAgreementCommandOutput>;
-  updateAgreement(args: UpdateAgreementCommandInput, cb: (err: any, data?: UpdateAgreementCommandOutput) => void): void;
+  updateAgreement(
+    args: UpdateAgreementCommandInput,
+    cb: (err: any, data?: UpdateAgreementCommandOutput) => void
+  ): void;
   updateAgreement(
     args: UpdateAgreementCommandInput,
     options: __HttpHandlerOptions,
@@ -1300,7 +1501,10 @@ export interface Transfer {
     args: UpdateConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateConnectorCommandOutput>;
-  updateConnector(args: UpdateConnectorCommandInput, cb: (err: any, data?: UpdateConnectorCommandOutput) => void): void;
+  updateConnector(
+    args: UpdateConnectorCommandInput,
+    cb: (err: any, data?: UpdateConnectorCommandOutput) => void
+  ): void;
   updateConnector(
     args: UpdateConnectorCommandInput,
     options: __HttpHandlerOptions,
@@ -1310,8 +1514,14 @@ export interface Transfer {
   /**
    * @see {@link UpdateHostKeyCommand}
    */
-  updateHostKey(args: UpdateHostKeyCommandInput, options?: __HttpHandlerOptions): Promise<UpdateHostKeyCommandOutput>;
-  updateHostKey(args: UpdateHostKeyCommandInput, cb: (err: any, data?: UpdateHostKeyCommandOutput) => void): void;
+  updateHostKey(
+    args: UpdateHostKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateHostKeyCommandOutput>;
+  updateHostKey(
+    args: UpdateHostKeyCommandInput,
+    cb: (err: any, data?: UpdateHostKeyCommandOutput) => void
+  ): void;
   updateHostKey(
     args: UpdateHostKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -1321,8 +1531,14 @@ export interface Transfer {
   /**
    * @see {@link UpdateProfileCommand}
    */
-  updateProfile(args: UpdateProfileCommandInput, options?: __HttpHandlerOptions): Promise<UpdateProfileCommandOutput>;
-  updateProfile(args: UpdateProfileCommandInput, cb: (err: any, data?: UpdateProfileCommandOutput) => void): void;
+  updateProfile(
+    args: UpdateProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProfileCommandOutput>;
+  updateProfile(
+    args: UpdateProfileCommandInput,
+    cb: (err: any, data?: UpdateProfileCommandOutput) => void
+  ): void;
   updateProfile(
     args: UpdateProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -1332,8 +1548,14 @@ export interface Transfer {
   /**
    * @see {@link UpdateServerCommand}
    */
-  updateServer(args: UpdateServerCommandInput, options?: __HttpHandlerOptions): Promise<UpdateServerCommandOutput>;
-  updateServer(args: UpdateServerCommandInput, cb: (err: any, data?: UpdateServerCommandOutput) => void): void;
+  updateServer(
+    args: UpdateServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateServerCommandOutput>;
+  updateServer(
+    args: UpdateServerCommandInput,
+    cb: (err: any, data?: UpdateServerCommandOutput) => void
+  ): void;
   updateServer(
     args: UpdateServerCommandInput,
     options: __HttpHandlerOptions,
@@ -1343,8 +1565,14 @@ export interface Transfer {
   /**
    * @see {@link UpdateUserCommand}
    */
-  updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
-  updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
+  updateUser(
+    args: UpdateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserCommandOutput>;
+  updateUser(
+    args: UpdateUserCommandInput,
+    cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): void;
   updateUser(
     args: UpdateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -1354,8 +1582,14 @@ export interface Transfer {
   /**
    * @see {@link UpdateWebAppCommand}
    */
-  updateWebApp(args: UpdateWebAppCommandInput, options?: __HttpHandlerOptions): Promise<UpdateWebAppCommandOutput>;
-  updateWebApp(args: UpdateWebAppCommandInput, cb: (err: any, data?: UpdateWebAppCommandOutput) => void): void;
+  updateWebApp(
+    args: UpdateWebAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWebAppCommandOutput>;
+  updateWebApp(
+    args: UpdateWebAppCommandInput,
+    cb: (err: any, data?: UpdateWebAppCommandOutput) => void
+  ): void;
   updateWebApp(
     args: UpdateWebAppCommandInput,
     options: __HttpHandlerOptions,

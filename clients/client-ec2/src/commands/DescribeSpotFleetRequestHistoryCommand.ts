@@ -9,7 +9,7 @@ import type {
   DescribeSpotFleetRequestHistoryRequest,
   DescribeSpotFleetRequestHistoryResponse,
 } from "../models/models_4";
-import { DescribeSpotFleetRequestHistory } from "../schemas/schemas_0";
+import { DescribeSpotFleetRequestHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeSpotFleetRequestHistoryCommandInput extends DescribeSpo
  *
  * The output of {@link DescribeSpotFleetRequestHistoryCommand}.
  */
-export interface DescribeSpotFleetRequestHistoryCommandOutput
-  extends DescribeSpotFleetRequestHistoryResponse,
-    __MetadataBearer {}
+export interface DescribeSpotFleetRequestHistoryCommandOutput extends DescribeSpotFleetRequestHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the events for the specified Spot Fleet request during the specified
@@ -153,7 +151,7 @@ export class DescribeSpotFleetRequestHistoryCommand extends $Command
   })
   .s("AmazonEC2", "DescribeSpotFleetRequestHistory", {})
   .n("EC2Client", "DescribeSpotFleetRequestHistoryCommand")
-  .sc(DescribeSpotFleetRequestHistory)
+  .sc(DescribeSpotFleetRequestHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

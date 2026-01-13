@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListQueryLoggingConfigsRequest, ListQueryLoggingConfigsResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { ListQueryLoggingConfigs } from "../schemas/schemas_0";
+import { ListQueryLoggingConfigs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,11 +94,14 @@ export class ListQueryLoggingConfigsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "ListQueryLoggingConfigs", {})
   .n("Route53Client", "ListQueryLoggingConfigsCommand")
-  .sc(ListQueryLoggingConfigs)
+  .sc(ListQueryLoggingConfigs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

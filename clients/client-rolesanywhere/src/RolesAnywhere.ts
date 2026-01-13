@@ -151,8 +151,14 @@ export interface RolesAnywhere {
   /**
    * @see {@link CreateProfileCommand}
    */
-  createProfile(args: CreateProfileCommandInput, options?: __HttpHandlerOptions): Promise<CreateProfileCommandOutput>;
-  createProfile(args: CreateProfileCommandInput, cb: (err: any, data?: CreateProfileCommandOutput) => void): void;
+  createProfile(
+    args: CreateProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProfileCommandOutput>;
+  createProfile(
+    args: CreateProfileCommandInput,
+    cb: (err: any, data?: CreateProfileCommandOutput) => void
+  ): void;
   createProfile(
     args: CreateProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -196,8 +202,14 @@ export interface RolesAnywhere {
   /**
    * @see {@link DeleteCrlCommand}
    */
-  deleteCrl(args: DeleteCrlCommandInput, options?: __HttpHandlerOptions): Promise<DeleteCrlCommandOutput>;
-  deleteCrl(args: DeleteCrlCommandInput, cb: (err: any, data?: DeleteCrlCommandOutput) => void): void;
+  deleteCrl(
+    args: DeleteCrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCrlCommandOutput>;
+  deleteCrl(
+    args: DeleteCrlCommandInput,
+    cb: (err: any, data?: DeleteCrlCommandOutput) => void
+  ): void;
   deleteCrl(
     args: DeleteCrlCommandInput,
     options: __HttpHandlerOptions,
@@ -207,8 +219,14 @@ export interface RolesAnywhere {
   /**
    * @see {@link DeleteProfileCommand}
    */
-  deleteProfile(args: DeleteProfileCommandInput, options?: __HttpHandlerOptions): Promise<DeleteProfileCommandOutput>;
-  deleteProfile(args: DeleteProfileCommandInput, cb: (err: any, data?: DeleteProfileCommandOutput) => void): void;
+  deleteProfile(
+    args: DeleteProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProfileCommandOutput>;
+  deleteProfile(
+    args: DeleteProfileCommandInput,
+    cb: (err: any, data?: DeleteProfileCommandOutput) => void
+  ): void;
   deleteProfile(
     args: DeleteProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -235,8 +253,14 @@ export interface RolesAnywhere {
   /**
    * @see {@link DisableCrlCommand}
    */
-  disableCrl(args: DisableCrlCommandInput, options?: __HttpHandlerOptions): Promise<DisableCrlCommandOutput>;
-  disableCrl(args: DisableCrlCommandInput, cb: (err: any, data?: DisableCrlCommandOutput) => void): void;
+  disableCrl(
+    args: DisableCrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableCrlCommandOutput>;
+  disableCrl(
+    args: DisableCrlCommandInput,
+    cb: (err: any, data?: DisableCrlCommandOutput) => void
+  ): void;
   disableCrl(
     args: DisableCrlCommandInput,
     options: __HttpHandlerOptions,
@@ -250,7 +274,10 @@ export interface RolesAnywhere {
     args: DisableProfileCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DisableProfileCommandOutput>;
-  disableProfile(args: DisableProfileCommandInput, cb: (err: any, data?: DisableProfileCommandOutput) => void): void;
+  disableProfile(
+    args: DisableProfileCommandInput,
+    cb: (err: any, data?: DisableProfileCommandOutput) => void
+  ): void;
   disableProfile(
     args: DisableProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -277,8 +304,14 @@ export interface RolesAnywhere {
   /**
    * @see {@link EnableCrlCommand}
    */
-  enableCrl(args: EnableCrlCommandInput, options?: __HttpHandlerOptions): Promise<EnableCrlCommandOutput>;
-  enableCrl(args: EnableCrlCommandInput, cb: (err: any, data?: EnableCrlCommandOutput) => void): void;
+  enableCrl(
+    args: EnableCrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableCrlCommandOutput>;
+  enableCrl(
+    args: EnableCrlCommandInput,
+    cb: (err: any, data?: EnableCrlCommandOutput) => void
+  ): void;
   enableCrl(
     args: EnableCrlCommandInput,
     options: __HttpHandlerOptions,
@@ -288,8 +321,14 @@ export interface RolesAnywhere {
   /**
    * @see {@link EnableProfileCommand}
    */
-  enableProfile(args: EnableProfileCommandInput, options?: __HttpHandlerOptions): Promise<EnableProfileCommandOutput>;
-  enableProfile(args: EnableProfileCommandInput, cb: (err: any, data?: EnableProfileCommandOutput) => void): void;
+  enableProfile(
+    args: EnableProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableProfileCommandOutput>;
+  enableProfile(
+    args: EnableProfileCommandInput,
+    cb: (err: any, data?: EnableProfileCommandOutput) => void
+  ): void;
   enableProfile(
     args: EnableProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -316,8 +355,14 @@ export interface RolesAnywhere {
   /**
    * @see {@link GetCrlCommand}
    */
-  getCrl(args: GetCrlCommandInput, options?: __HttpHandlerOptions): Promise<GetCrlCommandOutput>;
-  getCrl(args: GetCrlCommandInput, cb: (err: any, data?: GetCrlCommandOutput) => void): void;
+  getCrl(
+    args: GetCrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCrlCommandOutput>;
+  getCrl(
+    args: GetCrlCommandInput,
+    cb: (err: any, data?: GetCrlCommandOutput) => void
+  ): void;
   getCrl(
     args: GetCrlCommandInput,
     options: __HttpHandlerOptions,
@@ -327,8 +372,14 @@ export interface RolesAnywhere {
   /**
    * @see {@link GetProfileCommand}
    */
-  getProfile(args: GetProfileCommandInput, options?: __HttpHandlerOptions): Promise<GetProfileCommandOutput>;
-  getProfile(args: GetProfileCommandInput, cb: (err: any, data?: GetProfileCommandOutput) => void): void;
+  getProfile(
+    args: GetProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProfileCommandOutput>;
+  getProfile(
+    args: GetProfileCommandInput,
+    cb: (err: any, data?: GetProfileCommandOutput) => void
+  ): void;
   getProfile(
     args: GetProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -338,8 +389,14 @@ export interface RolesAnywhere {
   /**
    * @see {@link GetSubjectCommand}
    */
-  getSubject(args: GetSubjectCommandInput, options?: __HttpHandlerOptions): Promise<GetSubjectCommandOutput>;
-  getSubject(args: GetSubjectCommandInput, cb: (err: any, data?: GetSubjectCommandOutput) => void): void;
+  getSubject(
+    args: GetSubjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSubjectCommandOutput>;
+  getSubject(
+    args: GetSubjectCommandInput,
+    cb: (err: any, data?: GetSubjectCommandOutput) => void
+  ): void;
   getSubject(
     args: GetSubjectCommandInput,
     options: __HttpHandlerOptions,
@@ -353,7 +410,10 @@ export interface RolesAnywhere {
     args: GetTrustAnchorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetTrustAnchorCommandOutput>;
-  getTrustAnchor(args: GetTrustAnchorCommandInput, cb: (err: any, data?: GetTrustAnchorCommandOutput) => void): void;
+  getTrustAnchor(
+    args: GetTrustAnchorCommandInput,
+    cb: (err: any, data?: GetTrustAnchorCommandOutput) => void
+  ): void;
   getTrustAnchor(
     args: GetTrustAnchorCommandInput,
     options: __HttpHandlerOptions,
@@ -363,8 +423,14 @@ export interface RolesAnywhere {
   /**
    * @see {@link ImportCrlCommand}
    */
-  importCrl(args: ImportCrlCommandInput, options?: __HttpHandlerOptions): Promise<ImportCrlCommandOutput>;
-  importCrl(args: ImportCrlCommandInput, cb: (err: any, data?: ImportCrlCommandOutput) => void): void;
+  importCrl(
+    args: ImportCrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportCrlCommandOutput>;
+  importCrl(
+    args: ImportCrlCommandInput,
+    cb: (err: any, data?: ImportCrlCommandOutput) => void
+  ): void;
   importCrl(
     args: ImportCrlCommandInput,
     options: __HttpHandlerOptions,
@@ -375,8 +441,14 @@ export interface RolesAnywhere {
    * @see {@link ListCrlsCommand}
    */
   listCrls(): Promise<ListCrlsCommandOutput>;
-  listCrls(args: ListCrlsCommandInput, options?: __HttpHandlerOptions): Promise<ListCrlsCommandOutput>;
-  listCrls(args: ListCrlsCommandInput, cb: (err: any, data?: ListCrlsCommandOutput) => void): void;
+  listCrls(
+    args: ListCrlsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCrlsCommandOutput>;
+  listCrls(
+    args: ListCrlsCommandInput,
+    cb: (err: any, data?: ListCrlsCommandOutput) => void
+  ): void;
   listCrls(
     args: ListCrlsCommandInput,
     options: __HttpHandlerOptions,
@@ -387,8 +459,14 @@ export interface RolesAnywhere {
    * @see {@link ListProfilesCommand}
    */
   listProfiles(): Promise<ListProfilesCommandOutput>;
-  listProfiles(args: ListProfilesCommandInput, options?: __HttpHandlerOptions): Promise<ListProfilesCommandOutput>;
-  listProfiles(args: ListProfilesCommandInput, cb: (err: any, data?: ListProfilesCommandOutput) => void): void;
+  listProfiles(
+    args: ListProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProfilesCommandOutput>;
+  listProfiles(
+    args: ListProfilesCommandInput,
+    cb: (err: any, data?: ListProfilesCommandOutput) => void
+  ): void;
   listProfiles(
     args: ListProfilesCommandInput,
     options: __HttpHandlerOptions,
@@ -399,8 +477,14 @@ export interface RolesAnywhere {
    * @see {@link ListSubjectsCommand}
    */
   listSubjects(): Promise<ListSubjectsCommandOutput>;
-  listSubjects(args: ListSubjectsCommandInput, options?: __HttpHandlerOptions): Promise<ListSubjectsCommandOutput>;
-  listSubjects(args: ListSubjectsCommandInput, cb: (err: any, data?: ListSubjectsCommandOutput) => void): void;
+  listSubjects(
+    args: ListSubjectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSubjectsCommandOutput>;
+  listSubjects(
+    args: ListSubjectsCommandInput,
+    cb: (err: any, data?: ListSubjectsCommandOutput) => void
+  ): void;
   listSubjects(
     args: ListSubjectsCommandInput,
     options: __HttpHandlerOptions,
@@ -496,8 +580,14 @@ export interface RolesAnywhere {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -507,8 +597,14 @@ export interface RolesAnywhere {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -518,8 +614,14 @@ export interface RolesAnywhere {
   /**
    * @see {@link UpdateCrlCommand}
    */
-  updateCrl(args: UpdateCrlCommandInput, options?: __HttpHandlerOptions): Promise<UpdateCrlCommandOutput>;
-  updateCrl(args: UpdateCrlCommandInput, cb: (err: any, data?: UpdateCrlCommandOutput) => void): void;
+  updateCrl(
+    args: UpdateCrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCrlCommandOutput>;
+  updateCrl(
+    args: UpdateCrlCommandInput,
+    cb: (err: any, data?: UpdateCrlCommandOutput) => void
+  ): void;
   updateCrl(
     args: UpdateCrlCommandInput,
     options: __HttpHandlerOptions,
@@ -529,8 +631,14 @@ export interface RolesAnywhere {
   /**
    * @see {@link UpdateProfileCommand}
    */
-  updateProfile(args: UpdateProfileCommandInput, options?: __HttpHandlerOptions): Promise<UpdateProfileCommandOutput>;
-  updateProfile(args: UpdateProfileCommandInput, cb: (err: any, data?: UpdateProfileCommandOutput) => void): void;
+  updateProfile(
+    args: UpdateProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProfileCommandOutput>;
+  updateProfile(
+    args: UpdateProfileCommandInput,
+    cb: (err: any, data?: UpdateProfileCommandOutput) => void
+  ): void;
   updateProfile(
     args: UpdateProfileCommandInput,
     options: __HttpHandlerOptions,

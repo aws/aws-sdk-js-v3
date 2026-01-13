@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateWebLoginTokenRequest, CreateWebLoginTokenResponse } from "../models/models_0";
 import type { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
-import { CreateWebLoginToken } from "../schemas/schemas_0";
+import { CreateWebLoginToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class CreateWebLoginTokenCommand extends $Command
   })
   .s("AmazonMWAA", "CreateWebLoginToken", {})
   .n("MWAAClient", "CreateWebLoginTokenCommand")
-  .sc(CreateWebLoginToken)
+  .sc(CreateWebLoginToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

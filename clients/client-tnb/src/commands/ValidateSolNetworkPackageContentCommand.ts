@@ -5,7 +5,7 @@ import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type ValidateSolNetworkPackageContentOutput, ValidateSolNetworkPackageContentInput } from "../models/models_0";
-import { ValidateSolNetworkPackageContent } from "../schemas/schemas_0";
+import { ValidateSolNetworkPackageContent$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -25,16 +25,13 @@ export type ValidateSolNetworkPackageContentCommandInputType = Omit<ValidateSolN
  *
  * The input for {@link ValidateSolNetworkPackageContentCommand}.
  */
-export interface ValidateSolNetworkPackageContentCommandInput
-  extends ValidateSolNetworkPackageContentCommandInputType {}
+export interface ValidateSolNetworkPackageContentCommandInput extends ValidateSolNetworkPackageContentCommandInputType {}
 /**
  * @public
  *
  * The output of {@link ValidateSolNetworkPackageContentCommand}.
  */
-export interface ValidateSolNetworkPackageContentCommandOutput
-  extends ValidateSolNetworkPackageContentOutput,
-    __MetadataBearer {}
+export interface ValidateSolNetworkPackageContentCommandOutput extends ValidateSolNetworkPackageContentOutput, __MetadataBearer {}
 
 /**
  * <p>Validates network package content. This can be used as a dry run before uploading
@@ -158,7 +155,7 @@ export class ValidateSolNetworkPackageContentCommand extends $Command
   })
   .s("TNB", "ValidateSolNetworkPackageContent", {})
   .n("TnbClient", "ValidateSolNetworkPackageContentCommand")
-  .sc(ValidateSolNetworkPackageContent)
+  .sc(ValidateSolNetworkPackageContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

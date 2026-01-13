@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CheckCapacityRequest, CheckCapacityResponse } from "../models/models_0";
-import { CheckCapacity } from "../schemas/schemas_0";
+import { CheckCapacity$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -1182,7 +1182,7 @@ export class CheckCapacityCommand extends $Command
   })
   .s("AWSWAF_20190729", "CheckCapacity", {})
   .n("WAFV2Client", "CheckCapacityCommand")
-  .sc(CheckCapacity)
+  .sc(CheckCapacity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

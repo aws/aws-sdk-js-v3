@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeWorkspaceAssociationsRequest, DescribeWorkspaceAssociationsResult } from "../models/models_0";
-import { DescribeWorkspaceAssociations } from "../schemas/schemas_0";
+import { DescribeWorkspaceAssociations$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DescribeWorkspaceAssociationsCommandInput extends DescribeWorks
  *
  * The output of {@link DescribeWorkspaceAssociationsCommand}.
  */
-export interface DescribeWorkspaceAssociationsCommandOutput
-  extends DescribeWorkspaceAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeWorkspaceAssociationsCommandOutput extends DescribeWorkspaceAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the associations betweens applications and the specified WorkSpace.</p>
@@ -55,7 +53,7 @@ export interface DescribeWorkspaceAssociationsCommandOutput
  * //       LastUpdatedTime: new Date("TIMESTAMP"),
  * //       State: "PENDING_INSTALL" || "PENDING_INSTALL_DEPLOYMENT" || "PENDING_UNINSTALL" || "PENDING_UNINSTALL_DEPLOYMENT" || "INSTALLING" || "UNINSTALLING" || "ERROR" || "COMPLETED" || "REMOVED",
  * //       StateReason: { // AssociationStateReason
- * //         ErrorCode: "ValidationError.InsufficientDiskSpace" || "ValidationError.InsufficientMemory" || "ValidationError.UnsupportedOperatingSystem" || "DeploymentError.InternalServerError" || "DeploymentError.WorkspaceUnreachable",
+ * //         ErrorCode: "ValidationError.InsufficientDiskSpace" || "ValidationError.InsufficientMemory" || "ValidationError.UnsupportedOperatingSystem" || "DeploymentError.InternalServerError" || "DeploymentError.WorkspaceUnreachable" || "ValidationError.ApplicationOldVersionExists",
  * //         ErrorMessage: "STRING_VALUE",
  * //       },
  * //       WorkspaceId: "STRING_VALUE",
@@ -103,7 +101,7 @@ export class DescribeWorkspaceAssociationsCommand extends $Command
   })
   .s("WorkspacesService", "DescribeWorkspaceAssociations", {})
   .n("WorkSpacesClient", "DescribeWorkspaceAssociationsCommand")
-  .sc(DescribeWorkspaceAssociations)
+  .sc(DescribeWorkspaceAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

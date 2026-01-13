@@ -650,7 +650,10 @@ export interface Inspector {
     args: ListExclusionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListExclusionsCommandOutput>;
-  listExclusions(args: ListExclusionsCommandInput, cb: (err: any, data?: ListExclusionsCommandOutput) => void): void;
+  listExclusions(
+    args: ListExclusionsCommandInput,
+    cb: (err: any, data?: ListExclusionsCommandOutput) => void
+  ): void;
   listExclusions(
     args: ListExclusionsCommandInput,
     options: __HttpHandlerOptions,
@@ -661,8 +664,14 @@ export interface Inspector {
    * @see {@link ListFindingsCommand}
    */
   listFindings(): Promise<ListFindingsCommandOutput>;
-  listFindings(args: ListFindingsCommandInput, options?: __HttpHandlerOptions): Promise<ListFindingsCommandOutput>;
-  listFindings(args: ListFindingsCommandInput, cb: (err: any, data?: ListFindingsCommandOutput) => void): void;
+  listFindings(
+    args: ListFindingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFindingsCommandOutput>;
+  listFindings(
+    args: ListFindingsCommandInput,
+    cb: (err: any, data?: ListFindingsCommandOutput) => void
+  ): void;
   listFindings(
     args: ListFindingsCommandInput,
     options: __HttpHandlerOptions,
@@ -707,8 +716,14 @@ export interface Inspector {
   /**
    * @see {@link PreviewAgentsCommand}
    */
-  previewAgents(args: PreviewAgentsCommandInput, options?: __HttpHandlerOptions): Promise<PreviewAgentsCommandOutput>;
-  previewAgents(args: PreviewAgentsCommandInput, cb: (err: any, data?: PreviewAgentsCommandOutput) => void): void;
+  previewAgents(
+    args: PreviewAgentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PreviewAgentsCommandOutput>;
+  previewAgents(
+    args: PreviewAgentsCommandInput,
+    cb: (err: any, data?: PreviewAgentsCommandOutput) => void
+  ): void;
   previewAgents(
     args: PreviewAgentsCommandInput,
     options: __HttpHandlerOptions,

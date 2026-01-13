@@ -194,8 +194,14 @@ export interface Invoicing {
   /**
    * @see {@link GetInvoicePDFCommand}
    */
-  getInvoicePDF(args: GetInvoicePDFCommandInput, options?: __HttpHandlerOptions): Promise<GetInvoicePDFCommandOutput>;
-  getInvoicePDF(args: GetInvoicePDFCommandInput, cb: (err: any, data?: GetInvoicePDFCommandOutput) => void): void;
+  getInvoicePDF(
+    args: GetInvoicePDFCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInvoicePDFCommandOutput>;
+  getInvoicePDF(
+    args: GetInvoicePDFCommandInput,
+    cb: (err: any, data?: GetInvoicePDFCommandOutput) => void
+  ): void;
   getInvoicePDF(
     args: GetInvoicePDFCommandInput,
     options: __HttpHandlerOptions,
@@ -209,7 +215,10 @@ export interface Invoicing {
     args: GetInvoiceUnitCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetInvoiceUnitCommandOutput>;
-  getInvoiceUnit(args: GetInvoiceUnitCommandInput, cb: (err: any, data?: GetInvoiceUnitCommandOutput) => void): void;
+  getInvoiceUnit(
+    args: GetInvoiceUnitCommandInput,
+    cb: (err: any, data?: GetInvoiceUnitCommandOutput) => void
+  ): void;
   getInvoiceUnit(
     args: GetInvoiceUnitCommandInput,
     options: __HttpHandlerOptions,
@@ -323,8 +332,14 @@ export interface Invoicing {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -334,8 +349,14 @@ export interface Invoicing {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

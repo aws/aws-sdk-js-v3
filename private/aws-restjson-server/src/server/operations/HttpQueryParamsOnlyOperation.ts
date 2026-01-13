@@ -9,8 +9,8 @@ import {
   OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
-  ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
+  ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
   SmithyFrameworkException as __SmithyFrameworkException,
@@ -30,60 +30,46 @@ import {
 } from "../../protocols/Aws_restJson1";
 import { RestJsonService } from "../RestJsonService";
 
-export type HttpQueryParamsOnlyOperation<Context> = __Operation<
-  HttpQueryParamsOnlyOperationServerInput,
-  HttpQueryParamsOnlyOperationServerOutput,
-  Context
->;
+export type HttpQueryParamsOnlyOperation<Context> = __Operation<HttpQueryParamsOnlyOperationServerInput, HttpQueryParamsOnlyOperationServerOutput, Context>
 
 export interface HttpQueryParamsOnlyOperationServerInput extends HttpQueryParamsOnlyInput {}
 export namespace HttpQueryParamsOnlyOperationServerInput {
   /**
    * @internal
    */
-  export const validate: (obj: Parameters<typeof HttpQueryParamsOnlyInput.validate>[0]) => __ValidationFailure[] =
-    HttpQueryParamsOnlyInput.validate;
+  export const validate: (obj: Parameters<typeof HttpQueryParamsOnlyInput.validate>[0]) => __ValidationFailure[] = HttpQueryParamsOnlyInput.validate;
 }
 export interface HttpQueryParamsOnlyOperationServerOutput {}
 
 export type HttpQueryParamsOnlyOperationErrors = never;
 
-export class HttpQueryParamsOnlyOperationSerializer
-  implements
-    __OperationSerializer<RestJsonService<any>, "HttpQueryParamsOnlyOperation", HttpQueryParamsOnlyOperationErrors>
-{
+export class HttpQueryParamsOnlyOperationSerializer implements __OperationSerializer<RestJsonService<any>, "HttpQueryParamsOnlyOperation", HttpQueryParamsOnlyOperationErrors> {
   serialize = serializeHttpQueryParamsOnlyOperationResponse;
   deserialize = deserializeHttpQueryParamsOnlyOperationRequest;
 
   isOperationError(error: any): error is HttpQueryParamsOnlyOperationErrors {
     return false;
-  }
+  };
 
   serializeError(error: HttpQueryParamsOnlyOperationErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     throw error;
   }
+
 }
 
-export const getHttpQueryParamsOnlyOperationHandler = <Context>(
-  operation: __Operation<HttpQueryParamsOnlyOperationServerInput, HttpQueryParamsOnlyOperationServerOutput, Context>,
-  customizer: __ValidationCustomizer<"HttpQueryParamsOnlyOperation">
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getHttpQueryParamsOnlyOperationHandler = <Context>(operation: __Operation<HttpQueryParamsOnlyOperationServerInput, HttpQueryParamsOnlyOperationServerOutput, Context>, customizer: __ValidationCustomizer<"HttpQueryParamsOnlyOperation">): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJson", "HttpQueryParamsOnlyOperation">([
     new httpbinding.UriSpec<"RestJson", "HttpQueryParamsOnlyOperation">(
-      "GET",
-      [{ type: "path_literal", value: "http-query-params-only" }],
-      [],
-      { service: "RestJson", operation: "HttpQueryParamsOnlyOperation" }
-    ),
+      'GET',
+      [
+        { type: 'path_literal', value: "http-query-params-only" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "HttpQueryParamsOnlyOperation" }),
   ]);
-  return new HttpQueryParamsOnlyOperationHandler(
-    operation,
-    mux,
-    new HttpQueryParamsOnlyOperationSerializer(),
-    serializeFrameworkException,
-    customizer
-  );
-};
+  return new HttpQueryParamsOnlyOperationHandler(operation, mux, new HttpQueryParamsOnlyOperationSerializer(), serializeFrameworkException, customizer);
+}
 
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -92,7 +78,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -107,49 +93,37 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
 export class HttpQueryParamsOnlyOperationHandler<Context> implements __ServiceHandler<Context> {
-  private readonly operation: __Operation<
-    HttpQueryParamsOnlyOperationServerInput,
-    HttpQueryParamsOnlyOperationServerOutput,
-    Context
-  >;
+  private readonly operation: __Operation<HttpQueryParamsOnlyOperationServerInput, HttpQueryParamsOnlyOperationServerOutput, Context>;
   private readonly mux: __Mux<"RestJson", "HttpQueryParamsOnlyOperation">;
-  private readonly serializer: __OperationSerializer<
-    RestJsonService<Context>,
-    "HttpQueryParamsOnlyOperation",
-    HttpQueryParamsOnlyOperationErrors
-  >;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializer: __OperationSerializer<RestJsonService<Context>, "HttpQueryParamsOnlyOperation", HttpQueryParamsOnlyOperationErrors>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<"HttpQueryParamsOnlyOperation">;
   /**
    * Construct a HttpQueryParamsOnlyOperation handler.
@@ -163,11 +137,7 @@ export class HttpQueryParamsOnlyOperationHandler<Context> implements __ServiceHa
   constructor(
     operation: __Operation<HttpQueryParamsOnlyOperationServerInput, HttpQueryParamsOnlyOperationServerOutput, Context>,
     mux: __Mux<"RestJson", "HttpQueryParamsOnlyOperation">,
-    serializer: __OperationSerializer<
-      RestJsonService<Context>,
-      "HttpQueryParamsOnlyOperation",
-      HttpQueryParamsOnlyOperationErrors
-    >,
+    serializer: __OperationSerializer<RestJsonService<Context>, "HttpQueryParamsOnlyOperation", HttpQueryParamsOnlyOperationErrors>,
     serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>,
     validationCustomizer: __ValidationCustomizer<"HttpQueryParamsOnlyOperation">
   ) {
@@ -180,20 +150,9 @@ export class HttpQueryParamsOnlyOperationHandler<Context> implements __ServiceHa
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
     const target = this.mux.match(request);
     if (target === undefined) {
-      console.log(
-        "Received a request that did not match aws.protocoltests.restjson#RestJson.HttpQueryParamsOnlyOperation. This indicates a misconfiguration."
-      );
+      console.log('Received a request that did not match aws.protocoltests.restjson#RestJson.HttpQueryParamsOnlyOperation. This indicates a misconfiguration.');
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
-    return handle(
-      request,
-      context,
-      "HttpQueryParamsOnlyOperation",
-      this.serializer,
-      this.operation,
-      this.serializeFrameworkException,
-      HttpQueryParamsOnlyOperationServerInput.validate,
-      this.validationCustomizer
-    );
+    return handle(request, context, "HttpQueryParamsOnlyOperation", this.serializer, this.operation, this.serializeFrameworkException, HttpQueryParamsOnlyOperationServerInput.validate, this.validationCustomizer);
   }
 }

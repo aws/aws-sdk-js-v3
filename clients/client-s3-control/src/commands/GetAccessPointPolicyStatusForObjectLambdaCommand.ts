@@ -10,7 +10,7 @@ import type {
   GetAccessPointPolicyStatusForObjectLambdaResult,
 } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { GetAccessPointPolicyStatusForObjectLambda } from "../schemas/schemas_0";
+import { GetAccessPointPolicyStatusForObjectLambda$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -22,16 +22,13 @@ export { $Command };
  *
  * The input for {@link GetAccessPointPolicyStatusForObjectLambdaCommand}.
  */
-export interface GetAccessPointPolicyStatusForObjectLambdaCommandInput
-  extends GetAccessPointPolicyStatusForObjectLambdaRequest {}
+export interface GetAccessPointPolicyStatusForObjectLambdaCommandInput extends GetAccessPointPolicyStatusForObjectLambdaRequest {}
 /**
  * @public
  *
  * The output of {@link GetAccessPointPolicyStatusForObjectLambdaCommand}.
  */
-export interface GetAccessPointPolicyStatusForObjectLambdaCommandOutput
-  extends GetAccessPointPolicyStatusForObjectLambdaResult,
-    __MetadataBearer {}
+export interface GetAccessPointPolicyStatusForObjectLambdaCommandOutput extends GetAccessPointPolicyStatusForObjectLambdaResult, __MetadataBearer {}
 
 /**
  * <note>
@@ -86,11 +83,14 @@ export class GetAccessPointPolicyStatusForObjectLambdaCommand extends $Command
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getProcessArnablesPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getProcessArnablesPlugin(config),
+    ];
   })
   .s("AWSS3ControlServiceV20180820", "GetAccessPointPolicyStatusForObjectLambda", {})
   .n("S3ControlClient", "GetAccessPointPolicyStatusForObjectLambdaCommand")
-  .sc(GetAccessPointPolicyStatusForObjectLambda)
+  .sc(GetAccessPointPolicyStatusForObjectLambda$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

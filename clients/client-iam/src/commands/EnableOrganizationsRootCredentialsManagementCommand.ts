@@ -9,7 +9,7 @@ import type {
   EnableOrganizationsRootCredentialsManagementRequest,
   EnableOrganizationsRootCredentialsManagementResponse,
 } from "../models/models_0";
-import { EnableOrganizationsRootCredentialsManagement } from "../schemas/schemas_0";
+import { EnableOrganizationsRootCredentialsManagement$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link EnableOrganizationsRootCredentialsManagementCommand}.
  */
-export interface EnableOrganizationsRootCredentialsManagementCommandInput
-  extends EnableOrganizationsRootCredentialsManagementRequest {}
+export interface EnableOrganizationsRootCredentialsManagementCommandInput extends EnableOrganizationsRootCredentialsManagementRequest {}
 /**
  * @public
  *
  * The output of {@link EnableOrganizationsRootCredentialsManagementCommand}.
  */
-export interface EnableOrganizationsRootCredentialsManagementCommandOutput
-  extends EnableOrganizationsRootCredentialsManagementResponse,
-    __MetadataBearer {}
+export interface EnableOrganizationsRootCredentialsManagementCommandOutput extends EnableOrganizationsRootCredentialsManagementResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the management of privileged root user credentials across member accounts in your
@@ -131,7 +128,7 @@ export class EnableOrganizationsRootCredentialsManagementCommand extends $Comman
   })
   .s("AWSIdentityManagementV20100508", "EnableOrganizationsRootCredentialsManagement", {})
   .n("IAMClient", "EnableOrganizationsRootCredentialsManagementCommand")
-  .sc(EnableOrganizationsRootCredentialsManagement)
+  .sc(EnableOrganizationsRootCredentialsManagement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import type { DeleteRouterNetworkInterfaceRequest, DeleteRouterNetworkInterfaceResponse } from "../models/models_0";
-import { DeleteRouterNetworkInterface } from "../schemas/schemas_0";
+import { DeleteRouterNetworkInterface$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteRouterNetworkInterfaceCommandInput extends DeleteRouterNe
  *
  * The output of {@link DeleteRouterNetworkInterfaceCommand}.
  */
-export interface DeleteRouterNetworkInterfaceCommandOutput
-  extends DeleteRouterNetworkInterfaceResponse,
-    __MetadataBearer {}
+export interface DeleteRouterNetworkInterfaceCommandOutput extends DeleteRouterNetworkInterfaceResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a router network interface from AWS Elemental MediaConnect.</p>
@@ -98,7 +96,7 @@ export class DeleteRouterNetworkInterfaceCommand extends $Command
   })
   .s("MediaConnect", "DeleteRouterNetworkInterface", {})
   .n("MediaConnectClient", "DeleteRouterNetworkInterfaceCommand")
-  .sc(DeleteRouterNetworkInterface)
+  .sc(DeleteRouterNetworkInterface$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

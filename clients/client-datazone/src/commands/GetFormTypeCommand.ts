@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetFormTypeInput, GetFormTypeOutput } from "../models/models_1";
-import { GetFormType } from "../schemas/schemas_0";
+import { GetFormType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class GetFormTypeCommand extends $Command
   })
   .s("DataZone", "GetFormType", {})
   .n("DataZoneClient", "GetFormTypeCommand")
-  .sc(GetFormType)
+  .sc(GetFormType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

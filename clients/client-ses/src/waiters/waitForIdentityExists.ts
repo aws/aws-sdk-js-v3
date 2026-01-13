@@ -7,24 +7,21 @@ import {
 } from "../commands/GetIdentityVerificationAttributesCommand";
 import { SESClient } from "../SESClient";
 
-const checkState = async (
-  client: SESClient,
-  input: GetIdentityVerificationAttributesCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: SESClient, input: GetIdentityVerificationAttributesCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetIdentityVerificationAttributesCommand(input));
+    let result: any = await client.send(new GetIdentityVerificationAttributesCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
-        const objectProjection_2 = Object.values(result.VerificationAttributes).map((element_1: any) => {
+        let objectProjection_2 = Object.values(result.VerificationAttributes).map((element_1: any) => {
           return element_1.VerificationStatus;
         });
         return objectProjection_2;
-      };
-      let allStringEq_4 = returnComparator().length > 0;
-      for (const element_3 of returnComparator()) {
-        allStringEq_4 = allStringEq_4 && element_3 == "Success";
+      }
+      let allStringEq_4 = (returnComparator().length > 0);
+      for (let element_3 of returnComparator()) {
+        allStringEq_4 = allStringEq_4 && (element_3 == "Success")
       }
       if (allStringEq_4) {
         return { state: WaiterState.SUCCESS, reason };

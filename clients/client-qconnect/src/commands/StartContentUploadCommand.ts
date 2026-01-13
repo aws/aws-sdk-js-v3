@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartContentUploadRequest, StartContentUploadResponse } from "../models/models_1";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { StartContentUpload } from "../schemas/schemas_0";
+import { StartContentUpload$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class StartContentUploadCommand extends $Command
   })
   .s("WisdomService", "StartContentUpload", {})
   .n("QConnectClient", "StartContentUploadCommand")
-  .sc(StartContentUpload)
+  .sc(StartContentUpload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

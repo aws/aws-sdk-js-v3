@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeFeedbackRequest, DescribeFeedbackResponse } from "../models/models_0";
-import { DescribeFeedback } from "../schemas/schemas_0";
+import { DescribeFeedback$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DescribeFeedbackCommand extends $Command
   })
   .s("CapstoneControlPlaneService", "DescribeFeedback", {})
   .n("DevOpsGuruClient", "DescribeFeedbackCommand")
-  .sc(DescribeFeedback)
+  .sc(DescribeFeedback$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

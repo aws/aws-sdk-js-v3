@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteFunctionRequest } from "../models/models_0";
-import { DeleteFunction } from "../schemas/schemas_0";
+import { DeleteFunction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteFunctionCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "DeleteFunction", {})
   .n("CloudFrontClient", "DeleteFunctionCommand")
-  .sc(DeleteFunction)
+  .sc(DeleteFunction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

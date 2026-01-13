@@ -10,7 +10,7 @@ import type {
   ListAccessPointsForDirectoryBucketsResult,
 } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { ListAccessPointsForDirectoryBuckets } from "../schemas/schemas_0";
+import { ListAccessPointsForDirectoryBuckets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListAccessPointsForDirectoryBucketsCommandInput extends ListAcc
  *
  * The output of {@link ListAccessPointsForDirectoryBucketsCommand}.
  */
-export interface ListAccessPointsForDirectoryBucketsCommandOutput
-  extends ListAccessPointsForDirectoryBucketsResult,
-    __MetadataBearer {}
+export interface ListAccessPointsForDirectoryBucketsCommandOutput extends ListAccessPointsForDirectoryBucketsResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the access points that are owned by the Amazon Web Services account and that are associated with the specified directory bucket.</p>
@@ -102,11 +100,14 @@ export class ListAccessPointsForDirectoryBucketsCommand extends $Command
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getProcessArnablesPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getProcessArnablesPlugin(config),
+    ];
   })
   .s("AWSS3ControlServiceV20180820", "ListAccessPointsForDirectoryBuckets", {})
   .n("S3ControlClient", "ListAccessPointsForDirectoryBucketsCommand")
-  .sc(ListAccessPointsForDirectoryBuckets)
+  .sc(ListAccessPointsForDirectoryBuckets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

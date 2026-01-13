@@ -9,7 +9,7 @@ import type {
   UpdateInfrastructureConfigurationRequest,
   UpdateInfrastructureConfigurationResponse,
 } from "../models/models_0";
-import { UpdateInfrastructureConfiguration } from "../schemas/schemas_0";
+import { UpdateInfrastructureConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateInfrastructureConfigurationCommandInput extends UpdateInf
  *
  * The output of {@link UpdateInfrastructureConfigurationCommand}.
  */
-export interface UpdateInfrastructureConfigurationCommandOutput
-  extends UpdateInfrastructureConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateInfrastructureConfigurationCommandOutput extends UpdateInfrastructureConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a new infrastructure configuration. An infrastructure configuration defines
@@ -142,7 +140,7 @@ export class UpdateInfrastructureConfigurationCommand extends $Command
   })
   .s("imagebuilder", "UpdateInfrastructureConfiguration", {})
   .n("ImagebuilderClient", "UpdateInfrastructureConfigurationCommand")
-  .sc(UpdateInfrastructureConfiguration)
+  .sc(UpdateInfrastructureConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

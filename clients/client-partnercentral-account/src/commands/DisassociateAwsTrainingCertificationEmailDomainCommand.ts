@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralAccountClient";
-import { DisassociateAwsTrainingCertificationEmailDomain } from "../schemas/schemas_0";
+import { DisassociateAwsTrainingCertificationEmailDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DisassociateAwsTrainingCertificationEmailDomainCommand}.
  */
-export interface DisassociateAwsTrainingCertificationEmailDomainCommandInput
-  extends DisassociateAwsTrainingCertificationEmailDomainRequest {}
+export interface DisassociateAwsTrainingCertificationEmailDomainCommandInput extends DisassociateAwsTrainingCertificationEmailDomainRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateAwsTrainingCertificationEmailDomainCommand}.
  */
-export interface DisassociateAwsTrainingCertificationEmailDomainCommandOutput
-  extends DisassociateAwsTrainingCertificationEmailDomainResponse,
-    __MetadataBearer {}
+export interface DisassociateAwsTrainingCertificationEmailDomainCommandOutput extends DisassociateAwsTrainingCertificationEmailDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the association between an email domain and AWS training and certification for the partner account.</p>
@@ -99,7 +96,7 @@ export class DisassociateAwsTrainingCertificationEmailDomainCommand extends $Com
   })
   .s("PartnerCentralAccount", "DisassociateAwsTrainingCertificationEmailDomain", {})
   .n("PartnerCentralAccountClient", "DisassociateAwsTrainingCertificationEmailDomainCommand")
-  .sc(DisassociateAwsTrainingCertificationEmailDomain)
+  .sc(DisassociateAwsTrainingCertificationEmailDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

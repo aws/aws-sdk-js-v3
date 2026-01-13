@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartTrainedModelInferenceJobRequest, StartTrainedModelInferenceJobResponse } from "../models/models_0";
-import { StartTrainedModelInferenceJob } from "../schemas/schemas_0";
+import { StartTrainedModelInferenceJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface StartTrainedModelInferenceJobCommandInput extends StartTrainedM
  *
  * The output of {@link StartTrainedModelInferenceJobCommand}.
  */
-export interface StartTrainedModelInferenceJobCommandOutput
-  extends StartTrainedModelInferenceJobResponse,
-    __MetadataBearer {}
+export interface StartTrainedModelInferenceJobCommandOutput extends StartTrainedModelInferenceJobResponse, __MetadataBearer {}
 
 /**
  * <p>Defines the information necessary to begin a trained model inference job.</p>
@@ -123,7 +121,7 @@ export class StartTrainedModelInferenceJobCommand extends $Command
   })
   .s("AWSStarkControlService", "StartTrainedModelInferenceJob", {})
   .n("CleanRoomsMLClient", "StartTrainedModelInferenceJobCommand")
-  .sc(StartTrainedModelInferenceJob)
+  .sc(StartTrainedModelInferenceJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

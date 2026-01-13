@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { HttpRequestWithLabels } from "../schemas/schemas_0";
+import { HttpRequestWithLabels$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class HttpRequestWithLabelsCommand extends $Command
   })
   .s("RestJson", "HttpRequestWithLabels", {})
   .n("RestJsonProtocolClient", "HttpRequestWithLabelsCommand")
-  .sc(HttpRequestWithLabels)
+  .sc(HttpRequestWithLabels$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

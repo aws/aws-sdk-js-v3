@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
-import { GetAccountLevelServiceConfiguration } from "../schemas/schemas_0";
+import { GetAccountLevelServiceConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetAccountLevelServiceConfigurationCommandInput {}
  *
  * The output of {@link GetAccountLevelServiceConfigurationCommand}.
  */
-export interface GetAccountLevelServiceConfigurationCommandOutput
-  extends GetAccountLevelServiceConfigurationOutput,
-    __MetadataBearer {}
+export interface GetAccountLevelServiceConfigurationCommandOutput extends GetAccountLevelServiceConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the status of your account's Amazon Web Services service access, and validates the service linked role required to access the multi-account search feature. Only the management account can invoke this API call. </p>
@@ -92,7 +90,7 @@ export class GetAccountLevelServiceConfigurationCommand extends $Command
   })
   .s("ResourceExplorer", "GetAccountLevelServiceConfiguration", {})
   .n("ResourceExplorer2Client", "GetAccountLevelServiceConfigurationCommand")
-  .sc(GetAccountLevelServiceConfiguration)
+  .sc(GetAccountLevelServiceConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

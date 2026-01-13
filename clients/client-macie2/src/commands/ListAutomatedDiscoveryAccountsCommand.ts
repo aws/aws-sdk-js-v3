@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import type { ListAutomatedDiscoveryAccountsRequest, ListAutomatedDiscoveryAccountsResponse } from "../models/models_0";
-import { ListAutomatedDiscoveryAccounts } from "../schemas/schemas_0";
+import { ListAutomatedDiscoveryAccounts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListAutomatedDiscoveryAccountsCommandInput extends ListAutomate
  *
  * The output of {@link ListAutomatedDiscoveryAccountsCommand}.
  */
-export interface ListAutomatedDiscoveryAccountsCommandOutput
-  extends ListAutomatedDiscoveryAccountsResponse,
-    __MetadataBearer {}
+export interface ListAutomatedDiscoveryAccountsCommandOutput extends ListAutomatedDiscoveryAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the status of automated sensitive data discovery for one or more accounts.</p>
@@ -100,7 +98,7 @@ export class ListAutomatedDiscoveryAccountsCommand extends $Command
   })
   .s("Macie2", "ListAutomatedDiscoveryAccounts", {})
   .n("Macie2Client", "ListAutomatedDiscoveryAccountsCommand")
-  .sc(ListAutomatedDiscoveryAccounts)
+  .sc(ListAutomatedDiscoveryAccounts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

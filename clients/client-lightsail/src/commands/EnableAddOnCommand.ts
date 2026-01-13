@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { EnableAddOnRequest, EnableAddOnResult } from "../models/models_0";
-import { EnableAddOn } from "../schemas/schemas_0";
+import { EnableAddOn$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class EnableAddOnCommand extends $Command
   })
   .s("Lightsail_20161128", "EnableAddOn", {})
   .n("LightsailClient", "EnableAddOnCommand")
-  .sc(EnableAddOn)
+  .sc(EnableAddOn$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

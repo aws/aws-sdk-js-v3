@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeResourcePermissionsRequest, DescribeResourcePermissionsResponse } from "../models/models_0";
-import { DescribeResourcePermissions } from "../schemas/schemas_0";
+import { DescribeResourcePermissions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DescribeResourcePermissionsCommandInput extends DescribeResourc
  *
  * The output of {@link DescribeResourcePermissionsCommand}.
  */
-export interface DescribeResourcePermissionsCommandOutput
-  extends DescribeResourcePermissionsResponse,
-    __MetadataBearer {}
+export interface DescribeResourcePermissionsCommandOutput extends DescribeResourcePermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the permissions of a specified resource.</p>
@@ -108,7 +106,7 @@ export class DescribeResourcePermissionsCommand extends $Command
   })
   .s("AWSGorillaBoyService", "DescribeResourcePermissions", {})
   .n("WorkDocsClient", "DescribeResourcePermissionsCommand")
-  .sc(DescribeResourcePermissions)
+  .sc(DescribeResourcePermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

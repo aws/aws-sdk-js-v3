@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDataProviderMessage, CreateDataProviderResponse } from "../models/models_0";
-import { CreateDataProvider } from "../schemas/schemas_0";
+import { CreateDataProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -352,7 +352,7 @@ export class CreateDataProviderCommand extends $Command
   })
   .s("AmazonDMSv20160101", "CreateDataProvider", {})
   .n("DatabaseMigrationServiceClient", "CreateDataProviderCommand")
-  .sc(CreateDataProvider)
+  .sc(CreateDataProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

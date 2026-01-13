@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveTagsInput, RemoveTagsOutput } from "../models/models_0";
-import { RemoveTags } from "../schemas/schemas_0";
+import { RemoveTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class RemoveTagsCommand extends $Command
   })
   .s("ElasticLoadBalancing_v7", "RemoveTags", {})
   .n("ElasticLoadBalancingClient", "RemoveTagsCommand")
-  .sc(RemoveTags)
+  .sc(RemoveTags$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

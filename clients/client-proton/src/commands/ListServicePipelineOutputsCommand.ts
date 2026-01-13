@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListServicePipelineOutputsInput, ListServicePipelineOutputsOutput } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { ListServicePipelineOutputs } from "../schemas/schemas_0";
+import { ListServicePipelineOutputs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class ListServicePipelineOutputsCommand extends $Command
   })
   .s("AwsProton20200720", "ListServicePipelineOutputs", {})
   .n("ProtonClient", "ListServicePipelineOutputsCommand")
-  .sc(ListServicePipelineOutputs)
+  .sc(ListServicePipelineOutputs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

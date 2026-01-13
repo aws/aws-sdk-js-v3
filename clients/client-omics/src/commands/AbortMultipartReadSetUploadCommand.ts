@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AbortMultipartReadSetUploadRequest, AbortMultipartReadSetUploadResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { AbortMultipartReadSetUpload } from "../schemas/schemas_0";
+import { AbortMultipartReadSetUpload$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface AbortMultipartReadSetUploadCommandInput extends AbortMultipartR
  *
  * The output of {@link AbortMultipartReadSetUploadCommand}.
  */
-export interface AbortMultipartReadSetUploadCommandOutput
-  extends AbortMultipartReadSetUploadResponse,
-    __MetadataBearer {}
+export interface AbortMultipartReadSetUploadCommandOutput extends AbortMultipartReadSetUploadResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a multipart read set upload into a sequence store and returns a response with no body if the operation is successful. To confirm that a multipart read set upload has been stopped, use the <code>ListMultipartReadSetUploads</code> API operation to view all active multipart read set uploads.</p>
@@ -98,7 +96,7 @@ export class AbortMultipartReadSetUploadCommand extends $Command
   })
   .s("Omics", "AbortMultipartReadSetUpload", {})
   .n("OmicsClient", "AbortMultipartReadSetUploadCommand")
-  .sc(AbortMultipartReadSetUpload)
+  .sc(AbortMultipartReadSetUpload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

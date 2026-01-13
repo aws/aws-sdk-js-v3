@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAvailableResourceMetricsRequest, ListAvailableResourceMetricsResponse } from "../models/models_0";
 import type { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
-import { ListAvailableResourceMetrics } from "../schemas/schemas_0";
+import { ListAvailableResourceMetrics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListAvailableResourceMetricsCommandInput extends ListAvailableR
  *
  * The output of {@link ListAvailableResourceMetricsCommand}.
  */
-export interface ListAvailableResourceMetricsCommandOutput
-  extends ListAvailableResourceMetricsResponse,
-    __MetadataBearer {}
+export interface ListAvailableResourceMetricsCommandOutput extends ListAvailableResourceMetricsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve metrics of the specified types that can be queried for a specified DB instance.
@@ -98,7 +96,7 @@ export class ListAvailableResourceMetricsCommand extends $Command
   })
   .s("PerformanceInsightsv20180227", "ListAvailableResourceMetrics", {})
   .n("PIClient", "ListAvailableResourceMetricsCommand")
-  .sc(ListAvailableResourceMetrics)
+  .sc(ListAvailableResourceMetrics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

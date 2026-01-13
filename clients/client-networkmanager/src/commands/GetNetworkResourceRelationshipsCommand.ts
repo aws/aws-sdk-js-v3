@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { GetNetworkResourceRelationships } from "../schemas/schemas_0";
+import { GetNetworkResourceRelationships$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetNetworkResourceRelationshipsCommandInput extends GetNetworkR
  *
  * The output of {@link GetNetworkResourceRelationshipsCommand}.
  */
-export interface GetNetworkResourceRelationshipsCommandOutput
-  extends GetNetworkResourceRelationshipsResponse,
-    __MetadataBearer {}
+export interface GetNetworkResourceRelationshipsCommandOutput extends GetNetworkResourceRelationshipsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the network resource relationships for the specified global network.</p>
@@ -111,7 +109,7 @@ export class GetNetworkResourceRelationshipsCommand extends $Command
   })
   .s("NetworkManager", "GetNetworkResourceRelationships", {})
   .n("NetworkManagerClient", "GetNetworkResourceRelationshipsCommand")
-  .sc(GetNetworkResourceRelationships)
+  .sc(GetNetworkResourceRelationships$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../BedrockDataAutomationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateBlueprintRequest, CreateBlueprintResponse } from "../models/models_0";
-import { CreateBlueprint } from "../schemas/schemas_0";
+import { CreateBlueprint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -75,6 +75,19 @@ export interface CreateBlueprintCommandOutput extends CreateBlueprintResponse, _
  * //     kmsEncryptionContext: { // KmsEncryptionContext
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     optimizationSamples: [ // BlueprintOptimizationSamples
+ * //       { // BlueprintOptimizationSample
+ * //         assetS3Object: { // S3Object
+ * //           s3Uri: "STRING_VALUE", // required
+ * //           version: "STRING_VALUE",
+ * //         },
+ * //         groundTruthS3Object: {
+ * //           s3Uri: "STRING_VALUE", // required
+ * //           version: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     optimizationTime: new Date("TIMESTAMP"),
  * //   },
  * // };
  *
@@ -124,7 +137,7 @@ export class CreateBlueprintCommand extends $Command
   })
   .s("AmazonBedrockKeystoneBuildTimeService", "CreateBlueprint", {})
   .n("BedrockDataAutomationClient", "CreateBlueprintCommand")
-  .sc(CreateBlueprint)
+  .sc(CreateBlueprint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

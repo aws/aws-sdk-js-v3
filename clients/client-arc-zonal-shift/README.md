@@ -9,10 +9,8 @@ AWS SDK for JavaScript ARCZonalShift Client for Node.js, Browser and React Nativ
 <p>Welcome to the API Reference Guide for zonal shift and zonal autoshift in Amazon Application Recovery Controller (ARC).</p> <p>You can start a zonal shift to move traffic for a load balancer resource away from an Availability Zone to help your application recover quickly from an impairment in an Availability Zone. For example, you can recover your application from a developer's bad code deployment or from an Amazon Web Services infrastructure failure in a single Availability Zone.</p> <p>You can also configure zonal autoshift for supported load balancer resources. Zonal autoshift is a capability in ARC where you authorize Amazon Web Services to shift away application resource traffic from an Availability Zone during events, on your behalf, to help reduce your time to recovery. Amazon Web Services starts an autoshift when internal telemetry indicates that there is an Availability Zone impairment that could potentially impact customers.</p> <p>For more information about using zonal shift and zonal autoshift, see the <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route53-recovery.html">Amazon Application Recovery Controller Developer Guide</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-arc-zonal-shift
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-arc-zonal-shift`
 - `yarn add @aws-sdk/client-arc-zonal-shift`
 - `pnpm add @aws-sdk/client-arc-zonal-shift`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new ARCZonalShiftClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListAutoshiftsCommand(params);
 ```
 
@@ -209,7 +205,6 @@ CancelPracticeRun
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/arc-zonal-shift/command/CancelPracticeRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/CancelPracticeRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/CancelPracticeRunCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ CancelZonalShift
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/arc-zonal-shift/command/CancelZonalShiftCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/CancelZonalShiftCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/CancelZonalShiftCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ CreatePracticeRunConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/arc-zonal-shift/command/CreatePracticeRunConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/CreatePracticeRunConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/CreatePracticeRunConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ DeletePracticeRunConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/arc-zonal-shift/command/DeletePracticeRunConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/DeletePracticeRunConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/DeletePracticeRunConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ GetAutoshiftObserverNotificationStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/arc-zonal-shift/command/GetAutoshiftObserverNotificationStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/GetAutoshiftObserverNotificationStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/GetAutoshiftObserverNotificationStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +240,6 @@ GetManagedResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/arc-zonal-shift/command/GetManagedResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/GetManagedResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/GetManagedResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +247,6 @@ ListAutoshifts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/arc-zonal-shift/command/ListAutoshiftsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/ListAutoshiftsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/ListAutoshiftsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +254,6 @@ ListManagedResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/arc-zonal-shift/command/ListManagedResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/ListManagedResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/ListManagedResourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +261,6 @@ ListZonalShifts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/arc-zonal-shift/command/ListZonalShiftsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/ListZonalShiftsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/ListZonalShiftsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +268,6 @@ StartPracticeRun
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/arc-zonal-shift/command/StartPracticeRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/StartPracticeRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/StartPracticeRunCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +275,6 @@ StartZonalShift
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/arc-zonal-shift/command/StartZonalShiftCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/StartZonalShiftCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/StartZonalShiftCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,7 +282,6 @@ UpdateAutoshiftObserverNotificationStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/arc-zonal-shift/command/UpdateAutoshiftObserverNotificationStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/UpdateAutoshiftObserverNotificationStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/UpdateAutoshiftObserverNotificationStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -305,7 +289,6 @@ UpdatePracticeRunConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/arc-zonal-shift/command/UpdatePracticeRunConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/UpdatePracticeRunConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/UpdatePracticeRunConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -313,7 +296,6 @@ UpdateZonalAutoshiftConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/arc-zonal-shift/command/UpdateZonalAutoshiftConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/UpdateZonalAutoshiftConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/UpdateZonalAutoshiftConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -321,5 +303,4 @@ UpdateZonalShift
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/arc-zonal-shift/command/UpdateZonalShiftCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/UpdateZonalShiftCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-zonal-shift/Interface/UpdateZonalShiftCommandOutput/)
-
 </details>

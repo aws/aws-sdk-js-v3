@@ -42,18 +42,20 @@ export const se_UploadArchiveCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": "application/octet-stream",
+    'content-type': 'application/octet-stream',
     [_xaad]: input[_aD]!,
     [_xasth]: input[_c]!,
   });
   b.bp("/{accountId}/vaults/{vaultName}/archives");
-  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
-  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p('vaultName', () => input.vaultName!, '{vaultName}', false)
+  b.p('accountId', () => input.accountId!, '{accountId}', false)
   let body: any;
   if (input.body !== undefined) {
     body = input.body;
   }
-  b.m("POST").h(headers).b(body);
+  b.m("POST")
+  .h(headers)
+  .b(body);
   return b.build();
 };
 
@@ -66,19 +68,21 @@ export const se_UploadMultipartPartCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": "application/octet-stream",
+    'content-type': 'application/octet-stream',
     [_xasth]: input[_c]!,
     [_cr]: input[_r]!,
   });
   b.bp("/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}");
-  b.p("accountId", () => input.accountId!, "{accountId}", false);
-  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
-  b.p("uploadId", () => input.uploadId!, "{uploadId}", false);
+  b.p('accountId', () => input.accountId!, '{accountId}', false)
+  b.p('vaultName', () => input.vaultName!, '{vaultName}', false)
+  b.p('uploadId', () => input.uploadId!, '{uploadId}', false)
   let body: any;
   if (input.body !== undefined) {
     body = input.body;
   }
-  b.m("PUT").h(headers).b(body);
+  b.m("PUT")
+  .h(headers)
+  .b(body);
   return b.build();
 };
 
@@ -123,10 +127,13 @@ export const de_UploadMultipartPartCommand = async (
 /**
  * deserialize_Aws_restJson1CommandError
  */
-const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
+const de_CommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext,
+): Promise<never> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseErrorBody(output.body, context),
+    body: await parseErrorBody(output.body, context)
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -150,10 +157,10 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
       return throwDefaultError({
         output,
         parsedBody,
-        errorCode,
+        errorCode
       }) as never;
   }
-};
+}
 
 const throwDefaultError = withBaseException(__BaseException);
 /**
@@ -163,17 +170,18 @@ const de_InvalidParameterValueExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
-  const contents: any = map({});
+  const contents: any = map({
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
-    code: __expectString,
-    message: __expectString,
-    type: __expectString,
+    'code': __expectString,
+    'message': __expectString,
+    'type': __expectString,
   });
   Object.assign(contents, doc);
   const exception = new InvalidParameterValueException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...contents,
+    ...contents
   });
   return __decorateServiceException(exception, parsedOutput.body);
 };
@@ -185,17 +193,18 @@ const de_MissingParameterValueExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MissingParameterValueException> => {
-  const contents: any = map({});
+  const contents: any = map({
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
-    code: __expectString,
-    message: __expectString,
-    type: __expectString,
+    'code': __expectString,
+    'message': __expectString,
+    'type': __expectString,
   });
   Object.assign(contents, doc);
   const exception = new MissingParameterValueException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...contents,
+    ...contents
   });
   return __decorateServiceException(exception, parsedOutput.body);
 };
@@ -207,17 +216,18 @@ const de_RequestTimeoutExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RequestTimeoutException> => {
-  const contents: any = map({});
+  const contents: any = map({
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
-    code: __expectString,
-    message: __expectString,
-    type: __expectString,
+    'code': __expectString,
+    'message': __expectString,
+    'type': __expectString,
   });
   Object.assign(contents, doc);
   const exception = new RequestTimeoutException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...contents,
+    ...contents
   });
   return __decorateServiceException(exception, parsedOutput.body);
 };
@@ -229,17 +239,18 @@ const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: any = map({});
+  const contents: any = map({
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
-    code: __expectString,
-    message: __expectString,
-    type: __expectString,
+    'code': __expectString,
+    'message': __expectString,
+    'type': __expectString,
   });
   Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...contents,
+    ...contents
   });
   return __decorateServiceException(exception, parsedOutput.body);
 };
@@ -251,32 +262,31 @@ const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
-  const contents: any = map({});
+  const contents: any = map({
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
-    code: __expectString,
-    message: __expectString,
-    type: __expectString,
+    'code': __expectString,
+    'message': __expectString,
+    'type': __expectString,
   });
   Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...contents,
+    ...contents
   });
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId:
-    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
+  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
-  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> => collectBody(streamBody, context).then(body => context.utf8Encoder(body))
 
 const _aD = "archiveDescription";
 const _aI = "archiveId";

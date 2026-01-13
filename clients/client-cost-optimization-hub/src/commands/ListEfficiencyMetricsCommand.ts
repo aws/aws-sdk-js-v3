@@ -10,7 +10,7 @@ import type {
 } from "../CostOptimizationHubClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListEfficiencyMetricsRequest, ListEfficiencyMetricsResponse } from "../models/models_0";
-import { ListEfficiencyMetrics } from "../schemas/schemas_0";
+import { ListEfficiencyMetrics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class ListEfficiencyMetricsCommand extends $Command
   })
   .s("CostOptimizationHubService", "ListEfficiencyMetrics", {})
   .n("CostOptimizationHubClient", "ListEfficiencyMetricsCommand")
-  .sc(ListEfficiencyMetrics)
+  .sc(ListEfficiencyMetrics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

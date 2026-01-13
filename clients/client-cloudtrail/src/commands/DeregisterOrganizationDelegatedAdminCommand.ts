@@ -9,7 +9,7 @@ import type {
   DeregisterOrganizationDelegatedAdminRequest,
   DeregisterOrganizationDelegatedAdminResponse,
 } from "../models/models_0";
-import { DeregisterOrganizationDelegatedAdmin } from "../schemas/schemas_0";
+import { DeregisterOrganizationDelegatedAdmin$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeregisterOrganizationDelegatedAdminCommandInput extends Deregi
  *
  * The output of {@link DeregisterOrganizationDelegatedAdminCommand}.
  */
-export interface DeregisterOrganizationDelegatedAdminCommandOutput
-  extends DeregisterOrganizationDelegatedAdminResponse,
-    __MetadataBearer {}
+export interface DeregisterOrganizationDelegatedAdminCommandOutput extends DeregisterOrganizationDelegatedAdminResponse, __MetadataBearer {}
 
 /**
  * <p>Removes CloudTrail delegated administrator permissions from a member account in
@@ -121,7 +119,7 @@ export class DeregisterOrganizationDelegatedAdminCommand extends $Command
   })
   .s("CloudTrail_20131101", "DeregisterOrganizationDelegatedAdmin", {})
   .n("CloudTrailClient", "DeregisterOrganizationDelegatedAdminCommand")
-  .sc(DeregisterOrganizationDelegatedAdmin)
+  .sc(DeregisterOrganizationDelegatedAdmin$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

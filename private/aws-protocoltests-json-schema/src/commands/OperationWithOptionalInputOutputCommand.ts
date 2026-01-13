@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import type { OperationWithOptionalInputOutputInput, OperationWithOptionalInputOutputOutput } from "../models/models_0";
-import { OperationWithOptionalInputOutput } from "../schemas/schemas_0";
+import { OperationWithOptionalInputOutput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface OperationWithOptionalInputOutputCommandInput extends OperationW
  *
  * The output of {@link OperationWithOptionalInputOutputCommand}.
  */
-export interface OperationWithOptionalInputOutputCommandOutput
-  extends OperationWithOptionalInputOutputOutput,
-    __MetadataBearer {}
+export interface OperationWithOptionalInputOutputCommandOutput extends OperationWithOptionalInputOutputOutput, __MetadataBearer {}
 
 /**
  * @public
@@ -75,7 +73,7 @@ export class OperationWithOptionalInputOutputCommand extends $Command
   })
   .s("JsonProtocol", "OperationWithOptionalInputOutput", {})
   .n("JsonProtocolClient", "OperationWithOptionalInputOutputCommand")
-  .sc(OperationWithOptionalInputOutput)
+  .sc(OperationWithOptionalInputOutput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

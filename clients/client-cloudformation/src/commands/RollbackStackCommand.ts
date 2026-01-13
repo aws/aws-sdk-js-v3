@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RollbackStackInput, RollbackStackOutput } from "../models/models_0";
-import { RollbackStack } from "../schemas/schemas_0";
+import { RollbackStack$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class RollbackStackCommand extends $Command
   })
   .s("CloudFormation", "RollbackStack", {})
   .n("CloudFormationClient", "RollbackStackCommand")
-  .sc(RollbackStack)
+  .sc(RollbackStack$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

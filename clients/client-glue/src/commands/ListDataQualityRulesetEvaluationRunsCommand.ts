@@ -9,7 +9,7 @@ import type {
   ListDataQualityRulesetEvaluationRunsRequest,
   ListDataQualityRulesetEvaluationRunsResponse,
 } from "../models/models_2";
-import { ListDataQualityRulesetEvaluationRuns } from "../schemas/schemas_0";
+import { ListDataQualityRulesetEvaluationRuns$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListDataQualityRulesetEvaluationRunsCommandInput extends ListDa
  *
  * The output of {@link ListDataQualityRulesetEvaluationRunsCommand}.
  */
-export interface ListDataQualityRulesetEvaluationRunsCommandOutput
-  extends ListDataQualityRulesetEvaluationRunsResponse,
-    __MetadataBearer {}
+export interface ListDataQualityRulesetEvaluationRunsCommandOutput extends ListDataQualityRulesetEvaluationRunsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the runs meeting the filter criteria, where a ruleset is evaluated against a data source.</p>
@@ -141,7 +139,7 @@ export class ListDataQualityRulesetEvaluationRunsCommand extends $Command
   })
   .s("AWSGlue", "ListDataQualityRulesetEvaluationRuns", {})
   .n("GlueClient", "ListDataQualityRulesetEvaluationRunsCommand")
-  .sc(ListDataQualityRulesetEvaluationRuns)
+  .sc(ListDataQualityRulesetEvaluationRuns$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

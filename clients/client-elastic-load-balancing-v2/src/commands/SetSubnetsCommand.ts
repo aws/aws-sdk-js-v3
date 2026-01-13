@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SetSubnetsInput, SetSubnetsOutput } from "../models/models_0";
-import { SetSubnets } from "../schemas/schemas_0";
+import { SetSubnets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -161,7 +161,7 @@ export class SetSubnetsCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "SetSubnets", {})
   .n("ElasticLoadBalancingV2Client", "SetSubnetsCommand")
-  .sc(SetSubnets)
+  .sc(SetSubnets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

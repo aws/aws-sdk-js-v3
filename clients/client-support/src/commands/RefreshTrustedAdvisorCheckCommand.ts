@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RefreshTrustedAdvisorCheckRequest, RefreshTrustedAdvisorCheckResponse } from "../models/models_0";
-import { RefreshTrustedAdvisorCheck } from "../schemas/schemas_0";
+import { RefreshTrustedAdvisorCheck$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
@@ -105,7 +105,7 @@ export class RefreshTrustedAdvisorCheckCommand extends $Command
   })
   .s("AWSSupport_20130415", "RefreshTrustedAdvisorCheck", {})
   .n("SupportClient", "RefreshTrustedAdvisorCheckCommand")
-  .sc(RefreshTrustedAdvisorCheck)
+  .sc(RefreshTrustedAdvisorCheck$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

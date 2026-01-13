@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralAccountClient";
-import { GetConnectionPreferences } from "../schemas/schemas_0";
+import { GetConnectionPreferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class GetConnectionPreferencesCommand extends $Command
   })
   .s("PartnerCentralAccount", "GetConnectionPreferences", {})
   .n("PartnerCentralAccountClient", "GetConnectionPreferencesCommand")
-  .sc(GetConnectionPreferences)
+  .sc(GetConnectionPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

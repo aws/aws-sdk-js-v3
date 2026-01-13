@@ -8,7 +8,7 @@ import type {
   DeleteDataLakeExceptionSubscriptionRequest,
   DeleteDataLakeExceptionSubscriptionResponse,
 } from "../models/models_0";
-import { DeleteDataLakeExceptionSubscription } from "../schemas/schemas_0";
+import { DeleteDataLakeExceptionSubscription$ } from "../schemas/schemas_0";
 import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DeleteDataLakeExceptionSubscriptionCommandInput extends DeleteD
  *
  * The output of {@link DeleteDataLakeExceptionSubscriptionCommand}.
  */
-export interface DeleteDataLakeExceptionSubscriptionCommandOutput
-  extends DeleteDataLakeExceptionSubscriptionResponse,
-    __MetadataBearer {}
+export interface DeleteDataLakeExceptionSubscriptionCommandOutput extends DeleteDataLakeExceptionSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified notification subscription in Amazon Security Lake for the organization
@@ -100,7 +98,7 @@ export class DeleteDataLakeExceptionSubscriptionCommand extends $Command
   })
   .s("SecurityLake", "DeleteDataLakeExceptionSubscription", {})
   .n("SecurityLakeClient", "DeleteDataLakeExceptionSubscriptionCommand")
-  .sc(DeleteDataLakeExceptionSubscription)
+  .sc(DeleteDataLakeExceptionSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

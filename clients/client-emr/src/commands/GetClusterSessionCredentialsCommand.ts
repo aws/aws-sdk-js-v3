@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetClusterSessionCredentialsInput, GetClusterSessionCredentialsOutput } from "../models/models_0";
-import { GetClusterSessionCredentials } from "../schemas/schemas_0";
+import { GetClusterSessionCredentials$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetClusterSessionCredentialsCommandInput extends GetClusterSess
  *
  * The output of {@link GetClusterSessionCredentialsCommand}.
  */
-export interface GetClusterSessionCredentialsCommandOutput
-  extends GetClusterSessionCredentialsOutput,
-    __MetadataBearer {}
+export interface GetClusterSessionCredentialsCommandOutput extends GetClusterSessionCredentialsOutput, __MetadataBearer {}
 
 /**
  * <p>Provides temporary, HTTP basic credentials that are associated with a given runtime
@@ -92,7 +90,7 @@ export class GetClusterSessionCredentialsCommand extends $Command
   })
   .s("ElasticMapReduce", "GetClusterSessionCredentials", {})
   .n("EMRClient", "GetClusterSessionCredentialsCommand")
-  .sc(GetClusterSessionCredentials)
+  .sc(GetClusterSessionCredentials$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

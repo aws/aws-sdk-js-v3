@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListClusterSchedulerConfigsRequest, ListClusterSchedulerConfigsResponse } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListClusterSchedulerConfigs } from "../schemas/schemas_0";
+import { ListClusterSchedulerConfigs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListClusterSchedulerConfigsCommandInput extends ListClusterSche
  *
  * The output of {@link ListClusterSchedulerConfigsCommand}.
  */
-export interface ListClusterSchedulerConfigsCommandOutput
-  extends ListClusterSchedulerConfigsResponse,
-    __MetadataBearer {}
+export interface ListClusterSchedulerConfigsCommandOutput extends ListClusterSchedulerConfigsResponse, __MetadataBearer {}
 
 /**
  * <p>List the cluster policy configurations.</p>
@@ -95,7 +93,7 @@ export class ListClusterSchedulerConfigsCommand extends $Command
   })
   .s("SageMaker", "ListClusterSchedulerConfigs", {})
   .n("SageMakerClient", "ListClusterSchedulerConfigsCommand")
-  .sc(ListClusterSchedulerConfigs)
+  .sc(ListClusterSchedulerConfigs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

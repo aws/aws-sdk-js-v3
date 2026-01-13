@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutBucketIntelligentTieringConfigurationRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { PutBucketIntelligentTieringConfiguration } from "../schemas/schemas_0";
+import { PutBucketIntelligentTieringConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link PutBucketIntelligentTieringConfigurationCommand}.
  */
-export interface PutBucketIntelligentTieringConfigurationCommandInput
-  extends PutBucketIntelligentTieringConfigurationRequest {}
+export interface PutBucketIntelligentTieringConfigurationCommandInput extends PutBucketIntelligentTieringConfigurationRequest {}
 /**
  * @public
  *
@@ -163,7 +162,7 @@ export class PutBucketIntelligentTieringConfigurationCommand extends $Command
   })
   .s("AmazonS3", "PutBucketIntelligentTieringConfiguration", {})
   .n("S3Client", "PutBucketIntelligentTieringConfigurationCommand")
-  .sc(PutBucketIntelligentTieringConfiguration)
+  .sc(PutBucketIntelligentTieringConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

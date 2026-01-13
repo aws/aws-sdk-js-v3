@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetConfiguredTableAnalysisRuleInput, GetConfiguredTableAnalysisRuleOutput } from "../models/models_0";
-import { GetConfiguredTableAnalysisRule } from "../schemas/schemas_0";
+import { GetConfiguredTableAnalysisRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetConfiguredTableAnalysisRuleCommandInput extends GetConfigure
  *
  * The output of {@link GetConfiguredTableAnalysisRuleCommand}.
  */
-export interface GetConfiguredTableAnalysisRuleCommandOutput
-  extends GetConfiguredTableAnalysisRuleOutput,
-    __MetadataBearer {}
+export interface GetConfiguredTableAnalysisRuleCommandOutput extends GetConfiguredTableAnalysisRuleOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves a configured table analysis rule.</p>
@@ -163,7 +161,7 @@ export class GetConfiguredTableAnalysisRuleCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "GetConfiguredTableAnalysisRule", {})
   .n("CleanRoomsClient", "GetConfiguredTableAnalysisRuleCommand")
-  .sc(GetConfiguredTableAnalysisRule)
+  .sc(GetConfiguredTableAnalysisRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

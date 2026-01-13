@@ -9,7 +9,7 @@ import type {
   ListProcurementPortalPreferencesRequest,
   ListProcurementPortalPreferencesResponse,
 } from "../models/models_0";
-import { ListProcurementPortalPreferences } from "../schemas/schemas_0";
+import { ListProcurementPortalPreferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListProcurementPortalPreferencesCommandInput extends ListProcur
  *
  * The output of {@link ListProcurementPortalPreferencesCommand}.
  */
-export interface ListProcurementPortalPreferencesCommandOutput
-  extends ListProcurementPortalPreferencesResponse,
-    __MetadataBearer {}
+export interface ListProcurementPortalPreferencesCommandOutput extends ListProcurementPortalPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of procurement portal preferences associated with the Amazon Web Services account.</p>
@@ -233,7 +231,7 @@ export class ListProcurementPortalPreferencesCommand extends $Command
   })
   .s("Invoicing", "ListProcurementPortalPreferences", {})
   .n("InvoicingClient", "ListProcurementPortalPreferencesCommand")
-  .sc(ListProcurementPortalPreferences)
+  .sc(ListProcurementPortalPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

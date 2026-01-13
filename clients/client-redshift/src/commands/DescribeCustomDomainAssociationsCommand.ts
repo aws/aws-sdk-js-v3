@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CustomDomainAssociationsMessage, DescribeCustomDomainAssociationsMessage } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeCustomDomainAssociations } from "../schemas/schemas_0";
+import { DescribeCustomDomainAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeCustomDomainAssociationsCommandInput extends DescribeCu
  *
  * The output of {@link DescribeCustomDomainAssociationsCommand}.
  */
-export interface DescribeCustomDomainAssociationsCommandOutput
-  extends CustomDomainAssociationsMessage,
-    __MetadataBearer {}
+export interface DescribeCustomDomainAssociationsCommandOutput extends CustomDomainAssociationsMessage, __MetadataBearer {}
 
 /**
  * <p>Contains information about custom domain associations for a cluster.</p>
@@ -96,7 +94,7 @@ export class DescribeCustomDomainAssociationsCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DescribeCustomDomainAssociations", {})
   .n("RedshiftClient", "DescribeCustomDomainAssociationsCommand")
-  .sc(DescribeCustomDomainAssociations)
+  .sc(DescribeCustomDomainAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

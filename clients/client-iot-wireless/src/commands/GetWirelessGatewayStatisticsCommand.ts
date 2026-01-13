@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import type { GetWirelessGatewayStatisticsRequest, GetWirelessGatewayStatisticsResponse } from "../models/models_0";
-import { GetWirelessGatewayStatistics } from "../schemas/schemas_0";
+import { GetWirelessGatewayStatistics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetWirelessGatewayStatisticsCommandInput extends GetWirelessGat
  *
  * The output of {@link GetWirelessGatewayStatisticsCommand}.
  */
-export interface GetWirelessGatewayStatisticsCommandOutput
-  extends GetWirelessGatewayStatisticsResponse,
-    __MetadataBearer {}
+export interface GetWirelessGatewayStatisticsCommandOutput extends GetWirelessGatewayStatisticsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets operating information about a wireless gateway.</p>
@@ -92,7 +90,7 @@ export class GetWirelessGatewayStatisticsCommand extends $Command
   })
   .s("iotwireless", "GetWirelessGatewayStatistics", {})
   .n("IoTWirelessClient", "GetWirelessGatewayStatisticsCommand")
-  .sc(GetWirelessGatewayStatistics)
+  .sc(GetWirelessGatewayStatistics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

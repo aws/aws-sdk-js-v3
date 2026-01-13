@@ -207,6 +207,7 @@ export const EventType = {
   DEVICE_LIFE_CYCLE: "DEVICE_LIFE_CYCLE",
   DEVICE_OTA: "DEVICE_OTA",
   DEVICE_STATE: "DEVICE_STATE",
+  DEVICE_WSS: "DEVICE_WSS",
 } as const;
 /**
  * @public
@@ -298,6 +299,7 @@ export type ProvisioningType = (typeof ProvisioningType)[keyof typeof Provisioni
  */
 export const DiscoveryType = {
   CLOUD: "CLOUD",
+  CONTROLLER_CAPABILITY_REDISCOVERY: "CONTROLLER_CAPABILITY_REDISCOVERY",
   CUSTOM: "CUSTOM",
   ZIGBEE: "ZIGBEE",
   ZWAVE: "ZWAVE",
@@ -347,6 +349,20 @@ export const DiscoveryAuthMaterialType = {
  * @public
  */
 export type DiscoveryAuthMaterialType = (typeof DiscoveryAuthMaterialType)[keyof typeof DiscoveryAuthMaterialType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProtocolType = {
+  CUSTOM: "CUSTOM",
+  ZIGBEE: "ZIGBEE",
+  ZWAVE: "ZWAVE",
+} as const;
+/**
+ * @public
+ */
+export type ProtocolType = (typeof ProtocolType)[keyof typeof ProtocolType];
 
 /**
  * @public

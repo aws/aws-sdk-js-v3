@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import type { DescribeComputationModelRequest } from "../models/models_0";
 import type { DescribeComputationModelResponse } from "../models/models_1";
-import { DescribeComputationModel } from "../schemas/schemas_0";
+import { DescribeComputationModel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -150,7 +150,7 @@ export class DescribeComputationModelCommand extends $Command
   })
   .s("AWSIoTSiteWise", "DescribeComputationModel", {})
   .n("IoTSiteWiseClient", "DescribeComputationModelCommand")
-  .sc(DescribeComputationModel)
+  .sc(DescribeComputationModel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

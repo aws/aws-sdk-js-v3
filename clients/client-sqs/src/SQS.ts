@@ -117,8 +117,14 @@ export interface SQS {
   /**
    * @see {@link AddPermissionCommand}
    */
-  addPermission(args: AddPermissionCommandInput, options?: __HttpHandlerOptions): Promise<AddPermissionCommandOutput>;
-  addPermission(args: AddPermissionCommandInput, cb: (err: any, data?: AddPermissionCommandOutput) => void): void;
+  addPermission(
+    args: AddPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddPermissionCommandOutput>;
+  addPermission(
+    args: AddPermissionCommandInput,
+    cb: (err: any, data?: AddPermissionCommandOutput) => void
+  ): void;
   addPermission(
     args: AddPermissionCommandInput,
     options: __HttpHandlerOptions,
@@ -179,8 +185,14 @@ export interface SQS {
   /**
    * @see {@link CreateQueueCommand}
    */
-  createQueue(args: CreateQueueCommandInput, options?: __HttpHandlerOptions): Promise<CreateQueueCommandOutput>;
-  createQueue(args: CreateQueueCommandInput, cb: (err: any, data?: CreateQueueCommandOutput) => void): void;
+  createQueue(
+    args: CreateQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateQueueCommandOutput>;
+  createQueue(
+    args: CreateQueueCommandInput,
+    cb: (err: any, data?: CreateQueueCommandOutput) => void
+  ): void;
   createQueue(
     args: CreateQueueCommandInput,
     options: __HttpHandlerOptions,
@@ -190,8 +202,14 @@ export interface SQS {
   /**
    * @see {@link DeleteMessageCommand}
    */
-  deleteMessage(args: DeleteMessageCommandInput, options?: __HttpHandlerOptions): Promise<DeleteMessageCommandOutput>;
-  deleteMessage(args: DeleteMessageCommandInput, cb: (err: any, data?: DeleteMessageCommandOutput) => void): void;
+  deleteMessage(
+    args: DeleteMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMessageCommandOutput>;
+  deleteMessage(
+    args: DeleteMessageCommandInput,
+    cb: (err: any, data?: DeleteMessageCommandOutput) => void
+  ): void;
   deleteMessage(
     args: DeleteMessageCommandInput,
     options: __HttpHandlerOptions,
@@ -218,8 +236,14 @@ export interface SQS {
   /**
    * @see {@link DeleteQueueCommand}
    */
-  deleteQueue(args: DeleteQueueCommandInput, options?: __HttpHandlerOptions): Promise<DeleteQueueCommandOutput>;
-  deleteQueue(args: DeleteQueueCommandInput, cb: (err: any, data?: DeleteQueueCommandOutput) => void): void;
+  deleteQueue(
+    args: DeleteQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteQueueCommandOutput>;
+  deleteQueue(
+    args: DeleteQueueCommandInput,
+    cb: (err: any, data?: DeleteQueueCommandOutput) => void
+  ): void;
   deleteQueue(
     args: DeleteQueueCommandInput,
     options: __HttpHandlerOptions,
@@ -246,8 +270,14 @@ export interface SQS {
   /**
    * @see {@link GetQueueUrlCommand}
    */
-  getQueueUrl(args: GetQueueUrlCommandInput, options?: __HttpHandlerOptions): Promise<GetQueueUrlCommandOutput>;
-  getQueueUrl(args: GetQueueUrlCommandInput, cb: (err: any, data?: GetQueueUrlCommandOutput) => void): void;
+  getQueueUrl(
+    args: GetQueueUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQueueUrlCommandOutput>;
+  getQueueUrl(
+    args: GetQueueUrlCommandInput,
+    cb: (err: any, data?: GetQueueUrlCommandOutput) => void
+  ): void;
   getQueueUrl(
     args: GetQueueUrlCommandInput,
     options: __HttpHandlerOptions,
@@ -292,8 +322,14 @@ export interface SQS {
    * @see {@link ListQueuesCommand}
    */
   listQueues(): Promise<ListQueuesCommandOutput>;
-  listQueues(args: ListQueuesCommandInput, options?: __HttpHandlerOptions): Promise<ListQueuesCommandOutput>;
-  listQueues(args: ListQueuesCommandInput, cb: (err: any, data?: ListQueuesCommandOutput) => void): void;
+  listQueues(
+    args: ListQueuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListQueuesCommandOutput>;
+  listQueues(
+    args: ListQueuesCommandInput,
+    cb: (err: any, data?: ListQueuesCommandOutput) => void
+  ): void;
   listQueues(
     args: ListQueuesCommandInput,
     options: __HttpHandlerOptions,
@@ -303,8 +339,14 @@ export interface SQS {
   /**
    * @see {@link ListQueueTagsCommand}
    */
-  listQueueTags(args: ListQueueTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListQueueTagsCommandOutput>;
-  listQueueTags(args: ListQueueTagsCommandInput, cb: (err: any, data?: ListQueueTagsCommandOutput) => void): void;
+  listQueueTags(
+    args: ListQueueTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListQueueTagsCommandOutput>;
+  listQueueTags(
+    args: ListQueueTagsCommandInput,
+    cb: (err: any, data?: ListQueueTagsCommandOutput) => void
+  ): void;
   listQueueTags(
     args: ListQueueTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -314,8 +356,14 @@ export interface SQS {
   /**
    * @see {@link PurgeQueueCommand}
    */
-  purgeQueue(args: PurgeQueueCommandInput, options?: __HttpHandlerOptions): Promise<PurgeQueueCommandOutput>;
-  purgeQueue(args: PurgeQueueCommandInput, cb: (err: any, data?: PurgeQueueCommandOutput) => void): void;
+  purgeQueue(
+    args: PurgeQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PurgeQueueCommandOutput>;
+  purgeQueue(
+    args: PurgeQueueCommandInput,
+    cb: (err: any, data?: PurgeQueueCommandOutput) => void
+  ): void;
   purgeQueue(
     args: PurgeQueueCommandInput,
     options: __HttpHandlerOptions,
@@ -329,7 +377,10 @@ export interface SQS {
     args: ReceiveMessageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ReceiveMessageCommandOutput>;
-  receiveMessage(args: ReceiveMessageCommandInput, cb: (err: any, data?: ReceiveMessageCommandOutput) => void): void;
+  receiveMessage(
+    args: ReceiveMessageCommandInput,
+    cb: (err: any, data?: ReceiveMessageCommandOutput) => void
+  ): void;
   receiveMessage(
     args: ReceiveMessageCommandInput,
     options: __HttpHandlerOptions,
@@ -356,8 +407,14 @@ export interface SQS {
   /**
    * @see {@link SendMessageCommand}
    */
-  sendMessage(args: SendMessageCommandInput, options?: __HttpHandlerOptions): Promise<SendMessageCommandOutput>;
-  sendMessage(args: SendMessageCommandInput, cb: (err: any, data?: SendMessageCommandOutput) => void): void;
+  sendMessage(
+    args: SendMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendMessageCommandOutput>;
+  sendMessage(
+    args: SendMessageCommandInput,
+    cb: (err: any, data?: SendMessageCommandOutput) => void
+  ): void;
   sendMessage(
     args: SendMessageCommandInput,
     options: __HttpHandlerOptions,
@@ -418,8 +475,14 @@ export interface SQS {
   /**
    * @see {@link TagQueueCommand}
    */
-  tagQueue(args: TagQueueCommandInput, options?: __HttpHandlerOptions): Promise<TagQueueCommandOutput>;
-  tagQueue(args: TagQueueCommandInput, cb: (err: any, data?: TagQueueCommandOutput) => void): void;
+  tagQueue(
+    args: TagQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagQueueCommandOutput>;
+  tagQueue(
+    args: TagQueueCommandInput,
+    cb: (err: any, data?: TagQueueCommandOutput) => void
+  ): void;
   tagQueue(
     args: TagQueueCommandInput,
     options: __HttpHandlerOptions,
@@ -429,8 +492,14 @@ export interface SQS {
   /**
    * @see {@link UntagQueueCommand}
    */
-  untagQueue(args: UntagQueueCommandInput, options?: __HttpHandlerOptions): Promise<UntagQueueCommandOutput>;
-  untagQueue(args: UntagQueueCommandInput, cb: (err: any, data?: UntagQueueCommandOutput) => void): void;
+  untagQueue(
+    args: UntagQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagQueueCommandOutput>;
+  untagQueue(
+    args: UntagQueueCommandInput,
+    cb: (err: any, data?: UntagQueueCommandOutput) => void
+  ): void;
   untagQueue(
     args: UntagQueueCommandInput,
     options: __HttpHandlerOptions,

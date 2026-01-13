@@ -10,7 +10,7 @@ import type {
 } from "../CodeGuruReviewerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeRepositoryAssociationRequest, DescribeRepositoryAssociationResponse } from "../models/models_0";
-import { DescribeRepositoryAssociation } from "../schemas/schemas_0";
+import { DescribeRepositoryAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeRepositoryAssociationCommandInput extends DescribeRepos
  *
  * The output of {@link DescribeRepositoryAssociationCommand}.
  */
-export interface DescribeRepositoryAssociationCommandOutput
-  extends DescribeRepositoryAssociationResponse,
-    __MetadataBearer {}
+export interface DescribeRepositoryAssociationCommandOutput extends DescribeRepositoryAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object that contains information about the requested
@@ -120,7 +118,7 @@ export class DescribeRepositoryAssociationCommand extends $Command
   })
   .s("AWSGuruFrontendService", "DescribeRepositoryAssociation", {})
   .n("CodeGuruReviewerClient", "DescribeRepositoryAssociationCommand")
-  .sc(DescribeRepositoryAssociation)
+  .sc(DescribeRepositoryAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

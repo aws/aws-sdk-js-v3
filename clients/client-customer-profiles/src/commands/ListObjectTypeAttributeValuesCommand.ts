@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListObjectTypeAttributeValuesRequest, ListObjectTypeAttributeValuesResponse } from "../models/models_0";
-import { ListObjectTypeAttributeValues } from "../schemas/schemas_0";
+import { ListObjectTypeAttributeValues$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListObjectTypeAttributeValuesCommandInput extends ListObjectTyp
  *
  * The output of {@link ListObjectTypeAttributeValuesCommand}.
  */
-export interface ListObjectTypeAttributeValuesCommandOutput
-  extends ListObjectTypeAttributeValuesResponse,
-    __MetadataBearer {}
+export interface ListObjectTypeAttributeValuesCommandOutput extends ListObjectTypeAttributeValuesResponse, __MetadataBearer {}
 
 /**
  * <p>The ListObjectTypeAttributeValues API provides access to the most recent distinct values for any specified attribute, making it valuable for real-time data validation and consistency checks within your object types. This API works across domain, supporting both custom and standard object types. The API accepts the object type name, attribute name, and domain name as input parameters and returns values up to the storage limit of approximately 350KB.</p>
@@ -104,7 +102,7 @@ export class ListObjectTypeAttributeValuesCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "ListObjectTypeAttributeValues", {})
   .n("CustomerProfilesClient", "ListObjectTypeAttributeValuesCommand")
-  .sc(ListObjectTypeAttributeValues)
+  .sc(ListObjectTypeAttributeValues$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

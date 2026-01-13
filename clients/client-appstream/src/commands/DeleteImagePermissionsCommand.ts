@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteImagePermissionsRequest, DeleteImagePermissionsResult } from "../models/models_0";
-import { DeleteImagePermissions } from "../schemas/schemas_0";
+import { DeleteImagePermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -78,7 +78,7 @@ export class DeleteImagePermissionsCommand extends $Command
   })
   .s("PhotonAdminProxyService", "DeleteImagePermissions", {})
   .n("AppStreamClient", "DeleteImagePermissionsCommand")
-  .sc(DeleteImagePermissions)
+  .sc(DeleteImagePermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

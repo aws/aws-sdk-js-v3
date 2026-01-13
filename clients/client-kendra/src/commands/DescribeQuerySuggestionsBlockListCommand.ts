@@ -9,7 +9,7 @@ import type {
   DescribeQuerySuggestionsBlockListRequest,
   DescribeQuerySuggestionsBlockListResponse,
 } from "../models/models_0";
-import { DescribeQuerySuggestionsBlockList } from "../schemas/schemas_0";
+import { DescribeQuerySuggestionsBlockList$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeQuerySuggestionsBlockListCommandInput extends DescribeQ
  *
  * The output of {@link DescribeQuerySuggestionsBlockListCommand}.
  */
-export interface DescribeQuerySuggestionsBlockListCommandOutput
-  extends DescribeQuerySuggestionsBlockListResponse,
-    __MetadataBearer {}
+export interface DescribeQuerySuggestionsBlockListCommandOutput extends DescribeQuerySuggestionsBlockListResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a block list used for query suggestions for
@@ -119,7 +117,7 @@ export class DescribeQuerySuggestionsBlockListCommand extends $Command
   })
   .s("AWSKendraFrontendService", "DescribeQuerySuggestionsBlockList", {})
   .n("KendraClient", "DescribeQuerySuggestionsBlockListCommand")
-  .sc(DescribeQuerySuggestionsBlockList)
+  .sc(DescribeQuerySuggestionsBlockList$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

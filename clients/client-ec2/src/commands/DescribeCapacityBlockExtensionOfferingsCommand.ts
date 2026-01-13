@@ -9,7 +9,7 @@ import type {
   DescribeCapacityBlockExtensionOfferingsRequest,
   DescribeCapacityBlockExtensionOfferingsResult,
 } from "../models/models_3";
-import { DescribeCapacityBlockExtensionOfferings } from "../schemas/schemas_0";
+import { DescribeCapacityBlockExtensionOfferings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeCapacityBlockExtensionOfferingsCommand}.
  */
-export interface DescribeCapacityBlockExtensionOfferingsCommandInput
-  extends DescribeCapacityBlockExtensionOfferingsRequest {}
+export interface DescribeCapacityBlockExtensionOfferingsCommandInput extends DescribeCapacityBlockExtensionOfferingsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeCapacityBlockExtensionOfferingsCommand}.
  */
-export interface DescribeCapacityBlockExtensionOfferingsCommandOutput
-  extends DescribeCapacityBlockExtensionOfferingsResult,
-    __MetadataBearer {}
+export interface DescribeCapacityBlockExtensionOfferingsCommandOutput extends DescribeCapacityBlockExtensionOfferingsResult, __MetadataBearer {}
 
 /**
  * <p>Describes Capacity Block extension offerings available for purchase in the Amazon Web Services
@@ -100,7 +97,7 @@ export class DescribeCapacityBlockExtensionOfferingsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeCapacityBlockExtensionOfferings", {})
   .n("EC2Client", "DescribeCapacityBlockExtensionOfferingsCommand")
-  .sc(DescribeCapacityBlockExtensionOfferings)
+  .sc(DescribeCapacityBlockExtensionOfferings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

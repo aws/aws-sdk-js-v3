@@ -9,7 +9,7 @@ import type {
   CreateProvisionedModelThroughputRequest,
   CreateProvisionedModelThroughputResponse,
 } from "../models/models_1";
-import { CreateProvisionedModelThroughput } from "../schemas/schemas_0";
+import { CreateProvisionedModelThroughput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateProvisionedModelThroughputCommandInput extends CreateProv
  *
  * The output of {@link CreateProvisionedModelThroughputCommand}.
  */
-export interface CreateProvisionedModelThroughputCommandOutput
-  extends CreateProvisionedModelThroughputResponse,
-    __MetadataBearer {}
+export interface CreateProvisionedModelThroughputCommandOutput extends CreateProvisionedModelThroughputResponse, __MetadataBearer {}
 
 /**
  * <p>Creates dedicated throughput for a base or custom model with the model units and for the duration that you specify. For pricing details, see <a href="http://aws.amazon.com/bedrock/pricing/">Amazon Bedrock Pricing</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
@@ -109,7 +107,7 @@ export class CreateProvisionedModelThroughputCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "CreateProvisionedModelThroughput", {})
   .n("BedrockClient", "CreateProvisionedModelThroughputCommand")
-  .sc(CreateProvisionedModelThroughput)
+  .sc(CreateProvisionedModelThroughput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

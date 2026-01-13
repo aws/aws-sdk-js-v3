@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../InternetMonitorClient";
 import type { GetQueryStatusInput, GetQueryStatusOutput } from "../models/models_0";
-import { GetQueryStatus } from "../schemas/schemas_0";
+import { GetQueryStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class GetQueryStatusCommand extends $Command
   })
   .s("InternetMonitor20210603", "GetQueryStatus", {})
   .n("InternetMonitorClient", "GetQueryStatusCommand")
-  .sc(GetQueryStatus)
+  .sc(GetQueryStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

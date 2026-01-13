@@ -26,10 +26,8 @@ data file, an image file, or some other data file. Jobs are asynchronous import 
 operations used to create or copy assets.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-dataexchange
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-dataexchange`
 - `yarn add @aws-sdk/client-dataexchange`
 - `pnpm add @aws-sdk/client-dataexchange`
@@ -65,9 +63,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new DataExchangeClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListJobsCommand(params);
 ```
 
@@ -226,7 +222,6 @@ AcceptDataGrant
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/AcceptDataGrantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/AcceptDataGrantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/AcceptDataGrantCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -234,7 +229,6 @@ CancelJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/CancelJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/CancelJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/CancelJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -242,7 +236,6 @@ CreateDataGrant
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/CreateDataGrantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/CreateDataGrantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/CreateDataGrantCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -250,7 +243,6 @@ CreateDataSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/CreateDataSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/CreateDataSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/CreateDataSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -258,7 +250,6 @@ CreateEventAction
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/CreateEventActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/CreateEventActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/CreateEventActionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -266,7 +257,6 @@ CreateJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/CreateJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/CreateJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/CreateJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -274,7 +264,6 @@ CreateRevision
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/CreateRevisionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/CreateRevisionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/CreateRevisionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -282,7 +271,6 @@ DeleteAsset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/DeleteAssetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/DeleteAssetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/DeleteAssetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -290,7 +278,6 @@ DeleteDataGrant
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/DeleteDataGrantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/DeleteDataGrantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/DeleteDataGrantCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -298,7 +285,6 @@ DeleteDataSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/DeleteDataSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/DeleteDataSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/DeleteDataSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -306,7 +292,6 @@ DeleteEventAction
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/DeleteEventActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/DeleteEventActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/DeleteEventActionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -314,7 +299,6 @@ DeleteRevision
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/DeleteRevisionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/DeleteRevisionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/DeleteRevisionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -322,7 +306,6 @@ GetAsset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/GetAssetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetAssetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetAssetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -330,7 +313,6 @@ GetDataGrant
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/GetDataGrantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetDataGrantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetDataGrantCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -338,7 +320,6 @@ GetDataSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/GetDataSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetDataSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetDataSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -346,7 +327,6 @@ GetEventAction
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/GetEventActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetEventActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetEventActionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -354,7 +334,6 @@ GetJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/GetJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -362,7 +341,6 @@ GetReceivedDataGrant
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/GetReceivedDataGrantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetReceivedDataGrantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetReceivedDataGrantCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -370,7 +348,6 @@ GetRevision
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/GetRevisionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetRevisionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetRevisionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -378,7 +355,6 @@ ListDataGrants
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/ListDataGrantsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListDataGrantsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListDataGrantsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -386,7 +362,6 @@ ListDataSetRevisions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/ListDataSetRevisionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListDataSetRevisionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListDataSetRevisionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -394,7 +369,6 @@ ListDataSets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/ListDataSetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListDataSetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListDataSetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -402,7 +376,6 @@ ListEventActions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/ListEventActionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListEventActionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListEventActionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -410,7 +383,6 @@ ListJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/ListJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -418,7 +390,6 @@ ListReceivedDataGrants
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/ListReceivedDataGrantsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListReceivedDataGrantsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListReceivedDataGrantsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -426,7 +397,6 @@ ListRevisionAssets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/ListRevisionAssetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListRevisionAssetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListRevisionAssetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -434,7 +404,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -442,7 +411,6 @@ RevokeRevision
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/RevokeRevisionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/RevokeRevisionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/RevokeRevisionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -450,7 +418,6 @@ SendApiAsset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/SendApiAssetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/SendApiAssetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/SendApiAssetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -458,7 +425,6 @@ SendDataSetNotification
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/SendDataSetNotificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/SendDataSetNotificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/SendDataSetNotificationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -466,7 +432,6 @@ StartJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/StartJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/StartJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/StartJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -474,7 +439,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -482,7 +446,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -490,7 +453,6 @@ UpdateAsset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/UpdateAssetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/UpdateAssetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/UpdateAssetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -498,7 +460,6 @@ UpdateDataSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/UpdateDataSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/UpdateDataSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/UpdateDataSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -506,7 +467,6 @@ UpdateEventAction
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/UpdateEventActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/UpdateEventActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/UpdateEventActionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -514,5 +474,4 @@ UpdateRevision
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/UpdateRevisionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/UpdateRevisionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/UpdateRevisionCommandOutput/)
-
 </details>

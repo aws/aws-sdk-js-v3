@@ -9,7 +9,7 @@ import type {
   DisassociateWirelessGatewayFromThingRequest,
   DisassociateWirelessGatewayFromThingResponse,
 } from "../models/models_0";
-import { DisassociateWirelessGatewayFromThing } from "../schemas/schemas_0";
+import { DisassociateWirelessGatewayFromThing$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DisassociateWirelessGatewayFromThingCommandInput extends Disass
  *
  * The output of {@link DisassociateWirelessGatewayFromThingCommand}.
  */
-export interface DisassociateWirelessGatewayFromThingCommandOutput
-  extends DisassociateWirelessGatewayFromThingResponse,
-    __MetadataBearer {}
+export interface DisassociateWirelessGatewayFromThingCommandOutput extends DisassociateWirelessGatewayFromThingResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a wireless gateway from its currently associated thing.</p>
@@ -94,7 +92,7 @@ export class DisassociateWirelessGatewayFromThingCommand extends $Command
   })
   .s("iotwireless", "DisassociateWirelessGatewayFromThing", {})
   .n("IoTWirelessClient", "DisassociateWirelessGatewayFromThingCommand")
-  .sc(DisassociateWirelessGatewayFromThing)
+  .sc(DisassociateWirelessGatewayFromThing$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

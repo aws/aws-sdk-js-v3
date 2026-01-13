@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { ListEngagementByAcceptingInvitationTasks } from "../schemas/schemas_0";
+import { ListEngagementByAcceptingInvitationTasks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListEngagementByAcceptingInvitationTasksCommand}.
  */
-export interface ListEngagementByAcceptingInvitationTasksCommandInput
-  extends ListEngagementByAcceptingInvitationTasksRequest {}
+export interface ListEngagementByAcceptingInvitationTasksCommandInput extends ListEngagementByAcceptingInvitationTasksRequest {}
 /**
  * @public
  *
  * The output of {@link ListEngagementByAcceptingInvitationTasksCommand}.
  */
-export interface ListEngagementByAcceptingInvitationTasksCommandOutput
-  extends ListEngagementByAcceptingInvitationTasksResponse,
-    __MetadataBearer {}
+export interface ListEngagementByAcceptingInvitationTasksCommandOutput extends ListEngagementByAcceptingInvitationTasksResponse, __MetadataBearer {}
 
 /**
  * <p> Lists all in-progress, completed, or failed StartEngagementByAcceptingInvitationTask tasks that were initiated by the caller's account. </p>
@@ -129,7 +126,7 @@ export class ListEngagementByAcceptingInvitationTasksCommand extends $Command
   })
   .s("AWSPartnerCentralSelling", "ListEngagementByAcceptingInvitationTasks", {})
   .n("PartnerCentralSellingClient", "ListEngagementByAcceptingInvitationTasksCommand")
-  .sc(ListEngagementByAcceptingInvitationTasks)
+  .sc(ListEngagementByAcceptingInvitationTasks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

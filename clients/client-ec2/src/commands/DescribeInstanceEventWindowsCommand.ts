@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeInstanceEventWindowsRequest, DescribeInstanceEventWindowsResult } from "../models/models_3";
-import { DescribeInstanceEventWindows } from "../schemas/schemas_0";
+import { DescribeInstanceEventWindows$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeInstanceEventWindowsCommandInput extends DescribeInstan
  *
  * The output of {@link DescribeInstanceEventWindowsCommand}.
  */
-export interface DescribeInstanceEventWindowsCommandOutput
-  extends DescribeInstanceEventWindowsResult,
-    __MetadataBearer {}
+export interface DescribeInstanceEventWindowsCommandOutput extends DescribeInstanceEventWindowsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified event windows or all event windows.</p>
@@ -132,7 +130,7 @@ export class DescribeInstanceEventWindowsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeInstanceEventWindows", {})
   .n("EC2Client", "DescribeInstanceEventWindowsCommand")
-  .sc(DescribeInstanceEventWindows)
+  .sc(DescribeInstanceEventWindows$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

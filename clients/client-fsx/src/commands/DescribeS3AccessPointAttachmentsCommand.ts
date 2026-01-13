@@ -9,7 +9,7 @@ import type {
   DescribeS3AccessPointAttachmentsRequest,
   DescribeS3AccessPointAttachmentsResponse,
 } from "../models/models_0";
-import { DescribeS3AccessPointAttachments } from "../schemas/schemas_0";
+import { DescribeS3AccessPointAttachments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeS3AccessPointAttachmentsCommandInput extends DescribeS3
  *
  * The output of {@link DescribeS3AccessPointAttachmentsCommand}.
  */
-export interface DescribeS3AccessPointAttachmentsCommandOutput
-  extends DescribeS3AccessPointAttachmentsResponse,
-    __MetadataBearer {}
+export interface DescribeS3AccessPointAttachmentsCommandOutput extends DescribeS3AccessPointAttachmentsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes one or more S3 access points attached to Amazon FSx volumes.</p>
@@ -153,7 +151,7 @@ export class DescribeS3AccessPointAttachmentsCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "DescribeS3AccessPointAttachments", {})
   .n("FSxClient", "DescribeS3AccessPointAttachmentsCommand")
-  .sc(DescribeS3AccessPointAttachments)
+  .sc(DescribeS3AccessPointAttachments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

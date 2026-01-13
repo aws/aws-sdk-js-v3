@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { DeleteResolverQueryLogConfig } from "../schemas/schemas_0";
+import { DeleteResolverQueryLogConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DeleteResolverQueryLogConfigCommandInput extends DeleteResolver
  *
  * The output of {@link DeleteResolverQueryLogConfigCommand}.
  */
-export interface DeleteResolverQueryLogConfigCommandOutput
-  extends DeleteResolverQueryLogConfigResponse,
-    __MetadataBearer {}
+export interface DeleteResolverQueryLogConfigCommandOutput extends DeleteResolverQueryLogConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a query logging configuration. When you delete a configuration, Resolver stops logging DNS queries for all of the Amazon VPCs that are
@@ -118,7 +116,7 @@ export class DeleteResolverQueryLogConfigCommand extends $Command
   })
   .s("Route53Resolver", "DeleteResolverQueryLogConfig", {})
   .n("Route53ResolverClient", "DeleteResolverQueryLogConfigCommand")
-  .sc(DeleteResolverQueryLogConfig)
+  .sc(DeleteResolverQueryLogConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

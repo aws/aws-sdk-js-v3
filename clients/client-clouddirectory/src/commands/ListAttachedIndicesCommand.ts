@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAttachedIndicesRequest, ListAttachedIndicesResponse } from "../models/models_0";
-import { ListAttachedIndices } from "../schemas/schemas_0";
+import { ListAttachedIndices$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -152,7 +152,7 @@ export class ListAttachedIndicesCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "ListAttachedIndices", {})
   .n("CloudDirectoryClient", "ListAttachedIndicesCommand")
-  .sc(ListAttachedIndices)
+  .sc(ListAttachedIndices$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

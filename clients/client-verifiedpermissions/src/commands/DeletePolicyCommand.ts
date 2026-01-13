@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeletePolicyInput, DeletePolicyOutput } from "../models/models_0";
-import { DeletePolicy } from "../schemas/schemas_0";
+import { DeletePolicy$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -108,7 +108,7 @@ export class DeletePolicyCommand extends $Command
   })
   .s("VerifiedPermissions", "DeletePolicy", {})
   .n("VerifiedPermissionsClient", "DeletePolicyCommand")
-  .sc(DeletePolicy)
+  .sc(DeletePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

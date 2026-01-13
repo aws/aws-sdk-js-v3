@@ -8,7 +8,7 @@ import type {
   CreateAvailabilityConfigurationRequest,
   CreateAvailabilityConfigurationResponse,
 } from "../models/models_0";
-import { CreateAvailabilityConfiguration } from "../schemas/schemas_0";
+import { CreateAvailabilityConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -27,9 +27,7 @@ export interface CreateAvailabilityConfigurationCommandInput extends CreateAvail
  *
  * The output of {@link CreateAvailabilityConfigurationCommand}.
  */
-export interface CreateAvailabilityConfigurationCommandOutput
-  extends CreateAvailabilityConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateAvailabilityConfigurationCommandOutput extends CreateAvailabilityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an <code>AvailabilityConfiguration</code> for the given WorkMail organization and domain.</p>
@@ -103,7 +101,7 @@ export class CreateAvailabilityConfigurationCommand extends $Command
   })
   .s("WorkMailService", "CreateAvailabilityConfiguration", {})
   .n("WorkMailClient", "CreateAvailabilityConfigurationCommand")
-  .sc(CreateAvailabilityConfiguration)
+  .sc(CreateAvailabilityConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

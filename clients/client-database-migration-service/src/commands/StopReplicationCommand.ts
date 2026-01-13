@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopReplicationMessage, StopReplicationResponse } from "../models/models_1";
-import { StopReplication } from "../schemas/schemas_0";
+import { StopReplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -156,7 +156,7 @@ export class StopReplicationCommand extends $Command
   })
   .s("AmazonDMSv20160101", "StopReplication", {})
   .n("DatabaseMigrationServiceClient", "StopReplicationCommand")
-  .sc(StopReplication)
+  .sc(StopReplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeConfigurationTemplatesRequest, DescribeConfigurationTemplatesResponse } from "../models/models_0";
-import { DescribeConfigurationTemplates } from "../schemas/schemas_0";
+import { DescribeConfigurationTemplates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeConfigurationTemplatesCommandInput extends DescribeConf
  *
  * The output of {@link DescribeConfigurationTemplatesCommand}.
  */
-export interface DescribeConfigurationTemplatesCommandOutput
-  extends DescribeConfigurationTemplatesResponse,
-    __MetadataBearer {}
+export interface DescribeConfigurationTemplatesCommandOutput extends DescribeConfigurationTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Use this operation to return the valid and default values that are used when creating
@@ -138,7 +136,7 @@ export class DescribeConfigurationTemplatesCommand extends $Command
   })
   .s("Logs_20140328", "DescribeConfigurationTemplates", {})
   .n("CloudWatchLogsClient", "DescribeConfigurationTemplatesCommand")
-  .sc(DescribeConfigurationTemplates)
+  .sc(DescribeConfigurationTemplates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

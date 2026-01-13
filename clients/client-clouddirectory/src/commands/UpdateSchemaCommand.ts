@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateSchemaRequest, UpdateSchemaResponse } from "../models/models_0";
-import { UpdateSchema } from "../schemas/schemas_0";
+import { UpdateSchema$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class UpdateSchemaCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "UpdateSchema", {})
   .n("CloudDirectoryClient", "UpdateSchemaCommand")
-  .sc(UpdateSchema)
+  .sc(UpdateSchema$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

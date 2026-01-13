@@ -9,7 +9,7 @@ import type {
   GetIpamPrefixListResolverVersionEntriesRequest,
   GetIpamPrefixListResolverVersionEntriesResult,
 } from "../models/models_6";
-import { GetIpamPrefixListResolverVersionEntries } from "../schemas/schemas_0";
+import { GetIpamPrefixListResolverVersionEntries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetIpamPrefixListResolverVersionEntriesCommand}.
  */
-export interface GetIpamPrefixListResolverVersionEntriesCommandInput
-  extends GetIpamPrefixListResolverVersionEntriesRequest {}
+export interface GetIpamPrefixListResolverVersionEntriesCommandInput extends GetIpamPrefixListResolverVersionEntriesRequest {}
 /**
  * @public
  *
  * The output of {@link GetIpamPrefixListResolverVersionEntriesCommand}.
  */
-export interface GetIpamPrefixListResolverVersionEntriesCommandOutput
-  extends GetIpamPrefixListResolverVersionEntriesResult,
-    __MetadataBearer {}
+export interface GetIpamPrefixListResolverVersionEntriesCommandOutput extends GetIpamPrefixListResolverVersionEntriesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the CIDR entries for a specific version of an IPAM prefix list resolver. This shows the actual CIDRs that were selected and synchronized at a particular point in time.</p>
@@ -88,7 +85,7 @@ export class GetIpamPrefixListResolverVersionEntriesCommand extends $Command
   })
   .s("AmazonEC2", "GetIpamPrefixListResolverVersionEntries", {})
   .n("EC2Client", "GetIpamPrefixListResolverVersionEntriesCommand")
-  .sc(GetIpamPrefixListResolverVersionEntries)
+  .sc(GetIpamPrefixListResolverVersionEntries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

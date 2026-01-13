@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageVodClient";
 import type { CreatePackagingConfigurationRequest, CreatePackagingConfigurationResponse } from "../models/models_0";
-import { CreatePackagingConfiguration } from "../schemas/schemas_0";
+import { CreatePackagingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface CreatePackagingConfigurationCommandInput extends CreatePackagin
  *
  * The output of {@link CreatePackagingConfigurationCommand}.
  */
-export interface CreatePackagingConfigurationCommandOutput
-  extends CreatePackagingConfigurationResponse,
-    __MetadataBearer {}
+export interface CreatePackagingConfigurationCommandOutput extends CreatePackagingConfigurationResponse, __MetadataBearer {}
 
 /**
  * Creates a new MediaPackage VOD PackagingConfiguration resource.
@@ -363,7 +361,7 @@ export class CreatePackagingConfigurationCommand extends $Command
   })
   .s("MediaPackageVod", "CreatePackagingConfiguration", {})
   .n("MediaPackageVodClient", "CreatePackagingConfigurationCommand")
-  .sc(CreatePackagingConfiguration)
+  .sc(CreatePackagingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

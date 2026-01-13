@@ -9,7 +9,7 @@ import type {
   AssociateWirelessDeviceWithMulticastGroupRequest,
   AssociateWirelessDeviceWithMulticastGroupResponse,
 } from "../models/models_0";
-import { AssociateWirelessDeviceWithMulticastGroup } from "../schemas/schemas_0";
+import { AssociateWirelessDeviceWithMulticastGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AssociateWirelessDeviceWithMulticastGroupCommand}.
  */
-export interface AssociateWirelessDeviceWithMulticastGroupCommandInput
-  extends AssociateWirelessDeviceWithMulticastGroupRequest {}
+export interface AssociateWirelessDeviceWithMulticastGroupCommandInput extends AssociateWirelessDeviceWithMulticastGroupRequest {}
 /**
  * @public
  *
  * The output of {@link AssociateWirelessDeviceWithMulticastGroupCommand}.
  */
-export interface AssociateWirelessDeviceWithMulticastGroupCommandOutput
-  extends AssociateWirelessDeviceWithMulticastGroupResponse,
-    __MetadataBearer {}
+export interface AssociateWirelessDeviceWithMulticastGroupCommandOutput extends AssociateWirelessDeviceWithMulticastGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a wireless device with a multicast group.</p>
@@ -96,7 +93,7 @@ export class AssociateWirelessDeviceWithMulticastGroupCommand extends $Command
   })
   .s("iotwireless", "AssociateWirelessDeviceWithMulticastGroup", {})
   .n("IoTWirelessClient", "AssociateWirelessDeviceWithMulticastGroupCommand")
-  .sc(AssociateWirelessDeviceWithMulticastGroup)
+  .sc(AssociateWirelessDeviceWithMulticastGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

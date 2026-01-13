@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RejectQualificationRequestRequest, RejectQualificationRequestResponse } from "../models/models_0";
 import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { RejectQualificationRequest } from "../schemas/schemas_0";
+import { RejectQualificationRequest$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class RejectQualificationRequestCommand extends $Command
   })
   .s("MTurkRequesterServiceV20170117", "RejectQualificationRequest", {})
   .n("MTurkClient", "RejectQualificationRequestCommand")
-  .sc(RejectQualificationRequest)
+  .sc(RejectQualificationRequest$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

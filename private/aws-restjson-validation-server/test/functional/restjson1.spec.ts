@@ -1,8 +1,5 @@
 // smithy-typescript generated code
-import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import type { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
 import { toUtf8 as __utf8Encoder } from "@smithy/util-utf8";
-import { Readable } from "node:stream";
 import { expect, test as it } from "vitest";
 
 import { getRestJsonValidationServiceHandler } from "../../src/server";
@@ -19,6 +16,9 @@ import { MalformedUniqueItems } from "../../src/server/operations/MalformedUniqu
 import { RecursiveStructures } from "../../src/server/operations/RecursiveStructures";
 import { SensitiveValidation } from "../../src/server/operations/SensitiveValidation";
 import { RestJsonValidationService } from "../../src/server/RestJsonValidationService";
+import type { HttpHandlerOptions, HeaderBag, Endpoint } from "@smithy/types";
+import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import { Readable } from "node:stream";
 
 /**
  * Throws an expected exception that contains the serialized request.
@@ -125,7 +125,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
     return true;
   }
 
-  const localExpected = expected;
+  let localExpected = expected;
 
   // Short circuit on equality.
   if (localExpected == generated) {
@@ -153,7 +153,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   }
 
   // Compare properties directly.
-  for (let index = 0; index < expectedProperties.length; index++) {
+  for (var index = 0; index < expectedProperties.length; index++) {
     const propertyName = expectedProperties[index];
     if (!equivalentContents(localExpected[propertyName], generated[propertyName])) {
       return false;
@@ -235,9 +235,9 @@ it("RestJsonMalformedEnumString_case0:MalformedRequest", async () => {
     path: "/MalformedEnum",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "string" : "ABC" }']),
+    body: Readable.from(["{ \"string\" : \"ABC\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -273,9 +273,9 @@ it("RestJsonMalformedEnumString_case1:MalformedRequest", async () => {
     path: "/MalformedEnum",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "string" : "XYZ" }']),
+    body: Readable.from(["{ \"string\" : \"XYZ\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -311,9 +311,9 @@ it("RestJsonMalformedEnumTraitString_case0:MalformedRequest", async () => {
     path: "/MalformedEnum",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "stringWithEnumTrait" : "ABC" }']),
+    body: Readable.from(["{ \"stringWithEnumTrait\" : \"ABC\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -349,9 +349,9 @@ it("RestJsonMalformedEnumTraitString_case1:MalformedRequest", async () => {
     path: "/MalformedEnum",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "stringWithEnumTrait" : "XYZ" }']),
+    body: Readable.from(["{ \"stringWithEnumTrait\" : \"XYZ\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -387,9 +387,9 @@ it("RestJsonMalformedEnumList_case0:MalformedRequest", async () => {
     path: "/MalformedEnum",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "list" : ["ABC"] }']),
+    body: Readable.from(["{ \"list\" : [\"ABC\"] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -425,9 +425,9 @@ it("RestJsonMalformedEnumList_case1:MalformedRequest", async () => {
     path: "/MalformedEnum",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "list" : ["XYZ"] }']),
+    body: Readable.from(["{ \"list\" : [\"XYZ\"] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -463,9 +463,9 @@ it("RestJsonMalformedEnumMapKey_case0:MalformedRequest", async () => {
     path: "/MalformedEnum",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "map" : { "ABC" : "abc" } }']),
+    body: Readable.from(["{ \"map\" : { \"ABC\" : \"abc\" } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -501,9 +501,9 @@ it("RestJsonMalformedEnumMapKey_case1:MalformedRequest", async () => {
     path: "/MalformedEnum",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "map" : { "XYZ" : "abc" } }']),
+    body: Readable.from(["{ \"map\" : { \"XYZ\" : \"abc\" } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -539,9 +539,9 @@ it("RestJsonMalformedEnumMapValue_case0:MalformedRequest", async () => {
     path: "/MalformedEnum",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "map" : { "abc": "ABC" } }']),
+    body: Readable.from(["{ \"map\" : { \"abc\": \"ABC\" } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -577,9 +577,9 @@ it("RestJsonMalformedEnumMapValue_case1:MalformedRequest", async () => {
     path: "/MalformedEnum",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "map" : { "abc": "XYZ" } }']),
+    body: Readable.from(["{ \"map\" : { \"abc\": \"XYZ\" } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -615,9 +615,9 @@ it("RestJsonMalformedEnumUnion_case0:MalformedRequest", async () => {
     path: "/MalformedEnum",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "union" : { "first": "ABC" } }']),
+    body: Readable.from(["{ \"union\" : { \"first\": \"ABC\" } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -653,9 +653,9 @@ it("RestJsonMalformedEnumUnion_case1:MalformedRequest", async () => {
     path: "/MalformedEnum",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "union" : { "first": "XYZ" } }']),
+    body: Readable.from(["{ \"union\" : { \"first\": \"XYZ\" } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -690,9 +690,9 @@ it("RestJsonMalformedLengthBlob_case0:MalformedRequest", async () => {
     path: "/MalformedLength",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "blob" : "YQ==" }']),
+    body: Readable.from(["{ \"blob\" : \"YQ==\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -727,9 +727,9 @@ it("RestJsonMalformedLengthBlob_case1:MalformedRequest", async () => {
     path: "/MalformedLength",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "blob" : "YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXo=" }']),
+    body: Readable.from(["{ \"blob\" : \"YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXo=\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -764,9 +764,9 @@ it("RestJsonMalformedLengthString_case0:MalformedRequest", async () => {
     path: "/MalformedLength",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "string" : "a" }']),
+    body: Readable.from(["{ \"string\" : \"a\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -801,9 +801,9 @@ it("RestJsonMalformedLengthString_case1:MalformedRequest", async () => {
     path: "/MalformedLength",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "string" : "abcdefghijklmnopqrstuvwxyz" }']),
+    body: Readable.from(["{ \"string\" : \"abcdefghijklmnopqrstuvwxyz\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -838,9 +838,9 @@ it("RestJsonMalformedLengthString_case2:MalformedRequest", async () => {
     path: "/MalformedLength",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "string" : "👍" }']),
+    body: Readable.from(["{ \"string\" : \"👍\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -875,9 +875,9 @@ it("RestJsonMalformedLengthMinString:MalformedRequest", async () => {
     path: "/MalformedLength",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "minString" : "a" }']),
+    body: Readable.from(["{ \"minString\" : \"a\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -912,9 +912,9 @@ it("RestJsonMalformedLengthMaxString:MalformedRequest", async () => {
     path: "/MalformedLength",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "maxString" : "abcdefghijklmnopqrstuvwxyz" }']),
+    body: Readable.from(["{ \"maxString\" : \"abcdefghijklmnopqrstuvwxyz\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -949,9 +949,9 @@ it("RestJsonMalformedLengthList_case0:MalformedRequest", async () => {
     path: "/MalformedLength",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "list" : ["abc"] }']),
+    body: Readable.from(["{ \"list\" : [\"abc\"] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -986,9 +986,9 @@ it("RestJsonMalformedLengthList_case1:MalformedRequest", async () => {
     path: "/MalformedLength",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "list" : ["abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc"] }']),
+    body: Readable.from(["{ \"list\" : [\"abc\", \"abc\", \"abc\", \"abc\", \"abc\", \"abc\", \"abc\", \"abc\", \"abc\", \"abc\"] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1023,9 +1023,9 @@ it("RestJsonMalformedLengthListValue_case0:MalformedRequest", async () => {
     path: "/MalformedLength",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "list" : ["a", "abc"] }']),
+    body: Readable.from(["{ \"list\" : [\"a\", \"abc\"] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1060,9 +1060,9 @@ it("RestJsonMalformedLengthListValue_case1:MalformedRequest", async () => {
     path: "/MalformedLength",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "list" : ["abcdefghijklmnopqrstuvwxyz", "abc"] }']),
+    body: Readable.from(["{ \"list\" : [\"abcdefghijklmnopqrstuvwxyz\", \"abc\"] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1097,9 +1097,9 @@ it("RestJsonMalformedLengthMap_case0:MalformedRequest", async () => {
     path: "/MalformedLength",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "map" : {"abc": ["def", "efg", "fgh"]} }']),
+    body: Readable.from(["{ \"map\" : {\"abc\": [\"def\", \"efg\", \"fgh\"]} }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1134,11 +1134,9 @@ it("RestJsonMalformedLengthMap_case1:MalformedRequest", async () => {
     path: "/MalformedLength",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from([
-      '{ "map" : {"abc": ["abc", "def", "efg"], "bcd": ["abc", "def", "efg"],\n "cde": ["abc", "def", "efg"], "def": ["abc", "def", "efg"],\n "efg": ["abc", "def", "efg"], "fgh": ["abc", "def", "efg"],\n "ghi": ["abc", "def", "efg"], "jkl": ["abc", "def", "efg"],\n "klm": ["abc", "def", "efg"], "lmn": ["abc", "def", "efg"] } }',
-    ]),
+    body: Readable.from(["{ \"map\" : {\"abc\": [\"abc\", \"def\", \"efg\"], \"bcd\": [\"abc\", \"def\", \"efg\"],\n \"cde\": [\"abc\", \"def\", \"efg\"], \"def\": [\"abc\", \"def\", \"efg\"],\n \"efg\": [\"abc\", \"def\", \"efg\"], \"fgh\": [\"abc\", \"def\", \"efg\"],\n \"ghi\": [\"abc\", \"def\", \"efg\"], \"jkl\": [\"abc\", \"def\", \"efg\"],\n \"klm\": [\"abc\", \"def\", \"efg\"], \"lmn\": [\"abc\", \"def\", \"efg\"] } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1173,11 +1171,9 @@ it("RestJsonMalformedLengthMapKey_case0:MalformedRequest", async () => {
     path: "/MalformedLength",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from([
-      '{ "map" : {"a": ["abc", "def", "efg"], "bcd": ["abc", "def", "efg"], "cde": ["abc", "def", "efg"]} }',
-    ]),
+    body: Readable.from(["{ \"map\" : {\"a\": [\"abc\", \"def\", \"efg\"], \"bcd\": [\"abc\", \"def\", \"efg\"], \"cde\": [\"abc\", \"def\", \"efg\"]} }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1212,11 +1208,9 @@ it("RestJsonMalformedLengthMapKey_case1:MalformedRequest", async () => {
     path: "/MalformedLength",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from([
-      '{ "map" : {"abcdefghijklmnopqrstuvwxyz": ["abc", "def", "efg"], "bcd": ["abc", "def", "efg"], "cde": ["abc", "def", "efg"]} }',
-    ]),
+    body: Readable.from(["{ \"map\" : {\"abcdefghijklmnopqrstuvwxyz\": [\"abc\", \"def\", \"efg\"], \"bcd\": [\"abc\", \"def\", \"efg\"], \"cde\": [\"abc\", \"def\", \"efg\"]} }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1251,9 +1245,9 @@ it("RestJsonMalformedLengthMapValue_case0:MalformedRequest", async () => {
     path: "/MalformedLength",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "map" : {"abc": ["def"], "bcd": ["abc", "def", "efg"], "cde": ["abc", "def", "efg"]} }']),
+    body: Readable.from(["{ \"map\" : {\"abc\": [\"def\"], \"bcd\": [\"abc\", \"def\", \"efg\"], \"cde\": [\"abc\", \"def\", \"efg\"]} }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1288,11 +1282,9 @@ it("RestJsonMalformedLengthMapValue_case1:MalformedRequest", async () => {
     path: "/MalformedLength",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from([
-      '{ "map" : {"abc": ["def", "efg", "fgh", "def", "efg", "fgh", "def", "efg", "fgh", "def"],\n "bcd": ["abc", "def", "efg"],\n "cde": ["abc", "def", "efg"]} }',
-    ]),
+    body: Readable.from(["{ \"map\" : {\"abc\": [\"def\", \"efg\", \"fgh\", \"def\", \"efg\", \"fgh\", \"def\", \"efg\", \"fgh\", \"def\"],\n \"bcd\": [\"abc\", \"def\", \"efg\"],\n \"cde\": [\"abc\", \"def\", \"efg\"]} }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1327,9 +1319,9 @@ it("RestJsonMalformedLengthBlobOverride_case0:MalformedRequest", async () => {
     path: "/MalformedLengthOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "blob" : "YWJj" }']),
+    body: Readable.from(["{ \"blob\" : \"YWJj\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1364,9 +1356,9 @@ it("RestJsonMalformedLengthBlobOverride_case1:MalformedRequest", async () => {
     path: "/MalformedLengthOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "blob" : "YWJjZGVmZw==" }']),
+    body: Readable.from(["{ \"blob\" : \"YWJjZGVmZw==\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1401,9 +1393,9 @@ it("RestJsonMalformedLengthStringOverride_case0:MalformedRequest", async () => {
     path: "/MalformedLengthOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "string" : "abc" }']),
+    body: Readable.from(["{ \"string\" : \"abc\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1438,9 +1430,9 @@ it("RestJsonMalformedLengthStringOverride_case1:MalformedRequest", async () => {
     path: "/MalformedLengthOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "string" : "abcdefg" }']),
+    body: Readable.from(["{ \"string\" : \"abcdefg\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1475,9 +1467,9 @@ it("RestJsonMalformedLengthStringOverride_case2:MalformedRequest", async () => {
     path: "/MalformedLengthOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "string" : "👍👍👍" }']),
+    body: Readable.from(["{ \"string\" : \"👍👍👍\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1512,9 +1504,9 @@ it("RestJsonMalformedLengthMinStringOverride:MalformedRequest", async () => {
     path: "/MalformedLengthOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "minString" : "abc" }']),
+    body: Readable.from(["{ \"minString\" : \"abc\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1549,9 +1541,9 @@ it("RestJsonMalformedLengthMaxStringOverride:MalformedRequest", async () => {
     path: "/MalformedLengthOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "maxString" : "abcdefg" }']),
+    body: Readable.from(["{ \"maxString\" : \"abcdefg\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1586,9 +1578,9 @@ it("RestJsonMalformedLengthListOverride_case0:MalformedRequest", async () => {
     path: "/MalformedLengthOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "list" : ["abc", "def", "ghi"] }']),
+    body: Readable.from(["{ \"list\" : [\"abc\", \"def\", \"ghi\"] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1623,9 +1615,9 @@ it("RestJsonMalformedLengthListOverride_case1:MalformedRequest", async () => {
     path: "/MalformedLengthOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "list" : ["abc", "abc", "abc", "abc", "abc", "abc", "abc"] }']),
+    body: Readable.from(["{ \"list\" : [\"abc\", \"abc\", \"abc\", \"abc\", \"abc\", \"abc\", \"abc\"] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1660,11 +1652,9 @@ it("RestJsonMalformedLengthMapOverride_case0:MalformedRequest", async () => {
     path: "/MalformedLengthOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from([
-      '{ "map" : {"abc": ["def", "efg", "fgh"], "bcd": ["abc", "def", "efg"], "def": ["abc", "def", "efg"]} }',
-    ]),
+    body: Readable.from(["{ \"map\" : {\"abc\": [\"def\", \"efg\", \"fgh\"], \"bcd\": [\"abc\", \"def\", \"efg\"], \"def\": [\"abc\", \"def\", \"efg\"]} }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1699,11 +1689,9 @@ it("RestJsonMalformedLengthMapOverride_case1:MalformedRequest", async () => {
     path: "/MalformedLengthOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from([
-      '{ "map" : {"abc": ["abc", "def", "efg"], "bcd": ["abc", "def", "efg"],\n "cde": ["abc", "def", "efg"], "def": ["abc", "def", "efg"],\n "efg": ["abc", "def", "efg"], "fgh": ["abc", "def", "efg"],\n "ghi": ["abc", "def", "efg"] } }',
-    ]),
+    body: Readable.from(["{ \"map\" : {\"abc\": [\"abc\", \"def\", \"efg\"], \"bcd\": [\"abc\", \"def\", \"efg\"],\n \"cde\": [\"abc\", \"def\", \"efg\"], \"def\": [\"abc\", \"def\", \"efg\"],\n \"efg\": [\"abc\", \"def\", \"efg\"], \"fgh\": [\"abc\", \"def\", \"efg\"],\n \"ghi\": [\"abc\", \"def\", \"efg\"] } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1737,7 +1725,9 @@ it("RestJsonMalformedLengthQueryStringNoValue:MalformedRequest", async () => {
     hostname: "foo.example.com",
     path: "/MalformedLengthQueryString",
     query: {
-      string: [""],
+        "string": [
+            ""
+        ]
     },
     headers: {},
     body: Readable.from(["{}"]),
@@ -1775,9 +1765,9 @@ it("RestJsonMalformedPatternString_case0:MalformedRequest", async () => {
     path: "/MalformedPattern",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "string" : "ABC" }']),
+    body: Readable.from(["{ \"string\" : \"ABC\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1812,9 +1802,9 @@ it("RestJsonMalformedPatternString_case1:MalformedRequest", async () => {
     path: "/MalformedPattern",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "string" : "xyz" }']),
+    body: Readable.from(["{ \"string\" : \"xyz\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1849,11 +1839,9 @@ it.skip("RestJsonMalformedPatternReDOSString:MalformedRequest", async () => {
     path: "/MalformedPattern",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from([
-      '{ "evilString" : "000000000000000000000000000000000000000000000000000000000000000000000000000000000000!" }',
-    ]),
+    body: Readable.from(["{ \"evilString\" : \"000000000000000000000000000000000000000000000000000000000000000000000000000000000000!\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1888,9 +1876,9 @@ it("RestJsonMalformedPatternList_case0:MalformedRequest", async () => {
     path: "/MalformedPattern",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "list" : ["ABC"] }']),
+    body: Readable.from(["{ \"list\" : [\"ABC\"] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1925,9 +1913,9 @@ it("RestJsonMalformedPatternList_case1:MalformedRequest", async () => {
     path: "/MalformedPattern",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "list" : ["xyz"] }']),
+    body: Readable.from(["{ \"list\" : [\"xyz\"] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1962,9 +1950,9 @@ it("RestJsonMalformedPatternMapKey_case0:MalformedRequest", async () => {
     path: "/MalformedPattern",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "map" : { "ABC" : "abc" } }']),
+    body: Readable.from(["{ \"map\" : { \"ABC\" : \"abc\" } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -1999,9 +1987,9 @@ it("RestJsonMalformedPatternMapKey_case1:MalformedRequest", async () => {
     path: "/MalformedPattern",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "map" : { "xyz" : "abc" } }']),
+    body: Readable.from(["{ \"map\" : { \"xyz\" : \"abc\" } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2036,9 +2024,9 @@ it("RestJsonMalformedPatternMapValue_case0:MalformedRequest", async () => {
     path: "/MalformedPattern",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "map" : { "abc": "ABC" } }']),
+    body: Readable.from(["{ \"map\" : { \"abc\": \"ABC\" } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2073,9 +2061,9 @@ it("RestJsonMalformedPatternMapValue_case1:MalformedRequest", async () => {
     path: "/MalformedPattern",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "map" : { "abc": "xyz" } }']),
+    body: Readable.from(["{ \"map\" : { \"abc\": \"xyz\" } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2110,9 +2098,9 @@ it("RestJsonMalformedPatternUnion_case0:MalformedRequest", async () => {
     path: "/MalformedPattern",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "union" : { "first": "ABC" } }']),
+    body: Readable.from(["{ \"union\" : { \"first\": \"ABC\" } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2147,9 +2135,9 @@ it("RestJsonMalformedPatternUnion_case1:MalformedRequest", async () => {
     path: "/MalformedPattern",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "union" : { "first": "xyz" } }']),
+    body: Readable.from(["{ \"union\" : { \"first\": \"xyz\" } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2184,9 +2172,9 @@ it("RestJsonMalformedPatternStringOverride_case0:MalformedRequest", async () => 
     path: "/MalformedPatternOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "string" : "abc" }']),
+    body: Readable.from(["{ \"string\" : \"abc\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2221,9 +2209,9 @@ it("RestJsonMalformedPatternStringOverride_case1:MalformedRequest", async () => 
     path: "/MalformedPatternOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "string" : "xyz" }']),
+    body: Readable.from(["{ \"string\" : \"xyz\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2258,9 +2246,9 @@ it("RestJsonMalformedPatternListOverride_case0:MalformedRequest", async () => {
     path: "/MalformedPatternOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "list" : ["abc"] }']),
+    body: Readable.from(["{ \"list\" : [\"abc\"] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2295,9 +2283,9 @@ it("RestJsonMalformedPatternListOverride_case1:MalformedRequest", async () => {
     path: "/MalformedPatternOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "list" : ["xyz"] }']),
+    body: Readable.from(["{ \"list\" : [\"xyz\"] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2332,9 +2320,9 @@ it("RestJsonMalformedPatternMapKeyOverride_case0:MalformedRequest", async () => 
     path: "/MalformedPatternOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "map" : { "abc" : "ghi" } }']),
+    body: Readable.from(["{ \"map\" : { \"abc\" : \"ghi\" } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2369,9 +2357,9 @@ it("RestJsonMalformedPatternMapKeyOverride_case1:MalformedRequest", async () => 
     path: "/MalformedPatternOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "map" : { "xyz" : "ghi" } }']),
+    body: Readable.from(["{ \"map\" : { \"xyz\" : \"ghi\" } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2406,9 +2394,9 @@ it("RestJsonMalformedPatternMapValueOverride_case0:MalformedRequest", async () =
     path: "/MalformedPatternOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "map" : { "ghi": "abc" } }']),
+    body: Readable.from(["{ \"map\" : { \"ghi\": \"abc\" } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2443,9 +2431,9 @@ it("RestJsonMalformedPatternMapValueOverride_case1:MalformedRequest", async () =
     path: "/MalformedPatternOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "map" : { "ghi": "xyz" } }']),
+    body: Readable.from(["{ \"map\" : { \"ghi\": \"xyz\" } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2480,9 +2468,9 @@ it("RestJsonMalformedPatternUnionOverride_case0:MalformedRequest", async () => {
     path: "/MalformedPatternOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "union" : { "first": "abc" } }']),
+    body: Readable.from(["{ \"union\" : { \"first\": \"abc\" } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2517,9 +2505,9 @@ it("RestJsonMalformedPatternUnionOverride_case1:MalformedRequest", async () => {
     path: "/MalformedPatternOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "union" : { "first": "xyz" } }']),
+    body: Readable.from(["{ \"union\" : { \"first\": \"xyz\" } }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2554,9 +2542,9 @@ it("RestJsonMalformedRangeByte_case0:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "byte" : 1 }']),
+    body: Readable.from(["{ \"byte\" : 1 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2591,9 +2579,9 @@ it("RestJsonMalformedRangeByte_case1:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "byte" : 9 }']),
+    body: Readable.from(["{ \"byte\" : 9 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2628,9 +2616,9 @@ it("RestJsonMalformedRangeMinByte:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "minByte" : 1 }']),
+    body: Readable.from(["{ \"minByte\" : 1 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2665,9 +2653,9 @@ it("RestJsonMalformedRangeMaxByte:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "maxByte" : 9 }']),
+    body: Readable.from(["{ \"maxByte\" : 9 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2702,9 +2690,9 @@ it("RestJsonMalformedRangeFloat_case0:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "float" : 2.1 }']),
+    body: Readable.from(["{ \"float\" : 2.1 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2739,9 +2727,9 @@ it("RestJsonMalformedRangeFloat_case1:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "float" : 8.9 }']),
+    body: Readable.from(["{ \"float\" : 8.9 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2776,9 +2764,9 @@ it("RestJsonMalformedRangeMinFloat:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "minFloat" : 2.1 }']),
+    body: Readable.from(["{ \"minFloat\" : 2.1 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2813,9 +2801,9 @@ it("RestJsonMalformedRangeMaxFloat:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "maxFloat" : 8.9 }']),
+    body: Readable.from(["{ \"maxFloat\" : 8.9 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2850,9 +2838,9 @@ it("RestJsonMalformedRangeShort_case0:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "short" : 1 }']),
+    body: Readable.from(["{ \"short\" : 1 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2887,9 +2875,9 @@ it("RestJsonMalformedRangeShort_case1:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "short" : 9 }']),
+    body: Readable.from(["{ \"short\" : 9 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2924,9 +2912,9 @@ it("RestJsonMalformedRangeMinShort:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "minShort" : 1 }']),
+    body: Readable.from(["{ \"minShort\" : 1 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2961,9 +2949,9 @@ it("RestJsonMalformedRangeMaxShort:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "maxShort" : 9 }']),
+    body: Readable.from(["{ \"maxShort\" : 9 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -2998,9 +2986,9 @@ it("RestJsonMalformedRangeInteger_case0:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "integer" : 1 }']),
+    body: Readable.from(["{ \"integer\" : 1 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3035,9 +3023,9 @@ it("RestJsonMalformedRangeInteger_case1:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "integer" : 9 }']),
+    body: Readable.from(["{ \"integer\" : 9 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3072,9 +3060,9 @@ it("RestJsonMalformedRangeMinInteger:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "minInteger" : 1 }']),
+    body: Readable.from(["{ \"minInteger\" : 1 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3109,9 +3097,9 @@ it("RestJsonMalformedRangeMaxInteger:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "maxInteger" : 9 }']),
+    body: Readable.from(["{ \"maxInteger\" : 9 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3146,9 +3134,9 @@ it("RestJsonMalformedRangeLong_case0:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "long" : 1 }']),
+    body: Readable.from(["{ \"long\" : 1 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3183,9 +3171,9 @@ it("RestJsonMalformedRangeLong_case1:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "long" : 9 }']),
+    body: Readable.from(["{ \"long\" : 9 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3220,9 +3208,9 @@ it("RestJsonMalformedRangeMinLong:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "minLong" : 1 }']),
+    body: Readable.from(["{ \"minLong\" : 1 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3257,9 +3245,9 @@ it("RestJsonMalformedRangeMaxLong:MalformedRequest", async () => {
     path: "/MalformedRange",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "maxLong" : 9 }']),
+    body: Readable.from(["{ \"maxLong\" : 9 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3294,9 +3282,9 @@ it("RestJsonMalformedRangeByteOverride_case0:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "byte" : 3 }']),
+    body: Readable.from(["{ \"byte\" : 3 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3331,9 +3319,9 @@ it("RestJsonMalformedRangeByteOverride_case1:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "byte" : 7 }']),
+    body: Readable.from(["{ \"byte\" : 7 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3368,9 +3356,9 @@ it("RestJsonMalformedRangeMinByteOverride:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "minByte" : 3 }']),
+    body: Readable.from(["{ \"minByte\" : 3 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3405,9 +3393,9 @@ it("RestJsonMalformedRangeMaxByteOverride:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "maxByte" : 7 }']),
+    body: Readable.from(["{ \"maxByte\" : 7 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3442,9 +3430,9 @@ it("RestJsonMalformedRangeFloatOverride_case0:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "float" : 4.3 }']),
+    body: Readable.from(["{ \"float\" : 4.3 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3479,9 +3467,9 @@ it("RestJsonMalformedRangeFloatOverride_case1:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "float" : 6.7 }']),
+    body: Readable.from(["{ \"float\" : 6.7 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3516,9 +3504,9 @@ it("RestJsonMalformedRangeMinFloatOverride:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "minFloat" : 4.3 }']),
+    body: Readable.from(["{ \"minFloat\" : 4.3 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3553,9 +3541,9 @@ it("RestJsonMalformedRangeMaxFloatOverride:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "maxFloat" : 6.7 }']),
+    body: Readable.from(["{ \"maxFloat\" : 6.7 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3590,9 +3578,9 @@ it("RestJsonMalformedRangeShortOverride_case0:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "short" : 3 }']),
+    body: Readable.from(["{ \"short\" : 3 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3627,9 +3615,9 @@ it("RestJsonMalformedRangeShortOverride_case1:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "short" : 7 }']),
+    body: Readable.from(["{ \"short\" : 7 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3664,9 +3652,9 @@ it("RestJsonMalformedRangeMinShortOverride:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "minShort" : 3 }']),
+    body: Readable.from(["{ \"minShort\" : 3 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3701,9 +3689,9 @@ it("RestJsonMalformedRangeMaxShortOverride:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "maxShort" : 7 }']),
+    body: Readable.from(["{ \"maxShort\" : 7 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3738,9 +3726,9 @@ it("RestJsonMalformedRangeIntegerOverride_case0:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "integer" : 3 }']),
+    body: Readable.from(["{ \"integer\" : 3 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3775,9 +3763,9 @@ it("RestJsonMalformedRangeIntegerOverride_case1:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "integer" : 7 }']),
+    body: Readable.from(["{ \"integer\" : 7 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3812,9 +3800,9 @@ it("RestJsonMalformedRangeMinIntegerOverride:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "minInteger" : 3 }']),
+    body: Readable.from(["{ \"minInteger\" : 3 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3849,9 +3837,9 @@ it("RestJsonMalformedRangeMaxIntegerOverride:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "maxInteger" : 7 }']),
+    body: Readable.from(["{ \"maxInteger\" : 7 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3886,9 +3874,9 @@ it("RestJsonMalformedRangeLongOverride_case0:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "long" : 3 }']),
+    body: Readable.from(["{ \"long\" : 3 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3923,9 +3911,9 @@ it("RestJsonMalformedRangeLongOverride_case1:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "long" : 7 }']),
+    body: Readable.from(["{ \"long\" : 7 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3960,9 +3948,9 @@ it("RestJsonMalformedRangeMinLongOverride:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "minLong" : 3 }']),
+    body: Readable.from(["{ \"minLong\" : 3 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -3997,9 +3985,9 @@ it("RestJsonMalformedRangeMaxLongOverride:MalformedRequest", async () => {
     path: "/MalformedRangeOverride",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "maxLong" : 7 }']),
+    body: Readable.from(["{ \"maxLong\" : 7 }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4033,11 +4021,13 @@ it("RestJsonMalformedRequiredBodyUnset:MalformedRequest", async () => {
     hostname: "foo.example.com",
     path: "/MalformedRequired",
     query: {
-      stringInQuery: ["abc"],
+        "stringInQuery": [
+            "abc"
+        ]
     },
     headers: {
-      "content-type": "application/json",
-      "string-in-headers": "abc",
+        "content-type": "application/json",
+        "string-in-headers": "abc"
     },
     body: Readable.from(["{  }"]),
   });
@@ -4073,13 +4063,15 @@ it("RestJsonMalformedRequiredBodyExplicitNull:MalformedRequest", async () => {
     hostname: "foo.example.com",
     path: "/MalformedRequired",
     query: {
-      stringInQuery: ["abc"],
+        "stringInQuery": [
+            "abc"
+        ]
     },
     headers: {
-      "content-type": "application/json",
-      "string-in-headers": "abc",
+        "content-type": "application/json",
+        "string-in-headers": "abc"
     },
-    body: Readable.from(['{ "string": null }']),
+    body: Readable.from(["{ \"string\": null }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4113,12 +4105,14 @@ it("RestJsonMalformedRequiredHeaderUnset:MalformedRequest", async () => {
     hostname: "foo.example.com",
     path: "/MalformedRequired",
     query: {
-      stringInQuery: ["abc"],
+        "stringInQuery": [
+            "abc"
+        ]
     },
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "string": "abc" }']),
+    body: Readable.from(["{ \"string\": \"abc\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4153,9 +4147,9 @@ it("RestJsonMalformedUniqueItemsBlobList:MalformedRequest", async () => {
     path: "/MalformedUniqueItems",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "blobList" : ["YQ==", "YQ=="] }']),
+    body: Readable.from(["{ \"blobList\" : [\"YQ==\", \"YQ==\"] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4190,9 +4184,9 @@ it("RestJsonMalformedUniqueItemsBooleanList_case0:MalformedRequest", async () =>
     path: "/MalformedUniqueItems",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "booleanList" : [true, true] }']),
+    body: Readable.from(["{ \"booleanList\" : [true, true] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4227,9 +4221,9 @@ it("RestJsonMalformedUniqueItemsBooleanList_case1:MalformedRequest", async () =>
     path: "/MalformedUniqueItems",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "booleanList" : [false, false] }']),
+    body: Readable.from(["{ \"booleanList\" : [false, false] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4264,9 +4258,9 @@ it("RestJsonMalformedUniqueItemsStringList:MalformedRequest", async () => {
     path: "/MalformedUniqueItems",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "stringList" : ["abc", "abc"] }']),
+    body: Readable.from(["{ \"stringList\" : [\"abc\", \"abc\"] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4301,9 +4295,9 @@ it("RestJsonMalformedUniqueItemsByteList:MalformedRequest", async () => {
     path: "/MalformedUniqueItems",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "byteList" : [1, 1] }']),
+    body: Readable.from(["{ \"byteList\" : [1, 1] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4338,9 +4332,9 @@ it("RestJsonMalformedUniqueItemsShortList:MalformedRequest", async () => {
     path: "/MalformedUniqueItems",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "shortList" : [2, 2] }']),
+    body: Readable.from(["{ \"shortList\" : [2, 2] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4375,9 +4369,9 @@ it("RestJsonMalformedUniqueItemsIntegerList:MalformedRequest", async () => {
     path: "/MalformedUniqueItems",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "integerList" : [3, 3] }']),
+    body: Readable.from(["{ \"integerList\" : [3, 3] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4412,9 +4406,9 @@ it("RestJsonMalformedUniqueItemsLongList:MalformedRequest", async () => {
     path: "/MalformedUniqueItems",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "longList" : [4, 4] }']),
+    body: Readable.from(["{ \"longList\" : [4, 4] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4449,9 +4443,9 @@ it("RestJsonMalformedUniqueItemsTimestampList:MalformedRequest", async () => {
     path: "/MalformedUniqueItems",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "timestampList" : [1676660607, 1676660607] }']),
+    body: Readable.from(["{ \"timestampList\" : [1676660607, 1676660607] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4486,9 +4480,9 @@ it("RestJsonMalformedUniqueItemsDateTimeList:MalformedRequest", async () => {
     path: "/MalformedUniqueItems",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "dateTimeList" : ["1985-04-12T23:20:50.52Z", "1985-04-12T23:20:50.52Z"] }']),
+    body: Readable.from(["{ \"dateTimeList\" : [\"1985-04-12T23:20:50.52Z\", \"1985-04-12T23:20:50.52Z\"] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4523,9 +4517,9 @@ it("RestJsonMalformedUniqueItemsHttpDateList_case0:MalformedRequest", async () =
     path: "/MalformedUniqueItems",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "httpDateList" : ["Tue, 29 Apr 2014 18:30:38 GMT", "Tue, 29 Apr 2014 18:30:38 GMT"] }']),
+    body: Readable.from(["{ \"httpDateList\" : [\"Tue, 29 Apr 2014 18:30:38 GMT\", \"Tue, 29 Apr 2014 18:30:38 GMT\"] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4560,9 +4554,9 @@ it("RestJsonMalformedUniqueItemsEnumList:MalformedRequest", async () => {
     path: "/MalformedUniqueItems",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "enumList" : ["Foo", "Foo"] }']),
+    body: Readable.from(["{ \"enumList\" : [\"Foo\", \"Foo\"] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4597,9 +4591,9 @@ it("RestJsonMalformedUniqueItemsIntEnumList:MalformedRequest", async () => {
     path: "/MalformedUniqueItems",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "intEnumList" : [3, 3] }']),
+    body: Readable.from(["{ \"intEnumList\" : [3, 3] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4634,9 +4628,9 @@ it("RestJsonMalformedUniqueItemsListList:MalformedRequest", async () => {
     path: "/MalformedUniqueItems",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "listList" : [["foo","bar"], ["foo","bar"]] }']),
+    body: Readable.from(["{ \"listList\" : [[\"foo\",\"bar\"], [\"foo\",\"bar\"]] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4671,9 +4665,9 @@ it("RestJsonMalformedUniqueItemsStructureList:MalformedRequest", async () => {
     path: "/MalformedUniqueItems",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "structureList" : [{"hi": "hello"}, {"hi": "hello"}] }']),
+    body: Readable.from(["{ \"structureList\" : [{\"hi\": \"hello\"}, {\"hi\": \"hello\"}] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4709,9 +4703,9 @@ it("RestJsonMalformedUniqueItemsStructureMissingKeyList:MalformedRequest", async
     path: "/MalformedUniqueItems",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "structureListWithNoKey" : [{"hi2": "bar"}] }']),
+    body: Readable.from(["{ \"structureListWithNoKey\" : [{\"hi2\": \"bar\"}] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4746,9 +4740,9 @@ it("RestJsonMalformedUniqueItemsUnionList_case0:MalformedRequest", async () => {
     path: "/MalformedUniqueItems",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "unionList" : [{"string": "foo"}, {"string": "foo"}] }']),
+    body: Readable.from(["{ \"unionList\" : [{\"string\": \"foo\"}, {\"string\": \"foo\"}] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4783,9 +4777,9 @@ it("RestJsonMalformedUniqueItemsUnionList_case1:MalformedRequest", async () => {
     path: "/MalformedUniqueItems",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "unionList" : [{"integer": 1}, {"integer": 1}] }']),
+    body: Readable.from(["{ \"unionList\" : [{\"integer\": 1}, {\"integer\": 1}] }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4817,14 +4811,14 @@ it("RestJsonRecursiveStructuresValidate:ServerRequest", async () => {
     path: "/RecursiveStructures",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "union" : {\n    "union" : {\n        "union" : { "string" : "abc" }\n    }\n  }\n}']),
+    body: Readable.from(["{ \"union\" : {\n    \"union\" : {\n        \"union\" : { \"string\" : \"abc\" }\n    }\n  }\n}"]),
   });
   await handler.handle(request, {});
 
   expect(testFunction.mock.calls.length).toBe(1);
-  const r: any = testFunction.mock.calls[0][0];
+  let r: any = testFunction.mock.calls[0][0];
 
   const paramsToValidate: any = [
     {
@@ -4865,9 +4859,9 @@ it("RestJsonMalformedRecursiveStructures:MalformedRequest", async () => {
     path: "/RecursiveStructures",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "union" : {\n    "union" : {\n        "union" : { "string" : "XYZ" }\n     }\n  }\n}']),
+    body: Readable.from(["{ \"union\" : {\n    \"union\" : {\n        \"union\" : { \"string\" : \"XYZ\" }\n     }\n  }\n}"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4902,9 +4896,9 @@ it("RestJsonMalformedPatternSensitiveString:MalformedRequest", async () => {
     path: "/SensitiveValidation",
     query: {},
     headers: {
-      "content-type": "application/json",
+        "content-type": "application/json"
     },
-    body: Readable.from(['{ "string" : "ABC" }']),
+    body: Readable.from(["{ \"string\" : \"ABC\" }"]),
   });
   const r = await handler.handle(request, {});
 
@@ -4929,4 +4923,4 @@ const compareEquivalentJsonBodies = (expectedBody: string, generatedBody: string
   const generatedParts = JSON.parse(generatedBody);
 
   return compareParts(expectedParts, generatedParts);
-};
+}

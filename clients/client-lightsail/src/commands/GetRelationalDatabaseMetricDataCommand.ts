@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetRelationalDatabaseMetricDataRequest, GetRelationalDatabaseMetricDataResult } from "../models/models_1";
-import { GetRelationalDatabaseMetricData } from "../schemas/schemas_0";
+import { GetRelationalDatabaseMetricData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetRelationalDatabaseMetricDataCommandInput extends GetRelation
  *
  * The output of {@link GetRelationalDatabaseMetricDataCommand}.
  */
-export interface GetRelationalDatabaseMetricDataCommandOutput
-  extends GetRelationalDatabaseMetricDataResult,
-    __MetadataBearer {}
+export interface GetRelationalDatabaseMetricDataCommandOutput extends GetRelationalDatabaseMetricDataResult, __MetadataBearer {}
 
 /**
  * <p>Returns the data points of the specified metric for a database in Amazon Lightsail.</p>
@@ -131,7 +129,7 @@ export class GetRelationalDatabaseMetricDataCommand extends $Command
   })
   .s("Lightsail_20161128", "GetRelationalDatabaseMetricData", {})
   .n("LightsailClient", "GetRelationalDatabaseMetricDataCommand")
-  .sc(GetRelationalDatabaseMetricData)
+  .sc(GetRelationalDatabaseMetricData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

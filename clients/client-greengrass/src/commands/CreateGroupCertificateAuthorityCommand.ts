@@ -9,7 +9,7 @@ import type {
   CreateGroupCertificateAuthorityRequest,
   CreateGroupCertificateAuthorityResponse,
 } from "../models/models_0";
-import { CreateGroupCertificateAuthority } from "../schemas/schemas_0";
+import { CreateGroupCertificateAuthority$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateGroupCertificateAuthorityCommandInput extends CreateGroup
  *
  * The output of {@link CreateGroupCertificateAuthorityCommand}.
  */
-export interface CreateGroupCertificateAuthorityCommandOutput
-  extends CreateGroupCertificateAuthorityResponse,
-    __MetadataBearer {}
+export interface CreateGroupCertificateAuthorityCommandOutput extends CreateGroupCertificateAuthorityResponse, __MetadataBearer {}
 
 /**
  * Creates a CA for the group. If a CA already exists, it will rotate the existing CA.
@@ -85,7 +83,7 @@ export class CreateGroupCertificateAuthorityCommand extends $Command
   })
   .s("Greengrass", "CreateGroupCertificateAuthority", {})
   .n("GreengrassClient", "CreateGroupCertificateAuthorityCommand")
-  .sc(CreateGroupCertificateAuthority)
+  .sc(CreateGroupCertificateAuthority$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

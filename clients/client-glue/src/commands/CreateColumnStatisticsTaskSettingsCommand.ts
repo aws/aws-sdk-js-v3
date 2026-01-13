@@ -9,7 +9,7 @@ import type {
   CreateColumnStatisticsTaskSettingsRequest,
   CreateColumnStatisticsTaskSettingsResponse,
 } from "../models/models_0";
-import { CreateColumnStatisticsTaskSettings } from "../schemas/schemas_0";
+import { CreateColumnStatisticsTaskSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateColumnStatisticsTaskSettingsCommandInput extends CreateCo
  *
  * The output of {@link CreateColumnStatisticsTaskSettingsCommand}.
  */
-export interface CreateColumnStatisticsTaskSettingsCommandOutput
-  extends CreateColumnStatisticsTaskSettingsResponse,
-    __MetadataBearer {}
+export interface CreateColumnStatisticsTaskSettingsCommandOutput extends CreateColumnStatisticsTaskSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Creates settings for a column statistics task.</p>
@@ -109,7 +107,7 @@ export class CreateColumnStatisticsTaskSettingsCommand extends $Command
   })
   .s("AWSGlue", "CreateColumnStatisticsTaskSettings", {})
   .n("GlueClient", "CreateColumnStatisticsTaskSettingsCommand")
-  .sc(CreateColumnStatisticsTaskSettings)
+  .sc(CreateColumnStatisticsTaskSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

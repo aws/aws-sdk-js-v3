@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAccessPointForObjectLambdaRequest, GetAccessPointForObjectLambdaResult } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { GetAccessPointForObjectLambda } from "../schemas/schemas_0";
+import { GetAccessPointForObjectLambda$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,9 +25,7 @@ export interface GetAccessPointForObjectLambdaCommandInput extends GetAccessPoin
  *
  * The output of {@link GetAccessPointForObjectLambdaCommand}.
  */
-export interface GetAccessPointForObjectLambdaCommandOutput
-  extends GetAccessPointForObjectLambdaResult,
-    __MetadataBearer {}
+export interface GetAccessPointForObjectLambdaCommandOutput extends GetAccessPointForObjectLambdaResult, __MetadataBearer {}
 
 /**
  * <note>
@@ -109,11 +107,14 @@ export class GetAccessPointForObjectLambdaCommand extends $Command
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getProcessArnablesPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getProcessArnablesPlugin(config),
+    ];
   })
   .s("AWSS3ControlServiceV20180820", "GetAccessPointForObjectLambda", {})
   .n("S3ControlClient", "GetAccessPointForObjectLambdaCommand")
-  .sc(GetAccessPointForObjectLambda)
+  .sc(GetAccessPointForObjectLambda$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

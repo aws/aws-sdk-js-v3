@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { AddRoleToInstanceProfileRequest } from "../models/models_0";
-import { AddRoleToInstanceProfile } from "../schemas/schemas_0";
+import { AddRoleToInstanceProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class AddRoleToInstanceProfileCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "AddRoleToInstanceProfile", {})
   .n("IAMClient", "AddRoleToInstanceProfileCommand")
-  .sc(AddRoleToInstanceProfile)
+  .sc(AddRoleToInstanceProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

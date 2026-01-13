@@ -9,7 +9,7 @@ import type {
   ReplicationConfigurationTemplate,
   UpdateReplicationConfigurationTemplateRequest,
 } from "../models/models_0";
-import { UpdateReplicationConfigurationTemplate } from "../schemas/schemas_0";
+import { UpdateReplicationConfigurationTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateReplicationConfigurationTemplateCommand}.
  */
-export interface UpdateReplicationConfigurationTemplateCommandInput
-  extends UpdateReplicationConfigurationTemplateRequest {}
+export interface UpdateReplicationConfigurationTemplateCommandInput extends UpdateReplicationConfigurationTemplateRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateReplicationConfigurationTemplateCommand}.
  */
-export interface UpdateReplicationConfigurationTemplateCommandOutput
-  extends ReplicationConfigurationTemplate,
-    __MetadataBearer {}
+export interface UpdateReplicationConfigurationTemplateCommandOutput extends ReplicationConfigurationTemplate, __MetadataBearer {}
 
 /**
  * <p>Updates multiple ReplicationConfigurationTemplates by ID.</p>
@@ -132,7 +129,7 @@ export class UpdateReplicationConfigurationTemplateCommand extends $Command
   })
   .s("ApplicationMigrationService", "UpdateReplicationConfigurationTemplate", {})
   .n("MgnClient", "UpdateReplicationConfigurationTemplateCommand")
-  .sc(UpdateReplicationConfigurationTemplate)
+  .sc(UpdateReplicationConfigurationTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

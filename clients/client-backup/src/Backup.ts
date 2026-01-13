@@ -672,7 +672,10 @@ export interface Backup {
     args: CancelLegalHoldCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CancelLegalHoldCommandOutput>;
-  cancelLegalHold(args: CancelLegalHoldCommandInput, cb: (err: any, data?: CancelLegalHoldCommandOutput) => void): void;
+  cancelLegalHold(
+    args: CancelLegalHoldCommandInput,
+    cb: (err: any, data?: CancelLegalHoldCommandOutput) => void
+  ): void;
   cancelLegalHold(
     args: CancelLegalHoldCommandInput,
     options: __HttpHandlerOptions,
@@ -737,7 +740,10 @@ export interface Backup {
     args: CreateFrameworkCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateFrameworkCommandOutput>;
-  createFramework(args: CreateFrameworkCommandInput, cb: (err: any, data?: CreateFrameworkCommandOutput) => void): void;
+  createFramework(
+    args: CreateFrameworkCommandInput,
+    cb: (err: any, data?: CreateFrameworkCommandOutput) => void
+  ): void;
   createFramework(
     args: CreateFrameworkCommandInput,
     options: __HttpHandlerOptions,
@@ -751,7 +757,10 @@ export interface Backup {
     args: CreateLegalHoldCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateLegalHoldCommandOutput>;
-  createLegalHold(args: CreateLegalHoldCommandInput, cb: (err: any, data?: CreateLegalHoldCommandOutput) => void): void;
+  createLegalHold(
+    args: CreateLegalHoldCommandInput,
+    cb: (err: any, data?: CreateLegalHoldCommandOutput) => void
+  ): void;
   createLegalHold(
     args: CreateLegalHoldCommandInput,
     options: __HttpHandlerOptions,
@@ -969,7 +978,10 @@ export interface Backup {
     args: DeleteFrameworkCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteFrameworkCommandOutput>;
-  deleteFramework(args: DeleteFrameworkCommandInput, cb: (err: any, data?: DeleteFrameworkCommandOutput) => void): void;
+  deleteFramework(
+    args: DeleteFrameworkCommandInput,
+    cb: (err: any, data?: DeleteFrameworkCommandOutput) => void
+  ): void;
   deleteFramework(
     args: DeleteFrameworkCommandInput,
     options: __HttpHandlerOptions,
@@ -1102,7 +1114,10 @@ export interface Backup {
     args: DescribeCopyJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeCopyJobCommandOutput>;
-  describeCopyJob(args: DescribeCopyJobCommandInput, cb: (err: any, data?: DescribeCopyJobCommandOutput) => void): void;
+  describeCopyJob(
+    args: DescribeCopyJobCommandInput,
+    cb: (err: any, data?: DescribeCopyJobCommandOutput) => void
+  ): void;
   describeCopyJob(
     args: DescribeCopyJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1254,7 +1269,10 @@ export interface Backup {
     args: DescribeScanJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeScanJobCommandOutput>;
-  describeScanJob(args: DescribeScanJobCommandInput, cb: (err: any, data?: DescribeScanJobCommandOutput) => void): void;
+  describeScanJob(
+    args: DescribeScanJobCommandInput,
+    cb: (err: any, data?: DescribeScanJobCommandOutput) => void
+  ): void;
   describeScanJob(
     args: DescribeScanJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1332,8 +1350,14 @@ export interface Backup {
   /**
    * @see {@link GetBackupPlanCommand}
    */
-  getBackupPlan(args: GetBackupPlanCommandInput, options?: __HttpHandlerOptions): Promise<GetBackupPlanCommandOutput>;
-  getBackupPlan(args: GetBackupPlanCommandInput, cb: (err: any, data?: GetBackupPlanCommandOutput) => void): void;
+  getBackupPlan(
+    args: GetBackupPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBackupPlanCommandOutput>;
+  getBackupPlan(
+    args: GetBackupPlanCommandInput,
+    cb: (err: any, data?: GetBackupPlanCommandOutput) => void
+  ): void;
   getBackupPlan(
     args: GetBackupPlanCommandInput,
     options: __HttpHandlerOptions,
@@ -1428,8 +1452,14 @@ export interface Backup {
   /**
    * @see {@link GetLegalHoldCommand}
    */
-  getLegalHold(args: GetLegalHoldCommandInput, options?: __HttpHandlerOptions): Promise<GetLegalHoldCommandOutput>;
-  getLegalHold(args: GetLegalHoldCommandInput, cb: (err: any, data?: GetLegalHoldCommandOutput) => void): void;
+  getLegalHold(
+    args: GetLegalHoldCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLegalHoldCommandOutput>;
+  getLegalHold(
+    args: GetLegalHoldCommandInput,
+    cb: (err: any, data?: GetLegalHoldCommandOutput) => void
+  ): void;
   getLegalHold(
     args: GetLegalHoldCommandInput,
     options: __HttpHandlerOptions,
@@ -1581,7 +1611,10 @@ export interface Backup {
     args: ListBackupJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListBackupJobsCommandOutput>;
-  listBackupJobs(args: ListBackupJobsCommandInput, cb: (err: any, data?: ListBackupJobsCommandOutput) => void): void;
+  listBackupJobs(
+    args: ListBackupJobsCommandInput,
+    cb: (err: any, data?: ListBackupJobsCommandOutput) => void
+  ): void;
   listBackupJobs(
     args: ListBackupJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -1614,7 +1647,10 @@ export interface Backup {
     args: ListBackupPlansCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListBackupPlansCommandOutput>;
-  listBackupPlans(args: ListBackupPlansCommandInput, cb: (err: any, data?: ListBackupPlansCommandOutput) => void): void;
+  listBackupPlans(
+    args: ListBackupPlansCommandInput,
+    cb: (err: any, data?: ListBackupPlansCommandOutput) => void
+  ): void;
   listBackupPlans(
     args: ListBackupPlansCommandInput,
     options: __HttpHandlerOptions,
@@ -1695,8 +1731,14 @@ export interface Backup {
    * @see {@link ListCopyJobsCommand}
    */
   listCopyJobs(): Promise<ListCopyJobsCommandOutput>;
-  listCopyJobs(args: ListCopyJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListCopyJobsCommandOutput>;
-  listCopyJobs(args: ListCopyJobsCommandInput, cb: (err: any, data?: ListCopyJobsCommandOutput) => void): void;
+  listCopyJobs(
+    args: ListCopyJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCopyJobsCommandOutput>;
+  listCopyJobs(
+    args: ListCopyJobsCommandInput,
+    cb: (err: any, data?: ListCopyJobsCommandOutput) => void
+  ): void;
   listCopyJobs(
     args: ListCopyJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -1729,7 +1771,10 @@ export interface Backup {
     args: ListFrameworksCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListFrameworksCommandOutput>;
-  listFrameworks(args: ListFrameworksCommandInput, cb: (err: any, data?: ListFrameworksCommandOutput) => void): void;
+  listFrameworks(
+    args: ListFrameworksCommandInput,
+    cb: (err: any, data?: ListFrameworksCommandOutput) => void
+  ): void;
   listFrameworks(
     args: ListFrameworksCommandInput,
     options: __HttpHandlerOptions,
@@ -1762,7 +1807,10 @@ export interface Backup {
     args: ListLegalHoldsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListLegalHoldsCommandOutput>;
-  listLegalHolds(args: ListLegalHoldsCommandInput, cb: (err: any, data?: ListLegalHoldsCommandOutput) => void): void;
+  listLegalHolds(
+    args: ListLegalHoldsCommandInput,
+    cb: (err: any, data?: ListLegalHoldsCommandOutput) => void
+  ): void;
   listLegalHolds(
     args: ListLegalHoldsCommandInput,
     options: __HttpHandlerOptions,
@@ -1863,7 +1911,10 @@ export interface Backup {
     args: ListReportJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListReportJobsCommandOutput>;
-  listReportJobs(args: ListReportJobsCommandInput, cb: (err: any, data?: ListReportJobsCommandOutput) => void): void;
+  listReportJobs(
+    args: ListReportJobsCommandInput,
+    cb: (err: any, data?: ListReportJobsCommandOutput) => void
+  ): void;
   listReportJobs(
     args: ListReportJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -1878,7 +1929,10 @@ export interface Backup {
     args: ListReportPlansCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListReportPlansCommandOutput>;
-  listReportPlans(args: ListReportPlansCommandInput, cb: (err: any, data?: ListReportPlansCommandOutput) => void): void;
+  listReportPlans(
+    args: ListReportPlansCommandInput,
+    cb: (err: any, data?: ListReportPlansCommandOutput) => void
+  ): void;
   listReportPlans(
     args: ListReportPlansCommandInput,
     options: __HttpHandlerOptions,
@@ -1910,7 +1964,10 @@ export interface Backup {
     args: ListRestoreJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListRestoreJobsCommandOutput>;
-  listRestoreJobs(args: ListRestoreJobsCommandInput, cb: (err: any, data?: ListRestoreJobsCommandOutput) => void): void;
+  listRestoreJobs(
+    args: ListRestoreJobsCommandInput,
+    cb: (err: any, data?: ListRestoreJobsCommandOutput) => void
+  ): void;
   listRestoreJobs(
     args: ListRestoreJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -1991,8 +2048,14 @@ export interface Backup {
    * @see {@link ListScanJobsCommand}
    */
   listScanJobs(): Promise<ListScanJobsCommandOutput>;
-  listScanJobs(args: ListScanJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListScanJobsCommandOutput>;
-  listScanJobs(args: ListScanJobsCommandInput, cb: (err: any, data?: ListScanJobsCommandOutput) => void): void;
+  listScanJobs(
+    args: ListScanJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListScanJobsCommandOutput>;
+  listScanJobs(
+    args: ListScanJobsCommandInput,
+    cb: (err: any, data?: ListScanJobsCommandOutput) => void
+  ): void;
   listScanJobs(
     args: ListScanJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -2020,8 +2083,14 @@ export interface Backup {
   /**
    * @see {@link ListTagsCommand}
    */
-  listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
-  listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
+  listTags(
+    args: ListTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsCommandOutput>;
+  listTags(
+    args: ListTagsCommandInput,
+    cb: (err: any, data?: ListTagsCommandOutput) => void
+  ): void;
   listTags(
     args: ListTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -2138,7 +2207,10 @@ export interface Backup {
     args: StartBackupJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartBackupJobCommandOutput>;
-  startBackupJob(args: StartBackupJobCommandInput, cb: (err: any, data?: StartBackupJobCommandOutput) => void): void;
+  startBackupJob(
+    args: StartBackupJobCommandInput,
+    cb: (err: any, data?: StartBackupJobCommandOutput) => void
+  ): void;
   startBackupJob(
     args: StartBackupJobCommandInput,
     options: __HttpHandlerOptions,
@@ -2148,8 +2220,14 @@ export interface Backup {
   /**
    * @see {@link StartCopyJobCommand}
    */
-  startCopyJob(args: StartCopyJobCommandInput, options?: __HttpHandlerOptions): Promise<StartCopyJobCommandOutput>;
-  startCopyJob(args: StartCopyJobCommandInput, cb: (err: any, data?: StartCopyJobCommandOutput) => void): void;
+  startCopyJob(
+    args: StartCopyJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCopyJobCommandOutput>;
+  startCopyJob(
+    args: StartCopyJobCommandInput,
+    cb: (err: any, data?: StartCopyJobCommandOutput) => void
+  ): void;
   startCopyJob(
     args: StartCopyJobCommandInput,
     options: __HttpHandlerOptions,
@@ -2163,7 +2241,10 @@ export interface Backup {
     args: StartReportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartReportJobCommandOutput>;
-  startReportJob(args: StartReportJobCommandInput, cb: (err: any, data?: StartReportJobCommandOutput) => void): void;
+  startReportJob(
+    args: StartReportJobCommandInput,
+    cb: (err: any, data?: StartReportJobCommandOutput) => void
+  ): void;
   startReportJob(
     args: StartReportJobCommandInput,
     options: __HttpHandlerOptions,
@@ -2177,7 +2258,10 @@ export interface Backup {
     args: StartRestoreJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartRestoreJobCommandOutput>;
-  startRestoreJob(args: StartRestoreJobCommandInput, cb: (err: any, data?: StartRestoreJobCommandOutput) => void): void;
+  startRestoreJob(
+    args: StartRestoreJobCommandInput,
+    cb: (err: any, data?: StartRestoreJobCommandOutput) => void
+  ): void;
   startRestoreJob(
     args: StartRestoreJobCommandInput,
     options: __HttpHandlerOptions,
@@ -2187,8 +2271,14 @@ export interface Backup {
   /**
    * @see {@link StartScanJobCommand}
    */
-  startScanJob(args: StartScanJobCommandInput, options?: __HttpHandlerOptions): Promise<StartScanJobCommandOutput>;
-  startScanJob(args: StartScanJobCommandInput, cb: (err: any, data?: StartScanJobCommandOutput) => void): void;
+  startScanJob(
+    args: StartScanJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartScanJobCommandOutput>;
+  startScanJob(
+    args: StartScanJobCommandInput,
+    cb: (err: any, data?: StartScanJobCommandOutput) => void
+  ): void;
   startScanJob(
     args: StartScanJobCommandInput,
     options: __HttpHandlerOptions,
@@ -2198,8 +2288,14 @@ export interface Backup {
   /**
    * @see {@link StopBackupJobCommand}
    */
-  stopBackupJob(args: StopBackupJobCommandInput, options?: __HttpHandlerOptions): Promise<StopBackupJobCommandOutput>;
-  stopBackupJob(args: StopBackupJobCommandInput, cb: (err: any, data?: StopBackupJobCommandOutput) => void): void;
+  stopBackupJob(
+    args: StopBackupJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopBackupJobCommandOutput>;
+  stopBackupJob(
+    args: StopBackupJobCommandInput,
+    cb: (err: any, data?: StopBackupJobCommandOutput) => void
+  ): void;
   stopBackupJob(
     args: StopBackupJobCommandInput,
     options: __HttpHandlerOptions,
@@ -2209,8 +2305,14 @@ export interface Backup {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2220,8 +2322,14 @@ export interface Backup {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2252,7 +2360,10 @@ export interface Backup {
     args: UpdateFrameworkCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateFrameworkCommandOutput>;
-  updateFramework(args: UpdateFrameworkCommandInput, cb: (err: any, data?: UpdateFrameworkCommandOutput) => void): void;
+  updateFramework(
+    args: UpdateFrameworkCommandInput,
+    cb: (err: any, data?: UpdateFrameworkCommandOutput) => void
+  ): void;
   updateFramework(
     args: UpdateFrameworkCommandInput,
     options: __HttpHandlerOptions,

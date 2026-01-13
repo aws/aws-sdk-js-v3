@@ -13,7 +13,7 @@ import type {
   BatchAssociateResourcesToCustomLineItemInput,
   BatchAssociateResourcesToCustomLineItemOutput,
 } from "../models/models_0";
-import { BatchAssociateResourcesToCustomLineItem } from "../schemas/schemas_0";
+import { BatchAssociateResourcesToCustomLineItem$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link BatchAssociateResourcesToCustomLineItemCommand}.
  */
-export interface BatchAssociateResourcesToCustomLineItemCommandInput
-  extends BatchAssociateResourcesToCustomLineItemInput {}
+export interface BatchAssociateResourcesToCustomLineItemCommandInput extends BatchAssociateResourcesToCustomLineItemInput {}
 /**
  * @public
  *
  * The output of {@link BatchAssociateResourcesToCustomLineItemCommand}.
  */
-export interface BatchAssociateResourcesToCustomLineItemCommandOutput
-  extends BatchAssociateResourcesToCustomLineItemOutput,
-    __MetadataBearer {}
+export interface BatchAssociateResourcesToCustomLineItemCommandOutput extends BatchAssociateResourcesToCustomLineItemOutput, __MetadataBearer {}
 
 /**
  * <p> Associates a batch of resources to a percentage custom line item. </p>
@@ -128,7 +125,7 @@ export class BatchAssociateResourcesToCustomLineItemCommand extends $Command
   })
   .s("AWSBillingConductor", "BatchAssociateResourcesToCustomLineItem", {})
   .n("BillingconductorClient", "BatchAssociateResourcesToCustomLineItemCommand")
-  .sc(BatchAssociateResourcesToCustomLineItem)
+  .sc(BatchAssociateResourcesToCustomLineItem$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

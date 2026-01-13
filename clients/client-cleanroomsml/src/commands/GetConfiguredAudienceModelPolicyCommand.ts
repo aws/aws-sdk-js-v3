@@ -9,7 +9,7 @@ import type {
   GetConfiguredAudienceModelPolicyRequest,
   GetConfiguredAudienceModelPolicyResponse,
 } from "../models/models_0";
-import { GetConfiguredAudienceModelPolicy } from "../schemas/schemas_0";
+import { GetConfiguredAudienceModelPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetConfiguredAudienceModelPolicyCommandInput extends GetConfigu
  *
  * The output of {@link GetConfiguredAudienceModelPolicyCommand}.
  */
-export interface GetConfiguredAudienceModelPolicyCommandOutput
-  extends GetConfiguredAudienceModelPolicyResponse,
-    __MetadataBearer {}
+export interface GetConfiguredAudienceModelPolicyCommandOutput extends GetConfiguredAudienceModelPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a configured audience model policy.</p>
@@ -89,7 +87,7 @@ export class GetConfiguredAudienceModelPolicyCommand extends $Command
   })
   .s("AWSStarkControlService", "GetConfiguredAudienceModelPolicy", {})
   .n("CleanRoomsMLClient", "GetConfiguredAudienceModelPolicyCommand")
-  .sc(GetConfiguredAudienceModelPolicy)
+  .sc(GetConfiguredAudienceModelPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

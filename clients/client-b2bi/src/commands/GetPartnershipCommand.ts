@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPartnershipRequest, GetPartnershipResponse } from "../models/models_0";
-import { GetPartnership } from "../schemas/schemas_0";
+import { GetPartnership$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -172,7 +172,7 @@ export class GetPartnershipCommand extends $Command
   })
   .s("B2BI", "GetPartnership", {})
   .n("B2biClient", "GetPartnershipCommand")
-  .sc(GetPartnership)
+  .sc(GetPartnership$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import type { ListAccountPermissionsRequest, ListAccountPermissionsResponse } from "../models/models_0";
-import { ListAccountPermissions } from "../schemas/schemas_0";
+import { ListAccountPermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class ListAccountPermissionsCommand extends $Command
   })
   .s("Inspector2", "ListAccountPermissions", {})
   .n("Inspector2Client", "ListAccountPermissionsCommand")
-  .sc(ListAccountPermissions)
+  .sc(ListAccountPermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

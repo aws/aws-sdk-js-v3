@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { NotifyRecommendationsReceivedRequest, NotifyRecommendationsReceivedResponse } from "../models/models_0";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { NotifyRecommendationsReceived } from "../schemas/schemas_0";
+import { NotifyRecommendationsReceived$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface NotifyRecommendationsReceivedCommandInput extends NotifyRecomme
  *
  * The output of {@link NotifyRecommendationsReceivedCommand}.
  */
-export interface NotifyRecommendationsReceivedCommandOutput
-  extends NotifyRecommendationsReceivedResponse,
-    __MetadataBearer {}
+export interface NotifyRecommendationsReceivedCommandOutput extends NotifyRecommendationsReceivedResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the specified recommendations from the specified assistant's queue of newly available recommendations. You can use this API in conjunction with <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a> and a <code>waitTimeSeconds</code> input for long-polling behavior and avoiding duplicate recommendations.</p>
@@ -96,7 +94,7 @@ export class NotifyRecommendationsReceivedCommand extends $Command
   })
   .s("WisdomService", "NotifyRecommendationsReceived", {})
   .n("QConnectClient", "NotifyRecommendationsReceivedCommand")
-  .sc(NotifyRecommendationsReceived)
+  .sc(NotifyRecommendationsReceived$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

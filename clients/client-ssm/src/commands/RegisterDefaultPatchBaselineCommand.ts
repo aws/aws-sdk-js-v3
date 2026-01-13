@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegisterDefaultPatchBaselineRequest, RegisterDefaultPatchBaselineResult } from "../models/models_1";
-import { RegisterDefaultPatchBaseline } from "../schemas/schemas_0";
+import { RegisterDefaultPatchBaseline$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -24,9 +24,7 @@ export interface RegisterDefaultPatchBaselineCommandInput extends RegisterDefaul
  *
  * The output of {@link RegisterDefaultPatchBaselineCommand}.
  */
-export interface RegisterDefaultPatchBaselineCommandOutput
-  extends RegisterDefaultPatchBaselineResult,
-    __MetadataBearer {}
+export interface RegisterDefaultPatchBaselineCommandOutput extends RegisterDefaultPatchBaselineResult, __MetadataBearer {}
 
 /**
  * <p>Defines the default patch baseline for the relevant operating system.</p>
@@ -91,7 +89,7 @@ export class RegisterDefaultPatchBaselineCommand extends $Command
   })
   .s("AmazonSSM", "RegisterDefaultPatchBaseline", {})
   .n("SSMClient", "RegisterDefaultPatchBaselineCommand")
-  .sc(RegisterDefaultPatchBaseline)
+  .sc(RegisterDefaultPatchBaseline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

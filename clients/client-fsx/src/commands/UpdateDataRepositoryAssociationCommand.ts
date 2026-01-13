@@ -9,7 +9,7 @@ import type {
   UpdateDataRepositoryAssociationRequest,
   UpdateDataRepositoryAssociationResponse,
 } from "../models/models_0";
-import { UpdateDataRepositoryAssociation } from "../schemas/schemas_0";
+import { UpdateDataRepositoryAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateDataRepositoryAssociationCommandInput extends UpdateDataR
  *
  * The output of {@link UpdateDataRepositoryAssociationCommand}.
  */
-export interface UpdateDataRepositoryAssociationCommandOutput
-  extends UpdateDataRepositoryAssociationResponse,
-    __MetadataBearer {}
+export interface UpdateDataRepositoryAssociationCommandOutput extends UpdateDataRepositoryAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration of an existing data repository association
@@ -160,7 +158,7 @@ export class UpdateDataRepositoryAssociationCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "UpdateDataRepositoryAssociation", {})
   .n("FSxClient", "UpdateDataRepositoryAssociationCommand")
-  .sc(UpdateDataRepositoryAssociation)
+  .sc(UpdateDataRepositoryAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

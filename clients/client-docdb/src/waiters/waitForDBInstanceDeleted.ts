@@ -7,19 +7,19 @@ import { DocDBClient } from "../DocDBClient";
 const checkState = async (client: DocDBClient, input: DescribeDBInstancesCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeDBInstancesCommand(input));
+    let result: any = await client.send(new DescribeDBInstancesCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.DBInstances);
-        const projection_3 = flat_1.map((element_2: any) => {
+        let flat_1: any[] = [].concat(...result.DBInstances);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.DBInstanceStatus;
         });
         return projection_3;
-      };
-      let allStringEq_5 = returnComparator().length > 0;
-      for (const element_4 of returnComparator()) {
-        allStringEq_5 = allStringEq_5 && element_4 == "deleted";
+      }
+      let allStringEq_5 = (returnComparator().length > 0);
+      for (let element_4 of returnComparator()) {
+        allStringEq_5 = allStringEq_5 && (element_4 == "deleted")
       }
       if (allStringEq_5) {
         return { state: WaiterState.SUCCESS, reason };
@@ -27,13 +27,13 @@ const checkState = async (client: DocDBClient, input: DescribeDBInstancesCommand
     } catch (e) {}
     try {
       const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.DBInstances);
-        const projection_3 = flat_1.map((element_2: any) => {
+        let flat_1: any[] = [].concat(...result.DBInstances);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.DBInstanceStatus;
         });
         return projection_3;
-      };
-      for (const anyStringEq_4 of returnComparator()) {
+      }
+      for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "creating") {
           return { state: WaiterState.FAILURE, reason };
         }
@@ -41,13 +41,13 @@ const checkState = async (client: DocDBClient, input: DescribeDBInstancesCommand
     } catch (e) {}
     try {
       const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.DBInstances);
-        const projection_3 = flat_1.map((element_2: any) => {
+        let flat_1: any[] = [].concat(...result.DBInstances);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.DBInstanceStatus;
         });
         return projection_3;
-      };
-      for (const anyStringEq_4 of returnComparator()) {
+      }
+      for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "modifying") {
           return { state: WaiterState.FAILURE, reason };
         }
@@ -55,13 +55,13 @@ const checkState = async (client: DocDBClient, input: DescribeDBInstancesCommand
     } catch (e) {}
     try {
       const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.DBInstances);
-        const projection_3 = flat_1.map((element_2: any) => {
+        let flat_1: any[] = [].concat(...result.DBInstances);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.DBInstanceStatus;
         });
         return projection_3;
-      };
-      for (const anyStringEq_4 of returnComparator()) {
+      }
+      for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "rebooting") {
           return { state: WaiterState.FAILURE, reason };
         }
@@ -69,13 +69,13 @@ const checkState = async (client: DocDBClient, input: DescribeDBInstancesCommand
     } catch (e) {}
     try {
       const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.DBInstances);
-        const projection_3 = flat_1.map((element_2: any) => {
+        let flat_1: any[] = [].concat(...result.DBInstances);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.DBInstanceStatus;
         });
         return projection_3;
-      };
-      for (const anyStringEq_4 of returnComparator()) {
+      }
+      for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "resetting-master-credentials") {
           return { state: WaiterState.FAILURE, reason };
         }

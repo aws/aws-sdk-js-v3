@@ -13,7 +13,7 @@ import type {
   DescribeReplicationInstanceTaskLogsMessage,
   DescribeReplicationInstanceTaskLogsResponse,
 } from "../models/models_0";
-import { DescribeReplicationInstanceTaskLogs } from "../schemas/schemas_0";
+import { DescribeReplicationInstanceTaskLogs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DescribeReplicationInstanceTaskLogsCommandInput extends Describ
  *
  * The output of {@link DescribeReplicationInstanceTaskLogsCommand}.
  */
-export interface DescribeReplicationInstanceTaskLogsCommandOutput
-  extends DescribeReplicationInstanceTaskLogsResponse,
-    __MetadataBearer {}
+export interface DescribeReplicationInstanceTaskLogsCommandOutput extends DescribeReplicationInstanceTaskLogsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the task logs for the specified task.</p>
@@ -98,7 +96,7 @@ export class DescribeReplicationInstanceTaskLogsCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeReplicationInstanceTaskLogs", {})
   .n("DatabaseMigrationServiceClient", "DescribeReplicationInstanceTaskLogsCommand")
-  .sc(DescribeReplicationInstanceTaskLogs)
+  .sc(DescribeReplicationInstanceTaskLogs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

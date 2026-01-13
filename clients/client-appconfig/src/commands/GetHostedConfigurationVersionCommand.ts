@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type GetHostedConfigurationVersionRequest, HostedConfigurationVersion } from "../models/models_0";
-import { GetHostedConfigurationVersion } from "../schemas/schemas_0";
+import { GetHostedConfigurationVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -32,9 +32,7 @@ export type GetHostedConfigurationVersionCommandOutputType = Omit<HostedConfigur
  *
  * The output of {@link GetHostedConfigurationVersionCommand}.
  */
-export interface GetHostedConfigurationVersionCommandOutput
-  extends GetHostedConfigurationVersionCommandOutputType,
-    __MetadataBearer {}
+export interface GetHostedConfigurationVersionCommandOutput extends GetHostedConfigurationVersionCommandOutputType, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a specific configuration version.</p>
@@ -121,7 +119,7 @@ export class GetHostedConfigurationVersionCommand extends $Command
   })
   .s("AmazonAppConfig", "GetHostedConfigurationVersion", {})
   .n("AppConfigClient", "GetHostedConfigurationVersionCommand")
-  .sc(GetHostedConfigurationVersion)
+  .sc(GetHostedConfigurationVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

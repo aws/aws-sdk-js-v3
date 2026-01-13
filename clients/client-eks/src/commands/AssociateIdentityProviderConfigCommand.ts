@@ -9,7 +9,7 @@ import type {
   AssociateIdentityProviderConfigRequest,
   AssociateIdentityProviderConfigResponse,
 } from "../models/models_0";
-import { AssociateIdentityProviderConfig } from "../schemas/schemas_0";
+import { AssociateIdentityProviderConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface AssociateIdentityProviderConfigCommandInput extends AssociateId
  *
  * The output of {@link AssociateIdentityProviderConfigCommand}.
  */
-export interface AssociateIdentityProviderConfigCommandOutput
-  extends AssociateIdentityProviderConfigResponse,
-    __MetadataBearer {}
+export interface AssociateIdentityProviderConfigCommandOutput extends AssociateIdentityProviderConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Associates an identity provider configuration to a cluster.</p>
@@ -153,7 +151,7 @@ export class AssociateIdentityProviderConfigCommand extends $Command
   })
   .s("AWSWesleyFrontend", "AssociateIdentityProviderConfig", {})
   .n("EKSClient", "AssociateIdentityProviderConfigCommand")
-  .sc(AssociateIdentityProviderConfig)
+  .sc(AssociateIdentityProviderConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

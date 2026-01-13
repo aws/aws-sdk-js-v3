@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ReplaceNetworkAclEntryRequest } from "../models/models_7";
-import { ReplaceNetworkAclEntry } from "../schemas/schemas_0";
+import { ReplaceNetworkAclEntry$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class ReplaceNetworkAclEntryCommand extends $Command
   })
   .s("AmazonEC2", "ReplaceNetworkAclEntry", {})
   .n("EC2Client", "ReplaceNetworkAclEntryCommand")
-  .sc(ReplaceNetworkAclEntry)
+  .sc(ReplaceNetworkAclEntry$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

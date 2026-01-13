@@ -9,7 +9,7 @@ import type {
   DeleteRepositoryCreationTemplateRequest,
   DeleteRepositoryCreationTemplateResponse,
 } from "../models/models_0";
-import { DeleteRepositoryCreationTemplate } from "../schemas/schemas_0";
+import { DeleteRepositoryCreationTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteRepositoryCreationTemplateCommandInput extends DeleteRepo
  *
  * The output of {@link DeleteRepositoryCreationTemplateCommand}.
  */
-export interface DeleteRepositoryCreationTemplateCommandOutput
-  extends DeleteRepositoryCreationTemplateResponse,
-    __MetadataBearer {}
+export interface DeleteRepositoryCreationTemplateCommandOutput extends DeleteRepositoryCreationTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a repository creation template.</p>
@@ -71,7 +69,7 @@ export interface DeleteRepositoryCreationTemplateCommandOutput
  * //     repositoryPolicy: "STRING_VALUE",
  * //     lifecyclePolicy: "STRING_VALUE",
  * //     appliedFor: [ // RCTAppliedForList
- * //       "REPLICATION" || "PULL_THROUGH_CACHE",
+ * //       "REPLICATION" || "PULL_THROUGH_CACHE" || "CREATE_ON_PUSH",
  * //     ],
  * //     customRoleArn: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
@@ -121,7 +119,7 @@ export class DeleteRepositoryCreationTemplateCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "DeleteRepositoryCreationTemplate", {})
   .n("ECRClient", "DeleteRepositoryCreationTemplateCommand")
-  .sc(DeleteRepositoryCreationTemplate)
+  .sc(DeleteRepositoryCreationTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

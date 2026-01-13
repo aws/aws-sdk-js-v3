@@ -9,7 +9,7 @@ import type {
   CreateCloudFrontOriginAccessIdentityRequest,
   CreateCloudFrontOriginAccessIdentityResult,
 } from "../models/models_0";
-import { CreateCloudFrontOriginAccessIdentity } from "../schemas/schemas_0";
+import { CreateCloudFrontOriginAccessIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateCloudFrontOriginAccessIdentityCommandInput extends Create
  *
  * The output of {@link CreateCloudFrontOriginAccessIdentityCommand}.
  */
-export interface CreateCloudFrontOriginAccessIdentityCommandOutput
-  extends CreateCloudFrontOriginAccessIdentityResult,
-    __MetadataBearer {}
+export interface CreateCloudFrontOriginAccessIdentityCommandOutput extends CreateCloudFrontOriginAccessIdentityResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new origin access identity. If you're using Amazon S3 for your origin, you can use an origin access identity to require users to access your content using a CloudFront URL instead of the Amazon S3 URL. For more information about how to use origin access identities, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
@@ -105,7 +103,7 @@ export class CreateCloudFrontOriginAccessIdentityCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "CreateCloudFrontOriginAccessIdentity", {})
   .n("CloudFrontClient", "CreateCloudFrontOriginAccessIdentityCommand")
-  .sc(CreateCloudFrontOriginAccessIdentity)
+  .sc(CreateCloudFrontOriginAccessIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

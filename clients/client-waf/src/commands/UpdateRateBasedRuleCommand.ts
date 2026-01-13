@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateRateBasedRuleRequest, UpdateRateBasedRuleResponse } from "../models/models_0";
-import { UpdateRateBasedRule } from "../schemas/schemas_0";
+import { UpdateRateBasedRule$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -61,11 +61,11 @@ export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleRes
  *          in the request must contain the value <code>BadBot</code>. Further, requests that match
  *          these two conditions much be received at a rate of more than 1,000 every five minutes. If
  *          the rate drops below this limit, AWS WAF no longer blocks the requests.</p>
- *
+ * 		
  * 		       <p>As a second example, suppose you want to limit requests to a particular page on your site. To do this, you could add the following to a
  *             <code>RateBasedRule</code>:</p>
- *
- *
+ * 			
+ * 			
  *          <ul>
  *             <li>
  *                <p>A <code>ByteMatchSet</code> with <code>FieldToMatch</code> of <code>URI</code>
@@ -248,7 +248,7 @@ export class UpdateRateBasedRuleCommand extends $Command
   })
   .s("AWSWAF_20150824", "UpdateRateBasedRule", {})
   .n("WAFClient", "UpdateRateBasedRuleCommand")
-  .sc(UpdateRateBasedRule)
+  .sc(UpdateRateBasedRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

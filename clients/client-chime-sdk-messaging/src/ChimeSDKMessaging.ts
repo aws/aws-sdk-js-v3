@@ -364,8 +364,14 @@ export interface ChimeSDKMessaging {
   /**
    * @see {@link CreateChannelCommand}
    */
-  createChannel(args: CreateChannelCommandInput, options?: __HttpHandlerOptions): Promise<CreateChannelCommandOutput>;
-  createChannel(args: CreateChannelCommandInput, cb: (err: any, data?: CreateChannelCommandOutput) => void): void;
+  createChannel(
+    args: CreateChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelCommandOutput>;
+  createChannel(
+    args: CreateChannelCommandInput,
+    cb: (err: any, data?: CreateChannelCommandOutput) => void
+  ): void;
   createChannel(
     args: CreateChannelCommandInput,
     options: __HttpHandlerOptions,
@@ -443,8 +449,14 @@ export interface ChimeSDKMessaging {
   /**
    * @see {@link DeleteChannelCommand}
    */
-  deleteChannel(args: DeleteChannelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteChannelCommandOutput>;
-  deleteChannel(args: DeleteChannelCommandInput, cb: (err: any, data?: DeleteChannelCommandOutput) => void): void;
+  deleteChannel(
+    args: DeleteChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelCommandOutput>;
+  deleteChannel(
+    args: DeleteChannelCommandInput,
+    cb: (err: any, data?: DeleteChannelCommandOutput) => void
+  ): void;
   deleteChannel(
     args: DeleteChannelCommandInput,
     options: __HttpHandlerOptions,
@@ -560,7 +572,10 @@ export interface ChimeSDKMessaging {
     args: DescribeChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeChannelCommandOutput>;
-  describeChannel(args: DescribeChannelCommandInput, cb: (err: any, data?: DescribeChannelCommandOutput) => void): void;
+  describeChannel(
+    args: DescribeChannelCommandInput,
+    cb: (err: any, data?: DescribeChannelCommandOutput) => void
+  ): void;
   describeChannel(
     args: DescribeChannelCommandInput,
     options: __HttpHandlerOptions,
@@ -779,7 +794,10 @@ export interface ChimeSDKMessaging {
     args: ListChannelBansCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListChannelBansCommandOutput>;
-  listChannelBans(args: ListChannelBansCommandInput, cb: (err: any, data?: ListChannelBansCommandOutput) => void): void;
+  listChannelBans(
+    args: ListChannelBansCommandInput,
+    cb: (err: any, data?: ListChannelBansCommandOutput) => void
+  ): void;
   listChannelBans(
     args: ListChannelBansCommandInput,
     options: __HttpHandlerOptions,
@@ -874,8 +892,14 @@ export interface ChimeSDKMessaging {
   /**
    * @see {@link ListChannelsCommand}
    */
-  listChannels(args: ListChannelsCommandInput, options?: __HttpHandlerOptions): Promise<ListChannelsCommandOutput>;
-  listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
+  listChannels(
+    args: ListChannelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelsCommandOutput>;
+  listChannels(
+    args: ListChannelsCommandInput,
+    cb: (err: any, data?: ListChannelsCommandOutput) => void
+  ): void;
   listChannels(
     args: ListChannelsCommandInput,
     options: __HttpHandlerOptions,
@@ -923,7 +947,10 @@ export interface ChimeSDKMessaging {
     args: ListSubChannelsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListSubChannelsCommandOutput>;
-  listSubChannels(args: ListSubChannelsCommandInput, cb: (err: any, data?: ListSubChannelsCommandOutput) => void): void;
+  listSubChannels(
+    args: ListSubChannelsCommandInput,
+    cb: (err: any, data?: ListSubChannelsCommandOutput) => void
+  ): void;
   listSubChannels(
     args: ListSubChannelsCommandInput,
     options: __HttpHandlerOptions,
@@ -1022,7 +1049,10 @@ export interface ChimeSDKMessaging {
     args: SearchChannelsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SearchChannelsCommandOutput>;
-  searchChannels(args: SearchChannelsCommandInput, cb: (err: any, data?: SearchChannelsCommandOutput) => void): void;
+  searchChannels(
+    args: SearchChannelsCommandInput,
+    cb: (err: any, data?: SearchChannelsCommandOutput) => void
+  ): void;
   searchChannels(
     args: SearchChannelsCommandInput,
     options: __HttpHandlerOptions,
@@ -1049,8 +1079,14 @@ export interface ChimeSDKMessaging {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1060,8 +1096,14 @@ export interface ChimeSDKMessaging {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1071,8 +1113,14 @@ export interface ChimeSDKMessaging {
   /**
    * @see {@link UpdateChannelCommand}
    */
-  updateChannel(args: UpdateChannelCommandInput, options?: __HttpHandlerOptions): Promise<UpdateChannelCommandOutput>;
-  updateChannel(args: UpdateChannelCommandInput, cb: (err: any, data?: UpdateChannelCommandOutput) => void): void;
+  updateChannel(
+    args: UpdateChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateChannelCommandOutput>;
+  updateChannel(
+    args: UpdateChannelCommandInput,
+    cb: (err: any, data?: UpdateChannelCommandOutput) => void
+  ): void;
   updateChannel(
     args: UpdateChannelCommandInput,
     options: __HttpHandlerOptions,

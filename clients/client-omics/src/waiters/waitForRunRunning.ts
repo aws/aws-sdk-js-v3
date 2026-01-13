@@ -7,12 +7,12 @@ import { OmicsClient } from "../OmicsClient";
 const checkState = async (client: OmicsClient, input: GetRunCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetRunCommand(input));
+    let result: any = await client.send(new GetRunCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "RUNNING") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: OmicsClient, input: GetRunCommandInput): Promi
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "PENDING") {
         return { state: WaiterState.RETRY, reason };
       }
@@ -28,7 +28,7 @@ const checkState = async (client: OmicsClient, input: GetRunCommandInput): Promi
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "STARTING") {
         return { state: WaiterState.RETRY, reason };
       }
@@ -36,7 +36,7 @@ const checkState = async (client: OmicsClient, input: GetRunCommandInput): Promi
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -44,7 +44,7 @@ const checkState = async (client: OmicsClient, input: GetRunCommandInput): Promi
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "CANCELLED") {
         return { state: WaiterState.FAILURE, reason };
       }

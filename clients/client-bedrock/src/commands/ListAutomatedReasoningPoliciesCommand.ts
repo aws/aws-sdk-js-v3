@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAutomatedReasoningPoliciesRequest, ListAutomatedReasoningPoliciesResponse } from "../models/models_0";
-import { ListAutomatedReasoningPolicies } from "../schemas/schemas_0";
+import { ListAutomatedReasoningPolicies$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListAutomatedReasoningPoliciesCommandInput extends ListAutomate
  *
  * The output of {@link ListAutomatedReasoningPoliciesCommand}.
  */
-export interface ListAutomatedReasoningPoliciesCommandOutput
-  extends ListAutomatedReasoningPoliciesResponse,
-    __MetadataBearer {}
+export interface ListAutomatedReasoningPoliciesCommandOutput extends ListAutomatedReasoningPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all Automated Reasoning policies in your account, with optional filtering by policy ARN. This helps you manage and discover existing policies.</p>
@@ -103,7 +101,7 @@ export class ListAutomatedReasoningPoliciesCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "ListAutomatedReasoningPolicies", {})
   .n("BedrockClient", "ListAutomatedReasoningPoliciesCommand")
-  .sc(ListAutomatedReasoningPolicies)
+  .sc(ListAutomatedReasoningPolicies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

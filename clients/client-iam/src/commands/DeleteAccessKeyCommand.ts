@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { DeleteAccessKeyRequest } from "../models/models_0";
-import { DeleteAccessKey } from "../schemas/schemas_0";
+import { DeleteAccessKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class DeleteAccessKeyCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "DeleteAccessKey", {})
   .n("IAMClient", "DeleteAccessKeyCommand")
-  .sc(DeleteAccessKey)
+  .sc(DeleteAccessKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

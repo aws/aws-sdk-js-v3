@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListStatementsRequest, ListStatementsResponse } from "../models/models_0";
 import type { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
-import { ListStatements } from "../schemas/schemas_0";
+import { ListStatements$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class ListStatementsCommand extends $Command
   })
   .s("RedshiftData", "ListStatements", {})
   .n("RedshiftDataClient", "ListStatementsCommand")
-  .sc(ListStatements)
+  .sc(ListStatements$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

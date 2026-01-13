@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { DeregisterAccountAssociationRequest } from "../models/models_0";
-import { DeregisterAccountAssociation } from "../schemas/schemas_0";
+import { DeregisterAccountAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -59,6 +59,9 @@ export interface DeregisterAccountAssociationCommandOutput extends __MetadataBea
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>User is not authorized.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict with the request.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
@@ -91,7 +94,7 @@ export class DeregisterAccountAssociationCommand extends $Command
   })
   .s("IotManagedIntegrations", "DeregisterAccountAssociation", {})
   .n("IoTManagedIntegrationsClient", "DeregisterAccountAssociationCommand")
-  .sc(DeregisterAccountAssociation)
+  .sc(DeregisterAccountAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

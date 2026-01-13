@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDomainConfigRequest, UpdateDomainConfigResponse } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { UpdateDomainConfig } from "../schemas/schemas_0";
+import { UpdateDomainConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -531,7 +531,7 @@ export class UpdateDomainConfigCommand extends $Command
   })
   .s("AmazonOpenSearchService", "UpdateDomainConfig", {})
   .n("OpenSearchClient", "UpdateDomainConfigCommand")
-  .sc(UpdateDomainConfig)
+  .sc(UpdateDomainConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

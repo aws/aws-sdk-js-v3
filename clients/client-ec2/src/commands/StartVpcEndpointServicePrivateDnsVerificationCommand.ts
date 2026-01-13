@@ -9,7 +9,7 @@ import type {
   StartVpcEndpointServicePrivateDnsVerificationRequest,
   StartVpcEndpointServicePrivateDnsVerificationResult,
 } from "../models/models_7";
-import { StartVpcEndpointServicePrivateDnsVerification } from "../schemas/schemas_0";
+import { StartVpcEndpointServicePrivateDnsVerification$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link StartVpcEndpointServicePrivateDnsVerificationCommand}.
  */
-export interface StartVpcEndpointServicePrivateDnsVerificationCommandInput
-  extends StartVpcEndpointServicePrivateDnsVerificationRequest {}
+export interface StartVpcEndpointServicePrivateDnsVerificationCommandInput extends StartVpcEndpointServicePrivateDnsVerificationRequest {}
 /**
  * @public
  *
  * The output of {@link StartVpcEndpointServicePrivateDnsVerificationCommand}.
  */
-export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
-  extends StartVpcEndpointServicePrivateDnsVerificationResult,
-    __MetadataBearer {}
+export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput extends StartVpcEndpointServicePrivateDnsVerificationResult, __MetadataBearer {}
 
 /**
  * <p>Initiates the verification process to prove that the service provider owns the private
@@ -83,7 +80,7 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
   })
   .s("AmazonEC2", "StartVpcEndpointServicePrivateDnsVerification", {})
   .n("EC2Client", "StartVpcEndpointServicePrivateDnsVerificationCommand")
-  .sc(StartVpcEndpointServicePrivateDnsVerification)
+  .sc(StartVpcEndpointServicePrivateDnsVerification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

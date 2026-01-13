@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListPullTimeUpdateExclusionsRequest, ListPullTimeUpdateExclusionsResponse } from "../models/models_0";
-import { ListPullTimeUpdateExclusions } from "../schemas/schemas_0";
+import { ListPullTimeUpdateExclusions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListPullTimeUpdateExclusionsCommandInput extends ListPullTimeUp
  *
  * The output of {@link ListPullTimeUpdateExclusionsCommand}.
  */
-export interface ListPullTimeUpdateExclusionsCommandOutput
-  extends ListPullTimeUpdateExclusionsResponse,
-    __MetadataBearer {}
+export interface ListPullTimeUpdateExclusionsCommandOutput extends ListPullTimeUpdateExclusionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the IAM principals that are excluded from having their image pull times recorded.</p>
@@ -128,7 +126,7 @@ export class ListPullTimeUpdateExclusionsCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "ListPullTimeUpdateExclusions", {})
   .n("ECRClient", "ListPullTimeUpdateExclusionsCommand")
-  .sc(ListPullTimeUpdateExclusions)
+  .sc(ListPullTimeUpdateExclusions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { SetDefaultMessageFeedbackEnabled } from "../schemas/schemas_0";
+import { SetDefaultMessageFeedbackEnabled$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface SetDefaultMessageFeedbackEnabledCommandInput extends SetDefault
  *
  * The output of {@link SetDefaultMessageFeedbackEnabledCommand}.
  */
-export interface SetDefaultMessageFeedbackEnabledCommandOutput
-  extends SetDefaultMessageFeedbackEnabledResult,
-    __MetadataBearer {}
+export interface SetDefaultMessageFeedbackEnabledCommandOutput extends SetDefaultMessageFeedbackEnabledResult, __MetadataBearer {}
 
 /**
  * <p>Sets a configuration set's default for message feedback. </p>
@@ -100,7 +98,7 @@ export class SetDefaultMessageFeedbackEnabledCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "SetDefaultMessageFeedbackEnabled", {})
   .n("PinpointSMSVoiceV2Client", "SetDefaultMessageFeedbackEnabledCommand")
-  .sc(SetDefaultMessageFeedbackEnabled)
+  .sc(SetDefaultMessageFeedbackEnabled$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

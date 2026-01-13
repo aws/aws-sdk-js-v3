@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import type { UpdateDetectorVersionMetadataRequest, UpdateDetectorVersionMetadataResult } from "../models/models_0";
-import { UpdateDetectorVersionMetadata } from "../schemas/schemas_0";
+import { UpdateDetectorVersionMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateDetectorVersionMetadataCommandInput extends UpdateDetecto
  *
  * The output of {@link UpdateDetectorVersionMetadataCommand}.
  */
-export interface UpdateDetectorVersionMetadataCommandOutput
-  extends UpdateDetectorVersionMetadataResult,
-    __MetadataBearer {}
+export interface UpdateDetectorVersionMetadataCommandOutput extends UpdateDetectorVersionMetadataResult, __MetadataBearer {}
 
 /**
  * <p>Updates the detector version's description. You can update the metadata for any detector version (<code>DRAFT, ACTIVE,</code> or
@@ -91,7 +89,7 @@ export class UpdateDetectorVersionMetadataCommand extends $Command
   })
   .s("AWSHawksNestServiceFacade", "UpdateDetectorVersionMetadata", {})
   .n("FraudDetectorClient", "UpdateDetectorVersionMetadataCommand")
-  .sc(UpdateDetectorVersionMetadata)
+  .sc(UpdateDetectorVersionMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

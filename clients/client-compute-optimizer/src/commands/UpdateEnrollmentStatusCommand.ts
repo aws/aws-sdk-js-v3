@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateEnrollmentStatusRequest, UpdateEnrollmentStatusResponse } from "../models/models_0";
-import { UpdateEnrollmentStatus } from "../schemas/schemas_0";
+import { UpdateEnrollmentStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class UpdateEnrollmentStatusCommand extends $Command
   })
   .s("ComputeOptimizerService", "UpdateEnrollmentStatus", {})
   .n("ComputeOptimizerClient", "UpdateEnrollmentStatusCommand")
-  .sc(UpdateEnrollmentStatus)
+  .sc(UpdateEnrollmentStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

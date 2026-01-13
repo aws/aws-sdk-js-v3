@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import type { DescribeDataRepositoryTasksRequest, DescribeDataRepositoryTasksResponse } from "../models/models_0";
-import { DescribeDataRepositoryTasks } from "../schemas/schemas_0";
+import { DescribeDataRepositoryTasks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeDataRepositoryTasksCommandInput extends DescribeDataRep
  *
  * The output of {@link DescribeDataRepositoryTasksCommand}.
  */
-export interface DescribeDataRepositoryTasksCommandOutput
-  extends DescribeDataRepositoryTasksResponse,
-    __MetadataBearer {}
+export interface DescribeDataRepositoryTasksCommandOutput extends DescribeDataRepositoryTasksResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the description of specific Amazon FSx for Lustre or Amazon File Cache data repository tasks, if
@@ -153,7 +151,7 @@ export class DescribeDataRepositoryTasksCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "DescribeDataRepositoryTasks", {})
   .n("FSxClient", "DescribeDataRepositoryTasksCommand")
-  .sc(DescribeDataRepositoryTasks)
+  .sc(DescribeDataRepositoryTasks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

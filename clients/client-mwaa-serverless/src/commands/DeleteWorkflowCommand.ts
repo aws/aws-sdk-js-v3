@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MWAAServerlessClient";
-import { DeleteWorkflow } from "../schemas/schemas_0";
+import { DeleteWorkflow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DeleteWorkflowCommand extends $Command
   })
   .s("AmazonMWAAServerless", "DeleteWorkflow", {})
   .n("MWAAServerlessClient", "DeleteWorkflowCommand")
-  .sc(DeleteWorkflow)
+  .sc(DeleteWorkflow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

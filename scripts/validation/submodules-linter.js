@@ -6,7 +6,12 @@ const singlePkg = process.argv[process.argv.indexOf("--pkg") + 1];
 const submodulePackages = singlePkg ? [singlePkg] : ["core", "nested-clients"];
 
 for (const submodulePackage of submodulePackages) {
-  const root = path.join(__dirname, "..", "..", "packages", submodulePackage);
+  const [a, b] = [
+    path.join(__dirname, "..", "..", "packages", submodulePackage),
+    path.join(__dirname, "..", "..", "packages-internal", submodulePackage),
+  ];
+  const root = fs.existsSync(a) ? a : b;
+
   const pkgJson = require(path.join(root, "package.json"));
   if (!pkgJson.exports) {
     pkgJson.exports = {};

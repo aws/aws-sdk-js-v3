@@ -1,11 +1,11 @@
 {
   "name": "@aws-sdk/middleware-user-agent",
-  "version": "3.947.0",
+  "version": "3.967.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline middleware-user-agent",
     "build:es": "tsc -p tsconfig.es.json",
-    "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
+    "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
@@ -28,16 +28,16 @@
     "@aws-sdk/core": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-endpoints": "*",
-    "@smithy/core": "^3.18.7",
-    "@smithy/protocol-http": "^5.3.5",
-    "@smithy/types": "^4.9.0",
+    "@smithy/core": "^3.20.3",
+    "@smithy/protocol-http": "^5.3.7",
+    "@smithy/types": "^4.11.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
-    "rimraf": "3.0.2",
+    "rimraf": "5.0.10",
     "typescript": "~5.8.3"
   },
   "engines": {

@@ -9,7 +9,7 @@ import type {
   GetNetworkInsightsAccessScopeContentRequest,
   GetNetworkInsightsAccessScopeContentResult,
 } from "../models/models_6";
-import { GetNetworkInsightsAccessScopeContent } from "../schemas/schemas_0";
+import { GetNetworkInsightsAccessScopeContent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetNetworkInsightsAccessScopeContentCommandInput extends GetNet
  *
  * The output of {@link GetNetworkInsightsAccessScopeContentCommand}.
  */
-export interface GetNetworkInsightsAccessScopeContentCommandOutput
-  extends GetNetworkInsightsAccessScopeContentResult,
-    __MetadataBearer {}
+export interface GetNetworkInsightsAccessScopeContentCommandOutput extends GetNetworkInsightsAccessScopeContentResult, __MetadataBearer {}
 
 /**
  * <p>Gets the content for the specified Network Access Scope.</p>
@@ -180,7 +178,7 @@ export class GetNetworkInsightsAccessScopeContentCommand extends $Command
   })
   .s("AmazonEC2", "GetNetworkInsightsAccessScopeContent", {})
   .n("EC2Client", "GetNetworkInsightsAccessScopeContentCommand")
-  .sc(GetNetworkInsightsAccessScopeContent)
+  .sc(GetNetworkInsightsAccessScopeContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

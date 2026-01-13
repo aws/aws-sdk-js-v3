@@ -10,7 +10,7 @@ import type {
 } from "../ConnectCampaignsV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeCampaignRequest, DescribeCampaignResponse } from "../models/models_0";
-import { DescribeCampaign } from "../schemas/schemas_0";
+import { DescribeCampaign$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -278,7 +278,7 @@ export class DescribeCampaignCommand extends $Command
   })
   .s("AmazonConnectCampaignServiceV2", "DescribeCampaign", {})
   .n("ConnectCampaignsV2Client", "DescribeCampaignCommand")
-  .sc(DescribeCampaign)
+  .sc(DescribeCampaign$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   GetConnectionGroupByRoutingEndpointRequest,
   GetConnectionGroupByRoutingEndpointResult,
 } from "../models/models_0";
-import { GetConnectionGroupByRoutingEndpoint } from "../schemas/schemas_0";
+import { GetConnectionGroupByRoutingEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetConnectionGroupByRoutingEndpointCommandInput extends GetConn
  *
  * The output of {@link GetConnectionGroupByRoutingEndpointCommand}.
  */
-export interface GetConnectionGroupByRoutingEndpointCommandOutput
-  extends GetConnectionGroupByRoutingEndpointResult,
-    __MetadataBearer {}
+export interface GetConnectionGroupByRoutingEndpointCommandOutput extends GetConnectionGroupByRoutingEndpointResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about a connection group by using the endpoint that you specify.</p>
@@ -105,7 +103,7 @@ export class GetConnectionGroupByRoutingEndpointCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "GetConnectionGroupByRoutingEndpoint", {})
   .n("CloudFrontClient", "GetConnectionGroupByRoutingEndpointCommand")
-  .sc(GetConnectionGroupByRoutingEndpoint)
+  .sc(GetConnectionGroupByRoutingEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

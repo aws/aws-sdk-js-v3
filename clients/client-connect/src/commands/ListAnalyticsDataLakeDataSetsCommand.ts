@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAnalyticsDataLakeDataSetsRequest, ListAnalyticsDataLakeDataSetsResponse } from "../models/models_1";
-import { ListAnalyticsDataLakeDataSets } from "../schemas/schemas_0";
+import { ListAnalyticsDataLakeDataSets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListAnalyticsDataLakeDataSetsCommandInput extends ListAnalytics
  *
  * The output of {@link ListAnalyticsDataLakeDataSetsCommand}.
  */
-export interface ListAnalyticsDataLakeDataSetsCommandOutput
-  extends ListAnalyticsDataLakeDataSetsResponse,
-    __MetadataBearer {}
+export interface ListAnalyticsDataLakeDataSetsCommandOutput extends ListAnalyticsDataLakeDataSetsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the data lake datasets available to associate with for a given Amazon Connect instance.</p>
@@ -98,7 +96,7 @@ export class ListAnalyticsDataLakeDataSetsCommand extends $Command
   })
   .s("AmazonConnectService", "ListAnalyticsDataLakeDataSets", {})
   .n("ConnectClient", "ListAnalyticsDataLakeDataSetsCommand")
-  .sc(ListAnalyticsDataLakeDataSets)
+  .sc(ListAnalyticsDataLakeDataSets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

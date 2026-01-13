@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import { BatchGetEffectiveLifecyclePolicy } from "../schemas/schemas_0";
+import { BatchGetEffectiveLifecyclePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface BatchGetEffectiveLifecyclePolicyCommandInput extends BatchGetEf
  *
  * The output of {@link BatchGetEffectiveLifecyclePolicyCommand}.
  */
-export interface BatchGetEffectiveLifecyclePolicyCommandOutput
-  extends BatchGetEffectiveLifecyclePolicyResponse,
-    __MetadataBearer {}
+export interface BatchGetEffectiveLifecyclePolicyCommandOutput extends BatchGetEffectiveLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of successful and failed retrievals for the OpenSearch Serverless indexes. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list">Viewing data lifecycle policies</a>.</p>
@@ -110,7 +108,7 @@ export class BatchGetEffectiveLifecyclePolicyCommand extends $Command
   })
   .s("OpenSearchServerless", "BatchGetEffectiveLifecyclePolicy", {})
   .n("OpenSearchServerlessClient", "BatchGetEffectiveLifecyclePolicyCommand")
-  .sc(BatchGetEffectiveLifecyclePolicy)
+  .sc(BatchGetEffectiveLifecyclePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

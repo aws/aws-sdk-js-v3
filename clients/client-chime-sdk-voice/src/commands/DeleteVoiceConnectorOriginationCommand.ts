@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteVoiceConnectorOriginationRequest } from "../models/models_0";
-import { DeleteVoiceConnectorOrigination } from "../schemas/schemas_0";
+import { DeleteVoiceConnectorOrigination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DeleteVoiceConnectorOriginationCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "DeleteVoiceConnectorOrigination", {})
   .n("ChimeSDKVoiceClient", "DeleteVoiceConnectorOriginationCommand")
-  .sc(DeleteVoiceConnectorOrigination)
+  .sc(DeleteVoiceConnectorOrigination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

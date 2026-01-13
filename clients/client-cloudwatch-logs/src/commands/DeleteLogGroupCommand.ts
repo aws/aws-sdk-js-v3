@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteLogGroupRequest } from "../models/models_0";
-import { DeleteLogGroup } from "../schemas/schemas_0";
+import { DeleteLogGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteLogGroupCommand extends $Command
   })
   .s("Logs_20140328", "DeleteLogGroup", {})
   .n("CloudWatchLogsClient", "DeleteLogGroupCommand")
-  .sc(DeleteLogGroup)
+  .sc(DeleteLogGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

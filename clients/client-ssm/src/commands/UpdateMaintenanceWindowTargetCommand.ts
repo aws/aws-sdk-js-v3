@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateMaintenanceWindowTargetRequest, UpdateMaintenanceWindowTargetResult } from "../models/models_1";
-import { UpdateMaintenanceWindowTarget } from "../schemas/schemas_0";
+import { UpdateMaintenanceWindowTarget$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -24,9 +24,7 @@ export interface UpdateMaintenanceWindowTargetCommandInput extends UpdateMainten
  *
  * The output of {@link UpdateMaintenanceWindowTargetCommand}.
  */
-export interface UpdateMaintenanceWindowTargetCommandOutput
-  extends UpdateMaintenanceWindowTargetResult,
-    __MetadataBearer {}
+export interface UpdateMaintenanceWindowTargetCommandOutput extends UpdateMaintenanceWindowTargetResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the target of an existing maintenance window. You
@@ -134,7 +132,7 @@ export class UpdateMaintenanceWindowTargetCommand extends $Command
   })
   .s("AmazonSSM", "UpdateMaintenanceWindowTarget", {})
   .n("SSMClient", "UpdateMaintenanceWindowTargetCommand")
-  .sc(UpdateMaintenanceWindowTarget)
+  .sc(UpdateMaintenanceWindowTarget$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

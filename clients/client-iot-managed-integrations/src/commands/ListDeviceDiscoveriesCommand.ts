@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { ListDeviceDiscoveriesRequest, ListDeviceDiscoveriesResponse } from "../models/models_0";
-import { ListDeviceDiscoveries } from "../schemas/schemas_0";
+import { ListDeviceDiscoveries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -43,7 +43,7 @@ export interface ListDeviceDiscoveriesCommandOutput extends ListDeviceDiscoverie
  * const input = { // ListDeviceDiscoveriesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   TypeFilter: "ZWAVE" || "ZIGBEE" || "CLOUD" || "CUSTOM",
+ *   TypeFilter: "ZWAVE" || "ZIGBEE" || "CLOUD" || "CUSTOM" || "CONTROLLER_CAPABILITY_REDISCOVERY",
  *   StatusFilter: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT",
  * };
  * const command = new ListDeviceDiscoveriesCommand(input);
@@ -52,7 +52,7 @@ export interface ListDeviceDiscoveriesCommandOutput extends ListDeviceDiscoverie
  * //   Items: [ // DeviceDiscoveryListDefinition
  * //     { // DeviceDiscoverySummary
  * //       Id: "STRING_VALUE",
- * //       DiscoveryType: "ZWAVE" || "ZIGBEE" || "CLOUD" || "CUSTOM",
+ * //       DiscoveryType: "ZWAVE" || "ZIGBEE" || "CLOUD" || "CUSTOM" || "CONTROLLER_CAPABILITY_REDISCOVERY",
  * //       Status: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT",
  * //     },
  * //   ],
@@ -105,7 +105,7 @@ export class ListDeviceDiscoveriesCommand extends $Command
   })
   .s("IotManagedIntegrations", "ListDeviceDiscoveries", {})
   .n("IoTManagedIntegrationsClient", "ListDeviceDiscoveriesCommand")
-  .sc(ListDeviceDiscoveries)
+  .sc(ListDeviceDiscoveries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

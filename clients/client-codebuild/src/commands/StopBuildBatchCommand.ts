@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopBuildBatchInput, StopBuildBatchOutput } from "../models/models_0";
-import { StopBuildBatch } from "../schemas/schemas_0";
+import { StopBuildBatch$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -317,7 +317,7 @@ export class StopBuildBatchCommand extends $Command
   })
   .s("CodeBuild_20161006", "StopBuildBatch", {})
   .n("CodeBuildClient", "StopBuildBatchCommand")
-  .sc(StopBuildBatch)
+  .sc(StopBuildBatch$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

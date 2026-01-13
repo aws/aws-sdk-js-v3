@@ -11,7 +11,7 @@ import type {
 } from "../CodeGuruProfilerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type GetProfileRequest, GetProfileResponse } from "../models/models_0";
-import { GetProfile } from "../schemas/schemas_0";
+import { GetProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -175,7 +175,7 @@ export class GetProfileCommand extends $Command
   })
   .s("CodeGuruProfiler", "GetProfile", {})
   .n("CodeGuruProfilerClient", "GetProfileCommand")
-  .sc(GetProfile)
+  .sc(GetProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

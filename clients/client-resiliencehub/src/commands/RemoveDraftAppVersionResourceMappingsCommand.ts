@@ -9,7 +9,7 @@ import type {
   RemoveDraftAppVersionResourceMappingsResponse,
 } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { RemoveDraftAppVersionResourceMappings } from "../schemas/schemas_0";
+import { RemoveDraftAppVersionResourceMappings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link RemoveDraftAppVersionResourceMappingsCommand}.
  */
-export interface RemoveDraftAppVersionResourceMappingsCommandInput
-  extends RemoveDraftAppVersionResourceMappingsRequest {}
+export interface RemoveDraftAppVersionResourceMappingsCommandInput extends RemoveDraftAppVersionResourceMappingsRequest {}
 /**
  * @public
  *
  * The output of {@link RemoveDraftAppVersionResourceMappingsCommand}.
  */
-export interface RemoveDraftAppVersionResourceMappingsCommandOutput
-  extends RemoveDraftAppVersionResourceMappingsResponse,
-    __MetadataBearer {}
+export interface RemoveDraftAppVersionResourceMappingsCommandOutput extends RemoveDraftAppVersionResourceMappingsResponse, __MetadataBearer {}
 
 /**
  * <p>Removes resource mappings from a draft application version.</p>
@@ -122,7 +119,7 @@ export class RemoveDraftAppVersionResourceMappingsCommand extends $Command
   })
   .s("AwsResilienceHub", "RemoveDraftAppVersionResourceMappings", {})
   .n("ResiliencehubClient", "RemoveDraftAppVersionResourceMappingsCommand")
-  .sc(RemoveDraftAppVersionResourceMappings)
+  .sc(RemoveDraftAppVersionResourceMappings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

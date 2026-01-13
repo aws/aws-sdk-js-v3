@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteConfiguredTableAssociationInput, DeleteConfiguredTableAssociationOutput } from "../models/models_0";
-import { DeleteConfiguredTableAssociation } from "../schemas/schemas_0";
+import { DeleteConfiguredTableAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteConfiguredTableAssociationCommandInput extends DeleteConf
  *
  * The output of {@link DeleteConfiguredTableAssociationCommand}.
  */
-export interface DeleteConfiguredTableAssociationCommandOutput
-  extends DeleteConfiguredTableAssociationOutput,
-    __MetadataBearer {}
+export interface DeleteConfiguredTableAssociationCommandOutput extends DeleteConfiguredTableAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a configured table association.</p>
@@ -92,7 +90,7 @@ export class DeleteConfiguredTableAssociationCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "DeleteConfiguredTableAssociation", {})
   .n("CleanRoomsClient", "DeleteConfiguredTableAssociationCommand")
-  .sc(DeleteConfiguredTableAssociation)
+  .sc(DeleteConfiguredTableAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   EnableOrganizationsRootSessionsRequest,
   EnableOrganizationsRootSessionsResponse,
 } from "../models/models_0";
-import { EnableOrganizationsRootSessions } from "../schemas/schemas_0";
+import { EnableOrganizationsRootSessions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface EnableOrganizationsRootSessionsCommandInput extends EnableOrgan
  *
  * The output of {@link EnableOrganizationsRootSessionsCommand}.
  */
-export interface EnableOrganizationsRootSessionsCommandOutput
-  extends EnableOrganizationsRootSessionsResponse,
-    __MetadataBearer {}
+export interface EnableOrganizationsRootSessionsCommandOutput extends EnableOrganizationsRootSessionsResponse, __MetadataBearer {}
 
 /**
  * <p>Allows the management account or delegated administrator to perform privileged tasks
@@ -130,7 +128,7 @@ export class EnableOrganizationsRootSessionsCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "EnableOrganizationsRootSessions", {})
   .n("IAMClient", "EnableOrganizationsRootSessionsCommand")
-  .sc(EnableOrganizationsRootSessions)
+  .sc(EnableOrganizationsRootSessions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeModelBiasJobDefinitionRequest, DescribeModelBiasJobDefinitionResponse } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribeModelBiasJobDefinition } from "../schemas/schemas_0";
+import { DescribeModelBiasJobDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeModelBiasJobDefinitionCommandInput extends DescribeMode
  *
  * The output of {@link DescribeModelBiasJobDefinitionCommand}.
  */
-export interface DescribeModelBiasJobDefinitionCommandOutput
-  extends DescribeModelBiasJobDefinitionResponse,
-    __MetadataBearer {}
+export interface DescribeModelBiasJobDefinitionCommandOutput extends DescribeModelBiasJobDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a description of a model bias job definition.</p>
@@ -169,7 +167,7 @@ export class DescribeModelBiasJobDefinitionCommand extends $Command
   })
   .s("SageMaker", "DescribeModelBiasJobDefinition", {})
   .n("SageMakerClient", "DescribeModelBiasJobDefinitionCommand")
-  .sc(DescribeModelBiasJobDefinition)
+  .sc(DescribeModelBiasJobDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

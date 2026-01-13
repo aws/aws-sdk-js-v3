@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type ExecuteGremlinExplainQueryInput, ExecuteGremlinExplainQueryOutput } from "../models/models_0";
 import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
-import { ExecuteGremlinExplainQuery } from "../schemas/schemas_0";
+import { ExecuteGremlinExplainQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -32,9 +32,7 @@ export type ExecuteGremlinExplainQueryCommandOutputType = Omit<ExecuteGremlinExp
  *
  * The output of {@link ExecuteGremlinExplainQueryCommand}.
  */
-export interface ExecuteGremlinExplainQueryCommandOutput
-  extends ExecuteGremlinExplainQueryCommandOutputType,
-    __MetadataBearer {}
+export interface ExecuteGremlinExplainQueryCommandOutput extends ExecuteGremlinExplainQueryCommandOutputType, __MetadataBearer {}
 
 /**
  * <p>Executes a Gremlin Explain query.</p> <p>Amazon Neptune has added a Gremlin feature named <code>explain</code> that provides is a self-service tool for understanding the execution approach being taken by the Neptune engine for the query. You invoke it by adding an <code>explain</code> parameter to an HTTP call that submits a Gremlin query.</p> <p>The explain feature provides information about the logical structure of query execution plans. You can use this information to identify potential evaluation and execution bottlenecks and to tune your query, as explained in <a href="https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-traversal-tuning.html">Tuning Gremlin queries</a>. You can also use query hints to improve query execution plans.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows one of the following IAM actions in that cluster, depending on the query:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery">neptune-db:ReadDataViaQuery</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#writedataviaquery">neptune-db:WriteDataViaQuery</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletedataviaquery">neptune-db:DeleteDataViaQuery</a> </p> </li> </ul> <p>Note that the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:Gremlin</a> IAM condition key can be used in the policy document to restrict the use of Gremlin queries (see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html">Condition keys available in Neptune IAM data-access policy statements</a>).</p>
@@ -143,7 +141,7 @@ export class ExecuteGremlinExplainQueryCommand extends $Command
   })
   .s("AmazonNeptuneDataplane", "ExecuteGremlinExplainQuery", {})
   .n("NeptunedataClient", "ExecuteGremlinExplainQueryCommand")
-  .sc(ExecuteGremlinExplainQuery)
+  .sc(ExecuteGremlinExplainQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

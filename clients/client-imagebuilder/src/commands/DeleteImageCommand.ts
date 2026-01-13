@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import type { DeleteImageRequest, DeleteImageResponse } from "../models/models_0";
-import { DeleteImage } from "../schemas/schemas_0";
+import { DeleteImage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class DeleteImageCommand extends $Command
   })
   .s("imagebuilder", "DeleteImage", {})
   .n("ImagebuilderClient", "DeleteImageCommand")
-  .sc(DeleteImage)
+  .sc(DeleteImage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

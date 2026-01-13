@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DescribeRegistrationFieldValues } from "../schemas/schemas_0";
+import { DescribeRegistrationFieldValues$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeRegistrationFieldValuesCommandInput extends DescribeReg
  *
  * The output of {@link DescribeRegistrationFieldValuesCommand}.
  */
-export interface DescribeRegistrationFieldValuesCommandOutput
-  extends DescribeRegistrationFieldValuesResult,
-    __MetadataBearer {}
+export interface DescribeRegistrationFieldValuesCommandOutput extends DescribeRegistrationFieldValuesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified registration field values.</p>
@@ -67,6 +65,7 @@ export interface DescribeRegistrationFieldValuesCommandOutput
  * //       TextValue: "STRING_VALUE",
  * //       RegistrationAttachmentId: "STRING_VALUE",
  * //       DeniedReason: "STRING_VALUE",
+ * //       Feedback: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -115,7 +114,7 @@ export class DescribeRegistrationFieldValuesCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DescribeRegistrationFieldValues", {})
   .n("PinpointSMSVoiceV2Client", "DescribeRegistrationFieldValuesCommand")
-  .sc(DescribeRegistrationFieldValues)
+  .sc(DescribeRegistrationFieldValues$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

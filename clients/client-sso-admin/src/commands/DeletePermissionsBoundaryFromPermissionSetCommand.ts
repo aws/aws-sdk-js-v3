@@ -8,7 +8,7 @@ import type {
   DeletePermissionsBoundaryFromPermissionSetRequest,
   DeletePermissionsBoundaryFromPermissionSetResponse,
 } from "../models/models_0";
-import { DeletePermissionsBoundaryFromPermissionSet } from "../schemas/schemas_0";
+import { DeletePermissionsBoundaryFromPermissionSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeletePermissionsBoundaryFromPermissionSetCommand}.
  */
-export interface DeletePermissionsBoundaryFromPermissionSetCommandInput
-  extends DeletePermissionsBoundaryFromPermissionSetRequest {}
+export interface DeletePermissionsBoundaryFromPermissionSetCommandInput extends DeletePermissionsBoundaryFromPermissionSetRequest {}
 /**
  * @public
  *
  * The output of {@link DeletePermissionsBoundaryFromPermissionSetCommand}.
  */
-export interface DeletePermissionsBoundaryFromPermissionSetCommandOutput
-  extends DeletePermissionsBoundaryFromPermissionSetResponse,
-    __MetadataBearer {}
+export interface DeletePermissionsBoundaryFromPermissionSetCommandOutput extends DeletePermissionsBoundaryFromPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the permissions boundary from a specified <a>PermissionSet</a>.</p>
@@ -96,7 +93,7 @@ export class DeletePermissionsBoundaryFromPermissionSetCommand extends $Command
   })
   .s("SWBExternalService", "DeletePermissionsBoundaryFromPermissionSet", {})
   .n("SSOAdminClient", "DeletePermissionsBoundaryFromPermissionSetCommand")
-  .sc(DeletePermissionsBoundaryFromPermissionSet)
+  .sc(DeletePermissionsBoundaryFromPermissionSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

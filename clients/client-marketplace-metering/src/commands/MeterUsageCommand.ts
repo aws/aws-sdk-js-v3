@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
 import type { MeterUsageRequest, MeterUsageResult } from "../models/models_0";
-import { MeterUsage } from "../schemas/schemas_0";
+import { MeterUsage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -156,7 +156,7 @@ export class MeterUsageCommand extends $Command
   })
   .s("AWSMPMeteringService", "MeterUsage", {})
   .n("MarketplaceMeteringClient", "MeterUsageCommand")
-  .sc(MeterUsage)
+  .sc(MeterUsage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

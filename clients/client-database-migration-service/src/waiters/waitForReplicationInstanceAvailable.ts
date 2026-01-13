@@ -7,25 +7,22 @@ import {
 } from "../commands/DescribeReplicationInstancesCommand";
 import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
 
-const checkState = async (
-  client: DatabaseMigrationServiceClient,
-  input: DescribeReplicationInstancesCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: DatabaseMigrationServiceClient, input: DescribeReplicationInstancesCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeReplicationInstancesCommand(input));
+    let result: any = await client.send(new DescribeReplicationInstancesCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.ReplicationInstances);
-        const projection_3 = flat_1.map((element_2: any) => {
+        let flat_1: any[] = [].concat(...result.ReplicationInstances);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.ReplicationInstanceStatus;
         });
         return projection_3;
-      };
-      let allStringEq_5 = returnComparator().length > 0;
-      for (const element_4 of returnComparator()) {
-        allStringEq_5 = allStringEq_5 && element_4 == "available";
+      }
+      let allStringEq_5 = (returnComparator().length > 0);
+      for (let element_4 of returnComparator()) {
+        allStringEq_5 = allStringEq_5 && (element_4 == "available")
       }
       if (allStringEq_5) {
         return { state: WaiterState.SUCCESS, reason };
@@ -33,13 +30,13 @@ const checkState = async (
     } catch (e) {}
     try {
       const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.ReplicationInstances);
-        const projection_3 = flat_1.map((element_2: any) => {
+        let flat_1: any[] = [].concat(...result.ReplicationInstances);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.ReplicationInstanceStatus;
         });
         return projection_3;
-      };
-      for (const anyStringEq_4 of returnComparator()) {
+      }
+      for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "deleting") {
           return { state: WaiterState.FAILURE, reason };
         }
@@ -47,13 +44,13 @@ const checkState = async (
     } catch (e) {}
     try {
       const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.ReplicationInstances);
-        const projection_3 = flat_1.map((element_2: any) => {
+        let flat_1: any[] = [].concat(...result.ReplicationInstances);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.ReplicationInstanceStatus;
         });
         return projection_3;
-      };
-      for (const anyStringEq_4 of returnComparator()) {
+      }
+      for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "incompatible-credentials") {
           return { state: WaiterState.FAILURE, reason };
         }
@@ -61,13 +58,13 @@ const checkState = async (
     } catch (e) {}
     try {
       const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.ReplicationInstances);
-        const projection_3 = flat_1.map((element_2: any) => {
+        let flat_1: any[] = [].concat(...result.ReplicationInstances);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.ReplicationInstanceStatus;
         });
         return projection_3;
-      };
-      for (const anyStringEq_4 of returnComparator()) {
+      }
+      for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "incompatible-network") {
           return { state: WaiterState.FAILURE, reason };
         }
@@ -75,13 +72,13 @@ const checkState = async (
     } catch (e) {}
     try {
       const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.ReplicationInstances);
-        const projection_3 = flat_1.map((element_2: any) => {
+        let flat_1: any[] = [].concat(...result.ReplicationInstances);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.ReplicationInstanceStatus;
         });
         return projection_3;
-      };
-      for (const anyStringEq_4 of returnComparator()) {
+      }
+      for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "inaccessible-encryption-credentials") {
           return { state: WaiterState.FAILURE, reason };
         }

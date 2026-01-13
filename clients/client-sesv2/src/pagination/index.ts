@@ -1,6 +1,6 @@
-export * from "./GetDedicatedIpsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./GetDedicatedIpsPaginator";
 export * from "./ListConfigurationSetsPaginator";
 export * from "./ListContactListsPaginator";
 export * from "./ListContactsPaginator";

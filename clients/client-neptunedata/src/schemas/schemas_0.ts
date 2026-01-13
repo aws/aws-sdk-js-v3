@@ -403,1314 +403,951 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  BadRequestException as __BadRequestException,
-  BulkLoadIdNotFoundException as __BulkLoadIdNotFoundException,
-  CancelledByUserException as __CancelledByUserException,
-  ClientTimeoutException as __ClientTimeoutException,
-  ConcurrentModificationException as __ConcurrentModificationException,
-  ConstraintViolationException as __ConstraintViolationException,
-  ExpiredStreamException as __ExpiredStreamException,
-  FailureByQueryException as __FailureByQueryException,
-  IllegalArgumentException as __IllegalArgumentException,
-  InternalFailureException as __InternalFailureException,
-  InvalidArgumentException as __InvalidArgumentException,
-  InvalidNumericDataException as __InvalidNumericDataException,
-  InvalidParameterException as __InvalidParameterException,
-  LoadUrlAccessDeniedException as __LoadUrlAccessDeniedException,
-  MalformedQueryException as __MalformedQueryException,
-  MemoryLimitExceededException as __MemoryLimitExceededException,
-  MethodNotAllowedException as __MethodNotAllowedException,
-  MissingParameterException as __MissingParameterException,
-  MLResourceNotFoundException as __MLResourceNotFoundException,
-  ParsingException as __ParsingException,
-  PreconditionsFailedException as __PreconditionsFailedException,
-  QueryLimitExceededException as __QueryLimitExceededException,
-  QueryLimitException as __QueryLimitException,
-  QueryTooLargeException as __QueryTooLargeException,
-  ReadOnlyViolationException as __ReadOnlyViolationException,
-  S3Exception as __S3Exception,
-  ServerShutdownException as __ServerShutdownException,
-  StatisticsNotAvailableException as __StatisticsNotAvailableException,
-  StreamRecordsNotFoundException as __StreamRecordsNotFoundException,
-  ThrottlingException as __ThrottlingException,
-  TimeLimitExceededException as __TimeLimitExceededException,
-  TooManyRequestsException as __TooManyRequestsException,
-  UnsupportedOperationException as __UnsupportedOperationException,
+  AccessDeniedException,
+  BadRequestException,
+  BulkLoadIdNotFoundException,
+  CancelledByUserException,
+  ClientTimeoutException,
+  ConcurrentModificationException,
+  ConstraintViolationException,
+  ExpiredStreamException,
+  FailureByQueryException,
+  IllegalArgumentException,
+  InternalFailureException,
+  InvalidArgumentException,
+  InvalidNumericDataException,
+  InvalidParameterException,
+  LoadUrlAccessDeniedException,
+  MalformedQueryException,
+  MemoryLimitExceededException,
+  MethodNotAllowedException,
+  MissingParameterException,
+  MLResourceNotFoundException,
+  ParsingException,
+  PreconditionsFailedException,
+  QueryLimitExceededException,
+  QueryLimitException,
+  QueryTooLargeException,
+  ReadOnlyViolationException,
+  S3Exception,
+  ServerShutdownException,
+  StatisticsNotAvailableException,
+  StreamRecordsNotFoundException,
+  ThrottlingException,
+  TimeLimitExceededException,
+  TooManyRequestsException,
+  UnsupportedOperationException,
 } from "../models/errors";
-import { NeptunedataServiceException as __NeptunedataServiceException } from "../models/NeptunedataServiceException";
+import { NeptunedataServiceException } from "../models/NeptunedataServiceException";
 
 /* eslint no-var: 0 */
-export var ReportAsText: StaticSimpleSchema = [0, n0, _RAT, { [_mT]: _t }, 21];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
+var ReportAsText: StaticSimpleSchema = [0, n0, _RAT, { [_mT]: _t }, 21];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-export var BulkLoadIdNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BLINFE,
+TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+export var BulkLoadIdNotFoundException$: StaticErrorSchema = [-3, n0, _BLINFE,
   { [_e]: _c, [_hE]: 404 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(BulkLoadIdNotFoundException, __BulkLoadIdNotFoundException);
-export var CancelGremlinQueryInput: StaticStructureSchema = [3, n0, _CGQI, 0, [_qI], [[0, 1]]];
-export var CancelGremlinQueryOutput: StaticStructureSchema = [3, n0, _CGQO, 0, [_s], [0]];
-export var CancelledByUserException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CBUE,
+TypeRegistry.for(n0).registerError(BulkLoadIdNotFoundException$, BulkLoadIdNotFoundException);
+export var CancelGremlinQueryInput$: StaticStructureSchema = [3, n0, _CGQI,
+  0,
+  [_qI],
+  [[0, 1]]
+];
+export var CancelGremlinQueryOutput$: StaticStructureSchema = [3, n0, _CGQO,
+  0,
+  [_s],
+  [0]
+];
+export var CancelledByUserException$: StaticErrorSchema = [-3, n0, _CBUE,
   { [_e]: _se, [_hE]: 500 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(CancelledByUserException, __CancelledByUserException);
-export var CancelLoaderJobInput: StaticStructureSchema = [3, n0, _CLJI, 0, [_lI], [[0, 1]]];
-export var CancelLoaderJobOutput: StaticStructureSchema = [3, n0, _CLJO, 0, [_s], [0]];
-export var CancelMLDataProcessingJobInput: StaticStructureSchema = [
-  3,
-  n0,
-  _CMLDPJI,
+TypeRegistry.for(n0).registerError(CancelledByUserException$, CancelledByUserException);
+export var CancelLoaderJobInput$: StaticStructureSchema = [3, n0, _CLJI,
+  0,
+  [_lI],
+  [[0, 1]]
+];
+export var CancelLoaderJobOutput$: StaticStructureSchema = [3, n0, _CLJO,
+  0,
+  [_s],
+  [0]
+];
+export var CancelMLDataProcessingJobInput$: StaticStructureSchema = [3, n0, _CMLDPJI,
   0,
   [_i, _nIRA, _cl],
-  [
-    [0, 1],
-    [0, { [_hQ]: _nIRA }],
-    [2, { [_hQ]: _cl }],
-  ],
+  [[0, 1], [0, { [_hQ]: _nIRA }], [2, { [_hQ]: _cl }]]
 ];
-export var CancelMLDataProcessingJobOutput: StaticStructureSchema = [3, n0, _CMLDPJO, 0, [_s], [0]];
-export var CancelMLModelTrainingJobInput: StaticStructureSchema = [
-  3,
-  n0,
-  _CMLMTJI,
+export var CancelMLDataProcessingJobOutput$: StaticStructureSchema = [3, n0, _CMLDPJO,
+  0,
+  [_s],
+  [0]
+];
+export var CancelMLModelTrainingJobInput$: StaticStructureSchema = [3, n0, _CMLMTJI,
   0,
   [_i, _nIRA, _cl],
-  [
-    [0, 1],
-    [0, { [_hQ]: _nIRA }],
-    [2, { [_hQ]: _cl }],
-  ],
+  [[0, 1], [0, { [_hQ]: _nIRA }], [2, { [_hQ]: _cl }]]
 ];
-export var CancelMLModelTrainingJobOutput: StaticStructureSchema = [3, n0, _CMLMTJO, 0, [_s], [0]];
-export var CancelMLModelTransformJobInput: StaticStructureSchema = [
-  3,
-  n0,
-  _CMLMTJIa,
+export var CancelMLModelTrainingJobOutput$: StaticStructureSchema = [3, n0, _CMLMTJO,
+  0,
+  [_s],
+  [0]
+];
+export var CancelMLModelTransformJobInput$: StaticStructureSchema = [3, n0, _CMLMTJIa,
   0,
   [_i, _nIRA, _cl],
-  [
-    [0, 1],
-    [0, { [_hQ]: _nIRA }],
-    [2, { [_hQ]: _cl }],
-  ],
+  [[0, 1], [0, { [_hQ]: _nIRA }], [2, { [_hQ]: _cl }]]
 ];
-export var CancelMLModelTransformJobOutput: StaticStructureSchema = [3, n0, _CMLMTJOa, 0, [_s], [0]];
-export var CancelOpenCypherQueryInput: StaticStructureSchema = [
-  3,
-  n0,
-  _COCQI,
+export var CancelMLModelTransformJobOutput$: StaticStructureSchema = [3, n0, _CMLMTJOa,
+  0,
+  [_s],
+  [0]
+];
+export var CancelOpenCypherQueryInput$: StaticStructureSchema = [3, n0, _COCQI,
   0,
   [_qI, _si],
-  [
-    [0, 1],
-    [2, { [_hQ]: _si }],
-  ],
+  [[0, 1], [2, { [_hQ]: _si }]]
 ];
-export var CancelOpenCypherQueryOutput: StaticStructureSchema = [3, n0, _COCQO, 0, [_s, _p], [0, 2]];
-export var ClientTimeoutException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CTE,
+export var CancelOpenCypherQueryOutput$: StaticStructureSchema = [3, n0, _COCQO,
+  0,
+  [_s, _p],
+  [0, 2]
+];
+export var ClientTimeoutException$: StaticErrorSchema = [-3, n0, _CTE,
   { [_e]: _c, [_hE]: 408 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(ClientTimeoutException, __ClientTimeoutException);
-export var ConcurrentModificationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CME,
+TypeRegistry.for(n0).registerError(ClientTimeoutException$, ClientTimeoutException);
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
   { [_e]: _se, [_hE]: 500 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-export var ConstraintViolationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CVE,
+TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var ConstraintViolationException$: StaticErrorSchema = [-3, n0, _CVE,
   { [_e]: _c, [_hE]: 400 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(ConstraintViolationException, __ConstraintViolationException);
-export var CreateMLEndpointInput: StaticStructureSchema = [
-  3,
-  n0,
-  _CMLEI,
+TypeRegistry.for(n0).registerError(ConstraintViolationException$, ConstraintViolationException);
+export var CreateMLEndpointInput$: StaticStructureSchema = [3, n0, _CMLEI,
   0,
   [_i, _mMTJI, _mMTJIl, _u, _nIRA, _mN, _iT, _iC, _vEKMSK],
-  [0, 0, 0, 2, 0, 0, 0, 1, 0],
+  [0, 0, 0, 2, 0, 0, 0, 1, 0]
 ];
-export var CreateMLEndpointOutput: StaticStructureSchema = [3, n0, _CMLEO, 0, [_i, _a, _cTIM], [0, 0, 1]];
-export var CustomModelTrainingParameters: StaticStructureSchema = [3, n0, _CMTP, 0, [_sSDP, _tEPS, _tEPSr], [0, 0, 0]];
-export var CustomModelTransformParameters: StaticStructureSchema = [3, n0, _CMTPu, 0, [_sSDP, _tEPSr], [0, 0]];
-export var DeleteMLEndpointInput: StaticStructureSchema = [
-  3,
-  n0,
-  _DMLEI,
+export var CreateMLEndpointOutput$: StaticStructureSchema = [3, n0, _CMLEO,
+  0,
+  [_i, _a, _cTIM],
+  [0, 0, 1]
+];
+export var CustomModelTrainingParameters$: StaticStructureSchema = [3, n0, _CMTP,
+  0,
+  [_sSDP, _tEPS, _tEPSr],
+  [0, 0, 0]
+];
+export var CustomModelTransformParameters$: StaticStructureSchema = [3, n0, _CMTPu,
+  0,
+  [_sSDP, _tEPSr],
+  [0, 0]
+];
+export var DeleteMLEndpointInput$: StaticStructureSchema = [3, n0, _DMLEI,
   0,
   [_i, _nIRA, _cl],
-  [
-    [0, 1],
-    [0, { [_hQ]: _nIRA }],
-    [2, { [_hQ]: _cl }],
-  ],
+  [[0, 1], [0, { [_hQ]: _nIRA }], [2, { [_hQ]: _cl }]]
 ];
-export var DeleteMLEndpointOutput: StaticStructureSchema = [3, n0, _DMLEO, 0, [_s], [0]];
-export var DeletePropertygraphStatisticsOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _DPSO,
+export var DeleteMLEndpointOutput$: StaticStructureSchema = [3, n0, _DMLEO,
+  0,
+  [_s],
+  [0]
+];
+export var DeletePropertygraphStatisticsOutput$: StaticStructureSchema = [3, n0, _DPSO,
   0,
   [_sC, _s, _p],
-  [[1, 32], 0, () => DeleteStatisticsValueMap],
+  [[1, 32], 0, () => DeleteStatisticsValueMap$]
 ];
-export var DeleteSparqlStatisticsOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _DSSO,
+export var DeleteSparqlStatisticsOutput$: StaticStructureSchema = [3, n0, _DSSO,
   0,
   [_sC, _s, _p],
-  [[1, 32], 0, () => DeleteStatisticsValueMap],
+  [[1, 32], 0, () => DeleteStatisticsValueMap$]
 ];
-export var DeleteStatisticsValueMap: StaticStructureSchema = [3, n0, _DSVM, 0, [_ac, _sI], [2, 0]];
-export var EdgeStructure: StaticStructureSchema = [3, n0, _ES, 0, [_cou, _eP], [1, 64 | 0]];
-export var ExecuteFastResetInput: StaticStructureSchema = [3, n0, _EFRI, 0, [_act, _to], [0, 0]];
-export var ExecuteFastResetOutput: StaticStructureSchema = [3, n0, _EFRO, 0, [_s, _p], [0, () => FastResetToken]];
-export var ExecuteGremlinExplainQueryInput: StaticStructureSchema = [3, n0, _EGEQI, 0, [_gQ], [[0, { [_jN]: _g }]]];
-export var ExecuteGremlinExplainQueryOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _EGEQO,
+export var DeleteStatisticsValueMap$: StaticStructureSchema = [3, n0, _DSVM,
+  0,
+  [_ac, _sI],
+  [2, 0]
+];
+export var EdgeStructure$: StaticStructureSchema = [3, n0, _ES,
+  0,
+  [_cou, _eP],
+  [1, 64 | 0]
+];
+export var ExecuteFastResetInput$: StaticStructureSchema = [3, n0, _EFRI,
+  0,
+  [_act, _to],
+  [0, 0]
+];
+export var ExecuteFastResetOutput$: StaticStructureSchema = [3, n0, _EFRO,
+  0,
+  [_s, _p],
+  [0, () => FastResetToken$]
+];
+export var ExecuteGremlinExplainQueryInput$: StaticStructureSchema = [3, n0, _EGEQI,
+  0,
+  [_gQ],
+  [[0, { [_jN]: _g }]]
+];
+export var ExecuteGremlinExplainQueryOutput$: StaticStructureSchema = [3, n0, _EGEQO,
   0,
   [_o],
-  [[() => ReportAsText, 16]],
+  [[() => ReportAsText, 16]]
 ];
-export var ExecuteGremlinProfileQueryInput: StaticStructureSchema = [
-  3,
-  n0,
-  _EGPQI,
+export var ExecuteGremlinProfileQueryInput$: StaticStructureSchema = [3, n0, _EGPQI,
   0,
   [_gQ, _r, _ch, _ser, _iO],
-  [
-    [0, { [_jN]: _g }],
-    [2, { [_jN]: _pr }],
-    [1, { [_jN]: _pro }],
-    [0, { [_jN]: _prof }],
-    [2, { [_jN]: _pO }],
-  ],
+  [[0, { [_jN]: _g }], [2, { [_jN]: _pr }], [1, { [_jN]: _pro }], [0, { [_jN]: _prof }], [2, { [_jN]: _pO }]]
 ];
-export var ExecuteGremlinProfileQueryOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _EGPQO,
+export var ExecuteGremlinProfileQueryOutput$: StaticStructureSchema = [3, n0, _EGPQO,
   0,
   [_o],
-  [[() => ReportAsText, 16]],
+  [[() => ReportAsText, 16]]
 ];
-export var ExecuteGremlinQueryInput: StaticStructureSchema = [
-  3,
-  n0,
-  _EGQI,
+export var ExecuteGremlinQueryInput$: StaticStructureSchema = [3, n0, _EGQI,
   0,
   [_gQ, _ser],
-  [
-    [0, { [_jN]: _g }],
-    [0, { [_hH]: _acc }],
-  ],
+  [[0, { [_jN]: _g }], [0, { [_hH]: _acc }]]
 ];
-export var ExecuteGremlinQueryOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _EGQO,
+export var ExecuteGremlinQueryOutput$: StaticStructureSchema = [3, n0, _EGQO,
   0,
   [_rI, _s, _re, _m],
-  [0, () => GremlinQueryStatusAttributes, 15, 15],
+  [0, () => GremlinQueryStatusAttributes$, 15, 15]
 ];
-export var ExecuteOpenCypherExplainQueryInput: StaticStructureSchema = [
-  3,
-  n0,
-  _EOCEQI,
+export var ExecuteOpenCypherExplainQueryInput$: StaticStructureSchema = [3, n0, _EOCEQI,
   0,
   [_oCQ, _pa, _eM],
-  [[0, { [_jN]: _q }], 0, [0, { [_jN]: _ex }]],
+  [[0, { [_jN]: _q }], 0, [0, { [_jN]: _ex }]]
 ];
-export var ExecuteOpenCypherExplainQueryOutput: StaticStructureSchema = [3, n0, _EOCEQO, 0, [_r], [[21, 16]]];
-export var ExecuteOpenCypherQueryInput: StaticStructureSchema = [
-  3,
-  n0,
-  _EOCQI,
+export var ExecuteOpenCypherExplainQueryOutput$: StaticStructureSchema = [3, n0, _EOCEQO,
+  0,
+  [_r],
+  [[21, 16]]
+];
+export var ExecuteOpenCypherQueryInput$: StaticStructureSchema = [3, n0, _EOCQI,
   0,
   [_oCQ, _pa],
-  [[0, { [_jN]: _q }], 0],
+  [[0, { [_jN]: _q }], 0]
 ];
-export var ExecuteOpenCypherQueryOutput: StaticStructureSchema = [3, n0, _EOCQO, 0, [_r], [15]];
-export var ExpiredStreamException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ESE,
+export var ExecuteOpenCypherQueryOutput$: StaticStructureSchema = [3, n0, _EOCQO,
+  0,
+  [_r],
+  [15]
+];
+export var ExpiredStreamException$: StaticErrorSchema = [-3, n0, _ESE,
   { [_e]: _c, [_hE]: 400 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(ExpiredStreamException, __ExpiredStreamException);
-export var FailureByQueryException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FBQE,
+TypeRegistry.for(n0).registerError(ExpiredStreamException$, ExpiredStreamException);
+export var FailureByQueryException$: StaticErrorSchema = [-3, n0, _FBQE,
   { [_e]: _se, [_hE]: 500 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(FailureByQueryException, __FailureByQueryException);
-export var FastResetToken: StaticStructureSchema = [3, n0, _FRT, 0, [_to], [0]];
-export var GetEngineStatusOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GESO,
+TypeRegistry.for(n0).registerError(FailureByQueryException$, FailureByQueryException);
+export var FastResetToken$: StaticStructureSchema = [3, n0, _FRT,
+  0,
+  [_to],
+  [0]
+];
+export var GetEngineStatusOutput$: StaticStructureSchema = [3, n0, _GESO,
   0,
   [_s, _sT, _dEV, _ro, _dQE, _g, _sp, _op, _lM, _rBTC, _rBTEST, _f, _set],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    () => QueryLanguageVersion,
-    () => QueryLanguageVersion,
-    () => QueryLanguageVersion,
-    128 | 0,
-    1,
-    0,
-    128 | 15,
-    128 | 0,
-  ],
+  [0, 0, 0, 0, 0, () => QueryLanguageVersion$, () => QueryLanguageVersion$, () => QueryLanguageVersion$, 128 | 0, 1, 0, 128 | 15, 128 | 0]
 ];
-export var GetGremlinQueryStatusInput: StaticStructureSchema = [3, n0, _GGQSI, 0, [_qI], [[0, 1]]];
-export var GetGremlinQueryStatusOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GGQSO,
+export var GetGremlinQueryStatusInput$: StaticStructureSchema = [3, n0, _GGQSI,
+  0,
+  [_qI],
+  [[0, 1]]
+];
+export var GetGremlinQueryStatusOutput$: StaticStructureSchema = [3, n0, _GGQSO,
   0,
   [_qI, _qS, _qES],
-  [0, 0, () => QueryEvalStats],
+  [0, 0, () => QueryEvalStats$]
 ];
-export var GetLoaderJobStatusInput: StaticStructureSchema = [
-  3,
-  n0,
-  _GLJSI,
+export var GetLoaderJobStatusInput$: StaticStructureSchema = [3, n0, _GLJSI,
   0,
   [_lI, _d, _er, _pag, _ePP],
-  [
-    [0, 1],
-    [2, { [_hQ]: _d }],
-    [2, { [_hQ]: _er }],
-    [1, { [_hQ]: _pag }],
-    [1, { [_hQ]: _ePP }],
-  ],
+  [[0, 1], [2, { [_hQ]: _d }], [2, { [_hQ]: _er }], [1, { [_hQ]: _pag }], [1, { [_hQ]: _ePP }]]
 ];
-export var GetLoaderJobStatusOutput: StaticStructureSchema = [3, n0, _GLJSO, 0, [_s, _p], [0, 15]];
-export var GetMLDataProcessingJobInput: StaticStructureSchema = [
-  3,
-  n0,
-  _GMLDPJI,
+export var GetLoaderJobStatusOutput$: StaticStructureSchema = [3, n0, _GLJSO,
+  0,
+  [_s, _p],
+  [0, 15]
+];
+export var GetMLDataProcessingJobInput$: StaticStructureSchema = [3, n0, _GMLDPJI,
   0,
   [_i, _nIRA],
-  [
-    [0, 1],
-    [0, { [_hQ]: _nIRA }],
-  ],
+  [[0, 1], [0, { [_hQ]: _nIRA }]]
 ];
-export var GetMLDataProcessingJobOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GMLDPJO,
+export var GetMLDataProcessingJobOutput$: StaticStructureSchema = [3, n0, _GMLDPJO,
   0,
   [_s, _i, _pJ],
-  [0, 0, () => MlResourceDefinition],
+  [0, 0, () => MlResourceDefinition$]
 ];
-export var GetMLEndpointInput: StaticStructureSchema = [
-  3,
-  n0,
-  _GMLEI,
+export var GetMLEndpointInput$: StaticStructureSchema = [3, n0, _GMLEI,
   0,
   [_i, _nIRA],
-  [
-    [0, 1],
-    [0, { [_hQ]: _nIRA }],
-  ],
+  [[0, 1], [0, { [_hQ]: _nIRA }]]
 ];
-export var GetMLEndpointOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GMLEO,
+export var GetMLEndpointOutput$: StaticStructureSchema = [3, n0, _GMLEO,
   0,
   [_s, _i, _en, _eC],
-  [0, 0, () => MlResourceDefinition, () => MlConfigDefinition],
+  [0, 0, () => MlResourceDefinition$, () => MlConfigDefinition$]
 ];
-export var GetMLModelTrainingJobInput: StaticStructureSchema = [
-  3,
-  n0,
-  _GMLMTJI,
+export var GetMLModelTrainingJobInput$: StaticStructureSchema = [3, n0, _GMLMTJI,
   0,
   [_i, _nIRA],
-  [
-    [0, 1],
-    [0, { [_hQ]: _nIRA }],
-  ],
+  [[0, 1], [0, { [_hQ]: _nIRA }]]
 ];
-export var GetMLModelTrainingJobOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GMLMTJO,
+export var GetMLModelTrainingJobOutput$: StaticStructureSchema = [3, n0, _GMLMTJO,
   0,
   [_s, _i, _pJ, _hJ, _mTJ, _mM],
-  [0, 0, () => MlResourceDefinition, () => MlResourceDefinition, () => MlResourceDefinition, () => MlModels],
+  [0, 0, () => MlResourceDefinition$, () => MlResourceDefinition$, () => MlResourceDefinition$, () => MlModels]
 ];
-export var GetMLModelTransformJobInput: StaticStructureSchema = [
-  3,
-  n0,
-  _GMLMTJIe,
+export var GetMLModelTransformJobInput$: StaticStructureSchema = [3, n0, _GMLMTJIe,
   0,
   [_i, _nIRA],
-  [
-    [0, 1],
-    [0, { [_hQ]: _nIRA }],
-  ],
+  [[0, 1], [0, { [_hQ]: _nIRA }]]
 ];
-export var GetMLModelTransformJobOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GMLMTJOe,
+export var GetMLModelTransformJobOutput$: StaticStructureSchema = [3, n0, _GMLMTJOe,
   0,
   [_s, _i, _bPJ, _rMTJ, _mo],
-  [0, 0, () => MlResourceDefinition, () => MlResourceDefinition, () => Models],
+  [0, 0, () => MlResourceDefinition$, () => MlResourceDefinition$, () => Models]
 ];
-export var GetOpenCypherQueryStatusInput: StaticStructureSchema = [3, n0, _GOCQSI, 0, [_qI], [[0, 1]]];
-export var GetOpenCypherQueryStatusOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GOCQSO,
+export var GetOpenCypherQueryStatusInput$: StaticStructureSchema = [3, n0, _GOCQSI,
+  0,
+  [_qI],
+  [[0, 1]]
+];
+export var GetOpenCypherQueryStatusOutput$: StaticStructureSchema = [3, n0, _GOCQSO,
   0,
   [_qI, _qS, _qES],
-  [0, 0, () => QueryEvalStats],
+  [0, 0, () => QueryEvalStats$]
 ];
-export var GetPropertygraphStatisticsOutput: StaticStructureSchema = [3, n0, _GPSO, 0, [_s, _p], [0, () => Statistics]];
-export var GetPropertygraphStreamInput: StaticStructureSchema = [
-  3,
-  n0,
-  _GPSI,
+export var GetPropertygraphStatisticsOutput$: StaticStructureSchema = [3, n0, _GPSO,
+  0,
+  [_s, _p],
+  [0, () => Statistics$]
+];
+export var GetPropertygraphStreamInput$: StaticStructureSchema = [3, n0, _GPSI,
   0,
   [_l, _iTt, _cN, _oN, _enc],
-  [
-    [1, { [_hQ]: _l }],
-    [0, { [_hQ]: _iTt }],
-    [1, { [_hQ]: _cN }],
-    [1, { [_hQ]: _oN }],
-    [0, { [_hH]: _AE }],
-  ],
+  [[1, { [_hQ]: _l }], [0, { [_hQ]: _iTt }], [1, { [_hQ]: _cN }], [1, { [_hQ]: _oN }], [0, { [_hH]: _AE }]]
 ];
-export var GetPropertygraphStreamOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GPSOe,
+export var GetPropertygraphStreamOutput$: StaticStructureSchema = [3, n0, _GPSOe,
   0,
   [_lEI, _lTTIM, _fo, _rec, _tR],
-  [128 | 0, [1, { [_jN]: _lTT }], 0, [() => PropertygraphRecordsList, 0], 1],
+  [128 | 0, [1, { [_jN]: _lTT }], 0, [() => PropertygraphRecordsList, 0], 1]
 ];
-export var GetPropertygraphSummaryInput: StaticStructureSchema = [3, n0, _GPSIe, 0, [_mod], [[0, { [_hQ]: _mod }]]];
-export var GetPropertygraphSummaryOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GPSOet,
+export var GetPropertygraphSummaryInput$: StaticStructureSchema = [3, n0, _GPSIe,
+  0,
+  [_mod],
+  [[0, { [_hQ]: _mod }]]
+];
+export var GetPropertygraphSummaryOutput$: StaticStructureSchema = [3, n0, _GPSOet,
   0,
   [_sC, _p],
-  [[1, 32], () => PropertygraphSummaryValueMap],
+  [[1, 32], () => PropertygraphSummaryValueMap$]
 ];
-export var GetRDFGraphSummaryInput: StaticStructureSchema = [3, n0, _GRDFGSI, 0, [_mod], [[0, { [_hQ]: _mod }]]];
-export var GetRDFGraphSummaryOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GRDFGSO,
+export var GetRDFGraphSummaryInput$: StaticStructureSchema = [3, n0, _GRDFGSI,
+  0,
+  [_mod],
+  [[0, { [_hQ]: _mod }]]
+];
+export var GetRDFGraphSummaryOutput$: StaticStructureSchema = [3, n0, _GRDFGSO,
   0,
   [_sC, _p],
-  [[1, 32], () => RDFGraphSummaryValueMap],
+  [[1, 32], () => RDFGraphSummaryValueMap$]
 ];
-export var GetSparqlStatisticsOutput: StaticStructureSchema = [3, n0, _GSSO, 0, [_s, _p], [0, () => Statistics]];
-export var GetSparqlStreamInput: StaticStructureSchema = [
-  3,
-  n0,
-  _GSSI,
+export var GetSparqlStatisticsOutput$: StaticStructureSchema = [3, n0, _GSSO,
+  0,
+  [_s, _p],
+  [0, () => Statistics$]
+];
+export var GetSparqlStreamInput$: StaticStructureSchema = [3, n0, _GSSI,
   0,
   [_l, _iTt, _cN, _oN, _enc],
-  [
-    [1, { [_hQ]: _l }],
-    [0, { [_hQ]: _iTt }],
-    [1, { [_hQ]: _cN }],
-    [1, { [_hQ]: _oN }],
-    [0, { [_hH]: _AE }],
-  ],
+  [[1, { [_hQ]: _l }], [0, { [_hQ]: _iTt }], [1, { [_hQ]: _cN }], [1, { [_hQ]: _oN }], [0, { [_hH]: _AE }]]
 ];
-export var GetSparqlStreamOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GSSOe,
+export var GetSparqlStreamOutput$: StaticStructureSchema = [3, n0, _GSSOe,
   0,
   [_lEI, _lTTIM, _fo, _rec, _tR],
-  [128 | 0, [1, { [_jN]: _lTT }], 0, [() => SparqlRecordsList, 0], 1],
+  [128 | 0, [1, { [_jN]: _lTT }], 0, [() => SparqlRecordsList, 0], 1]
 ];
-export var GremlinQueryStatus: StaticStructureSchema = [3, n0, _GQS, 0, [_qI, _qS, _qES], [0, 0, () => QueryEvalStats]];
-export var GremlinQueryStatusAttributes: StaticStructureSchema = [3, n0, _GQSA, 0, [_me, _co, _at], [0, 1, 15]];
-export var IllegalArgumentException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAE,
+export var GremlinQueryStatus$: StaticStructureSchema = [3, n0, _GQS,
+  0,
+  [_qI, _qS, _qES],
+  [0, 0, () => QueryEvalStats$]
+];
+export var GremlinQueryStatusAttributes$: StaticStructureSchema = [3, n0, _GQSA,
+  0,
+  [_me, _co, _at],
+  [0, 1, 15]
+];
+export var IllegalArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
   { [_e]: _c, [_hE]: 400 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(IllegalArgumentException, __IllegalArgumentException);
-export var InternalFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFE,
+TypeRegistry.for(n0).registerError(IllegalArgumentException$, IllegalArgumentException);
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
   { [_e]: _se, [_hE]: 500 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(InternalFailureException, __InternalFailureException);
-export var InvalidArgumentException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAEn,
+TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
+export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAEn,
   { [_e]: _c, [_hE]: 400 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(InvalidArgumentException, __InvalidArgumentException);
-export var InvalidNumericDataException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INDE,
+TypeRegistry.for(n0).registerError(InvalidArgumentException$, InvalidArgumentException);
+export var InvalidNumericDataException$: StaticErrorSchema = [-3, n0, _INDE,
   { [_e]: _c, [_hE]: 400 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(InvalidNumericDataException, __InvalidNumericDataException);
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
+TypeRegistry.for(n0).registerError(InvalidNumericDataException$, InvalidNumericDataException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
   { [_e]: _c, [_hE]: 400 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-export var ListGremlinQueriesInput: StaticStructureSchema = [3, n0, _LGQI, 0, [_iW], [[2, { [_hQ]: _iW }]]];
-export var ListGremlinQueriesOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _LGQO,
+TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
+export var ListGremlinQueriesInput$: StaticStructureSchema = [3, n0, _LGQI,
+  0,
+  [_iW],
+  [[2, { [_hQ]: _iW }]]
+];
+export var ListGremlinQueriesOutput$: StaticStructureSchema = [3, n0, _LGQO,
   0,
   [_aQC, _rQC, _qu],
-  [1, 1, () => GremlinQueries],
+  [1, 1, () => GremlinQueries]
 ];
-export var ListLoaderJobsInput: StaticStructureSchema = [
-  3,
-  n0,
-  _LLJI,
+export var ListLoaderJobsInput$: StaticStructureSchema = [3, n0, _LLJI,
   0,
   [_l, _iQL],
-  [
-    [1, { [_hQ]: _l }],
-    [2, { [_hQ]: _iQL }],
-  ],
+  [[1, { [_hQ]: _l }], [2, { [_hQ]: _iQL }]]
 ];
-export var ListLoaderJobsOutput: StaticStructureSchema = [3, n0, _LLJO, 0, [_s, _p], [0, () => LoaderIdResult]];
-export var ListMLDataProcessingJobsInput: StaticStructureSchema = [
-  3,
-  n0,
-  _LMLDPJI,
+export var ListLoaderJobsOutput$: StaticStructureSchema = [3, n0, _LLJO,
+  0,
+  [_s, _p],
+  [0, () => LoaderIdResult$]
+];
+export var ListMLDataProcessingJobsInput$: StaticStructureSchema = [3, n0, _LMLDPJI,
   0,
   [_mI, _nIRA],
-  [
-    [1, { [_hQ]: _mI }],
-    [0, { [_hQ]: _nIRA }],
-  ],
+  [[1, { [_hQ]: _mI }], [0, { [_hQ]: _nIRA }]]
 ];
-export var ListMLDataProcessingJobsOutput: StaticStructureSchema = [3, n0, _LMLDPJO, 0, [_id], [64 | 0]];
-export var ListMLEndpointsInput: StaticStructureSchema = [
-  3,
-  n0,
-  _LMLEI,
+export var ListMLDataProcessingJobsOutput$: StaticStructureSchema = [3, n0, _LMLDPJO,
+  0,
+  [_id],
+  [64 | 0]
+];
+export var ListMLEndpointsInput$: StaticStructureSchema = [3, n0, _LMLEI,
   0,
   [_mI, _nIRA],
-  [
-    [1, { [_hQ]: _mI }],
-    [0, { [_hQ]: _nIRA }],
-  ],
+  [[1, { [_hQ]: _mI }], [0, { [_hQ]: _nIRA }]]
 ];
-export var ListMLEndpointsOutput: StaticStructureSchema = [3, n0, _LMLEO, 0, [_id], [64 | 0]];
-export var ListMLModelTrainingJobsInput: StaticStructureSchema = [
-  3,
-  n0,
-  _LMLMTJI,
+export var ListMLEndpointsOutput$: StaticStructureSchema = [3, n0, _LMLEO,
+  0,
+  [_id],
+  [64 | 0]
+];
+export var ListMLModelTrainingJobsInput$: StaticStructureSchema = [3, n0, _LMLMTJI,
   0,
   [_mI, _nIRA],
-  [
-    [1, { [_hQ]: _mI }],
-    [0, { [_hQ]: _nIRA }],
-  ],
+  [[1, { [_hQ]: _mI }], [0, { [_hQ]: _nIRA }]]
 ];
-export var ListMLModelTrainingJobsOutput: StaticStructureSchema = [3, n0, _LMLMTJO, 0, [_id], [64 | 0]];
-export var ListMLModelTransformJobsInput: StaticStructureSchema = [
-  3,
-  n0,
-  _LMLMTJIi,
+export var ListMLModelTrainingJobsOutput$: StaticStructureSchema = [3, n0, _LMLMTJO,
+  0,
+  [_id],
+  [64 | 0]
+];
+export var ListMLModelTransformJobsInput$: StaticStructureSchema = [3, n0, _LMLMTJIi,
   0,
   [_mI, _nIRA],
-  [
-    [1, { [_hQ]: _mI }],
-    [0, { [_hQ]: _nIRA }],
-  ],
+  [[1, { [_hQ]: _mI }], [0, { [_hQ]: _nIRA }]]
 ];
-export var ListMLModelTransformJobsOutput: StaticStructureSchema = [3, n0, _LMLMTJOi, 0, [_id], [64 | 0]];
-export var ListOpenCypherQueriesInput: StaticStructureSchema = [3, n0, _LOCQI, 0, [_iW], [[2, { [_hQ]: _iW }]]];
-export var ListOpenCypherQueriesOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _LOCQO,
+export var ListMLModelTransformJobsOutput$: StaticStructureSchema = [3, n0, _LMLMTJOi,
+  0,
+  [_id],
+  [64 | 0]
+];
+export var ListOpenCypherQueriesInput$: StaticStructureSchema = [3, n0, _LOCQI,
+  0,
+  [_iW],
+  [[2, { [_hQ]: _iW }]]
+];
+export var ListOpenCypherQueriesOutput$: StaticStructureSchema = [3, n0, _LOCQO,
   0,
   [_aQC, _rQC, _qu],
-  [1, 1, () => OpenCypherQueries],
+  [1, 1, () => OpenCypherQueries]
 ];
-export var LoaderIdResult: StaticStructureSchema = [3, n0, _LIR, 0, [_lIo], [64 | 0]];
-export var LoadUrlAccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LUADE,
+export var LoaderIdResult$: StaticStructureSchema = [3, n0, _LIR,
+  0,
+  [_lIo],
+  [64 | 0]
+];
+export var LoadUrlAccessDeniedException$: StaticErrorSchema = [-3, n0, _LUADE,
   { [_e]: _c, [_hE]: 400 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(LoadUrlAccessDeniedException, __LoadUrlAccessDeniedException);
-export var MalformedQueryException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MQE,
+TypeRegistry.for(n0).registerError(LoadUrlAccessDeniedException$, LoadUrlAccessDeniedException);
+export var MalformedQueryException$: StaticErrorSchema = [-3, n0, _MQE,
   { [_e]: _c, [_hE]: 400 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(MalformedQueryException, __MalformedQueryException);
-export var ManagePropertygraphStatisticsInput: StaticStructureSchema = [3, n0, _MPSI, 0, [_mod], [0]];
-export var ManagePropertygraphStatisticsOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _MPSO,
+TypeRegistry.for(n0).registerError(MalformedQueryException$, MalformedQueryException);
+export var ManagePropertygraphStatisticsInput$: StaticStructureSchema = [3, n0, _MPSI,
+  0,
+  [_mod],
+  [0]
+];
+export var ManagePropertygraphStatisticsOutput$: StaticStructureSchema = [3, n0, _MPSO,
   0,
   [_s, _p],
-  [0, () => RefreshStatisticsIdMap],
+  [0, () => RefreshStatisticsIdMap$]
 ];
-export var ManageSparqlStatisticsInput: StaticStructureSchema = [3, n0, _MSSI, 0, [_mod], [0]];
-export var ManageSparqlStatisticsOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _MSSO,
+export var ManageSparqlStatisticsInput$: StaticStructureSchema = [3, n0, _MSSI,
+  0,
+  [_mod],
+  [0]
+];
+export var ManageSparqlStatisticsOutput$: StaticStructureSchema = [3, n0, _MSSO,
   0,
   [_s, _p],
-  [0, () => RefreshStatisticsIdMap],
+  [0, () => RefreshStatisticsIdMap$]
 ];
-export var MemoryLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MLEE,
+export var MemoryLimitExceededException$: StaticErrorSchema = [-3, n0, _MLEE,
   { [_e]: _se, [_hE]: 500 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(MemoryLimitExceededException, __MemoryLimitExceededException);
-export var MethodNotAllowedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MNAE,
+TypeRegistry.for(n0).registerError(MemoryLimitExceededException$, MemoryLimitExceededException);
+export var MethodNotAllowedException$: StaticErrorSchema = [-3, n0, _MNAE,
   { [_e]: _c, [_hE]: 405 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(MethodNotAllowedException, __MethodNotAllowedException);
-export var MissingParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MPE,
+TypeRegistry.for(n0).registerError(MethodNotAllowedException$, MethodNotAllowedException);
+export var MissingParameterException$: StaticErrorSchema = [-3, n0, _MPE,
   { [_e]: _c, [_hE]: 400 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(MissingParameterException, __MissingParameterException);
-export var MlConfigDefinition: StaticStructureSchema = [3, n0, _MCD, 0, [_n, _a], [0, 0]];
-export var MlResourceDefinition: StaticStructureSchema = [
-  3,
-  n0,
-  _MRD,
+TypeRegistry.for(n0).registerError(MissingParameterException$, MissingParameterException);
+export var MlConfigDefinition$: StaticStructureSchema = [3, n0, _MCD,
+  0,
+  [_n, _a],
+  [0, 0]
+];
+export var MlResourceDefinition$: StaticStructureSchema = [3, n0, _MRD,
   0,
   [_n, _a, _s, _oL, _fR, _cLU],
-  [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0]
 ];
-export var MLResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MLRNFE,
+export var MLResourceNotFoundException$: StaticErrorSchema = [-3, n0, _MLRNFE,
   { [_e]: _c, [_hE]: 404 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(MLResourceNotFoundException, __MLResourceNotFoundException);
-export var NodeStructure: StaticStructureSchema = [3, n0, _NS, 0, [_cou, _nP, _dOEL], [1, 64 | 0, 64 | 0]];
-export var ParsingException: StaticErrorSchema = [-3, n0, _PE, { [_e]: _c, [_hE]: 400 }, [_dM, _rI, _co], [0, 0, 0]];
-TypeRegistry.for(n0).registerError(ParsingException, __ParsingException);
-export var PreconditionsFailedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PFE,
+TypeRegistry.for(n0).registerError(MLResourceNotFoundException$, MLResourceNotFoundException);
+export var NodeStructure$: StaticStructureSchema = [3, n0, _NS,
+  0,
+  [_cou, _nP, _dOEL],
+  [1, 64 | 0, 64 | 0]
+];
+export var ParsingException$: StaticErrorSchema = [-3, n0, _PE,
   { [_e]: _c, [_hE]: 400 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(PreconditionsFailedException, __PreconditionsFailedException);
-export var PropertygraphData: StaticStructureSchema = [
-  3,
-  n0,
-  _PD,
+TypeRegistry.for(n0).registerError(ParsingException$, ParsingException);
+export var PreconditionsFailedException$: StaticErrorSchema = [-3, n0, _PFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_dM, _rI, _co],
+  [0, 0, 0]
+];
+TypeRegistry.for(n0).registerError(PreconditionsFailedException$, PreconditionsFailedException);
+export var PropertygraphData$: StaticStructureSchema = [3, n0, _PD,
   0,
   [_i, _ty, _k, _v, _fr, _to_],
-  [0, 0, 0, 15, 0, 0],
+  [0, 0, 0, 15, 0, 0]
 ];
-export var PropertygraphRecord: StaticStructureSchema = [
-  3,
-  n0,
-  _PR,
+export var PropertygraphRecord$: StaticStructureSchema = [3, n0, _PR,
   0,
   [_cTIMo, _eI, _da, _op_, _iLO],
-  [[1, { [_jN]: _cT }], 128 | 0, () => PropertygraphData, 0, 2],
+  [[1, { [_jN]: _cT }], 128 | 0, () => PropertygraphData$, 0, 2]
 ];
-export var PropertygraphSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _PS,
+export var PropertygraphSummary$: StaticStructureSchema = [3, n0, _PS,
   0,
   [_nN, _nE, _nNL, _nEL, _nL, _eL, _nNP, _nEP, _nP, _eP, _tNPV, _tEPV, _nS, _eS],
-  [
-    1,
-    1,
-    1,
-    1,
-    64 | 0,
-    64 | 0,
-    1,
-    1,
-    [1, n0, _LVML, 0, 128 | 1],
-    [1, n0, _LVML, 0, 128 | 1],
-    1,
-    1,
-    () => NodeStructures,
-    () => EdgeStructures,
-  ],
+  [1, 1, 1, 1, 64 | 0, 64 | 0, 1, 1, [1, n0, _LVML, 0, 128 | 1], [1, n0, _LVML, 0, 128 | 1], 1, 1, () => NodeStructures, () => EdgeStructures]
 ];
-export var PropertygraphSummaryValueMap: StaticStructureSchema = [
-  3,
-  n0,
-  _PSVM,
+export var PropertygraphSummaryValueMap$: StaticStructureSchema = [3, n0, _PSVM,
   0,
   [_ve, _lSCT, _gS],
-  [0, 5, () => PropertygraphSummary],
+  [0, 5, () => PropertygraphSummary$]
 ];
-export var QueryEvalStats: StaticStructureSchema = [3, n0, _QES, 0, [_w, _el, _ca, _su], [1, 1, 2, 15]];
-export var QueryLanguageVersion: StaticStructureSchema = [3, n0, _QLV, 0, [_ve], [0]];
-export var QueryLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _QLEE,
+export var QueryEvalStats$: StaticStructureSchema = [3, n0, _QES,
+  0,
+  [_w, _el, _ca, _su],
+  [1, 1, 2, 15]
+];
+export var QueryLanguageVersion$: StaticStructureSchema = [3, n0, _QLV,
+  0,
+  [_ve],
+  [0]
+];
+export var QueryLimitExceededException$: StaticErrorSchema = [-3, n0, _QLEE,
   { [_e]: _se, [_hE]: 500 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(QueryLimitExceededException, __QueryLimitExceededException);
-export var QueryLimitException: StaticErrorSchema = [
-  -3,
-  n0,
-  _QLE,
+TypeRegistry.for(n0).registerError(QueryLimitExceededException$, QueryLimitExceededException);
+export var QueryLimitException$: StaticErrorSchema = [-3, n0, _QLE,
   { [_e]: _c, [_hE]: 400 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(QueryLimitException, __QueryLimitException);
-export var QueryTooLargeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _QTLE,
+TypeRegistry.for(n0).registerError(QueryLimitException$, QueryLimitException);
+export var QueryTooLargeException$: StaticErrorSchema = [-3, n0, _QTLE,
   { [_e]: _c, [_hE]: 400 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(QueryTooLargeException, __QueryTooLargeException);
-export var RDFGraphSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _RDFGS,
+TypeRegistry.for(n0).registerError(QueryTooLargeException$, QueryTooLargeException);
+export var RDFGraphSummary$: StaticStructureSchema = [3, n0, _RDFGS,
   0,
   [_nDS, _nDP, _nQ, _nC, _cla, _pre, _sS],
-  [1, 1, 1, 1, 64 | 0, [1, n0, _LVML, 0, 128 | 1], () => SubjectStructures],
+  [1, 1, 1, 1, 64 | 0, [1, n0, _LVML, 0, 128 | 1], () => SubjectStructures]
 ];
-export var RDFGraphSummaryValueMap: StaticStructureSchema = [
-  3,
-  n0,
-  _RDFGSVM,
+export var RDFGraphSummaryValueMap$: StaticStructureSchema = [3, n0, _RDFGSVM,
   0,
   [_ve, _lSCT, _gS],
-  [0, 5, () => RDFGraphSummary],
+  [0, 5, () => RDFGraphSummary$]
 ];
-export var ReadOnlyViolationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ROVE,
+export var ReadOnlyViolationException$: StaticErrorSchema = [-3, n0, _ROVE,
   { [_e]: _c, [_hE]: 400 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(ReadOnlyViolationException, __ReadOnlyViolationException);
-export var RefreshStatisticsIdMap: StaticStructureSchema = [3, n0, _RSIM, 0, [_sI], [0]];
-export var S3Exception: StaticErrorSchema = [-3, n0, _SE, { [_e]: _c, [_hE]: 400 }, [_dM, _rI, _co], [0, 0, 0]];
-TypeRegistry.for(n0).registerError(S3Exception, __S3Exception);
-export var ServerShutdownException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SSE,
+TypeRegistry.for(n0).registerError(ReadOnlyViolationException$, ReadOnlyViolationException);
+export var RefreshStatisticsIdMap$: StaticStructureSchema = [3, n0, _RSIM,
+  0,
+  [_sI],
+  [0]
+];
+export var S3Exception$: StaticErrorSchema = [-3, n0, _SE,
+  { [_e]: _c, [_hE]: 400 },
+  [_dM, _rI, _co],
+  [0, 0, 0]
+];
+TypeRegistry.for(n0).registerError(S3Exception$, S3Exception);
+export var ServerShutdownException$: StaticErrorSchema = [-3, n0, _SSE,
   { [_e]: _se, [_hE]: 500 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(ServerShutdownException, __ServerShutdownException);
-export var SparqlData: StaticStructureSchema = [3, n0, _SD, 0, [_st], [0]];
-export var SparqlRecord: StaticStructureSchema = [
-  3,
-  n0,
-  _SR,
+TypeRegistry.for(n0).registerError(ServerShutdownException$, ServerShutdownException);
+export var SparqlData$: StaticStructureSchema = [3, n0, _SD,
+  0,
+  [_st],
+  [0]
+];
+export var SparqlRecord$: StaticStructureSchema = [3, n0, _SR,
   0,
   [_cTIMo, _eI, _da, _op_, _iLO],
-  [[1, { [_jN]: _cT }], 128 | 0, () => SparqlData, 0, 2],
+  [[1, { [_jN]: _cT }], 128 | 0, () => SparqlData$, 0, 2]
 ];
-export var StartLoaderJobInput: StaticStructureSchema = [
-  3,
-  n0,
-  _SLJI,
+export var StartLoaderJobInput$: StaticStructureSchema = [3, n0, _SLJI,
   0,
   [_so, _fo, _sBR, _iRA, _mod, _fOE, _par, _pC, _uSCP, _qR, _de, _uPEI],
-  [0, 0, [0, { [_jN]: _reg }], 0, 0, 2, 0, 128 | 0, 2, 2, 64 | 0, 2],
+  [0, 0, [0, { [_jN]: _reg }], 0, 0, 2, 0, 128 | 0, 2, 2, 64 | 0, 2]
 ];
-export var StartLoaderJobOutput: StaticStructureSchema = [3, n0, _SLJO, 0, [_s, _p], [0, 128 | 0]];
-export var StartMLDataProcessingJobInput: StaticStructureSchema = [
-  3,
-  n0,
-  _SMLDPJI,
+export var StartLoaderJobOutput$: StaticStructureSchema = [3, n0, _SLJO,
+  0,
+  [_s, _p],
+  [0, 128 | 0]
+];
+export var StartMLDataProcessingJobInput$: StaticStructureSchema = [3, n0, _SMLDPJI,
   0,
   [_i, _pDPJI, _iDSL, _pDSL, _sIRA, _nIRA, _pIT, _pIVSIGB, _pTOIS, _mTo, _cFN, _sub, _sGI, _vEKMSK, _sOEKMSK],
-  [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 64 | 0, 64 | 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 64 | 0, 64 | 0, 0, 0]
 ];
-export var StartMLDataProcessingJobOutput: StaticStructureSchema = [3, n0, _SMLDPJO, 0, [_i, _a, _cTIM], [0, 0, 1]];
-export var StartMLModelTrainingJobInput: StaticStructureSchema = [
-  3,
-  n0,
-  _SMLMTJI,
+export var StartMLDataProcessingJobOutput$: StaticStructureSchema = [3, n0, _SMLDPJO,
   0,
-  [
-    _i,
-    _pMTJI,
-    _dPJI,
-    _tMSL,
-    _sIRA,
-    _nIRA,
-    _bPIT,
-    _tIT,
-    _tIVSIGB,
-    _tTOIS,
-    _mHPONOTJ,
-    _mHPOPTJ,
-    _sub,
-    _sGI,
-    _vEKMSK,
-    _sOEKMSK,
-    _eMST,
-    _cMTP,
-  ],
-  [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 64 | 0, 64 | 0, 0, 0, 2, () => CustomModelTrainingParameters],
+  [_i, _a, _cTIM],
+  [0, 0, 1]
 ];
-export var StartMLModelTrainingJobOutput: StaticStructureSchema = [3, n0, _SMLMTJO, 0, [_i, _a, _cTIM], [0, 0, 1]];
-export var StartMLModelTransformJobInput: StaticStructureSchema = [
-  3,
-  n0,
-  _SMLMTJIt,
+export var StartMLModelTrainingJobInput$: StaticStructureSchema = [3, n0, _SMLMTJI,
+  0,
+  [_i, _pMTJI, _dPJI, _tMSL, _sIRA, _nIRA, _bPIT, _tIT, _tIVSIGB, _tTOIS, _mHPONOTJ, _mHPOPTJ, _sub, _sGI, _vEKMSK, _sOEKMSK, _eMST, _cMTP],
+  [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 64 | 0, 64 | 0, 0, 0, 2, () => CustomModelTrainingParameters$]
+];
+export var StartMLModelTrainingJobOutput$: StaticStructureSchema = [3, n0, _SMLMTJO,
+  0,
+  [_i, _a, _cTIM],
+  [0, 0, 1]
+];
+export var StartMLModelTransformJobInput$: StaticStructureSchema = [3, n0, _SMLMTJIt,
   0,
   [_i, _dPJI, _mMTJI, _tJN, _mTOSL, _sIRA, _nIRA, _cMTPu, _bPIT, _bPIVSIGB, _sub, _sGI, _vEKMSK, _sOEKMSK],
-  [0, 0, 0, 0, 0, 0, 0, () => CustomModelTransformParameters, 0, 1, 64 | 0, 64 | 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, () => CustomModelTransformParameters$, 0, 1, 64 | 0, 64 | 0, 0, 0]
 ];
-export var StartMLModelTransformJobOutput: StaticStructureSchema = [3, n0, _SMLMTJOt, 0, [_i, _a, _cTIM], [0, 0, 1]];
-export var Statistics: StaticStructureSchema = [
-  3,
-  n0,
-  _S,
+export var StartMLModelTransformJobOutput$: StaticStructureSchema = [3, n0, _SMLMTJOt,
+  0,
+  [_i, _a, _cTIM],
+  [0, 0, 1]
+];
+export var Statistics$: StaticStructureSchema = [3, n0, _S,
   0,
   [_aC, _ac, _sI, _dat, _no, _sIi],
-  [2, 2, 0, 5, 0, () => StatisticsSummary],
+  [2, 2, 0, 5, 0, () => StatisticsSummary$]
 ];
-export var StatisticsNotAvailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SNAE,
+export var StatisticsNotAvailableException$: StaticErrorSchema = [-3, n0, _SNAE,
   { [_e]: _c, [_hE]: 400 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(StatisticsNotAvailableException, __StatisticsNotAvailableException);
-export var StatisticsSummary: StaticStructureSchema = [3, n0, _SS, 0, [_sCi, _iC, _pCr], [1, 1, 1]];
-export var StreamRecordsNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SRNFE,
+TypeRegistry.for(n0).registerError(StatisticsNotAvailableException$, StatisticsNotAvailableException);
+export var StatisticsSummary$: StaticStructureSchema = [3, n0, _SS,
+  0,
+  [_sCi, _iC, _pCr],
+  [1, 1, 1]
+];
+export var StreamRecordsNotFoundException$: StaticErrorSchema = [-3, n0, _SRNFE,
   { [_e]: _c, [_hE]: 404 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(StreamRecordsNotFoundException, __StreamRecordsNotFoundException);
-export var SubjectStructure: StaticStructureSchema = [3, n0, _SSu, 0, [_cou, _pre], [1, 64 | 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
+TypeRegistry.for(n0).registerError(StreamRecordsNotFoundException$, StreamRecordsNotFoundException);
+export var SubjectStructure$: StaticStructureSchema = [3, n0, _SSu,
+  0,
+  [_cou, _pre],
+  [1, 64 | 0]
+];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _se, [_hE]: 500 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TimeLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TLEE,
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TimeLimitExceededException$: StaticErrorSchema = [-3, n0, _TLEE,
   { [_e]: _se, [_hE]: 500 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(TimeLimitExceededException, __TimeLimitExceededException);
-export var TooManyRequestsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
+TypeRegistry.for(n0).registerError(TimeLimitExceededException$, TimeLimitExceededException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
   { [_e]: _c, [_hE]: 429 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-export var UnsupportedOperationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UOE,
+TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
+export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
   { [_e]: _c, [_hE]: 400 },
   [_dM, _rI, _co],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(UnsupportedOperationException, __UnsupportedOperationException);
-export var __Unit = "unit" as const;
-export var NeptunedataServiceException: StaticErrorSchema = [-3, _sm, "NeptunedataServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(NeptunedataServiceException, __NeptunedataServiceException);
-export var Classes = 64 | 0;
-export var EdgeLabels = 64 | 0;
-export var EdgeProperties = 64 | 0;
-export var EdgeStructures: StaticListSchema = [1, n0, _ESd, 0, () => EdgeStructure];
-export var GremlinQueries: StaticListSchema = [1, n0, _GQ, 0, () => GremlinQueryStatus];
-export var LongValuedMapList: StaticListSchema = [1, n0, _LVML, 0, 128 | 1];
-export var MlModels: StaticListSchema = [1, n0, _MM, 0, () => MlConfigDefinition];
-export var Models: StaticListSchema = [1, n0, _M, 0, () => MlConfigDefinition];
-export var NodeLabels = 64 | 0;
-export var NodeProperties = 64 | 0;
-export var NodeStructures: StaticListSchema = [1, n0, _NSo, 0, () => NodeStructure];
-export var OpenCypherQueries: StaticListSchema = [1, n0, _OCQ, 0, () => GremlinQueryStatus];
-export var OutgoingEdgeLabels = 64 | 0;
-export var Predicates = 64 | 0;
-export var PropertygraphRecordsList: StaticListSchema = [1, n0, _PRL, 0, [() => PropertygraphRecord, 0]];
-export var SparqlRecordsList: StaticListSchema = [1, n0, _SRL, 0, [() => SparqlRecord, 0]];
-export var StringList = 64 | 0;
-export var SubjectStructures: StaticListSchema = [1, n0, _SSub, 0, () => SubjectStructure];
-export var DocumentValuedMap = 128 | 15;
-export var LongValuedMap = 128 | 1;
-export var StringValuedMap = 128 | 0;
-export var CancelGremlinQuery: StaticOperationSchema = [
-  9,
-  n0,
-  _CGQ,
-  { [_h]: ["DELETE", "/gremlin/status/{queryId}", 200] },
-  () => CancelGremlinQueryInput,
-  () => CancelGremlinQueryOutput,
+TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOperationException);
+var __Unit = "unit" as const;
+export var NeptunedataServiceException$: StaticErrorSchema = [-3, _sm, "NeptunedataServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(NeptunedataServiceException$, NeptunedataServiceException);
+var Classes = 64 | 0;
+var EdgeLabels = 64 | 0;
+var EdgeProperties = 64 | 0;
+var EdgeStructures: StaticListSchema = [1, n0, _ESd,
+  0, () => EdgeStructure$
 ];
-export var CancelLoaderJob: StaticOperationSchema = [
-  9,
-  n0,
-  _CLJ,
-  { [_h]: ["DELETE", "/loader/{loadId}", 200] },
-  () => CancelLoaderJobInput,
-  () => CancelLoaderJobOutput,
+var GremlinQueries: StaticListSchema = [1, n0, _GQ,
+  0, () => GremlinQueryStatus$
 ];
-export var CancelMLDataProcessingJob: StaticOperationSchema = [
-  9,
-  n0,
-  _CMLDPJ,
-  { [_h]: ["DELETE", "/ml/dataprocessing/{id}", 200] },
-  () => CancelMLDataProcessingJobInput,
-  () => CancelMLDataProcessingJobOutput,
+var LongValuedMapList: StaticListSchema = [1, n0, _LVML,
+  0, 128 | 1
 ];
-export var CancelMLModelTrainingJob: StaticOperationSchema = [
-  9,
-  n0,
-  _CMLMTJ,
-  { [_h]: ["DELETE", "/ml/modeltraining/{id}", 200] },
-  () => CancelMLModelTrainingJobInput,
-  () => CancelMLModelTrainingJobOutput,
+var MlModels: StaticListSchema = [1, n0, _MM,
+  0, () => MlConfigDefinition$
 ];
-export var CancelMLModelTransformJob: StaticOperationSchema = [
-  9,
-  n0,
-  _CMLMTJa,
-  { [_h]: ["DELETE", "/ml/modeltransform/{id}", 200] },
-  () => CancelMLModelTransformJobInput,
-  () => CancelMLModelTransformJobOutput,
+var Models: StaticListSchema = [1, n0, _M,
+  0, () => MlConfigDefinition$
 ];
-export var CancelOpenCypherQuery: StaticOperationSchema = [
-  9,
-  n0,
-  _COCQ,
-  { [_h]: ["DELETE", "/opencypher/status/{queryId}", 200] },
-  () => CancelOpenCypherQueryInput,
-  () => CancelOpenCypherQueryOutput,
+var NodeLabels = 64 | 0;
+var NodeProperties = 64 | 0;
+var NodeStructures: StaticListSchema = [1, n0, _NSo,
+  0, () => NodeStructure$
 ];
-export var CreateMLEndpoint: StaticOperationSchema = [
-  9,
-  n0,
-  _CMLE,
-  { [_h]: ["POST", "/ml/endpoints", 200] },
-  () => CreateMLEndpointInput,
-  () => CreateMLEndpointOutput,
+var OpenCypherQueries: StaticListSchema = [1, n0, _OCQ,
+  0, () => GremlinQueryStatus$
 ];
-export var DeleteMLEndpoint: StaticOperationSchema = [
-  9,
-  n0,
-  _DMLE,
-  { [_h]: ["DELETE", "/ml/endpoints/{id}", 200] },
-  () => DeleteMLEndpointInput,
-  () => DeleteMLEndpointOutput,
+var OutgoingEdgeLabels = 64 | 0;
+var Predicates = 64 | 0;
+var PropertygraphRecordsList: StaticListSchema = [1, n0, _PRL,
+  0, [() => PropertygraphRecord$,
+    0]
 ];
-export var DeletePropertygraphStatistics: StaticOperationSchema = [
-  9,
-  n0,
-  _DPS,
-  { [_h]: ["DELETE", "/propertygraph/statistics", 200] },
-  () => __Unit,
-  () => DeletePropertygraphStatisticsOutput,
+var SparqlRecordsList: StaticListSchema = [1, n0, _SRL,
+  0, [() => SparqlRecord$,
+    0]
 ];
-export var DeleteSparqlStatistics: StaticOperationSchema = [
-  9,
-  n0,
-  _DSS,
-  { [_h]: ["DELETE", "/sparql/statistics", 200] },
-  () => __Unit,
-  () => DeleteSparqlStatisticsOutput,
+var StringList = 64 | 0;
+var SubjectStructures: StaticListSchema = [1, n0, _SSub,
+  0, () => SubjectStructure$
 ];
-export var ExecuteFastReset: StaticOperationSchema = [
-  9,
-  n0,
-  _EFR,
-  { [_h]: ["POST", "/system", 200] },
-  () => ExecuteFastResetInput,
-  () => ExecuteFastResetOutput,
+var DocumentValuedMap = 128 | 15;
+var LongValuedMap = 128 | 1;
+var StringValuedMap = 128 | 0;
+export var CancelGremlinQuery$: StaticOperationSchema = [9, n0, _CGQ,
+  { [_h]: ["DELETE", "/gremlin/status/{queryId}", 200] }, () => CancelGremlinQueryInput$, () => CancelGremlinQueryOutput$
 ];
-export var ExecuteGremlinExplainQuery: StaticOperationSchema = [
-  9,
-  n0,
-  _EGEQ,
-  { [_h]: ["POST", "/gremlin/explain", 200] },
-  () => ExecuteGremlinExplainQueryInput,
-  () => ExecuteGremlinExplainQueryOutput,
+export var CancelLoaderJob$: StaticOperationSchema = [9, n0, _CLJ,
+  { [_h]: ["DELETE", "/loader/{loadId}", 200] }, () => CancelLoaderJobInput$, () => CancelLoaderJobOutput$
 ];
-export var ExecuteGremlinProfileQuery: StaticOperationSchema = [
-  9,
-  n0,
-  _EGPQ,
-  { [_h]: ["POST", "/gremlin/profile", 200] },
-  () => ExecuteGremlinProfileQueryInput,
-  () => ExecuteGremlinProfileQueryOutput,
+export var CancelMLDataProcessingJob$: StaticOperationSchema = [9, n0, _CMLDPJ,
+  { [_h]: ["DELETE", "/ml/dataprocessing/{id}", 200] }, () => CancelMLDataProcessingJobInput$, () => CancelMLDataProcessingJobOutput$
 ];
-export var ExecuteGremlinQuery: StaticOperationSchema = [
-  9,
-  n0,
-  _EGQ,
-  { [_h]: ["POST", "/gremlin", 200] },
-  () => ExecuteGremlinQueryInput,
-  () => ExecuteGremlinQueryOutput,
+export var CancelMLModelTrainingJob$: StaticOperationSchema = [9, n0, _CMLMTJ,
+  { [_h]: ["DELETE", "/ml/modeltraining/{id}", 200] }, () => CancelMLModelTrainingJobInput$, () => CancelMLModelTrainingJobOutput$
 ];
-export var ExecuteOpenCypherExplainQuery: StaticOperationSchema = [
-  9,
-  n0,
-  _EOCEQ,
-  { [_h]: ["POST", "/opencypher/explain", 200] },
-  () => ExecuteOpenCypherExplainQueryInput,
-  () => ExecuteOpenCypherExplainQueryOutput,
+export var CancelMLModelTransformJob$: StaticOperationSchema = [9, n0, _CMLMTJa,
+  { [_h]: ["DELETE", "/ml/modeltransform/{id}", 200] }, () => CancelMLModelTransformJobInput$, () => CancelMLModelTransformJobOutput$
 ];
-export var ExecuteOpenCypherQuery: StaticOperationSchema = [
-  9,
-  n0,
-  _EOCQ,
-  { [_h]: ["POST", "/opencypher", 200] },
-  () => ExecuteOpenCypherQueryInput,
-  () => ExecuteOpenCypherQueryOutput,
+export var CancelOpenCypherQuery$: StaticOperationSchema = [9, n0, _COCQ,
+  { [_h]: ["DELETE", "/opencypher/status/{queryId}", 200] }, () => CancelOpenCypherQueryInput$, () => CancelOpenCypherQueryOutput$
 ];
-export var GetEngineStatus: StaticOperationSchema = [
-  9,
-  n0,
-  _GES,
-  { [_h]: ["GET", "/status", 200] },
-  () => __Unit,
-  () => GetEngineStatusOutput,
+export var CreateMLEndpoint$: StaticOperationSchema = [9, n0, _CMLE,
+  { [_h]: ["POST", "/ml/endpoints", 200] }, () => CreateMLEndpointInput$, () => CreateMLEndpointOutput$
 ];
-export var GetGremlinQueryStatus: StaticOperationSchema = [
-  9,
-  n0,
-  _GGQS,
-  { [_h]: ["GET", "/gremlin/status/{queryId}", 200] },
-  () => GetGremlinQueryStatusInput,
-  () => GetGremlinQueryStatusOutput,
+export var DeleteMLEndpoint$: StaticOperationSchema = [9, n0, _DMLE,
+  { [_h]: ["DELETE", "/ml/endpoints/{id}", 200] }, () => DeleteMLEndpointInput$, () => DeleteMLEndpointOutput$
 ];
-export var GetLoaderJobStatus: StaticOperationSchema = [
-  9,
-  n0,
-  _GLJS,
-  { [_h]: ["GET", "/loader/{loadId}", 200] },
-  () => GetLoaderJobStatusInput,
-  () => GetLoaderJobStatusOutput,
+export var DeletePropertygraphStatistics$: StaticOperationSchema = [9, n0, _DPS,
+  { [_h]: ["DELETE", "/propertygraph/statistics", 200] }, () => __Unit, () => DeletePropertygraphStatisticsOutput$
 ];
-export var GetMLDataProcessingJob: StaticOperationSchema = [
-  9,
-  n0,
-  _GMLDPJ,
-  { [_h]: ["GET", "/ml/dataprocessing/{id}", 200] },
-  () => GetMLDataProcessingJobInput,
-  () => GetMLDataProcessingJobOutput,
+export var DeleteSparqlStatistics$: StaticOperationSchema = [9, n0, _DSS,
+  { [_h]: ["DELETE", "/sparql/statistics", 200] }, () => __Unit, () => DeleteSparqlStatisticsOutput$
 ];
-export var GetMLEndpoint: StaticOperationSchema = [
-  9,
-  n0,
-  _GMLE,
-  { [_h]: ["GET", "/ml/endpoints/{id}", 200] },
-  () => GetMLEndpointInput,
-  () => GetMLEndpointOutput,
+export var ExecuteFastReset$: StaticOperationSchema = [9, n0, _EFR,
+  { [_h]: ["POST", "/system", 200] }, () => ExecuteFastResetInput$, () => ExecuteFastResetOutput$
 ];
-export var GetMLModelTrainingJob: StaticOperationSchema = [
-  9,
-  n0,
-  _GMLMTJ,
-  { [_h]: ["GET", "/ml/modeltraining/{id}", 200] },
-  () => GetMLModelTrainingJobInput,
-  () => GetMLModelTrainingJobOutput,
+export var ExecuteGremlinExplainQuery$: StaticOperationSchema = [9, n0, _EGEQ,
+  { [_h]: ["POST", "/gremlin/explain", 200] }, () => ExecuteGremlinExplainQueryInput$, () => ExecuteGremlinExplainQueryOutput$
 ];
-export var GetMLModelTransformJob: StaticOperationSchema = [
-  9,
-  n0,
-  _GMLMTJe,
-  { [_h]: ["GET", "/ml/modeltransform/{id}", 200] },
-  () => GetMLModelTransformJobInput,
-  () => GetMLModelTransformJobOutput,
+export var ExecuteGremlinProfileQuery$: StaticOperationSchema = [9, n0, _EGPQ,
+  { [_h]: ["POST", "/gremlin/profile", 200] }, () => ExecuteGremlinProfileQueryInput$, () => ExecuteGremlinProfileQueryOutput$
 ];
-export var GetOpenCypherQueryStatus: StaticOperationSchema = [
-  9,
-  n0,
-  _GOCQS,
-  { [_h]: ["GET", "/opencypher/status/{queryId}", 200] },
-  () => GetOpenCypherQueryStatusInput,
-  () => GetOpenCypherQueryStatusOutput,
+export var ExecuteGremlinQuery$: StaticOperationSchema = [9, n0, _EGQ,
+  { [_h]: ["POST", "/gremlin", 200] }, () => ExecuteGremlinQueryInput$, () => ExecuteGremlinQueryOutput$
 ];
-export var GetPropertygraphStatistics: StaticOperationSchema = [
-  9,
-  n0,
-  _GPS,
-  { [_h]: ["GET", "/propertygraph/statistics", 200] },
-  () => __Unit,
-  () => GetPropertygraphStatisticsOutput,
+export var ExecuteOpenCypherExplainQuery$: StaticOperationSchema = [9, n0, _EOCEQ,
+  { [_h]: ["POST", "/opencypher/explain", 200] }, () => ExecuteOpenCypherExplainQueryInput$, () => ExecuteOpenCypherExplainQueryOutput$
 ];
-export var GetPropertygraphStream: StaticOperationSchema = [
-  9,
-  n0,
-  _GPSe,
-  { [_h]: ["GET", "/propertygraph/stream", 200] },
-  () => GetPropertygraphStreamInput,
-  () => GetPropertygraphStreamOutput,
+export var ExecuteOpenCypherQuery$: StaticOperationSchema = [9, n0, _EOCQ,
+  { [_h]: ["POST", "/opencypher", 200] }, () => ExecuteOpenCypherQueryInput$, () => ExecuteOpenCypherQueryOutput$
 ];
-export var GetPropertygraphSummary: StaticOperationSchema = [
-  9,
-  n0,
-  _GPSet,
-  { [_h]: ["GET", "/propertygraph/statistics/summary", 200] },
-  () => GetPropertygraphSummaryInput,
-  () => GetPropertygraphSummaryOutput,
+export var GetEngineStatus$: StaticOperationSchema = [9, n0, _GES,
+  { [_h]: ["GET", "/status", 200] }, () => __Unit, () => GetEngineStatusOutput$
 ];
-export var GetRDFGraphSummary: StaticOperationSchema = [
-  9,
-  n0,
-  _GRDFGS,
-  { [_h]: ["GET", "/rdf/statistics/summary", 200] },
-  () => GetRDFGraphSummaryInput,
-  () => GetRDFGraphSummaryOutput,
+export var GetGremlinQueryStatus$: StaticOperationSchema = [9, n0, _GGQS,
+  { [_h]: ["GET", "/gremlin/status/{queryId}", 200] }, () => GetGremlinQueryStatusInput$, () => GetGremlinQueryStatusOutput$
 ];
-export var GetSparqlStatistics: StaticOperationSchema = [
-  9,
-  n0,
-  _GSS,
-  { [_h]: ["GET", "/sparql/statistics", 200] },
-  () => __Unit,
-  () => GetSparqlStatisticsOutput,
+export var GetLoaderJobStatus$: StaticOperationSchema = [9, n0, _GLJS,
+  { [_h]: ["GET", "/loader/{loadId}", 200] }, () => GetLoaderJobStatusInput$, () => GetLoaderJobStatusOutput$
 ];
-export var GetSparqlStream: StaticOperationSchema = [
-  9,
-  n0,
-  _GSSe,
-  { [_h]: ["GET", "/sparql/stream", 200] },
-  () => GetSparqlStreamInput,
-  () => GetSparqlStreamOutput,
+export var GetMLDataProcessingJob$: StaticOperationSchema = [9, n0, _GMLDPJ,
+  { [_h]: ["GET", "/ml/dataprocessing/{id}", 200] }, () => GetMLDataProcessingJobInput$, () => GetMLDataProcessingJobOutput$
 ];
-export var ListGremlinQueries: StaticOperationSchema = [
-  9,
-  n0,
-  _LGQ,
-  { [_h]: ["GET", "/gremlin/status", 200] },
-  () => ListGremlinQueriesInput,
-  () => ListGremlinQueriesOutput,
+export var GetMLEndpoint$: StaticOperationSchema = [9, n0, _GMLE,
+  { [_h]: ["GET", "/ml/endpoints/{id}", 200] }, () => GetMLEndpointInput$, () => GetMLEndpointOutput$
 ];
-export var ListLoaderJobs: StaticOperationSchema = [
-  9,
-  n0,
-  _LLJ,
-  { [_h]: ["GET", "/loader", 200] },
-  () => ListLoaderJobsInput,
-  () => ListLoaderJobsOutput,
+export var GetMLModelTrainingJob$: StaticOperationSchema = [9, n0, _GMLMTJ,
+  { [_h]: ["GET", "/ml/modeltraining/{id}", 200] }, () => GetMLModelTrainingJobInput$, () => GetMLModelTrainingJobOutput$
 ];
-export var ListMLDataProcessingJobs: StaticOperationSchema = [
-  9,
-  n0,
-  _LMLDPJ,
-  { [_h]: ["GET", "/ml/dataprocessing", 200] },
-  () => ListMLDataProcessingJobsInput,
-  () => ListMLDataProcessingJobsOutput,
+export var GetMLModelTransformJob$: StaticOperationSchema = [9, n0, _GMLMTJe,
+  { [_h]: ["GET", "/ml/modeltransform/{id}", 200] }, () => GetMLModelTransformJobInput$, () => GetMLModelTransformJobOutput$
 ];
-export var ListMLEndpoints: StaticOperationSchema = [
-  9,
-  n0,
-  _LMLE,
-  { [_h]: ["GET", "/ml/endpoints", 200] },
-  () => ListMLEndpointsInput,
-  () => ListMLEndpointsOutput,
+export var GetOpenCypherQueryStatus$: StaticOperationSchema = [9, n0, _GOCQS,
+  { [_h]: ["GET", "/opencypher/status/{queryId}", 200] }, () => GetOpenCypherQueryStatusInput$, () => GetOpenCypherQueryStatusOutput$
 ];
-export var ListMLModelTrainingJobs: StaticOperationSchema = [
-  9,
-  n0,
-  _LMLMTJ,
-  { [_h]: ["GET", "/ml/modeltraining", 200] },
-  () => ListMLModelTrainingJobsInput,
-  () => ListMLModelTrainingJobsOutput,
+export var GetPropertygraphStatistics$: StaticOperationSchema = [9, n0, _GPS,
+  { [_h]: ["GET", "/propertygraph/statistics", 200] }, () => __Unit, () => GetPropertygraphStatisticsOutput$
 ];
-export var ListMLModelTransformJobs: StaticOperationSchema = [
-  9,
-  n0,
-  _LMLMTJi,
-  { [_h]: ["GET", "/ml/modeltransform", 200] },
-  () => ListMLModelTransformJobsInput,
-  () => ListMLModelTransformJobsOutput,
+export var GetPropertygraphStream$: StaticOperationSchema = [9, n0, _GPSe,
+  { [_h]: ["GET", "/propertygraph/stream", 200] }, () => GetPropertygraphStreamInput$, () => GetPropertygraphStreamOutput$
 ];
-export var ListOpenCypherQueries: StaticOperationSchema = [
-  9,
-  n0,
-  _LOCQ,
-  { [_h]: ["GET", "/opencypher/status", 200] },
-  () => ListOpenCypherQueriesInput,
-  () => ListOpenCypherQueriesOutput,
+export var GetPropertygraphSummary$: StaticOperationSchema = [9, n0, _GPSet,
+  { [_h]: ["GET", "/propertygraph/statistics/summary", 200] }, () => GetPropertygraphSummaryInput$, () => GetPropertygraphSummaryOutput$
 ];
-export var ManagePropertygraphStatistics: StaticOperationSchema = [
-  9,
-  n0,
-  _MPS,
-  { [_h]: ["POST", "/propertygraph/statistics", 200] },
-  () => ManagePropertygraphStatisticsInput,
-  () => ManagePropertygraphStatisticsOutput,
+export var GetRDFGraphSummary$: StaticOperationSchema = [9, n0, _GRDFGS,
+  { [_h]: ["GET", "/rdf/statistics/summary", 200] }, () => GetRDFGraphSummaryInput$, () => GetRDFGraphSummaryOutput$
 ];
-export var ManageSparqlStatistics: StaticOperationSchema = [
-  9,
-  n0,
-  _MSS,
-  { [_h]: ["POST", "/sparql/statistics", 200] },
-  () => ManageSparqlStatisticsInput,
-  () => ManageSparqlStatisticsOutput,
+export var GetSparqlStatistics$: StaticOperationSchema = [9, n0, _GSS,
+  { [_h]: ["GET", "/sparql/statistics", 200] }, () => __Unit, () => GetSparqlStatisticsOutput$
 ];
-export var StartLoaderJob: StaticOperationSchema = [
-  9,
-  n0,
-  _SLJ,
-  { [_h]: ["POST", "/loader", 200] },
-  () => StartLoaderJobInput,
-  () => StartLoaderJobOutput,
+export var GetSparqlStream$: StaticOperationSchema = [9, n0, _GSSe,
+  { [_h]: ["GET", "/sparql/stream", 200] }, () => GetSparqlStreamInput$, () => GetSparqlStreamOutput$
 ];
-export var StartMLDataProcessingJob: StaticOperationSchema = [
-  9,
-  n0,
-  _SMLDPJ,
-  { [_h]: ["POST", "/ml/dataprocessing", 200] },
-  () => StartMLDataProcessingJobInput,
-  () => StartMLDataProcessingJobOutput,
+export var ListGremlinQueries$: StaticOperationSchema = [9, n0, _LGQ,
+  { [_h]: ["GET", "/gremlin/status", 200] }, () => ListGremlinQueriesInput$, () => ListGremlinQueriesOutput$
 ];
-export var StartMLModelTrainingJob: StaticOperationSchema = [
-  9,
-  n0,
-  _SMLMTJ,
-  { [_h]: ["POST", "/ml/modeltraining", 200] },
-  () => StartMLModelTrainingJobInput,
-  () => StartMLModelTrainingJobOutput,
+export var ListLoaderJobs$: StaticOperationSchema = [9, n0, _LLJ,
+  { [_h]: ["GET", "/loader", 200] }, () => ListLoaderJobsInput$, () => ListLoaderJobsOutput$
 ];
-export var StartMLModelTransformJob: StaticOperationSchema = [
-  9,
-  n0,
-  _SMLMTJt,
-  { [_h]: ["POST", "/ml/modeltransform", 200] },
-  () => StartMLModelTransformJobInput,
-  () => StartMLModelTransformJobOutput,
+export var ListMLDataProcessingJobs$: StaticOperationSchema = [9, n0, _LMLDPJ,
+  { [_h]: ["GET", "/ml/dataprocessing", 200] }, () => ListMLDataProcessingJobsInput$, () => ListMLDataProcessingJobsOutput$
+];
+export var ListMLEndpoints$: StaticOperationSchema = [9, n0, _LMLE,
+  { [_h]: ["GET", "/ml/endpoints", 200] }, () => ListMLEndpointsInput$, () => ListMLEndpointsOutput$
+];
+export var ListMLModelTrainingJobs$: StaticOperationSchema = [9, n0, _LMLMTJ,
+  { [_h]: ["GET", "/ml/modeltraining", 200] }, () => ListMLModelTrainingJobsInput$, () => ListMLModelTrainingJobsOutput$
+];
+export var ListMLModelTransformJobs$: StaticOperationSchema = [9, n0, _LMLMTJi,
+  { [_h]: ["GET", "/ml/modeltransform", 200] }, () => ListMLModelTransformJobsInput$, () => ListMLModelTransformJobsOutput$
+];
+export var ListOpenCypherQueries$: StaticOperationSchema = [9, n0, _LOCQ,
+  { [_h]: ["GET", "/opencypher/status", 200] }, () => ListOpenCypherQueriesInput$, () => ListOpenCypherQueriesOutput$
+];
+export var ManagePropertygraphStatistics$: StaticOperationSchema = [9, n0, _MPS,
+  { [_h]: ["POST", "/propertygraph/statistics", 200] }, () => ManagePropertygraphStatisticsInput$, () => ManagePropertygraphStatisticsOutput$
+];
+export var ManageSparqlStatistics$: StaticOperationSchema = [9, n0, _MSS,
+  { [_h]: ["POST", "/sparql/statistics", 200] }, () => ManageSparqlStatisticsInput$, () => ManageSparqlStatisticsOutput$
+];
+export var StartLoaderJob$: StaticOperationSchema = [9, n0, _SLJ,
+  { [_h]: ["POST", "/loader", 200] }, () => StartLoaderJobInput$, () => StartLoaderJobOutput$
+];
+export var StartMLDataProcessingJob$: StaticOperationSchema = [9, n0, _SMLDPJ,
+  { [_h]: ["POST", "/ml/dataprocessing", 200] }, () => StartMLDataProcessingJobInput$, () => StartMLDataProcessingJobOutput$
+];
+export var StartMLModelTrainingJob$: StaticOperationSchema = [9, n0, _SMLMTJ,
+  { [_h]: ["POST", "/ml/modeltraining", 200] }, () => StartMLModelTrainingJobInput$, () => StartMLModelTrainingJobOutput$
+];
+export var StartMLModelTransformJob$: StaticOperationSchema = [9, n0, _SMLMTJt,
+  { [_h]: ["POST", "/ml/modeltransform", 200] }, () => StartMLModelTransformJobInput$, () => StartMLModelTransformJobOutput$
 ];

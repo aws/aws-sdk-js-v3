@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DescribeOptedOutNumbers } from "../schemas/schemas_0";
+import { DescribeOptedOutNumbers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class DescribeOptedOutNumbersCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DescribeOptedOutNumbers", {})
   .n("PinpointSMSVoiceV2Client", "DescribeOptedOutNumbersCommand")
-  .sc(DescribeOptedOutNumbers)
+  .sc(DescribeOptedOutNumbers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

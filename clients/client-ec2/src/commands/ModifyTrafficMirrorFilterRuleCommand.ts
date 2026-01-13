@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyTrafficMirrorFilterRuleRequest, ModifyTrafficMirrorFilterRuleResult } from "../models/models_6";
-import { ModifyTrafficMirrorFilterRule } from "../schemas/schemas_0";
+import { ModifyTrafficMirrorFilterRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ModifyTrafficMirrorFilterRuleCommandInput extends ModifyTraffic
  *
  * The output of {@link ModifyTrafficMirrorFilterRuleCommand}.
  */
-export interface ModifyTrafficMirrorFilterRuleCommandOutput
-  extends ModifyTrafficMirrorFilterRuleResult,
-    __MetadataBearer {}
+export interface ModifyTrafficMirrorFilterRuleCommandOutput extends ModifyTrafficMirrorFilterRuleResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the specified Traffic Mirror rule.</p>
@@ -121,7 +119,7 @@ export class ModifyTrafficMirrorFilterRuleCommand extends $Command
   })
   .s("AmazonEC2", "ModifyTrafficMirrorFilterRule", {})
   .n("EC2Client", "ModifyTrafficMirrorFilterRuleCommand")
-  .sc(ModifyTrafficMirrorFilterRule)
+  .sc(ModifyTrafficMirrorFilterRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

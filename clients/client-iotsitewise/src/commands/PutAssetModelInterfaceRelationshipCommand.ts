@@ -9,7 +9,7 @@ import type {
   PutAssetModelInterfaceRelationshipRequest,
   PutAssetModelInterfaceRelationshipResponse,
 } from "../models/models_1";
-import { PutAssetModelInterfaceRelationship } from "../schemas/schemas_0";
+import { PutAssetModelInterfaceRelationship$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface PutAssetModelInterfaceRelationshipCommandInput extends PutAsset
  *
  * The output of {@link PutAssetModelInterfaceRelationshipCommand}.
  */
-export interface PutAssetModelInterfaceRelationshipCommandOutput
-  extends PutAssetModelInterfaceRelationshipResponse,
-    __MetadataBearer {}
+export interface PutAssetModelInterfaceRelationshipCommandOutput extends PutAssetModelInterfaceRelationshipResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates an interface relationship between an asset model and an interface asset
@@ -132,7 +130,7 @@ export class PutAssetModelInterfaceRelationshipCommand extends $Command
   })
   .s("AWSIoTSiteWise", "PutAssetModelInterfaceRelationship", {})
   .n("IoTSiteWiseClient", "PutAssetModelInterfaceRelationshipCommand")
-  .sc(PutAssetModelInterfaceRelationship)
+  .sc(PutAssetModelInterfaceRelationship$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

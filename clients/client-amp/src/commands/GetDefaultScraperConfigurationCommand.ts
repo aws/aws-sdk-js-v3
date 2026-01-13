@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDefaultScraperConfigurationRequest, GetDefaultScraperConfigurationResponse } from "../models/models_0";
-import { GetDefaultScraperConfiguration } from "../schemas/schemas_0";
+import { GetDefaultScraperConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetDefaultScraperConfigurationCommandInput extends GetDefaultSc
  *
  * The output of {@link GetDefaultScraperConfigurationCommand}.
  */
-export interface GetDefaultScraperConfigurationCommandOutput
-  extends GetDefaultScraperConfigurationResponse,
-    __MetadataBearer {}
+export interface GetDefaultScraperConfigurationCommandOutput extends GetDefaultScraperConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>The <code>GetDefaultScraperConfiguration</code> operation returns the default scraper configuration used when Amazon EKS creates a scraper for you.</p>
@@ -95,7 +93,7 @@ export class GetDefaultScraperConfigurationCommand extends $Command
   })
   .s("AmazonPrometheusService", "GetDefaultScraperConfiguration", {})
   .n("AmpClient", "GetDefaultScraperConfigurationCommand")
-  .sc(GetDefaultScraperConfiguration)
+  .sc(GetDefaultScraperConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

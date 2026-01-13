@@ -9,7 +9,7 @@ import type {
   DescribeEntityAggregatesForOrganizationRequest,
   DescribeEntityAggregatesForOrganizationResponse,
 } from "../models/models_0";
-import { DescribeEntityAggregatesForOrganization } from "../schemas/schemas_0";
+import { DescribeEntityAggregatesForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeEntityAggregatesForOrganizationCommand}.
  */
-export interface DescribeEntityAggregatesForOrganizationCommandInput
-  extends DescribeEntityAggregatesForOrganizationRequest {}
+export interface DescribeEntityAggregatesForOrganizationCommandInput extends DescribeEntityAggregatesForOrganizationRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeEntityAggregatesForOrganizationCommand}.
  */
-export interface DescribeEntityAggregatesForOrganizationCommandOutput
-  extends DescribeEntityAggregatesForOrganizationResponse,
-    __MetadataBearer {}
+export interface DescribeEntityAggregatesForOrganizationCommandOutput extends DescribeEntityAggregatesForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of entity aggregates for your Organizations that are affected by each of the specified events.</p>
@@ -101,7 +98,7 @@ export class DescribeEntityAggregatesForOrganizationCommand extends $Command
   })
   .s("AWSHealth_20160804", "DescribeEntityAggregatesForOrganization", {})
   .n("HealthClient", "DescribeEntityAggregatesForOrganizationCommand")
-  .sc(DescribeEntityAggregatesForOrganization)
+  .sc(DescribeEntityAggregatesForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

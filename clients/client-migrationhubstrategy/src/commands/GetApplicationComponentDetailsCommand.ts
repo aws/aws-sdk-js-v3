@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import type { GetApplicationComponentDetailsRequest, GetApplicationComponentDetailsResponse } from "../models/models_0";
-import { GetApplicationComponentDetails } from "../schemas/schemas_0";
+import { GetApplicationComponentDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetApplicationComponentDetailsCommandInput extends GetApplicati
  *
  * The output of {@link GetApplicationComponentDetailsCommand}.
  */
-export interface GetApplicationComponentDetailsCommandOutput
-  extends GetApplicationComponentDetailsResponse,
-    __MetadataBearer {}
+export interface GetApplicationComponentDetailsCommandOutput extends GetApplicationComponentDetailsResponse, __MetadataBearer {}
 
 /**
  * <p> Retrieves details about an application component. </p>
@@ -173,7 +171,7 @@ export class GetApplicationComponentDetailsCommand extends $Command
   })
   .s("AWSMigrationHubStrategyRecommendation", "GetApplicationComponentDetails", {})
   .n("MigrationHubStrategyClient", "GetApplicationComponentDetailsCommand")
-  .sc(GetApplicationComponentDetails)
+  .sc(GetApplicationComponentDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

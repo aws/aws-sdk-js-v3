@@ -10,7 +10,6 @@ import {
   AuditFrequency,
   AuditMitigationActionsExecutionStatus,
   AuditMitigationActionsTaskStatus,
-  AuditNotificationType,
   AuditTaskStatus,
   AuditTaskType,
   AuthDecision,
@@ -22,6 +21,8 @@ import {
   CannedAccessControlList,
   CertificateProviderOperation,
   CommandNamespace,
+  CommandParameterType,
+  CommandParameterValueComparisonOperator,
   ComparisonOperator,
   ConfidenceLevel,
   ConfigName,
@@ -38,6 +39,7 @@ import {
   LogTargetType,
   MessageFormat,
   OTAUpdateStatus,
+  OutputFormat,
   PackageVersionStatus,
   PolicyTemplateName,
   Protocol,
@@ -459,6 +461,33 @@ export interface HttpAuthorization {
 }
 
 /**
+ * <p>Configuration settings for batching.</p>
+ * @public
+ */
+export interface BatchConfig {
+  /**
+   * <p>The maximum amount of time (in milliseconds) that an outgoing call waits for other calls
+   *          with which it batches messages of the same type. The higher the setting, the longer the
+   *          latency of the batched HTTP Action will be.</p>
+   * @public
+   */
+  maxBatchOpenMs?: number | undefined;
+
+  /**
+   * <p>The maximum number of messages that are batched together in a single action
+   *          execution.</p>
+   * @public
+   */
+  maxBatchSize?: number | undefined;
+
+  /**
+   * <p>Maximum size of a message batch, in bytes.</p>
+   * @public
+   */
+  maxBatchSizeBytes?: number | undefined;
+}
+
+/**
  * <p>The HTTP action header.</p>
  * @public
  */
@@ -511,6 +540,19 @@ export interface HttpAction {
    * @public
    */
   auth?: HttpAuthorization | undefined;
+
+  /**
+   * <p>Whether to process the HTTP action messages into a single request. Value can be true or false.</p>
+   * @public
+   */
+  enableBatching?: boolean | undefined;
+
+  /**
+   * <p>The configuration settings for batching. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/http_batching.html">
+   *          Batching HTTP action messages</a>.</p>
+   * @public
+   */
+  batchConfig?: BatchConfig | undefined;
 }
 
 /**
@@ -3568,8 +3610,7 @@ export interface CreateCertificateProviderResponse {
 }
 
 /**
- * <p>The range of possible values that's used to describe a specific command
- *             parameter.</p>
+ * <p>The value of a command parameter used to create a command execution.</p>
  *          <note>
  *             <p>The <code>commandParameterValue</code> can only have one of the below fields
  *                 listed.</p>
@@ -3630,6 +3671,81 @@ export interface CommandParameterValue {
 }
 
 /**
+ * <p>The numerical range value type to compare a command parameter value against.</p>
+ * @public
+ */
+export interface CommandParameterValueNumberRange {
+  /**
+   * <p>The minimum value of a numerical range of a command parameter value.</p>
+   * @public
+   */
+  min: string | undefined;
+
+  /**
+   * <p>The maximum value of a numerical range of a command parameter value.</p>
+   * @public
+   */
+  max: string | undefined;
+}
+
+/**
+ * <p>The comparison operand used to compare the defined value against the value supplied in request.</p>
+ * @public
+ */
+export interface CommandParameterValueComparisonOperand {
+  /**
+   * <p>An operand of number value type, defined as a string.</p>
+   * @public
+   */
+  number?: string | undefined;
+
+  /**
+   * <p>A List of operands of numerical value type, defined as strings.</p>
+   * @public
+   */
+  numbers?: string[] | undefined;
+
+  /**
+   * <p>An operand of string value type.</p>
+   * @public
+   */
+  string?: string | undefined;
+
+  /**
+   * <p>A List of operands of string value type.</p>
+   * @public
+   */
+  strings?: string[] | undefined;
+
+  /**
+   * <p>An operand of numerical range value type.</p>
+   * @public
+   */
+  numberRange?: CommandParameterValueNumberRange | undefined;
+}
+
+/**
+ * <p>A condition for the command parameter that must be evaluated to true for successful creation of a command execution.</p>
+ * @public
+ */
+export interface CommandParameterValueCondition {
+  /**
+   * <p>The comparison operator for the command parameter.</p>
+   *          <note>
+   *             <p>IN_RANGE, and NOT_IN_RANGE operators include boundary values.</p>
+   *          </note>
+   * @public
+   */
+  comparisonOperator: CommandParameterValueComparisonOperator | undefined;
+
+  /**
+   * <p>The comparison operand for the command parameter.</p>
+   * @public
+   */
+  operand: CommandParameterValueComparisonOperand | undefined;
+}
+
+/**
  * <p>A map of key-value pairs that describe the command.</p>
  * @public
  */
@@ -3641,8 +3757,13 @@ export interface CommandParameter {
   name: string | undefined;
 
   /**
-   * <p>The value used to describe the command. When you assign a value to a parameter, it
-   *             will override any default value that you had already specified.</p>
+   * <p>The type of the command parameter.</p>
+   * @public
+   */
+  type?: CommandParameterType | undefined;
+
+  /**
+   * <p>Parameter value that overrides the default value, if set.</p>
    * @public
    */
   value?: CommandParameterValue | undefined;
@@ -3653,6 +3774,12 @@ export interface CommandParameter {
    * @public
    */
   defaultValue?: CommandParameterValue | undefined;
+
+  /**
+   * <p>The list of conditions that a command parameter value must satisfy to create a command execution.</p>
+   * @public
+   */
+  valueConditions?: CommandParameterValueCondition[] | undefined;
 
   /**
    * <p>The description of the command parameter.</p>
@@ -3680,6 +3807,33 @@ export interface CommandPayload {
    * @public
    */
   contentType?: string | undefined;
+}
+
+/**
+ * <p>Configures the command to treat the <code>payloadTemplate</code> as a JSON document for preprocessing.
+ *             This preprocessor substitutes placeholders with parameter values to generate the command execution request payload.
+ *             </p>
+ * @public
+ */
+export interface AwsJsonSubstitutionCommandPreprocessorConfig {
+  /**
+   * <p>Converts the command preprocessor result to the format defined by this parameter, before sending it to the device.</p>
+   * @public
+   */
+  outputFormat: OutputFormat | undefined;
+}
+
+/**
+ * <p>Configuration that determines how the <code>payloadTemplate</code> is processed by the service to generate the final payload sent to
+ *             devices at <code>StartCommandExecution</code> API invocation.</p>
+ * @public
+ */
+export interface CommandPreprocessor {
+  /**
+   * <p>Configuration for the JSON substitution preprocessor.</p>
+   * @public
+   */
+  awsJsonSubstitution?: AwsJsonSubstitutionCommandPreprocessorConfig | undefined;
 }
 
 /**
@@ -3714,8 +3868,7 @@ export interface CreateCommandRequest {
   description?: string | undefined;
 
   /**
-   * <p>The payload object for the command. You must specify this information when using
-   *         the <code>AWS-IoT</code> namespace.</p>
+   * <p>The payload object for the static command.</p>
    *          <p>You can upload a static payload file from your local storage that contains the
    *         instructions for the device to process. The payload file can use any format. To
    *         make sure that the device correctly interprets the payload, we recommend you to
@@ -3725,10 +3878,29 @@ export interface CreateCommandRequest {
   payload?: CommandPayload | undefined;
 
   /**
-   * <p>A list of parameters that are required by the <code>StartCommandExecution</code> API.
-   *             These parameters need to be specified only when using the <code>AWS-IoT-FleetWise</code>
-   *             namespace. You can either specify them here or when running the command using the
-   *                 <code>StartCommandExecution</code> API.</p>
+   * <p>The payload template for the dynamic command.</p>
+   *          <note>
+   *             <p>This parameter is required for dynamic commands where the
+   *                 command execution placeholders are supplied either from <code>mandatoryParameters</code> or when
+   *                     <code>StartCommandExecution</code> is invoked.</p>
+   *          </note>
+   * @public
+   */
+  payloadTemplate?: string | undefined;
+
+  /**
+   * <p>Configuration that determines how <code>payloadTemplate</code> is processed to generate command execution payload.</p>
+   *          <note>
+   *             <p>This parameter is required for dynamic commands, along with <code>payloadTemplate</code>,
+   *                 and <code>mandatoryParameters</code>.</p>
+   *          </note>
+   * @public
+   */
+  preprocessor?: CommandPreprocessor | undefined;
+
+  /**
+   * <p>A list of parameters that are used by <code>StartCommandExecution</code> API for
+   *             execution payload generation.</p>
    * @public
    */
   mandatoryParameters?: CommandParameter[] | undefined;
@@ -3736,7 +3908,7 @@ export interface CreateCommandRequest {
   /**
    * <p>The IAM role that you must provide when using the <code>AWS-IoT-FleetWise</code> namespace.
    *         The role grants IoT Device Management the permission to access IoT FleetWise resources
-   *         for generating the payload for the command. This field is not required when you use the
+   *         for generating the payload for the command. This field is not supported when you use the
    *         <code>AWS-IoT</code> namespace.</p>
    * @public
    */
@@ -7642,99 +7814,3 @@ export interface DeprecateThingTypeRequest {
  * @public
  */
 export interface DeprecateThingTypeResponse {}
-
-/**
- * @public
- */
-export interface DescribeAccountAuditConfigurationRequest {}
-
-/**
- * @public
- */
-export interface DescribeAccountAuditConfigurationResponse {
-  /**
-   * <p>The ARN of the role that grants permission to IoT to access information
-   *             about your devices, policies, certificates, and other items as required when
-   *             performing an audit.</p>
-   *          <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
-   *             this parameter is required.</p>
-   * @public
-   */
-  roleArn?: string | undefined;
-
-  /**
-   * <p>Information about the targets to which audit notifications are sent for
-   *             this account.</p>
-   * @public
-   */
-  auditNotificationTargetConfigurations?: Partial<Record<AuditNotificationType, AuditNotificationTarget>> | undefined;
-
-  /**
-   * <p>Which audit checks are enabled and disabled for this account.</p>
-   * @public
-   */
-  auditCheckConfigurations?: Record<string, AuditCheckConfiguration> | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAuditFindingRequest {
-  /**
-   * <p>A unique identifier for a single audit finding. You can use this identifier to apply mitigation actions to the finding.</p>
-   * @public
-   */
-  findingId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAuditFindingResponse {
-  /**
-   * <p>The findings (results) of the audit.</p>
-   * @public
-   */
-  finding?: AuditFinding | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAuditMitigationActionsTaskRequest {
-  /**
-   * <p>The unique identifier for the audit mitigation task.</p>
-   * @public
-   */
-  taskId: string | undefined;
-}
-
-/**
- * <p>Describes which changes should be applied as part of a mitigation action.</p>
- * @public
- */
-export interface MitigationAction {
-  /**
-   * <p>A user-friendly name for the mitigation action.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>A unique identifier for the mitigation action.</p>
-   * @public
-   */
-  id?: string | undefined;
-
-  /**
-   * <p>The IAM role ARN used to apply this mitigation action.</p>
-   * @public
-   */
-  roleArn?: string | undefined;
-
-  /**
-   * <p>The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.</p>
-   * @public
-   */
-  actionParams?: MitigationActionParams | undefined;
-}

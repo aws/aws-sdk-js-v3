@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemovePermissionRequest } from "../models/models_0";
-import { RemovePermission } from "../schemas/schemas_0";
+import { RemovePermission$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -115,7 +115,7 @@ export class RemovePermissionCommand extends $Command
   })
   .s("AmazonSQS", "RemovePermission", {})
   .n("SQSClient", "RemovePermissionCommand")
-  .sc(RemovePermission)
+  .sc(RemovePermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

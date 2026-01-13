@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PcaConnectorAdClient";
-import { ListTemplateGroupAccessControlEntries } from "../schemas/schemas_0";
+import { ListTemplateGroupAccessControlEntries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListTemplateGroupAccessControlEntriesCommand}.
  */
-export interface ListTemplateGroupAccessControlEntriesCommandInput
-  extends ListTemplateGroupAccessControlEntriesRequest {}
+export interface ListTemplateGroupAccessControlEntriesCommandInput extends ListTemplateGroupAccessControlEntriesRequest {}
 /**
  * @public
  *
  * The output of {@link ListTemplateGroupAccessControlEntriesCommand}.
  */
-export interface ListTemplateGroupAccessControlEntriesCommandOutput
-  extends ListTemplateGroupAccessControlEntriesResponse,
-    __MetadataBearer {}
+export interface ListTemplateGroupAccessControlEntriesCommandOutput extends ListTemplateGroupAccessControlEntriesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists group access control entries you created. </p>
@@ -120,7 +117,7 @@ export class ListTemplateGroupAccessControlEntriesCommand extends $Command
   })
   .s("PcaConnectorAd", "ListTemplateGroupAccessControlEntries", {})
   .n("PcaConnectorAdClient", "ListTemplateGroupAccessControlEntriesCommand")
-  .sc(ListTemplateGroupAccessControlEntries)
+  .sc(ListTemplateGroupAccessControlEntries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

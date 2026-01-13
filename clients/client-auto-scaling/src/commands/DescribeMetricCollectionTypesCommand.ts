@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeMetricCollectionTypesAnswer } from "../models/models_0";
-import { DescribeMetricCollectionTypes } from "../schemas/schemas_0";
+import { DescribeMetricCollectionTypes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeMetricCollectionTypesCommandInput {}
  *
  * The output of {@link DescribeMetricCollectionTypesCommand}.
  */
-export interface DescribeMetricCollectionTypesCommandOutput
-  extends DescribeMetricCollectionTypesAnswer,
-    __MetadataBearer {}
+export interface DescribeMetricCollectionTypesCommandOutput extends DescribeMetricCollectionTypesAnswer, __MetadataBearer {}
 
 /**
  * <p>Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.</p>
@@ -129,7 +127,7 @@ export class DescribeMetricCollectionTypesCommand extends $Command
   })
   .s("AutoScaling_2011_01_01", "DescribeMetricCollectionTypes", {})
   .n("AutoScalingClient", "DescribeMetricCollectionTypesCommand")
-  .sc(DescribeMetricCollectionTypes)
+  .sc(DescribeMetricCollectionTypes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

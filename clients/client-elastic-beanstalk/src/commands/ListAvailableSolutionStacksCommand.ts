@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAvailableSolutionStacksResultMessage } from "../models/models_0";
-import { ListAvailableSolutionStacks } from "../schemas/schemas_0";
+import { ListAvailableSolutionStacks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListAvailableSolutionStacksCommandInput {}
  *
  * The output of {@link ListAvailableSolutionStacksCommand}.
  */
-export interface ListAvailableSolutionStacksCommandOutput
-  extends ListAvailableSolutionStacksResultMessage,
-    __MetadataBearer {}
+export interface ListAvailableSolutionStacksCommandOutput extends ListAvailableSolutionStacksResultMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the available solution stack names, with the public version first and
@@ -138,7 +136,7 @@ export class ListAvailableSolutionStacksCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "ListAvailableSolutionStacks", {})
   .n("ElasticBeanstalkClient", "ListAvailableSolutionStacksCommand")
-  .sc(ListAvailableSolutionStacks)
+  .sc(ListAvailableSolutionStacks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

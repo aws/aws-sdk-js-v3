@@ -13,7 +13,7 @@ import type {
   BatchUpdateBillScenarioCommitmentModificationRequest,
   BatchUpdateBillScenarioCommitmentModificationResponse,
 } from "../models/models_0";
-import { BatchUpdateBillScenarioCommitmentModification } from "../schemas/schemas_0";
+import { BatchUpdateBillScenarioCommitmentModification$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link BatchUpdateBillScenarioCommitmentModificationCommand}.
  */
-export interface BatchUpdateBillScenarioCommitmentModificationCommandInput
-  extends BatchUpdateBillScenarioCommitmentModificationRequest {}
+export interface BatchUpdateBillScenarioCommitmentModificationCommandInput extends BatchUpdateBillScenarioCommitmentModificationRequest {}
 /**
  * @public
  *
  * The output of {@link BatchUpdateBillScenarioCommitmentModificationCommand}.
  */
-export interface BatchUpdateBillScenarioCommitmentModificationCommandOutput
-  extends BatchUpdateBillScenarioCommitmentModificationResponse,
-    __MetadataBearer {}
+export interface BatchUpdateBillScenarioCommitmentModificationCommandOutput extends BatchUpdateBillScenarioCommitmentModificationResponse, __MetadataBearer {}
 
 /**
  * <p> Update a newly added or existing commitment. You can update the commitment group based on a commitment ID and a Bill scenario ID. </p> <note> <p>The <code>BatchUpdateBillScenarioCommitmentModification</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals, include the permission <code>bcm-pricing-calculator:UpdateBillScenarioCommitmentModification</code> in your policies.</p> </note>
@@ -139,7 +136,7 @@ export class BatchUpdateBillScenarioCommitmentModificationCommand extends $Comma
   })
   .s("AWSBCMPricingCalculator", "BatchUpdateBillScenarioCommitmentModification", {})
   .n("BCMPricingCalculatorClient", "BatchUpdateBillScenarioCommitmentModificationCommand")
-  .sc(BatchUpdateBillScenarioCommitmentModification)
+  .sc(BatchUpdateBillScenarioCommitmentModification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

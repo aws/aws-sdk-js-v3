@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopIngestionRequest, StopIngestionResponse } from "../models/models_0";
-import { StopIngestion } from "../schemas/schemas_0";
+import { StopIngestion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class StopIngestionCommand extends $Command
   })
   .s("FabricFrontEndService", "StopIngestion", {})
   .n("AppFabricClient", "StopIngestionCommand")
-  .sc(StopIngestion)
+  .sc(StopIngestion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

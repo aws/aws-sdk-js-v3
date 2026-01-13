@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteVpcConnectorRequest, DeleteVpcConnectorResponse } from "../models/models_0";
-import { DeleteVpcConnector } from "../schemas/schemas_0";
+import { DeleteVpcConnector$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DeleteVpcConnectorCommand extends $Command
   })
   .s("AppRunner", "DeleteVpcConnector", {})
   .n("AppRunnerClient", "DeleteVpcConnectorCommand")
-  .sc(DeleteVpcConnector)
+  .sc(DeleteVpcConnector$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -176,8 +176,14 @@ export interface SecretsManager {
   /**
    * @see {@link CreateSecretCommand}
    */
-  createSecret(args: CreateSecretCommandInput, options?: __HttpHandlerOptions): Promise<CreateSecretCommandOutput>;
-  createSecret(args: CreateSecretCommandInput, cb: (err: any, data?: CreateSecretCommandOutput) => void): void;
+  createSecret(
+    args: CreateSecretCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSecretCommandOutput>;
+  createSecret(
+    args: CreateSecretCommandInput,
+    cb: (err: any, data?: CreateSecretCommandOutput) => void
+  ): void;
   createSecret(
     args: CreateSecretCommandInput,
     options: __HttpHandlerOptions,
@@ -204,8 +210,14 @@ export interface SecretsManager {
   /**
    * @see {@link DeleteSecretCommand}
    */
-  deleteSecret(args: DeleteSecretCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSecretCommandOutput>;
-  deleteSecret(args: DeleteSecretCommandInput, cb: (err: any, data?: DeleteSecretCommandOutput) => void): void;
+  deleteSecret(
+    args: DeleteSecretCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSecretCommandOutput>;
+  deleteSecret(
+    args: DeleteSecretCommandInput,
+    cb: (err: any, data?: DeleteSecretCommandOutput) => void
+  ): void;
   deleteSecret(
     args: DeleteSecretCommandInput,
     options: __HttpHandlerOptions,
@@ -219,7 +231,10 @@ export interface SecretsManager {
     args: DescribeSecretCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeSecretCommandOutput>;
-  describeSecret(args: DescribeSecretCommandInput, cb: (err: any, data?: DescribeSecretCommandOutput) => void): void;
+  describeSecret(
+    args: DescribeSecretCommandInput,
+    cb: (err: any, data?: DescribeSecretCommandOutput) => void
+  ): void;
   describeSecret(
     args: DescribeSecretCommandInput,
     options: __HttpHandlerOptions,
@@ -268,7 +283,10 @@ export interface SecretsManager {
     args: GetSecretValueCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSecretValueCommandOutput>;
-  getSecretValue(args: GetSecretValueCommandInput, cb: (err: any, data?: GetSecretValueCommandOutput) => void): void;
+  getSecretValue(
+    args: GetSecretValueCommandInput,
+    cb: (err: any, data?: GetSecretValueCommandOutput) => void
+  ): void;
   getSecretValue(
     args: GetSecretValueCommandInput,
     options: __HttpHandlerOptions,
@@ -279,8 +297,14 @@ export interface SecretsManager {
    * @see {@link ListSecretsCommand}
    */
   listSecrets(): Promise<ListSecretsCommandOutput>;
-  listSecrets(args: ListSecretsCommandInput, options?: __HttpHandlerOptions): Promise<ListSecretsCommandOutput>;
-  listSecrets(args: ListSecretsCommandInput, cb: (err: any, data?: ListSecretsCommandOutput) => void): void;
+  listSecrets(
+    args: ListSecretsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSecretsCommandOutput>;
+  listSecrets(
+    args: ListSecretsCommandInput,
+    cb: (err: any, data?: ListSecretsCommandOutput) => void
+  ): void;
   listSecrets(
     args: ListSecretsCommandInput,
     options: __HttpHandlerOptions,
@@ -328,7 +352,10 @@ export interface SecretsManager {
     args: PutSecretValueCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutSecretValueCommandOutput>;
-  putSecretValue(args: PutSecretValueCommandInput, cb: (err: any, data?: PutSecretValueCommandOutput) => void): void;
+  putSecretValue(
+    args: PutSecretValueCommandInput,
+    cb: (err: any, data?: PutSecretValueCommandOutput) => void
+  ): void;
   putSecretValue(
     args: PutSecretValueCommandInput,
     options: __HttpHandlerOptions,
@@ -372,8 +399,14 @@ export interface SecretsManager {
   /**
    * @see {@link RestoreSecretCommand}
    */
-  restoreSecret(args: RestoreSecretCommandInput, options?: __HttpHandlerOptions): Promise<RestoreSecretCommandOutput>;
-  restoreSecret(args: RestoreSecretCommandInput, cb: (err: any, data?: RestoreSecretCommandOutput) => void): void;
+  restoreSecret(
+    args: RestoreSecretCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreSecretCommandOutput>;
+  restoreSecret(
+    args: RestoreSecretCommandInput,
+    cb: (err: any, data?: RestoreSecretCommandOutput) => void
+  ): void;
   restoreSecret(
     args: RestoreSecretCommandInput,
     options: __HttpHandlerOptions,
@@ -383,8 +416,14 @@ export interface SecretsManager {
   /**
    * @see {@link RotateSecretCommand}
    */
-  rotateSecret(args: RotateSecretCommandInput, options?: __HttpHandlerOptions): Promise<RotateSecretCommandOutput>;
-  rotateSecret(args: RotateSecretCommandInput, cb: (err: any, data?: RotateSecretCommandOutput) => void): void;
+  rotateSecret(
+    args: RotateSecretCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RotateSecretCommandOutput>;
+  rotateSecret(
+    args: RotateSecretCommandInput,
+    cb: (err: any, data?: RotateSecretCommandOutput) => void
+  ): void;
   rotateSecret(
     args: RotateSecretCommandInput,
     options: __HttpHandlerOptions,
@@ -411,8 +450,14 @@ export interface SecretsManager {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -422,8 +467,14 @@ export interface SecretsManager {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -433,8 +484,14 @@ export interface SecretsManager {
   /**
    * @see {@link UpdateSecretCommand}
    */
-  updateSecret(args: UpdateSecretCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSecretCommandOutput>;
-  updateSecret(args: UpdateSecretCommandInput, cb: (err: any, data?: UpdateSecretCommandOutput) => void): void;
+  updateSecret(
+    args: UpdateSecretCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSecretCommandOutput>;
+  updateSecret(
+    args: UpdateSecretCommandInput,
+    cb: (err: any, data?: UpdateSecretCommandOutput) => void
+  ): void;
   updateSecret(
     args: UpdateSecretCommandInput,
     options: __HttpHandlerOptions,

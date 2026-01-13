@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { NestedXmlMaps } from "../schemas/schemas_0";
+import { NestedXmlMaps$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class NestedXmlMapsCommand extends $Command
   })
   .s("RestXml", "NestedXmlMaps", {})
   .n("RestXmlProtocolClient", "NestedXmlMapsCommand")
-  .sc(NestedXmlMaps)
+  .sc(NestedXmlMaps$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

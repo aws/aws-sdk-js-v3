@@ -8,7 +8,7 @@ import type {
   AssociateServiceActionWithProvisioningArtifactInput,
   AssociateServiceActionWithProvisioningArtifactOutput,
 } from "../models/models_0";
-import { AssociateServiceActionWithProvisioningArtifact } from "../schemas/schemas_0";
+import { AssociateServiceActionWithProvisioningArtifact$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link AssociateServiceActionWithProvisioningArtifactCommand}.
  */
-export interface AssociateServiceActionWithProvisioningArtifactCommandInput
-  extends AssociateServiceActionWithProvisioningArtifactInput {}
+export interface AssociateServiceActionWithProvisioningArtifactCommandInput extends AssociateServiceActionWithProvisioningArtifactInput {}
 /**
  * @public
  *
  * The output of {@link AssociateServiceActionWithProvisioningArtifactCommand}.
  */
-export interface AssociateServiceActionWithProvisioningArtifactCommandOutput
-  extends AssociateServiceActionWithProvisioningArtifactOutput,
-    __MetadataBearer {}
+export interface AssociateServiceActionWithProvisioningArtifactCommandOutput extends AssociateServiceActionWithProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
  * <p>Associates a self-service action with a provisioning artifact.</p>
@@ -98,7 +95,7 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
   })
   .s("AWS242ServiceCatalogService", "AssociateServiceActionWithProvisioningArtifact", {})
   .n("ServiceCatalogClient", "AssociateServiceActionWithProvisioningArtifactCommand")
-  .sc(AssociateServiceActionWithProvisioningArtifact)
+  .sc(AssociateServiceActionWithProvisioningArtifact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

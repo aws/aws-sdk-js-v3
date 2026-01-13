@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerAutomationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAutomationRuleRequest, DeleteAutomationRuleResponse } from "../models/models_0";
-import { DeleteAutomationRule } from "../schemas/schemas_0";
+import { DeleteAutomationRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class DeleteAutomationRuleCommand extends $Command
   })
   .s("ComputeOptimizerAutomationService", "DeleteAutomationRule", {})
   .n("ComputeOptimizerAutomationClient", "DeleteAutomationRuleCommand")
-  .sc(DeleteAutomationRule)
+  .sc(DeleteAutomationRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

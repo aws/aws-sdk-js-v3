@@ -9,7 +9,7 @@ import type {
   GetRelationalDatabaseMasterUserPasswordRequest,
   GetRelationalDatabaseMasterUserPasswordResult,
 } from "../models/models_1";
-import { GetRelationalDatabaseMasterUserPassword } from "../schemas/schemas_0";
+import { GetRelationalDatabaseMasterUserPassword$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetRelationalDatabaseMasterUserPasswordCommand}.
  */
-export interface GetRelationalDatabaseMasterUserPasswordCommandInput
-  extends GetRelationalDatabaseMasterUserPasswordRequest {}
+export interface GetRelationalDatabaseMasterUserPasswordCommandInput extends GetRelationalDatabaseMasterUserPasswordRequest {}
 /**
  * @public
  *
  * The output of {@link GetRelationalDatabaseMasterUserPasswordCommand}.
  */
-export interface GetRelationalDatabaseMasterUserPasswordCommandOutput
-  extends GetRelationalDatabaseMasterUserPasswordResult,
-    __MetadataBearer {}
+export interface GetRelationalDatabaseMasterUserPasswordCommandOutput extends GetRelationalDatabaseMasterUserPasswordResult, __MetadataBearer {}
 
 /**
  * <p>Returns the current, previous, or pending versions of the master user password for a
@@ -119,7 +116,7 @@ export class GetRelationalDatabaseMasterUserPasswordCommand extends $Command
   })
   .s("Lightsail_20161128", "GetRelationalDatabaseMasterUserPassword", {})
   .n("LightsailClient", "GetRelationalDatabaseMasterUserPasswordCommand")
-  .sc(GetRelationalDatabaseMasterUserPassword)
+  .sc(GetRelationalDatabaseMasterUserPassword$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

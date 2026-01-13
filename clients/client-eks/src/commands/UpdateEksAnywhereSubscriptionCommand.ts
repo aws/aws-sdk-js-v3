@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateEksAnywhereSubscriptionRequest, UpdateEksAnywhereSubscriptionResponse } from "../models/models_0";
-import { UpdateEksAnywhereSubscription } from "../schemas/schemas_0";
+import { UpdateEksAnywhereSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateEksAnywhereSubscriptionCommandInput extends UpdateEksAnyw
  *
  * The output of {@link UpdateEksAnywhereSubscriptionCommand}.
  */
-export interface UpdateEksAnywhereSubscriptionCommandOutput
-  extends UpdateEksAnywhereSubscriptionResponse,
-    __MetadataBearer {}
+export interface UpdateEksAnywhereSubscriptionCommandOutput extends UpdateEksAnywhereSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Update an EKS Anywhere Subscription. Only auto renewal and tags can be updated after
@@ -126,7 +124,7 @@ export class UpdateEksAnywhereSubscriptionCommand extends $Command
   })
   .s("AWSWesleyFrontend", "UpdateEksAnywhereSubscription", {})
   .n("EKSClient", "UpdateEksAnywhereSubscriptionCommand")
-  .sc(UpdateEksAnywhereSubscription)
+  .sc(UpdateEksAnywhereSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

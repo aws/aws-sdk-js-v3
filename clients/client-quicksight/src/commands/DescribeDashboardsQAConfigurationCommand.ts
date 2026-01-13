@@ -9,7 +9,7 @@ import type {
   DescribeDashboardsQAConfigurationResponse,
 } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeDashboardsQAConfiguration } from "../schemas/schemas_0";
+import { DescribeDashboardsQAConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeDashboardsQAConfigurationCommandInput extends DescribeD
  *
  * The output of {@link DescribeDashboardsQAConfigurationCommand}.
  */
-export interface DescribeDashboardsQAConfigurationCommandOutput
-  extends DescribeDashboardsQAConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeDashboardsQAConfigurationCommandOutput extends DescribeDashboardsQAConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an existing dashboard QA configuration.</p>
@@ -101,7 +99,7 @@ export class DescribeDashboardsQAConfigurationCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeDashboardsQAConfiguration", {})
   .n("QuickSightClient", "DescribeDashboardsQAConfigurationCommand")
-  .sc(DescribeDashboardsQAConfiguration)
+  .sc(DescribeDashboardsQAConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

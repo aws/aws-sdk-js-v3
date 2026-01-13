@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateTerminationProtectionInput, UpdateTerminationProtectionOutput } from "../models/models_0";
-import { UpdateTerminationProtection } from "../schemas/schemas_0";
+import { UpdateTerminationProtection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class UpdateTerminationProtectionCommand extends $Command
   })
   .s("CloudFormation", "UpdateTerminationProtection", {})
   .n("CloudFormationClient", "UpdateTerminationProtectionCommand")
-  .sc(UpdateTerminationProtection)
+  .sc(UpdateTerminationProtection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

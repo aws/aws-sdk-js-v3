@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { StopColumnStatisticsTaskRunRequest, StopColumnStatisticsTaskRunResponse } from "../models/models_2";
-import { StopColumnStatisticsTaskRun } from "../schemas/schemas_0";
+import { StopColumnStatisticsTaskRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface StopColumnStatisticsTaskRunCommandInput extends StopColumnStati
  *
  * The output of {@link StopColumnStatisticsTaskRunCommand}.
  */
-export interface StopColumnStatisticsTaskRunCommandOutput
-  extends StopColumnStatisticsTaskRunResponse,
-    __MetadataBearer {}
+export interface StopColumnStatisticsTaskRunCommandOutput extends StopColumnStatisticsTaskRunResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a task run for the specified table.</p>
@@ -86,7 +84,7 @@ export class StopColumnStatisticsTaskRunCommand extends $Command
   })
   .s("AWSGlue", "StopColumnStatisticsTaskRun", {})
   .n("GlueClient", "StopColumnStatisticsTaskRunCommand")
-  .sc(StopColumnStatisticsTaskRun)
+  .sc(StopColumnStatisticsTaskRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

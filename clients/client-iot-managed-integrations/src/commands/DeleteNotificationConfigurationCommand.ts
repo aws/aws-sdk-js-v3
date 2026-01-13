@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { DeleteNotificationConfigurationRequest } from "../models/models_0";
-import { DeleteNotificationConfiguration } from "../schemas/schemas_0";
+import { DeleteNotificationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -41,7 +41,7 @@ export interface DeleteNotificationConfigurationCommandOutput extends __Metadata
  * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // DeleteNotificationConfigurationRequest
- *   EventType: "DEVICE_COMMAND" || "DEVICE_COMMAND_REQUEST" || "DEVICE_DISCOVERY_STATUS" || "DEVICE_EVENT" || "DEVICE_LIFE_CYCLE" || "DEVICE_STATE" || "DEVICE_OTA" || "CONNECTOR_ASSOCIATION" || "ACCOUNT_ASSOCIATION" || "CONNECTOR_ERROR_REPORT", // required
+ *   EventType: "DEVICE_COMMAND" || "DEVICE_COMMAND_REQUEST" || "DEVICE_DISCOVERY_STATUS" || "DEVICE_EVENT" || "DEVICE_LIFE_CYCLE" || "DEVICE_STATE" || "DEVICE_OTA" || "DEVICE_WSS" || "CONNECTOR_ASSOCIATION" || "ACCOUNT_ASSOCIATION" || "CONNECTOR_ERROR_REPORT", // required
  * };
  * const command = new DeleteNotificationConfigurationCommand(input);
  * const response = await client.send(command);
@@ -90,7 +90,7 @@ export class DeleteNotificationConfigurationCommand extends $Command
   })
   .s("IotManagedIntegrations", "DeleteNotificationConfiguration", {})
   .n("IoTManagedIntegrationsClient", "DeleteNotificationConfigurationCommand")
-  .sc(DeleteNotificationConfiguration)
+  .sc(DeleteNotificationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetWebIdentityTokenRequest, GetWebIdentityTokenResponse } from "../models/models_0";
-import { GetWebIdentityToken } from "../schemas/schemas_0";
+import { GetWebIdentityToken$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
@@ -97,7 +97,7 @@ export class GetWebIdentityTokenCommand extends $Command
   })
   .s("AWSSecurityTokenServiceV20110615", "GetWebIdentityToken", {})
   .n("STSClient", "GetWebIdentityTokenCommand")
-  .sc(GetWebIdentityToken)
+  .sc(GetWebIdentityToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

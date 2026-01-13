@@ -9,7 +9,7 @@ import type {
   BatchDeleteDevicePositionHistoryRequest,
   BatchDeleteDevicePositionHistoryResponse,
 } from "../models/models_0";
-import { BatchDeleteDevicePositionHistory } from "../schemas/schemas_0";
+import { BatchDeleteDevicePositionHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface BatchDeleteDevicePositionHistoryCommandInput extends BatchDelet
  *
  * The output of {@link BatchDeleteDevicePositionHistoryCommand}.
  */
-export interface BatchDeleteDevicePositionHistoryCommandOutput
-  extends BatchDeleteDevicePositionHistoryResponse,
-    __MetadataBearer {}
+export interface BatchDeleteDevicePositionHistoryCommandOutput extends BatchDeleteDevicePositionHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the position history of one or more devices from a tracker resource.</p>
@@ -104,7 +102,7 @@ export class BatchDeleteDevicePositionHistoryCommand extends $Command
   })
   .s("LocationService", "BatchDeleteDevicePositionHistory", {})
   .n("LocationClient", "BatchDeleteDevicePositionHistoryCommand")
-  .sc(BatchDeleteDevicePositionHistory)
+  .sc(BatchDeleteDevicePositionHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

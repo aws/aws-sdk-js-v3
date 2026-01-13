@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAutomatedReasoningPolicyRequest, GetAutomatedReasoningPolicyResponse } from "../models/models_0";
-import { GetAutomatedReasoningPolicy } from "../schemas/schemas_0";
+import { GetAutomatedReasoningPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetAutomatedReasoningPolicyCommandInput extends GetAutomatedRea
  *
  * The output of {@link GetAutomatedReasoningPolicyCommand}.
  */
-export interface GetAutomatedReasoningPolicyCommandOutput
-  extends GetAutomatedReasoningPolicyResponse,
-    __MetadataBearer {}
+export interface GetAutomatedReasoningPolicyCommandOutput extends GetAutomatedReasoningPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details about an Automated Reasoning policy or policy version. Returns information including the policy definition, metadata, and timestamps.</p>
@@ -98,7 +96,7 @@ export class GetAutomatedReasoningPolicyCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "GetAutomatedReasoningPolicy", {})
   .n("BedrockClient", "GetAutomatedReasoningPolicyCommand")
-  .sc(GetAutomatedReasoningPolicy)
+  .sc(GetAutomatedReasoningPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

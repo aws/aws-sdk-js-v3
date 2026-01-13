@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateIntegrationAssociationRequest, CreateIntegrationAssociationResponse } from "../models/models_0";
-import { CreateIntegrationAssociation } from "../schemas/schemas_0";
+import { CreateIntegrationAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateIntegrationAssociationCommandInput extends CreateIntegrat
  *
  * The output of {@link CreateIntegrationAssociationCommand}.
  */
-export interface CreateIntegrationAssociationCommandOutput
-  extends CreateIntegrationAssociationResponse,
-    __MetadataBearer {}
+export interface CreateIntegrationAssociationCommandOutput extends CreateIntegrationAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Web Services resource association with an Amazon Connect instance.</p>
@@ -99,7 +97,7 @@ export class CreateIntegrationAssociationCommand extends $Command
   })
   .s("AmazonConnectService", "CreateIntegrationAssociation", {})
   .n("ConnectClient", "CreateIntegrationAssociationCommand")
-  .sc(CreateIntegrationAssociation)
+  .sc(CreateIntegrationAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

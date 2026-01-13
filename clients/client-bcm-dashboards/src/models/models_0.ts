@@ -50,7 +50,10 @@ export interface TableDisplayConfigStruct {}
  * <p>Defines how the widget's data should be visualized, including chart type, color schemes, axis configurations, and other display preferences.</p>
  * @public
  */
-export type DisplayConfig = DisplayConfig.GraphMember | DisplayConfig.TableMember | DisplayConfig.$UnknownMember;
+export type DisplayConfig =
+  | DisplayConfig.GraphMember
+  | DisplayConfig.TableMember
+  | DisplayConfig.$UnknownMember;
 
 /**
  * @public

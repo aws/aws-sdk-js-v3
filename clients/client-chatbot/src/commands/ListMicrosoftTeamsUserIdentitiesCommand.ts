@@ -9,7 +9,7 @@ import type {
   ListMicrosoftTeamsUserIdentitiesRequest,
   ListMicrosoftTeamsUserIdentitiesResult,
 } from "../models/models_0";
-import { ListMicrosoftTeamsUserIdentities } from "../schemas/schemas_0";
+import { ListMicrosoftTeamsUserIdentities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListMicrosoftTeamsUserIdentitiesCommandInput extends ListMicros
  *
  * The output of {@link ListMicrosoftTeamsUserIdentitiesCommand}.
  */
-export interface ListMicrosoftTeamsUserIdentitiesCommandOutput
-  extends ListMicrosoftTeamsUserIdentitiesResult,
-    __MetadataBearer {}
+export interface ListMicrosoftTeamsUserIdentitiesCommandOutput extends ListMicrosoftTeamsUserIdentitiesResult, __MetadataBearer {}
 
 /**
  * <p>A list all Microsoft Teams user identities with a mapped role.</p>
@@ -100,7 +98,7 @@ export class ListMicrosoftTeamsUserIdentitiesCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "ListMicrosoftTeamsUserIdentities", {})
   .n("ChatbotClient", "ListMicrosoftTeamsUserIdentitiesCommand")
-  .sc(ListMicrosoftTeamsUserIdentities)
+  .sc(ListMicrosoftTeamsUserIdentities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

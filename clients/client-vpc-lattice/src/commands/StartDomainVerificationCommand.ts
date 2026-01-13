@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartDomainVerificationRequest, StartDomainVerificationResponse } from "../models/models_0";
-import { StartDomainVerification } from "../schemas/schemas_0";
+import { StartDomainVerification$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -102,7 +102,7 @@ export class StartDomainVerificationCommand extends $Command
   })
   .s("MercuryControlPlane", "StartDomainVerification", {})
   .n("VPCLatticeClient", "StartDomainVerificationCommand")
-  .sc(StartDomainVerification)
+  .sc(StartDomainVerification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

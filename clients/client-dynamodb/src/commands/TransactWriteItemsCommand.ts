@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TransactWriteItemsInput, TransactWriteItemsOutput } from "../models/models_0";
-import { TransactWriteItems } from "../schemas/schemas_0";
+import { TransactWriteItems$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -655,22 +655,15 @@ export class TransactWriteItemsCommand extends $Command
   >()
   .ep({
     ...commonParams,
-    ResourceArnList: {
-      type: "operationContextParams",
-      get: (input?: any) =>
-        input?.TransactItems?.map((obj: any) =>
-          [obj?.ConditionCheck?.TableName, obj?.Put?.TableName, obj?.Delete?.TableName, obj?.Update?.TableName].filter(
-            (i) => i
-          )
-        ).flat(),
-    },
+    ResourceArnList: { type: "operationContextParams", get: (input?: any) => input?.TransactItems?.map((obj: any) => [obj?.ConditionCheck?.TableName,obj?.Put?.TableName,obj?.Delete?.TableName,obj?.Update?.TableName].filter((i) => i)).flat() },
+
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DynamoDB_20120810", "TransactWriteItems", {})
   .n("DynamoDBClient", "TransactWriteItemsCommand")
-  .sc(TransactWriteItems)
+  .sc(TransactWriteItems$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

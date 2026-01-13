@@ -8,7 +8,7 @@ import type {
   GetPermissionsBoundaryForPermissionSetRequest,
   GetPermissionsBoundaryForPermissionSetResponse,
 } from "../models/models_0";
-import { GetPermissionsBoundaryForPermissionSet } from "../schemas/schemas_0";
+import { GetPermissionsBoundaryForPermissionSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetPermissionsBoundaryForPermissionSetCommand}.
  */
-export interface GetPermissionsBoundaryForPermissionSetCommandInput
-  extends GetPermissionsBoundaryForPermissionSetRequest {}
+export interface GetPermissionsBoundaryForPermissionSetCommandInput extends GetPermissionsBoundaryForPermissionSetRequest {}
 /**
  * @public
  *
  * The output of {@link GetPermissionsBoundaryForPermissionSetCommand}.
  */
-export interface GetPermissionsBoundaryForPermissionSetCommandOutput
-  extends GetPermissionsBoundaryForPermissionSetResponse,
-    __MetadataBearer {}
+export interface GetPermissionsBoundaryForPermissionSetCommandOutput extends GetPermissionsBoundaryForPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Obtains the permissions boundary for a specified <a>PermissionSet</a>.</p>
@@ -101,7 +98,7 @@ export class GetPermissionsBoundaryForPermissionSetCommand extends $Command
   })
   .s("SWBExternalService", "GetPermissionsBoundaryForPermissionSet", {})
   .n("SSOAdminClient", "GetPermissionsBoundaryForPermissionSetCommand")
-  .sc(GetPermissionsBoundaryForPermissionSet)
+  .sc(GetPermissionsBoundaryForPermissionSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

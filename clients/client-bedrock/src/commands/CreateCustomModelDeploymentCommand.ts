@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateCustomModelDeploymentRequest, CreateCustomModelDeploymentResponse } from "../models/models_0";
-import { CreateCustomModelDeployment } from "../schemas/schemas_0";
+import { CreateCustomModelDeployment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateCustomModelDeploymentCommandInput extends CreateCustomMod
  *
  * The output of {@link CreateCustomModelDeploymentCommand}.
  */
-export interface CreateCustomModelDeploymentCommandOutput
-  extends CreateCustomModelDeploymentResponse,
-    __MetadataBearer {}
+export interface CreateCustomModelDeploymentCommandOutput extends CreateCustomModelDeploymentResponse, __MetadataBearer {}
 
 /**
  * <p>Deploys a custom model for on-demand inference in Amazon Bedrock. After you deploy your custom model, you use the deployment's Amazon Resource Name (ARN) as the <code>modelId</code> parameter when you submit prompts and generate responses with model inference.</p> <p> For more information about setting up on-demand inference for custom models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-use.html">Set up inference for a custom model</a>. </p> <p>The following actions are related to the <code>CreateCustomModelDeployment</code> operation:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModelDeployment.html">GetCustomModelDeployment</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListCustomModelDeployments.html">ListCustomModelDeployments</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModelDeployment.html">DeleteCustomModelDeployment</a> </p> </li> </ul>
@@ -105,7 +103,7 @@ export class CreateCustomModelDeploymentCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "CreateCustomModelDeployment", {})
   .n("BedrockClient", "CreateCustomModelDeploymentCommand")
-  .sc(CreateCustomModelDeployment)
+  .sc(CreateCustomModelDeployment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

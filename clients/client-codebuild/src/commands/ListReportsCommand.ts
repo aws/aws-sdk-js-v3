@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListReportsInput, ListReportsOutput } from "../models/models_0";
-import { ListReports } from "../schemas/schemas_0";
+import { ListReports$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class ListReportsCommand extends $Command
   })
   .s("CodeBuild_20161006", "ListReports", {})
   .n("CodeBuildClient", "ListReportsCommand")
-  .sc(ListReports)
+  .sc(ListReports$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

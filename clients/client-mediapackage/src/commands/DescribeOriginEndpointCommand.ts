@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
 import type { DescribeOriginEndpointRequest, DescribeOriginEndpointResponse } from "../models/models_0";
-import { DescribeOriginEndpoint } from "../schemas/schemas_0";
+import { DescribeOriginEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -256,7 +256,7 @@ export class DescribeOriginEndpointCommand extends $Command
   })
   .s("MediaPackage", "DescribeOriginEndpoint", {})
   .n("MediaPackageClient", "DescribeOriginEndpointCommand")
-  .sc(DescribeOriginEndpoint)
+  .sc(DescribeOriginEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

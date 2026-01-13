@@ -7,7 +7,7 @@ import { DescribeStacksCommand, DescribeStacksCommandInput } from "../commands/D
 const checkState = async (client: CloudFormationClient, input: DescribeStacksCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeStacksCommand(input));
+    let result: any = await client.send(new DescribeStacksCommand(input));
     reason = result;
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {

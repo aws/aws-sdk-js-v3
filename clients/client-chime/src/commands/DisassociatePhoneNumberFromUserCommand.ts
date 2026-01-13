@@ -9,7 +9,7 @@ import type {
   DisassociatePhoneNumberFromUserRequest,
   DisassociatePhoneNumberFromUserResponse,
 } from "../models/models_0";
-import { DisassociatePhoneNumberFromUser } from "../schemas/schemas_0";
+import { DisassociatePhoneNumberFromUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DisassociatePhoneNumberFromUserCommandInput extends Disassociat
  *
  * The output of {@link DisassociatePhoneNumberFromUserCommand}.
  */
-export interface DisassociatePhoneNumberFromUserCommandOutput
-  extends DisassociatePhoneNumberFromUserResponse,
-    __MetadataBearer {}
+export interface DisassociatePhoneNumberFromUserCommandOutput extends DisassociatePhoneNumberFromUserResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates the primary provisioned phone number from the specified Amazon Chime user.</p>
@@ -98,7 +96,7 @@ export class DisassociatePhoneNumberFromUserCommand extends $Command
   })
   .s("UCBuzzConsoleService", "DisassociatePhoneNumberFromUser", {})
   .n("ChimeClient", "DisassociatePhoneNumberFromUserCommand")
-  .sc(DisassociatePhoneNumberFromUser)
+  .sc(DisassociatePhoneNumberFromUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DescribeConfigurationAggregatorsRequest,
   DescribeConfigurationAggregatorsResponse,
 } from "../models/models_0";
-import { DescribeConfigurationAggregators } from "../schemas/schemas_0";
+import { DescribeConfigurationAggregators$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeConfigurationAggregatorsCommandInput extends DescribeCo
  *
  * The output of {@link DescribeConfigurationAggregatorsCommand}.
  */
-export interface DescribeConfigurationAggregatorsCommandOutput
-  extends DescribeConfigurationAggregatorsResponse,
-    __MetadataBearer {}
+export interface DescribeConfigurationAggregatorsCommandOutput extends DescribeConfigurationAggregatorsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the details of one or more configuration aggregators.
@@ -141,7 +139,7 @@ export class DescribeConfigurationAggregatorsCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeConfigurationAggregators", {})
   .n("ConfigServiceClient", "DescribeConfigurationAggregatorsCommand")
-  .sc(DescribeConfigurationAggregators)
+  .sc(DescribeConfigurationAggregators$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

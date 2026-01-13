@@ -9,7 +9,7 @@ import type {
   DisassociateManagedNotificationAccountContactResponse,
 } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { DisassociateManagedNotificationAccountContact } from "../schemas/schemas_0";
+import { DisassociateManagedNotificationAccountContact$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateManagedNotificationAccountContactCommand}.
  */
-export interface DisassociateManagedNotificationAccountContactCommandInput
-  extends DisassociateManagedNotificationAccountContactRequest {}
+export interface DisassociateManagedNotificationAccountContactCommandInput extends DisassociateManagedNotificationAccountContactRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateManagedNotificationAccountContactCommand}.
  */
-export interface DisassociateManagedNotificationAccountContactCommandOutput
-  extends DisassociateManagedNotificationAccountContactResponse,
-    __MetadataBearer {}
+export interface DisassociateManagedNotificationAccountContactCommandOutput extends DisassociateManagedNotificationAccountContactResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates an Account Contact with a particular <code>ManagedNotificationConfiguration</code>.</p>
@@ -96,7 +93,7 @@ export class DisassociateManagedNotificationAccountContactCommand extends $Comma
   })
   .s("Notifications", "DisassociateManagedNotificationAccountContact", {})
   .n("NotificationsClient", "DisassociateManagedNotificationAccountContactCommand")
-  .sc(DisassociateManagedNotificationAccountContact)
+  .sc(DisassociateManagedNotificationAccountContact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

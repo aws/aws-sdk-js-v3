@@ -9,7 +9,7 @@ import type {
   ListCisScanResultsAggregatedByTargetResourceRequest,
   ListCisScanResultsAggregatedByTargetResourceResponse,
 } from "../models/models_0";
-import { ListCisScanResultsAggregatedByTargetResource } from "../schemas/schemas_0";
+import { ListCisScanResultsAggregatedByTargetResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListCisScanResultsAggregatedByTargetResourceCommand}.
  */
-export interface ListCisScanResultsAggregatedByTargetResourceCommandInput
-  extends ListCisScanResultsAggregatedByTargetResourceRequest {}
+export interface ListCisScanResultsAggregatedByTargetResourceCommandInput extends ListCisScanResultsAggregatedByTargetResourceRequest {}
 /**
  * @public
  *
  * The output of {@link ListCisScanResultsAggregatedByTargetResourceCommand}.
  */
-export interface ListCisScanResultsAggregatedByTargetResourceCommandOutput
-  extends ListCisScanResultsAggregatedByTargetResourceResponse,
-    __MetadataBearer {}
+export interface ListCisScanResultsAggregatedByTargetResourceCommandOutput extends ListCisScanResultsAggregatedByTargetResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Lists scan results aggregated by a target resource.</p>
@@ -208,7 +205,7 @@ export class ListCisScanResultsAggregatedByTargetResourceCommand extends $Comman
   })
   .s("Inspector2", "ListCisScanResultsAggregatedByTargetResource", {})
   .n("Inspector2Client", "ListCisScanResultsAggregatedByTargetResourceCommand")
-  .sc(ListCisScanResultsAggregatedByTargetResource)
+  .sc(ListCisScanResultsAggregatedByTargetResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

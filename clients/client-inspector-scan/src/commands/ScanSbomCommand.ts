@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InspectorScanClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorScanClient";
 import type { ScanSbomRequest, ScanSbomResponse } from "../models/models_0";
-import { ScanSbom } from "../schemas/schemas_0";
+import { ScanSbom$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,7 +27,7 @@ export interface ScanSbomCommandInput extends ScanSbomRequest {}
 export interface ScanSbomCommandOutput extends ScanSbomResponse, __MetadataBearer {}
 
 /**
- * <p>Scans a provided CycloneDX 1.5 SBOM and reports on any vulnerabilities discovered in that SBOM. You can generate compatible SBOMs for your resources using the <a href="">Amazon Inspector SBOM generator</a>.</p>
+ * <p>Scans a provided CycloneDX 1.5 SBOM and reports on any vulnerabilities discovered in that SBOM. You can generate compatible SBOMs for your resources using the <a href="https://docs.aws.amazon.com/inspector/latest/user/sbom-generator.html">Amazon Inspector SBOM generator</a>.</p> <note> <p> The output of this action reports NVD and CVSS scores when NVD and CVSS scores are available. Because the output reports both scores, you might notice a discrepency between them. However, you can triage the severity of either score depending on the vendor of your choosing. </p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,7 +38,7 @@ export interface ScanSbomCommandOutput extends ScanSbomResponse, __MetadataBeare
  * const client = new InspectorScanClient(config);
  * const input = { // ScanSbomRequest
  *   sbom: "DOCUMENT_VALUE", // required
- *   outputFormat: "CYCLONE_DX_1_5" || "INSPECTOR",
+ *   outputFormat: "CYCLONE_DX_1_5" || "INSPECTOR" || "INSPECTOR_ALT",
  * };
  * const command = new ScanSbomCommand(input);
  * const response = await client.send(command);
@@ -55,18 +55,13 @@ export interface ScanSbomCommandOutput extends ScanSbomResponse, __MetadataBeare
  * @see {@link InspectorScanClientResolvedConfig | config} for InspectorScanClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.
- *   </p>
+ *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.
- *
- *   </p>
+ *  <p>The request processing has failed because of an unknown error, exception or failure. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.
- *
- *   </p>
+ *  <p>The request was denied due to request throttling. </p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
@@ -263,7 +258,7 @@ export class ScanSbomCommand extends $Command
   })
   .s("InspectorScan", "ScanSbom", {})
   .n("InspectorScanClient", "ScanSbomCommand")
-  .sc(ScanSbom)
+  .sc(ScanSbom$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

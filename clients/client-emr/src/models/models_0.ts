@@ -1957,7 +1957,9 @@ export interface UsernamePassword {
  *          a username and a password.</p>
  * @public
  */
-export type Credentials = Credentials.UsernamePasswordMember | Credentials.$UnknownMember;
+export type Credentials =
+  | Credentials.UsernamePasswordMember
+  | Credentials.$UnknownMember;
 
 /**
  * @public

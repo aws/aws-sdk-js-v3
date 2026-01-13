@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { MalformedBlob } from "../schemas/schemas_0";
+import { MalformedBlob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -75,7 +75,7 @@ export class MalformedBlobCommand extends $Command
   })
   .s("RestJson", "MalformedBlob", {})
   .n("RestJsonProtocolClient", "MalformedBlobCommand")
-  .sc(MalformedBlob)
+  .sc(MalformedBlob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

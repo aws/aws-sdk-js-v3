@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { CreateTelemetryRuleForOrganization } from "../schemas/schemas_0";
+import { CreateTelemetryRuleForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface CreateTelemetryRuleForOrganizationCommandInput extends CreateTe
  *
  * The output of {@link CreateTelemetryRuleForOrganizationCommand}.
  */
-export interface CreateTelemetryRuleForOrganizationCommandOutput
-  extends CreateTelemetryRuleForOrganizationOutput,
-    __MetadataBearer {}
+export interface CreateTelemetryRuleForOrganizationCommandOutput extends CreateTelemetryRuleForOrganizationOutput, __MetadataBearer {}
 
 /**
  * <p> Creates a telemetry rule that applies across an Amazon Web Services Organization. This operation can only be called by the organization's management account or a delegated administrator account. </p>
@@ -191,7 +189,7 @@ export class CreateTelemetryRuleForOrganizationCommand extends $Command
   })
   .s("ObservabilityAdmin", "CreateTelemetryRuleForOrganization", {})
   .n("ObservabilityAdminClient", "CreateTelemetryRuleForOrganizationCommand")
-  .sc(CreateTelemetryRuleForOrganization)
+  .sc(CreateTelemetryRuleForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AuthorizeDBSecurityGroupIngressMessage, AuthorizeDBSecurityGroupIngressResult } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { AuthorizeDBSecurityGroupIngress } from "../schemas/schemas_0";
+import { AuthorizeDBSecurityGroupIngress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface AuthorizeDBSecurityGroupIngressCommandInput extends AuthorizeDB
  *
  * The output of {@link AuthorizeDBSecurityGroupIngressCommand}.
  */
-export interface AuthorizeDBSecurityGroupIngressCommandOutput
-  extends AuthorizeDBSecurityGroupIngressResult,
-    __MetadataBearer {}
+export interface AuthorizeDBSecurityGroupIngressCommandOutput extends AuthorizeDBSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
  * <p>Enables ingress to a DBSecurityGroup using one of two forms of authorization. First, EC2 or VPC security
@@ -144,7 +142,7 @@ export class AuthorizeDBSecurityGroupIngressCommand extends $Command
   })
   .s("AmazonRDSv19", "AuthorizeDBSecurityGroupIngress", {})
   .n("RDSClient", "AuthorizeDBSecurityGroupIngressCommand")
-  .sc(AuthorizeDBSecurityGroupIngress)
+  .sc(AuthorizeDBSecurityGroupIngress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

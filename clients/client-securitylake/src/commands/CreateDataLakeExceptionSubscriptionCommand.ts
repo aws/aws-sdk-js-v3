@@ -8,7 +8,7 @@ import type {
   CreateDataLakeExceptionSubscriptionRequest,
   CreateDataLakeExceptionSubscriptionResponse,
 } from "../models/models_0";
-import { CreateDataLakeExceptionSubscription } from "../schemas/schemas_0";
+import { CreateDataLakeExceptionSubscription$ } from "../schemas/schemas_0";
 import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -27,9 +27,7 @@ export interface CreateDataLakeExceptionSubscriptionCommandInput extends CreateD
  *
  * The output of {@link CreateDataLakeExceptionSubscriptionCommand}.
  */
-export interface CreateDataLakeExceptionSubscriptionCommandOutput
-  extends CreateDataLakeExceptionSubscriptionResponse,
-    __MetadataBearer {}
+export interface CreateDataLakeExceptionSubscriptionCommandOutput extends CreateDataLakeExceptionSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates the specified notification subscription in Amazon Security Lake for the organization
@@ -104,7 +102,7 @@ export class CreateDataLakeExceptionSubscriptionCommand extends $Command
   })
   .s("SecurityLake", "CreateDataLakeExceptionSubscription", {})
   .n("SecurityLakeClient", "CreateDataLakeExceptionSubscriptionCommand")
-  .sc(CreateDataLakeExceptionSubscription)
+  .sc(CreateDataLakeExceptionSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

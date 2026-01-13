@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutSupplementalTaxRegistrationRequest, PutSupplementalTaxRegistrationResponse } from "../models/models_0";
-import { PutSupplementalTaxRegistration } from "../schemas/schemas_0";
+import { PutSupplementalTaxRegistration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig } from "../TaxSettingsClient";
 
 /**
@@ -24,9 +24,7 @@ export interface PutSupplementalTaxRegistrationCommandInput extends PutSupplemen
  *
  * The output of {@link PutSupplementalTaxRegistrationCommand}.
  */
-export interface PutSupplementalTaxRegistrationCommandOutput
-  extends PutSupplementalTaxRegistrationResponse,
-    __MetadataBearer {}
+export interface PutSupplementalTaxRegistrationCommandOutput extends PutSupplementalTaxRegistrationResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -102,7 +100,7 @@ export class PutSupplementalTaxRegistrationCommand extends $Command
   })
   .s("TaxSettings", "PutSupplementalTaxRegistration", {})
   .n("TaxSettingsClient", "PutSupplementalTaxRegistrationCommand")
-  .sc(PutSupplementalTaxRegistration)
+  .sc(PutSupplementalTaxRegistration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GameLiftStreamsClient";
 import type { ListStreamGroupsInput, ListStreamGroupsOutput } from "../models/models_0";
-import { ListStreamGroups } from "../schemas/schemas_0";
+import { ListStreamGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -56,7 +56,7 @@ export interface ListStreamGroupsCommandOutput extends ListStreamGroupsOutput, _
  * //         Id: "STRING_VALUE",
  * //         Arn: "STRING_VALUE",
  * //       },
- * //       StreamClass: "gen4n_high" || "gen4n_ultra" || "gen4n_win2022" || "gen5n_high" || "gen5n_ultra" || "gen5n_win2022",
+ * //       StreamClass: "gen4n_high" || "gen4n_ultra" || "gen4n_win2022" || "gen5n_high" || "gen5n_ultra" || "gen5n_win2022" || "gen6n_small" || "gen6n_medium" || "gen6n_high" || "gen6n_ultra" || "gen6n_ultra_win2022" || "gen6n_pro" || "gen6n_pro_win2022",
  * //       Status: "ACTIVATING" || "UPDATING_LOCATIONS" || "ACTIVE" || "ACTIVE_WITH_ERRORS" || "ERROR" || "DELETING" || "EXPIRED",
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       LastUpdatedAt: new Date("TIMESTAMP"),
@@ -106,7 +106,7 @@ export class ListStreamGroupsCommand extends $Command
   })
   .s("GameLiftStreams", "ListStreamGroups", {})
   .n("GameLiftStreamsClient", "ListStreamGroupsCommand")
-  .sc(ListStreamGroups)
+  .sc(ListStreamGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

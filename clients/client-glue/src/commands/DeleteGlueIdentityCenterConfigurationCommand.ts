@@ -9,7 +9,7 @@ import type {
   DeleteGlueIdentityCenterConfigurationRequest,
   DeleteGlueIdentityCenterConfigurationResponse,
 } from "../models/models_1";
-import { DeleteGlueIdentityCenterConfiguration } from "../schemas/schemas_0";
+import { DeleteGlueIdentityCenterConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteGlueIdentityCenterConfigurationCommand}.
  */
-export interface DeleteGlueIdentityCenterConfigurationCommandInput
-  extends DeleteGlueIdentityCenterConfigurationRequest {}
+export interface DeleteGlueIdentityCenterConfigurationCommandInput extends DeleteGlueIdentityCenterConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteGlueIdentityCenterConfigurationCommand}.
  */
-export interface DeleteGlueIdentityCenterConfigurationCommandOutput
-  extends DeleteGlueIdentityCenterConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteGlueIdentityCenterConfigurationCommandOutput extends DeleteGlueIdentityCenterConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the existing Glue Identity Center configuration, removing the integration between Glue and
@@ -94,7 +91,7 @@ export class DeleteGlueIdentityCenterConfigurationCommand extends $Command
   })
   .s("AWSGlue", "DeleteGlueIdentityCenterConfiguration", {})
   .n("GlueClient", "DeleteGlueIdentityCenterConfigurationCommand")
-  .sc(DeleteGlueIdentityCenterConfiguration)
+  .sc(DeleteGlueIdentityCenterConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

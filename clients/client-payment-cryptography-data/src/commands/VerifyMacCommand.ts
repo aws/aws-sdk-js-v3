@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyDataClient";
-import { VerifyMac } from "../schemas/schemas_0";
+import { VerifyMac$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -45,7 +45,7 @@ export interface VerifyMacCommandOutput extends VerifyMacOutput, __MetadataBeare
  *   MessageData: "STRING_VALUE", // required
  *   Mac: "STRING_VALUE", // required
  *   VerificationAttributes: { // MacAttributes Union: only one key present
- *     Algorithm: "ISO9797_ALGORITHM1" || "ISO9797_ALGORITHM3" || "CMAC" || "HMAC" || "HMAC_SHA224" || "HMAC_SHA256" || "HMAC_SHA384" || "HMAC_SHA512",
+ *     Algorithm: "ISO9797_ALGORITHM1" || "ISO9797_ALGORITHM3" || "CMAC" || "HMAC" || "HMAC_SHA224" || "HMAC_SHA256" || "HMAC_SHA384" || "HMAC_SHA512" || "AS2805_4_1",
  *     EmvMac: { // MacAlgorithmEmv
  *       MajorKeyDerivationMode: "EMV_OPTION_A" || "EMV_OPTION_B", // required
  *       PrimaryAccountNumber: "STRING_VALUE", // required
@@ -127,7 +127,7 @@ export class VerifyMacCommand extends $Command
   })
   .s("PaymentCryptographyDataPlane", "VerifyMac", {})
   .n("PaymentCryptographyDataClient", "VerifyMacCommand")
-  .sc(VerifyMac)
+  .sc(VerifyMac$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

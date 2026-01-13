@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UntagLogGroupRequest } from "../models/models_0";
-import { UntagLogGroup } from "../schemas/schemas_0";
+import { UntagLogGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class UntagLogGroupCommand extends $Command
   })
   .s("Logs_20140328", "UntagLogGroup", {})
   .n("CloudWatchLogsClient", "UntagLogGroupCommand")
-  .sc(UntagLogGroup)
+  .sc(UntagLogGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   ListAutomatedReasoningPolicyBuildWorkflowsRequest,
   ListAutomatedReasoningPolicyBuildWorkflowsResponse,
 } from "../models/models_0";
-import { ListAutomatedReasoningPolicyBuildWorkflows } from "../schemas/schemas_0";
+import { ListAutomatedReasoningPolicyBuildWorkflows$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListAutomatedReasoningPolicyBuildWorkflowsCommand}.
  */
-export interface ListAutomatedReasoningPolicyBuildWorkflowsCommandInput
-  extends ListAutomatedReasoningPolicyBuildWorkflowsRequest {}
+export interface ListAutomatedReasoningPolicyBuildWorkflowsCommandInput extends ListAutomatedReasoningPolicyBuildWorkflowsRequest {}
 /**
  * @public
  *
  * The output of {@link ListAutomatedReasoningPolicyBuildWorkflowsCommand}.
  */
-export interface ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput
-  extends ListAutomatedReasoningPolicyBuildWorkflowsResponse,
-    __MetadataBearer {}
+export interface ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput extends ListAutomatedReasoningPolicyBuildWorkflowsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all build workflows for an Automated Reasoning policy, showing the history of policy creation and modification attempts.</p>
@@ -106,7 +103,7 @@ export class ListAutomatedReasoningPolicyBuildWorkflowsCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "ListAutomatedReasoningPolicyBuildWorkflows", {})
   .n("BedrockClient", "ListAutomatedReasoningPolicyBuildWorkflowsCommand")
-  .sc(ListAutomatedReasoningPolicyBuildWorkflows)
+  .sc(ListAutomatedReasoningPolicyBuildWorkflows$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

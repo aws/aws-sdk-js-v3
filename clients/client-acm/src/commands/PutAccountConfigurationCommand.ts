@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutAccountConfigurationRequest } from "../models/models_0";
-import { PutAccountConfiguration } from "../schemas/schemas_0";
+import { PutAccountConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class PutAccountConfigurationCommand extends $Command
   })
   .s("CertificateManager", "PutAccountConfiguration", {})
   .n("ACMClient", "PutAccountConfigurationCommand")
-  .sc(PutAccountConfiguration)
+  .sc(PutAccountConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

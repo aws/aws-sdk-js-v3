@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
 import type { ListGroupMembershipsForMemberRequest, ListGroupMembershipsForMemberResponse } from "../models/models_0";
-import { ListGroupMembershipsForMember } from "../schemas/schemas_0";
+import { ListGroupMembershipsForMember$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListGroupMembershipsForMemberCommandInput extends ListGroupMemb
  *
  * The output of {@link ListGroupMembershipsForMemberCommand}.
  */
-export interface ListGroupMembershipsForMemberCommandOutput
-  extends ListGroupMembershipsForMemberResponse,
-    __MetadataBearer {}
+export interface ListGroupMembershipsForMemberCommandOutput extends ListGroupMembershipsForMemberResponse, __MetadataBearer {}
 
 /**
  * <p>For the specified member in the specified identity store, returns the list of all <code> GroupMembership</code> objects and returns results in paginated form.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
@@ -109,7 +107,7 @@ export class ListGroupMembershipsForMemberCommand extends $Command
   })
   .s("AWSIdentityStore", "ListGroupMembershipsForMember", {})
   .n("IdentitystoreClient", "ListGroupMembershipsForMemberCommand")
-  .sc(ListGroupMembershipsForMember)
+  .sc(ListGroupMembershipsForMember$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

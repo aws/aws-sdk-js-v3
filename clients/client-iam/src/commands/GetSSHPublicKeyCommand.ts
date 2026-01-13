@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { GetSSHPublicKeyRequest, GetSSHPublicKeyResponse } from "../models/models_0";
-import { GetSSHPublicKey } from "../schemas/schemas_0";
+import { GetSSHPublicKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class GetSSHPublicKeyCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "GetSSHPublicKey", {})
   .n("IAMClient", "GetSSHPublicKeyCommand")
-  .sc(GetSSHPublicKey)
+  .sc(GetSSHPublicKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

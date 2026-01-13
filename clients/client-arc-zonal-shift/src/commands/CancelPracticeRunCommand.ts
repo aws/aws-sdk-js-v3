@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelPracticeRunRequest, CancelPracticeRunResponse } from "../models/models_0";
-import { CancelPracticeRun } from "../schemas/schemas_0";
+import { CancelPracticeRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class CancelPracticeRunCommand extends $Command
   })
   .s("PercDataPlane", "CancelPracticeRun", {})
   .n("ARCZonalShiftClient", "CancelPracticeRunCommand")
-  .sc(CancelPracticeRun)
+  .sc(CancelPracticeRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

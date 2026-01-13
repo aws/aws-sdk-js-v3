@@ -9,7 +9,7 @@ import type {
   RegisterTransitGatewayMulticastGroupMembersRequest,
   RegisterTransitGatewayMulticastGroupMembersResult,
 } from "../models/models_7";
-import { RegisterTransitGatewayMulticastGroupMembers } from "../schemas/schemas_0";
+import { RegisterTransitGatewayMulticastGroupMembers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link RegisterTransitGatewayMulticastGroupMembersCommand}.
  */
-export interface RegisterTransitGatewayMulticastGroupMembersCommandInput
-  extends RegisterTransitGatewayMulticastGroupMembersRequest {}
+export interface RegisterTransitGatewayMulticastGroupMembersCommandInput extends RegisterTransitGatewayMulticastGroupMembersRequest {}
 /**
  * @public
  *
  * The output of {@link RegisterTransitGatewayMulticastGroupMembersCommand}.
  */
-export interface RegisterTransitGatewayMulticastGroupMembersCommandOutput
-  extends RegisterTransitGatewayMulticastGroupMembersResult,
-    __MetadataBearer {}
+export interface RegisterTransitGatewayMulticastGroupMembersCommandOutput extends RegisterTransitGatewayMulticastGroupMembersResult, __MetadataBearer {}
 
 /**
  * <p>Registers members (network interfaces) with the  transit gateway multicast group. A member is a network interface associated
@@ -95,7 +92,7 @@ export class RegisterTransitGatewayMulticastGroupMembersCommand extends $Command
   })
   .s("AmazonEC2", "RegisterTransitGatewayMulticastGroupMembers", {})
   .n("EC2Client", "RegisterTransitGatewayMulticastGroupMembersCommand")
-  .sc(RegisterTransitGatewayMulticastGroupMembers)
+  .sc(RegisterTransitGatewayMulticastGroupMembers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

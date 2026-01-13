@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyWorkspaceAccessPropertiesRequest, ModifyWorkspaceAccessPropertiesResult } from "../models/models_0";
-import { ModifyWorkspaceAccessProperties } from "../schemas/schemas_0";
+import { ModifyWorkspaceAccessProperties$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -24,9 +24,7 @@ export interface ModifyWorkspaceAccessPropertiesCommandInput extends ModifyWorks
  *
  * The output of {@link ModifyWorkspaceAccessPropertiesCommand}.
  */
-export interface ModifyWorkspaceAccessPropertiesCommandOutput
-  extends ModifyWorkspaceAccessPropertiesResult,
-    __MetadataBearer {}
+export interface ModifyWorkspaceAccessPropertiesCommandOutput extends ModifyWorkspaceAccessPropertiesResult, __MetadataBearer {}
 
 /**
  * <p>Specifies which devices and operating systems users can use to access their WorkSpaces.
@@ -112,7 +110,7 @@ export class ModifyWorkspaceAccessPropertiesCommand extends $Command
   })
   .s("WorkspacesService", "ModifyWorkspaceAccessProperties", {})
   .n("WorkSpacesClient", "ModifyWorkspaceAccessPropertiesCommand")
-  .sc(ModifyWorkspaceAccessProperties)
+  .sc(ModifyWorkspaceAccessProperties$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -126,7 +126,10 @@ export interface TimestreamWrite {
     args: CreateDatabaseCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDatabaseCommandOutput>;
-  createDatabase(args: CreateDatabaseCommandInput, cb: (err: any, data?: CreateDatabaseCommandOutput) => void): void;
+  createDatabase(
+    args: CreateDatabaseCommandInput,
+    cb: (err: any, data?: CreateDatabaseCommandOutput) => void
+  ): void;
   createDatabase(
     args: CreateDatabaseCommandInput,
     options: __HttpHandlerOptions,
@@ -136,8 +139,14 @@ export interface TimestreamWrite {
   /**
    * @see {@link CreateTableCommand}
    */
-  createTable(args: CreateTableCommandInput, options?: __HttpHandlerOptions): Promise<CreateTableCommandOutput>;
-  createTable(args: CreateTableCommandInput, cb: (err: any, data?: CreateTableCommandOutput) => void): void;
+  createTable(
+    args: CreateTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTableCommandOutput>;
+  createTable(
+    args: CreateTableCommandInput,
+    cb: (err: any, data?: CreateTableCommandOutput) => void
+  ): void;
   createTable(
     args: CreateTableCommandInput,
     options: __HttpHandlerOptions,
@@ -151,7 +160,10 @@ export interface TimestreamWrite {
     args: DeleteDatabaseCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDatabaseCommandOutput>;
-  deleteDatabase(args: DeleteDatabaseCommandInput, cb: (err: any, data?: DeleteDatabaseCommandOutput) => void): void;
+  deleteDatabase(
+    args: DeleteDatabaseCommandInput,
+    cb: (err: any, data?: DeleteDatabaseCommandOutput) => void
+  ): void;
   deleteDatabase(
     args: DeleteDatabaseCommandInput,
     options: __HttpHandlerOptions,
@@ -161,8 +173,14 @@ export interface TimestreamWrite {
   /**
    * @see {@link DeleteTableCommand}
    */
-  deleteTable(args: DeleteTableCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTableCommandOutput>;
-  deleteTable(args: DeleteTableCommandInput, cb: (err: any, data?: DeleteTableCommandOutput) => void): void;
+  deleteTable(
+    args: DeleteTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTableCommandOutput>;
+  deleteTable(
+    args: DeleteTableCommandInput,
+    cb: (err: any, data?: DeleteTableCommandOutput) => void
+  ): void;
   deleteTable(
     args: DeleteTableCommandInput,
     options: __HttpHandlerOptions,
@@ -224,8 +242,14 @@ export interface TimestreamWrite {
   /**
    * @see {@link DescribeTableCommand}
    */
-  describeTable(args: DescribeTableCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTableCommandOutput>;
-  describeTable(args: DescribeTableCommandInput, cb: (err: any, data?: DescribeTableCommandOutput) => void): void;
+  describeTable(
+    args: DescribeTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTableCommandOutput>;
+  describeTable(
+    args: DescribeTableCommandInput,
+    cb: (err: any, data?: DescribeTableCommandOutput) => void
+  ): void;
   describeTable(
     args: DescribeTableCommandInput,
     options: __HttpHandlerOptions,
@@ -254,8 +278,14 @@ export interface TimestreamWrite {
    * @see {@link ListDatabasesCommand}
    */
   listDatabases(): Promise<ListDatabasesCommandOutput>;
-  listDatabases(args: ListDatabasesCommandInput, options?: __HttpHandlerOptions): Promise<ListDatabasesCommandOutput>;
-  listDatabases(args: ListDatabasesCommandInput, cb: (err: any, data?: ListDatabasesCommandOutput) => void): void;
+  listDatabases(
+    args: ListDatabasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatabasesCommandOutput>;
+  listDatabases(
+    args: ListDatabasesCommandInput,
+    cb: (err: any, data?: ListDatabasesCommandOutput) => void
+  ): void;
   listDatabases(
     args: ListDatabasesCommandInput,
     options: __HttpHandlerOptions,
@@ -266,8 +296,14 @@ export interface TimestreamWrite {
    * @see {@link ListTablesCommand}
    */
   listTables(): Promise<ListTablesCommandOutput>;
-  listTables(args: ListTablesCommandInput, options?: __HttpHandlerOptions): Promise<ListTablesCommandOutput>;
-  listTables(args: ListTablesCommandInput, cb: (err: any, data?: ListTablesCommandOutput) => void): void;
+  listTables(
+    args: ListTablesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTablesCommandOutput>;
+  listTables(
+    args: ListTablesCommandInput,
+    cb: (err: any, data?: ListTablesCommandOutput) => void
+  ): void;
   listTables(
     args: ListTablesCommandInput,
     options: __HttpHandlerOptions,
@@ -311,8 +347,14 @@ export interface TimestreamWrite {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -322,8 +364,14 @@ export interface TimestreamWrite {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -337,7 +385,10 @@ export interface TimestreamWrite {
     args: UpdateDatabaseCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateDatabaseCommandOutput>;
-  updateDatabase(args: UpdateDatabaseCommandInput, cb: (err: any, data?: UpdateDatabaseCommandOutput) => void): void;
+  updateDatabase(
+    args: UpdateDatabaseCommandInput,
+    cb: (err: any, data?: UpdateDatabaseCommandOutput) => void
+  ): void;
   updateDatabase(
     args: UpdateDatabaseCommandInput,
     options: __HttpHandlerOptions,
@@ -347,8 +398,14 @@ export interface TimestreamWrite {
   /**
    * @see {@link UpdateTableCommand}
    */
-  updateTable(args: UpdateTableCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTableCommandOutput>;
-  updateTable(args: UpdateTableCommandInput, cb: (err: any, data?: UpdateTableCommandOutput) => void): void;
+  updateTable(
+    args: UpdateTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTableCommandOutput>;
+  updateTable(
+    args: UpdateTableCommandInput,
+    cb: (err: any, data?: UpdateTableCommandOutput) => void
+  ): void;
   updateTable(
     args: UpdateTableCommandInput,
     options: __HttpHandlerOptions,
@@ -358,8 +415,14 @@ export interface TimestreamWrite {
   /**
    * @see {@link WriteRecordsCommand}
    */
-  writeRecords(args: WriteRecordsCommandInput, options?: __HttpHandlerOptions): Promise<WriteRecordsCommandOutput>;
-  writeRecords(args: WriteRecordsCommandInput, cb: (err: any, data?: WriteRecordsCommandOutput) => void): void;
+  writeRecords(
+    args: WriteRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<WriteRecordsCommandOutput>;
+  writeRecords(
+    args: WriteRecordsCommandInput,
+    cb: (err: any, data?: WriteRecordsCommandOutput) => void
+  ): void;
   writeRecords(
     args: WriteRecordsCommandInput,
     options: __HttpHandlerOptions,

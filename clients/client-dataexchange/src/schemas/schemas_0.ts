@@ -359,1207 +359,892 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { DataExchangeServiceException as __DataExchangeServiceException } from "../models/DataExchangeServiceException";
+import { DataExchangeServiceException } from "../models/DataExchangeServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceLimitExceededException as __ServiceLimitExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceLimitExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AcceptDataGrantRequest: StaticStructureSchema = [3, n0, _ADGR, 0, [_DGA], [[0, 1]]];
-export var AcceptDataGrantResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _ADGRc,
+export var AcceptDataGrantRequest$: StaticStructureSchema = [3, n0, _ADGR,
+  0,
+  [_DGA],
+  [[0, 1]]
+];
+export var AcceptDataGrantResponse$: StaticStructureSchema = [3, n0, _ADGRc,
   0,
   [_N, _SP, _RP, _D, _AS, _AA, _EA, _GDS, _DSI, _I, _A, _CA, _UA],
-  [0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 5, 5],
+  [0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 5, 5]
 ];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var Action: StaticStructureSchema = [3, n0, _Ac, 0, [_ERTS], [() => AutoExportRevisionToS3RequestDetails]];
-export var ApiGatewayApiAsset: StaticStructureSchema = [
-  3,
-  n0,
-  _AGAA,
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var Action$: StaticStructureSchema = [3, n0, _Ac,
+  0,
+  [_ERTS],
+  [() => AutoExportRevisionToS3RequestDetails$]
+];
+export var ApiGatewayApiAsset$: StaticStructureSchema = [3, n0, _AGAA,
   0,
   [_AD, _AE, _AI, _AK, _AN, _ASDU, _ASDUEA, _PT, _S],
-  [0, 0, 0, 0, 0, 0, 5, 0, 0],
+  [0, 0, 0, 0, 0, 0, 5, 0, 0]
 ];
-export var AssetDestinationEntry: StaticStructureSchema = [3, n0, _ADEs, 0, [_AIs, _B, _K], [0, 0, 0]];
-export var AssetDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _ADs,
+export var AssetDestinationEntry$: StaticStructureSchema = [3, n0, _ADEs,
+  0,
+  [_AIs, _B, _K],
+  [0, 0, 0]
+];
+export var AssetDetails$: StaticStructureSchema = [3, n0, _ADs,
   0,
   [_SSA, _RDSA, _AGAA, _SDAA, _LFDPA],
-  [
-    () => S3SnapshotAsset,
-    () => RedshiftDataShareAsset,
-    () => ApiGatewayApiAsset,
-    () => S3DataAccessAsset,
-    () => LakeFormationDataPermissionAsset,
-  ],
+  [() => S3SnapshotAsset$, () => RedshiftDataShareAsset$, () => ApiGatewayApiAsset$, () => S3DataAccessAsset$, () => LakeFormationDataPermissionAsset$]
 ];
-export var AssetEntry: StaticStructureSchema = [
-  3,
-  n0,
-  _AEs,
+export var AssetEntry$: StaticStructureSchema = [3, n0, _AEs,
   0,
   [_A, _ADs, _AT, _CA, _DSI, _I, _N, _RI, _SI, _UA],
-  [0, () => AssetDetails, 0, 5, 0, 0, 0, 0, 0, 5],
+  [0, () => AssetDetails$, 0, 5, 0, 0, 0, 0, 0, 5]
 ];
-export var AssetSourceEntry: StaticStructureSchema = [3, n0, _ASE, 0, [_B, _K], [0, 0]];
-export var AutoExportRevisionDestinationEntry: StaticStructureSchema = [3, n0, _AERDE, 0, [_B, _KP], [0, 0]];
-export var AutoExportRevisionToS3RequestDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _AERTSRD,
+export var AssetSourceEntry$: StaticStructureSchema = [3, n0, _ASE,
+  0,
+  [_B, _K],
+  [0, 0]
+];
+export var AutoExportRevisionDestinationEntry$: StaticStructureSchema = [3, n0, _AERDE,
+  0,
+  [_B, _KP],
+  [0, 0]
+];
+export var AutoExportRevisionToS3RequestDetails$: StaticStructureSchema = [3, n0, _AERTSRD,
   0,
   [_E, _RD],
-  [() => ExportServerSideEncryption, () => AutoExportRevisionDestinationEntry],
+  [() => ExportServerSideEncryption$, () => AutoExportRevisionDestinationEntry$]
 ];
-export var CancelJobRequest: StaticStructureSchema = [3, n0, _CJR, 0, [_JI], [[0, 1]]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RIe, _RT], [0, 0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateDataGrantRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CDGR,
+export var CancelJobRequest$: StaticStructureSchema = [3, n0, _CJR,
+  0,
+  [_JI],
+  [[0, 1]]
+];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RIe, _RT],
+  [0, 0, 0]
+];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateDataGrantRequest$: StaticStructureSchema = [3, n0, _CDGR,
   0,
   [_N, _GDS, _RP, _SDSI, _EA, _D, _T],
-  [0, 0, 0, 0, 5, 0, 128 | 0],
+  [0, 0, 0, 0, 5, 0, 128 | 0]
 ];
-export var CreateDataGrantResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CDGRr,
+export var CreateDataGrantResponse$: StaticStructureSchema = [3, n0, _CDGRr,
   0,
   [_N, _SP, _RP, _D, _AS, _AA, _EA, _GDS, _DSI, _SDSI, _I, _A, _CA, _UA, _T],
-  [0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 5, 5, 128 | 0],
+  [0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 5, 5, 128 | 0]
 ];
-export var CreateDataSetRequest: StaticStructureSchema = [3, n0, _CDSR, 0, [_AT, _D, _N, _T], [0, 0, 0, 128 | 0]];
-export var CreateDataSetResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CDSRr,
+export var CreateDataSetRequest$: StaticStructureSchema = [3, n0, _CDSR,
+  0,
+  [_AT, _D, _N, _T],
+  [0, 0, 0, 128 | 0]
+];
+export var CreateDataSetResponse$: StaticStructureSchema = [3, n0, _CDSRr,
   0,
   [_A, _AT, _CA, _D, _I, _N, _O, _OD, _SI, _T, _UA],
-  [0, 0, 5, 0, 0, 0, 0, () => OriginDetails, 0, 128 | 0, 5],
+  [0, 0, 5, 0, 0, 0, 0, () => OriginDetails$, 0, 128 | 0, 5]
 ];
-export var CreateEventActionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CEAR,
+export var CreateEventActionRequest$: StaticStructureSchema = [3, n0, _CEAR,
   0,
   [_Ac, _Ev, _T],
-  [() => Action, () => Event, 128 | 0],
+  [() => Action$, () => Event$, 128 | 0]
 ];
-export var CreateEventActionResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CEARr,
+export var CreateEventActionResponse$: StaticStructureSchema = [3, n0, _CEARr,
   0,
   [_Ac, _A, _CA, _Ev, _I, _T, _UA],
-  [() => Action, 0, 5, () => Event, 0, 128 | 0, 5],
+  [() => Action$, 0, 5, () => Event$, 0, 128 | 0, 5]
 ];
-export var CreateJobRequest: StaticStructureSchema = [3, n0, _CJRr, 0, [_De, _Ty], [() => RequestDetails, 0]];
-export var CreateJobResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CJRre,
+export var CreateJobRequest$: StaticStructureSchema = [3, n0, _CJRr,
+  0,
+  [_De, _Ty],
+  [() => RequestDetails$, 0]
+];
+export var CreateJobResponse$: StaticStructureSchema = [3, n0, _CJRre,
   0,
   [_A, _CA, _De, _Er, _I, _St, _Ty, _UA],
-  [0, 5, () => ResponseDetails, () => ListOfJobError, 0, 0, 0, 5],
+  [0, 5, () => ResponseDetails$, () => ListOfJobError, 0, 0, 0, 5]
 ];
-export var CreateRevisionRequest: StaticStructureSchema = [3, n0, _CRR, 0, [_C, _DSI, _T], [0, [0, 1], 128 | 0]];
-export var CreateRevisionResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CRRr,
+export var CreateRevisionRequest$: StaticStructureSchema = [3, n0, _CRR,
+  0,
+  [_C, _DSI, _T],
+  [0, [0, 1], 128 | 0]
+];
+export var CreateRevisionResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
   [_A, _C, _CA, _DSI, _F, _I, _SI, _T, _UA, _RC, _R, _RA],
-  [0, 0, 5, 0, 2, 0, 0, 128 | 0, 5, 0, 2, 5],
+  [0, 0, 5, 0, 2, 0, 0, 128 | 0, 5, 0, 2, 5]
 ];
-export var CreateS3DataAccessFromS3BucketRequestDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _CSDAFSBRD,
+export var CreateS3DataAccessFromS3BucketRequestDetails$: StaticStructureSchema = [3, n0, _CSDAFSBRD,
   0,
   [_ASs, _DSI, _RI],
-  [() => S3DataAccessAssetSourceEntry, 0, 0],
+  [() => S3DataAccessAssetSourceEntry$, 0, 0]
 ];
-export var CreateS3DataAccessFromS3BucketResponseDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _CSDAFSBRDr,
+export var CreateS3DataAccessFromS3BucketResponseDetails$: StaticStructureSchema = [3, n0, _CSDAFSBRDr,
   0,
   [_ASs, _DSI, _RI],
-  [() => S3DataAccessAssetSourceEntry, 0, 0],
+  [() => S3DataAccessAssetSourceEntry$, 0, 0]
 ];
-export var DatabaseLFTagPolicy: StaticStructureSchema = [3, n0, _DLFTP, 0, [_Ex], [() => ListOfLFTags]];
-export var DatabaseLFTagPolicyAndPermissions: StaticStructureSchema = [
-  3,
-  n0,
-  _DLFTPAP,
+export var DatabaseLFTagPolicy$: StaticStructureSchema = [3, n0, _DLFTP,
+  0,
+  [_Ex],
+  [() => ListOfLFTags]
+];
+export var DatabaseLFTagPolicyAndPermissions$: StaticStructureSchema = [3, n0, _DLFTPAP,
   0,
   [_Ex, _P],
-  [() => ListOfLFTags, 64 | 0],
+  [() => ListOfLFTags, 64 | 0]
 ];
-export var DataGrantSummaryEntry: StaticStructureSchema = [
-  3,
-  n0,
-  _DGSE,
+export var DataGrantSummaryEntry$: StaticStructureSchema = [3, n0, _DGSE,
   0,
   [_N, _SP, _RP, _AS, _AA, _EA, _DSI, _SDSI, _I, _A, _CA, _UA],
-  [0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 5, 5],
+  [0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 5, 5]
 ];
-export var DataSetEntry: StaticStructureSchema = [
-  3,
-  n0,
-  _DSE,
+export var DataSetEntry$: StaticStructureSchema = [3, n0, _DSE,
   0,
   [_A, _AT, _CA, _D, _I, _N, _O, _OD, _SI, _UA],
-  [0, 0, 5, 0, 0, 0, 0, () => OriginDetails, 0, 5],
+  [0, 0, 5, 0, 0, 0, 0, () => OriginDetails$, 0, 5]
 ];
-export var DataUpdateRequestDetails: StaticStructureSchema = [3, n0, _DURD, 0, [_DUA], [5]];
-export var DeleteAssetRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DAR,
+export var DataUpdateRequestDetails$: StaticStructureSchema = [3, n0, _DURD,
+  0,
+  [_DUA],
+  [5]
+];
+export var DeleteAssetRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_AIs, _DSI, _RI],
-  [
-    [0, 1],
-    [0, 1],
-    [0, 1],
-  ],
+  [[0, 1], [0, 1], [0, 1]]
 ];
-export var DeleteDataGrantRequest: StaticStructureSchema = [3, n0, _DDGR, 0, [_DGI], [[0, 1]]];
-export var DeleteDataSetRequest: StaticStructureSchema = [3, n0, _DDSR, 0, [_DSI], [[0, 1]]];
-export var DeleteEventActionRequest: StaticStructureSchema = [3, n0, _DEAR, 0, [_EAI], [[0, 1]]];
-export var DeleteRevisionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DRR,
+export var DeleteDataGrantRequest$: StaticStructureSchema = [3, n0, _DDGR,
+  0,
+  [_DGI],
+  [[0, 1]]
+];
+export var DeleteDataSetRequest$: StaticStructureSchema = [3, n0, _DDSR,
+  0,
+  [_DSI],
+  [[0, 1]]
+];
+export var DeleteEventActionRequest$: StaticStructureSchema = [3, n0, _DEAR,
+  0,
+  [_EAI],
+  [[0, 1]]
+];
+export var DeleteRevisionRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_DSI, _RI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
+  [[0, 1], [0, 1]]
 ];
-export var DeprecationRequestDetails: StaticStructureSchema = [3, n0, _DRD, 0, [_DA], [5]];
-export var Details: StaticStructureSchema = [
-  3,
-  n0,
-  _De,
+export var DeprecationRequestDetails$: StaticStructureSchema = [3, n0, _DRD,
+  0,
+  [_DA],
+  [5]
+];
+export var Details$: StaticStructureSchema = [3, n0, _De,
   0,
   [_IAFSUJED, _IAFSJED],
-  [() => ImportAssetFromSignedUrlJobErrorDetails, () => ListOfAssetSourceEntry],
+  [() => ImportAssetFromSignedUrlJobErrorDetails$, () => ListOfAssetSourceEntry]
 ];
-export var Event: StaticStructureSchema = [3, n0, _Ev, 0, [_RPe], [() => RevisionPublished]];
-export var EventActionEntry: StaticStructureSchema = [
-  3,
-  n0,
-  _EAE,
+export var Event$: StaticStructureSchema = [3, n0, _Ev,
+  0,
+  [_RPe],
+  [() => RevisionPublished$]
+];
+export var EventActionEntry$: StaticStructureSchema = [3, n0, _EAE,
   0,
   [_Ac, _A, _CA, _Ev, _I, _UA],
-  [() => Action, 0, 5, () => Event, 0, 5],
+  [() => Action$, 0, 5, () => Event$, 0, 5]
 ];
-export var ExportAssetsToS3RequestDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _EATSRD,
+export var ExportAssetsToS3RequestDetails$: StaticStructureSchema = [3, n0, _EATSRD,
   0,
   [_ADss, _DSI, _E, _RI],
-  [() => ListOfAssetDestinationEntry, 0, () => ExportServerSideEncryption, 0],
+  [() => ListOfAssetDestinationEntry, 0, () => ExportServerSideEncryption$, 0]
 ];
-export var ExportAssetsToS3ResponseDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _EATSRDx,
+export var ExportAssetsToS3ResponseDetails$: StaticStructureSchema = [3, n0, _EATSRDx,
   0,
   [_ADss, _DSI, _E, _RI],
-  [() => ListOfAssetDestinationEntry, 0, () => ExportServerSideEncryption, 0],
+  [() => ListOfAssetDestinationEntry, 0, () => ExportServerSideEncryption$, 0]
 ];
-export var ExportAssetToSignedUrlRequestDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _EATSURD,
+export var ExportAssetToSignedUrlRequestDetails$: StaticStructureSchema = [3, n0, _EATSURD,
   0,
   [_AIs, _DSI, _RI],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-export var ExportAssetToSignedUrlResponseDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _EATSURDx,
+export var ExportAssetToSignedUrlResponseDetails$: StaticStructureSchema = [3, n0, _EATSURDx,
   0,
   [_AIs, _DSI, _RI, _SU, _SUEA],
-  [0, 0, 0, 0, 5],
+  [0, 0, 0, 0, 5]
 ];
-export var ExportRevisionsToS3RequestDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _ERTSRD,
+export var ExportRevisionsToS3RequestDetails$: StaticStructureSchema = [3, n0, _ERTSRD,
   0,
   [_DSI, _E, _RDe],
-  [0, () => ExportServerSideEncryption, () => ListOfRevisionDestinationEntry],
+  [0, () => ExportServerSideEncryption$, () => ListOfRevisionDestinationEntry]
 ];
-export var ExportRevisionsToS3ResponseDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _ERTSRDx,
+export var ExportRevisionsToS3ResponseDetails$: StaticStructureSchema = [3, n0, _ERTSRDx,
   0,
   [_DSI, _E, _RDe, _EAA],
-  [0, () => ExportServerSideEncryption, () => ListOfRevisionDestinationEntry, 0],
+  [0, () => ExportServerSideEncryption$, () => ListOfRevisionDestinationEntry, 0]
 ];
-export var ExportServerSideEncryption: StaticStructureSchema = [3, n0, _ESSE, 0, [_KKA, _Ty], [0, 0]];
-export var GetAssetRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GAR,
+export var ExportServerSideEncryption$: StaticStructureSchema = [3, n0, _ESSE,
+  0,
+  [_KKA, _Ty],
+  [0, 0]
+];
+export var GetAssetRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_AIs, _DSI, _RI],
-  [
-    [0, 1],
-    [0, 1],
-    [0, 1],
-  ],
+  [[0, 1], [0, 1], [0, 1]]
 ];
-export var GetAssetResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GARe,
+export var GetAssetResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
   [_A, _ADs, _AT, _CA, _DSI, _I, _N, _RI, _SI, _UA],
-  [0, () => AssetDetails, 0, 5, 0, 0, 0, 0, 0, 5],
+  [0, () => AssetDetails$, 0, 5, 0, 0, 0, 0, 0, 5]
 ];
-export var GetDataGrantRequest: StaticStructureSchema = [3, n0, _GDGR, 0, [_DGI], [[0, 1]]];
-export var GetDataGrantResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GDGRe,
+export var GetDataGrantRequest$: StaticStructureSchema = [3, n0, _GDGR,
+  0,
+  [_DGI],
+  [[0, 1]]
+];
+export var GetDataGrantResponse$: StaticStructureSchema = [3, n0, _GDGRe,
   0,
   [_N, _SP, _RP, _D, _AS, _AA, _EA, _GDS, _DSI, _SDSI, _I, _A, _CA, _UA, _T],
-  [0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 5, 5, 128 | 0],
+  [0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 5, 5, 128 | 0]
 ];
-export var GetDataSetRequest: StaticStructureSchema = [3, n0, _GDSR, 0, [_DSI], [[0, 1]]];
-export var GetDataSetResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GDSRe,
+export var GetDataSetRequest$: StaticStructureSchema = [3, n0, _GDSR,
+  0,
+  [_DSI],
+  [[0, 1]]
+];
+export var GetDataSetResponse$: StaticStructureSchema = [3, n0, _GDSRe,
   0,
   [_A, _AT, _CA, _D, _I, _N, _O, _OD, _SI, _T, _UA],
-  [0, 0, 5, 0, 0, 0, 0, () => OriginDetails, 0, 128 | 0, 5],
+  [0, 0, 5, 0, 0, 0, 0, () => OriginDetails$, 0, 128 | 0, 5]
 ];
-export var GetEventActionRequest: StaticStructureSchema = [3, n0, _GEAR, 0, [_EAI], [[0, 1]]];
-export var GetEventActionResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GEARe,
+export var GetEventActionRequest$: StaticStructureSchema = [3, n0, _GEAR,
+  0,
+  [_EAI],
+  [[0, 1]]
+];
+export var GetEventActionResponse$: StaticStructureSchema = [3, n0, _GEARe,
   0,
   [_Ac, _A, _CA, _Ev, _I, _T, _UA],
-  [() => Action, 0, 5, () => Event, 0, 128 | 0, 5],
+  [() => Action$, 0, 5, () => Event$, 0, 128 | 0, 5]
 ];
-export var GetJobRequest: StaticStructureSchema = [3, n0, _GJR, 0, [_JI], [[0, 1]]];
-export var GetJobResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GJRe,
+export var GetJobRequest$: StaticStructureSchema = [3, n0, _GJR,
+  0,
+  [_JI],
+  [[0, 1]]
+];
+export var GetJobResponse$: StaticStructureSchema = [3, n0, _GJRe,
   0,
   [_A, _CA, _De, _Er, _I, _St, _Ty, _UA],
-  [0, 5, () => ResponseDetails, () => ListOfJobError, 0, 0, 0, 5],
+  [0, 5, () => ResponseDetails$, () => ListOfJobError, 0, 0, 0, 5]
 ];
-export var GetReceivedDataGrantRequest: StaticStructureSchema = [3, n0, _GRDGR, 0, [_DGA], [[0, 1]]];
-export var GetReceivedDataGrantResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GRDGRe,
+export var GetReceivedDataGrantRequest$: StaticStructureSchema = [3, n0, _GRDGR,
+  0,
+  [_DGA],
+  [[0, 1]]
+];
+export var GetReceivedDataGrantResponse$: StaticStructureSchema = [3, n0, _GRDGRe,
   0,
   [_N, _SP, _RP, _D, _AS, _AA, _EA, _GDS, _DSI, _I, _A, _CA, _UA],
-  [0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 5, 5],
+  [0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 5, 5]
 ];
-export var GetRevisionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GRR,
+export var GetRevisionRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_DSI, _RI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
+  [[0, 1], [0, 1]]
 ];
-export var GetRevisionResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GRRe,
+export var GetRevisionResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
   [_A, _C, _CA, _DSI, _F, _I, _SI, _T, _UA, _RC, _R, _RA],
-  [0, 0, 5, 0, 2, 0, 0, 128 | 0, 5, 0, 2, 5],
+  [0, 0, 5, 0, 2, 0, 0, 128 | 0, 5, 0, 2, 5]
 ];
-export var ImportAssetFromApiGatewayApiRequestDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _IAFAGARD,
+export var ImportAssetFromApiGatewayApiRequestDetails$: StaticStructureSchema = [3, n0, _IAFAGARD,
   0,
   [_AD, _AI, _AK, _AN, _ASMH, _DSI, _PT, _RI, _S],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
-export var ImportAssetFromApiGatewayApiResponseDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _IAFAGARDm,
+export var ImportAssetFromApiGatewayApiResponseDetails$: StaticStructureSchema = [3, n0, _IAFAGARDm,
   0,
   [_AD, _AI, _AK, _AN, _ASMH, _ASUU, _ASUUEA, _DSI, _PT, _RI, _S],
-  [0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0]
 ];
-export var ImportAssetFromSignedUrlJobErrorDetails: StaticStructureSchema = [3, n0, _IAFSUJED, 0, [_ANs], [0]];
-export var ImportAssetFromSignedUrlRequestDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _IAFSURD,
+export var ImportAssetFromSignedUrlJobErrorDetails$: StaticStructureSchema = [3, n0, _IAFSUJED,
+  0,
+  [_ANs],
+  [0]
+];
+export var ImportAssetFromSignedUrlRequestDetails$: StaticStructureSchema = [3, n0, _IAFSURD,
   0,
   [_ANs, _DSI, _MH, _RI],
-  [0, 0, 0, 0],
+  [0, 0, 0, 0]
 ];
-export var ImportAssetFromSignedUrlResponseDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _IAFSURDm,
+export var ImportAssetFromSignedUrlResponseDetails$: StaticStructureSchema = [3, n0, _IAFSURDm,
   0,
   [_ANs, _DSI, _MH, _RI, _SU, _SUEA],
-  [0, 0, 0, 0, 0, 5],
+  [0, 0, 0, 0, 0, 5]
 ];
-export var ImportAssetsFromLakeFormationTagPolicyRequestDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _IAFLFTPRD,
+export var ImportAssetsFromLakeFormationTagPolicyRequestDetails$: StaticStructureSchema = [3, n0, _IAFLFTPRD,
   0,
   [_CI, _Da, _Ta, _RAo, _DSI, _RI],
-  [0, () => DatabaseLFTagPolicyAndPermissions, () => TableLFTagPolicyAndPermissions, 0, 0, 0],
+  [0, () => DatabaseLFTagPolicyAndPermissions$, () => TableLFTagPolicyAndPermissions$, 0, 0, 0]
 ];
-export var ImportAssetsFromLakeFormationTagPolicyResponseDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _IAFLFTPRDm,
+export var ImportAssetsFromLakeFormationTagPolicyResponseDetails$: StaticStructureSchema = [3, n0, _IAFLFTPRDm,
   0,
   [_CI, _Da, _Ta, _RAo, _DSI, _RI],
-  [0, () => DatabaseLFTagPolicyAndPermissions, () => TableLFTagPolicyAndPermissions, 0, 0, 0],
+  [0, () => DatabaseLFTagPolicyAndPermissions$, () => TableLFTagPolicyAndPermissions$, 0, 0, 0]
 ];
-export var ImportAssetsFromRedshiftDataSharesRequestDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _IAFRDSRD,
+export var ImportAssetsFromRedshiftDataSharesRequestDetails$: StaticStructureSchema = [3, n0, _IAFRDSRD,
   0,
   [_ASss, _DSI, _RI],
-  [() => ListOfRedshiftDataShareAssetSourceEntry, 0, 0],
+  [() => ListOfRedshiftDataShareAssetSourceEntry, 0, 0]
 ];
-export var ImportAssetsFromRedshiftDataSharesResponseDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _IAFRDSRDm,
+export var ImportAssetsFromRedshiftDataSharesResponseDetails$: StaticStructureSchema = [3, n0, _IAFRDSRDm,
   0,
   [_ASss, _DSI, _RI],
-  [() => ListOfRedshiftDataShareAssetSourceEntry, 0, 0],
+  [() => ListOfRedshiftDataShareAssetSourceEntry, 0, 0]
 ];
-export var ImportAssetsFromS3RequestDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _IAFSRD,
+export var ImportAssetsFromS3RequestDetails$: StaticStructureSchema = [3, n0, _IAFSRD,
   0,
   [_ASss, _DSI, _RI],
-  [() => ListOfAssetSourceEntry, 0, 0],
+  [() => ListOfAssetSourceEntry, 0, 0]
 ];
-export var ImportAssetsFromS3ResponseDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _IAFSRDm,
+export var ImportAssetsFromS3ResponseDetails$: StaticStructureSchema = [3, n0, _IAFSRDm,
   0,
   [_ASss, _DSI, _RI],
-  [() => ListOfAssetSourceEntry, 0, 0],
+  [() => ListOfAssetSourceEntry, 0, 0]
 ];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var JobEntry: StaticStructureSchema = [
-  3,
-  n0,
-  _JE,
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _s, [_hE]: 500 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var JobEntry$: StaticStructureSchema = [3, n0, _JE,
   0,
   [_A, _CA, _De, _Er, _I, _St, _Ty, _UA],
-  [0, 5, () => ResponseDetails, () => ListOfJobError, 0, 0, 0, 5],
+  [0, 5, () => ResponseDetails$, () => ListOfJobError, 0, 0, 0, 5]
 ];
-export var JobError: StaticStructureSchema = [
-  3,
-  n0,
-  _JEo,
+export var JobError$: StaticStructureSchema = [3, n0, _JEo,
   0,
   [_Co, _De, _LN, _LV, _M, _RIe, _RT],
-  [0, () => Details, 0, 1, 0, 0, 0],
+  [0, () => Details$, 0, 1, 0, 0, 0]
 ];
-export var KmsKeyToGrant: StaticStructureSchema = [3, n0, _KKTG, 0, [_KKA], [0]];
-export var LakeFormationDataPermissionAsset: StaticStructureSchema = [
-  3,
-  n0,
-  _LFDPA,
+export var KmsKeyToGrant$: StaticStructureSchema = [3, n0, _KKTG,
+  0,
+  [_KKA],
+  [0]
+];
+export var LakeFormationDataPermissionAsset$: StaticStructureSchema = [3, n0, _LFDPA,
   0,
   [_LFDPD, _LFDPT, _P, _RAo],
-  [() => LakeFormationDataPermissionDetails, 0, 64 | 0, 0],
+  [() => LakeFormationDataPermissionDetails$, 0, 64 | 0, 0]
 ];
-export var LakeFormationDataPermissionDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _LFDPD,
+export var LakeFormationDataPermissionDetails$: StaticStructureSchema = [3, n0, _LFDPD,
   0,
   [_LFTP],
-  [() => LFTagPolicyDetails],
+  [() => LFTagPolicyDetails$]
 ];
-export var LakeFormationTagPolicyDetails: StaticStructureSchema = [3, n0, _LFTPD, 0, [_Da, _Ta], [0, 0]];
-export var LFResourceDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _LFRD,
+export var LakeFormationTagPolicyDetails$: StaticStructureSchema = [3, n0, _LFTPD,
   0,
   [_Da, _Ta],
-  [() => DatabaseLFTagPolicy, () => TableLFTagPolicy],
+  [0, 0]
 ];
-export var LFTag: StaticStructureSchema = [3, n0, _LFT, 0, [_TK, _TV], [0, 64 | 0]];
-export var LFTagPolicyDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _LFTPDa,
+export var LFResourceDetails$: StaticStructureSchema = [3, n0, _LFRD,
+  0,
+  [_Da, _Ta],
+  [() => DatabaseLFTagPolicy$, () => TableLFTagPolicy$]
+];
+export var LFTag$: StaticStructureSchema = [3, n0, _LFT,
+  0,
+  [_TK, _TV],
+  [0, 64 | 0]
+];
+export var LFTagPolicyDetails$: StaticStructureSchema = [3, n0, _LFTPDa,
   0,
   [_CI, _RT, _RDes],
-  [0, 0, () => LFResourceDetails],
+  [0, 0, () => LFResourceDetails$]
 ];
-export var ListDataGrantsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDGR,
+export var ListDataGrantsRequest$: StaticStructureSchema = [3, n0, _LDGR,
   0,
   [_MR, _NT],
-  [
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
-export var ListDataGrantsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LDGRi,
+export var ListDataGrantsResponse$: StaticStructureSchema = [3, n0, _LDGRi,
   0,
   [_DGS, _NT],
-  [() => ListOfDataGrantSummaryEntry, 0],
+  [() => ListOfDataGrantSummaryEntry, 0]
 ];
-export var ListDataSetRevisionsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDSRR,
+export var ListDataSetRevisionsRequest$: StaticStructureSchema = [3, n0, _LDSRR,
   0,
   [_DSI, _MR, _NT],
-  [
-    [0, 1],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
-export var ListDataSetRevisionsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LDSRRi,
+export var ListDataSetRevisionsResponse$: StaticStructureSchema = [3, n0, _LDSRRi,
   0,
   [_NT, _Re],
-  [0, () => ListOfRevisionEntry],
+  [0, () => ListOfRevisionEntry]
 ];
-export var ListDataSetsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDSR,
+export var ListDataSetsRequest$: StaticStructureSchema = [3, n0, _LDSR,
   0,
   [_MR, _NT, _O],
-  [
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-    [0, { [_hQ]: _o }],
-  ],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _o }]]
 ];
-export var ListDataSetsResponse: StaticStructureSchema = [3, n0, _LDSRi, 0, [_DS, _NT], [() => ListOfDataSetEntry, 0]];
-export var ListEventActionsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LEAR,
+export var ListDataSetsResponse$: StaticStructureSchema = [3, n0, _LDSRi,
+  0,
+  [_DS, _NT],
+  [() => ListOfDataSetEntry, 0]
+];
+export var ListEventActionsRequest$: StaticStructureSchema = [3, n0, _LEAR,
   0,
   [_ESI, _MR, _NT],
-  [
-    [0, { [_hQ]: _eSI }],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, { [_hQ]: _eSI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
-export var ListEventActionsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LEARi,
+export var ListEventActionsResponse$: StaticStructureSchema = [3, n0, _LEARi,
   0,
   [_EAv, _NT],
-  [() => ListOfEventActionEntry, 0],
+  [() => ListOfEventActionEntry, 0]
 ];
-export var ListJobsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LJR,
+export var ListJobsRequest$: StaticStructureSchema = [3, n0, _LJR,
   0,
   [_DSI, _MR, _NT, _RI],
-  [
-    [0, { [_hQ]: _dSI }],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-    [0, { [_hQ]: _rI }],
-  ],
+  [[0, { [_hQ]: _dSI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _rI }]]
 ];
-export var ListJobsResponse: StaticStructureSchema = [3, n0, _LJRi, 0, [_J, _NT], [() => ListOfJobEntry, 0]];
-export var ListReceivedDataGrantsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LRDGR,
+export var ListJobsResponse$: StaticStructureSchema = [3, n0, _LJRi,
+  0,
+  [_J, _NT],
+  [() => ListOfJobEntry, 0]
+];
+export var ListReceivedDataGrantsRequest$: StaticStructureSchema = [3, n0, _LRDGR,
   0,
   [_MR, _NT, _AS],
-  [
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-    [64 | 0, { [_hQ]: _aS }],
-  ],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [64 | 0, { [_hQ]: _aS }]]
 ];
-export var ListReceivedDataGrantsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LRDGRi,
+export var ListReceivedDataGrantsResponse$: StaticStructureSchema = [3, n0, _LRDGRi,
   0,
   [_DGS, _NT],
-  [() => ListOfReceivedDataGrantSummariesEntry, 0],
+  [() => ListOfReceivedDataGrantSummariesEntry, 0]
 ];
-export var ListRevisionAssetsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LRAR,
+export var ListRevisionAssetsRequest$: StaticStructureSchema = [3, n0, _LRAR,
   0,
   [_DSI, _MR, _NT, _RI],
-  [
-    [0, 1],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-    [0, 1],
-  ],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, 1]]
 ];
-export var ListRevisionAssetsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LRARi,
+export var ListRevisionAssetsResponse$: StaticStructureSchema = [3, n0, _LRARi,
   0,
   [_As, _NT],
-  [() => ListOfAssetEntry, 0],
+  [() => ListOfAssetEntry, 0]
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAe], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [[128 | 0, { [_jN]: _t }]]];
-export var NotificationDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _ND,
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
+  0,
+  [_RAe],
+  [[0, 1]]
+];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
+  0,
+  [_T],
+  [[128 | 0, { [_jN]: _t }]]
+];
+export var NotificationDetails$: StaticStructureSchema = [3, n0, _ND,
   0,
   [_DU, _Dep, _SC],
-  [() => DataUpdateRequestDetails, () => DeprecationRequestDetails, () => SchemaChangeRequestDetails],
+  [() => DataUpdateRequestDetails$, () => DeprecationRequestDetails$, () => SchemaChangeRequestDetails$]
 ];
-export var OriginDetails: StaticStructureSchema = [3, n0, _OD, 0, [_PI, _DGI], [0, 0]];
-export var ReceivedDataGrantSummariesEntry: StaticStructureSchema = [
-  3,
-  n0,
-  _RDGSE,
+export var OriginDetails$: StaticStructureSchema = [3, n0, _OD,
+  0,
+  [_PI, _DGI],
+  [0, 0]
+];
+export var ReceivedDataGrantSummariesEntry$: StaticStructureSchema = [3, n0, _RDGSE,
   0,
   [_N, _SP, _RP, _AS, _AA, _EA, _DSI, _I, _A, _CA, _UA],
-  [0, 0, 0, 0, 5, 5, 0, 0, 0, 5, 5],
+  [0, 0, 0, 0, 5, 5, 0, 0, 0, 5, 5]
 ];
-export var RedshiftDataShareAsset: StaticStructureSchema = [3, n0, _RDSA, 0, [_A], [0]];
-export var RedshiftDataShareAssetSourceEntry: StaticStructureSchema = [3, n0, _RDSASE, 0, [_DSA], [0]];
-export var RedshiftDataShareDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _RDSD,
+export var RedshiftDataShareAsset$: StaticStructureSchema = [3, n0, _RDSA,
+  0,
+  [_A],
+  [0]
+];
+export var RedshiftDataShareAssetSourceEntry$: StaticStructureSchema = [3, n0, _RDSASE,
+  0,
+  [_DSA],
+  [0]
+];
+export var RedshiftDataShareDetails$: StaticStructureSchema = [3, n0, _RDSD,
   0,
   [_A, _Da, _Fu, _Ta, _Sc, _V],
-  [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0]
 ];
-export var RequestDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _RDeq,
+export var RequestDetails$: StaticStructureSchema = [3, n0, _RDeq,
   0,
   [_EATSU, _EATS, _ERTSx, _IAFSU, _IAFS, _IAFRDS, _IAFAGA, _CSDAFSB, _IAFLFTP],
-  [
-    () => ExportAssetToSignedUrlRequestDetails,
-    () => ExportAssetsToS3RequestDetails,
-    () => ExportRevisionsToS3RequestDetails,
-    () => ImportAssetFromSignedUrlRequestDetails,
-    () => ImportAssetsFromS3RequestDetails,
-    () => ImportAssetsFromRedshiftDataSharesRequestDetails,
-    () => ImportAssetFromApiGatewayApiRequestDetails,
-    () => CreateS3DataAccessFromS3BucketRequestDetails,
-    () => ImportAssetsFromLakeFormationTagPolicyRequestDetails,
-  ],
+  [() => ExportAssetToSignedUrlRequestDetails$, () => ExportAssetsToS3RequestDetails$, () => ExportRevisionsToS3RequestDetails$, () => ImportAssetFromSignedUrlRequestDetails$, () => ImportAssetsFromS3RequestDetails$, () => ImportAssetsFromRedshiftDataSharesRequestDetails$, () => ImportAssetFromApiGatewayApiRequestDetails$, () => CreateS3DataAccessFromS3BucketRequestDetails$, () => ImportAssetsFromLakeFormationTagPolicyRequestDetails$]
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_M, _RIe, _RT],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ResponseDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _RDesp,
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResponseDetails$: StaticStructureSchema = [3, n0, _RDesp,
   0,
   [_EATSU, _EATS, _ERTSx, _IAFSU, _IAFS, _IAFRDS, _IAFAGA, _CSDAFSB, _IAFLFTP],
-  [
-    () => ExportAssetToSignedUrlResponseDetails,
-    () => ExportAssetsToS3ResponseDetails,
-    () => ExportRevisionsToS3ResponseDetails,
-    () => ImportAssetFromSignedUrlResponseDetails,
-    () => ImportAssetsFromS3ResponseDetails,
-    () => ImportAssetsFromRedshiftDataSharesResponseDetails,
-    () => ImportAssetFromApiGatewayApiResponseDetails,
-    () => CreateS3DataAccessFromS3BucketResponseDetails,
-    () => ImportAssetsFromLakeFormationTagPolicyResponseDetails,
-  ],
+  [() => ExportAssetToSignedUrlResponseDetails$, () => ExportAssetsToS3ResponseDetails$, () => ExportRevisionsToS3ResponseDetails$, () => ImportAssetFromSignedUrlResponseDetails$, () => ImportAssetsFromS3ResponseDetails$, () => ImportAssetsFromRedshiftDataSharesResponseDetails$, () => ImportAssetFromApiGatewayApiResponseDetails$, () => CreateS3DataAccessFromS3BucketResponseDetails$, () => ImportAssetsFromLakeFormationTagPolicyResponseDetails$]
 ];
-export var RevisionDestinationEntry: StaticStructureSchema = [3, n0, _RDE, 0, [_B, _KP, _RI], [0, 0, 0]];
-export var RevisionEntry: StaticStructureSchema = [
-  3,
-  n0,
-  _RE,
+export var RevisionDestinationEntry$: StaticStructureSchema = [3, n0, _RDE,
+  0,
+  [_B, _KP, _RI],
+  [0, 0, 0]
+];
+export var RevisionEntry$: StaticStructureSchema = [3, n0, _RE,
   0,
   [_A, _C, _CA, _DSI, _F, _I, _SI, _UA, _RC, _R, _RA],
-  [0, 0, 5, 0, 2, 0, 0, 5, 0, 2, 5],
+  [0, 0, 5, 0, 2, 0, 0, 5, 0, 2, 5]
 ];
-export var RevisionPublished: StaticStructureSchema = [3, n0, _RPe, 0, [_DSI], [0]];
-export var RevokeRevisionRequest: StaticStructureSchema = [3, n0, _RRR, 0, [_DSI, _RI, _RC], [[0, 1], [0, 1], 0]];
-export var RevokeRevisionResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _RRRe,
+export var RevisionPublished$: StaticStructureSchema = [3, n0, _RPe,
+  0,
+  [_DSI],
+  [0]
+];
+export var RevokeRevisionRequest$: StaticStructureSchema = [3, n0, _RRR,
+  0,
+  [_DSI, _RI, _RC],
+  [[0, 1], [0, 1], 0]
+];
+export var RevokeRevisionResponse$: StaticStructureSchema = [3, n0, _RRRe,
   0,
   [_A, _C, _CA, _DSI, _F, _I, _SI, _UA, _RC, _R, _RA],
-  [0, 0, 5, 0, 2, 0, 0, 5, 0, 2, 5],
+  [0, 0, 5, 0, 2, 0, 0, 5, 0, 2, 5]
 ];
-export var S3DataAccessAsset: StaticStructureSchema = [
-  3,
-  n0,
-  _SDAA,
+export var S3DataAccessAsset$: StaticStructureSchema = [3, n0, _SDAA,
   0,
   [_B, _KPe, _Ke, _SAPA, _SAPAc, _KKTGm],
-  [0, 64 | 0, 64 | 0, 0, 0, () => ListOfKmsKeysToGrant],
+  [0, 64 | 0, 64 | 0, 0, 0, () => ListOfKmsKeysToGrant]
 ];
-export var S3DataAccessAssetSourceEntry: StaticStructureSchema = [
-  3,
-  n0,
-  _SDAASE,
+export var S3DataAccessAssetSourceEntry$: StaticStructureSchema = [3, n0, _SDAASE,
   0,
   [_B, _KPe, _Ke, _KKTGm],
-  [0, 64 | 0, 64 | 0, () => ListOfKmsKeysToGrant],
+  [0, 64 | 0, 64 | 0, () => ListOfKmsKeysToGrant]
 ];
-export var S3DataAccessDetails: StaticStructureSchema = [3, n0, _SDAD, 0, [_KPe, _Ke], [64 | 0, 64 | 0]];
-export var S3SnapshotAsset: StaticStructureSchema = [3, n0, _SSA, 0, [_Si], [1]];
-export var SchemaChangeDetails: StaticStructureSchema = [3, n0, _SCD, 0, [_N, _Ty, _D], [0, 0, 0]];
-export var SchemaChangeRequestDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _SCRD,
+export var S3DataAccessDetails$: StaticStructureSchema = [3, n0, _SDAD,
+  0,
+  [_KPe, _Ke],
+  [64 | 0, 64 | 0]
+];
+export var S3SnapshotAsset$: StaticStructureSchema = [3, n0, _SSA,
+  0,
+  [_Si],
+  [1]
+];
+export var SchemaChangeDetails$: StaticStructureSchema = [3, n0, _SCD,
+  0,
+  [_N, _Ty, _D],
+  [0, 0, 0]
+];
+export var SchemaChangeRequestDetails$: StaticStructureSchema = [3, n0, _SCRD,
   0,
   [_Ch, _SCA],
-  [() => ListOfSchemaChangeDetails, 5],
+  [() => ListOfSchemaChangeDetails, 5]
 ];
-export var ScopeDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _SD,
+export var ScopeDetails$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_LFTPa, _RDS, _SDA],
-  [() => ListOfLakeFormationTagPolicies, () => ListOfRedshiftDataShares, () => ListOfS3DataAccesses],
+  [() => ListOfLakeFormationTagPolicies, () => ListOfRedshiftDataShares, () => ListOfS3DataAccesses]
 ];
-export var SendApiAssetRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _SAAR,
+export var SendApiAssetRequest$: StaticStructureSchema = [3, n0, _SAAR,
   0,
   [_Bo, _QSP, _AIs, _DSI, _RH, _Me, _Pa, _RI],
-  [
-    [0, 16],
-    [128 | 0, 64],
-    [0, { [_hH]: _xadai }],
-    [0, { [_hH]: _xaddsi }],
-    [128 | 0, { [_hPH]: _xadh }],
-    [0, { [_hH]: _xadhm }],
-    [0, { [_hH]: _xadp }],
-    [0, { [_hH]: _xadri }],
-  ],
+  [[0, 16], [128 | 0, 64], [0, { [_hH]: _xadai }], [0, { [_hH]: _xaddsi }], [128 | 0, { [_hPH]: _xadh }], [0, { [_hH]: _xadhm }], [0, { [_hH]: _xadp }], [0, { [_hH]: _xadri }]]
 ];
-export var SendApiAssetResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _SAARe,
+export var SendApiAssetResponse$: StaticStructureSchema = [3, n0, _SAARe,
   0,
   [_Bo, _RHe],
-  [
-    [0, 16],
-    [128 | 0, { [_hPH]: _ }],
-  ],
+  [[0, 16], [128 | 0, { [_hPH]: _ }]]
 ];
-export var SendDataSetNotificationRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _SDSNR,
+export var SendDataSetNotificationRequest$: StaticStructureSchema = [3, n0, _SDSNR,
   0,
   [_Sco, _CT, _C, _DSI, _De, _Ty],
-  [() => ScopeDetails, [0, 4], 0, [0, 1], () => NotificationDetails, 0],
+  [() => ScopeDetails$, [0, 4], 0, [0, 1], () => NotificationDetails$, 0]
 ];
-export var SendDataSetNotificationResponse: StaticStructureSchema = [3, n0, _SDSNRe, 0, [], []];
-export var ServiceLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SLEE,
+export var SendDataSetNotificationResponse$: StaticStructureSchema = [3, n0, _SDSNRe,
+  0,
+  [],
+  []
+];
+export var ServiceLimitExceededException$: StaticErrorSchema = [-3, n0, _SLEE,
   { [_e]: _c, [_hE]: 402 },
   [_LN, _LV, _M],
-  [0, 1, 0],
+  [0, 1, 0]
 ];
-TypeRegistry.for(n0).registerError(ServiceLimitExceededException, __ServiceLimitExceededException);
-export var StartJobRequest: StaticStructureSchema = [3, n0, _SJR, 0, [_JI], [[0, 1]]];
-export var StartJobResponse: StaticStructureSchema = [3, n0, _SJRt, 0, [], []];
-export var TableLFTagPolicy: StaticStructureSchema = [3, n0, _TLFTP, 0, [_Ex], [() => ListOfLFTags]];
-export var TableLFTagPolicyAndPermissions: StaticStructureSchema = [
-  3,
-  n0,
-  _TLFTPAP,
+TypeRegistry.for(n0).registerError(ServiceLimitExceededException$, ServiceLimitExceededException);
+export var StartJobRequest$: StaticStructureSchema = [3, n0, _SJR,
+  0,
+  [_JI],
+  [[0, 1]]
+];
+export var StartJobResponse$: StaticStructureSchema = [3, n0, _SJRt,
+  0,
+  [],
+  []
+];
+export var TableLFTagPolicy$: StaticStructureSchema = [3, n0, _TLFTP,
+  0,
+  [_Ex],
+  [() => ListOfLFTags]
+];
+export var TableLFTagPolicyAndPermissions$: StaticStructureSchema = [3, n0, _TLFTPAP,
   0,
   [_Ex, _P],
-  [() => ListOfLFTags, 64 | 0],
+  [() => ListOfLFTags, 64 | 0]
 ];
-export var TagResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _TRR,
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAe, _T],
-  [
-    [0, 1],
-    [128 | 0, { [_jN]: _t }],
-  ],
+  [[0, 1], [128 | 0, { [_jN]: _t }]]
 ];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UntagResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _URR,
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _TKa],
-  [
-    [0, 1],
-    [64 | 0, { [_hQ]: _tK }],
-  ],
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
 ];
-export var UpdateAssetRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UAR,
+export var UpdateAssetRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_AIs, _DSI, _N, _RI],
-  [[0, 1], [0, 1], 0, [0, 1]],
+  [[0, 1], [0, 1], 0, [0, 1]]
 ];
-export var UpdateAssetResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _UARp,
+export var UpdateAssetResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
   [_A, _ADs, _AT, _CA, _DSI, _I, _N, _RI, _SI, _UA],
-  [0, () => AssetDetails, 0, 5, 0, 0, 0, 0, 0, 5],
+  [0, () => AssetDetails$, 0, 5, 0, 0, 0, 0, 0, 5]
 ];
-export var UpdateDataSetRequest: StaticStructureSchema = [3, n0, _UDSR, 0, [_DSI, _D, _N], [[0, 1], 0, 0]];
-export var UpdateDataSetResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _UDSRp,
+export var UpdateDataSetRequest$: StaticStructureSchema = [3, n0, _UDSR,
+  0,
+  [_DSI, _D, _N],
+  [[0, 1], 0, 0]
+];
+export var UpdateDataSetResponse$: StaticStructureSchema = [3, n0, _UDSRp,
   0,
   [_A, _AT, _CA, _D, _I, _N, _O, _OD, _SI, _UA],
-  [0, 0, 5, 0, 0, 0, 0, () => OriginDetails, 0, 5],
+  [0, 0, 5, 0, 0, 0, 0, () => OriginDetails$, 0, 5]
 ];
-export var UpdateEventActionRequest: StaticStructureSchema = [3, n0, _UEAR, 0, [_Ac, _EAI], [() => Action, [0, 1]]];
-export var UpdateEventActionResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _UEARp,
+export var UpdateEventActionRequest$: StaticStructureSchema = [3, n0, _UEAR,
+  0,
+  [_Ac, _EAI],
+  [() => Action$, [0, 1]]
+];
+export var UpdateEventActionResponse$: StaticStructureSchema = [3, n0, _UEARp,
   0,
   [_Ac, _A, _CA, _Ev, _I, _UA],
-  [() => Action, 0, 5, () => Event, 0, 5],
+  [() => Action$, 0, 5, () => Event$, 0, 5]
 ];
-export var UpdateRevisionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _URRp,
+export var UpdateRevisionRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
   [_C, _DSI, _F, _RI],
-  [0, [0, 1], 2, [0, 1]],
+  [0, [0, 1], 2, [0, 1]]
 ];
-export var UpdateRevisionResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _URRpd,
+export var UpdateRevisionResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,
   [_A, _C, _CA, _DSI, _F, _I, _SI, _UA, _RC, _R, _RA],
-  [0, 0, 5, 0, 2, 0, 0, 5, 0, 2, 5],
+  [0, 0, 5, 0, 2, 0, 0, 5, 0, 2, 5]
 ];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M, _EC], [0, 0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
-export var DataExchangeServiceException: StaticErrorSchema = [-3, _sm, "DataExchangeServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DataExchangeServiceException, __DataExchangeServiceException);
-export var AcceptanceStateFilterValues = 64 | 0;
-export var ListOf__string = 64 | 0;
-export var ListOfAssetDestinationEntry: StaticListSchema = [1, n0, _LOADE, 0, () => AssetDestinationEntry];
-export var ListOfAssetEntry: StaticListSchema = [1, n0, _LOAE, 0, () => AssetEntry];
-export var ListOfAssetSourceEntry: StaticListSchema = [1, n0, _LOASE, 0, () => AssetSourceEntry];
-export var ListOfDatabaseLFTagPolicyPermissions = 64 | 0;
-export var ListOfDataGrantSummaryEntry: StaticListSchema = [1, n0, _LODGSE, 0, () => DataGrantSummaryEntry];
-export var ListOfDataSetEntry: StaticListSchema = [1, n0, _LODSE, 0, () => DataSetEntry];
-export var ListOfEventActionEntry: StaticListSchema = [1, n0, _LOEAE, 0, () => EventActionEntry];
-export var ListOfJobEntry: StaticListSchema = [1, n0, _LOJE, 0, () => JobEntry];
-export var ListOfJobError: StaticListSchema = [1, n0, _LOJEi, 0, () => JobError];
-export var ListOfKmsKeysToGrant: StaticListSchema = [1, n0, _LOKKTG, 0, () => KmsKeyToGrant];
-export var ListOfLakeFormationTagPolicies: StaticListSchema = [1, n0, _LOLFTP, 0, () => LakeFormationTagPolicyDetails];
-export var ListOfLFPermissions = 64 | 0;
-export var ListOfLFTags: StaticListSchema = [1, n0, _LOLFT, 0, () => LFTag];
-export var ListOfLFTagValues = 64 | 0;
-export var ListOfReceivedDataGrantSummariesEntry: StaticListSchema = [
-  1,
-  n0,
-  _LORDGSE,
-  0,
-  () => ReceivedDataGrantSummariesEntry,
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _EC],
+  [0, 0]
 ];
-export var ListOfRedshiftDataShareAssetSourceEntry: StaticListSchema = [
-  1,
-  n0,
-  _LORDSASE,
-  0,
-  () => RedshiftDataShareAssetSourceEntry,
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+var __Unit = "unit" as const;
+export var DataExchangeServiceException$: StaticErrorSchema = [-3, _sm, "DataExchangeServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(DataExchangeServiceException$, DataExchangeServiceException);
+var AcceptanceStateFilterValues = 64 | 0;
+var ListOf__string = 64 | 0;
+var ListOfAssetDestinationEntry: StaticListSchema = [1, n0, _LOADE,
+  0, () => AssetDestinationEntry$
 ];
-export var ListOfRedshiftDataShares: StaticListSchema = [1, n0, _LORDS, 0, () => RedshiftDataShareDetails];
-export var ListOfRevisionDestinationEntry: StaticListSchema = [1, n0, _LORDE, 0, () => RevisionDestinationEntry];
-export var ListOfRevisionEntry: StaticListSchema = [1, n0, _LORE, 0, () => RevisionEntry];
-export var ListOfS3DataAccesses: StaticListSchema = [1, n0, _LOSDA, 0, () => S3DataAccessDetails];
-export var ListOfSchemaChangeDetails: StaticListSchema = [1, n0, _LOSCD, 0, () => SchemaChangeDetails];
-export var ListOfTableTagPolicyLFPermissions = 64 | 0;
-export var MapOf__string = 128 | 0;
-export var AcceptDataGrant: StaticOperationSchema = [
-  9,
-  n0,
-  _ADG,
-  { [_h]: ["POST", "/v1/data-grants/{DataGrantArn}/accept", 200] },
-  () => AcceptDataGrantRequest,
-  () => AcceptDataGrantResponse,
+var ListOfAssetEntry: StaticListSchema = [1, n0, _LOAE,
+  0, () => AssetEntry$
 ];
-export var CancelJob: StaticOperationSchema = [
-  9,
-  n0,
-  _CJ,
-  { [_h]: ["DELETE", "/v1/jobs/{JobId}", 204] },
-  () => CancelJobRequest,
-  () => __Unit,
+var ListOfAssetSourceEntry: StaticListSchema = [1, n0, _LOASE,
+  0, () => AssetSourceEntry$
 ];
-export var CreateDataGrant: StaticOperationSchema = [
-  9,
-  n0,
-  _CDG,
-  { [_h]: ["POST", "/v1/data-grants", 201] },
-  () => CreateDataGrantRequest,
-  () => CreateDataGrantResponse,
+var ListOfDatabaseLFTagPolicyPermissions = 64 | 0;
+var ListOfDataGrantSummaryEntry: StaticListSchema = [1, n0, _LODGSE,
+  0, () => DataGrantSummaryEntry$
 ];
-export var CreateDataSet: StaticOperationSchema = [
-  9,
-  n0,
-  _CDS,
-  { [_h]: ["POST", "/v1/data-sets", 201] },
-  () => CreateDataSetRequest,
-  () => CreateDataSetResponse,
+var ListOfDataSetEntry: StaticListSchema = [1, n0, _LODSE,
+  0, () => DataSetEntry$
 ];
-export var CreateEventAction: StaticOperationSchema = [
-  9,
-  n0,
-  _CEA,
-  { [_h]: ["POST", "/v1/event-actions", 201] },
-  () => CreateEventActionRequest,
-  () => CreateEventActionResponse,
+var ListOfEventActionEntry: StaticListSchema = [1, n0, _LOEAE,
+  0, () => EventActionEntry$
 ];
-export var CreateJob: StaticOperationSchema = [
-  9,
-  n0,
-  _CJr,
-  { [_h]: ["POST", "/v1/jobs", 201] },
-  () => CreateJobRequest,
-  () => CreateJobResponse,
+var ListOfJobEntry: StaticListSchema = [1, n0, _LOJE,
+  0, () => JobEntry$
 ];
-export var CreateRevision: StaticOperationSchema = [
-  9,
-  n0,
-  _CR,
-  { [_h]: ["POST", "/v1/data-sets/{DataSetId}/revisions", 201] },
-  () => CreateRevisionRequest,
-  () => CreateRevisionResponse,
+var ListOfJobError: StaticListSchema = [1, n0, _LOJEi,
+  0, () => JobError$
 ];
-export var DeleteAsset: StaticOperationSchema = [
-  9,
-  n0,
-  _DAe,
-  { [_h]: ["DELETE", "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}", 204] },
-  () => DeleteAssetRequest,
-  () => __Unit,
+var ListOfKmsKeysToGrant: StaticListSchema = [1, n0, _LOKKTG,
+  0, () => KmsKeyToGrant$
 ];
-export var DeleteDataGrant: StaticOperationSchema = [
-  9,
-  n0,
-  _DDG,
-  { [_h]: ["DELETE", "/v1/data-grants/{DataGrantId}", 204] },
-  () => DeleteDataGrantRequest,
-  () => __Unit,
+var ListOfLakeFormationTagPolicies: StaticListSchema = [1, n0, _LOLFTP,
+  0, () => LakeFormationTagPolicyDetails$
 ];
-export var DeleteDataSet: StaticOperationSchema = [
-  9,
-  n0,
-  _DDS,
-  { [_h]: ["DELETE", "/v1/data-sets/{DataSetId}", 204] },
-  () => DeleteDataSetRequest,
-  () => __Unit,
+var ListOfLFPermissions = 64 | 0;
+var ListOfLFTags: StaticListSchema = [1, n0, _LOLFT,
+  0, () => LFTag$
 ];
-export var DeleteEventAction: StaticOperationSchema = [
-  9,
-  n0,
-  _DEA,
-  { [_h]: ["DELETE", "/v1/event-actions/{EventActionId}", 204] },
-  () => DeleteEventActionRequest,
-  () => __Unit,
+var ListOfLFTagValues = 64 | 0;
+var ListOfReceivedDataGrantSummariesEntry: StaticListSchema = [1, n0, _LORDGSE,
+  0, () => ReceivedDataGrantSummariesEntry$
 ];
-export var DeleteRevision: StaticOperationSchema = [
-  9,
-  n0,
-  _DR,
-  { [_h]: ["DELETE", "/v1/data-sets/{DataSetId}/revisions/{RevisionId}", 204] },
-  () => DeleteRevisionRequest,
-  () => __Unit,
+var ListOfRedshiftDataShareAssetSourceEntry: StaticListSchema = [1, n0, _LORDSASE,
+  0, () => RedshiftDataShareAssetSourceEntry$
 ];
-export var GetAsset: StaticOperationSchema = [
-  9,
-  n0,
-  _GA,
-  { [_h]: ["GET", "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}", 200] },
-  () => GetAssetRequest,
-  () => GetAssetResponse,
+var ListOfRedshiftDataShares: StaticListSchema = [1, n0, _LORDS,
+  0, () => RedshiftDataShareDetails$
 ];
-export var GetDataGrant: StaticOperationSchema = [
-  9,
-  n0,
-  _GDG,
-  { [_h]: ["GET", "/v1/data-grants/{DataGrantId}", 200] },
-  () => GetDataGrantRequest,
-  () => GetDataGrantResponse,
+var ListOfRevisionDestinationEntry: StaticListSchema = [1, n0, _LORDE,
+  0, () => RevisionDestinationEntry$
 ];
-export var GetDataSet: StaticOperationSchema = [
-  9,
-  n0,
-  _GDSe,
-  { [_h]: ["GET", "/v1/data-sets/{DataSetId}", 200] },
-  () => GetDataSetRequest,
-  () => GetDataSetResponse,
+var ListOfRevisionEntry: StaticListSchema = [1, n0, _LORE,
+  0, () => RevisionEntry$
 ];
-export var GetEventAction: StaticOperationSchema = [
-  9,
-  n0,
-  _GEA,
-  { [_h]: ["GET", "/v1/event-actions/{EventActionId}", 200] },
-  () => GetEventActionRequest,
-  () => GetEventActionResponse,
+var ListOfS3DataAccesses: StaticListSchema = [1, n0, _LOSDA,
+  0, () => S3DataAccessDetails$
 ];
-export var GetJob: StaticOperationSchema = [
-  9,
-  n0,
-  _GJ,
-  { [_h]: ["GET", "/v1/jobs/{JobId}", 200] },
-  () => GetJobRequest,
-  () => GetJobResponse,
+var ListOfSchemaChangeDetails: StaticListSchema = [1, n0, _LOSCD,
+  0, () => SchemaChangeDetails$
 ];
-export var GetReceivedDataGrant: StaticOperationSchema = [
-  9,
-  n0,
-  _GRDG,
-  { [_h]: ["GET", "/v1/received-data-grants/{DataGrantArn}", 200] },
-  () => GetReceivedDataGrantRequest,
-  () => GetReceivedDataGrantResponse,
+var ListOfTableTagPolicyLFPermissions = 64 | 0;
+var MapOf__string = 128 | 0;
+export var AcceptDataGrant$: StaticOperationSchema = [9, n0, _ADG,
+  { [_h]: ["POST", "/v1/data-grants/{DataGrantArn}/accept", 200] }, () => AcceptDataGrantRequest$, () => AcceptDataGrantResponse$
 ];
-export var GetRevision: StaticOperationSchema = [
-  9,
-  n0,
-  _GR,
-  { [_h]: ["GET", "/v1/data-sets/{DataSetId}/revisions/{RevisionId}", 200] },
-  () => GetRevisionRequest,
-  () => GetRevisionResponse,
+export var CancelJob$: StaticOperationSchema = [9, n0, _CJ,
+  { [_h]: ["DELETE", "/v1/jobs/{JobId}", 204] }, () => CancelJobRequest$, () => __Unit
 ];
-export var ListDataGrants: StaticOperationSchema = [
-  9,
-  n0,
-  _LDG,
-  { [_h]: ["GET", "/v1/data-grants", 200] },
-  () => ListDataGrantsRequest,
-  () => ListDataGrantsResponse,
+export var CreateDataGrant$: StaticOperationSchema = [9, n0, _CDG,
+  { [_h]: ["POST", "/v1/data-grants", 201] }, () => CreateDataGrantRequest$, () => CreateDataGrantResponse$
 ];
-export var ListDataSetRevisions: StaticOperationSchema = [
-  9,
-  n0,
-  _LDSRis,
-  { [_h]: ["GET", "/v1/data-sets/{DataSetId}/revisions", 200] },
-  () => ListDataSetRevisionsRequest,
-  () => ListDataSetRevisionsResponse,
+export var CreateDataSet$: StaticOperationSchema = [9, n0, _CDS,
+  { [_h]: ["POST", "/v1/data-sets", 201] }, () => CreateDataSetRequest$, () => CreateDataSetResponse$
 ];
-export var ListDataSets: StaticOperationSchema = [
-  9,
-  n0,
-  _LDS,
-  { [_h]: ["GET", "/v1/data-sets", 200] },
-  () => ListDataSetsRequest,
-  () => ListDataSetsResponse,
+export var CreateEventAction$: StaticOperationSchema = [9, n0, _CEA,
+  { [_h]: ["POST", "/v1/event-actions", 201] }, () => CreateEventActionRequest$, () => CreateEventActionResponse$
 ];
-export var ListEventActions: StaticOperationSchema = [
-  9,
-  n0,
-  _LEA,
-  { [_h]: ["GET", "/v1/event-actions", 200] },
-  () => ListEventActionsRequest,
-  () => ListEventActionsResponse,
+export var CreateJob$: StaticOperationSchema = [9, n0, _CJr,
+  { [_h]: ["POST", "/v1/jobs", 201] }, () => CreateJobRequest$, () => CreateJobResponse$
 ];
-export var ListJobs: StaticOperationSchema = [
-  9,
-  n0,
-  _LJ,
-  { [_h]: ["GET", "/v1/jobs", 200] },
-  () => ListJobsRequest,
-  () => ListJobsResponse,
+export var CreateRevision$: StaticOperationSchema = [9, n0, _CR,
+  { [_h]: ["POST", "/v1/data-sets/{DataSetId}/revisions", 201] }, () => CreateRevisionRequest$, () => CreateRevisionResponse$
 ];
-export var ListReceivedDataGrants: StaticOperationSchema = [
-  9,
-  n0,
-  _LRDG,
-  { [_h]: ["GET", "/v1/received-data-grants", 200] },
-  () => ListReceivedDataGrantsRequest,
-  () => ListReceivedDataGrantsResponse,
+export var DeleteAsset$: StaticOperationSchema = [9, n0, _DAe,
+  { [_h]: ["DELETE", "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}", 204] }, () => DeleteAssetRequest$, () => __Unit
 ];
-export var ListRevisionAssets: StaticOperationSchema = [
-  9,
-  n0,
-  _LRA,
-  { [_h]: ["GET", "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets", 200] },
-  () => ListRevisionAssetsRequest,
-  () => ListRevisionAssetsResponse,
+export var DeleteDataGrant$: StaticOperationSchema = [9, n0, _DDG,
+  { [_h]: ["DELETE", "/v1/data-grants/{DataGrantId}", 204] }, () => DeleteDataGrantRequest$, () => __Unit
 ];
-export var ListTagsForResource: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+export var DeleteDataSet$: StaticOperationSchema = [9, n0, _DDS,
+  { [_h]: ["DELETE", "/v1/data-sets/{DataSetId}", 204] }, () => DeleteDataSetRequest$, () => __Unit
 ];
-export var RevokeRevision: StaticOperationSchema = [
-  9,
-  n0,
-  _RR,
-  { [_h]: ["POST", "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/revoke", 200] },
-  () => RevokeRevisionRequest,
-  () => RevokeRevisionResponse,
+export var DeleteEventAction$: StaticOperationSchema = [9, n0, _DEA,
+  { [_h]: ["DELETE", "/v1/event-actions/{EventActionId}", 204] }, () => DeleteEventActionRequest$, () => __Unit
 ];
-export var SendApiAsset: StaticOperationSchema = [
-  9,
-  n0,
-  _SAA,
-  { [_h]: ["POST", "/v1", 200], [_en]: ["api-fulfill."] },
-  () => SendApiAssetRequest,
-  () => SendApiAssetResponse,
+export var DeleteRevision$: StaticOperationSchema = [9, n0, _DR,
+  { [_h]: ["DELETE", "/v1/data-sets/{DataSetId}/revisions/{RevisionId}", 204] }, () => DeleteRevisionRequest$, () => __Unit
 ];
-export var SendDataSetNotification: StaticOperationSchema = [
-  9,
-  n0,
-  _SDSN,
-  { [_h]: ["POST", "/v1/data-sets/{DataSetId}/notification", 202] },
-  () => SendDataSetNotificationRequest,
-  () => SendDataSetNotificationResponse,
+export var GetAsset$: StaticOperationSchema = [9, n0, _GA,
+  { [_h]: ["GET", "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}", 200] }, () => GetAssetRequest$, () => GetAssetResponse$
 ];
-export var StartJob: StaticOperationSchema = [
-  9,
-  n0,
-  _SJ,
-  { [_h]: ["PATCH", "/v1/jobs/{JobId}", 202] },
-  () => StartJobRequest,
-  () => StartJobResponse,
+export var GetDataGrant$: StaticOperationSchema = [9, n0, _GDG,
+  { [_h]: ["GET", "/v1/data-grants/{DataGrantId}", 200] }, () => GetDataGrantRequest$, () => GetDataGrantResponse$
 ];
-export var TagResource: StaticOperationSchema = [
-  9,
-  n0,
-  _TR,
-  { [_h]: ["POST", "/tags/{ResourceArn}", 204] },
-  () => TagResourceRequest,
-  () => __Unit,
+export var GetDataSet$: StaticOperationSchema = [9, n0, _GDSe,
+  { [_h]: ["GET", "/v1/data-sets/{DataSetId}", 200] }, () => GetDataSetRequest$, () => GetDataSetResponse$
 ];
-export var UntagResource: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  { [_h]: ["DELETE", "/tags/{ResourceArn}", 204] },
-  () => UntagResourceRequest,
-  () => __Unit,
+export var GetEventAction$: StaticOperationSchema = [9, n0, _GEA,
+  { [_h]: ["GET", "/v1/event-actions/{EventActionId}", 200] }, () => GetEventActionRequest$, () => GetEventActionResponse$
 ];
-export var UpdateAsset: StaticOperationSchema = [
-  9,
-  n0,
-  _UAp,
-  { [_h]: ["PATCH", "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}", 200] },
-  () => UpdateAssetRequest,
-  () => UpdateAssetResponse,
+export var GetJob$: StaticOperationSchema = [9, n0, _GJ,
+  { [_h]: ["GET", "/v1/jobs/{JobId}", 200] }, () => GetJobRequest$, () => GetJobResponse$
 ];
-export var UpdateDataSet: StaticOperationSchema = [
-  9,
-  n0,
-  _UDS,
-  { [_h]: ["PATCH", "/v1/data-sets/{DataSetId}", 200] },
-  () => UpdateDataSetRequest,
-  () => UpdateDataSetResponse,
+export var GetReceivedDataGrant$: StaticOperationSchema = [9, n0, _GRDG,
+  { [_h]: ["GET", "/v1/received-data-grants/{DataGrantArn}", 200] }, () => GetReceivedDataGrantRequest$, () => GetReceivedDataGrantResponse$
 ];
-export var UpdateEventAction: StaticOperationSchema = [
-  9,
-  n0,
-  _UEA,
-  { [_h]: ["PATCH", "/v1/event-actions/{EventActionId}", 200] },
-  () => UpdateEventActionRequest,
-  () => UpdateEventActionResponse,
+export var GetRevision$: StaticOperationSchema = [9, n0, _GR,
+  { [_h]: ["GET", "/v1/data-sets/{DataSetId}/revisions/{RevisionId}", 200] }, () => GetRevisionRequest$, () => GetRevisionResponse$
 ];
-export var UpdateRevision: StaticOperationSchema = [
-  9,
-  n0,
-  _URp,
-  { [_h]: ["PATCH", "/v1/data-sets/{DataSetId}/revisions/{RevisionId}", 200] },
-  () => UpdateRevisionRequest,
-  () => UpdateRevisionResponse,
+export var ListDataGrants$: StaticOperationSchema = [9, n0, _LDG,
+  { [_h]: ["GET", "/v1/data-grants", 200] }, () => ListDataGrantsRequest$, () => ListDataGrantsResponse$
+];
+export var ListDataSetRevisions$: StaticOperationSchema = [9, n0, _LDSRis,
+  { [_h]: ["GET", "/v1/data-sets/{DataSetId}/revisions", 200] }, () => ListDataSetRevisionsRequest$, () => ListDataSetRevisionsResponse$
+];
+export var ListDataSets$: StaticOperationSchema = [9, n0, _LDS,
+  { [_h]: ["GET", "/v1/data-sets", 200] }, () => ListDataSetsRequest$, () => ListDataSetsResponse$
+];
+export var ListEventActions$: StaticOperationSchema = [9, n0, _LEA,
+  { [_h]: ["GET", "/v1/event-actions", 200] }, () => ListEventActionsRequest$, () => ListEventActionsResponse$
+];
+export var ListJobs$: StaticOperationSchema = [9, n0, _LJ,
+  { [_h]: ["GET", "/v1/jobs", 200] }, () => ListJobsRequest$, () => ListJobsResponse$
+];
+export var ListReceivedDataGrants$: StaticOperationSchema = [9, n0, _LRDG,
+  { [_h]: ["GET", "/v1/received-data-grants", 200] }, () => ListReceivedDataGrantsRequest$, () => ListReceivedDataGrantsResponse$
+];
+export var ListRevisionAssets$: StaticOperationSchema = [9, n0, _LRA,
+  { [_h]: ["GET", "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets", 200] }, () => ListRevisionAssetsRequest$, () => ListRevisionAssetsResponse$
+];
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
+];
+export var RevokeRevision$: StaticOperationSchema = [9, n0, _RR,
+  { [_h]: ["POST", "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/revoke", 200] }, () => RevokeRevisionRequest$, () => RevokeRevisionResponse$
+];
+export var SendApiAsset$: StaticOperationSchema = [9, n0, _SAA,
+  { [_en]: ["api-fulfill."], [_h]: ["POST", "/v1", 200] }, () => SendApiAssetRequest$, () => SendApiAssetResponse$
+];
+export var SendDataSetNotification$: StaticOperationSchema = [9, n0, _SDSN,
+  { [_h]: ["POST", "/v1/data-sets/{DataSetId}/notification", 202] }, () => SendDataSetNotificationRequest$, () => SendDataSetNotificationResponse$
+];
+export var StartJob$: StaticOperationSchema = [9, n0, _SJ,
+  { [_h]: ["PATCH", "/v1/jobs/{JobId}", 202] }, () => StartJobRequest$, () => StartJobResponse$
+];
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  { [_h]: ["POST", "/tags/{ResourceArn}", 204] }, () => TagResourceRequest$, () => __Unit
+];
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 204] }, () => UntagResourceRequest$, () => __Unit
+];
+export var UpdateAsset$: StaticOperationSchema = [9, n0, _UAp,
+  { [_h]: ["PATCH", "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}", 200] }, () => UpdateAssetRequest$, () => UpdateAssetResponse$
+];
+export var UpdateDataSet$: StaticOperationSchema = [9, n0, _UDS,
+  { [_h]: ["PATCH", "/v1/data-sets/{DataSetId}", 200] }, () => UpdateDataSetRequest$, () => UpdateDataSetResponse$
+];
+export var UpdateEventAction$: StaticOperationSchema = [9, n0, _UEA,
+  { [_h]: ["PATCH", "/v1/event-actions/{EventActionId}", 200] }, () => UpdateEventActionRequest$, () => UpdateEventActionResponse$
+];
+export var UpdateRevision$: StaticOperationSchema = [9, n0, _URp,
+  { [_h]: ["PATCH", "/v1/data-sets/{DataSetId}/revisions/{RevisionId}", 200] }, () => UpdateRevisionRequest$, () => UpdateRevisionResponse$
 ];

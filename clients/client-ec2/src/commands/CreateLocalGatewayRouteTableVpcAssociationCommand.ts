@@ -9,7 +9,7 @@ import type {
   CreateLocalGatewayRouteTableVpcAssociationRequest,
   CreateLocalGatewayRouteTableVpcAssociationResult,
 } from "../models/models_1";
-import { CreateLocalGatewayRouteTableVpcAssociation } from "../schemas/schemas_0";
+import { CreateLocalGatewayRouteTableVpcAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateLocalGatewayRouteTableVpcAssociationCommand}.
  */
-export interface CreateLocalGatewayRouteTableVpcAssociationCommandInput
-  extends CreateLocalGatewayRouteTableVpcAssociationRequest {}
+export interface CreateLocalGatewayRouteTableVpcAssociationCommandInput extends CreateLocalGatewayRouteTableVpcAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateLocalGatewayRouteTableVpcAssociationCommand}.
  */
-export interface CreateLocalGatewayRouteTableVpcAssociationCommandOutput
-  extends CreateLocalGatewayRouteTableVpcAssociationResult,
-    __MetadataBearer {}
+export interface CreateLocalGatewayRouteTableVpcAssociationCommandOutput extends CreateLocalGatewayRouteTableVpcAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Associates the specified VPC with the specified local gateway route table.</p>
@@ -106,7 +103,7 @@ export class CreateLocalGatewayRouteTableVpcAssociationCommand extends $Command
   })
   .s("AmazonEC2", "CreateLocalGatewayRouteTableVpcAssociation", {})
   .n("EC2Client", "CreateLocalGatewayRouteTableVpcAssociationCommand")
-  .sc(CreateLocalGatewayRouteTableVpcAssociation)
+  .sc(CreateLocalGatewayRouteTableVpcAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

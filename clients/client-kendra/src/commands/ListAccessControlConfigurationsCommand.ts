@@ -9,7 +9,7 @@ import type {
   ListAccessControlConfigurationsRequest,
   ListAccessControlConfigurationsResponse,
 } from "../models/models_0";
-import { ListAccessControlConfigurations } from "../schemas/schemas_0";
+import { ListAccessControlConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListAccessControlConfigurationsCommandInput extends ListAccessC
  *
  * The output of {@link ListAccessControlConfigurationsCommand}.
  */
-export interface ListAccessControlConfigurationsCommandOutput
-  extends ListAccessControlConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListAccessControlConfigurationsCommandOutput extends ListAccessControlConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists one or more access control configurations for an index. This includes user and
@@ -108,7 +106,7 @@ export class ListAccessControlConfigurationsCommand extends $Command
   })
   .s("AWSKendraFrontendService", "ListAccessControlConfigurations", {})
   .n("KendraClient", "ListAccessControlConfigurationsCommand")
-  .sc(ListAccessControlConfigurations)
+  .sc(ListAccessControlConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -163,8 +163,14 @@ export interface Budgets {
   /**
    * @see {@link CreateBudgetCommand}
    */
-  createBudget(args: CreateBudgetCommandInput, options?: __HttpHandlerOptions): Promise<CreateBudgetCommandOutput>;
-  createBudget(args: CreateBudgetCommandInput, cb: (err: any, data?: CreateBudgetCommandOutput) => void): void;
+  createBudget(
+    args: CreateBudgetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBudgetCommandOutput>;
+  createBudget(
+    args: CreateBudgetCommandInput,
+    cb: (err: any, data?: CreateBudgetCommandOutput) => void
+  ): void;
   createBudget(
     args: CreateBudgetCommandInput,
     options: __HttpHandlerOptions,
@@ -225,8 +231,14 @@ export interface Budgets {
   /**
    * @see {@link DeleteBudgetCommand}
    */
-  deleteBudget(args: DeleteBudgetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBudgetCommandOutput>;
-  deleteBudget(args: DeleteBudgetCommandInput, cb: (err: any, data?: DeleteBudgetCommandOutput) => void): void;
+  deleteBudget(
+    args: DeleteBudgetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBudgetCommandOutput>;
+  deleteBudget(
+    args: DeleteBudgetCommandInput,
+    cb: (err: any, data?: DeleteBudgetCommandOutput) => void
+  ): void;
   deleteBudget(
     args: DeleteBudgetCommandInput,
     options: __HttpHandlerOptions,
@@ -291,7 +303,10 @@ export interface Budgets {
     args: DescribeBudgetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeBudgetCommandOutput>;
-  describeBudget(args: DescribeBudgetCommandInput, cb: (err: any, data?: DescribeBudgetCommandOutput) => void): void;
+  describeBudget(
+    args: DescribeBudgetCommandInput,
+    cb: (err: any, data?: DescribeBudgetCommandOutput) => void
+  ): void;
   describeBudget(
     args: DescribeBudgetCommandInput,
     options: __HttpHandlerOptions,
@@ -407,7 +422,10 @@ export interface Budgets {
     args: DescribeBudgetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeBudgetsCommandOutput>;
-  describeBudgets(args: DescribeBudgetsCommandInput, cb: (err: any, data?: DescribeBudgetsCommandOutput) => void): void;
+  describeBudgets(
+    args: DescribeBudgetsCommandInput,
+    cb: (err: any, data?: DescribeBudgetsCommandOutput) => void
+  ): void;
   describeBudgets(
     args: DescribeBudgetsCommandInput,
     options: __HttpHandlerOptions,
@@ -485,8 +503,14 @@ export interface Budgets {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -496,8 +520,14 @@ export interface Budgets {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -507,8 +537,14 @@ export interface Budgets {
   /**
    * @see {@link UpdateBudgetCommand}
    */
-  updateBudget(args: UpdateBudgetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateBudgetCommandOutput>;
-  updateBudget(args: UpdateBudgetCommandInput, cb: (err: any, data?: UpdateBudgetCommandOutput) => void): void;
+  updateBudget(
+    args: UpdateBudgetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBudgetCommandOutput>;
+  updateBudget(
+    args: UpdateBudgetCommandInput,
+    cb: (err: any, data?: UpdateBudgetCommandOutput) => void
+  ): void;
   updateBudget(
     args: UpdateBudgetCommandInput,
     options: __HttpHandlerOptions,

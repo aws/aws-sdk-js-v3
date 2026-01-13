@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { HttpRequestWithRegexLiteral } from "../schemas/schemas_0";
+import { HttpRequestWithRegexLiteral$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -75,7 +75,7 @@ export class HttpRequestWithRegexLiteralCommand extends $Command
   })
   .s("RestJson", "HttpRequestWithRegexLiteral", {})
   .n("RestJsonProtocolClient", "HttpRequestWithRegexLiteralCommand")
-  .sc(HttpRequestWithRegexLiteral)
+  .sc(HttpRequestWithRegexLiteral$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

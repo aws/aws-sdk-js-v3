@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { ListRoleAliasesRequest, ListRoleAliasesResponse } from "../models/models_1";
-import { ListRoleAliases } from "../schemas/schemas_0";
+import { ListRoleAliases$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class ListRoleAliasesCommand extends $Command
   })
   .s("AWSIotService", "ListRoleAliases", {})
   .n("IoTClient", "ListRoleAliasesCommand")
-  .sc(ListRoleAliases)
+  .sc(ListRoleAliases$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

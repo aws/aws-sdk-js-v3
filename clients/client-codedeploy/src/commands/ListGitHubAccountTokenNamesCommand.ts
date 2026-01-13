@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListGitHubAccountTokenNamesInput, ListGitHubAccountTokenNamesOutput } from "../models/models_0";
-import { ListGitHubAccountTokenNames } from "../schemas/schemas_0";
+import { ListGitHubAccountTokenNames$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class ListGitHubAccountTokenNamesCommand extends $Command
   })
   .s("CodeDeploy_20141006", "ListGitHubAccountTokenNames", {})
   .n("CodeDeployClient", "ListGitHubAccountTokenNamesCommand")
-  .sc(ListGitHubAccountTokenNames)
+  .sc(ListGitHubAccountTokenNames$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

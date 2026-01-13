@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationDiscoveryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeExportConfigurationsRequest, DescribeExportConfigurationsResponse } from "../models/models_0";
-import { DescribeExportConfigurations } from "../schemas/schemas_0";
+import { DescribeExportConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeExportConfigurationsCommandInput extends DescribeExport
  *
  * The output of {@link DescribeExportConfigurationsCommand}.
  */
-export interface DescribeExportConfigurationsCommandOutput
-  extends DescribeExportConfigurationsResponse,
-    __MetadataBearer {}
+export interface DescribeExportConfigurationsCommandOutput extends DescribeExportConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -119,7 +117,7 @@ export class DescribeExportConfigurationsCommand extends $Command
   })
   .s("AWSPoseidonService_V2015_11_01", "DescribeExportConfigurations", {})
   .n("ApplicationDiscoveryServiceClient", "DescribeExportConfigurationsCommand")
-  .sc(DescribeExportConfigurations)
+  .sc(DescribeExportConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

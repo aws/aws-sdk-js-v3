@@ -483,7 +483,10 @@ export interface Imagebuilder {
     args: CreateComponentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateComponentCommandOutput>;
-  createComponent(args: CreateComponentCommandInput, cb: (err: any, data?: CreateComponentCommandOutput) => void): void;
+  createComponent(
+    args: CreateComponentCommandInput,
+    cb: (err: any, data?: CreateComponentCommandOutput) => void
+  ): void;
   createComponent(
     args: CreateComponentCommandInput,
     options: __HttpHandlerOptions,
@@ -527,8 +530,14 @@ export interface Imagebuilder {
   /**
    * @see {@link CreateImageCommand}
    */
-  createImage(args: CreateImageCommandInput, options?: __HttpHandlerOptions): Promise<CreateImageCommandOutput>;
-  createImage(args: CreateImageCommandInput, cb: (err: any, data?: CreateImageCommandOutput) => void): void;
+  createImage(
+    args: CreateImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateImageCommandOutput>;
+  createImage(
+    args: CreateImageCommandInput,
+    cb: (err: any, data?: CreateImageCommandOutput) => void
+  ): void;
   createImage(
     args: CreateImageCommandInput,
     options: __HttpHandlerOptions,
@@ -610,7 +619,10 @@ export interface Imagebuilder {
     args: CreateWorkflowCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateWorkflowCommandOutput>;
-  createWorkflow(args: CreateWorkflowCommandInput, cb: (err: any, data?: CreateWorkflowCommandOutput) => void): void;
+  createWorkflow(
+    args: CreateWorkflowCommandInput,
+    cb: (err: any, data?: CreateWorkflowCommandOutput) => void
+  ): void;
   createWorkflow(
     args: CreateWorkflowCommandInput,
     options: __HttpHandlerOptions,
@@ -624,7 +636,10 @@ export interface Imagebuilder {
     args: DeleteComponentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteComponentCommandOutput>;
-  deleteComponent(args: DeleteComponentCommandInput, cb: (err: any, data?: DeleteComponentCommandOutput) => void): void;
+  deleteComponent(
+    args: DeleteComponentCommandInput,
+    cb: (err: any, data?: DeleteComponentCommandOutput) => void
+  ): void;
   deleteComponent(
     args: DeleteComponentCommandInput,
     options: __HttpHandlerOptions,
@@ -668,8 +683,14 @@ export interface Imagebuilder {
   /**
    * @see {@link DeleteImageCommand}
    */
-  deleteImage(args: DeleteImageCommandInput, options?: __HttpHandlerOptions): Promise<DeleteImageCommandOutput>;
-  deleteImage(args: DeleteImageCommandInput, cb: (err: any, data?: DeleteImageCommandOutput) => void): void;
+  deleteImage(
+    args: DeleteImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteImageCommandOutput>;
+  deleteImage(
+    args: DeleteImageCommandInput,
+    cb: (err: any, data?: DeleteImageCommandOutput) => void
+  ): void;
   deleteImage(
     args: DeleteImageCommandInput,
     options: __HttpHandlerOptions,
@@ -751,7 +772,10 @@ export interface Imagebuilder {
     args: DeleteWorkflowCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteWorkflowCommandOutput>;
-  deleteWorkflow(args: DeleteWorkflowCommandInput, cb: (err: any, data?: DeleteWorkflowCommandOutput) => void): void;
+  deleteWorkflow(
+    args: DeleteWorkflowCommandInput,
+    cb: (err: any, data?: DeleteWorkflowCommandOutput) => void
+  ): void;
   deleteWorkflow(
     args: DeleteWorkflowCommandInput,
     options: __HttpHandlerOptions,
@@ -765,7 +789,10 @@ export interface Imagebuilder {
     args: DistributeImageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DistributeImageCommandOutput>;
-  distributeImage(args: DistributeImageCommandInput, cb: (err: any, data?: DistributeImageCommandOutput) => void): void;
+  distributeImage(
+    args: DistributeImageCommandInput,
+    cb: (err: any, data?: DistributeImageCommandOutput) => void
+  ): void;
   distributeImage(
     args: DistributeImageCommandInput,
     options: __HttpHandlerOptions,
@@ -775,8 +802,14 @@ export interface Imagebuilder {
   /**
    * @see {@link GetComponentCommand}
    */
-  getComponent(args: GetComponentCommandInput, options?: __HttpHandlerOptions): Promise<GetComponentCommandOutput>;
-  getComponent(args: GetComponentCommandInput, cb: (err: any, data?: GetComponentCommandOutput) => void): void;
+  getComponent(
+    args: GetComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetComponentCommandOutput>;
+  getComponent(
+    args: GetComponentCommandInput,
+    cb: (err: any, data?: GetComponentCommandOutput) => void
+  ): void;
   getComponent(
     args: GetComponentCommandInput,
     options: __HttpHandlerOptions,
@@ -854,8 +887,14 @@ export interface Imagebuilder {
   /**
    * @see {@link GetImageCommand}
    */
-  getImage(args: GetImageCommandInput, options?: __HttpHandlerOptions): Promise<GetImageCommandOutput>;
-  getImage(args: GetImageCommandInput, cb: (err: any, data?: GetImageCommandOutput) => void): void;
+  getImage(
+    args: GetImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImageCommandOutput>;
+  getImage(
+    args: GetImageCommandInput,
+    cb: (err: any, data?: GetImageCommandOutput) => void
+  ): void;
   getImage(
     args: GetImageCommandInput,
     options: __HttpHandlerOptions,
@@ -886,7 +925,10 @@ export interface Imagebuilder {
     args: GetImagePolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetImagePolicyCommandOutput>;
-  getImagePolicy(args: GetImagePolicyCommandInput, cb: (err: any, data?: GetImagePolicyCommandOutput) => void): void;
+  getImagePolicy(
+    args: GetImagePolicyCommandInput,
+    cb: (err: any, data?: GetImagePolicyCommandOutput) => void
+  ): void;
   getImagePolicy(
     args: GetImagePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -900,7 +942,10 @@ export interface Imagebuilder {
     args: GetImageRecipeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetImageRecipeCommandOutput>;
-  getImageRecipe(args: GetImageRecipeCommandInput, cb: (err: any, data?: GetImageRecipeCommandOutput) => void): void;
+  getImageRecipe(
+    args: GetImageRecipeCommandInput,
+    cb: (err: any, data?: GetImageRecipeCommandOutput) => void
+  ): void;
   getImageRecipe(
     args: GetImageRecipeCommandInput,
     options: __HttpHandlerOptions,
@@ -995,8 +1040,14 @@ export interface Imagebuilder {
   /**
    * @see {@link GetWorkflowCommand}
    */
-  getWorkflow(args: GetWorkflowCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkflowCommandOutput>;
-  getWorkflow(args: GetWorkflowCommandInput, cb: (err: any, data?: GetWorkflowCommandOutput) => void): void;
+  getWorkflow(
+    args: GetWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorkflowCommandOutput>;
+  getWorkflow(
+    args: GetWorkflowCommandInput,
+    cb: (err: any, data?: GetWorkflowCommandOutput) => void
+  ): void;
   getWorkflow(
     args: GetWorkflowCommandInput,
     options: __HttpHandlerOptions,
@@ -1044,7 +1095,10 @@ export interface Imagebuilder {
     args: ImportComponentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ImportComponentCommandOutput>;
-  importComponent(args: ImportComponentCommandInput, cb: (err: any, data?: ImportComponentCommandOutput) => void): void;
+  importComponent(
+    args: ImportComponentCommandInput,
+    cb: (err: any, data?: ImportComponentCommandOutput) => void
+  ): void;
   importComponent(
     args: ImportComponentCommandInput,
     options: __HttpHandlerOptions,
@@ -1058,7 +1112,10 @@ export interface Imagebuilder {
     args: ImportDiskImageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ImportDiskImageCommandOutput>;
-  importDiskImage(args: ImportDiskImageCommandInput, cb: (err: any, data?: ImportDiskImageCommandOutput) => void): void;
+  importDiskImage(
+    args: ImportDiskImageCommandInput,
+    cb: (err: any, data?: ImportDiskImageCommandOutput) => void
+  ): void;
   importDiskImage(
     args: ImportDiskImageCommandInput,
     options: __HttpHandlerOptions,
@@ -1068,8 +1125,14 @@ export interface Imagebuilder {
   /**
    * @see {@link ImportVmImageCommand}
    */
-  importVmImage(args: ImportVmImageCommandInput, options?: __HttpHandlerOptions): Promise<ImportVmImageCommandOutput>;
-  importVmImage(args: ImportVmImageCommandInput, cb: (err: any, data?: ImportVmImageCommandOutput) => void): void;
+  importVmImage(
+    args: ImportVmImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportVmImageCommandOutput>;
+  importVmImage(
+    args: ImportVmImageCommandInput,
+    cb: (err: any, data?: ImportVmImageCommandOutput) => void
+  ): void;
   importVmImage(
     args: ImportVmImageCommandInput,
     options: __HttpHandlerOptions,
@@ -1102,7 +1165,10 @@ export interface Imagebuilder {
     args: ListComponentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListComponentsCommandOutput>;
-  listComponents(args: ListComponentsCommandInput, cb: (err: any, data?: ListComponentsCommandOutput) => void): void;
+  listComponents(
+    args: ListComponentsCommandInput,
+    cb: (err: any, data?: ListComponentsCommandOutput) => void
+  ): void;
   listComponents(
     args: ListComponentsCommandInput,
     options: __HttpHandlerOptions,
@@ -1237,8 +1303,14 @@ export interface Imagebuilder {
    * @see {@link ListImagesCommand}
    */
   listImages(): Promise<ListImagesCommandOutput>;
-  listImages(args: ListImagesCommandInput, options?: __HttpHandlerOptions): Promise<ListImagesCommandOutput>;
-  listImages(args: ListImagesCommandInput, cb: (err: any, data?: ListImagesCommandOutput) => void): void;
+  listImages(
+    args: ListImagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImagesCommandOutput>;
+  listImages(
+    args: ListImagesCommandInput,
+    cb: (err: any, data?: ListImagesCommandOutput) => void
+  ): void;
   listImages(
     args: ListImagesCommandInput,
     options: __HttpHandlerOptions,
@@ -1425,8 +1497,14 @@ export interface Imagebuilder {
    * @see {@link ListWorkflowsCommand}
    */
   listWorkflows(): Promise<ListWorkflowsCommandOutput>;
-  listWorkflows(args: ListWorkflowsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkflowsCommandOutput>;
-  listWorkflows(args: ListWorkflowsCommandInput, cb: (err: any, data?: ListWorkflowsCommandOutput) => void): void;
+  listWorkflows(
+    args: ListWorkflowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkflowsCommandOutput>;
+  listWorkflows(
+    args: ListWorkflowsCommandInput,
+    cb: (err: any, data?: ListWorkflowsCommandOutput) => void
+  ): void;
   listWorkflows(
     args: ListWorkflowsCommandInput,
     options: __HttpHandlerOptions,
@@ -1491,7 +1569,10 @@ export interface Imagebuilder {
     args: PutImagePolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutImagePolicyCommandOutput>;
-  putImagePolicy(args: PutImagePolicyCommandInput, cb: (err: any, data?: PutImagePolicyCommandOutput) => void): void;
+  putImagePolicy(
+    args: PutImagePolicyCommandInput,
+    cb: (err: any, data?: PutImagePolicyCommandOutput) => void
+  ): void;
   putImagePolicy(
     args: PutImagePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -1518,8 +1599,14 @@ export interface Imagebuilder {
   /**
    * @see {@link RetryImageCommand}
    */
-  retryImage(args: RetryImageCommandInput, options?: __HttpHandlerOptions): Promise<RetryImageCommandOutput>;
-  retryImage(args: RetryImageCommandInput, cb: (err: any, data?: RetryImageCommandOutput) => void): void;
+  retryImage(
+    args: RetryImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RetryImageCommandOutput>;
+  retryImage(
+    args: RetryImageCommandInput,
+    cb: (err: any, data?: RetryImageCommandOutput) => void
+  ): void;
   retryImage(
     args: RetryImageCommandInput,
     options: __HttpHandlerOptions,
@@ -1580,8 +1667,14 @@ export interface Imagebuilder {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1591,8 +1684,14 @@ export interface Imagebuilder {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

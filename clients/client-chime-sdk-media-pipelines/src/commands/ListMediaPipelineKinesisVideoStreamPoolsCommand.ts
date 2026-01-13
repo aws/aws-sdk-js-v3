@@ -13,7 +13,7 @@ import type {
   ListMediaPipelineKinesisVideoStreamPoolsRequest,
   ListMediaPipelineKinesisVideoStreamPoolsResponse,
 } from "../models/models_0";
-import { ListMediaPipelineKinesisVideoStreamPools } from "../schemas/schemas_0";
+import { ListMediaPipelineKinesisVideoStreamPools$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListMediaPipelineKinesisVideoStreamPoolsCommand}.
  */
-export interface ListMediaPipelineKinesisVideoStreamPoolsCommandInput
-  extends ListMediaPipelineKinesisVideoStreamPoolsRequest {}
+export interface ListMediaPipelineKinesisVideoStreamPoolsCommandInput extends ListMediaPipelineKinesisVideoStreamPoolsRequest {}
 /**
  * @public
  *
  * The output of {@link ListMediaPipelineKinesisVideoStreamPoolsCommand}.
  */
-export interface ListMediaPipelineKinesisVideoStreamPoolsCommandOutput
-  extends ListMediaPipelineKinesisVideoStreamPoolsResponse,
-    __MetadataBearer {}
+export interface ListMediaPipelineKinesisVideoStreamPoolsCommandOutput extends ListMediaPipelineKinesisVideoStreamPoolsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the video stream pools in the media pipeline.</p>
@@ -112,7 +109,7 @@ export class ListMediaPipelineKinesisVideoStreamPoolsCommand extends $Command
   })
   .s("ChimeSDKMediaPipelinesService", "ListMediaPipelineKinesisVideoStreamPools", {})
   .n("ChimeSDKMediaPipelinesClient", "ListMediaPipelineKinesisVideoStreamPoolsCommand")
-  .sc(ListMediaPipelineKinesisVideoStreamPools)
+  .sc(ListMediaPipelineKinesisVideoStreamPools$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CodeConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteConnectionInput, DeleteConnectionOutput } from "../models/models_0";
-import { DeleteConnection } from "../schemas/schemas_0";
+import { DeleteConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -78,7 +78,7 @@ export class DeleteConnectionCommand extends $Command
   })
   .s("CodeConnections_20231201", "DeleteConnection", {})
   .n("CodeConnectionsClient", "DeleteConnectionCommand")
-  .sc(DeleteConnection)
+  .sc(DeleteConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

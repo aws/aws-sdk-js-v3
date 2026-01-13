@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ApplyEnvironmentManagedActionRequest, ApplyEnvironmentManagedActionResult } from "../models/models_0";
-import { ApplyEnvironmentManagedAction } from "../schemas/schemas_0";
+import { ApplyEnvironmentManagedAction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ApplyEnvironmentManagedActionCommandInput extends ApplyEnvironm
  *
  * The output of {@link ApplyEnvironmentManagedActionCommand}.
  */
-export interface ApplyEnvironmentManagedActionCommandOutput
-  extends ApplyEnvironmentManagedActionResult,
-    __MetadataBearer {}
+export interface ApplyEnvironmentManagedActionCommandOutput extends ApplyEnvironmentManagedActionResult, __MetadataBearer {}
 
 /**
  * <p>Applies a scheduled managed action immediately. A managed action can be applied only if
@@ -92,7 +90,7 @@ export class ApplyEnvironmentManagedActionCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "ApplyEnvironmentManagedAction", {})
   .n("ElasticBeanstalkClient", "ApplyEnvironmentManagedActionCommand")
-  .sc(ApplyEnvironmentManagedAction)
+  .sc(ApplyEnvironmentManagedAction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

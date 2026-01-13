@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateBillOfMaterialsImportJobRequest, CreateBillOfMaterialsImportJobResponse } from "../models/models_0";
-import { CreateBillOfMaterialsImportJob } from "../schemas/schemas_0";
+import { CreateBillOfMaterialsImportJob$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
@@ -24,9 +24,7 @@ export interface CreateBillOfMaterialsImportJobCommandInput extends CreateBillOf
  *
  * The output of {@link CreateBillOfMaterialsImportJobCommand}.
  */
-export interface CreateBillOfMaterialsImportJobCommandOutput
-  extends CreateBillOfMaterialsImportJobResponse,
-    __MetadataBearer {}
+export interface CreateBillOfMaterialsImportJobCommandOutput extends CreateBillOfMaterialsImportJobResponse, __MetadataBearer {}
 
 /**
  * <p>CreateBillOfMaterialsImportJob creates an import job for the Product Bill Of Materials (BOM) entity. For information on the product_bom entity, see the AWS Supply Chain User Guide.</p>
@@ -116,7 +114,7 @@ export class CreateBillOfMaterialsImportJobCommand extends $Command
   })
   .s("GalaxyPublicAPIGateway", "CreateBillOfMaterialsImportJob", {})
   .n("SupplyChainClient", "CreateBillOfMaterialsImportJobCommand")
-  .sc(CreateBillOfMaterialsImportJob)
+  .sc(CreateBillOfMaterialsImportJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

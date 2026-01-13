@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyNetworkInterfaceAttributeRequest } from "../models/models_6";
-import { ModifyNetworkInterfaceAttribute } from "../schemas/schemas_0";
+import { ModifyNetworkInterfaceAttribute$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -171,7 +171,7 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command
   })
   .s("AmazonEC2", "ModifyNetworkInterfaceAttribute", {})
   .n("EC2Client", "ModifyNetworkInterfaceAttributeCommand")
-  .sc(ModifyNetworkInterfaceAttribute)
+  .sc(ModifyNetworkInterfaceAttribute$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

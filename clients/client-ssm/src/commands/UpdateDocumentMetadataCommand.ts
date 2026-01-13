@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDocumentMetadataRequest, UpdateDocumentMetadataResponse } from "../models/models_1";
-import { UpdateDocumentMetadata } from "../schemas/schemas_0";
+import { UpdateDocumentMetadata$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -104,7 +104,7 @@ export class UpdateDocumentMetadataCommand extends $Command
   })
   .s("AmazonSSM", "UpdateDocumentMetadata", {})
   .n("SSMClient", "UpdateDocumentMetadataCommand")
-  .sc(UpdateDocumentMetadata)
+  .sc(UpdateDocumentMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

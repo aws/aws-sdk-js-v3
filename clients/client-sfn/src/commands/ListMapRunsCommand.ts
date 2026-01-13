@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListMapRunsInput, ListMapRunsOutput } from "../models/models_0";
-import { ListMapRuns } from "../schemas/schemas_0";
+import { ListMapRuns$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -93,7 +93,7 @@ export class ListMapRunsCommand extends $Command
   })
   .s("AWSStepFunctions", "ListMapRuns", {})
   .n("SFNClient", "ListMapRunsCommand")
-  .sc(ListMapRuns)
+  .sc(ListMapRuns$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

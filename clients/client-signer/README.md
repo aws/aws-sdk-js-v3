@@ -26,10 +26,8 @@ integrity.</p>
 Guide</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-signer
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-signer`
 - `yarn add @aws-sdk/client-signer`
 - `pnpm add @aws-sdk/client-signer`
@@ -65,9 +63,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new SignerClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListSigningJobsCommand(params);
 ```
 
@@ -226,7 +222,6 @@ AddProfilePermission
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signer/command/AddProfilePermissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/AddProfilePermissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/AddProfilePermissionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -234,7 +229,6 @@ CancelSigningProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signer/command/CancelSigningProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/CancelSigningProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/CancelSigningProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -242,7 +236,6 @@ DescribeSigningJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signer/command/DescribeSigningJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/DescribeSigningJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/DescribeSigningJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -250,7 +243,6 @@ GetRevocationStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signer/command/GetRevocationStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/GetRevocationStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/GetRevocationStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -258,7 +250,6 @@ GetSigningPlatform
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signer/command/GetSigningPlatformCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/GetSigningPlatformCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/GetSigningPlatformCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -266,7 +257,6 @@ GetSigningProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signer/command/GetSigningProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/GetSigningProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/GetSigningProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -274,7 +264,6 @@ ListProfilePermissions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signer/command/ListProfilePermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/ListProfilePermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/ListProfilePermissionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -282,7 +271,6 @@ ListSigningJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signer/command/ListSigningJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/ListSigningJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/ListSigningJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -290,7 +278,6 @@ ListSigningPlatforms
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signer/command/ListSigningPlatformsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/ListSigningPlatformsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/ListSigningPlatformsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -298,7 +285,6 @@ ListSigningProfiles
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signer/command/ListSigningProfilesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/ListSigningProfilesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/ListSigningProfilesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -306,7 +292,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signer/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -314,7 +299,6 @@ PutSigningProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signer/command/PutSigningProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/PutSigningProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/PutSigningProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -322,7 +306,6 @@ RemoveProfilePermission
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signer/command/RemoveProfilePermissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/RemoveProfilePermissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/RemoveProfilePermissionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -330,7 +313,6 @@ RevokeSignature
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signer/command/RevokeSignatureCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/RevokeSignatureCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/RevokeSignatureCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -338,7 +320,6 @@ RevokeSigningProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signer/command/RevokeSigningProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/RevokeSigningProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/RevokeSigningProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -346,7 +327,6 @@ SignPayload
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signer/command/SignPayloadCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/SignPayloadCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/SignPayloadCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -354,7 +334,6 @@ StartSigningJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signer/command/StartSigningJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/StartSigningJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/StartSigningJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -362,7 +341,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signer/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -370,5 +348,4 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signer/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signer/Interface/UntagResourceCommandOutput/)
-
 </details>

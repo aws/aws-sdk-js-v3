@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribePlacementGroupsRequest, DescribePlacementGroupsResult } from "../models/models_4";
-import { DescribePlacementGroups } from "../schemas/schemas_0";
+import { DescribePlacementGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,6 +80,7 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  * //       ],
  * //       GroupArn: "STRING_VALUE",
  * //       SpreadLevel: "host" || "rack",
+ * //       LinkedGroupId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -112,7 +113,7 @@ export class DescribePlacementGroupsCommand extends $Command
   })
   .s("AmazonEC2", "DescribePlacementGroups", {})
   .n("EC2Client", "DescribePlacementGroupsCommand")
-  .sc(DescribePlacementGroups)
+  .sc(DescribePlacementGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

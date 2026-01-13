@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { DeleteAttachment } from "../schemas/schemas_0";
+import { DeleteAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -147,7 +147,7 @@ export class DeleteAttachmentCommand extends $Command
   })
   .s("NetworkManager", "DeleteAttachment", {})
   .n("NetworkManagerClient", "DeleteAttachmentCommand")
-  .sc(DeleteAttachment)
+  .sc(DeleteAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

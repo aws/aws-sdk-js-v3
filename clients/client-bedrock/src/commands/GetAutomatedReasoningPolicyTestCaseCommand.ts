@@ -9,7 +9,7 @@ import type {
   GetAutomatedReasoningPolicyTestCaseRequest,
   GetAutomatedReasoningPolicyTestCaseResponse,
 } from "../models/models_0";
-import { GetAutomatedReasoningPolicyTestCase } from "../schemas/schemas_0";
+import { GetAutomatedReasoningPolicyTestCase$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetAutomatedReasoningPolicyTestCaseCommandInput extends GetAuto
  *
  * The output of {@link GetAutomatedReasoningPolicyTestCaseCommand}.
  */
-export interface GetAutomatedReasoningPolicyTestCaseCommandOutput
-  extends GetAutomatedReasoningPolicyTestCaseResponse,
-    __MetadataBearer {}
+export interface GetAutomatedReasoningPolicyTestCaseCommandOutput extends GetAutomatedReasoningPolicyTestCaseResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details about a specific Automated Reasoning policy test.</p>
@@ -103,7 +101,7 @@ export class GetAutomatedReasoningPolicyTestCaseCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "GetAutomatedReasoningPolicyTestCase", {})
   .n("BedrockClient", "GetAutomatedReasoningPolicyTestCaseCommand")
-  .sc(GetAutomatedReasoningPolicyTestCase)
+  .sc(GetAutomatedReasoningPolicyTestCase$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

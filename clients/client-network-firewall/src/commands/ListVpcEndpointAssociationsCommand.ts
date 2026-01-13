@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { ListVpcEndpointAssociations } from "../schemas/schemas_0";
+import { ListVpcEndpointAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListVpcEndpointAssociationsCommandInput extends ListVpcEndpoint
  *
  * The output of {@link ListVpcEndpointAssociationsCommand}.
  */
-export interface ListVpcEndpointAssociationsCommandOutput
-  extends ListVpcEndpointAssociationsResponse,
-    __MetadataBearer {}
+export interface ListVpcEndpointAssociationsCommandOutput extends ListVpcEndpointAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the metadata for the VPC endpoint associations that you have defined. If you specify a fireawll,
@@ -112,7 +110,7 @@ export class ListVpcEndpointAssociationsCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "ListVpcEndpointAssociations", {})
   .n("NetworkFirewallClient", "ListVpcEndpointAssociationsCommand")
-  .sc(ListVpcEndpointAssociations)
+  .sc(ListVpcEndpointAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

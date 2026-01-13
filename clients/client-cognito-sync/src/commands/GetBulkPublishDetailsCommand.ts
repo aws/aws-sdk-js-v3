@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetBulkPublishDetailsRequest, GetBulkPublishDetailsResponse } from "../models/models_0";
-import { GetBulkPublishDetails } from "../schemas/schemas_0";
+import { GetBulkPublishDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class GetBulkPublishDetailsCommand extends $Command
   })
   .s("AWSCognitoSyncService", "GetBulkPublishDetails", {})
   .n("CognitoSyncClient", "GetBulkPublishDetailsCommand")
-  .sc(GetBulkPublishDetails)
+  .sc(GetBulkPublishDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

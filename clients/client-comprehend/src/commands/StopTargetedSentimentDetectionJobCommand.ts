@@ -9,7 +9,7 @@ import type {
   StopTargetedSentimentDetectionJobRequest,
   StopTargetedSentimentDetectionJobResponse,
 } from "../models/models_0";
-import { StopTargetedSentimentDetectionJob } from "../schemas/schemas_0";
+import { StopTargetedSentimentDetectionJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface StopTargetedSentimentDetectionJobCommandInput extends StopTarge
  *
  * The output of {@link StopTargetedSentimentDetectionJobCommand}.
  */
-export interface StopTargetedSentimentDetectionJobCommandOutput
-  extends StopTargetedSentimentDetectionJobResponse,
-    __MetadataBearer {}
+export interface StopTargetedSentimentDetectionJobCommandOutput extends StopTargetedSentimentDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a targeted sentiment detection job in progress.</p>
@@ -97,7 +95,7 @@ export class StopTargetedSentimentDetectionJobCommand extends $Command
   })
   .s("Comprehend_20171127", "StopTargetedSentimentDetectionJob", {})
   .n("ComprehendClient", "StopTargetedSentimentDetectionJobCommand")
-  .sc(StopTargetedSentimentDetectionJob)
+  .sc(StopTargetedSentimentDetectionJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

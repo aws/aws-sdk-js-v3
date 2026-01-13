@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SetLogDeliveryConfigurationRequest, SetLogDeliveryConfigurationResponse } from "../models/models_0";
-import { SetLogDeliveryConfiguration } from "../schemas/schemas_0";
+import { SetLogDeliveryConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface SetLogDeliveryConfigurationCommandInput extends SetLogDeliveryC
  *
  * The output of {@link SetLogDeliveryConfigurationCommand}.
  */
-export interface SetLogDeliveryConfigurationCommandOutput
-  extends SetLogDeliveryConfigurationResponse,
-    __MetadataBearer {}
+export interface SetLogDeliveryConfigurationCommandOutput extends SetLogDeliveryConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Sets up or modifies the logging configuration of a user pool. User pools can export
@@ -136,7 +134,7 @@ export class SetLogDeliveryConfigurationCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "SetLogDeliveryConfiguration", {})
   .n("CognitoIdentityProviderClient", "SetLogDeliveryConfigurationCommand")
-  .sc(SetLogDeliveryConfiguration)
+  .sc(SetLogDeliveryConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

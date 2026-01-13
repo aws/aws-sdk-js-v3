@@ -10,7 +10,7 @@ import type {
 } from "../CodestarNotificationsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeNotificationRuleRequest, DescribeNotificationRuleResult } from "../models/models_0";
-import { DescribeNotificationRule } from "../schemas/schemas_0";
+import { DescribeNotificationRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class DescribeNotificationRuleCommand extends $Command
   })
   .s("CodeStarNotifications_20191015", "DescribeNotificationRule", {})
   .n("CodestarNotificationsClient", "DescribeNotificationRuleCommand")
-  .sc(DescribeNotificationRule)
+  .sc(DescribeNotificationRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   PutEnforcedGuardrailConfigurationRequest,
   PutEnforcedGuardrailConfigurationResponse,
 } from "../models/models_0";
-import { PutEnforcedGuardrailConfiguration } from "../schemas/schemas_0";
+import { PutEnforcedGuardrailConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface PutEnforcedGuardrailConfigurationCommandInput extends PutEnforc
  *
  * The output of {@link PutEnforcedGuardrailConfigurationCommand}.
  */
-export interface PutEnforcedGuardrailConfigurationCommandOutput
-  extends PutEnforcedGuardrailConfigurationResponse,
-    __MetadataBearer {}
+export interface PutEnforcedGuardrailConfigurationCommandOutput extends PutEnforcedGuardrailConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the account-level enforced guardrail configuration.</p>
@@ -103,7 +101,7 @@ export class PutEnforcedGuardrailConfigurationCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "PutEnforcedGuardrailConfiguration", {})
   .n("BedrockClient", "PutEnforcedGuardrailConfigurationCommand")
-  .sc(PutEnforcedGuardrailConfiguration)
+  .sc(PutEnforcedGuardrailConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -283,1142 +283,814 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { Route53GlobalResolverServiceException as __Route53GlobalResolverServiceException } from "../models/Route53GlobalResolverServiceException";
+import { Route53GlobalResolverServiceException } from "../models/Route53GlobalResolverServiceException";
 
 /* eslint no-var: 0 */
-export var AccessTokenValue: StaticSimpleSchema = [0, n0, _ATV, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AccessSourcesItem: StaticStructureSchema = [
-  3,
-  n0,
-  _ASI,
+var AccessTokenValue: StaticSimpleSchema = [0, n0, _ATV, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AccessSourcesItem$: StaticStructureSchema = [3, n0, _ASI,
   0,
   [_a, _ci, _cA, _i, _iAT, _n, _dVI, _p, _s, _uA],
-  [0, 0, 5, 0, 0, 0, 0, 0, 0, 5],
+  [0, 0, 5, 0, 0, 0, 0, 0, 0, 5]
 ];
-export var AccessTokenItem: StaticStructureSchema = [
-  3,
-  n0,
-  _ATI,
+export var AccessTokenItem$: StaticStructureSchema = [3, n0, _ATI,
   0,
   [_i, _a, _cA, _dVI, _eA, _gRI, _n, _s, _uA],
-  [0, 0, 5, 0, 5, 0, 0, 0, 5],
+  [0, 0, 5, 0, 5, 0, 0, 0, 5]
 ];
-export var AssociateHostedZoneInput: StaticStructureSchema = [3, n0, _AHZI, 0, [_hZI, _rA, _n], [[0, 1], 0, 0]];
-export var AssociateHostedZoneOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _AHZO,
+export var AssociateHostedZoneInput$: StaticStructureSchema = [3, n0, _AHZI,
+  0,
+  [_hZI, _rA, _n],
+  [[0, 1], 0, 0]
+];
+export var AssociateHostedZoneOutput$: StaticStructureSchema = [3, n0, _AHZO,
   0,
   [_i, _rA, _hZI, _hZN, _n, _cA, _uA, _s],
-  [0, 0, 0, 0, 0, 5, 5, 0],
+  [0, 0, 0, 0, 0, 5, 5, 0]
 ];
-export var BatchCreateFirewallRuleInput: StaticStructureSchema = [
-  3,
-  n0,
-  _BCFRI,
+export var BatchCreateFirewallRuleInput$: StaticStructureSchema = [3, n0, _BCFRI,
   0,
   [_fR],
-  [() => BatchCreateFirewallRuleInputItems],
+  [() => BatchCreateFirewallRuleInputItems]
 ];
-export var BatchCreateFirewallRuleInputItem: StaticStructureSchema = [
-  3,
-  n0,
-  _BCFRII,
+export var BatchCreateFirewallRuleInputItem$: StaticStructureSchema = [3, n0, _BCFRII,
   0,
   [_ac, _bODT, _bOD, _bOT, _bR, _cT, _cTo, _d, _dAP, _fDLI, _n, _pr, _dVI, _qT],
-  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]
 ];
-export var BatchCreateFirewallRuleOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _BCFRO,
+export var BatchCreateFirewallRuleOutput$: StaticStructureSchema = [3, n0, _BCFRO,
   0,
   [_f, _su],
-  [() => BatchCreateFirewallRuleOutputItems, () => BatchCreateFirewallRuleOutputItems],
+  [() => BatchCreateFirewallRuleOutputItems, () => BatchCreateFirewallRuleOutputItems]
 ];
-export var BatchCreateFirewallRuleOutputItem: StaticStructureSchema = [
-  3,
-  n0,
-  _BCFROI,
+export var BatchCreateFirewallRuleOutputItem$: StaticStructureSchema = [3, n0, _BCFROI,
   0,
   [_fRi, _co, _m],
-  [() => BatchCreateFirewallRuleResult, 1, 0],
+  [() => BatchCreateFirewallRuleResult$, 1, 0]
 ];
-export var BatchCreateFirewallRuleResult: StaticStructureSchema = [
-  3,
-  n0,
-  _BCFRR,
+export var BatchCreateFirewallRuleResult$: StaticStructureSchema = [3, n0, _BCFRR,
   0,
   [_ac, _bODT, _bOD, _bOT, _bR, _cT, _cTo, _cA, _d, _dAP, _fDLI, _i, _mDLN, _n, _pr, _dVI, _qTu, _s, _uA],
-  [0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5],
+  [0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5]
 ];
-export var BatchDeleteFirewallRuleInput: StaticStructureSchema = [
-  3,
-  n0,
-  _BDFRI,
+export var BatchDeleteFirewallRuleInput$: StaticStructureSchema = [3, n0, _BDFRI,
   0,
   [_fR],
-  [() => BatchDeleteFirewallRuleInputItems],
+  [() => BatchDeleteFirewallRuleInputItems]
 ];
-export var BatchDeleteFirewallRuleInputItem: StaticStructureSchema = [3, n0, _BDFRII, 0, [_fRI], [0]];
-export var BatchDeleteFirewallRuleOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _BDFRO,
+export var BatchDeleteFirewallRuleInputItem$: StaticStructureSchema = [3, n0, _BDFRII,
+  0,
+  [_fRI],
+  [0]
+];
+export var BatchDeleteFirewallRuleOutput$: StaticStructureSchema = [3, n0, _BDFRO,
   0,
   [_f, _su],
-  [() => BatchDeleteFirewallRuleOutputItems, () => BatchDeleteFirewallRuleOutputItems],
+  [() => BatchDeleteFirewallRuleOutputItems, () => BatchDeleteFirewallRuleOutputItems]
 ];
-export var BatchDeleteFirewallRuleOutputItem: StaticStructureSchema = [
-  3,
-  n0,
-  _BDFROI,
+export var BatchDeleteFirewallRuleOutputItem$: StaticStructureSchema = [3, n0, _BDFROI,
   0,
   [_fRi, _co, _m],
-  [() => BatchDeleteFirewallRuleResult, 1, 0],
+  [() => BatchDeleteFirewallRuleResult$, 1, 0]
 ];
-export var BatchDeleteFirewallRuleResult: StaticStructureSchema = [3, n0, _BDFRR, 0, [_cT, _i, _n, _s], [0, 0, 0, 0]];
-export var BatchUpdateFirewallRuleInput: StaticStructureSchema = [
-  3,
-  n0,
-  _BUFRI,
+export var BatchDeleteFirewallRuleResult$: StaticStructureSchema = [3, n0, _BDFRR,
+  0,
+  [_cT, _i, _n, _s],
+  [0, 0, 0, 0]
+];
+export var BatchUpdateFirewallRuleInput$: StaticStructureSchema = [3, n0, _BUFRI,
   0,
   [_fR],
-  [() => BatchUpdateFirewallRuleInputItems],
+  [() => BatchUpdateFirewallRuleInputItems]
 ];
-export var BatchUpdateFirewallRuleInputItem: StaticStructureSchema = [
-  3,
-  n0,
-  _BUFRII,
+export var BatchUpdateFirewallRuleInputItem$: StaticStructureSchema = [3, n0, _BUFRII,
   0,
   [_ac, _bODT, _bOD, _bOT, _bR, _cTo, _d, _dAP, _fRI, _n, _pr],
-  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
+  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1]
 ];
-export var BatchUpdateFirewallRuleOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _BUFRO,
+export var BatchUpdateFirewallRuleOutput$: StaticStructureSchema = [3, n0, _BUFRO,
   0,
   [_f, _su],
-  [() => BatchUpdateFirewallRuleOutputItems, () => BatchUpdateFirewallRuleOutputItems],
+  [() => BatchUpdateFirewallRuleOutputItems, () => BatchUpdateFirewallRuleOutputItems]
 ];
-export var BatchUpdateFirewallRuleOutputItem: StaticStructureSchema = [
-  3,
-  n0,
-  _BUFROI,
+export var BatchUpdateFirewallRuleOutputItem$: StaticStructureSchema = [3, n0, _BUFROI,
   0,
   [_fRi, _co, _m],
-  [() => BatchUpdateFirewallRuleResult, 1, 0],
+  [() => BatchUpdateFirewallRuleResult$, 1, 0]
 ];
-export var BatchUpdateFirewallRuleResult: StaticStructureSchema = [
-  3,
-  n0,
-  _BUFRR,
+export var BatchUpdateFirewallRuleResult$: StaticStructureSchema = [3, n0, _BUFRR,
   0,
   [_ac, _bODT, _bOD, _bOT, _bR, _cT, _cTo, _cA, _d, _dAP, _fDLI, _i, _n, _pr, _dVI, _qTu, _s, _uA],
-  [0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5],
+  [0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5]
 ];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateAccessSourceInput: StaticStructureSchema = [
-  3,
-  n0,
-  _CASI,
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0]
+];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateAccessSourceInput$: StaticStructureSchema = [3, n0, _CASI,
   0,
   [_ci, _cT, _iAT, _n, _dVI, _p, _t],
-  [0, [0, 4], 0, 0, 0, 0, 128 | 0],
+  [0, [0, 4], 0, 0, 0, 0, 128 | 0]
 ];
-export var CreateAccessSourceOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _CASO,
+export var CreateAccessSourceOutput$: StaticStructureSchema = [3, n0, _CASO,
   0,
   [_a, _ci, _cA, _i, _iAT, _n, _dVI, _p, _s, _uA],
-  [0, 0, 5, 0, 0, 0, 0, 0, 0, 5],
+  [0, 0, 5, 0, 0, 0, 0, 0, 0, 5]
 ];
-export var CreateAccessTokenInput: StaticStructureSchema = [
-  3,
-  n0,
-  _CATI,
+export var CreateAccessTokenInput$: StaticStructureSchema = [3, n0, _CATI,
   0,
   [_cT, _dVI, _eA, _n, _t],
-  [[0, 4], [0, 1], 5, 0, 128 | 0],
+  [[0, 4], [0, 1], 5, 0, 128 | 0]
 ];
-export var CreateAccessTokenOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _CATO,
+export var CreateAccessTokenOutput$: StaticStructureSchema = [3, n0, _CATO,
   0,
   [_i, _a, _cT, _cA, _dVI, _eA, _n, _s, _v],
-  [0, 0, 0, 5, 0, 5, 0, 0, [() => AccessTokenValue, 0]],
+  [0, 0, 0, 5, 0, 5, 0, 0, [() => AccessTokenValue, 0]]
 ];
-export var CreateDNSViewInput: StaticStructureSchema = [
-  3,
-  n0,
-  _CDNSVI,
+export var CreateDNSViewInput$: StaticStructureSchema = [3, n0, _CDNSVI,
   0,
   [_gRI, _cT, _n, _dV, _eCS, _fRFO, _d, _t],
-  [[0, 1], [0, 4], 0, 0, 0, 0, 0, 128 | 0],
+  [[0, 1], [0, 4], 0, 0, 0, 0, 0, 128 | 0]
 ];
-export var CreateDNSViewOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _CDNSVO,
+export var CreateDNSViewOutput$: StaticStructureSchema = [3, n0, _CDNSVO,
   0,
   [_i, _a, _cT, _dV, _eCS, _fRFO, _n, _d, _gRI, _cA, _uA, _s],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0]
 ];
-export var CreateFirewallDomainListInput: StaticStructureSchema = [
-  3,
-  n0,
-  _CFDLI,
+export var CreateFirewallDomainListInput$: StaticStructureSchema = [3, n0, _CFDLI,
   0,
   [_cT, _gRI, _d, _n, _t],
-  [[0, 4], [0, 1], 0, 0, 128 | 0],
+  [[0, 4], [0, 1], 0, 0, 128 | 0]
 ];
-export var CreateFirewallDomainListOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _CFDLO,
+export var CreateFirewallDomainListOutput$: StaticStructureSchema = [3, n0, _CFDLO,
   0,
   [_a, _gRI, _cA, _d, _dC, _i, _n, _s, _uA],
-  [0, 0, 5, 0, 1, 0, 0, 0, 5],
+  [0, 0, 5, 0, 1, 0, 0, 0, 5]
 ];
-export var CreateFirewallRuleInput: StaticStructureSchema = [
-  3,
-  n0,
-  _CFRI,
+export var CreateFirewallRuleInput$: StaticStructureSchema = [3, n0, _CFRI,
   0,
   [_ac, _bODT, _bOD, _bOT, _bR, _cT, _cTo, _d, _dAP, _fDLI, _n, _pr, _dVI, _qT],
-  [0, 0, 0, 1, 0, [0, 4], 0, 0, 0, 0, 0, 1, 0, 0],
+  [0, 0, 0, 1, 0, [0, 4], 0, 0, 0, 0, 0, 1, 0, 0]
 ];
-export var CreateFirewallRuleOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _CFRO,
+export var CreateFirewallRuleOutput$: StaticStructureSchema = [3, n0, _CFRO,
   0,
   [_ac, _bODT, _bOD, _bOT, _bR, _cTo, _cA, _d, _dAP, _fDLI, _i, _n, _pr, _dVI, _qTu, _s, _uA],
-  [0, 0, 0, 1, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5],
+  [0, 0, 0, 1, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5]
 ];
-export var CreateGlobalResolverInput: StaticStructureSchema = [
-  3,
-  n0,
-  _CGRI,
+export var CreateGlobalResolverInput$: StaticStructureSchema = [3, n0, _CGRI,
   0,
   [_cT, _d, _n, _oR, _r, _t],
-  [[0, 4], 0, 0, 0, 64 | 0, 128 | 0],
+  [[0, 4], 0, 0, 0, 64 | 0, 128 | 0]
 ];
-export var CreateGlobalResolverOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _CGRO,
+export var CreateGlobalResolverOutput$: StaticStructureSchema = [3, n0, _CGRO,
   0,
   [_i, _a, _cT, _cA, _d, _dN, _iA, _n, _oR, _r, _s, _uA],
-  [0, 0, 0, 5, 0, 0, 64 | 0, 0, 0, 64 | 0, 0, 5],
+  [0, 0, 0, 5, 0, 0, 64 | 0, 0, 0, 64 | 0, 0, 5]
 ];
-export var DeleteAccessSourceInput: StaticStructureSchema = [3, n0, _DASI, 0, [_aSI], [[0, 1]]];
-export var DeleteAccessSourceOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _DASO,
+export var DeleteAccessSourceInput$: StaticStructureSchema = [3, n0, _DASI,
+  0,
+  [_aSI],
+  [[0, 1]]
+];
+export var DeleteAccessSourceOutput$: StaticStructureSchema = [3, n0, _DASO,
   0,
   [_a, _ci, _cA, _i, _iAT, _n, _dVI, _p, _s, _uA],
-  [0, 0, 5, 0, 0, 0, 0, 0, 0, 5],
+  [0, 0, 5, 0, 0, 0, 0, 0, 0, 5]
 ];
-export var DeleteAccessTokenInput: StaticStructureSchema = [3, n0, _DATI, 0, [_aTI], [[0, 1]]];
-export var DeleteAccessTokenOutput: StaticStructureSchema = [3, n0, _DATO, 0, [_i, _s, _dA], [0, 0, 5]];
-export var DeleteDNSViewInput: StaticStructureSchema = [3, n0, _DDNSVI, 0, [_dVI], [[0, 1]]];
-export var DeleteDNSViewOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _DDNSVO,
+export var DeleteAccessTokenInput$: StaticStructureSchema = [3, n0, _DATI,
+  0,
+  [_aTI],
+  [[0, 1]]
+];
+export var DeleteAccessTokenOutput$: StaticStructureSchema = [3, n0, _DATO,
+  0,
+  [_i, _s, _dA],
+  [0, 0, 5]
+];
+export var DeleteDNSViewInput$: StaticStructureSchema = [3, n0, _DDNSVI,
+  0,
+  [_dVI],
+  [[0, 1]]
+];
+export var DeleteDNSViewOutput$: StaticStructureSchema = [3, n0, _DDNSVO,
   0,
   [_i, _a, _cT, _dV, _eCS, _fRFO, _n, _d, _gRI, _cA, _uA, _s],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0]
 ];
-export var DeleteFirewallDomainListInput: StaticStructureSchema = [3, n0, _DFDLI, 0, [_fDLI], [[0, 1]]];
-export var DeleteFirewallDomainListOutput: StaticStructureSchema = [3, n0, _DFDLO, 0, [_a, _i, _n, _s], [0, 0, 0, 0]];
-export var DeleteFirewallRuleInput: StaticStructureSchema = [3, n0, _DFRI, 0, [_fRI], [[0, 1]]];
-export var DeleteFirewallRuleOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _DFRO,
+export var DeleteFirewallDomainListInput$: StaticStructureSchema = [3, n0, _DFDLI,
+  0,
+  [_fDLI],
+  [[0, 1]]
+];
+export var DeleteFirewallDomainListOutput$: StaticStructureSchema = [3, n0, _DFDLO,
+  0,
+  [_a, _i, _n, _s],
+  [0, 0, 0, 0]
+];
+export var DeleteFirewallRuleInput$: StaticStructureSchema = [3, n0, _DFRI,
+  0,
+  [_fRI],
+  [[0, 1]]
+];
+export var DeleteFirewallRuleOutput$: StaticStructureSchema = [3, n0, _DFRO,
   0,
   [_ac, _bODT, _bOD, _bOT, _bR, _cTo, _cA, _d, _dAP, _fDLI, _i, _n, _pr, _dVI, _qTu, _s, _uA],
-  [0, 0, 0, 1, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5],
+  [0, 0, 0, 1, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5]
 ];
-export var DeleteGlobalResolverInput: StaticStructureSchema = [3, n0, _DGRI, 0, [_gRI], [[0, 1]]];
-export var DeleteGlobalResolverOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _DGRO,
+export var DeleteGlobalResolverInput$: StaticStructureSchema = [3, n0, _DGRI,
+  0,
+  [_gRI],
+  [[0, 1]]
+];
+export var DeleteGlobalResolverOutput$: StaticStructureSchema = [3, n0, _DGRO,
   0,
   [_i, _a, _cT, _dN, _oR, _n, _d, _r, _cA, _uA, _s, _iA],
-  [0, 0, 0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0],
+  [0, 0, 0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0]
 ];
-export var DisableDNSViewInput: StaticStructureSchema = [3, n0, _DDNSVIi, 0, [_dVI], [[0, 1]]];
-export var DisableDNSViewOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _DDNSVOi,
+export var DisableDNSViewInput$: StaticStructureSchema = [3, n0, _DDNSVIi,
+  0,
+  [_dVI],
+  [[0, 1]]
+];
+export var DisableDNSViewOutput$: StaticStructureSchema = [3, n0, _DDNSVOi,
   0,
   [_i, _a, _cT, _dV, _eCS, _fRFO, _n, _d, _gRI, _cA, _uA, _s],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0]
 ];
-export var DisassociateHostedZoneInput: StaticStructureSchema = [
-  3,
-  n0,
-  _DHZI,
+export var DisassociateHostedZoneInput$: StaticStructureSchema = [3, n0, _DHZI,
   0,
   [_hZI, _rA],
-  [
-    [0, 1],
-    [0, 1],
-  ],
+  [[0, 1], [0, 1]]
 ];
-export var DisassociateHostedZoneOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _DHZO,
+export var DisassociateHostedZoneOutput$: StaticStructureSchema = [3, n0, _DHZO,
   0,
   [_i, _rA, _hZI, _hZN, _n, _cA, _uA, _s],
-  [0, 0, 0, 0, 0, 5, 5, 0],
+  [0, 0, 0, 0, 0, 5, 5, 0]
 ];
-export var DNSViewSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _DNSVS,
+export var DNSViewSummary$: StaticStructureSchema = [3, n0, _DNSVS,
   0,
   [_i, _a, _cT, _dV, _eCS, _fRFO, _n, _d, _gRI, _cA, _uA, _s],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0]
 ];
-export var EnableDNSViewInput: StaticStructureSchema = [3, n0, _EDNSVI, 0, [_dVI], [[0, 1]]];
-export var EnableDNSViewOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _EDNSVO,
+export var EnableDNSViewInput$: StaticStructureSchema = [3, n0, _EDNSVI,
+  0,
+  [_dVI],
+  [[0, 1]]
+];
+export var EnableDNSViewOutput$: StaticStructureSchema = [3, n0, _EDNSVO,
   0,
   [_i, _a, _cT, _dV, _eCS, _fRFO, _n, _d, _gRI, _cA, _uA, _s],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0]
 ];
-export var FirewallDomainListsItem: StaticStructureSchema = [
-  3,
-  n0,
-  _FDLI,
+export var FirewallDomainListsItem$: StaticStructureSchema = [3, n0, _FDLI,
   0,
   [_a, _gRI, _cA, _d, _i, _n, _s, _uA],
-  [0, 0, 5, 0, 0, 0, 0, 5],
+  [0, 0, 5, 0, 0, 0, 0, 5]
 ];
-export var FirewallRulesItem: StaticStructureSchema = [
-  3,
-  n0,
-  _FRI,
+export var FirewallRulesItem$: StaticStructureSchema = [3, n0, _FRI,
   0,
   [_ac, _bODT, _bOD, _bOT, _bR, _cTo, _cA, _d, _dAP, _fDLI, _i, _n, _pr, _dVI, _qTu, _s, _uA],
-  [0, 0, 0, 1, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5],
+  [0, 0, 0, 1, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5]
 ];
-export var GetAccessSourceInput: StaticStructureSchema = [3, n0, _GASI, 0, [_aSI], [[0, 1]]];
-export var GetAccessSourceOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GASO,
+export var GetAccessSourceInput$: StaticStructureSchema = [3, n0, _GASI,
+  0,
+  [_aSI],
+  [[0, 1]]
+];
+export var GetAccessSourceOutput$: StaticStructureSchema = [3, n0, _GASO,
   0,
   [_a, _ci, _cA, _i, _iAT, _n, _dVI, _p, _s, _uA],
-  [0, 0, 5, 0, 0, 0, 0, 0, 0, 5],
+  [0, 0, 5, 0, 0, 0, 0, 0, 0, 5]
 ];
-export var GetAccessTokenInput: StaticStructureSchema = [3, n0, _GATI, 0, [_aTI], [[0, 1]]];
-export var GetAccessTokenOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GATO,
+export var GetAccessTokenInput$: StaticStructureSchema = [3, n0, _GATI,
+  0,
+  [_aTI],
+  [[0, 1]]
+];
+export var GetAccessTokenOutput$: StaticStructureSchema = [3, n0, _GATO,
   0,
   [_i, _a, _cT, _cA, _dVI, _eA, _gRI, _n, _s, _uA, _v],
-  [0, 0, 0, 5, 0, 5, 0, 0, 0, 5, [() => AccessTokenValue, 0]],
+  [0, 0, 0, 5, 0, 5, 0, 0, 0, 5, [() => AccessTokenValue, 0]]
 ];
-export var GetDNSViewInput: StaticStructureSchema = [3, n0, _GDNSVI, 0, [_dVI], [[0, 1]]];
-export var GetDNSViewOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GDNSVO,
+export var GetDNSViewInput$: StaticStructureSchema = [3, n0, _GDNSVI,
+  0,
+  [_dVI],
+  [[0, 1]]
+];
+export var GetDNSViewOutput$: StaticStructureSchema = [3, n0, _GDNSVO,
   0,
   [_i, _a, _cT, _dV, _eCS, _fRFO, _n, _d, _gRI, _cA, _uA, _s],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0]
 ];
-export var GetFirewallDomainListInput: StaticStructureSchema = [3, n0, _GFDLI, 0, [_fDLI], [[0, 1]]];
-export var GetFirewallDomainListOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GFDLO,
+export var GetFirewallDomainListInput$: StaticStructureSchema = [3, n0, _GFDLI,
+  0,
+  [_fDLI],
+  [[0, 1]]
+];
+export var GetFirewallDomainListOutput$: StaticStructureSchema = [3, n0, _GFDLO,
   0,
   [_a, _gRI, _cT, _cA, _d, _dC, _i, _n, _s, _sM, _uA],
-  [0, 0, 0, 5, 0, 1, 0, 0, 0, 0, 5],
+  [0, 0, 0, 5, 0, 1, 0, 0, 0, 0, 5]
 ];
-export var GetFirewallRuleInput: StaticStructureSchema = [3, n0, _GFRI, 0, [_fRI], [[0, 1]]];
-export var GetFirewallRuleOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GFRO,
+export var GetFirewallRuleInput$: StaticStructureSchema = [3, n0, _GFRI,
+  0,
+  [_fRI],
+  [[0, 1]]
+];
+export var GetFirewallRuleOutput$: StaticStructureSchema = [3, n0, _GFRO,
   0,
   [_ac, _bODT, _bOD, _bOT, _bR, _cTo, _cA, _d, _dAP, _fDLI, _i, _n, _pr, _dVI, _qTu, _s, _uA],
-  [0, 0, 0, 1, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5],
+  [0, 0, 0, 1, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5]
 ];
-export var GetGlobalResolverInput: StaticStructureSchema = [3, n0, _GGRI, 0, [_gRI], [[0, 1]]];
-export var GetGlobalResolverOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GGRO,
+export var GetGlobalResolverInput$: StaticStructureSchema = [3, n0, _GGRI,
+  0,
+  [_gRI],
+  [[0, 1]]
+];
+export var GetGlobalResolverOutput$: StaticStructureSchema = [3, n0, _GGRO,
   0,
   [_i, _a, _cT, _dN, _oR, _n, _d, _r, _cA, _uA, _s, _iA],
-  [0, 0, 0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0],
+  [0, 0, 0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0]
 ];
-export var GetHostedZoneAssociationInput: StaticStructureSchema = [3, n0, _GHZAI, 0, [_hZAI], [[0, 1]]];
-export var GetHostedZoneAssociationOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GHZAO,
+export var GetHostedZoneAssociationInput$: StaticStructureSchema = [3, n0, _GHZAI,
+  0,
+  [_hZAI],
+  [[0, 1]]
+];
+export var GetHostedZoneAssociationOutput$: StaticStructureSchema = [3, n0, _GHZAO,
   0,
   [_i, _rA, _hZI, _hZN, _n, _cA, _uA, _s],
-  [0, 0, 0, 0, 0, 5, 5, 0],
+  [0, 0, 0, 0, 0, 5, 5, 0]
 ];
-export var GetManagedFirewallDomainListInput: StaticStructureSchema = [3, n0, _GMFDLI, 0, [_mFDLI], [[0, 1]]];
-export var GetManagedFirewallDomainListOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GMFDLO,
+export var GetManagedFirewallDomainListInput$: StaticStructureSchema = [3, n0, _GMFDLI,
+  0,
+  [_mFDLI],
+  [[0, 1]]
+];
+export var GetManagedFirewallDomainListOutput$: StaticStructureSchema = [3, n0, _GMFDLO,
   0,
   [_d, _i, _n, _mLT],
-  [0, 0, 0, 0],
+  [0, 0, 0, 0]
 ];
-export var GlobalResolversItem: StaticStructureSchema = [
-  3,
-  n0,
-  _GRI,
+export var GlobalResolversItem$: StaticStructureSchema = [3, n0, _GRI,
   0,
   [_i, _a, _cT, _dN, _oR, _n, _d, _r, _cA, _uA, _s, _iA],
-  [0, 0, 0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0],
+  [0, 0, 0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0]
 ];
-export var HostedZoneAssociationSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _HZAS,
+export var HostedZoneAssociationSummary$: StaticStructureSchema = [3, n0, _HZAS,
   0,
   [_i, _rA, _hZI, _hZN, _n, _cA, _uA, _s],
-  [0, 0, 0, 0, 0, 5, 5, 0],
+  [0, 0, 0, 0, 0, 5, 5, 0]
 ];
-export var ImportFirewallDomainsInput: StaticStructureSchema = [3, n0, _IFDI, 0, [_dFU, _fDLI, _o], [0, [0, 1], 0]];
-export var ImportFirewallDomainsOutput: StaticStructureSchema = [3, n0, _IFDO, 0, [_i, _n, _s], [0, 0, 0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
+export var ImportFirewallDomainsInput$: StaticStructureSchema = [3, n0, _IFDI,
+  0,
+  [_dFU, _fDLI, _o],
+  [0, [0, 1], 0]
+];
+export var ImportFirewallDomainsOutput$: StaticStructureSchema = [3, n0, _IFDO,
+  0,
+  [_i, _n, _s],
+  [0, 0, 0]
+];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]],
+  [0, [1, { [_hH]: _RA }]]
 ];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var ListAccessSourcesInput: StaticStructureSchema = [
-  3,
-  n0,
-  _LASI,
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var ListAccessSourcesInput$: StaticStructureSchema = [3, n0, _LASI,
   0,
   [_mR, _nT, _fi],
-  [
-    [1, { [_hQ]: _mr }],
-    [0, { [_hQ]: _nt }],
-    [[2, n0, _F, 0, 0, 64 | 0], 64],
-  ],
+  [[1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [[2, n0, _F, 0, 0, 64 | 0], 64]]
 ];
-export var ListAccessSourcesOutput: StaticStructureSchema = [3, n0, _LASO, 0, [_nT, _aS], [0, () => AccessSources]];
-export var ListAccessTokensInput: StaticStructureSchema = [
-  3,
-  n0,
-  _LATI,
+export var ListAccessSourcesOutput$: StaticStructureSchema = [3, n0, _LASO,
+  0,
+  [_nT, _aS],
+  [0, () => AccessSources]
+];
+export var ListAccessTokensInput$: StaticStructureSchema = [3, n0, _LATI,
   0,
   [_mR, _nT, _dVI, _fi],
-  [
-    [1, { [_hQ]: _mr }],
-    [0, { [_hQ]: _nt }],
-    [0, 1],
-    [[2, n0, _F, 0, 0, 64 | 0], 64],
-  ],
+  [[1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [0, 1], [[2, n0, _F, 0, 0, 64 | 0], 64]]
 ];
-export var ListAccessTokensOutput: StaticStructureSchema = [3, n0, _LATO, 0, [_nT, _aT], [0, () => AccessTokens]];
-export var ListDNSViewsInput: StaticStructureSchema = [
-  3,
-  n0,
-  _LDNSVI,
+export var ListAccessTokensOutput$: StaticStructureSchema = [3, n0, _LATO,
+  0,
+  [_nT, _aT],
+  [0, () => AccessTokens]
+];
+export var ListDNSViewsInput$: StaticStructureSchema = [3, n0, _LDNSVI,
   0,
   [_mR, _nT, _gRI],
-  [
-    [1, { [_hQ]: _mr }],
-    [0, { [_hQ]: _nt }],
-    [0, 1],
-  ],
+  [[1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [0, 1]]
 ];
-export var ListDNSViewsOutput: StaticStructureSchema = [3, n0, _LDNSVO, 0, [_nT, _dVn], [0, () => DNSViews]];
-export var ListFirewallDomainListsInput: StaticStructureSchema = [
-  3,
-  n0,
-  _LFDLI,
+export var ListDNSViewsOutput$: StaticStructureSchema = [3, n0, _LDNSVO,
+  0,
+  [_nT, _dVn],
+  [0, () => DNSViews]
+];
+export var ListFirewallDomainListsInput$: StaticStructureSchema = [3, n0, _LFDLI,
   0,
   [_mR, _nT, _gRI],
-  [
-    [1, { [_hQ]: _mr }],
-    [0, { [_hQ]: _nt }],
-    [0, { [_hQ]: _gri }],
-  ],
+  [[1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [0, { [_hQ]: _gri }]]
 ];
-export var ListFirewallDomainListsOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _LFDLO,
+export var ListFirewallDomainListsOutput$: StaticStructureSchema = [3, n0, _LFDLO,
   0,
   [_nT, _fDL],
-  [0, () => FirewallDomainLists],
+  [0, () => FirewallDomainLists]
 ];
-export var ListFirewallDomainsInput: StaticStructureSchema = [
-  3,
-  n0,
-  _LFDI,
+export var ListFirewallDomainsInput$: StaticStructureSchema = [3, n0, _LFDI,
   0,
   [_mR, _nT, _fDLI],
-  [
-    [1, { [_hQ]: _mr }],
-    [0, { [_hQ]: _nt }],
-    [0, 1],
-  ],
+  [[1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [0, 1]]
 ];
-export var ListFirewallDomainsOutput: StaticStructureSchema = [3, n0, _LFDO, 0, [_nT, _do], [0, 64 | 0]];
-export var ListFirewallRulesInput: StaticStructureSchema = [
-  3,
-  n0,
-  _LFRI,
+export var ListFirewallDomainsOutput$: StaticStructureSchema = [3, n0, _LFDO,
+  0,
+  [_nT, _do],
+  [0, 64 | 0]
+];
+export var ListFirewallRulesInput$: StaticStructureSchema = [3, n0, _LFRI,
   0,
   [_mR, _nT, _dVI, _fi],
-  [
-    [1, { [_hQ]: _mr }],
-    [0, { [_hQ]: _nt }],
-    [0, { [_hQ]: _di }],
-    [[2, n0, _F, 0, 0, 64 | 0], 64],
-  ],
+  [[1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [0, { [_hQ]: _di }], [[2, n0, _F, 0, 0, 64 | 0], 64]]
 ];
-export var ListFirewallRulesOutput: StaticStructureSchema = [3, n0, _LFRO, 0, [_nT, _fR], [0, () => FirewallRules]];
-export var ListGlobalResolversInput: StaticStructureSchema = [
-  3,
-  n0,
-  _LGRI,
+export var ListFirewallRulesOutput$: StaticStructureSchema = [3, n0, _LFRO,
+  0,
+  [_nT, _fR],
+  [0, () => FirewallRules]
+];
+export var ListGlobalResolversInput$: StaticStructureSchema = [3, n0, _LGRI,
   0,
   [_mR, _nT],
-  [
-    [1, { [_hQ]: _mr }],
-    [0, { [_hQ]: _nt }],
-  ],
+  [[1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]]
 ];
-export var ListGlobalResolversOutput: StaticStructureSchema = [3, n0, _LGRO, 0, [_nT, _gR], [0, () => GlobalResolvers]];
-export var ListHostedZoneAssociationsInput: StaticStructureSchema = [
-  3,
-  n0,
-  _LHZAI,
+export var ListGlobalResolversOutput$: StaticStructureSchema = [3, n0, _LGRO,
+  0,
+  [_nT, _gR],
+  [0, () => GlobalResolvers]
+];
+export var ListHostedZoneAssociationsInput$: StaticStructureSchema = [3, n0, _LHZAI,
   0,
   [_mR, _nT, _rA],
-  [
-    [1, { [_hQ]: _mr }],
-    [0, { [_hQ]: _nt }],
-    [0, 1],
-  ],
+  [[1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [0, 1]]
 ];
-export var ListHostedZoneAssociationsOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _LHZAO,
+export var ListHostedZoneAssociationsOutput$: StaticStructureSchema = [3, n0, _LHZAO,
   0,
   [_nT, _hZA],
-  [0, () => HostedZoneAssociations],
+  [0, () => HostedZoneAssociations]
 ];
-export var ListManagedFirewallDomainListsInput: StaticStructureSchema = [
-  3,
-  n0,
-  _LMFDLI,
+export var ListManagedFirewallDomainListsInput$: StaticStructureSchema = [3, n0, _LMFDLI,
   0,
   [_mR, _nT, _mFDLT],
-  [
-    [1, { [_hQ]: _mr }],
-    [0, { [_hQ]: _nt }],
-    [0, 1],
-  ],
+  [[1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [0, 1]]
 ];
-export var ListManagedFirewallDomainListsOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _LMFDLO,
+export var ListManagedFirewallDomainListsOutput$: StaticStructureSchema = [3, n0, _LMFDLO,
   0,
   [_nT, _mFDL],
-  [0, () => ManagedFirewallDomainLists],
+  [0, () => ManagedFirewallDomainLists]
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [0]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
-export var ManagedFirewallDomainListsItem: StaticStructureSchema = [3, n0, _MFDLI, 0, [_d, _i, _n, _mLT], [0, 0, 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
+  0,
+  [_rA],
+  [0]
+];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
+  0,
+  [_t],
+  [128 | 0]
+];
+export var ManagedFirewallDomainListsItem$: StaticStructureSchema = [3, n0, _MFDLI,
+  0,
+  [_d, _i, _n, _mLT],
+  [0, 0, 0, 0]
+];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [0, 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
+  0,
+  [_rA, _t],
+  [0, 128 | 0]
+];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
+  0,
+  [],
+  []
+];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]],
+  [0, 0, 0, [1, { [_hH]: _RA }]]
 ];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [0, 64 | 0]];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateAccessSourceInput: StaticStructureSchema = [
-  3,
-  n0,
-  _UASI,
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
+  0,
+  [_rA, _tK],
+  [0, 64 | 0]
+];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
+  0,
+  [],
+  []
+];
+export var UpdateAccessSourceInput$: StaticStructureSchema = [3, n0, _UASI,
   0,
   [_aSI, _ci, _iAT, _n, _p],
-  [[0, 1], 0, 0, 0, 0],
+  [[0, 1], 0, 0, 0, 0]
 ];
-export var UpdateAccessSourceOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _UASO,
+export var UpdateAccessSourceOutput$: StaticStructureSchema = [3, n0, _UASO,
   0,
   [_a, _ci, _cA, _i, _iAT, _n, _dVI, _p, _s, _uA],
-  [0, 0, 5, 0, 0, 0, 0, 0, 0, 5],
+  [0, 0, 5, 0, 0, 0, 0, 0, 0, 5]
 ];
-export var UpdateAccessTokenInput: StaticStructureSchema = [3, n0, _UATI, 0, [_aTI, _n], [[0, 1], 0]];
-export var UpdateAccessTokenOutput: StaticStructureSchema = [3, n0, _UATO, 0, [_i, _n], [0, 0]];
-export var UpdateDNSViewInput: StaticStructureSchema = [
-  3,
-  n0,
-  _UDNSVI,
+export var UpdateAccessTokenInput$: StaticStructureSchema = [3, n0, _UATI,
+  0,
+  [_aTI, _n],
+  [[0, 1], 0]
+];
+export var UpdateAccessTokenOutput$: StaticStructureSchema = [3, n0, _UATO,
+  0,
+  [_i, _n],
+  [0, 0]
+];
+export var UpdateDNSViewInput$: StaticStructureSchema = [3, n0, _UDNSVI,
   0,
   [_dVI, _n, _d, _dV, _eCS, _fRFO],
-  [[0, 1], 0, 0, 0, 0, 0],
+  [[0, 1], 0, 0, 0, 0, 0]
 ];
-export var UpdateDNSViewOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _UDNSVO,
+export var UpdateDNSViewOutput$: StaticStructureSchema = [3, n0, _UDNSVO,
   0,
   [_i, _a, _cT, _dV, _eCS, _fRFO, _n, _d, _gRI, _cA, _uA, _s],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0]
 ];
-export var UpdateFirewallDomainsInput: StaticStructureSchema = [3, n0, _UFDI, 0, [_do, _fDLI, _o], [64 | 0, [0, 1], 0]];
-export var UpdateFirewallDomainsOutput: StaticStructureSchema = [3, n0, _UFDO, 0, [_i, _n, _s], [0, 0, 0]];
-export var UpdateFirewallRuleInput: StaticStructureSchema = [
-  3,
-  n0,
-  _UFRI,
+export var UpdateFirewallDomainsInput$: StaticStructureSchema = [3, n0, _UFDI,
+  0,
+  [_do, _fDLI, _o],
+  [64 | 0, [0, 1], 0]
+];
+export var UpdateFirewallDomainsOutput$: StaticStructureSchema = [3, n0, _UFDO,
+  0,
+  [_i, _n, _s],
+  [0, 0, 0]
+];
+export var UpdateFirewallRuleInput$: StaticStructureSchema = [3, n0, _UFRI,
   0,
   [_ac, _bODT, _bOD, _bOT, _bR, _cT, _cTo, _d, _dAP, _fRI, _n, _pr],
-  [0, 0, 0, 1, 0, [0, 4], 0, 0, 0, [0, 1], 0, 1],
+  [0, 0, 0, 1, 0, [0, 4], 0, 0, 0, [0, 1], 0, 1]
 ];
-export var UpdateFirewallRuleOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _UFRO,
+export var UpdateFirewallRuleOutput$: StaticStructureSchema = [3, n0, _UFRO,
   0,
   [_ac, _bODT, _bOD, _bOT, _bR, _cTo, _cA, _d, _dAP, _fDLI, _i, _n, _pr, _dVI, _qTu, _s, _uA],
-  [0, 0, 0, 1, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5],
+  [0, 0, 0, 1, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5]
 ];
-export var UpdateGlobalResolverInput: StaticStructureSchema = [3, n0, _UGRI, 0, [_gRI, _n, _oR, _d], [[0, 1], 0, 0, 0]];
-export var UpdateGlobalResolverOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _UGRO,
+export var UpdateGlobalResolverInput$: StaticStructureSchema = [3, n0, _UGRI,
+  0,
+  [_gRI, _n, _oR, _d],
+  [[0, 1], 0, 0, 0]
+];
+export var UpdateGlobalResolverOutput$: StaticStructureSchema = [3, n0, _UGRO,
   0,
   [_i, _a, _cT, _dN, _oR, _n, _d, _r, _cA, _uA, _s, _iA],
-  [0, 0, 0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0],
+  [0, 0, 0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0]
 ];
-export var UpdateHostedZoneAssociationInput: StaticStructureSchema = [3, n0, _UHZAI, 0, [_hZAI, _n], [[0, 1], 0]];
-export var UpdateHostedZoneAssociationOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _UHZAO,
+export var UpdateHostedZoneAssociationInput$: StaticStructureSchema = [3, n0, _UHZAI,
+  0,
+  [_hZAI, _n],
+  [[0, 1], 0]
+];
+export var UpdateHostedZoneAssociationOutput$: StaticStructureSchema = [3, n0, _UHZAO,
   0,
   [_i, _rA, _hZI, _hZN, _n, _cA, _uA, _s],
-  [0, 0, 0, 0, 0, 5, 5, 0],
+  [0, 0, 0, 0, 0, 5, 5, 0]
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _re, _fL],
-  [0, 0, () => ValidationExceptionFieldList],
+  [0, 0, () => ValidationExceptionFieldList]
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var Route53GlobalResolverServiceException: StaticErrorSchema = [
-  -3,
-  _sm,
-  "Route53GlobalResolverServiceException",
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
-  [],
-  [],
+  [_n, _m],
+  [0, 0]
 ];
-TypeRegistry.for(_sm).registerError(Route53GlobalResolverServiceException, __Route53GlobalResolverServiceException);
-export var AccessSources: StaticListSchema = [1, n0, _AS, 0, () => AccessSourcesItem];
-export var AccessTokens: StaticListSchema = [1, n0, _AT, 0, () => AccessTokenItem];
-export var BatchCreateFirewallRuleInputItems: StaticListSchema = [
-  1,
-  n0,
-  _BCFRIIa,
-  0,
-  () => BatchCreateFirewallRuleInputItem,
+export var Route53GlobalResolverServiceException$: StaticErrorSchema = [-3, _sm, "Route53GlobalResolverServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(Route53GlobalResolverServiceException$, Route53GlobalResolverServiceException);
+var AccessSources: StaticListSchema = [1, n0, _AS,
+  0, () => AccessSourcesItem$
 ];
-export var BatchCreateFirewallRuleOutputItems: StaticListSchema = [
-  1,
-  n0,
-  _BCFROIa,
-  0,
-  () => BatchCreateFirewallRuleOutputItem,
+var AccessTokens: StaticListSchema = [1, n0, _AT,
+  0, () => AccessTokenItem$
 ];
-export var BatchDeleteFirewallRuleInputItems: StaticListSchema = [
-  1,
-  n0,
-  _BDFRIIa,
-  0,
-  () => BatchDeleteFirewallRuleInputItem,
+var BatchCreateFirewallRuleInputItems: StaticListSchema = [1, n0, _BCFRIIa,
+  0, () => BatchCreateFirewallRuleInputItem$
 ];
-export var BatchDeleteFirewallRuleOutputItems: StaticListSchema = [
-  1,
-  n0,
-  _BDFROIa,
-  0,
-  () => BatchDeleteFirewallRuleOutputItem,
+var BatchCreateFirewallRuleOutputItems: StaticListSchema = [1, n0, _BCFROIa,
+  0, () => BatchCreateFirewallRuleOutputItem$
 ];
-export var BatchUpdateFirewallRuleInputItems: StaticListSchema = [
-  1,
-  n0,
-  _BUFRIIa,
-  0,
-  () => BatchUpdateFirewallRuleInputItem,
+var BatchDeleteFirewallRuleInputItems: StaticListSchema = [1, n0, _BDFRIIa,
+  0, () => BatchDeleteFirewallRuleInputItem$
 ];
-export var BatchUpdateFirewallRuleOutputItems: StaticListSchema = [
-  1,
-  n0,
-  _BUFROIa,
-  0,
-  () => BatchUpdateFirewallRuleOutputItem,
+var BatchDeleteFirewallRuleOutputItems: StaticListSchema = [1, n0, _BDFROIa,
+  0, () => BatchDeleteFirewallRuleOutputItem$
 ];
-export var DNSViews: StaticListSchema = [1, n0, _DNSV, 0, () => DNSViewSummary];
-export var Domains = 64 | 0;
-export var FirewallDomainLists: StaticListSchema = [1, n0, _FDL, 0, () => FirewallDomainListsItem];
-export var FirewallRules: StaticListSchema = [1, n0, _FR, 0, () => FirewallRulesItem];
-export var GlobalResolvers: StaticListSchema = [1, n0, _GR, 0, () => GlobalResolversItem];
-export var HostedZoneAssociations: StaticListSchema = [1, n0, _HZA, 0, () => HostedZoneAssociationSummary];
-export var IPv4Addresses = 64 | 0;
-export var ManagedFirewallDomainLists: StaticListSchema = [1, n0, _MFDL, 0, () => ManagedFirewallDomainListsItem];
-export var Regions = 64 | 0;
-export var Strings = 64 | 0;
-export var TagKeys = 64 | 0;
-export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
-export var Filters: StaticMapSchema = [2, n0, _F, 0, 0, 64 | 0];
-export var Tags = 128 | 0;
-export var AssociateHostedZone: StaticOperationSchema = [
-  9,
-  n0,
-  _AHZ,
-  { [_h]: ["POST", "/hosted-zone-associations/{hostedZoneId}", 200] },
-  () => AssociateHostedZoneInput,
-  () => AssociateHostedZoneOutput,
+var BatchUpdateFirewallRuleInputItems: StaticListSchema = [1, n0, _BUFRIIa,
+  0, () => BatchUpdateFirewallRuleInputItem$
 ];
-export var BatchCreateFirewallRule: StaticOperationSchema = [
-  9,
-  n0,
-  _BCFR,
-  { [_h]: ["POST", "/firewall-rules/batch-create", 200] },
-  () => BatchCreateFirewallRuleInput,
-  () => BatchCreateFirewallRuleOutput,
+var BatchUpdateFirewallRuleOutputItems: StaticListSchema = [1, n0, _BUFROIa,
+  0, () => BatchUpdateFirewallRuleOutputItem$
 ];
-export var BatchDeleteFirewallRule: StaticOperationSchema = [
-  9,
-  n0,
-  _BDFR,
-  { [_h]: ["POST", "/firewall-rules/batch-delete", 200] },
-  () => BatchDeleteFirewallRuleInput,
-  () => BatchDeleteFirewallRuleOutput,
+var DNSViews: StaticListSchema = [1, n0, _DNSV,
+  0, () => DNSViewSummary$
 ];
-export var BatchUpdateFirewallRule: StaticOperationSchema = [
-  9,
-  n0,
-  _BUFR,
-  { [_h]: ["POST", "/firewall-rules/batch-update", 200] },
-  () => BatchUpdateFirewallRuleInput,
-  () => BatchUpdateFirewallRuleOutput,
+var Domains = 64 | 0;
+var FirewallDomainLists: StaticListSchema = [1, n0, _FDL,
+  0, () => FirewallDomainListsItem$
 ];
-export var CreateAccessSource: StaticOperationSchema = [
-  9,
-  n0,
-  _CAS,
-  { [_h]: ["POST", "/access-sources", 200] },
-  () => CreateAccessSourceInput,
-  () => CreateAccessSourceOutput,
+var FirewallRules: StaticListSchema = [1, n0, _FR,
+  0, () => FirewallRulesItem$
 ];
-export var CreateAccessToken: StaticOperationSchema = [
-  9,
-  n0,
-  _CAT,
-  { [_h]: ["POST", "/tokens/{dnsViewId}", 200] },
-  () => CreateAccessTokenInput,
-  () => CreateAccessTokenOutput,
+var GlobalResolvers: StaticListSchema = [1, n0, _GR,
+  0, () => GlobalResolversItem$
 ];
-export var CreateDNSView: StaticOperationSchema = [
-  9,
-  n0,
-  _CDNSV,
-  { [_h]: ["POST", "/dns-views/{globalResolverId}", 200] },
-  () => CreateDNSViewInput,
-  () => CreateDNSViewOutput,
+var HostedZoneAssociations: StaticListSchema = [1, n0, _HZA,
+  0, () => HostedZoneAssociationSummary$
 ];
-export var CreateFirewallDomainList: StaticOperationSchema = [
-  9,
-  n0,
-  _CFDL,
-  { [_h]: ["POST", "/firewall-domain-lists/{globalResolverId}", 200] },
-  () => CreateFirewallDomainListInput,
-  () => CreateFirewallDomainListOutput,
+var IPv4Addresses = 64 | 0;
+var ManagedFirewallDomainLists: StaticListSchema = [1, n0, _MFDL,
+  0, () => ManagedFirewallDomainListsItem$
 ];
-export var CreateFirewallRule: StaticOperationSchema = [
-  9,
-  n0,
-  _CFR,
-  { [_h]: ["POST", "/firewall-rules", 200] },
-  () => CreateFirewallRuleInput,
-  () => CreateFirewallRuleOutput,
+var Regions = 64 | 0;
+var Strings = 64 | 0;
+var TagKeys = 64 | 0;
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
+  0, () => ValidationExceptionField$
 ];
-export var CreateGlobalResolver: StaticOperationSchema = [
-  9,
-  n0,
-  _CGR,
-  { [_h]: ["POST", "/global-resolver", 200] },
-  () => CreateGlobalResolverInput,
-  () => CreateGlobalResolverOutput,
+var Filters: StaticMapSchema = [2, n0, _F,
+  0, 0, 64 | 0
 ];
-export var DeleteAccessSource: StaticOperationSchema = [
-  9,
-  n0,
-  _DAS,
-  { [_h]: ["DELETE", "/access-sources/{accessSourceId}", 200] },
-  () => DeleteAccessSourceInput,
-  () => DeleteAccessSourceOutput,
+var Tags = 128 | 0;
+export var AssociateHostedZone$: StaticOperationSchema = [9, n0, _AHZ,
+  { [_h]: ["POST", "/hosted-zone-associations/{hostedZoneId}", 200] }, () => AssociateHostedZoneInput$, () => AssociateHostedZoneOutput$
 ];
-export var DeleteAccessToken: StaticOperationSchema = [
-  9,
-  n0,
-  _DAT,
-  { [_h]: ["DELETE", "/tokens/{accessTokenId}", 200] },
-  () => DeleteAccessTokenInput,
-  () => DeleteAccessTokenOutput,
+export var BatchCreateFirewallRule$: StaticOperationSchema = [9, n0, _BCFR,
+  { [_h]: ["POST", "/firewall-rules/batch-create", 200] }, () => BatchCreateFirewallRuleInput$, () => BatchCreateFirewallRuleOutput$
 ];
-export var DeleteDNSView: StaticOperationSchema = [
-  9,
-  n0,
-  _DDNSV,
-  { [_h]: ["DELETE", "/dns-views/{dnsViewId}", 200] },
-  () => DeleteDNSViewInput,
-  () => DeleteDNSViewOutput,
+export var BatchDeleteFirewallRule$: StaticOperationSchema = [9, n0, _BDFR,
+  { [_h]: ["POST", "/firewall-rules/batch-delete", 200] }, () => BatchDeleteFirewallRuleInput$, () => BatchDeleteFirewallRuleOutput$
 ];
-export var DeleteFirewallDomainList: StaticOperationSchema = [
-  9,
-  n0,
-  _DFDL,
-  { [_h]: ["DELETE", "/firewall-domain-lists/{firewallDomainListId}", 200] },
-  () => DeleteFirewallDomainListInput,
-  () => DeleteFirewallDomainListOutput,
+export var BatchUpdateFirewallRule$: StaticOperationSchema = [9, n0, _BUFR,
+  { [_h]: ["POST", "/firewall-rules/batch-update", 200] }, () => BatchUpdateFirewallRuleInput$, () => BatchUpdateFirewallRuleOutput$
 ];
-export var DeleteFirewallRule: StaticOperationSchema = [
-  9,
-  n0,
-  _DFR,
-  { [_h]: ["DELETE", "/firewall-rules/{firewallRuleId}", 200] },
-  () => DeleteFirewallRuleInput,
-  () => DeleteFirewallRuleOutput,
+export var CreateAccessSource$: StaticOperationSchema = [9, n0, _CAS,
+  { [_h]: ["POST", "/access-sources", 200] }, () => CreateAccessSourceInput$, () => CreateAccessSourceOutput$
 ];
-export var DeleteGlobalResolver: StaticOperationSchema = [
-  9,
-  n0,
-  _DGR,
-  { [_h]: ["DELETE", "/global-resolver/{globalResolverId}", 200] },
-  () => DeleteGlobalResolverInput,
-  () => DeleteGlobalResolverOutput,
+export var CreateAccessToken$: StaticOperationSchema = [9, n0, _CAT,
+  { [_h]: ["POST", "/tokens/{dnsViewId}", 200] }, () => CreateAccessTokenInput$, () => CreateAccessTokenOutput$
 ];
-export var DisableDNSView: StaticOperationSchema = [
-  9,
-  n0,
-  _DDNSVi,
-  { [_h]: ["PATCH", "/dns-views/{dnsViewId}/disable", 200] },
-  () => DisableDNSViewInput,
-  () => DisableDNSViewOutput,
+export var CreateDNSView$: StaticOperationSchema = [9, n0, _CDNSV,
+  { [_h]: ["POST", "/dns-views/{globalResolverId}", 200] }, () => CreateDNSViewInput$, () => CreateDNSViewOutput$
 ];
-export var DisassociateHostedZone: StaticOperationSchema = [
-  9,
-  n0,
-  _DHZ,
-  { [_h]: ["DELETE", "/hosted-zone-associations/hosted-zone/{hostedZoneId}/resource-arn/{resourceArn+}", 200] },
-  () => DisassociateHostedZoneInput,
-  () => DisassociateHostedZoneOutput,
+export var CreateFirewallDomainList$: StaticOperationSchema = [9, n0, _CFDL,
+  { [_h]: ["POST", "/firewall-domain-lists/{globalResolverId}", 200] }, () => CreateFirewallDomainListInput$, () => CreateFirewallDomainListOutput$
 ];
-export var EnableDNSView: StaticOperationSchema = [
-  9,
-  n0,
-  _EDNSV,
-  { [_h]: ["PATCH", "/dns-views/{dnsViewId}/enable", 200] },
-  () => EnableDNSViewInput,
-  () => EnableDNSViewOutput,
+export var CreateFirewallRule$: StaticOperationSchema = [9, n0, _CFR,
+  { [_h]: ["POST", "/firewall-rules", 200] }, () => CreateFirewallRuleInput$, () => CreateFirewallRuleOutput$
 ];
-export var GetAccessSource: StaticOperationSchema = [
-  9,
-  n0,
-  _GAS,
-  { [_h]: ["GET", "/access-sources/{accessSourceId}", 200] },
-  () => GetAccessSourceInput,
-  () => GetAccessSourceOutput,
+export var CreateGlobalResolver$: StaticOperationSchema = [9, n0, _CGR,
+  { [_h]: ["POST", "/global-resolver", 200] }, () => CreateGlobalResolverInput$, () => CreateGlobalResolverOutput$
 ];
-export var GetAccessToken: StaticOperationSchema = [
-  9,
-  n0,
-  _GAT,
-  { [_h]: ["GET", "/tokens/{accessTokenId}", 200] },
-  () => GetAccessTokenInput,
-  () => GetAccessTokenOutput,
+export var DeleteAccessSource$: StaticOperationSchema = [9, n0, _DAS,
+  { [_h]: ["DELETE", "/access-sources/{accessSourceId}", 200] }, () => DeleteAccessSourceInput$, () => DeleteAccessSourceOutput$
 ];
-export var GetDNSView: StaticOperationSchema = [
-  9,
-  n0,
-  _GDNSV,
-  { [_h]: ["GET", "/dns-views/{dnsViewId}", 200] },
-  () => GetDNSViewInput,
-  () => GetDNSViewOutput,
+export var DeleteAccessToken$: StaticOperationSchema = [9, n0, _DAT,
+  { [_h]: ["DELETE", "/tokens/{accessTokenId}", 200] }, () => DeleteAccessTokenInput$, () => DeleteAccessTokenOutput$
 ];
-export var GetFirewallDomainList: StaticOperationSchema = [
-  9,
-  n0,
-  _GFDL,
-  { [_h]: ["GET", "/firewall-domain-lists/{firewallDomainListId}", 200] },
-  () => GetFirewallDomainListInput,
-  () => GetFirewallDomainListOutput,
+export var DeleteDNSView$: StaticOperationSchema = [9, n0, _DDNSV,
+  { [_h]: ["DELETE", "/dns-views/{dnsViewId}", 200] }, () => DeleteDNSViewInput$, () => DeleteDNSViewOutput$
 ];
-export var GetFirewallRule: StaticOperationSchema = [
-  9,
-  n0,
-  _GFR,
-  { [_h]: ["GET", "/firewall-rules/{firewallRuleId}", 200] },
-  () => GetFirewallRuleInput,
-  () => GetFirewallRuleOutput,
+export var DeleteFirewallDomainList$: StaticOperationSchema = [9, n0, _DFDL,
+  { [_h]: ["DELETE", "/firewall-domain-lists/{firewallDomainListId}", 200] }, () => DeleteFirewallDomainListInput$, () => DeleteFirewallDomainListOutput$
 ];
-export var GetGlobalResolver: StaticOperationSchema = [
-  9,
-  n0,
-  _GGR,
-  { [_h]: ["GET", "/global-resolver/{globalResolverId}", 200] },
-  () => GetGlobalResolverInput,
-  () => GetGlobalResolverOutput,
+export var DeleteFirewallRule$: StaticOperationSchema = [9, n0, _DFR,
+  { [_h]: ["DELETE", "/firewall-rules/{firewallRuleId}", 200] }, () => DeleteFirewallRuleInput$, () => DeleteFirewallRuleOutput$
 ];
-export var GetHostedZoneAssociation: StaticOperationSchema = [
-  9,
-  n0,
-  _GHZA,
-  { [_h]: ["GET", "/hosted-zone-associations/{hostedZoneAssociationId}", 200] },
-  () => GetHostedZoneAssociationInput,
-  () => GetHostedZoneAssociationOutput,
+export var DeleteGlobalResolver$: StaticOperationSchema = [9, n0, _DGR,
+  { [_h]: ["DELETE", "/global-resolver/{globalResolverId}", 200] }, () => DeleteGlobalResolverInput$, () => DeleteGlobalResolverOutput$
 ];
-export var GetManagedFirewallDomainList: StaticOperationSchema = [
-  9,
-  n0,
-  _GMFDL,
-  { [_h]: ["GET", "/managed-firewall-domain-lists/{managedFirewallDomainListId}", 200] },
-  () => GetManagedFirewallDomainListInput,
-  () => GetManagedFirewallDomainListOutput,
+export var DisableDNSView$: StaticOperationSchema = [9, n0, _DDNSVi,
+  { [_h]: ["PATCH", "/dns-views/{dnsViewId}/disable", 200] }, () => DisableDNSViewInput$, () => DisableDNSViewOutput$
 ];
-export var ImportFirewallDomains: StaticOperationSchema = [
-  9,
-  n0,
-  _IFD,
-  { [_h]: ["PATCH", "/firewall-domain-lists/{firewallDomainListId}/domains/s3_file_url", 200] },
-  () => ImportFirewallDomainsInput,
-  () => ImportFirewallDomainsOutput,
+export var DisassociateHostedZone$: StaticOperationSchema = [9, n0, _DHZ,
+  { [_h]: ["DELETE", "/hosted-zone-associations/hosted-zone/{hostedZoneId}/resource-arn/{resourceArn+}", 200] }, () => DisassociateHostedZoneInput$, () => DisassociateHostedZoneOutput$
 ];
-export var ListAccessSources: StaticOperationSchema = [
-  9,
-  n0,
-  _LAS,
-  { [_h]: ["GET", "/access-sources", 200] },
-  () => ListAccessSourcesInput,
-  () => ListAccessSourcesOutput,
+export var EnableDNSView$: StaticOperationSchema = [9, n0, _EDNSV,
+  { [_h]: ["PATCH", "/dns-views/{dnsViewId}/enable", 200] }, () => EnableDNSViewInput$, () => EnableDNSViewOutput$
 ];
-export var ListAccessTokens: StaticOperationSchema = [
-  9,
-  n0,
-  _LAT,
-  { [_h]: ["GET", "/tokens/dns-view/{dnsViewId}", 200] },
-  () => ListAccessTokensInput,
-  () => ListAccessTokensOutput,
+export var GetAccessSource$: StaticOperationSchema = [9, n0, _GAS,
+  { [_h]: ["GET", "/access-sources/{accessSourceId}", 200] }, () => GetAccessSourceInput$, () => GetAccessSourceOutput$
 ];
-export var ListDNSViews: StaticOperationSchema = [
-  9,
-  n0,
-  _LDNSV,
-  { [_h]: ["GET", "/dns-views/resolver/{globalResolverId}", 200] },
-  () => ListDNSViewsInput,
-  () => ListDNSViewsOutput,
+export var GetAccessToken$: StaticOperationSchema = [9, n0, _GAT,
+  { [_h]: ["GET", "/tokens/{accessTokenId}", 200] }, () => GetAccessTokenInput$, () => GetAccessTokenOutput$
 ];
-export var ListFirewallDomainLists: StaticOperationSchema = [
-  9,
-  n0,
-  _LFDL,
-  { [_h]: ["GET", "/firewall-domain-lists", 200] },
-  () => ListFirewallDomainListsInput,
-  () => ListFirewallDomainListsOutput,
+export var GetDNSView$: StaticOperationSchema = [9, n0, _GDNSV,
+  { [_h]: ["GET", "/dns-views/{dnsViewId}", 200] }, () => GetDNSViewInput$, () => GetDNSViewOutput$
 ];
-export var ListFirewallDomains: StaticOperationSchema = [
-  9,
-  n0,
-  _LFD,
-  { [_h]: ["GET", "/firewall-domain-lists/{firewallDomainListId}/domains", 200] },
-  () => ListFirewallDomainsInput,
-  () => ListFirewallDomainsOutput,
+export var GetFirewallDomainList$: StaticOperationSchema = [9, n0, _GFDL,
+  { [_h]: ["GET", "/firewall-domain-lists/{firewallDomainListId}", 200] }, () => GetFirewallDomainListInput$, () => GetFirewallDomainListOutput$
 ];
-export var ListFirewallRules: StaticOperationSchema = [
-  9,
-  n0,
-  _LFR,
-  { [_h]: ["GET", "/firewall-rules", 200] },
-  () => ListFirewallRulesInput,
-  () => ListFirewallRulesOutput,
+export var GetFirewallRule$: StaticOperationSchema = [9, n0, _GFR,
+  { [_h]: ["GET", "/firewall-rules/{firewallRuleId}", 200] }, () => GetFirewallRuleInput$, () => GetFirewallRuleOutput$
 ];
-export var ListGlobalResolvers: StaticOperationSchema = [
-  9,
-  n0,
-  _LGR,
-  { [_h]: ["GET", "/global-resolver", 200] },
-  () => ListGlobalResolversInput,
-  () => ListGlobalResolversOutput,
+export var GetGlobalResolver$: StaticOperationSchema = [9, n0, _GGR,
+  { [_h]: ["GET", "/global-resolver/{globalResolverId}", 200] }, () => GetGlobalResolverInput$, () => GetGlobalResolverOutput$
 ];
-export var ListHostedZoneAssociations: StaticOperationSchema = [
-  9,
-  n0,
-  _LHZA,
-  { [_h]: ["GET", "/hosted-zone-associations/resource-arn/{resourceArn+}", 200] },
-  () => ListHostedZoneAssociationsInput,
-  () => ListHostedZoneAssociationsOutput,
+export var GetHostedZoneAssociation$: StaticOperationSchema = [9, n0, _GHZA,
+  { [_h]: ["GET", "/hosted-zone-associations/{hostedZoneAssociationId}", 200] }, () => GetHostedZoneAssociationInput$, () => GetHostedZoneAssociationOutput$
 ];
-export var ListManagedFirewallDomainLists: StaticOperationSchema = [
-  9,
-  n0,
-  _LMFDL,
-  { [_h]: ["GET", "/list-managed-firewall-domain-lists/{managedFirewallDomainListType}", 200] },
-  () => ListManagedFirewallDomainListsInput,
-  () => ListManagedFirewallDomainListsOutput,
+export var GetManagedFirewallDomainList$: StaticOperationSchema = [9, n0, _GMFDL,
+  { [_h]: ["GET", "/managed-firewall-domain-lists/{managedFirewallDomainListId}", 200] }, () => GetManagedFirewallDomainListInput$, () => GetManagedFirewallDomainListOutput$
 ];
-export var ListTagsForResource: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  { [_h]: ["POST", "/get-all-tags", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+export var ImportFirewallDomains$: StaticOperationSchema = [9, n0, _IFD,
+  { [_h]: ["PATCH", "/firewall-domain-lists/{firewallDomainListId}/domains/s3_file_url", 200] }, () => ImportFirewallDomainsInput$, () => ImportFirewallDomainsOutput$
 ];
-export var TagResource: StaticOperationSchema = [
-  9,
-  n0,
-  _TR,
-  { [_h]: ["POST", "/tag-resource", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+export var ListAccessSources$: StaticOperationSchema = [9, n0, _LAS,
+  { [_h]: ["GET", "/access-sources", 200] }, () => ListAccessSourcesInput$, () => ListAccessSourcesOutput$
 ];
-export var UntagResource: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  { [_h]: ["POST", "/untag-resource", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+export var ListAccessTokens$: StaticOperationSchema = [9, n0, _LAT,
+  { [_h]: ["GET", "/tokens/dns-view/{dnsViewId}", 200] }, () => ListAccessTokensInput$, () => ListAccessTokensOutput$
 ];
-export var UpdateAccessSource: StaticOperationSchema = [
-  9,
-  n0,
-  _UAS,
-  { [_h]: ["PATCH", "/access-sources/{accessSourceId}", 200] },
-  () => UpdateAccessSourceInput,
-  () => UpdateAccessSourceOutput,
+export var ListDNSViews$: StaticOperationSchema = [9, n0, _LDNSV,
+  { [_h]: ["GET", "/dns-views/resolver/{globalResolverId}", 200] }, () => ListDNSViewsInput$, () => ListDNSViewsOutput$
 ];
-export var UpdateAccessToken: StaticOperationSchema = [
-  9,
-  n0,
-  _UAT,
-  { [_h]: ["PATCH", "/tokens/{accessTokenId}", 200] },
-  () => UpdateAccessTokenInput,
-  () => UpdateAccessTokenOutput,
+export var ListFirewallDomainLists$: StaticOperationSchema = [9, n0, _LFDL,
+  { [_h]: ["GET", "/firewall-domain-lists", 200] }, () => ListFirewallDomainListsInput$, () => ListFirewallDomainListsOutput$
 ];
-export var UpdateDNSView: StaticOperationSchema = [
-  9,
-  n0,
-  _UDNSV,
-  { [_h]: ["PATCH", "/dns-views/{dnsViewId}", 200] },
-  () => UpdateDNSViewInput,
-  () => UpdateDNSViewOutput,
+export var ListFirewallDomains$: StaticOperationSchema = [9, n0, _LFD,
+  { [_h]: ["GET", "/firewall-domain-lists/{firewallDomainListId}/domains", 200] }, () => ListFirewallDomainsInput$, () => ListFirewallDomainsOutput$
 ];
-export var UpdateFirewallDomains: StaticOperationSchema = [
-  9,
-  n0,
-  _UFD,
-  { [_h]: ["PATCH", "/firewall-domain-lists/{firewallDomainListId}/domains", 200] },
-  () => UpdateFirewallDomainsInput,
-  () => UpdateFirewallDomainsOutput,
+export var ListFirewallRules$: StaticOperationSchema = [9, n0, _LFR,
+  { [_h]: ["GET", "/firewall-rules", 200] }, () => ListFirewallRulesInput$, () => ListFirewallRulesOutput$
 ];
-export var UpdateFirewallRule: StaticOperationSchema = [
-  9,
-  n0,
-  _UFR,
-  { [_h]: ["PATCH", "/firewall-rules/{firewallRuleId}", 200] },
-  () => UpdateFirewallRuleInput,
-  () => UpdateFirewallRuleOutput,
+export var ListGlobalResolvers$: StaticOperationSchema = [9, n0, _LGR,
+  { [_h]: ["GET", "/global-resolver", 200] }, () => ListGlobalResolversInput$, () => ListGlobalResolversOutput$
 ];
-export var UpdateGlobalResolver: StaticOperationSchema = [
-  9,
-  n0,
-  _UGR,
-  { [_h]: ["PATCH", "/global-resolver/{globalResolverId}", 200] },
-  () => UpdateGlobalResolverInput,
-  () => UpdateGlobalResolverOutput,
+export var ListHostedZoneAssociations$: StaticOperationSchema = [9, n0, _LHZA,
+  { [_h]: ["GET", "/hosted-zone-associations/resource-arn/{resourceArn+}", 200] }, () => ListHostedZoneAssociationsInput$, () => ListHostedZoneAssociationsOutput$
 ];
-export var UpdateHostedZoneAssociation: StaticOperationSchema = [
-  9,
-  n0,
-  _UHZA,
-  { [_h]: ["PATCH", "/hosted-zone-associations/{hostedZoneAssociationId}", 200] },
-  () => UpdateHostedZoneAssociationInput,
-  () => UpdateHostedZoneAssociationOutput,
+export var ListManagedFirewallDomainLists$: StaticOperationSchema = [9, n0, _LMFDL,
+  { [_h]: ["GET", "/list-managed-firewall-domain-lists/{managedFirewallDomainListType}", 200] }, () => ListManagedFirewallDomainListsInput$, () => ListManagedFirewallDomainListsOutput$
+];
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  { [_h]: ["POST", "/get-all-tags", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
+];
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  { [_h]: ["POST", "/tag-resource", 200] }, () => TagResourceRequest$, () => TagResourceResponse$
+];
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  { [_h]: ["POST", "/untag-resource", 200] }, () => UntagResourceRequest$, () => UntagResourceResponse$
+];
+export var UpdateAccessSource$: StaticOperationSchema = [9, n0, _UAS,
+  { [_h]: ["PATCH", "/access-sources/{accessSourceId}", 200] }, () => UpdateAccessSourceInput$, () => UpdateAccessSourceOutput$
+];
+export var UpdateAccessToken$: StaticOperationSchema = [9, n0, _UAT,
+  { [_h]: ["PATCH", "/tokens/{accessTokenId}", 200] }, () => UpdateAccessTokenInput$, () => UpdateAccessTokenOutput$
+];
+export var UpdateDNSView$: StaticOperationSchema = [9, n0, _UDNSV,
+  { [_h]: ["PATCH", "/dns-views/{dnsViewId}", 200] }, () => UpdateDNSViewInput$, () => UpdateDNSViewOutput$
+];
+export var UpdateFirewallDomains$: StaticOperationSchema = [9, n0, _UFD,
+  { [_h]: ["PATCH", "/firewall-domain-lists/{firewallDomainListId}/domains", 200] }, () => UpdateFirewallDomainsInput$, () => UpdateFirewallDomainsOutput$
+];
+export var UpdateFirewallRule$: StaticOperationSchema = [9, n0, _UFR,
+  { [_h]: ["PATCH", "/firewall-rules/{firewallRuleId}", 200] }, () => UpdateFirewallRuleInput$, () => UpdateFirewallRuleOutput$
+];
+export var UpdateGlobalResolver$: StaticOperationSchema = [9, n0, _UGR,
+  { [_h]: ["PATCH", "/global-resolver/{globalResolverId}", 200] }, () => UpdateGlobalResolverInput$, () => UpdateGlobalResolverOutput$
+];
+export var UpdateHostedZoneAssociation$: StaticOperationSchema = [9, n0, _UHZA,
+  { [_h]: ["PATCH", "/hosted-zone-associations/{hostedZoneAssociationId}", 200] }, () => UpdateHostedZoneAssociationInput$, () => UpdateHostedZoneAssociationOutput$
 ];

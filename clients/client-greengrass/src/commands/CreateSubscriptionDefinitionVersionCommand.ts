@@ -9,7 +9,7 @@ import type {
   CreateSubscriptionDefinitionVersionRequest,
   CreateSubscriptionDefinitionVersionResponse,
 } from "../models/models_0";
-import { CreateSubscriptionDefinitionVersion } from "../schemas/schemas_0";
+import { CreateSubscriptionDefinitionVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateSubscriptionDefinitionVersionCommandInput extends CreateS
  *
  * The output of {@link CreateSubscriptionDefinitionVersionCommand}.
  */
-export interface CreateSubscriptionDefinitionVersionCommandOutput
-  extends CreateSubscriptionDefinitionVersionResponse,
-    __MetadataBearer {}
+export interface CreateSubscriptionDefinitionVersionCommandOutput extends CreateSubscriptionDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Creates a version of a subscription definition which has already been defined.
@@ -93,7 +91,7 @@ export class CreateSubscriptionDefinitionVersionCommand extends $Command
   })
   .s("Greengrass", "CreateSubscriptionDefinitionVersion", {})
   .n("GreengrassClient", "CreateSubscriptionDefinitionVersionCommand")
-  .sc(CreateSubscriptionDefinitionVersion)
+  .sc(CreateSubscriptionDefinitionVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

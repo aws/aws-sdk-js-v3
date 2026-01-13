@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import type { PutFunctionScalingConfigRequest, PutFunctionScalingConfigResponse } from "../models/models_0";
-import { PutFunctionScalingConfig } from "../schemas/schemas_0";
+import { PutFunctionScalingConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class PutFunctionScalingConfigCommand extends $Command
   })
   .s("AWSGirApiService", "PutFunctionScalingConfig", {})
   .n("LambdaClient", "PutFunctionScalingConfigCommand")
-  .sc(PutFunctionScalingConfig)
+  .sc(PutFunctionScalingConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

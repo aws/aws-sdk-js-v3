@@ -9,7 +9,7 @@ import type {
   DescribePiiEntitiesDetectionJobRequest,
   DescribePiiEntitiesDetectionJobResponse,
 } from "../models/models_0";
-import { DescribePiiEntitiesDetectionJob } from "../schemas/schemas_0";
+import { DescribePiiEntitiesDetectionJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribePiiEntitiesDetectionJobCommandInput extends DescribePii
  *
  * The output of {@link DescribePiiEntitiesDetectionJobCommand}.
  */
-export interface DescribePiiEntitiesDetectionJobCommandOutput
-  extends DescribePiiEntitiesDetectionJobResponse,
-    __MetadataBearer {}
+export interface DescribePiiEntitiesDetectionJobCommandOutput extends DescribePiiEntitiesDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a PII entities detection job. For example, you can use
@@ -124,7 +122,7 @@ export class DescribePiiEntitiesDetectionJobCommand extends $Command
   })
   .s("Comprehend_20171127", "DescribePiiEntitiesDetectionJob", {})
   .n("ComprehendClient", "DescribePiiEntitiesDetectionJobCommand")
-  .sc(DescribePiiEntitiesDetectionJob)
+  .sc(DescribePiiEntitiesDetectionJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

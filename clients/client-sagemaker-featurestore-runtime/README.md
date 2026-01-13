@@ -35,10 +35,8 @@ store.</p>
 </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-sagemaker-featurestore-runtime
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-sagemaker-featurestore-runtime`
 - `yarn add @aws-sdk/client-sagemaker-featurestore-runtime`
 - `pnpm add @aws-sdk/client-sagemaker-featurestore-runtime`
@@ -53,10 +51,7 @@ the commands you need, for example `GetRecordCommand`:
 
 ```js
 // ES5 example
-const {
-  SageMakerFeatureStoreRuntimeClient,
-  GetRecordCommand,
-} = require("@aws-sdk/client-sagemaker-featurestore-runtime");
+const { SageMakerFeatureStoreRuntimeClient, GetRecordCommand } = require("@aws-sdk/client-sagemaker-featurestore-runtime");
 ```
 
 ```ts
@@ -77,9 +72,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new SageMakerFeatureStoreRuntimeClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new GetRecordCommand(params);
 ```
 
@@ -238,7 +231,6 @@ BatchGetRecord
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-featurestore-runtime/command/BatchGetRecordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-featurestore-runtime/Interface/BatchGetRecordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-featurestore-runtime/Interface/BatchGetRecordCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -246,7 +238,6 @@ DeleteRecord
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-featurestore-runtime/command/DeleteRecordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-featurestore-runtime/Interface/DeleteRecordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-featurestore-runtime/Interface/DeleteRecordCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -254,7 +245,6 @@ GetRecord
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-featurestore-runtime/command/GetRecordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-featurestore-runtime/Interface/GetRecordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-featurestore-runtime/Interface/GetRecordCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -262,5 +252,4 @@ PutRecord
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-featurestore-runtime/command/PutRecordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-featurestore-runtime/Interface/PutRecordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-featurestore-runtime/Interface/PutRecordCommandOutput/)
-
 </details>

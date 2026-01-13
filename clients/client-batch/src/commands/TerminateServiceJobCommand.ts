@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TerminateServiceJobRequest, TerminateServiceJobResponse } from "../models/models_0";
-import { TerminateServiceJob } from "../schemas/schemas_0";
+import { TerminateServiceJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,7 +80,7 @@ export class TerminateServiceJobCommand extends $Command
   })
   .s("AWSBatchV20160810", "TerminateServiceJob", {})
   .n("BatchClient", "TerminateServiceJobCommand")
-  .sc(TerminateServiceJob)
+  .sc(TerminateServiceJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

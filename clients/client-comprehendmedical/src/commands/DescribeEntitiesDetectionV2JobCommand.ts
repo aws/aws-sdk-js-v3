@@ -10,7 +10,7 @@ import type {
 } from "../ComprehendMedicalClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeEntitiesDetectionV2JobRequest, DescribeEntitiesDetectionV2JobResponse } from "../models/models_0";
-import { DescribeEntitiesDetectionV2Job } from "../schemas/schemas_0";
+import { DescribeEntitiesDetectionV2Job$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeEntitiesDetectionV2JobCommandInput extends DescribeEnti
  *
  * The output of {@link DescribeEntitiesDetectionV2JobCommand}.
  */
-export interface DescribeEntitiesDetectionV2JobCommandOutput
-  extends DescribeEntitiesDetectionV2JobResponse,
-    __MetadataBearer {}
+export interface DescribeEntitiesDetectionV2JobCommandOutput extends DescribeEntitiesDetectionV2JobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a medical entities detection job. Use this operation
@@ -117,7 +115,7 @@ export class DescribeEntitiesDetectionV2JobCommand extends $Command
   })
   .s("ComprehendMedical_20181030", "DescribeEntitiesDetectionV2Job", {})
   .n("ComprehendMedicalClient", "DescribeEntitiesDetectionV2JobCommand")
-  .sc(DescribeEntitiesDetectionV2Job)
+  .sc(DescribeEntitiesDetectionV2Job$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

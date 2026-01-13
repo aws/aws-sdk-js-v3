@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateProductRestEndpointPageRequest, UpdateProductRestEndpointPageResponse } from "../models/models_0";
-import { UpdateProductRestEndpointPage } from "../schemas/schemas_0";
+import { UpdateProductRestEndpointPage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateProductRestEndpointPageCommandInput extends UpdateProduct
  *
  * The output of {@link UpdateProductRestEndpointPageCommand}.
  */
-export interface UpdateProductRestEndpointPageCommandOutput
-  extends UpdateProductRestEndpointPageResponse,
-    __MetadataBearer {}
+export interface UpdateProductRestEndpointPageCommandOutput extends UpdateProductRestEndpointPageResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a product REST endpoint page.</p>
@@ -117,7 +115,7 @@ export class UpdateProductRestEndpointPageCommand extends $Command
   })
   .s("ApiGatewayV2", "UpdateProductRestEndpointPage", {})
   .n("ApiGatewayV2Client", "UpdateProductRestEndpointPageCommand")
-  .sc(UpdateProductRestEndpointPage)
+  .sc(UpdateProductRestEndpointPage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

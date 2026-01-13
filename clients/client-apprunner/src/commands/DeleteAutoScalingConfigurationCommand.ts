@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAutoScalingConfigurationRequest, DeleteAutoScalingConfigurationResponse } from "../models/models_0";
-import { DeleteAutoScalingConfiguration } from "../schemas/schemas_0";
+import { DeleteAutoScalingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteAutoScalingConfigurationCommandInput extends DeleteAutoSc
  *
  * The output of {@link DeleteAutoScalingConfigurationCommand}.
  */
-export interface DeleteAutoScalingConfigurationCommandOutput
-  extends DeleteAutoScalingConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteAutoScalingConfigurationCommandOutput extends DeleteAutoScalingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Delete an App Runner automatic scaling configuration resource. You can delete a top level auto scaling configuration, a specific revision of one, or all
@@ -100,7 +98,7 @@ export class DeleteAutoScalingConfigurationCommand extends $Command
   })
   .s("AppRunner", "DeleteAutoScalingConfiguration", {})
   .n("AppRunnerClient", "DeleteAutoScalingConfigurationCommand")
-  .sc(DeleteAutoScalingConfiguration)
+  .sc(DeleteAutoScalingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

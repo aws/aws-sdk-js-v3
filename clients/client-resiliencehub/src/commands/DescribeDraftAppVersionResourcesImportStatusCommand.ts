@@ -9,7 +9,7 @@ import type {
   DescribeDraftAppVersionResourcesImportStatusResponse,
 } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { DescribeDraftAppVersionResourcesImportStatus } from "../schemas/schemas_0";
+import { DescribeDraftAppVersionResourcesImportStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeDraftAppVersionResourcesImportStatusCommand}.
  */
-export interface DescribeDraftAppVersionResourcesImportStatusCommandInput
-  extends DescribeDraftAppVersionResourcesImportStatusRequest {}
+export interface DescribeDraftAppVersionResourcesImportStatusCommandInput extends DescribeDraftAppVersionResourcesImportStatusRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeDraftAppVersionResourcesImportStatusCommand}.
  */
-export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
-  extends DescribeDraftAppVersionResourcesImportStatusResponse,
-    __MetadataBearer {}
+export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput extends DescribeDraftAppVersionResourcesImportStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the status of importing resources to an application version.</p>
@@ -113,7 +110,7 @@ export class DescribeDraftAppVersionResourcesImportStatusCommand extends $Comman
   })
   .s("AwsResilienceHub", "DescribeDraftAppVersionResourcesImportStatus", {})
   .n("ResiliencehubClient", "DescribeDraftAppVersionResourcesImportStatusCommand")
-  .sc(DescribeDraftAppVersionResourcesImportStatus)
+  .sc(DescribeDraftAppVersionResourcesImportStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

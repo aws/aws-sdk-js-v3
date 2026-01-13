@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeRemediationExceptionsRequest, DescribeRemediationExceptionsResponse } from "../models/models_0";
-import { DescribeRemediationExceptions } from "../schemas/schemas_0";
+import { DescribeRemediationExceptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeRemediationExceptionsCommandInput extends DescribeRemed
  *
  * The output of {@link DescribeRemediationExceptionsCommand}.
  */
-export interface DescribeRemediationExceptionsCommandOutput
-  extends DescribeRemediationExceptionsResponse,
-    __MetadataBearer {}
+export interface DescribeRemediationExceptionsCommandOutput extends DescribeRemediationExceptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the details of one or more remediation exceptions. A detailed view of a remediation exception for a set of resources that includes an explanation of an exception and the time when the exception will be deleted.
@@ -108,7 +106,7 @@ export class DescribeRemediationExceptionsCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeRemediationExceptions", {})
   .n("ConfigServiceClient", "DescribeRemediationExceptionsCommand")
-  .sc(DescribeRemediationExceptions)
+  .sc(DescribeRemediationExceptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

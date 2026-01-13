@@ -10,7 +10,7 @@ import type {
 } from "../AmplifyBackendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateBackendStorageRequest, UpdateBackendStorageResponse } from "../models/models_0";
-import { UpdateBackendStorage } from "../schemas/schemas_0";
+import { UpdateBackendStorage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class UpdateBackendStorageCommand extends $Command
   })
   .s("AmplifyBackend", "UpdateBackendStorage", {})
   .n("AmplifyBackendClient", "UpdateBackendStorageCommand")
-  .sc(UpdateBackendStorage)
+  .sc(UpdateBackendStorage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

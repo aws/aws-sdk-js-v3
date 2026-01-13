@@ -8,7 +8,7 @@ import type {
   DescribeCustomWorkspaceImageImportRequest,
   DescribeCustomWorkspaceImageImportResult,
 } from "../models/models_0";
-import { DescribeCustomWorkspaceImageImport } from "../schemas/schemas_0";
+import { DescribeCustomWorkspaceImageImport$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DescribeCustomWorkspaceImageImportCommandInput extends Describe
  *
  * The output of {@link DescribeCustomWorkspaceImageImportCommand}.
  */
-export interface DescribeCustomWorkspaceImageImportCommandOutput
-  extends DescribeCustomWorkspaceImageImportResult,
-    __MetadataBearer {}
+export interface DescribeCustomWorkspaceImageImportCommandOutput extends DescribeCustomWorkspaceImageImportResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a WorkSpace BYOL image being imported via ImportCustomWorkspaceImage.</p>
@@ -49,7 +47,9 @@ export interface DescribeCustomWorkspaceImageImportCommandOutput
  * // { // DescribeCustomWorkspaceImageImportResult
  * //   ImageId: "STRING_VALUE",
  * //   InfrastructureConfigurationArn: "STRING_VALUE",
- * //   State: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "ERROR",
+ * //   State: "PENDING" || "IN_PROGRESS" || "PROCESSING_SOURCE_IMAGE" || "IMAGE_TESTING_START" || "UPDATING_OPERATING_SYSTEM" || "IMAGE_COMPATIBILITY_CHECKING" || "IMAGE_TESTING_GENERALIZATION" || "CREATING_TEST_INSTANCE" || "INSTALLING_COMPONENTS" || "GENERALIZING" || "VALIDATING" || "PUBLISHING" || "COMPLETED" || "ERROR",
+ * //   StateMessage: "STRING_VALUE",
+ * //   ProgressPercentage: Number("int"),
  * //   Created: new Date("TIMESTAMP"),
  * //   LastUpdatedTime: new Date("TIMESTAMP"),
  * //   ImageSource: { // ImageSourceIdentifier Union: only one key present
@@ -100,7 +100,7 @@ export class DescribeCustomWorkspaceImageImportCommand extends $Command
   })
   .s("WorkspacesService", "DescribeCustomWorkspaceImageImport", {})
   .n("WorkSpacesClient", "DescribeCustomWorkspaceImageImportCommand")
-  .sc(DescribeCustomWorkspaceImageImport)
+  .sc(DescribeCustomWorkspaceImageImport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

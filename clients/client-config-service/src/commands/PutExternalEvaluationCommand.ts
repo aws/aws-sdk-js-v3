@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutExternalEvaluationRequest, PutExternalEvaluationResponse } from "../models/models_0";
-import { PutExternalEvaluation } from "../schemas/schemas_0";
+import { PutExternalEvaluation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,7 +27,7 @@ export interface PutExternalEvaluationCommandInput extends PutExternalEvaluation
 export interface PutExternalEvaluationCommandOutput extends PutExternalEvaluationResponse, __MetadataBearer {}
 
 /**
- * <p>Add or updates the evaluations for process checks.
+ * <p>Add or updates the evaluations for process checks.		
  * 			This API checks if the rule is a process check when the name of the Config rule is provided.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,7 +86,7 @@ export class PutExternalEvaluationCommand extends $Command
   })
   .s("StarlingDoveService", "PutExternalEvaluation", {})
   .n("ConfigServiceClient", "PutExternalEvaluationCommand")
-  .sc(PutExternalEvaluation)
+  .sc(PutExternalEvaluation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

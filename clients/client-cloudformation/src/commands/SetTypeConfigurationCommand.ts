@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SetTypeConfigurationInput, SetTypeConfigurationOutput } from "../models/models_0";
-import { SetTypeConfiguration } from "../schemas/schemas_0";
+import { SetTypeConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class SetTypeConfigurationCommand extends $Command
   })
   .s("CloudFormation", "SetTypeConfiguration", {})
   .n("CloudFormationClient", "SetTypeConfigurationCommand")
-  .sc(SetTypeConfiguration)
+  .sc(SetTypeConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

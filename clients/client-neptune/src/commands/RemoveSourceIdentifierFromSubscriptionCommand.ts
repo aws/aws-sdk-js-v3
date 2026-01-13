@@ -9,7 +9,7 @@ import type {
   RemoveSourceIdentifierFromSubscriptionResult,
 } from "../models/models_0";
 import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { RemoveSourceIdentifierFromSubscription } from "../schemas/schemas_0";
+import { RemoveSourceIdentifierFromSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link RemoveSourceIdentifierFromSubscriptionCommand}.
  */
-export interface RemoveSourceIdentifierFromSubscriptionCommandInput
-  extends RemoveSourceIdentifierFromSubscriptionMessage {}
+export interface RemoveSourceIdentifierFromSubscriptionCommandInput extends RemoveSourceIdentifierFromSubscriptionMessage {}
 /**
  * @public
  *
  * The output of {@link RemoveSourceIdentifierFromSubscriptionCommand}.
  */
-export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
-  extends RemoveSourceIdentifierFromSubscriptionResult,
-    __MetadataBearer {}
+export interface RemoveSourceIdentifierFromSubscriptionCommandOutput extends RemoveSourceIdentifierFromSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Removes a source identifier from an existing event notification subscription.</p>
@@ -101,7 +98,7 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command
   })
   .s("AmazonRDSv19", "RemoveSourceIdentifierFromSubscription", {})
   .n("NeptuneClient", "RemoveSourceIdentifierFromSubscriptionCommand")
-  .sc(RemoveSourceIdentifierFromSubscription)
+  .sc(RemoveSourceIdentifierFromSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

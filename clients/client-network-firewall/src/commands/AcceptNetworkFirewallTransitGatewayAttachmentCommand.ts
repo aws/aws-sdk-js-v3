@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { AcceptNetworkFirewallTransitGatewayAttachment } from "../schemas/schemas_0";
+import { AcceptNetworkFirewallTransitGatewayAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link AcceptNetworkFirewallTransitGatewayAttachmentCommand}.
  */
-export interface AcceptNetworkFirewallTransitGatewayAttachmentCommandInput
-  extends AcceptNetworkFirewallTransitGatewayAttachmentRequest {}
+export interface AcceptNetworkFirewallTransitGatewayAttachmentCommandInput extends AcceptNetworkFirewallTransitGatewayAttachmentRequest {}
 /**
  * @public
  *
  * The output of {@link AcceptNetworkFirewallTransitGatewayAttachmentCommand}.
  */
-export interface AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput
-  extends AcceptNetworkFirewallTransitGatewayAttachmentResponse,
-    __MetadataBearer {}
+export interface AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput extends AcceptNetworkFirewallTransitGatewayAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts a transit gateway attachment request for Network Firewall. When you accept the attachment request, Network Firewall creates the necessary routing components to enable traffic flow between the transit gateway and firewall endpoints.</p>
@@ -115,7 +112,7 @@ export class AcceptNetworkFirewallTransitGatewayAttachmentCommand extends $Comma
   })
   .s("NetworkFirewall_20201112", "AcceptNetworkFirewallTransitGatewayAttachment", {})
   .n("NetworkFirewallClient", "AcceptNetworkFirewallTransitGatewayAttachmentCommand")
-  .sc(AcceptNetworkFirewallTransitGatewayAttachment)
+  .sc(AcceptNetworkFirewallTransitGatewayAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

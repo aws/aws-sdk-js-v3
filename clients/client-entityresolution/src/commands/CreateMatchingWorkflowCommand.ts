@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../EntityResolutionClient";
 import type { CreateMatchingWorkflowInput, CreateMatchingWorkflowOutput } from "../models/models_0";
-import { CreateMatchingWorkflow } from "../schemas/schemas_0";
+import { CreateMatchingWorkflow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -217,7 +217,7 @@ export class CreateMatchingWorkflowCommand extends $Command
   })
   .s("AWSVeniceService", "CreateMatchingWorkflow", {})
   .n("EntityResolutionClient", "CreateMatchingWorkflowCommand")
-  .sc(CreateMatchingWorkflow)
+  .sc(CreateMatchingWorkflow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

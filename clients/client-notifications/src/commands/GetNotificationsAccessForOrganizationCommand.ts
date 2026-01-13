@@ -9,7 +9,7 @@ import type {
   GetNotificationsAccessForOrganizationResponse,
 } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { GetNotificationsAccessForOrganization } from "../schemas/schemas_0";
+import { GetNotificationsAccessForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetNotificationsAccessForOrganizationCommand}.
  */
-export interface GetNotificationsAccessForOrganizationCommandInput
-  extends GetNotificationsAccessForOrganizationRequest {}
+export interface GetNotificationsAccessForOrganizationCommandInput extends GetNotificationsAccessForOrganizationRequest {}
 /**
  * @public
  *
  * The output of {@link GetNotificationsAccessForOrganizationCommand}.
  */
-export interface GetNotificationsAccessForOrganizationCommandOutput
-  extends GetNotificationsAccessForOrganizationResponse,
-    __MetadataBearer {}
+export interface GetNotificationsAccessForOrganizationCommandOutput extends GetNotificationsAccessForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the AccessStatus of Service Trust Enablement for User Notifications and Amazon Web Services Organizations.</p>
@@ -91,7 +88,7 @@ export class GetNotificationsAccessForOrganizationCommand extends $Command
   })
   .s("Notifications", "GetNotificationsAccessForOrganization", {})
   .n("NotificationsClient", "GetNotificationsAccessForOrganizationCommand")
-  .sc(GetNotificationsAccessForOrganization)
+  .sc(GetNotificationsAccessForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

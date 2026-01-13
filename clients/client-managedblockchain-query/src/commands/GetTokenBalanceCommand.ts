@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../ManagedBlockchainQueryClient";
 import type { GetTokenBalanceInput, GetTokenBalanceOutput } from "../models/models_0";
-import { GetTokenBalance } from "../schemas/schemas_0";
+import { GetTokenBalance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class GetTokenBalanceCommand extends $Command
   })
   .s("TietonChainQueryService", "GetTokenBalance", {})
   .n("ManagedBlockchainQueryClient", "GetTokenBalanceCommand")
-  .sc(GetTokenBalance)
+  .sc(GetTokenBalance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

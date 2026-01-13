@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { DeleteEndpointGroupRequest } from "../models/models_0";
-import { DeleteEndpointGroup } from "../schemas/schemas_0";
+import { DeleteEndpointGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DeleteEndpointGroupCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "DeleteEndpointGroup", {})
   .n("GlobalAcceleratorClient", "DeleteEndpointGroupCommand")
-  .sc(DeleteEndpointGroup)
+  .sc(DeleteEndpointGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

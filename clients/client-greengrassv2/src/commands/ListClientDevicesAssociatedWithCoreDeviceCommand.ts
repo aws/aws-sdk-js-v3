@@ -9,7 +9,7 @@ import type {
   ListClientDevicesAssociatedWithCoreDeviceRequest,
   ListClientDevicesAssociatedWithCoreDeviceResponse,
 } from "../models/models_0";
-import { ListClientDevicesAssociatedWithCoreDevice } from "../schemas/schemas_0";
+import { ListClientDevicesAssociatedWithCoreDevice$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListClientDevicesAssociatedWithCoreDeviceCommand}.
  */
-export interface ListClientDevicesAssociatedWithCoreDeviceCommandInput
-  extends ListClientDevicesAssociatedWithCoreDeviceRequest {}
+export interface ListClientDevicesAssociatedWithCoreDeviceCommandInput extends ListClientDevicesAssociatedWithCoreDeviceRequest {}
 /**
  * @public
  *
  * The output of {@link ListClientDevicesAssociatedWithCoreDeviceCommand}.
  */
-export interface ListClientDevicesAssociatedWithCoreDeviceCommandOutput
-  extends ListClientDevicesAssociatedWithCoreDeviceResponse,
-    __MetadataBearer {}
+export interface ListClientDevicesAssociatedWithCoreDeviceCommandOutput extends ListClientDevicesAssociatedWithCoreDeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a paginated list of client devices that are associated with a core
@@ -105,7 +102,7 @@ export class ListClientDevicesAssociatedWithCoreDeviceCommand extends $Command
   })
   .s("GreengrassV2", "ListClientDevicesAssociatedWithCoreDevice", {})
   .n("GreengrassV2Client", "ListClientDevicesAssociatedWithCoreDeviceCommand")
-  .sc(ListClientDevicesAssociatedWithCoreDevice)
+  .sc(ListClientDevicesAssociatedWithCoreDevice$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

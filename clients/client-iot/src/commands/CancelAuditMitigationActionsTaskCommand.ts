@@ -9,7 +9,7 @@ import type {
   CancelAuditMitigationActionsTaskRequest,
   CancelAuditMitigationActionsTaskResponse,
 } from "../models/models_0";
-import { CancelAuditMitigationActionsTask } from "../schemas/schemas_0";
+import { CancelAuditMitigationActionsTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CancelAuditMitigationActionsTaskCommandInput extends CancelAudi
  *
  * The output of {@link CancelAuditMitigationActionsTaskCommand}.
  */
-export interface CancelAuditMitigationActionsTaskCommandOutput
-  extends CancelAuditMitigationActionsTaskResponse,
-    __MetadataBearer {}
+export interface CancelAuditMitigationActionsTaskCommandOutput extends CancelAuditMitigationActionsTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a mitigation action task that is in progress. If the task
@@ -91,7 +89,7 @@ export class CancelAuditMitigationActionsTaskCommand extends $Command
   })
   .s("AWSIotService", "CancelAuditMitigationActionsTask", {})
   .n("IoTClient", "CancelAuditMitigationActionsTaskCommand")
-  .sc(CancelAuditMitigationActionsTask)
+  .sc(CancelAuditMitigationActionsTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeServiceAccessPoliciesRequest, DescribeServiceAccessPoliciesResponse } from "../models/models_0";
-import { DescribeServiceAccessPolicies } from "../schemas/schemas_0";
+import { DescribeServiceAccessPolicies$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeServiceAccessPoliciesCommandInput extends DescribeServi
  *
  * The output of {@link DescribeServiceAccessPoliciesCommand}.
  */
-export interface DescribeServiceAccessPoliciesCommandOutput
-  extends DescribeServiceAccessPoliciesResponse,
-    __MetadataBearer {}
+export interface DescribeServiceAccessPoliciesCommandOutput extends DescribeServiceAccessPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the access policies that control access to the domain's document and search endpoints. By default, shows the configuration with any pending changes. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information,
@@ -96,7 +94,7 @@ export class DescribeServiceAccessPoliciesCommand extends $Command
   })
   .s("A9SearchCloudConfigService2013", "DescribeServiceAccessPolicies", {})
   .n("CloudSearchClient", "DescribeServiceAccessPoliciesCommand")
-  .sc(DescribeServiceAccessPolicies)
+  .sc(DescribeServiceAccessPolicies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

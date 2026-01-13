@@ -8,7 +8,7 @@ import type {
   GetConfigurationSetEventDestinationsRequest,
   GetConfigurationSetEventDestinationsResponse,
 } from "../models/models_0";
-import { GetConfigurationSetEventDestinations } from "../schemas/schemas_0";
+import { GetConfigurationSetEventDestinations$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -27,9 +27,7 @@ export interface GetConfigurationSetEventDestinationsCommandInput extends GetCon
  *
  * The output of {@link GetConfigurationSetEventDestinationsCommand}.
  */
-export interface GetConfigurationSetEventDestinationsCommandOutput
-  extends GetConfigurationSetEventDestinationsResponse,
-    __MetadataBearer {}
+export interface GetConfigurationSetEventDestinationsCommandOutput extends GetConfigurationSetEventDestinationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve a list of event destinations that are associated with a configuration
@@ -123,7 +121,7 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command
   })
   .s("SimpleEmailService_v2", "GetConfigurationSetEventDestinations", {})
   .n("SESv2Client", "GetConfigurationSetEventDestinationsCommand")
-  .sc(GetConfigurationSetEventDestinations)
+  .sc(GetConfigurationSetEventDestinations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

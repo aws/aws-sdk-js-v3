@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import type { SparseNullsOperationInputOutput } from "../models/models_0";
-import { SparseNullsOperation } from "../schemas/schemas_0";
+import { SparseNullsOperation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class SparseNullsOperationCommand extends $Command
   })
   .s("JsonProtocol", "SparseNullsOperation", {})
   .n("JsonProtocolClient", "SparseNullsOperationCommand")
-  .sc(SparseNullsOperation)
+  .sc(SparseNullsOperation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

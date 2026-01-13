@@ -9,7 +9,7 @@ import type {
   ListCollaborationTrainedModelInferenceJobsRequest,
   ListCollaborationTrainedModelInferenceJobsResponse,
 } from "../models/models_0";
-import { ListCollaborationTrainedModelInferenceJobs } from "../schemas/schemas_0";
+import { ListCollaborationTrainedModelInferenceJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListCollaborationTrainedModelInferenceJobsCommand}.
  */
-export interface ListCollaborationTrainedModelInferenceJobsCommandInput
-  extends ListCollaborationTrainedModelInferenceJobsRequest {}
+export interface ListCollaborationTrainedModelInferenceJobsCommandInput extends ListCollaborationTrainedModelInferenceJobsRequest {}
 /**
  * @public
  *
  * The output of {@link ListCollaborationTrainedModelInferenceJobsCommand}.
  */
-export interface ListCollaborationTrainedModelInferenceJobsCommandOutput
-  extends ListCollaborationTrainedModelInferenceJobsResponse,
-    __MetadataBearer {}
+export interface ListCollaborationTrainedModelInferenceJobsCommandOutput extends ListCollaborationTrainedModelInferenceJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of trained model inference jobs in a specified collaboration.</p>
@@ -120,7 +117,7 @@ export class ListCollaborationTrainedModelInferenceJobsCommand extends $Command
   })
   .s("AWSStarkControlService", "ListCollaborationTrainedModelInferenceJobs", {})
   .n("CleanRoomsMLClient", "ListCollaborationTrainedModelInferenceJobsCommand")
-  .sc(ListCollaborationTrainedModelInferenceJobs)
+  .sc(ListCollaborationTrainedModelInferenceJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

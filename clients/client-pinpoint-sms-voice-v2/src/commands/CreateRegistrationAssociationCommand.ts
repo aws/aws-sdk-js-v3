@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { CreateRegistrationAssociation } from "../schemas/schemas_0";
+import { CreateRegistrationAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface CreateRegistrationAssociationCommandInput extends CreateRegistr
  *
  * The output of {@link CreateRegistrationAssociationCommand}.
  */
-export interface CreateRegistrationAssociationCommandOutput
-  extends CreateRegistrationAssociationResult,
-    __MetadataBearer {}
+export interface CreateRegistrationAssociationCommandOutput extends CreateRegistrationAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Associate the registration with an origination identity such as a phone number or sender ID.</p>
@@ -108,7 +106,7 @@ export class CreateRegistrationAssociationCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "CreateRegistrationAssociation", {})
   .n("PinpointSMSVoiceV2Client", "CreateRegistrationAssociationCommand")
-  .sc(CreateRegistrationAssociation)
+  .sc(CreateRegistrationAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

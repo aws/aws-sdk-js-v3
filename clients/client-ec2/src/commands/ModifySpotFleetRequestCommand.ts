@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifySpotFleetRequestRequest, ModifySpotFleetRequestResponse } from "../models/models_6";
-import { ModifySpotFleetRequest } from "../schemas/schemas_0";
+import { ModifySpotFleetRequest$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -155,6 +155,7 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  *             },
  *             RequireEncryptionInTransit: true || false,
  *           },
+ *           AvailabilityZoneId: "STRING_VALUE",
  *         },
  *       ],
  *     },
@@ -215,7 +216,7 @@ export class ModifySpotFleetRequestCommand extends $Command
   })
   .s("AmazonEC2", "ModifySpotFleetRequest", {})
   .n("EC2Client", "ModifySpotFleetRequestCommand")
-  .sc(ModifySpotFleetRequest)
+  .sc(ModifySpotFleetRequest$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

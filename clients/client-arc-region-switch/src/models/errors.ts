@@ -64,26 +64,6 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because the current state of the resource doesn't allow the operation to proceed.</p> <p>HTTP Status Code: 400</p>
- * @public
- */
-export class IllegalStateException extends __BaseException {
-  readonly name = "IllegalStateException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IllegalStateException, __BaseException>) {
-    super({
-      name: "IllegalStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IllegalStateException.prototype);
-  }
-}
-
-/**
  * <p>The request processing has an invalid argument.</p>
  * @public
  */
@@ -100,5 +80,25 @@ export class IllegalArgumentException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, IllegalArgumentException.prototype);
+  }
+}
+
+/**
+ * <p>The operation failed because the current state of the resource doesn't allow the operation to proceed.</p> <p>HTTP Status Code: 400</p>
+ * @public
+ */
+export class IllegalStateException extends __BaseException {
+  readonly name = "IllegalStateException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IllegalStateException, __BaseException>) {
+    super({
+      name: "IllegalStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IllegalStateException.prototype);
   }
 }

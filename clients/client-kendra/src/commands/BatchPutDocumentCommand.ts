@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import type { BatchPutDocumentRequest, BatchPutDocumentResponse } from "../models/models_0";
-import { BatchPutDocument } from "../schemas/schemas_0";
+import { BatchPutDocument$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -233,7 +233,7 @@ export class BatchPutDocumentCommand extends $Command
   })
   .s("AWSKendraFrontendService", "BatchPutDocument", {})
   .n("KendraClient", "BatchPutDocumentCommand")
-  .sc(BatchPutDocument)
+  .sc(BatchPutDocument$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

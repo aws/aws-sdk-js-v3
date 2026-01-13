@@ -9,7 +9,7 @@ import type {
   GetAutomatedDiscoveryConfigurationRequest,
   GetAutomatedDiscoveryConfigurationResponse,
 } from "../models/models_0";
-import { GetAutomatedDiscoveryConfiguration } from "../schemas/schemas_0";
+import { GetAutomatedDiscoveryConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetAutomatedDiscoveryConfigurationCommandInput extends GetAutom
  *
  * The output of {@link GetAutomatedDiscoveryConfigurationCommand}.
  */
-export interface GetAutomatedDiscoveryConfigurationCommandOutput
-  extends GetAutomatedDiscoveryConfigurationResponse,
-    __MetadataBearer {}
+export interface GetAutomatedDiscoveryConfigurationCommandOutput extends GetAutomatedDiscoveryConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the configuration settings and status of automated sensitive data discovery for an organization or standalone account.</p>
@@ -94,7 +92,7 @@ export class GetAutomatedDiscoveryConfigurationCommand extends $Command
   })
   .s("Macie2", "GetAutomatedDiscoveryConfiguration", {})
   .n("Macie2Client", "GetAutomatedDiscoveryConfigurationCommand")
-  .sc(GetAutomatedDiscoveryConfiguration)
+  .sc(GetAutomatedDiscoveryConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

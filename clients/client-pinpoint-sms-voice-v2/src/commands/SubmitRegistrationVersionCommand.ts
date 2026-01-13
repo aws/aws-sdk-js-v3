@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { SubmitRegistrationVersion } from "../schemas/schemas_0";
+import { SubmitRegistrationVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -42,6 +42,7 @@ export interface SubmitRegistrationVersionCommandOutput extends SubmitRegistrati
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // SubmitRegistrationVersionRequest
  *   RegistrationId: "STRING_VALUE", // required
+ *   AwsReview: true || false,
  * };
  * const command = new SubmitRegistrationVersionCommand(input);
  * const response = await client.send(command);
@@ -53,6 +54,7 @@ export interface SubmitRegistrationVersionCommandOutput extends SubmitRegistrati
  * //   RegistrationVersionStatusHistory: { // RegistrationVersionStatusHistory
  * //     DraftTimestamp: new Date("TIMESTAMP"), // required
  * //     SubmittedTimestamp: new Date("TIMESTAMP"),
+ * //     AwsReviewingTimestamp: new Date("TIMESTAMP"),
  * //     ReviewingTimestamp: new Date("TIMESTAMP"),
  * //     RequiresAuthenticationTimestamp: new Date("TIMESTAMP"),
  * //     ApprovedTimestamp: new Date("TIMESTAMP"),
@@ -61,6 +63,7 @@ export interface SubmitRegistrationVersionCommandOutput extends SubmitRegistrati
  * //     RevokedTimestamp: new Date("TIMESTAMP"),
  * //     ArchivedTimestamp: new Date("TIMESTAMP"),
  * //   },
+ * //   AwsReview: true || false, // required
  * // };
  *
  * ```
@@ -109,7 +112,7 @@ export class SubmitRegistrationVersionCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "SubmitRegistrationVersion", {})
   .n("PinpointSMSVoiceV2Client", "SubmitRegistrationVersionCommand")
-  .sc(SubmitRegistrationVersion)
+  .sc(SubmitRegistrationVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

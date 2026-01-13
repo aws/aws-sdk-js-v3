@@ -9,7 +9,7 @@ import type {
   GenerateEmbedUrlForRegisteredUserWithIdentityResponse,
 } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { GenerateEmbedUrlForRegisteredUserWithIdentity } from "../schemas/schemas_0";
+import { GenerateEmbedUrlForRegisteredUserWithIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GenerateEmbedUrlForRegisteredUserWithIdentityCommand}.
  */
-export interface GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput
-  extends GenerateEmbedUrlForRegisteredUserWithIdentityRequest {}
+export interface GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput extends GenerateEmbedUrlForRegisteredUserWithIdentityRequest {}
 /**
  * @public
  *
  * The output of {@link GenerateEmbedUrlForRegisteredUserWithIdentityCommand}.
  */
-export interface GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput
-  extends GenerateEmbedUrlForRegisteredUserWithIdentityResponse,
-    __MetadataBearer {}
+export interface GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput extends GenerateEmbedUrlForRegisteredUserWithIdentityResponse, __MetadataBearer {}
 
 /**
  * <p>Generates an embed URL that you can use to embed an Amazon Quick Sight experience in
@@ -217,7 +214,7 @@ export class GenerateEmbedUrlForRegisteredUserWithIdentityCommand extends $Comma
   })
   .s("QuickSight_20180401", "GenerateEmbedUrlForRegisteredUserWithIdentity", {})
   .n("QuickSightClient", "GenerateEmbedUrlForRegisteredUserWithIdentityCommand")
-  .sc(GenerateEmbedUrlForRegisteredUserWithIdentity)
+  .sc(GenerateEmbedUrlForRegisteredUserWithIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

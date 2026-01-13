@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceClient";
-import { CreateConfigurationSetEventDestination } from "../schemas/schemas_0";
+import { CreateConfigurationSetEventDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link CreateConfigurationSetEventDestinationCommand}.
  */
-export interface CreateConfigurationSetEventDestinationCommandInput
-  extends CreateConfigurationSetEventDestinationRequest {}
+export interface CreateConfigurationSetEventDestinationCommandInput extends CreateConfigurationSetEventDestinationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateConfigurationSetEventDestinationCommand}.
  */
-export interface CreateConfigurationSetEventDestinationCommandOutput
-  extends CreateConfigurationSetEventDestinationResponse,
-    __MetadataBearer {}
+export interface CreateConfigurationSetEventDestinationCommandOutput extends CreateConfigurationSetEventDestinationResponse, __MetadataBearer {}
 
 /**
  * Create a new event destination in a configuration set.
@@ -117,7 +114,7 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command
   })
   .s("PinpointSMSVoice", "CreateConfigurationSetEventDestination", {})
   .n("PinpointSMSVoiceClient", "CreateConfigurationSetEventDestinationCommand")
-  .sc(CreateConfigurationSetEventDestination)
+  .sc(CreateConfigurationSetEventDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

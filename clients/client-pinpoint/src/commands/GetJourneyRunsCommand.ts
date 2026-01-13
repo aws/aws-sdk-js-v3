@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetJourneyRunsRequest, GetJourneyRunsResponse } from "../models/models_1";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetJourneyRuns } from "../schemas/schemas_0";
+import { GetJourneyRuns$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,7 +138,7 @@ export class GetJourneyRunsCommand extends $Command
   })
   .s("Pinpoint", "GetJourneyRuns", {})
   .n("PinpointClient", "GetJourneyRunsCommand")
-  .sc(GetJourneyRuns)
+  .sc(GetJourneyRuns$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import type { ListRouterNetworkInterfacesRequest, ListRouterNetworkInterfacesResponse } from "../models/models_0";
-import { ListRouterNetworkInterfaces } from "../schemas/schemas_0";
+import { ListRouterNetworkInterfaces$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListRouterNetworkInterfacesCommandInput extends ListRouterNetwo
  *
  * The output of {@link ListRouterNetworkInterfacesCommand}.
  */
-export interface ListRouterNetworkInterfacesCommandOutput
-  extends ListRouterNetworkInterfacesResponse,
-    __MetadataBearer {}
+export interface ListRouterNetworkInterfacesCommandOutput extends ListRouterNetworkInterfacesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of router network interfaces in AWS Elemental MediaConnect.</p>
@@ -118,7 +116,7 @@ export class ListRouterNetworkInterfacesCommand extends $Command
   })
   .s("MediaConnect", "ListRouterNetworkInterfaces", {})
   .n("MediaConnectClient", "ListRouterNetworkInterfacesCommand")
-  .sc(ListRouterNetworkInterfaces)
+  .sc(ListRouterNetworkInterfaces$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

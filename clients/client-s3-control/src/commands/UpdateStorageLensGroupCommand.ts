@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateStorageLensGroupRequest } from "../models/models_1";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { UpdateStorageLensGroup } from "../schemas/schemas_0";
+import { UpdateStorageLensGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -149,11 +149,14 @@ export class UpdateStorageLensGroupCommand extends $Command
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getProcessArnablesPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getProcessArnablesPlugin(config),
+    ];
   })
   .s("AWSS3ControlServiceV20180820", "UpdateStorageLensGroup", {})
   .n("S3ControlClient", "UpdateStorageLensGroupCommand")
-  .sc(UpdateStorageLensGroup)
+  .sc(UpdateStorageLensGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

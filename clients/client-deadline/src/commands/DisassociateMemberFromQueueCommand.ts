@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateMemberFromQueueRequest, DisassociateMemberFromQueueResponse } from "../models/models_0";
-import { DisassociateMemberFromQueue } from "../schemas/schemas_0";
+import { DisassociateMemberFromQueue$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DisassociateMemberFromQueueCommandInput extends DisassociateMem
  *
  * The output of {@link DisassociateMemberFromQueueCommand}.
  */
-export interface DisassociateMemberFromQueueCommandOutput
-  extends DisassociateMemberFromQueueResponse,
-    __MetadataBearer {}
+export interface DisassociateMemberFromQueueCommandOutput extends DisassociateMemberFromQueueResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a member from a queue.</p>
@@ -95,7 +93,7 @@ export class DisassociateMemberFromQueueCommand extends $Command
   })
   .s("Deadline", "DisassociateMemberFromQueue", {})
   .n("DeadlineClient", "DisassociateMemberFromQueueCommand")
-  .sc(DisassociateMemberFromQueue)
+  .sc(DisassociateMemberFromQueue$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

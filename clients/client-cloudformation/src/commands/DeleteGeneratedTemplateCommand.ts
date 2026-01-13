@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteGeneratedTemplateInput } from "../models/models_0";
-import { DeleteGeneratedTemplate } from "../schemas/schemas_0";
+import { DeleteGeneratedTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DeleteGeneratedTemplateCommand extends $Command
   })
   .s("CloudFormation", "DeleteGeneratedTemplate", {})
   .n("CloudFormationClient", "DeleteGeneratedTemplateCommand")
-  .sc(DeleteGeneratedTemplate)
+  .sc(DeleteGeneratedTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

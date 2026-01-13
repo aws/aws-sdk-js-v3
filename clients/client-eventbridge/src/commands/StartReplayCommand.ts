@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import type { StartReplayRequest, StartReplayResponse } from "../models/models_0";
-import { StartReplay } from "../schemas/schemas_0";
+import { StartReplay$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class StartReplayCommand extends $Command
   })
   .s("AWSEvents", "StartReplay", {})
   .n("EventBridgeClient", "StartReplayCommand")
-  .sc(StartReplay)
+  .sc(StartReplay$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

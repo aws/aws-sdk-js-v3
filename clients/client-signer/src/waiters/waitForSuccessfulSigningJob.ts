@@ -7,12 +7,12 @@ import { SignerClient } from "../SignerClient";
 const checkState = async (client: SignerClient, input: DescribeSigningJobCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeSigningJobCommand(input));
+    let result: any = await client.send(new DescribeSigningJobCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "Succeeded") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: SignerClient, input: DescribeSigningJobCommand
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "Failed") {
         return { state: WaiterState.FAILURE, reason };
       }

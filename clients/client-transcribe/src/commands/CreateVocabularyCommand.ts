@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateVocabularyRequest, CreateVocabularyResponse } from "../models/models_0";
-import { CreateVocabulary } from "../schemas/schemas_0";
+import { CreateVocabulary$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -117,7 +117,7 @@ export class CreateVocabularyCommand extends $Command
   })
   .s("Transcribe", "CreateVocabulary", {})
   .n("TranscribeClient", "CreateVocabularyCommand")
-  .sc(CreateVocabulary)
+  .sc(CreateVocabulary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

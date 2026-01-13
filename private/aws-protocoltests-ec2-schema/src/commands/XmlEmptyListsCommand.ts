@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { XmlListsOutput } from "../models/models_0";
-import { XmlEmptyLists } from "../schemas/schemas_0";
+import { XmlEmptyLists$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class XmlEmptyListsCommand extends $Command
   })
   .s("AwsEc2", "XmlEmptyLists", {})
   .n("EC2ProtocolClient", "XmlEmptyListsCommand")
-  .sc(XmlEmptyLists)
+  .sc(XmlEmptyLists$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

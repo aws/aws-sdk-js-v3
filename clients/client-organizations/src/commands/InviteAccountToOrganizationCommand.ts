@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InviteAccountToOrganizationRequest, InviteAccountToOrganizationResponse } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { InviteAccountToOrganization } from "../schemas/schemas_0";
+import { InviteAccountToOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface InviteAccountToOrganizationCommandInput extends InviteAccountTo
  *
  * The output of {@link InviteAccountToOrganizationCommand}.
  */
-export interface InviteAccountToOrganizationCommandOutput
-  extends InviteAccountToOrganizationResponse,
-    __MetadataBearer {}
+export interface InviteAccountToOrganizationCommandOutput extends InviteAccountToOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Sends an invitation to another account to join your organization as a member account.
@@ -693,7 +691,7 @@ export class InviteAccountToOrganizationCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "InviteAccountToOrganization", {})
   .n("OrganizationsClient", "InviteAccountToOrganizationCommand")
-  .sc(InviteAccountToOrganization)
+  .sc(InviteAccountToOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

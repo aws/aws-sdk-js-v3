@@ -9,7 +9,7 @@ import type {
   ListCostAllocationTagBackfillHistoryRequest,
   ListCostAllocationTagBackfillHistoryResponse,
 } from "../models/models_0";
-import { ListCostAllocationTagBackfillHistory } from "../schemas/schemas_0";
+import { ListCostAllocationTagBackfillHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListCostAllocationTagBackfillHistoryCommandInput extends ListCo
  *
  * The output of {@link ListCostAllocationTagBackfillHistoryCommand}.
  */
-export interface ListCostAllocationTagBackfillHistoryCommandOutput
-  extends ListCostAllocationTagBackfillHistoryResponse,
-    __MetadataBearer {}
+export interface ListCostAllocationTagBackfillHistoryCommandOutput extends ListCostAllocationTagBackfillHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -96,7 +94,7 @@ export class ListCostAllocationTagBackfillHistoryCommand extends $Command
   })
   .s("AWSInsightsIndexService", "ListCostAllocationTagBackfillHistory", {})
   .n("CostExplorerClient", "ListCostAllocationTagBackfillHistoryCommand")
-  .sc(ListCostAllocationTagBackfillHistory)
+  .sc(ListCostAllocationTagBackfillHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

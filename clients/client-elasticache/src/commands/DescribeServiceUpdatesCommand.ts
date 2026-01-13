@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeServiceUpdatesMessage, ServiceUpdatesMessage } from "../models/models_0";
-import { DescribeServiceUpdates } from "../schemas/schemas_0";
+import { DescribeServiceUpdates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class DescribeServiceUpdatesCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "DescribeServiceUpdates", {})
   .n("ElastiCacheClient", "DescribeServiceUpdatesCommand")
-  .sc(DescribeServiceUpdates)
+  .sc(DescribeServiceUpdates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   GetDefaultEncryptionConfigurationRequest,
   GetDefaultEncryptionConfigurationResponse,
 } from "../models/models_0";
-import { GetDefaultEncryptionConfiguration } from "../schemas/schemas_0";
+import { GetDefaultEncryptionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetDefaultEncryptionConfigurationCommandInput extends GetDefaul
  *
  * The output of {@link GetDefaultEncryptionConfigurationCommand}.
  */
-export interface GetDefaultEncryptionConfigurationCommandOutput
-  extends GetDefaultEncryptionConfigurationResponse,
-    __MetadataBearer {}
+export interface GetDefaultEncryptionConfigurationCommandOutput extends GetDefaultEncryptionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p> Retrieves information about the default encryption configuration for the Amazon Web Services account in the default or specified region. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
@@ -109,7 +107,7 @@ export class GetDefaultEncryptionConfigurationCommand extends $Command
   })
   .s("IotManagedIntegrations", "GetDefaultEncryptionConfiguration", {})
   .n("IoTManagedIntegrationsClient", "GetDefaultEncryptionConfigurationCommand")
-  .sc(GetDefaultEncryptionConfiguration)
+  .sc(GetDefaultEncryptionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

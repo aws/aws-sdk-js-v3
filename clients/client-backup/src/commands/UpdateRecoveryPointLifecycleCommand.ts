@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateRecoveryPointLifecycleInput, UpdateRecoveryPointLifecycleOutput } from "../models/models_0";
-import { UpdateRecoveryPointLifecycle } from "../schemas/schemas_0";
+import { UpdateRecoveryPointLifecycle$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateRecoveryPointLifecycleCommandInput extends UpdateRecovery
  *
  * The output of {@link UpdateRecoveryPointLifecycleCommand}.
  */
-export interface UpdateRecoveryPointLifecycleCommandOutput
-  extends UpdateRecoveryPointLifecycleOutput,
-    __MetadataBearer {}
+export interface UpdateRecoveryPointLifecycleCommandOutput extends UpdateRecoveryPointLifecycleOutput, __MetadataBearer {}
 
 /**
  * <p>Sets the transition lifecycle of a recovery point.</p>
@@ -125,7 +123,7 @@ export class UpdateRecoveryPointLifecycleCommand extends $Command
   })
   .s("CryoControllerUserManager", "UpdateRecoveryPointLifecycle", {})
   .n("BackupClient", "UpdateRecoveryPointLifecycleCommand")
-  .sc(UpdateRecoveryPointLifecycle)
+  .sc(UpdateRecoveryPointLifecycle$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

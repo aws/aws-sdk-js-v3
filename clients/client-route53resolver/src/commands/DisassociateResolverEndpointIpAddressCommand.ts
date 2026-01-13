@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { DisassociateResolverEndpointIpAddress } from "../schemas/schemas_0";
+import { DisassociateResolverEndpointIpAddress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DisassociateResolverEndpointIpAddressCommand}.
  */
-export interface DisassociateResolverEndpointIpAddressCommandInput
-  extends DisassociateResolverEndpointIpAddressRequest {}
+export interface DisassociateResolverEndpointIpAddressCommandInput extends DisassociateResolverEndpointIpAddressRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateResolverEndpointIpAddressCommand}.
  */
-export interface DisassociateResolverEndpointIpAddressCommandOutput
-  extends DisassociateResolverEndpointIpAddressResponse,
-    __MetadataBearer {}
+export interface DisassociateResolverEndpointIpAddressCommandOutput extends DisassociateResolverEndpointIpAddressResponse, __MetadataBearer {}
 
 /**
  * <p>Removes IP addresses from an inbound or an outbound Resolver endpoint. If you want to remove more than one IP address,
@@ -134,7 +131,7 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command
   })
   .s("Route53Resolver", "DisassociateResolverEndpointIpAddress", {})
   .n("Route53ResolverClient", "DisassociateResolverEndpointIpAddressCommand")
-  .sc(DisassociateResolverEndpointIpAddress)
+  .sc(DisassociateResolverEndpointIpAddress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

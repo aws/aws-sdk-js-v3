@@ -10,7 +10,7 @@ import type {
   GetBucketAccelerateConfigurationRequest,
 } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketAccelerateConfiguration } from "../schemas/schemas_0";
+import { GetBucketAccelerateConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetBucketAccelerateConfigurationCommandInput extends GetBucketA
  *
  * The output of {@link GetBucketAccelerateConfigurationCommand}.
  */
-export interface GetBucketAccelerateConfigurationCommandOutput
-  extends GetBucketAccelerateConfigurationOutput,
-    __MetadataBearer {}
+export interface GetBucketAccelerateConfigurationCommandOutput extends GetBucketAccelerateConfigurationOutput, __MetadataBearer {}
 
 /**
  * <note>
@@ -110,11 +108,14 @@ export class GetBucketAccelerateConfigurationCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
+    ];
   })
   .s("AmazonS3", "GetBucketAccelerateConfiguration", {})
   .n("S3Client", "GetBucketAccelerateConfigurationCommand")
-  .sc(GetBucketAccelerateConfiguration)
+  .sc(GetBucketAccelerateConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

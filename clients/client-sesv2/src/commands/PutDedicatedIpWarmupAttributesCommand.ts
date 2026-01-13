@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutDedicatedIpWarmupAttributesRequest, PutDedicatedIpWarmupAttributesResponse } from "../models/models_0";
-import { PutDedicatedIpWarmupAttributes } from "../schemas/schemas_0";
+import { PutDedicatedIpWarmupAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -24,9 +24,7 @@ export interface PutDedicatedIpWarmupAttributesCommandInput extends PutDedicated
  *
  * The output of {@link PutDedicatedIpWarmupAttributesCommand}.
  */
-export interface PutDedicatedIpWarmupAttributesCommandOutput
-  extends PutDedicatedIpWarmupAttributesResponse,
-    __MetadataBearer {}
+export interface PutDedicatedIpWarmupAttributesCommandOutput extends PutDedicatedIpWarmupAttributesResponse, __MetadataBearer {}
 
 /**
  * <p></p>
@@ -83,7 +81,7 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutDedicatedIpWarmupAttributes", {})
   .n("SESv2Client", "PutDedicatedIpWarmupAttributesCommand")
-  .sc(PutDedicatedIpWarmupAttributes)
+  .sc(PutDedicatedIpWarmupAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

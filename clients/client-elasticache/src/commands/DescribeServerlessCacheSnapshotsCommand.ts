@@ -9,7 +9,7 @@ import type {
   DescribeServerlessCacheSnapshotsRequest,
   DescribeServerlessCacheSnapshotsResponse,
 } from "../models/models_0";
-import { DescribeServerlessCacheSnapshots } from "../schemas/schemas_0";
+import { DescribeServerlessCacheSnapshots$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeServerlessCacheSnapshotsCommandInput extends DescribeSe
  *
  * The output of {@link DescribeServerlessCacheSnapshotsCommand}.
  */
-export interface DescribeServerlessCacheSnapshotsCommandOutput
-  extends DescribeServerlessCacheSnapshotsResponse,
-    __MetadataBearer {}
+export interface DescribeServerlessCacheSnapshotsCommandOutput extends DescribeServerlessCacheSnapshotsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about serverless cache snapshots.
@@ -114,7 +112,7 @@ export class DescribeServerlessCacheSnapshotsCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "DescribeServerlessCacheSnapshots", {})
   .n("ElastiCacheClient", "DescribeServerlessCacheSnapshotsCommand")
-  .sc(DescribeServerlessCacheSnapshots)
+  .sc(DescribeServerlessCacheSnapshots$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

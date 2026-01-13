@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateGeneratedTemplateInput, UpdateGeneratedTemplateOutput } from "../models/models_0";
-import { UpdateGeneratedTemplate } from "../schemas/schemas_0";
+import { UpdateGeneratedTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -173,7 +173,7 @@ export class UpdateGeneratedTemplateCommand extends $Command
   })
   .s("CloudFormation", "UpdateGeneratedTemplate", {})
   .n("CloudFormationClient", "UpdateGeneratedTemplateCommand")
-  .sc(UpdateGeneratedTemplate)
+  .sc(UpdateGeneratedTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

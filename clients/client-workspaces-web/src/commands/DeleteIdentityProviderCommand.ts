@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteIdentityProviderRequest, DeleteIdentityProviderResponse } from "../models/models_0";
-import { DeleteIdentityProvider } from "../schemas/schemas_0";
+import { DeleteIdentityProvider$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -86,7 +86,7 @@ export class DeleteIdentityProviderCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "DeleteIdentityProvider", {})
   .n("WorkSpacesWebClient", "DeleteIdentityProviderCommand")
-  .sc(DeleteIdentityProvider)
+  .sc(DeleteIdentityProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

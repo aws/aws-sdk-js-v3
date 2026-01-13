@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchDetectEntitiesRequest, BatchDetectEntitiesResponse } from "../models/models_0";
-import { BatchDetectEntities } from "../schemas/schemas_0";
+import { BatchDetectEntities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class BatchDetectEntitiesCommand extends $Command
   })
   .s("Comprehend_20171127", "BatchDetectEntities", {})
   .n("ComprehendClient", "BatchDetectEntitiesCommand")
-  .sc(BatchDetectEntities)
+  .sc(BatchDetectEntities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

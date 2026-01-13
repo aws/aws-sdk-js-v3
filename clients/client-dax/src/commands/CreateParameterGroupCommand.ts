@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateParameterGroupRequest, CreateParameterGroupResponse } from "../models/models_0";
-import { CreateParameterGroup } from "../schemas/schemas_0";
+import { CreateParameterGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class CreateParameterGroupCommand extends $Command
   })
   .s("AmazonDAXV3", "CreateParameterGroup", {})
   .n("DAXClient", "CreateParameterGroupCommand")
-  .sc(CreateParameterGroup)
+  .sc(CreateParameterGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

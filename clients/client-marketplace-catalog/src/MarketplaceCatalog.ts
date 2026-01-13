@@ -106,7 +106,10 @@ export interface MarketplaceCatalog {
     args: CancelChangeSetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CancelChangeSetCommandOutput>;
-  cancelChangeSet(args: CancelChangeSetCommandInput, cb: (err: any, data?: CancelChangeSetCommandOutput) => void): void;
+  cancelChangeSet(
+    args: CancelChangeSetCommandInput,
+    cb: (err: any, data?: CancelChangeSetCommandOutput) => void
+  ): void;
   cancelChangeSet(
     args: CancelChangeSetCommandInput,
     options: __HttpHandlerOptions,
@@ -154,7 +157,10 @@ export interface MarketplaceCatalog {
     args: DescribeEntityCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeEntityCommandOutput>;
-  describeEntity(args: DescribeEntityCommandInput, cb: (err: any, data?: DescribeEntityCommandOutput) => void): void;
+  describeEntity(
+    args: DescribeEntityCommandInput,
+    cb: (err: any, data?: DescribeEntityCommandOutput) => void
+  ): void;
   describeEntity(
     args: DescribeEntityCommandInput,
     options: __HttpHandlerOptions,
@@ -185,7 +191,10 @@ export interface MarketplaceCatalog {
     args: ListChangeSetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListChangeSetsCommandOutput>;
-  listChangeSets(args: ListChangeSetsCommandInput, cb: (err: any, data?: ListChangeSetsCommandOutput) => void): void;
+  listChangeSets(
+    args: ListChangeSetsCommandInput,
+    cb: (err: any, data?: ListChangeSetsCommandOutput) => void
+  ): void;
   listChangeSets(
     args: ListChangeSetsCommandInput,
     options: __HttpHandlerOptions,
@@ -195,8 +204,14 @@ export interface MarketplaceCatalog {
   /**
    * @see {@link ListEntitiesCommand}
    */
-  listEntities(args: ListEntitiesCommandInput, options?: __HttpHandlerOptions): Promise<ListEntitiesCommandOutput>;
-  listEntities(args: ListEntitiesCommandInput, cb: (err: any, data?: ListEntitiesCommandOutput) => void): void;
+  listEntities(
+    args: ListEntitiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEntitiesCommandOutput>;
+  listEntities(
+    args: ListEntitiesCommandInput,
+    cb: (err: any, data?: ListEntitiesCommandOutput) => void
+  ): void;
   listEntities(
     args: ListEntitiesCommandInput,
     options: __HttpHandlerOptions,
@@ -244,7 +259,10 @@ export interface MarketplaceCatalog {
     args: StartChangeSetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartChangeSetCommandOutput>;
-  startChangeSet(args: StartChangeSetCommandInput, cb: (err: any, data?: StartChangeSetCommandOutput) => void): void;
+  startChangeSet(
+    args: StartChangeSetCommandInput,
+    cb: (err: any, data?: StartChangeSetCommandOutput) => void
+  ): void;
   startChangeSet(
     args: StartChangeSetCommandInput,
     options: __HttpHandlerOptions,
@@ -254,8 +272,14 @@ export interface MarketplaceCatalog {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -265,8 +289,14 @@ export interface MarketplaceCatalog {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

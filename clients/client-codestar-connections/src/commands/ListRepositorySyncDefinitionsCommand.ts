@@ -10,7 +10,7 @@ import type {
 } from "../CodeStarConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListRepositorySyncDefinitionsInput, ListRepositorySyncDefinitionsOutput } from "../models/models_0";
-import { ListRepositorySyncDefinitions } from "../schemas/schemas_0";
+import { ListRepositorySyncDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListRepositorySyncDefinitionsCommandInput extends ListRepositor
  *
  * The output of {@link ListRepositorySyncDefinitionsCommand}.
  */
-export interface ListRepositorySyncDefinitionsCommandOutput
-  extends ListRepositorySyncDefinitionsOutput,
-    __MetadataBearer {}
+export interface ListRepositorySyncDefinitionsCommandOutput extends ListRepositorySyncDefinitionsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the repository sync definitions for repository links in your account.</p>
@@ -103,7 +101,7 @@ export class ListRepositorySyncDefinitionsCommand extends $Command
   })
   .s("CodeStar_connections_20191201", "ListRepositorySyncDefinitions", {})
   .n("CodeStarConnectionsClient", "ListRepositorySyncDefinitionsCommand")
-  .sc(ListRepositorySyncDefinitions)
+  .sc(ListRepositorySyncDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

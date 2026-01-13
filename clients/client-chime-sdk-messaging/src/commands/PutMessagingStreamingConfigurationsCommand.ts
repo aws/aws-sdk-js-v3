@@ -13,7 +13,7 @@ import type {
   PutMessagingStreamingConfigurationsRequest,
   PutMessagingStreamingConfigurationsResponse,
 } from "../models/models_0";
-import { PutMessagingStreamingConfigurations } from "../schemas/schemas_0";
+import { PutMessagingStreamingConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface PutMessagingStreamingConfigurationsCommandInput extends PutMess
  *
  * The output of {@link PutMessagingStreamingConfigurationsCommand}.
  */
-export interface PutMessagingStreamingConfigurationsCommandOutput
-  extends PutMessagingStreamingConfigurationsResponse,
-    __MetadataBearer {}
+export interface PutMessagingStreamingConfigurationsCommandOutput extends PutMessagingStreamingConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the data streaming configuration for an <code>AppInstance</code>. For more information, see
@@ -119,7 +117,7 @@ export class PutMessagingStreamingConfigurationsCommand extends $Command
   })
   .s("ChimeMessagingService", "PutMessagingStreamingConfigurations", {})
   .n("ChimeSDKMessagingClient", "PutMessagingStreamingConfigurationsCommand")
-  .sc(PutMessagingStreamingConfigurations)
+  .sc(PutMessagingStreamingConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

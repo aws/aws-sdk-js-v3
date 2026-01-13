@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSuppressedDestinationRequest, DeleteSuppressedDestinationResponse } from "../models/models_0";
-import { DeleteSuppressedDestination } from "../schemas/schemas_0";
+import { DeleteSuppressedDestination$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -24,9 +24,7 @@ export interface DeleteSuppressedDestinationCommandInput extends DeleteSuppresse
  *
  * The output of {@link DeleteSuppressedDestinationCommand}.
  */
-export interface DeleteSuppressedDestinationCommandOutput
-  extends DeleteSuppressedDestinationResponse,
-    __MetadataBearer {}
+export interface DeleteSuppressedDestinationCommandOutput extends DeleteSuppressedDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Removes an email address from the suppression list for your account.</p>
@@ -82,7 +80,7 @@ export class DeleteSuppressedDestinationCommand extends $Command
   })
   .s("SimpleEmailService_v2", "DeleteSuppressedDestination", {})
   .n("SESv2Client", "DeleteSuppressedDestinationCommand")
-  .sc(DeleteSuppressedDestination)
+  .sc(DeleteSuppressedDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

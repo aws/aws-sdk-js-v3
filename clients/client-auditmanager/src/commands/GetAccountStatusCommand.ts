@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAccountStatusRequest, GetAccountStatusResponse } from "../models/models_0";
-import { GetAccountStatus } from "../schemas/schemas_0";
+import { GetAccountStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -75,7 +75,7 @@ export class GetAccountStatusCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "GetAccountStatus", {})
   .n("AuditManagerClient", "GetAccountStatusCommand")
-  .sc(GetAccountStatus)
+  .sc(GetAccountStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

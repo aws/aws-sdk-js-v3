@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
 import type { DeleteKxClusterRequest, DeleteKxClusterResponse } from "../models/models_0";
-import { DeleteKxCluster } from "../schemas/schemas_0";
+import { DeleteKxCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeleteKxClusterCommand extends $Command
   })
   .s("AWSHabaneroManagementService", "DeleteKxCluster", {})
   .n("FinspaceClient", "DeleteKxClusterCommand")
-  .sc(DeleteKxCluster)
+  .sc(DeleteKxCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

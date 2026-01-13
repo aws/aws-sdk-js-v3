@@ -8,7 +8,7 @@ import type {
   DescribeEffectivePatchesForPatchBaselineRequest,
   DescribeEffectivePatchesForPatchBaselineResult,
 } from "../models/models_0";
-import { DescribeEffectivePatchesForPatchBaseline } from "../schemas/schemas_0";
+import { DescribeEffectivePatchesForPatchBaseline$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeEffectivePatchesForPatchBaselineCommand}.
  */
-export interface DescribeEffectivePatchesForPatchBaselineCommandInput
-  extends DescribeEffectivePatchesForPatchBaselineRequest {}
+export interface DescribeEffectivePatchesForPatchBaselineCommandInput extends DescribeEffectivePatchesForPatchBaselineRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeEffectivePatchesForPatchBaselineCommand}.
  */
-export interface DescribeEffectivePatchesForPatchBaselineCommandOutput
-  extends DescribeEffectivePatchesForPatchBaselineResult,
-    __MetadataBearer {}
+export interface DescribeEffectivePatchesForPatchBaselineCommandOutput extends DescribeEffectivePatchesForPatchBaselineResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the current effective patches (the patch and the approval state) for the specified
@@ -138,7 +135,7 @@ export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command
   })
   .s("AmazonSSM", "DescribeEffectivePatchesForPatchBaseline", {})
   .n("SSMClient", "DescribeEffectivePatchesForPatchBaselineCommand")
-  .sc(DescribeEffectivePatchesForPatchBaseline)
+  .sc(DescribeEffectivePatchesForPatchBaseline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

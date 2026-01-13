@@ -11,9 +11,10 @@ export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { LexRuntimeV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
+export * from "./schemas/schemas_0";
 
 export * from "./models/enums";
 export * from "./models/errors";
-export type * from "./models/models_0";
+export * from "./models/models_0";
 
 export { LexRuntimeV2ServiceException } from "./models/LexRuntimeV2ServiceException";

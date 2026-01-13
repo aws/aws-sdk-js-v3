@@ -9,7 +9,7 @@ import type {
   DeleteLaunchConfigurationTemplateRequest,
   DeleteLaunchConfigurationTemplateResponse,
 } from "../models/models_0";
-import { DeleteLaunchConfigurationTemplate } from "../schemas/schemas_0";
+import { DeleteLaunchConfigurationTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteLaunchConfigurationTemplateCommandInput extends DeleteLau
  *
  * The output of {@link DeleteLaunchConfigurationTemplateCommand}.
  */
-export interface DeleteLaunchConfigurationTemplateCommandOutput
-  extends DeleteLaunchConfigurationTemplateResponse,
-    __MetadataBearer {}
+export interface DeleteLaunchConfigurationTemplateCommandOutput extends DeleteLaunchConfigurationTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a single Launch Configuration Template by ID.</p>
@@ -91,7 +89,7 @@ export class DeleteLaunchConfigurationTemplateCommand extends $Command
   })
   .s("ElasticDisasterRecoveryService", "DeleteLaunchConfigurationTemplate", {})
   .n("DrsClient", "DeleteLaunchConfigurationTemplateCommand")
-  .sc(DeleteLaunchConfigurationTemplate)
+  .sc(DeleteLaunchConfigurationTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCalendarStateRequest, GetCalendarStateResponse } from "../models/models_0";
-import { GetCalendarState } from "../schemas/schemas_0";
+import { GetCalendarState$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -99,7 +99,7 @@ export class GetCalendarStateCommand extends $Command
   })
   .s("AmazonSSM", "GetCalendarState", {})
   .n("SSMClient", "GetCalendarStateCommand")
-  .sc(GetCalendarState)
+  .sc(GetCalendarState$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   ListDataQualityStatisticAnnotationsRequest,
   ListDataQualityStatisticAnnotationsResponse,
 } from "../models/models_2";
-import { ListDataQualityStatisticAnnotations } from "../schemas/schemas_0";
+import { ListDataQualityStatisticAnnotations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListDataQualityStatisticAnnotationsCommandInput extends ListDat
  *
  * The output of {@link ListDataQualityStatisticAnnotationsCommand}.
  */
-export interface ListDataQualityStatisticAnnotationsCommandOutput
-  extends ListDataQualityStatisticAnnotationsResponse,
-    __MetadataBearer {}
+export interface ListDataQualityStatisticAnnotationsCommandOutput extends ListDataQualityStatisticAnnotationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve annotations for a data quality statistic.</p>
@@ -102,7 +100,7 @@ export class ListDataQualityStatisticAnnotationsCommand extends $Command
   })
   .s("AWSGlue", "ListDataQualityStatisticAnnotations", {})
   .n("GlueClient", "ListDataQualityStatisticAnnotationsCommand")
-  .sc(ListDataQualityStatisticAnnotations)
+  .sc(ListDataQualityStatisticAnnotations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

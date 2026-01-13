@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableDirectoryDataAccessRequest, EnableDirectoryDataAccessResult } from "../models/models_0";
-import { EnableDirectoryDataAccess } from "../schemas/schemas_0";
+import { EnableDirectoryDataAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class EnableDirectoryDataAccessCommand extends $Command
   })
   .s("DirectoryService_20150416", "EnableDirectoryDataAccess", {})
   .n("DirectoryServiceClient", "EnableDirectoryDataAccessCommand")
-  .sc(EnableDirectoryDataAccess)
+  .sc(EnableDirectoryDataAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

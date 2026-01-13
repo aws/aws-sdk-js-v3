@@ -13,7 +13,7 @@ import type {
   BatchDisassociateResourcesFromCustomLineItemInput,
   BatchDisassociateResourcesFromCustomLineItemOutput,
 } from "../models/models_0";
-import { BatchDisassociateResourcesFromCustomLineItem } from "../schemas/schemas_0";
+import { BatchDisassociateResourcesFromCustomLineItem$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link BatchDisassociateResourcesFromCustomLineItemCommand}.
  */
-export interface BatchDisassociateResourcesFromCustomLineItemCommandInput
-  extends BatchDisassociateResourcesFromCustomLineItemInput {}
+export interface BatchDisassociateResourcesFromCustomLineItemCommandInput extends BatchDisassociateResourcesFromCustomLineItemInput {}
 /**
  * @public
  *
  * The output of {@link BatchDisassociateResourcesFromCustomLineItemCommand}.
  */
-export interface BatchDisassociateResourcesFromCustomLineItemCommandOutput
-  extends BatchDisassociateResourcesFromCustomLineItemOutput,
-    __MetadataBearer {}
+export interface BatchDisassociateResourcesFromCustomLineItemCommandOutput extends BatchDisassociateResourcesFromCustomLineItemOutput, __MetadataBearer {}
 
 /**
  * <p> Disassociates a batch of resources from a percentage custom line item. </p>
@@ -125,7 +122,7 @@ export class BatchDisassociateResourcesFromCustomLineItemCommand extends $Comman
   })
   .s("AWSBillingConductor", "BatchDisassociateResourcesFromCustomLineItem", {})
   .n("BillingconductorClient", "BatchDisassociateResourcesFromCustomLineItemCommand")
-  .sc(BatchDisassociateResourcesFromCustomLineItem)
+  .sc(BatchDisassociateResourcesFromCustomLineItem$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

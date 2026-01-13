@@ -9,7 +9,7 @@ import type {
   DescribeVpcBlockPublicAccessExclusionsRequest,
   DescribeVpcBlockPublicAccessExclusionsResult,
 } from "../models/models_5";
-import { DescribeVpcBlockPublicAccessExclusions } from "../schemas/schemas_0";
+import { DescribeVpcBlockPublicAccessExclusions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeVpcBlockPublicAccessExclusionsCommand}.
  */
-export interface DescribeVpcBlockPublicAccessExclusionsCommandInput
-  extends DescribeVpcBlockPublicAccessExclusionsRequest {}
+export interface DescribeVpcBlockPublicAccessExclusionsCommandInput extends DescribeVpcBlockPublicAccessExclusionsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeVpcBlockPublicAccessExclusionsCommand}.
  */
-export interface DescribeVpcBlockPublicAccessExclusionsCommandOutput
-  extends DescribeVpcBlockPublicAccessExclusionsResult,
-    __MetadataBearer {}
+export interface DescribeVpcBlockPublicAccessExclusionsCommandOutput extends DescribeVpcBlockPublicAccessExclusionsResult, __MetadataBearer {}
 
 /**
  * <p>Describe VPC Block Public Access (BPA) exclusions. A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account’s BPA mode and will allow bidirectional or egress-only access. You can create BPA exclusions for VPCs and subnets even when BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on. To learn more about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
@@ -110,7 +107,7 @@ export class DescribeVpcBlockPublicAccessExclusionsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeVpcBlockPublicAccessExclusions", {})
   .n("EC2Client", "DescribeVpcBlockPublicAccessExclusionsCommand")
-  .sc(DescribeVpcBlockPublicAccessExclusions)
+  .sc(DescribeVpcBlockPublicAccessExclusions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

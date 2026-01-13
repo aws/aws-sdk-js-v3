@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AcceptLinkRequest, AcceptLinkResponse } from "../models/models_0";
 import type { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
-import { AcceptLink } from "../schemas/schemas_0";
+import { AcceptLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -249,7 +249,7 @@ export class AcceptLinkCommand extends $Command
   })
   .s("RTBFabric", "AcceptLink", {})
   .n("RTBFabricClient", "AcceptLinkCommand")
-  .sc(AcceptLink)
+  .sc(AcceptLink$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

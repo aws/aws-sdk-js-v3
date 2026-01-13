@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ManagePropertygraphStatisticsInput, ManagePropertygraphStatisticsOutput } from "../models/models_0";
 import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
-import { ManagePropertygraphStatistics } from "../schemas/schemas_0";
+import { ManagePropertygraphStatistics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ManagePropertygraphStatisticsCommandInput extends ManagePropert
  *
  * The output of {@link ManagePropertygraphStatisticsCommand}.
  */
-export interface ManagePropertygraphStatisticsCommandOutput
-  extends ManagePropertygraphStatisticsOutput,
-    __MetadataBearer {}
+export interface ManagePropertygraphStatisticsCommandOutput extends ManagePropertygraphStatisticsOutput, __MetadataBearer {}
 
 /**
  * <p>Manages the generation and use of property graph statistics.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#managestatistics">neptune-db:ManageStatistics</a> IAM action in that cluster.</p>
@@ -117,7 +115,7 @@ export class ManagePropertygraphStatisticsCommand extends $Command
   })
   .s("AmazonNeptuneDataplane", "ManagePropertygraphStatistics", {})
   .n("NeptunedataClient", "ManagePropertygraphStatisticsCommand")
-  .sc(ManagePropertygraphStatistics)
+  .sc(ManagePropertygraphStatistics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

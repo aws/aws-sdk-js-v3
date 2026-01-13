@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeMetadataModelImportsMessage, DescribeMetadataModelImportsResponse } from "../models/models_0";
-import { DescribeMetadataModelImports } from "../schemas/schemas_0";
+import { DescribeMetadataModelImports$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeMetadataModelImportsCommandInput extends DescribeMetada
  *
  * The output of {@link DescribeMetadataModelImportsCommand}.
  */
-export interface DescribeMetadataModelImportsCommandOutput
-  extends DescribeMetadataModelImportsResponse,
-    __MetadataBearer {}
+export interface DescribeMetadataModelImportsCommandOutput extends DescribeMetadataModelImportsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of metadata model imports.</p>
@@ -150,7 +148,7 @@ export class DescribeMetadataModelImportsCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeMetadataModelImports", {})
   .n("DatabaseMigrationServiceClient", "DescribeMetadataModelImportsCommand")
-  .sc(DescribeMetadataModelImports)
+  .sc(DescribeMetadataModelImports$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

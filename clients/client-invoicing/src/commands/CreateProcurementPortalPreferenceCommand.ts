@@ -9,7 +9,7 @@ import type {
   CreateProcurementPortalPreferenceRequest,
   CreateProcurementPortalPreferenceResponse,
 } from "../models/models_0";
-import { CreateProcurementPortalPreference } from "../schemas/schemas_0";
+import { CreateProcurementPortalPreference$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateProcurementPortalPreferenceCommandInput extends CreatePro
  *
  * The output of {@link CreateProcurementPortalPreferenceCommand}.
  */
-export interface CreateProcurementPortalPreferenceCommandOutput
-  extends CreateProcurementPortalPreferenceResponse,
-    __MetadataBearer {}
+export interface CreateProcurementPortalPreferenceCommandOutput extends CreateProcurementPortalPreferenceResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a procurement portal preference configuration for e-invoice delivery and purchase order retrieval. This preference defines how invoices are delivered to a procurement portal and how purchase orders are retrieved.</p>
@@ -221,7 +219,7 @@ export class CreateProcurementPortalPreferenceCommand extends $Command
   })
   .s("Invoicing", "CreateProcurementPortalPreference", {})
   .n("InvoicingClient", "CreateProcurementPortalPreferenceCommand")
-  .sc(CreateProcurementPortalPreference)
+  .sc(CreateProcurementPortalPreference$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

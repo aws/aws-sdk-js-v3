@@ -9,7 +9,7 @@ import type {
   DisassociateTrafficDistributionGroupUserRequest,
   DisassociateTrafficDistributionGroupUserResponse,
 } from "../models/models_1";
-import { DisassociateTrafficDistributionGroupUser } from "../schemas/schemas_0";
+import { DisassociateTrafficDistributionGroupUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateTrafficDistributionGroupUserCommand}.
  */
-export interface DisassociateTrafficDistributionGroupUserCommandInput
-  extends DisassociateTrafficDistributionGroupUserRequest {}
+export interface DisassociateTrafficDistributionGroupUserCommandInput extends DisassociateTrafficDistributionGroupUserRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateTrafficDistributionGroupUserCommand}.
  */
-export interface DisassociateTrafficDistributionGroupUserCommandOutput
-  extends DisassociateTrafficDistributionGroupUserResponse,
-    __MetadataBearer {}
+export interface DisassociateTrafficDistributionGroupUserCommandOutput extends DisassociateTrafficDistributionGroupUserResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates an agent from a traffic distribution group. This API can be called only in the Region where the
@@ -98,7 +95,7 @@ export class DisassociateTrafficDistributionGroupUserCommand extends $Command
   })
   .s("AmazonConnectService", "DisassociateTrafficDistributionGroupUser", {})
   .n("ConnectClient", "DisassociateTrafficDistributionGroupUserCommand")
-  .sc(DisassociateTrafficDistributionGroupUser)
+  .sc(DisassociateTrafficDistributionGroupUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

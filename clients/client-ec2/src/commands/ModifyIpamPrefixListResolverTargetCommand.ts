@@ -9,7 +9,7 @@ import type {
   ModifyIpamPrefixListResolverTargetRequest,
   ModifyIpamPrefixListResolverTargetResult,
 } from "../models/models_6";
-import { ModifyIpamPrefixListResolverTarget } from "../schemas/schemas_0";
+import { ModifyIpamPrefixListResolverTarget$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ModifyIpamPrefixListResolverTargetCommandInput extends ModifyIp
  *
  * The output of {@link ModifyIpamPrefixListResolverTargetCommand}.
  */
-export interface ModifyIpamPrefixListResolverTargetCommandOutput
-  extends ModifyIpamPrefixListResolverTargetResult,
-    __MetadataBearer {}
+export interface ModifyIpamPrefixListResolverTargetCommandOutput extends ModifyIpamPrefixListResolverTargetResult, __MetadataBearer {}
 
 /**
  * <p>Modifies an IPAM prefix list resolver target. You can update version tracking settings and the desired version of the target prefix list.</p>
@@ -100,7 +98,7 @@ export class ModifyIpamPrefixListResolverTargetCommand extends $Command
   })
   .s("AmazonEC2", "ModifyIpamPrefixListResolverTarget", {})
   .n("EC2Client", "ModifyIpamPrefixListResolverTargetCommand")
-  .sc(ModifyIpamPrefixListResolverTarget)
+  .sc(ModifyIpamPrefixListResolverTarget$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

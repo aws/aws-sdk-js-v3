@@ -9,7 +9,7 @@ import type {
   DescribeTargetedSentimentDetectionJobRequest,
   DescribeTargetedSentimentDetectionJobResponse,
 } from "../models/models_0";
-import { DescribeTargetedSentimentDetectionJob } from "../schemas/schemas_0";
+import { DescribeTargetedSentimentDetectionJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeTargetedSentimentDetectionJobCommand}.
  */
-export interface DescribeTargetedSentimentDetectionJobCommandInput
-  extends DescribeTargetedSentimentDetectionJobRequest {}
+export interface DescribeTargetedSentimentDetectionJobCommandInput extends DescribeTargetedSentimentDetectionJobRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeTargetedSentimentDetectionJobCommand}.
  */
-export interface DescribeTargetedSentimentDetectionJobCommandOutput
-  extends DescribeTargetedSentimentDetectionJobResponse,
-    __MetadataBearer {}
+export interface DescribeTargetedSentimentDetectionJobCommandOutput extends DescribeTargetedSentimentDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a targeted sentiment detection job. Use this operation
@@ -126,7 +123,7 @@ export class DescribeTargetedSentimentDetectionJobCommand extends $Command
   })
   .s("Comprehend_20171127", "DescribeTargetedSentimentDetectionJob", {})
   .n("ComprehendClient", "DescribeTargetedSentimentDetectionJobCommand")
-  .sc(DescribeTargetedSentimentDetectionJob)
+  .sc(DescribeTargetedSentimentDetectionJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

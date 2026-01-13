@@ -9,7 +9,7 @@ import type {
   GetThirdPartyFirewallAssociationStatusRequest,
   GetThirdPartyFirewallAssociationStatusResponse,
 } from "../models/models_0";
-import { GetThirdPartyFirewallAssociationStatus } from "../schemas/schemas_0";
+import { GetThirdPartyFirewallAssociationStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetThirdPartyFirewallAssociationStatusCommand}.
  */
-export interface GetThirdPartyFirewallAssociationStatusCommandInput
-  extends GetThirdPartyFirewallAssociationStatusRequest {}
+export interface GetThirdPartyFirewallAssociationStatusCommandInput extends GetThirdPartyFirewallAssociationStatusRequest {}
 /**
  * @public
  *
  * The output of {@link GetThirdPartyFirewallAssociationStatusCommand}.
  */
-export interface GetThirdPartyFirewallAssociationStatusCommandOutput
-  extends GetThirdPartyFirewallAssociationStatusResponse,
-    __MetadataBearer {}
+export interface GetThirdPartyFirewallAssociationStatusCommandOutput extends GetThirdPartyFirewallAssociationStatusResponse, __MetadataBearer {}
 
 /**
  * <p>The onboarding status of a Firewall Manager admin account to third-party firewall vendor tenant.</p>
@@ -97,7 +94,7 @@ export class GetThirdPartyFirewallAssociationStatusCommand extends $Command
   })
   .s("AWSFMS_20180101", "GetThirdPartyFirewallAssociationStatus", {})
   .n("FMSClient", "GetThirdPartyFirewallAssociationStatusCommand")
-  .sc(GetThirdPartyFirewallAssociationStatus)
+  .sc(GetThirdPartyFirewallAssociationStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

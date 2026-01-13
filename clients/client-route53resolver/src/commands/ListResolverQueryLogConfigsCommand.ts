@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { ListResolverQueryLogConfigs } from "../schemas/schemas_0";
+import { ListResolverQueryLogConfigs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListResolverQueryLogConfigsCommandInput extends ListResolverQue
  *
  * The output of {@link ListResolverQueryLogConfigsCommand}.
  */
-export interface ListResolverQueryLogConfigsCommandOutput
-  extends ListResolverQueryLogConfigsResponse,
-    __MetadataBearer {}
+export interface ListResolverQueryLogConfigsCommandOutput extends ListResolverQueryLogConfigsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists information about the specified query logging configurations. Each configuration defines where you want Resolver to save
@@ -127,7 +125,7 @@ export class ListResolverQueryLogConfigsCommand extends $Command
   })
   .s("Route53Resolver", "ListResolverQueryLogConfigs", {})
   .n("Route53ResolverClient", "ListResolverQueryLogConfigsCommand")
-  .sc(ListResolverQueryLogConfigs)
+  .sc(ListResolverQueryLogConfigs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

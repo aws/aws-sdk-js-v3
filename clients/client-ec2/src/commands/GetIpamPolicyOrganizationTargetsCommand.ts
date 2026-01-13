@@ -9,7 +9,7 @@ import type {
   GetIpamPolicyOrganizationTargetsRequest,
   GetIpamPolicyOrganizationTargetsResult,
 } from "../models/models_6";
-import { GetIpamPolicyOrganizationTargets } from "../schemas/schemas_0";
+import { GetIpamPolicyOrganizationTargets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetIpamPolicyOrganizationTargetsCommandInput extends GetIpamPol
  *
  * The output of {@link GetIpamPolicyOrganizationTargetsCommand}.
  */
-export interface GetIpamPolicyOrganizationTargetsCommandOutput
-  extends GetIpamPolicyOrganizationTargetsResult,
-    __MetadataBearer {}
+export interface GetIpamPolicyOrganizationTargetsCommandOutput extends GetIpamPolicyOrganizationTargetsResult, __MetadataBearer {}
 
 /**
  * <p>Gets the Amazon Web Services Organizations targets for an IPAM policy.</p>
@@ -96,7 +94,7 @@ export class GetIpamPolicyOrganizationTargetsCommand extends $Command
   })
   .s("AmazonEC2", "GetIpamPolicyOrganizationTargets", {})
   .n("EC2Client", "GetIpamPolicyOrganizationTargetsCommand")
-  .sc(GetIpamPolicyOrganizationTargets)
+  .sc(GetIpamPolicyOrganizationTargets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

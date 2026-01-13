@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelServiceSoftwareUpdateRequest, CancelServiceSoftwareUpdateResponse } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { CancelServiceSoftwareUpdate } from "../schemas/schemas_0";
+import { CancelServiceSoftwareUpdate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CancelServiceSoftwareUpdateCommandInput extends CancelServiceSo
  *
  * The output of {@link CancelServiceSoftwareUpdateCommand}.
  */
-export interface CancelServiceSoftwareUpdateCommandOutput
-  extends CancelServiceSoftwareUpdateResponse,
-    __MetadataBearer {}
+export interface CancelServiceSoftwareUpdateCommandOutput extends CancelServiceSoftwareUpdateResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a scheduled service software update for an Amazon OpenSearch Service domain.
@@ -100,7 +98,7 @@ export class CancelServiceSoftwareUpdateCommand extends $Command
   })
   .s("AmazonOpenSearchService", "CancelServiceSoftwareUpdate", {})
   .n("OpenSearchClient", "CancelServiceSoftwareUpdateCommand")
-  .sc(CancelServiceSoftwareUpdate)
+  .sc(CancelServiceSoftwareUpdate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

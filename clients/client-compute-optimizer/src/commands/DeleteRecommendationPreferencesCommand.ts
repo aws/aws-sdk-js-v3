@@ -13,7 +13,7 @@ import type {
   DeleteRecommendationPreferencesRequest,
   DeleteRecommendationPreferencesResponse,
 } from "../models/models_0";
-import { DeleteRecommendationPreferences } from "../schemas/schemas_0";
+import { DeleteRecommendationPreferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DeleteRecommendationPreferencesCommandInput extends DeleteRecom
  *
  * The output of {@link DeleteRecommendationPreferencesCommand}.
  */
-export interface DeleteRecommendationPreferencesCommandOutput
-  extends DeleteRecommendationPreferencesResponse,
-    __MetadataBearer {}
+export interface DeleteRecommendationPreferencesCommandOutput extends DeleteRecommendationPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a recommendation preference, such as enhanced infrastructure metrics.</p>
@@ -115,7 +113,7 @@ export class DeleteRecommendationPreferencesCommand extends $Command
   })
   .s("ComputeOptimizerService", "DeleteRecommendationPreferences", {})
   .n("ComputeOptimizerClient", "DeleteRecommendationPreferencesCommand")
-  .sc(DeleteRecommendationPreferences)
+  .sc(DeleteRecommendationPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

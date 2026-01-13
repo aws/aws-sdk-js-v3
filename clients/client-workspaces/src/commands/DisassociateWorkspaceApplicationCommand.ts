@@ -8,7 +8,7 @@ import type {
   DisassociateWorkspaceApplicationRequest,
   DisassociateWorkspaceApplicationResult,
 } from "../models/models_0";
-import { DisassociateWorkspaceApplication } from "../schemas/schemas_0";
+import { DisassociateWorkspaceApplication$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DisassociateWorkspaceApplicationCommandInput extends Disassocia
  *
  * The output of {@link DisassociateWorkspaceApplicationCommand}.
  */
-export interface DisassociateWorkspaceApplicationCommandOutput
-  extends DisassociateWorkspaceApplicationResult,
-    __MetadataBearer {}
+export interface DisassociateWorkspaceApplicationCommandOutput extends DisassociateWorkspaceApplicationResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified application from a WorkSpace.</p>
@@ -55,7 +53,7 @@ export interface DisassociateWorkspaceApplicationCommandOutput
  * //     LastUpdatedTime: new Date("TIMESTAMP"),
  * //     State: "PENDING_INSTALL" || "PENDING_INSTALL_DEPLOYMENT" || "PENDING_UNINSTALL" || "PENDING_UNINSTALL_DEPLOYMENT" || "INSTALLING" || "UNINSTALLING" || "ERROR" || "COMPLETED" || "REMOVED",
  * //     StateReason: { // AssociationStateReason
- * //       ErrorCode: "ValidationError.InsufficientDiskSpace" || "ValidationError.InsufficientMemory" || "ValidationError.UnsupportedOperatingSystem" || "DeploymentError.InternalServerError" || "DeploymentError.WorkspaceUnreachable",
+ * //       ErrorCode: "ValidationError.InsufficientDiskSpace" || "ValidationError.InsufficientMemory" || "ValidationError.UnsupportedOperatingSystem" || "DeploymentError.InternalServerError" || "DeploymentError.WorkspaceUnreachable" || "ValidationError.ApplicationOldVersionExists",
  * //       ErrorMessage: "STRING_VALUE",
  * //     },
  * //     WorkspaceId: "STRING_VALUE",
@@ -105,7 +103,7 @@ export class DisassociateWorkspaceApplicationCommand extends $Command
   })
   .s("WorkspacesService", "DisassociateWorkspaceApplication", {})
   .n("WorkSpacesClient", "DisassociateWorkspaceApplicationCommand")
-  .sc(DisassociateWorkspaceApplication)
+  .sc(DisassociateWorkspaceApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

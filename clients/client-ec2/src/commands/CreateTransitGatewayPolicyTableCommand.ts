@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateTransitGatewayPolicyTableRequest, CreateTransitGatewayPolicyTableResult } from "../models/models_2";
-import { CreateTransitGatewayPolicyTable } from "../schemas/schemas_0";
+import { CreateTransitGatewayPolicyTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateTransitGatewayPolicyTableCommandInput extends CreateTrans
  *
  * The output of {@link CreateTransitGatewayPolicyTableCommand}.
  */
-export interface CreateTransitGatewayPolicyTableCommandOutput
-  extends CreateTransitGatewayPolicyTableResult,
-    __MetadataBearer {}
+export interface CreateTransitGatewayPolicyTableCommandOutput extends CreateTransitGatewayPolicyTableResult, __MetadataBearer {}
 
 /**
  * <p>Creates a transit gateway policy table.</p>
@@ -98,7 +96,7 @@ export class CreateTransitGatewayPolicyTableCommand extends $Command
   })
   .s("AmazonEC2", "CreateTransitGatewayPolicyTable", {})
   .n("EC2Client", "CreateTransitGatewayPolicyTableCommand")
-  .sc(CreateTransitGatewayPolicyTable)
+  .sc(CreateTransitGatewayPolicyTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

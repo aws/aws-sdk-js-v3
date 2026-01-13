@@ -9,7 +9,7 @@ import type {
   UpdateImageGenerationConfigurationInput,
   UpdateImageGenerationConfigurationOutput,
 } from "../models/models_0";
-import { UpdateImageGenerationConfiguration } from "../schemas/schemas_0";
+import { UpdateImageGenerationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateImageGenerationConfigurationCommandInput extends UpdateIm
  *
  * The output of {@link UpdateImageGenerationConfigurationCommand}.
  */
-export interface UpdateImageGenerationConfigurationCommandOutput
-  extends UpdateImageGenerationConfigurationOutput,
-    __MetadataBearer {}
+export interface UpdateImageGenerationConfigurationCommandOutput extends UpdateImageGenerationConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the <code>StreamInfo</code> and <code>ImageProcessingConfiguration</code> fields.</p>
@@ -128,7 +126,7 @@ export class UpdateImageGenerationConfigurationCommand extends $Command
   })
   .s("KinesisVideo_20170930", "UpdateImageGenerationConfiguration", {})
   .n("KinesisVideoClient", "UpdateImageGenerationConfigurationCommand")
-  .sc(UpdateImageGenerationConfiguration)
+  .sc(UpdateImageGenerationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

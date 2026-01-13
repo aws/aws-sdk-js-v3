@@ -43,13 +43,10 @@ import {
   type BodyLengthCalculator as __BodyLengthCalculator,
   type CheckOptionalClientConfig as __CheckOptionalClientConfig,
   type ChecksumConstructor as __ChecksumConstructor,
-  type ClientProtocol,
   type Decoder as __Decoder,
   type Encoder as __Encoder,
   type HashConstructor as __HashConstructor,
   type HttpHandlerOptions as __HttpHandlerOptions,
-  type HttpRequest,
-  type HttpResponse,
   type Logger as __Logger,
   type Provider as __Provider,
   type StreamCollector as __StreamCollector,
@@ -367,6 +364,10 @@ import { GetJobRunCommandInput, GetJobRunCommandOutput } from "./commands/GetJob
 import { GetJobRunsCommandInput, GetJobRunsCommandOutput } from "./commands/GetJobRunsCommand";
 import { GetJobsCommandInput, GetJobsCommandOutput } from "./commands/GetJobsCommand";
 import { GetMappingCommandInput, GetMappingCommandOutput } from "./commands/GetMappingCommand";
+import {
+  GetMaterializedViewRefreshTaskRunCommandInput,
+  GetMaterializedViewRefreshTaskRunCommandOutput,
+} from "./commands/GetMaterializedViewRefreshTaskRunCommand";
 import { GetMLTaskRunCommandInput, GetMLTaskRunCommandOutput } from "./commands/GetMLTaskRunCommand";
 import { GetMLTaskRunsCommandInput, GetMLTaskRunsCommandOutput } from "./commands/GetMLTaskRunsCommand";
 import { GetMLTransformCommandInput, GetMLTransformCommandOutput } from "./commands/GetMLTransformCommand";
@@ -490,6 +491,10 @@ import {
   ListIntegrationResourcePropertiesCommandOutput,
 } from "./commands/ListIntegrationResourcePropertiesCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import {
+  ListMaterializedViewRefreshTaskRunsCommandInput,
+  ListMaterializedViewRefreshTaskRunsCommandOutput,
+} from "./commands/ListMaterializedViewRefreshTaskRunsCommand";
 import { ListMLTransformsCommandInput, ListMLTransformsCommandOutput } from "./commands/ListMLTransformsCommand";
 import { ListRegistriesCommandInput, ListRegistriesCommandOutput } from "./commands/ListRegistriesCommand";
 import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
@@ -569,6 +574,10 @@ import {
 } from "./commands/StartImportLabelsTaskRunCommand";
 import { StartJobRunCommandInput, StartJobRunCommandOutput } from "./commands/StartJobRunCommand";
 import {
+  StartMaterializedViewRefreshTaskRunCommandInput,
+  StartMaterializedViewRefreshTaskRunCommandOutput,
+} from "./commands/StartMaterializedViewRefreshTaskRunCommand";
+import {
   StartMLEvaluationTaskRunCommandInput,
   StartMLEvaluationTaskRunCommandOutput,
 } from "./commands/StartMLEvaluationTaskRunCommand";
@@ -591,6 +600,10 @@ import {
   StopCrawlerScheduleCommandInput,
   StopCrawlerScheduleCommandOutput,
 } from "./commands/StopCrawlerScheduleCommand";
+import {
+  StopMaterializedViewRefreshTaskRunCommandInput,
+  StopMaterializedViewRefreshTaskRunCommandOutput,
+} from "./commands/StopMaterializedViewRefreshTaskRunCommand";
 import { StopSessionCommandInput, StopSessionCommandOutput } from "./commands/StopSessionCommand";
 import { StopTriggerCommandInput, StopTriggerCommandOutput } from "./commands/StopTriggerCommand";
 import { StopWorkflowRunCommandInput, StopWorkflowRunCommandOutput } from "./commands/StopWorkflowRunCommand";
@@ -810,6 +823,7 @@ export type ServiceInputTypes =
   | GetMLTransformCommandInput
   | GetMLTransformsCommandInput
   | GetMappingCommandInput
+  | GetMaterializedViewRefreshTaskRunCommandInput
   | GetPartitionCommandInput
   | GetPartitionIndexesCommandInput
   | GetPartitionsCommandInput
@@ -861,6 +875,7 @@ export type ServiceInputTypes =
   | ListIntegrationResourcePropertiesCommandInput
   | ListJobsCommandInput
   | ListMLTransformsCommandInput
+  | ListMaterializedViewRefreshTaskRunsCommandInput
   | ListRegistriesCommandInput
   | ListSchemaVersionsCommandInput
   | ListSchemasCommandInput
@@ -895,12 +910,14 @@ export type ServiceInputTypes =
   | StartJobRunCommandInput
   | StartMLEvaluationTaskRunCommandInput
   | StartMLLabelingSetGenerationTaskRunCommandInput
+  | StartMaterializedViewRefreshTaskRunCommandInput
   | StartTriggerCommandInput
   | StartWorkflowRunCommandInput
   | StopColumnStatisticsTaskRunCommandInput
   | StopColumnStatisticsTaskRunScheduleCommandInput
   | StopCrawlerCommandInput
   | StopCrawlerScheduleCommandInput
+  | StopMaterializedViewRefreshTaskRunCommandInput
   | StopSessionCommandInput
   | StopTriggerCommandInput
   | StopWorkflowRunCommandInput
@@ -1074,6 +1091,7 @@ export type ServiceOutputTypes =
   | GetMLTransformCommandOutput
   | GetMLTransformsCommandOutput
   | GetMappingCommandOutput
+  | GetMaterializedViewRefreshTaskRunCommandOutput
   | GetPartitionCommandOutput
   | GetPartitionIndexesCommandOutput
   | GetPartitionsCommandOutput
@@ -1125,6 +1143,7 @@ export type ServiceOutputTypes =
   | ListIntegrationResourcePropertiesCommandOutput
   | ListJobsCommandOutput
   | ListMLTransformsCommandOutput
+  | ListMaterializedViewRefreshTaskRunsCommandOutput
   | ListRegistriesCommandOutput
   | ListSchemaVersionsCommandOutput
   | ListSchemasCommandOutput
@@ -1159,12 +1178,14 @@ export type ServiceOutputTypes =
   | StartJobRunCommandOutput
   | StartMLEvaluationTaskRunCommandOutput
   | StartMLLabelingSetGenerationTaskRunCommandOutput
+  | StartMaterializedViewRefreshTaskRunCommandOutput
   | StartTriggerCommandOutput
   | StartWorkflowRunCommandOutput
   | StopColumnStatisticsTaskRunCommandOutput
   | StopColumnStatisticsTaskRunScheduleCommandOutput
   | StopCrawlerCommandOutput
   | StopCrawlerScheduleCommandOutput
+  | StopMaterializedViewRefreshTaskRunCommandOutput
   | StopSessionCommandOutput
   | StopTriggerCommandOutput
   | StopWorkflowRunCommandOutput
@@ -1344,16 +1365,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * Optional extensions
    */
   extensions?: RuntimeExtension[];
-
-  /**
-   * The protocol controlling the message type (e.g. HTTP) and format (e.g. JSON)
-   * may be overridden. A default will always be set by the client.
-   * Available options depend on the service's supported protocols and will not be validated by
-   * the client.
-   * @alpha
-   *
-   */
-  protocol?: ClientProtocol<HttpRequest, HttpResponse>;
 
   /**
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.

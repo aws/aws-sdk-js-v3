@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateCloudAutonomousVmClusterInput, CreateCloudAutonomousVmClusterOutput } from "../models/models_0";
 import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { CreateCloudAutonomousVmCluster } from "../schemas/schemas_0";
+import { CreateCloudAutonomousVmCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateCloudAutonomousVmClusterCommandInput extends CreateCloudA
  *
  * The output of {@link CreateCloudAutonomousVmClusterCommand}.
  */
-export interface CreateCloudAutonomousVmClusterCommandOutput
-  extends CreateCloudAutonomousVmClusterOutput,
-    __MetadataBearer {}
+export interface CreateCloudAutonomousVmClusterCommandOutput extends CreateCloudAutonomousVmClusterOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new Autonomous VM cluster in the specified Exadata infrastructure.</p>
@@ -142,7 +140,7 @@ export class CreateCloudAutonomousVmClusterCommand extends $Command
   })
   .s("Odb", "CreateCloudAutonomousVmCluster", {})
   .n("OdbClient", "CreateCloudAutonomousVmClusterCommand")
-  .sc(CreateCloudAutonomousVmCluster)
+  .sc(CreateCloudAutonomousVmCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteLifecyclePolicyRequest, DeleteLifecyclePolicyResponse } from "../models/models_0";
-import { DeleteLifecyclePolicy } from "../schemas/schemas_0";
+import { DeleteLifecyclePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeleteLifecyclePolicyCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "DeleteLifecyclePolicy", {})
   .n("ECRClient", "DeleteLifecyclePolicyCommand")
-  .sc(DeleteLifecyclePolicy)
+  .sc(DeleteLifecyclePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

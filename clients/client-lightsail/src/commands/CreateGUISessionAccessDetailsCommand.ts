@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { CreateGUISessionAccessDetailsRequest, CreateGUISessionAccessDetailsResult } from "../models/models_0";
-import { CreateGUISessionAccessDetails } from "../schemas/schemas_0";
+import { CreateGUISessionAccessDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateGUISessionAccessDetailsCommandInput extends CreateGUISess
  *
  * The output of {@link CreateGUISessionAccessDetailsCommand}.
  */
-export interface CreateGUISessionAccessDetailsCommandOutput
-  extends CreateGUISessionAccessDetailsResult,
-    __MetadataBearer {}
+export interface CreateGUISessionAccessDetailsCommandOutput extends CreateGUISessionAccessDetailsResult, __MetadataBearer {}
 
 /**
  * <p>Creates two URLs that are used to access a virtual computer’s graphical user interface
@@ -116,7 +114,7 @@ export class CreateGUISessionAccessDetailsCommand extends $Command
   })
   .s("Lightsail_20161128", "CreateGUISessionAccessDetails", {})
   .n("LightsailClient", "CreateGUISessionAccessDetailsCommand")
-  .sc(CreateGUISessionAccessDetails)
+  .sc(CreateGUISessionAccessDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

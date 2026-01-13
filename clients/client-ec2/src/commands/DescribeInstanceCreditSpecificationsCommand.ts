@@ -9,7 +9,7 @@ import type {
   DescribeInstanceCreditSpecificationsRequest,
   DescribeInstanceCreditSpecificationsResult,
 } from "../models/models_3";
-import { DescribeInstanceCreditSpecifications } from "../schemas/schemas_0";
+import { DescribeInstanceCreditSpecifications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeInstanceCreditSpecificationsCommandInput extends Descri
  *
  * The output of {@link DescribeInstanceCreditSpecificationsCommand}.
  */
-export interface DescribeInstanceCreditSpecificationsCommandOutput
-  extends DescribeInstanceCreditSpecificationsResult,
-    __MetadataBearer {}
+export interface DescribeInstanceCreditSpecificationsCommandOutput extends DescribeInstanceCreditSpecificationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the credit option for CPU usage of the specified burstable performance
@@ -116,7 +114,7 @@ export class DescribeInstanceCreditSpecificationsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeInstanceCreditSpecifications", {})
   .n("EC2Client", "DescribeInstanceCreditSpecificationsCommand")
-  .sc(DescribeInstanceCreditSpecifications)
+  .sc(DescribeInstanceCreditSpecifications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

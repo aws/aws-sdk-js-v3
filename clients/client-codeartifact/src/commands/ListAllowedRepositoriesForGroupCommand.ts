@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAllowedRepositoriesForGroupRequest, ListAllowedRepositoriesForGroupResult } from "../models/models_0";
-import { ListAllowedRepositoriesForGroup } from "../schemas/schemas_0";
+import { ListAllowedRepositoriesForGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListAllowedRepositoriesForGroupCommandInput extends ListAllowed
  *
  * The output of {@link ListAllowedRepositoriesForGroupCommand}.
  */
-export interface ListAllowedRepositoriesForGroupCommandOutput
-  extends ListAllowedRepositoriesForGroupResult,
-    __MetadataBearer {}
+export interface ListAllowedRepositoriesForGroupCommandOutput extends ListAllowedRepositoriesForGroupResult, __MetadataBearer {}
 
 /**
  * <p>Lists the repositories in the added repositories list of the specified restriction type for a package group. For more information about restriction types
@@ -113,7 +111,7 @@ export class ListAllowedRepositoriesForGroupCommand extends $Command
   })
   .s("CodeArtifactControlPlaneService", "ListAllowedRepositoriesForGroup", {})
   .n("CodeartifactClient", "ListAllowedRepositoriesForGroupCommand")
-  .sc(ListAllowedRepositoriesForGroup)
+  .sc(ListAllowedRepositoriesForGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

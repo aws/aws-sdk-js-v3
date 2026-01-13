@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTablePolicyRequest } from "../models/models_0";
 import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
-import { DeleteTablePolicy } from "../schemas/schemas_0";
+import { DeleteTablePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteTablePolicyCommand extends $Command
   })
   .s("S3TableBuckets", "DeleteTablePolicy", {})
   .n("S3TablesClient", "DeleteTablePolicyCommand")
-  .sc(DeleteTablePolicy)
+  .sc(DeleteTablePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

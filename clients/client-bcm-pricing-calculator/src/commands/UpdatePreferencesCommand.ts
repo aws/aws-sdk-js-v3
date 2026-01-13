@@ -10,7 +10,7 @@ import type {
 } from "../BCMPricingCalculatorClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdatePreferencesRequest, UpdatePreferencesResponse } from "../models/models_0";
-import { UpdatePreferences } from "../schemas/schemas_0";
+import { UpdatePreferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class UpdatePreferencesCommand extends $Command
   })
   .s("AWSBCMPricingCalculator", "UpdatePreferences", {})
   .n("BCMPricingCalculatorClient", "UpdatePreferencesCommand")
-  .sc(UpdatePreferences)
+  .sc(UpdatePreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

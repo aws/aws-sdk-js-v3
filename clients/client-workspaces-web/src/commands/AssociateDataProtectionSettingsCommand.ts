@@ -8,7 +8,7 @@ import type {
   AssociateDataProtectionSettingsRequest,
   AssociateDataProtectionSettingsResponse,
 } from "../models/models_0";
-import { AssociateDataProtectionSettings } from "../schemas/schemas_0";
+import { AssociateDataProtectionSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -27,9 +27,7 @@ export interface AssociateDataProtectionSettingsCommandInput extends AssociateDa
  *
  * The output of {@link AssociateDataProtectionSettingsCommand}.
  */
-export interface AssociateDataProtectionSettingsCommandOutput
-  extends AssociateDataProtectionSettingsResponse,
-    __MetadataBearer {}
+export interface AssociateDataProtectionSettingsCommandOutput extends AssociateDataProtectionSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a data protection settings resource with a web portal.</p>
@@ -98,7 +96,7 @@ export class AssociateDataProtectionSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "AssociateDataProtectionSettings", {})
   .n("WorkSpacesWebClient", "AssociateDataProtectionSettingsCommand")
-  .sc(AssociateDataProtectionSettings)
+  .sc(AssociateDataProtectionSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

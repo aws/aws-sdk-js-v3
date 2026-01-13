@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import type { ListResourceProfileArtifactsRequest, ListResourceProfileArtifactsResponse } from "../models/models_0";
-import { ListResourceProfileArtifacts } from "../schemas/schemas_0";
+import { ListResourceProfileArtifacts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListResourceProfileArtifactsCommandInput extends ListResourcePr
  *
  * The output of {@link ListResourceProfileArtifactsCommand}.
  */
-export interface ListResourceProfileArtifactsCommandOutput
-  extends ListResourceProfileArtifactsResponse,
-    __MetadataBearer {}
+export interface ListResourceProfileArtifactsCommandOutput extends ListResourceProfileArtifactsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about objects that Amazon Macie selected from an S3 bucket for automated sensitive data discovery.</p>
@@ -98,7 +96,7 @@ export class ListResourceProfileArtifactsCommand extends $Command
   })
   .s("Macie2", "ListResourceProfileArtifacts", {})
   .n("Macie2Client", "ListResourceProfileArtifactsCommand")
-  .sc(ListResourceProfileArtifacts)
+  .sc(ListResourceProfileArtifacts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

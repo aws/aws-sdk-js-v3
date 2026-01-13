@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetServiceSyncBlockerSummaryInput, GetServiceSyncBlockerSummaryOutput } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { GetServiceSyncBlockerSummary } from "../schemas/schemas_0";
+import { GetServiceSyncBlockerSummary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetServiceSyncBlockerSummaryCommandInput extends GetServiceSync
  *
  * The output of {@link GetServiceSyncBlockerSummaryCommand}.
  */
-export interface GetServiceSyncBlockerSummaryCommandOutput
-  extends GetServiceSyncBlockerSummaryOutput,
-    __MetadataBearer {}
+export interface GetServiceSyncBlockerSummaryCommandOutput extends GetServiceSyncBlockerSummaryOutput, __MetadataBearer {}
 
 /**
  * <p>Get detailed data for the service sync blocker summary.</p>
@@ -113,7 +111,7 @@ export class GetServiceSyncBlockerSummaryCommand extends $Command
   })
   .s("AwsProton20200720", "GetServiceSyncBlockerSummary", {})
   .n("ProtonClient", "GetServiceSyncBlockerSummaryCommand")
-  .sc(GetServiceSyncBlockerSummary)
+  .sc(GetServiceSyncBlockerSummary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

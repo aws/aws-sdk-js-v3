@@ -9,7 +9,7 @@ import type {
   ListTrafficPolicyInstancesByPolicyResponse,
 } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { ListTrafficPolicyInstancesByPolicy } from "../schemas/schemas_0";
+import { ListTrafficPolicyInstancesByPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListTrafficPolicyInstancesByPolicyCommandInput extends ListTraf
  *
  * The output of {@link ListTrafficPolicyInstancesByPolicyCommand}.
  */
-export interface ListTrafficPolicyInstancesByPolicyCommandOutput
-  extends ListTrafficPolicyInstancesByPolicyResponse,
-    __MetadataBearer {}
+export interface ListTrafficPolicyInstancesByPolicyCommandOutput extends ListTrafficPolicyInstancesByPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the traffic policy instances that you created by using a
@@ -120,7 +118,7 @@ export class ListTrafficPolicyInstancesByPolicyCommand extends $Command
   })
   .s("AWSDnsV20130401", "ListTrafficPolicyInstancesByPolicy", {})
   .n("Route53Client", "ListTrafficPolicyInstancesByPolicyCommand")
-  .sc(ListTrafficPolicyInstancesByPolicy)
+  .sc(ListTrafficPolicyInstancesByPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetManagedNotificationEventRequest, GetManagedNotificationEventResponse } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { GetManagedNotificationEvent } from "../schemas/schemas_0";
+import { GetManagedNotificationEvent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetManagedNotificationEventCommandInput extends GetManagedNotif
  *
  * The output of {@link GetManagedNotificationEventCommand}.
  */
-export interface GetManagedNotificationEventCommandOutput
-  extends GetManagedNotificationEventResponse,
-    __MetadataBearer {}
+export interface GetManagedNotificationEventCommandOutput extends GetManagedNotificationEventResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a specified <code>ManagedNotificationEvent</code>.</p>
@@ -165,7 +163,7 @@ export class GetManagedNotificationEventCommand extends $Command
   })
   .s("Notifications", "GetManagedNotificationEvent", {})
   .n("NotificationsClient", "GetManagedNotificationEventCommand")
-  .sc(GetManagedNotificationEvent)
+  .sc(GetManagedNotificationEvent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

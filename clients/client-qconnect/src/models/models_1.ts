@@ -23,7 +23,6 @@ import {
   SpanStatus,
   SpanType,
 } from "./enums";
-
 import {
   type Configuration,
   type DataReference,

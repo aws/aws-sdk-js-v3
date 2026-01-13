@@ -7,7 +7,7 @@ import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeInstancesRequest } from "../models/models_3";
 import type { DescribeInstancesResult } from "../models/models_4";
-import { DescribeInstances } from "../schemas/schemas_0";
+import { DescribeInstances$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -428,7 +428,7 @@ export class DescribeInstancesCommand extends $Command
   })
   .s("AmazonEC2", "DescribeInstances", {})
   .n("EC2Client", "DescribeInstancesCommand")
-  .sc(DescribeInstances)
+  .sc(DescribeInstances$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

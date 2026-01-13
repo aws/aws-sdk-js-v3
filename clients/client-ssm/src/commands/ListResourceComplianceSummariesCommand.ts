@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListResourceComplianceSummariesRequest, ListResourceComplianceSummariesResult } from "../models/models_1";
-import { ListResourceComplianceSummaries } from "../schemas/schemas_0";
+import { ListResourceComplianceSummaries$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -24,9 +24,7 @@ export interface ListResourceComplianceSummariesCommandInput extends ListResourc
  *
  * The output of {@link ListResourceComplianceSummariesCommand}.
  */
-export interface ListResourceComplianceSummariesCommandOutput
-  extends ListResourceComplianceSummariesResult,
-    __MetadataBearer {}
+export interface ListResourceComplianceSummariesCommandOutput extends ListResourceComplianceSummariesResult, __MetadataBearer {}
 
 /**
  * <p>Returns a resource-level summary count. The summary includes information about compliant and
@@ -132,7 +130,7 @@ export class ListResourceComplianceSummariesCommand extends $Command
   })
   .s("AmazonSSM", "ListResourceComplianceSummaries", {})
   .n("SSMClient", "ListResourceComplianceSummariesCommand")
-  .sc(ListResourceComplianceSummaries)
+  .sc(ListResourceComplianceSummaries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

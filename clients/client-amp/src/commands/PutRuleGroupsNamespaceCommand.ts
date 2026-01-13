@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutRuleGroupsNamespaceRequest, PutRuleGroupsNamespaceResponse } from "../models/models_0";
-import { PutRuleGroupsNamespace } from "../schemas/schemas_0";
+import { PutRuleGroupsNamespace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class PutRuleGroupsNamespaceCommand extends $Command
   })
   .s("AmazonPrometheusService", "PutRuleGroupsNamespace", {})
   .n("AmpClient", "PutRuleGroupsNamespaceCommand")
-  .sc(PutRuleGroupsNamespace)
+  .sc(PutRuleGroupsNamespace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

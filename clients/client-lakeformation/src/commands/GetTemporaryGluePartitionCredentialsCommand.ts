@@ -9,7 +9,7 @@ import type {
   GetTemporaryGluePartitionCredentialsRequest,
   GetTemporaryGluePartitionCredentialsResponse,
 } from "../models/models_0";
-import { GetTemporaryGluePartitionCredentials } from "../schemas/schemas_0";
+import { GetTemporaryGluePartitionCredentials$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetTemporaryGluePartitionCredentialsCommandInput extends GetTem
  *
  * The output of {@link GetTemporaryGluePartitionCredentialsCommand}.
  */
-export interface GetTemporaryGluePartitionCredentialsCommandOutput
-  extends GetTemporaryGluePartitionCredentialsResponse,
-    __MetadataBearer {}
+export interface GetTemporaryGluePartitionCredentialsCommandOutput extends GetTemporaryGluePartitionCredentialsResponse, __MetadataBearer {}
 
 /**
  * <p>This API is identical to <code>GetTemporaryTableCredentials</code> except that this is used when the target Data Catalog resource is of type Partition.  Lake Formation restricts the permission of the vended credentials with the same scope down policy which restricts access to a single Amazon S3 prefix.</p>
@@ -114,7 +112,7 @@ export class GetTemporaryGluePartitionCredentialsCommand extends $Command
   })
   .s("AWSLakeFormation", "GetTemporaryGluePartitionCredentials", {})
   .n("LakeFormationClient", "GetTemporaryGluePartitionCredentialsCommand")
-  .sc(GetTemporaryGluePartitionCredentials)
+  .sc(GetTemporaryGluePartitionCredentials$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

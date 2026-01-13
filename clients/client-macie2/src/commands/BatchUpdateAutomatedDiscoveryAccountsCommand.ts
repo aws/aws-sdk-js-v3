@@ -9,7 +9,7 @@ import type {
   BatchUpdateAutomatedDiscoveryAccountsRequest,
   BatchUpdateAutomatedDiscoveryAccountsResponse,
 } from "../models/models_0";
-import { BatchUpdateAutomatedDiscoveryAccounts } from "../schemas/schemas_0";
+import { BatchUpdateAutomatedDiscoveryAccounts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchUpdateAutomatedDiscoveryAccountsCommand}.
  */
-export interface BatchUpdateAutomatedDiscoveryAccountsCommandInput
-  extends BatchUpdateAutomatedDiscoveryAccountsRequest {}
+export interface BatchUpdateAutomatedDiscoveryAccountsCommandInput extends BatchUpdateAutomatedDiscoveryAccountsRequest {}
 /**
  * @public
  *
  * The output of {@link BatchUpdateAutomatedDiscoveryAccountsCommand}.
  */
-export interface BatchUpdateAutomatedDiscoveryAccountsCommandOutput
-  extends BatchUpdateAutomatedDiscoveryAccountsResponse,
-    __MetadataBearer {}
+export interface BatchUpdateAutomatedDiscoveryAccountsCommandOutput extends BatchUpdateAutomatedDiscoveryAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>Changes the status of automated sensitive data discovery for one or more accounts.</p>
@@ -104,7 +101,7 @@ export class BatchUpdateAutomatedDiscoveryAccountsCommand extends $Command
   })
   .s("Macie2", "BatchUpdateAutomatedDiscoveryAccounts", {})
   .n("Macie2Client", "BatchUpdateAutomatedDiscoveryAccountsCommand")
-  .sc(BatchUpdateAutomatedDiscoveryAccounts)
+  .sc(BatchUpdateAutomatedDiscoveryAccounts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

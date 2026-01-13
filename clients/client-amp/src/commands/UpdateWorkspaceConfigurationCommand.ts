@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateWorkspaceConfigurationRequest, UpdateWorkspaceConfigurationResponse } from "../models/models_0";
-import { UpdateWorkspaceConfiguration } from "../schemas/schemas_0";
+import { UpdateWorkspaceConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateWorkspaceConfigurationCommandInput extends UpdateWorkspac
  *
  * The output of {@link UpdateWorkspaceConfigurationCommand}.
  */
-export interface UpdateWorkspaceConfigurationCommandOutput
-  extends UpdateWorkspaceConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateWorkspaceConfigurationCommandOutput extends UpdateWorkspaceConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Use this operation to create or update the label sets, label set limits, and retention period of a workspace.</p> <p>You must specify at least one of <code>limitsPerLabelSet</code> or <code>retentionPeriodInDays</code> for the request to be valid.</p>
@@ -111,7 +109,7 @@ export class UpdateWorkspaceConfigurationCommand extends $Command
   })
   .s("AmazonPrometheusService", "UpdateWorkspaceConfiguration", {})
   .n("AmpClient", "UpdateWorkspaceConfigurationCommand")
-  .sc(UpdateWorkspaceConfiguration)
+  .sc(UpdateWorkspaceConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

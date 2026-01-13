@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { QueryIdempotencyTokenAutoFillInput } from "../models/models_0";
-import { QueryIdempotencyTokenAutoFill } from "../schemas/schemas_0";
+import { QueryIdempotencyTokenAutoFill$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -71,7 +71,7 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command
   })
   .s("AwsEc2", "QueryIdempotencyTokenAutoFill", {})
   .n("EC2ProtocolClient", "QueryIdempotencyTokenAutoFillCommand")
-  .sc(QueryIdempotencyTokenAutoFill)
+  .sc(QueryIdempotencyTokenAutoFill$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

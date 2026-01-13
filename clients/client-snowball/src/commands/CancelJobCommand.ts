@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelJobRequest, CancelJobResult } from "../models/models_0";
-import { CancelJob } from "../schemas/schemas_0";
+import { CancelJob$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -99,7 +99,7 @@ export class CancelJobCommand extends $Command
   })
   .s("AWSIESnowballJobManagementService", "CancelJob", {})
   .n("SnowballClient", "CancelJobCommand")
-  .sc(CancelJob)
+  .sc(CancelJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

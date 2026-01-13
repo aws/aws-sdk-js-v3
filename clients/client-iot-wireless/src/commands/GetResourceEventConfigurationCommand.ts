@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import type { GetResourceEventConfigurationRequest, GetResourceEventConfigurationResponse } from "../models/models_0";
-import { GetResourceEventConfiguration } from "../schemas/schemas_0";
+import { GetResourceEventConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetResourceEventConfigurationCommandInput extends GetResourceEv
  *
  * The output of {@link GetResourceEventConfigurationCommand}.
  */
-export interface GetResourceEventConfigurationCommandOutput
-  extends GetResourceEventConfigurationResponse,
-    __MetadataBearer {}
+export interface GetResourceEventConfigurationCommandOutput extends GetResourceEventConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Get the event configuration for a particular resource identifier.</p>
@@ -121,7 +119,7 @@ export class GetResourceEventConfigurationCommand extends $Command
   })
   .s("iotwireless", "GetResourceEventConfiguration", {})
   .n("IoTWirelessClient", "GetResourceEventConfigurationCommand")
-  .sc(GetResourceEventConfiguration)
+  .sc(GetResourceEventConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

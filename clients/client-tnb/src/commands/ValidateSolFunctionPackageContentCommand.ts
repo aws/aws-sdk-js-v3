@@ -8,7 +8,7 @@ import {
   type ValidateSolFunctionPackageContentOutput,
   ValidateSolFunctionPackageContentInput,
 } from "../models/models_0";
-import { ValidateSolFunctionPackageContent } from "../schemas/schemas_0";
+import { ValidateSolFunctionPackageContent$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -28,16 +28,13 @@ export type ValidateSolFunctionPackageContentCommandInputType = Omit<ValidateSol
  *
  * The input for {@link ValidateSolFunctionPackageContentCommand}.
  */
-export interface ValidateSolFunctionPackageContentCommandInput
-  extends ValidateSolFunctionPackageContentCommandInputType {}
+export interface ValidateSolFunctionPackageContentCommandInput extends ValidateSolFunctionPackageContentCommandInputType {}
 /**
  * @public
  *
  * The output of {@link ValidateSolFunctionPackageContentCommand}.
  */
-export interface ValidateSolFunctionPackageContentCommandOutput
-  extends ValidateSolFunctionPackageContentOutput,
-    __MetadataBearer {}
+export interface ValidateSolFunctionPackageContentCommandOutput extends ValidateSolFunctionPackageContentOutput, __MetadataBearer {}
 
 /**
  * <p>Validates function package content. This can be used as a dry run before uploading
@@ -146,7 +143,7 @@ export class ValidateSolFunctionPackageContentCommand extends $Command
   })
   .s("TNB", "ValidateSolFunctionPackageContent", {})
   .n("TnbClient", "ValidateSolFunctionPackageContentCommand")
-  .sc(ValidateSolFunctionPackageContent)
+  .sc(ValidateSolFunctionPackageContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

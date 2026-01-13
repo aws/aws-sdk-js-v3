@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartSessionRequest, StartSessionResponse } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { StartSession } from "../schemas/schemas_0";
+import { StartSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,7 +81,7 @@ export class StartSessionCommand extends $Command
   })
   .s("SageMaker", "StartSession", {})
   .n("SageMakerClient", "StartSessionCommand")
-  .sc(StartSession)
+  .sc(StartSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

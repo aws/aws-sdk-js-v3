@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListPodIdentityAssociationsRequest, ListPodIdentityAssociationsResponse } from "../models/models_0";
-import { ListPodIdentityAssociations } from "../schemas/schemas_0";
+import { ListPodIdentityAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListPodIdentityAssociationsCommandInput extends ListPodIdentity
  *
  * The output of {@link ListPodIdentityAssociationsCommand}.
  */
-export interface ListPodIdentityAssociationsCommandOutput
-  extends ListPodIdentityAssociationsResponse,
-    __MetadataBearer {}
+export interface ListPodIdentityAssociationsCommandOutput extends ListPodIdentityAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>List the EKS Pod Identity associations in a cluster. You can filter the list by the namespace that the
@@ -107,7 +105,7 @@ export class ListPodIdentityAssociationsCommand extends $Command
   })
   .s("AWSWesleyFrontend", "ListPodIdentityAssociations", {})
   .n("EKSClient", "ListPodIdentityAssociationsCommand")
-  .sc(ListPodIdentityAssociations)
+  .sc(ListPodIdentityAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

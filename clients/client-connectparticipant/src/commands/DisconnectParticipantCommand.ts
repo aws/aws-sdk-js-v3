@@ -10,7 +10,7 @@ import type {
 } from "../ConnectParticipantClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisconnectParticipantRequest, DisconnectParticipantResponse } from "../models/models_0";
-import { DisconnectParticipant } from "../schemas/schemas_0";
+import { DisconnectParticipant$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DisconnectParticipantCommand extends $Command
   })
   .s("AmazonConnectParticipantServiceLambda", "DisconnectParticipant", {})
   .n("ConnectParticipantClient", "DisconnectParticipantCommand")
-  .sc(DisconnectParticipant)
+  .sc(DisconnectParticipant$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

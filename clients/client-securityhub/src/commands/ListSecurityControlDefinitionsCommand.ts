@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSecurityControlDefinitionsRequest, ListSecurityControlDefinitionsResponse } from "../models/models_2";
-import { ListSecurityControlDefinitions } from "../schemas/schemas_0";
+import { ListSecurityControlDefinitions$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -24,9 +24,7 @@ export interface ListSecurityControlDefinitionsCommandInput extends ListSecurity
  *
  * The output of {@link ListSecurityControlDefinitionsCommand}.
  */
-export interface ListSecurityControlDefinitionsCommandOutput
-  extends ListSecurityControlDefinitionsResponse,
-    __MetadataBearer {}
+export interface ListSecurityControlDefinitionsCommandOutput extends ListSecurityControlDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -211,7 +209,7 @@ export class ListSecurityControlDefinitionsCommand extends $Command
   })
   .s("SecurityHubAPIService", "ListSecurityControlDefinitions", {})
   .n("SecurityHubClient", "ListSecurityControlDefinitionsCommand")
-  .sc(ListSecurityControlDefinitions)
+  .sc(ListSecurityControlDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

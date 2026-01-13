@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableSerialConsoleAccessRequest, EnableSerialConsoleAccessResult } from "../models/models_5";
-import { EnableSerialConsoleAccess } from "../schemas/schemas_0";
+import { EnableSerialConsoleAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -75,7 +75,7 @@ export class EnableSerialConsoleAccessCommand extends $Command
   })
   .s("AmazonEC2", "EnableSerialConsoleAccess", {})
   .n("EC2Client", "EnableSerialConsoleAccessCommand")
-  .sc(EnableSerialConsoleAccess)
+  .sc(EnableSerialConsoleAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

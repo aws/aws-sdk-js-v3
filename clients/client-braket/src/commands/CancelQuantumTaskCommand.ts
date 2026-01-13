@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelQuantumTaskRequest, CancelQuantumTaskResponse } from "../models/models_0";
-import { CancelQuantumTask } from "../schemas/schemas_0";
+import { CancelQuantumTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class CancelQuantumTaskCommand extends $Command
   })
   .s("Braket", "CancelQuantumTask", {})
   .n("BraketClient", "CancelQuantumTaskCommand")
-  .sc(CancelQuantumTask)
+  .sc(CancelQuantumTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

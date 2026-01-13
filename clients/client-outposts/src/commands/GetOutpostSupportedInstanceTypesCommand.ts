@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetOutpostSupportedInstanceTypesInput, GetOutpostSupportedInstanceTypesOutput } from "../models/models_0";
 import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import { GetOutpostSupportedInstanceTypes } from "../schemas/schemas_0";
+import { GetOutpostSupportedInstanceTypes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetOutpostSupportedInstanceTypesCommandInput extends GetOutpost
  *
  * The output of {@link GetOutpostSupportedInstanceTypesCommand}.
  */
-export interface GetOutpostSupportedInstanceTypesCommandOutput
-  extends GetOutpostSupportedInstanceTypesOutput,
-    __MetadataBearer {}
+export interface GetOutpostSupportedInstanceTypesCommandOutput extends GetOutpostSupportedInstanceTypesOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the instance types that an Outpost can support in <code>InstanceTypeCapacity</code>.
@@ -99,7 +97,7 @@ export class GetOutpostSupportedInstanceTypesCommand extends $Command
   })
   .s("OutpostsOlafService", "GetOutpostSupportedInstanceTypes", {})
   .n("OutpostsClient", "GetOutpostSupportedInstanceTypesCommand")
-  .sc(GetOutpostSupportedInstanceTypes)
+  .sc(GetOutpostSupportedInstanceTypes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

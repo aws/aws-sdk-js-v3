@@ -9,7 +9,7 @@ import type {
   ListDurableExecutionsByFunctionRequest,
   ListDurableExecutionsByFunctionResponse,
 } from "../models/models_0";
-import { ListDurableExecutionsByFunction } from "../schemas/schemas_0";
+import { ListDurableExecutionsByFunction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListDurableExecutionsByFunctionCommandInput extends ListDurable
  *
  * The output of {@link ListDurableExecutionsByFunctionCommand}.
  */
-export interface ListDurableExecutionsByFunctionCommandOutput
-  extends ListDurableExecutionsByFunctionResponse,
-    __MetadataBearer {}
+export interface ListDurableExecutionsByFunctionCommandOutput extends ListDurableExecutionsByFunctionResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable executions</a> for a specified Lambda function. You can filter the results by execution name, status, and start time range. This API supports pagination for large result sets.</p>
@@ -110,7 +108,7 @@ export class ListDurableExecutionsByFunctionCommand extends $Command
   })
   .s("AWSGirApiService", "ListDurableExecutionsByFunction", {})
   .n("LambdaClient", "ListDurableExecutionsByFunctionCommand")
-  .sc(ListDurableExecutionsByFunction)
+  .sc(ListDurableExecutionsByFunction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AuthorizeSecurityGroupIngressRequest, AuthorizeSecurityGroupIngressResult } from "../models/models_0";
-import { AuthorizeSecurityGroupIngress } from "../schemas/schemas_0";
+import { AuthorizeSecurityGroupIngress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface AuthorizeSecurityGroupIngressCommandInput extends AuthorizeSecu
  *
  * The output of {@link AuthorizeSecurityGroupIngressCommand}.
  */
-export interface AuthorizeSecurityGroupIngressCommandOutput
-  extends AuthorizeSecurityGroupIngressResult,
-    __MetadataBearer {}
+export interface AuthorizeSecurityGroupIngressCommandOutput extends AuthorizeSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
  * <p>Adds the specified inbound (ingress) rules to a security group.</p>
@@ -249,7 +247,7 @@ export class AuthorizeSecurityGroupIngressCommand extends $Command
   })
   .s("AmazonEC2", "AuthorizeSecurityGroupIngress", {})
   .n("EC2Client", "AuthorizeSecurityGroupIngressCommand")
-  .sc(AuthorizeSecurityGroupIngress)
+  .sc(AuthorizeSecurityGroupIngress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

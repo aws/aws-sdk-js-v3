@@ -17,7 +17,6 @@ import {
   TaskStatus,
   ToolName,
 } from "./enums";
-
 import {
   AccessDeniedException,
   ConflictException,
@@ -690,7 +689,9 @@ export interface AutomationStreamUpdate {
  * <p>Contains information about an update to a stream.</p>
  * @public
  */
-export type StreamUpdate = StreamUpdate.AutomationStreamUpdateMember | StreamUpdate.$UnknownMember;
+export type StreamUpdate =
+  | StreamUpdate.AutomationStreamUpdateMember
+  | StreamUpdate.$UnknownMember;
 
 /**
  * @public
@@ -1128,7 +1129,9 @@ export interface CompleteResourceTokenAuthResponse {}
  * <p> The input data structure containing agent session spans in OpenTelemetry format. Supports traces from frameworks like Strands (AgentCore Runtime) and LangGraph with OpenInference instrumentation for comprehensive evaluation. </p>
  * @public
  */
-export type EvaluationInput = EvaluationInput.SessionSpansMember | EvaluationInput.$UnknownMember;
+export type EvaluationInput =
+  | EvaluationInput.SessionSpansMember
+  | EvaluationInput.$UnknownMember;
 
 /**
  * @public
@@ -1265,7 +1268,9 @@ export interface SpanContext {
  * <p> The contextual information associated with an evaluation, including span context details that identify the specific traces and sessions being evaluated within the agent's execution flow. </p>
  * @public
  */
-export type Context = Context.SpanContextMember | Context.$UnknownMember;
+export type Context =
+  | Context.SpanContextMember
+  | Context.$UnknownMember;
 
 /**
  * @public
@@ -2080,7 +2085,9 @@ export interface InvokeCodeInterpreterResponse {
  * <p>Contains the content of a memory record.</p>
  * @public
  */
-export type MemoryContent = MemoryContent.TextMember | MemoryContent.$UnknownMember;
+export type MemoryContent =
+  | MemoryContent.TextMember
+  | MemoryContent.$UnknownMember;
 
 /**
  * @public
@@ -2363,7 +2370,9 @@ export interface Branch {
  * <p>Value associated with the <code>eventMetadata</code> key.</p>
  * @public
  */
-export type MetadataValue = MetadataValue.StringValueMember | MetadataValue.$UnknownMember;
+export type MetadataValue =
+  | MetadataValue.StringValueMember
+  | MetadataValue.$UnknownMember;
 
 /**
  * @public
@@ -2400,7 +2409,9 @@ export namespace MetadataValue {
  * <p>Contains the content of a memory item.</p>
  * @public
  */
-export type Content = Content.TextMember | Content.$UnknownMember;
+export type Content =
+  | Content.TextMember
+  | Content.$UnknownMember;
 
 /**
  * @public
@@ -2455,7 +2466,10 @@ export interface Conversational {
  * <p>Contains the payload content for an event.</p>
  * @public
  */
-export type PayloadType = PayloadType.BlobMember | PayloadType.ConversationalMember | PayloadType.$UnknownMember;
+export type PayloadType =
+  | PayloadType.BlobMember
+  | PayloadType.ConversationalMember
+  | PayloadType.$UnknownMember;
 
 /**
  * @public
@@ -2859,7 +2873,9 @@ export interface BranchFilter {
  * <p>Left expression of the event metadata filter.</p>
  * @public
  */
-export type LeftExpression = LeftExpression.MetadataKeyMember | LeftExpression.$UnknownMember;
+export type LeftExpression =
+  | LeftExpression.MetadataKeyMember
+  | LeftExpression.$UnknownMember;
 
 /**
  * @public
@@ -2896,7 +2912,9 @@ export namespace LeftExpression {
  * <p>Right expression of the <code>eventMetadata</code>filter.</p>
  * @public
  */
-export type RightExpression = RightExpression.MetadataValueMember | RightExpression.$UnknownMember;
+export type RightExpression =
+  | RightExpression.MetadataValueMember
+  | RightExpression.$UnknownMember;
 
 /**
  * @public
@@ -3116,7 +3134,9 @@ export interface MessageMetadata {
  * <p>The list of messages that compose this extraction job.</p>
  * @public
  */
-export type ExtractionJobMessages = ExtractionJobMessages.MessagesListMember | ExtractionJobMessages.$UnknownMember;
+export type ExtractionJobMessages =
+  | ExtractionJobMessages.MessagesListMember
+  | ExtractionJobMessages.$UnknownMember;
 
 /**
  * @public

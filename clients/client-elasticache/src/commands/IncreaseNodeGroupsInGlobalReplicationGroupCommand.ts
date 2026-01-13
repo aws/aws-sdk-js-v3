@@ -9,7 +9,7 @@ import type {
   IncreaseNodeGroupsInGlobalReplicationGroupMessage,
   IncreaseNodeGroupsInGlobalReplicationGroupResult,
 } from "../models/models_0";
-import { IncreaseNodeGroupsInGlobalReplicationGroup } from "../schemas/schemas_0";
+import { IncreaseNodeGroupsInGlobalReplicationGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link IncreaseNodeGroupsInGlobalReplicationGroupCommand}.
  */
-export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandInput
-  extends IncreaseNodeGroupsInGlobalReplicationGroupMessage {}
+export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandInput extends IncreaseNodeGroupsInGlobalReplicationGroupMessage {}
 /**
  * @public
  *
  * The output of {@link IncreaseNodeGroupsInGlobalReplicationGroupCommand}.
  */
-export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput
-  extends IncreaseNodeGroupsInGlobalReplicationGroupResult,
-    __MetadataBearer {}
+export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput extends IncreaseNodeGroupsInGlobalReplicationGroupResult, __MetadataBearer {}
 
 /**
  * <p>Increase the number of node groups in the Global datastore</p>
@@ -131,7 +128,7 @@ export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "IncreaseNodeGroupsInGlobalReplicationGroup", {})
   .n("ElastiCacheClient", "IncreaseNodeGroupsInGlobalReplicationGroupCommand")
-  .sc(IncreaseNodeGroupsInGlobalReplicationGroup)
+  .sc(IncreaseNodeGroupsInGlobalReplicationGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

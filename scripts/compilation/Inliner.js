@@ -19,12 +19,23 @@ module.exports = class Inliner {
     this.package = pkg;
     this.platform = "node";
     this.isPackage = fs.existsSync(path.join(root, "packages", pkg));
+    this.isInternalPackage = fs.existsSync(path.join(root, "packages-internal", pkg));
     this.isLib = fs.existsSync(path.join(root, "lib", pkg));
-    this.isClient = !this.isPackage && !this.isLib;
     this.submodulePackages = ["core", "nested-clients"];
     this.hasSubmodules = this.submodulePackages.includes(pkg);
     this.reExportStubs = false;
-    this.subfolder = this.isPackage ? "packages" : this.isLib ? "lib" : "clients";
+    this.subfolder = (() => {
+      if (this.isPackage) {
+        return "packages";
+      }
+      if (this.isInternalPackage) {
+        return "packages-internal";
+      }
+      if (this.isLib) {
+        return "lib";
+      }
+      return "clients";
+    })();
     this.verbose = process.env.DEBUG || process.argv.includes("--debug");
 
     this.packageDirectory = path.join(root, this.subfolder, pkg);
@@ -189,7 +200,9 @@ module.exports = class Inliner {
         }
 
         const local =
-          id.includes(`/packages/`) && id.includes(`/dist-es/`) && !id.includes(`packages/${this.package}/`);
+          id.includes(`/dist-es/`) &&
+          ((id.includes(`/packages/`) && !id.includes(`packages/${this.package}/`)) ||
+            (id.includes(`/packages-internal/`) && !id.includes(`packages-internal/${this.package}/`)));
         if (local) {
           this.verbose && console.log("EXTERN (local)", id);
           return true;

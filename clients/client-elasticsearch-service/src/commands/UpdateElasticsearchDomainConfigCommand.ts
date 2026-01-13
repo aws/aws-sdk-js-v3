@@ -13,7 +13,7 @@ import type {
   UpdateElasticsearchDomainConfigRequest,
   UpdateElasticsearchDomainConfigResponse,
 } from "../models/models_0";
-import { UpdateElasticsearchDomainConfig } from "../schemas/schemas_0";
+import { UpdateElasticsearchDomainConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface UpdateElasticsearchDomainConfigCommandInput extends UpdateElast
  *
  * The output of {@link UpdateElasticsearchDomainConfigCommand}.
  */
-export interface UpdateElasticsearchDomainConfigCommandOutput
-  extends UpdateElasticsearchDomainConfigResponse,
-    __MetadataBearer {}
+export interface UpdateElasticsearchDomainConfigCommandOutput extends UpdateElasticsearchDomainConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances. </p>
@@ -402,7 +400,7 @@ export class UpdateElasticsearchDomainConfigCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "UpdateElasticsearchDomainConfig", {})
   .n("ElasticsearchServiceClient", "UpdateElasticsearchDomainConfigCommand")
-  .sc(UpdateElasticsearchDomainConfig)
+  .sc(UpdateElasticsearchDomainConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

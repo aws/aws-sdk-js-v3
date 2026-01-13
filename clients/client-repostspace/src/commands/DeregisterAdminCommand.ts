@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeregisterAdminInput } from "../models/models_0";
 import type { RepostspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RepostspaceClient";
-import { DeregisterAdmin } from "../schemas/schemas_0";
+import { DeregisterAdmin$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeregisterAdminCommand extends $Command
   })
   .s("RepostSpace", "DeregisterAdmin", {})
   .n("RepostspaceClient", "DeregisterAdminCommand")
-  .sc(DeregisterAdmin)
+  .sc(DeregisterAdmin$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

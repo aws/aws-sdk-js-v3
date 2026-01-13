@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListPiiEntitiesDetectionJobsRequest, ListPiiEntitiesDetectionJobsResponse } from "../models/models_0";
-import { ListPiiEntitiesDetectionJobs } from "../schemas/schemas_0";
+import { ListPiiEntitiesDetectionJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListPiiEntitiesDetectionJobsCommandInput extends ListPiiEntitie
  *
  * The output of {@link ListPiiEntitiesDetectionJobsCommand}.
  */
-export interface ListPiiEntitiesDetectionJobsCommandOutput
-  extends ListPiiEntitiesDetectionJobsResponse,
-    __MetadataBearer {}
+export interface ListPiiEntitiesDetectionJobsCommandOutput extends ListPiiEntitiesDetectionJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of the PII entity detection jobs that you have submitted.</p>
@@ -131,7 +129,7 @@ export class ListPiiEntitiesDetectionJobsCommand extends $Command
   })
   .s("Comprehend_20171127", "ListPiiEntitiesDetectionJobs", {})
   .n("ComprehendClient", "ListPiiEntitiesDetectionJobsCommand")
-  .sc(ListPiiEntitiesDetectionJobs)
+  .sc(ListPiiEntitiesDetectionJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

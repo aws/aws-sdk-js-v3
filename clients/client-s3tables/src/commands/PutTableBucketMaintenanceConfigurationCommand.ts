@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutTableBucketMaintenanceConfigurationRequest } from "../models/models_0";
 import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
-import { PutTableBucketMaintenanceConfiguration } from "../schemas/schemas_0";
+import { PutTableBucketMaintenanceConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link PutTableBucketMaintenanceConfigurationCommand}.
  */
-export interface PutTableBucketMaintenanceConfigurationCommandInput
-  extends PutTableBucketMaintenanceConfigurationRequest {}
+export interface PutTableBucketMaintenanceConfigurationCommandInput extends PutTableBucketMaintenanceConfigurationRequest {}
 /**
  * @public
  *
@@ -100,7 +99,7 @@ export class PutTableBucketMaintenanceConfigurationCommand extends $Command
   })
   .s("S3TableBuckets", "PutTableBucketMaintenanceConfiguration", {})
   .n("S3TablesClient", "PutTableBucketMaintenanceConfigurationCommand")
-  .sc(PutTableBucketMaintenanceConfiguration)
+  .sc(PutTableBucketMaintenanceConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateConsumableResourceRequest, UpdateConsumableResourceResponse } from "../models/models_0";
-import { UpdateConsumableResource } from "../schemas/schemas_0";
+import { UpdateConsumableResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class UpdateConsumableResourceCommand extends $Command
   })
   .s("AWSBatchV20160810", "UpdateConsumableResource", {})
   .n("BatchClient", "UpdateConsumableResourceCommand")
-  .sc(UpdateConsumableResource)
+  .sc(UpdateConsumableResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

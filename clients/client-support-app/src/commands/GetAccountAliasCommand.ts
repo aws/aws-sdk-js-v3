@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAccountAliasRequest, GetAccountAliasResult } from "../models/models_0";
-import { GetAccountAlias } from "../schemas/schemas_0";
+import { GetAccountAlias$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
@@ -75,7 +75,7 @@ export class GetAccountAliasCommand extends $Command
   })
   .s("SupportApp", "GetAccountAlias", {})
   .n("SupportAppClient", "GetAccountAliasCommand")
-  .sc(GetAccountAlias)
+  .sc(GetAccountAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

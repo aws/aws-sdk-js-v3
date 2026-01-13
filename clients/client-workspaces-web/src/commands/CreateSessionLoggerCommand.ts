@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateSessionLoggerRequest, CreateSessionLoggerResponse } from "../models/models_0";
-import { CreateSessionLogger } from "../schemas/schemas_0";
+import { CreateSessionLogger$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -190,7 +190,7 @@ export class CreateSessionLoggerCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "CreateSessionLogger", {})
   .n("WorkSpacesWebClient", "CreateSessionLoggerCommand")
-  .sc(CreateSessionLogger)
+  .sc(CreateSessionLogger$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

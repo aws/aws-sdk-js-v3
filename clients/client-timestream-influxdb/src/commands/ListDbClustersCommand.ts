@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListDbClustersInput, ListDbClustersOutput } from "../models/models_0";
-import { ListDbClusters } from "../schemas/schemas_0";
+import { ListDbClusters$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -52,7 +52,7 @@ export interface ListDbClustersCommandOutput extends ListDbClustersOutput, __Met
  * //       id: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
  * //       arn: "STRING_VALUE", // required
- * //       status: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE",
+ * //       status: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE" || "UPDATING_INSTANCE_TYPE" || "REBOOTING" || "REBOOT_FAILED" || "PARTIALLY_AVAILABLE",
  * //       endpoint: "STRING_VALUE",
  * //       readerEndpoint: "STRING_VALUE",
  * //       port: Number("int"),
@@ -110,7 +110,7 @@ export class ListDbClustersCommand extends $Command
   })
   .s("AmazonTimestreamInfluxDB", "ListDbClusters", {})
   .n("TimestreamInfluxDBClient", "ListDbClustersCommand")
-  .sc(ListDbClusters)
+  .sc(ListDbClusters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

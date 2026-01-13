@@ -9,7 +9,7 @@ import type {
   DeregisterTransitGatewayMulticastGroupSourcesRequest,
   DeregisterTransitGatewayMulticastGroupSourcesResult,
 } from "../models/models_3";
-import { DeregisterTransitGatewayMulticastGroupSources } from "../schemas/schemas_0";
+import { DeregisterTransitGatewayMulticastGroupSources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeregisterTransitGatewayMulticastGroupSourcesCommand}.
  */
-export interface DeregisterTransitGatewayMulticastGroupSourcesCommandInput
-  extends DeregisterTransitGatewayMulticastGroupSourcesRequest {}
+export interface DeregisterTransitGatewayMulticastGroupSourcesCommandInput extends DeregisterTransitGatewayMulticastGroupSourcesRequest {}
 /**
  * @public
  *
  * The output of {@link DeregisterTransitGatewayMulticastGroupSourcesCommand}.
  */
-export interface DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
-  extends DeregisterTransitGatewayMulticastGroupSourcesResult,
-    __MetadataBearer {}
+export interface DeregisterTransitGatewayMulticastGroupSourcesCommandOutput extends DeregisterTransitGatewayMulticastGroupSourcesResult, __MetadataBearer {}
 
 /**
  * <p>Deregisters the specified sources (network interfaces) from the  transit gateway multicast group.</p>
@@ -90,7 +87,7 @@ export class DeregisterTransitGatewayMulticastGroupSourcesCommand extends $Comma
   })
   .s("AmazonEC2", "DeregisterTransitGatewayMulticastGroupSources", {})
   .n("EC2Client", "DeregisterTransitGatewayMulticastGroupSourcesCommand")
-  .sc(DeregisterTransitGatewayMulticastGroupSources)
+  .sc(DeregisterTransitGatewayMulticastGroupSources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeFleetsRequest, DescribeFleetsResult } from "../models/models_0";
-import { DescribeFleets } from "../schemas/schemas_0";
+import { DescribeFleets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //       IdleDisconnectTimeoutInSeconds: Number("int"),
  * //       IamRoleArn: "STRING_VALUE",
  * //       StreamView: "APP" || "DESKTOP",
- * //       Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8",
+ * //       Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "WINDOWS_SERVER_2025" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8" || "UBUNTU_PRO_2404",
  * //       MaxConcurrentSessions: Number("int"),
  * //       UsbDeviceFilterStrings: [ // UsbDeviceFilterStrings
  * //         "STRING_VALUE",
@@ -140,7 +140,7 @@ export class DescribeFleetsCommand extends $Command
   })
   .s("PhotonAdminProxyService", "DescribeFleets", {})
   .n("AppStreamClient", "DescribeFleetsCommand")
-  .sc(DescribeFleets)
+  .sc(DescribeFleets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DescribeDirectConnectGatewayAssociationsRequest,
   DescribeDirectConnectGatewayAssociationsResult,
 } from "../models/models_0";
-import { DescribeDirectConnectGatewayAssociations } from "../schemas/schemas_0";
+import { DescribeDirectConnectGatewayAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeDirectConnectGatewayAssociationsCommand}.
  */
-export interface DescribeDirectConnectGatewayAssociationsCommandInput
-  extends DescribeDirectConnectGatewayAssociationsRequest {}
+export interface DescribeDirectConnectGatewayAssociationsCommandInput extends DescribeDirectConnectGatewayAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeDirectConnectGatewayAssociationsCommand}.
  */
-export interface DescribeDirectConnectGatewayAssociationsCommandOutput
-  extends DescribeDirectConnectGatewayAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeDirectConnectGatewayAssociationsCommandOutput extends DescribeDirectConnectGatewayAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the associations between your Direct Connect gateways and virtual private gateways and transit gateways. You must specify one of the following:</p>
@@ -148,7 +145,7 @@ export class DescribeDirectConnectGatewayAssociationsCommand extends $Command
   })
   .s("OvertureService", "DescribeDirectConnectGatewayAssociations", {})
   .n("DirectConnectClient", "DescribeDirectConnectGatewayAssociationsCommand")
-  .sc(DescribeDirectConnectGatewayAssociations)
+  .sc(DescribeDirectConnectGatewayAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

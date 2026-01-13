@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAssetBundleExportJobRequest, DescribeAssetBundleExportJobResponse } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeAssetBundleExportJob } from "../schemas/schemas_0";
+import { DescribeAssetBundleExportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeAssetBundleExportJobCommandInput extends DescribeAssetB
  *
  * The output of {@link DescribeAssetBundleExportJobCommand}.
  */
-export interface DescribeAssetBundleExportJobCommandOutput
-  extends DescribeAssetBundleExportJobResponse,
-    __MetadataBearer {}
+export interface DescribeAssetBundleExportJobCommandOutput extends DescribeAssetBundleExportJobResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an existing export job.</p>
@@ -194,7 +192,7 @@ export class DescribeAssetBundleExportJobCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeAssetBundleExportJob", {})
   .n("QuickSightClient", "DescribeAssetBundleExportJobCommand")
-  .sc(DescribeAssetBundleExportJob)
+  .sc(DescribeAssetBundleExportJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

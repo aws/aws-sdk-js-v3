@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import type { EnableRequest, EnableResponse } from "../models/models_0";
-import { Enable } from "../schemas/schemas_0";
+import { Enable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class EnableCommand extends $Command
   })
   .s("Inspector2", "Enable", {})
   .n("Inspector2Client", "EnableCommand")
-  .sc(Enable)
+  .sc(Enable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

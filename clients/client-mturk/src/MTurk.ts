@@ -293,8 +293,14 @@ export interface MTurk {
   /**
    * @see {@link CreateHITCommand}
    */
-  createHIT(args: CreateHITCommandInput, options?: __HttpHandlerOptions): Promise<CreateHITCommandOutput>;
-  createHIT(args: CreateHITCommandInput, cb: (err: any, data?: CreateHITCommandOutput) => void): void;
+  createHIT(
+    args: CreateHITCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateHITCommandOutput>;
+  createHIT(
+    args: CreateHITCommandInput,
+    cb: (err: any, data?: CreateHITCommandOutput) => void
+  ): void;
   createHIT(
     args: CreateHITCommandInput,
     options: __HttpHandlerOptions,
@@ -304,8 +310,14 @@ export interface MTurk {
   /**
    * @see {@link CreateHITTypeCommand}
    */
-  createHITType(args: CreateHITTypeCommandInput, options?: __HttpHandlerOptions): Promise<CreateHITTypeCommandOutput>;
-  createHITType(args: CreateHITTypeCommandInput, cb: (err: any, data?: CreateHITTypeCommandOutput) => void): void;
+  createHITType(
+    args: CreateHITTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateHITTypeCommandOutput>;
+  createHITType(
+    args: CreateHITTypeCommandInput,
+    cb: (err: any, data?: CreateHITTypeCommandOutput) => void
+  ): void;
   createHITType(
     args: CreateHITTypeCommandInput,
     options: __HttpHandlerOptions,
@@ -366,8 +378,14 @@ export interface MTurk {
   /**
    * @see {@link DeleteHITCommand}
    */
-  deleteHIT(args: DeleteHITCommandInput, options?: __HttpHandlerOptions): Promise<DeleteHITCommandOutput>;
-  deleteHIT(args: DeleteHITCommandInput, cb: (err: any, data?: DeleteHITCommandOutput) => void): void;
+  deleteHIT(
+    args: DeleteHITCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHITCommandOutput>;
+  deleteHIT(
+    args: DeleteHITCommandInput,
+    cb: (err: any, data?: DeleteHITCommandOutput) => void
+  ): void;
   deleteHIT(
     args: DeleteHITCommandInput,
     options: __HttpHandlerOptions,
@@ -446,8 +464,14 @@ export interface MTurk {
   /**
    * @see {@link GetAssignmentCommand}
    */
-  getAssignment(args: GetAssignmentCommandInput, options?: __HttpHandlerOptions): Promise<GetAssignmentCommandOutput>;
-  getAssignment(args: GetAssignmentCommandInput, cb: (err: any, data?: GetAssignmentCommandOutput) => void): void;
+  getAssignment(
+    args: GetAssignmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssignmentCommandOutput>;
+  getAssignment(
+    args: GetAssignmentCommandInput,
+    cb: (err: any, data?: GetAssignmentCommandOutput) => void
+  ): void;
   getAssignment(
     args: GetAssignmentCommandInput,
     options: __HttpHandlerOptions,
@@ -474,8 +498,14 @@ export interface MTurk {
   /**
    * @see {@link GetHITCommand}
    */
-  getHIT(args: GetHITCommandInput, options?: __HttpHandlerOptions): Promise<GetHITCommandOutput>;
-  getHIT(args: GetHITCommandInput, cb: (err: any, data?: GetHITCommandOutput) => void): void;
+  getHIT(
+    args: GetHITCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetHITCommandOutput>;
+  getHIT(
+    args: GetHITCommandInput,
+    cb: (err: any, data?: GetHITCommandOutput) => void
+  ): void;
   getHIT(
     args: GetHITCommandInput,
     options: __HttpHandlerOptions,
@@ -555,8 +585,14 @@ export interface MTurk {
    * @see {@link ListHITsCommand}
    */
   listHITs(): Promise<ListHITsCommandOutput>;
-  listHITs(args: ListHITsCommandInput, options?: __HttpHandlerOptions): Promise<ListHITsCommandOutput>;
-  listHITs(args: ListHITsCommandInput, cb: (err: any, data?: ListHITsCommandOutput) => void): void;
+  listHITs(
+    args: ListHITsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHITsCommandOutput>;
+  listHITs(
+    args: ListHITsCommandInput,
+    cb: (err: any, data?: ListHITsCommandOutput) => void
+  ): void;
   listHITs(
     args: ListHITsCommandInput,
     options: __HttpHandlerOptions,
@@ -688,8 +724,14 @@ export interface MTurk {
   /**
    * @see {@link NotifyWorkersCommand}
    */
-  notifyWorkers(args: NotifyWorkersCommandInput, options?: __HttpHandlerOptions): Promise<NotifyWorkersCommandOutput>;
-  notifyWorkers(args: NotifyWorkersCommandInput, cb: (err: any, data?: NotifyWorkersCommandOutput) => void): void;
+  notifyWorkers(
+    args: NotifyWorkersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<NotifyWorkersCommandOutput>;
+  notifyWorkers(
+    args: NotifyWorkersCommandInput,
+    cb: (err: any, data?: NotifyWorkersCommandOutput) => void
+  ): void;
   notifyWorkers(
     args: NotifyWorkersCommandInput,
     options: __HttpHandlerOptions,
@@ -733,8 +775,14 @@ export interface MTurk {
   /**
    * @see {@link SendBonusCommand}
    */
-  sendBonus(args: SendBonusCommandInput, options?: __HttpHandlerOptions): Promise<SendBonusCommandOutput>;
-  sendBonus(args: SendBonusCommandInput, cb: (err: any, data?: SendBonusCommandOutput) => void): void;
+  sendBonus(
+    args: SendBonusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendBonusCommandOutput>;
+  sendBonus(
+    args: SendBonusCommandInput,
+    cb: (err: any, data?: SendBonusCommandOutput) => void
+  ): void;
   sendBonus(
     args: SendBonusCommandInput,
     options: __HttpHandlerOptions,

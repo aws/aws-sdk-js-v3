@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
-import { CreateCell } from "../schemas/schemas_0";
+import { CreateCell$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class CreateCellCommand extends $Command
   })
   .s("Route53RecoveryReadiness", "CreateCell", {})
   .n("Route53RecoveryReadinessClient", "CreateCellCommand")
-  .sc(CreateCell)
+  .sc(CreateCell$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

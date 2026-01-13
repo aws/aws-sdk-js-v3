@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDataProtectionPolicyRequest, GetDataProtectionPolicyResponse } from "../models/models_0";
-import { GetDataProtectionPolicy } from "../schemas/schemas_0";
+import { GetDataProtectionPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class GetDataProtectionPolicyCommand extends $Command
   })
   .s("Logs_20140328", "GetDataProtectionPolicy", {})
   .n("CloudWatchLogsClient", "GetDataProtectionPolicyCommand")
-  .sc(GetDataProtectionPolicy)
+  .sc(GetDataProtectionPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAuthenticationProfilesMessage, DescribeAuthenticationProfilesResult } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeAuthenticationProfiles } from "../schemas/schemas_0";
+import { DescribeAuthenticationProfiles$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeAuthenticationProfilesCommandInput extends DescribeAuth
  *
  * The output of {@link DescribeAuthenticationProfilesCommand}.
  */
-export interface DescribeAuthenticationProfilesCommandOutput
-  extends DescribeAuthenticationProfilesResult,
-    __MetadataBearer {}
+export interface DescribeAuthenticationProfilesCommandOutput extends DescribeAuthenticationProfilesResult, __MetadataBearer {}
 
 /**
  * <p>Describes an authentication profile.</p>
@@ -87,7 +85,7 @@ export class DescribeAuthenticationProfilesCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DescribeAuthenticationProfiles", {})
   .n("RedshiftClient", "DescribeAuthenticationProfilesCommand")
-  .sc(DescribeAuthenticationProfiles)
+  .sc(DescribeAuthenticationProfiles$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

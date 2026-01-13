@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSizeConstraintSetsRequest, ListSizeConstraintSetsResponse } from "../models/models_0";
-import { ListSizeConstraintSets } from "../schemas/schemas_0";
+import { ListSizeConstraintSets$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -114,7 +114,7 @@ export class ListSizeConstraintSetsCommand extends $Command
   })
   .s("AWSWAF_20150824", "ListSizeConstraintSets", {})
   .n("WAFClient", "ListSizeConstraintSetsCommand")
-  .sc(ListSizeConstraintSets)
+  .sc(ListSizeConstraintSets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

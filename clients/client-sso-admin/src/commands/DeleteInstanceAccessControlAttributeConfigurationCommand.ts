@@ -8,7 +8,7 @@ import type {
   DeleteInstanceAccessControlAttributeConfigurationRequest,
   DeleteInstanceAccessControlAttributeConfigurationResponse,
 } from "../models/models_0";
-import { DeleteInstanceAccessControlAttributeConfiguration } from "../schemas/schemas_0";
+import { DeleteInstanceAccessControlAttributeConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteInstanceAccessControlAttributeConfigurationCommand}.
  */
-export interface DeleteInstanceAccessControlAttributeConfigurationCommandInput
-  extends DeleteInstanceAccessControlAttributeConfigurationRequest {}
+export interface DeleteInstanceAccessControlAttributeConfigurationCommandInput extends DeleteInstanceAccessControlAttributeConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteInstanceAccessControlAttributeConfigurationCommand}.
  */
-export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
-  extends DeleteInstanceAccessControlAttributeConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput extends DeleteInstanceAccessControlAttributeConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Disables the attributes-based access control (ABAC) feature for the specified IAM Identity Center instance and deletes all of the attribute mappings that have been configured. Once deleted, any attributes that are received from an identity source and any custom attributes you have previously configured will not be passed. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
@@ -95,7 +92,7 @@ export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $C
   })
   .s("SWBExternalService", "DeleteInstanceAccessControlAttributeConfiguration", {})
   .n("SSOAdminClient", "DeleteInstanceAccessControlAttributeConfigurationCommand")
-  .sc(DeleteInstanceAccessControlAttributeConfiguration)
+  .sc(DeleteInstanceAccessControlAttributeConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

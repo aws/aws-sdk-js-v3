@@ -8,7 +8,7 @@ import type {
   GetPlatformApplicationAttributesInput,
   GetPlatformApplicationAttributesResponse,
 } from "../models/models_0";
-import { GetPlatformApplicationAttributes } from "../schemas/schemas_0";
+import { GetPlatformApplicationAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -27,9 +27,7 @@ export interface GetPlatformApplicationAttributesCommandInput extends GetPlatfor
  *
  * The output of {@link GetPlatformApplicationAttributesCommand}.
  */
-export interface GetPlatformApplicationAttributesCommandOutput
-  extends GetPlatformApplicationAttributesResponse,
-    __MetadataBearer {}
+export interface GetPlatformApplicationAttributesCommandOutput extends GetPlatformApplicationAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the attributes of the platform application object for the supported push
@@ -95,7 +93,7 @@ export class GetPlatformApplicationAttributesCommand extends $Command
   })
   .s("AmazonSimpleNotificationService", "GetPlatformApplicationAttributes", {})
   .n("SNSClient", "GetPlatformApplicationAttributesCommand")
-  .sc(GetPlatformApplicationAttributes)
+  .sc(GetPlatformApplicationAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

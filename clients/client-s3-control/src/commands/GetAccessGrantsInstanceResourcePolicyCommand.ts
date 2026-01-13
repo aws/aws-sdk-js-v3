@@ -11,7 +11,7 @@ import type {
   GetAccessGrantsInstanceResourcePolicyResult,
 } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { GetAccessGrantsInstanceResourcePolicy } from "../schemas/schemas_0";
+import { GetAccessGrantsInstanceResourcePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -23,16 +23,13 @@ export { $Command };
  *
  * The input for {@link GetAccessGrantsInstanceResourcePolicyCommand}.
  */
-export interface GetAccessGrantsInstanceResourcePolicyCommandInput
-  extends GetAccessGrantsInstanceResourcePolicyRequest {}
+export interface GetAccessGrantsInstanceResourcePolicyCommandInput extends GetAccessGrantsInstanceResourcePolicyRequest {}
 /**
  * @public
  *
  * The output of {@link GetAccessGrantsInstanceResourcePolicyCommand}.
  */
-export interface GetAccessGrantsInstanceResourcePolicyCommandOutput
-  extends GetAccessGrantsInstanceResourcePolicyResult,
-    __MetadataBearer {}
+export interface GetAccessGrantsInstanceResourcePolicyCommandOutput extends GetAccessGrantsInstanceResourcePolicyResult, __MetadataBearer {}
 
 /**
  * <p>Returns the resource policy of the S3 Access Grants instance. </p>
@@ -97,7 +94,7 @@ export class GetAccessGrantsInstanceResourcePolicyCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "GetAccessGrantsInstanceResourcePolicy", {})
   .n("S3ControlClient", "GetAccessGrantsInstanceResourcePolicyCommand")
-  .sc(GetAccessGrantsInstanceResourcePolicy)
+  .sc(GetAccessGrantsInstanceResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

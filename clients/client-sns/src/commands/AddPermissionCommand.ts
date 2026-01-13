@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AddPermissionInput } from "../models/models_0";
-import { AddPermission } from "../schemas/schemas_0";
+import { AddPermission$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -97,7 +97,7 @@ export class AddPermissionCommand extends $Command
   })
   .s("AmazonSimpleNotificationService", "AddPermission", {})
   .n("SNSClient", "AddPermissionCommand")
-  .sc(AddPermission)
+  .sc(AddPermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

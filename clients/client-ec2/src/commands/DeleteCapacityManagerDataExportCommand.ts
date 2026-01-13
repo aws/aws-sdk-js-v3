@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCapacityManagerDataExportRequest, DeleteCapacityManagerDataExportResult } from "../models/models_2";
-import { DeleteCapacityManagerDataExport } from "../schemas/schemas_0";
+import { DeleteCapacityManagerDataExport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteCapacityManagerDataExportCommandInput extends DeleteCapac
  *
  * The output of {@link DeleteCapacityManagerDataExportCommand}.
  */
-export interface DeleteCapacityManagerDataExportCommandOutput
-  extends DeleteCapacityManagerDataExportResult,
-    __MetadataBearer {}
+export interface DeleteCapacityManagerDataExportCommandOutput extends DeleteCapacityManagerDataExportResult, __MetadataBearer {}
 
 /**
  * <p>
@@ -78,7 +76,7 @@ export class DeleteCapacityManagerDataExportCommand extends $Command
   })
   .s("AmazonEC2", "DeleteCapacityManagerDataExport", {})
   .n("EC2Client", "DeleteCapacityManagerDataExportCommand")
-  .sc(DeleteCapacityManagerDataExport)
+  .sc(DeleteCapacityManagerDataExport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

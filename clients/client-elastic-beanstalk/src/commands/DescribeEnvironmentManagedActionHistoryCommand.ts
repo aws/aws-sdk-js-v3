@@ -13,7 +13,7 @@ import type {
   DescribeEnvironmentManagedActionHistoryRequest,
   DescribeEnvironmentManagedActionHistoryResult,
 } from "../models/models_0";
-import { DescribeEnvironmentManagedActionHistory } from "../schemas/schemas_0";
+import { DescribeEnvironmentManagedActionHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeEnvironmentManagedActionHistoryCommand}.
  */
-export interface DescribeEnvironmentManagedActionHistoryCommandInput
-  extends DescribeEnvironmentManagedActionHistoryRequest {}
+export interface DescribeEnvironmentManagedActionHistoryCommandInput extends DescribeEnvironmentManagedActionHistoryRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeEnvironmentManagedActionHistoryCommand}.
  */
-export interface DescribeEnvironmentManagedActionHistoryCommandOutput
-  extends DescribeEnvironmentManagedActionHistoryResult,
-    __MetadataBearer {}
+export interface DescribeEnvironmentManagedActionHistoryCommandOutput extends DescribeEnvironmentManagedActionHistoryResult, __MetadataBearer {}
 
 /**
  * <p>Lists an environment's completed and failed managed actions.</p>
@@ -101,7 +98,7 @@ export class DescribeEnvironmentManagedActionHistoryCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "DescribeEnvironmentManagedActionHistory", {})
   .n("ElasticBeanstalkClient", "DescribeEnvironmentManagedActionHistoryCommand")
-  .sc(DescribeEnvironmentManagedActionHistory)
+  .sc(DescribeEnvironmentManagedActionHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

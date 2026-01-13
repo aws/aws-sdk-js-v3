@@ -26,18 +26,19 @@ export const getRuntimeConfig = (config: EC2ProtocolClientConfig) => {
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsEc2QueryProtocol({
-        defaultNamespace: "aws.protocoltests.ec2",
-        xmlNamespace: "https://example.com/",
-        version: "2020-01-08",
-      }),
+    protocol: config?.protocol ?? AwsEc2QueryProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "aws.protocoltests.ec2",
+      xmlNamespace: "https://example.com/",
+      version: "2020-01-08",
+      serviceTarget: "AwsEc2",
+    },
     serviceId: config?.serviceId ?? "EC2 Protocol",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -9,7 +9,7 @@ import type {
   GetEvidenceFoldersByAssessmentControlRequest,
   GetEvidenceFoldersByAssessmentControlResponse,
 } from "../models/models_0";
-import { GetEvidenceFoldersByAssessmentControl } from "../schemas/schemas_0";
+import { GetEvidenceFoldersByAssessmentControl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetEvidenceFoldersByAssessmentControlCommand}.
  */
-export interface GetEvidenceFoldersByAssessmentControlCommandInput
-  extends GetEvidenceFoldersByAssessmentControlRequest {}
+export interface GetEvidenceFoldersByAssessmentControlCommandInput extends GetEvidenceFoldersByAssessmentControlRequest {}
 /**
  * @public
  *
  * The output of {@link GetEvidenceFoldersByAssessmentControlCommand}.
  */
-export interface GetEvidenceFoldersByAssessmentControlCommandOutput
-  extends GetEvidenceFoldersByAssessmentControlResponse,
-    __MetadataBearer {}
+export interface GetEvidenceFoldersByAssessmentControlCommandOutput extends GetEvidenceFoldersByAssessmentControlResponse, __MetadataBearer {}
 
 /**
  * <p> Gets a list of evidence folders that are associated with a specified control in an
@@ -120,7 +117,7 @@ export class GetEvidenceFoldersByAssessmentControlCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "GetEvidenceFoldersByAssessmentControl", {})
   .n("AuditManagerClient", "GetEvidenceFoldersByAssessmentControlCommand")
-  .sc(GetEvidenceFoldersByAssessmentControl)
+  .sc(GetEvidenceFoldersByAssessmentControl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

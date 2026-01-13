@@ -9,7 +9,7 @@ import type {
   UpdateInterruptibleCapacityReservationAllocationRequest,
   UpdateInterruptibleCapacityReservationAllocationResult,
 } from "../models/models_7";
-import { UpdateInterruptibleCapacityReservationAllocation } from "../schemas/schemas_0";
+import { UpdateInterruptibleCapacityReservationAllocation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateInterruptibleCapacityReservationAllocationCommand}.
  */
-export interface UpdateInterruptibleCapacityReservationAllocationCommandInput
-  extends UpdateInterruptibleCapacityReservationAllocationRequest {}
+export interface UpdateInterruptibleCapacityReservationAllocationCommandInput extends UpdateInterruptibleCapacityReservationAllocationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateInterruptibleCapacityReservationAllocationCommand}.
  */
-export interface UpdateInterruptibleCapacityReservationAllocationCommandOutput
-  extends UpdateInterruptibleCapacityReservationAllocationResult,
-    __MetadataBearer {}
+export interface UpdateInterruptibleCapacityReservationAllocationCommandOutput extends UpdateInterruptibleCapacityReservationAllocationResult, __MetadataBearer {}
 
 /**
  * <p>
@@ -88,7 +85,7 @@ export class UpdateInterruptibleCapacityReservationAllocationCommand extends $Co
   })
   .s("AmazonEC2", "UpdateInterruptibleCapacityReservationAllocation", {})
   .n("EC2Client", "UpdateInterruptibleCapacityReservationAllocationCommand")
-  .sc(UpdateInterruptibleCapacityReservationAllocation)
+  .sc(UpdateInterruptibleCapacityReservationAllocation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

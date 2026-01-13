@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { ConfirmTopicRuleDestinationRequest, ConfirmTopicRuleDestinationResponse } from "../models/models_0";
-import { ConfirmTopicRuleDestination } from "../schemas/schemas_0";
+import { ConfirmTopicRuleDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ConfirmTopicRuleDestinationCommandInput extends ConfirmTopicRul
  *
  * The output of {@link ConfirmTopicRuleDestinationCommand}.
  */
-export interface ConfirmTopicRuleDestinationCommandOutput
-  extends ConfirmTopicRuleDestinationResponse,
-    __MetadataBearer {}
+export interface ConfirmTopicRuleDestinationCommandOutput extends ConfirmTopicRuleDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Confirms a topic rule destination. When you create a rule requiring a destination, IoT
@@ -93,7 +91,7 @@ export class ConfirmTopicRuleDestinationCommand extends $Command
   })
   .s("AWSIotService", "ConfirmTopicRuleDestination", {})
   .n("IoTClient", "ConfirmTopicRuleDestinationCommand")
-  .sc(ConfirmTopicRuleDestination)
+  .sc(ConfirmTopicRuleDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   PurchaseReservedElasticsearchInstanceOfferingRequest,
   PurchaseReservedElasticsearchInstanceOfferingResponse,
 } from "../models/models_0";
-import { PurchaseReservedElasticsearchInstanceOffering } from "../schemas/schemas_0";
+import { PurchaseReservedElasticsearchInstanceOffering$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link PurchaseReservedElasticsearchInstanceOfferingCommand}.
  */
-export interface PurchaseReservedElasticsearchInstanceOfferingCommandInput
-  extends PurchaseReservedElasticsearchInstanceOfferingRequest {}
+export interface PurchaseReservedElasticsearchInstanceOfferingCommandInput extends PurchaseReservedElasticsearchInstanceOfferingRequest {}
 /**
  * @public
  *
  * The output of {@link PurchaseReservedElasticsearchInstanceOfferingCommand}.
  */
-export interface PurchaseReservedElasticsearchInstanceOfferingCommandOutput
-  extends PurchaseReservedElasticsearchInstanceOfferingResponse,
-    __MetadataBearer {}
+export interface PurchaseReservedElasticsearchInstanceOfferingCommandOutput extends PurchaseReservedElasticsearchInstanceOfferingResponse, __MetadataBearer {}
 
 /**
  * <p>Allows you to purchase reserved Elasticsearch instances.</p>
@@ -104,7 +101,7 @@ export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Comma
   })
   .s("AmazonElasticsearchService2015", "PurchaseReservedElasticsearchInstanceOffering", {})
   .n("ElasticsearchServiceClient", "PurchaseReservedElasticsearchInstanceOfferingCommand")
-  .sc(PurchaseReservedElasticsearchInstanceOffering)
+  .sc(PurchaseReservedElasticsearchInstanceOffering$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

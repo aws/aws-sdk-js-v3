@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteLayoutRequest, DeleteLayoutResponse } from "../models/models_0";
-import { DeleteLayout } from "../schemas/schemas_0";
+import { DeleteLayout$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteLayoutCommand extends $Command
   })
   .s("AmazonConnectCases", "DeleteLayout", {})
   .n("ConnectCasesClient", "DeleteLayoutCommand")
-  .sc(DeleteLayout)
+  .sc(DeleteLayout$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

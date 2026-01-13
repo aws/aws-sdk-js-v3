@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchGetFlowAssociationRequest, BatchGetFlowAssociationResponse } from "../models/models_0";
-import { BatchGetFlowAssociation } from "../schemas/schemas_0";
+import { BatchGetFlowAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class BatchGetFlowAssociationCommand extends $Command
   })
   .s("AmazonConnectService", "BatchGetFlowAssociation", {})
   .n("ConnectClient", "BatchGetFlowAssociationCommand")
-  .sc(BatchGetFlowAssociation)
+  .sc(BatchGetFlowAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

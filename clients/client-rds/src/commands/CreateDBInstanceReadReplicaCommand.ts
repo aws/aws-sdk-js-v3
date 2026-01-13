@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDBInstanceReadReplicaMessage, CreateDBInstanceReadReplicaResult } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { CreateDBInstanceReadReplica } from "../schemas/schemas_0";
+import { CreateDBInstanceReadReplica$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -535,7 +535,7 @@ export class CreateDBInstanceReadReplicaCommand extends $Command
   })
   .s("AmazonRDSv19", "CreateDBInstanceReadReplica", {})
   .n("RDSClient", "CreateDBInstanceReadReplicaCommand")
-  .sc(CreateDBInstanceReadReplica)
+  .sc(CreateDBInstanceReadReplica$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

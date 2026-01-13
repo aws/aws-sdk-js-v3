@@ -13,8 +13,10 @@ import {
   AnalysisTemplateValidationType,
   AnalysisType,
   AnalyticsEngine,
+  ApprovalStatus,
   AutoApprovedChangeType,
   AutoRefreshMode,
+  ChangeRequestAction,
   ChangeRequestStatus,
   ChangeSpecificationType,
   ChangeType,
@@ -672,7 +674,9 @@ export namespace ConsolidatedPolicyV1 {
  * <p>Controls on the analysis specifications that can be run on a configured table.</p>
  * @public
  */
-export type ConsolidatedPolicy = ConsolidatedPolicy.V1Member | ConsolidatedPolicy.$UnknownMember;
+export type ConsolidatedPolicy =
+  | ConsolidatedPolicy.V1Member
+  | ConsolidatedPolicy.$UnknownMember;
 
 /**
  * @public
@@ -811,7 +815,9 @@ export interface QueryConstraintRequireOverlap {
  * <p>Provides any necessary query constraint information.</p>
  * @public
  */
-export type QueryConstraint = QueryConstraint.RequireOverlapMember | QueryConstraint.$UnknownMember;
+export type QueryConstraint =
+  | QueryConstraint.RequireOverlapMember
+  | QueryConstraint.$UnknownMember;
 
 /**
  * @public
@@ -989,7 +995,9 @@ export namespace AnalysisRulePolicyV1 {
  * <p>Controls on the query specifications that can be run on configured table.</p>
  * @public
  */
-export type AnalysisRulePolicy = AnalysisRulePolicy.V1Member | AnalysisRulePolicy.$UnknownMember;
+export type AnalysisRulePolicy =
+  | AnalysisRulePolicy.V1Member
+  | AnalysisRulePolicy.$UnknownMember;
 
 /**
  * @public
@@ -1146,7 +1154,10 @@ export interface AnalysisTemplateArtifacts {
  * <p>The structure that defines the body of the analysis template.</p>
  * @public
  */
-export type AnalysisSource = AnalysisSource.ArtifactsMember | AnalysisSource.TextMember | AnalysisSource.$UnknownMember;
+export type AnalysisSource =
+  | AnalysisSource.ArtifactsMember
+  | AnalysisSource.TextMember
+  | AnalysisSource.$UnknownMember;
 
 /**
  * @public
@@ -1226,7 +1237,9 @@ export interface AnalysisTemplateArtifactMetadata {
  * <p>The analysis source metadata.</p>
  * @public
  */
-export type AnalysisSourceMetadata = AnalysisSourceMetadata.ArtifactsMember | AnalysisSourceMetadata.$UnknownMember;
+export type AnalysisSourceMetadata =
+  | AnalysisSourceMetadata.ArtifactsMember
+  | AnalysisSourceMetadata.$UnknownMember;
 
 /**
  * @public
@@ -1811,6 +1824,18 @@ export interface UpdateAnalysisTemplateOutput {
 }
 
 /**
+ * <p>Contains detailed information about the approval state of a given member in the collaboration for a given collaboration change request.</p>
+ * @public
+ */
+export interface ApprovalStatusDetails {
+  /**
+   * <p>The approval status of a member's vote on the change request. Valid values are PENDING (if they haven't voted), APPROVED, or DENIED.</p>
+   * @public
+   */
+  status: ApprovalStatus | undefined;
+}
+
+/**
  * <p> A reference to a table within Athena.</p>
  * @public
  */
@@ -2159,7 +2184,9 @@ export interface IdMappingTableSchemaTypeProperties {
  * <p>Information about the schema type properties.</p>
  * @public
  */
-export type SchemaTypeProperties = SchemaTypeProperties.IdMappingTableMember | SchemaTypeProperties.$UnknownMember;
+export type SchemaTypeProperties =
+  | SchemaTypeProperties.IdMappingTableMember
+  | SchemaTypeProperties.$UnknownMember;
 
 /**
  * @public
@@ -2666,6 +2693,12 @@ export interface CreateCollaborationInput {
    * @public
    */
   allowedResultRegions?: SupportedS3Region[] | undefined;
+
+  /**
+   * <p>An indicator as to whether metrics have been enabled or disabled for the collaboration.</p> <p>When <code>true</code>, collaboration members can opt in to Amazon CloudWatch metrics for their membership queries. The default value is <code>false</code>.</p>
+   * @public
+   */
+  isMetricsEnabled?: boolean | undefined;
 }
 
 /**
@@ -2774,6 +2807,12 @@ export interface Collaboration {
    * @public
    */
   allowedResultRegions?: SupportedS3Region[] | undefined;
+
+  /**
+   * <p>An indicator as to whether metrics are enabled for the collaboration.</p> <p>When <code>true</code>, collaboration members can opt in to Amazon CloudWatch metrics for their membership queries.</p>
+   * @public
+   */
+  isMetricsEnabled?: boolean | undefined;
 }
 
 /**
@@ -2785,6 +2824,18 @@ export interface CreateCollaborationOutput {
    * @public
    */
   collaboration: Collaboration | undefined;
+}
+
+/**
+ * <p>Defines the specific changes being requested for a collaboration, including configuration modifications and approval requirements.</p>
+ * @public
+ */
+export interface CollaborationChangeSpecification {
+  /**
+   * <p>Defines requested updates to properties of the collaboration. Currently, this only supports modifying which change types are auto-approved for the collaboration.</p>
+   * @public
+   */
+  autoApprovedChangeTypes?: AutoApprovedChangeType[] | undefined;
 }
 
 /**
@@ -2815,7 +2866,10 @@ export interface MemberChangeSpecification {
  * <p>A union that contains the specification details for different types of changes.</p>
  * @public
  */
-export type ChangeSpecification = ChangeSpecification.MemberMember | ChangeSpecification.$UnknownMember;
+export type ChangeSpecification =
+  | ChangeSpecification.CollaborationMember
+  | ChangeSpecification.MemberMember
+  | ChangeSpecification.$UnknownMember;
 
 /**
  * @public
@@ -2827,6 +2881,17 @@ export namespace ChangeSpecification {
    */
   export interface MemberMember {
     member: MemberChangeSpecification;
+    collaboration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The collaboration configuration changes being requested. Currently, this only supports modifying which change types are auto-approved for the collaboration.</p>
+   * @public
+   */
+  export interface CollaborationMember {
+    member?: never;
+    collaboration: CollaborationChangeSpecification;
     $unknown?: never;
   }
 
@@ -2835,6 +2900,7 @@ export namespace ChangeSpecification {
    */
   export interface $UnknownMember {
     member?: never;
+    collaboration?: never;
     $unknown: [string, any];
   }
 
@@ -2844,6 +2910,7 @@ export namespace ChangeSpecification {
    */
   export interface Visitor<T> {
     member: (value: MemberChangeSpecification) => T;
+    collaboration: (value: CollaborationChangeSpecification) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2953,6 +3020,12 @@ export interface CollaborationChangeRequest {
    * @public
    */
   changes: Change[] | undefined;
+
+  /**
+   * <p>A list of approval details from collaboration members, including approval status and multi-party approval workflow information.</p>
+   * @public
+   */
+  approvals?: Record<string, ApprovalStatusDetails> | undefined;
 }
 
 /**
@@ -3738,6 +3811,12 @@ export interface CollaborationChangeRequestSummary {
    * @public
    */
   changes: Change[] | undefined;
+
+  /**
+   * <p>Summary of approval statuses from all collaboration members for this change request.</p>
+   * @public
+   */
+  approvals?: Record<string, ApprovalStatusDetails> | undefined;
 }
 
 /**
@@ -3848,9 +3927,7 @@ export interface ListCollaborationConfiguredAudienceModelAssociationsOutput {
    * <p>The metadata of the configured audience model association within a collaboration.</p>
    * @public
    */
-  collaborationConfiguredAudienceModelAssociationSummaries:
-    | CollaborationConfiguredAudienceModelAssociationSummary[]
-    | undefined;
+  collaborationConfiguredAudienceModelAssociationSummaries: CollaborationConfiguredAudienceModelAssociationSummary[] | undefined;
 
   /**
    * <p>The pagination token that's used to fetch the next set of results.</p>
@@ -4664,6 +4741,40 @@ export interface UpdateCollaborationOutput {
    * @public
    */
   collaboration: Collaboration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCollaborationChangeRequestInput {
+  /**
+   * <p>The unique identifier of the collaboration that contains the change request to be updated.</p>
+   * @public
+   */
+  collaborationIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the specific change request to be updated within the collaboration.</p>
+   * @public
+   */
+  changeRequestIdentifier: string | undefined;
+
+  /**
+   * <p>The action to perform on the change request. Valid values include APPROVE (approve the change), DENY (reject the change), CANCEL (cancel the request), and COMMIT (commit after the request is approved).</p> <p>For change requests without automatic approval, a member in the collaboration can manually APPROVE or DENY a change request. The collaboration owner can manually CANCEL or COMMIT a change request.</p>
+   * @public
+   */
+  action: ChangeRequestAction | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCollaborationChangeRequestOutput {
+  /**
+   * <p>Represents a request to modify a collaboration. Change requests enable structured modifications to collaborations after they have been created.</p>
+   * @public
+   */
+  collaborationChangeRequest: CollaborationChangeRequest | undefined;
 }
 
 /**
@@ -5554,7 +5665,9 @@ export interface SnowflakeTableSchemaV1 {
  * <p> The schema of a Snowflake table.</p>
  * @public
  */
-export type SnowflakeTableSchema = SnowflakeTableSchema.V1Member | SnowflakeTableSchema.$UnknownMember;
+export type SnowflakeTableSchema =
+  | SnowflakeTableSchema.V1Member
+  | SnowflakeTableSchema.$UnknownMember;
 
 /**
  * @public
@@ -7371,6 +7484,12 @@ export interface CreateMembershipInput {
    * @public
    */
   paymentConfiguration?: MembershipPaymentConfiguration | undefined;
+
+  /**
+   * <p>An indicator as to whether Amazon CloudWatch metrics have been enabled or disabled for the membership.</p> <p>Amazon CloudWatch metrics are only available when the collaboration has metrics enabled. This option can be set by collaboration members who have the ability to run queries (analysis runners) or by members who are configured as payers.</p> <p>When <code>true</code>, metrics about query execution are collected in Amazon CloudWatch. The default value is <code>false</code>.</p>
+   * @public
+   */
+  isMetricsEnabled?: boolean | undefined;
 }
 
 /**
@@ -7479,6 +7598,12 @@ export interface Membership {
    * @public
    */
   paymentConfiguration: MembershipPaymentConfiguration | undefined;
+
+  /**
+   * <p>An indicator as to whether Amazon CloudWatch metrics are enabled for the membership.</p> <p>When <code>true</code>, metrics about query execution are collected in Amazon CloudWatch.</p>
+   * @public
+   */
+  isMetricsEnabled?: boolean | undefined;
 }
 
 /**
@@ -8015,7 +8140,9 @@ export interface WorkerComputeConfiguration {
  * <p> The configuration of the compute resources for an analysis with the Spark analytics engine.</p>
  * @public
  */
-export type ComputeConfiguration = ComputeConfiguration.WorkerMember | ComputeConfiguration.$UnknownMember;
+export type ComputeConfiguration =
+  | ComputeConfiguration.WorkerMember
+  | ComputeConfiguration.$UnknownMember;
 
 /**
  * @public
@@ -8154,150 +8281,4 @@ export interface ProtectedQueryDistributeOutput {
    * @public
    */
   memberList?: ProtectedQuerySingleMemberOutput[] | undefined;
-}
-
-/**
- * <p>Contains details about the protected query output.</p>
- * @public
- */
-export type ProtectedQueryOutput =
-  | ProtectedQueryOutput.DistributeMember
-  | ProtectedQueryOutput.MemberListMember
-  | ProtectedQueryOutput.S3Member
-  | ProtectedQueryOutput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ProtectedQueryOutput {
-  /**
-   * <p>If present, the output for a protected query with an <code>S3</code> output type.</p>
-   * @public
-   */
-  export interface S3Member {
-    s3: ProtectedQueryS3Output;
-    memberList?: never;
-    distribute?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The list of member Amazon Web Services account(s) that received the results of the query. </p>
-   * @public
-   */
-  export interface MemberListMember {
-    s3?: never;
-    memberList: ProtectedQuerySingleMemberOutput[];
-    distribute?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains output information for protected queries that use a <code>distribute</code> output type. This output type lets you send query results to multiple locations - either to S3 or to collaboration members. </p> <note> <p> You can only use the <code>distribute</code> output type with the Spark analytics engine. </p> </note>
-   * @public
-   */
-  export interface DistributeMember {
-    s3?: never;
-    memberList?: never;
-    distribute: ProtectedQueryDistributeOutput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3?: never;
-    memberList?: never;
-    distribute?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    s3: (value: ProtectedQueryS3Output) => T;
-    memberList: (value: ProtectedQuerySingleMemberOutput[]) => T;
-    distribute: (value: ProtectedQueryDistributeOutput) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Details about the query results.</p>
- * @public
- */
-export interface ProtectedQueryResult {
-  /**
-   * <p>The output of the protected query.</p>
-   * @public
-   */
-  output: ProtectedQueryOutput | undefined;
-}
-
-/**
- * <p> Contains configuration details for the protected query member output.</p>
- * @public
- */
-export interface ProtectedQueryMemberOutputConfiguration {
-  /**
-   * <p>The unique identifier for the account.</p>
-   * @public
-   */
-  accountId: string | undefined;
-}
-
-/**
- * <p> Specifies where you'll distribute the results of your protected query. You must configure either an S3 destination or a collaboration member destination.</p>
- * @public
- */
-export type ProtectedQueryDistributeOutputConfigurationLocation =
-  | ProtectedQueryDistributeOutputConfigurationLocation.MemberMember
-  | ProtectedQueryDistributeOutputConfigurationLocation.S3Member
-  | ProtectedQueryDistributeOutputConfigurationLocation.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ProtectedQueryDistributeOutputConfigurationLocation {
-  /**
-   * <p>Contains the configuration to write the query results to S3.</p>
-   * @public
-   */
-  export interface S3Member {
-    s3: ProtectedQueryS3OutputConfiguration;
-    member?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p> Contains configuration details for the protected query member output.</p>
-   * @public
-   */
-  export interface MemberMember {
-    s3?: never;
-    member: ProtectedQueryMemberOutputConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3?: never;
-    member?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    s3: (value: ProtectedQueryS3OutputConfiguration) => T;
-    member: (value: ProtectedQueryMemberOutputConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
 }

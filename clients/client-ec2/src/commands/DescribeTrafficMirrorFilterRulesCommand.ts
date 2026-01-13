@@ -9,7 +9,7 @@ import type {
   DescribeTrafficMirrorFilterRulesRequest,
   DescribeTrafficMirrorFilterRulesResult,
 } from "../models/models_4";
-import { DescribeTrafficMirrorFilterRules } from "../schemas/schemas_0";
+import { DescribeTrafficMirrorFilterRules$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeTrafficMirrorFilterRulesCommandInput extends DescribeTr
  *
  * The output of {@link DescribeTrafficMirrorFilterRulesCommand}.
  */
-export interface DescribeTrafficMirrorFilterRulesCommandOutput
-  extends DescribeTrafficMirrorFilterRulesResult,
-    __MetadataBearer {}
+export interface DescribeTrafficMirrorFilterRulesCommandOutput extends DescribeTrafficMirrorFilterRulesResult, __MetadataBearer {}
 
 /**
  * <p>Describe traffic mirror filters that determine the traffic that is mirrored.</p>
@@ -119,7 +117,7 @@ export class DescribeTrafficMirrorFilterRulesCommand extends $Command
   })
   .s("AmazonEC2", "DescribeTrafficMirrorFilterRules", {})
   .n("EC2Client", "DescribeTrafficMirrorFilterRulesCommand")
-  .sc(DescribeTrafficMirrorFilterRules)
+  .sc(DescribeTrafficMirrorFilterRules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

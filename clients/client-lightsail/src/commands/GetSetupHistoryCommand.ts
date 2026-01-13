@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetSetupHistoryRequest, GetSetupHistoryResult } from "../models/models_1";
-import { GetSetupHistory } from "../schemas/schemas_0";
+import { GetSetupHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,7 +136,7 @@ export class GetSetupHistoryCommand extends $Command
   })
   .s("Lightsail_20161128", "GetSetupHistory", {})
   .n("LightsailClient", "GetSetupHistoryCommand")
-  .sc(GetSetupHistory)
+  .sc(GetSetupHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { UpdateCustomDomainAssociation } from "../schemas/schemas_0";
+import { UpdateCustomDomainAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface UpdateCustomDomainAssociationCommandInput extends UpdateCustomD
  *
  * The output of {@link UpdateCustomDomainAssociationCommand}.
  */
-export interface UpdateCustomDomainAssociationCommandOutput
-  extends UpdateCustomDomainAssociationResponse,
-    __MetadataBearer {}
+export interface UpdateCustomDomainAssociationCommandOutput extends UpdateCustomDomainAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an Amazon Redshift Serverless certificate associated with a custom domain.</p>
@@ -102,7 +100,7 @@ export class UpdateCustomDomainAssociationCommand extends $Command
   })
   .s("RedshiftServerless", "UpdateCustomDomainAssociation", {})
   .n("RedshiftServerlessClient", "UpdateCustomDomainAssociationCommand")
-  .sc(UpdateCustomDomainAssociation)
+  .sc(UpdateCustomDomainAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

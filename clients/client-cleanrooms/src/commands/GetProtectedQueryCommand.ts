@@ -7,7 +7,7 @@ import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetProtectedQueryInput } from "../models/models_0";
 import type { GetProtectedQueryOutput } from "../models/models_1";
-import { GetProtectedQuery } from "../schemas/schemas_0";
+import { GetProtectedQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -185,7 +185,7 @@ export class GetProtectedQueryCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "GetProtectedQuery", {})
   .n("CleanRoomsClient", "GetProtectedQueryCommand")
-  .sc(GetProtectedQuery)
+  .sc(GetProtectedQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

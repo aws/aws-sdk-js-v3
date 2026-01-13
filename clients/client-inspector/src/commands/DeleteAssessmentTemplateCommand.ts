@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import type { DeleteAssessmentTemplateRequest } from "../models/models_0";
-import { DeleteAssessmentTemplate } from "../schemas/schemas_0";
+import { DeleteAssessmentTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class DeleteAssessmentTemplateCommand extends $Command
   })
   .s("InspectorService", "DeleteAssessmentTemplate", {})
   .n("InspectorClient", "DeleteAssessmentTemplateCommand")
-  .sc(DeleteAssessmentTemplate)
+  .sc(DeleteAssessmentTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

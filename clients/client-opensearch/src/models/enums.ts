@@ -790,6 +790,7 @@ export const NodeType = {
   Data: "Data",
   Master: "Master",
   Ultrawarm: "Ultrawarm",
+  Warm: "Warm",
 } as const;
 /**
  * @public

@@ -9,7 +9,7 @@ import type {
   StartNetworkInsightsAccessScopeAnalysisRequest,
   StartNetworkInsightsAccessScopeAnalysisResult,
 } from "../models/models_7";
-import { StartNetworkInsightsAccessScopeAnalysis } from "../schemas/schemas_0";
+import { StartNetworkInsightsAccessScopeAnalysis$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link StartNetworkInsightsAccessScopeAnalysisCommand}.
  */
-export interface StartNetworkInsightsAccessScopeAnalysisCommandInput
-  extends StartNetworkInsightsAccessScopeAnalysisRequest {}
+export interface StartNetworkInsightsAccessScopeAnalysisCommandInput extends StartNetworkInsightsAccessScopeAnalysisRequest {}
 /**
  * @public
  *
  * The output of {@link StartNetworkInsightsAccessScopeAnalysisCommand}.
  */
-export interface StartNetworkInsightsAccessScopeAnalysisCommandOutput
-  extends StartNetworkInsightsAccessScopeAnalysisResult,
-    __MetadataBearer {}
+export interface StartNetworkInsightsAccessScopeAnalysisCommandOutput extends StartNetworkInsightsAccessScopeAnalysisResult, __MetadataBearer {}
 
 /**
  * <p>Starts analyzing the specified Network Access Scope.</p>
@@ -109,7 +106,7 @@ export class StartNetworkInsightsAccessScopeAnalysisCommand extends $Command
   })
   .s("AmazonEC2", "StartNetworkInsightsAccessScopeAnalysis", {})
   .n("EC2Client", "StartNetworkInsightsAccessScopeAnalysisCommand")
-  .sc(StartNetworkInsightsAccessScopeAnalysis)
+  .sc(StartNetworkInsightsAccessScopeAnalysis$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

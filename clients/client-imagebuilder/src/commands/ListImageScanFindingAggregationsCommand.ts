@@ -9,7 +9,7 @@ import type {
   ListImageScanFindingAggregationsRequest,
   ListImageScanFindingAggregationsResponse,
 } from "../models/models_0";
-import { ListImageScanFindingAggregations } from "../schemas/schemas_0";
+import { ListImageScanFindingAggregations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListImageScanFindingAggregationsCommandInput extends ListImageS
  *
  * The output of {@link ListImageScanFindingAggregationsCommand}.
  */
-export interface ListImageScanFindingAggregationsCommandOutput
-  extends ListImageScanFindingAggregationsResponse,
-    __MetadataBearer {}
+export interface ListImageScanFindingAggregationsCommandOutput extends ListImageScanFindingAggregationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of image scan aggregations for your account. You can filter by the type
@@ -177,7 +175,7 @@ export class ListImageScanFindingAggregationsCommand extends $Command
   })
   .s("imagebuilder", "ListImageScanFindingAggregations", {})
   .n("ImagebuilderClient", "ListImageScanFindingAggregationsCommand")
-  .sc(ListImageScanFindingAggregations)
+  .sc(ListImageScanFindingAggregations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

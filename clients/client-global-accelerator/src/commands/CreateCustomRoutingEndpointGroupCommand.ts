@@ -13,7 +13,7 @@ import type {
   CreateCustomRoutingEndpointGroupRequest,
   CreateCustomRoutingEndpointGroupResponse,
 } from "../models/models_0";
-import { CreateCustomRoutingEndpointGroup } from "../schemas/schemas_0";
+import { CreateCustomRoutingEndpointGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface CreateCustomRoutingEndpointGroupCommandInput extends CreateCust
  *
  * The output of {@link CreateCustomRoutingEndpointGroupCommand}.
  */
-export interface CreateCustomRoutingEndpointGroupCommandOutput
-  extends CreateCustomRoutingEndpointGroupResponse,
-    __MetadataBearer {}
+export interface CreateCustomRoutingEndpointGroupCommandOutput extends CreateCustomRoutingEndpointGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Create an endpoint group for the specified listener for a custom routing accelerator.
@@ -136,7 +134,7 @@ export class CreateCustomRoutingEndpointGroupCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "CreateCustomRoutingEndpointGroup", {})
   .n("GlobalAcceleratorClient", "CreateCustomRoutingEndpointGroupCommand")
-  .sc(CreateCustomRoutingEndpointGroup)
+  .sc(CreateCustomRoutingEndpointGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

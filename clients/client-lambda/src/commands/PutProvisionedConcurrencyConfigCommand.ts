@@ -9,7 +9,7 @@ import type {
   PutProvisionedConcurrencyConfigRequest,
   PutProvisionedConcurrencyConfigResponse,
 } from "../models/models_0";
-import { PutProvisionedConcurrencyConfig } from "../schemas/schemas_0";
+import { PutProvisionedConcurrencyConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface PutProvisionedConcurrencyConfigCommandInput extends PutProvisio
  *
  * The output of {@link PutProvisionedConcurrencyConfigCommand}.
  */
-export interface PutProvisionedConcurrencyConfigCommandOutput
-  extends PutProvisionedConcurrencyConfigResponse,
-    __MetadataBearer {}
+export interface PutProvisionedConcurrencyConfigCommandOutput extends PutProvisionedConcurrencyConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a provisioned concurrency configuration to a function's alias or version.</p>
@@ -120,7 +118,7 @@ export class PutProvisionedConcurrencyConfigCommand extends $Command
   })
   .s("AWSGirApiService", "PutProvisionedConcurrencyConfig", {})
   .n("LambdaClient", "PutProvisionedConcurrencyConfigCommand")
-  .sc(PutProvisionedConcurrencyConfig)
+  .sc(PutProvisionedConcurrencyConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

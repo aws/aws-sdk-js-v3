@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetBucketBundlesRequest, GetBucketBundlesResult } from "../models/models_0";
-import { GetBucketBundles } from "../schemas/schemas_0";
+import { GetBucketBundles$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class GetBucketBundlesCommand extends $Command
   })
   .s("Lightsail_20161128", "GetBucketBundles", {})
   .n("LightsailClient", "GetBucketBundlesCommand")
-  .sc(GetBucketBundles)
+  .sc(GetBucketBundles$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

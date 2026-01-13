@@ -9,7 +9,7 @@ import type {
   DescribeNetworkInterfacePermissionsRequest,
   DescribeNetworkInterfacePermissionsResult,
 } from "../models/models_4";
-import { DescribeNetworkInterfacePermissions } from "../schemas/schemas_0";
+import { DescribeNetworkInterfacePermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeNetworkInterfacePermissionsCommandInput extends Describ
  *
  * The output of {@link DescribeNetworkInterfacePermissionsCommand}.
  */
-export interface DescribeNetworkInterfacePermissionsCommandOutput
-  extends DescribeNetworkInterfacePermissionsResult,
-    __MetadataBearer {}
+export interface DescribeNetworkInterfacePermissionsCommandOutput extends DescribeNetworkInterfacePermissionsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the permissions for your network interfaces. </p>
@@ -103,7 +101,7 @@ export class DescribeNetworkInterfacePermissionsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeNetworkInterfacePermissions", {})
   .n("EC2Client", "DescribeNetworkInterfacePermissionsCommand")
-  .sc(DescribeNetworkInterfacePermissions)
+  .sc(DescribeNetworkInterfacePermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

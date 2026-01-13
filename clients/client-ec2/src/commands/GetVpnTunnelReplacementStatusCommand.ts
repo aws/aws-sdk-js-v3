@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetVpnTunnelReplacementStatusRequest, GetVpnTunnelReplacementStatusResult } from "../models/models_6";
-import { GetVpnTunnelReplacementStatus } from "../schemas/schemas_0";
+import { GetVpnTunnelReplacementStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetVpnTunnelReplacementStatusCommandInput extends GetVpnTunnelR
  *
  * The output of {@link GetVpnTunnelReplacementStatusCommand}.
  */
-export interface GetVpnTunnelReplacementStatusCommandOutput
-  extends GetVpnTunnelReplacementStatusResult,
-    __MetadataBearer {}
+export interface GetVpnTunnelReplacementStatusCommandOutput extends GetVpnTunnelReplacementStatusResult, __MetadataBearer {}
 
 /**
  * <p>Get details of available tunnel endpoint maintenance.</p>
@@ -86,7 +84,7 @@ export class GetVpnTunnelReplacementStatusCommand extends $Command
   })
   .s("AmazonEC2", "GetVpnTunnelReplacementStatus", {})
   .n("EC2Client", "GetVpnTunnelReplacementStatusCommand")
-  .sc(GetVpnTunnelReplacementStatus)
+  .sc(GetVpnTunnelReplacementStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

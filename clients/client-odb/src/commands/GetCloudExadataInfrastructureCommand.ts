@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCloudExadataInfrastructureInput, GetCloudExadataInfrastructureOutput } from "../models/models_0";
 import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { GetCloudExadataInfrastructure } from "../schemas/schemas_0";
+import { GetCloudExadataInfrastructure$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetCloudExadataInfrastructureCommandInput extends GetCloudExada
  *
  * The output of {@link GetCloudExadataInfrastructureCommand}.
  */
-export interface GetCloudExadataInfrastructureCommandOutput
-  extends GetCloudExadataInfrastructureOutput,
-    __MetadataBearer {}
+export interface GetCloudExadataInfrastructureCommandOutput extends GetCloudExadataInfrastructureOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about the specified Exadata infrastructure.</p>
@@ -156,7 +154,7 @@ export class GetCloudExadataInfrastructureCommand extends $Command
   })
   .s("Odb", "GetCloudExadataInfrastructure", {})
   .n("OdbClient", "GetCloudExadataInfrastructureCommand")
-  .sc(GetCloudExadataInfrastructure)
+  .sc(GetCloudExadataInfrastructure$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

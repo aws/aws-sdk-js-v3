@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAvailableVoiceConnectorRegionsResponse } from "../models/models_0";
-import { ListAvailableVoiceConnectorRegions } from "../schemas/schemas_0";
+import { ListAvailableVoiceConnectorRegions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListAvailableVoiceConnectorRegionsCommandInput {}
  *
  * The output of {@link ListAvailableVoiceConnectorRegionsCommand}.
  */
-export interface ListAvailableVoiceConnectorRegionsCommandOutput
-  extends ListAvailableVoiceConnectorRegionsResponse,
-    __MetadataBearer {}
+export interface ListAvailableVoiceConnectorRegionsCommandOutput extends ListAvailableVoiceConnectorRegionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the available AWS Regions in which you can create an Amazon Chime SDK Voice Connector.</p>
@@ -93,7 +91,7 @@ export class ListAvailableVoiceConnectorRegionsCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "ListAvailableVoiceConnectorRegions", {})
   .n("ChimeSDKVoiceClient", "ListAvailableVoiceConnectorRegionsCommand")
-  .sc(ListAvailableVoiceConnectorRegions)
+  .sc(ListAvailableVoiceConnectorRegions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

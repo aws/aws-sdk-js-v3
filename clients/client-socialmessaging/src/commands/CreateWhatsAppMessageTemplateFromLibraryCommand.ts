@@ -8,7 +8,7 @@ import type {
   CreateWhatsAppMessageTemplateFromLibraryInput,
   CreateWhatsAppMessageTemplateFromLibraryOutput,
 } from "../models/models_0";
-import { CreateWhatsAppMessageTemplateFromLibrary } from "../schemas/schemas_0";
+import { CreateWhatsAppMessageTemplateFromLibrary$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link CreateWhatsAppMessageTemplateFromLibraryCommand}.
  */
-export interface CreateWhatsAppMessageTemplateFromLibraryCommandInput
-  extends CreateWhatsAppMessageTemplateFromLibraryInput {}
+export interface CreateWhatsAppMessageTemplateFromLibraryCommandInput extends CreateWhatsAppMessageTemplateFromLibraryInput {}
 /**
  * @public
  *
  * The output of {@link CreateWhatsAppMessageTemplateFromLibraryCommand}.
  */
-export interface CreateWhatsAppMessageTemplateFromLibraryCommandOutput
-  extends CreateWhatsAppMessageTemplateFromLibraryOutput,
-    __MetadataBearer {}
+export interface CreateWhatsAppMessageTemplateFromLibraryCommandOutput extends CreateWhatsAppMessageTemplateFromLibraryOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new WhatsApp message template using a template from Meta's template library.</p>
@@ -136,7 +133,7 @@ export class CreateWhatsAppMessageTemplateFromLibraryCommand extends $Command
   })
   .s("SocialMessaging", "CreateWhatsAppMessageTemplateFromLibrary", {})
   .n("SocialMessagingClient", "CreateWhatsAppMessageTemplateFromLibraryCommand")
-  .sc(CreateWhatsAppMessageTemplateFromLibrary)
+  .sc(CreateWhatsAppMessageTemplateFromLibrary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

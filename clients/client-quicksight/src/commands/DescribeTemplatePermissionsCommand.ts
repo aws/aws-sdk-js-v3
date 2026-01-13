@@ -4,9 +4,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DescribeTemplatePermissionsRequest, DescribeTemplatePermissionsResponse } from "../models/models_3";
+import type { DescribeTemplatePermissionsRequest, DescribeTemplatePermissionsResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeTemplatePermissions } from "../schemas/schemas_0";
+import { DescribeTemplatePermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeTemplatePermissionsCommandInput extends DescribeTemplat
  *
  * The output of {@link DescribeTemplatePermissionsCommand}.
  */
-export interface DescribeTemplatePermissionsCommandOutput
-  extends DescribeTemplatePermissionsResponse,
-    __MetadataBearer {}
+export interface DescribeTemplatePermissionsCommandOutput extends DescribeTemplatePermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes read and write permissions on a template.</p>
@@ -108,7 +106,7 @@ export class DescribeTemplatePermissionsCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeTemplatePermissions", {})
   .n("QuickSightClient", "DescribeTemplatePermissionsCommand")
-  .sc(DescribeTemplatePermissions)
+  .sc(DescribeTemplatePermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   AcceptTransitGatewayVpcAttachmentRequest,
   AcceptTransitGatewayVpcAttachmentResult,
 } from "../models/models_0";
-import { AcceptTransitGatewayVpcAttachment } from "../schemas/schemas_0";
+import { AcceptTransitGatewayVpcAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface AcceptTransitGatewayVpcAttachmentCommandInput extends AcceptTra
  *
  * The output of {@link AcceptTransitGatewayVpcAttachmentCommand}.
  */
-export interface AcceptTransitGatewayVpcAttachmentCommandOutput
-  extends AcceptTransitGatewayVpcAttachmentResult,
-    __MetadataBearer {}
+export interface AcceptTransitGatewayVpcAttachmentCommandOutput extends AcceptTransitGatewayVpcAttachmentResult, __MetadataBearer {}
 
 /**
  * <p>Accepts a request to attach a VPC to a transit gateway.</p>
@@ -104,7 +102,7 @@ export class AcceptTransitGatewayVpcAttachmentCommand extends $Command
   })
   .s("AmazonEC2", "AcceptTransitGatewayVpcAttachment", {})
   .n("EC2Client", "AcceptTransitGatewayVpcAttachmentCommand")
-  .sc(AcceptTransitGatewayVpcAttachment)
+  .sc(AcceptTransitGatewayVpcAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateVolumeRequest, CreateVolumeResponse } from "../models/models_0";
-import { CreateVolume } from "../schemas/schemas_0";
+import { CreateVolume$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -114,7 +114,7 @@ export class CreateVolumeCommand extends $Command
   })
   .s("EUCMIFrontendAPIService", "CreateVolume", {})
   .n("WorkspacesInstancesClient", "CreateVolumeCommand")
-  .sc(CreateVolume)
+  .sc(CreateVolume$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   ListRegisteredSubscriptionProvidersRequest,
   ListRegisteredSubscriptionProvidersResponse,
 } from "../models/models_0";
-import { ListRegisteredSubscriptionProviders } from "../schemas/schemas_0";
+import { ListRegisteredSubscriptionProviders$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ListRegisteredSubscriptionProvidersCommandInput extends ListReg
  *
  * The output of {@link ListRegisteredSubscriptionProvidersCommand}.
  */
-export interface ListRegisteredSubscriptionProvidersCommandOutput
-  extends ListRegisteredSubscriptionProvidersResponse,
-    __MetadataBearer {}
+export interface ListRegisteredSubscriptionProvidersCommandOutput extends ListRegisteredSubscriptionProvidersResponse, __MetadataBearer {}
 
 /**
  * <p>List Bring Your Own License (BYOL) subscription registration resources for your account.</p>
@@ -105,7 +103,7 @@ export class ListRegisteredSubscriptionProvidersCommand extends $Command
   })
   .s("LicenseManagerLinuxSubscriptions", "ListRegisteredSubscriptionProviders", {})
   .n("LicenseManagerLinuxSubscriptionsClient", "ListRegisteredSubscriptionProvidersCommand")
-  .sc(ListRegisteredSubscriptionProviders)
+  .sc(ListRegisteredSubscriptionProviders$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

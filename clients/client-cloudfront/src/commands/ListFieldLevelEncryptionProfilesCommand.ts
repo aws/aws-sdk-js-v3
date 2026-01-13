@@ -9,7 +9,7 @@ import type {
   ListFieldLevelEncryptionProfilesRequest,
   ListFieldLevelEncryptionProfilesResult,
 } from "../models/models_1";
-import { ListFieldLevelEncryptionProfiles } from "../schemas/schemas_0";
+import { ListFieldLevelEncryptionProfiles$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListFieldLevelEncryptionProfilesCommandInput extends ListFieldL
  *
  * The output of {@link ListFieldLevelEncryptionProfilesCommand}.
  */
-export interface ListFieldLevelEncryptionProfilesCommandOutput
-  extends ListFieldLevelEncryptionProfilesResult,
-    __MetadataBearer {}
+export interface ListFieldLevelEncryptionProfilesCommandOutput extends ListFieldLevelEncryptionProfilesResult, __MetadataBearer {}
 
 /**
  * <p>Request a list of field-level encryption profiles that have been created in CloudFront for this account.</p>
@@ -109,7 +107,7 @@ export class ListFieldLevelEncryptionProfilesCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "ListFieldLevelEncryptionProfiles", {})
   .n("CloudFrontClient", "ListFieldLevelEncryptionProfilesCommand")
-  .sc(ListFieldLevelEncryptionProfiles)
+  .sc(ListFieldLevelEncryptionProfiles$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

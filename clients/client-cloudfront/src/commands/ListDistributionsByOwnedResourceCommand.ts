@@ -9,7 +9,7 @@ import type {
   ListDistributionsByOwnedResourceRequest,
   ListDistributionsByOwnedResourceResult,
 } from "../models/models_1";
-import { ListDistributionsByOwnedResource } from "../schemas/schemas_0";
+import { ListDistributionsByOwnedResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListDistributionsByOwnedResourceCommandInput extends ListDistri
  *
  * The output of {@link ListDistributionsByOwnedResourceCommand}.
  */
-export interface ListDistributionsByOwnedResourceCommandOutput
-  extends ListDistributionsByOwnedResourceResult,
-    __MetadataBearer {}
+export interface ListDistributionsByOwnedResourceCommandOutput extends ListDistributionsByOwnedResourceResult, __MetadataBearer {}
 
 /**
  * <p>Lists the CloudFront distributions that are associated with the specified resource that you own.</p>
@@ -104,7 +102,7 @@ export class ListDistributionsByOwnedResourceCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "ListDistributionsByOwnedResource", {})
   .n("CloudFrontClient", "ListDistributionsByOwnedResourceCommand")
-  .sc(ListDistributionsByOwnedResource)
+  .sc(ListDistributionsByOwnedResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

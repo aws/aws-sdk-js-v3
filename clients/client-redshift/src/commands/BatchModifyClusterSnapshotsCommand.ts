@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchModifyClusterSnapshotsMessage, BatchModifyClusterSnapshotsOutputMessage } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { BatchModifyClusterSnapshots } from "../schemas/schemas_0";
+import { BatchModifyClusterSnapshots$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface BatchModifyClusterSnapshotsCommandInput extends BatchModifyClus
  *
  * The output of {@link BatchModifyClusterSnapshotsCommand}.
  */
-export interface BatchModifyClusterSnapshotsCommandOutput
-  extends BatchModifyClusterSnapshotsOutputMessage,
-    __MetadataBearer {}
+export interface BatchModifyClusterSnapshotsCommandOutput extends BatchModifyClusterSnapshotsOutputMessage, __MetadataBearer {}
 
 /**
  * <p>Modifies the settings for a set of cluster snapshots.</p>
@@ -97,7 +95,7 @@ export class BatchModifyClusterSnapshotsCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "BatchModifyClusterSnapshots", {})
   .n("RedshiftClient", "BatchModifyClusterSnapshotsCommand")
-  .sc(BatchModifyClusterSnapshots)
+  .sc(BatchModifyClusterSnapshots$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

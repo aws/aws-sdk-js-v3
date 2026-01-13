@@ -9,7 +9,7 @@ import type {
   ListInboundResponsibilityTransfersResponse,
 } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { ListInboundResponsibilityTransfers } from "../schemas/schemas_0";
+import { ListInboundResponsibilityTransfers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListInboundResponsibilityTransfersCommandInput extends ListInbo
  *
  * The output of {@link ListInboundResponsibilityTransfersCommand}.
  */
-export interface ListInboundResponsibilityTransfersCommandOutput
-  extends ListInboundResponsibilityTransfersResponse,
-    __MetadataBearer {}
+export interface ListInboundResponsibilityTransfersCommandOutput extends ListInboundResponsibilityTransfersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists transfers that allow you to manage the specified responsibilities for another
@@ -528,7 +526,7 @@ export class ListInboundResponsibilityTransfersCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "ListInboundResponsibilityTransfers", {})
   .n("OrganizationsClient", "ListInboundResponsibilityTransfersCommand")
-  .sc(ListInboundResponsibilityTransfers)
+  .sc(ListInboundResponsibilityTransfers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

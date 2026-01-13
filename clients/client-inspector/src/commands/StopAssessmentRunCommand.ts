@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import type { StopAssessmentRunRequest } from "../models/models_0";
-import { StopAssessmentRun } from "../schemas/schemas_0";
+import { StopAssessmentRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class StopAssessmentRunCommand extends $Command
   })
   .s("InspectorService", "StopAssessmentRun", {})
   .n("InspectorClient", "StopAssessmentRunCommand")
-  .sc(StopAssessmentRun)
+  .sc(StopAssessmentRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

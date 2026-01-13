@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
 import type { ResolveCustomerRequest, ResolveCustomerResult } from "../models/models_0";
-import { ResolveCustomer } from "../schemas/schemas_0";
+import { ResolveCustomer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class ResolveCustomerCommand extends $Command
   })
   .s("AWSMPMeteringService", "ResolveCustomer", {})
   .n("MarketplaceMeteringClient", "ResolveCustomerCommand")
-  .sc(ResolveCustomer)
+  .sc(ResolveCustomer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

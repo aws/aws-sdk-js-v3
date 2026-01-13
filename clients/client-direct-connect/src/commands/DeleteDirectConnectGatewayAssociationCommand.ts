@@ -9,7 +9,7 @@ import type {
   DeleteDirectConnectGatewayAssociationRequest,
   DeleteDirectConnectGatewayAssociationResult,
 } from "../models/models_0";
-import { DeleteDirectConnectGatewayAssociation } from "../schemas/schemas_0";
+import { DeleteDirectConnectGatewayAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteDirectConnectGatewayAssociationCommand}.
  */
-export interface DeleteDirectConnectGatewayAssociationCommandInput
-  extends DeleteDirectConnectGatewayAssociationRequest {}
+export interface DeleteDirectConnectGatewayAssociationCommandInput extends DeleteDirectConnectGatewayAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteDirectConnectGatewayAssociationCommand}.
  */
-export interface DeleteDirectConnectGatewayAssociationCommandOutput
-  extends DeleteDirectConnectGatewayAssociationResult,
-    __MetadataBearer {}
+export interface DeleteDirectConnectGatewayAssociationCommandOutput extends DeleteDirectConnectGatewayAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the association between the specified Direct Connect gateway and virtual private gateway.</p>
@@ -113,7 +110,7 @@ export class DeleteDirectConnectGatewayAssociationCommand extends $Command
   })
   .s("OvertureService", "DeleteDirectConnectGatewayAssociation", {})
   .n("DirectConnectClient", "DeleteDirectConnectGatewayAssociationCommand")
-  .sc(DeleteDirectConnectGatewayAssociation)
+  .sc(DeleteDirectConnectGatewayAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

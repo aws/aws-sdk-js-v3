@@ -10,12 +10,12 @@ import { RDSClient } from "../RDSClient";
 const checkState = async (client: RDSClient, input: DescribeTenantDatabasesCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeTenantDatabasesCommand(input));
+    let result: any = await client.send(new DescribeTenantDatabasesCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
-        return result.TenantDatabases.length == 0.0;
-      };
+        return (result.TenantDatabases.length == 0.0);
+      }
       if (returnComparator() == true) {
         return { state: WaiterState.SUCCESS, reason };
       }

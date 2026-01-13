@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { RemoveCustomRoutingEndpointsRequest } from "../models/models_0";
-import { RemoveCustomRoutingEndpoints } from "../schemas/schemas_0";
+import { RemoveCustomRoutingEndpoints$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class RemoveCustomRoutingEndpointsCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "RemoveCustomRoutingEndpoints", {})
   .n("GlobalAcceleratorClient", "RemoveCustomRoutingEndpointsCommand")
-  .sc(RemoveCustomRoutingEndpoints)
+  .sc(RemoveCustomRoutingEndpoints$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

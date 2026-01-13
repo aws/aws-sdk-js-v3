@@ -9,7 +9,7 @@ import type {
   ListLifecycleExecutionResourcesRequest,
   ListLifecycleExecutionResourcesResponse,
 } from "../models/models_0";
-import { ListLifecycleExecutionResources } from "../schemas/schemas_0";
+import { ListLifecycleExecutionResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListLifecycleExecutionResourcesCommandInput extends ListLifecyc
  *
  * The output of {@link ListLifecycleExecutionResourcesCommand}.
  */
-export interface ListLifecycleExecutionResourcesCommandOutput
-  extends ListLifecycleExecutionResourcesResponse,
-    __MetadataBearer {}
+export interface ListLifecycleExecutionResourcesCommandOutput extends ListLifecycleExecutionResourcesResponse, __MetadataBearer {}
 
 /**
  * <p>List resources that the runtime instance of the image lifecycle identified for lifecycle actions.</p>
@@ -139,7 +137,7 @@ export class ListLifecycleExecutionResourcesCommand extends $Command
   })
   .s("imagebuilder", "ListLifecycleExecutionResources", {})
   .n("ImagebuilderClient", "ListLifecycleExecutionResourcesCommand")
-  .sc(ListLifecycleExecutionResources)
+  .sc(ListLifecycleExecutionResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

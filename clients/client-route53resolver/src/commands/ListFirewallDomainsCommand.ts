@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { ListFirewallDomains } from "../schemas/schemas_0";
+import { ListFirewallDomains$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class ListFirewallDomainsCommand extends $Command
   })
   .s("Route53Resolver", "ListFirewallDomains", {})
   .n("Route53ResolverClient", "ListFirewallDomainsCommand")
-  .sc(ListFirewallDomains)
+  .sc(ListFirewallDomains$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

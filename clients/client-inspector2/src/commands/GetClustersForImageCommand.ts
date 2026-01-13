@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import type { GetClustersForImageRequest, GetClustersForImageResponse } from "../models/models_0";
-import { GetClustersForImage } from "../schemas/schemas_0";
+import { GetClustersForImage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class GetClustersForImageCommand extends $Command
   })
   .s("Inspector2", "GetClustersForImage", {})
   .n("Inspector2Client", "GetClustersForImageCommand")
-  .sc(GetClustersForImage)
+  .sc(GetClustersForImage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

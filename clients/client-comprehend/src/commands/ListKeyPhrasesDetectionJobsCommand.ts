@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListKeyPhrasesDetectionJobsRequest, ListKeyPhrasesDetectionJobsResponse } from "../models/models_0";
-import { ListKeyPhrasesDetectionJobs } from "../schemas/schemas_0";
+import { ListKeyPhrasesDetectionJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListKeyPhrasesDetectionJobsCommandInput extends ListKeyPhrasesD
  *
  * The output of {@link ListKeyPhrasesDetectionJobsCommand}.
  */
-export interface ListKeyPhrasesDetectionJobsCommandOutput
-  extends ListKeyPhrasesDetectionJobsResponse,
-    __MetadataBearer {}
+export interface ListKeyPhrasesDetectionJobsCommandOutput extends ListKeyPhrasesDetectionJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Get a list of key phrase detection jobs that you have submitted.</p>
@@ -132,7 +130,7 @@ export class ListKeyPhrasesDetectionJobsCommand extends $Command
   })
   .s("Comprehend_20171127", "ListKeyPhrasesDetectionJobs", {})
   .n("ComprehendClient", "ListKeyPhrasesDetectionJobsCommand")
-  .sc(ListKeyPhrasesDetectionJobs)
+  .sc(ListKeyPhrasesDetectionJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

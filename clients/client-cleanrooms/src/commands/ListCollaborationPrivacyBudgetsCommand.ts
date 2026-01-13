@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListCollaborationPrivacyBudgetsInput, ListCollaborationPrivacyBudgetsOutput } from "../models/models_0";
-import { ListCollaborationPrivacyBudgets } from "../schemas/schemas_0";
+import { ListCollaborationPrivacyBudgets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListCollaborationPrivacyBudgetsCommandInput extends ListCollabo
  *
  * The output of {@link ListCollaborationPrivacyBudgetsCommand}.
  */
-export interface ListCollaborationPrivacyBudgetsCommandOutput
-  extends ListCollaborationPrivacyBudgetsOutput,
-    __MetadataBearer {}
+export interface ListCollaborationPrivacyBudgetsCommandOutput extends ListCollaborationPrivacyBudgetsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns an array that summarizes each privacy budget in a specified collaboration. The summary includes the collaboration ARN, creation time, creating account, and privacy budget details.</p>
@@ -133,7 +131,7 @@ export class ListCollaborationPrivacyBudgetsCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "ListCollaborationPrivacyBudgets", {})
   .n("CleanRoomsClient", "ListCollaborationPrivacyBudgetsCommand")
-  .sc(ListCollaborationPrivacyBudgets)
+  .sc(ListCollaborationPrivacyBudgets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifySelfservicePermissionsRequest, ModifySelfservicePermissionsResult } from "../models/models_0";
-import { ModifySelfservicePermissions } from "../schemas/schemas_0";
+import { ModifySelfservicePermissions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -24,9 +24,7 @@ export interface ModifySelfservicePermissionsCommandInput extends ModifySelfserv
  *
  * The output of {@link ModifySelfservicePermissionsCommand}.
  */
-export interface ModifySelfservicePermissionsCommandOutput
-  extends ModifySelfservicePermissionsResult,
-    __MetadataBearer {}
+export interface ModifySelfservicePermissionsCommandOutput extends ModifySelfservicePermissionsResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the self-service WorkSpace management capabilities for your users. For more
@@ -93,7 +91,7 @@ export class ModifySelfservicePermissionsCommand extends $Command
   })
   .s("WorkspacesService", "ModifySelfservicePermissions", {})
   .n("WorkSpacesClient", "ModifySelfservicePermissionsCommand")
-  .sc(ModifySelfservicePermissions)
+  .sc(ModifySelfservicePermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

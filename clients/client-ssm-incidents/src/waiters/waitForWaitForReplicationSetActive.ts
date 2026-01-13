@@ -7,12 +7,12 @@ import { SSMIncidentsClient } from "../SSMIncidentsClient";
 const checkState = async (client: SSMIncidentsClient, input: GetReplicationSetCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetReplicationSetCommand(input));
+    let result: any = await client.send(new GetReplicationSetCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.replicationSet.status;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: SSMIncidentsClient, input: GetReplicationSetCo
     try {
       const returnComparator = () => {
         return result.replicationSet.status;
-      };
+      }
       if (returnComparator() === "CREATING") {
         return { state: WaiterState.RETRY, reason };
       }
@@ -28,7 +28,7 @@ const checkState = async (client: SSMIncidentsClient, input: GetReplicationSetCo
     try {
       const returnComparator = () => {
         return result.replicationSet.status;
-      };
+      }
       if (returnComparator() === "UPDATING") {
         return { state: WaiterState.RETRY, reason };
       }
@@ -36,7 +36,7 @@ const checkState = async (client: SSMIncidentsClient, input: GetReplicationSetCo
     try {
       const returnComparator = () => {
         return result.replicationSet.status;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

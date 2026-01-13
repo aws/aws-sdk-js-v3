@@ -7,12 +7,12 @@ import { EKSClient } from "../EKSClient";
 const checkState = async (client: EKSClient, input: DescribeNodegroupCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeNodegroupCommand(input));
+    let result: any = await client.send(new DescribeNodegroupCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.nodegroup.status;
-      };
+      }
       if (returnComparator() === "CREATE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: EKSClient, input: DescribeNodegroupCommandInpu
     try {
       const returnComparator = () => {
         return result.nodegroup.status;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }

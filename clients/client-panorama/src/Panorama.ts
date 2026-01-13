@@ -254,8 +254,14 @@ export interface Panorama {
   /**
    * @see {@link CreatePackageCommand}
    */
-  createPackage(args: CreatePackageCommandInput, options?: __HttpHandlerOptions): Promise<CreatePackageCommandOutput>;
-  createPackage(args: CreatePackageCommandInput, cb: (err: any, data?: CreatePackageCommandOutput) => void): void;
+  createPackage(
+    args: CreatePackageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePackageCommandOutput>;
+  createPackage(
+    args: CreatePackageCommandInput,
+    cb: (err: any, data?: CreatePackageCommandOutput) => void
+  ): void;
   createPackage(
     args: CreatePackageCommandInput,
     options: __HttpHandlerOptions,
@@ -282,8 +288,14 @@ export interface Panorama {
   /**
    * @see {@link DeleteDeviceCommand}
    */
-  deleteDevice(args: DeleteDeviceCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDeviceCommandOutput>;
-  deleteDevice(args: DeleteDeviceCommandInput, cb: (err: any, data?: DeleteDeviceCommandOutput) => void): void;
+  deleteDevice(
+    args: DeleteDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDeviceCommandOutput>;
+  deleteDevice(
+    args: DeleteDeviceCommandInput,
+    cb: (err: any, data?: DeleteDeviceCommandOutput) => void
+  ): void;
   deleteDevice(
     args: DeleteDeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -293,8 +305,14 @@ export interface Panorama {
   /**
    * @see {@link DeletePackageCommand}
    */
-  deletePackage(args: DeletePackageCommandInput, options?: __HttpHandlerOptions): Promise<DeletePackageCommandOutput>;
-  deletePackage(args: DeletePackageCommandInput, cb: (err: any, data?: DeletePackageCommandOutput) => void): void;
+  deletePackage(
+    args: DeletePackageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePackageCommandOutput>;
+  deletePackage(
+    args: DeletePackageCommandInput,
+    cb: (err: any, data?: DeletePackageCommandOutput) => void
+  ): void;
   deletePackage(
     args: DeletePackageCommandInput,
     options: __HttpHandlerOptions,
@@ -359,7 +377,10 @@ export interface Panorama {
     args: DescribeDeviceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDeviceCommandOutput>;
-  describeDevice(args: DescribeDeviceCommandInput, cb: (err: any, data?: DescribeDeviceCommandOutput) => void): void;
+  describeDevice(
+    args: DescribeDeviceCommandInput,
+    cb: (err: any, data?: DescribeDeviceCommandOutput) => void
+  ): void;
   describeDevice(
     args: DescribeDeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -386,8 +407,14 @@ export interface Panorama {
   /**
    * @see {@link DescribeNodeCommand}
    */
-  describeNode(args: DescribeNodeCommandInput, options?: __HttpHandlerOptions): Promise<DescribeNodeCommandOutput>;
-  describeNode(args: DescribeNodeCommandInput, cb: (err: any, data?: DescribeNodeCommandOutput) => void): void;
+  describeNode(
+    args: DescribeNodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeNodeCommandOutput>;
+  describeNode(
+    args: DescribeNodeCommandInput,
+    cb: (err: any, data?: DescribeNodeCommandOutput) => void
+  ): void;
   describeNode(
     args: DescribeNodeCommandInput,
     options: __HttpHandlerOptions,
@@ -418,7 +445,10 @@ export interface Panorama {
     args: DescribePackageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribePackageCommandOutput>;
-  describePackage(args: DescribePackageCommandInput, cb: (err: any, data?: DescribePackageCommandOutput) => void): void;
+  describePackage(
+    args: DescribePackageCommandInput,
+    cb: (err: any, data?: DescribePackageCommandOutput) => void
+  ): void;
   describePackage(
     args: DescribePackageCommandInput,
     options: __HttpHandlerOptions,
@@ -515,8 +545,14 @@ export interface Panorama {
    * @see {@link ListDevicesCommand}
    */
   listDevices(): Promise<ListDevicesCommandOutput>;
-  listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
-  listDevices(args: ListDevicesCommandInput, cb: (err: any, data?: ListDevicesCommandOutput) => void): void;
+  listDevices(
+    args: ListDevicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDevicesCommandOutput>;
+  listDevices(
+    args: ListDevicesCommandInput,
+    cb: (err: any, data?: ListDevicesCommandOutput) => void
+  ): void;
   listDevices(
     args: ListDevicesCommandInput,
     options: __HttpHandlerOptions,
@@ -531,7 +567,10 @@ export interface Panorama {
     args: ListDevicesJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDevicesJobsCommandOutput>;
-  listDevicesJobs(args: ListDevicesJobsCommandInput, cb: (err: any, data?: ListDevicesJobsCommandOutput) => void): void;
+  listDevicesJobs(
+    args: ListDevicesJobsCommandInput,
+    cb: (err: any, data?: ListDevicesJobsCommandOutput) => void
+  ): void;
   listDevicesJobs(
     args: ListDevicesJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -560,8 +599,14 @@ export interface Panorama {
    * @see {@link ListNodesCommand}
    */
   listNodes(): Promise<ListNodesCommandOutput>;
-  listNodes(args: ListNodesCommandInput, options?: __HttpHandlerOptions): Promise<ListNodesCommandOutput>;
-  listNodes(args: ListNodesCommandInput, cb: (err: any, data?: ListNodesCommandOutput) => void): void;
+  listNodes(
+    args: ListNodesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNodesCommandOutput>;
+  listNodes(
+    args: ListNodesCommandInput,
+    cb: (err: any, data?: ListNodesCommandOutput) => void
+  ): void;
   listNodes(
     args: ListNodesCommandInput,
     options: __HttpHandlerOptions,
@@ -590,8 +635,14 @@ export interface Panorama {
    * @see {@link ListPackagesCommand}
    */
   listPackages(): Promise<ListPackagesCommandOutput>;
-  listPackages(args: ListPackagesCommandInput, options?: __HttpHandlerOptions): Promise<ListPackagesCommandOutput>;
-  listPackages(args: ListPackagesCommandInput, cb: (err: any, data?: ListPackagesCommandOutput) => void): void;
+  listPackages(
+    args: ListPackagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPackagesCommandOutput>;
+  listPackages(
+    args: ListPackagesCommandInput,
+    cb: (err: any, data?: ListPackagesCommandOutput) => void
+  ): void;
   listPackages(
     args: ListPackagesCommandInput,
     options: __HttpHandlerOptions,
@@ -622,7 +673,10 @@ export interface Panorama {
     args: ProvisionDeviceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ProvisionDeviceCommandOutput>;
-  provisionDevice(args: ProvisionDeviceCommandInput, cb: (err: any, data?: ProvisionDeviceCommandOutput) => void): void;
+  provisionDevice(
+    args: ProvisionDeviceCommandInput,
+    cb: (err: any, data?: ProvisionDeviceCommandOutput) => void
+  ): void;
   provisionDevice(
     args: ProvisionDeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -683,8 +737,14 @@ export interface Panorama {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -694,8 +754,14 @@ export interface Panorama {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

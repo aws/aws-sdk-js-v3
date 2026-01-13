@@ -107,8 +107,7 @@ export const ResourceType = {
   launch_template: "launch-template",
   local_gateway: "local-gateway",
   local_gateway_route_table: "local-gateway-route-table",
-  local_gateway_route_table_virtual_interface_group_association:
-    "local-gateway-route-table-virtual-interface-group-association",
+  local_gateway_route_table_virtual_interface_group_association: "local-gateway-route-table-virtual-interface-group-association",
   local_gateway_route_table_vpc_association: "local-gateway-route-table-vpc-association",
   local_gateway_virtual_interface: "local-gateway-virtual-interface",
   local_gateway_virtual_interface_group: "local-gateway-virtual-interface-group",

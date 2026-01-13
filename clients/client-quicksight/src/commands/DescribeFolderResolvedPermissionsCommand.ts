@@ -9,7 +9,7 @@ import type {
   DescribeFolderResolvedPermissionsResponse,
 } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeFolderResolvedPermissions } from "../schemas/schemas_0";
+import { DescribeFolderResolvedPermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeFolderResolvedPermissionsCommandInput extends DescribeF
  *
  * The output of {@link DescribeFolderResolvedPermissionsCommand}.
  */
-export interface DescribeFolderResolvedPermissionsCommandOutput
-  extends DescribeFolderResolvedPermissionsResponse,
-    __MetadataBearer {}
+export interface DescribeFolderResolvedPermissionsCommandOutput extends DescribeFolderResolvedPermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the folder resolved permissions. Permissions consists of both folder direct permissions and the inherited permissions from the ancestor folders.</p>
@@ -121,7 +119,7 @@ export class DescribeFolderResolvedPermissionsCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeFolderResolvedPermissions", {})
   .n("QuickSightClient", "DescribeFolderResolvedPermissionsCommand")
-  .sc(DescribeFolderResolvedPermissions)
+  .sc(DescribeFolderResolvedPermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

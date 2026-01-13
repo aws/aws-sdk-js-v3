@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CompareFacesRequest, CompareFacesResponse } from "../models/models_0";
 import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { CompareFaces } from "../schemas/schemas_0";
+import { CompareFaces$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -300,7 +300,7 @@ export class CompareFacesCommand extends $Command
   })
   .s("RekognitionService", "CompareFaces", {})
   .n("RekognitionClient", "CompareFacesCommand")
-  .sc(CompareFaces)
+  .sc(CompareFaces$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

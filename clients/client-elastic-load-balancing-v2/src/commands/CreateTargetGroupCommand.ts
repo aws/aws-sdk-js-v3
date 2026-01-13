@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateTargetGroupInput, CreateTargetGroupOutput } from "../models/models_0";
-import { CreateTargetGroup } from "../schemas/schemas_0";
+import { CreateTargetGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -201,7 +201,7 @@ export class CreateTargetGroupCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "CreateTargetGroup", {})
   .n("ElasticLoadBalancingV2Client", "CreateTargetGroupCommand")
-  .sc(CreateTargetGroup)
+  .sc(CreateTargetGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

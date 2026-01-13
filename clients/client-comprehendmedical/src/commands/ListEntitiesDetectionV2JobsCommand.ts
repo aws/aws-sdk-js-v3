@@ -10,7 +10,7 @@ import type {
 } from "../ComprehendMedicalClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListEntitiesDetectionV2JobsRequest, ListEntitiesDetectionV2JobsResponse } from "../models/models_0";
-import { ListEntitiesDetectionV2Jobs } from "../schemas/schemas_0";
+import { ListEntitiesDetectionV2Jobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListEntitiesDetectionV2JobsCommandInput extends ListEntitiesDet
  *
  * The output of {@link ListEntitiesDetectionV2JobsCommand}.
  */
-export interface ListEntitiesDetectionV2JobsCommandOutput
-  extends ListEntitiesDetectionV2JobsResponse,
-    __MetadataBearer {}
+export interface ListEntitiesDetectionV2JobsCommandOutput extends ListEntitiesDetectionV2JobsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of medical entity detection jobs that you have submitted.</p>
@@ -126,7 +124,7 @@ export class ListEntitiesDetectionV2JobsCommand extends $Command
   })
   .s("ComprehendMedical_20181030", "ListEntitiesDetectionV2Jobs", {})
   .n("ComprehendMedicalClient", "ListEntitiesDetectionV2JobsCommand")
-  .sc(ListEntitiesDetectionV2Jobs)
+  .sc(ListEntitiesDetectionV2Jobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

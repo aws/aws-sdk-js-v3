@@ -9,7 +9,7 @@ import type {
   DescribeNotificationConfigurationsAnswer,
   DescribeNotificationConfigurationsType,
 } from "../models/models_0";
-import { DescribeNotificationConfigurations } from "../schemas/schemas_0";
+import { DescribeNotificationConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeNotificationConfigurationsCommandInput extends Describe
  *
  * The output of {@link DescribeNotificationConfigurationsCommand}.
  */
-export interface DescribeNotificationConfigurationsCommandOutput
-  extends DescribeNotificationConfigurationsAnswer,
-    __MetadataBearer {}
+export interface DescribeNotificationConfigurationsCommandOutput extends DescribeNotificationConfigurationsAnswer, __MetadataBearer {}
 
 /**
  * <p>Gets information about the Amazon SNS notifications that are configured for one or more
@@ -125,7 +123,7 @@ export class DescribeNotificationConfigurationsCommand extends $Command
   })
   .s("AutoScaling_2011_01_01", "DescribeNotificationConfigurations", {})
   .n("AutoScalingClient", "DescribeNotificationConfigurationsCommand")
-  .sc(DescribeNotificationConfigurations)
+  .sc(DescribeNotificationConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

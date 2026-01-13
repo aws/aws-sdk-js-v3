@@ -9,7 +9,7 @@ import type {
   AssociateEnclaveCertificateIamRoleRequest,
   AssociateEnclaveCertificateIamRoleResult,
 } from "../models/models_0";
-import { AssociateEnclaveCertificateIamRole } from "../schemas/schemas_0";
+import { AssociateEnclaveCertificateIamRole$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface AssociateEnclaveCertificateIamRoleCommandInput extends Associat
  *
  * The output of {@link AssociateEnclaveCertificateIamRoleCommand}.
  */
-export interface AssociateEnclaveCertificateIamRoleCommandOutput
-  extends AssociateEnclaveCertificateIamRoleResult,
-    __MetadataBearer {}
+export interface AssociateEnclaveCertificateIamRoleCommandOutput extends AssociateEnclaveCertificateIamRoleResult, __MetadataBearer {}
 
 /**
  * <p>Associates an Identity and Access Management (IAM) role with an Certificate Manager (ACM) certificate.
@@ -94,7 +92,7 @@ export class AssociateEnclaveCertificateIamRoleCommand extends $Command
   })
   .s("AmazonEC2", "AssociateEnclaveCertificateIamRole", {})
   .n("EC2Client", "AssociateEnclaveCertificateIamRoleCommand")
-  .sc(AssociateEnclaveCertificateIamRole)
+  .sc(AssociateEnclaveCertificateIamRole$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

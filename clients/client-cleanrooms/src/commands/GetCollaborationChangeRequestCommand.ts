@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCollaborationChangeRequestInput, GetCollaborationChangeRequestOutput } from "../models/models_0";
-import { GetCollaborationChangeRequest } from "../schemas/schemas_0";
+import { GetCollaborationChangeRequest$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetCollaborationChangeRequestCommandInput extends GetCollaborat
  *
  * The output of {@link GetCollaborationChangeRequestCommand}.
  */
-export interface GetCollaborationChangeRequestCommandOutput
-  extends GetCollaborationChangeRequestOutput,
-    __MetadataBearer {}
+export interface GetCollaborationChangeRequestCommandOutput extends GetCollaborationChangeRequestOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves detailed information about a specific collaboration change request.</p>
@@ -54,7 +52,7 @@ export interface GetCollaborationChangeRequestCommandOutput
  * //     isAutoApproved: true || false, // required
  * //     changes: [ // ChangeList // required
  * //       { // Change
- * //         specificationType: "MEMBER", // required
+ * //         specificationType: "MEMBER" || "COLLABORATION", // required
  * //         specification: { // ChangeSpecification Union: only one key present
  * //           member: { // MemberChangeSpecification
  * //             accountId: "STRING_VALUE", // required
@@ -63,12 +61,22 @@ export interface GetCollaborationChangeRequestCommandOutput
  * //             ],
  * //             displayName: "STRING_VALUE",
  * //           },
+ * //           collaboration: { // CollaborationChangeSpecification
+ * //             autoApprovedChangeTypes: [ // AutoApprovedChangeTypeList
+ * //               "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY",
+ * //             ],
+ * //           },
  * //         },
  * //         types: [ // ChangeTypeList // required
- * //           "ADD_MEMBER",
+ * //           "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY" || "EDIT_AUTO_APPROVED_CHANGE_TYPES",
  * //         ],
  * //       },
  * //     ],
+ * //     approvals: { // ApprovalStatuses
+ * //       "<keys>": { // ApprovalStatusDetails
+ * //         status: "APPROVED" || "DENIED" || "PENDING", // required
+ * //       },
+ * //     },
  * //   },
  * // };
  *
@@ -115,7 +123,7 @@ export class GetCollaborationChangeRequestCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "GetCollaborationChangeRequest", {})
   .n("CleanRoomsClient", "GetCollaborationChangeRequestCommand")
-  .sc(GetCollaborationChangeRequest)
+  .sc(GetCollaborationChangeRequest$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import type { CancelMulticastGroupSessionRequest, CancelMulticastGroupSessionResponse } from "../models/models_0";
-import { CancelMulticastGroupSession } from "../schemas/schemas_0";
+import { CancelMulticastGroupSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CancelMulticastGroupSessionCommandInput extends CancelMulticast
  *
  * The output of {@link CancelMulticastGroupSessionCommand}.
  */
-export interface CancelMulticastGroupSessionCommandOutput
-  extends CancelMulticastGroupSessionResponse,
-    __MetadataBearer {}
+export interface CancelMulticastGroupSessionCommandOutput extends CancelMulticastGroupSessionResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels an existing multicast group session.</p>
@@ -91,7 +89,7 @@ export class CancelMulticastGroupSessionCommand extends $Command
   })
   .s("iotwireless", "CancelMulticastGroupSession", {})
   .n("IoTWirelessClient", "CancelMulticastGroupSessionCommand")
-  .sc(CancelMulticastGroupSession)
+  .sc(CancelMulticastGroupSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

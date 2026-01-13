@@ -9,7 +9,7 @@ import type {
   StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest,
   StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse,
 } from "../models/models_1";
-import { StartBulkDisassociateWirelessDeviceFromMulticastGroup } from "../schemas/schemas_0";
+import { StartBulkDisassociateWirelessDeviceFromMulticastGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand}.
  */
-export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput
-  extends StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest {}
+export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput extends StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest {}
 /**
  * @public
  *
  * The output of {@link StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand}.
  */
-export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput
-  extends StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse,
-    __MetadataBearer {}
+export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput extends StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a bulk disassociatin of all qualifying wireless devices from a multicast
@@ -100,7 +97,7 @@ export class StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand extend
   })
   .s("iotwireless", "StartBulkDisassociateWirelessDeviceFromMulticastGroup", {})
   .n("IoTWirelessClient", "StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand")
-  .sc(StartBulkDisassociateWirelessDeviceFromMulticastGroup)
+  .sc(StartBulkDisassociateWirelessDeviceFromMulticastGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

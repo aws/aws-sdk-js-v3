@@ -9,7 +9,7 @@ import type {
   AcceptDirectConnectGatewayAssociationProposalRequest,
   AcceptDirectConnectGatewayAssociationProposalResult,
 } from "../models/models_0";
-import { AcceptDirectConnectGatewayAssociationProposal } from "../schemas/schemas_0";
+import { AcceptDirectConnectGatewayAssociationProposal$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AcceptDirectConnectGatewayAssociationProposalCommand}.
  */
-export interface AcceptDirectConnectGatewayAssociationProposalCommandInput
-  extends AcceptDirectConnectGatewayAssociationProposalRequest {}
+export interface AcceptDirectConnectGatewayAssociationProposalCommandInput extends AcceptDirectConnectGatewayAssociationProposalRequest {}
 /**
  * @public
  *
  * The output of {@link AcceptDirectConnectGatewayAssociationProposalCommand}.
  */
-export interface AcceptDirectConnectGatewayAssociationProposalCommandOutput
-  extends AcceptDirectConnectGatewayAssociationProposalResult,
-    __MetadataBearer {}
+export interface AcceptDirectConnectGatewayAssociationProposalCommandOutput extends AcceptDirectConnectGatewayAssociationProposalResult, __MetadataBearer {}
 
 /**
  * <p>Accepts a proposal request to attach a virtual private gateway or transit gateway to a Direct Connect gateway.</p>
@@ -117,7 +114,7 @@ export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Comma
   })
   .s("OvertureService", "AcceptDirectConnectGatewayAssociationProposal", {})
   .n("DirectConnectClient", "AcceptDirectConnectGatewayAssociationProposalCommand")
-  .sc(AcceptDirectConnectGatewayAssociationProposal)
+  .sc(AcceptDirectConnectGatewayAssociationProposal$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

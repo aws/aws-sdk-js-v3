@@ -9,7 +9,7 @@ import type {
   PutConfigurationSetDeliveryOptionsResponse,
 } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { PutConfigurationSetDeliveryOptions } from "../schemas/schemas_0";
+import { PutConfigurationSetDeliveryOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface PutConfigurationSetDeliveryOptionsCommandInput extends PutConfi
  *
  * The output of {@link PutConfigurationSetDeliveryOptionsCommand}.
  */
-export interface PutConfigurationSetDeliveryOptionsCommandOutput
-  extends PutConfigurationSetDeliveryOptionsResponse,
-    __MetadataBearer {}
+export interface PutConfigurationSetDeliveryOptionsCommandOutput extends PutConfigurationSetDeliveryOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Associate a configuration set with a dedicated IP pool. You can use dedicated IP pools
@@ -88,7 +86,7 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "PutConfigurationSetDeliveryOptions", {})
   .n("PinpointEmailClient", "PutConfigurationSetDeliveryOptionsCommand")
-  .sc(PutConfigurationSetDeliveryOptions)
+  .sc(PutConfigurationSetDeliveryOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

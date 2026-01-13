@@ -9,7 +9,7 @@ import type {
   DescribeRepositoryCreationTemplatesRequest,
   DescribeRepositoryCreationTemplatesResponse,
 } from "../models/models_0";
-import { DescribeRepositoryCreationTemplates } from "../schemas/schemas_0";
+import { DescribeRepositoryCreationTemplates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeRepositoryCreationTemplatesCommandInput extends Describ
  *
  * The output of {@link DescribeRepositoryCreationTemplatesCommand}.
  */
-export interface DescribeRepositoryCreationTemplatesCommandOutput
-  extends DescribeRepositoryCreationTemplatesResponse,
-    __MetadataBearer {}
+export interface DescribeRepositoryCreationTemplatesCommandOutput extends DescribeRepositoryCreationTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns details about the repository creation templates in a registry. The
@@ -78,7 +76,7 @@ export interface DescribeRepositoryCreationTemplatesCommandOutput
  * //       repositoryPolicy: "STRING_VALUE",
  * //       lifecyclePolicy: "STRING_VALUE",
  * //       appliedFor: [ // RCTAppliedForList
- * //         "REPLICATION" || "PULL_THROUGH_CACHE",
+ * //         "REPLICATION" || "PULL_THROUGH_CACHE" || "CREATE_ON_PUSH",
  * //       ],
  * //       customRoleArn: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
@@ -126,7 +124,7 @@ export class DescribeRepositoryCreationTemplatesCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "DescribeRepositoryCreationTemplates", {})
   .n("ECRClient", "DescribeRepositoryCreationTemplatesCommand")
-  .sc(DescribeRepositoryCreationTemplates)
+  .sc(DescribeRepositoryCreationTemplates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDataSourcePermissionsRequest, UpdateDataSourcePermissionsResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateDataSourcePermissions } from "../schemas/schemas_0";
+import { UpdateDataSourcePermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateDataSourcePermissionsCommandInput extends UpdateDataSourc
  *
  * The output of {@link UpdateDataSourcePermissionsCommand}.
  */
-export interface UpdateDataSourcePermissionsCommandOutput
-  extends UpdateDataSourcePermissionsResponse,
-    __MetadataBearer {}
+export interface UpdateDataSourcePermissionsCommandOutput extends UpdateDataSourcePermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the permissions to a data source.</p>
@@ -116,7 +114,7 @@ export class UpdateDataSourcePermissionsCommand extends $Command
   })
   .s("QuickSight_20180401", "UpdateDataSourcePermissions", {})
   .n("QuickSightClient", "UpdateDataSourcePermissionsCommand")
-  .sc(UpdateDataSourcePermissions)
+  .sc(UpdateDataSourcePermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

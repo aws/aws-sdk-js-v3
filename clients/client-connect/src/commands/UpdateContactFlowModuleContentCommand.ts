@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateContactFlowModuleContentRequest, UpdateContactFlowModuleContentResponse } from "../models/models_3";
-import { UpdateContactFlowModuleContent } from "../schemas/schemas_0";
+import { UpdateContactFlowModuleContent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateContactFlowModuleContentCommandInput extends UpdateContac
  *
  * The output of {@link UpdateContactFlowModuleContentCommand}.
  */
-export interface UpdateContactFlowModuleContentCommandOutput
-  extends UpdateContactFlowModuleContentResponse,
-    __MetadataBearer {}
+export interface UpdateContactFlowModuleContentCommandOutput extends UpdateContactFlowModuleContentResponse, __MetadataBearer {}
 
 /**
  * <p>Updates specified flow module for the specified Amazon Connect instance. </p>
@@ -97,7 +95,7 @@ export class UpdateContactFlowModuleContentCommand extends $Command
   })
   .s("AmazonConnectService", "UpdateContactFlowModuleContent", {})
   .n("ConnectClient", "UpdateContactFlowModuleContentCommand")
-  .sc(UpdateContactFlowModuleContent)
+  .sc(UpdateContactFlowModuleContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

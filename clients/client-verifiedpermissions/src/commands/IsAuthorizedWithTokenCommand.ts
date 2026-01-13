@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IsAuthorizedWithTokenInput, IsAuthorizedWithTokenOutput } from "../models/models_0";
-import { IsAuthorizedWithToken } from "../schemas/schemas_0";
+import { IsAuthorizedWithToken$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -238,7 +238,7 @@ export class IsAuthorizedWithTokenCommand extends $Command
   })
   .s("VerifiedPermissions", "IsAuthorizedWithToken", {})
   .n("VerifiedPermissionsClient", "IsAuthorizedWithTokenCommand")
-  .sc(IsAuthorizedWithToken)
+  .sc(IsAuthorizedWithToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

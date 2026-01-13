@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetApiMappingsRequest, GetApiMappingsResponse } from "../models/models_0";
-import { GetApiMappings } from "../schemas/schemas_0";
+import { GetApiMappings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class GetApiMappingsCommand extends $Command
   })
   .s("ApiGatewayV2", "GetApiMappings", {})
   .n("ApiGatewayV2Client", "GetApiMappingsCommand")
-  .sc(GetApiMappings)
+  .sc(GetApiMappings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

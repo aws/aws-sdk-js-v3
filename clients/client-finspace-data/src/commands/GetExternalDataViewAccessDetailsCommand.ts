@@ -9,7 +9,7 @@ import type {
   GetExternalDataViewAccessDetailsRequest,
   GetExternalDataViewAccessDetailsResponse,
 } from "../models/models_0";
-import { GetExternalDataViewAccessDetails } from "../schemas/schemas_0";
+import { GetExternalDataViewAccessDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetExternalDataViewAccessDetailsCommandInput extends GetExterna
  *
  * The output of {@link GetExternalDataViewAccessDetailsCommand}.
  */
-export interface GetExternalDataViewAccessDetailsCommandOutput
-  extends GetExternalDataViewAccessDetailsResponse,
-    __MetadataBearer {}
+export interface GetExternalDataViewAccessDetailsCommandOutput extends GetExternalDataViewAccessDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the credentials to access the external Dataview from an S3 location. To call this API:</p>
@@ -114,7 +112,7 @@ export class GetExternalDataViewAccessDetailsCommand extends $Command
   })
   .s("AWSHabaneroPublicAPI", "GetExternalDataViewAccessDetails", {})
   .n("FinspaceDataClient", "GetExternalDataViewAccessDetailsCommand")
-  .sc(GetExternalDataViewAccessDetails)
+  .sc(GetExternalDataViewAccessDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

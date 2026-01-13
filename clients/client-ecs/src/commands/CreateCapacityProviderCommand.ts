@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateCapacityProviderRequest, CreateCapacityProviderResponse } from "../models/models_0";
-import { CreateCapacityProvider } from "../schemas/schemas_0";
+import { CreateCapacityProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -70,6 +70,7 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  *         storageSizeGiB: Number("int"),
  *       },
  *       monitoring: "BASIC" || "DETAILED",
+ *       capacityOptionType: "ON_DEMAND" || "SPOT",
  *       instanceRequirements: { // InstanceRequirementsRequest
  *         vCpuCount: { // VCpuCountRangeRequest
  *           min: Number("int"), // required
@@ -188,6 +189,7 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * //           storageSizeGiB: Number("int"),
  * //         },
  * //         monitoring: "BASIC" || "DETAILED",
+ * //         capacityOptionType: "ON_DEMAND" || "SPOT",
  * //         instanceRequirements: { // InstanceRequirementsRequest
  * //           vCpuCount: { // VCpuCountRangeRequest
  * //             min: Number("int"), // required
@@ -372,7 +374,7 @@ export class CreateCapacityProviderCommand extends $Command
   })
   .s("AmazonEC2ContainerServiceV20141113", "CreateCapacityProvider", {})
   .n("ECSClient", "CreateCapacityProviderCommand")
-  .sc(CreateCapacityProvider)
+  .sc(CreateCapacityProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

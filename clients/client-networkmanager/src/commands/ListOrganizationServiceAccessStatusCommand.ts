@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { ListOrganizationServiceAccessStatus } from "../schemas/schemas_0";
+import { ListOrganizationServiceAccessStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ListOrganizationServiceAccessStatusCommandInput extends ListOrg
  *
  * The output of {@link ListOrganizationServiceAccessStatusCommand}.
  */
-export interface ListOrganizationServiceAccessStatusCommandOutput
-  extends ListOrganizationServiceAccessStatusResponse,
-    __MetadataBearer {}
+export interface ListOrganizationServiceAccessStatusCommandOutput extends ListOrganizationServiceAccessStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the status of the Service Linked Role (SLR) deployment for the accounts in a given Amazon Web Services Organization.</p>
@@ -94,7 +92,7 @@ export class ListOrganizationServiceAccessStatusCommand extends $Command
   })
   .s("NetworkManager", "ListOrganizationServiceAccessStatus", {})
   .n("NetworkManagerClient", "ListOrganizationServiceAccessStatusCommand")
-  .sc(ListOrganizationServiceAccessStatus)
+  .sc(ListOrganizationServiceAccessStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribePullThroughCacheRulesRequest, DescribePullThroughCacheRulesResponse } from "../models/models_0";
-import { DescribePullThroughCacheRules } from "../schemas/schemas_0";
+import { DescribePullThroughCacheRules$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribePullThroughCacheRulesCommandInput extends DescribePullT
  *
  * The output of {@link DescribePullThroughCacheRulesCommand}.
  */
-export interface DescribePullThroughCacheRulesCommandOutput
-  extends DescribePullThroughCacheRulesResponse,
-    __MetadataBearer {}
+export interface DescribePullThroughCacheRulesCommandOutput extends DescribePullThroughCacheRulesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the pull through cache rules for a registry.</p>
@@ -107,7 +105,7 @@ export class DescribePullThroughCacheRulesCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "DescribePullThroughCacheRules", {})
   .n("ECRClient", "DescribePullThroughCacheRulesCommand")
-  .sc(DescribePullThroughCacheRules)
+  .sc(DescribePullThroughCacheRules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

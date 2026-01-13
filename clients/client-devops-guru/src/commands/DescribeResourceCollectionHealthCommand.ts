@@ -9,7 +9,7 @@ import type {
   DescribeResourceCollectionHealthRequest,
   DescribeResourceCollectionHealthResponse,
 } from "../models/models_0";
-import { DescribeResourceCollectionHealth } from "../schemas/schemas_0";
+import { DescribeResourceCollectionHealth$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeResourceCollectionHealthCommandInput extends DescribeRe
  *
  * The output of {@link DescribeResourceCollectionHealthCommand}.
  */
-export interface DescribeResourceCollectionHealthCommandOutput
-  extends DescribeResourceCollectionHealthResponse,
-    __MetadataBearer {}
+export interface DescribeResourceCollectionHealthCommandOutput extends DescribeResourceCollectionHealthResponse, __MetadataBearer {}
 
 /**
  * <p> Returns the number of open proactive insights, open reactive insights, and the Mean Time to Recover (MTTR)
@@ -132,7 +130,7 @@ export class DescribeResourceCollectionHealthCommand extends $Command
   })
   .s("CapstoneControlPlaneService", "DescribeResourceCollectionHealth", {})
   .n("DevOpsGuruClient", "DescribeResourceCollectionHealthCommand")
-  .sc(DescribeResourceCollectionHealth)
+  .sc(DescribeResourceCollectionHealth$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

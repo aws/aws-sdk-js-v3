@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import type { PutAndGetInlineDocumentsInputOutput } from "../models/models_0";
-import { PutAndGetInlineDocuments } from "../schemas/schemas_0";
+import { PutAndGetInlineDocuments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -73,7 +73,7 @@ export class PutAndGetInlineDocumentsCommand extends $Command
   })
   .s("JsonProtocol", "PutAndGetInlineDocuments", {})
   .n("JsonProtocolClient", "PutAndGetInlineDocumentsCommand")
-  .sc(PutAndGetInlineDocuments)
+  .sc(PutAndGetInlineDocuments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

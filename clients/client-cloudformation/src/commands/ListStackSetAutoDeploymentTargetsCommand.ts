@@ -13,7 +13,7 @@ import type {
   ListStackSetAutoDeploymentTargetsInput,
   ListStackSetAutoDeploymentTargetsOutput,
 } from "../models/models_0";
-import { ListStackSetAutoDeploymentTargets } from "../schemas/schemas_0";
+import { ListStackSetAutoDeploymentTargets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ListStackSetAutoDeploymentTargetsCommandInput extends ListStack
  *
  * The output of {@link ListStackSetAutoDeploymentTargetsCommand}.
  */
-export interface ListStackSetAutoDeploymentTargetsCommandOutput
-  extends ListStackSetAutoDeploymentTargetsOutput,
-    __MetadataBearer {}
+export interface ListStackSetAutoDeploymentTargetsCommandOutput extends ListStackSetAutoDeploymentTargetsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns summary information about deployment targets for a StackSet.</p>
@@ -96,7 +94,7 @@ export class ListStackSetAutoDeploymentTargetsCommand extends $Command
   })
   .s("CloudFormation", "ListStackSetAutoDeploymentTargets", {})
   .n("CloudFormationClient", "ListStackSetAutoDeploymentTargetsCommand")
-  .sc(ListStackSetAutoDeploymentTargets)
+  .sc(ListStackSetAutoDeploymentTargets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

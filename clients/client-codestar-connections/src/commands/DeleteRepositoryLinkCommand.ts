@@ -10,7 +10,7 @@ import type {
 } from "../CodeStarConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRepositoryLinkInput, DeleteRepositoryLinkOutput } from "../models/models_0";
-import { DeleteRepositoryLink } from "../schemas/schemas_0";
+import { DeleteRepositoryLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class DeleteRepositoryLinkCommand extends $Command
   })
   .s("CodeStar_connections_20191201", "DeleteRepositoryLink", {})
   .n("CodeStarConnectionsClient", "DeleteRepositoryLinkCommand")
-  .sc(DeleteRepositoryLink)
+  .sc(DeleteRepositoryLink$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

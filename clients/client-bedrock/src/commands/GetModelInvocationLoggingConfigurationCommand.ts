@@ -9,7 +9,7 @@ import type {
   GetModelInvocationLoggingConfigurationRequest,
   GetModelInvocationLoggingConfigurationResponse,
 } from "../models/models_1";
-import { GetModelInvocationLoggingConfiguration } from "../schemas/schemas_0";
+import { GetModelInvocationLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetModelInvocationLoggingConfigurationCommand}.
  */
-export interface GetModelInvocationLoggingConfigurationCommandInput
-  extends GetModelInvocationLoggingConfigurationRequest {}
+export interface GetModelInvocationLoggingConfigurationCommandInput extends GetModelInvocationLoggingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link GetModelInvocationLoggingConfigurationCommand}.
  */
-export interface GetModelInvocationLoggingConfigurationCommandOutput
-  extends GetModelInvocationLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface GetModelInvocationLoggingConfigurationCommandOutput extends GetModelInvocationLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Get the current configuration values for model invocation logging.</p>
@@ -104,7 +101,7 @@ export class GetModelInvocationLoggingConfigurationCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "GetModelInvocationLoggingConfiguration", {})
   .n("BedrockClient", "GetModelInvocationLoggingConfigurationCommand")
-  .sc(GetModelInvocationLoggingConfiguration)
+  .sc(GetModelInvocationLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

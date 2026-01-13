@@ -9,7 +9,7 @@ import type {
   PromoteResourceShareCreatedFromPolicyResponse,
 } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { PromoteResourceShareCreatedFromPolicy } from "../schemas/schemas_0";
+import { PromoteResourceShareCreatedFromPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PromoteResourceShareCreatedFromPolicyCommand}.
  */
-export interface PromoteResourceShareCreatedFromPolicyCommandInput
-  extends PromoteResourceShareCreatedFromPolicyRequest {}
+export interface PromoteResourceShareCreatedFromPolicyCommandInput extends PromoteResourceShareCreatedFromPolicyRequest {}
 /**
  * @public
  *
  * The output of {@link PromoteResourceShareCreatedFromPolicyCommand}.
  */
-export interface PromoteResourceShareCreatedFromPolicyCommandOutput
-  extends PromoteResourceShareCreatedFromPolicyResponse,
-    __MetadataBearer {}
+export interface PromoteResourceShareCreatedFromPolicyCommandOutput extends PromoteResourceShareCreatedFromPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>When you attach a resource-based policy to a resource, RAM automatically creates
@@ -128,7 +125,7 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command
   })
   .s("AmazonResourceSharing", "PromoteResourceShareCreatedFromPolicy", {})
   .n("RAMClient", "PromoteResourceShareCreatedFromPolicyCommand")
-  .sc(PromoteResourceShareCreatedFromPolicy)
+  .sc(PromoteResourceShareCreatedFromPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

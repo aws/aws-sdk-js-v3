@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import type { AcceptAdministratorInvitationRequest, AcceptAdministratorInvitationResponse } from "../models/models_0";
-import { AcceptAdministratorInvitation } from "../schemas/schemas_0";
+import { AcceptAdministratorInvitation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface AcceptAdministratorInvitationCommandInput extends AcceptAdminis
  *
  * The output of {@link AcceptAdministratorInvitationCommand}.
  */
-export interface AcceptAdministratorInvitationCommandOutput
-  extends AcceptAdministratorInvitationResponse,
-    __MetadataBearer {}
+export interface AcceptAdministratorInvitationCommandOutput extends AcceptAdministratorInvitationResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts the invitation to be a member account and get monitored by a GuardDuty
@@ -82,7 +80,7 @@ export class AcceptAdministratorInvitationCommand extends $Command
   })
   .s("GuardDutyAPIService", "AcceptAdministratorInvitation", {})
   .n("GuardDutyClient", "AcceptAdministratorInvitationCommand")
-  .sc(AcceptAdministratorInvitation)
+  .sc(AcceptAdministratorInvitation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

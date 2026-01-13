@@ -3,7 +3,6 @@ const yargs = require("yargs");
 const path = require("path");
 const { emptyDirSync, rmdirSync } = require("fs-extra");
 const { generateClients, generateGenericClient, generateProtocolTests } = require("./code-gen");
-const { codeOrdering } = require("./code-ordering");
 const { copyToClients, copyServerTests } = require("./copy-to-clients");
 const generateNestedClients = require("./nested-clients/generate-nested-clients");
 const {
@@ -13,12 +12,9 @@ const {
   DEFAULT_CODE_GEN_INPUT_DIR,
   TEMP_CODE_GEN_INPUT_DIR,
 } = require("./code-gen-dir");
-const { prettifyCode } = require("./code-prettify");
-const { eslintFixCode } = require("./code-eslint-fix");
 const { buildSmithyTypeScript } = require("./build-smithy-typescript");
 const { SMITHY_TS_COMMIT } = require("./config");
 const { spawnProcess } = require("../utils/spawn-process");
-const { cwd } = require("process");
 
 const REPO_ROOT = path.join(__dirname, "..", "..");
 const SMITHY_TS_DIR = path.normalize(path.join(__dirname, "..", "..", "..", "smithy-typescript"));
@@ -86,8 +82,6 @@ const {
 
     if (serverOnly === true) {
       await generateProtocolTests();
-      await eslintFixCode();
-      await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
       await copyServerTests(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PRIVATE_CLIENTS_DIR);
 
       if (!keepFiles) {
@@ -105,17 +99,6 @@ const {
     if (!noPrivateClients) {
       await generateGenericClient();
       await generateProtocolTests();
-    }
-
-    await eslintFixCode();
-    if (!protocolTestsOnly) {
-      await codeOrdering(CODE_GEN_SDK_OUTPUT_DIR);
-      await prettifyCode(CODE_GEN_SDK_OUTPUT_DIR);
-    }
-    if (!noPrivateClients) {
-      await codeOrdering(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR);
-      await prettifyCode(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR);
-      await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
     }
 
     if (!protocolTestsOnly) {

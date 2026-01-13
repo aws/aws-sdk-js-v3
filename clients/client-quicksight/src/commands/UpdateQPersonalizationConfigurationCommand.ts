@@ -9,7 +9,7 @@ import type {
   UpdateQPersonalizationConfigurationResponse,
 } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateQPersonalizationConfiguration } from "../schemas/schemas_0";
+import { UpdateQPersonalizationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateQPersonalizationConfigurationCommandInput extends UpdateQ
  *
  * The output of {@link UpdateQPersonalizationConfigurationCommand}.
  */
-export interface UpdateQPersonalizationConfigurationCommandOutput
-  extends UpdateQPersonalizationConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateQPersonalizationConfigurationCommandOutput extends UpdateQPersonalizationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a personalization configuration.</p>
@@ -105,7 +103,7 @@ export class UpdateQPersonalizationConfigurationCommand extends $Command
   })
   .s("QuickSight_20180401", "UpdateQPersonalizationConfiguration", {})
   .n("QuickSightClient", "UpdateQPersonalizationConfigurationCommand")
-  .sc(UpdateQPersonalizationConfiguration)
+  .sc(UpdateQPersonalizationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KinesisStreamingDestinationInput, KinesisStreamingDestinationOutput } from "../models/models_0";
-import { EnableKinesisStreamingDestination } from "../schemas/schemas_0";
+import { EnableKinesisStreamingDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface EnableKinesisStreamingDestinationCommandInput extends KinesisSt
  *
  * The output of {@link EnableKinesisStreamingDestinationCommand}.
  */
-export interface EnableKinesisStreamingDestinationCommandOutput
-  extends KinesisStreamingDestinationOutput,
-    __MetadataBearer {}
+export interface EnableKinesisStreamingDestinationCommandOutput extends KinesisStreamingDestinationOutput, __MetadataBearer {}
 
 /**
  * <p>Starts table data replication to the specified Kinesis data stream at a timestamp
@@ -134,7 +132,7 @@ export class EnableKinesisStreamingDestinationCommand extends $Command
   })
   .s("DynamoDB_20120810", "EnableKinesisStreamingDestination", {})
   .n("DynamoDBClient", "EnableKinesisStreamingDestinationCommand")
-  .sc(EnableKinesisStreamingDestination)
+  .sc(EnableKinesisStreamingDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

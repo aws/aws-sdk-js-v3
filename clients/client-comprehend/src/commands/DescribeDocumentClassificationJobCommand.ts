@@ -9,7 +9,7 @@ import type {
   DescribeDocumentClassificationJobRequest,
   DescribeDocumentClassificationJobResponse,
 } from "../models/models_0";
-import { DescribeDocumentClassificationJob } from "../schemas/schemas_0";
+import { DescribeDocumentClassificationJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeDocumentClassificationJobCommandInput extends DescribeD
  *
  * The output of {@link DescribeDocumentClassificationJobCommand}.
  */
-export interface DescribeDocumentClassificationJobCommandOutput
-  extends DescribeDocumentClassificationJobResponse,
-    __MetadataBearer {}
+export interface DescribeDocumentClassificationJobCommandOutput extends DescribeDocumentClassificationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a document classification job. Use this operation to
@@ -126,7 +124,7 @@ export class DescribeDocumentClassificationJobCommand extends $Command
   })
   .s("Comprehend_20171127", "DescribeDocumentClassificationJob", {})
   .n("ComprehendClient", "DescribeDocumentClassificationJobCommand")
-  .sc(DescribeDocumentClassificationJob)
+  .sc(DescribeDocumentClassificationJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateAppBlockBuilderRequest, UpdateAppBlockBuilderResult } from "../models/models_0";
-import { UpdateAppBlockBuilder } from "../schemas/schemas_0";
+import { UpdateAppBlockBuilder$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -44,7 +44,7 @@ export interface UpdateAppBlockBuilderCommandOutput extends UpdateAppBlockBuilde
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   DisplayName: "STRING_VALUE",
- *   Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8",
+ *   Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "WINDOWS_SERVER_2025" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8" || "UBUNTU_PRO_2404",
  *   InstanceType: "STRING_VALUE",
  *   VpcConfig: { // VpcConfig
  *     SubnetIds: [ // SubnetIdList
@@ -166,7 +166,7 @@ export class UpdateAppBlockBuilderCommand extends $Command
   })
   .s("PhotonAdminProxyService", "UpdateAppBlockBuilder", {})
   .n("AppStreamClient", "UpdateAppBlockBuilderCommand")
-  .sc(UpdateAppBlockBuilder)
+  .sc(UpdateAppBlockBuilder$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

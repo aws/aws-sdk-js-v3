@@ -9,7 +9,7 @@ import type {
   GetTableBucketMetricsConfigurationResponse,
 } from "../models/models_0";
 import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
-import { GetTableBucketMetricsConfiguration } from "../schemas/schemas_0";
+import { GetTableBucketMetricsConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetTableBucketMetricsConfigurationCommandInput extends GetTable
  *
  * The output of {@link GetTableBucketMetricsConfigurationCommand}.
  */
-export interface GetTableBucketMetricsConfigurationCommandOutput
-  extends GetTableBucketMetricsConfigurationResponse,
-    __MetadataBearer {}
+export interface GetTableBucketMetricsConfigurationCommandOutput extends GetTableBucketMetricsConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the metrics configuration for a table bucket.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableBucketMetricsConfiguration</code> permission to use this operation.</p> </dd> </dl>
@@ -97,7 +95,7 @@ export class GetTableBucketMetricsConfigurationCommand extends $Command
   })
   .s("S3TableBuckets", "GetTableBucketMetricsConfiguration", {})
   .n("S3TablesClient", "GetTableBucketMetricsConfigurationCommand")
-  .sc(GetTableBucketMetricsConfiguration)
+  .sc(GetTableBucketMetricsConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

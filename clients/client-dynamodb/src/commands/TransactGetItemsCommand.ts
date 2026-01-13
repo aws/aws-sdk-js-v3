@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TransactGetItemsInput, TransactGetItemsOutput } from "../models/models_0";
-import { TransactGetItems } from "../schemas/schemas_0";
+import { TransactGetItems$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -492,17 +492,15 @@ export class TransactGetItemsCommand extends $Command
   >()
   .ep({
     ...commonParams,
-    ResourceArnList: {
-      type: "operationContextParams",
-      get: (input?: any) => input?.TransactItems?.map((obj: any) => obj?.Get?.TableName),
-    },
+    ResourceArnList: { type: "operationContextParams", get: (input?: any) => input?.TransactItems?.map((obj: any) => obj?.Get?.TableName) },
+
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DynamoDB_20120810", "TransactGetItems", {})
   .n("DynamoDBClient", "TransactGetItemsCommand")
-  .sc(TransactGetItems)
+  .sc(TransactGetItems$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

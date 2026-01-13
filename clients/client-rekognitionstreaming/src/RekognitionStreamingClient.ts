@@ -59,14 +59,11 @@ import {
   type BodyLengthCalculator as __BodyLengthCalculator,
   type CheckOptionalClientConfig as __CheckOptionalClientConfig,
   type ChecksumConstructor as __ChecksumConstructor,
-  type ClientProtocol,
   type Decoder as __Decoder,
   type Encoder as __Encoder,
   type EventStreamSerdeProvider as __EventStreamSerdeProvider,
   type HashConstructor as __HashConstructor,
   type HttpHandlerOptions as __HttpHandlerOptions,
-  type HttpRequest,
-  type HttpResponse,
   type Logger as __Logger,
   type Provider as __Provider,
   type StreamCollector as __StreamCollector,
@@ -101,12 +98,14 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = StartFaceLivenessSessionCommandInput;
+export type ServiceInputTypes =
+  | StartFaceLivenessSessionCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = StartFaceLivenessSessionCommandOutput;
+export type ServiceOutputTypes =
+  | StartFaceLivenessSessionCommandOutput;
 
 /**
  * @public
@@ -254,16 +253,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   extensions?: RuntimeExtension[];
 
   /**
-   * The protocol controlling the message type (e.g. HTTP) and format (e.g. JSON)
-   * may be overridden. A default will always be set by the client.
-   * Available options depend on the service's supported protocols and will not be validated by
-   * the client.
-   * @alpha
-   *
-   */
-  protocol?: ClientProtocol<HttpRequest, HttpResponse>;
-
-  /**
    * The function that provides necessary utilities for generating and parsing event stream
    */
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
@@ -277,6 +266,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * @internal
    */
   eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;
+
 }
 
 /**

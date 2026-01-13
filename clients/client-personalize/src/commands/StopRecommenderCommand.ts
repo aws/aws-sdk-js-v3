@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopRecommenderRequest, StopRecommenderResponse } from "../models/models_0";
 import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { StopRecommender } from "../schemas/schemas_0";
+import { StopRecommender$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class StopRecommenderCommand extends $Command
   })
   .s("AmazonPersonalize", "StopRecommender", {})
   .n("PersonalizeClient", "StopRecommenderCommand")
-  .sc(StopRecommender)
+  .sc(StopRecommender$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

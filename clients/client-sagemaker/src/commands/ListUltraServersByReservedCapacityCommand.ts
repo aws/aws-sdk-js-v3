@@ -9,7 +9,7 @@ import type {
   ListUltraServersByReservedCapacityResponse,
 } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListUltraServersByReservedCapacity } from "../schemas/schemas_0";
+import { ListUltraServersByReservedCapacity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListUltraServersByReservedCapacityCommandInput extends ListUltr
  *
  * The output of {@link ListUltraServersByReservedCapacityCommand}.
  */
-export interface ListUltraServersByReservedCapacityCommandOutput
-  extends ListUltraServersByReservedCapacityResponse,
-    __MetadataBearer {}
+export interface ListUltraServersByReservedCapacityCommandOutput extends ListUltraServersByReservedCapacityResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all UltraServers that are part of a specified reserved capacity.</p>
@@ -55,7 +53,7 @@ export interface ListUltraServersByReservedCapacityCommandOutput
  * //       UltraServerId: "STRING_VALUE", // required
  * //       UltraServerType: "STRING_VALUE", // required
  * //       AvailabilityZone: "STRING_VALUE", // required
- * //       InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge" || "ml.p6-b200.48xlarge" || "ml.p4de.24xlarge" || "ml.p6e-gb200.36xlarge" || "ml.p5.4xlarge", // required
+ * //       InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge" || "ml.p6-b200.48xlarge" || "ml.p4de.24xlarge" || "ml.p6e-gb200.36xlarge" || "ml.p5.4xlarge" || "ml.p6-b300.48xlarge", // required
  * //       TotalInstanceCount: Number("int"), // required
  * //       ConfiguredSpareInstanceCount: Number("int"),
  * //       AvailableInstanceCount: Number("int"),
@@ -98,7 +96,7 @@ export class ListUltraServersByReservedCapacityCommand extends $Command
   })
   .s("SageMaker", "ListUltraServersByReservedCapacity", {})
   .n("SageMakerClient", "ListUltraServersByReservedCapacityCommand")
-  .sc(ListUltraServersByReservedCapacity)
+  .sc(ListUltraServersByReservedCapacity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

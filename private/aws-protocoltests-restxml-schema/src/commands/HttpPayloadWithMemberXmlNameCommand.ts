@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { HttpPayloadWithMemberXmlName } from "../schemas/schemas_0";
+import { HttpPayloadWithMemberXmlName$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface HttpPayloadWithMemberXmlNameCommandInput extends HttpPayloadWit
  *
  * The output of {@link HttpPayloadWithMemberXmlNameCommand}.
  */
-export interface HttpPayloadWithMemberXmlNameCommandOutput
-  extends HttpPayloadWithMemberXmlNameInputOutput,
-    __MetadataBearer {}
+export interface HttpPayloadWithMemberXmlNameCommandOutput extends HttpPayloadWithMemberXmlNameInputOutput, __MetadataBearer {}
 
 /**
  * The following example serializes a payload that uses an XML name
@@ -84,7 +82,7 @@ export class HttpPayloadWithMemberXmlNameCommand extends $Command
   })
   .s("RestXml", "HttpPayloadWithMemberXmlName", {})
   .n("RestXmlProtocolClient", "HttpPayloadWithMemberXmlNameCommand")
-  .sc(HttpPayloadWithMemberXmlName)
+  .sc(HttpPayloadWithMemberXmlName$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

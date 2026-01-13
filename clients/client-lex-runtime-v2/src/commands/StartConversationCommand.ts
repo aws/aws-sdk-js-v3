@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
 import type { StartConversationRequest, StartConversationResponse } from "../models/models_0";
-import { StartConversation } from "../schemas/schemas_0";
+import { StartConversation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -472,7 +472,10 @@ export class StartConversationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexRuntimeV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getEventStreamPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getEventStreamPlugin(config),
+    ];
   })
   .s("AWSDeepSenseRunTimeServiceApi2_0", "StartConversation", {
     /**
@@ -484,7 +487,7 @@ export class StartConversationCommand extends $Command
     },
   })
   .n("LexRuntimeV2Client", "StartConversationCommand")
-  .sc(StartConversation)
+  .sc(StartConversation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

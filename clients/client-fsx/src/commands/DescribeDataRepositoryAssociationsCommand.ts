@@ -9,7 +9,7 @@ import type {
   DescribeDataRepositoryAssociationsRequest,
   DescribeDataRepositoryAssociationsResponse,
 } from "../models/models_0";
-import { DescribeDataRepositoryAssociations } from "../schemas/schemas_0";
+import { DescribeDataRepositoryAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeDataRepositoryAssociationsCommandInput extends Describe
  *
  * The output of {@link DescribeDataRepositoryAssociationsCommand}.
  */
-export interface DescribeDataRepositoryAssociationsCommandOutput
-  extends DescribeDataRepositoryAssociationsResponse,
-    __MetadataBearer {}
+export interface DescribeDataRepositoryAssociationsCommandOutput extends DescribeDataRepositoryAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the description of specific Amazon FSx for Lustre or Amazon File Cache
@@ -173,7 +171,7 @@ export class DescribeDataRepositoryAssociationsCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "DescribeDataRepositoryAssociations", {})
   .n("FSxClient", "DescribeDataRepositoryAssociationsCommand")
-  .sc(DescribeDataRepositoryAssociations)
+  .sc(DescribeDataRepositoryAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

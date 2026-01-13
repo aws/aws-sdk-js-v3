@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPerformanceAnalysisReportRequest, GetPerformanceAnalysisReportResponse } from "../models/models_0";
 import type { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
-import { GetPerformanceAnalysisReport } from "../schemas/schemas_0";
+import { GetPerformanceAnalysisReport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetPerformanceAnalysisReportCommandInput extends GetPerformance
  *
  * The output of {@link GetPerformanceAnalysisReportCommand}.
  */
-export interface GetPerformanceAnalysisReportCommandOutput
-  extends GetPerformanceAnalysisReportResponse,
-    __MetadataBearer {}
+export interface GetPerformanceAnalysisReportCommandOutput extends GetPerformanceAnalysisReportResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the report including the report ID, status, time details, and the insights
@@ -188,7 +186,7 @@ export class GetPerformanceAnalysisReportCommand extends $Command
   })
   .s("PerformanceInsightsv20180227", "GetPerformanceAnalysisReport", {})
   .n("PIClient", "GetPerformanceAnalysisReportCommand")
-  .sc(GetPerformanceAnalysisReport)
+  .sc(GetPerformanceAnalysisReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

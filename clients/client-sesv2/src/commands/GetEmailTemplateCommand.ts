@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetEmailTemplateRequest, GetEmailTemplateResponse } from "../models/models_0";
-import { GetEmailTemplate } from "../schemas/schemas_0";
+import { GetEmailTemplate$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -50,6 +50,12 @@ export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse,
  * //     Text: "STRING_VALUE",
  * //     Html: "STRING_VALUE",
  * //   },
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -89,7 +95,7 @@ export class GetEmailTemplateCommand extends $Command
   })
   .s("SimpleEmailService_v2", "GetEmailTemplate", {})
   .n("SESv2Client", "GetEmailTemplateCommand")
-  .sc(GetEmailTemplate)
+  .sc(GetEmailTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

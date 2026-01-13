@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53GlobalResolverClient";
-import { GetManagedFirewallDomainList } from "../schemas/schemas_0";
+import { GetManagedFirewallDomainList$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetManagedFirewallDomainListCommandInput extends GetManagedFire
  *
  * The output of {@link GetManagedFirewallDomainListCommand}.
  */
-export interface GetManagedFirewallDomainListCommandOutput
-  extends GetManagedFirewallDomainListOutput,
-    __MetadataBearer {}
+export interface GetManagedFirewallDomainListCommandOutput extends GetManagedFirewallDomainListOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about an AWS-managed firewall domain list. Managed domain lists contain domains associated with malicious activity, content categories, or specific threats.</p>
@@ -97,7 +95,7 @@ export class GetManagedFirewallDomainListCommand extends $Command
   })
   .s("EC2DNSGlobalResolverCustomerAPI", "GetManagedFirewallDomainList", {})
   .n("Route53GlobalResolverClient", "GetManagedFirewallDomainListCommand")
-  .sc(GetManagedFirewallDomainList)
+  .sc(GetManagedFirewallDomainList$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

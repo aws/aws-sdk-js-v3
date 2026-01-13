@@ -9,7 +9,7 @@ import type {
   GetOrganizationConformancePackDetailedStatusRequest,
   GetOrganizationConformancePackDetailedStatusResponse,
 } from "../models/models_0";
-import { GetOrganizationConformancePackDetailedStatus } from "../schemas/schemas_0";
+import { GetOrganizationConformancePackDetailedStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetOrganizationConformancePackDetailedStatusCommand}.
  */
-export interface GetOrganizationConformancePackDetailedStatusCommandInput
-  extends GetOrganizationConformancePackDetailedStatusRequest {}
+export interface GetOrganizationConformancePackDetailedStatusCommandInput extends GetOrganizationConformancePackDetailedStatusRequest {}
 /**
  * @public
  *
  * The output of {@link GetOrganizationConformancePackDetailedStatusCommand}.
  */
-export interface GetOrganizationConformancePackDetailedStatusCommandOutput
-  extends GetOrganizationConformancePackDetailedStatusResponse,
-    __MetadataBearer {}
+export interface GetOrganizationConformancePackDetailedStatusCommandOutput extends GetOrganizationConformancePackDetailedStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Returns detailed status for each member account within an organization for a given organization conformance pack.</p>
@@ -128,7 +125,7 @@ export class GetOrganizationConformancePackDetailedStatusCommand extends $Comman
   })
   .s("StarlingDoveService", "GetOrganizationConformancePackDetailedStatus", {})
   .n("ConfigServiceClient", "GetOrganizationConformancePackDetailedStatusCommand")
-  .sc(GetOrganizationConformancePackDetailedStatus)
+  .sc(GetOrganizationConformancePackDetailedStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

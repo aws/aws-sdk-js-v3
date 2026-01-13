@@ -13,7 +13,7 @@ import type {
   AddApplicationInputProcessingConfigurationRequest,
   AddApplicationInputProcessingConfigurationResponse,
 } from "../models/models_0";
-import { AddApplicationInputProcessingConfiguration } from "../schemas/schemas_0";
+import { AddApplicationInputProcessingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link AddApplicationInputProcessingConfigurationCommand}.
  */
-export interface AddApplicationInputProcessingConfigurationCommandInput
-  extends AddApplicationInputProcessingConfigurationRequest {}
+export interface AddApplicationInputProcessingConfigurationCommandInput extends AddApplicationInputProcessingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link AddApplicationInputProcessingConfigurationCommand}.
  */
-export interface AddApplicationInputProcessingConfigurationCommandOutput
-  extends AddApplicationInputProcessingConfigurationResponse,
-    __MetadataBearer {}
+export interface AddApplicationInputProcessingConfigurationCommandOutput extends AddApplicationInputProcessingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Adds an <a>InputProcessingConfiguration</a> to a SQL-based Kinesis Data Analytics application. An input processor pre-processes records
@@ -117,7 +114,7 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command
   })
   .s("KinesisAnalytics_20180523", "AddApplicationInputProcessingConfiguration", {})
   .n("KinesisAnalyticsV2Client", "AddApplicationInputProcessingConfigurationCommand")
-  .sc(AddApplicationInputProcessingConfiguration)
+  .sc(AddApplicationInputProcessingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

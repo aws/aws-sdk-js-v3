@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAvailabilityOptionsRequest, DescribeAvailabilityOptionsResponse } from "../models/models_0";
-import { DescribeAvailabilityOptions } from "../schemas/schemas_0";
+import { DescribeAvailabilityOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeAvailabilityOptionsCommandInput extends DescribeAvailab
  *
  * The output of {@link DescribeAvailabilityOptionsCommand}.
  */
-export interface DescribeAvailabilityOptionsCommandOutput
-  extends DescribeAvailabilityOptionsResponse,
-    __MetadataBearer {}
+export interface DescribeAvailabilityOptionsCommandOutput extends DescribeAvailabilityOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the availability options configured for a domain. By default, shows the configuration with any pending changes. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see  <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html" target="_blank">Configuring Availability Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
@@ -104,7 +102,7 @@ export class DescribeAvailabilityOptionsCommand extends $Command
   })
   .s("A9SearchCloudConfigService2013", "DescribeAvailabilityOptions", {})
   .n("CloudSearchClient", "DescribeAvailabilityOptionsCommand")
-  .sc(DescribeAvailabilityOptions)
+  .sc(DescribeAvailabilityOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

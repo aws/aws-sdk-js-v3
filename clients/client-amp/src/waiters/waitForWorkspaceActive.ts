@@ -7,12 +7,12 @@ import { DescribeWorkspaceCommand, DescribeWorkspaceCommandInput } from "../comm
 const checkState = async (client: AmpClient, input: DescribeWorkspaceCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeWorkspaceCommand(input));
+    let result: any = await client.send(new DescribeWorkspaceCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.workspace.status.statusCode;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: AmpClient, input: DescribeWorkspaceCommandInpu
     try {
       const returnComparator = () => {
         return result.workspace.status.statusCode;
-      };
+      }
       if (returnComparator() === "UPDATING") {
         return { state: WaiterState.RETRY, reason };
       }
@@ -28,7 +28,7 @@ const checkState = async (client: AmpClient, input: DescribeWorkspaceCommandInpu
     try {
       const returnComparator = () => {
         return result.workspace.status.statusCode;
-      };
+      }
       if (returnComparator() === "CREATING") {
         return { state: WaiterState.RETRY, reason };
       }

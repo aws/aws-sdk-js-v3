@@ -534,8 +534,14 @@ export interface Odb {
   /**
    * @see {@link GetDbNodeCommand}
    */
-  getDbNode(args: GetDbNodeCommandInput, options?: __HttpHandlerOptions): Promise<GetDbNodeCommandOutput>;
-  getDbNode(args: GetDbNodeCommandInput, cb: (err: any, data?: GetDbNodeCommandOutput) => void): void;
+  getDbNode(
+    args: GetDbNodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDbNodeCommandOutput>;
+  getDbNode(
+    args: GetDbNodeCommandInput,
+    cb: (err: any, data?: GetDbNodeCommandOutput) => void
+  ): void;
   getDbNode(
     args: GetDbNodeCommandInput,
     options: __HttpHandlerOptions,
@@ -545,8 +551,14 @@ export interface Odb {
   /**
    * @see {@link GetDbServerCommand}
    */
-  getDbServer(args: GetDbServerCommandInput, options?: __HttpHandlerOptions): Promise<GetDbServerCommandOutput>;
-  getDbServer(args: GetDbServerCommandInput, cb: (err: any, data?: GetDbServerCommandOutput) => void): void;
+  getDbServer(
+    args: GetDbServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDbServerCommandOutput>;
+  getDbServer(
+    args: GetDbServerCommandInput,
+    cb: (err: any, data?: GetDbServerCommandOutput) => void
+  ): void;
   getDbServer(
     args: GetDbServerCommandInput,
     options: __HttpHandlerOptions,
@@ -574,8 +586,14 @@ export interface Odb {
   /**
    * @see {@link GetOdbNetworkCommand}
    */
-  getOdbNetwork(args: GetOdbNetworkCommandInput, options?: __HttpHandlerOptions): Promise<GetOdbNetworkCommandOutput>;
-  getOdbNetwork(args: GetOdbNetworkCommandInput, cb: (err: any, data?: GetOdbNetworkCommandOutput) => void): void;
+  getOdbNetwork(
+    args: GetOdbNetworkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOdbNetworkCommandOutput>;
+  getOdbNetwork(
+    args: GetOdbNetworkCommandInput,
+    cb: (err: any, data?: GetOdbNetworkCommandOutput) => void
+  ): void;
   getOdbNetwork(
     args: GetOdbNetworkCommandInput,
     options: __HttpHandlerOptions,
@@ -691,8 +709,14 @@ export interface Odb {
   /**
    * @see {@link ListDbNodesCommand}
    */
-  listDbNodes(args: ListDbNodesCommandInput, options?: __HttpHandlerOptions): Promise<ListDbNodesCommandOutput>;
-  listDbNodes(args: ListDbNodesCommandInput, cb: (err: any, data?: ListDbNodesCommandOutput) => void): void;
+  listDbNodes(
+    args: ListDbNodesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDbNodesCommandOutput>;
+  listDbNodes(
+    args: ListDbNodesCommandInput,
+    cb: (err: any, data?: ListDbNodesCommandOutput) => void
+  ): void;
   listDbNodes(
     args: ListDbNodesCommandInput,
     options: __HttpHandlerOptions,
@@ -702,8 +726,14 @@ export interface Odb {
   /**
    * @see {@link ListDbServersCommand}
    */
-  listDbServers(args: ListDbServersCommandInput, options?: __HttpHandlerOptions): Promise<ListDbServersCommandOutput>;
-  listDbServers(args: ListDbServersCommandInput, cb: (err: any, data?: ListDbServersCommandOutput) => void): void;
+  listDbServers(
+    args: ListDbServersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDbServersCommandOutput>;
+  listDbServers(
+    args: ListDbServersCommandInput,
+    cb: (err: any, data?: ListDbServersCommandOutput) => void
+  ): void;
   listDbServers(
     args: ListDbServersCommandInput,
     options: __HttpHandlerOptions,
@@ -736,7 +766,10 @@ export interface Odb {
     args: ListGiVersionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListGiVersionsCommandOutput>;
-  listGiVersions(args: ListGiVersionsCommandInput, cb: (err: any, data?: ListGiVersionsCommandOutput) => void): void;
+  listGiVersions(
+    args: ListGiVersionsCommandInput,
+    cb: (err: any, data?: ListGiVersionsCommandOutput) => void
+  ): void;
   listGiVersions(
     args: ListGiVersionsCommandInput,
     options: __HttpHandlerOptions,
@@ -751,7 +784,10 @@ export interface Odb {
     args: ListOdbNetworksCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListOdbNetworksCommandOutput>;
-  listOdbNetworks(args: ListOdbNetworksCommandInput, cb: (err: any, data?: ListOdbNetworksCommandOutput) => void): void;
+  listOdbNetworks(
+    args: ListOdbNetworksCommandInput,
+    cb: (err: any, data?: ListOdbNetworksCommandOutput) => void
+  ): void;
   listOdbNetworks(
     args: ListOdbNetworksCommandInput,
     options: __HttpHandlerOptions,
@@ -813,8 +849,14 @@ export interface Odb {
   /**
    * @see {@link RebootDbNodeCommand}
    */
-  rebootDbNode(args: RebootDbNodeCommandInput, options?: __HttpHandlerOptions): Promise<RebootDbNodeCommandOutput>;
-  rebootDbNode(args: RebootDbNodeCommandInput, cb: (err: any, data?: RebootDbNodeCommandOutput) => void): void;
+  rebootDbNode(
+    args: RebootDbNodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RebootDbNodeCommandOutput>;
+  rebootDbNode(
+    args: RebootDbNodeCommandInput,
+    cb: (err: any, data?: RebootDbNodeCommandOutput) => void
+  ): void;
   rebootDbNode(
     args: RebootDbNodeCommandInput,
     options: __HttpHandlerOptions,
@@ -824,8 +866,14 @@ export interface Odb {
   /**
    * @see {@link StartDbNodeCommand}
    */
-  startDbNode(args: StartDbNodeCommandInput, options?: __HttpHandlerOptions): Promise<StartDbNodeCommandOutput>;
-  startDbNode(args: StartDbNodeCommandInput, cb: (err: any, data?: StartDbNodeCommandOutput) => void): void;
+  startDbNode(
+    args: StartDbNodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDbNodeCommandOutput>;
+  startDbNode(
+    args: StartDbNodeCommandInput,
+    cb: (err: any, data?: StartDbNodeCommandOutput) => void
+  ): void;
   startDbNode(
     args: StartDbNodeCommandInput,
     options: __HttpHandlerOptions,
@@ -835,8 +883,14 @@ export interface Odb {
   /**
    * @see {@link StopDbNodeCommand}
    */
-  stopDbNode(args: StopDbNodeCommandInput, options?: __HttpHandlerOptions): Promise<StopDbNodeCommandOutput>;
-  stopDbNode(args: StopDbNodeCommandInput, cb: (err: any, data?: StopDbNodeCommandOutput) => void): void;
+  stopDbNode(
+    args: StopDbNodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopDbNodeCommandOutput>;
+  stopDbNode(
+    args: StopDbNodeCommandInput,
+    cb: (err: any, data?: StopDbNodeCommandOutput) => void
+  ): void;
   stopDbNode(
     args: StopDbNodeCommandInput,
     options: __HttpHandlerOptions,
@@ -846,8 +900,14 @@ export interface Odb {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -857,8 +917,14 @@ export interface Odb {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

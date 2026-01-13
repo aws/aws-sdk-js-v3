@@ -11,7 +11,7 @@ import type {
   SubmitMultiRegionAccessPointRoutesResult,
 } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { SubmitMultiRegionAccessPointRoutes } from "../schemas/schemas_0";
+import { SubmitMultiRegionAccessPointRoutes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -29,9 +29,7 @@ export interface SubmitMultiRegionAccessPointRoutesCommandInput extends SubmitMu
  *
  * The output of {@link SubmitMultiRegionAccessPointRoutesCommand}.
  */
-export interface SubmitMultiRegionAccessPointRoutesCommandOutput
-  extends SubmitMultiRegionAccessPointRoutesResult,
-    __MetadataBearer {}
+export interface SubmitMultiRegionAccessPointRoutesCommandOutput extends SubmitMultiRegionAccessPointRoutesResult, __MetadataBearer {}
 
 /**
  * <note>
@@ -139,7 +137,7 @@ export class SubmitMultiRegionAccessPointRoutesCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "SubmitMultiRegionAccessPointRoutes", {})
   .n("S3ControlClient", "SubmitMultiRegionAccessPointRoutesCommand")
-  .sc(SubmitMultiRegionAccessPointRoutes)
+  .sc(SubmitMultiRegionAccessPointRoutes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

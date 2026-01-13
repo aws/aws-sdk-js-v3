@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { XmlEmptyLists } from "../schemas/schemas_0";
+import { XmlEmptyLists$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -181,7 +181,7 @@ export class XmlEmptyListsCommand extends $Command
   })
   .s("RestXml", "XmlEmptyLists", {})
   .n("RestXmlProtocolClient", "XmlEmptyListsCommand")
-  .sc(XmlEmptyLists)
+  .sc(XmlEmptyLists$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

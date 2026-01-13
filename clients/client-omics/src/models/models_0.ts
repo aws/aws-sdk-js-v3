@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
-
 import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
 
 import {
@@ -654,7 +653,9 @@ export interface StartAnnotationImportResponse {
  * <p>A genome reference.</p>
  * @public
  */
-export type ReferenceItem = ReferenceItem.ReferenceArnMember | ReferenceItem.$UnknownMember;
+export type ReferenceItem =
+  | ReferenceItem.ReferenceArnMember
+  | ReferenceItem.$UnknownMember;
 
 /**
  * @public
@@ -733,7 +734,9 @@ export interface TsvStoreOptions {
  * <p>Settings for a store.</p>
  * @public
  */
-export type StoreOptions = StoreOptions.TsvStoreOptionsMember | StoreOptions.$UnknownMember;
+export type StoreOptions =
+  | StoreOptions.TsvStoreOptionsMember
+  | StoreOptions.$UnknownMember;
 
 /**
  * @public
@@ -1246,7 +1249,9 @@ export interface TsvVersionOptions {
  * <p> The options for an annotation store version. </p>
  * @public
  */
-export type VersionOptions = VersionOptions.TsvVersionOptionsMember | VersionOptions.$UnknownMember;
+export type VersionOptions =
+  | VersionOptions.TsvVersionOptionsMember
+  | VersionOptions.$UnknownMember;
 
 /**
  * @public

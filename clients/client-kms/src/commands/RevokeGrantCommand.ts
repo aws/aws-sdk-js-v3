@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import type { RevokeGrantRequest } from "../models/models_0";
-import { RevokeGrant } from "../schemas/schemas_0";
+import { RevokeGrant$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -175,7 +175,7 @@ export class RevokeGrantCommand extends $Command
   })
   .s("TrentService", "RevokeGrant", {})
   .n("KMSClient", "RevokeGrantCommand")
-  .sc(RevokeGrant)
+  .sc(RevokeGrant$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

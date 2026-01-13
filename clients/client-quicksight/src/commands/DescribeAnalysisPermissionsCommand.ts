@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAnalysisPermissionsRequest, DescribeAnalysisPermissionsResponse } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeAnalysisPermissions } from "../schemas/schemas_0";
+import { DescribeAnalysisPermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeAnalysisPermissionsCommandInput extends DescribeAnalysi
  *
  * The output of {@link DescribeAnalysisPermissionsCommand}.
  */
-export interface DescribeAnalysisPermissionsCommandOutput
-  extends DescribeAnalysisPermissionsResponse,
-    __MetadataBearer {}
+export interface DescribeAnalysisPermissionsCommandOutput extends DescribeAnalysisPermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides the read and write permissions for an analysis.</p>
@@ -105,7 +103,7 @@ export class DescribeAnalysisPermissionsCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeAnalysisPermissions", {})
   .n("QuickSightClient", "DescribeAnalysisPermissionsCommand")
-  .sc(DescribeAnalysisPermissions)
+  .sc(DescribeAnalysisPermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

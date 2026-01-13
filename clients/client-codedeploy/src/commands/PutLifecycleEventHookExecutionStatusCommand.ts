@@ -9,7 +9,7 @@ import type {
   PutLifecycleEventHookExecutionStatusInput,
   PutLifecycleEventHookExecutionStatusOutput,
 } from "../models/models_0";
-import { PutLifecycleEventHookExecutionStatus } from "../schemas/schemas_0";
+import { PutLifecycleEventHookExecutionStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface PutLifecycleEventHookExecutionStatusCommandInput extends PutLif
  *
  * The output of {@link PutLifecycleEventHookExecutionStatusCommand}.
  */
-export interface PutLifecycleEventHookExecutionStatusCommandOutput
-  extends PutLifecycleEventHookExecutionStatusOutput,
-    __MetadataBearer {}
+export interface PutLifecycleEventHookExecutionStatusCommandOutput extends PutLifecycleEventHookExecutionStatusOutput, __MetadataBearer {}
 
 /**
  * <p> Sets the result of a Lambda validation function. The function validates
@@ -113,7 +111,7 @@ export class PutLifecycleEventHookExecutionStatusCommand extends $Command
   })
   .s("CodeDeploy_20141006", "PutLifecycleEventHookExecutionStatus", {})
   .n("CodeDeployClient", "PutLifecycleEventHookExecutionStatusCommand")
-  .sc(PutLifecycleEventHookExecutionStatus)
+  .sc(PutLifecycleEventHookExecutionStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

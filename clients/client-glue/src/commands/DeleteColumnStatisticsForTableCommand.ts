@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { DeleteColumnStatisticsForTableRequest, DeleteColumnStatisticsForTableResponse } from "../models/models_1";
-import { DeleteColumnStatisticsForTable } from "../schemas/schemas_0";
+import { DeleteColumnStatisticsForTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteColumnStatisticsForTableCommandInput extends DeleteColumn
  *
  * The output of {@link DeleteColumnStatisticsForTableCommand}.
  */
-export interface DeleteColumnStatisticsForTableCommandOutput
-  extends DeleteColumnStatisticsForTableResponse,
-    __MetadataBearer {}
+export interface DeleteColumnStatisticsForTableCommandOutput extends DeleteColumnStatisticsForTableResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves table statistics of columns.</p>
@@ -92,7 +90,7 @@ export class DeleteColumnStatisticsForTableCommand extends $Command
   })
   .s("AWSGlue", "DeleteColumnStatisticsForTable", {})
   .n("GlueClient", "DeleteColumnStatisticsForTableCommand")
-  .sc(DeleteColumnStatisticsForTable)
+  .sc(DeleteColumnStatisticsForTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

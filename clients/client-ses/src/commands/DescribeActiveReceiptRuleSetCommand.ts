@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeActiveReceiptRuleSetRequest, DescribeActiveReceiptRuleSetResponse } from "../models/models_0";
-import { DescribeActiveReceiptRuleSet } from "../schemas/schemas_0";
+import { DescribeActiveReceiptRuleSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DescribeActiveReceiptRuleSetCommandInput extends DescribeActive
  *
  * The output of {@link DescribeActiveReceiptRuleSetCommand}.
  */
-export interface DescribeActiveReceiptRuleSetCommandOutput
-  extends DescribeActiveReceiptRuleSetResponse,
-    __MetadataBearer {}
+export interface DescribeActiveReceiptRuleSetCommandOutput extends DescribeActiveReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the metadata and receipt rules for the receipt rule set that is currently
@@ -165,7 +163,7 @@ export class DescribeActiveReceiptRuleSetCommand extends $Command
   })
   .s("SimpleEmailService", "DescribeActiveReceiptRuleSet", {})
   .n("SESClient", "DescribeActiveReceiptRuleSetCommand")
-  .sc(DescribeActiveReceiptRuleSet)
+  .sc(DescribeActiveReceiptRuleSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { SetDefaultMessageType } from "../schemas/schemas_0";
+import { SetDefaultMessageType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class SetDefaultMessageTypeCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "SetDefaultMessageType", {})
   .n("PinpointSMSVoiceV2Client", "SetDefaultMessageTypeCommand")
-  .sc(SetDefaultMessageType)
+  .sc(SetDefaultMessageType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

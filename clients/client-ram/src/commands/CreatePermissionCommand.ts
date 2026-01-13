@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreatePermissionRequest, CreatePermissionResponse } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { CreatePermission } from "../schemas/schemas_0";
+import { CreatePermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,7 +138,7 @@ export class CreatePermissionCommand extends $Command
   })
   .s("AmazonResourceSharing", "CreatePermission", {})
   .n("RAMClient", "CreatePermissionCommand")
-  .sc(CreatePermission)
+  .sc(CreatePermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

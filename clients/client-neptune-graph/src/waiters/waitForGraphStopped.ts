@@ -7,20 +7,20 @@ import { NeptuneGraphClient } from "../NeptuneGraphClient";
 const checkState = async (client: NeptuneGraphClient, input: GetGraphCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetGraphCommand(input));
+    let result: any = await client.send(new GetGraphCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "STOPPED") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
       const returnComparator = () => {
-        return result.status != "STOPPING";
-      };
+        return (result.status != "STOPPING");
+      }
       if (returnComparator() == true) {
         return { state: WaiterState.FAILURE, reason };
       }

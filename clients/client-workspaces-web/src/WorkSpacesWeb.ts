@@ -669,8 +669,14 @@ export interface WorkSpacesWeb {
    * @see {@link CreatePortalCommand}
    */
   createPortal(): Promise<CreatePortalCommandOutput>;
-  createPortal(args: CreatePortalCommandInput, options?: __HttpHandlerOptions): Promise<CreatePortalCommandOutput>;
-  createPortal(args: CreatePortalCommandInput, cb: (err: any, data?: CreatePortalCommandOutput) => void): void;
+  createPortal(
+    args: CreatePortalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePortalCommandOutput>;
+  createPortal(
+    args: CreatePortalCommandInput,
+    cb: (err: any, data?: CreatePortalCommandOutput) => void
+  ): void;
   createPortal(
     args: CreatePortalCommandInput,
     options: __HttpHandlerOptions,
@@ -833,8 +839,14 @@ export interface WorkSpacesWeb {
   /**
    * @see {@link DeletePortalCommand}
    */
-  deletePortal(args: DeletePortalCommandInput, options?: __HttpHandlerOptions): Promise<DeletePortalCommandOutput>;
-  deletePortal(args: DeletePortalCommandInput, cb: (err: any, data?: DeletePortalCommandOutput) => void): void;
+  deletePortal(
+    args: DeletePortalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePortalCommandOutput>;
+  deletePortal(
+    args: DeletePortalCommandInput,
+    cb: (err: any, data?: DeletePortalCommandOutput) => void
+  ): void;
   deletePortal(
     args: DeletePortalCommandInput,
     options: __HttpHandlerOptions,
@@ -1048,8 +1060,14 @@ export interface WorkSpacesWeb {
   /**
    * @see {@link ExpireSessionCommand}
    */
-  expireSession(args: ExpireSessionCommandInput, options?: __HttpHandlerOptions): Promise<ExpireSessionCommandOutput>;
-  expireSession(args: ExpireSessionCommandInput, cb: (err: any, data?: ExpireSessionCommandOutput) => void): void;
+  expireSession(
+    args: ExpireSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExpireSessionCommandOutput>;
+  expireSession(
+    args: ExpireSessionCommandInput,
+    cb: (err: any, data?: ExpireSessionCommandOutput) => void
+  ): void;
   expireSession(
     args: ExpireSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -1144,8 +1162,14 @@ export interface WorkSpacesWeb {
   /**
    * @see {@link GetPortalCommand}
    */
-  getPortal(args: GetPortalCommandInput, options?: __HttpHandlerOptions): Promise<GetPortalCommandOutput>;
-  getPortal(args: GetPortalCommandInput, cb: (err: any, data?: GetPortalCommandOutput) => void): void;
+  getPortal(
+    args: GetPortalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPortalCommandOutput>;
+  getPortal(
+    args: GetPortalCommandInput,
+    cb: (err: any, data?: GetPortalCommandOutput) => void
+  ): void;
   getPortal(
     args: GetPortalCommandInput,
     options: __HttpHandlerOptions,
@@ -1172,8 +1196,14 @@ export interface WorkSpacesWeb {
   /**
    * @see {@link GetSessionCommand}
    */
-  getSession(args: GetSessionCommandInput, options?: __HttpHandlerOptions): Promise<GetSessionCommandOutput>;
-  getSession(args: GetSessionCommandInput, cb: (err: any, data?: GetSessionCommandOutput) => void): void;
+  getSession(
+    args: GetSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionCommandOutput>;
+  getSession(
+    args: GetSessionCommandInput,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
   getSession(
     args: GetSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -1200,8 +1230,14 @@ export interface WorkSpacesWeb {
   /**
    * @see {@link GetTrustStoreCommand}
    */
-  getTrustStore(args: GetTrustStoreCommandInput, options?: __HttpHandlerOptions): Promise<GetTrustStoreCommandOutput>;
-  getTrustStore(args: GetTrustStoreCommandInput, cb: (err: any, data?: GetTrustStoreCommandOutput) => void): void;
+  getTrustStore(
+    args: GetTrustStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTrustStoreCommandOutput>;
+  getTrustStore(
+    args: GetTrustStoreCommandInput,
+    cb: (err: any, data?: GetTrustStoreCommandOutput) => void
+  ): void;
   getTrustStore(
     args: GetTrustStoreCommandInput,
     options: __HttpHandlerOptions,
@@ -1249,7 +1285,10 @@ export interface WorkSpacesWeb {
     args: GetUserSettingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetUserSettingsCommandOutput>;
-  getUserSettings(args: GetUserSettingsCommandInput, cb: (err: any, data?: GetUserSettingsCommandOutput) => void): void;
+  getUserSettings(
+    args: GetUserSettingsCommandInput,
+    cb: (err: any, data?: GetUserSettingsCommandOutput) => void
+  ): void;
   getUserSettings(
     args: GetUserSettingsCommandInput,
     options: __HttpHandlerOptions,
@@ -1349,8 +1388,14 @@ export interface WorkSpacesWeb {
    * @see {@link ListPortalsCommand}
    */
   listPortals(): Promise<ListPortalsCommandOutput>;
-  listPortals(args: ListPortalsCommandInput, options?: __HttpHandlerOptions): Promise<ListPortalsCommandOutput>;
-  listPortals(args: ListPortalsCommandInput, cb: (err: any, data?: ListPortalsCommandOutput) => void): void;
+  listPortals(
+    args: ListPortalsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPortalsCommandOutput>;
+  listPortals(
+    args: ListPortalsCommandInput,
+    cb: (err: any, data?: ListPortalsCommandOutput) => void
+  ): void;
   listPortals(
     args: ListPortalsCommandInput,
     options: __HttpHandlerOptions,
@@ -1378,8 +1423,14 @@ export interface WorkSpacesWeb {
   /**
    * @see {@link ListSessionsCommand}
    */
-  listSessions(args: ListSessionsCommandInput, options?: __HttpHandlerOptions): Promise<ListSessionsCommandOutput>;
-  listSessions(args: ListSessionsCommandInput, cb: (err: any, data?: ListSessionsCommandOutput) => void): void;
+  listSessions(
+    args: ListSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSessionsCommandOutput>;
+  listSessions(
+    args: ListSessionsCommandInput,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
+  ): void;
   listSessions(
     args: ListSessionsCommandInput,
     options: __HttpHandlerOptions,
@@ -1428,7 +1479,10 @@ export interface WorkSpacesWeb {
     args: ListTrustStoresCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTrustStoresCommandOutput>;
-  listTrustStores(args: ListTrustStoresCommandInput, cb: (err: any, data?: ListTrustStoresCommandOutput) => void): void;
+  listTrustStores(
+    args: ListTrustStoresCommandInput,
+    cb: (err: any, data?: ListTrustStoresCommandOutput) => void
+  ): void;
   listTrustStores(
     args: ListTrustStoresCommandInput,
     options: __HttpHandlerOptions,
@@ -1474,8 +1528,14 @@ export interface WorkSpacesWeb {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1485,8 +1545,14 @@ export interface WorkSpacesWeb {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1581,8 +1647,14 @@ export interface WorkSpacesWeb {
   /**
    * @see {@link UpdatePortalCommand}
    */
-  updatePortal(args: UpdatePortalCommandInput, options?: __HttpHandlerOptions): Promise<UpdatePortalCommandOutput>;
-  updatePortal(args: UpdatePortalCommandInput, cb: (err: any, data?: UpdatePortalCommandOutput) => void): void;
+  updatePortal(
+    args: UpdatePortalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePortalCommandOutput>;
+  updatePortal(
+    args: UpdatePortalCommandInput,
+    cb: (err: any, data?: UpdatePortalCommandOutput) => void
+  ): void;
   updatePortal(
     args: UpdatePortalCommandInput,
     options: __HttpHandlerOptions,

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAlertManagerDefinitionRequest, DescribeAlertManagerDefinitionResponse } from "../models/models_0";
-import { DescribeAlertManagerDefinition } from "../schemas/schemas_0";
+import { DescribeAlertManagerDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeAlertManagerDefinitionCommandInput extends DescribeAler
  *
  * The output of {@link DescribeAlertManagerDefinitionCommand}.
  */
-export interface DescribeAlertManagerDefinitionCommandOutput
-  extends DescribeAlertManagerDefinitionResponse,
-    __MetadataBearer {}
+export interface DescribeAlertManagerDefinitionCommandOutput extends DescribeAlertManagerDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the full information about the alert manager definition for a workspace.</p>
@@ -98,7 +96,7 @@ export class DescribeAlertManagerDefinitionCommand extends $Command
   })
   .s("AmazonPrometheusService", "DescribeAlertManagerDefinition", {})
   .n("AmpClient", "DescribeAlertManagerDefinitionCommand")
-  .sc(DescribeAlertManagerDefinition)
+  .sc(DescribeAlertManagerDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

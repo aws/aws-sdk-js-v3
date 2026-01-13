@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { GetManagedThingCapabilitiesRequest, GetManagedThingCapabilitiesResponse } from "../models/models_0";
-import { GetManagedThingCapabilities } from "../schemas/schemas_0";
+import { GetManagedThingCapabilities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetManagedThingCapabilitiesCommandInput extends GetManagedThing
  *
  * The output of {@link GetManagedThingCapabilitiesCommand}.
  */
-export interface GetManagedThingCapabilitiesCommandOutput
-  extends GetManagedThingCapabilitiesResponse,
-    __MetadataBearer {}
+export interface GetManagedThingCapabilitiesCommandOutput extends GetManagedThingCapabilitiesResponse, __MetadataBearer {}
 
 /**
  * <p>Get the capabilities for a managed thing using the device ID.</p>
@@ -129,7 +127,7 @@ export class GetManagedThingCapabilitiesCommand extends $Command
   })
   .s("IotManagedIntegrations", "GetManagedThingCapabilities", {})
   .n("IoTManagedIntegrationsClient", "GetManagedThingCapabilitiesCommand")
-  .sc(GetManagedThingCapabilities)
+  .sc(GetManagedThingCapabilities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

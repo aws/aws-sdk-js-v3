@@ -9,7 +9,7 @@ import type {
   DeleteAssetModelInterfaceRelationshipRequest,
   DeleteAssetModelInterfaceRelationshipResponse,
 } from "../models/models_0";
-import { DeleteAssetModelInterfaceRelationship } from "../schemas/schemas_0";
+import { DeleteAssetModelInterfaceRelationship$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteAssetModelInterfaceRelationshipCommand}.
  */
-export interface DeleteAssetModelInterfaceRelationshipCommandInput
-  extends DeleteAssetModelInterfaceRelationshipRequest {}
+export interface DeleteAssetModelInterfaceRelationshipCommandInput extends DeleteAssetModelInterfaceRelationshipRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteAssetModelInterfaceRelationshipCommand}.
  */
-export interface DeleteAssetModelInterfaceRelationshipCommandOutput
-  extends DeleteAssetModelInterfaceRelationshipResponse,
-    __MetadataBearer {}
+export interface DeleteAssetModelInterfaceRelationshipCommandOutput extends DeleteAssetModelInterfaceRelationshipResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an interface relationship between an asset model and an interface asset
@@ -117,7 +114,7 @@ export class DeleteAssetModelInterfaceRelationshipCommand extends $Command
   })
   .s("AWSIoTSiteWise", "DeleteAssetModelInterfaceRelationship", {})
   .n("IoTSiteWiseClient", "DeleteAssetModelInterfaceRelationshipCommand")
-  .sc(DeleteAssetModelInterfaceRelationship)
+  .sc(DeleteAssetModelInterfaceRelationship$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

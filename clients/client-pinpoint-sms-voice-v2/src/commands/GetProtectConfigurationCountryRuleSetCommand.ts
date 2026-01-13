@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { GetProtectConfigurationCountryRuleSet } from "../schemas/schemas_0";
+import { GetProtectConfigurationCountryRuleSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link GetProtectConfigurationCountryRuleSetCommand}.
  */
-export interface GetProtectConfigurationCountryRuleSetCommandInput
-  extends GetProtectConfigurationCountryRuleSetRequest {}
+export interface GetProtectConfigurationCountryRuleSetCommandInput extends GetProtectConfigurationCountryRuleSetRequest {}
 /**
  * @public
  *
  * The output of {@link GetProtectConfigurationCountryRuleSetCommand}.
  */
-export interface GetProtectConfigurationCountryRuleSetCommandOutput
-  extends GetProtectConfigurationCountryRuleSetResult,
-    __MetadataBearer {}
+export interface GetProtectConfigurationCountryRuleSetCommandOutput extends GetProtectConfigurationCountryRuleSetResult, __MetadataBearer {}
 
 /**
  * <p>Retrieve the CountryRuleSet for the specified NumberCapability from a protect configuration.</p>
@@ -106,7 +103,7 @@ export class GetProtectConfigurationCountryRuleSetCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "GetProtectConfigurationCountryRuleSet", {})
   .n("PinpointSMSVoiceV2Client", "GetProtectConfigurationCountryRuleSetCommand")
-  .sc(GetProtectConfigurationCountryRuleSet)
+  .sc(GetProtectConfigurationCountryRuleSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

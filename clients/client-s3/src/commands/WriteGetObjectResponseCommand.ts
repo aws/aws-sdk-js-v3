@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import { WriteGetObjectResponseRequest } from "../models/models_1";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { WriteGetObjectResponse } from "../schemas/schemas_0";
+import { WriteGetObjectResponse$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -154,7 +154,7 @@ export class WriteGetObjectResponseCommand extends $Command
   })
   .s("AmazonS3", "WriteGetObjectResponse", {})
   .n("S3Client", "WriteGetObjectResponseCommand")
-  .sc(WriteGetObjectResponse)
+  .sc(WriteGetObjectResponse$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

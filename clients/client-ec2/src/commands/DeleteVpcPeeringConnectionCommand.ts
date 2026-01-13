@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteVpcPeeringConnectionRequest, DeleteVpcPeeringConnectionResult } from "../models/models_3";
-import { DeleteVpcPeeringConnection } from "../schemas/schemas_0";
+import { DeleteVpcPeeringConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -78,7 +78,7 @@ export class DeleteVpcPeeringConnectionCommand extends $Command
   })
   .s("AmazonEC2", "DeleteVpcPeeringConnection", {})
   .n("EC2Client", "DeleteVpcPeeringConnectionCommand")
-  .sc(DeleteVpcPeeringConnection)
+  .sc(DeleteVpcPeeringConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

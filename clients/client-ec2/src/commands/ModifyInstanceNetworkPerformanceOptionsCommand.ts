@@ -9,7 +9,7 @@ import type {
   ModifyInstanceNetworkPerformanceRequest,
   ModifyInstanceNetworkPerformanceResult,
 } from "../models/models_6";
-import { ModifyInstanceNetworkPerformanceOptions } from "../schemas/schemas_0";
+import { ModifyInstanceNetworkPerformanceOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ModifyInstanceNetworkPerformanceOptionsCommandInput extends Mod
  *
  * The output of {@link ModifyInstanceNetworkPerformanceOptionsCommand}.
  */
-export interface ModifyInstanceNetworkPerformanceOptionsCommandOutput
-  extends ModifyInstanceNetworkPerformanceResult,
-    __MetadataBearer {}
+export interface ModifyInstanceNetworkPerformanceOptionsCommandOutput extends ModifyInstanceNetworkPerformanceResult, __MetadataBearer {}
 
 /**
  * <p>Change the configuration of the network performance options for an existing
@@ -82,7 +80,7 @@ export class ModifyInstanceNetworkPerformanceOptionsCommand extends $Command
   })
   .s("AmazonEC2", "ModifyInstanceNetworkPerformanceOptions", {})
   .n("EC2Client", "ModifyInstanceNetworkPerformanceOptionsCommand")
-  .sc(ModifyInstanceNetworkPerformanceOptions)
+  .sc(ModifyInstanceNetworkPerformanceOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type PutSolFunctionPackageContentOutput, PutSolFunctionPackageContentInput } from "../models/models_0";
-import { PutSolFunctionPackageContent } from "../schemas/schemas_0";
+import { PutSolFunctionPackageContent$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -31,9 +31,7 @@ export interface PutSolFunctionPackageContentCommandInput extends PutSolFunction
  *
  * The output of {@link PutSolFunctionPackageContentCommand}.
  */
-export interface PutSolFunctionPackageContentCommandOutput
-  extends PutSolFunctionPackageContentOutput,
-    __MetadataBearer {}
+export interface PutSolFunctionPackageContentCommandOutput extends PutSolFunctionPackageContentOutput, __MetadataBearer {}
 
 /**
  * <p>Uploads the contents of a function package.</p>
@@ -141,7 +139,7 @@ export class PutSolFunctionPackageContentCommand extends $Command
   })
   .s("TNB", "PutSolFunctionPackageContent", {})
   .n("TnbClient", "PutSolFunctionPackageContentCommand")
-  .sc(PutSolFunctionPackageContent)
+  .sc(PutSolFunctionPackageContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

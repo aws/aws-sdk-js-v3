@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateAIPromptVersionRequest, CreateAIPromptVersionResponse } from "../models/models_0";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { CreateAIPromptVersion } from "../schemas/schemas_0";
+import { CreateAIPromptVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class CreateAIPromptVersionCommand extends $Command
   })
   .s("WisdomService", "CreateAIPromptVersion", {})
   .n("QConnectClient", "CreateAIPromptVersionCommand")
-  .sc(CreateAIPromptVersion)
+  .sc(CreateAIPromptVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

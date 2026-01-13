@@ -10,7 +10,7 @@ import type {
 } from "../BedrockRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type InvokeModelWithResponseStreamResponse, InvokeModelWithResponseStreamRequest } from "../models/models_0";
-import { InvokeModelWithResponseStream } from "../schemas/schemas_0";
+import { InvokeModelWithResponseStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -35,9 +35,7 @@ export interface InvokeModelWithResponseStreamCommandInput extends InvokeModelWi
  *
  * The output of {@link InvokeModelWithResponseStreamCommand}.
  */
-export interface InvokeModelWithResponseStreamCommandOutput
-  extends InvokeModelWithResponseStreamResponse,
-    __MetadataBearer {}
+export interface InvokeModelWithResponseStreamCommandOutput extends InvokeModelWithResponseStreamResponse, __MetadataBearer {}
 
 /**
  * <p>Invoke the specified Amazon Bedrock model to run inference using the prompt and inference parameters provided in the request body. The response is returned in a stream.</p> <p>To see if a model supports streaming, call <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html">GetFoundationModel</a> and check the <code>responseStreamingSupported</code> field in the response.</p> <note> <p>The CLI doesn't support streaming operations in Amazon Bedrock, including <code>InvokeModelWithResponseStream</code>.</p> </note> <p>For example code, see <i>Invoke model with streaming code example</i> in the <i>Amazon Bedrock User Guide</i>. </p> <p>This operation requires permissions to perform the <code>bedrock:InvokeModelWithResponseStream</code> action. </p> <important> <p>To deny all inference access to resources that you specify in the modelId field, you need to deny access to the <code>bedrock:InvokeModel</code> and <code>bedrock:InvokeModelWithResponseStream</code> actions. Doing this also denies access to the resource through the Converse API actions (<a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a>). For more information see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-deny-inference">Deny access for inference on specific models</a>. </p> </important> <p>For troubleshooting some of the common errors you might encounter when using the <code>InvokeModelWithResponseStream</code> API, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html">Troubleshooting Amazon Bedrock API Error Codes</a> in the Amazon Bedrock User Guide</p>
@@ -161,7 +159,7 @@ export class InvokeModelWithResponseStreamCommand extends $Command
     },
   })
   .n("BedrockRuntimeClient", "InvokeModelWithResponseStreamCommand")
-  .sc(InvokeModelWithResponseStream)
+  .sc(InvokeModelWithResponseStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

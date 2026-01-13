@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { ListResourceTelemetryForOrganization } from "../schemas/schemas_0";
+import { ListResourceTelemetryForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ListResourceTelemetryForOrganizationCommandInput extends ListRe
  *
  * The output of {@link ListResourceTelemetryForOrganizationCommand}.
  */
-export interface ListResourceTelemetryForOrganizationCommandOutput
-  extends ListResourceTelemetryForOrganizationOutput,
-    __MetadataBearer {}
+export interface ListResourceTelemetryForOrganizationCommandOutput extends ListResourceTelemetryForOrganizationOutput, __MetadataBearer {}
 
 /**
  * <p> Returns a list of telemetry configurations for Amazon Web Services resources supported by telemetry config in the organization. </p>
@@ -122,7 +120,7 @@ export class ListResourceTelemetryForOrganizationCommand extends $Command
   })
   .s("ObservabilityAdmin", "ListResourceTelemetryForOrganization", {})
   .n("ObservabilityAdminClient", "ListResourceTelemetryForOrganizationCommand")
-  .sc(ListResourceTelemetryForOrganization)
+  .sc(ListResourceTelemetryForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

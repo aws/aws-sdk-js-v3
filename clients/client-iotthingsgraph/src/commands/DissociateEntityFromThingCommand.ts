@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTThingsGraphClient";
 import type { DissociateEntityFromThingRequest, DissociateEntityFromThingResponse } from "../models/models_0";
-import { DissociateEntityFromThing } from "../schemas/schemas_0";
+import { DissociateEntityFromThing$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DissociateEntityFromThingCommand extends $Command
   })
   .s("IotThingsGraphFrontEndService", "DissociateEntityFromThing", {})
   .n("IoTThingsGraphClient", "DissociateEntityFromThingCommand")
-  .sc(DissociateEntityFromThing)
+  .sc(DissociateEntityFromThing$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

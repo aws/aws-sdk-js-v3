@@ -9,7 +9,7 @@ import type {
   DescribeTransitGatewayPeeringAttachmentsRequest,
   DescribeTransitGatewayPeeringAttachmentsResult,
 } from "../models/models_4";
-import { DescribeTransitGatewayPeeringAttachments } from "../schemas/schemas_0";
+import { DescribeTransitGatewayPeeringAttachments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeTransitGatewayPeeringAttachmentsCommand}.
  */
-export interface DescribeTransitGatewayPeeringAttachmentsCommandInput
-  extends DescribeTransitGatewayPeeringAttachmentsRequest {}
+export interface DescribeTransitGatewayPeeringAttachmentsCommandInput extends DescribeTransitGatewayPeeringAttachmentsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeTransitGatewayPeeringAttachmentsCommand}.
  */
-export interface DescribeTransitGatewayPeeringAttachmentsCommandOutput
-  extends DescribeTransitGatewayPeeringAttachmentsResult,
-    __MetadataBearer {}
+export interface DescribeTransitGatewayPeeringAttachmentsCommandOutput extends DescribeTransitGatewayPeeringAttachmentsResult, __MetadataBearer {}
 
 /**
  * <p>Describes your transit gateway peering attachments.</p>
@@ -125,7 +122,7 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeTransitGatewayPeeringAttachments", {})
   .n("EC2Client", "DescribeTransitGatewayPeeringAttachmentsCommand")
-  .sc(DescribeTransitGatewayPeeringAttachments)
+  .sc(DescribeTransitGatewayPeeringAttachments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

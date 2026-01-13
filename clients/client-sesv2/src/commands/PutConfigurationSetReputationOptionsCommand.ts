@@ -8,7 +8,7 @@ import type {
   PutConfigurationSetReputationOptionsRequest,
   PutConfigurationSetReputationOptionsResponse,
 } from "../models/models_0";
-import { PutConfigurationSetReputationOptions } from "../schemas/schemas_0";
+import { PutConfigurationSetReputationOptions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -27,9 +27,7 @@ export interface PutConfigurationSetReputationOptionsCommandInput extends PutCon
  *
  * The output of {@link PutConfigurationSetReputationOptionsCommand}.
  */
-export interface PutConfigurationSetReputationOptionsCommandOutput
-  extends PutConfigurationSetReputationOptionsResponse,
-    __MetadataBearer {}
+export interface PutConfigurationSetReputationOptionsCommandOutput extends PutConfigurationSetReputationOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Enable or disable collection of reputation metrics for emails that you send using a
@@ -87,7 +85,7 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutConfigurationSetReputationOptions", {})
   .n("SESv2Client", "PutConfigurationSetReputationOptionsCommand")
-  .sc(PutConfigurationSetReputationOptions)
+  .sc(PutConfigurationSetReputationOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

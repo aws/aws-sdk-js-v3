@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeWebAppCustomizationRequest, DescribeWebAppCustomizationResponse } from "../models/models_0";
-import { DescribeWebAppCustomization } from "../schemas/schemas_0";
+import { DescribeWebAppCustomization$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DescribeWebAppCustomizationCommandInput extends DescribeWebAppC
  *
  * The output of {@link DescribeWebAppCustomizationCommand}.
  */
-export interface DescribeWebAppCustomizationCommandOutput
-  extends DescribeWebAppCustomizationResponse,
-    __MetadataBearer {}
+export interface DescribeWebAppCustomizationCommandOutput extends DescribeWebAppCustomizationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the web app customization object that's identified by <code>WebAppId</code>.</p>
@@ -96,7 +94,7 @@ export class DescribeWebAppCustomizationCommand extends $Command
   })
   .s("TransferService", "DescribeWebAppCustomization", {})
   .n("TransferClient", "DescribeWebAppCustomizationCommand")
-  .sc(DescribeWebAppCustomization)
+  .sc(DescribeWebAppCustomization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

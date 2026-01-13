@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartQuotaUtilizationReportRequest, StartQuotaUtilizationReportResponse } from "../models/models_0";
-import { StartQuotaUtilizationReport } from "../schemas/schemas_0";
+import { StartQuotaUtilizationReport$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -24,9 +24,7 @@ export interface StartQuotaUtilizationReportCommandInput extends StartQuotaUtili
  *
  * The output of {@link StartQuotaUtilizationReportCommand}.
  */
-export interface StartQuotaUtilizationReportCommandOutput
-  extends StartQuotaUtilizationReportResponse,
-    __MetadataBearer {}
+export interface StartQuotaUtilizationReportCommandOutput extends StartQuotaUtilizationReportResponse, __MetadataBearer {}
 
 /**
  * <p>Initiates the generation of a quota utilization report for your Amazon Web Services account. This
@@ -99,7 +97,7 @@ export class StartQuotaUtilizationReportCommand extends $Command
   })
   .s("ServiceQuotasV20190624", "StartQuotaUtilizationReport", {})
   .n("ServiceQuotasClient", "StartQuotaUtilizationReportCommand")
-  .sc(StartQuotaUtilizationReport)
+  .sc(StartQuotaUtilizationReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

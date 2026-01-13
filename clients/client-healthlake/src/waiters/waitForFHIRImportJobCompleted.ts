@@ -7,18 +7,15 @@ import {
 } from "../commands/DescribeFHIRImportJobCommand";
 import { HealthLakeClient } from "../HealthLakeClient";
 
-const checkState = async (
-  client: HealthLakeClient,
-  input: DescribeFHIRImportJobCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: HealthLakeClient, input: DescribeFHIRImportJobCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeFHIRImportJobCommand(input));
+    let result: any = await client.send(new DescribeFHIRImportJobCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.ImportJobProperties.JobStatus;
-      };
+      }
       if (returnComparator() === "COMPLETED") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -26,7 +23,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.ImportJobProperties.JobStatus;
-      };
+      }
       if (returnComparator() === "COMPLETED_WITH_ERRORS") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -34,7 +31,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.ImportJobProperties.JobStatus;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

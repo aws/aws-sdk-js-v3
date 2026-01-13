@@ -9,7 +9,7 @@ import type {
   CreateAutomatedReasoningPolicyVersionRequest,
   CreateAutomatedReasoningPolicyVersionResponse,
 } from "../models/models_0";
-import { CreateAutomatedReasoningPolicyVersion } from "../schemas/schemas_0";
+import { CreateAutomatedReasoningPolicyVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateAutomatedReasoningPolicyVersionCommand}.
  */
-export interface CreateAutomatedReasoningPolicyVersionCommandInput
-  extends CreateAutomatedReasoningPolicyVersionRequest {}
+export interface CreateAutomatedReasoningPolicyVersionCommandInput extends CreateAutomatedReasoningPolicyVersionRequest {}
 /**
  * @public
  *
  * The output of {@link CreateAutomatedReasoningPolicyVersionCommand}.
  */
-export interface CreateAutomatedReasoningPolicyVersionCommandOutput
-  extends CreateAutomatedReasoningPolicyVersionResponse,
-    __MetadataBearer {}
+export interface CreateAutomatedReasoningPolicyVersionCommandOutput extends CreateAutomatedReasoningPolicyVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new version of an existing Automated Reasoning policy. This allows you to iterate on your policy rules while maintaining previous versions for rollback or comparison purposes.</p>
@@ -116,7 +113,7 @@ export class CreateAutomatedReasoningPolicyVersionCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "CreateAutomatedReasoningPolicyVersion", {})
   .n("BedrockClient", "CreateAutomatedReasoningPolicyVersionCommand")
-  .sc(CreateAutomatedReasoningPolicyVersion)
+  .sc(CreateAutomatedReasoningPolicyVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

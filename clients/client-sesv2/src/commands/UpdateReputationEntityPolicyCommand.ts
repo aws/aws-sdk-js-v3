@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateReputationEntityPolicyRequest, UpdateReputationEntityPolicyResponse } from "../models/models_1";
-import { UpdateReputationEntityPolicy } from "../schemas/schemas_0";
+import { UpdateReputationEntityPolicy$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -24,9 +24,7 @@ export interface UpdateReputationEntityPolicyCommandInput extends UpdateReputati
  *
  * The output of {@link UpdateReputationEntityPolicyCommand}.
  */
-export interface UpdateReputationEntityPolicyCommandOutput
-  extends UpdateReputationEntityPolicyResponse,
-    __MetadataBearer {}
+export interface UpdateReputationEntityPolicyCommandOutput extends UpdateReputationEntityPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Update the reputation management policy for a reputation entity. The policy
@@ -88,7 +86,7 @@ export class UpdateReputationEntityPolicyCommand extends $Command
   })
   .s("SimpleEmailService_v2", "UpdateReputationEntityPolicy", {})
   .n("SESv2Client", "UpdateReputationEntityPolicyCommand")
-  .sc(UpdateReputationEntityPolicy)
+  .sc(UpdateReputationEntityPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   ListComputationModelResolveToResourcesRequest,
   ListComputationModelResolveToResourcesResponse,
 } from "../models/models_0";
-import { ListComputationModelResolveToResources } from "../schemas/schemas_0";
+import { ListComputationModelResolveToResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListComputationModelResolveToResourcesCommand}.
  */
-export interface ListComputationModelResolveToResourcesCommandInput
-  extends ListComputationModelResolveToResourcesRequest {}
+export interface ListComputationModelResolveToResourcesCommandInput extends ListComputationModelResolveToResourcesRequest {}
 /**
  * @public
  *
  * The output of {@link ListComputationModelResolveToResourcesCommand}.
  */
-export interface ListComputationModelResolveToResourcesCommandOutput
-  extends ListComputationModelResolveToResourcesResponse,
-    __MetadataBearer {}
+export interface ListComputationModelResolveToResourcesCommandOutput extends ListComputationModelResolveToResourcesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all distinct resources that are resolved from the executed actions of the
@@ -105,7 +102,7 @@ export class ListComputationModelResolveToResourcesCommand extends $Command
   })
   .s("AWSIoTSiteWise", "ListComputationModelResolveToResources", {})
   .n("IoTSiteWiseClient", "ListComputationModelResolveToResourcesCommand")
-  .sc(ListComputationModelResolveToResources)
+  .sc(ListComputationModelResolveToResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

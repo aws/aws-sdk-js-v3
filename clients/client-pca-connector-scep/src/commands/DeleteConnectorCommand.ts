@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PcaConnectorScepClient";
-import { DeleteConnector } from "../schemas/schemas_0";
+import { DeleteConnector$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class DeleteConnectorCommand extends $Command
   })
   .s("PcaConnectorScep", "DeleteConnector", {})
   .n("PcaConnectorScepClient", "DeleteConnectorCommand")
-  .sc(DeleteConnector)
+  .sc(DeleteConnector$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

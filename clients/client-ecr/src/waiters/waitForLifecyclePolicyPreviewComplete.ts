@@ -10,12 +10,12 @@ import { ECRClient } from "../ECRClient";
 const checkState = async (client: ECRClient, input: GetLifecyclePolicyPreviewCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetLifecyclePolicyPreviewCommand(input));
+    let result: any = await client.send(new GetLifecyclePolicyPreviewCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "COMPLETE") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -23,7 +23,7 @@ const checkState = async (client: ECRClient, input: GetLifecyclePolicyPreviewCom
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

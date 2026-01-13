@@ -9,7 +9,7 @@ import type {
   DescribeLaunchConfigurationTemplatesRequest,
   DescribeLaunchConfigurationTemplatesResponse,
 } from "../models/models_0";
-import { DescribeLaunchConfigurationTemplates } from "../schemas/schemas_0";
+import { DescribeLaunchConfigurationTemplates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeLaunchConfigurationTemplatesCommandInput extends Descri
  *
  * The output of {@link DescribeLaunchConfigurationTemplatesCommand}.
  */
-export interface DescribeLaunchConfigurationTemplatesCommandOutput
-  extends DescribeLaunchConfigurationTemplatesResponse,
-    __MetadataBearer {}
+export interface DescribeLaunchConfigurationTemplatesCommandOutput extends DescribeLaunchConfigurationTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all Launch Configuration Templates, filtered by Launch Configuration Template IDs</p>
@@ -152,7 +150,7 @@ export class DescribeLaunchConfigurationTemplatesCommand extends $Command
   })
   .s("ApplicationMigrationService", "DescribeLaunchConfigurationTemplates", {})
   .n("MgnClient", "DescribeLaunchConfigurationTemplatesCommand")
-  .sc(DescribeLaunchConfigurationTemplates)
+  .sc(DescribeLaunchConfigurationTemplates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,11 +1,11 @@
 {
   "name": "@aws-sdk/middleware-flexible-checksums",
-  "version": "3.947.0",
+  "version": "3.967.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline middleware-flexible-checksums",
     "build:es": "tsc -p tsconfig.es.json",
-    "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
+    "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
@@ -38,21 +38,22 @@
     "@aws-crypto/crc32c": "5.2.0",
     "@aws-crypto/util": "5.2.0",
     "@aws-sdk/core": "*",
+    "@aws-sdk/crc64-nvme": "*",
     "@aws-sdk/types": "*",
     "@smithy/is-array-buffer": "^4.2.0",
-    "@smithy/node-config-provider": "^4.3.5",
-    "@smithy/protocol-http": "^5.3.5",
-    "@smithy/types": "^4.9.0",
-    "@smithy/util-middleware": "^4.2.5",
-    "@smithy/util-stream": "^4.5.6",
+    "@smithy/node-config-provider": "^4.3.7",
+    "@smithy/protocol-http": "^5.3.7",
+    "@smithy/types": "^4.11.0",
+    "@smithy/util-middleware": "^4.2.7",
+    "@smithy/util-stream": "^4.5.8",
     "@smithy/util-utf8": "^4.2.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@smithy/node-http-handler": "^4.4.5",
+    "@smithy/node-http-handler": "^4.4.7",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
-    "rimraf": "3.0.2",
+    "rimraf": "5.0.10",
     "typescript": "~5.8.3"
   },
   "engines": {

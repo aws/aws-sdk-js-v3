@@ -24,7 +24,6 @@ import {
   UsageFeature,
   UsageStatisticType,
 } from "./enums";
-
 import {
   type CoverageFilterCriteria,
   type CoverageSortCriteria,
@@ -379,7 +378,7 @@ export interface GetRemainingFreeTrialDaysRequest {
    * <p>A list of account identifiers of the GuardDuty member account.</p>
    * @public
    */
-  AccountIds?: string[] | undefined;
+  AccountIds: string[] | undefined;
 }
 
 /**

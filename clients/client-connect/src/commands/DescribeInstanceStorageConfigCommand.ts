@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeInstanceStorageConfigRequest, DescribeInstanceStorageConfigResponse } from "../models/models_1";
-import { DescribeInstanceStorageConfig } from "../schemas/schemas_0";
+import { DescribeInstanceStorageConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeInstanceStorageConfigCommandInput extends DescribeInsta
  *
  * The output of {@link DescribeInstanceStorageConfigCommand}.
  */
-export interface DescribeInstanceStorageConfigCommandOutput
-  extends DescribeInstanceStorageConfigResponse,
-    __MetadataBearer {}
+export interface DescribeInstanceStorageConfigCommandOutput extends DescribeInstanceStorageConfigResponse, __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
@@ -119,7 +117,7 @@ export class DescribeInstanceStorageConfigCommand extends $Command
   })
   .s("AmazonConnectService", "DescribeInstanceStorageConfig", {})
   .n("ConnectClient", "DescribeInstanceStorageConfigCommand")
-  .sc(DescribeInstanceStorageConfig)
+  .sc(DescribeInstanceStorageConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

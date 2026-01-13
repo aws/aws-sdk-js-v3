@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RunTaskRequest, RunTaskResponse } from "../models/models_0";
-import { RunTask } from "../schemas/schemas_0";
+import { RunTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -502,7 +502,7 @@ export class RunTaskCommand extends $Command
   })
   .s("AmazonEC2ContainerServiceV20141113", "RunTask", {})
   .n("ECSClient", "RunTaskCommand")
-  .sc(RunTask)
+  .sc(RunTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

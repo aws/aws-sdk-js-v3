@@ -9,7 +9,7 @@ import type {
   DeleteDefaultQBusinessApplicationResponse,
 } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DeleteDefaultQBusinessApplication } from "../schemas/schemas_0";
+import { DeleteDefaultQBusinessApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteDefaultQBusinessApplicationCommandInput extends DeleteDef
  *
  * The output of {@link DeleteDefaultQBusinessApplicationCommand}.
  */
-export interface DeleteDefaultQBusinessApplicationCommandOutput
-  extends DeleteDefaultQBusinessApplicationResponse,
-    __MetadataBearer {}
+export interface DeleteDefaultQBusinessApplicationCommandOutput extends DeleteDefaultQBusinessApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a linked Amazon Q Business application from an Quick Sight account</p>
@@ -98,7 +96,7 @@ export class DeleteDefaultQBusinessApplicationCommand extends $Command
   })
   .s("QuickSight_20180401", "DeleteDefaultQBusinessApplication", {})
   .n("QuickSightClient", "DeleteDefaultQBusinessApplicationCommand")
-  .sc(DeleteDefaultQBusinessApplication)
+  .sc(DeleteDefaultQBusinessApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

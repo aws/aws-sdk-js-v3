@@ -7,12 +7,12 @@ import { GameLiftStreamsClient } from "../GameLiftStreamsClient";
 const checkState = async (client: GameLiftStreamsClient, input: GetStreamGroupCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetStreamGroupCommand(input));
+    let result: any = await client.send(new GetStreamGroupCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: GameLiftStreamsClient, input: GetStreamGroupCo
     try {
       const returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "ERROR") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -28,7 +28,7 @@ const checkState = async (client: GameLiftStreamsClient, input: GetStreamGroupCo
     try {
       const returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "ACTIVE_WITH_ERRORS") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -36,7 +36,7 @@ const checkState = async (client: GameLiftStreamsClient, input: GetStreamGroupCo
     try {
       const returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "DELETING") {
         return { state: WaiterState.FAILURE, reason };
       }

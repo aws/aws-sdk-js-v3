@@ -9,7 +9,7 @@ import type {
   ListConnectorDefinitionVersionsRequest,
   ListConnectorDefinitionVersionsResponse,
 } from "../models/models_0";
-import { ListConnectorDefinitionVersions } from "../schemas/schemas_0";
+import { ListConnectorDefinitionVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListConnectorDefinitionVersionsCommandInput extends ListConnect
  *
  * The output of {@link ListConnectorDefinitionVersionsCommand}.
  */
-export interface ListConnectorDefinitionVersionsCommandOutput
-  extends ListConnectorDefinitionVersionsResponse,
-    __MetadataBearer {}
+export interface ListConnectorDefinitionVersionsCommandOutput extends ListConnectorDefinitionVersionsResponse, __MetadataBearer {}
 
 /**
  * Lists the versions of a connector definition, which are containers for connectors. Connectors run on the Greengrass core and contain built-in integration with local infrastructure, device protocols, AWS, and other cloud services.
@@ -91,7 +89,7 @@ export class ListConnectorDefinitionVersionsCommand extends $Command
   })
   .s("Greengrass", "ListConnectorDefinitionVersions", {})
   .n("GreengrassClient", "ListConnectorDefinitionVersionsCommand")
-  .sc(ListConnectorDefinitionVersions)
+  .sc(ListConnectorDefinitionVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

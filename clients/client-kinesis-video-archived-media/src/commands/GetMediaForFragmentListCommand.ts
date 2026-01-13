@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
 import { type GetMediaForFragmentListInput, GetMediaForFragmentListOutput } from "../models/models_0";
-import { GetMediaForFragmentList } from "../schemas/schemas_0";
+import { GetMediaForFragmentList$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetMediaForFragmentListCommandInput extends GetMediaForFragment
  *
  * The output of {@link GetMediaForFragmentListCommand}.
  */
-export interface GetMediaForFragmentListCommandOutput
-  extends Omit<GetMediaForFragmentListOutput, "Payload">,
-    __MetadataBearer {
+export interface GetMediaForFragmentListCommandOutput extends Omit<GetMediaForFragmentListOutput, "Payload">, __MetadataBearer {
   Payload?: StreamingBlobPayloadOutputTypes;
 }
 
@@ -147,7 +145,7 @@ export class GetMediaForFragmentListCommand extends $Command
   })
   .s("AWSAcuityReader", "GetMediaForFragmentList", {})
   .n("KinesisVideoArchivedMediaClient", "GetMediaForFragmentListCommand")
-  .sc(GetMediaForFragmentList)
+  .sc(GetMediaForFragmentList$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

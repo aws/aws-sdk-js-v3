@@ -9,7 +9,7 @@ import type {
   ListCollaborationIdNamespaceAssociationsInput,
   ListCollaborationIdNamespaceAssociationsOutput,
 } from "../models/models_0";
-import { ListCollaborationIdNamespaceAssociations } from "../schemas/schemas_0";
+import { ListCollaborationIdNamespaceAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListCollaborationIdNamespaceAssociationsCommand}.
  */
-export interface ListCollaborationIdNamespaceAssociationsCommandInput
-  extends ListCollaborationIdNamespaceAssociationsInput {}
+export interface ListCollaborationIdNamespaceAssociationsCommandInput extends ListCollaborationIdNamespaceAssociationsInput {}
 /**
  * @public
  *
  * The output of {@link ListCollaborationIdNamespaceAssociationsCommand}.
  */
-export interface ListCollaborationIdNamespaceAssociationsCommandOutput
-  extends ListCollaborationIdNamespaceAssociationsOutput,
-    __MetadataBearer {}
+export interface ListCollaborationIdNamespaceAssociationsCommandOutput extends ListCollaborationIdNamespaceAssociationsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the ID namespace associations in a collaboration.</p>
@@ -116,7 +113,7 @@ export class ListCollaborationIdNamespaceAssociationsCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "ListCollaborationIdNamespaceAssociations", {})
   .n("CleanRoomsClient", "ListCollaborationIdNamespaceAssociationsCommand")
-  .sc(ListCollaborationIdNamespaceAssociations)
+  .sc(ListCollaborationIdNamespaceAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

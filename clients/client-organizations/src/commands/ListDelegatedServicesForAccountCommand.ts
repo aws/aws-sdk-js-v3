@@ -9,7 +9,7 @@ import type {
   ListDelegatedServicesForAccountResponse,
 } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { ListDelegatedServicesForAccount } from "../schemas/schemas_0";
+import { ListDelegatedServicesForAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListDelegatedServicesForAccountCommandInput extends ListDelegat
  *
  * The output of {@link ListDelegatedServicesForAccountCommand}.
  */
-export interface ListDelegatedServicesForAccountCommandOutput
-  extends ListDelegatedServicesForAccountResponse,
-    __MetadataBearer {}
+export interface ListDelegatedServicesForAccountCommandOutput extends ListDelegatedServicesForAccountResponse, __MetadataBearer {}
 
 /**
  * <p>List the Amazon Web Services services for which the specified account is a delegated
@@ -514,7 +512,7 @@ export class ListDelegatedServicesForAccountCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "ListDelegatedServicesForAccount", {})
   .n("OrganizationsClient", "ListDelegatedServicesForAccountCommand")
-  .sc(ListDelegatedServicesForAccount)
+  .sc(ListDelegatedServicesForAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

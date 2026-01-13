@@ -8,7 +8,7 @@ import type {
   GetInlinePolicyForPermissionSetRequest,
   GetInlinePolicyForPermissionSetResponse,
 } from "../models/models_0";
-import { GetInlinePolicyForPermissionSet } from "../schemas/schemas_0";
+import { GetInlinePolicyForPermissionSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -27,9 +27,7 @@ export interface GetInlinePolicyForPermissionSetCommandInput extends GetInlinePo
  *
  * The output of {@link GetInlinePolicyForPermissionSetCommand}.
  */
-export interface GetInlinePolicyForPermissionSetCommandOutput
-  extends GetInlinePolicyForPermissionSetResponse,
-    __MetadataBearer {}
+export interface GetInlinePolicyForPermissionSetCommandOutput extends GetInlinePolicyForPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Obtains the inline policy assigned to the permission set.</p>
@@ -94,7 +92,7 @@ export class GetInlinePolicyForPermissionSetCommand extends $Command
   })
   .s("SWBExternalService", "GetInlinePolicyForPermissionSet", {})
   .n("SSOAdminClient", "GetInlinePolicyForPermissionSetCommand")
-  .sc(GetInlinePolicyForPermissionSet)
+  .sc(GetInlinePolicyForPermissionSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

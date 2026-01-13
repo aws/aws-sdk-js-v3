@@ -10,7 +10,7 @@ import type {
 } from "../CodeConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateConnectionInput, CreateConnectionOutput } from "../models/models_0";
-import { CreateConnection } from "../schemas/schemas_0";
+import { CreateConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class CreateConnectionCommand extends $Command
   })
   .s("CodeConnections_20231201", "CreateConnection", {})
   .n("CodeConnectionsClient", "CreateConnectionCommand")
-  .sc(CreateConnection)
+  .sc(CreateConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DescribeDirectConnectGatewayAttachmentsRequest,
   DescribeDirectConnectGatewayAttachmentsResult,
 } from "../models/models_0";
-import { DescribeDirectConnectGatewayAttachments } from "../schemas/schemas_0";
+import { DescribeDirectConnectGatewayAttachments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeDirectConnectGatewayAttachmentsCommand}.
  */
-export interface DescribeDirectConnectGatewayAttachmentsCommandInput
-  extends DescribeDirectConnectGatewayAttachmentsRequest {}
+export interface DescribeDirectConnectGatewayAttachmentsCommandInput extends DescribeDirectConnectGatewayAttachmentsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeDirectConnectGatewayAttachmentsCommand}.
  */
-export interface DescribeDirectConnectGatewayAttachmentsCommandOutput
-  extends DescribeDirectConnectGatewayAttachmentsResult,
-    __MetadataBearer {}
+export interface DescribeDirectConnectGatewayAttachmentsCommandOutput extends DescribeDirectConnectGatewayAttachmentsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the attachments between your Direct Connect gateways and virtual interfaces. You must specify
@@ -103,7 +100,7 @@ export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command
   })
   .s("OvertureService", "DescribeDirectConnectGatewayAttachments", {})
   .n("DirectConnectClient", "DescribeDirectConnectGatewayAttachmentsCommand")
-  .sc(DescribeDirectConnectGatewayAttachments)
+  .sc(DescribeDirectConnectGatewayAttachments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyRuleInput, ModifyRuleOutput } from "../models/models_0";
-import { ModifyRule } from "../schemas/schemas_0";
+import { ModifyRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -443,7 +443,7 @@ export class ModifyRuleCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "ModifyRule", {})
   .n("ElasticLoadBalancingV2Client", "ModifyRuleCommand")
-  .sc(ModifyRule)
+  .sc(ModifyRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationDiscoveryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListServerNeighborsRequest, ListServerNeighborsResponse } from "../models/models_0";
-import { ListServerNeighbors } from "../schemas/schemas_0";
+import { ListServerNeighbors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class ListServerNeighborsCommand extends $Command
   })
   .s("AWSPoseidonService_V2015_11_01", "ListServerNeighbors", {})
   .n("ApplicationDiscoveryServiceClient", "ListServerNeighborsCommand")
-  .sc(ListServerNeighbors)
+  .sc(ListServerNeighbors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { HttpPrefixHeaders } from "../schemas/schemas_0";
+import { HttpPrefixHeaders$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class HttpPrefixHeadersCommand extends $Command
   })
   .s("RestJson", "HttpPrefixHeaders", {})
   .n("RestJsonProtocolClient", "HttpPrefixHeadersCommand")
-  .sc(HttpPrefixHeaders)
+  .sc(HttpPrefixHeaders$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

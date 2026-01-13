@@ -9,7 +9,7 @@ import type {
   DescribeVpcEndpointConnectionNotificationsRequest,
   DescribeVpcEndpointConnectionNotificationsResult,
 } from "../models/models_5";
-import { DescribeVpcEndpointConnectionNotifications } from "../schemas/schemas_0";
+import { DescribeVpcEndpointConnectionNotifications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeVpcEndpointConnectionNotificationsCommand}.
  */
-export interface DescribeVpcEndpointConnectionNotificationsCommandInput
-  extends DescribeVpcEndpointConnectionNotificationsRequest {}
+export interface DescribeVpcEndpointConnectionNotificationsCommandInput extends DescribeVpcEndpointConnectionNotificationsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeVpcEndpointConnectionNotificationsCommand}.
  */
-export interface DescribeVpcEndpointConnectionNotificationsCommandOutput
-  extends DescribeVpcEndpointConnectionNotificationsResult,
-    __MetadataBearer {}
+export interface DescribeVpcEndpointConnectionNotificationsCommandOutput extends DescribeVpcEndpointConnectionNotificationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the connection notifications for VPC endpoints and VPC endpoint
@@ -105,7 +102,7 @@ export class DescribeVpcEndpointConnectionNotificationsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeVpcEndpointConnectionNotifications", {})
   .n("EC2Client", "DescribeVpcEndpointConnectionNotificationsCommand")
-  .sc(DescribeVpcEndpointConnectionNotifications)
+  .sc(DescribeVpcEndpointConnectionNotifications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

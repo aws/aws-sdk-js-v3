@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateApplicationVersionRequest, CreateApplicationVersionResponse } from "../models/models_0";
-import { CreateApplicationVersion } from "../schemas/schemas_0";
+import { CreateApplicationVersion$ } from "../schemas/schemas_0";
 import type {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
@@ -127,7 +127,7 @@ export class CreateApplicationVersionCommand extends $Command
   })
   .s("ServerlessApplicationRepository", "CreateApplicationVersion", {})
   .n("ServerlessApplicationRepositoryClient", "CreateApplicationVersionCommand")
-  .sc(CreateApplicationVersion)
+  .sc(CreateApplicationVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

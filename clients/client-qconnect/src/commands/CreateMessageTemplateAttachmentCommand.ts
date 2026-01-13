@@ -9,7 +9,7 @@ import type {
   CreateMessageTemplateAttachmentResponse,
 } from "../models/models_0";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { CreateMessageTemplateAttachment } from "../schemas/schemas_0";
+import { CreateMessageTemplateAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateMessageTemplateAttachmentCommandInput extends CreateMessa
  *
  * The output of {@link CreateMessageTemplateAttachmentCommand}.
  */
-export interface CreateMessageTemplateAttachmentCommandOutput
-  extends CreateMessageTemplateAttachmentResponse,
-    __MetadataBearer {}
+export interface CreateMessageTemplateAttachmentCommandOutput extends CreateMessageTemplateAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Uploads an attachment file to the specified Amazon Q in Connect message template. The name of the message template attachment has to be unique for each message template referenced by the <code>$LATEST</code> qualifier. The body of the attachment file should be encoded using base64 encoding. After the file is uploaded, you can use the pre-signed Amazon S3 URL returned in response to download the uploaded file.</p>
@@ -111,7 +109,7 @@ export class CreateMessageTemplateAttachmentCommand extends $Command
   })
   .s("WisdomService", "CreateMessageTemplateAttachment", {})
   .n("QConnectClient", "CreateMessageTemplateAttachmentCommand")
-  .sc(CreateMessageTemplateAttachment)
+  .sc(CreateMessageTemplateAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

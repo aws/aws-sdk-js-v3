@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeLocalGatewayRouteTablesRequest, DescribeLocalGatewayRouteTablesResult } from "../models/models_4";
-import { DescribeLocalGatewayRouteTables } from "../schemas/schemas_0";
+import { DescribeLocalGatewayRouteTables$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeLocalGatewayRouteTablesCommandInput extends DescribeLoc
  *
  * The output of {@link DescribeLocalGatewayRouteTablesCommand}.
  */
-export interface DescribeLocalGatewayRouteTablesCommandOutput
-  extends DescribeLocalGatewayRouteTablesResult,
-    __MetadataBearer {}
+export interface DescribeLocalGatewayRouteTablesCommandOutput extends DescribeLocalGatewayRouteTablesResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more local gateway route tables. By default, all local gateway route tables are described.
@@ -110,7 +108,7 @@ export class DescribeLocalGatewayRouteTablesCommand extends $Command
   })
   .s("AmazonEC2", "DescribeLocalGatewayRouteTables", {})
   .n("EC2Client", "DescribeLocalGatewayRouteTablesCommand")
-  .sc(DescribeLocalGatewayRouteTables)
+  .sc(DescribeLocalGatewayRouteTables$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

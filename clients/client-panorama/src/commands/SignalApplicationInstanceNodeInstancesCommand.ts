@@ -9,7 +9,7 @@ import type {
   SignalApplicationInstanceNodeInstancesResponse,
 } from "../models/models_0";
 import type { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import { SignalApplicationInstanceNodeInstances } from "../schemas/schemas_0";
+import { SignalApplicationInstanceNodeInstances$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link SignalApplicationInstanceNodeInstancesCommand}.
  */
-export interface SignalApplicationInstanceNodeInstancesCommandInput
-  extends SignalApplicationInstanceNodeInstancesRequest {}
+export interface SignalApplicationInstanceNodeInstancesCommandInput extends SignalApplicationInstanceNodeInstancesRequest {}
 /**
  * @public
  *
  * The output of {@link SignalApplicationInstanceNodeInstancesCommand}.
  */
-export interface SignalApplicationInstanceNodeInstancesCommandOutput
-  extends SignalApplicationInstanceNodeInstancesResponse,
-    __MetadataBearer {}
+export interface SignalApplicationInstanceNodeInstancesCommandOutput extends SignalApplicationInstanceNodeInstancesResponse, __MetadataBearer {}
 
 /**
  * <p>Signal camera nodes to stop or resume.</p>
@@ -97,7 +94,7 @@ export class SignalApplicationInstanceNodeInstancesCommand extends $Command
   })
   .s("OmniCloudServiceLambda", "SignalApplicationInstanceNodeInstances", {})
   .n("PanoramaClient", "SignalApplicationInstanceNodeInstancesCommand")
-  .sc(SignalApplicationInstanceNodeInstances)
+  .sc(SignalApplicationInstanceNodeInstances$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRecoveryInstanceRequest } from "../models/models_0";
-import { DeleteRecoveryInstance } from "../schemas/schemas_0";
+import { DeleteRecoveryInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class DeleteRecoveryInstanceCommand extends $Command
   })
   .s("ElasticDisasterRecoveryService", "DeleteRecoveryInstance", {})
   .n("DrsClient", "DeleteRecoveryInstanceCommand")
-  .sc(DeleteRecoveryInstance)
+  .sc(DeleteRecoveryInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

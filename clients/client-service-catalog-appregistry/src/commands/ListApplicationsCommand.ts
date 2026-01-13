@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListApplicationsRequest, ListApplicationsResponse } from "../models/models_0";
-import { ListApplications } from "../schemas/schemas_0";
+import { ListApplications$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -94,7 +94,7 @@ export class ListApplicationsCommand extends $Command
   })
   .s("AWS242AppRegistry", "ListApplications", {})
   .n("ServiceCatalogAppRegistryClient", "ListApplicationsCommand")
-  .sc(ListApplications)
+  .sc(ListApplications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

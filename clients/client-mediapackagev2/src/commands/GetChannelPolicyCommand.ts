@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageV2Client";
 import type { GetChannelPolicyRequest, GetChannelPolicyResponse } from "../models/models_0";
-import { GetChannelPolicy } from "../schemas/schemas_0";
+import { GetChannelPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetChannelPolicyCommand extends $Command
   })
   .s("mediapackagev2", "GetChannelPolicy", {})
   .n("MediaPackageV2Client", "GetChannelPolicyCommand")
-  .sc(GetChannelPolicy)
+  .sc(GetChannelPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

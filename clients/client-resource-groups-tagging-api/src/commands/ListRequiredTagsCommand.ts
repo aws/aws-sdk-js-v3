@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient";
-import { ListRequiredTags } from "../schemas/schemas_0";
+import { ListRequiredTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class ListRequiredTagsCommand extends $Command
   })
   .s("ResourceGroupsTaggingAPI_20170126", "ListRequiredTags", {})
   .n("ResourceGroupsTaggingAPIClient", "ListRequiredTagsCommand")
-  .sc(ListRequiredTags)
+  .sc(ListRequiredTags$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

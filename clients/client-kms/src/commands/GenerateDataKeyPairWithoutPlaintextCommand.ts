@@ -9,7 +9,7 @@ import type {
   GenerateDataKeyPairWithoutPlaintextRequest,
   GenerateDataKeyPairWithoutPlaintextResponse,
 } from "../models/models_0";
-import { GenerateDataKeyPairWithoutPlaintext } from "../schemas/schemas_0";
+import { GenerateDataKeyPairWithoutPlaintext$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandInput extends Generat
  *
  * The output of {@link GenerateDataKeyPairWithoutPlaintextCommand}.
  */
-export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
-  extends GenerateDataKeyPairWithoutPlaintextResponse,
-    __MetadataBearer {}
+export interface GenerateDataKeyPairWithoutPlaintextCommandOutput extends GenerateDataKeyPairWithoutPlaintextResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a unique asymmetric data key pair for use outside of KMS. This operation returns
@@ -247,7 +245,7 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command
   })
   .s("TrentService", "GenerateDataKeyPairWithoutPlaintext", {})
   .n("KMSClient", "GenerateDataKeyPairWithoutPlaintextCommand")
-  .sc(GenerateDataKeyPairWithoutPlaintext)
+  .sc(GenerateDataKeyPairWithoutPlaintext$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

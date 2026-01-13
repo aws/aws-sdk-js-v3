@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { CreateTransitGatewayRouteTableAttachment } from "../schemas/schemas_0";
+import { CreateTransitGatewayRouteTableAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link CreateTransitGatewayRouteTableAttachmentCommand}.
  */
-export interface CreateTransitGatewayRouteTableAttachmentCommandInput
-  extends CreateTransitGatewayRouteTableAttachmentRequest {}
+export interface CreateTransitGatewayRouteTableAttachmentCommandInput extends CreateTransitGatewayRouteTableAttachmentRequest {}
 /**
  * @public
  *
  * The output of {@link CreateTransitGatewayRouteTableAttachmentCommand}.
  */
-export interface CreateTransitGatewayRouteTableAttachmentCommandOutput
-  extends CreateTransitGatewayRouteTableAttachmentResponse,
-    __MetadataBearer {}
+export interface CreateTransitGatewayRouteTableAttachmentCommandOutput extends CreateTransitGatewayRouteTableAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a transit gateway route table attachment.</p>
@@ -166,7 +163,7 @@ export class CreateTransitGatewayRouteTableAttachmentCommand extends $Command
   })
   .s("NetworkManager", "CreateTransitGatewayRouteTableAttachment", {})
   .n("NetworkManagerClient", "CreateTransitGatewayRouteTableAttachmentCommand")
-  .sc(CreateTransitGatewayRouteTableAttachment)
+  .sc(CreateTransitGatewayRouteTableAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

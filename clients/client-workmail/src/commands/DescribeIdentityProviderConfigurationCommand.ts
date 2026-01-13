@@ -8,7 +8,7 @@ import type {
   DescribeIdentityProviderConfigurationRequest,
   DescribeIdentityProviderConfigurationResponse,
 } from "../models/models_0";
-import { DescribeIdentityProviderConfiguration } from "../schemas/schemas_0";
+import { DescribeIdentityProviderConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeIdentityProviderConfigurationCommand}.
  */
-export interface DescribeIdentityProviderConfigurationCommandInput
-  extends DescribeIdentityProviderConfigurationRequest {}
+export interface DescribeIdentityProviderConfigurationCommandInput extends DescribeIdentityProviderConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeIdentityProviderConfigurationCommand}.
  */
-export interface DescribeIdentityProviderConfigurationCommandOutput
-  extends DescribeIdentityProviderConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeIdentityProviderConfigurationCommandOutput extends DescribeIdentityProviderConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -103,7 +100,7 @@ export class DescribeIdentityProviderConfigurationCommand extends $Command
   })
   .s("WorkMailService", "DescribeIdentityProviderConfiguration", {})
   .n("WorkMailClient", "DescribeIdentityProviderConfigurationCommand")
-  .sc(DescribeIdentityProviderConfiguration)
+  .sc(DescribeIdentityProviderConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

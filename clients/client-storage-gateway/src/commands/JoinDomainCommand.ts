@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { JoinDomainInput, JoinDomainOutput } from "../models/models_0";
-import { JoinDomain } from "../schemas/schemas_0";
+import { JoinDomain$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -104,7 +104,7 @@ export class JoinDomainCommand extends $Command
   })
   .s("StorageGateway_20130630", "JoinDomain", {})
   .n("StorageGatewayClient", "JoinDomainCommand")
-  .sc(JoinDomain)
+  .sc(JoinDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

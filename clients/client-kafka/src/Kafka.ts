@@ -369,8 +369,14 @@ export interface Kafka {
   /**
    * @see {@link CreateClusterCommand}
    */
-  createCluster(args: CreateClusterCommandInput, options?: __HttpHandlerOptions): Promise<CreateClusterCommandOutput>;
-  createCluster(args: CreateClusterCommandInput, cb: (err: any, data?: CreateClusterCommandOutput) => void): void;
+  createCluster(
+    args: CreateClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateClusterCommandOutput>;
+  createCluster(
+    args: CreateClusterCommandInput,
+    cb: (err: any, data?: CreateClusterCommandOutput) => void
+  ): void;
   createCluster(
     args: CreateClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -384,7 +390,10 @@ export interface Kafka {
     args: CreateClusterV2CommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateClusterV2CommandOutput>;
-  createClusterV2(args: CreateClusterV2CommandInput, cb: (err: any, data?: CreateClusterV2CommandOutput) => void): void;
+  createClusterV2(
+    args: CreateClusterV2CommandInput,
+    cb: (err: any, data?: CreateClusterV2CommandOutput) => void
+  ): void;
   createClusterV2(
     args: CreateClusterV2CommandInput,
     options: __HttpHandlerOptions,
@@ -445,8 +454,14 @@ export interface Kafka {
   /**
    * @see {@link DeleteClusterCommand}
    */
-  deleteCluster(args: DeleteClusterCommandInput, options?: __HttpHandlerOptions): Promise<DeleteClusterCommandOutput>;
-  deleteCluster(args: DeleteClusterCommandInput, cb: (err: any, data?: DeleteClusterCommandOutput) => void): void;
+  deleteCluster(
+    args: DeleteClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteClusterCommandOutput>;
+  deleteCluster(
+    args: DeleteClusterCommandInput,
+    cb: (err: any, data?: DeleteClusterCommandOutput) => void
+  ): void;
   deleteCluster(
     args: DeleteClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -528,7 +543,10 @@ export interface Kafka {
     args: DescribeClusterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeClusterCommandOutput>;
-  describeCluster(args: DescribeClusterCommandInput, cb: (err: any, data?: DescribeClusterCommandOutput) => void): void;
+  describeCluster(
+    args: DescribeClusterCommandInput,
+    cb: (err: any, data?: DescribeClusterCommandOutput) => void
+  ): void;
   describeCluster(
     args: DescribeClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -640,8 +658,14 @@ export interface Kafka {
   /**
    * @see {@link DescribeTopicCommand}
    */
-  describeTopic(args: DescribeTopicCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTopicCommandOutput>;
-  describeTopic(args: DescribeTopicCommandInput, cb: (err: any, data?: DescribeTopicCommandOutput) => void): void;
+  describeTopic(
+    args: DescribeTopicCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTopicCommandOutput>;
+  describeTopic(
+    args: DescribeTopicCommandInput,
+    cb: (err: any, data?: DescribeTopicCommandOutput) => void
+  ): void;
   describeTopic(
     args: DescribeTopicCommandInput,
     options: __HttpHandlerOptions,
@@ -789,8 +813,14 @@ export interface Kafka {
    * @see {@link ListClustersCommand}
    */
   listClusters(): Promise<ListClustersCommandOutput>;
-  listClusters(args: ListClustersCommandInput, options?: __HttpHandlerOptions): Promise<ListClustersCommandOutput>;
-  listClusters(args: ListClustersCommandInput, cb: (err: any, data?: ListClustersCommandOutput) => void): void;
+  listClusters(
+    args: ListClustersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListClustersCommandOutput>;
+  listClusters(
+    args: ListClustersCommandInput,
+    cb: (err: any, data?: ListClustersCommandOutput) => void
+  ): void;
   listClusters(
     args: ListClustersCommandInput,
     options: __HttpHandlerOptions,
@@ -805,7 +835,10 @@ export interface Kafka {
     args: ListClustersV2CommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListClustersV2CommandOutput>;
-  listClustersV2(args: ListClustersV2CommandInput, cb: (err: any, data?: ListClustersV2CommandOutput) => void): void;
+  listClustersV2(
+    args: ListClustersV2CommandInput,
+    cb: (err: any, data?: ListClustersV2CommandOutput) => void
+  ): void;
   listClustersV2(
     args: ListClustersV2CommandInput,
     options: __HttpHandlerOptions,
@@ -868,8 +901,14 @@ export interface Kafka {
   /**
    * @see {@link ListNodesCommand}
    */
-  listNodes(args: ListNodesCommandInput, options?: __HttpHandlerOptions): Promise<ListNodesCommandOutput>;
-  listNodes(args: ListNodesCommandInput, cb: (err: any, data?: ListNodesCommandOutput) => void): void;
+  listNodes(
+    args: ListNodesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNodesCommandOutput>;
+  listNodes(
+    args: ListNodesCommandInput,
+    cb: (err: any, data?: ListNodesCommandOutput) => void
+  ): void;
   listNodes(
     args: ListNodesCommandInput,
     options: __HttpHandlerOptions,
@@ -884,7 +923,10 @@ export interface Kafka {
     args: ListReplicatorsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListReplicatorsCommandOutput>;
-  listReplicators(args: ListReplicatorsCommandInput, cb: (err: any, data?: ListReplicatorsCommandOutput) => void): void;
+  listReplicators(
+    args: ListReplicatorsCommandInput,
+    cb: (err: any, data?: ListReplicatorsCommandOutput) => void
+  ): void;
   listReplicators(
     args: ListReplicatorsCommandInput,
     options: __HttpHandlerOptions,
@@ -928,8 +970,14 @@ export interface Kafka {
   /**
    * @see {@link ListTopicsCommand}
    */
-  listTopics(args: ListTopicsCommandInput, options?: __HttpHandlerOptions): Promise<ListTopicsCommandOutput>;
-  listTopics(args: ListTopicsCommandInput, cb: (err: any, data?: ListTopicsCommandOutput) => void): void;
+  listTopics(
+    args: ListTopicsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTopicsCommandOutput>;
+  listTopics(
+    args: ListTopicsCommandInput,
+    cb: (err: any, data?: ListTopicsCommandOutput) => void
+  ): void;
   listTopics(
     args: ListTopicsCommandInput,
     options: __HttpHandlerOptions,
@@ -974,8 +1022,14 @@ export interface Kafka {
   /**
    * @see {@link RebootBrokerCommand}
    */
-  rebootBroker(args: RebootBrokerCommandInput, options?: __HttpHandlerOptions): Promise<RebootBrokerCommandOutput>;
-  rebootBroker(args: RebootBrokerCommandInput, cb: (err: any, data?: RebootBrokerCommandOutput) => void): void;
+  rebootBroker(
+    args: RebootBrokerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RebootBrokerCommandOutput>;
+  rebootBroker(
+    args: RebootBrokerCommandInput,
+    cb: (err: any, data?: RebootBrokerCommandOutput) => void
+  ): void;
   rebootBroker(
     args: RebootBrokerCommandInput,
     options: __HttpHandlerOptions,
@@ -1002,8 +1056,14 @@ export interface Kafka {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1013,8 +1073,14 @@ export interface Kafka {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1198,7 +1264,10 @@ export interface Kafka {
     args: UpdateSecurityCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateSecurityCommandOutput>;
-  updateSecurity(args: UpdateSecurityCommandInput, cb: (err: any, data?: UpdateSecurityCommandOutput) => void): void;
+  updateSecurity(
+    args: UpdateSecurityCommandInput,
+    cb: (err: any, data?: UpdateSecurityCommandOutput) => void
+  ): void;
   updateSecurity(
     args: UpdateSecurityCommandInput,
     options: __HttpHandlerOptions,
@@ -1208,8 +1277,14 @@ export interface Kafka {
   /**
    * @see {@link UpdateStorageCommand}
    */
-  updateStorage(args: UpdateStorageCommandInput, options?: __HttpHandlerOptions): Promise<UpdateStorageCommandOutput>;
-  updateStorage(args: UpdateStorageCommandInput, cb: (err: any, data?: UpdateStorageCommandOutput) => void): void;
+  updateStorage(
+    args: UpdateStorageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateStorageCommandOutput>;
+  updateStorage(
+    args: UpdateStorageCommandInput,
+    cb: (err: any, data?: UpdateStorageCommandOutput) => void
+  ): void;
   updateStorage(
     args: UpdateStorageCommandInput,
     options: __HttpHandlerOptions,

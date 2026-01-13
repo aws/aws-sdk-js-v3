@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../EntityResolutionClient";
 import type { DeleteIdNamespaceInput, DeleteIdNamespaceOutput } from "../models/models_0";
-import { DeleteIdNamespace } from "../schemas/schemas_0";
+import { DeleteIdNamespace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeleteIdNamespaceCommand extends $Command
   })
   .s("AWSVeniceService", "DeleteIdNamespace", {})
   .n("EntityResolutionClient", "DeleteIdNamespaceCommand")
-  .sc(DeleteIdNamespace)
+  .sc(DeleteIdNamespace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

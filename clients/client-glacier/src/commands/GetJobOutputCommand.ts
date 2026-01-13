@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputType
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import type { GetJobOutputInput, GetJobOutputOutput } from "../models/models_0";
-import { GetJobOutput } from "../schemas/schemas_0";
+import { GetJobOutput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -166,7 +166,7 @@ export class GetJobOutputCommand extends $Command
   })
   .s("Glacier", "GetJobOutput", {})
   .n("GlacierClient", "GetJobOutputCommand")
-  .sc(GetJobOutput)
+  .sc(GetJobOutput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

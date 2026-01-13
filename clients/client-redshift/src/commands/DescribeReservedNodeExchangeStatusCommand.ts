@@ -9,7 +9,7 @@ import type {
   DescribeReservedNodeExchangeStatusOutputMessage,
 } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeReservedNodeExchangeStatus } from "../schemas/schemas_0";
+import { DescribeReservedNodeExchangeStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeReservedNodeExchangeStatusCommand}.
  */
-export interface DescribeReservedNodeExchangeStatusCommandInput
-  extends DescribeReservedNodeExchangeStatusInputMessage {}
+export interface DescribeReservedNodeExchangeStatusCommandInput extends DescribeReservedNodeExchangeStatusInputMessage {}
 /**
  * @public
  *
  * The output of {@link DescribeReservedNodeExchangeStatusCommand}.
  */
-export interface DescribeReservedNodeExchangeStatusCommandOutput
-  extends DescribeReservedNodeExchangeStatusOutputMessage,
-    __MetadataBearer {}
+export interface DescribeReservedNodeExchangeStatusCommandOutput extends DescribeReservedNodeExchangeStatusOutputMessage, __MetadataBearer {}
 
 /**
  * <p>Returns exchange status details and associated metadata for a reserved-node
@@ -105,7 +102,7 @@ export class DescribeReservedNodeExchangeStatusCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DescribeReservedNodeExchangeStatus", {})
   .n("RedshiftClient", "DescribeReservedNodeExchangeStatusCommand")
-  .sc(DescribeReservedNodeExchangeStatus)
+  .sc(DescribeReservedNodeExchangeStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

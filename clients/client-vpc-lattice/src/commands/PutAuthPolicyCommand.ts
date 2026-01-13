@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutAuthPolicyRequest, PutAuthPolicyResponse } from "../models/models_0";
-import { PutAuthPolicy } from "../schemas/schemas_0";
+import { PutAuthPolicy$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -90,7 +90,7 @@ export class PutAuthPolicyCommand extends $Command
   })
   .s("MercuryControlPlane", "PutAuthPolicy", {})
   .n("VPCLatticeClient", "PutAuthPolicyCommand")
-  .sc(PutAuthPolicy)
+  .sc(PutAuthPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

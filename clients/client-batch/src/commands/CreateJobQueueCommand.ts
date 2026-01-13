@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateJobQueueRequest, CreateJobQueueResponse } from "../models/models_0";
-import { CreateJobQueue } from "../schemas/schemas_0";
+import { CreateJobQueue$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -167,7 +167,7 @@ export class CreateJobQueueCommand extends $Command
   })
   .s("AWSBatchV20160810", "CreateJobQueue", {})
   .n("BatchClient", "CreateJobQueueCommand")
-  .sc(CreateJobQueue)
+  .sc(CreateJobQueue$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { NotifyRecommendationsReceivedRequest, NotifyRecommendationsReceivedResponse } from "../models/models_0";
-import { NotifyRecommendationsReceived } from "../schemas/schemas_0";
+import { NotifyRecommendationsReceived$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -24,9 +24,7 @@ export interface NotifyRecommendationsReceivedCommandInput extends NotifyRecomme
  *
  * The output of {@link NotifyRecommendationsReceivedCommand}.
  */
-export interface NotifyRecommendationsReceivedCommandOutput
-  extends NotifyRecommendationsReceivedResponse,
-    __MetadataBearer {}
+export interface NotifyRecommendationsReceivedCommandOutput extends NotifyRecommendationsReceivedResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the specified recommendations from the specified assistant's queue of newly
@@ -98,7 +96,7 @@ export class NotifyRecommendationsReceivedCommand extends $Command
   })
   .s("WisdomService", "NotifyRecommendationsReceived", {})
   .n("WisdomClient", "NotifyRecommendationsReceivedCommand")
-  .sc(NotifyRecommendationsReceived)
+  .sc(NotifyRecommendationsReceived$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

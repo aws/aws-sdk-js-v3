@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchGetDeploymentInstancesInput, BatchGetDeploymentInstancesOutput } from "../models/models_0";
-import { BatchGetDeploymentInstances } from "../schemas/schemas_0";
+import { BatchGetDeploymentInstances$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class BatchGetDeploymentInstancesCommand extends $Command
   })
   .s("CodeDeploy_20141006", "BatchGetDeploymentInstances", {})
   .n("CodeDeployClient", "BatchGetDeploymentInstancesCommand")
-  .sc(BatchGetDeploymentInstances)
+  .sc(BatchGetDeploymentInstances$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import type { ChangeServerLifeCycleStateRequest, SourceServer } from "../models/models_0";
-import { ChangeServerLifeCycleState } from "../schemas/schemas_0";
+import { ChangeServerLifeCycleState$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -205,7 +205,7 @@ export class ChangeServerLifeCycleStateCommand extends $Command
   })
   .s("ApplicationMigrationService", "ChangeServerLifeCycleState", {})
   .n("MgnClient", "ChangeServerLifeCycleStateCommand")
-  .sc(ChangeServerLifeCycleState)
+  .sc(ChangeServerLifeCycleState$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

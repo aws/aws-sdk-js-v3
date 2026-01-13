@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteByteMatchSetRequest, DeleteByteMatchSetResponse } from "../models/models_0";
-import { DeleteByteMatchSet } from "../schemas/schemas_0";
+import { DeleteByteMatchSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -36,8 +36,8 @@ export interface DeleteByteMatchSetCommandOutput extends DeleteByteMatchSetRespo
  *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
  *          </note>
  * 		       <p>Permanently deletes a <a>ByteMatchSet</a>. You can't delete a <code>ByteMatchSet</code> if it's still used in any <code>Rules</code>
- * 			or if it still includes any <a>ByteMatchTuple</a> objects (any filters).</p>
- * 		       <p>If you just want to remove a <code>ByteMatchSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>
+ * 			or if it still includes any <a>ByteMatchTuple</a> objects (any filters).</p>		
+ * 		       <p>If you just want to remove a <code>ByteMatchSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>		
  * 		       <p>To permanently delete a <code>ByteMatchSet</code>, perform the following steps:</p>
  * 		       <ol>
  *             <li>
@@ -154,7 +154,7 @@ export class DeleteByteMatchSetCommand extends $Command
   })
   .s("AWSWAF_20150824", "DeleteByteMatchSet", {})
   .n("WAFClient", "DeleteByteMatchSetCommand")
-  .sc(DeleteByteMatchSet)
+  .sc(DeleteByteMatchSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

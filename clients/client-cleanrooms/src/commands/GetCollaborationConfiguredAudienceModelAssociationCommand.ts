@@ -9,7 +9,7 @@ import type {
   GetCollaborationConfiguredAudienceModelAssociationInput,
   GetCollaborationConfiguredAudienceModelAssociationOutput,
 } from "../models/models_0";
-import { GetCollaborationConfiguredAudienceModelAssociation } from "../schemas/schemas_0";
+import { GetCollaborationConfiguredAudienceModelAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetCollaborationConfiguredAudienceModelAssociationCommand}.
  */
-export interface GetCollaborationConfiguredAudienceModelAssociationCommandInput
-  extends GetCollaborationConfiguredAudienceModelAssociationInput {}
+export interface GetCollaborationConfiguredAudienceModelAssociationCommandInput extends GetCollaborationConfiguredAudienceModelAssociationInput {}
 /**
  * @public
  *
  * The output of {@link GetCollaborationConfiguredAudienceModelAssociationCommand}.
  */
-export interface GetCollaborationConfiguredAudienceModelAssociationCommandOutput
-  extends GetCollaborationConfiguredAudienceModelAssociationOutput,
-    __MetadataBearer {}
+export interface GetCollaborationConfiguredAudienceModelAssociationCommandOutput extends GetCollaborationConfiguredAudienceModelAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves a configured audience model association within a collaboration.</p>
@@ -106,7 +103,7 @@ export class GetCollaborationConfiguredAudienceModelAssociationCommand extends $
   })
   .s("AWSBastionControlPlaneServiceLambda", "GetCollaborationConfiguredAudienceModelAssociation", {})
   .n("CleanRoomsClient", "GetCollaborationConfiguredAudienceModelAssociationCommand")
-  .sc(GetCollaborationConfiguredAudienceModelAssociation)
+  .sc(GetCollaborationConfiguredAudienceModelAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

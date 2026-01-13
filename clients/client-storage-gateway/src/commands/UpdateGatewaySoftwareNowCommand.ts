@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateGatewaySoftwareNowInput, UpdateGatewaySoftwareNowOutput } from "../models/models_0";
-import { UpdateGatewaySoftwareNow } from "../schemas/schemas_0";
+import { UpdateGatewaySoftwareNow$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -113,7 +113,7 @@ export class UpdateGatewaySoftwareNowCommand extends $Command
   })
   .s("StorageGateway_20130630", "UpdateGatewaySoftwareNow", {})
   .n("StorageGatewayClient", "UpdateGatewaySoftwareNowCommand")
-  .sc(UpdateGatewaySoftwareNow)
+  .sc(UpdateGatewaySoftwareNow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   DescribeInstanceAssociationsStatusRequest,
   DescribeInstanceAssociationsStatusResult,
 } from "../models/models_0";
-import { DescribeInstanceAssociationsStatus } from "../schemas/schemas_0";
+import { DescribeInstanceAssociationsStatus$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DescribeInstanceAssociationsStatusCommandInput extends Describe
  *
  * The output of {@link DescribeInstanceAssociationsStatusCommand}.
  */
-export interface DescribeInstanceAssociationsStatusCommandOutput
-  extends DescribeInstanceAssociationsStatusResult,
-    __MetadataBearer {}
+export interface DescribeInstanceAssociationsStatusCommandOutput extends DescribeInstanceAssociationsStatusResult, __MetadataBearer {}
 
 /**
  * <p>The status of the associations for the managed nodes.</p>
@@ -126,7 +124,7 @@ export class DescribeInstanceAssociationsStatusCommand extends $Command
   })
   .s("AmazonSSM", "DescribeInstanceAssociationsStatus", {})
   .n("SSMClient", "DescribeInstanceAssociationsStatusCommand")
-  .sc(DescribeInstanceAssociationsStatus)
+  .sc(DescribeInstanceAssociationsStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

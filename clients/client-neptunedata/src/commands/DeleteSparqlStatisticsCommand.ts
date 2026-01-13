@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSparqlStatisticsOutput } from "../models/models_0";
 import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
-import { DeleteSparqlStatistics } from "../schemas/schemas_0";
+import { DeleteSparqlStatistics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class DeleteSparqlStatisticsCommand extends $Command
   })
   .s("AmazonNeptuneDataplane", "DeleteSparqlStatistics", {})
   .n("NeptunedataClient", "DeleteSparqlStatisticsCommand")
-  .sc(DeleteSparqlStatistics)
+  .sc(DeleteSparqlStatistics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -204,7 +204,10 @@ export interface SsmSap {
     args: GetApplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetApplicationCommandOutput>;
-  getApplication(args: GetApplicationCommandInput, cb: (err: any, data?: GetApplicationCommandOutput) => void): void;
+  getApplication(
+    args: GetApplicationCommandInput,
+    cb: (err: any, data?: GetApplicationCommandOutput) => void
+  ): void;
   getApplication(
     args: GetApplicationCommandInput,
     options: __HttpHandlerOptions,
@@ -214,8 +217,14 @@ export interface SsmSap {
   /**
    * @see {@link GetComponentCommand}
    */
-  getComponent(args: GetComponentCommandInput, options?: __HttpHandlerOptions): Promise<GetComponentCommandOutput>;
-  getComponent(args: GetComponentCommandInput, cb: (err: any, data?: GetComponentCommandOutput) => void): void;
+  getComponent(
+    args: GetComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetComponentCommandOutput>;
+  getComponent(
+    args: GetComponentCommandInput,
+    cb: (err: any, data?: GetComponentCommandOutput) => void
+  ): void;
   getComponent(
     args: GetComponentCommandInput,
     options: __HttpHandlerOptions,
@@ -243,8 +252,14 @@ export interface SsmSap {
    * @see {@link GetDatabaseCommand}
    */
   getDatabase(): Promise<GetDatabaseCommandOutput>;
-  getDatabase(args: GetDatabaseCommandInput, options?: __HttpHandlerOptions): Promise<GetDatabaseCommandOutput>;
-  getDatabase(args: GetDatabaseCommandInput, cb: (err: any, data?: GetDatabaseCommandOutput) => void): void;
+  getDatabase(
+    args: GetDatabaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDatabaseCommandOutput>;
+  getDatabase(
+    args: GetDatabaseCommandInput,
+    cb: (err: any, data?: GetDatabaseCommandOutput) => void
+  ): void;
   getDatabase(
     args: GetDatabaseCommandInput,
     options: __HttpHandlerOptions,
@@ -254,8 +269,14 @@ export interface SsmSap {
   /**
    * @see {@link GetOperationCommand}
    */
-  getOperation(args: GetOperationCommandInput, options?: __HttpHandlerOptions): Promise<GetOperationCommandOutput>;
-  getOperation(args: GetOperationCommandInput, cb: (err: any, data?: GetOperationCommandOutput) => void): void;
+  getOperation(
+    args: GetOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOperationCommandOutput>;
+  getOperation(
+    args: GetOperationCommandInput,
+    cb: (err: any, data?: GetOperationCommandOutput) => void
+  ): void;
   getOperation(
     args: GetOperationCommandInput,
     options: __HttpHandlerOptions,
@@ -305,7 +326,10 @@ export interface SsmSap {
     args: ListComponentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListComponentsCommandOutput>;
-  listComponents(args: ListComponentsCommandInput, cb: (err: any, data?: ListComponentsCommandOutput) => void): void;
+  listComponents(
+    args: ListComponentsCommandInput,
+    cb: (err: any, data?: ListComponentsCommandOutput) => void
+  ): void;
   listComponents(
     args: ListComponentsCommandInput,
     options: __HttpHandlerOptions,
@@ -351,8 +375,14 @@ export interface SsmSap {
    * @see {@link ListDatabasesCommand}
    */
   listDatabases(): Promise<ListDatabasesCommandOutput>;
-  listDatabases(args: ListDatabasesCommandInput, options?: __HttpHandlerOptions): Promise<ListDatabasesCommandOutput>;
-  listDatabases(args: ListDatabasesCommandInput, cb: (err: any, data?: ListDatabasesCommandOutput) => void): void;
+  listDatabases(
+    args: ListDatabasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatabasesCommandOutput>;
+  listDatabases(
+    args: ListDatabasesCommandInput,
+    cb: (err: any, data?: ListDatabasesCommandOutput) => void
+  ): void;
   listDatabases(
     args: ListDatabasesCommandInput,
     options: __HttpHandlerOptions,
@@ -383,7 +413,10 @@ export interface SsmSap {
     args: ListOperationsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListOperationsCommandOutput>;
-  listOperations(args: ListOperationsCommandInput, cb: (err: any, data?: ListOperationsCommandOutput) => void): void;
+  listOperations(
+    args: ListOperationsCommandInput,
+    cb: (err: any, data?: ListOperationsCommandOutput) => void
+  ): void;
   listOperations(
     args: ListOperationsCommandInput,
     options: __HttpHandlerOptions,
@@ -533,7 +566,10 @@ export interface SsmSap {
     args: StopApplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopApplicationCommandOutput>;
-  stopApplication(args: StopApplicationCommandInput, cb: (err: any, data?: StopApplicationCommandOutput) => void): void;
+  stopApplication(
+    args: StopApplicationCommandInput,
+    cb: (err: any, data?: StopApplicationCommandOutput) => void
+  ): void;
   stopApplication(
     args: StopApplicationCommandInput,
     options: __HttpHandlerOptions,
@@ -543,8 +579,14 @@ export interface SsmSap {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -554,8 +596,14 @@ export interface SsmSap {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

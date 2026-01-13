@@ -9,7 +9,7 @@ import type {
   SendDurableExecutionCallbackHeartbeatRequest,
   SendDurableExecutionCallbackHeartbeatResponse,
 } from "../models/models_0";
-import { SendDurableExecutionCallbackHeartbeat } from "../schemas/schemas_0";
+import { SendDurableExecutionCallbackHeartbeat$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link SendDurableExecutionCallbackHeartbeatCommand}.
  */
-export interface SendDurableExecutionCallbackHeartbeatCommandInput
-  extends SendDurableExecutionCallbackHeartbeatRequest {}
+export interface SendDurableExecutionCallbackHeartbeatCommandInput extends SendDurableExecutionCallbackHeartbeatRequest {}
 /**
  * @public
  *
  * The output of {@link SendDurableExecutionCallbackHeartbeatCommand}.
  */
-export interface SendDurableExecutionCallbackHeartbeatCommandOutput
-  extends SendDurableExecutionCallbackHeartbeatResponse,
-    __MetadataBearer {}
+export interface SendDurableExecutionCallbackHeartbeatCommandOutput extends SendDurableExecutionCallbackHeartbeatResponse, __MetadataBearer {}
 
 /**
  * <p>Sends a heartbeat signal for a long-running callback operation to prevent timeout. Use this API to extend the callback timeout period while the external operation is still in progress.</p>
@@ -89,7 +86,7 @@ export class SendDurableExecutionCallbackHeartbeatCommand extends $Command
   })
   .s("AWSGirApiService", "SendDurableExecutionCallbackHeartbeat", {})
   .n("LambdaClient", "SendDurableExecutionCallbackHeartbeatCommand")
-  .sc(SendDurableExecutionCallbackHeartbeat)
+  .sc(SendDurableExecutionCallbackHeartbeat$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

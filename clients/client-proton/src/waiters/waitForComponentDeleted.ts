@@ -7,12 +7,12 @@ import { ProtonClient } from "../ProtonClient";
 const checkState = async (client: ProtonClient, input: GetComponentCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetComponentCommand(input));
+    let result: any = await client.send(new GetComponentCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.component.deploymentStatus;
-      };
+      }
       if (returnComparator() === "DELETE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

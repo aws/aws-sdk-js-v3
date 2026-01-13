@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelResourceRequestInput, CancelResourceRequestOutput } from "../models/models_0";
-import { CancelResourceRequest } from "../schemas/schemas_0";
+import { CancelResourceRequest$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class CancelResourceRequestCommand extends $Command
   })
   .s("CloudApiService", "CancelResourceRequest", {})
   .n("CloudControlClient", "CancelResourceRequestCommand")
-  .sc(CancelResourceRequest)
+  .sc(CancelResourceRequest$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

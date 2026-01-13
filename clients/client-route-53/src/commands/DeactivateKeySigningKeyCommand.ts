@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeactivateKeySigningKeyRequest, DeactivateKeySigningKeyResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { DeactivateKeySigningKey } from "../schemas/schemas_0";
+import { DeactivateKeySigningKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,11 +103,14 @@ export class DeactivateKeySigningKeyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "DeactivateKeySigningKey", {})
   .n("Route53Client", "DeactivateKeySigningKeyCommand")
-  .sc(DeactivateKeySigningKey)
+  .sc(DeactivateKeySigningKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

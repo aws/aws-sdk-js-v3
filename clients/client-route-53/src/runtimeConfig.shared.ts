@@ -26,17 +26,19 @@ export const getRuntimeConfig = (config: Route53ClientConfig) => {
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsRestXmlProtocol({
-        defaultNamespace: "com.amazonaws.route53",
-        xmlNamespace: "https://route53.amazonaws.com/doc/2013-04-01/",
-      }),
+    protocol: config?.protocol ?? AwsRestXmlProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.route53",
+      xmlNamespace: "https://route53.amazonaws.com/doc/2013-04-01/",
+      version: "2013-04-01",
+      serviceTarget: "AWSDnsV20130401",
+    },
     serviceId: config?.serviceId ?? "Route 53",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

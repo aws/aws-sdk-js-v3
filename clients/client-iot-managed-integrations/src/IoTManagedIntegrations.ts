@@ -638,8 +638,14 @@ export interface IoTManagedIntegrations {
   /**
    * @see {@link CreateOtaTaskCommand}
    */
-  createOtaTask(args: CreateOtaTaskCommandInput, options?: __HttpHandlerOptions): Promise<CreateOtaTaskCommandOutput>;
-  createOtaTask(args: CreateOtaTaskCommandInput, cb: (err: any, data?: CreateOtaTaskCommandOutput) => void): void;
+  createOtaTask(
+    args: CreateOtaTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateOtaTaskCommandOutput>;
+  createOtaTask(
+    args: CreateOtaTaskCommandInput,
+    cb: (err: any, data?: CreateOtaTaskCommandOutput) => void
+  ): void;
   createOtaTask(
     args: CreateOtaTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -820,8 +826,14 @@ export interface IoTManagedIntegrations {
   /**
    * @see {@link DeleteOtaTaskCommand}
    */
-  deleteOtaTask(args: DeleteOtaTaskCommandInput, options?: __HttpHandlerOptions): Promise<DeleteOtaTaskCommandOutput>;
-  deleteOtaTask(args: DeleteOtaTaskCommandInput, cb: (err: any, data?: DeleteOtaTaskCommandOutput) => void): void;
+  deleteOtaTask(
+    args: DeleteOtaTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteOtaTaskCommandOutput>;
+  deleteOtaTask(
+    args: DeleteOtaTaskCommandInput,
+    cb: (err: any, data?: DeleteOtaTaskCommandOutput) => void
+  ): void;
   deleteOtaTask(
     args: DeleteOtaTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -990,7 +1002,10 @@ export interface IoTManagedIntegrations {
     args: GetDestinationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDestinationCommandOutput>;
-  getDestination(args: GetDestinationCommandInput, cb: (err: any, data?: GetDestinationCommandOutput) => void): void;
+  getDestination(
+    args: GetDestinationCommandInput,
+    cb: (err: any, data?: GetDestinationCommandOutput) => void
+  ): void;
   getDestination(
     args: GetDestinationCommandInput,
     options: __HttpHandlerOptions,
@@ -1056,7 +1071,10 @@ export interface IoTManagedIntegrations {
     args: GetManagedThingCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetManagedThingCommandOutput>;
-  getManagedThing(args: GetManagedThingCommandInput, cb: (err: any, data?: GetManagedThingCommandOutput) => void): void;
+  getManagedThing(
+    args: GetManagedThingCommandInput,
+    cb: (err: any, data?: GetManagedThingCommandOutput) => void
+  ): void;
   getManagedThing(
     args: GetManagedThingCommandInput,
     options: __HttpHandlerOptions,
@@ -1168,8 +1186,14 @@ export interface IoTManagedIntegrations {
   /**
    * @see {@link GetOtaTaskCommand}
    */
-  getOtaTask(args: GetOtaTaskCommandInput, options?: __HttpHandlerOptions): Promise<GetOtaTaskCommandOutput>;
-  getOtaTask(args: GetOtaTaskCommandInput, cb: (err: any, data?: GetOtaTaskCommandOutput) => void): void;
+  getOtaTask(
+    args: GetOtaTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOtaTaskCommandOutput>;
+  getOtaTask(
+    args: GetOtaTaskCommandInput,
+    cb: (err: any, data?: GetOtaTaskCommandOutput) => void
+  ): void;
   getOtaTask(
     args: GetOtaTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -1497,8 +1521,14 @@ export interface IoTManagedIntegrations {
    * @see {@link ListOtaTasksCommand}
    */
   listOtaTasks(): Promise<ListOtaTasksCommandOutput>;
-  listOtaTasks(args: ListOtaTasksCommandInput, options?: __HttpHandlerOptions): Promise<ListOtaTasksCommandOutput>;
-  listOtaTasks(args: ListOtaTasksCommandInput, cb: (err: any, data?: ListOtaTasksCommandOutput) => void): void;
+  listOtaTasks(
+    args: ListOtaTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOtaTasksCommandOutput>;
+  listOtaTasks(
+    args: ListOtaTasksCommandInput,
+    cb: (err: any, data?: ListOtaTasksCommandOutput) => void
+  ): void;
   listOtaTasks(
     args: ListOtaTasksCommandInput,
     options: __HttpHandlerOptions,
@@ -1731,8 +1761,14 @@ export interface IoTManagedIntegrations {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1742,8 +1778,14 @@ export interface IoTManagedIntegrations {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1872,8 +1914,14 @@ export interface IoTManagedIntegrations {
   /**
    * @see {@link UpdateOtaTaskCommand}
    */
-  updateOtaTask(args: UpdateOtaTaskCommandInput, options?: __HttpHandlerOptions): Promise<UpdateOtaTaskCommandOutput>;
-  updateOtaTask(args: UpdateOtaTaskCommandInput, cb: (err: any, data?: UpdateOtaTaskCommandOutput) => void): void;
+  updateOtaTask(
+    args: UpdateOtaTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateOtaTaskCommandOutput>;
+  updateOtaTask(
+    args: UpdateOtaTaskCommandInput,
+    cb: (err: any, data?: UpdateOtaTaskCommandOutput) => void
+  ): void;
   updateOtaTask(
     args: UpdateOtaTaskCommandInput,
     options: __HttpHandlerOptions,

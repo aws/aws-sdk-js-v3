@@ -917,7 +917,9 @@ export interface ProbabilisticRuleValue {
  * </p>
  * @public
  */
-export type IndexingRuleValue = IndexingRuleValue.ProbabilisticMember | IndexingRuleValue.$UnknownMember;
+export type IndexingRuleValue =
+  | IndexingRuleValue.ProbabilisticMember
+  | IndexingRuleValue.$UnknownMember;
 
 /**
  * @public

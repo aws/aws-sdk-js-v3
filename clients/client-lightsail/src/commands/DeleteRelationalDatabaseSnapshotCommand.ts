@@ -9,7 +9,7 @@ import type {
   DeleteRelationalDatabaseSnapshotRequest,
   DeleteRelationalDatabaseSnapshotResult,
 } from "../models/models_0";
-import { DeleteRelationalDatabaseSnapshot } from "../schemas/schemas_0";
+import { DeleteRelationalDatabaseSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteRelationalDatabaseSnapshotCommandInput extends DeleteRela
  *
  * The output of {@link DeleteRelationalDatabaseSnapshotCommand}.
  */
-export interface DeleteRelationalDatabaseSnapshotCommandOutput
-  extends DeleteRelationalDatabaseSnapshotResult,
-    __MetadataBearer {}
+export interface DeleteRelationalDatabaseSnapshotCommandOutput extends DeleteRelationalDatabaseSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a database snapshot in Amazon Lightsail.</p>
@@ -133,7 +131,7 @@ export class DeleteRelationalDatabaseSnapshotCommand extends $Command
   })
   .s("Lightsail_20161128", "DeleteRelationalDatabaseSnapshot", {})
   .n("LightsailClient", "DeleteRelationalDatabaseSnapshotCommand")
-  .sc(DeleteRelationalDatabaseSnapshot)
+  .sc(DeleteRelationalDatabaseSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

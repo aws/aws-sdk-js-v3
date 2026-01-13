@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMessagingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RedactChannelMessageRequest, RedactChannelMessageResponse } from "../models/models_0";
-import { RedactChannelMessage } from "../schemas/schemas_0";
+import { RedactChannelMessage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class RedactChannelMessageCommand extends $Command
   })
   .s("ChimeMessagingService", "RedactChannelMessage", {})
   .n("ChimeSDKMessagingClient", "RedactChannelMessageCommand")
-  .sc(RedactChannelMessage)
+  .sc(RedactChannelMessage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

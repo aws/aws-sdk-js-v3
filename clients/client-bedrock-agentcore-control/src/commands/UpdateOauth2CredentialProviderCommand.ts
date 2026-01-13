@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateOauth2CredentialProviderRequest, UpdateOauth2CredentialProviderResponse } from "../models/models_0";
-import { UpdateOauth2CredentialProvider } from "../schemas/schemas_0";
+import { UpdateOauth2CredentialProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface UpdateOauth2CredentialProviderCommandInput extends UpdateOauth2
  *
  * The output of {@link UpdateOauth2CredentialProviderCommand}.
  */
-export interface UpdateOauth2CredentialProviderCommandOutput
-  extends UpdateOauth2CredentialProviderResponse,
-    __MetadataBearer {}
+export interface UpdateOauth2CredentialProviderCommandOutput extends UpdateOauth2CredentialProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing OAuth2 credential provider.</p>
@@ -277,7 +275,7 @@ export class UpdateOauth2CredentialProviderCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "UpdateOauth2CredentialProvider", {})
   .n("BedrockAgentCoreControlClient", "UpdateOauth2CredentialProviderCommand")
-  .sc(UpdateOauth2CredentialProvider)
+  .sc(UpdateOauth2CredentialProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

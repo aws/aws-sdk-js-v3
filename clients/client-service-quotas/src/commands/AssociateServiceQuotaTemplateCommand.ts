@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateServiceQuotaTemplateRequest, AssociateServiceQuotaTemplateResponse } from "../models/models_0";
-import { AssociateServiceQuotaTemplate } from "../schemas/schemas_0";
+import { AssociateServiceQuotaTemplate$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -24,9 +24,7 @@ export interface AssociateServiceQuotaTemplateCommandInput extends AssociateServ
  *
  * The output of {@link AssociateServiceQuotaTemplateCommand}.
  */
-export interface AssociateServiceQuotaTemplateCommandOutput
-  extends AssociateServiceQuotaTemplateResponse,
-    __MetadataBearer {}
+export interface AssociateServiceQuotaTemplateCommandOutput extends AssociateServiceQuotaTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Associates your quota request template with your organization. When a new
@@ -101,7 +99,7 @@ export class AssociateServiceQuotaTemplateCommand extends $Command
   })
   .s("ServiceQuotasV20190624", "AssociateServiceQuotaTemplate", {})
   .n("ServiceQuotasClient", "AssociateServiceQuotaTemplateCommand")
-  .sc(AssociateServiceQuotaTemplate)
+  .sc(AssociateServiceQuotaTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

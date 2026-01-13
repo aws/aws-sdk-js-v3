@@ -220,600 +220,496 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { CodeGuruProfilerServiceException as __CodeGuruProfilerServiceException } from "../models/CodeGuruProfilerServiceException";
+import { CodeGuruProfilerServiceException } from "../models/CodeGuruProfilerServiceException";
 import {
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AddNotificationChannelsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _ANCR,
+export var AddNotificationChannelsRequest$: StaticStructureSchema = [3, n0, _ANCR,
   0,
   [_pGN, _c],
-  [[0, 1], () => Channels],
+  [[0, 1], () => Channels]
 ];
-export var AddNotificationChannelsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _ANCRd,
+export var AddNotificationChannelsResponse$: StaticStructureSchema = [3, n0, _ANCRd,
   0,
   [_nC],
-  [() => NotificationConfiguration],
+  [() => NotificationConfiguration$]
 ];
-export var AgentConfiguration: StaticStructureSchema = [3, n0, _AC, 0, [_sP, _pIS, _aP], [2, 1, 128 | 0]];
-export var AgentOrchestrationConfig: StaticStructureSchema = [3, n0, _AOC, 0, [_pE], [2]];
-export var AggregatedProfileTime: StaticStructureSchema = [3, n0, _APT, 0, [_s, _p], [5, 0]];
-export var Anomaly: StaticStructureSchema = [3, n0, _A, 0, [_m, _r, _i], [() => Metric, 0, () => AnomalyInstances]];
-export var AnomalyInstance: StaticStructureSchema = [
-  3,
-  n0,
-  _AI,
+export var AgentConfiguration$: StaticStructureSchema = [3, n0, _AC,
+  0,
+  [_sP, _pIS, _aP],
+  [2, 1, 128 | 0]
+];
+export var AgentOrchestrationConfig$: StaticStructureSchema = [3, n0, _AOC,
+  0,
+  [_pE],
+  [2]
+];
+export var AggregatedProfileTime$: StaticStructureSchema = [3, n0, _APT,
+  0,
+  [_s, _p],
+  [5, 0]
+];
+export var Anomaly$: StaticStructureSchema = [3, n0, _A,
+  0,
+  [_m, _r, _i],
+  [() => Metric$, 0, () => AnomalyInstances]
+];
+export var AnomalyInstance$: StaticStructureSchema = [3, n0, _AI,
   0,
   [_id, _sT, _eT, _uF],
-  [0, 5, 5, () => UserFeedback],
+  [0, 5, 5, () => UserFeedback$]
 ];
-export var BatchGetFrameMetricDataRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _BGFMDR,
+export var BatchGetFrameMetricDataRequest$: StaticStructureSchema = [3, n0, _BGFMDR,
   0,
   [_pGN, _sT, _eT, _p, _tR, _fM],
-  [[0, 1], [5, { [_hQ]: _sT }], [5, { [_hQ]: _eT }], [0, { [_hQ]: _p }], [0, { [_hQ]: _tR }], () => FrameMetrics],
+  [[0, 1], [5, { [_hQ]: _sT }], [5, { [_hQ]: _eT }], [0, { [_hQ]: _p }], [0, { [_hQ]: _tR }], () => FrameMetrics]
 ];
-export var BatchGetFrameMetricDataResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _BGFMDRa,
+export var BatchGetFrameMetricDataResponse$: StaticStructureSchema = [3, n0, _BGFMDRa,
   0,
   [_sT, _eT, _re, _eTn, _uET, _fMD],
-  [5, 5, 0, () => ListOfTimestamps, () => UnprocessedEndTimeMap, () => FrameMetricData],
+  [5, 5, 0, () => ListOfTimestamps, () => UnprocessedEndTimeMap, () => FrameMetricData]
 ];
-export var Channel: StaticStructureSchema = [3, n0, _C, 0, [_id, _u, _eP], [0, 0, 64 | 0]];
-export var ConfigureAgentRequest: StaticStructureSchema = [3, n0, _CAR, 0, [_pGN, _fII, _me], [[0, 1], 0, 128 | 0]];
-export var ConfigureAgentResponse: StaticStructureSchema = [3, n0, _CARo, 0, [_co], [[() => AgentConfiguration, 16]]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _cl, [_hE]: 409 }, [_mes], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateProfilingGroupRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CPGR,
+export var Channel$: StaticStructureSchema = [3, n0, _C,
+  0,
+  [_id, _u, _eP],
+  [0, 0, 64 | 0]
+];
+export var ConfigureAgentRequest$: StaticStructureSchema = [3, n0, _CAR,
+  0,
+  [_pGN, _fII, _me],
+  [[0, 1], 0, 128 | 0]
+];
+export var ConfigureAgentResponse$: StaticStructureSchema = [3, n0, _CARo,
+  0,
+  [_co],
+  [[() => AgentConfiguration$, 16]]
+];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _cl, [_hE]: 409 },
+  [_mes],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateProfilingGroupRequest$: StaticStructureSchema = [3, n0, _CPGR,
   0,
   [_pGN, _cP, _cT, _aOC, _t],
-  [0, 0, [0, { [_iT]: 1, [_hQ]: _cT }], () => AgentOrchestrationConfig, 128 | 0],
+  [0, 0, [0, { [_hQ]: _cT, [_iT]: 1 }], () => AgentOrchestrationConfig$, 128 | 0]
 ];
-export var CreateProfilingGroupResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CPGRr,
+export var CreateProfilingGroupResponse$: StaticStructureSchema = [3, n0, _CPGRr,
   0,
   [_pG],
-  [[() => ProfilingGroupDescription, 16]],
+  [[() => ProfilingGroupDescription$, 16]]
 ];
-export var DeleteProfilingGroupRequest: StaticStructureSchema = [3, n0, _DPGR, 0, [_pGN], [[0, 1]]];
-export var DeleteProfilingGroupResponse: StaticStructureSchema = [3, n0, _DPGRe, 0, [], []];
-export var DescribeProfilingGroupRequest: StaticStructureSchema = [3, n0, _DPGRes, 0, [_pGN], [[0, 1]]];
-export var DescribeProfilingGroupResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _DPGResc,
+export var DeleteProfilingGroupRequest$: StaticStructureSchema = [3, n0, _DPGR,
+  0,
+  [_pGN],
+  [[0, 1]]
+];
+export var DeleteProfilingGroupResponse$: StaticStructureSchema = [3, n0, _DPGRe,
+  0,
+  [],
+  []
+];
+export var DescribeProfilingGroupRequest$: StaticStructureSchema = [3, n0, _DPGRes,
+  0,
+  [_pGN],
+  [[0, 1]]
+];
+export var DescribeProfilingGroupResponse$: StaticStructureSchema = [3, n0, _DPGResc,
   0,
   [_pG],
-  [[() => ProfilingGroupDescription, 16]],
+  [[() => ProfilingGroupDescription$, 16]]
 ];
-export var FindingsReportSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _FRS,
+export var FindingsReportSummary$: StaticStructureSchema = [3, n0, _FRS,
   0,
   [_id, _pGN, _pST, _pET, _tNOF],
-  [0, 0, 5, 5, 1],
+  [0, 0, 5, 5, 1]
 ];
-export var FrameMetric: StaticStructureSchema = [3, n0, _FM, 0, [_fN, _ty, _tS], [0, 0, 64 | 0]];
-export var FrameMetricDatum: StaticStructureSchema = [3, n0, _FMD, 0, [_fMr, _v], [() => FrameMetric, 64 | 1]];
-export var GetFindingsReportAccountSummaryRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GFRASR,
+export var FrameMetric$: StaticStructureSchema = [3, n0, _FM,
+  0,
+  [_fN, _ty, _tS],
+  [0, 0, 64 | 0]
+];
+export var FrameMetricDatum$: StaticStructureSchema = [3, n0, _FMD,
+  0,
+  [_fMr, _v],
+  [() => FrameMetric$, 64 | 1]
+];
+export var GetFindingsReportAccountSummaryRequest$: StaticStructureSchema = [3, n0, _GFRASR,
   0,
   [_nT, _mR, _dRO],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-    [2, { [_hQ]: _dRO }],
-  ],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [2, { [_hQ]: _dRO }]]
 ];
-export var GetFindingsReportAccountSummaryResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GFRASRe,
+export var GetFindingsReportAccountSummaryResponse$: StaticStructureSchema = [3, n0, _GFRASRe,
   0,
   [_rS, _nT],
-  [() => FindingsReportSummaries, 0],
+  [() => FindingsReportSummaries, 0]
 ];
-export var GetNotificationConfigurationRequest: StaticStructureSchema = [3, n0, _GNCR, 0, [_pGN], [[0, 1]]];
-export var GetNotificationConfigurationResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GNCRe,
+export var GetNotificationConfigurationRequest$: StaticStructureSchema = [3, n0, _GNCR,
+  0,
+  [_pGN],
+  [[0, 1]]
+];
+export var GetNotificationConfigurationResponse$: StaticStructureSchema = [3, n0, _GNCRe,
   0,
   [_nC],
-  [() => NotificationConfiguration],
+  [() => NotificationConfiguration$]
 ];
-export var GetPolicyRequest: StaticStructureSchema = [3, n0, _GPR, 0, [_pGN], [[0, 1]]];
-export var GetPolicyResponse: StaticStructureSchema = [3, n0, _GPRe, 0, [_po, _rI], [0, 0]];
-export var GetProfileRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GPRet,
+export var GetPolicyRequest$: StaticStructureSchema = [3, n0, _GPR,
+  0,
+  [_pGN],
+  [[0, 1]]
+];
+export var GetPolicyResponse$: StaticStructureSchema = [3, n0, _GPRe,
+  0,
+  [_po, _rI],
+  [0, 0]
+];
+export var GetProfileRequest$: StaticStructureSchema = [3, n0, _GPRet,
   0,
   [_pGN, _sT, _p, _eT, _mD, _a],
-  [
-    [0, 1],
-    [5, { [_hQ]: _sT }],
-    [0, { [_hQ]: _p }],
-    [5, { [_hQ]: _eT }],
-    [1, { [_hQ]: _mD }],
-    [0, { [_hH]: _Ac }],
-  ],
+  [[0, 1], [5, { [_hQ]: _sT }], [0, { [_hQ]: _p }], [5, { [_hQ]: _eT }], [1, { [_hQ]: _mD }], [0, { [_hH]: _Ac }]]
 ];
-export var GetProfileResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GPRetr,
+export var GetProfileResponse$: StaticStructureSchema = [3, n0, _GPRetr,
   0,
   [_pr, _cTo, _cE],
-  [
-    [21, 16],
-    [0, { [_hH]: _CT }],
-    [0, { [_hH]: _CE_ }],
-  ],
+  [[21, 16], [0, { [_hH]: _CT }], [0, { [_hH]: _CE_ }]]
 ];
-export var GetRecommendationsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GRR,
+export var GetRecommendationsRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_pGN, _sT, _eT, _l],
-  [
-    [0, 1],
-    [5, { [_hQ]: _sT }],
-    [5, { [_hQ]: _eT }],
-    [0, { [_hQ]: _l }],
-  ],
+  [[0, 1], [5, { [_hQ]: _sT }], [5, { [_hQ]: _eT }], [0, { [_hQ]: _l }]]
 ];
-export var GetRecommendationsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GRRe,
+export var GetRecommendationsResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
   [_pGN, _pST, _pET, _rec, _an],
-  [0, 5, 5, () => Recommendations, () => Anomalies],
+  [0, 5, 5, () => Recommendations, () => Anomalies]
 ];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_mes], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var ListFindingsReportsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LFRR,
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_mes],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var ListFindingsReportsRequest$: StaticStructureSchema = [3, n0, _LFRR,
   0,
   [_pGN, _sT, _eT, _nT, _mR, _dRO],
-  [
-    [0, 1],
-    [5, { [_hQ]: _sT }],
-    [5, { [_hQ]: _eT }],
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-    [2, { [_hQ]: _dRO }],
-  ],
+  [[0, 1], [5, { [_hQ]: _sT }], [5, { [_hQ]: _eT }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [2, { [_hQ]: _dRO }]]
 ];
-export var ListFindingsReportsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LFRRi,
+export var ListFindingsReportsResponse$: StaticStructureSchema = [3, n0, _LFRRi,
   0,
   [_fRS, _nT],
-  [() => FindingsReportSummaries, 0],
+  [() => FindingsReportSummaries, 0]
 ];
-export var ListProfileTimesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LPTR,
+export var ListProfileTimesRequest$: StaticStructureSchema = [3, n0, _LPTR,
   0,
   [_pGN, _sT, _eT, _p, _oB, _mR, _nT],
-  [
-    [0, 1],
-    [5, { [_hQ]: _sT }],
-    [5, { [_hQ]: _eT }],
-    [0, { [_hQ]: _p }],
-    [0, { [_hQ]: _oB }],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, 1], [5, { [_hQ]: _sT }], [5, { [_hQ]: _eT }], [0, { [_hQ]: _p }], [0, { [_hQ]: _oB }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
-export var ListProfileTimesResponse: StaticStructureSchema = [3, n0, _LPTRi, 0, [_pT, _nT], [() => ProfileTimes, 0]];
-export var ListProfilingGroupsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LPGR,
+export var ListProfileTimesResponse$: StaticStructureSchema = [3, n0, _LPTRi,
+  0,
+  [_pT, _nT],
+  [() => ProfileTimes, 0]
+];
+export var ListProfilingGroupsRequest$: StaticStructureSchema = [3, n0, _LPGR,
   0,
   [_nT, _mR, _iD],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-    [2, { [_hQ]: _iD }],
-  ],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [2, { [_hQ]: _iD }]]
 ];
-export var ListProfilingGroupsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LPGRi,
+export var ListProfilingGroupsResponse$: StaticStructureSchema = [3, n0, _LPGRi,
   0,
   [_pGNr, _pGr, _nT],
-  [64 | 0, () => ProfilingGroupDescriptions, 0],
+  [64 | 0, () => ProfilingGroupDescriptions, 0]
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
-export var Match: StaticStructureSchema = [3, n0, _M, 0, [_tFI, _fA, _tBV], [1, 0, 1]];
-export var Metric: StaticStructureSchema = [3, n0, _Me, 0, [_fN, _ty, _tS], [0, 0, 64 | 0]];
-export var NotificationConfiguration: StaticStructureSchema = [3, n0, _NC, 0, [_c], [() => Channels]];
-export var Pattern: StaticStructureSchema = [
-  3,
-  n0,
-  _P,
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
+  0,
+  [_rA],
+  [[0, 1]]
+];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
+  0,
+  [_t],
+  [128 | 0]
+];
+export var Match$: StaticStructureSchema = [3, n0, _M,
+  0,
+  [_tFI, _fA, _tBV],
+  [1, 0, 1]
+];
+export var Metric$: StaticStructureSchema = [3, n0, _Me,
+  0,
+  [_fN, _ty, _tS],
+  [0, 0, 64 | 0]
+];
+export var NotificationConfiguration$: StaticStructureSchema = [3, n0, _NC,
+  0,
+  [_c],
+  [() => Channels]
+];
+export var Pattern$: StaticStructureSchema = [3, n0, _P,
   0,
   [_id, _n, _d, _rSe, _tF, _tP, _cTA],
-  [0, 0, 0, 0, [1, n0, _TF, 0, 64 | 0], 1, 64 | 0],
+  [0, 0, 0, 0, [1, n0, _TF, 0, 64 | 0], 1, 64 | 0]
 ];
-export var PostAgentProfileRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _PAPR,
+export var PostAgentProfileRequest$: StaticStructureSchema = [3, n0, _PAPR,
   0,
   [_pGN, _aPg, _pTr, _cTo],
-  [
-    [0, 1],
-    [21, 16],
-    [0, { [_iT]: 1, [_hQ]: _pTr }],
-    [0, { [_hH]: _CT }],
-  ],
+  [[0, 1], [21, 16], [0, { [_hQ]: _pTr, [_iT]: 1 }], [0, { [_hH]: _CT }]]
 ];
-export var PostAgentProfileResponse: StaticStructureSchema = [3, n0, _PAPRo, 0, [], []];
-export var ProfileTime: StaticStructureSchema = [3, n0, _PT, 0, [_s], [5]];
-export var ProfilingGroupDescription: StaticStructureSchema = [
-  3,
-  n0,
-  _PGD,
+export var PostAgentProfileResponse$: StaticStructureSchema = [3, n0, _PAPRo,
+  0,
+  [],
+  []
+];
+export var ProfileTime$: StaticStructureSchema = [3, n0, _PT,
+  0,
+  [_s],
+  [5]
+];
+export var ProfilingGroupDescription$: StaticStructureSchema = [3, n0, _PGD,
   0,
   [_n, _aOC, _ar, _cA, _uA, _pS, _cP, _t],
-  [0, () => AgentOrchestrationConfig, 0, 5, 5, () => ProfilingStatus, 0, 128 | 0],
+  [0, () => AgentOrchestrationConfig$, 0, 5, 5, () => ProfilingStatus$, 0, 128 | 0]
 ];
-export var ProfilingStatus: StaticStructureSchema = [
-  3,
-  n0,
-  _PS,
+export var ProfilingStatus$: StaticStructureSchema = [3, n0, _PS,
   0,
   [_lAPRA, _lAP, _lAOA],
-  [5, () => AggregatedProfileTime, 5],
+  [5, () => AggregatedProfileTime$, 5]
 ];
-export var PutPermissionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _PPR,
+export var PutPermissionRequest$: StaticStructureSchema = [3, n0, _PPR,
   0,
   [_pGN, _aG, _pri, _rI],
-  [[0, 1], [0, 1], 64 | 0, 0],
+  [[0, 1], [0, 1], 64 | 0, 0]
 ];
-export var PutPermissionResponse: StaticStructureSchema = [3, n0, _PPRu, 0, [_po, _rI], [0, 0]];
-export var Recommendation: StaticStructureSchema = [
-  3,
-  n0,
-  _R,
+export var PutPermissionResponse$: StaticStructureSchema = [3, n0, _PPRu,
+  0,
+  [_po, _rI],
+  [0, 0]
+];
+export var Recommendation$: StaticStructureSchema = [3, n0, _R,
   0,
   [_aMC, _aMS, _pa, _tM, _sT, _eT],
-  [1, 1, () => Pattern, () => Matches, 5, 5],
+  [1, 1, () => Pattern$, () => Matches, 5, 5]
 ];
-export var RemoveNotificationChannelRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _RNCR,
+export var RemoveNotificationChannelRequest$: StaticStructureSchema = [3, n0, _RNCR,
   0,
   [_pGN, _cI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
+  [[0, 1], [0, 1]]
 ];
-export var RemoveNotificationChannelResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _RNCRe,
+export var RemoveNotificationChannelResponse$: StaticStructureSchema = [3, n0, _RNCRe,
   0,
   [_nC],
-  [() => NotificationConfiguration],
+  [() => NotificationConfiguration$]
 ];
-export var RemovePermissionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _RPR,
+export var RemovePermissionRequest$: StaticStructureSchema = [3, n0, _RPR,
   0,
   [_pGN, _aG, _rI],
-  [
-    [0, 1],
-    [0, 1],
-    [0, { [_hQ]: _rI }],
-  ],
+  [[0, 1], [0, 1], [0, { [_hQ]: _rI }]]
 ];
-export var RemovePermissionResponse: StaticStructureSchema = [3, n0, _RPRe, 0, [_po, _rI], [0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _cl, [_hE]: 404 }, [_mes], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _cl, [_hE]: 402 }, [_mes], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var SubmitFeedbackRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _SFR,
+export var RemovePermissionResponse$: StaticStructureSchema = [3, n0, _RPRe,
+  0,
+  [_po, _rI],
+  [0, 0]
+];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _cl, [_hE]: 404 },
+  [_mes],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _cl, [_hE]: 402 },
+  [_mes],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SubmitFeedbackRequest$: StaticStructureSchema = [3, n0, _SFR,
   0,
   [_pGN, _aII, _ty, _com],
-  [[0, 1], [0, 1], 0, 0],
+  [[0, 1], [0, 1], 0, 0]
 ];
-export var SubmitFeedbackResponse: StaticStructureSchema = [3, n0, _SFRu, 0, [], []];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _cl, [_hE]: 429 }, [_mes], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TimestampStructure: StaticStructureSchema = [3, n0, _TS, 0, [_va], [5]];
-export var UntagResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _URR,
+export var SubmitFeedbackResponse$: StaticStructureSchema = [3, n0, _SFRu,
+  0,
+  [],
+  []
+];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
+  0,
+  [_rA, _t],
+  [[0, 1], 128 | 0]
+];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
+  0,
+  [],
+  []
+];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _cl, [_hE]: 429 },
+  [_mes],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TimestampStructure$: StaticStructureSchema = [3, n0, _TS,
+  0,
+  [_va],
+  [5]
+];
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [
-    [0, 1],
-    [64 | 0, { [_hQ]: _tK }],
-  ],
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateProfilingGroupRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UPGR,
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
+  0,
+  [],
+  []
+];
+export var UpdateProfilingGroupRequest$: StaticStructureSchema = [3, n0, _UPGR,
   0,
   [_pGN, _aOC],
-  [[0, 1], () => AgentOrchestrationConfig],
+  [[0, 1], () => AgentOrchestrationConfig$]
 ];
-export var UpdateProfilingGroupResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _UPGRp,
+export var UpdateProfilingGroupResponse$: StaticStructureSchema = [3, n0, _UPGRp,
   0,
   [_pG],
-  [[() => ProfilingGroupDescription, 16]],
+  [[() => ProfilingGroupDescription$, 16]]
 ];
-export var UserFeedback: StaticStructureSchema = [3, n0, _UF, 0, [_ty], [0]];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _cl, [_hE]: 400 }, [_mes], [0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var CodeGuruProfilerServiceException: StaticErrorSchema = [
-  -3,
-  _sm,
-  "CodeGuruProfilerServiceException",
+export var UserFeedback$: StaticStructureSchema = [3, n0, _UF,
   0,
-  [],
-  [],
+  [_ty],
+  [0]
 ];
-TypeRegistry.for(_sm).registerError(CodeGuruProfilerServiceException, __CodeGuruProfilerServiceException);
-export var Anomalies: StaticListSchema = [1, n0, _An, 0, () => Anomaly];
-export var AnomalyInstances: StaticListSchema = [1, n0, _AIn, 0, () => AnomalyInstance];
-export var Channels: StaticListSchema = [1, n0, _Ch, 0, () => Channel];
-export var EventPublishers = 64 | 0;
-export var FindingsReportSummaries: StaticListSchema = [1, n0, _FRSi, 0, () => FindingsReportSummary];
-export var FrameMetricData: StaticListSchema = [1, n0, _FMDr, 0, () => FrameMetricDatum];
-export var FrameMetrics: StaticListSchema = [1, n0, _FMr, 0, () => FrameMetric];
-export var FrameMetricValues = 64 | 1;
-export var ListOfTimestamps: StaticListSchema = [1, n0, _LOT, 0, () => TimestampStructure];
-export var Matches: StaticListSchema = [1, n0, _Ma, 0, () => Match];
-export var Principals = 64 | 0;
-export var ProfileTimes: StaticListSchema = [1, n0, _PTr, 0, () => ProfileTime];
-export var ProfilingGroupDescriptions: StaticListSchema = [1, n0, _PGDr, 0, () => ProfilingGroupDescription];
-export var ProfilingGroupNames = 64 | 0;
-export var Recommendations: StaticListSchema = [1, n0, _Re, 0, () => Recommendation];
-export var Strings = 64 | 0;
-export var TagKeys = 64 | 0;
-export var TargetFrame = 64 | 0;
-export var TargetFrames: StaticListSchema = [1, n0, _TF, 0, 64 | 0];
-export var ThreadStates = 64 | 0;
-export var AgentParameters = 128 | 0;
-export var Metadata = 128 | 0;
-export var TagsMap = 128 | 0;
-export var UnprocessedEndTimeMap: StaticMapSchema = [2, n0, _UETM, 0, 0, () => ListOfTimestamps];
-export var AddNotificationChannels: StaticOperationSchema = [
-  9,
-  n0,
-  _ANC,
-  { [_h]: ["POST", "/profilingGroups/{profilingGroupName}/notificationConfiguration", 200] },
-  () => AddNotificationChannelsRequest,
-  () => AddNotificationChannelsResponse,
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _cl, [_hE]: 400 },
+  [_mes],
+  [0]
 ];
-export var BatchGetFrameMetricData: StaticOperationSchema = [
-  9,
-  n0,
-  _BGFMD,
-  { [_h]: ["POST", "/profilingGroups/{profilingGroupName}/frames/-/metrics", 200] },
-  () => BatchGetFrameMetricDataRequest,
-  () => BatchGetFrameMetricDataResponse,
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var CodeGuruProfilerServiceException$: StaticErrorSchema = [-3, _sm, "CodeGuruProfilerServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(CodeGuruProfilerServiceException$, CodeGuruProfilerServiceException);
+var Anomalies: StaticListSchema = [1, n0, _An,
+  0, () => Anomaly$
 ];
-export var ConfigureAgent: StaticOperationSchema = [
-  9,
-  n0,
-  _CA,
-  { [_h]: ["POST", "/profilingGroups/{profilingGroupName}/configureAgent", 200] },
-  () => ConfigureAgentRequest,
-  () => ConfigureAgentResponse,
+var AnomalyInstances: StaticListSchema = [1, n0, _AIn,
+  0, () => AnomalyInstance$
 ];
-export var CreateProfilingGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _CPG,
-  { [_h]: ["POST", "/profilingGroups", 201] },
-  () => CreateProfilingGroupRequest,
-  () => CreateProfilingGroupResponse,
+var Channels: StaticListSchema = [1, n0, _Ch,
+  0, () => Channel$
 ];
-export var DeleteProfilingGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _DPG,
-  { [_h]: ["DELETE", "/profilingGroups/{profilingGroupName}", 204] },
-  () => DeleteProfilingGroupRequest,
-  () => DeleteProfilingGroupResponse,
+var EventPublishers = 64 | 0;
+var FindingsReportSummaries: StaticListSchema = [1, n0, _FRSi,
+  0, () => FindingsReportSummary$
 ];
-export var DescribeProfilingGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _DPGe,
-  { [_h]: ["GET", "/profilingGroups/{profilingGroupName}", 200] },
-  () => DescribeProfilingGroupRequest,
-  () => DescribeProfilingGroupResponse,
+var FrameMetricData: StaticListSchema = [1, n0, _FMDr,
+  0, () => FrameMetricDatum$
 ];
-export var GetFindingsReportAccountSummary: StaticOperationSchema = [
-  9,
-  n0,
-  _GFRAS,
-  { [_h]: ["GET", "/internal/findingsReports", 200] },
-  () => GetFindingsReportAccountSummaryRequest,
-  () => GetFindingsReportAccountSummaryResponse,
+var FrameMetrics: StaticListSchema = [1, n0, _FMr,
+  0, () => FrameMetric$
 ];
-export var GetNotificationConfiguration: StaticOperationSchema = [
-  9,
-  n0,
-  _GNC,
-  { [_h]: ["GET", "/profilingGroups/{profilingGroupName}/notificationConfiguration", 200] },
-  () => GetNotificationConfigurationRequest,
-  () => GetNotificationConfigurationResponse,
+var FrameMetricValues = 64 | 1;
+var ListOfTimestamps: StaticListSchema = [1, n0, _LOT,
+  0, () => TimestampStructure$
 ];
-export var GetPolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _GP,
-  { [_h]: ["GET", "/profilingGroups/{profilingGroupName}/policy", 200] },
-  () => GetPolicyRequest,
-  () => GetPolicyResponse,
+var Matches: StaticListSchema = [1, n0, _Ma,
+  0, () => Match$
 ];
-export var GetProfile: StaticOperationSchema = [
-  9,
-  n0,
-  _GPe,
-  { [_h]: ["GET", "/profilingGroups/{profilingGroupName}/profile", 200] },
-  () => GetProfileRequest,
-  () => GetProfileResponse,
+var Principals = 64 | 0;
+var ProfileTimes: StaticListSchema = [1, n0, _PTr,
+  0, () => ProfileTime$
 ];
-export var GetRecommendations: StaticOperationSchema = [
-  9,
-  n0,
-  _GR,
-  { [_h]: ["GET", "/internal/profilingGroups/{profilingGroupName}/recommendations", 200] },
-  () => GetRecommendationsRequest,
-  () => GetRecommendationsResponse,
+var ProfilingGroupDescriptions: StaticListSchema = [1, n0, _PGDr,
+  0, () => ProfilingGroupDescription$
 ];
-export var ListFindingsReports: StaticOperationSchema = [
-  9,
-  n0,
-  _LFR,
-  { [_h]: ["GET", "/internal/profilingGroups/{profilingGroupName}/findingsReports", 200] },
-  () => ListFindingsReportsRequest,
-  () => ListFindingsReportsResponse,
+var ProfilingGroupNames = 64 | 0;
+var Recommendations: StaticListSchema = [1, n0, _Re,
+  0, () => Recommendation$
 ];
-export var ListProfileTimes: StaticOperationSchema = [
-  9,
-  n0,
-  _LPT,
-  { [_h]: ["GET", "/profilingGroups/{profilingGroupName}/profileTimes", 200] },
-  () => ListProfileTimesRequest,
-  () => ListProfileTimesResponse,
+var Strings = 64 | 0;
+var TagKeys = 64 | 0;
+var TargetFrame = 64 | 0;
+var TargetFrames: StaticListSchema = [1, n0, _TF,
+  0, 64 | 0
 ];
-export var ListProfilingGroups: StaticOperationSchema = [
-  9,
-  n0,
-  _LPG,
-  { [_h]: ["GET", "/profilingGroups", 200] },
-  () => ListProfilingGroupsRequest,
-  () => ListProfilingGroupsResponse,
+var ThreadStates = 64 | 0;
+var AgentParameters = 128 | 0;
+var Metadata = 128 | 0;
+var TagsMap = 128 | 0;
+var UnprocessedEndTimeMap: StaticMapSchema = [2, n0, _UETM,
+  0, 0, () => ListOfTimestamps
 ];
-export var ListTagsForResource: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+export var AddNotificationChannels$: StaticOperationSchema = [9, n0, _ANC,
+  { [_h]: ["POST", "/profilingGroups/{profilingGroupName}/notificationConfiguration", 200] }, () => AddNotificationChannelsRequest$, () => AddNotificationChannelsResponse$
 ];
-export var PostAgentProfile: StaticOperationSchema = [
-  9,
-  n0,
-  _PAP,
-  { [_h]: ["POST", "/profilingGroups/{profilingGroupName}/agentProfile", 204] },
-  () => PostAgentProfileRequest,
-  () => PostAgentProfileResponse,
+export var BatchGetFrameMetricData$: StaticOperationSchema = [9, n0, _BGFMD,
+  { [_h]: ["POST", "/profilingGroups/{profilingGroupName}/frames/-/metrics", 200] }, () => BatchGetFrameMetricDataRequest$, () => BatchGetFrameMetricDataResponse$
 ];
-export var PutPermission: StaticOperationSchema = [
-  9,
-  n0,
-  _PP,
-  { [_h]: ["PUT", "/profilingGroups/{profilingGroupName}/policy/{actionGroup}", 200] },
-  () => PutPermissionRequest,
-  () => PutPermissionResponse,
+export var ConfigureAgent$: StaticOperationSchema = [9, n0, _CA,
+  { [_h]: ["POST", "/profilingGroups/{profilingGroupName}/configureAgent", 200] }, () => ConfigureAgentRequest$, () => ConfigureAgentResponse$
 ];
-export var RemoveNotificationChannel: StaticOperationSchema = [
-  9,
-  n0,
-  _RNC,
-  { [_h]: ["DELETE", "/profilingGroups/{profilingGroupName}/notificationConfiguration/{channelId}", 200] },
-  () => RemoveNotificationChannelRequest,
-  () => RemoveNotificationChannelResponse,
+export var CreateProfilingGroup$: StaticOperationSchema = [9, n0, _CPG,
+  { [_h]: ["POST", "/profilingGroups", 201] }, () => CreateProfilingGroupRequest$, () => CreateProfilingGroupResponse$
 ];
-export var RemovePermission: StaticOperationSchema = [
-  9,
-  n0,
-  _RP,
-  { [_h]: ["DELETE", "/profilingGroups/{profilingGroupName}/policy/{actionGroup}", 200] },
-  () => RemovePermissionRequest,
-  () => RemovePermissionResponse,
+export var DeleteProfilingGroup$: StaticOperationSchema = [9, n0, _DPG,
+  { [_h]: ["DELETE", "/profilingGroups/{profilingGroupName}", 204] }, () => DeleteProfilingGroupRequest$, () => DeleteProfilingGroupResponse$
 ];
-export var SubmitFeedback: StaticOperationSchema = [
-  9,
-  n0,
-  _SF,
-  { [_h]: ["POST", "/internal/profilingGroups/{profilingGroupName}/anomalies/{anomalyInstanceId}/feedback", 204] },
-  () => SubmitFeedbackRequest,
-  () => SubmitFeedbackResponse,
+export var DescribeProfilingGroup$: StaticOperationSchema = [9, n0, _DPGe,
+  { [_h]: ["GET", "/profilingGroups/{profilingGroupName}", 200] }, () => DescribeProfilingGroupRequest$, () => DescribeProfilingGroupResponse$
 ];
-export var TagResource: StaticOperationSchema = [
-  9,
-  n0,
-  _TR,
-  { [_h]: ["POST", "/tags/{resourceArn}", 204] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+export var GetFindingsReportAccountSummary$: StaticOperationSchema = [9, n0, _GFRAS,
+  { [_h]: ["GET", "/internal/findingsReports", 200] }, () => GetFindingsReportAccountSummaryRequest$, () => GetFindingsReportAccountSummaryResponse$
 ];
-export var UntagResource: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  { [_h]: ["DELETE", "/tags/{resourceArn}", 204] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+export var GetNotificationConfiguration$: StaticOperationSchema = [9, n0, _GNC,
+  { [_h]: ["GET", "/profilingGroups/{profilingGroupName}/notificationConfiguration", 200] }, () => GetNotificationConfigurationRequest$, () => GetNotificationConfigurationResponse$
 ];
-export var UpdateProfilingGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _UPG,
-  { [_h]: ["PUT", "/profilingGroups/{profilingGroupName}", 200] },
-  () => UpdateProfilingGroupRequest,
-  () => UpdateProfilingGroupResponse,
+export var GetPolicy$: StaticOperationSchema = [9, n0, _GP,
+  { [_h]: ["GET", "/profilingGroups/{profilingGroupName}/policy", 200] }, () => GetPolicyRequest$, () => GetPolicyResponse$
+];
+export var GetProfile$: StaticOperationSchema = [9, n0, _GPe,
+  { [_h]: ["GET", "/profilingGroups/{profilingGroupName}/profile", 200] }, () => GetProfileRequest$, () => GetProfileResponse$
+];
+export var GetRecommendations$: StaticOperationSchema = [9, n0, _GR,
+  { [_h]: ["GET", "/internal/profilingGroups/{profilingGroupName}/recommendations", 200] }, () => GetRecommendationsRequest$, () => GetRecommendationsResponse$
+];
+export var ListFindingsReports$: StaticOperationSchema = [9, n0, _LFR,
+  { [_h]: ["GET", "/internal/profilingGroups/{profilingGroupName}/findingsReports", 200] }, () => ListFindingsReportsRequest$, () => ListFindingsReportsResponse$
+];
+export var ListProfileTimes$: StaticOperationSchema = [9, n0, _LPT,
+  { [_h]: ["GET", "/profilingGroups/{profilingGroupName}/profileTimes", 200] }, () => ListProfileTimesRequest$, () => ListProfileTimesResponse$
+];
+export var ListProfilingGroups$: StaticOperationSchema = [9, n0, _LPG,
+  { [_h]: ["GET", "/profilingGroups", 200] }, () => ListProfilingGroupsRequest$, () => ListProfilingGroupsResponse$
+];
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
+];
+export var PostAgentProfile$: StaticOperationSchema = [9, n0, _PAP,
+  { [_h]: ["POST", "/profilingGroups/{profilingGroupName}/agentProfile", 204] }, () => PostAgentProfileRequest$, () => PostAgentProfileResponse$
+];
+export var PutPermission$: StaticOperationSchema = [9, n0, _PP,
+  { [_h]: ["PUT", "/profilingGroups/{profilingGroupName}/policy/{actionGroup}", 200] }, () => PutPermissionRequest$, () => PutPermissionResponse$
+];
+export var RemoveNotificationChannel$: StaticOperationSchema = [9, n0, _RNC,
+  { [_h]: ["DELETE", "/profilingGroups/{profilingGroupName}/notificationConfiguration/{channelId}", 200] }, () => RemoveNotificationChannelRequest$, () => RemoveNotificationChannelResponse$
+];
+export var RemovePermission$: StaticOperationSchema = [9, n0, _RP,
+  { [_h]: ["DELETE", "/profilingGroups/{profilingGroupName}/policy/{actionGroup}", 200] }, () => RemovePermissionRequest$, () => RemovePermissionResponse$
+];
+export var SubmitFeedback$: StaticOperationSchema = [9, n0, _SF,
+  { [_h]: ["POST", "/internal/profilingGroups/{profilingGroupName}/anomalies/{anomalyInstanceId}/feedback", 204] }, () => SubmitFeedbackRequest$, () => SubmitFeedbackResponse$
+];
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  { [_h]: ["POST", "/tags/{resourceArn}", 204] }, () => TagResourceRequest$, () => TagResourceResponse$
+];
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 204] }, () => UntagResourceRequest$, () => UntagResourceResponse$
+];
+export var UpdateProfilingGroup$: StaticOperationSchema = [9, n0, _UPG,
+  { [_h]: ["PUT", "/profilingGroups/{profilingGroupName}", 200] }, () => UpdateProfilingGroupRequest$, () => UpdateProfilingGroupResponse$
 ];

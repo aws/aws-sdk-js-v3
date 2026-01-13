@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSessionsRequest, ListSessionsResponse } from "../models/models_0";
 import type { MPAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MPAClient";
-import { ListSessions } from "../schemas/schemas_0";
+import { ListSessions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class ListSessionsCommand extends $Command
   })
   .s("AWSFluffyCoreService", "ListSessions", {})
   .n("MPAClient", "ListSessionsCommand")
-  .sc(ListSessions)
+  .sc(ListSessions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

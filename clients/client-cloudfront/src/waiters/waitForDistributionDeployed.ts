@@ -7,12 +7,12 @@ import { GetDistributionCommand, GetDistributionCommandInput } from "../commands
 const checkState = async (client: CloudFrontClient, input: GetDistributionCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetDistributionCommand(input));
+    let result: any = await client.send(new GetDistributionCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.Distribution.Status;
-      };
+      }
       if (returnComparator() === "Deployed") {
         return { state: WaiterState.SUCCESS, reason };
       }

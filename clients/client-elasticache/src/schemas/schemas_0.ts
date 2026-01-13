@@ -726,3150 +726,2066 @@ const n0 = "com.amazonaws.elasticache";
 import { TypeRegistry } from "@smithy/core/schema";
 import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
-import { ElastiCacheServiceException as __ElastiCacheServiceException } from "../models/ElastiCacheServiceException";
+import { ElastiCacheServiceException } from "../models/ElastiCacheServiceException";
 import {
-  APICallRateForCustomerExceededFault as __APICallRateForCustomerExceededFault,
-  AuthorizationAlreadyExistsFault as __AuthorizationAlreadyExistsFault,
-  AuthorizationNotFoundFault as __AuthorizationNotFoundFault,
-  CacheClusterAlreadyExistsFault as __CacheClusterAlreadyExistsFault,
-  CacheClusterNotFoundFault as __CacheClusterNotFoundFault,
-  CacheParameterGroupAlreadyExistsFault as __CacheParameterGroupAlreadyExistsFault,
-  CacheParameterGroupNotFoundFault as __CacheParameterGroupNotFoundFault,
-  CacheParameterGroupQuotaExceededFault as __CacheParameterGroupQuotaExceededFault,
-  CacheSecurityGroupAlreadyExistsFault as __CacheSecurityGroupAlreadyExistsFault,
-  CacheSecurityGroupNotFoundFault as __CacheSecurityGroupNotFoundFault,
-  CacheSecurityGroupQuotaExceededFault as __CacheSecurityGroupQuotaExceededFault,
-  CacheSubnetGroupAlreadyExistsFault as __CacheSubnetGroupAlreadyExistsFault,
-  CacheSubnetGroupInUse as __CacheSubnetGroupInUse,
-  CacheSubnetGroupNotFoundFault as __CacheSubnetGroupNotFoundFault,
-  CacheSubnetGroupQuotaExceededFault as __CacheSubnetGroupQuotaExceededFault,
-  CacheSubnetQuotaExceededFault as __CacheSubnetQuotaExceededFault,
-  ClusterQuotaForCustomerExceededFault as __ClusterQuotaForCustomerExceededFault,
-  DefaultUserAssociatedToUserGroupFault as __DefaultUserAssociatedToUserGroupFault,
-  DefaultUserRequired as __DefaultUserRequired,
-  DuplicateUserNameFault as __DuplicateUserNameFault,
-  GlobalReplicationGroupAlreadyExistsFault as __GlobalReplicationGroupAlreadyExistsFault,
-  GlobalReplicationGroupNotFoundFault as __GlobalReplicationGroupNotFoundFault,
-  InsufficientCacheClusterCapacityFault as __InsufficientCacheClusterCapacityFault,
-  InvalidARNFault as __InvalidARNFault,
-  InvalidCacheClusterStateFault as __InvalidCacheClusterStateFault,
-  InvalidCacheParameterGroupStateFault as __InvalidCacheParameterGroupStateFault,
-  InvalidCacheSecurityGroupStateFault as __InvalidCacheSecurityGroupStateFault,
-  InvalidCredentialsException as __InvalidCredentialsException,
-  InvalidGlobalReplicationGroupStateFault as __InvalidGlobalReplicationGroupStateFault,
-  InvalidKMSKeyFault as __InvalidKMSKeyFault,
-  InvalidParameterCombinationException as __InvalidParameterCombinationException,
-  InvalidParameterValueException as __InvalidParameterValueException,
-  InvalidReplicationGroupStateFault as __InvalidReplicationGroupStateFault,
-  InvalidServerlessCacheSnapshotStateFault as __InvalidServerlessCacheSnapshotStateFault,
-  InvalidServerlessCacheStateFault as __InvalidServerlessCacheStateFault,
-  InvalidSnapshotStateFault as __InvalidSnapshotStateFault,
-  InvalidSubnet as __InvalidSubnet,
-  InvalidUserGroupStateFault as __InvalidUserGroupStateFault,
-  InvalidUserStateFault as __InvalidUserStateFault,
-  InvalidVPCNetworkStateFault as __InvalidVPCNetworkStateFault,
-  NodeGroupNotFoundFault as __NodeGroupNotFoundFault,
-  NodeGroupsPerReplicationGroupQuotaExceededFault as __NodeGroupsPerReplicationGroupQuotaExceededFault,
-  NodeQuotaForClusterExceededFault as __NodeQuotaForClusterExceededFault,
-  NodeQuotaForCustomerExceededFault as __NodeQuotaForCustomerExceededFault,
-  NoOperationFault as __NoOperationFault,
-  ReplicationGroupAlreadyExistsFault as __ReplicationGroupAlreadyExistsFault,
-  ReplicationGroupAlreadyUnderMigrationFault as __ReplicationGroupAlreadyUnderMigrationFault,
-  ReplicationGroupNotFoundFault as __ReplicationGroupNotFoundFault,
-  ReplicationGroupNotUnderMigrationFault as __ReplicationGroupNotUnderMigrationFault,
-  ReservedCacheNodeAlreadyExistsFault as __ReservedCacheNodeAlreadyExistsFault,
-  ReservedCacheNodeNotFoundFault as __ReservedCacheNodeNotFoundFault,
-  ReservedCacheNodeQuotaExceededFault as __ReservedCacheNodeQuotaExceededFault,
-  ReservedCacheNodesOfferingNotFoundFault as __ReservedCacheNodesOfferingNotFoundFault,
-  ServerlessCacheAlreadyExistsFault as __ServerlessCacheAlreadyExistsFault,
-  ServerlessCacheNotFoundFault as __ServerlessCacheNotFoundFault,
-  ServerlessCacheQuotaForCustomerExceededFault as __ServerlessCacheQuotaForCustomerExceededFault,
-  ServerlessCacheSnapshotAlreadyExistsFault as __ServerlessCacheSnapshotAlreadyExistsFault,
-  ServerlessCacheSnapshotNotFoundFault as __ServerlessCacheSnapshotNotFoundFault,
-  ServerlessCacheSnapshotQuotaExceededFault as __ServerlessCacheSnapshotQuotaExceededFault,
-  ServiceLinkedRoleNotFoundFault as __ServiceLinkedRoleNotFoundFault,
-  ServiceUpdateNotFoundFault as __ServiceUpdateNotFoundFault,
-  SnapshotAlreadyExistsFault as __SnapshotAlreadyExistsFault,
-  SnapshotFeatureNotSupportedFault as __SnapshotFeatureNotSupportedFault,
-  SnapshotNotFoundFault as __SnapshotNotFoundFault,
-  SnapshotQuotaExceededFault as __SnapshotQuotaExceededFault,
-  SubnetInUse as __SubnetInUse,
-  SubnetNotAllowedFault as __SubnetNotAllowedFault,
-  TagNotFoundFault as __TagNotFoundFault,
-  TagQuotaPerResourceExceeded as __TagQuotaPerResourceExceeded,
-  TestFailoverNotAvailableFault as __TestFailoverNotAvailableFault,
-  UserAlreadyExistsFault as __UserAlreadyExistsFault,
-  UserGroupAlreadyExistsFault as __UserGroupAlreadyExistsFault,
-  UserGroupNotFoundFault as __UserGroupNotFoundFault,
-  UserGroupQuotaExceededFault as __UserGroupQuotaExceededFault,
-  UserNotFoundFault as __UserNotFoundFault,
-  UserQuotaExceededFault as __UserQuotaExceededFault,
+  APICallRateForCustomerExceededFault,
+  AuthorizationAlreadyExistsFault,
+  AuthorizationNotFoundFault,
+  CacheClusterAlreadyExistsFault,
+  CacheClusterNotFoundFault,
+  CacheParameterGroupAlreadyExistsFault,
+  CacheParameterGroupNotFoundFault,
+  CacheParameterGroupQuotaExceededFault,
+  CacheSecurityGroupAlreadyExistsFault,
+  CacheSecurityGroupNotFoundFault,
+  CacheSecurityGroupQuotaExceededFault,
+  CacheSubnetGroupAlreadyExistsFault,
+  CacheSubnetGroupInUse,
+  CacheSubnetGroupNotFoundFault,
+  CacheSubnetGroupQuotaExceededFault,
+  CacheSubnetQuotaExceededFault,
+  ClusterQuotaForCustomerExceededFault,
+  DefaultUserAssociatedToUserGroupFault,
+  DefaultUserRequired,
+  DuplicateUserNameFault,
+  GlobalReplicationGroupAlreadyExistsFault,
+  GlobalReplicationGroupNotFoundFault,
+  InsufficientCacheClusterCapacityFault,
+  InvalidARNFault,
+  InvalidCacheClusterStateFault,
+  InvalidCacheParameterGroupStateFault,
+  InvalidCacheSecurityGroupStateFault,
+  InvalidCredentialsException,
+  InvalidGlobalReplicationGroupStateFault,
+  InvalidKMSKeyFault,
+  InvalidParameterCombinationException,
+  InvalidParameterValueException,
+  InvalidReplicationGroupStateFault,
+  InvalidServerlessCacheSnapshotStateFault,
+  InvalidServerlessCacheStateFault,
+  InvalidSnapshotStateFault,
+  InvalidSubnet,
+  InvalidUserGroupStateFault,
+  InvalidUserStateFault,
+  InvalidVPCNetworkStateFault,
+  NodeGroupNotFoundFault,
+  NodeGroupsPerReplicationGroupQuotaExceededFault,
+  NodeQuotaForClusterExceededFault,
+  NodeQuotaForCustomerExceededFault,
+  NoOperationFault,
+  ReplicationGroupAlreadyExistsFault,
+  ReplicationGroupAlreadyUnderMigrationFault,
+  ReplicationGroupNotFoundFault,
+  ReplicationGroupNotUnderMigrationFault,
+  ReservedCacheNodeAlreadyExistsFault,
+  ReservedCacheNodeNotFoundFault,
+  ReservedCacheNodeQuotaExceededFault,
+  ReservedCacheNodesOfferingNotFoundFault,
+  ServerlessCacheAlreadyExistsFault,
+  ServerlessCacheNotFoundFault,
+  ServerlessCacheQuotaForCustomerExceededFault,
+  ServerlessCacheSnapshotAlreadyExistsFault,
+  ServerlessCacheSnapshotNotFoundFault,
+  ServerlessCacheSnapshotQuotaExceededFault,
+  ServiceLinkedRoleNotFoundFault,
+  ServiceUpdateNotFoundFault,
+  SnapshotAlreadyExistsFault,
+  SnapshotFeatureNotSupportedFault,
+  SnapshotNotFoundFault,
+  SnapshotQuotaExceededFault,
+  SubnetInUse,
+  SubnetNotAllowedFault,
+  TagNotFoundFault,
+  TagQuotaPerResourceExceeded,
+  TestFailoverNotAvailableFault,
+  UserAlreadyExistsFault,
+  UserGroupAlreadyExistsFault,
+  UserGroupNotFoundFault,
+  UserGroupQuotaExceededFault,
+  UserNotFoundFault,
+  UserQuotaExceededFault,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AddTagsToResourceMessage: StaticStructureSchema = [3, n0, _ATTRM, 0, [_RN, _T], [0, [() => TagList, 0]]];
-export var AllowedNodeTypeModificationsMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _ANTMM,
+export var AddTagsToResourceMessage$: StaticStructureSchema = [3, n0, _ATTRM,
+  0,
+  [_RN, _T],
+  [0, [() => TagList, 0]]
+];
+export var AllowedNodeTypeModificationsMessage$: StaticStructureSchema = [3, n0, _ANTMM,
   0,
   [_SUM, _SDM],
-  [64 | 0, 64 | 0],
+  [64 | 0, 64 | 0]
 ];
-export var APICallRateForCustomerExceededFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _APICRFCEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`APICallRateForCustomerExceeded`, 400] },
+export var APICallRateForCustomerExceededFault$: StaticErrorSchema = [-3, n0, _APICRFCEF,
+  { [_aQE]: [`APICallRateForCustomerExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(APICallRateForCustomerExceededFault, __APICallRateForCustomerExceededFault);
-export var Authentication: StaticStructureSchema = [3, n0, _A, 0, [_Ty, _PC], [0, 1]];
-export var AuthenticationMode: StaticStructureSchema = [3, n0, _AM, 0, [_Ty, _P], [0, 64 | 0]];
-export var AuthorizationAlreadyExistsFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _AAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`AuthorizationAlreadyExists`, 400] },
+TypeRegistry.for(n0).registerError(APICallRateForCustomerExceededFault$, APICallRateForCustomerExceededFault);
+export var Authentication$: StaticStructureSchema = [3, n0, _A,
+  0,
+  [_Ty, _PC],
+  [0, 1]
+];
+export var AuthenticationMode$: StaticStructureSchema = [3, n0, _AM,
+  0,
+  [_Ty, _P],
+  [0, 64 | 0]
+];
+export var AuthorizationAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _AAEF,
+  { [_aQE]: [`AuthorizationAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(AuthorizationAlreadyExistsFault, __AuthorizationAlreadyExistsFault);
-export var AuthorizationNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _ANFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`AuthorizationNotFound`, 404] },
+TypeRegistry.for(n0).registerError(AuthorizationAlreadyExistsFault$, AuthorizationAlreadyExistsFault);
+export var AuthorizationNotFoundFault$: StaticErrorSchema = [-3, n0, _ANFF,
+  { [_aQE]: [`AuthorizationNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(AuthorizationNotFoundFault, __AuthorizationNotFoundFault);
-export var AuthorizeCacheSecurityGroupIngressMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _ACSGIM,
+TypeRegistry.for(n0).registerError(AuthorizationNotFoundFault$, AuthorizationNotFoundFault);
+export var AuthorizeCacheSecurityGroupIngressMessage$: StaticStructureSchema = [3, n0, _ACSGIM,
   0,
   [_CSGN, _ECSGN, _ECSGOI],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-export var AuthorizeCacheSecurityGroupIngressResult: StaticStructureSchema = [
-  3,
-  n0,
-  _ACSGIR,
+export var AuthorizeCacheSecurityGroupIngressResult$: StaticStructureSchema = [3, n0, _ACSGIR,
   0,
   [_CSG],
-  [[() => CacheSecurityGroup, 0]],
+  [[() => CacheSecurityGroup$, 0]]
 ];
-export var AvailabilityZone: StaticStructureSchema = [3, n0, _AZ, 0, [_N], [0]];
-export var BatchApplyUpdateActionMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _BAUAM,
+export var AvailabilityZone$: StaticStructureSchema = [3, n0, _AZ,
+  0,
+  [_N],
+  [0]
+];
+export var BatchApplyUpdateActionMessage$: StaticStructureSchema = [3, n0, _BAUAM,
   0,
   [_RGI, _CCI, _SUN],
-  [64 | 0, 64 | 0, 0],
+  [64 | 0, 64 | 0, 0]
 ];
-export var BatchStopUpdateActionMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _BSUAM,
+export var BatchStopUpdateActionMessage$: StaticStructureSchema = [3, n0, _BSUAM,
   0,
   [_RGI, _CCI, _SUN],
-  [64 | 0, 64 | 0, 0],
+  [64 | 0, 64 | 0, 0]
 ];
-export var CacheCluster: StaticStructureSchema = [
-  3,
-  n0,
-  _CC,
+export var CacheCluster$: StaticStructureSchema = [3, n0, _CC,
   0,
-  [
-    _CCIa,
-    _CE,
-    _CDLP,
-    _CNT,
-    _E,
-    _EV,
-    _CCS,
-    _NCN,
-    _PAZ,
-    _POA,
-    _CCCT,
-    _PMW,
-    _PMV,
-    _NC,
-    _CSGa,
-    _CPG,
-    _CSGNa,
-    _CN,
-    _AMVU,
-    _SG,
-    _RGIe,
-    _SRL,
-    _SW,
-    _ATE,
-    _ATLMD,
-    _TEE,
-    _AREE,
-    _ARN,
-    _RGLDE,
-    _LDC,
-    _NT,
-    _ID,
-    _TEM,
-  ],
-  [
-    0,
-    () => Endpoint,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    0,
-    0,
-    4,
-    0,
-    [() => PendingModifiedValues, 0],
-    () => NotificationConfiguration,
-    [() => CacheSecurityGroupMembershipList, 0],
-    [() => CacheParameterGroupStatus, 0],
-    0,
-    [() => CacheNodeList, 0],
-    2,
-    () => SecurityGroupMembershipList,
-    0,
-    1,
-    0,
-    2,
-    4,
-    2,
-    2,
-    0,
-    2,
-    [() => LogDeliveryConfigurationList, 0],
-    0,
-    0,
-    0,
-  ],
+  [_CCIa, _CE, _CDLP, _CNT, _E, _EV, _CCS, _NCN, _PAZ, _POA, _CCCT, _PMW, _PMV, _NC, _CSGa, _CPG, _CSGNa, _CN, _AMVU, _SG, _RGIe, _SRL, _SW, _ATE, _ATLMD, _TEE, _AREE, _ARN, _RGLDE, _LDC, _NT, _ID, _TEM],
+  [0, () => Endpoint$, 0, 0, 0, 0, 0, 1, 0, 0, 4, 0, [() => PendingModifiedValues$, 0], () => NotificationConfiguration$, [() => CacheSecurityGroupMembershipList, 0], [() => CacheParameterGroupStatus$, 0], 0, [() => CacheNodeList, 0], 2, () => SecurityGroupMembershipList, 0, 1, 0, 2, 4, 2, 2, 0, 2, [() => LogDeliveryConfigurationList, 0], 0, 0, 0]
 ];
-export var CacheClusterAlreadyExistsFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _CCAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CacheClusterAlreadyExists`, 400] },
+export var CacheClusterAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _CCAEF,
+  { [_aQE]: [`CacheClusterAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(CacheClusterAlreadyExistsFault, __CacheClusterAlreadyExistsFault);
-export var CacheClusterMessage: StaticStructureSchema = [3, n0, _CCM, 0, [_M, _CCa], [0, [() => CacheClusterList, 0]]];
-export var CacheClusterNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _CCNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`CacheClusterNotFound`, 404] },
+TypeRegistry.for(n0).registerError(CacheClusterAlreadyExistsFault$, CacheClusterAlreadyExistsFault);
+export var CacheClusterMessage$: StaticStructureSchema = [3, n0, _CCM,
+  0,
+  [_M, _CCa],
+  [0, [() => CacheClusterList, 0]]
+];
+export var CacheClusterNotFoundFault$: StaticErrorSchema = [-3, n0, _CCNFF,
+  { [_aQE]: [`CacheClusterNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(CacheClusterNotFoundFault, __CacheClusterNotFoundFault);
-export var CacheEngineVersion: StaticStructureSchema = [3, n0, _CEV, 0, [_E, _EV, _CPGF, _CED, _CEVD], [0, 0, 0, 0, 0]];
-export var CacheEngineVersionMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _CEVM,
+TypeRegistry.for(n0).registerError(CacheClusterNotFoundFault$, CacheClusterNotFoundFault);
+export var CacheEngineVersion$: StaticStructureSchema = [3, n0, _CEV,
+  0,
+  [_E, _EV, _CPGF, _CED, _CEVD],
+  [0, 0, 0, 0, 0]
+];
+export var CacheEngineVersionMessage$: StaticStructureSchema = [3, n0, _CEVM,
   0,
   [_M, _CEVa],
-  [0, [() => CacheEngineVersionList, 0]],
+  [0, [() => CacheEngineVersionList, 0]]
 ];
-export var CacheNode: StaticStructureSchema = [
-  3,
-  n0,
-  _CNa,
+export var CacheNode$: StaticStructureSchema = [3, n0, _CNa,
   0,
   [_CNI, _CNS, _CNCT, _En, _PGS, _SCNI, _CAZ, _COA],
-  [0, 0, 4, () => Endpoint, 0, 0, 0, 0],
+  [0, 0, 4, () => Endpoint$, 0, 0, 0, 0]
 ];
-export var CacheNodeTypeSpecificParameter: StaticStructureSchema = [
-  3,
-  n0,
-  _CNTSP,
+export var CacheNodeTypeSpecificParameter$: StaticStructureSchema = [3, n0, _CNTSP,
   0,
   [_PN, _D, _S, _DT, _AV, _IM, _MEV, _CNTSV, _CT],
-  [0, 0, 0, 0, 0, 2, 0, [() => CacheNodeTypeSpecificValueList, 0], 0],
+  [0, 0, 0, 0, 0, 2, 0, [() => CacheNodeTypeSpecificValueList, 0], 0]
 ];
-export var CacheNodeTypeSpecificValue: StaticStructureSchema = [3, n0, _CNTSVa, 0, [_CNT, _V], [0, 0]];
-export var CacheNodeUpdateStatus: StaticStructureSchema = [
-  3,
-  n0,
-  _CNUS,
+export var CacheNodeTypeSpecificValue$: StaticStructureSchema = [3, n0, _CNTSVa,
+  0,
+  [_CNT, _V],
+  [0, 0]
+];
+export var CacheNodeUpdateStatus$: StaticStructureSchema = [3, n0, _CNUS,
   0,
   [_CNI, _NUS, _NDD, _NUSD, _NUED, _NUIB, _NUID, _NUSMD],
-  [0, 0, 4, 4, 4, 0, 4, 4],
+  [0, 0, 4, 4, 4, 0, 4, 4]
 ];
-export var CacheParameterGroup: StaticStructureSchema = [
-  3,
-  n0,
-  _CPG,
+export var CacheParameterGroup$: StaticStructureSchema = [3, n0, _CPG,
   0,
   [_CPGN, _CPGF, _D, _IG, _ARN],
-  [0, 0, 0, 2, 0],
+  [0, 0, 0, 2, 0]
 ];
-export var CacheParameterGroupAlreadyExistsFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _CPGAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CacheParameterGroupAlreadyExists`, 400] },
+export var CacheParameterGroupAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _CPGAEF,
+  { [_aQE]: [`CacheParameterGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(CacheParameterGroupAlreadyExistsFault, __CacheParameterGroupAlreadyExistsFault);
-export var CacheParameterGroupDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _CPGD,
+TypeRegistry.for(n0).registerError(CacheParameterGroupAlreadyExistsFault$, CacheParameterGroupAlreadyExistsFault);
+export var CacheParameterGroupDetails$: StaticStructureSchema = [3, n0, _CPGD,
   0,
   [_M, _Pa, _CNTSPa],
-  [0, [() => ParametersList, 0], [() => CacheNodeTypeSpecificParametersList, 0]],
+  [0, [() => ParametersList, 0], [() => CacheNodeTypeSpecificParametersList, 0]]
 ];
-export var CacheParameterGroupNameMessage: StaticStructureSchema = [3, n0, _CPGNM, 0, [_CPGN], [0]];
-export var CacheParameterGroupNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _CPGNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`CacheParameterGroupNotFound`, 404] },
+export var CacheParameterGroupNameMessage$: StaticStructureSchema = [3, n0, _CPGNM,
+  0,
+  [_CPGN],
+  [0]
+];
+export var CacheParameterGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _CPGNFF,
+  { [_aQE]: [`CacheParameterGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(CacheParameterGroupNotFoundFault, __CacheParameterGroupNotFoundFault);
-export var CacheParameterGroupQuotaExceededFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _CPGQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CacheParameterGroupQuotaExceeded`, 400] },
+TypeRegistry.for(n0).registerError(CacheParameterGroupNotFoundFault$, CacheParameterGroupNotFoundFault);
+export var CacheParameterGroupQuotaExceededFault$: StaticErrorSchema = [-3, n0, _CPGQEF,
+  { [_aQE]: [`CacheParameterGroupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(CacheParameterGroupQuotaExceededFault, __CacheParameterGroupQuotaExceededFault);
-export var CacheParameterGroupsMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _CPGM,
+TypeRegistry.for(n0).registerError(CacheParameterGroupQuotaExceededFault$, CacheParameterGroupQuotaExceededFault);
+export var CacheParameterGroupsMessage$: StaticStructureSchema = [3, n0, _CPGM,
   0,
   [_M, _CPGa],
-  [0, [() => CacheParameterGroupList, 0]],
+  [0, [() => CacheParameterGroupList, 0]]
 ];
-export var CacheParameterGroupStatus: StaticStructureSchema = [
-  3,
-  n0,
-  _CPGS,
+export var CacheParameterGroupStatus$: StaticStructureSchema = [3, n0, _CPGS,
   0,
   [_CPGN, _PAS, _CNITR],
-  [0, 0, [() => CacheNodeIdsList, 0]],
+  [0, 0, [() => CacheNodeIdsList, 0]]
 ];
-export var CacheSecurityGroup: StaticStructureSchema = [
-  3,
-  n0,
-  _CSG,
+export var CacheSecurityGroup$: StaticStructureSchema = [3, n0, _CSG,
   0,
   [_OI, _CSGN, _D, _ECSG, _ARN],
-  [0, 0, 0, [() => EC2SecurityGroupList, 0], 0],
+  [0, 0, 0, [() => EC2SecurityGroupList, 0], 0]
 ];
-export var CacheSecurityGroupAlreadyExistsFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _CSGAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CacheSecurityGroupAlreadyExists`, 400] },
+export var CacheSecurityGroupAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _CSGAEF,
+  { [_aQE]: [`CacheSecurityGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(CacheSecurityGroupAlreadyExistsFault, __CacheSecurityGroupAlreadyExistsFault);
-export var CacheSecurityGroupMembership: StaticStructureSchema = [3, n0, _CSGM, 0, [_CSGN, _St], [0, 0]];
-export var CacheSecurityGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _CSGMa,
+TypeRegistry.for(n0).registerError(CacheSecurityGroupAlreadyExistsFault$, CacheSecurityGroupAlreadyExistsFault);
+export var CacheSecurityGroupMembership$: StaticStructureSchema = [3, n0, _CSGM,
+  0,
+  [_CSGN, _St],
+  [0, 0]
+];
+export var CacheSecurityGroupMessage$: StaticStructureSchema = [3, n0, _CSGMa,
   0,
   [_M, _CSGa],
-  [0, [() => CacheSecurityGroups, 0]],
+  [0, [() => CacheSecurityGroups, 0]]
 ];
-export var CacheSecurityGroupNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _CSGNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`CacheSecurityGroupNotFound`, 404] },
+export var CacheSecurityGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _CSGNFF,
+  { [_aQE]: [`CacheSecurityGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(CacheSecurityGroupNotFoundFault, __CacheSecurityGroupNotFoundFault);
-export var CacheSecurityGroupQuotaExceededFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _CSGQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`QuotaExceeded.CacheSecurityGroup`, 400] },
+TypeRegistry.for(n0).registerError(CacheSecurityGroupNotFoundFault$, CacheSecurityGroupNotFoundFault);
+export var CacheSecurityGroupQuotaExceededFault$: StaticErrorSchema = [-3, n0, _CSGQEF,
+  { [_aQE]: [`QuotaExceeded.CacheSecurityGroup`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(CacheSecurityGroupQuotaExceededFault, __CacheSecurityGroupQuotaExceededFault);
-export var CacheSubnetGroup: StaticStructureSchema = [
-  3,
-  n0,
-  _CSGac,
+TypeRegistry.for(n0).registerError(CacheSecurityGroupQuotaExceededFault$, CacheSecurityGroupQuotaExceededFault);
+export var CacheSubnetGroup$: StaticStructureSchema = [3, n0, _CSGac,
   0,
   [_CSGNa, _CSGD, _VI, _Su, _ARN, _SNT],
-  [0, 0, 0, [() => SubnetList, 0], 0, 64 | 0],
+  [0, 0, 0, [() => SubnetList, 0], 0, 64 | 0]
 ];
-export var CacheSubnetGroupAlreadyExistsFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _CSGAEFa,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CacheSubnetGroupAlreadyExists`, 400] },
+export var CacheSubnetGroupAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _CSGAEFa,
+  { [_aQE]: [`CacheSubnetGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(CacheSubnetGroupAlreadyExistsFault, __CacheSubnetGroupAlreadyExistsFault);
-export var CacheSubnetGroupInUse: StaticErrorSchema = [
-  -3,
-  n0,
-  _CSGIU,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CacheSubnetGroupInUse`, 400] },
+TypeRegistry.for(n0).registerError(CacheSubnetGroupAlreadyExistsFault$, CacheSubnetGroupAlreadyExistsFault);
+export var CacheSubnetGroupInUse$: StaticErrorSchema = [-3, n0, _CSGIU,
+  { [_aQE]: [`CacheSubnetGroupInUse`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(CacheSubnetGroupInUse, __CacheSubnetGroupInUse);
-export var CacheSubnetGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _CSGMac,
+TypeRegistry.for(n0).registerError(CacheSubnetGroupInUse$, CacheSubnetGroupInUse);
+export var CacheSubnetGroupMessage$: StaticStructureSchema = [3, n0, _CSGMac,
   0,
   [_M, _CSGach],
-  [0, [() => CacheSubnetGroups, 0]],
+  [0, [() => CacheSubnetGroups, 0]]
 ];
-export var CacheSubnetGroupNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _CSGNFFa,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CacheSubnetGroupNotFoundFault`, 400] },
+export var CacheSubnetGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _CSGNFFa,
+  { [_aQE]: [`CacheSubnetGroupNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(CacheSubnetGroupNotFoundFault, __CacheSubnetGroupNotFoundFault);
-export var CacheSubnetGroupQuotaExceededFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _CSGQEFa,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CacheSubnetGroupQuotaExceeded`, 400] },
+TypeRegistry.for(n0).registerError(CacheSubnetGroupNotFoundFault$, CacheSubnetGroupNotFoundFault);
+export var CacheSubnetGroupQuotaExceededFault$: StaticErrorSchema = [-3, n0, _CSGQEFa,
+  { [_aQE]: [`CacheSubnetGroupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(CacheSubnetGroupQuotaExceededFault, __CacheSubnetGroupQuotaExceededFault);
-export var CacheSubnetQuotaExceededFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _CSQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CacheSubnetQuotaExceededFault`, 400] },
+TypeRegistry.for(n0).registerError(CacheSubnetGroupQuotaExceededFault$, CacheSubnetGroupQuotaExceededFault);
+export var CacheSubnetQuotaExceededFault$: StaticErrorSchema = [-3, n0, _CSQEF,
+  { [_aQE]: [`CacheSubnetQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(CacheSubnetQuotaExceededFault, __CacheSubnetQuotaExceededFault);
-export var CacheUsageLimits: StaticStructureSchema = [
-  3,
-  n0,
-  _CUL,
+TypeRegistry.for(n0).registerError(CacheSubnetQuotaExceededFault$, CacheSubnetQuotaExceededFault);
+export var CacheUsageLimits$: StaticStructureSchema = [3, n0, _CUL,
   0,
   [_DS, _ECPUPS],
-  [() => DataStorage, () => ECPUPerSecond],
+  [() => DataStorage$, () => ECPUPerSecond$]
 ];
-export var CloudWatchLogsDestinationDetails: StaticStructureSchema = [3, n0, _CWLDD, 0, [_LG], [0]];
-export var ClusterQuotaForCustomerExceededFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _CQFCEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ClusterQuotaForCustomerExceeded`, 400] },
+export var CloudWatchLogsDestinationDetails$: StaticStructureSchema = [3, n0, _CWLDD,
+  0,
+  [_LG],
+  [0]
+];
+export var ClusterQuotaForCustomerExceededFault$: StaticErrorSchema = [-3, n0, _CQFCEF,
+  { [_aQE]: [`ClusterQuotaForCustomerExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(ClusterQuotaForCustomerExceededFault, __ClusterQuotaForCustomerExceededFault);
-export var CompleteMigrationMessage: StaticStructureSchema = [3, n0, _CMM, 0, [_RGIe, _F], [0, 2]];
-export var CompleteMigrationResponse: StaticStructureSchema = [3, n0, _CMR, 0, [_RG], [[() => ReplicationGroup, 0]]];
-export var ConfigureShard: StaticStructureSchema = [
-  3,
-  n0,
-  _CS,
+TypeRegistry.for(n0).registerError(ClusterQuotaForCustomerExceededFault$, ClusterQuotaForCustomerExceededFault);
+export var CompleteMigrationMessage$: StaticStructureSchema = [3, n0, _CMM,
+  0,
+  [_RGIe, _F],
+  [0, 2]
+];
+export var CompleteMigrationResponse$: StaticStructureSchema = [3, n0, _CMR,
+  0,
+  [_RG],
+  [[() => ReplicationGroup$, 0]]
+];
+export var ConfigureShard$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_NGI, _NRC, _PAZr, _POAr],
-  [0, 1, [() => PreferredAvailabilityZoneList, 0], [() => PreferredOutpostArnList, 0]],
+  [0, 1, [() => PreferredAvailabilityZoneList, 0], [() => PreferredOutpostArnList, 0]]
 ];
-export var CopyServerlessCacheSnapshotRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CSCSR,
+export var CopyServerlessCacheSnapshotRequest$: StaticStructureSchema = [3, n0, _CSCSR,
   0,
   [_SSCSN, _TSCSN, _KKI, _T],
-  [0, 0, 0, [() => TagList, 0]],
+  [0, 0, 0, [() => TagList, 0]]
 ];
-export var CopyServerlessCacheSnapshotResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CSCSRo,
+export var CopyServerlessCacheSnapshotResponse$: StaticStructureSchema = [3, n0, _CSCSRo,
   0,
   [_SCS],
-  [() => ServerlessCacheSnapshot],
+  [() => ServerlessCacheSnapshot$]
 ];
-export var CopySnapshotMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _CSM,
+export var CopySnapshotMessage$: StaticStructureSchema = [3, n0, _CSM,
   0,
   [_SSN, _TSN, _TB, _KKI, _T],
-  [0, 0, 0, 0, [() => TagList, 0]],
+  [0, 0, 0, 0, [() => TagList, 0]]
 ];
-export var CopySnapshotResult: StaticStructureSchema = [3, n0, _CSR, 0, [_Sn], [[() => Snapshot, 0]]];
-export var CreateCacheClusterMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _CCCM,
+export var CopySnapshotResult$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [
-    _CCIa,
-    _RGIe,
-    _AZM,
-    _PAZ,
-    _PAZr,
-    _NCN,
-    _CNT,
-    _E,
-    _EV,
-    _CPGN,
-    _CSGNa,
-    _CSGNac,
-    _SGI,
-    _T,
-    _SA,
-    _SN,
-    _PMW,
-    _Po,
-    _NTA,
-    _AMVU,
-    _SRL,
-    _SW,
-    _AT,
-    _OM,
-    _POA,
-    _POAr,
-    _LDC,
-    _TEE,
-    _NT,
-    _ID,
-  ],
-  [
-    0,
-    0,
-    0,
-    0,
-    [() => PreferredAvailabilityZoneList, 0],
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    [() => CacheSecurityGroupNameList, 0],
-    [() => SecurityGroupIdsList, 0],
-    [() => TagList, 0],
-    [() => SnapshotArnsList, 0],
-    0,
-    0,
-    1,
-    0,
-    2,
-    1,
-    0,
-    0,
-    0,
-    0,
-    [() => PreferredOutpostArnList, 0],
-    [() => LogDeliveryConfigurationRequestList, 0],
-    2,
-    0,
-    0,
-  ],
+  [_Sn],
+  [[() => Snapshot$, 0]]
 ];
-export var CreateCacheClusterResult: StaticStructureSchema = [3, n0, _CCCR, 0, [_CC], [[() => CacheCluster, 0]]];
-export var CreateCacheParameterGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _CCPGM,
+export var CreateCacheClusterMessage$: StaticStructureSchema = [3, n0, _CCCM,
+  0,
+  [_CCIa, _RGIe, _AZM, _PAZ, _PAZr, _NCN, _CNT, _E, _EV, _CPGN, _CSGNa, _CSGNac, _SGI, _T, _SA, _SN, _PMW, _Po, _NTA, _AMVU, _SRL, _SW, _AT, _OM, _POA, _POAr, _LDC, _TEE, _NT, _ID],
+  [0, 0, 0, 0, [() => PreferredAvailabilityZoneList, 0], 1, 0, 0, 0, 0, 0, [() => CacheSecurityGroupNameList, 0], [() => SecurityGroupIdsList, 0], [() => TagList, 0], [() => SnapshotArnsList, 0], 0, 0, 1, 0, 2, 1, 0, 0, 0, 0, [() => PreferredOutpostArnList, 0], [() => LogDeliveryConfigurationRequestList, 0], 2, 0, 0]
+];
+export var CreateCacheClusterResult$: StaticStructureSchema = [3, n0, _CCCR,
+  0,
+  [_CC],
+  [[() => CacheCluster$, 0]]
+];
+export var CreateCacheParameterGroupMessage$: StaticStructureSchema = [3, n0, _CCPGM,
   0,
   [_CPGN, _CPGF, _D, _T],
-  [0, 0, 0, [() => TagList, 0]],
+  [0, 0, 0, [() => TagList, 0]]
 ];
-export var CreateCacheParameterGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CCPGR,
+export var CreateCacheParameterGroupResult$: StaticStructureSchema = [3, n0, _CCPGR,
   0,
   [_CPG],
-  [() => CacheParameterGroup],
+  [() => CacheParameterGroup$]
 ];
-export var CreateCacheSecurityGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _CCSGM,
+export var CreateCacheSecurityGroupMessage$: StaticStructureSchema = [3, n0, _CCSGM,
   0,
   [_CSGN, _D, _T],
-  [0, 0, [() => TagList, 0]],
+  [0, 0, [() => TagList, 0]]
 ];
-export var CreateCacheSecurityGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CCSGR,
+export var CreateCacheSecurityGroupResult$: StaticStructureSchema = [3, n0, _CCSGR,
   0,
   [_CSG],
-  [[() => CacheSecurityGroup, 0]],
+  [[() => CacheSecurityGroup$, 0]]
 ];
-export var CreateCacheSubnetGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _CCSGMr,
+export var CreateCacheSubnetGroupMessage$: StaticStructureSchema = [3, n0, _CCSGMr,
   0,
   [_CSGNa, _CSGD, _SI, _T],
-  [0, 0, [() => SubnetIdentifierList, 0], [() => TagList, 0]],
+  [0, 0, [() => SubnetIdentifierList, 0], [() => TagList, 0]]
 ];
-export var CreateCacheSubnetGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CCSGRr,
+export var CreateCacheSubnetGroupResult$: StaticStructureSchema = [3, n0, _CCSGRr,
   0,
   [_CSGac],
-  [[() => CacheSubnetGroup, 0]],
+  [[() => CacheSubnetGroup$, 0]]
 ];
-export var CreateGlobalReplicationGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _CGRGM,
+export var CreateGlobalReplicationGroupMessage$: StaticStructureSchema = [3, n0, _CGRGM,
   0,
   [_GRGIS, _GRGD, _PRGI],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-export var CreateGlobalReplicationGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CGRGR,
+export var CreateGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, _CGRGR,
   0,
   [_GRG],
-  [[() => GlobalReplicationGroup, 0]],
+  [[() => GlobalReplicationGroup$, 0]]
 ];
-export var CreateReplicationGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _CRGM,
+export var CreateReplicationGroupMessage$: StaticStructureSchema = [3, n0, _CRGM,
   0,
-  [
-    _RGIe,
-    _RGD,
-    _GRGI,
-    _PCI,
-    _AFE,
-    _MAZE,
-    _NCC,
-    _PCCAZ,
-    _NNG,
-    _RPNG,
-    _NGC,
-    _CNT,
-    _E,
-    _EV,
-    _CPGN,
-    _CSGNa,
-    _CSGNac,
-    _SGI,
-    _T,
-    _SA,
-    _SN,
-    _PMW,
-    _Po,
-    _NTA,
-    _AMVU,
-    _SRL,
-    _SW,
-    _AT,
-    _TEE,
-    _AREE,
-    _KKI,
-    _UGI,
-    _LDC,
-    _DTE,
-    _NT,
-    _ID,
-    _TEM,
-    _CM,
-    _SCSN,
-  ],
-  [
-    0,
-    0,
-    0,
-    0,
-    2,
-    2,
-    1,
-    [() => AvailabilityZonesList, 0],
-    1,
-    1,
-    [() => NodeGroupConfigurationList, 0],
-    0,
-    0,
-    0,
-    0,
-    0,
-    [() => CacheSecurityGroupNameList, 0],
-    [() => SecurityGroupIdsList, 0],
-    [() => TagList, 0],
-    [() => SnapshotArnsList, 0],
-    0,
-    0,
-    1,
-    0,
-    2,
-    1,
-    0,
-    0,
-    2,
-    2,
-    0,
-    64 | 0,
-    [() => LogDeliveryConfigurationRequestList, 0],
-    2,
-    0,
-    0,
-    0,
-    0,
-    0,
-  ],
+  [_RGIe, _RGD, _GRGI, _PCI, _AFE, _MAZE, _NCC, _PCCAZ, _NNG, _RPNG, _NGC, _CNT, _E, _EV, _CPGN, _CSGNa, _CSGNac, _SGI, _T, _SA, _SN, _PMW, _Po, _NTA, _AMVU, _SRL, _SW, _AT, _TEE, _AREE, _KKI, _UGI, _LDC, _DTE, _NT, _ID, _TEM, _CM, _SCSN],
+  [0, 0, 0, 0, 2, 2, 1, [() => AvailabilityZonesList, 0], 1, 1, [() => NodeGroupConfigurationList, 0], 0, 0, 0, 0, 0, [() => CacheSecurityGroupNameList, 0], [() => SecurityGroupIdsList, 0], [() => TagList, 0], [() => SnapshotArnsList, 0], 0, 0, 1, 0, 2, 1, 0, 0, 2, 2, 0, 64 | 0, [() => LogDeliveryConfigurationRequestList, 0], 2, 0, 0, 0, 0, 0]
 ];
-export var CreateReplicationGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CRGR,
+export var CreateReplicationGroupResult$: StaticStructureSchema = [3, n0, _CRGR,
   0,
   [_RG],
-  [[() => ReplicationGroup, 0]],
+  [[() => ReplicationGroup$, 0]]
 ];
-export var CreateServerlessCacheRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CSCR,
+export var CreateServerlessCacheRequest$: StaticStructureSchema = [3, n0, _CSCR,
   0,
   [_SCN, _D, _E, _MEVa, _CUL, _KKI, _SGI, _SATR, _T, _UGIs, _SI, _SRL, _DST],
-  [
-    0,
-    0,
-    0,
-    0,
-    () => CacheUsageLimits,
-    0,
-    [() => SecurityGroupIdsList, 0],
-    [() => SnapshotArnsList, 0],
-    [() => TagList, 0],
-    0,
-    [() => SubnetIdsList, 0],
-    1,
-    0,
-  ],
+  [0, 0, 0, 0, () => CacheUsageLimits$, 0, [() => SecurityGroupIdsList, 0], [() => SnapshotArnsList, 0], [() => TagList, 0], 0, [() => SubnetIdsList, 0], 1, 0]
 ];
-export var CreateServerlessCacheResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CSCRr,
+export var CreateServerlessCacheResponse$: StaticStructureSchema = [3, n0, _CSCRr,
   0,
   [_SC],
-  [[() => ServerlessCache, 0]],
+  [[() => ServerlessCache$, 0]]
 ];
-export var CreateServerlessCacheSnapshotRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CSCSRr,
+export var CreateServerlessCacheSnapshotRequest$: StaticStructureSchema = [3, n0, _CSCSRr,
   0,
   [_SCSN, _SCN, _KKI, _T],
-  [0, 0, 0, [() => TagList, 0]],
+  [0, 0, 0, [() => TagList, 0]]
 ];
-export var CreateServerlessCacheSnapshotResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CSCSRre,
+export var CreateServerlessCacheSnapshotResponse$: StaticStructureSchema = [3, n0, _CSCSRre,
   0,
   [_SCS],
-  [() => ServerlessCacheSnapshot],
+  [() => ServerlessCacheSnapshot$]
 ];
-export var CreateSnapshotMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _CSMr,
+export var CreateSnapshotMessage$: StaticStructureSchema = [3, n0, _CSMr,
   0,
   [_RGIe, _CCIa, _SN, _KKI, _T],
-  [0, 0, 0, 0, [() => TagList, 0]],
+  [0, 0, 0, 0, [() => TagList, 0]]
 ];
-export var CreateSnapshotResult: StaticStructureSchema = [3, n0, _CSRr, 0, [_Sn], [[() => Snapshot, 0]]];
-export var CreateUserGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _CUGM,
+export var CreateSnapshotResult$: StaticStructureSchema = [3, n0, _CSRr,
+  0,
+  [_Sn],
+  [[() => Snapshot$, 0]]
+];
+export var CreateUserGroupMessage$: StaticStructureSchema = [3, n0, _CUGM,
   0,
   [_UGIs, _E, _UI, _T],
-  [0, 0, 64 | 0, [() => TagList, 0]],
+  [0, 0, 64 | 0, [() => TagList, 0]]
 ];
-export var CreateUserMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _CUM,
+export var CreateUserMessage$: StaticStructureSchema = [3, n0, _CUM,
   0,
   [_UIs, _UN, _E, _P, _AS, _NPR, _T, _AM],
-  [0, 0, 0, 64 | 0, 0, 2, [() => TagList, 0], () => AuthenticationMode],
+  [0, 0, 0, 64 | 0, 0, 2, [() => TagList, 0], () => AuthenticationMode$]
 ];
-export var CustomerNodeEndpoint: StaticStructureSchema = [3, n0, _CNE, 0, [_Ad, _Po], [0, 1]];
-export var DataStorage: StaticStructureSchema = [3, n0, _DS, 0, [_Ma, _Mi, _U], [1, 1, 0]];
-export var DecreaseNodeGroupsInGlobalReplicationGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _DNGIGRGM,
+export var CustomerNodeEndpoint$: StaticStructureSchema = [3, n0, _CNE,
+  0,
+  [_Ad, _Po],
+  [0, 1]
+];
+export var DataStorage$: StaticStructureSchema = [3, n0, _DS,
+  0,
+  [_Ma, _Mi, _U],
+  [1, 1, 0]
+];
+export var DecreaseNodeGroupsInGlobalReplicationGroupMessage$: StaticStructureSchema = [3, n0, _DNGIGRGM,
   0,
   [_GRGI, _NGCo, _GNGTR, _GNGTRl, _AI],
-  [0, 1, [() => GlobalNodeGroupIdList, 0], [() => GlobalNodeGroupIdList, 0], 2],
+  [0, 1, [() => GlobalNodeGroupIdList, 0], [() => GlobalNodeGroupIdList, 0], 2]
 ];
-export var DecreaseNodeGroupsInGlobalReplicationGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _DNGIGRGR,
+export var DecreaseNodeGroupsInGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, _DNGIGRGR,
   0,
   [_GRG],
-  [[() => GlobalReplicationGroup, 0]],
+  [[() => GlobalReplicationGroup$, 0]]
 ];
-export var DecreaseReplicaCountMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _DRCM,
+export var DecreaseReplicaCountMessage$: StaticStructureSchema = [3, n0, _DRCM,
   0,
   [_RGIe, _NRC, _RC, _RTR, _AI],
-  [0, 1, [() => ReplicaConfigurationList, 0], 64 | 0, 2],
+  [0, 1, [() => ReplicaConfigurationList, 0], 64 | 0, 2]
 ];
-export var DecreaseReplicaCountResult: StaticStructureSchema = [3, n0, _DRCR, 0, [_RG], [[() => ReplicationGroup, 0]]];
-export var DefaultUserAssociatedToUserGroupFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _DUATUGF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DefaultUserAssociatedToUserGroup`, 400] },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DefaultUserAssociatedToUserGroupFault, __DefaultUserAssociatedToUserGroupFault);
-export var DefaultUserRequired: StaticErrorSchema = [
-  -3,
-  n0,
-  _DUR,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DefaultUserRequired`, 400] },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DefaultUserRequired, __DefaultUserRequired);
-export var DeleteCacheClusterMessage: StaticStructureSchema = [3, n0, _DCCM, 0, [_CCIa, _FSI], [0, 0]];
-export var DeleteCacheClusterResult: StaticStructureSchema = [3, n0, _DCCR, 0, [_CC], [[() => CacheCluster, 0]]];
-export var DeleteCacheParameterGroupMessage: StaticStructureSchema = [3, n0, _DCPGM, 0, [_CPGN], [0]];
-export var DeleteCacheSecurityGroupMessage: StaticStructureSchema = [3, n0, _DCSGM, 0, [_CSGN], [0]];
-export var DeleteCacheSubnetGroupMessage: StaticStructureSchema = [3, n0, _DCSGMe, 0, [_CSGNa], [0]];
-export var DeleteGlobalReplicationGroupMessage: StaticStructureSchema = [3, n0, _DGRGM, 0, [_GRGI, _RPRG], [0, 2]];
-export var DeleteGlobalReplicationGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _DGRGR,
-  0,
-  [_GRG],
-  [[() => GlobalReplicationGroup, 0]],
-];
-export var DeleteReplicationGroupMessage: StaticStructureSchema = [3, n0, _DRGM, 0, [_RGIe, _RPC, _FSI], [0, 2, 0]];
-export var DeleteReplicationGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _DRGR,
+export var DecreaseReplicaCountResult$: StaticStructureSchema = [3, n0, _DRCR,
   0,
   [_RG],
-  [[() => ReplicationGroup, 0]],
+  [[() => ReplicationGroup$, 0]]
 ];
-export var DeleteServerlessCacheRequest: StaticStructureSchema = [3, n0, _DSCR, 0, [_SCN, _FSN], [0, 0]];
-export var DeleteServerlessCacheResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _DSCRe,
+export var DefaultUserAssociatedToUserGroupFault$: StaticErrorSchema = [-3, n0, _DUATUGF,
+  { [_aQE]: [`DefaultUserAssociatedToUserGroup`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DefaultUserAssociatedToUserGroupFault$, DefaultUserAssociatedToUserGroupFault);
+export var DefaultUserRequired$: StaticErrorSchema = [-3, n0, _DUR,
+  { [_aQE]: [`DefaultUserRequired`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DefaultUserRequired$, DefaultUserRequired);
+export var DeleteCacheClusterMessage$: StaticStructureSchema = [3, n0, _DCCM,
+  0,
+  [_CCIa, _FSI],
+  [0, 0]
+];
+export var DeleteCacheClusterResult$: StaticStructureSchema = [3, n0, _DCCR,
+  0,
+  [_CC],
+  [[() => CacheCluster$, 0]]
+];
+export var DeleteCacheParameterGroupMessage$: StaticStructureSchema = [3, n0, _DCPGM,
+  0,
+  [_CPGN],
+  [0]
+];
+export var DeleteCacheSecurityGroupMessage$: StaticStructureSchema = [3, n0, _DCSGM,
+  0,
+  [_CSGN],
+  [0]
+];
+export var DeleteCacheSubnetGroupMessage$: StaticStructureSchema = [3, n0, _DCSGMe,
+  0,
+  [_CSGNa],
+  [0]
+];
+export var DeleteGlobalReplicationGroupMessage$: StaticStructureSchema = [3, n0, _DGRGM,
+  0,
+  [_GRGI, _RPRG],
+  [0, 2]
+];
+export var DeleteGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, _DGRGR,
+  0,
+  [_GRG],
+  [[() => GlobalReplicationGroup$, 0]]
+];
+export var DeleteReplicationGroupMessage$: StaticStructureSchema = [3, n0, _DRGM,
+  0,
+  [_RGIe, _RPC, _FSI],
+  [0, 2, 0]
+];
+export var DeleteReplicationGroupResult$: StaticStructureSchema = [3, n0, _DRGR,
+  0,
+  [_RG],
+  [[() => ReplicationGroup$, 0]]
+];
+export var DeleteServerlessCacheRequest$: StaticStructureSchema = [3, n0, _DSCR,
+  0,
+  [_SCN, _FSN],
+  [0, 0]
+];
+export var DeleteServerlessCacheResponse$: StaticStructureSchema = [3, n0, _DSCRe,
   0,
   [_SC],
-  [[() => ServerlessCache, 0]],
+  [[() => ServerlessCache$, 0]]
 ];
-export var DeleteServerlessCacheSnapshotRequest: StaticStructureSchema = [3, n0, _DSCSR, 0, [_SCSN], [0]];
-export var DeleteServerlessCacheSnapshotResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _DSCSRe,
+export var DeleteServerlessCacheSnapshotRequest$: StaticStructureSchema = [3, n0, _DSCSR,
+  0,
+  [_SCSN],
+  [0]
+];
+export var DeleteServerlessCacheSnapshotResponse$: StaticStructureSchema = [3, n0, _DSCSRe,
   0,
   [_SCS],
-  [() => ServerlessCacheSnapshot],
+  [() => ServerlessCacheSnapshot$]
 ];
-export var DeleteSnapshotMessage: StaticStructureSchema = [3, n0, _DSM, 0, [_SN], [0]];
-export var DeleteSnapshotResult: StaticStructureSchema = [3, n0, _DSR, 0, [_Sn], [[() => Snapshot, 0]]];
-export var DeleteUserGroupMessage: StaticStructureSchema = [3, n0, _DUGM, 0, [_UGIs], [0]];
-export var DeleteUserMessage: StaticStructureSchema = [3, n0, _DUM, 0, [_UIs], [0]];
-export var DescribeCacheClustersMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _DCCMe,
+export var DeleteSnapshotMessage$: StaticStructureSchema = [3, n0, _DSM,
+  0,
+  [_SN],
+  [0]
+];
+export var DeleteSnapshotResult$: StaticStructureSchema = [3, n0, _DSR,
+  0,
+  [_Sn],
+  [[() => Snapshot$, 0]]
+];
+export var DeleteUserGroupMessage$: StaticStructureSchema = [3, n0, _DUGM,
+  0,
+  [_UGIs],
+  [0]
+];
+export var DeleteUserMessage$: StaticStructureSchema = [3, n0, _DUM,
+  0,
+  [_UIs],
+  [0]
+];
+export var DescribeCacheClustersMessage$: StaticStructureSchema = [3, n0, _DCCMe,
   0,
   [_CCIa, _MR, _M, _SCNIh, _SCCNIRG],
-  [0, 1, 0, 2, 2],
+  [0, 1, 0, 2, 2]
 ];
-export var DescribeCacheEngineVersionsMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _DCEVM,
+export var DescribeCacheEngineVersionsMessage$: StaticStructureSchema = [3, n0, _DCEVM,
   0,
   [_E, _EV, _CPGF, _MR, _M, _DO],
-  [0, 0, 0, 1, 0, 2],
+  [0, 0, 0, 1, 0, 2]
 ];
-export var DescribeCacheParameterGroupsMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _DCPGMe,
+export var DescribeCacheParameterGroupsMessage$: StaticStructureSchema = [3, n0, _DCPGMe,
   0,
   [_CPGN, _MR, _M],
-  [0, 1, 0],
+  [0, 1, 0]
 ];
-export var DescribeCacheParametersMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _DCPM,
+export var DescribeCacheParametersMessage$: StaticStructureSchema = [3, n0, _DCPM,
   0,
   [_CPGN, _S, _MR, _M],
-  [0, 0, 1, 0],
+  [0, 0, 1, 0]
 ];
-export var DescribeCacheSecurityGroupsMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _DCSGMes,
+export var DescribeCacheSecurityGroupsMessage$: StaticStructureSchema = [3, n0, _DCSGMes,
   0,
   [_CSGN, _MR, _M],
-  [0, 1, 0],
+  [0, 1, 0]
 ];
-export var DescribeCacheSubnetGroupsMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _DCSGMesc,
+export var DescribeCacheSubnetGroupsMessage$: StaticStructureSchema = [3, n0, _DCSGMesc,
   0,
   [_CSGNa, _MR, _M],
-  [0, 1, 0],
+  [0, 1, 0]
 ];
-export var DescribeEngineDefaultParametersMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _DEDPM,
+export var DescribeEngineDefaultParametersMessage$: StaticStructureSchema = [3, n0, _DEDPM,
   0,
   [_CPGF, _MR, _M],
-  [0, 1, 0],
+  [0, 1, 0]
 ];
-export var DescribeEngineDefaultParametersResult: StaticStructureSchema = [
-  3,
-  n0,
-  _DEDPR,
+export var DescribeEngineDefaultParametersResult$: StaticStructureSchema = [3, n0, _DEDPR,
   0,
   [_ED],
-  [[() => EngineDefaults, 0]],
+  [[() => EngineDefaults$, 0]]
 ];
-export var DescribeEventsMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _DEM,
+export var DescribeEventsMessage$: StaticStructureSchema = [3, n0, _DEM,
   0,
   [_SIo, _ST, _STt, _ET, _Du, _MR, _M],
-  [0, 0, 4, 4, 1, 1, 0],
+  [0, 0, 4, 4, 1, 1, 0]
 ];
-export var DescribeGlobalReplicationGroupsMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _DGRGMe,
+export var DescribeGlobalReplicationGroupsMessage$: StaticStructureSchema = [3, n0, _DGRGMe,
   0,
   [_GRGI, _MR, _M, _SMI],
-  [0, 1, 0, 2],
+  [0, 1, 0, 2]
 ];
-export var DescribeGlobalReplicationGroupsResult: StaticStructureSchema = [
-  3,
-  n0,
-  _DGRGRe,
+export var DescribeGlobalReplicationGroupsResult$: StaticStructureSchema = [3, n0, _DGRGRe,
   0,
   [_M, _GRGl],
-  [0, [() => GlobalReplicationGroupList, 0]],
+  [0, [() => GlobalReplicationGroupList, 0]]
 ];
-export var DescribeReplicationGroupsMessage: StaticStructureSchema = [3, n0, _DRGMe, 0, [_RGIe, _MR, _M], [0, 1, 0]];
-export var DescribeReservedCacheNodesMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _DRCNM,
+export var DescribeReplicationGroupsMessage$: StaticStructureSchema = [3, n0, _DRGMe,
+  0,
+  [_RGIe, _MR, _M],
+  [0, 1, 0]
+];
+export var DescribeReservedCacheNodesMessage$: StaticStructureSchema = [3, n0, _DRCNM,
   0,
   [_RCNI, _RCNOI, _CNT, _Du, _PD, _OT, _MR, _M],
-  [0, 0, 0, 0, 0, 0, 1, 0],
+  [0, 0, 0, 0, 0, 0, 1, 0]
 ];
-export var DescribeReservedCacheNodesOfferingsMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _DRCNOM,
+export var DescribeReservedCacheNodesOfferingsMessage$: StaticStructureSchema = [3, n0, _DRCNOM,
   0,
   [_RCNOI, _CNT, _Du, _PD, _OT, _MR, _M],
-  [0, 0, 0, 0, 0, 1, 0],
+  [0, 0, 0, 0, 0, 1, 0]
 ];
-export var DescribeServerlessCacheSnapshotsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DSCSRes,
+export var DescribeServerlessCacheSnapshotsRequest$: StaticStructureSchema = [3, n0, _DSCSRes,
   0,
   [_SCN, _SCSN, _STn, _NTe, _MRa],
-  [0, 0, 0, 0, 1],
+  [0, 0, 0, 0, 1]
 ];
-export var DescribeServerlessCacheSnapshotsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _DSCSResc,
+export var DescribeServerlessCacheSnapshotsResponse$: StaticStructureSchema = [3, n0, _DSCSResc,
   0,
   [_NTe, _SCSe],
-  [0, [() => ServerlessCacheSnapshotList, 0]],
+  [0, [() => ServerlessCacheSnapshotList, 0]]
 ];
-export var DescribeServerlessCachesRequest: StaticStructureSchema = [3, n0, _DSCRes, 0, [_SCN, _MRa, _NTe], [0, 1, 0]];
-export var DescribeServerlessCachesResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _DSCResc,
+export var DescribeServerlessCachesRequest$: StaticStructureSchema = [3, n0, _DSCRes,
+  0,
+  [_SCN, _MRa, _NTe],
+  [0, 1, 0]
+];
+export var DescribeServerlessCachesResponse$: StaticStructureSchema = [3, n0, _DSCResc,
   0,
   [_NTe, _SCe],
-  [0, [() => ServerlessCacheList, 0]],
+  [0, [() => ServerlessCacheList, 0]]
 ];
-export var DescribeServiceUpdatesMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _DSUM,
+export var DescribeServiceUpdatesMessage$: StaticStructureSchema = [3, n0, _DSUM,
   0,
   [_SUN, _SUS, _MR, _M],
-  [0, 64 | 0, 1, 0],
+  [0, 64 | 0, 1, 0]
 ];
-export var DescribeSnapshotsListMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _DSLM,
+export var DescribeSnapshotsListMessage$: StaticStructureSchema = [3, n0, _DSLM,
   0,
   [_M, _Sna],
-  [0, [() => SnapshotList, 0]],
+  [0, [() => SnapshotList, 0]]
 ];
-export var DescribeSnapshotsMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _DSMe,
+export var DescribeSnapshotsMessage$: StaticStructureSchema = [3, n0, _DSMe,
   0,
   [_RGIe, _CCIa, _SN, _SS, _M, _MR, _SNGC],
-  [0, 0, 0, 0, 0, 1, 2],
+  [0, 0, 0, 0, 0, 1, 2]
 ];
-export var DescribeUpdateActionsMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _DUAM,
+export var DescribeUpdateActionsMessage$: StaticStructureSchema = [3, n0, _DUAM,
   0,
   [_SUN, _RGI, _CCI, _E, _SUS, _SUTR, _UAS, _SNLUS, _MR, _M],
-  [0, 64 | 0, 64 | 0, 0, 64 | 0, () => TimeRangeFilter, 64 | 0, 2, 1, 0],
+  [0, 64 | 0, 64 | 0, 0, 64 | 0, () => TimeRangeFilter$, 64 | 0, 2, 1, 0]
 ];
-export var DescribeUserGroupsMessage: StaticStructureSchema = [3, n0, _DUGMe, 0, [_UGIs, _MR, _M], [0, 1, 0]];
-export var DescribeUserGroupsResult: StaticStructureSchema = [3, n0, _DUGR, 0, [_UG, _M], [() => UserGroupList, 0]];
-export var DescribeUsersMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _DUMe,
+export var DescribeUserGroupsMessage$: StaticStructureSchema = [3, n0, _DUGMe,
+  0,
+  [_UGIs, _MR, _M],
+  [0, 1, 0]
+];
+export var DescribeUserGroupsResult$: StaticStructureSchema = [3, n0, _DUGR,
+  0,
+  [_UG, _M],
+  [() => UserGroupList, 0]
+];
+export var DescribeUsersMessage$: StaticStructureSchema = [3, n0, _DUMe,
   0,
   [_E, _UIs, _Fi, _MR, _M],
-  [0, 0, () => FilterList, 1, 0],
+  [0, 0, () => FilterList, 1, 0]
 ];
-export var DescribeUsersResult: StaticStructureSchema = [3, n0, _DURe, 0, [_Us, _M], [() => UserList, 0]];
-export var DestinationDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _DD,
+export var DescribeUsersResult$: StaticStructureSchema = [3, n0, _DURe,
+  0,
+  [_Us, _M],
+  [() => UserList, 0]
+];
+export var DestinationDetails$: StaticStructureSchema = [3, n0, _DD,
   0,
   [_CWLD, _KFD],
-  [() => CloudWatchLogsDestinationDetails, () => KinesisFirehoseDestinationDetails],
+  [() => CloudWatchLogsDestinationDetails$, () => KinesisFirehoseDestinationDetails$]
 ];
-export var DisassociateGlobalReplicationGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _DGRGMi,
+export var DisassociateGlobalReplicationGroupMessage$: StaticStructureSchema = [3, n0, _DGRGMi,
   0,
   [_GRGI, _RGIe, _RGR],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-export var DisassociateGlobalReplicationGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _DGRGRi,
+export var DisassociateGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, _DGRGRi,
   0,
   [_GRG],
-  [[() => GlobalReplicationGroup, 0]],
+  [[() => GlobalReplicationGroup$, 0]]
 ];
-export var DuplicateUserNameFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _DUNF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DuplicateUserName`, 400] },
+export var DuplicateUserNameFault$: StaticErrorSchema = [-3, n0, _DUNF,
+  { [_aQE]: [`DuplicateUserName`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(DuplicateUserNameFault, __DuplicateUserNameFault);
-export var EC2SecurityGroup: StaticStructureSchema = [3, n0, _ECSGe, 0, [_St, _ECSGN, _ECSGOI], [0, 0, 0]];
-export var ECPUPerSecond: StaticStructureSchema = [3, n0, _ECPUPS, 0, [_Ma, _Mi], [1, 1]];
-export var Endpoint: StaticStructureSchema = [3, n0, _En, 0, [_Ad, _Po], [0, 1]];
-export var EngineDefaults: StaticStructureSchema = [
-  3,
-  n0,
-  _ED,
+TypeRegistry.for(n0).registerError(DuplicateUserNameFault$, DuplicateUserNameFault);
+export var EC2SecurityGroup$: StaticStructureSchema = [3, n0, _ECSGe,
+  0,
+  [_St, _ECSGN, _ECSGOI],
+  [0, 0, 0]
+];
+export var ECPUPerSecond$: StaticStructureSchema = [3, n0, _ECPUPS,
+  0,
+  [_Ma, _Mi],
+  [1, 1]
+];
+export var Endpoint$: StaticStructureSchema = [3, n0, _En,
+  0,
+  [_Ad, _Po],
+  [0, 1]
+];
+export var EngineDefaults$: StaticStructureSchema = [3, n0, _ED,
   0,
   [_CPGF, _M, _Pa, _CNTSPa],
-  [0, 0, [() => ParametersList, 0], [() => CacheNodeTypeSpecificParametersList, 0]],
+  [0, 0, [() => ParametersList, 0], [() => CacheNodeTypeSpecificParametersList, 0]]
 ];
-export var Event: StaticStructureSchema = [3, n0, _Ev, 0, [_SIo, _ST, _Me, _Da], [0, 0, 0, 4]];
-export var EventsMessage: StaticStructureSchema = [3, n0, _EM, 0, [_M, _Eve], [0, [() => EventList, 0]]];
-export var ExportServerlessCacheSnapshotRequest: StaticStructureSchema = [3, n0, _ESCSR, 0, [_SCSN, _SBN], [0, 0]];
-export var ExportServerlessCacheSnapshotResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _ESCSRx,
+export var Event$: StaticStructureSchema = [3, n0, _Ev,
+  0,
+  [_SIo, _ST, _Me, _Da],
+  [0, 0, 0, 4]
+];
+export var EventsMessage$: StaticStructureSchema = [3, n0, _EM,
+  0,
+  [_M, _Eve],
+  [0, [() => EventList, 0]]
+];
+export var ExportServerlessCacheSnapshotRequest$: StaticStructureSchema = [3, n0, _ESCSR,
+  0,
+  [_SCSN, _SBN],
+  [0, 0]
+];
+export var ExportServerlessCacheSnapshotResponse$: StaticStructureSchema = [3, n0, _ESCSRx,
   0,
   [_SCS],
-  [() => ServerlessCacheSnapshot],
+  [() => ServerlessCacheSnapshot$]
 ];
-export var FailoverGlobalReplicationGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _FGRGM,
+export var FailoverGlobalReplicationGroupMessage$: StaticStructureSchema = [3, n0, _FGRGM,
   0,
   [_GRGI, _PR, _PRGI],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-export var FailoverGlobalReplicationGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _FGRGR,
+export var FailoverGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, _FGRGR,
   0,
   [_GRG],
-  [[() => GlobalReplicationGroup, 0]],
+  [[() => GlobalReplicationGroup$, 0]]
 ];
-export var Filter: StaticStructureSchema = [3, n0, _Fil, 0, [_N, _Va], [0, 64 | 0]];
-export var GlobalNodeGroup: StaticStructureSchema = [3, n0, _GNG, 0, [_GNGI, _Sl], [0, 0]];
-export var GlobalReplicationGroup: StaticStructureSchema = [
-  3,
-  n0,
-  _GRG,
+export var Filter$: StaticStructureSchema = [3, n0, _Fil,
+  0,
+  [_N, _Va],
+  [0, 64 | 0]
+];
+export var GlobalNodeGroup$: StaticStructureSchema = [3, n0, _GNG,
+  0,
+  [_GNGI, _Sl],
+  [0, 0]
+];
+export var GlobalReplicationGroup$: StaticStructureSchema = [3, n0, _GRG,
   0,
   [_GRGI, _GRGD, _St, _CNT, _E, _EV, _Mem, _CEl, _GNGl, _ATE, _TEE, _AREE, _ARN],
-  [0, 0, 0, 0, 0, 0, [() => GlobalReplicationGroupMemberList, 0], 2, [() => GlobalNodeGroupList, 0], 2, 2, 2, 0],
+  [0, 0, 0, 0, 0, 0, [() => GlobalReplicationGroupMemberList, 0], 2, [() => GlobalNodeGroupList, 0], 2, 2, 2, 0]
 ];
-export var GlobalReplicationGroupAlreadyExistsFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _GRGAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`GlobalReplicationGroupAlreadyExistsFault`, 400] },
+export var GlobalReplicationGroupAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _GRGAEF,
+  { [_aQE]: [`GlobalReplicationGroupAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(
-  GlobalReplicationGroupAlreadyExistsFault,
-  __GlobalReplicationGroupAlreadyExistsFault
-);
-export var GlobalReplicationGroupInfo: StaticStructureSchema = [3, n0, _GRGIl, 0, [_GRGI, _GRGMR], [0, 0]];
-export var GlobalReplicationGroupMember: StaticStructureSchema = [
-  3,
-  n0,
-  _GRGM,
+TypeRegistry.for(n0).registerError(GlobalReplicationGroupAlreadyExistsFault$, GlobalReplicationGroupAlreadyExistsFault);
+export var GlobalReplicationGroupInfo$: StaticStructureSchema = [3, n0, _GRGIl,
+  0,
+  [_GRGI, _GRGMR],
+  [0, 0]
+];
+export var GlobalReplicationGroupMember$: StaticStructureSchema = [3, n0, _GRGM,
   0,
   [_RGIe, _RGR, _R, _AF, _St],
-  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0]
 ];
-export var GlobalReplicationGroupNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _GRGNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`GlobalReplicationGroupNotFoundFault`, 404] },
+export var GlobalReplicationGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _GRGNFF,
+  { [_aQE]: [`GlobalReplicationGroupNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(GlobalReplicationGroupNotFoundFault, __GlobalReplicationGroupNotFoundFault);
-export var IncreaseNodeGroupsInGlobalReplicationGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _INGIGRGM,
+TypeRegistry.for(n0).registerError(GlobalReplicationGroupNotFoundFault$, GlobalReplicationGroupNotFoundFault);
+export var IncreaseNodeGroupsInGlobalReplicationGroupMessage$: StaticStructureSchema = [3, n0, _INGIGRGM,
   0,
   [_GRGI, _NGCo, _RCe, _AI],
-  [0, 1, [() => RegionalConfigurationList, 0], 2],
+  [0, 1, [() => RegionalConfigurationList, 0], 2]
 ];
-export var IncreaseNodeGroupsInGlobalReplicationGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _INGIGRGR,
+export var IncreaseNodeGroupsInGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, _INGIGRGR,
   0,
   [_GRG],
-  [[() => GlobalReplicationGroup, 0]],
+  [[() => GlobalReplicationGroup$, 0]]
 ];
-export var IncreaseReplicaCountMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _IRCM,
+export var IncreaseReplicaCountMessage$: StaticStructureSchema = [3, n0, _IRCM,
   0,
   [_RGIe, _NRC, _RC, _AI],
-  [0, 1, [() => ReplicaConfigurationList, 0], 2],
+  [0, 1, [() => ReplicaConfigurationList, 0], 2]
 ];
-export var IncreaseReplicaCountResult: StaticStructureSchema = [3, n0, _IRCR, 0, [_RG], [[() => ReplicationGroup, 0]]];
-export var InsufficientCacheClusterCapacityFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICCCF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InsufficientCacheClusterCapacity`, 400] },
+export var IncreaseReplicaCountResult$: StaticStructureSchema = [3, n0, _IRCR,
+  0,
+  [_RG],
+  [[() => ReplicationGroup$, 0]]
+];
+export var InsufficientCacheClusterCapacityFault$: StaticErrorSchema = [-3, n0, _ICCCF,
+  { [_aQE]: [`InsufficientCacheClusterCapacity`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(InsufficientCacheClusterCapacityFault, __InsufficientCacheClusterCapacityFault);
-export var InvalidARNFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _IARNF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidARN`, 400] },
+TypeRegistry.for(n0).registerError(InsufficientCacheClusterCapacityFault$, InsufficientCacheClusterCapacityFault);
+export var InvalidARNFault$: StaticErrorSchema = [-3, n0, _IARNF,
+  { [_aQE]: [`InvalidARN`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(InvalidARNFault, __InvalidARNFault);
-export var InvalidCacheClusterStateFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICCSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidCacheClusterState`, 400] },
+TypeRegistry.for(n0).registerError(InvalidARNFault$, InvalidARNFault);
+export var InvalidCacheClusterStateFault$: StaticErrorSchema = [-3, n0, _ICCSF,
+  { [_aQE]: [`InvalidCacheClusterState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(InvalidCacheClusterStateFault, __InvalidCacheClusterStateFault);
-export var InvalidCacheParameterGroupStateFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICPGSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidCacheParameterGroupState`, 400] },
+TypeRegistry.for(n0).registerError(InvalidCacheClusterStateFault$, InvalidCacheClusterStateFault);
+export var InvalidCacheParameterGroupStateFault$: StaticErrorSchema = [-3, n0, _ICPGSF,
+  { [_aQE]: [`InvalidCacheParameterGroupState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(InvalidCacheParameterGroupStateFault, __InvalidCacheParameterGroupStateFault);
-export var InvalidCacheSecurityGroupStateFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICSGSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidCacheSecurityGroupState`, 400] },
+TypeRegistry.for(n0).registerError(InvalidCacheParameterGroupStateFault$, InvalidCacheParameterGroupStateFault);
+export var InvalidCacheSecurityGroupStateFault$: StaticErrorSchema = [-3, n0, _ICSGSF,
+  { [_aQE]: [`InvalidCacheSecurityGroupState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(InvalidCacheSecurityGroupStateFault, __InvalidCacheSecurityGroupStateFault);
-export var InvalidCredentialsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICE,
-  { [_e]: _c, [_hE]: 408, [_aQE]: [`InvalidCredentialsException`, 408] },
+TypeRegistry.for(n0).registerError(InvalidCacheSecurityGroupStateFault$, InvalidCacheSecurityGroupStateFault);
+export var InvalidCredentialsException$: StaticErrorSchema = [-3, n0, _ICE,
+  { [_aQE]: [`InvalidCredentialsException`, 408], [_e]: _c, [_hE]: 408 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(InvalidCredentialsException, __InvalidCredentialsException);
-export var InvalidGlobalReplicationGroupStateFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _IGRGSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidGlobalReplicationGroupState`, 400] },
+TypeRegistry.for(n0).registerError(InvalidCredentialsException$, InvalidCredentialsException);
+export var InvalidGlobalReplicationGroupStateFault$: StaticErrorSchema = [-3, n0, _IGRGSF,
+  { [_aQE]: [`InvalidGlobalReplicationGroupState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(InvalidGlobalReplicationGroupStateFault, __InvalidGlobalReplicationGroupStateFault);
-export var InvalidKMSKeyFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _IKMSKF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidKMSKeyFault`, 400] },
+TypeRegistry.for(n0).registerError(InvalidGlobalReplicationGroupStateFault$, InvalidGlobalReplicationGroupStateFault);
+export var InvalidKMSKeyFault$: StaticErrorSchema = [-3, n0, _IKMSKF,
+  { [_aQE]: [`InvalidKMSKeyFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(InvalidKMSKeyFault, __InvalidKMSKeyFault);
-export var InvalidParameterCombinationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPCE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterCombination`, 400] },
+TypeRegistry.for(n0).registerError(InvalidKMSKeyFault$, InvalidKMSKeyFault);
+export var InvalidParameterCombinationException$: StaticErrorSchema = [-3, n0, _IPCE,
+  { [_aQE]: [`InvalidParameterCombination`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(InvalidParameterCombinationException, __InvalidParameterCombinationException);
-export var InvalidParameterValueException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPVE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterValue`, 400] },
+TypeRegistry.for(n0).registerError(InvalidParameterCombinationException$, InvalidParameterCombinationException);
+export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
+  { [_aQE]: [`InvalidParameterValue`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
-export var InvalidReplicationGroupStateFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRGSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidReplicationGroupState`, 400] },
+TypeRegistry.for(n0).registerError(InvalidParameterValueException$, InvalidParameterValueException);
+export var InvalidReplicationGroupStateFault$: StaticErrorSchema = [-3, n0, _IRGSF,
+  { [_aQE]: [`InvalidReplicationGroupState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(InvalidReplicationGroupStateFault, __InvalidReplicationGroupStateFault);
-export var InvalidServerlessCacheSnapshotStateFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISCSSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidServerlessCacheSnapshotStateFault`, 400] },
+TypeRegistry.for(n0).registerError(InvalidReplicationGroupStateFault$, InvalidReplicationGroupStateFault);
+export var InvalidServerlessCacheSnapshotStateFault$: StaticErrorSchema = [-3, n0, _ISCSSF,
+  { [_aQE]: [`InvalidServerlessCacheSnapshotStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(
-  InvalidServerlessCacheSnapshotStateFault,
-  __InvalidServerlessCacheSnapshotStateFault
-);
-export var InvalidServerlessCacheStateFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISCSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidServerlessCacheStateFault`, 400] },
+TypeRegistry.for(n0).registerError(InvalidServerlessCacheSnapshotStateFault$, InvalidServerlessCacheSnapshotStateFault);
+export var InvalidServerlessCacheStateFault$: StaticErrorSchema = [-3, n0, _ISCSF,
+  { [_aQE]: [`InvalidServerlessCacheStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(InvalidServerlessCacheStateFault, __InvalidServerlessCacheStateFault);
-export var InvalidSnapshotStateFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidSnapshotState`, 400] },
+TypeRegistry.for(n0).registerError(InvalidServerlessCacheStateFault$, InvalidServerlessCacheStateFault);
+export var InvalidSnapshotStateFault$: StaticErrorSchema = [-3, n0, _ISSF,
+  { [_aQE]: [`InvalidSnapshotState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(InvalidSnapshotStateFault, __InvalidSnapshotStateFault);
-export var InvalidSubnet: StaticErrorSchema = [
-  -3,
-  n0,
-  _IS,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidSubnet`, 400] },
+TypeRegistry.for(n0).registerError(InvalidSnapshotStateFault$, InvalidSnapshotStateFault);
+export var InvalidSubnet$: StaticErrorSchema = [-3, n0, _IS,
+  { [_aQE]: [`InvalidSubnet`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(InvalidSubnet, __InvalidSubnet);
-export var InvalidUserGroupStateFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _IUGSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidUserGroupState`, 400] },
+TypeRegistry.for(n0).registerError(InvalidSubnet$, InvalidSubnet);
+export var InvalidUserGroupStateFault$: StaticErrorSchema = [-3, n0, _IUGSF,
+  { [_aQE]: [`InvalidUserGroupState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(InvalidUserGroupStateFault, __InvalidUserGroupStateFault);
-export var InvalidUserStateFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _IUSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidUserState`, 400] },
+TypeRegistry.for(n0).registerError(InvalidUserGroupStateFault$, InvalidUserGroupStateFault);
+export var InvalidUserStateFault$: StaticErrorSchema = [-3, n0, _IUSF,
+  { [_aQE]: [`InvalidUserState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(InvalidUserStateFault, __InvalidUserStateFault);
-export var InvalidVPCNetworkStateFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _IVPCNSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidVPCNetworkStateFault`, 400] },
+TypeRegistry.for(n0).registerError(InvalidUserStateFault$, InvalidUserStateFault);
+export var InvalidVPCNetworkStateFault$: StaticErrorSchema = [-3, n0, _IVPCNSF,
+  { [_aQE]: [`InvalidVPCNetworkStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(InvalidVPCNetworkStateFault, __InvalidVPCNetworkStateFault);
-export var KinesisFirehoseDestinationDetails: StaticStructureSchema = [3, n0, _KFDD, 0, [_DSe], [0]];
-export var ListAllowedNodeTypeModificationsMessage: StaticStructureSchema = [3, n0, _LANTMM, 0, [_CCIa, _RGIe], [0, 0]];
-export var ListTagsForResourceMessage: StaticStructureSchema = [3, n0, _LTFRM, 0, [_RN], [0]];
-export var LogDeliveryConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _LDCo,
+TypeRegistry.for(n0).registerError(InvalidVPCNetworkStateFault$, InvalidVPCNetworkStateFault);
+export var KinesisFirehoseDestinationDetails$: StaticStructureSchema = [3, n0, _KFDD,
+  0,
+  [_DSe],
+  [0]
+];
+export var ListAllowedNodeTypeModificationsMessage$: StaticStructureSchema = [3, n0, _LANTMM,
+  0,
+  [_CCIa, _RGIe],
+  [0, 0]
+];
+export var ListTagsForResourceMessage$: StaticStructureSchema = [3, n0, _LTFRM,
+  0,
+  [_RN],
+  [0]
+];
+export var LogDeliveryConfiguration$: StaticStructureSchema = [3, n0, _LDCo,
   0,
   [_LT, _DTe, _DD, _LF, _St, _Me],
-  [0, 0, () => DestinationDetails, 0, 0, 0],
+  [0, 0, () => DestinationDetails$, 0, 0, 0]
 ];
-export var LogDeliveryConfigurationRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDCR,
+export var LogDeliveryConfigurationRequest$: StaticStructureSchema = [3, n0, _LDCR,
   0,
   [_LT, _DTe, _DD, _LF, _Ena],
-  [0, 0, () => DestinationDetails, 0, 2],
+  [0, 0, () => DestinationDetails$, 0, 2]
 ];
-export var ModifyCacheClusterMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _MCCM,
+export var ModifyCacheClusterMessage$: StaticStructureSchema = [3, n0, _MCCM,
   0,
-  [
-    _CCIa,
-    _NCN,
-    _CNITRa,
-    _AZM,
-    _NAZ,
-    _CSGNac,
-    _SGI,
-    _PMW,
-    _NTA,
-    _CPGN,
-    _NTS,
-    _AI,
-    _E,
-    _EV,
-    _AMVU,
-    _SRL,
-    _SW,
-    _CNT,
-    _AT,
-    _ATUS,
-    _LDC,
-    _ID,
-    _SCc,
-  ],
-  [
-    0,
-    1,
-    [() => CacheNodeIdsList, 0],
-    0,
-    [() => PreferredAvailabilityZoneList, 0],
-    [() => CacheSecurityGroupNameList, 0],
-    [() => SecurityGroupIdsList, 0],
-    0,
-    0,
-    0,
-    0,
-    2,
-    0,
-    0,
-    2,
-    1,
-    0,
-    0,
-    0,
-    0,
-    [() => LogDeliveryConfigurationRequestList, 0],
-    0,
-    () => ScaleConfig,
-  ],
+  [_CCIa, _NCN, _CNITRa, _AZM, _NAZ, _CSGNac, _SGI, _PMW, _NTA, _CPGN, _NTS, _AI, _E, _EV, _AMVU, _SRL, _SW, _CNT, _AT, _ATUS, _LDC, _ID, _SCc],
+  [0, 1, [() => CacheNodeIdsList, 0], 0, [() => PreferredAvailabilityZoneList, 0], [() => CacheSecurityGroupNameList, 0], [() => SecurityGroupIdsList, 0], 0, 0, 0, 0, 2, 0, 0, 2, 1, 0, 0, 0, 0, [() => LogDeliveryConfigurationRequestList, 0], 0, () => ScaleConfig$]
 ];
-export var ModifyCacheClusterResult: StaticStructureSchema = [3, n0, _MCCR, 0, [_CC], [[() => CacheCluster, 0]]];
-export var ModifyCacheParameterGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _MCPGM,
+export var ModifyCacheClusterResult$: StaticStructureSchema = [3, n0, _MCCR,
+  0,
+  [_CC],
+  [[() => CacheCluster$, 0]]
+];
+export var ModifyCacheParameterGroupMessage$: StaticStructureSchema = [3, n0, _MCPGM,
   0,
   [_CPGN, _PNV],
-  [0, [() => ParameterNameValueList, 0]],
+  [0, [() => ParameterNameValueList, 0]]
 ];
-export var ModifyCacheSubnetGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _MCSGM,
+export var ModifyCacheSubnetGroupMessage$: StaticStructureSchema = [3, n0, _MCSGM,
   0,
   [_CSGNa, _CSGD, _SI],
-  [0, 0, [() => SubnetIdentifierList, 0]],
+  [0, 0, [() => SubnetIdentifierList, 0]]
 ];
-export var ModifyCacheSubnetGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _MCSGR,
+export var ModifyCacheSubnetGroupResult$: StaticStructureSchema = [3, n0, _MCSGR,
   0,
   [_CSGac],
-  [[() => CacheSubnetGroup, 0]],
+  [[() => CacheSubnetGroup$, 0]]
 ];
-export var ModifyGlobalReplicationGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _MGRGM,
+export var ModifyGlobalReplicationGroupMessage$: StaticStructureSchema = [3, n0, _MGRGM,
   0,
   [_GRGI, _AI, _CNT, _E, _EV, _CPGN, _GRGD, _AFE],
-  [0, 2, 0, 0, 0, 0, 0, 2],
+  [0, 2, 0, 0, 0, 0, 0, 2]
 ];
-export var ModifyGlobalReplicationGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _MGRGR,
+export var ModifyGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, _MGRGR,
   0,
   [_GRG],
-  [[() => GlobalReplicationGroup, 0]],
+  [[() => GlobalReplicationGroup$, 0]]
 ];
-export var ModifyReplicationGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _MRGM,
+export var ModifyReplicationGroupMessage$: StaticStructureSchema = [3, n0, _MRGM,
   0,
-  [
-    _RGIe,
-    _RGD,
-    _PCI,
-    _SCI,
-    _AFE,
-    _MAZE,
-    _NGI,
-    _CSGNac,
-    _SGI,
-    _PMW,
-    _NTA,
-    _CPGN,
-    _NTS,
-    _AI,
-    _E,
-    _EV,
-    _AMVU,
-    _SRL,
-    _SW,
-    _CNT,
-    _AT,
-    _ATUS,
-    _UGITA,
-    _UGITR,
-    _RUG,
-    _LDC,
-    _ID,
-    _TEE,
-    _TEM,
-    _CM,
-  ],
-  [
-    0,
-    0,
-    0,
-    0,
-    2,
-    2,
-    0,
-    [() => CacheSecurityGroupNameList, 0],
-    [() => SecurityGroupIdsList, 0],
-    0,
-    0,
-    0,
-    0,
-    2,
-    0,
-    0,
-    2,
-    1,
-    0,
-    0,
-    0,
-    0,
-    64 | 0,
-    64 | 0,
-    2,
-    [() => LogDeliveryConfigurationRequestList, 0],
-    0,
-    2,
-    0,
-    0,
-  ],
+  [_RGIe, _RGD, _PCI, _SCI, _AFE, _MAZE, _NGI, _CSGNac, _SGI, _PMW, _NTA, _CPGN, _NTS, _AI, _E, _EV, _AMVU, _SRL, _SW, _CNT, _AT, _ATUS, _UGITA, _UGITR, _RUG, _LDC, _ID, _TEE, _TEM, _CM],
+  [0, 0, 0, 0, 2, 2, 0, [() => CacheSecurityGroupNameList, 0], [() => SecurityGroupIdsList, 0], 0, 0, 0, 0, 2, 0, 0, 2, 1, 0, 0, 0, 0, 64 | 0, 64 | 0, 2, [() => LogDeliveryConfigurationRequestList, 0], 0, 2, 0, 0]
 ];
-export var ModifyReplicationGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _MRGR,
+export var ModifyReplicationGroupResult$: StaticStructureSchema = [3, n0, _MRGR,
   0,
   [_RG],
-  [[() => ReplicationGroup, 0]],
+  [[() => ReplicationGroup$, 0]]
 ];
-export var ModifyReplicationGroupShardConfigurationMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _MRGSCM,
+export var ModifyReplicationGroupShardConfigurationMessage$: StaticStructureSchema = [3, n0, _MRGSCM,
   0,
   [_RGIe, _NGCo, _AI, _RCes, _NGTR, _NGTRo],
-  [
-    0,
-    1,
-    2,
-    [() => ReshardingConfigurationList, 0],
-    [() => NodeGroupsToRemoveList, 0],
-    [() => NodeGroupsToRetainList, 0],
-  ],
+  [0, 1, 2, [() => ReshardingConfigurationList, 0], [() => NodeGroupsToRemoveList, 0], [() => NodeGroupsToRetainList, 0]]
 ];
-export var ModifyReplicationGroupShardConfigurationResult: StaticStructureSchema = [
-  3,
-  n0,
-  _MRGSCR,
+export var ModifyReplicationGroupShardConfigurationResult$: StaticStructureSchema = [3, n0, _MRGSCR,
   0,
   [_RG],
-  [[() => ReplicationGroup, 0]],
+  [[() => ReplicationGroup$, 0]]
 ];
-export var ModifyServerlessCacheRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _MSCR,
+export var ModifyServerlessCacheRequest$: StaticStructureSchema = [3, n0, _MSCR,
   0,
   [_SCN, _D, _CUL, _RUGe, _UGIs, _SGI, _SRL, _DST, _E, _MEVa],
-  [0, 0, () => CacheUsageLimits, 2, 0, [() => SecurityGroupIdsList, 0], 1, 0, 0, 0],
+  [0, 0, () => CacheUsageLimits$, 2, 0, [() => SecurityGroupIdsList, 0], 1, 0, 0, 0]
 ];
-export var ModifyServerlessCacheResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _MSCRo,
+export var ModifyServerlessCacheResponse$: StaticStructureSchema = [3, n0, _MSCRo,
   0,
   [_SC],
-  [[() => ServerlessCache, 0]],
+  [[() => ServerlessCache$, 0]]
 ];
-export var ModifyUserGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _MUGM,
+export var ModifyUserGroupMessage$: StaticStructureSchema = [3, n0, _MUGM,
   0,
   [_UGIs, _UITA, _UITR, _E],
-  [0, 64 | 0, 64 | 0, 0],
+  [0, 64 | 0, 64 | 0, 0]
 ];
-export var ModifyUserMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _MUM,
+export var ModifyUserMessage$: StaticStructureSchema = [3, n0, _MUM,
   0,
   [_UIs, _AS, _AAS, _P, _NPR, _AM, _E],
-  [0, 0, 0, 64 | 0, 2, () => AuthenticationMode, 0],
+  [0, 0, 0, 64 | 0, 2, () => AuthenticationMode$, 0]
 ];
-export var NodeGroup: StaticStructureSchema = [
-  3,
-  n0,
-  _NG,
+export var NodeGroup$: StaticStructureSchema = [3, n0, _NG,
   0,
   [_NGI, _St, _PE, _RE, _Sl, _NGM],
-  [0, 0, () => Endpoint, () => Endpoint, 0, [() => NodeGroupMemberList, 0]],
+  [0, 0, () => Endpoint$, () => Endpoint$, 0, [() => NodeGroupMemberList, 0]]
 ];
-export var NodeGroupConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _NGC,
+export var NodeGroupConfiguration$: StaticStructureSchema = [3, n0, _NGC,
   0,
   [_NGI, _Sl, _RCep, _PAZri, _RAZ, _POAri, _ROA],
-  [0, 0, 1, 0, [() => AvailabilityZonesList, 0], 0, [() => OutpostArnsList, 0]],
+  [0, 0, 1, 0, [() => AvailabilityZonesList, 0], 0, [() => OutpostArnsList, 0]]
 ];
-export var NodeGroupMember: StaticStructureSchema = [
-  3,
-  n0,
-  _NGMo,
+export var NodeGroupMember$: StaticStructureSchema = [3, n0, _NGMo,
   0,
   [_CCIa, _CNI, _REe, _PAZ, _POA, _CR],
-  [0, 0, () => Endpoint, 0, 0, 0],
+  [0, 0, () => Endpoint$, 0, 0, 0]
 ];
-export var NodeGroupMemberUpdateStatus: StaticStructureSchema = [
-  3,
-  n0,
-  _NGMUS,
+export var NodeGroupMemberUpdateStatus$: StaticStructureSchema = [3, n0, _NGMUS,
   0,
   [_CCIa, _CNI, _NUS, _NDD, _NUSD, _NUED, _NUIB, _NUID, _NUSMD],
-  [0, 0, 0, 4, 4, 4, 0, 4, 4],
+  [0, 0, 0, 4, 4, 4, 0, 4, 4]
 ];
-export var NodeGroupNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _NGNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`NodeGroupNotFoundFault`, 404] },
+export var NodeGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _NGNFF,
+  { [_aQE]: [`NodeGroupNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(NodeGroupNotFoundFault, __NodeGroupNotFoundFault);
-export var NodeGroupsPerReplicationGroupQuotaExceededFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _NGPRGQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`NodeGroupsPerReplicationGroupQuotaExceeded`, 400] },
+TypeRegistry.for(n0).registerError(NodeGroupNotFoundFault$, NodeGroupNotFoundFault);
+export var NodeGroupsPerReplicationGroupQuotaExceededFault$: StaticErrorSchema = [-3, n0, _NGPRGQEF,
+  { [_aQE]: [`NodeGroupsPerReplicationGroupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(
-  NodeGroupsPerReplicationGroupQuotaExceededFault,
-  __NodeGroupsPerReplicationGroupQuotaExceededFault
-);
-export var NodeGroupUpdateStatus: StaticStructureSchema = [
-  3,
-  n0,
-  _NGUS,
+TypeRegistry.for(n0).registerError(NodeGroupsPerReplicationGroupQuotaExceededFault$, NodeGroupsPerReplicationGroupQuotaExceededFault);
+export var NodeGroupUpdateStatus$: StaticStructureSchema = [3, n0, _NGUS,
   0,
   [_NGI, _NGMUS],
-  [0, [() => NodeGroupMemberUpdateStatusList, 0]],
+  [0, [() => NodeGroupMemberUpdateStatusList, 0]]
 ];
-export var NodeQuotaForClusterExceededFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _NQFCEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`NodeQuotaForClusterExceeded`, 400] },
+export var NodeQuotaForClusterExceededFault$: StaticErrorSchema = [-3, n0, _NQFCEF,
+  { [_aQE]: [`NodeQuotaForClusterExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(NodeQuotaForClusterExceededFault, __NodeQuotaForClusterExceededFault);
-export var NodeQuotaForCustomerExceededFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _NQFCEFo,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`NodeQuotaForCustomerExceeded`, 400] },
+TypeRegistry.for(n0).registerError(NodeQuotaForClusterExceededFault$, NodeQuotaForClusterExceededFault);
+export var NodeQuotaForCustomerExceededFault$: StaticErrorSchema = [-3, n0, _NQFCEFo,
+  { [_aQE]: [`NodeQuotaForCustomerExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(NodeQuotaForCustomerExceededFault, __NodeQuotaForCustomerExceededFault);
-export var NodeSnapshot: StaticStructureSchema = [
-  3,
-  n0,
-  _NS,
+TypeRegistry.for(n0).registerError(NodeQuotaForCustomerExceededFault$, NodeQuotaForCustomerExceededFault);
+export var NodeSnapshot$: StaticStructureSchema = [3, n0, _NS,
   0,
   [_CCIa, _NGI, _CNI, _NGC, _CSa, _CNCT, _SCT],
-  [0, 0, 0, [() => NodeGroupConfiguration, 0], 0, 4, 4],
+  [0, 0, 0, [() => NodeGroupConfiguration$, 0], 0, 4, 4]
 ];
-export var NoOperationFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _NOF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`NoOperationFault`, 400] },
+export var NoOperationFault$: StaticErrorSchema = [-3, n0, _NOF,
+  { [_aQE]: [`NoOperationFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(NoOperationFault, __NoOperationFault);
-export var NotificationConfiguration: StaticStructureSchema = [3, n0, _NC, 0, [_TA, _TS], [0, 0]];
-export var Parameter: StaticStructureSchema = [
-  3,
-  n0,
-  _Par,
+TypeRegistry.for(n0).registerError(NoOperationFault$, NoOperationFault);
+export var NotificationConfiguration$: StaticStructureSchema = [3, n0, _NC,
+  0,
+  [_TA, _TS],
+  [0, 0]
+];
+export var Parameter$: StaticStructureSchema = [3, n0, _Par,
   0,
   [_PN, _PV, _D, _S, _DT, _AV, _IM, _MEV, _CT],
-  [0, 0, 0, 0, 0, 0, 2, 0, 0],
+  [0, 0, 0, 0, 0, 0, 2, 0, 0]
 ];
-export var ParameterNameValue: StaticStructureSchema = [3, n0, _PNVa, 0, [_PN, _PV], [0, 0]];
-export var PendingLogDeliveryConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _PLDC,
+export var ParameterNameValue$: StaticStructureSchema = [3, n0, _PNVa,
+  0,
+  [_PN, _PV],
+  [0, 0]
+];
+export var PendingLogDeliveryConfiguration$: StaticStructureSchema = [3, n0, _PLDC,
   0,
   [_LT, _DTe, _DD, _LF],
-  [0, 0, () => DestinationDetails, 0],
+  [0, 0, () => DestinationDetails$, 0]
 ];
-export var PendingModifiedValues: StaticStructureSchema = [
-  3,
-  n0,
-  _PMV,
+export var PendingModifiedValues$: StaticStructureSchema = [3, n0, _PMV,
   0,
   [_NCN, _CNITRa, _EV, _CNT, _ATS, _LDC, _TEE, _TEM, _SCc],
-  [1, [() => CacheNodeIdsList, 0], 0, 0, 0, () => PendingLogDeliveryConfigurationList, 2, 0, () => ScaleConfig],
+  [1, [() => CacheNodeIdsList, 0], 0, 0, 0, () => PendingLogDeliveryConfigurationList, 2, 0, () => ScaleConfig$]
 ];
-export var ProcessedUpdateAction: StaticStructureSchema = [3, n0, _PUA, 0, [_RGIe, _CCIa, _SUN, _UAS], [0, 0, 0, 0]];
-export var PurchaseReservedCacheNodesOfferingMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _PRCNOM,
+export var ProcessedUpdateAction$: StaticStructureSchema = [3, n0, _PUA,
+  0,
+  [_RGIe, _CCIa, _SUN, _UAS],
+  [0, 0, 0, 0]
+];
+export var PurchaseReservedCacheNodesOfferingMessage$: StaticStructureSchema = [3, n0, _PRCNOM,
   0,
   [_RCNOI, _RCNI, _CNC, _T],
-  [0, 0, 1, [() => TagList, 0]],
+  [0, 0, 1, [() => TagList, 0]]
 ];
-export var PurchaseReservedCacheNodesOfferingResult: StaticStructureSchema = [
-  3,
-  n0,
-  _PRCNOR,
+export var PurchaseReservedCacheNodesOfferingResult$: StaticStructureSchema = [3, n0, _PRCNOR,
   0,
   [_RCN],
-  [[() => ReservedCacheNode, 0]],
+  [[() => ReservedCacheNode$, 0]]
 ];
-export var RebalanceSlotsInGlobalReplicationGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _RSIGRGM,
+export var RebalanceSlotsInGlobalReplicationGroupMessage$: StaticStructureSchema = [3, n0, _RSIGRGM,
   0,
   [_GRGI, _AI],
-  [0, 2],
+  [0, 2]
 ];
-export var RebalanceSlotsInGlobalReplicationGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _RSIGRGR,
+export var RebalanceSlotsInGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, _RSIGRGR,
   0,
   [_GRG],
-  [[() => GlobalReplicationGroup, 0]],
+  [[() => GlobalReplicationGroup$, 0]]
 ];
-export var RebootCacheClusterMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _RCCM,
+export var RebootCacheClusterMessage$: StaticStructureSchema = [3, n0, _RCCM,
   0,
   [_CCIa, _CNITR],
-  [0, [() => CacheNodeIdsList, 0]],
+  [0, [() => CacheNodeIdsList, 0]]
 ];
-export var RebootCacheClusterResult: StaticStructureSchema = [3, n0, _RCCR, 0, [_CC], [[() => CacheCluster, 0]]];
-export var RecurringCharge: StaticStructureSchema = [3, n0, _RCec, 0, [_RCA, _RCF], [1, 0]];
-export var RegionalConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _RCeg,
+export var RebootCacheClusterResult$: StaticStructureSchema = [3, n0, _RCCR,
+  0,
+  [_CC],
+  [[() => CacheCluster$, 0]]
+];
+export var RecurringCharge$: StaticStructureSchema = [3, n0, _RCec,
+  0,
+  [_RCA, _RCF],
+  [1, 0]
+];
+export var RegionalConfiguration$: StaticStructureSchema = [3, n0, _RCeg,
   0,
   [_RGIe, _RGR, _RCes],
-  [0, 0, [() => ReshardingConfigurationList, 0]],
+  [0, 0, [() => ReshardingConfigurationList, 0]]
 ];
-export var RemoveTagsFromResourceMessage: StaticStructureSchema = [3, n0, _RTFRM, 0, [_RN, _TK], [0, 64 | 0]];
-export var ReplicationGroup: StaticStructureSchema = [
-  3,
-  n0,
-  _RG,
+export var RemoveTagsFromResourceMessage$: StaticStructureSchema = [3, n0, _RTFRM,
   0,
-  [
-    _RGIe,
-    _D,
-    _GRGIl,
-    _St,
-    _PMV,
-    _MC,
-    _NGo,
-    _SCI,
-    _AF,
-    _MAZ,
-    _CE,
-    _SRL,
-    _SW,
-    _CEl,
-    _CNT,
-    _ATE,
-    _ATLMD,
-    _TEE,
-    _AREE,
-    _MCOA,
-    _KKI,
-    _ARN,
-    _UGI,
-    _LDC,
-    _RGCT,
-    _DTa,
-    _AMVU,
-    _NT,
-    _ID,
-    _TEM,
-    _CM,
-    _E,
-  ],
-  [
-    0,
-    0,
-    () => GlobalReplicationGroupInfo,
-    0,
-    () => ReplicationGroupPendingModifiedValues,
-    [() => ClusterIdList, 0],
-    [() => NodeGroupList, 0],
-    0,
-    0,
-    0,
-    () => Endpoint,
-    1,
-    0,
-    2,
-    0,
-    2,
-    4,
-    2,
-    2,
-    [() => ReplicationGroupOutpostArnList, 0],
-    0,
-    0,
-    64 | 0,
-    [() => LogDeliveryConfigurationList, 0],
-    4,
-    0,
-    2,
-    0,
-    0,
-    0,
-    0,
-    0,
-  ],
+  [_RN, _TK],
+  [0, 64 | 0]
 ];
-export var ReplicationGroupAlreadyExistsFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _RGAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ReplicationGroupAlreadyExists`, 400] },
+export var ReplicationGroup$: StaticStructureSchema = [3, n0, _RG,
+  0,
+  [_RGIe, _D, _GRGIl, _St, _PMV, _MC, _NGo, _SCI, _AF, _MAZ, _CE, _SRL, _SW, _CEl, _CNT, _ATE, _ATLMD, _TEE, _AREE, _MCOA, _KKI, _ARN, _UGI, _LDC, _RGCT, _DTa, _AMVU, _NT, _ID, _TEM, _CM, _E],
+  [0, 0, () => GlobalReplicationGroupInfo$, 0, () => ReplicationGroupPendingModifiedValues$, [() => ClusterIdList, 0], [() => NodeGroupList, 0], 0, 0, 0, () => Endpoint$, 1, 0, 2, 0, 2, 4, 2, 2, [() => ReplicationGroupOutpostArnList, 0], 0, 0, 64 | 0, [() => LogDeliveryConfigurationList, 0], 4, 0, 2, 0, 0, 0, 0, 0]
+];
+export var ReplicationGroupAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _RGAEF,
+  { [_aQE]: [`ReplicationGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(ReplicationGroupAlreadyExistsFault, __ReplicationGroupAlreadyExistsFault);
-export var ReplicationGroupAlreadyUnderMigrationFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _RGAUMF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ReplicationGroupAlreadyUnderMigrationFault`, 400] },
+TypeRegistry.for(n0).registerError(ReplicationGroupAlreadyExistsFault$, ReplicationGroupAlreadyExistsFault);
+export var ReplicationGroupAlreadyUnderMigrationFault$: StaticErrorSchema = [-3, n0, _RGAUMF,
+  { [_aQE]: [`ReplicationGroupAlreadyUnderMigrationFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(
-  ReplicationGroupAlreadyUnderMigrationFault,
-  __ReplicationGroupAlreadyUnderMigrationFault
-);
-export var ReplicationGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _RGM,
+TypeRegistry.for(n0).registerError(ReplicationGroupAlreadyUnderMigrationFault$, ReplicationGroupAlreadyUnderMigrationFault);
+export var ReplicationGroupMessage$: StaticStructureSchema = [3, n0, _RGM,
   0,
   [_M, _RGe],
-  [0, [() => ReplicationGroupList, 0]],
+  [0, [() => ReplicationGroupList, 0]]
 ];
-export var ReplicationGroupNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _RGNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ReplicationGroupNotFoundFault`, 404] },
+export var ReplicationGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _RGNFF,
+  { [_aQE]: [`ReplicationGroupNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(ReplicationGroupNotFoundFault, __ReplicationGroupNotFoundFault);
-export var ReplicationGroupNotUnderMigrationFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _RGNUMF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ReplicationGroupNotUnderMigrationFault`, 400] },
+TypeRegistry.for(n0).registerError(ReplicationGroupNotFoundFault$, ReplicationGroupNotFoundFault);
+export var ReplicationGroupNotUnderMigrationFault$: StaticErrorSchema = [-3, n0, _RGNUMF,
+  { [_aQE]: [`ReplicationGroupNotUnderMigrationFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(ReplicationGroupNotUnderMigrationFault, __ReplicationGroupNotUnderMigrationFault);
-export var ReplicationGroupPendingModifiedValues: StaticStructureSchema = [
-  3,
-  n0,
-  _RGPMV,
+TypeRegistry.for(n0).registerError(ReplicationGroupNotUnderMigrationFault$, ReplicationGroupNotUnderMigrationFault);
+export var ReplicationGroupPendingModifiedValues$: StaticStructureSchema = [3, n0, _RGPMV,
   0,
   [_PCI, _AFS, _Re, _ATS, _UG, _LDC, _TEE, _TEM, _CM],
-  [0, 0, () => ReshardingStatus, 0, () => UserGroupsUpdateStatus, () => PendingLogDeliveryConfigurationList, 2, 0, 0],
+  [0, 0, () => ReshardingStatus$, 0, () => UserGroupsUpdateStatus$, () => PendingLogDeliveryConfigurationList, 2, 0, 0]
 ];
-export var ReservedCacheNode: StaticStructureSchema = [
-  3,
-  n0,
-  _RCN,
+export var ReservedCacheNode$: StaticStructureSchema = [3, n0, _RCN,
   0,
   [_RCNI, _RCNOI, _CNT, _STt, _Du, _FP, _UP, _CNC, _PD, _OT, _Sta, _RCecu, _RARN],
-  [0, 0, 0, 4, 1, 1, 1, 1, 0, 0, 0, [() => RecurringChargeList, 0], 0],
+  [0, 0, 0, 4, 1, 1, 1, 1, 0, 0, 0, [() => RecurringChargeList, 0], 0]
 ];
-export var ReservedCacheNodeAlreadyExistsFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _RCNAEF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ReservedCacheNodeAlreadyExists`, 404] },
+export var ReservedCacheNodeAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _RCNAEF,
+  { [_aQE]: [`ReservedCacheNodeAlreadyExists`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(ReservedCacheNodeAlreadyExistsFault, __ReservedCacheNodeAlreadyExistsFault);
-export var ReservedCacheNodeMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _RCNM,
+TypeRegistry.for(n0).registerError(ReservedCacheNodeAlreadyExistsFault$, ReservedCacheNodeAlreadyExistsFault);
+export var ReservedCacheNodeMessage$: StaticStructureSchema = [3, n0, _RCNM,
   0,
   [_M, _RCNe],
-  [0, [() => ReservedCacheNodeList, 0]],
+  [0, [() => ReservedCacheNodeList, 0]]
 ];
-export var ReservedCacheNodeNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _RCNNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ReservedCacheNodeNotFound`, 404] },
+export var ReservedCacheNodeNotFoundFault$: StaticErrorSchema = [-3, n0, _RCNNFF,
+  { [_aQE]: [`ReservedCacheNodeNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(ReservedCacheNodeNotFoundFault, __ReservedCacheNodeNotFoundFault);
-export var ReservedCacheNodeQuotaExceededFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _RCNQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ReservedCacheNodeQuotaExceeded`, 400] },
+TypeRegistry.for(n0).registerError(ReservedCacheNodeNotFoundFault$, ReservedCacheNodeNotFoundFault);
+export var ReservedCacheNodeQuotaExceededFault$: StaticErrorSchema = [-3, n0, _RCNQEF,
+  { [_aQE]: [`ReservedCacheNodeQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(ReservedCacheNodeQuotaExceededFault, __ReservedCacheNodeQuotaExceededFault);
-export var ReservedCacheNodesOffering: StaticStructureSchema = [
-  3,
-  n0,
-  _RCNO,
+TypeRegistry.for(n0).registerError(ReservedCacheNodeQuotaExceededFault$, ReservedCacheNodeQuotaExceededFault);
+export var ReservedCacheNodesOffering$: StaticStructureSchema = [3, n0, _RCNO,
   0,
   [_RCNOI, _CNT, _Du, _FP, _UP, _PD, _OT, _RCecu],
-  [0, 0, 1, 1, 1, 0, 0, [() => RecurringChargeList, 0]],
+  [0, 0, 1, 1, 1, 0, 0, [() => RecurringChargeList, 0]]
 ];
-export var ReservedCacheNodesOfferingMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _RCNOM,
+export var ReservedCacheNodesOfferingMessage$: StaticStructureSchema = [3, n0, _RCNOM,
   0,
   [_M, _RCNOe],
-  [0, [() => ReservedCacheNodesOfferingList, 0]],
+  [0, [() => ReservedCacheNodesOfferingList, 0]]
 ];
-export var ReservedCacheNodesOfferingNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _RCNONFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ReservedCacheNodesOfferingNotFound`, 404] },
+export var ReservedCacheNodesOfferingNotFoundFault$: StaticErrorSchema = [-3, n0, _RCNONFF,
+  { [_aQE]: [`ReservedCacheNodesOfferingNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(ReservedCacheNodesOfferingNotFoundFault, __ReservedCacheNodesOfferingNotFoundFault);
-export var ResetCacheParameterGroupMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _RCPGM,
+TypeRegistry.for(n0).registerError(ReservedCacheNodesOfferingNotFoundFault$, ReservedCacheNodesOfferingNotFoundFault);
+export var ResetCacheParameterGroupMessage$: StaticStructureSchema = [3, n0, _RCPGM,
   0,
   [_CPGN, _RAP, _PNV],
-  [0, 2, [() => ParameterNameValueList, 0]],
+  [0, 2, [() => ParameterNameValueList, 0]]
 ];
-export var ReshardingConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _RCes,
+export var ReshardingConfiguration$: StaticStructureSchema = [3, n0, _RCes,
   0,
   [_NGI, _PAZr],
-  [0, [() => AvailabilityZonesList, 0]],
+  [0, [() => AvailabilityZonesList, 0]]
 ];
-export var ReshardingStatus: StaticStructureSchema = [3, n0, _RS, 0, [_SM], [() => SlotMigration]];
-export var RevokeCacheSecurityGroupIngressMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _RCSGIM,
+export var ReshardingStatus$: StaticStructureSchema = [3, n0, _RS,
+  0,
+  [_SM],
+  [() => SlotMigration$]
+];
+export var RevokeCacheSecurityGroupIngressMessage$: StaticStructureSchema = [3, n0, _RCSGIM,
   0,
   [_CSGN, _ECSGN, _ECSGOI],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-export var RevokeCacheSecurityGroupIngressResult: StaticStructureSchema = [
-  3,
-  n0,
-  _RCSGIR,
+export var RevokeCacheSecurityGroupIngressResult$: StaticStructureSchema = [3, n0, _RCSGIR,
   0,
   [_CSG],
-  [[() => CacheSecurityGroup, 0]],
+  [[() => CacheSecurityGroup$, 0]]
 ];
-export var ScaleConfig: StaticStructureSchema = [3, n0, _SCc, 0, [_SP, _SIM], [1, 1]];
-export var SecurityGroupMembership: StaticStructureSchema = [3, n0, _SGM, 0, [_SGIe, _St], [0, 0]];
-export var ServerlessCache: StaticStructureSchema = [
-  3,
-  n0,
-  _SC,
+export var ScaleConfig$: StaticStructureSchema = [3, n0, _SCc,
+  0,
+  [_SP, _SIM],
+  [1, 1]
+];
+export var SecurityGroupMembership$: StaticStructureSchema = [3, n0, _SGM,
+  0,
+  [_SGIe, _St],
+  [0, 0]
+];
+export var ServerlessCache$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_SCN, _D, _CTr, _St, _E, _MEVa, _FEV, _CUL, _KKI, _SGI, _En, _RE, _ARN, _UGIs, _SI, _SRL, _DST],
-  [
-    0,
-    0,
-    4,
-    0,
-    0,
-    0,
-    0,
-    () => CacheUsageLimits,
-    0,
-    [() => SecurityGroupIdsList, 0],
-    () => Endpoint,
-    () => Endpoint,
-    0,
-    0,
-    [() => SubnetIdsList, 0],
-    1,
-    0,
-  ],
+  [0, 0, 4, 0, 0, 0, 0, () => CacheUsageLimits$, 0, [() => SecurityGroupIdsList, 0], () => Endpoint$, () => Endpoint$, 0, 0, [() => SubnetIdsList, 0], 1, 0]
 ];
-export var ServerlessCacheAlreadyExistsFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _SCAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ServerlessCacheAlreadyExistsFault`, 400] },
+export var ServerlessCacheAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _SCAEF,
+  { [_aQE]: [`ServerlessCacheAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(ServerlessCacheAlreadyExistsFault, __ServerlessCacheAlreadyExistsFault);
-export var ServerlessCacheConfiguration: StaticStructureSchema = [3, n0, _SCC, 0, [_SCN, _E, _MEVa], [0, 0, 0]];
-export var ServerlessCacheNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _SCNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ServerlessCacheNotFoundFault`, 404] },
+TypeRegistry.for(n0).registerError(ServerlessCacheAlreadyExistsFault$, ServerlessCacheAlreadyExistsFault);
+export var ServerlessCacheConfiguration$: StaticStructureSchema = [3, n0, _SCC,
+  0,
+  [_SCN, _E, _MEVa],
+  [0, 0, 0]
+];
+export var ServerlessCacheNotFoundFault$: StaticErrorSchema = [-3, n0, _SCNFF,
+  { [_aQE]: [`ServerlessCacheNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(ServerlessCacheNotFoundFault, __ServerlessCacheNotFoundFault);
-export var ServerlessCacheQuotaForCustomerExceededFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _SCQFCEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ServerlessCacheQuotaForCustomerExceededFault`, 400] },
+TypeRegistry.for(n0).registerError(ServerlessCacheNotFoundFault$, ServerlessCacheNotFoundFault);
+export var ServerlessCacheQuotaForCustomerExceededFault$: StaticErrorSchema = [-3, n0, _SCQFCEF,
+  { [_aQE]: [`ServerlessCacheQuotaForCustomerExceededFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(
-  ServerlessCacheQuotaForCustomerExceededFault,
-  __ServerlessCacheQuotaForCustomerExceededFault
-);
-export var ServerlessCacheSnapshot: StaticStructureSchema = [
-  3,
-  n0,
-  _SCS,
+TypeRegistry.for(n0).registerError(ServerlessCacheQuotaForCustomerExceededFault$, ServerlessCacheQuotaForCustomerExceededFault);
+export var ServerlessCacheSnapshot$: StaticStructureSchema = [3, n0, _SCS,
   0,
   [_SCSN, _ARN, _KKI, _STn, _St, _CTr, _ETx, _BUFC, _SCC],
-  [0, 0, 0, 0, 0, 4, 4, 0, () => ServerlessCacheConfiguration],
+  [0, 0, 0, 0, 0, 4, 4, 0, () => ServerlessCacheConfiguration$]
 ];
-export var ServerlessCacheSnapshotAlreadyExistsFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _SCSAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ServerlessCacheSnapshotAlreadyExistsFault`, 400] },
+export var ServerlessCacheSnapshotAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _SCSAEF,
+  { [_aQE]: [`ServerlessCacheSnapshotAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(
-  ServerlessCacheSnapshotAlreadyExistsFault,
-  __ServerlessCacheSnapshotAlreadyExistsFault
-);
-export var ServerlessCacheSnapshotNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _SCSNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ServerlessCacheSnapshotNotFoundFault`, 404] },
+TypeRegistry.for(n0).registerError(ServerlessCacheSnapshotAlreadyExistsFault$, ServerlessCacheSnapshotAlreadyExistsFault);
+export var ServerlessCacheSnapshotNotFoundFault$: StaticErrorSchema = [-3, n0, _SCSNFF,
+  { [_aQE]: [`ServerlessCacheSnapshotNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(ServerlessCacheSnapshotNotFoundFault, __ServerlessCacheSnapshotNotFoundFault);
-export var ServerlessCacheSnapshotQuotaExceededFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _SCSQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ServerlessCacheSnapshotQuotaExceededFault`, 400] },
+TypeRegistry.for(n0).registerError(ServerlessCacheSnapshotNotFoundFault$, ServerlessCacheSnapshotNotFoundFault);
+export var ServerlessCacheSnapshotQuotaExceededFault$: StaticErrorSchema = [-3, n0, _SCSQEF,
+  { [_aQE]: [`ServerlessCacheSnapshotQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(
-  ServerlessCacheSnapshotQuotaExceededFault,
-  __ServerlessCacheSnapshotQuotaExceededFault
-);
-export var ServiceLinkedRoleNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _SLRNFF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ServiceLinkedRoleNotFoundFault`, 400] },
+TypeRegistry.for(n0).registerError(ServerlessCacheSnapshotQuotaExceededFault$, ServerlessCacheSnapshotQuotaExceededFault);
+export var ServiceLinkedRoleNotFoundFault$: StaticErrorSchema = [-3, n0, _SLRNFF,
+  { [_aQE]: [`ServiceLinkedRoleNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(ServiceLinkedRoleNotFoundFault, __ServiceLinkedRoleNotFoundFault);
-export var ServiceUpdate: StaticStructureSchema = [
-  3,
-  n0,
-  _SU,
+TypeRegistry.for(n0).registerError(ServiceLinkedRoleNotFoundFault$, ServiceLinkedRoleNotFoundFault);
+export var ServiceUpdate$: StaticStructureSchema = [3, n0, _SU,
   0,
   [_SUN, _SURD, _SUED, _SUSe, _SURABD, _SUS, _SUD, _SUT, _E, _EV, _AUARABD, _EUT],
-  [0, 4, 4, 0, 4, 0, 0, 0, 0, 0, 2, 0],
+  [0, 4, 4, 0, 4, 0, 0, 0, 0, 0, 2, 0]
 ];
-export var ServiceUpdateNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ServiceUpdateNotFoundFault`, 404] },
+export var ServiceUpdateNotFoundFault$: StaticErrorSchema = [-3, n0, _SUNFF,
+  { [_aQE]: [`ServiceUpdateNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(ServiceUpdateNotFoundFault, __ServiceUpdateNotFoundFault);
-export var ServiceUpdatesMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _SUMe,
+TypeRegistry.for(n0).registerError(ServiceUpdateNotFoundFault$, ServiceUpdateNotFoundFault);
+export var ServiceUpdatesMessage$: StaticStructureSchema = [3, n0, _SUMe,
   0,
   [_M, _SUe],
-  [0, [() => ServiceUpdateList, 0]],
+  [0, [() => ServiceUpdateList, 0]]
 ];
-export var SlotMigration: StaticStructureSchema = [3, n0, _SM, 0, [_PP], [1]];
-export var Snapshot: StaticStructureSchema = [
-  3,
-  n0,
-  _Sn,
+export var SlotMigration$: StaticStructureSchema = [3, n0, _SM,
   0,
-  [
-    _SN,
-    _RGIe,
-    _RGD,
-    _CCIa,
-    _SSn,
-    _SS,
-    _CNT,
-    _E,
-    _EV,
-    _NCN,
-    _PAZ,
-    _POA,
-    _CCCT,
-    _PMW,
-    _TA,
-    _Po,
-    _CPGN,
-    _CSGNa,
-    _VI,
-    _AMVU,
-    _SRL,
-    _SW,
-    _NNG,
-    _AF,
-    _NSo,
-    _KKI,
-    _ARN,
-    _DTa,
-  ],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 4, 0, 0, 1, 0, 0, 0, 2, 1, 0, 1, 0, [() => NodeSnapshotList, 0], 0, 0, 0],
+  [_PP],
+  [1]
 ];
-export var SnapshotAlreadyExistsFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _SAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SnapshotAlreadyExistsFault`, 400] },
+export var Snapshot$: StaticStructureSchema = [3, n0, _Sn,
+  0,
+  [_SN, _RGIe, _RGD, _CCIa, _SSn, _SS, _CNT, _E, _EV, _NCN, _PAZ, _POA, _CCCT, _PMW, _TA, _Po, _CPGN, _CSGNa, _VI, _AMVU, _SRL, _SW, _NNG, _AF, _NSo, _KKI, _ARN, _DTa],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 4, 0, 0, 1, 0, 0, 0, 2, 1, 0, 1, 0, [() => NodeSnapshotList, 0], 0, 0, 0]
+];
+export var SnapshotAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _SAEF,
+  { [_aQE]: [`SnapshotAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(SnapshotAlreadyExistsFault, __SnapshotAlreadyExistsFault);
-export var SnapshotFeatureNotSupportedFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _SFNSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SnapshotFeatureNotSupportedFault`, 400] },
+TypeRegistry.for(n0).registerError(SnapshotAlreadyExistsFault$, SnapshotAlreadyExistsFault);
+export var SnapshotFeatureNotSupportedFault$: StaticErrorSchema = [-3, n0, _SFNSF,
+  { [_aQE]: [`SnapshotFeatureNotSupportedFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(SnapshotFeatureNotSupportedFault, __SnapshotFeatureNotSupportedFault);
-export var SnapshotNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _SNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`SnapshotNotFoundFault`, 404] },
+TypeRegistry.for(n0).registerError(SnapshotFeatureNotSupportedFault$, SnapshotFeatureNotSupportedFault);
+export var SnapshotNotFoundFault$: StaticErrorSchema = [-3, n0, _SNFF,
+  { [_aQE]: [`SnapshotNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(SnapshotNotFoundFault, __SnapshotNotFoundFault);
-export var SnapshotQuotaExceededFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SnapshotQuotaExceededFault`, 400] },
+TypeRegistry.for(n0).registerError(SnapshotNotFoundFault$, SnapshotNotFoundFault);
+export var SnapshotQuotaExceededFault$: StaticErrorSchema = [-3, n0, _SQEF,
+  { [_aQE]: [`SnapshotQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(SnapshotQuotaExceededFault, __SnapshotQuotaExceededFault);
-export var StartMigrationMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _SMM,
+TypeRegistry.for(n0).registerError(SnapshotQuotaExceededFault$, SnapshotQuotaExceededFault);
+export var StartMigrationMessage$: StaticStructureSchema = [3, n0, _SMM,
   0,
   [_RGIe, _CNEL],
-  [0, () => CustomerNodeEndpointList],
+  [0, () => CustomerNodeEndpointList]
 ];
-export var StartMigrationResponse: StaticStructureSchema = [3, n0, _SMR, 0, [_RG], [[() => ReplicationGroup, 0]]];
-export var Subnet: StaticStructureSchema = [
-  3,
-  n0,
-  _Sub,
+export var StartMigrationResponse$: StaticStructureSchema = [3, n0, _SMR,
+  0,
+  [_RG],
+  [[() => ReplicationGroup$, 0]]
+];
+export var Subnet$: StaticStructureSchema = [3, n0, _Sub,
   0,
   [_SIu, _SAZ, _SO, _SNT],
-  [0, () => AvailabilityZone, () => SubnetOutpost, 64 | 0],
+  [0, () => AvailabilityZone$, () => SubnetOutpost$, 64 | 0]
 ];
-export var SubnetInUse: StaticErrorSchema = [
-  -3,
-  n0,
-  _SIU,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetInUse`, 400] },
+export var SubnetInUse$: StaticErrorSchema = [-3, n0, _SIU,
+  { [_aQE]: [`SubnetInUse`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(SubnetInUse, __SubnetInUse);
-export var SubnetNotAllowedFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _SNAF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetNotAllowedFault`, 400] },
+TypeRegistry.for(n0).registerError(SubnetInUse$, SubnetInUse);
+export var SubnetNotAllowedFault$: StaticErrorSchema = [-3, n0, _SNAF,
+  { [_aQE]: [`SubnetNotAllowedFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(SubnetNotAllowedFault, __SubnetNotAllowedFault);
-export var SubnetOutpost: StaticStructureSchema = [3, n0, _SO, 0, [_SOA], [0]];
-export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
-export var TagListMessage: StaticStructureSchema = [3, n0, _TLM, 0, [_TL], [[() => TagList, 0]]];
-export var TagNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _TNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`TagNotFound`, 404] },
+TypeRegistry.for(n0).registerError(SubnetNotAllowedFault$, SubnetNotAllowedFault);
+export var SubnetOutpost$: StaticStructureSchema = [3, n0, _SO,
+  0,
+  [_SOA],
+  [0]
+];
+export var Tag$: StaticStructureSchema = [3, n0, _Ta,
+  0,
+  [_K, _V],
+  [0, 0]
+];
+export var TagListMessage$: StaticStructureSchema = [3, n0, _TLM,
+  0,
+  [_TL],
+  [[() => TagList, 0]]
+];
+export var TagNotFoundFault$: StaticErrorSchema = [-3, n0, _TNFF,
+  { [_aQE]: [`TagNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(TagNotFoundFault, __TagNotFoundFault);
-export var TagQuotaPerResourceExceeded: StaticErrorSchema = [
-  -3,
-  n0,
-  _TQPRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TagQuotaPerResourceExceeded`, 400] },
+TypeRegistry.for(n0).registerError(TagNotFoundFault$, TagNotFoundFault);
+export var TagQuotaPerResourceExceeded$: StaticErrorSchema = [-3, n0, _TQPRE,
+  { [_aQE]: [`TagQuotaPerResourceExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(TagQuotaPerResourceExceeded, __TagQuotaPerResourceExceeded);
-export var TestFailoverMessage: StaticStructureSchema = [3, n0, _TFM, 0, [_RGIe, _NGI], [0, 0]];
-export var TestFailoverNotAvailableFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _TFNAF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TestFailoverNotAvailableFault`, 400] },
+TypeRegistry.for(n0).registerError(TagQuotaPerResourceExceeded$, TagQuotaPerResourceExceeded);
+export var TestFailoverMessage$: StaticStructureSchema = [3, n0, _TFM,
+  0,
+  [_RGIe, _NGI],
+  [0, 0]
+];
+export var TestFailoverNotAvailableFault$: StaticErrorSchema = [-3, n0, _TFNAF,
+  { [_aQE]: [`TestFailoverNotAvailableFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(TestFailoverNotAvailableFault, __TestFailoverNotAvailableFault);
-export var TestFailoverResult: StaticStructureSchema = [3, n0, _TFR, 0, [_RG], [[() => ReplicationGroup, 0]]];
-export var TestMigrationMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _TMM,
+TypeRegistry.for(n0).registerError(TestFailoverNotAvailableFault$, TestFailoverNotAvailableFault);
+export var TestFailoverResult$: StaticStructureSchema = [3, n0, _TFR,
+  0,
+  [_RG],
+  [[() => ReplicationGroup$, 0]]
+];
+export var TestMigrationMessage$: StaticStructureSchema = [3, n0, _TMM,
   0,
   [_RGIe, _CNEL],
-  [0, () => CustomerNodeEndpointList],
+  [0, () => CustomerNodeEndpointList]
 ];
-export var TestMigrationResponse: StaticStructureSchema = [3, n0, _TMR, 0, [_RG], [[() => ReplicationGroup, 0]]];
-export var TimeRangeFilter: StaticStructureSchema = [3, n0, _TRF, 0, [_STt, _ET], [4, 4]];
-export var UnprocessedUpdateAction: StaticStructureSchema = [
-  3,
-  n0,
-  _UUA,
+export var TestMigrationResponse$: StaticStructureSchema = [3, n0, _TMR,
+  0,
+  [_RG],
+  [[() => ReplicationGroup$, 0]]
+];
+export var TimeRangeFilter$: StaticStructureSchema = [3, n0, _TRF,
+  0,
+  [_STt, _ET],
+  [4, 4]
+];
+export var UnprocessedUpdateAction$: StaticStructureSchema = [3, n0, _UUA,
   0,
   [_RGIe, _CCIa, _SUN, _ETr, _EMr],
-  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0]
 ];
-export var UpdateAction: StaticStructureSchema = [
-  3,
-  n0,
-  _UA,
+export var UpdateAction$: StaticStructureSchema = [3, n0, _UA,
   0,
   [_RGIe, _CCIa, _SUN, _SURD, _SUSe, _SUS, _SURABD, _SUT, _UAAD, _UAS, _NU, _UASMD, _SMl, _NGUS, _CNUS, _EUT, _E],
-  [
-    0,
-    0,
-    0,
-    4,
-    0,
-    0,
-    4,
-    0,
-    4,
-    0,
-    0,
-    4,
-    0,
-    [() => NodeGroupUpdateStatusList, 0],
-    [() => CacheNodeUpdateStatusList, 0],
-    0,
-    0,
-  ],
+  [0, 0, 0, 4, 0, 0, 4, 0, 4, 0, 0, 4, 0, [() => NodeGroupUpdateStatusList, 0], [() => CacheNodeUpdateStatusList, 0], 0, 0]
 ];
-export var UpdateActionResultsMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _UARM,
+export var UpdateActionResultsMessage$: StaticStructureSchema = [3, n0, _UARM,
   0,
   [_PUAr, _UUAn],
-  [
-    [() => ProcessedUpdateActionList, 0],
-    [() => UnprocessedUpdateActionList, 0],
-  ],
+  [[() => ProcessedUpdateActionList, 0], [() => UnprocessedUpdateActionList, 0]]
 ];
-export var UpdateActionsMessage: StaticStructureSchema = [3, n0, _UAM, 0, [_M, _UAp], [0, [() => UpdateActionList, 0]]];
-export var User: StaticStructureSchema = [
-  3,
-  n0,
-  _Use,
+export var UpdateActionsMessage$: StaticStructureSchema = [3, n0, _UAM,
+  0,
+  [_M, _UAp],
+  [0, [() => UpdateActionList, 0]]
+];
+export var User$: StaticStructureSchema = [3, n0, _Use,
   0,
   [_UIs, _UN, _St, _E, _MEV, _AS, _UGI, _A, _ARN],
-  [0, 0, 0, 0, 0, 0, 64 | 0, () => Authentication, 0],
+  [0, 0, 0, 0, 0, 0, 64 | 0, () => Authentication$, 0]
 ];
-export var UserAlreadyExistsFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _UAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`UserAlreadyExists`, 400] },
+export var UserAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _UAEF,
+  { [_aQE]: [`UserAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(UserAlreadyExistsFault, __UserAlreadyExistsFault);
-export var UserGroup: StaticStructureSchema = [
-  3,
-  n0,
-  _UGs,
+TypeRegistry.for(n0).registerError(UserAlreadyExistsFault$, UserAlreadyExistsFault);
+export var UserGroup$: StaticStructureSchema = [3, n0, _UGs,
   0,
   [_UGIs, _St, _E, _UI, _MEV, _PCe, _RGe, _SCe, _ARN],
-  [0, 0, 0, 64 | 0, 0, () => UserGroupPendingChanges, 64 | 0, 64 | 0, 0],
+  [0, 0, 0, 64 | 0, 0, () => UserGroupPendingChanges$, 64 | 0, 64 | 0, 0]
 ];
-export var UserGroupAlreadyExistsFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _UGAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`UserGroupAlreadyExists`, 400] },
+export var UserGroupAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _UGAEF,
+  { [_aQE]: [`UserGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(UserGroupAlreadyExistsFault, __UserGroupAlreadyExistsFault);
-export var UserGroupNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _UGNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`UserGroupNotFound`, 404] },
+TypeRegistry.for(n0).registerError(UserGroupAlreadyExistsFault$, UserGroupAlreadyExistsFault);
+export var UserGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _UGNFF,
+  { [_aQE]: [`UserGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(UserGroupNotFoundFault, __UserGroupNotFoundFault);
-export var UserGroupPendingChanges: StaticStructureSchema = [3, n0, _UGPC, 0, [_UITR, _UITA], [64 | 0, 64 | 0]];
-export var UserGroupQuotaExceededFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _UGQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`UserGroupQuotaExceeded`, 400] },
+TypeRegistry.for(n0).registerError(UserGroupNotFoundFault$, UserGroupNotFoundFault);
+export var UserGroupPendingChanges$: StaticStructureSchema = [3, n0, _UGPC,
+  0,
+  [_UITR, _UITA],
+  [64 | 0, 64 | 0]
+];
+export var UserGroupQuotaExceededFault$: StaticErrorSchema = [-3, n0, _UGQEF,
+  { [_aQE]: [`UserGroupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(UserGroupQuotaExceededFault, __UserGroupQuotaExceededFault);
-export var UserGroupsUpdateStatus: StaticStructureSchema = [3, n0, _UGUS, 0, [_UGITA, _UGITR], [64 | 0, 64 | 0]];
-export var UserNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _UNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`UserNotFound`, 404] },
+TypeRegistry.for(n0).registerError(UserGroupQuotaExceededFault$, UserGroupQuotaExceededFault);
+export var UserGroupsUpdateStatus$: StaticStructureSchema = [3, n0, _UGUS,
+  0,
+  [_UGITA, _UGITR],
+  [64 | 0, 64 | 0]
+];
+export var UserNotFoundFault$: StaticErrorSchema = [-3, n0, _UNFF,
+  { [_aQE]: [`UserNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(UserNotFoundFault, __UserNotFoundFault);
-export var UserQuotaExceededFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _UQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`UserQuotaExceeded`, 400] },
+TypeRegistry.for(n0).registerError(UserNotFoundFault$, UserNotFoundFault);
+export var UserQuotaExceededFault$: StaticErrorSchema = [-3, n0, _UQEF,
+  { [_aQE]: [`UserQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(UserQuotaExceededFault, __UserQuotaExceededFault);
-export var __Unit = "unit" as const;
-export var ElastiCacheServiceException: StaticErrorSchema = [-3, _s, "ElastiCacheServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(ElastiCacheServiceException, __ElastiCacheServiceException);
-export var AvailabilityZonesList: StaticListSchema = [1, n0, _AZL, 0, [0, { [_xN]: _AZ }]];
-export var CacheClusterIdList = 64 | 0;
-export var CacheClusterList: StaticListSchema = [1, n0, _CCL, 0, [() => CacheCluster, { [_xN]: _CC }]];
-export var CacheEngineVersionList: StaticListSchema = [1, n0, _CEVL, 0, [() => CacheEngineVersion, { [_xN]: _CEV }]];
-export var CacheNodeIdsList: StaticListSchema = [1, n0, _CNIL, 0, [0, { [_xN]: _CNI }]];
-export var CacheNodeList: StaticListSchema = [1, n0, _CNL, 0, [() => CacheNode, { [_xN]: _CNa }]];
-export var CacheNodeTypeSpecificParametersList: StaticListSchema = [
-  1,
-  n0,
-  _CNTSPL,
-  0,
-  [() => CacheNodeTypeSpecificParameter, { [_xN]: _CNTSP }],
-];
-export var CacheNodeTypeSpecificValueList: StaticListSchema = [
-  1,
-  n0,
-  _CNTSVL,
-  0,
-  [() => CacheNodeTypeSpecificValue, { [_xN]: _CNTSVa }],
-];
-export var CacheNodeUpdateStatusList: StaticListSchema = [
-  1,
-  n0,
-  _CNUSL,
-  0,
-  [() => CacheNodeUpdateStatus, { [_xN]: _CNUS }],
-];
-export var CacheParameterGroupList: StaticListSchema = [1, n0, _CPGL, 0, [() => CacheParameterGroup, { [_xN]: _CPG }]];
-export var CacheSecurityGroupMembershipList: StaticListSchema = [
-  1,
-  n0,
-  _CSGML,
-  0,
-  [() => CacheSecurityGroupMembership, { [_xN]: _CSG }],
-];
-export var CacheSecurityGroupNameList: StaticListSchema = [1, n0, _CSGNL, 0, [0, { [_xN]: _CSGN }]];
-export var CacheSecurityGroups: StaticListSchema = [1, n0, _CSGa, 0, [() => CacheSecurityGroup, { [_xN]: _CSG }]];
-export var CacheSubnetGroups: StaticListSchema = [1, n0, _CSGach, 0, [() => CacheSubnetGroup, { [_xN]: _CSGac }]];
-export var ClusterIdList: StaticListSchema = [1, n0, _CIL, 0, [0, { [_xN]: _CI }]];
-export var CustomerNodeEndpointList: StaticListSchema = [1, n0, _CNEL, 0, () => CustomerNodeEndpoint];
-export var EC2SecurityGroupList: StaticListSchema = [1, n0, _ECSGL, 0, [() => EC2SecurityGroup, { [_xN]: _ECSGe }]];
-export var EventList: StaticListSchema = [1, n0, _EL, 0, [() => Event, { [_xN]: _Ev }]];
-export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
-export var FilterValueList = 64 | 0;
-export var GlobalNodeGroupIdList: StaticListSchema = [1, n0, _GNGIL, 0, [0, { [_xN]: _GNGI }]];
-export var GlobalNodeGroupList: StaticListSchema = [1, n0, _GNGL, 0, [() => GlobalNodeGroup, { [_xN]: _GNG }]];
-export var GlobalReplicationGroupList: StaticListSchema = [
-  1,
-  n0,
-  _GRGL,
-  0,
-  [() => GlobalReplicationGroup, { [_xN]: _GRG }],
-];
-export var GlobalReplicationGroupMemberList: StaticListSchema = [
-  1,
-  n0,
-  _GRGML,
-  0,
-  [() => GlobalReplicationGroupMember, { [_xN]: _GRGM }],
-];
-export var KeyList = 64 | 0;
-export var LogDeliveryConfigurationList: StaticListSchema = [
-  1,
-  n0,
-  _LDCL,
-  0,
-  [() => LogDeliveryConfiguration, { [_xN]: _LDCo }],
-];
-export var LogDeliveryConfigurationRequestList: StaticListSchema = [
-  1,
-  n0,
-  _LDCRL,
-  0,
-  [() => LogDeliveryConfigurationRequest, { [_xN]: _LDCR }],
-];
-export var NetworkTypeList = 64 | 0;
-export var NodeGroupConfigurationList: StaticListSchema = [
-  1,
-  n0,
-  _NGCL,
-  0,
-  [() => NodeGroupConfiguration, { [_xN]: _NGC }],
-];
-export var NodeGroupList: StaticListSchema = [1, n0, _NGL, 0, [() => NodeGroup, { [_xN]: _NG }]];
-export var NodeGroupMemberList: StaticListSchema = [1, n0, _NGML, 0, [() => NodeGroupMember, { [_xN]: _NGMo }]];
-export var NodeGroupMemberUpdateStatusList: StaticListSchema = [
-  1,
-  n0,
-  _NGMUSL,
-  0,
-  [() => NodeGroupMemberUpdateStatus, { [_xN]: _NGMUS }],
-];
-export var NodeGroupsToRemoveList: StaticListSchema = [1, n0, _NGTRL, 0, [0, { [_xN]: _NGTRod }]];
-export var NodeGroupsToRetainList: StaticListSchema = [1, n0, _NGTRLo, 0, [0, { [_xN]: _NGTRode }]];
-export var NodeGroupUpdateStatusList: StaticListSchema = [
-  1,
-  n0,
-  _NGUSL,
-  0,
-  [() => NodeGroupUpdateStatus, { [_xN]: _NGUS }],
-];
-export var NodeSnapshotList: StaticListSchema = [1, n0, _NSL, 0, [() => NodeSnapshot, { [_xN]: _NS }]];
-export var NodeTypeList = 64 | 0;
-export var OutpostArnsList: StaticListSchema = [1, n0, _OAL, 0, [0, { [_xN]: _OA }]];
-export var ParameterNameValueList: StaticListSchema = [1, n0, _PNVL, 0, [() => ParameterNameValue, { [_xN]: _PNVa }]];
-export var ParametersList: StaticListSchema = [1, n0, _PL, 0, [() => Parameter, { [_xN]: _Par }]];
-export var PasswordListInput = 64 | 0;
-export var PendingLogDeliveryConfigurationList: StaticListSchema = [
-  1,
-  n0,
-  _PLDCL,
-  0,
-  () => PendingLogDeliveryConfiguration,
-];
-export var PreferredAvailabilityZoneList: StaticListSchema = [1, n0, _PAZL, 0, [0, { [_xN]: _PAZ }]];
-export var PreferredOutpostArnList: StaticListSchema = [1, n0, _POAL, 0, [0, { [_xN]: _POA }]];
-export var ProcessedUpdateActionList: StaticListSchema = [
-  1,
-  n0,
-  _PUAL,
-  0,
-  [() => ProcessedUpdateAction, { [_xN]: _PUA }],
-];
-export var RecurringChargeList: StaticListSchema = [1, n0, _RCL, 0, [() => RecurringCharge, { [_xN]: _RCec }]];
-export var RegionalConfigurationList: StaticListSchema = [
-  1,
-  n0,
-  _RCLe,
-  0,
-  [() => RegionalConfiguration, { [_xN]: _RCeg }],
-];
-export var RemoveReplicasList = 64 | 0;
-export var ReplicaConfigurationList: StaticListSchema = [1, n0, _RCLep, 0, [() => ConfigureShard, { [_xN]: _CS }]];
-export var ReplicationGroupIdList = 64 | 0;
-export var ReplicationGroupList: StaticListSchema = [1, n0, _RGL, 0, [() => ReplicationGroup, { [_xN]: _RG }]];
-export var ReplicationGroupOutpostArnList: StaticListSchema = [1, n0, _RGOAL, 0, [0, { [_xN]: _RGOA }]];
-export var ReservedCacheNodeList: StaticListSchema = [1, n0, _RCNL, 0, [() => ReservedCacheNode, { [_xN]: _RCN }]];
-export var ReservedCacheNodesOfferingList: StaticListSchema = [
-  1,
-  n0,
-  _RCNOL,
-  0,
-  [() => ReservedCacheNodesOffering, { [_xN]: _RCNO }],
-];
-export var ReshardingConfigurationList: StaticListSchema = [
-  1,
-  n0,
-  _RCLes,
-  0,
-  [() => ReshardingConfiguration, { [_xN]: _RCes }],
-];
-export var SecurityGroupIdsList: StaticListSchema = [1, n0, _SGIL, 0, [0, { [_xN]: _SGIe }]];
-export var SecurityGroupMembershipList: StaticListSchema = [1, n0, _SGML, 0, () => SecurityGroupMembership];
-export var ServerlessCacheList: StaticListSchema = [1, n0, _SCL, 0, [() => ServerlessCache, 0]];
-export var ServerlessCacheSnapshotList: StaticListSchema = [
-  1,
-  n0,
-  _SCSL,
-  0,
-  [() => ServerlessCacheSnapshot, { [_xN]: _SCS }],
-];
-export var ServiceUpdateList: StaticListSchema = [1, n0, _SUL, 0, [() => ServiceUpdate, { [_xN]: _SU }]];
-export var ServiceUpdateStatusList = 64 | 0;
-export var SnapshotArnsList: StaticListSchema = [1, n0, _SAL, 0, [0, { [_xN]: _SAn }]];
-export var SnapshotList: StaticListSchema = [1, n0, _SL, 0, [() => Snapshot, { [_xN]: _Sn }]];
-export var SubnetIdentifierList: StaticListSchema = [1, n0, _SIL, 0, [0, { [_xN]: _SIu }]];
-export var SubnetIdsList: StaticListSchema = [1, n0, _SILu, 0, [0, { [_xN]: _SIub }]];
-export var SubnetList: StaticListSchema = [1, n0, _SLu, 0, [() => Subnet, { [_xN]: _Sub }]];
-export var TagList: StaticListSchema = [1, n0, _TL, 0, [() => Tag, { [_xN]: _Ta }]];
-export var UGReplicationGroupIdList = 64 | 0;
-export var UGServerlessCacheIdList = 64 | 0;
-export var UnprocessedUpdateActionList: StaticListSchema = [
-  1,
-  n0,
-  _UUAL,
-  0,
-  [() => UnprocessedUpdateAction, { [_xN]: _UUA }],
-];
-export var UpdateActionList: StaticListSchema = [1, n0, _UAL, 0, [() => UpdateAction, { [_xN]: _UA }]];
-export var UpdateActionStatusList = 64 | 0;
-export var UserGroupIdList = 64 | 0;
-export var UserGroupIdListInput = 64 | 0;
-export var UserGroupList: StaticListSchema = [1, n0, _UGL, 0, () => UserGroup];
-export var UserIdList = 64 | 0;
-export var UserIdListInput = 64 | 0;
-export var UserList: StaticListSchema = [1, n0, _UL, 0, () => User];
-export var AddTagsToResource: StaticOperationSchema = [
-  9,
-  n0,
-  _ATTR,
-  0,
-  () => AddTagsToResourceMessage,
-  () => TagListMessage,
-];
-export var AuthorizeCacheSecurityGroupIngress: StaticOperationSchema = [
-  9,
-  n0,
-  _ACSGI,
-  0,
-  () => AuthorizeCacheSecurityGroupIngressMessage,
-  () => AuthorizeCacheSecurityGroupIngressResult,
-];
-export var BatchApplyUpdateAction: StaticOperationSchema = [
-  9,
-  n0,
-  _BAUA,
-  0,
-  () => BatchApplyUpdateActionMessage,
-  () => UpdateActionResultsMessage,
-];
-export var BatchStopUpdateAction: StaticOperationSchema = [
-  9,
-  n0,
-  _BSUA,
-  0,
-  () => BatchStopUpdateActionMessage,
-  () => UpdateActionResultsMessage,
-];
-export var CompleteMigration: StaticOperationSchema = [
-  9,
-  n0,
-  _CMo,
-  0,
-  () => CompleteMigrationMessage,
-  () => CompleteMigrationResponse,
-];
-export var CopyServerlessCacheSnapshot: StaticOperationSchema = [
-  9,
-  n0,
-  _CSCS,
-  0,
-  () => CopyServerlessCacheSnapshotRequest,
-  () => CopyServerlessCacheSnapshotResponse,
-];
-export var CopySnapshot: StaticOperationSchema = [9, n0, _CSo, 0, () => CopySnapshotMessage, () => CopySnapshotResult];
-export var CreateCacheCluster: StaticOperationSchema = [
-  9,
-  n0,
-  _CCC,
-  0,
-  () => CreateCacheClusterMessage,
-  () => CreateCacheClusterResult,
-];
-export var CreateCacheParameterGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _CCPG,
-  0,
-  () => CreateCacheParameterGroupMessage,
-  () => CreateCacheParameterGroupResult,
-];
-export var CreateCacheSecurityGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _CCSG,
-  0,
-  () => CreateCacheSecurityGroupMessage,
-  () => CreateCacheSecurityGroupResult,
-];
-export var CreateCacheSubnetGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _CCSGr,
-  0,
-  () => CreateCacheSubnetGroupMessage,
-  () => CreateCacheSubnetGroupResult,
-];
-export var CreateGlobalReplicationGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _CGRG,
-  0,
-  () => CreateGlobalReplicationGroupMessage,
-  () => CreateGlobalReplicationGroupResult,
-];
-export var CreateReplicationGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _CRG,
-  0,
-  () => CreateReplicationGroupMessage,
-  () => CreateReplicationGroupResult,
-];
-export var CreateServerlessCache: StaticOperationSchema = [
-  9,
-  n0,
-  _CSC,
-  0,
-  () => CreateServerlessCacheRequest,
-  () => CreateServerlessCacheResponse,
-];
-export var CreateServerlessCacheSnapshot: StaticOperationSchema = [
-  9,
-  n0,
-  _CSCSr,
-  0,
-  () => CreateServerlessCacheSnapshotRequest,
-  () => CreateServerlessCacheSnapshotResponse,
-];
-export var CreateSnapshot: StaticOperationSchema = [
-  9,
-  n0,
-  _CSr,
-  0,
-  () => CreateSnapshotMessage,
-  () => CreateSnapshotResult,
-];
-export var CreateUser: StaticOperationSchema = [9, n0, _CU, 0, () => CreateUserMessage, () => User];
-export var CreateUserGroup: StaticOperationSchema = [9, n0, _CUG, 0, () => CreateUserGroupMessage, () => UserGroup];
-export var DecreaseNodeGroupsInGlobalReplicationGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _DNGIGRG,
-  0,
-  () => DecreaseNodeGroupsInGlobalReplicationGroupMessage,
-  () => DecreaseNodeGroupsInGlobalReplicationGroupResult,
-];
-export var DecreaseReplicaCount: StaticOperationSchema = [
-  9,
-  n0,
-  _DRC,
-  0,
-  () => DecreaseReplicaCountMessage,
-  () => DecreaseReplicaCountResult,
-];
-export var DeleteCacheCluster: StaticOperationSchema = [
-  9,
-  n0,
-  _DCC,
-  0,
-  () => DeleteCacheClusterMessage,
-  () => DeleteCacheClusterResult,
-];
-export var DeleteCacheParameterGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _DCPG,
-  0,
-  () => DeleteCacheParameterGroupMessage,
-  () => __Unit,
-];
-export var DeleteCacheSecurityGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _DCSG,
-  0,
-  () => DeleteCacheSecurityGroupMessage,
-  () => __Unit,
-];
-export var DeleteCacheSubnetGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _DCSGe,
-  0,
-  () => DeleteCacheSubnetGroupMessage,
-  () => __Unit,
-];
-export var DeleteGlobalReplicationGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _DGRG,
-  0,
-  () => DeleteGlobalReplicationGroupMessage,
-  () => DeleteGlobalReplicationGroupResult,
-];
-export var DeleteReplicationGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _DRG,
-  0,
-  () => DeleteReplicationGroupMessage,
-  () => DeleteReplicationGroupResult,
-];
-export var DeleteServerlessCache: StaticOperationSchema = [
-  9,
-  n0,
-  _DSC,
-  0,
-  () => DeleteServerlessCacheRequest,
-  () => DeleteServerlessCacheResponse,
-];
-export var DeleteServerlessCacheSnapshot: StaticOperationSchema = [
-  9,
-  n0,
-  _DSCS,
-  0,
-  () => DeleteServerlessCacheSnapshotRequest,
-  () => DeleteServerlessCacheSnapshotResponse,
-];
-export var DeleteSnapshot: StaticOperationSchema = [
-  9,
-  n0,
-  _DSel,
-  0,
-  () => DeleteSnapshotMessage,
-  () => DeleteSnapshotResult,
-];
-export var DeleteUser: StaticOperationSchema = [9, n0, _DU, 0, () => DeleteUserMessage, () => User];
-export var DeleteUserGroup: StaticOperationSchema = [9, n0, _DUG, 0, () => DeleteUserGroupMessage, () => UserGroup];
-export var DescribeCacheClusters: StaticOperationSchema = [
-  9,
-  n0,
-  _DCCe,
-  0,
-  () => DescribeCacheClustersMessage,
-  () => CacheClusterMessage,
-];
-export var DescribeCacheEngineVersions: StaticOperationSchema = [
-  9,
-  n0,
-  _DCEV,
-  0,
-  () => DescribeCacheEngineVersionsMessage,
-  () => CacheEngineVersionMessage,
-];
-export var DescribeCacheParameterGroups: StaticOperationSchema = [
-  9,
-  n0,
-  _DCPGe,
-  0,
-  () => DescribeCacheParameterGroupsMessage,
-  () => CacheParameterGroupsMessage,
-];
-export var DescribeCacheParameters: StaticOperationSchema = [
-  9,
-  n0,
-  _DCP,
-  0,
-  () => DescribeCacheParametersMessage,
-  () => CacheParameterGroupDetails,
-];
-export var DescribeCacheSecurityGroups: StaticOperationSchema = [
-  9,
-  n0,
-  _DCSGes,
-  0,
-  () => DescribeCacheSecurityGroupsMessage,
-  () => CacheSecurityGroupMessage,
-];
-export var DescribeCacheSubnetGroups: StaticOperationSchema = [
-  9,
-  n0,
-  _DCSGesc,
-  0,
-  () => DescribeCacheSubnetGroupsMessage,
-  () => CacheSubnetGroupMessage,
-];
-export var DescribeEngineDefaultParameters: StaticOperationSchema = [
-  9,
-  n0,
-  _DEDP,
-  0,
-  () => DescribeEngineDefaultParametersMessage,
-  () => DescribeEngineDefaultParametersResult,
-];
-export var DescribeEvents: StaticOperationSchema = [9, n0, _DE, 0, () => DescribeEventsMessage, () => EventsMessage];
-export var DescribeGlobalReplicationGroups: StaticOperationSchema = [
-  9,
-  n0,
-  _DGRGe,
-  0,
-  () => DescribeGlobalReplicationGroupsMessage,
-  () => DescribeGlobalReplicationGroupsResult,
-];
-export var DescribeReplicationGroups: StaticOperationSchema = [
-  9,
-  n0,
-  _DRGe,
-  0,
-  () => DescribeReplicationGroupsMessage,
-  () => ReplicationGroupMessage,
-];
-export var DescribeReservedCacheNodes: StaticOperationSchema = [
-  9,
-  n0,
-  _DRCN,
-  0,
-  () => DescribeReservedCacheNodesMessage,
-  () => ReservedCacheNodeMessage,
-];
-export var DescribeReservedCacheNodesOfferings: StaticOperationSchema = [
-  9,
-  n0,
-  _DRCNO,
-  0,
-  () => DescribeReservedCacheNodesOfferingsMessage,
-  () => ReservedCacheNodesOfferingMessage,
-];
-export var DescribeServerlessCaches: StaticOperationSchema = [
-  9,
-  n0,
-  _DSCe,
-  0,
-  () => DescribeServerlessCachesRequest,
-  () => DescribeServerlessCachesResponse,
-];
-export var DescribeServerlessCacheSnapshots: StaticOperationSchema = [
-  9,
-  n0,
-  _DSCSe,
-  0,
-  () => DescribeServerlessCacheSnapshotsRequest,
-  () => DescribeServerlessCacheSnapshotsResponse,
-];
-export var DescribeServiceUpdates: StaticOperationSchema = [
-  9,
-  n0,
-  _DSU,
-  0,
-  () => DescribeServiceUpdatesMessage,
-  () => ServiceUpdatesMessage,
-];
-export var DescribeSnapshots: StaticOperationSchema = [
-  9,
-  n0,
-  _DSes,
-  0,
-  () => DescribeSnapshotsMessage,
-  () => DescribeSnapshotsListMessage,
-];
-export var DescribeUpdateActions: StaticOperationSchema = [
-  9,
-  n0,
-  _DUA,
-  0,
-  () => DescribeUpdateActionsMessage,
-  () => UpdateActionsMessage,
-];
-export var DescribeUserGroups: StaticOperationSchema = [
-  9,
-  n0,
-  _DUGe,
-  0,
-  () => DescribeUserGroupsMessage,
-  () => DescribeUserGroupsResult,
-];
-export var DescribeUsers: StaticOperationSchema = [
-  9,
-  n0,
-  _DUe,
-  0,
-  () => DescribeUsersMessage,
-  () => DescribeUsersResult,
-];
-export var DisassociateGlobalReplicationGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _DGRGi,
-  0,
-  () => DisassociateGlobalReplicationGroupMessage,
-  () => DisassociateGlobalReplicationGroupResult,
-];
-export var ExportServerlessCacheSnapshot: StaticOperationSchema = [
-  9,
-  n0,
-  _ESCS,
-  0,
-  () => ExportServerlessCacheSnapshotRequest,
-  () => ExportServerlessCacheSnapshotResponse,
-];
-export var FailoverGlobalReplicationGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _FGRG,
-  0,
-  () => FailoverGlobalReplicationGroupMessage,
-  () => FailoverGlobalReplicationGroupResult,
-];
-export var IncreaseNodeGroupsInGlobalReplicationGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _INGIGRG,
-  0,
-  () => IncreaseNodeGroupsInGlobalReplicationGroupMessage,
-  () => IncreaseNodeGroupsInGlobalReplicationGroupResult,
-];
-export var IncreaseReplicaCount: StaticOperationSchema = [
-  9,
-  n0,
-  _IRC,
-  0,
-  () => IncreaseReplicaCountMessage,
-  () => IncreaseReplicaCountResult,
-];
-export var ListAllowedNodeTypeModifications: StaticOperationSchema = [
-  9,
-  n0,
-  _LANTM,
-  0,
-  () => ListAllowedNodeTypeModificationsMessage,
-  () => AllowedNodeTypeModificationsMessage,
-];
-export var ListTagsForResource: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  0,
-  () => ListTagsForResourceMessage,
-  () => TagListMessage,
-];
-export var ModifyCacheCluster: StaticOperationSchema = [
-  9,
-  n0,
-  _MCC,
-  0,
-  () => ModifyCacheClusterMessage,
-  () => ModifyCacheClusterResult,
-];
-export var ModifyCacheParameterGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _MCPG,
-  0,
-  () => ModifyCacheParameterGroupMessage,
-  () => CacheParameterGroupNameMessage,
-];
-export var ModifyCacheSubnetGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _MCSG,
-  0,
-  () => ModifyCacheSubnetGroupMessage,
-  () => ModifyCacheSubnetGroupResult,
-];
-export var ModifyGlobalReplicationGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _MGRG,
-  0,
-  () => ModifyGlobalReplicationGroupMessage,
-  () => ModifyGlobalReplicationGroupResult,
-];
-export var ModifyReplicationGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _MRG,
-  0,
-  () => ModifyReplicationGroupMessage,
-  () => ModifyReplicationGroupResult,
-];
-export var ModifyReplicationGroupShardConfiguration: StaticOperationSchema = [
-  9,
-  n0,
-  _MRGSC,
-  0,
-  () => ModifyReplicationGroupShardConfigurationMessage,
-  () => ModifyReplicationGroupShardConfigurationResult,
-];
-export var ModifyServerlessCache: StaticOperationSchema = [
-  9,
-  n0,
-  _MSC,
-  0,
-  () => ModifyServerlessCacheRequest,
-  () => ModifyServerlessCacheResponse,
-];
-export var ModifyUser: StaticOperationSchema = [9, n0, _MU, 0, () => ModifyUserMessage, () => User];
-export var ModifyUserGroup: StaticOperationSchema = [9, n0, _MUG, 0, () => ModifyUserGroupMessage, () => UserGroup];
-export var PurchaseReservedCacheNodesOffering: StaticOperationSchema = [
-  9,
-  n0,
-  _PRCNO,
-  0,
-  () => PurchaseReservedCacheNodesOfferingMessage,
-  () => PurchaseReservedCacheNodesOfferingResult,
-];
-export var RebalanceSlotsInGlobalReplicationGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _RSIGRG,
-  0,
-  () => RebalanceSlotsInGlobalReplicationGroupMessage,
-  () => RebalanceSlotsInGlobalReplicationGroupResult,
-];
-export var RebootCacheCluster: StaticOperationSchema = [
-  9,
-  n0,
-  _RCC,
-  0,
-  () => RebootCacheClusterMessage,
-  () => RebootCacheClusterResult,
-];
-export var RemoveTagsFromResource: StaticOperationSchema = [
-  9,
-  n0,
-  _RTFR,
-  0,
-  () => RemoveTagsFromResourceMessage,
-  () => TagListMessage,
-];
-export var ResetCacheParameterGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _RCPG,
-  0,
-  () => ResetCacheParameterGroupMessage,
-  () => CacheParameterGroupNameMessage,
-];
-export var RevokeCacheSecurityGroupIngress: StaticOperationSchema = [
-  9,
-  n0,
-  _RCSGI,
-  0,
-  () => RevokeCacheSecurityGroupIngressMessage,
-  () => RevokeCacheSecurityGroupIngressResult,
-];
-export var StartMigration: StaticOperationSchema = [
-  9,
-  n0,
-  _SMt,
-  0,
-  () => StartMigrationMessage,
-  () => StartMigrationResponse,
-];
-export var TestFailover: StaticOperationSchema = [9, n0, _TF, 0, () => TestFailoverMessage, () => TestFailoverResult];
-export var TestMigration: StaticOperationSchema = [
-  9,
-  n0,
-  _TM,
-  0,
-  () => TestMigrationMessage,
-  () => TestMigrationResponse,
+  [0]
+];
+TypeRegistry.for(n0).registerError(UserQuotaExceededFault$, UserQuotaExceededFault);
+var __Unit = "unit" as const;
+export var ElastiCacheServiceException$: StaticErrorSchema = [-3, _s, "ElastiCacheServiceException", 0, [], []];
+TypeRegistry.for(_s).registerError(ElastiCacheServiceException$, ElastiCacheServiceException);
+var AvailabilityZonesList: StaticListSchema = [1, n0, _AZL,
+  0, [0,
+    { [_xN]: _AZ }]
+];
+var CacheClusterIdList = 64 | 0;
+var CacheClusterList: StaticListSchema = [1, n0, _CCL,
+  0, [() => CacheCluster$,
+    { [_xN]: _CC }]
+];
+var CacheEngineVersionList: StaticListSchema = [1, n0, _CEVL,
+  0, [() => CacheEngineVersion$,
+    { [_xN]: _CEV }]
+];
+var CacheNodeIdsList: StaticListSchema = [1, n0, _CNIL,
+  0, [0,
+    { [_xN]: _CNI }]
+];
+var CacheNodeList: StaticListSchema = [1, n0, _CNL,
+  0, [() => CacheNode$,
+    { [_xN]: _CNa }]
+];
+var CacheNodeTypeSpecificParametersList: StaticListSchema = [1, n0, _CNTSPL,
+  0, [() => CacheNodeTypeSpecificParameter$,
+    { [_xN]: _CNTSP }]
+];
+var CacheNodeTypeSpecificValueList: StaticListSchema = [1, n0, _CNTSVL,
+  0, [() => CacheNodeTypeSpecificValue$,
+    { [_xN]: _CNTSVa }]
+];
+var CacheNodeUpdateStatusList: StaticListSchema = [1, n0, _CNUSL,
+  0, [() => CacheNodeUpdateStatus$,
+    { [_xN]: _CNUS }]
+];
+var CacheParameterGroupList: StaticListSchema = [1, n0, _CPGL,
+  0, [() => CacheParameterGroup$,
+    { [_xN]: _CPG }]
+];
+var CacheSecurityGroupMembershipList: StaticListSchema = [1, n0, _CSGML,
+  0, [() => CacheSecurityGroupMembership$,
+    { [_xN]: _CSG }]
+];
+var CacheSecurityGroupNameList: StaticListSchema = [1, n0, _CSGNL,
+  0, [0,
+    { [_xN]: _CSGN }]
+];
+var CacheSecurityGroups: StaticListSchema = [1, n0, _CSGa,
+  0, [() => CacheSecurityGroup$,
+    { [_xN]: _CSG }]
+];
+var CacheSubnetGroups: StaticListSchema = [1, n0, _CSGach,
+  0, [() => CacheSubnetGroup$,
+    { [_xN]: _CSGac }]
+];
+var ClusterIdList: StaticListSchema = [1, n0, _CIL,
+  0, [0,
+    { [_xN]: _CI }]
+];
+var CustomerNodeEndpointList: StaticListSchema = [1, n0, _CNEL,
+  0, () => CustomerNodeEndpoint$
+];
+var EC2SecurityGroupList: StaticListSchema = [1, n0, _ECSGL,
+  0, [() => EC2SecurityGroup$,
+    { [_xN]: _ECSGe }]
+];
+var EventList: StaticListSchema = [1, n0, _EL,
+  0, [() => Event$,
+    { [_xN]: _Ev }]
+];
+var FilterList: StaticListSchema = [1, n0, _FL,
+  0, () => Filter$
+];
+var FilterValueList = 64 | 0;
+var GlobalNodeGroupIdList: StaticListSchema = [1, n0, _GNGIL,
+  0, [0,
+    { [_xN]: _GNGI }]
+];
+var GlobalNodeGroupList: StaticListSchema = [1, n0, _GNGL,
+  0, [() => GlobalNodeGroup$,
+    { [_xN]: _GNG }]
+];
+var GlobalReplicationGroupList: StaticListSchema = [1, n0, _GRGL,
+  0, [() => GlobalReplicationGroup$,
+    { [_xN]: _GRG }]
+];
+var GlobalReplicationGroupMemberList: StaticListSchema = [1, n0, _GRGML,
+  0, [() => GlobalReplicationGroupMember$,
+    { [_xN]: _GRGM }]
+];
+var KeyList = 64 | 0;
+var LogDeliveryConfigurationList: StaticListSchema = [1, n0, _LDCL,
+  0, [() => LogDeliveryConfiguration$,
+    { [_xN]: _LDCo }]
+];
+var LogDeliveryConfigurationRequestList: StaticListSchema = [1, n0, _LDCRL,
+  0, [() => LogDeliveryConfigurationRequest$,
+    { [_xN]: _LDCR }]
+];
+var NetworkTypeList = 64 | 0;
+var NodeGroupConfigurationList: StaticListSchema = [1, n0, _NGCL,
+  0, [() => NodeGroupConfiguration$,
+    { [_xN]: _NGC }]
+];
+var NodeGroupList: StaticListSchema = [1, n0, _NGL,
+  0, [() => NodeGroup$,
+    { [_xN]: _NG }]
+];
+var NodeGroupMemberList: StaticListSchema = [1, n0, _NGML,
+  0, [() => NodeGroupMember$,
+    { [_xN]: _NGMo }]
+];
+var NodeGroupMemberUpdateStatusList: StaticListSchema = [1, n0, _NGMUSL,
+  0, [() => NodeGroupMemberUpdateStatus$,
+    { [_xN]: _NGMUS }]
+];
+var NodeGroupsToRemoveList: StaticListSchema = [1, n0, _NGTRL,
+  0, [0,
+    { [_xN]: _NGTRod }]
+];
+var NodeGroupsToRetainList: StaticListSchema = [1, n0, _NGTRLo,
+  0, [0,
+    { [_xN]: _NGTRode }]
+];
+var NodeGroupUpdateStatusList: StaticListSchema = [1, n0, _NGUSL,
+  0, [() => NodeGroupUpdateStatus$,
+    { [_xN]: _NGUS }]
+];
+var NodeSnapshotList: StaticListSchema = [1, n0, _NSL,
+  0, [() => NodeSnapshot$,
+    { [_xN]: _NS }]
+];
+var NodeTypeList = 64 | 0;
+var OutpostArnsList: StaticListSchema = [1, n0, _OAL,
+  0, [0,
+    { [_xN]: _OA }]
+];
+var ParameterNameValueList: StaticListSchema = [1, n0, _PNVL,
+  0, [() => ParameterNameValue$,
+    { [_xN]: _PNVa }]
+];
+var ParametersList: StaticListSchema = [1, n0, _PL,
+  0, [() => Parameter$,
+    { [_xN]: _Par }]
+];
+var PasswordListInput = 64 | 0;
+var PendingLogDeliveryConfigurationList: StaticListSchema = [1, n0, _PLDCL,
+  0, () => PendingLogDeliveryConfiguration$
+];
+var PreferredAvailabilityZoneList: StaticListSchema = [1, n0, _PAZL,
+  0, [0,
+    { [_xN]: _PAZ }]
+];
+var PreferredOutpostArnList: StaticListSchema = [1, n0, _POAL,
+  0, [0,
+    { [_xN]: _POA }]
+];
+var ProcessedUpdateActionList: StaticListSchema = [1, n0, _PUAL,
+  0, [() => ProcessedUpdateAction$,
+    { [_xN]: _PUA }]
+];
+var RecurringChargeList: StaticListSchema = [1, n0, _RCL,
+  0, [() => RecurringCharge$,
+    { [_xN]: _RCec }]
+];
+var RegionalConfigurationList: StaticListSchema = [1, n0, _RCLe,
+  0, [() => RegionalConfiguration$,
+    { [_xN]: _RCeg }]
+];
+var RemoveReplicasList = 64 | 0;
+var ReplicaConfigurationList: StaticListSchema = [1, n0, _RCLep,
+  0, [() => ConfigureShard$,
+    { [_xN]: _CS }]
+];
+var ReplicationGroupIdList = 64 | 0;
+var ReplicationGroupList: StaticListSchema = [1, n0, _RGL,
+  0, [() => ReplicationGroup$,
+    { [_xN]: _RG }]
+];
+var ReplicationGroupOutpostArnList: StaticListSchema = [1, n0, _RGOAL,
+  0, [0,
+    { [_xN]: _RGOA }]
+];
+var ReservedCacheNodeList: StaticListSchema = [1, n0, _RCNL,
+  0, [() => ReservedCacheNode$,
+    { [_xN]: _RCN }]
+];
+var ReservedCacheNodesOfferingList: StaticListSchema = [1, n0, _RCNOL,
+  0, [() => ReservedCacheNodesOffering$,
+    { [_xN]: _RCNO }]
+];
+var ReshardingConfigurationList: StaticListSchema = [1, n0, _RCLes,
+  0, [() => ReshardingConfiguration$,
+    { [_xN]: _RCes }]
+];
+var SecurityGroupIdsList: StaticListSchema = [1, n0, _SGIL,
+  0, [0,
+    { [_xN]: _SGIe }]
+];
+var SecurityGroupMembershipList: StaticListSchema = [1, n0, _SGML,
+  0, () => SecurityGroupMembership$
+];
+var ServerlessCacheList: StaticListSchema = [1, n0, _SCL,
+  0, [() => ServerlessCache$,
+    0]
+];
+var ServerlessCacheSnapshotList: StaticListSchema = [1, n0, _SCSL,
+  0, [() => ServerlessCacheSnapshot$,
+    { [_xN]: _SCS }]
+];
+var ServiceUpdateList: StaticListSchema = [1, n0, _SUL,
+  0, [() => ServiceUpdate$,
+    { [_xN]: _SU }]
+];
+var ServiceUpdateStatusList = 64 | 0;
+var SnapshotArnsList: StaticListSchema = [1, n0, _SAL,
+  0, [0,
+    { [_xN]: _SAn }]
+];
+var SnapshotList: StaticListSchema = [1, n0, _SL,
+  0, [() => Snapshot$,
+    { [_xN]: _Sn }]
+];
+var SubnetIdentifierList: StaticListSchema = [1, n0, _SIL,
+  0, [0,
+    { [_xN]: _SIu }]
+];
+var SubnetIdsList: StaticListSchema = [1, n0, _SILu,
+  0, [0,
+    { [_xN]: _SIub }]
+];
+var SubnetList: StaticListSchema = [1, n0, _SLu,
+  0, [() => Subnet$,
+    { [_xN]: _Sub }]
+];
+var TagList: StaticListSchema = [1, n0, _TL,
+  0, [() => Tag$,
+    { [_xN]: _Ta }]
+];
+var UGReplicationGroupIdList = 64 | 0;
+var UGServerlessCacheIdList = 64 | 0;
+var UnprocessedUpdateActionList: StaticListSchema = [1, n0, _UUAL,
+  0, [() => UnprocessedUpdateAction$,
+    { [_xN]: _UUA }]
+];
+var UpdateActionList: StaticListSchema = [1, n0, _UAL,
+  0, [() => UpdateAction$,
+    { [_xN]: _UA }]
+];
+var UpdateActionStatusList = 64 | 0;
+var UserGroupIdList = 64 | 0;
+var UserGroupIdListInput = 64 | 0;
+var UserGroupList: StaticListSchema = [1, n0, _UGL,
+  0, () => UserGroup$
+];
+var UserIdList = 64 | 0;
+var UserIdListInput = 64 | 0;
+var UserList: StaticListSchema = [1, n0, _UL,
+  0, () => User$
+];
+export var AddTagsToResource$: StaticOperationSchema = [9, n0, _ATTR,
+  0, () => AddTagsToResourceMessage$, () => TagListMessage$
+];
+export var AuthorizeCacheSecurityGroupIngress$: StaticOperationSchema = [9, n0, _ACSGI,
+  0, () => AuthorizeCacheSecurityGroupIngressMessage$, () => AuthorizeCacheSecurityGroupIngressResult$
+];
+export var BatchApplyUpdateAction$: StaticOperationSchema = [9, n0, _BAUA,
+  0, () => BatchApplyUpdateActionMessage$, () => UpdateActionResultsMessage$
+];
+export var BatchStopUpdateAction$: StaticOperationSchema = [9, n0, _BSUA,
+  0, () => BatchStopUpdateActionMessage$, () => UpdateActionResultsMessage$
+];
+export var CompleteMigration$: StaticOperationSchema = [9, n0, _CMo,
+  0, () => CompleteMigrationMessage$, () => CompleteMigrationResponse$
+];
+export var CopyServerlessCacheSnapshot$: StaticOperationSchema = [9, n0, _CSCS,
+  0, () => CopyServerlessCacheSnapshotRequest$, () => CopyServerlessCacheSnapshotResponse$
+];
+export var CopySnapshot$: StaticOperationSchema = [9, n0, _CSo,
+  0, () => CopySnapshotMessage$, () => CopySnapshotResult$
+];
+export var CreateCacheCluster$: StaticOperationSchema = [9, n0, _CCC,
+  0, () => CreateCacheClusterMessage$, () => CreateCacheClusterResult$
+];
+export var CreateCacheParameterGroup$: StaticOperationSchema = [9, n0, _CCPG,
+  0, () => CreateCacheParameterGroupMessage$, () => CreateCacheParameterGroupResult$
+];
+export var CreateCacheSecurityGroup$: StaticOperationSchema = [9, n0, _CCSG,
+  0, () => CreateCacheSecurityGroupMessage$, () => CreateCacheSecurityGroupResult$
+];
+export var CreateCacheSubnetGroup$: StaticOperationSchema = [9, n0, _CCSGr,
+  0, () => CreateCacheSubnetGroupMessage$, () => CreateCacheSubnetGroupResult$
+];
+export var CreateGlobalReplicationGroup$: StaticOperationSchema = [9, n0, _CGRG,
+  0, () => CreateGlobalReplicationGroupMessage$, () => CreateGlobalReplicationGroupResult$
+];
+export var CreateReplicationGroup$: StaticOperationSchema = [9, n0, _CRG,
+  0, () => CreateReplicationGroupMessage$, () => CreateReplicationGroupResult$
+];
+export var CreateServerlessCache$: StaticOperationSchema = [9, n0, _CSC,
+  0, () => CreateServerlessCacheRequest$, () => CreateServerlessCacheResponse$
+];
+export var CreateServerlessCacheSnapshot$: StaticOperationSchema = [9, n0, _CSCSr,
+  0, () => CreateServerlessCacheSnapshotRequest$, () => CreateServerlessCacheSnapshotResponse$
+];
+export var CreateSnapshot$: StaticOperationSchema = [9, n0, _CSr,
+  0, () => CreateSnapshotMessage$, () => CreateSnapshotResult$
+];
+export var CreateUser$: StaticOperationSchema = [9, n0, _CU,
+  0, () => CreateUserMessage$, () => User$
+];
+export var CreateUserGroup$: StaticOperationSchema = [9, n0, _CUG,
+  0, () => CreateUserGroupMessage$, () => UserGroup$
+];
+export var DecreaseNodeGroupsInGlobalReplicationGroup$: StaticOperationSchema = [9, n0, _DNGIGRG,
+  0, () => DecreaseNodeGroupsInGlobalReplicationGroupMessage$, () => DecreaseNodeGroupsInGlobalReplicationGroupResult$
+];
+export var DecreaseReplicaCount$: StaticOperationSchema = [9, n0, _DRC,
+  0, () => DecreaseReplicaCountMessage$, () => DecreaseReplicaCountResult$
+];
+export var DeleteCacheCluster$: StaticOperationSchema = [9, n0, _DCC,
+  0, () => DeleteCacheClusterMessage$, () => DeleteCacheClusterResult$
+];
+export var DeleteCacheParameterGroup$: StaticOperationSchema = [9, n0, _DCPG,
+  0, () => DeleteCacheParameterGroupMessage$, () => __Unit
+];
+export var DeleteCacheSecurityGroup$: StaticOperationSchema = [9, n0, _DCSG,
+  0, () => DeleteCacheSecurityGroupMessage$, () => __Unit
+];
+export var DeleteCacheSubnetGroup$: StaticOperationSchema = [9, n0, _DCSGe,
+  0, () => DeleteCacheSubnetGroupMessage$, () => __Unit
+];
+export var DeleteGlobalReplicationGroup$: StaticOperationSchema = [9, n0, _DGRG,
+  0, () => DeleteGlobalReplicationGroupMessage$, () => DeleteGlobalReplicationGroupResult$
+];
+export var DeleteReplicationGroup$: StaticOperationSchema = [9, n0, _DRG,
+  0, () => DeleteReplicationGroupMessage$, () => DeleteReplicationGroupResult$
+];
+export var DeleteServerlessCache$: StaticOperationSchema = [9, n0, _DSC,
+  0, () => DeleteServerlessCacheRequest$, () => DeleteServerlessCacheResponse$
+];
+export var DeleteServerlessCacheSnapshot$: StaticOperationSchema = [9, n0, _DSCS,
+  0, () => DeleteServerlessCacheSnapshotRequest$, () => DeleteServerlessCacheSnapshotResponse$
+];
+export var DeleteSnapshot$: StaticOperationSchema = [9, n0, _DSel,
+  0, () => DeleteSnapshotMessage$, () => DeleteSnapshotResult$
+];
+export var DeleteUser$: StaticOperationSchema = [9, n0, _DU,
+  0, () => DeleteUserMessage$, () => User$
+];
+export var DeleteUserGroup$: StaticOperationSchema = [9, n0, _DUG,
+  0, () => DeleteUserGroupMessage$, () => UserGroup$
+];
+export var DescribeCacheClusters$: StaticOperationSchema = [9, n0, _DCCe,
+  0, () => DescribeCacheClustersMessage$, () => CacheClusterMessage$
+];
+export var DescribeCacheEngineVersions$: StaticOperationSchema = [9, n0, _DCEV,
+  0, () => DescribeCacheEngineVersionsMessage$, () => CacheEngineVersionMessage$
+];
+export var DescribeCacheParameterGroups$: StaticOperationSchema = [9, n0, _DCPGe,
+  0, () => DescribeCacheParameterGroupsMessage$, () => CacheParameterGroupsMessage$
+];
+export var DescribeCacheParameters$: StaticOperationSchema = [9, n0, _DCP,
+  0, () => DescribeCacheParametersMessage$, () => CacheParameterGroupDetails$
+];
+export var DescribeCacheSecurityGroups$: StaticOperationSchema = [9, n0, _DCSGes,
+  0, () => DescribeCacheSecurityGroupsMessage$, () => CacheSecurityGroupMessage$
+];
+export var DescribeCacheSubnetGroups$: StaticOperationSchema = [9, n0, _DCSGesc,
+  0, () => DescribeCacheSubnetGroupsMessage$, () => CacheSubnetGroupMessage$
+];
+export var DescribeEngineDefaultParameters$: StaticOperationSchema = [9, n0, _DEDP,
+  0, () => DescribeEngineDefaultParametersMessage$, () => DescribeEngineDefaultParametersResult$
+];
+export var DescribeEvents$: StaticOperationSchema = [9, n0, _DE,
+  0, () => DescribeEventsMessage$, () => EventsMessage$
+];
+export var DescribeGlobalReplicationGroups$: StaticOperationSchema = [9, n0, _DGRGe,
+  0, () => DescribeGlobalReplicationGroupsMessage$, () => DescribeGlobalReplicationGroupsResult$
+];
+export var DescribeReplicationGroups$: StaticOperationSchema = [9, n0, _DRGe,
+  0, () => DescribeReplicationGroupsMessage$, () => ReplicationGroupMessage$
+];
+export var DescribeReservedCacheNodes$: StaticOperationSchema = [9, n0, _DRCN,
+  0, () => DescribeReservedCacheNodesMessage$, () => ReservedCacheNodeMessage$
+];
+export var DescribeReservedCacheNodesOfferings$: StaticOperationSchema = [9, n0, _DRCNO,
+  0, () => DescribeReservedCacheNodesOfferingsMessage$, () => ReservedCacheNodesOfferingMessage$
+];
+export var DescribeServerlessCaches$: StaticOperationSchema = [9, n0, _DSCe,
+  0, () => DescribeServerlessCachesRequest$, () => DescribeServerlessCachesResponse$
+];
+export var DescribeServerlessCacheSnapshots$: StaticOperationSchema = [9, n0, _DSCSe,
+  0, () => DescribeServerlessCacheSnapshotsRequest$, () => DescribeServerlessCacheSnapshotsResponse$
+];
+export var DescribeServiceUpdates$: StaticOperationSchema = [9, n0, _DSU,
+  0, () => DescribeServiceUpdatesMessage$, () => ServiceUpdatesMessage$
+];
+export var DescribeSnapshots$: StaticOperationSchema = [9, n0, _DSes,
+  0, () => DescribeSnapshotsMessage$, () => DescribeSnapshotsListMessage$
+];
+export var DescribeUpdateActions$: StaticOperationSchema = [9, n0, _DUA,
+  0, () => DescribeUpdateActionsMessage$, () => UpdateActionsMessage$
+];
+export var DescribeUserGroups$: StaticOperationSchema = [9, n0, _DUGe,
+  0, () => DescribeUserGroupsMessage$, () => DescribeUserGroupsResult$
+];
+export var DescribeUsers$: StaticOperationSchema = [9, n0, _DUe,
+  0, () => DescribeUsersMessage$, () => DescribeUsersResult$
+];
+export var DisassociateGlobalReplicationGroup$: StaticOperationSchema = [9, n0, _DGRGi,
+  0, () => DisassociateGlobalReplicationGroupMessage$, () => DisassociateGlobalReplicationGroupResult$
+];
+export var ExportServerlessCacheSnapshot$: StaticOperationSchema = [9, n0, _ESCS,
+  0, () => ExportServerlessCacheSnapshotRequest$, () => ExportServerlessCacheSnapshotResponse$
+];
+export var FailoverGlobalReplicationGroup$: StaticOperationSchema = [9, n0, _FGRG,
+  0, () => FailoverGlobalReplicationGroupMessage$, () => FailoverGlobalReplicationGroupResult$
+];
+export var IncreaseNodeGroupsInGlobalReplicationGroup$: StaticOperationSchema = [9, n0, _INGIGRG,
+  0, () => IncreaseNodeGroupsInGlobalReplicationGroupMessage$, () => IncreaseNodeGroupsInGlobalReplicationGroupResult$
+];
+export var IncreaseReplicaCount$: StaticOperationSchema = [9, n0, _IRC,
+  0, () => IncreaseReplicaCountMessage$, () => IncreaseReplicaCountResult$
+];
+export var ListAllowedNodeTypeModifications$: StaticOperationSchema = [9, n0, _LANTM,
+  0, () => ListAllowedNodeTypeModificationsMessage$, () => AllowedNodeTypeModificationsMessage$
+];
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  0, () => ListTagsForResourceMessage$, () => TagListMessage$
+];
+export var ModifyCacheCluster$: StaticOperationSchema = [9, n0, _MCC,
+  0, () => ModifyCacheClusterMessage$, () => ModifyCacheClusterResult$
+];
+export var ModifyCacheParameterGroup$: StaticOperationSchema = [9, n0, _MCPG,
+  0, () => ModifyCacheParameterGroupMessage$, () => CacheParameterGroupNameMessage$
+];
+export var ModifyCacheSubnetGroup$: StaticOperationSchema = [9, n0, _MCSG,
+  0, () => ModifyCacheSubnetGroupMessage$, () => ModifyCacheSubnetGroupResult$
+];
+export var ModifyGlobalReplicationGroup$: StaticOperationSchema = [9, n0, _MGRG,
+  0, () => ModifyGlobalReplicationGroupMessage$, () => ModifyGlobalReplicationGroupResult$
+];
+export var ModifyReplicationGroup$: StaticOperationSchema = [9, n0, _MRG,
+  0, () => ModifyReplicationGroupMessage$, () => ModifyReplicationGroupResult$
+];
+export var ModifyReplicationGroupShardConfiguration$: StaticOperationSchema = [9, n0, _MRGSC,
+  0, () => ModifyReplicationGroupShardConfigurationMessage$, () => ModifyReplicationGroupShardConfigurationResult$
+];
+export var ModifyServerlessCache$: StaticOperationSchema = [9, n0, _MSC,
+  0, () => ModifyServerlessCacheRequest$, () => ModifyServerlessCacheResponse$
+];
+export var ModifyUser$: StaticOperationSchema = [9, n0, _MU,
+  0, () => ModifyUserMessage$, () => User$
+];
+export var ModifyUserGroup$: StaticOperationSchema = [9, n0, _MUG,
+  0, () => ModifyUserGroupMessage$, () => UserGroup$
+];
+export var PurchaseReservedCacheNodesOffering$: StaticOperationSchema = [9, n0, _PRCNO,
+  0, () => PurchaseReservedCacheNodesOfferingMessage$, () => PurchaseReservedCacheNodesOfferingResult$
+];
+export var RebalanceSlotsInGlobalReplicationGroup$: StaticOperationSchema = [9, n0, _RSIGRG,
+  0, () => RebalanceSlotsInGlobalReplicationGroupMessage$, () => RebalanceSlotsInGlobalReplicationGroupResult$
+];
+export var RebootCacheCluster$: StaticOperationSchema = [9, n0, _RCC,
+  0, () => RebootCacheClusterMessage$, () => RebootCacheClusterResult$
+];
+export var RemoveTagsFromResource$: StaticOperationSchema = [9, n0, _RTFR,
+  0, () => RemoveTagsFromResourceMessage$, () => TagListMessage$
+];
+export var ResetCacheParameterGroup$: StaticOperationSchema = [9, n0, _RCPG,
+  0, () => ResetCacheParameterGroupMessage$, () => CacheParameterGroupNameMessage$
+];
+export var RevokeCacheSecurityGroupIngress$: StaticOperationSchema = [9, n0, _RCSGI,
+  0, () => RevokeCacheSecurityGroupIngressMessage$, () => RevokeCacheSecurityGroupIngressResult$
+];
+export var StartMigration$: StaticOperationSchema = [9, n0, _SMt,
+  0, () => StartMigrationMessage$, () => StartMigrationResponse$
+];
+export var TestFailover$: StaticOperationSchema = [9, n0, _TF,
+  0, () => TestFailoverMessage$, () => TestFailoverResult$
+];
+export var TestMigration$: StaticOperationSchema = [9, n0, _TM,
+  0, () => TestMigrationMessage$, () => TestMigrationResponse$
 ];

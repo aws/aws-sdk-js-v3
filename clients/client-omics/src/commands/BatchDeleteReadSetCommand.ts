@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchDeleteReadSetRequest, BatchDeleteReadSetResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { BatchDeleteReadSet } from "../schemas/schemas_0";
+import { BatchDeleteReadSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class BatchDeleteReadSetCommand extends $Command
   })
   .s("Omics", "BatchDeleteReadSet", {})
   .n("OmicsClient", "BatchDeleteReadSetCommand")
-  .sc(BatchDeleteReadSet)
+  .sc(BatchDeleteReadSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

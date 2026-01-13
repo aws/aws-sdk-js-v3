@@ -9,7 +9,7 @@ import type {
   AssociateDistributionTenantWebACLRequest,
   AssociateDistributionTenantWebACLResult,
 } from "../models/models_0";
-import { AssociateDistributionTenantWebACL } from "../schemas/schemas_0";
+import { AssociateDistributionTenantWebACL$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface AssociateDistributionTenantWebACLCommandInput extends Associate
  *
  * The output of {@link AssociateDistributionTenantWebACLCommand}.
  */
-export interface AssociateDistributionTenantWebACLCommandOutput
-  extends AssociateDistributionTenantWebACLResult,
-    __MetadataBearer {}
+export interface AssociateDistributionTenantWebACLCommandOutput extends AssociateDistributionTenantWebACLResult, __MetadataBearer {}
 
 /**
  * <p>Associates the WAF web ACL with a distribution tenant.</p>
@@ -65,6 +63,9 @@ export interface AssociateDistributionTenantWebACLCommandOutput
  * @throws {@link AccessDenied} (client fault)
  *  <p>Access denied.</p>
  *
+ * @throws {@link EntityLimitExceeded} (client fault)
+ *  <p>The entity limit has been exceeded.</p>
+ *
  * @throws {@link EntityNotFound} (client fault)
  *  <p>The entity was not found.</p>
  *
@@ -97,7 +98,7 @@ export class AssociateDistributionTenantWebACLCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "AssociateDistributionTenantWebACL", {})
   .n("CloudFrontClient", "AssociateDistributionTenantWebACLCommand")
-  .sc(AssociateDistributionTenantWebACL)
+  .sc(AssociateDistributionTenantWebACL$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

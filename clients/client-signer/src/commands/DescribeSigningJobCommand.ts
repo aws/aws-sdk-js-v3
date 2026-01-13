@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeSigningJobRequest, DescribeSigningJobResponse } from "../models/models_0";
-import { DescribeSigningJob } from "../schemas/schemas_0";
+import { DescribeSigningJob$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
@@ -131,7 +131,7 @@ export class DescribeSigningJobCommand extends $Command
   })
   .s("WallabyService", "DescribeSigningJob", {})
   .n("SignerClient", "DescribeSigningJobCommand")
-  .sc(DescribeSigningJob)
+  .sc(DescribeSigningJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

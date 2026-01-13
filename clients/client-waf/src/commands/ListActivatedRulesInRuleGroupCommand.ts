@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListActivatedRulesInRuleGroupRequest, ListActivatedRulesInRuleGroupResponse } from "../models/models_0";
-import { ListActivatedRulesInRuleGroup } from "../schemas/schemas_0";
+import { ListActivatedRulesInRuleGroup$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -24,9 +24,7 @@ export interface ListActivatedRulesInRuleGroupCommandInput extends ListActivated
  *
  * The output of {@link ListActivatedRulesInRuleGroupCommand}.
  */
-export interface ListActivatedRulesInRuleGroupCommandOutput
-  extends ListActivatedRulesInRuleGroupResponse,
-    __MetadataBearer {}
+export interface ListActivatedRulesInRuleGroupCommandOutput extends ListActivatedRulesInRuleGroupResponse, __MetadataBearer {}
 
 /**
  * <note>
@@ -149,7 +147,7 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command
   })
   .s("AWSWAF_20150824", "ListActivatedRulesInRuleGroup", {})
   .n("WAFClient", "ListActivatedRulesInRuleGroupCommand")
-  .sc(ListActivatedRulesInRuleGroup)
+  .sc(ListActivatedRulesInRuleGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

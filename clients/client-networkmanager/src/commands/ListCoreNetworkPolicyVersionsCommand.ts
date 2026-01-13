@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { ListCoreNetworkPolicyVersions } from "../schemas/schemas_0";
+import { ListCoreNetworkPolicyVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListCoreNetworkPolicyVersionsCommandInput extends ListCoreNetwo
  *
  * The output of {@link ListCoreNetworkPolicyVersionsCommand}.
  */
-export interface ListCoreNetworkPolicyVersionsCommandOutput
-  extends ListCoreNetworkPolicyVersionsResponse,
-    __MetadataBearer {}
+export interface ListCoreNetworkPolicyVersionsCommandOutput extends ListCoreNetworkPolicyVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of core network policy versions.</p>
@@ -106,7 +104,7 @@ export class ListCoreNetworkPolicyVersionsCommand extends $Command
   })
   .s("NetworkManager", "ListCoreNetworkPolicyVersions", {})
   .n("NetworkManagerClient", "ListCoreNetworkPolicyVersionsCommand")
-  .sc(ListCoreNetworkPolicyVersions)
+  .sc(ListCoreNetworkPolicyVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

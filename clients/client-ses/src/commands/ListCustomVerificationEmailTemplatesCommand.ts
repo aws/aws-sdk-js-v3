@@ -8,7 +8,7 @@ import type {
   ListCustomVerificationEmailTemplatesRequest,
   ListCustomVerificationEmailTemplatesResponse,
 } from "../models/models_0";
-import { ListCustomVerificationEmailTemplates } from "../schemas/schemas_0";
+import { ListCustomVerificationEmailTemplates$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -27,9 +27,7 @@ export interface ListCustomVerificationEmailTemplatesCommandInput extends ListCu
  *
  * The output of {@link ListCustomVerificationEmailTemplatesCommand}.
  */
-export interface ListCustomVerificationEmailTemplatesCommandOutput
-  extends ListCustomVerificationEmailTemplatesResponse,
-    __MetadataBearer {}
+export interface ListCustomVerificationEmailTemplatesCommandOutput extends ListCustomVerificationEmailTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the existing custom verification email templates for your account in the current
@@ -93,7 +91,7 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command
   })
   .s("SimpleEmailService", "ListCustomVerificationEmailTemplates", {})
   .n("SESClient", "ListCustomVerificationEmailTemplatesCommand")
-  .sc(ListCustomVerificationEmailTemplates)
+  .sc(ListCustomVerificationEmailTemplates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

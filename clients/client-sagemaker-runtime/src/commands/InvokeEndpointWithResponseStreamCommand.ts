@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerRuntimeClient";
-import { InvokeEndpointWithResponseStream } from "../schemas/schemas_0";
+import { InvokeEndpointWithResponseStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -29,16 +29,13 @@ export type InvokeEndpointWithResponseStreamCommandInputType = Omit<InvokeEndpoi
  *
  * The input for {@link InvokeEndpointWithResponseStreamCommand}.
  */
-export interface InvokeEndpointWithResponseStreamCommandInput
-  extends InvokeEndpointWithResponseStreamCommandInputType {}
+export interface InvokeEndpointWithResponseStreamCommandInput extends InvokeEndpointWithResponseStreamCommandInputType {}
 /**
  * @public
  *
  * The output of {@link InvokeEndpointWithResponseStreamCommand}.
  */
-export interface InvokeEndpointWithResponseStreamCommandOutput
-  extends InvokeEndpointWithResponseStreamOutput,
-    __MetadataBearer {}
+export interface InvokeEndpointWithResponseStreamCommandOutput extends InvokeEndpointWithResponseStreamOutput, __MetadataBearer {}
 
 /**
  * <p>Invokes a model at the specified endpoint to return the inference response as a
@@ -171,7 +168,7 @@ export class InvokeEndpointWithResponseStreamCommand extends $Command
     },
   })
   .n("SageMakerRuntimeClient", "InvokeEndpointWithResponseStreamCommand")
-  .sc(InvokeEndpointWithResponseStream)
+  .sc(InvokeEndpointWithResponseStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

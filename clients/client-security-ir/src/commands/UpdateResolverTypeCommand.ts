@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateResolverTypeRequest, UpdateResolverTypeResponse } from "../models/models_0";
-import { UpdateResolverType } from "../schemas/schemas_0";
+import { UpdateResolverType$ } from "../schemas/schemas_0";
 import type { SecurityIRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityIRClient";
 
 /**
@@ -121,7 +121,7 @@ export class UpdateResolverTypeCommand extends $Command
   })
   .s("SecurityIncidentResponse", "UpdateResolverType", {})
   .n("SecurityIRClient", "UpdateResolverTypeCommand")
-  .sc(UpdateResolverType)
+  .sc(UpdateResolverType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

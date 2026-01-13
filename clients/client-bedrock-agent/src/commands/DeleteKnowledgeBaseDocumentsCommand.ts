@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteKnowledgeBaseDocumentsRequest, DeleteKnowledgeBaseDocumentsResponse } from "../models/models_0";
-import { DeleteKnowledgeBaseDocuments } from "../schemas/schemas_0";
+import { DeleteKnowledgeBaseDocuments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteKnowledgeBaseDocumentsCommandInput extends DeleteKnowledg
  *
  * The output of {@link DeleteKnowledgeBaseDocumentsCommand}.
  */
-export interface DeleteKnowledgeBaseDocumentsCommandOutput
-  extends DeleteKnowledgeBaseDocumentsResponse,
-    __MetadataBearer {}
+export interface DeleteKnowledgeBaseDocumentsCommandOutput extends DeleteKnowledgeBaseDocumentsResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes documents from a data source and syncs the changes to the knowledge base that is connected to it. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html">Ingest changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.</p>
@@ -123,7 +121,7 @@ export class DeleteKnowledgeBaseDocumentsCommand extends $Command
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "DeleteKnowledgeBaseDocuments", {})
   .n("BedrockAgentClient", "DeleteKnowledgeBaseDocumentsCommand")
-  .sc(DeleteKnowledgeBaseDocuments)
+  .sc(DeleteKnowledgeBaseDocuments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

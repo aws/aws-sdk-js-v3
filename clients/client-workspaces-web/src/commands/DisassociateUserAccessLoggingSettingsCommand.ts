@@ -8,7 +8,7 @@ import type {
   DisassociateUserAccessLoggingSettingsRequest,
   DisassociateUserAccessLoggingSettingsResponse,
 } from "../models/models_0";
-import { DisassociateUserAccessLoggingSettings } from "../schemas/schemas_0";
+import { DisassociateUserAccessLoggingSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateUserAccessLoggingSettingsCommand}.
  */
-export interface DisassociateUserAccessLoggingSettingsCommandInput
-  extends DisassociateUserAccessLoggingSettingsRequest {}
+export interface DisassociateUserAccessLoggingSettingsCommandInput extends DisassociateUserAccessLoggingSettingsRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateUserAccessLoggingSettingsCommand}.
  */
-export interface DisassociateUserAccessLoggingSettingsCommandOutput
-  extends DisassociateUserAccessLoggingSettingsResponse,
-    __MetadataBearer {}
+export interface DisassociateUserAccessLoggingSettingsCommandOutput extends DisassociateUserAccessLoggingSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates user access logging settings from a web portal.</p>
@@ -95,7 +92,7 @@ export class DisassociateUserAccessLoggingSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "DisassociateUserAccessLoggingSettings", {})
   .n("WorkSpacesWebClient", "DisassociateUserAccessLoggingSettingsCommand")
-  .sc(DisassociateUserAccessLoggingSettings)
+  .sc(DisassociateUserAccessLoggingSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

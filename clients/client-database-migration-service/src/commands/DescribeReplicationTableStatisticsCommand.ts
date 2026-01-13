@@ -13,7 +13,7 @@ import type {
   DescribeReplicationTableStatisticsMessage,
   DescribeReplicationTableStatisticsResponse,
 } from "../models/models_0";
-import { DescribeReplicationTableStatistics } from "../schemas/schemas_0";
+import { DescribeReplicationTableStatistics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DescribeReplicationTableStatisticsCommandInput extends Describe
  *
  * The output of {@link DescribeReplicationTableStatisticsCommand}.
  */
-export interface DescribeReplicationTableStatisticsCommandOutput
-  extends DescribeReplicationTableStatisticsResponse,
-    __MetadataBearer {}
+export interface DescribeReplicationTableStatisticsCommandOutput extends DescribeReplicationTableStatisticsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns table and schema statistics for one or more provisioned replications that use a
@@ -132,7 +130,7 @@ export class DescribeReplicationTableStatisticsCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeReplicationTableStatistics", {})
   .n("DatabaseMigrationServiceClient", "DescribeReplicationTableStatisticsCommand")
-  .sc(DescribeReplicationTableStatistics)
+  .sc(DescribeReplicationTableStatistics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

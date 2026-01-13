@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateUserImportJobRequest, CreateUserImportJobResponse } from "../models/models_0";
-import { CreateUserImportJob } from "../schemas/schemas_0";
+import { CreateUserImportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class CreateUserImportJobCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "CreateUserImportJob", {})
   .n("CognitoIdentityProviderClient", "CreateUserImportJobCommand")
-  .sc(CreateUserImportJob)
+  .sc(CreateUserImportJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

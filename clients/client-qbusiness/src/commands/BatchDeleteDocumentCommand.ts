@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchDeleteDocumentRequest, BatchDeleteDocumentResponse } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { BatchDeleteDocument } from "../schemas/schemas_0";
+import { BatchDeleteDocument$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class BatchDeleteDocumentCommand extends $Command
   })
   .s("ExpertQ", "BatchDeleteDocument", {})
   .n("QBusinessClient", "BatchDeleteDocumentCommand")
-  .sc(BatchDeleteDocument)
+  .sc(BatchDeleteDocument$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

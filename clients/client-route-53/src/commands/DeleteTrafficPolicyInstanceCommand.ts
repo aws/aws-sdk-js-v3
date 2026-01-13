@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTrafficPolicyInstanceRequest, DeleteTrafficPolicyInstanceResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { DeleteTrafficPolicyInstance } from "../schemas/schemas_0";
+import { DeleteTrafficPolicyInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,9 +25,7 @@ export interface DeleteTrafficPolicyInstanceCommandInput extends DeleteTrafficPo
  *
  * The output of {@link DeleteTrafficPolicyInstanceCommand}.
  */
-export interface DeleteTrafficPolicyInstanceCommandOutput
-  extends DeleteTrafficPolicyInstanceResponse,
-    __MetadataBearer {}
+export interface DeleteTrafficPolicyInstanceCommandOutput extends DeleteTrafficPolicyInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a traffic policy instance and all of the resource record sets that Amazon
@@ -88,11 +86,14 @@ export class DeleteTrafficPolicyInstanceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "DeleteTrafficPolicyInstance", {})
   .n("Route53Client", "DeleteTrafficPolicyInstanceCommand")
-  .sc(DeleteTrafficPolicyInstance)
+  .sc(DeleteTrafficPolicyInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

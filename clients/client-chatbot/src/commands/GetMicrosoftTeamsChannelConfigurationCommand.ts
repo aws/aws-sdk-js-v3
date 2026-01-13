@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTeamsChannelConfigurationRequest, GetTeamsChannelConfigurationResult } from "../models/models_0";
-import { GetMicrosoftTeamsChannelConfiguration } from "../schemas/schemas_0";
+import { GetMicrosoftTeamsChannelConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetMicrosoftTeamsChannelConfigurationCommandInput extends GetTe
  *
  * The output of {@link GetMicrosoftTeamsChannelConfigurationCommand}.
  */
-export interface GetMicrosoftTeamsChannelConfigurationCommandOutput
-  extends GetTeamsChannelConfigurationResult,
-    __MetadataBearer {}
+export interface GetMicrosoftTeamsChannelConfigurationCommandOutput extends GetTeamsChannelConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Returns a Microsoft Teams channel configuration in an AWS account.</p>
@@ -109,7 +107,7 @@ export class GetMicrosoftTeamsChannelConfigurationCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "GetMicrosoftTeamsChannelConfiguration", {})
   .n("ChatbotClient", "GetMicrosoftTeamsChannelConfigurationCommand")
-  .sc(GetMicrosoftTeamsChannelConfiguration)
+  .sc(GetMicrosoftTeamsChannelConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

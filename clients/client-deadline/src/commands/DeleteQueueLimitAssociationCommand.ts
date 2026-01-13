@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteQueueLimitAssociationRequest, DeleteQueueLimitAssociationResponse } from "../models/models_0";
-import { DeleteQueueLimitAssociation } from "../schemas/schemas_0";
+import { DeleteQueueLimitAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteQueueLimitAssociationCommandInput extends DeleteQueueLimi
  *
  * The output of {@link DeleteQueueLimitAssociationCommand}.
  */
-export interface DeleteQueueLimitAssociationCommandOutput
-  extends DeleteQueueLimitAssociationResponse,
-    __MetadataBearer {}
+export interface DeleteQueueLimitAssociationCommandOutput extends DeleteQueueLimitAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the association between a queue and a limit. You must use the
@@ -100,7 +98,7 @@ export class DeleteQueueLimitAssociationCommand extends $Command
   })
   .s("Deadline", "DeleteQueueLimitAssociation", {})
   .n("DeadlineClient", "DeleteQueueLimitAssociationCommand")
-  .sc(DeleteQueueLimitAssociation)
+  .sc(DeleteQueueLimitAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

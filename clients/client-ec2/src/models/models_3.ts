@@ -95,7 +95,6 @@ import {
   VirtualizationType,
   VpnProtocol,
 } from "./enums";
-
 import {
   type AssociationStatus,
   type ClientVpnAuthorizationRuleStatus,
@@ -123,7 +122,6 @@ import {
   Tag,
   UnsuccessfulItem,
 } from "./models_0";
-
 import {
   type AttributeValue,
   type CapacityReservationTargetResponse,
@@ -138,7 +136,6 @@ import {
   FleetLaunchTemplateOverrides,
   GroupIdentifier,
 } from "./models_1";
-
 import type {
   TransitGatewayPolicyTable,
   TransitGatewayPrefixListReference,
@@ -11824,7 +11821,7 @@ export interface DescribeInstancesRequest {
    *             <li>
    *                <p>
    *                   <code>requester-id</code> - The ID of the entity that launched the instance on
-   *                     your behalf (for example, Amazon Web Services Management Console, Amazon EC2 Auto Scaling, and so
+   *                     your behalf (for example, Amazon Web Services Management Console, Auto Scaling, and so
    *                     on).</p>
    *             </li>
    *             <li>

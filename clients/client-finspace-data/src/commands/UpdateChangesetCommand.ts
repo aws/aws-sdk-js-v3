@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import type { UpdateChangesetRequest, UpdateChangesetResponse } from "../models/models_0";
-import { UpdateChangeset } from "../schemas/schemas_0";
+import { UpdateChangeset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class UpdateChangesetCommand extends $Command
   })
   .s("AWSHabaneroPublicAPI", "UpdateChangeset", {})
   .n("FinspaceDataClient", "UpdateChangesetCommand")
-  .sc(UpdateChangeset)
+  .sc(UpdateChangeset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

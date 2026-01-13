@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteFlowDefinitionRequest, DeleteFlowDefinitionResponse } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DeleteFlowDefinition } from "../schemas/schemas_0";
+import { DeleteFlowDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class DeleteFlowDefinitionCommand extends $Command
   })
   .s("SageMaker", "DeleteFlowDefinition", {})
   .n("SageMakerClient", "DeleteFlowDefinitionCommand")
-  .sc(DeleteFlowDefinition)
+  .sc(DeleteFlowDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

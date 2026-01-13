@@ -9,7 +9,7 @@ import type {
   GetAggregateConfigRuleComplianceSummaryRequest,
   GetAggregateConfigRuleComplianceSummaryResponse,
 } from "../models/models_0";
-import { GetAggregateConfigRuleComplianceSummary } from "../schemas/schemas_0";
+import { GetAggregateConfigRuleComplianceSummary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetAggregateConfigRuleComplianceSummaryCommand}.
  */
-export interface GetAggregateConfigRuleComplianceSummaryCommandInput
-  extends GetAggregateConfigRuleComplianceSummaryRequest {}
+export interface GetAggregateConfigRuleComplianceSummaryCommandInput extends GetAggregateConfigRuleComplianceSummaryRequest {}
 /**
  * @public
  *
  * The output of {@link GetAggregateConfigRuleComplianceSummaryCommand}.
  */
-export interface GetAggregateConfigRuleComplianceSummaryCommandOutput
-  extends GetAggregateConfigRuleComplianceSummaryResponse,
-    __MetadataBearer {}
+export interface GetAggregateConfigRuleComplianceSummaryCommandOutput extends GetAggregateConfigRuleComplianceSummaryResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the number of compliant and noncompliant rules for one
@@ -156,7 +153,7 @@ export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command
   })
   .s("StarlingDoveService", "GetAggregateConfigRuleComplianceSummary", {})
   .n("ConfigServiceClient", "GetAggregateConfigRuleComplianceSummaryCommand")
-  .sc(GetAggregateConfigRuleComplianceSummary)
+  .sc(GetAggregateConfigRuleComplianceSummary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

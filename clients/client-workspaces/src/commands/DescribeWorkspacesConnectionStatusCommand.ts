@@ -8,7 +8,7 @@ import type {
   DescribeWorkspacesConnectionStatusRequest,
   DescribeWorkspacesConnectionStatusResult,
 } from "../models/models_0";
-import { DescribeWorkspacesConnectionStatus } from "../schemas/schemas_0";
+import { DescribeWorkspacesConnectionStatus$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DescribeWorkspacesConnectionStatusCommandInput extends Describe
  *
  * The output of {@link DescribeWorkspacesConnectionStatusCommand}.
  */
-export interface DescribeWorkspacesConnectionStatusCommandOutput
-  extends DescribeWorkspacesConnectionStatusResult,
-    __MetadataBearer {}
+export interface DescribeWorkspacesConnectionStatusCommandOutput extends DescribeWorkspacesConnectionStatusResult, __MetadataBearer {}
 
 /**
  * <p>Describes the connection status of the specified WorkSpaces.</p>
@@ -92,7 +90,7 @@ export class DescribeWorkspacesConnectionStatusCommand extends $Command
   })
   .s("WorkspacesService", "DescribeWorkspacesConnectionStatus", {})
   .n("WorkSpacesClient", "DescribeWorkspacesConnectionStatusCommand")
-  .sc(DescribeWorkspacesConnectionStatus)
+  .sc(DescribeWorkspacesConnectionStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

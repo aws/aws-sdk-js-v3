@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../InternetMonitorClient";
 import type { CreateMonitorInput, CreateMonitorOutput } from "../models/models_0";
-import { CreateMonitor } from "../schemas/schemas_0";
+import { CreateMonitor$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -134,7 +134,7 @@ export class CreateMonitorCommand extends $Command
   })
   .s("InternetMonitor20210603", "CreateMonitor", {})
   .n("InternetMonitorClient", "CreateMonitorCommand")
-  .sc(CreateMonitor)
+  .sc(CreateMonitor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

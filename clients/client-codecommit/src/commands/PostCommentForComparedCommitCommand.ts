@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PostCommentForComparedCommitInput, PostCommentForComparedCommitOutput } from "../models/models_0";
-import { PostCommentForComparedCommit } from "../schemas/schemas_0";
+import { PostCommentForComparedCommit$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface PostCommentForComparedCommitCommandInput extends PostCommentFor
  *
  * The output of {@link PostCommentForComparedCommitCommand}.
  */
-export interface PostCommentForComparedCommitCommandOutput
-  extends PostCommentForComparedCommitOutput,
-    __MetadataBearer {}
+export interface PostCommentForComparedCommitCommandOutput extends PostCommentForComparedCommitOutput, __MetadataBearer {}
 
 /**
  * <p>Posts a comment on the comparison between two commits.</p>
@@ -189,7 +187,7 @@ export class PostCommentForComparedCommitCommand extends $Command
   })
   .s("CodeCommit_20150413", "PostCommentForComparedCommit", {})
   .n("CodeCommitClient", "PostCommentForComparedCommitCommand")
-  .sc(PostCommentForComparedCommit)
+  .sc(PostCommentForComparedCommit$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

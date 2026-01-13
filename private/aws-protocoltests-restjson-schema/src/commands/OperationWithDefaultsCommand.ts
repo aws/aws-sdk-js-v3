@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { OperationWithDefaults } from "../schemas/schemas_0";
+import { OperationWithDefaults$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class OperationWithDefaultsCommand extends $Command
   })
   .s("RestJson", "OperationWithDefaults", {})
   .n("RestJsonProtocolClient", "OperationWithDefaultsCommand")
-  .sc(OperationWithDefaults)
+  .sc(OperationWithDefaults$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

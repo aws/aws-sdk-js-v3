@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { GetFirewallRuleGroupAssociation } from "../schemas/schemas_0";
+import { GetFirewallRuleGroupAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetFirewallRuleGroupAssociationCommandInput extends GetFirewall
  *
  * The output of {@link GetFirewallRuleGroupAssociationCommand}.
  */
-export interface GetFirewallRuleGroupAssociationCommandOutput
-  extends GetFirewallRuleGroupAssociationResponse,
-    __MetadataBearer {}
+export interface GetFirewallRuleGroupAssociationCommandOutput extends GetFirewallRuleGroupAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a firewall rule group association, which enables DNS filtering for a VPC with one rule group. A VPC can have more than one firewall rule group association, and a rule group can be associated with more than one VPC.</p>
@@ -110,7 +108,7 @@ export class GetFirewallRuleGroupAssociationCommand extends $Command
   })
   .s("Route53Resolver", "GetFirewallRuleGroupAssociation", {})
   .n("Route53ResolverClient", "GetFirewallRuleGroupAssociationCommand")
-  .sc(GetFirewallRuleGroupAssociation)
+  .sc(GetFirewallRuleGroupAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

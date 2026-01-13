@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDataSourceIntrospectionRequest, GetDataSourceIntrospectionResponse } from "../models/models_0";
-import { GetDataSourceIntrospection } from "../schemas/schemas_0";
+import { GetDataSourceIntrospection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -135,7 +135,7 @@ export class GetDataSourceIntrospectionCommand extends $Command
   })
   .s("AWSDeepdishControlPlaneService", "GetDataSourceIntrospection", {})
   .n("AppSyncClient", "GetDataSourceIntrospectionCommand")
-  .sc(GetDataSourceIntrospection)
+  .sc(GetDataSourceIntrospection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

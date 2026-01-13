@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import type { ListImportsRequest, ListImportsResponse } from "../models/models_0";
-import { ListImports } from "../schemas/schemas_0";
+import { ListImports$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class ListImportsCommand extends $Command
   })
   .s("ApplicationMigrationService", "ListImports", {})
   .n("MgnClient", "ListImportsCommand")
-  .sc(ListImports)
+  .sc(ListImports$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

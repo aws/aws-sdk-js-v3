@@ -404,7 +404,10 @@ export interface ForwardAction {
  * <p>Describes the action for a rule.</p>
  * @public
  */
-export type RuleAction = RuleAction.FixedResponseMember | RuleAction.ForwardMember | RuleAction.$UnknownMember;
+export type RuleAction =
+  | RuleAction.FixedResponseMember
+  | RuleAction.ForwardMember
+  | RuleAction.$UnknownMember;
 
 /**
  * @public
@@ -547,7 +550,10 @@ export interface HeaderMatch {
  * <p>Describes a path match type. Each rule can include only one of the following types of paths.</p>
  * @public
  */
-export type PathMatchType = PathMatchType.ExactMember | PathMatchType.PrefixMember | PathMatchType.$UnknownMember;
+export type PathMatchType =
+  | PathMatchType.ExactMember
+  | PathMatchType.PrefixMember
+  | PathMatchType.$UnknownMember;
 
 /**
  * @public
@@ -639,7 +645,9 @@ export interface HttpMatch {
  * <p>Describes a rule match.</p>
  * @public
  */
-export type RuleMatch = RuleMatch.HttpMatchMember | RuleMatch.$UnknownMember;
+export type RuleMatch =
+  | RuleMatch.HttpMatchMember
+  | RuleMatch.$UnknownMember;
 
 /**
  * @public
@@ -1859,7 +1867,9 @@ export interface CreateServiceNetworkVpcAssociationResponse {
  * <p>Describes the codes to use when checking for a successful response from a target for health checks.</p>
  * @public
  */
-export type Matcher = Matcher.HttpCodeMember | Matcher.$UnknownMember;
+export type Matcher =
+  | Matcher.HttpCodeMember
+  | Matcher.$UnknownMember;
 
 /**
  * @public

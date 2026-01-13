@@ -220,7 +220,9 @@ export interface StructurePayloadEvent {
 /**
  * @public
  */
-export type PayloadUnion = PayloadUnion.UnionMemberMember | PayloadUnion.$UnknownMember;
+export type PayloadUnion =
+  | PayloadUnion.UnionMemberMember
+  | PayloadUnion.$UnknownMember;
 
 /**
  * @public
@@ -433,7 +435,9 @@ export interface SingletonEvent {
 /**
  * @public
  */
-export type SingletonEventStream = SingletonEventStream.SingletonMember | SingletonEventStream.$UnknownMember;
+export type SingletonEventStream =
+  | SingletonEventStream.SingletonMember
+  | SingletonEventStream.$UnknownMember;
 
 /**
  * @public
@@ -580,7 +584,9 @@ export interface HttpPayloadWithStructureInputOutput {
 /**
  * @public
  */
-export type UnionPayload = UnionPayload.GreetingMember | UnionPayload.$UnknownMember;
+export type UnionPayload =
+  | UnionPayload.GreetingMember
+  | UnionPayload.$UnknownMember;
 
 /**
  * @public
@@ -1297,7 +1303,10 @@ export interface MalformedTimestampQueryHttpDateInput {
 /**
  * @public
  */
-export type SimpleUnion = SimpleUnion.IntMember | SimpleUnion.StringMember | SimpleUnion.$UnknownMember;
+export type SimpleUnion =
+  | SimpleUnion.IntMember
+  | SimpleUnion.StringMember
+  | SimpleUnion.$UnknownMember;
 
 /**
  * @public
@@ -1490,7 +1499,9 @@ export interface Unit {}
 /**
  * @public
  */
-export type PlayerAction = PlayerAction.QuitMember | PlayerAction.$UnknownMember;
+export type PlayerAction =
+  | PlayerAction.QuitMember
+  | PlayerAction.$UnknownMember;
 
 /**
  * @public

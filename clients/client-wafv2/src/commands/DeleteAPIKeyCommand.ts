@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAPIKeyRequest, DeleteAPIKeyResponse } from "../models/models_0";
-import { DeleteAPIKey } from "../schemas/schemas_0";
+import { DeleteAPIKey$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -112,7 +112,7 @@ export class DeleteAPIKeyCommand extends $Command
   })
   .s("AWSWAF_20190729", "DeleteAPIKey", {})
   .n("WAFV2Client", "DeleteAPIKeyCommand")
-  .sc(DeleteAPIKey)
+  .sc(DeleteAPIKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

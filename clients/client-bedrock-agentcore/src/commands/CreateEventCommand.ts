@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateEventInput, CreateEventOutput } from "../models/models_0";
-import { CreateEvent } from "../schemas/schemas_0";
+import { CreateEvent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -148,7 +148,7 @@ export class CreateEventCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "CreateEvent", {})
   .n("BedrockAgentCoreClient", "CreateEventCommand")
-  .sc(CreateEvent)
+  .sc(CreateEvent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type ExecuteOpenCypherExplainQueryInput, ExecuteOpenCypherExplainQueryOutput } from "../models/models_0";
 import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
-import { ExecuteOpenCypherExplainQuery } from "../schemas/schemas_0";
+import { ExecuteOpenCypherExplainQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -32,9 +32,7 @@ export type ExecuteOpenCypherExplainQueryCommandOutputType = Omit<ExecuteOpenCyp
  *
  * The output of {@link ExecuteOpenCypherExplainQueryCommand}.
  */
-export interface ExecuteOpenCypherExplainQueryCommandOutput
-  extends ExecuteOpenCypherExplainQueryCommandOutputType,
-    __MetadataBearer {}
+export interface ExecuteOpenCypherExplainQueryCommandOutput extends ExecuteOpenCypherExplainQueryCommandOutputType, __MetadataBearer {}
 
 /**
  * <p>Executes an openCypher <code>explain</code> request. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher-explain.html">The openCypher explain feature</a> for more information.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery">neptune-db:ReadDataViaQuery</a> IAM action in that cluster.</p> <p>Note that the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:OpenCypher</a> IAM condition key can be used in the policy document to restrict the use of openCypher queries (see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html">Condition keys available in Neptune IAM data-access policy statements</a>).</p>
@@ -148,7 +146,7 @@ export class ExecuteOpenCypherExplainQueryCommand extends $Command
   })
   .s("AmazonNeptuneDataplane", "ExecuteOpenCypherExplainQuery", {})
   .n("NeptunedataClient", "ExecuteOpenCypherExplainQueryCommand")
-  .sc(ExecuteOpenCypherExplainQuery)
+  .sc(ExecuteOpenCypherExplainQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

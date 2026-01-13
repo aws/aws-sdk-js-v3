@@ -8,7 +8,7 @@ import type {
   DeleteFirewallManagerRuleGroupsRequest,
   DeleteFirewallManagerRuleGroupsResponse,
 } from "../models/models_0";
-import { DeleteFirewallManagerRuleGroups } from "../schemas/schemas_0";
+import { DeleteFirewallManagerRuleGroups$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -27,9 +27,7 @@ export interface DeleteFirewallManagerRuleGroupsCommandInput extends DeleteFirew
  *
  * The output of {@link DeleteFirewallManagerRuleGroupsCommand}.
  */
-export interface DeleteFirewallManagerRuleGroupsCommandOutput
-  extends DeleteFirewallManagerRuleGroupsResponse,
-    __MetadataBearer {}
+export interface DeleteFirewallManagerRuleGroupsCommandOutput extends DeleteFirewallManagerRuleGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes all rule groups that are managed by Firewall Manager from the specified <a>WebACL</a>. </p>
@@ -119,7 +117,7 @@ export class DeleteFirewallManagerRuleGroupsCommand extends $Command
   })
   .s("AWSWAF_20190729", "DeleteFirewallManagerRuleGroups", {})
   .n("WAFV2Client", "DeleteFirewallManagerRuleGroupsCommand")
-  .sc(DeleteFirewallManagerRuleGroups)
+  .sc(DeleteFirewallManagerRuleGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

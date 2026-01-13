@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRecoveryPointRestoreMetadataInput, GetRecoveryPointRestoreMetadataOutput } from "../models/models_0";
-import { GetRecoveryPointRestoreMetadata } from "../schemas/schemas_0";
+import { GetRecoveryPointRestoreMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetRecoveryPointRestoreMetadataCommandInput extends GetRecovery
  *
  * The output of {@link GetRecoveryPointRestoreMetadataCommand}.
  */
-export interface GetRecoveryPointRestoreMetadataCommandOutput
-  extends GetRecoveryPointRestoreMetadataOutput,
-    __MetadataBearer {}
+export interface GetRecoveryPointRestoreMetadataCommandOutput extends GetRecoveryPointRestoreMetadataOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a set of metadata key-value pairs that were used to create the backup.</p>
@@ -95,7 +93,7 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command
   })
   .s("CryoControllerUserManager", "GetRecoveryPointRestoreMetadata", {})
   .n("BackupClient", "GetRecoveryPointRestoreMetadataCommand")
-  .sc(GetRecoveryPointRestoreMetadata)
+  .sc(GetRecoveryPointRestoreMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

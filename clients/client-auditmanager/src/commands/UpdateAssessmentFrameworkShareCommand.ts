@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateAssessmentFrameworkShareRequest, UpdateAssessmentFrameworkShareResponse } from "../models/models_0";
-import { UpdateAssessmentFrameworkShare } from "../schemas/schemas_0";
+import { UpdateAssessmentFrameworkShare$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateAssessmentFrameworkShareCommandInput extends UpdateAssess
  *
  * The output of {@link UpdateAssessmentFrameworkShareCommand}.
  */
-export interface UpdateAssessmentFrameworkShareCommandOutput
-  extends UpdateAssessmentFrameworkShareResponse,
-    __MetadataBearer {}
+export interface UpdateAssessmentFrameworkShareCommandOutput extends UpdateAssessmentFrameworkShareResponse, __MetadataBearer {}
 
 /**
  * <p> Updates a share request for a custom framework in Audit Manager. </p>
@@ -113,7 +111,7 @@ export class UpdateAssessmentFrameworkShareCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "UpdateAssessmentFrameworkShare", {})
   .n("AuditManagerClient", "UpdateAssessmentFrameworkShareCommand")
-  .sc(UpdateAssessmentFrameworkShare)
+  .sc(UpdateAssessmentFrameworkShare$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

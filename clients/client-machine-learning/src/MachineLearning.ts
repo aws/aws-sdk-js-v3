@@ -171,8 +171,14 @@ export interface MachineLearning {
   /**
    * @see {@link AddTagsCommand}
    */
-  addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
-  addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
+  addTags(
+    args: AddTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddTagsCommandOutput>;
+  addTags(
+    args: AddTagsCommandInput,
+    cb: (err: any, data?: AddTagsCommandOutput) => void
+  ): void;
   addTags(
     args: AddTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -267,8 +273,14 @@ export interface MachineLearning {
   /**
    * @see {@link CreateMLModelCommand}
    */
-  createMLModel(args: CreateMLModelCommandInput, options?: __HttpHandlerOptions): Promise<CreateMLModelCommandOutput>;
-  createMLModel(args: CreateMLModelCommandInput, cb: (err: any, data?: CreateMLModelCommandOutput) => void): void;
+  createMLModel(
+    args: CreateMLModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMLModelCommandOutput>;
+  createMLModel(
+    args: CreateMLModelCommandInput,
+    cb: (err: any, data?: CreateMLModelCommandOutput) => void
+  ): void;
   createMLModel(
     args: CreateMLModelCommandInput,
     options: __HttpHandlerOptions,
@@ -346,8 +358,14 @@ export interface MachineLearning {
   /**
    * @see {@link DeleteMLModelCommand}
    */
-  deleteMLModel(args: DeleteMLModelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteMLModelCommandOutput>;
-  deleteMLModel(args: DeleteMLModelCommandInput, cb: (err: any, data?: DeleteMLModelCommandOutput) => void): void;
+  deleteMLModel(
+    args: DeleteMLModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMLModelCommandOutput>;
+  deleteMLModel(
+    args: DeleteMLModelCommandInput,
+    cb: (err: any, data?: DeleteMLModelCommandOutput) => void
+  ): void;
   deleteMLModel(
     args: DeleteMLModelCommandInput,
     options: __HttpHandlerOptions,
@@ -374,8 +392,14 @@ export interface MachineLearning {
   /**
    * @see {@link DeleteTagsCommand}
    */
-  deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
-  deleteTags(args: DeleteTagsCommandInput, cb: (err: any, data?: DeleteTagsCommandOutput) => void): void;
+  deleteTags(
+    args: DeleteTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTagsCommandOutput>;
+  deleteTags(
+    args: DeleteTagsCommandInput,
+    cb: (err: any, data?: DeleteTagsCommandOutput) => void
+  ): void;
   deleteTags(
     args: DeleteTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -457,8 +481,14 @@ export interface MachineLearning {
   /**
    * @see {@link DescribeTagsCommand}
    */
-  describeTags(args: DescribeTagsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTagsCommandOutput>;
-  describeTags(args: DescribeTagsCommandInput, cb: (err: any, data?: DescribeTagsCommandOutput) => void): void;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTagsCommandOutput>;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    cb: (err: any, data?: DescribeTagsCommandOutput) => void
+  ): void;
   describeTags(
     args: DescribeTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -485,8 +515,14 @@ export interface MachineLearning {
   /**
    * @see {@link GetDataSourceCommand}
    */
-  getDataSource(args: GetDataSourceCommandInput, options?: __HttpHandlerOptions): Promise<GetDataSourceCommandOutput>;
-  getDataSource(args: GetDataSourceCommandInput, cb: (err: any, data?: GetDataSourceCommandOutput) => void): void;
+  getDataSource(
+    args: GetDataSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataSourceCommandOutput>;
+  getDataSource(
+    args: GetDataSourceCommandInput,
+    cb: (err: any, data?: GetDataSourceCommandOutput) => void
+  ): void;
   getDataSource(
     args: GetDataSourceCommandInput,
     options: __HttpHandlerOptions,
@@ -496,8 +532,14 @@ export interface MachineLearning {
   /**
    * @see {@link GetEvaluationCommand}
    */
-  getEvaluation(args: GetEvaluationCommandInput, options?: __HttpHandlerOptions): Promise<GetEvaluationCommandOutput>;
-  getEvaluation(args: GetEvaluationCommandInput, cb: (err: any, data?: GetEvaluationCommandOutput) => void): void;
+  getEvaluation(
+    args: GetEvaluationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEvaluationCommandOutput>;
+  getEvaluation(
+    args: GetEvaluationCommandInput,
+    cb: (err: any, data?: GetEvaluationCommandOutput) => void
+  ): void;
   getEvaluation(
     args: GetEvaluationCommandInput,
     options: __HttpHandlerOptions,
@@ -507,8 +549,14 @@ export interface MachineLearning {
   /**
    * @see {@link GetMLModelCommand}
    */
-  getMLModel(args: GetMLModelCommandInput, options?: __HttpHandlerOptions): Promise<GetMLModelCommandOutput>;
-  getMLModel(args: GetMLModelCommandInput, cb: (err: any, data?: GetMLModelCommandOutput) => void): void;
+  getMLModel(
+    args: GetMLModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMLModelCommandOutput>;
+  getMLModel(
+    args: GetMLModelCommandInput,
+    cb: (err: any, data?: GetMLModelCommandOutput) => void
+  ): void;
   getMLModel(
     args: GetMLModelCommandInput,
     options: __HttpHandlerOptions,
@@ -518,8 +566,14 @@ export interface MachineLearning {
   /**
    * @see {@link PredictCommand}
    */
-  predict(args: PredictCommandInput, options?: __HttpHandlerOptions): Promise<PredictCommandOutput>;
-  predict(args: PredictCommandInput, cb: (err: any, data?: PredictCommandOutput) => void): void;
+  predict(
+    args: PredictCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PredictCommandOutput>;
+  predict(
+    args: PredictCommandInput,
+    cb: (err: any, data?: PredictCommandOutput) => void
+  ): void;
   predict(
     args: PredictCommandInput,
     options: __HttpHandlerOptions,
@@ -580,8 +634,14 @@ export interface MachineLearning {
   /**
    * @see {@link UpdateMLModelCommand}
    */
-  updateMLModel(args: UpdateMLModelCommandInput, options?: __HttpHandlerOptions): Promise<UpdateMLModelCommandOutput>;
-  updateMLModel(args: UpdateMLModelCommandInput, cb: (err: any, data?: UpdateMLModelCommandOutput) => void): void;
+  updateMLModel(
+    args: UpdateMLModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMLModelCommandOutput>;
+  updateMLModel(
+    args: UpdateMLModelCommandInput,
+    cb: (err: any, data?: UpdateMLModelCommandOutput) => void
+  ): void;
   updateMLModel(
     args: UpdateMLModelCommandInput,
     options: __HttpHandlerOptions,

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFlowMonitorClient";
-import { GetMonitor } from "../schemas/schemas_0";
+import { GetMonitor$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class GetMonitorCommand extends $Command
   })
   .s("NetworkFlowMonitor", "GetMonitor", {})
   .n("NetworkFlowMonitorClient", "GetMonitorCommand")
-  .sc(GetMonitor)
+  .sc(GetMonitor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

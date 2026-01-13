@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateScraperRequest, CreateScraperResponse } from "../models/models_0";
-import { CreateScraper } from "../schemas/schemas_0";
+import { CreateScraper$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -225,7 +225,7 @@ export class CreateScraperCommand extends $Command
   })
   .s("AmazonPrometheusService", "CreateScraper", {})
   .n("AmpClient", "CreateScraperCommand")
-  .sc(CreateScraper)
+  .sc(CreateScraper$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

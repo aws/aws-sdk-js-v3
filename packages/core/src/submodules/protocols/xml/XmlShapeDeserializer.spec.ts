@@ -2,7 +2,7 @@ import { NumericValue } from "@smithy/core/serde";
 import type { TimestampDateTimeSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
-import { createNestingWidget, nestingWidget, widget } from "../test-schema.spec";
+import { createNestingWidget, nestingWidget, unionStruct, unionStructControl, widget } from "../test-schema.spec";
 import { XmlShapeDeserializer } from "./XmlShapeDeserializer";
 import { XmlShapeSerializer } from "./XmlShapeSerializer";
 
@@ -24,7 +24,7 @@ describe(XmlShapeDeserializer.name, () => {
     },
   } as any);
 
-  it("placeholder", async () => {
+  it("deserializes XML", async () => {
     const xml = `<Struct xmlns="namespace">
   <blob>QUFBQQ==</blob>
   <timestamp>0</timestamp>
@@ -40,13 +40,31 @@ describe(XmlShapeDeserializer.name, () => {
     });
   });
 
+  it("deserializes unknown union members", async () => {
+    const xml = `<UnionStruct xmlns="namespace"><union><UK>UV</UK></union></UnionStruct>`;
+    {
+      const deserialization = await deserializer.read(unionStruct, xml);
+      expect(deserialization).toEqual({
+        union: {
+          $unknown: ["UK", "UV"],
+        },
+      });
+    }
+    {
+      const deserialization = await deserializer.read(unionStructControl, xml);
+      expect(deserialization).toEqual({
+        union: {},
+      });
+    }
+  });
+
   describe("performance baseline indicator", () => {
     it("should deserialize XML strings", async () => {
       const timings: string[] = [];
       const strings = [];
 
       // warmup
-      for (let i = 0; i < 12; ++i) {
+      for (let i = 0; i < 10; ++i) {
         const o = createNestingWidget(2 ** i);
         serializer.write(nestingWidget, o);
         const json = serializer.flush();

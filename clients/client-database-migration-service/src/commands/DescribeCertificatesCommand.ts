@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeCertificatesMessage, DescribeCertificatesResponse } from "../models/models_0";
-import { DescribeCertificates } from "../schemas/schemas_0";
+import { DescribeCertificates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class DescribeCertificatesCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeCertificates", {})
   .n("DatabaseMigrationServiceClient", "DescribeCertificatesCommand")
-  .sc(DescribeCertificates)
+  .sc(DescribeCertificates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

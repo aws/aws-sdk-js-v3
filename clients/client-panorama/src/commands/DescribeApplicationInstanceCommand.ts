@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeApplicationInstanceRequest, DescribeApplicationInstanceResponse } from "../models/models_0";
 import type { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import { DescribeApplicationInstance } from "../schemas/schemas_0";
+import { DescribeApplicationInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeApplicationInstanceCommandInput extends DescribeApplica
  *
  * The output of {@link DescribeApplicationInstanceCommand}.
  */
-export interface DescribeApplicationInstanceCommandOutput
-  extends DescribeApplicationInstanceResponse,
-    __MetadataBearer {}
+export interface DescribeApplicationInstanceCommandOutput extends DescribeApplicationInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about an application instance on a device.</p>
@@ -113,7 +111,7 @@ export class DescribeApplicationInstanceCommand extends $Command
   })
   .s("OmniCloudServiceLambda", "DescribeApplicationInstance", {})
   .n("PanoramaClient", "DescribeApplicationInstanceCommand")
-  .sc(DescribeApplicationInstance)
+  .sc(DescribeApplicationInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

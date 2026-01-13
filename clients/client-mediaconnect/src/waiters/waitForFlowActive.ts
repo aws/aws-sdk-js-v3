@@ -7,12 +7,12 @@ import { MediaConnectClient } from "../MediaConnectClient";
 const checkState = async (client: MediaConnectClient, input: DescribeFlowCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeFlowCommand(input));
+    let result: any = await client.send(new DescribeFlowCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.Flow.Status;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: MediaConnectClient, input: DescribeFlowCommand
     try {
       const returnComparator = () => {
         return result.Flow.Status;
-      };
+      }
       if (returnComparator() === "STARTING") {
         return { state: WaiterState.RETRY, reason };
       }
@@ -28,7 +28,7 @@ const checkState = async (client: MediaConnectClient, input: DescribeFlowCommand
     try {
       const returnComparator = () => {
         return result.Flow.Status;
-      };
+      }
       if (returnComparator() === "UPDATING") {
         return { state: WaiterState.RETRY, reason };
       }
@@ -36,7 +36,7 @@ const checkState = async (client: MediaConnectClient, input: DescribeFlowCommand
     try {
       const returnComparator = () => {
         return result.Flow.Status;
-      };
+      }
       if (returnComparator() === "STANDBY") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -44,7 +44,7 @@ const checkState = async (client: MediaConnectClient, input: DescribeFlowCommand
     try {
       const returnComparator = () => {
         return result.Flow.Status;
-      };
+      }
       if (returnComparator() === "ERROR") {
         return { state: WaiterState.FAILURE, reason };
       }

@@ -9,7 +9,7 @@ import type {
   ListAuditMitigationActionsTasksRequest,
   ListAuditMitigationActionsTasksResponse,
 } from "../models/models_1";
-import { ListAuditMitigationActionsTasks } from "../schemas/schemas_0";
+import { ListAuditMitigationActionsTasks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListAuditMitigationActionsTasksCommandInput extends ListAuditMi
  *
  * The output of {@link ListAuditMitigationActionsTasksCommand}.
  */
-export interface ListAuditMitigationActionsTasksCommandOutput
-  extends ListAuditMitigationActionsTasksResponse,
-    __MetadataBearer {}
+export interface ListAuditMitigationActionsTasksCommandOutput extends ListAuditMitigationActionsTasksResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of audit mitigation action tasks that match the specified filters.</p>
@@ -101,7 +99,7 @@ export class ListAuditMitigationActionsTasksCommand extends $Command
   })
   .s("AWSIotService", "ListAuditMitigationActionsTasks", {})
   .n("IoTClient", "ListAuditMitigationActionsTasksCommand")
-  .sc(ListAuditMitigationActionsTasks)
+  .sc(ListAuditMitigationActionsTasks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

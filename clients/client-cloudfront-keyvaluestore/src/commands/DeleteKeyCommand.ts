@@ -10,7 +10,7 @@ import type {
 } from "../CloudFrontKeyValueStoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteKeyRequest, DeleteKeyResponse } from "../models/models_0";
-import { DeleteKey } from "../schemas/schemas_0";
+import { DeleteKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class DeleteKeyCommand extends $Command
   })
   .s("CloudFrontKeyValueStore", "DeleteKey", {})
   .n("CloudFrontKeyValueStoreClient", "DeleteKeyCommand")
-  .sc(DeleteKey)
+  .sc(DeleteKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

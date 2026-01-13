@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSegmentMembershipRequest, GetSegmentMembershipResponse } from "../models/models_0";
-import { GetSegmentMembership } from "../schemas/schemas_0";
+import { GetSegmentMembership$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -209,7 +209,7 @@ export class GetSegmentMembershipCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "GetSegmentMembership", {})
   .n("CustomerProfilesClient", "GetSegmentMembershipCommand")
-  .sc(GetSegmentMembership)
+  .sc(GetSegmentMembership$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

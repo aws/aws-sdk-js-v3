@@ -4,18 +4,15 @@ import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, Waite
 import { BedrockAgentCoreControlClient } from "../BedrockAgentCoreControlClient";
 import { GetPolicyEngineCommand, GetPolicyEngineCommandInput } from "../commands/GetPolicyEngineCommand";
 
-const checkState = async (
-  client: BedrockAgentCoreControlClient,
-  input: GetPolicyEngineCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: BedrockAgentCoreControlClient, input: GetPolicyEngineCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetPolicyEngineCommand(input));
+    let result: any = await client.send(new GetPolicyEngineCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -23,7 +20,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "CREATE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -31,7 +28,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "UPDATE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -39,7 +36,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "DELETE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AdminRespondToAuthChallengeRequest, AdminRespondToAuthChallengeResponse } from "../models/models_0";
-import { AdminRespondToAuthChallenge } from "../schemas/schemas_0";
+import { AdminRespondToAuthChallenge$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface AdminRespondToAuthChallengeCommandInput extends AdminRespondToA
  *
  * The output of {@link AdminRespondToAuthChallengeCommand}.
  */
-export interface AdminRespondToAuthChallengeCommandOutput
-  extends AdminRespondToAuthChallengeResponse,
-    __MetadataBearer {}
+export interface AdminRespondToAuthChallengeCommandOutput extends AdminRespondToAuthChallengeResponse, __MetadataBearer {}
 
 /**
  * <p>Some API operations in a user pool generate a challenge, like a prompt for an MFA
@@ -245,7 +243,7 @@ export class AdminRespondToAuthChallengeCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "AdminRespondToAuthChallenge", {})
   .n("CognitoIdentityProviderClient", "AdminRespondToAuthChallengeCommand")
-  .sc(AdminRespondToAuthChallenge)
+  .sc(AdminRespondToAuthChallenge$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

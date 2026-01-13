@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { DeleteAccountAssociationRequest } from "../models/models_0";
-import { DeleteAccountAssociation } from "../schemas/schemas_0";
+import { DeleteAccountAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteAccountAssociationCommand extends $Command
   })
   .s("IotManagedIntegrations", "DeleteAccountAssociation", {})
   .n("IoTManagedIntegrationsClient", "DeleteAccountAssociationCommand")
-  .sc(DeleteAccountAssociation)
+  .sc(DeleteAccountAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

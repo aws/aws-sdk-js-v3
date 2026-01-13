@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import type { PutResourceLogLevelRequest, PutResourceLogLevelResponse } from "../models/models_0";
-import { PutResourceLogLevel } from "../schemas/schemas_0";
+import { PutResourceLogLevel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class PutResourceLogLevelCommand extends $Command
   })
   .s("iotwireless", "PutResourceLogLevel", {})
   .n("IoTWirelessClient", "PutResourceLogLevelCommand")
-  .sc(PutResourceLogLevel)
+  .sc(PutResourceLogLevel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

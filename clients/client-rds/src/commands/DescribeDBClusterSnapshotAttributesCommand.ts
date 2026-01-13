@@ -9,7 +9,7 @@ import type {
   DescribeDBClusterSnapshotAttributesResult,
 } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DescribeDBClusterSnapshotAttributes } from "../schemas/schemas_0";
+import { DescribeDBClusterSnapshotAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeDBClusterSnapshotAttributesCommandInput extends Describ
  *
  * The output of {@link DescribeDBClusterSnapshotAttributesCommand}.
  */
-export interface DescribeDBClusterSnapshotAttributesCommandOutput
-  extends DescribeDBClusterSnapshotAttributesResult,
-    __MetadataBearer {}
+export interface DescribeDBClusterSnapshotAttributesCommandOutput extends DescribeDBClusterSnapshotAttributesResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster snapshot.</p>
@@ -124,7 +122,7 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeDBClusterSnapshotAttributes", {})
   .n("RDSClient", "DescribeDBClusterSnapshotAttributesCommand")
-  .sc(DescribeDBClusterSnapshotAttributes)
+  .sc(DescribeDBClusterSnapshotAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

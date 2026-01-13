@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateOrganizationalUnitRequest, DisassociateOrganizationalUnitResponse } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { DisassociateOrganizationalUnit } from "../schemas/schemas_0";
+import { DisassociateOrganizationalUnit$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DisassociateOrganizationalUnitCommandInput extends Disassociate
  *
  * The output of {@link DisassociateOrganizationalUnitCommand}.
  */
-export interface DisassociateOrganizationalUnitCommandOutput
-  extends DisassociateOrganizationalUnitResponse,
-    __MetadataBearer {}
+export interface DisassociateOrganizationalUnitCommandOutput extends DisassociateOrganizationalUnitResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the association between an organizational unit and a notification configuration.</p>
@@ -89,7 +87,7 @@ export class DisassociateOrganizationalUnitCommand extends $Command
   })
   .s("Notifications", "DisassociateOrganizationalUnit", {})
   .n("NotificationsClient", "DisassociateOrganizationalUnitCommand")
-  .sc(DisassociateOrganizationalUnit)
+  .sc(DisassociateOrganizationalUnit$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   SearchTransitGatewayMulticastGroupsRequest,
   SearchTransitGatewayMulticastGroupsResult,
 } from "../models/models_7";
-import { SearchTransitGatewayMulticastGroups } from "../schemas/schemas_0";
+import { SearchTransitGatewayMulticastGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface SearchTransitGatewayMulticastGroupsCommandInput extends SearchT
  *
  * The output of {@link SearchTransitGatewayMulticastGroupsCommand}.
  */
-export interface SearchTransitGatewayMulticastGroupsCommandOutput
-  extends SearchTransitGatewayMulticastGroupsResult,
-    __MetadataBearer {}
+export interface SearchTransitGatewayMulticastGroupsCommandOutput extends SearchTransitGatewayMulticastGroupsResult, __MetadataBearer {}
 
 /**
  * <p>Searches one or more  transit gateway multicast groups and returns the group membership information.</p>
@@ -104,7 +102,7 @@ export class SearchTransitGatewayMulticastGroupsCommand extends $Command
   })
   .s("AmazonEC2", "SearchTransitGatewayMulticastGroups", {})
   .n("EC2Client", "SearchTransitGatewayMulticastGroupsCommand")
-  .sc(SearchTransitGatewayMulticastGroups)
+  .sc(SearchTransitGatewayMulticastGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

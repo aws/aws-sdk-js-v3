@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateCallAnalyticsCategoryRequest, UpdateCallAnalyticsCategoryResponse } from "../models/models_0";
-import { UpdateCallAnalyticsCategory } from "../schemas/schemas_0";
+import { UpdateCallAnalyticsCategory$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -24,9 +24,7 @@ export interface UpdateCallAnalyticsCategoryCommandInput extends UpdateCallAnaly
  *
  * The output of {@link UpdateCallAnalyticsCategoryCommand}.
  */
-export interface UpdateCallAnalyticsCategoryCommandOutput
-  extends UpdateCallAnalyticsCategoryResponse,
-    __MetadataBearer {}
+export interface UpdateCallAnalyticsCategoryCommandOutput extends UpdateCallAnalyticsCategoryResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the specified Call Analytics category with new rules. Note that the
@@ -265,7 +263,7 @@ export class UpdateCallAnalyticsCategoryCommand extends $Command
   })
   .s("Transcribe", "UpdateCallAnalyticsCategory", {})
   .n("TranscribeClient", "UpdateCallAnalyticsCategoryCommand")
-  .sc(UpdateCallAnalyticsCategory)
+  .sc(UpdateCallAnalyticsCategory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

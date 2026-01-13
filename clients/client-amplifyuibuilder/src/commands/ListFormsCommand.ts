@@ -10,7 +10,7 @@ import type {
 } from "../AmplifyUIBuilderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListFormsRequest, ListFormsResponse } from "../models/models_0";
-import { ListForms } from "../schemas/schemas_0";
+import { ListForms$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class ListFormsCommand extends $Command
   })
   .s("AmplifyUIBuilder", "ListForms", {})
   .n("AmplifyUIBuilderClient", "ListFormsCommand")
-  .sc(ListForms)
+  .sc(ListForms$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

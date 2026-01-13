@@ -9,7 +9,7 @@ import type {
   StartCommitmentPurchaseAnalysisRequest,
   StartCommitmentPurchaseAnalysisResponse,
 } from "../models/models_0";
-import { StartCommitmentPurchaseAnalysis } from "../schemas/schemas_0";
+import { StartCommitmentPurchaseAnalysis$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface StartCommitmentPurchaseAnalysisCommandInput extends StartCommit
  *
  * The output of {@link StartCommitmentPurchaseAnalysisCommand}.
  */
-export interface StartCommitmentPurchaseAnalysisCommandOutput
-  extends StartCommitmentPurchaseAnalysisResponse,
-    __MetadataBearer {}
+export interface StartCommitmentPurchaseAnalysisCommandOutput extends StartCommitmentPurchaseAnalysisResponse, __MetadataBearer {}
 
 /**
  * <p>Specifies the parameters of a planned commitment purchase and starts the generation of the
@@ -119,7 +117,7 @@ export class StartCommitmentPurchaseAnalysisCommand extends $Command
   })
   .s("AWSInsightsIndexService", "StartCommitmentPurchaseAnalysis", {})
   .n("CostExplorerClient", "StartCommitmentPurchaseAnalysisCommand")
-  .sc(StartCommitmentPurchaseAnalysis)
+  .sc(StartCommitmentPurchaseAnalysis$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

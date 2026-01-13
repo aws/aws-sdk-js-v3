@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SetPlatformApplicationAttributesInput } from "../models/models_0";
-import { SetPlatformApplicationAttributes } from "../schemas/schemas_0";
+import { SetPlatformApplicationAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -91,7 +91,7 @@ export class SetPlatformApplicationAttributesCommand extends $Command
   })
   .s("AmazonSimpleNotificationService", "SetPlatformApplicationAttributes", {})
   .n("SNSClient", "SetPlatformApplicationAttributesCommand")
-  .sc(SetPlatformApplicationAttributes)
+  .sc(SetPlatformApplicationAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

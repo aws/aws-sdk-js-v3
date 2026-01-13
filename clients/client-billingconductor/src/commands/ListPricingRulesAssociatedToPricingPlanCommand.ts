@@ -13,7 +13,7 @@ import type {
   ListPricingRulesAssociatedToPricingPlanInput,
   ListPricingRulesAssociatedToPricingPlanOutput,
 } from "../models/models_0";
-import { ListPricingRulesAssociatedToPricingPlan } from "../schemas/schemas_0";
+import { ListPricingRulesAssociatedToPricingPlan$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListPricingRulesAssociatedToPricingPlanCommand}.
  */
-export interface ListPricingRulesAssociatedToPricingPlanCommandInput
-  extends ListPricingRulesAssociatedToPricingPlanInput {}
+export interface ListPricingRulesAssociatedToPricingPlanCommandInput extends ListPricingRulesAssociatedToPricingPlanInput {}
 /**
  * @public
  *
  * The output of {@link ListPricingRulesAssociatedToPricingPlanCommand}.
  */
-export interface ListPricingRulesAssociatedToPricingPlanCommandOutput
-  extends ListPricingRulesAssociatedToPricingPlanOutput,
-    __MetadataBearer {}
+export interface ListPricingRulesAssociatedToPricingPlanCommandOutput extends ListPricingRulesAssociatedToPricingPlanOutput, __MetadataBearer {}
 
 /**
  * <p> Lists the pricing rules that are associated with a pricing plan. </p>
@@ -106,7 +103,7 @@ export class ListPricingRulesAssociatedToPricingPlanCommand extends $Command
   })
   .s("AWSBillingConductor", "ListPricingRulesAssociatedToPricingPlan", {})
   .n("BillingconductorClient", "ListPricingRulesAssociatedToPricingPlanCommand")
-  .sc(ListPricingRulesAssociatedToPricingPlan)
+  .sc(ListPricingRulesAssociatedToPricingPlan$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

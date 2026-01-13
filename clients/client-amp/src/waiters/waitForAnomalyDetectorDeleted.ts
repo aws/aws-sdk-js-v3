@@ -10,12 +10,12 @@ import {
 const checkState = async (client: AmpClient, input: DescribeAnomalyDetectorCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeAnomalyDetectorCommand(input));
+    let result: any = await client.send(new DescribeAnomalyDetectorCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.anomalyDetector.status.statusCode;
-      };
+      }
       if (returnComparator() === "DELETING") {
         return { state: WaiterState.RETRY, reason };
       }

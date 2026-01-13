@@ -9,7 +9,7 @@ import type {
   StartActiveApprovalTeamDeletionResponse,
 } from "../models/models_0";
 import type { MPAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MPAClient";
-import { StartActiveApprovalTeamDeletion } from "../schemas/schemas_0";
+import { StartActiveApprovalTeamDeletion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface StartActiveApprovalTeamDeletionCommandInput extends StartActive
  *
  * The output of {@link StartActiveApprovalTeamDeletionCommand}.
  */
-export interface StartActiveApprovalTeamDeletionCommandOutput
-  extends StartActiveApprovalTeamDeletionResponse,
-    __MetadataBearer {}
+export interface StartActiveApprovalTeamDeletionCommandOutput extends StartActiveApprovalTeamDeletionResponse, __MetadataBearer {}
 
 /**
  * <p>Starts the deletion process for an active approval team.</p> <note> <p> <b>Deletions require team approval</b> </p> <p>Requests to delete an active team must be approved by the team.</p> </note>
@@ -98,7 +96,7 @@ export class StartActiveApprovalTeamDeletionCommand extends $Command
   })
   .s("AWSFluffyCoreService", "StartActiveApprovalTeamDeletion", {})
   .n("MPAClient", "StartActiveApprovalTeamDeletionCommand")
-  .sc(StartActiveApprovalTeamDeletion)
+  .sc(StartActiveApprovalTeamDeletion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

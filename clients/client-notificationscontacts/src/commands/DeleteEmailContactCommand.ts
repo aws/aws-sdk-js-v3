@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NotificationsContactsClient";
-import { DeleteEmailContact } from "../schemas/schemas_0";
+import { DeleteEmailContact$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DeleteEmailContactCommand extends $Command
   })
   .s("NotificationsContacts", "DeleteEmailContact", {})
   .n("NotificationsContactsClient", "DeleteEmailContactCommand")
-  .sc(DeleteEmailContact)
+  .sc(DeleteEmailContact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

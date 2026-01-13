@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCalculationExecutionCodeRequest, GetCalculationExecutionCodeResponse } from "../models/models_0";
-import { GetCalculationExecutionCode } from "../schemas/schemas_0";
+import { GetCalculationExecutionCode$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetCalculationExecutionCodeCommandInput extends GetCalculationE
  *
  * The output of {@link GetCalculationExecutionCodeCommand}.
  */
-export interface GetCalculationExecutionCodeCommandOutput
-  extends GetCalculationExecutionCodeResponse,
-    __MetadataBearer {}
+export interface GetCalculationExecutionCodeCommandOutput extends GetCalculationExecutionCodeResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the unencrypted code that was executed for the calculation.</p>
@@ -86,7 +84,7 @@ export class GetCalculationExecutionCodeCommand extends $Command
   })
   .s("AmazonAthena", "GetCalculationExecutionCode", {})
   .n("AthenaClient", "GetCalculationExecutionCodeCommand")
-  .sc(GetCalculationExecutionCode)
+  .sc(GetCalculationExecutionCode$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

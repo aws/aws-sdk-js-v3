@@ -5,6 +5,7 @@ import {
   AuditFrequency,
   AuditMitigationActionsExecutionStatus,
   AuditMitigationActionsTaskStatus,
+  AuditNotificationType,
   AuditTaskStatus,
   AuditTaskType,
   AuthenticationType,
@@ -59,7 +60,6 @@ import {
   ThingPrincipalType,
   VerificationState,
 } from "./enums";
-
 import {
   type AbortConfig,
   type AggregationType,
@@ -71,6 +71,7 @@ import {
   type BillingGroupProperties,
   type ClientCertificateConfig,
   type CommandPayload,
+  type CommandPreprocessor,
   type JobExecutionsRetryConfig,
   type JobExecutionsRolloutConfig,
   type MetricsExportConfig,
@@ -91,10 +92,12 @@ import {
   Action,
   ActiveViolation,
   AlertTarget,
+  AuditCheckConfiguration,
   AuditCheckDetails,
   AuditFinding,
   AuditMitigationActionExecutionMetadata,
   AuditMitigationActionsTaskMetadata,
+  AuditNotificationTarget,
   AuditSuppression,
   AuditTaskMetadata,
   AuthorizerSummary,
@@ -103,7 +106,6 @@ import {
   CommandParameterValue,
   MaintenanceWindow,
   MetricToRetain,
-  MitigationAction,
   OTAUpdateFile,
   Policy,
   RelatedResource,
@@ -111,6 +113,102 @@ import {
   Tag,
   TaskStatisticsForAuditCheck,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DescribeAccountAuditConfigurationRequest {}
+
+/**
+ * @public
+ */
+export interface DescribeAccountAuditConfigurationResponse {
+  /**
+   * <p>The ARN of the role that grants permission to IoT to access information
+   *             about your devices, policies, certificates, and other items as required when
+   *             performing an audit.</p>
+   *          <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
+   *             this parameter is required.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>Information about the targets to which audit notifications are sent for
+   *             this account.</p>
+   * @public
+   */
+  auditNotificationTargetConfigurations?: Partial<Record<AuditNotificationType, AuditNotificationTarget>> | undefined;
+
+  /**
+   * <p>Which audit checks are enabled and disabled for this account.</p>
+   * @public
+   */
+  auditCheckConfigurations?: Record<string, AuditCheckConfiguration> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAuditFindingRequest {
+  /**
+   * <p>A unique identifier for a single audit finding. You can use this identifier to apply mitigation actions to the finding.</p>
+   * @public
+   */
+  findingId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAuditFindingResponse {
+  /**
+   * <p>The findings (results) of the audit.</p>
+   * @public
+   */
+  finding?: AuditFinding | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAuditMitigationActionsTaskRequest {
+  /**
+   * <p>The unique identifier for the audit mitigation task.</p>
+   * @public
+   */
+  taskId: string | undefined;
+}
+
+/**
+ * <p>Describes which changes should be applied as part of a mitigation action.</p>
+ * @public
+ */
+export interface MitigationAction {
+  /**
+   * <p>A user-friendly name for the mitigation action.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the mitigation action.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The IAM role ARN used to apply this mitigation action.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.</p>
+   * @public
+   */
+  actionParams?: MitigationActionParams | undefined;
+}
 
 /**
  * @public
@@ -1306,14 +1404,14 @@ export interface DescribeDomainConfigurationResponse {
 export interface DescribeEncryptionConfigurationRequest {}
 
 /**
- * <p>The encryption configuration details that include the status information of the Amazon Web Services Key Management Service (KMS) key and the KMS access role.</p>
+ * <p>The encryption configuration details that include the status information of the Key Management Service (KMS) key and the KMS access role.</p>
  * @public
  */
 export interface ConfigurationDetails {
   /**
    * <p>The health status of KMS key and KMS access role. If either KMS key or KMS access role
    *          is <code>UNHEALTHY</code>, the return value will be <code>UNHEALTHY</code>. To use a
-   *          customer-managed KMS key, the value of <code>configurationStatus</code> must be
+   *          customer managed KMS key, the value of <code>configurationStatus</code> must be
    *             <code>HEALTHY</code>. </p>
    * @public
    */
@@ -1339,20 +1437,20 @@ export interface ConfigurationDetails {
  */
 export interface DescribeEncryptionConfigurationResponse {
   /**
-   * <p>The type of the Amazon Web Services Key Management Service (KMS) key.</p>
+   * <p>The type of the KMS key.</p>
    * @public
    */
   encryptionType?: EncryptionType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role assumed by Amazon Web Services IoT Core to call KMS on
-   *          behalf of the customer.</p>
+   * <p>The ARN of the customer managed KMS key.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The ARN of the customer-managed KMS key.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role assumed by Amazon Web Services IoT Core to call KMS on
+   *          behalf of the customer.</p>
    * @public
    */
   kmsAccessRoleArn?: string | undefined;
@@ -3587,6 +3685,18 @@ export interface GetCommandResponse {
   payload?: CommandPayload | undefined;
 
   /**
+   * <p>The payload template for the dynamic command.</p>
+   * @public
+   */
+  payloadTemplate?: string | undefined;
+
+  /**
+   * <p>Configuration that determines how <code>payloadTemplate</code> is processed to generate command execution payload.</p>
+   * @public
+   */
+  preprocessor?: CommandPreprocessor | undefined;
+
+  /**
    * <p>The IAM role that you provided when creating the command with <code>AWS-IoT-FleetWise</code>
    *         as the namespace.</p>
    * @public
@@ -4961,7 +5071,47 @@ export interface GetTopicRuleDestinationResponse {
 /**
  * @public
  */
-export interface GetV2LoggingOptionsRequest {}
+export interface GetV2LoggingOptionsRequest {
+  /**
+   * <p>
+   *          The flag is used to get all the event types and their respective configuration that event-based logging supports.
+   *       </p>
+   * @public
+   */
+  verbose?: boolean | undefined;
+}
+
+/**
+ * <p>
+ *          Configuration for event-based logging that specifies which event types to log and their logging settings. Used for account-level logging overrides.
+ *       </p>
+ * @public
+ */
+export interface LogEventConfiguration {
+  /**
+   * <p>
+   *          The type of event to log. These include event types like Connect, Publish, and Disconnect.
+   *       </p>
+   * @public
+   */
+  eventType: string | undefined;
+
+  /**
+   * <p>
+   *          The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
+   *       </p>
+   * @public
+   */
+  logLevel?: LogLevel | undefined;
+
+  /**
+   * <p>
+   *          CloudWatch Log Group for event-based logging. Specifies where log events should be sent. The log destination for event-based logging overrides default Log Group for the specified event type and applies to all resources associated with that event.
+   *       </p>
+   * @public
+   */
+  logDestination?: string | undefined;
+}
 
 /**
  * @public
@@ -4984,6 +5134,14 @@ export interface GetV2LoggingOptionsResponse {
    * @public
    */
   disableAllLogs?: boolean | undefined;
+
+  /**
+   * <p>
+   *          The list of event configurations that override account-level logging.
+   *       </p>
+   * @public
+   */
+  eventConfigurations?: LogEventConfiguration[] | undefined;
 }
 
 /**
@@ -8479,167 +8637,4 @@ export interface ListTargetsForPolicyResponse {
    * @public
    */
   nextMarker?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTargetsForSecurityProfileRequest {
-  /**
-   * <p>The security profile.</p>
-   * @public
-   */
-  securityProfileName: string | undefined;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTargetsForSecurityProfileResponse {
-  /**
-   * <p>The thing groups to which the security profile is attached.</p>
-   * @public
-   */
-  securityProfileTargets?: SecurityProfileTarget[] | undefined;
-
-  /**
-   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
-   *         additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListThingGroupsRequest {
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>A filter that limits the results to those with the specified parent group.</p>
-   * @public
-   */
-  parentGroup?: string | undefined;
-
-  /**
-   * <p>A filter that limits the results to those with the specified name prefix.</p>
-   * @public
-   */
-  namePrefixFilter?: string | undefined;
-
-  /**
-   * <p>If true, return child groups as well.</p>
-   * @public
-   */
-  recursive?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ListThingGroupsResponse {
-  /**
-   * <p>The thing groups.</p>
-   * @public
-   */
-  thingGroups?: GroupNameAndArn[] | undefined;
-
-  /**
-   * <p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListThingGroupsForThingRequest {
-  /**
-   * <p>The thing name.</p>
-   * @public
-   */
-  thingName: string | undefined;
-
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListThingGroupsForThingResponse {
-  /**
-   * <p>The thing groups.</p>
-   * @public
-   */
-  thingGroups?: GroupNameAndArn[] | undefined;
-
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>The input for the ListThingPrincipal operation.</p>
- * @public
- */
-export interface ListThingPrincipalsRequest {
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The name of the thing.</p>
-   * @public
-   */
-  thingName: string | undefined;
 }

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TestMigrationMessage, TestMigrationResponse } from "../models/models_0";
-import { TestMigration } from "../schemas/schemas_0";
+import { TestMigration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -211,7 +211,7 @@ export class TestMigrationCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "TestMigration", {})
   .n("ElastiCacheClient", "TestMigrationCommand")
-  .sc(TestMigration)
+  .sc(TestMigration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

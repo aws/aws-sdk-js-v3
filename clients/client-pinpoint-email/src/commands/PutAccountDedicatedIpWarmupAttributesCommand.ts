@@ -9,7 +9,7 @@ import type {
   PutAccountDedicatedIpWarmupAttributesResponse,
 } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { PutAccountDedicatedIpWarmupAttributes } from "../schemas/schemas_0";
+import { PutAccountDedicatedIpWarmupAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutAccountDedicatedIpWarmupAttributesCommand}.
  */
-export interface PutAccountDedicatedIpWarmupAttributesCommandInput
-  extends PutAccountDedicatedIpWarmupAttributesRequest {}
+export interface PutAccountDedicatedIpWarmupAttributesCommandInput extends PutAccountDedicatedIpWarmupAttributesRequest {}
 /**
  * @public
  *
  * The output of {@link PutAccountDedicatedIpWarmupAttributesCommand}.
  */
-export interface PutAccountDedicatedIpWarmupAttributesCommandOutput
-  extends PutAccountDedicatedIpWarmupAttributesResponse,
-    __MetadataBearer {}
+export interface PutAccountDedicatedIpWarmupAttributesCommandOutput extends PutAccountDedicatedIpWarmupAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Enable or disable the automatic warm-up feature for dedicated IP addresses.</p>
@@ -83,7 +80,7 @@ export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "PutAccountDedicatedIpWarmupAttributes", {})
   .n("PinpointEmailClient", "PutAccountDedicatedIpWarmupAttributesCommand")
-  .sc(PutAccountDedicatedIpWarmupAttributes)
+  .sc(PutAccountDedicatedIpWarmupAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

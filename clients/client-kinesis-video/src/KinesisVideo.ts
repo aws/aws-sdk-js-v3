@@ -204,8 +204,14 @@ export interface KinesisVideo {
   /**
    * @see {@link CreateStreamCommand}
    */
-  createStream(args: CreateStreamCommandInput, options?: __HttpHandlerOptions): Promise<CreateStreamCommandOutput>;
-  createStream(args: CreateStreamCommandInput, cb: (err: any, data?: CreateStreamCommandOutput) => void): void;
+  createStream(
+    args: CreateStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStreamCommandOutput>;
+  createStream(
+    args: CreateStreamCommandInput,
+    cb: (err: any, data?: CreateStreamCommandOutput) => void
+  ): void;
   createStream(
     args: CreateStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -250,8 +256,14 @@ export interface KinesisVideo {
   /**
    * @see {@link DeleteStreamCommand}
    */
-  deleteStream(args: DeleteStreamCommandInput, options?: __HttpHandlerOptions): Promise<DeleteStreamCommandOutput>;
-  deleteStream(args: DeleteStreamCommandInput, cb: (err: any, data?: DeleteStreamCommandOutput) => void): void;
+  deleteStream(
+    args: DeleteStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStreamCommandOutput>;
+  deleteStream(
+    args: DeleteStreamCommandInput,
+    cb: (err: any, data?: DeleteStreamCommandOutput) => void
+  ): void;
   deleteStream(
     args: DeleteStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -374,7 +386,10 @@ export interface KinesisVideo {
     args: DescribeStreamCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeStreamCommandOutput>;
-  describeStream(args: DescribeStreamCommandInput, cb: (err: any, data?: DescribeStreamCommandOutput) => void): void;
+  describeStream(
+    args: DescribeStreamCommandInput,
+    cb: (err: any, data?: DescribeStreamCommandOutput) => void
+  ): void;
   describeStream(
     args: DescribeStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -406,7 +421,10 @@ export interface KinesisVideo {
     args: GetDataEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDataEndpointCommandOutput>;
-  getDataEndpoint(args: GetDataEndpointCommandInput, cb: (err: any, data?: GetDataEndpointCommandOutput) => void): void;
+  getDataEndpoint(
+    args: GetDataEndpointCommandInput,
+    cb: (err: any, data?: GetDataEndpointCommandOutput) => void
+  ): void;
   getDataEndpoint(
     args: GetDataEndpointCommandInput,
     options: __HttpHandlerOptions,
@@ -469,8 +487,14 @@ export interface KinesisVideo {
    * @see {@link ListStreamsCommand}
    */
   listStreams(): Promise<ListStreamsCommandOutput>;
-  listStreams(args: ListStreamsCommandInput, options?: __HttpHandlerOptions): Promise<ListStreamsCommandOutput>;
-  listStreams(args: ListStreamsCommandInput, cb: (err: any, data?: ListStreamsCommandOutput) => void): void;
+  listStreams(
+    args: ListStreamsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStreamsCommandOutput>;
+  listStreams(
+    args: ListStreamsCommandInput,
+    cb: (err: any, data?: ListStreamsCommandOutput) => void
+  ): void;
   listStreams(
     args: ListStreamsCommandInput,
     options: __HttpHandlerOptions,
@@ -532,8 +556,14 @@ export interface KinesisVideo {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -543,8 +573,14 @@ export interface KinesisVideo {
   /**
    * @see {@link TagStreamCommand}
    */
-  tagStream(args: TagStreamCommandInput, options?: __HttpHandlerOptions): Promise<TagStreamCommandOutput>;
-  tagStream(args: TagStreamCommandInput, cb: (err: any, data?: TagStreamCommandOutput) => void): void;
+  tagStream(
+    args: TagStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagStreamCommandOutput>;
+  tagStream(
+    args: TagStreamCommandInput,
+    cb: (err: any, data?: TagStreamCommandOutput) => void
+  ): void;
   tagStream(
     args: TagStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -554,8 +590,14 @@ export interface KinesisVideo {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -565,8 +607,14 @@ export interface KinesisVideo {
   /**
    * @see {@link UntagStreamCommand}
    */
-  untagStream(args: UntagStreamCommandInput, options?: __HttpHandlerOptions): Promise<UntagStreamCommandOutput>;
-  untagStream(args: UntagStreamCommandInput, cb: (err: any, data?: UntagStreamCommandOutput) => void): void;
+  untagStream(
+    args: UntagStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagStreamCommandOutput>;
+  untagStream(
+    args: UntagStreamCommandInput,
+    cb: (err: any, data?: UntagStreamCommandOutput) => void
+  ): void;
   untagStream(
     args: UntagStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -663,8 +711,14 @@ export interface KinesisVideo {
   /**
    * @see {@link UpdateStreamCommand}
    */
-  updateStream(args: UpdateStreamCommandInput, options?: __HttpHandlerOptions): Promise<UpdateStreamCommandOutput>;
-  updateStream(args: UpdateStreamCommandInput, cb: (err: any, data?: UpdateStreamCommandOutput) => void): void;
+  updateStream(
+    args: UpdateStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateStreamCommandOutput>;
+  updateStream(
+    args: UpdateStreamCommandInput,
+    cb: (err: any, data?: UpdateStreamCommandOutput) => void
+  ): void;
   updateStream(
     args: UpdateStreamCommandInput,
     options: __HttpHandlerOptions,

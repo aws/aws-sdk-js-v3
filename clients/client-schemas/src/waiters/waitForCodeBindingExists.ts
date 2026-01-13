@@ -7,12 +7,12 @@ import { SchemasClient } from "../SchemasClient";
 const checkState = async (client: SchemasClient, input: DescribeCodeBindingCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeCodeBindingCommand(input));
+    let result: any = await client.send(new DescribeCodeBindingCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "CREATE_COMPLETE") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: SchemasClient, input: DescribeCodeBindingComma
     try {
       const returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "CREATE_IN_PROGRESS") {
         return { state: WaiterState.RETRY, reason };
       }
@@ -28,7 +28,7 @@ const checkState = async (client: SchemasClient, input: DescribeCodeBindingComma
     try {
       const returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "CREATE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

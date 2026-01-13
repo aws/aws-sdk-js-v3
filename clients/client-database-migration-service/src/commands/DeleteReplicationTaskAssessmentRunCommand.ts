@@ -13,7 +13,7 @@ import type {
   DeleteReplicationTaskAssessmentRunMessage,
   DeleteReplicationTaskAssessmentRunResponse,
 } from "../models/models_0";
-import { DeleteReplicationTaskAssessmentRun } from "../schemas/schemas_0";
+import { DeleteReplicationTaskAssessmentRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DeleteReplicationTaskAssessmentRunCommandInput extends DeleteRe
  *
  * The output of {@link DeleteReplicationTaskAssessmentRunCommand}.
  */
-export interface DeleteReplicationTaskAssessmentRunCommandOutput
-  extends DeleteReplicationTaskAssessmentRunResponse,
-    __MetadataBearer {}
+export interface DeleteReplicationTaskAssessmentRunCommandOutput extends DeleteReplicationTaskAssessmentRunResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the record of a single premigration assessment run.</p>
@@ -120,7 +118,7 @@ export class DeleteReplicationTaskAssessmentRunCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DeleteReplicationTaskAssessmentRun", {})
   .n("DatabaseMigrationServiceClient", "DeleteReplicationTaskAssessmentRunCommand")
-  .sc(DeleteReplicationTaskAssessmentRun)
+  .sc(DeleteReplicationTaskAssessmentRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

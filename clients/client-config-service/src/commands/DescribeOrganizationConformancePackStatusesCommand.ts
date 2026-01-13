@@ -9,7 +9,7 @@ import type {
   DescribeOrganizationConformancePackStatusesRequest,
   DescribeOrganizationConformancePackStatusesResponse,
 } from "../models/models_0";
-import { DescribeOrganizationConformancePackStatuses } from "../schemas/schemas_0";
+import { DescribeOrganizationConformancePackStatuses$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeOrganizationConformancePackStatusesCommand}.
  */
-export interface DescribeOrganizationConformancePackStatusesCommandInput
-  extends DescribeOrganizationConformancePackStatusesRequest {}
+export interface DescribeOrganizationConformancePackStatusesCommandInput extends DescribeOrganizationConformancePackStatusesRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeOrganizationConformancePackStatusesCommand}.
  */
-export interface DescribeOrganizationConformancePackStatusesCommandOutput
-  extends DescribeOrganizationConformancePackStatusesResponse,
-    __MetadataBearer {}
+export interface DescribeOrganizationConformancePackStatusesCommandOutput extends DescribeOrganizationConformancePackStatusesResponse, __MetadataBearer {}
 
 /**
  * <p>Provides organization conformance pack deployment status for an organization. </p>
@@ -132,7 +129,7 @@ export class DescribeOrganizationConformancePackStatusesCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeOrganizationConformancePackStatuses", {})
   .n("ConfigServiceClient", "DescribeOrganizationConformancePackStatusesCommand")
-  .sc(DescribeOrganizationConformancePackStatuses)
+  .sc(DescribeOrganizationConformancePackStatuses$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

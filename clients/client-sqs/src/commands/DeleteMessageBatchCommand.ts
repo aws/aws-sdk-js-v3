@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteMessageBatchRequest, DeleteMessageBatchResult } from "../models/models_0";
-import { DeleteMessageBatch } from "../schemas/schemas_0";
+import { DeleteMessageBatch$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -138,7 +138,7 @@ export class DeleteMessageBatchCommand extends $Command
   })
   .s("AmazonSQS", "DeleteMessageBatch", {})
   .n("SQSClient", "DeleteMessageBatchCommand")
-  .sc(DeleteMessageBatch)
+  .sc(DeleteMessageBatch$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

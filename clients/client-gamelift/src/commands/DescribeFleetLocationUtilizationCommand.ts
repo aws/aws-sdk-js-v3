@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import type { DescribeFleetLocationUtilizationInput, DescribeFleetLocationUtilizationOutput } from "../models/models_0";
-import { DescribeFleetLocationUtilization } from "../schemas/schemas_0";
+import { DescribeFleetLocationUtilization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeFleetLocationUtilizationCommandInput extends DescribeFl
  *
  * The output of {@link DescribeFleetLocationUtilizationCommand}.
  */
-export interface DescribeFleetLocationUtilizationCommandOutput
-  extends DescribeFleetLocationUtilizationOutput,
-    __MetadataBearer {}
+export interface DescribeFleetLocationUtilizationCommandOutput extends DescribeFleetLocationUtilizationOutput, __MetadataBearer {}
 
 /**
  * <p>
@@ -122,7 +120,7 @@ export class DescribeFleetLocationUtilizationCommand extends $Command
   })
   .s("GameLift", "DescribeFleetLocationUtilization", {})
   .n("GameLiftClient", "DescribeFleetLocationUtilizationCommand")
-  .sc(DescribeFleetLocationUtilization)
+  .sc(DescribeFleetLocationUtilization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

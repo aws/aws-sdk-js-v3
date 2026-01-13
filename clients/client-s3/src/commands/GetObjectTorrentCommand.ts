@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputType
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type GetObjectTorrentRequest, GetObjectTorrentOutput } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetObjectTorrent } from "../schemas/schemas_0";
+import { GetObjectTorrent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class GetObjectTorrentCommand extends $Command
   })
   .s("AmazonS3", "GetObjectTorrent", {})
   .n("S3Client", "GetObjectTorrentCommand")
-  .sc(GetObjectTorrent)
+  .sc(GetObjectTorrent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

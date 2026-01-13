@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeImageUsageReportEntriesRequest, DescribeImageUsageReportEntriesResult } from "../models/models_3";
-import { DescribeImageUsageReportEntries } from "../schemas/schemas_0";
+import { DescribeImageUsageReportEntries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeImageUsageReportEntriesCommandInput extends DescribeIma
  *
  * The output of {@link DescribeImageUsageReportEntriesCommand}.
  */
-export interface DescribeImageUsageReportEntriesCommandOutput
-  extends DescribeImageUsageReportEntriesResult,
-    __MetadataBearer {}
+export interface DescribeImageUsageReportEntriesCommandOutput extends DescribeImageUsageReportEntriesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the entries in image usage reports, showing how your images are used across
@@ -104,7 +102,7 @@ export class DescribeImageUsageReportEntriesCommand extends $Command
   })
   .s("AmazonEC2", "DescribeImageUsageReportEntries", {})
   .n("EC2Client", "DescribeImageUsageReportEntriesCommand")
-  .sc(DescribeImageUsageReportEntries)
+  .sc(DescribeImageUsageReportEntries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

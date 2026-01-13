@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import type { TagGlobalResourceRequest } from "../models/models_1";
-import { TagGlobalResource } from "../schemas/schemas_0";
+import { TagGlobalResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class TagGlobalResourceCommand extends $Command
   })
   .s("MediaConnect", "TagGlobalResource", {})
   .n("MediaConnectClient", "TagGlobalResourceCommand")
-  .sc(TagGlobalResource)
+  .sc(TagGlobalResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

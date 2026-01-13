@@ -26,8 +26,9 @@ plugins {
     checkstyle
     jacoco
     id("com.github.spotbugs") version "6.3.0"
-    id("org.jreleaser") version "1.20.0"
-    id("com.diffplug.spotless") version "8.1.0"
+    id("org.jreleaser") version "1.21.0"
+    // spotless 8.x is incompatible with jreleaser 1.x (see https://github.com/jreleaser/jreleaser/issues/1989)
+    id("com.diffplug.spotless") version "7.2.1"
 }
 
 allprojects {
@@ -36,7 +37,7 @@ allprojects {
         mavenCentral()
     }
     group = "software.amazon.smithy.typescript"
-    version = "0.39.1"
+    version = "0.41.1"
 }
 
 // The root project doesn't produce a JAR.

@@ -213,8 +213,14 @@ export interface Detective {
    * @see {@link CreateGraphCommand}
    */
   createGraph(): Promise<CreateGraphCommandOutput>;
-  createGraph(args: CreateGraphCommandInput, options?: __HttpHandlerOptions): Promise<CreateGraphCommandOutput>;
-  createGraph(args: CreateGraphCommandInput, cb: (err: any, data?: CreateGraphCommandOutput) => void): void;
+  createGraph(
+    args: CreateGraphCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGraphCommandOutput>;
+  createGraph(
+    args: CreateGraphCommandInput,
+    cb: (err: any, data?: CreateGraphCommandOutput) => void
+  ): void;
   createGraph(
     args: CreateGraphCommandInput,
     options: __HttpHandlerOptions,
@@ -224,8 +230,14 @@ export interface Detective {
   /**
    * @see {@link CreateMembersCommand}
    */
-  createMembers(args: CreateMembersCommandInput, options?: __HttpHandlerOptions): Promise<CreateMembersCommandOutput>;
-  createMembers(args: CreateMembersCommandInput, cb: (err: any, data?: CreateMembersCommandOutput) => void): void;
+  createMembers(
+    args: CreateMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMembersCommandOutput>;
+  createMembers(
+    args: CreateMembersCommandInput,
+    cb: (err: any, data?: CreateMembersCommandOutput) => void
+  ): void;
   createMembers(
     args: CreateMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -235,8 +247,14 @@ export interface Detective {
   /**
    * @see {@link DeleteGraphCommand}
    */
-  deleteGraph(args: DeleteGraphCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGraphCommandOutput>;
-  deleteGraph(args: DeleteGraphCommandInput, cb: (err: any, data?: DeleteGraphCommandOutput) => void): void;
+  deleteGraph(
+    args: DeleteGraphCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGraphCommandOutput>;
+  deleteGraph(
+    args: DeleteGraphCommandInput,
+    cb: (err: any, data?: DeleteGraphCommandOutput) => void
+  ): void;
   deleteGraph(
     args: DeleteGraphCommandInput,
     options: __HttpHandlerOptions,
@@ -246,8 +264,14 @@ export interface Detective {
   /**
    * @see {@link DeleteMembersCommand}
    */
-  deleteMembers(args: DeleteMembersCommandInput, options?: __HttpHandlerOptions): Promise<DeleteMembersCommandOutput>;
-  deleteMembers(args: DeleteMembersCommandInput, cb: (err: any, data?: DeleteMembersCommandOutput) => void): void;
+  deleteMembers(
+    args: DeleteMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMembersCommandOutput>;
+  deleteMembers(
+    args: DeleteMembersCommandInput,
+    cb: (err: any, data?: DeleteMembersCommandOutput) => void
+  ): void;
   deleteMembers(
     args: DeleteMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -343,8 +367,14 @@ export interface Detective {
   /**
    * @see {@link GetMembersCommand}
    */
-  getMembers(args: GetMembersCommandInput, options?: __HttpHandlerOptions): Promise<GetMembersCommandOutput>;
-  getMembers(args: GetMembersCommandInput, cb: (err: any, data?: GetMembersCommandOutput) => void): void;
+  getMembers(
+    args: GetMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMembersCommandOutput>;
+  getMembers(
+    args: GetMembersCommandInput,
+    cb: (err: any, data?: GetMembersCommandOutput) => void
+  ): void;
   getMembers(
     args: GetMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -372,8 +402,14 @@ export interface Detective {
    * @see {@link ListGraphsCommand}
    */
   listGraphs(): Promise<ListGraphsCommandOutput>;
-  listGraphs(args: ListGraphsCommandInput, options?: __HttpHandlerOptions): Promise<ListGraphsCommandOutput>;
-  listGraphs(args: ListGraphsCommandInput, cb: (err: any, data?: ListGraphsCommandOutput) => void): void;
+  listGraphs(
+    args: ListGraphsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGraphsCommandOutput>;
+  listGraphs(
+    args: ListGraphsCommandInput,
+    cb: (err: any, data?: ListGraphsCommandOutput) => void
+  ): void;
   listGraphs(
     args: ListGraphsCommandInput,
     options: __HttpHandlerOptions,
@@ -387,7 +423,10 @@ export interface Detective {
     args: ListIndicatorsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListIndicatorsCommandOutput>;
-  listIndicators(args: ListIndicatorsCommandInput, cb: (err: any, data?: ListIndicatorsCommandOutput) => void): void;
+  listIndicators(
+    args: ListIndicatorsCommandInput,
+    cb: (err: any, data?: ListIndicatorsCommandOutput) => void
+  ): void;
   listIndicators(
     args: ListIndicatorsCommandInput,
     options: __HttpHandlerOptions,
@@ -419,7 +458,10 @@ export interface Detective {
     args: ListInvitationsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListInvitationsCommandOutput>;
-  listInvitations(args: ListInvitationsCommandInput, cb: (err: any, data?: ListInvitationsCommandOutput) => void): void;
+  listInvitations(
+    args: ListInvitationsCommandInput,
+    cb: (err: any, data?: ListInvitationsCommandOutput) => void
+  ): void;
   listInvitations(
     args: ListInvitationsCommandInput,
     options: __HttpHandlerOptions,
@@ -429,8 +471,14 @@ export interface Detective {
   /**
    * @see {@link ListMembersCommand}
    */
-  listMembers(args: ListMembersCommandInput, options?: __HttpHandlerOptions): Promise<ListMembersCommandOutput>;
-  listMembers(args: ListMembersCommandInput, cb: (err: any, data?: ListMembersCommandOutput) => void): void;
+  listMembers(
+    args: ListMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMembersCommandOutput>;
+  listMembers(
+    args: ListMembersCommandInput,
+    cb: (err: any, data?: ListMembersCommandOutput) => void
+  ): void;
   listMembers(
     args: ListMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -526,8 +574,14 @@ export interface Detective {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -537,8 +591,14 @@ export interface Detective {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

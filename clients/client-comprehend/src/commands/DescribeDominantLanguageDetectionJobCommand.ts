@@ -9,7 +9,7 @@ import type {
   DescribeDominantLanguageDetectionJobRequest,
   DescribeDominantLanguageDetectionJobResponse,
 } from "../models/models_0";
-import { DescribeDominantLanguageDetectionJob } from "../schemas/schemas_0";
+import { DescribeDominantLanguageDetectionJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeDominantLanguageDetectionJobCommandInput extends Descri
  *
  * The output of {@link DescribeDominantLanguageDetectionJobCommand}.
  */
-export interface DescribeDominantLanguageDetectionJobCommandOutput
-  extends DescribeDominantLanguageDetectionJobResponse,
-    __MetadataBearer {}
+export interface DescribeDominantLanguageDetectionJobCommandOutput extends DescribeDominantLanguageDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a dominant language detection job. Use this operation
@@ -124,7 +122,7 @@ export class DescribeDominantLanguageDetectionJobCommand extends $Command
   })
   .s("Comprehend_20171127", "DescribeDominantLanguageDetectionJob", {})
   .n("ComprehendClient", "DescribeDominantLanguageDetectionJobCommand")
-  .sc(DescribeDominantLanguageDetectionJob)
+  .sc(DescribeDominantLanguageDetectionJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

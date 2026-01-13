@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCapabilityRequest, DeleteCapabilityResponse } from "../models/models_0";
-import { DeleteCapability } from "../schemas/schemas_0";
+import { DeleteCapability$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class DeleteCapabilityCommand extends $Command
   })
   .s("AWSWesleyFrontend", "DeleteCapability", {})
   .n("EKSClient", "DeleteCapabilityCommand")
-  .sc(DeleteCapability)
+  .sc(DeleteCapability$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

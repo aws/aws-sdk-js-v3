@@ -9,7 +9,7 @@ import type {
   ListPlaybackRestrictionPoliciesRequest,
   ListPlaybackRestrictionPoliciesResponse,
 } from "../models/models_0";
-import { ListPlaybackRestrictionPolicies } from "../schemas/schemas_0";
+import { ListPlaybackRestrictionPolicies$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListPlaybackRestrictionPoliciesCommandInput extends ListPlaybac
  *
  * The output of {@link ListPlaybackRestrictionPoliciesCommand}.
  */
-export interface ListPlaybackRestrictionPoliciesCommandOutput
-  extends ListPlaybackRestrictionPoliciesResponse,
-    __MetadataBearer {}
+export interface ListPlaybackRestrictionPoliciesCommandOutput extends ListPlaybackRestrictionPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets summary information about playback restriction policies.</p>
@@ -107,7 +105,7 @@ export class ListPlaybackRestrictionPoliciesCommand extends $Command
   })
   .s("AmazonInteractiveVideoService", "ListPlaybackRestrictionPolicies", {})
   .n("IvsClient", "ListPlaybackRestrictionPoliciesCommand")
-  .sc(ListPlaybackRestrictionPolicies)
+  .sc(ListPlaybackRestrictionPolicies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

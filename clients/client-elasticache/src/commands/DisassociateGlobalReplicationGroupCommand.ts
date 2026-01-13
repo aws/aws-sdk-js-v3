@@ -9,7 +9,7 @@ import type {
   DisassociateGlobalReplicationGroupMessage,
   DisassociateGlobalReplicationGroupResult,
 } from "../models/models_0";
-import { DisassociateGlobalReplicationGroup } from "../schemas/schemas_0";
+import { DisassociateGlobalReplicationGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DisassociateGlobalReplicationGroupCommandInput extends Disassoc
  *
  * The output of {@link DisassociateGlobalReplicationGroupCommand}.
  */
-export interface DisassociateGlobalReplicationGroupCommandOutput
-  extends DisassociateGlobalReplicationGroupResult,
-    __MetadataBearer {}
+export interface DisassociateGlobalReplicationGroupCommandOutput extends DisassociateGlobalReplicationGroupResult, __MetadataBearer {}
 
 /**
  * <p>Remove a secondary cluster from the Global datastore using the Global datastore name.
@@ -121,7 +119,7 @@ export class DisassociateGlobalReplicationGroupCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "DisassociateGlobalReplicationGroup", {})
   .n("ElastiCacheClient", "DisassociateGlobalReplicationGroupCommand")
-  .sc(DisassociateGlobalReplicationGroup)
+  .sc(DisassociateGlobalReplicationGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

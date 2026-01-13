@@ -21,10 +21,4 @@ export const paginateGetQueryResultsWorkloadInsightsTopContributorsData: (
   NetworkFlowMonitorPaginationConfiguration,
   GetQueryResultsWorkloadInsightsTopContributorsDataCommandInput,
   GetQueryResultsWorkloadInsightsTopContributorsDataCommandOutput
->(
-  NetworkFlowMonitorClient,
-  GetQueryResultsWorkloadInsightsTopContributorsDataCommand,
-  "nextToken",
-  "nextToken",
-  "maxResults"
-);
+>(NetworkFlowMonitorClient, GetQueryResultsWorkloadInsightsTopContributorsDataCommand, "nextToken", "nextToken", "maxResults");

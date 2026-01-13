@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDomainRequest, CreateDomainResponse } from "../models/models_0";
-import { CreateDomain } from "../schemas/schemas_0";
+import { CreateDomain$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -132,7 +132,7 @@ export class CreateDomainCommand extends $Command
   })
   .s("VoiceID", "CreateDomain", {})
   .n("VoiceIDClient", "CreateDomainCommand")
-  .sc(CreateDomain)
+  .sc(CreateDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

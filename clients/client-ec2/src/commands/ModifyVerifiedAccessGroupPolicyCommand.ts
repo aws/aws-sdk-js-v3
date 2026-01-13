@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyVerifiedAccessGroupPolicyRequest, ModifyVerifiedAccessGroupPolicyResult } from "../models/models_6";
-import { ModifyVerifiedAccessGroupPolicy } from "../schemas/schemas_0";
+import { ModifyVerifiedAccessGroupPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ModifyVerifiedAccessGroupPolicyCommandInput extends ModifyVerif
  *
  * The output of {@link ModifyVerifiedAccessGroupPolicyCommand}.
  */
-export interface ModifyVerifiedAccessGroupPolicyCommandOutput
-  extends ModifyVerifiedAccessGroupPolicyResult,
-    __MetadataBearer {}
+export interface ModifyVerifiedAccessGroupPolicyCommandOutput extends ModifyVerifiedAccessGroupPolicyResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the specified Amazon Web Services Verified Access group policy.</p>
@@ -88,7 +86,7 @@ export class ModifyVerifiedAccessGroupPolicyCommand extends $Command
   })
   .s("AmazonEC2", "ModifyVerifiedAccessGroupPolicy", {})
   .n("EC2Client", "ModifyVerifiedAccessGroupPolicyCommand")
-  .sc(ModifyVerifiedAccessGroupPolicy)
+  .sc(ModifyVerifiedAccessGroupPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

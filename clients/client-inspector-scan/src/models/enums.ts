@@ -20,6 +20,7 @@ export type InternalServerExceptionReason =
 export const OutputFormat = {
   CYCLONE_DX_1_5: "CYCLONE_DX_1_5",
   INSPECTOR: "INSPECTOR",
+  INSPECTOR_ALT: "INSPECTOR_ALT",
 } as const;
 /**
  * @public

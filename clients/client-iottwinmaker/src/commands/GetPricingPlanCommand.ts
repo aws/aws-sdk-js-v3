@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import type { GetPricingPlanRequest, GetPricingPlanResponse } from "../models/models_0";
-import { GetPricingPlan } from "../schemas/schemas_0";
+import { GetPricingPlan$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class GetPricingPlanCommand extends $Command
   })
   .s("AWSIoTTwinMaker", "GetPricingPlan", {})
   .n("IoTTwinMakerClient", "GetPricingPlanCommand")
-  .sc(GetPricingPlan)
+  .sc(GetPricingPlan$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

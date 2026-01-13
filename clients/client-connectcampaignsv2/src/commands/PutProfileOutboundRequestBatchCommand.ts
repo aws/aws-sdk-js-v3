@@ -10,7 +10,7 @@ import type {
 } from "../ConnectCampaignsV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutProfileOutboundRequestBatchRequest, PutProfileOutboundRequestBatchResponse } from "../models/models_0";
-import { PutProfileOutboundRequestBatch } from "../schemas/schemas_0";
+import { PutProfileOutboundRequestBatch$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface PutProfileOutboundRequestBatchCommandInput extends PutProfileOu
  *
  * The output of {@link PutProfileOutboundRequestBatchCommand}.
  */
-export interface PutProfileOutboundRequestBatchCommandOutput
-  extends PutProfileOutboundRequestBatchResponse,
-    __MetadataBearer {}
+export interface PutProfileOutboundRequestBatchCommandOutput extends PutProfileOutboundRequestBatchResponse, __MetadataBearer {}
 
 /**
  * Takes in a list of profile outbound requests to be placed as part of an outbound campaign. This API is idempotent.
@@ -119,7 +117,7 @@ export class PutProfileOutboundRequestBatchCommand extends $Command
   })
   .s("AmazonConnectCampaignServiceV2", "PutProfileOutboundRequestBatch", {})
   .n("ConnectCampaignsV2Client", "PutProfileOutboundRequestBatchCommand")
-  .sc(PutProfileOutboundRequestBatch)
+  .sc(PutProfileOutboundRequestBatch$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutQueryDefinitionRequest, PutQueryDefinitionResponse } from "../models/models_0";
-import { PutQueryDefinition } from "../schemas/schemas_0";
+import { PutQueryDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class PutQueryDefinitionCommand extends $Command
   })
   .s("Logs_20140328", "PutQueryDefinition", {})
   .n("CloudWatchLogsClient", "PutQueryDefinitionCommand")
-  .sc(PutQueryDefinition)
+  .sc(PutQueryDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

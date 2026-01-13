@@ -9,7 +9,7 @@ import type {
   CreateDataRepositoryAssociationRequest,
   CreateDataRepositoryAssociationResponse,
 } from "../models/models_0";
-import { CreateDataRepositoryAssociation } from "../schemas/schemas_0";
+import { CreateDataRepositoryAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateDataRepositoryAssociationCommandInput extends CreateDataR
  *
  * The output of {@link CreateDataRepositoryAssociationCommand}.
  */
-export interface CreateDataRepositoryAssociationCommandOutput
-  extends CreateDataRepositoryAssociationResponse,
-    __MetadataBearer {}
+export interface CreateDataRepositoryAssociationCommandOutput extends CreateDataRepositoryAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon FSx for Lustre data repository association (DRA). A data
@@ -186,7 +184,7 @@ export class CreateDataRepositoryAssociationCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "CreateDataRepositoryAssociation", {})
   .n("FSxClient", "CreateDataRepositoryAssociationCommand")
-  .sc(CreateDataRepositoryAssociation)
+  .sc(CreateDataRepositoryAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

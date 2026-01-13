@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import type { ListJobsRequest, ListJobsResponse } from "../models/models_0";
-import { ListJobs } from "../schemas/schemas_0";
+import { ListJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -222,7 +222,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                     TimeDeltaUnits: "SECONDS" || "MILLISECONDS",
  * //                     UpconvertSTLToTeletext: "UPCONVERT" || "DISABLED",
  * //                   },
- * //                   SourceType: "ANCILLARY" || "DVB_SUB" || "EMBEDDED" || "SCTE20" || "SCC" || "TTML" || "STL" || "SRT" || "SMI" || "SMPTE_TT" || "TELETEXT" || "NULL_SOURCE" || "IMSC" || "WEBVTT",
+ * //                   SourceType: "ANCILLARY" || "DVB_SUB" || "EMBEDDED" || "SCTE20" || "SCC" || "TTML" || "STL" || "SRT" || "SMI" || "SMPTE_TT" || "TELETEXT" || "NULL_SOURCE" || "IMSC" || "WEBVTT" || "TT_3GPP",
  * //                   TeletextSourceSettings: { // TeletextSourceSettings
  * //                     PageNumber: "STRING_VALUE",
  * //                   },
@@ -315,6 +315,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //               FramerateDenominator: Number("int"),
  * //               FramerateNumerator: Number("int"),
  * //               Height: Number("int"),
+ * //               ImageInput: "STRING_VALUE",
  * //               SampleRate: Number("int"),
  * //               Width: Number("int"),
  * //             },
@@ -337,6 +338,48 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                   YPosition: Number("int"),
  * //                 },
  * //                 Input: { // VideoOverlayInput
+ * //                   AudioSelectors: {
+ * //                     "<keys>": {
+ * //                       AudioDurationCorrection: "DISABLED" || "AUTO" || "TRACK" || "FRAME" || "FORCE",
+ * //                       CustomLanguageCode: "STRING_VALUE",
+ * //                       DefaultSelection: "DEFAULT" || "NOT_DEFAULT",
+ * //                       ExternalAudioFileInput: "STRING_VALUE",
+ * //                       HlsRenditionGroupSettings: {
+ * //                         RenditionGroupId: "STRING_VALUE",
+ * //                         RenditionLanguageCode: "ENG" || "SPA" || "FRA" || "DEU" || "GER" || "ZHO" || "ARA" || "HIN" || "JPN" || "RUS" || "POR" || "ITA" || "URD" || "VIE" || "KOR" || "PAN" || "ABK" || "AAR" || "AFR" || "AKA" || "SQI" || "AMH" || "ARG" || "HYE" || "ASM" || "AVA" || "AVE" || "AYM" || "AZE" || "BAM" || "BAK" || "EUS" || "BEL" || "BEN" || "BIH" || "BIS" || "BOS" || "BRE" || "BUL" || "MYA" || "CAT" || "KHM" || "CHA" || "CHE" || "NYA" || "CHU" || "CHV" || "COR" || "COS" || "CRE" || "HRV" || "CES" || "DAN" || "DIV" || "NLD" || "DZO" || "ENM" || "EPO" || "EST" || "EWE" || "FAO" || "FIJ" || "FIN" || "FRM" || "FUL" || "GLA" || "GLG" || "LUG" || "KAT" || "ELL" || "GRN" || "GUJ" || "HAT" || "HAU" || "HEB" || "HER" || "HMO" || "HUN" || "ISL" || "IDO" || "IBO" || "IND" || "INA" || "ILE" || "IKU" || "IPK" || "GLE" || "JAV" || "KAL" || "KAN" || "KAU" || "KAS" || "KAZ" || "KIK" || "KIN" || "KIR" || "KOM" || "KON" || "KUA" || "KUR" || "LAO" || "LAT" || "LAV" || "LIM" || "LIN" || "LIT" || "LUB" || "LTZ" || "MKD" || "MLG" || "MSA" || "MAL" || "MLT" || "GLV" || "MRI" || "MAR" || "MAH" || "MON" || "NAU" || "NAV" || "NDE" || "NBL" || "NDO" || "NEP" || "SME" || "NOR" || "NOB" || "NNO" || "OCI" || "OJI" || "ORI" || "ORM" || "OSS" || "PLI" || "FAS" || "POL" || "PUS" || "QUE" || "QAA" || "RON" || "ROH" || "RUN" || "SMO" || "SAG" || "SAN" || "SRD" || "SRB" || "SNA" || "III" || "SND" || "SIN" || "SLK" || "SLV" || "SOM" || "SOT" || "SUN" || "SWA" || "SSW" || "SWE" || "TGL" || "TAH" || "TGK" || "TAM" || "TAT" || "TEL" || "THA" || "BOD" || "TIR" || "TON" || "TSO" || "TSN" || "TUR" || "TUK" || "TWI" || "UIG" || "UKR" || "UZB" || "VEN" || "VOL" || "WLN" || "CYM" || "FRY" || "WOL" || "XHO" || "YID" || "YOR" || "ZHA" || "ZUL" || "ORJ" || "QPC" || "TNG" || "SRP",
+ * //                         RenditionName: "STRING_VALUE",
+ * //                       },
+ * //                       LanguageCode: "ENG" || "SPA" || "FRA" || "DEU" || "GER" || "ZHO" || "ARA" || "HIN" || "JPN" || "RUS" || "POR" || "ITA" || "URD" || "VIE" || "KOR" || "PAN" || "ABK" || "AAR" || "AFR" || "AKA" || "SQI" || "AMH" || "ARG" || "HYE" || "ASM" || "AVA" || "AVE" || "AYM" || "AZE" || "BAM" || "BAK" || "EUS" || "BEL" || "BEN" || "BIH" || "BIS" || "BOS" || "BRE" || "BUL" || "MYA" || "CAT" || "KHM" || "CHA" || "CHE" || "NYA" || "CHU" || "CHV" || "COR" || "COS" || "CRE" || "HRV" || "CES" || "DAN" || "DIV" || "NLD" || "DZO" || "ENM" || "EPO" || "EST" || "EWE" || "FAO" || "FIJ" || "FIN" || "FRM" || "FUL" || "GLA" || "GLG" || "LUG" || "KAT" || "ELL" || "GRN" || "GUJ" || "HAT" || "HAU" || "HEB" || "HER" || "HMO" || "HUN" || "ISL" || "IDO" || "IBO" || "IND" || "INA" || "ILE" || "IKU" || "IPK" || "GLE" || "JAV" || "KAL" || "KAN" || "KAU" || "KAS" || "KAZ" || "KIK" || "KIN" || "KIR" || "KOM" || "KON" || "KUA" || "KUR" || "LAO" || "LAT" || "LAV" || "LIM" || "LIN" || "LIT" || "LUB" || "LTZ" || "MKD" || "MLG" || "MSA" || "MAL" || "MLT" || "GLV" || "MRI" || "MAR" || "MAH" || "MON" || "NAU" || "NAV" || "NDE" || "NBL" || "NDO" || "NEP" || "SME" || "NOR" || "NOB" || "NNO" || "OCI" || "OJI" || "ORI" || "ORM" || "OSS" || "PLI" || "FAS" || "POL" || "PUS" || "QUE" || "QAA" || "RON" || "ROH" || "RUN" || "SMO" || "SAG" || "SAN" || "SRD" || "SRB" || "SNA" || "III" || "SND" || "SIN" || "SLK" || "SLV" || "SOM" || "SOT" || "SUN" || "SWA" || "SSW" || "SWE" || "TGL" || "TAH" || "TGK" || "TAM" || "TAT" || "TEL" || "THA" || "BOD" || "TIR" || "TON" || "TSO" || "TSN" || "TUR" || "TUK" || "TWI" || "UIG" || "UKR" || "UZB" || "VEN" || "VOL" || "WLN" || "CYM" || "FRY" || "WOL" || "XHO" || "YID" || "YOR" || "ZHA" || "ZUL" || "ORJ" || "QPC" || "TNG" || "SRP",
+ * //                       Offset: Number("int"),
+ * //                       Pids: [
+ * //                         Number("int"),
+ * //                       ],
+ * //                       ProgramSelection: Number("int"),
+ * //                       RemixSettings: {
+ * //                         AudioDescriptionAudioChannel: Number("int"),
+ * //                         AudioDescriptionDataChannel: Number("int"),
+ * //                         ChannelMapping: {
+ * //                           OutputChannels: [
+ * //                             {
+ * //                               InputChannels: [
+ * //                                 Number("int"),
+ * //                               ],
+ * //                               InputChannelsFineTune: [
+ * //                                 Number("double"),
+ * //                               ],
+ * //                             },
+ * //                           ],
+ * //                         },
+ * //                         ChannelsIn: Number("int"),
+ * //                         ChannelsOut: Number("int"),
+ * //                       },
+ * //                       SelectorType: "PID" || "TRACK" || "LANGUAGE_CODE" || "HLS_RENDITION_GROUP" || "ALL_PCM" || "STREAM",
+ * //                       Streams: [
+ * //                         Number("int"),
+ * //                       ],
+ * //                       Tracks: "<__listOf__integerMin1Max2147483647>",
+ * //                     },
+ * //                   },
  * //                   FileInput: "STRING_VALUE",
  * //                   InputClippings: [ // __listOfVideoOverlayInputClipping
  * //                     { // VideoOverlayInputClipping
@@ -391,9 +434,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //               Rotate: "DEGREE_0" || "DEGREES_90" || "DEGREES_180" || "DEGREES_270" || "AUTO",
  * //               SampleRange: "FOLLOW" || "FULL_RANGE" || "LIMITED_RANGE",
  * //               SelectorType: "AUTO" || "STREAM",
- * //               Streams: [
- * //                 Number("int"),
- * //               ],
+ * //               Streams: "<__listOf__integerMin1Max2147483647>",
  * //             },
  * //           },
  * //         ],
@@ -922,24 +963,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                     CustomLanguageCode: "STRING_VALUE",
  * //                     LanguageCode: "ENG" || "SPA" || "FRA" || "DEU" || "GER" || "ZHO" || "ARA" || "HIN" || "JPN" || "RUS" || "POR" || "ITA" || "URD" || "VIE" || "KOR" || "PAN" || "ABK" || "AAR" || "AFR" || "AKA" || "SQI" || "AMH" || "ARG" || "HYE" || "ASM" || "AVA" || "AVE" || "AYM" || "AZE" || "BAM" || "BAK" || "EUS" || "BEL" || "BEN" || "BIH" || "BIS" || "BOS" || "BRE" || "BUL" || "MYA" || "CAT" || "KHM" || "CHA" || "CHE" || "NYA" || "CHU" || "CHV" || "COR" || "COS" || "CRE" || "HRV" || "CES" || "DAN" || "DIV" || "NLD" || "DZO" || "ENM" || "EPO" || "EST" || "EWE" || "FAO" || "FIJ" || "FIN" || "FRM" || "FUL" || "GLA" || "GLG" || "LUG" || "KAT" || "ELL" || "GRN" || "GUJ" || "HAT" || "HAU" || "HEB" || "HER" || "HMO" || "HUN" || "ISL" || "IDO" || "IBO" || "IND" || "INA" || "ILE" || "IKU" || "IPK" || "GLE" || "JAV" || "KAL" || "KAN" || "KAU" || "KAS" || "KAZ" || "KIK" || "KIN" || "KIR" || "KOM" || "KON" || "KUA" || "KUR" || "LAO" || "LAT" || "LAV" || "LIM" || "LIN" || "LIT" || "LUB" || "LTZ" || "MKD" || "MLG" || "MSA" || "MAL" || "MLT" || "GLV" || "MRI" || "MAR" || "MAH" || "MON" || "NAU" || "NAV" || "NDE" || "NBL" || "NDO" || "NEP" || "SME" || "NOR" || "NOB" || "NNO" || "OCI" || "OJI" || "ORI" || "ORM" || "OSS" || "PLI" || "FAS" || "POL" || "PUS" || "QUE" || "QAA" || "RON" || "ROH" || "RUN" || "SMO" || "SAG" || "SAN" || "SRD" || "SRB" || "SNA" || "III" || "SND" || "SIN" || "SLK" || "SLV" || "SOM" || "SOT" || "SUN" || "SWA" || "SSW" || "SWE" || "TGL" || "TAH" || "TGK" || "TAM" || "TAT" || "TEL" || "THA" || "BOD" || "TIR" || "TON" || "TSO" || "TSN" || "TUR" || "TUK" || "TWI" || "UIG" || "UKR" || "UZB" || "VEN" || "VOL" || "WLN" || "CYM" || "FRY" || "WOL" || "XHO" || "YID" || "YOR" || "ZHA" || "ZUL" || "ORJ" || "QPC" || "TNG" || "SRP",
  * //                     LanguageCodeControl: "FOLLOW_INPUT" || "USE_CONFIGURED",
- * //                     RemixSettings: {
- * //                       AudioDescriptionAudioChannel: Number("int"),
- * //                       AudioDescriptionDataChannel: Number("int"),
- * //                       ChannelMapping: {
- * //                         OutputChannels: [
- * //                           {
- * //                             InputChannels: [
- * //                               Number("int"),
- * //                             ],
- * //                             InputChannelsFineTune: [
- * //                               Number("double"),
- * //                             ],
- * //                           },
- * //                         ],
- * //                       },
- * //                       ChannelsIn: Number("int"),
- * //                       ChannelsOut: Number("int"),
- * //                     },
+ * //                     RemixSettings: "<RemixSettings>",
  * //                     StreamName: "STRING_VALUE",
  * //                   },
  * //                 ],
@@ -1353,6 +1377,8 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                       InterlaceMode: "PROGRESSIVE" || "TOP_FIELD" || "BOTTOM_FIELD" || "FOLLOW_TOP_FIELD" || "FOLLOW_BOTTOM_FIELD",
  * //                       MaxBitrate: Number("int"),
  * //                       MinIInterval: Number("int"),
+ * //                       MvOverPictureBoundaries: "ENABLED" || "DISABLED",
+ * //                       MvTemporalPredictor: "ENABLED" || "DISABLED",
  * //                       NumberBFramesBetweenReferenceFrames: Number("int"),
  * //                       NumberReferenceFrames: Number("int"),
  * //                       ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
@@ -1377,7 +1403,11 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                       Telecine: "NONE" || "SOFT" || "HARD",
  * //                       TemporalAdaptiveQuantization: "DISABLED" || "ENABLED",
  * //                       TemporalIds: "DISABLED" || "ENABLED",
+ * //                       TileHeight: Number("int"),
+ * //                       TilePadding: "NONE" || "PADDED",
+ * //                       TileWidth: Number("int"),
  * //                       Tiles: "DISABLED" || "ENABLED",
+ * //                       TreeBlockSize: "AUTO" || "TREE_SIZE_32X32",
  * //                       UnregisteredSeiTimecode: "DISABLED" || "ENABLED",
  * //                       WriteMp4PackagingType: "HVC1" || "HEV1",
  * //                     },
@@ -1748,7 +1778,7 @@ export class ListJobsCommand extends $Command
   })
   .s("MediaConvert", "ListJobs", {})
   .n("MediaConvertClient", "ListJobsCommand")
-  .sc(ListJobs)
+  .sc(ListJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   PutAccountDedicatedIpWarmupAttributesRequest,
   PutAccountDedicatedIpWarmupAttributesResponse,
 } from "../models/models_0";
-import { PutAccountDedicatedIpWarmupAttributes } from "../schemas/schemas_0";
+import { PutAccountDedicatedIpWarmupAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutAccountDedicatedIpWarmupAttributesCommand}.
  */
-export interface PutAccountDedicatedIpWarmupAttributesCommandInput
-  extends PutAccountDedicatedIpWarmupAttributesRequest {}
+export interface PutAccountDedicatedIpWarmupAttributesCommandInput extends PutAccountDedicatedIpWarmupAttributesRequest {}
 /**
  * @public
  *
  * The output of {@link PutAccountDedicatedIpWarmupAttributesCommand}.
  */
-export interface PutAccountDedicatedIpWarmupAttributesCommandOutput
-  extends PutAccountDedicatedIpWarmupAttributesResponse,
-    __MetadataBearer {}
+export interface PutAccountDedicatedIpWarmupAttributesCommandOutput extends PutAccountDedicatedIpWarmupAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Enable or disable the automatic warm-up feature for dedicated IP addresses.</p>
@@ -83,7 +80,7 @@ export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutAccountDedicatedIpWarmupAttributes", {})
   .n("SESv2Client", "PutAccountDedicatedIpWarmupAttributesCommand")
-  .sc(PutAccountDedicatedIpWarmupAttributes)
+  .sc(PutAccountDedicatedIpWarmupAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

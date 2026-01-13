@@ -43,13 +43,10 @@ import {
   type BodyLengthCalculator as __BodyLengthCalculator,
   type CheckOptionalClientConfig as __CheckOptionalClientConfig,
   type ChecksumConstructor as __ChecksumConstructor,
-  type ClientProtocol,
   type Decoder as __Decoder,
   type Encoder as __Encoder,
   type HashConstructor as __HashConstructor,
   type HttpHandlerOptions as __HttpHandlerOptions,
-  type HttpRequest,
-  type HttpResponse,
   type Logger as __Logger,
   type Provider as __Provider,
   type StreamCollector as __StreamCollector,
@@ -95,6 +92,10 @@ import {
   ListRoute53HealthChecksCommandOutput,
 } from "./commands/ListRoute53HealthChecksCommand";
 import {
+  ListRoute53HealthChecksInRegionCommandInput,
+  ListRoute53HealthChecksInRegionCommandOutput,
+} from "./commands/ListRoute53HealthChecksInRegionCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -138,6 +139,7 @@ export type ServiceInputTypes =
   | ListPlansCommandInput
   | ListPlansInRegionCommandInput
   | ListRoute53HealthChecksCommandInput
+  | ListRoute53HealthChecksInRegionCommandInput
   | ListTagsForResourceCommandInput
   | StartPlanExecutionCommandInput
   | TagResourceCommandInput
@@ -163,6 +165,7 @@ export type ServiceOutputTypes =
   | ListPlansCommandOutput
   | ListPlansInRegionCommandOutput
   | ListRoute53HealthChecksCommandOutput
+  | ListRoute53HealthChecksInRegionCommandOutput
   | ListTagsForResourceCommandOutput
   | StartPlanExecutionCommandOutput
   | TagResourceCommandOutput
@@ -315,16 +318,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * Optional extensions
    */
   extensions?: RuntimeExtension[];
-
-  /**
-   * The protocol controlling the message type (e.g. HTTP) and format (e.g. JSON)
-   * may be overridden. A default will always be set by the client.
-   * Available options depend on the service's supported protocols and will not be validated by
-   * the client.
-   * @alpha
-   *
-   */
-  protocol?: ClientProtocol<HttpRequest, HttpResponse>;
 
   /**
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.

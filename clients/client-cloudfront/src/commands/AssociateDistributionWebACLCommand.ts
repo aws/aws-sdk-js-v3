@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateDistributionWebACLRequest, AssociateDistributionWebACLResult } from "../models/models_0";
-import { AssociateDistributionWebACL } from "../schemas/schemas_0";
+import { AssociateDistributionWebACL$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -60,6 +60,9 @@ export interface AssociateDistributionWebACLCommandOutput extends AssociateDistr
  * @throws {@link AccessDenied} (client fault)
  *  <p>Access denied.</p>
  *
+ * @throws {@link EntityLimitExceeded} (client fault)
+ *  <p>The entity limit has been exceeded.</p>
+ *
  * @throws {@link EntityNotFound} (client fault)
  *  <p>The entity was not found.</p>
  *
@@ -92,7 +95,7 @@ export class AssociateDistributionWebACLCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "AssociateDistributionWebACL", {})
   .n("CloudFrontClient", "AssociateDistributionWebACLCommand")
-  .sc(AssociateDistributionWebACL)
+  .sc(AssociateDistributionWebACL$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

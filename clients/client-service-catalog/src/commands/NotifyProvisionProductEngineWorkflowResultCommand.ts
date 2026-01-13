@@ -8,7 +8,7 @@ import type {
   NotifyProvisionProductEngineWorkflowResultInput,
   NotifyProvisionProductEngineWorkflowResultOutput,
 } from "../models/models_0";
-import { NotifyProvisionProductEngineWorkflowResult } from "../schemas/schemas_0";
+import { NotifyProvisionProductEngineWorkflowResult$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link NotifyProvisionProductEngineWorkflowResultCommand}.
  */
-export interface NotifyProvisionProductEngineWorkflowResultCommandInput
-  extends NotifyProvisionProductEngineWorkflowResultInput {}
+export interface NotifyProvisionProductEngineWorkflowResultCommandInput extends NotifyProvisionProductEngineWorkflowResultInput {}
 /**
  * @public
  *
  * The output of {@link NotifyProvisionProductEngineWorkflowResultCommand}.
  */
-export interface NotifyProvisionProductEngineWorkflowResultCommandOutput
-  extends NotifyProvisionProductEngineWorkflowResultOutput,
-    __MetadataBearer {}
+export interface NotifyProvisionProductEngineWorkflowResultCommandOutput extends NotifyProvisionProductEngineWorkflowResultOutput, __MetadataBearer {}
 
 /**
  * <p>
@@ -107,7 +104,7 @@ export class NotifyProvisionProductEngineWorkflowResultCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "NotifyProvisionProductEngineWorkflowResult", {})
   .n("ServiceCatalogClient", "NotifyProvisionProductEngineWorkflowResultCommand")
-  .sc(NotifyProvisionProductEngineWorkflowResult)
+  .sc(NotifyProvisionProductEngineWorkflowResult$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

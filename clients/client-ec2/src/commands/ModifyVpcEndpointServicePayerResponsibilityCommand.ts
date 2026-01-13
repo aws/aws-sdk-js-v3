@@ -9,7 +9,7 @@ import type {
   ModifyVpcEndpointServicePayerResponsibilityRequest,
   ModifyVpcEndpointServicePayerResponsibilityResult,
 } from "../models/models_7";
-import { ModifyVpcEndpointServicePayerResponsibility } from "../schemas/schemas_0";
+import { ModifyVpcEndpointServicePayerResponsibility$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ModifyVpcEndpointServicePayerResponsibilityCommand}.
  */
-export interface ModifyVpcEndpointServicePayerResponsibilityCommandInput
-  extends ModifyVpcEndpointServicePayerResponsibilityRequest {}
+export interface ModifyVpcEndpointServicePayerResponsibilityCommandInput extends ModifyVpcEndpointServicePayerResponsibilityRequest {}
 /**
  * @public
  *
  * The output of {@link ModifyVpcEndpointServicePayerResponsibilityCommand}.
  */
-export interface ModifyVpcEndpointServicePayerResponsibilityCommandOutput
-  extends ModifyVpcEndpointServicePayerResponsibilityResult,
-    __MetadataBearer {}
+export interface ModifyVpcEndpointServicePayerResponsibilityCommandOutput extends ModifyVpcEndpointServicePayerResponsibilityResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the payer responsibility for your VPC endpoint service.</p>
@@ -81,7 +78,7 @@ export class ModifyVpcEndpointServicePayerResponsibilityCommand extends $Command
   })
   .s("AmazonEC2", "ModifyVpcEndpointServicePayerResponsibility", {})
   .n("EC2Client", "ModifyVpcEndpointServicePayerResponsibilityCommand")
-  .sc(ModifyVpcEndpointServicePayerResponsibility)
+  .sc(ModifyVpcEndpointServicePayerResponsibility$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

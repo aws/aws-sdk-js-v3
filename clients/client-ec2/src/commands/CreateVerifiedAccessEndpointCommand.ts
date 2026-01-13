@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateVerifiedAccessEndpointRequest, CreateVerifiedAccessEndpointResult } from "../models/models_2";
-import { CreateVerifiedAccessEndpoint } from "../schemas/schemas_0";
+import { CreateVerifiedAccessEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateVerifiedAccessEndpointCommandInput extends CreateVerified
  *
  * The output of {@link CreateVerifiedAccessEndpointCommand}.
  */
-export interface CreateVerifiedAccessEndpointCommandOutput
-  extends CreateVerifiedAccessEndpointResult,
-    __MetadataBearer {}
+export interface CreateVerifiedAccessEndpointCommandOutput extends CreateVerifiedAccessEndpointResult, __MetadataBearer {}
 
 /**
  * <p>An Amazon Web Services Verified Access endpoint is where you define your application along with an optional endpoint-level access policy.</p>
@@ -231,7 +229,7 @@ export class CreateVerifiedAccessEndpointCommand extends $Command
   })
   .s("AmazonEC2", "CreateVerifiedAccessEndpoint", {})
   .n("EC2Client", "CreateVerifiedAccessEndpointCommand")
-  .sc(CreateVerifiedAccessEndpoint)
+  .sc(CreateVerifiedAccessEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

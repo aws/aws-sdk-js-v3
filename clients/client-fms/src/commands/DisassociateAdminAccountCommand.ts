@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import type { DisassociateAdminAccountRequest } from "../models/models_0";
-import { DisassociateAdminAccount } from "../schemas/schemas_0";
+import { DisassociateAdminAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DisassociateAdminAccountCommand extends $Command
   })
   .s("AWSFMS_20180101", "DisassociateAdminAccount", {})
   .n("FMSClient", "DisassociateAdminAccountCommand")
-  .sc(DisassociateAdminAccount)
+  .sc(DisassociateAdminAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

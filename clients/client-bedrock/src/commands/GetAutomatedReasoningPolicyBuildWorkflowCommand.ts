@@ -9,7 +9,7 @@ import type {
   GetAutomatedReasoningPolicyBuildWorkflowRequest,
   GetAutomatedReasoningPolicyBuildWorkflowResponse,
 } from "../models/models_0";
-import { GetAutomatedReasoningPolicyBuildWorkflow } from "../schemas/schemas_0";
+import { GetAutomatedReasoningPolicyBuildWorkflow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetAutomatedReasoningPolicyBuildWorkflowCommand}.
  */
-export interface GetAutomatedReasoningPolicyBuildWorkflowCommandInput
-  extends GetAutomatedReasoningPolicyBuildWorkflowRequest {}
+export interface GetAutomatedReasoningPolicyBuildWorkflowCommandInput extends GetAutomatedReasoningPolicyBuildWorkflowRequest {}
 /**
  * @public
  *
  * The output of {@link GetAutomatedReasoningPolicyBuildWorkflowCommand}.
  */
-export interface GetAutomatedReasoningPolicyBuildWorkflowCommandOutput
-  extends GetAutomatedReasoningPolicyBuildWorkflowResponse,
-    __MetadataBearer {}
+export interface GetAutomatedReasoningPolicyBuildWorkflowCommandOutput extends GetAutomatedReasoningPolicyBuildWorkflowResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves detailed information about an Automated Reasoning policy build workflow, including its status, configuration, and metadata.</p>
@@ -103,7 +100,7 @@ export class GetAutomatedReasoningPolicyBuildWorkflowCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "GetAutomatedReasoningPolicyBuildWorkflow", {})
   .n("BedrockClient", "GetAutomatedReasoningPolicyBuildWorkflowCommand")
-  .sc(GetAutomatedReasoningPolicyBuildWorkflow)
+  .sc(GetAutomatedReasoningPolicyBuildWorkflow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53GlobalResolverClient";
-import { DisassociateHostedZone } from "../schemas/schemas_0";
+import { DisassociateHostedZone$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class DisassociateHostedZoneCommand extends $Command
   })
   .s("EC2DNSGlobalResolverCustomerAPI", "DisassociateHostedZone", {})
   .n("Route53GlobalResolverClient", "DisassociateHostedZoneCommand")
-  .sc(DisassociateHostedZone)
+  .sc(DisassociateHostedZone$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DescribeEncryptionConfigurationRequest,
   DescribeEncryptionConfigurationResponse,
 } from "../models/models_1";
-import { DescribeEncryptionConfiguration } from "../schemas/schemas_0";
+import { DescribeEncryptionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,13 +27,11 @@ export interface DescribeEncryptionConfigurationCommandInput extends DescribeEnc
  *
  * The output of {@link DescribeEncryptionConfigurationCommand}.
  */
-export interface DescribeEncryptionConfigurationCommandOutput
-  extends DescribeEncryptionConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeEncryptionConfigurationCommandOutput extends DescribeEncryptionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the encryption configuration for resources and data of your Amazon Web Services account in
- *          Amazon Web Services IoT Core. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/key-management.html">Key management in IoT</a> from
+ *          Amazon Web Services IoT Core. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/encryption-at-rest.html">Data encryption at rest</a> in
  *          the <i>Amazon Web Services IoT Core Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,7 +99,7 @@ export class DescribeEncryptionConfigurationCommand extends $Command
   })
   .s("AWSIotService", "DescribeEncryptionConfiguration", {})
   .n("IoTClient", "DescribeEncryptionConfigurationCommand")
-  .sc(DescribeEncryptionConfiguration)
+  .sc(DescribeEncryptionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

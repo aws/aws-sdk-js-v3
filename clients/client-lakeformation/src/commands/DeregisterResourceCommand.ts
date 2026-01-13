@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import type { DeregisterResourceRequest, DeregisterResourceResponse } from "../models/models_0";
-import { DeregisterResource } from "../schemas/schemas_0";
+import { DeregisterResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DeregisterResourceCommand extends $Command
   })
   .s("AWSLakeFormation", "DeregisterResource", {})
   .n("LakeFormationClient", "DeregisterResourceCommand")
-  .sc(DeregisterResource)
+  .sc(DeregisterResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

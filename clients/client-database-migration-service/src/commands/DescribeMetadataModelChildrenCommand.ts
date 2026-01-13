@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeMetadataModelChildrenMessage, DescribeMetadataModelChildrenResponse } from "../models/models_0";
-import { DescribeMetadataModelChildren } from "../schemas/schemas_0";
+import { DescribeMetadataModelChildren$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeMetadataModelChildrenCommandInput extends DescribeMetad
  *
  * The output of {@link DescribeMetadataModelChildrenCommand}.
  */
-export interface DescribeMetadataModelChildrenCommandOutput
-  extends DescribeMetadataModelChildrenResponse,
-    __MetadataBearer {}
+export interface DescribeMetadataModelChildrenCommandOutput extends DescribeMetadataModelChildrenResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of child metadata models for the specified metadata model in the database hierarchy.</p>
@@ -96,7 +94,7 @@ export class DescribeMetadataModelChildrenCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeMetadataModelChildren", {})
   .n("DatabaseMigrationServiceClient", "DescribeMetadataModelChildrenCommand")
-  .sc(DescribeMetadataModelChildren)
+  .sc(DescribeMetadataModelChildren$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

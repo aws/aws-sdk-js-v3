@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCloudFormationTemplateRequest, GetCloudFormationTemplateResponse } from "../models/models_0";
-import { GetCloudFormationTemplate } from "../schemas/schemas_0";
+import { GetCloudFormationTemplate$ } from "../schemas/schemas_0";
 import type {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
@@ -99,7 +99,7 @@ export class GetCloudFormationTemplateCommand extends $Command
   })
   .s("ServerlessApplicationRepository", "GetCloudFormationTemplate", {})
   .n("ServerlessApplicationRepositoryClient", "GetCloudFormationTemplateCommand")
-  .sc(GetCloudFormationTemplate)
+  .sc(GetCloudFormationTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

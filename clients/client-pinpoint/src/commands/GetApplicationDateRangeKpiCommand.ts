@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetApplicationDateRangeKpiRequest, GetApplicationDateRangeKpiResponse } from "../models/models_0";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetApplicationDateRangeKpi } from "../schemas/schemas_0";
+import { GetApplicationDateRangeKpi$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class GetApplicationDateRangeKpiCommand extends $Command
   })
   .s("Pinpoint", "GetApplicationDateRangeKpi", {})
   .n("PinpointClient", "GetApplicationDateRangeKpiCommand")
-  .sc(GetApplicationDateRangeKpi)
+  .sc(GetApplicationDateRangeKpi$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import type { StartEdgeConfigurationUpdateInput, StartEdgeConfigurationUpdateOutput } from "../models/models_0";
-import { StartEdgeConfigurationUpdate } from "../schemas/schemas_0";
+import { StartEdgeConfigurationUpdate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface StartEdgeConfigurationUpdateCommandInput extends StartEdgeConfi
  *
  * The output of {@link StartEdgeConfigurationUpdateCommand}.
  */
-export interface StartEdgeConfigurationUpdateCommandOutput
-  extends StartEdgeConfigurationUpdateOutput,
-    __MetadataBearer {}
+export interface StartEdgeConfigurationUpdateCommandOutput extends StartEdgeConfigurationUpdateOutput, __MetadataBearer {}
 
 /**
  * <p>An asynchronous API that updates a stream’s existing edge configuration.
@@ -184,7 +182,7 @@ export class StartEdgeConfigurationUpdateCommand extends $Command
   })
   .s("KinesisVideo_20170930", "StartEdgeConfigurationUpdate", {})
   .n("KinesisVideoClient", "StartEdgeConfigurationUpdateCommand")
-  .sc(StartEdgeConfigurationUpdate)
+  .sc(StartEdgeConfigurationUpdate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

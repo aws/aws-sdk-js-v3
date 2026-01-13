@@ -10,7 +10,7 @@ import type {
 } from "../ElasticsearchServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdatePackageRequest, UpdatePackageResponse } from "../models/models_0";
-import { UpdatePackage } from "../schemas/schemas_0";
+import { UpdatePackage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class UpdatePackageCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "UpdatePackage", {})
   .n("ElasticsearchServiceClient", "UpdatePackageCommand")
-  .sc(UpdatePackage)
+  .sc(UpdatePackage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

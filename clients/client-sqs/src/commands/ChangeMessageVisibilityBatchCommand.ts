@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ChangeMessageVisibilityBatchRequest, ChangeMessageVisibilityBatchResult } from "../models/models_0";
-import { ChangeMessageVisibilityBatch } from "../schemas/schemas_0";
+import { ChangeMessageVisibilityBatch$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -24,9 +24,7 @@ export interface ChangeMessageVisibilityBatchCommandInput extends ChangeMessageV
  *
  * The output of {@link ChangeMessageVisibilityBatchCommand}.
  */
-export interface ChangeMessageVisibilityBatchCommandOutput
-  extends ChangeMessageVisibilityBatchResult,
-    __MetadataBearer {}
+export interface ChangeMessageVisibilityBatchCommandOutput extends ChangeMessageVisibilityBatchResult, __MetadataBearer {}
 
 /**
  * <p>Changes the visibility timeout of multiple messages. This is a batch version of
@@ -145,7 +143,7 @@ export class ChangeMessageVisibilityBatchCommand extends $Command
   })
   .s("AmazonSQS", "ChangeMessageVisibilityBatch", {})
   .n("SQSClient", "ChangeMessageVisibilityBatchCommand")
-  .sc(ChangeMessageVisibilityBatch)
+  .sc(ChangeMessageVisibilityBatch$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

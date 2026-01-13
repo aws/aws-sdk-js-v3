@@ -67,6 +67,16 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  RebootDbClusterCommand,
+  RebootDbClusterCommandInput,
+  RebootDbClusterCommandOutput,
+} from "./commands/RebootDbClusterCommand";
+import {
+  RebootDbInstanceCommand,
+  RebootDbInstanceCommandInput,
+  RebootDbInstanceCommandOutput,
+} from "./commands/RebootDbInstanceCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -99,6 +109,8 @@ const commands = {
   ListDbInstancesForClusterCommand,
   ListDbParameterGroupsCommand,
   ListTagsForResourceCommand,
+  RebootDbClusterCommand,
+  RebootDbInstanceCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateDbClusterCommand,
@@ -113,7 +125,10 @@ export interface TimestreamInfluxDB {
     args: CreateDbClusterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDbClusterCommandOutput>;
-  createDbCluster(args: CreateDbClusterCommandInput, cb: (err: any, data?: CreateDbClusterCommandOutput) => void): void;
+  createDbCluster(
+    args: CreateDbClusterCommandInput,
+    cb: (err: any, data?: CreateDbClusterCommandOutput) => void
+  ): void;
   createDbCluster(
     args: CreateDbClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -161,7 +176,10 @@ export interface TimestreamInfluxDB {
     args: DeleteDbClusterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDbClusterCommandOutput>;
-  deleteDbCluster(args: DeleteDbClusterCommandInput, cb: (err: any, data?: DeleteDbClusterCommandOutput) => void): void;
+  deleteDbCluster(
+    args: DeleteDbClusterCommandInput,
+    cb: (err: any, data?: DeleteDbClusterCommandOutput) => void
+  ): void;
   deleteDbCluster(
     args: DeleteDbClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -188,8 +206,14 @@ export interface TimestreamInfluxDB {
   /**
    * @see {@link GetDbClusterCommand}
    */
-  getDbCluster(args: GetDbClusterCommandInput, options?: __HttpHandlerOptions): Promise<GetDbClusterCommandOutput>;
-  getDbCluster(args: GetDbClusterCommandInput, cb: (err: any, data?: GetDbClusterCommandOutput) => void): void;
+  getDbCluster(
+    args: GetDbClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDbClusterCommandOutput>;
+  getDbCluster(
+    args: GetDbClusterCommandInput,
+    cb: (err: any, data?: GetDbClusterCommandOutput) => void
+  ): void;
   getDbCluster(
     args: GetDbClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -199,8 +223,14 @@ export interface TimestreamInfluxDB {
   /**
    * @see {@link GetDbInstanceCommand}
    */
-  getDbInstance(args: GetDbInstanceCommandInput, options?: __HttpHandlerOptions): Promise<GetDbInstanceCommandOutput>;
-  getDbInstance(args: GetDbInstanceCommandInput, cb: (err: any, data?: GetDbInstanceCommandOutput) => void): void;
+  getDbInstance(
+    args: GetDbInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDbInstanceCommandOutput>;
+  getDbInstance(
+    args: GetDbInstanceCommandInput,
+    cb: (err: any, data?: GetDbInstanceCommandOutput) => void
+  ): void;
   getDbInstance(
     args: GetDbInstanceCommandInput,
     options: __HttpHandlerOptions,
@@ -232,7 +262,10 @@ export interface TimestreamInfluxDB {
     args: ListDbClustersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDbClustersCommandOutput>;
-  listDbClusters(args: ListDbClustersCommandInput, cb: (err: any, data?: ListDbClustersCommandOutput) => void): void;
+  listDbClusters(
+    args: ListDbClustersCommandInput,
+    cb: (err: any, data?: ListDbClustersCommandOutput) => void
+  ): void;
   listDbClusters(
     args: ListDbClustersCommandInput,
     options: __HttpHandlerOptions,
@@ -247,7 +280,10 @@ export interface TimestreamInfluxDB {
     args: ListDbInstancesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDbInstancesCommandOutput>;
-  listDbInstances(args: ListDbInstancesCommandInput, cb: (err: any, data?: ListDbInstancesCommandOutput) => void): void;
+  listDbInstances(
+    args: ListDbInstancesCommandInput,
+    cb: (err: any, data?: ListDbInstancesCommandOutput) => void
+  ): void;
   listDbInstances(
     args: ListDbInstancesCommandInput,
     options: __HttpHandlerOptions,
@@ -307,10 +343,50 @@ export interface TimestreamInfluxDB {
   ): void;
 
   /**
+   * @see {@link RebootDbClusterCommand}
+   */
+  rebootDbCluster(
+    args: RebootDbClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RebootDbClusterCommandOutput>;
+  rebootDbCluster(
+    args: RebootDbClusterCommandInput,
+    cb: (err: any, data?: RebootDbClusterCommandOutput) => void
+  ): void;
+  rebootDbCluster(
+    args: RebootDbClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RebootDbClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RebootDbInstanceCommand}
+   */
+  rebootDbInstance(
+    args: RebootDbInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RebootDbInstanceCommandOutput>;
+  rebootDbInstance(
+    args: RebootDbInstanceCommandInput,
+    cb: (err: any, data?: RebootDbInstanceCommandOutput) => void
+  ): void;
+  rebootDbInstance(
+    args: RebootDbInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RebootDbInstanceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -320,8 +396,14 @@ export interface TimestreamInfluxDB {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -335,7 +417,10 @@ export interface TimestreamInfluxDB {
     args: UpdateDbClusterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateDbClusterCommandOutput>;
-  updateDbCluster(args: UpdateDbClusterCommandInput, cb: (err: any, data?: UpdateDbClusterCommandOutput) => void): void;
+  updateDbCluster(
+    args: UpdateDbClusterCommandInput,
+    cb: (err: any, data?: UpdateDbClusterCommandOutput) => void
+  ): void;
   updateDbCluster(
     args: UpdateDbClusterCommandInput,
     options: __HttpHandlerOptions,

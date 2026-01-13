@@ -9,7 +9,7 @@ import type {
   GetWirelessGatewayFirmwareInformationRequest,
   GetWirelessGatewayFirmwareInformationResponse,
 } from "../models/models_0";
-import { GetWirelessGatewayFirmwareInformation } from "../schemas/schemas_0";
+import { GetWirelessGatewayFirmwareInformation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetWirelessGatewayFirmwareInformationCommand}.
  */
-export interface GetWirelessGatewayFirmwareInformationCommandInput
-  extends GetWirelessGatewayFirmwareInformationRequest {}
+export interface GetWirelessGatewayFirmwareInformationCommandInput extends GetWirelessGatewayFirmwareInformationRequest {}
 /**
  * @public
  *
  * The output of {@link GetWirelessGatewayFirmwareInformationCommand}.
  */
-export interface GetWirelessGatewayFirmwareInformationCommandOutput
-  extends GetWirelessGatewayFirmwareInformationResponse,
-    __MetadataBearer {}
+export interface GetWirelessGatewayFirmwareInformationCommandOutput extends GetWirelessGatewayFirmwareInformationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the firmware version and other information about a wireless gateway.</p>
@@ -100,7 +97,7 @@ export class GetWirelessGatewayFirmwareInformationCommand extends $Command
   })
   .s("iotwireless", "GetWirelessGatewayFirmwareInformation", {})
   .n("IoTWirelessClient", "GetWirelessGatewayFirmwareInformationCommand")
-  .sc(GetWirelessGatewayFirmwareInformation)
+  .sc(GetWirelessGatewayFirmwareInformation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   GetInterpolatedAssetPropertyValuesRequest,
   GetInterpolatedAssetPropertyValuesResponse,
 } from "../models/models_0";
-import { GetInterpolatedAssetPropertyValues } from "../schemas/schemas_0";
+import { GetInterpolatedAssetPropertyValues$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetInterpolatedAssetPropertyValuesCommandInput extends GetInter
  *
  * The output of {@link GetInterpolatedAssetPropertyValuesCommand}.
  */
-export interface GetInterpolatedAssetPropertyValuesCommandOutput
-  extends GetInterpolatedAssetPropertyValuesResponse,
-    __MetadataBearer {}
+export interface GetInterpolatedAssetPropertyValuesCommandOutput extends GetInterpolatedAssetPropertyValuesResponse, __MetadataBearer {}
 
 /**
  * <p>Get interpolated values for an asset property for a specified time interval, during a
@@ -140,7 +138,7 @@ export class GetInterpolatedAssetPropertyValuesCommand extends $Command
   })
   .s("AWSIoTSiteWise", "GetInterpolatedAssetPropertyValues", {})
   .n("IoTSiteWiseClient", "GetInterpolatedAssetPropertyValuesCommand")
-  .sc(GetInterpolatedAssetPropertyValues)
+  .sc(GetInterpolatedAssetPropertyValues$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

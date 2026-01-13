@@ -7,12 +7,12 @@ import { Route53Client } from "../Route53Client";
 const checkState = async (client: Route53Client, input: GetChangeCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetChangeCommand(input));
+    let result: any = await client.send(new GetChangeCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.ChangeInfo.Status;
-      };
+      }
       if (returnComparator() === "INSYNC") {
         return { state: WaiterState.SUCCESS, reason };
       }

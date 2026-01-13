@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { UpdateDevice } from "../schemas/schemas_0";
+import { UpdateDevice$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class UpdateDeviceCommand extends $Command
   })
   .s("NetworkManager", "UpdateDevice", {})
   .n("NetworkManagerClient", "UpdateDeviceCommand")
-  .sc(UpdateDevice)
+  .sc(UpdateDevice$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

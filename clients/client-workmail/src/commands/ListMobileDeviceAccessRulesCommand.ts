@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListMobileDeviceAccessRulesRequest, ListMobileDeviceAccessRulesResponse } from "../models/models_0";
-import { ListMobileDeviceAccessRules } from "../schemas/schemas_0";
+import { ListMobileDeviceAccessRules$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -24,9 +24,7 @@ export interface ListMobileDeviceAccessRulesCommandInput extends ListMobileDevic
  *
  * The output of {@link ListMobileDeviceAccessRulesCommand}.
  */
-export interface ListMobileDeviceAccessRulesCommandOutput
-  extends ListMobileDeviceAccessRulesResponse,
-    __MetadataBearer {}
+export interface ListMobileDeviceAccessRulesCommandOutput extends ListMobileDeviceAccessRulesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the mobile device access rules for the specified WorkMail organization.</p>
@@ -119,7 +117,7 @@ export class ListMobileDeviceAccessRulesCommand extends $Command
   })
   .s("WorkMailService", "ListMobileDeviceAccessRules", {})
   .n("WorkMailClient", "ListMobileDeviceAccessRulesCommand")
-  .sc(ListMobileDeviceAccessRules)
+  .sc(ListMobileDeviceAccessRules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetEffectiveHoursOfOperationsRequest, GetEffectiveHoursOfOperationsResponse } from "../models/models_1";
-import { GetEffectiveHoursOfOperations } from "../schemas/schemas_0";
+import { GetEffectiveHoursOfOperations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetEffectiveHoursOfOperationsCommandInput extends GetEffectiveH
  *
  * The output of {@link GetEffectiveHoursOfOperationsCommand}.
  */
-export interface GetEffectiveHoursOfOperationsCommandOutput
-  extends GetEffectiveHoursOfOperationsResponse,
-    __MetadataBearer {}
+export interface GetEffectiveHoursOfOperationsCommandOutput extends GetEffectiveHoursOfOperationsResponse, __MetadataBearer {}
 
 /**
  * <p>Get the hours of operations with the effective override applied.</p>
@@ -110,7 +108,7 @@ export class GetEffectiveHoursOfOperationsCommand extends $Command
   })
   .s("AmazonConnectService", "GetEffectiveHoursOfOperations", {})
   .n("ConnectClient", "GetEffectiveHoursOfOperationsCommand")
-  .sc(GetEffectiveHoursOfOperations)
+  .sc(GetEffectiveHoursOfOperations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

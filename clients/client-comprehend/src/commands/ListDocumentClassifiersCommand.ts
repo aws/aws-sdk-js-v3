@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListDocumentClassifiersRequest, ListDocumentClassifiersResponse } from "../models/models_0";
-import { ListDocumentClassifiers } from "../schemas/schemas_0";
+import { ListDocumentClassifiers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -170,7 +170,7 @@ export class ListDocumentClassifiersCommand extends $Command
   })
   .s("Comprehend_20171127", "ListDocumentClassifiers", {})
   .n("ComprehendClient", "ListDocumentClassifiersCommand")
-  .sc(ListDocumentClassifiers)
+  .sc(ListDocumentClassifiers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

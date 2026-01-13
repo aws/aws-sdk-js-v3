@@ -8,7 +8,7 @@ import type {
   ListMobileDeviceAccessOverridesRequest,
   ListMobileDeviceAccessOverridesResponse,
 } from "../models/models_0";
-import { ListMobileDeviceAccessOverrides } from "../schemas/schemas_0";
+import { ListMobileDeviceAccessOverrides$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -27,9 +27,7 @@ export interface ListMobileDeviceAccessOverridesCommandInput extends ListMobileD
  *
  * The output of {@link ListMobileDeviceAccessOverridesCommand}.
  */
-export interface ListMobileDeviceAccessOverridesCommandOutput
-  extends ListMobileDeviceAccessOverridesResponse,
-    __MetadataBearer {}
+export interface ListMobileDeviceAccessOverridesCommandOutput extends ListMobileDeviceAccessOverridesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the mobile device access overrides for any given combination of WorkMail organization, user, or device.</p>
@@ -107,7 +105,7 @@ export class ListMobileDeviceAccessOverridesCommand extends $Command
   })
   .s("WorkMailService", "ListMobileDeviceAccessOverrides", {})
   .n("WorkMailClient", "ListMobileDeviceAccessOverridesCommand")
-  .sc(ListMobileDeviceAccessOverrides)
+  .sc(ListMobileDeviceAccessOverrides$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

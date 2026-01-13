@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSamplingStatisticSummariesRequest, GetSamplingStatisticSummariesResult } from "../models/models_0";
-import { GetSamplingStatisticSummaries } from "../schemas/schemas_0";
+import { GetSamplingStatisticSummaries$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -24,9 +24,7 @@ export interface GetSamplingStatisticSummariesCommandInput extends GetSamplingSt
  *
  * The output of {@link GetSamplingStatisticSummariesCommand}.
  */
-export interface GetSamplingStatisticSummariesCommandOutput
-  extends GetSamplingStatisticSummariesResult,
-    __MetadataBearer {}
+export interface GetSamplingStatisticSummariesCommandOutput extends GetSamplingStatisticSummariesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about recent sampling results for all sampling rules.</p>
@@ -90,7 +88,7 @@ export class GetSamplingStatisticSummariesCommand extends $Command
   })
   .s("AWSXRay", "GetSamplingStatisticSummaries", {})
   .n("XRayClient", "GetSamplingStatisticSummariesCommand")
-  .sc(GetSamplingStatisticSummaries)
+  .sc(GetSamplingStatisticSummaries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

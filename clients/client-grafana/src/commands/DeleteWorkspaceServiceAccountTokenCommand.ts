@@ -9,7 +9,7 @@ import type {
   DeleteWorkspaceServiceAccountTokenRequest,
   DeleteWorkspaceServiceAccountTokenResponse,
 } from "../models/models_0";
-import { DeleteWorkspaceServiceAccountToken } from "../schemas/schemas_0";
+import { DeleteWorkspaceServiceAccountToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteWorkspaceServiceAccountTokenCommandInput extends DeleteWo
  *
  * The output of {@link DeleteWorkspaceServiceAccountTokenCommand}.
  */
-export interface DeleteWorkspaceServiceAccountTokenCommandOutput
-  extends DeleteWorkspaceServiceAccountTokenResponse,
-    __MetadataBearer {}
+export interface DeleteWorkspaceServiceAccountTokenCommandOutput extends DeleteWorkspaceServiceAccountTokenResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a token for the workspace service account.</p>
@@ -105,7 +103,7 @@ export class DeleteWorkspaceServiceAccountTokenCommand extends $Command
   })
   .s("AWSGrafanaControlPlane", "DeleteWorkspaceServiceAccountToken", {})
   .n("GrafanaClient", "DeleteWorkspaceServiceAccountTokenCommand")
-  .sc(DeleteWorkspaceServiceAccountToken)
+  .sc(DeleteWorkspaceServiceAccountToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

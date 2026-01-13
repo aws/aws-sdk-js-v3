@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { DeleteTagsForDomain } from "../schemas/schemas_0";
+import { DeleteTagsForDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteTagsForDomainCommand extends $Command
   })
   .s("Route53Domains_v20140515", "DeleteTagsForDomain", {})
   .n("Route53DomainsClient", "DeleteTagsForDomainCommand")
-  .sc(DeleteTagsForDomain)
+  .sc(DeleteTagsForDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

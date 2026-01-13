@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteImageRequest, DeleteImageResult } from "../models/models_0";
-import { DeleteImage } from "../schemas/schemas_0";
+import { DeleteImage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -52,7 +52,7 @@ export interface DeleteImageCommandOutput extends DeleteImageResult, __MetadataB
  * //     Visibility: "PUBLIC" || "PRIVATE" || "SHARED",
  * //     ImageBuilderSupported: true || false,
  * //     ImageBuilderName: "STRING_VALUE",
- * //     Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8",
+ * //     Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "WINDOWS_SERVER_2025" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8" || "UBUNTU_PRO_2404",
  * //     Description: "STRING_VALUE",
  * //     StateChangeReason: { // ImageStateChangeReason
  * //       Code: "INTERNAL_ERROR" || "IMAGE_BUILDER_NOT_AVAILABLE" || "IMAGE_COPY_FAILURE" || "IMAGE_UPDATE_FAILURE" || "IMAGE_IMPORT_FAILURE",
@@ -78,7 +78,7 @@ export interface DeleteImageCommandOutput extends DeleteImageResult, __MetadataB
  * //           S3Key: "STRING_VALUE",
  * //         },
  * //         Platforms: [ // Platforms
- * //           "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8",
+ * //           "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "WINDOWS_SERVER_2025" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8" || "UBUNTU_PRO_2404",
  * //         ],
  * //         InstanceFamilies: [ // StringList
  * //           "STRING_VALUE",
@@ -151,7 +151,7 @@ export class DeleteImageCommand extends $Command
   })
   .s("PhotonAdminProxyService", "DeleteImage", {})
   .n("AppStreamClient", "DeleteImageCommand")
-  .sc(DeleteImage)
+  .sc(DeleteImage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

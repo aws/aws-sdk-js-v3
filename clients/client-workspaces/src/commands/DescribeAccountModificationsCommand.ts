@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAccountModificationsRequest, DescribeAccountModificationsResult } from "../models/models_0";
-import { DescribeAccountModifications } from "../schemas/schemas_0";
+import { DescribeAccountModifications$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DescribeAccountModificationsCommandInput extends DescribeAccoun
  *
  * The output of {@link DescribeAccountModificationsCommand}.
  */
-export interface DescribeAccountModificationsCommandOutput
-  extends DescribeAccountModificationsResult,
-    __MetadataBearer {}
+export interface DescribeAccountModificationsCommandOutput extends DescribeAccountModificationsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes modifications to the configuration of Bring Your Own
@@ -89,7 +87,7 @@ export class DescribeAccountModificationsCommand extends $Command
   })
   .s("WorkspacesService", "DescribeAccountModifications", {})
   .n("WorkSpacesClient", "DescribeAccountModificationsCommand")
-  .sc(DescribeAccountModifications)
+  .sc(DescribeAccountModifications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -11,7 +11,7 @@ import type {
   GetAccessGrantsInstanceForPrefixResult,
 } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { GetAccessGrantsInstanceForPrefix } from "../schemas/schemas_0";
+import { GetAccessGrantsInstanceForPrefix$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -29,9 +29,7 @@ export interface GetAccessGrantsInstanceForPrefixCommandInput extends GetAccessG
  *
  * The output of {@link GetAccessGrantsInstanceForPrefixCommand}.
  */
-export interface GetAccessGrantsInstanceForPrefixCommandOutput
-  extends GetAccessGrantsInstanceForPrefixResult,
-    __MetadataBearer {}
+export interface GetAccessGrantsInstanceForPrefixCommandOutput extends GetAccessGrantsInstanceForPrefixResult, __MetadataBearer {}
 
 /**
  * <p>Retrieve the S3 Access Grants instance that contains a particular prefix.  </p>
@@ -100,7 +98,7 @@ export class GetAccessGrantsInstanceForPrefixCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "GetAccessGrantsInstanceForPrefix", {})
   .n("S3ControlClient", "GetAccessGrantsInstanceForPrefixCommand")
-  .sc(GetAccessGrantsInstanceForPrefix)
+  .sc(GetAccessGrantsInstanceForPrefix$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

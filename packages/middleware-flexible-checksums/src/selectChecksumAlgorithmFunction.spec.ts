@@ -1,8 +1,8 @@
 import { AwsCrc32c } from "@aws-crypto/crc32c";
+import { Crc64Nvme, crc64NvmeCrtContainer } from "@aws-sdk/crc64-nvme";
 import { describe, expect, test as it, vi } from "vitest";
 
 import { ChecksumAlgorithm } from "./constants";
-import { crc64NvmeCrtContainer } from "./crc64-nvme-crt-container";
 import { getCrc32ChecksumAlgorithmFunction } from "./getCrc32ChecksumAlgorithmFunction";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 
@@ -27,8 +27,9 @@ describe(selectChecksumAlgorithmFunction.name, () => {
     expect(() => selectChecksumAlgorithmFunction("UNSUPPORTED" as any, mockConfig as any)).toThrow();
   });
 
-  it("throws error if crc64NvmeCrtContainer.CrtCrc64Nvme is not a function", () => {
-    expect(() => selectChecksumAlgorithmFunction(ChecksumAlgorithm.CRC64NVME, mockConfig as any)).toThrow();
+  it("returns Crc64Nvme if crc64NvmeCrtContainer.CrtCrc64Nvme is not a function", () => {
+    crc64NvmeCrtContainer.CrtCrc64Nvme = null;
+    expect(selectChecksumAlgorithmFunction(ChecksumAlgorithm.CRC64NVME, mockConfig as any)).toBe(Crc64Nvme);
   });
 
   it("returns crc64NvmeCrtContainer.CrtCrc64Nvme if available from container", () => {

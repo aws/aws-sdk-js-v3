@@ -9,7 +9,7 @@ import type {
   DeletePushNotificationRegistrationRequest,
   DeletePushNotificationRegistrationResponse,
 } from "../models/models_1";
-import { DeletePushNotificationRegistration } from "../schemas/schemas_0";
+import { DeletePushNotificationRegistration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeletePushNotificationRegistrationCommandInput extends DeletePu
  *
  * The output of {@link DeletePushNotificationRegistrationCommand}.
  */
-export interface DeletePushNotificationRegistrationCommandOutput
-  extends DeletePushNotificationRegistrationResponse,
-    __MetadataBearer {}
+export interface DeletePushNotificationRegistrationCommandOutput extends DeletePushNotificationRegistrationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes registration for a device token and a chat contact.</p>
@@ -93,7 +91,7 @@ export class DeletePushNotificationRegistrationCommand extends $Command
   })
   .s("AmazonConnectService", "DeletePushNotificationRegistration", {})
   .n("ConnectClient", "DeletePushNotificationRegistrationCommand")
-  .sc(DeletePushNotificationRegistration)
+  .sc(DeletePushNotificationRegistration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

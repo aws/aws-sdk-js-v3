@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DescribeRegistrationVersions } from "../schemas/schemas_0";
+import { DescribeRegistrationVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeRegistrationVersionsCommandInput extends DescribeRegist
  *
  * The output of {@link DescribeRegistrationVersionsCommand}.
  */
-export interface DescribeRegistrationVersionsCommandOutput
-  extends DescribeRegistrationVersionsResult,
-    __MetadataBearer {}
+export interface DescribeRegistrationVersionsCommandOutput extends DescribeRegistrationVersionsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified registration version.</p>
@@ -70,6 +68,7 @@ export interface DescribeRegistrationVersionsCommandOutput
  * //       RegistrationVersionStatusHistory: { // RegistrationVersionStatusHistory
  * //         DraftTimestamp: new Date("TIMESTAMP"), // required
  * //         SubmittedTimestamp: new Date("TIMESTAMP"),
+ * //         AwsReviewingTimestamp: new Date("TIMESTAMP"),
  * //         ReviewingTimestamp: new Date("TIMESTAMP"),
  * //         RequiresAuthenticationTimestamp: new Date("TIMESTAMP"),
  * //         ApprovedTimestamp: new Date("TIMESTAMP"),
@@ -87,6 +86,7 @@ export interface DescribeRegistrationVersionsCommandOutput
  * //           DocumentationLink: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       Feedback: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -135,7 +135,7 @@ export class DescribeRegistrationVersionsCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DescribeRegistrationVersions", {})
   .n("PinpointSMSVoiceV2Client", "DescribeRegistrationVersionsCommand")
-  .sc(DescribeRegistrationVersions)
+  .sc(DescribeRegistrationVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

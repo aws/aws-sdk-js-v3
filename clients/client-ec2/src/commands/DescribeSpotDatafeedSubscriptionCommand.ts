@@ -9,7 +9,7 @@ import type {
   DescribeSpotDatafeedSubscriptionRequest,
   DescribeSpotDatafeedSubscriptionResult,
 } from "../models/models_4";
-import { DescribeSpotDatafeedSubscription } from "../schemas/schemas_0";
+import { DescribeSpotDatafeedSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeSpotDatafeedSubscriptionCommandInput extends DescribeSp
  *
  * The output of {@link DescribeSpotDatafeedSubscriptionCommand}.
  */
-export interface DescribeSpotDatafeedSubscriptionCommandOutput
-  extends DescribeSpotDatafeedSubscriptionResult,
-    __MetadataBearer {}
+export interface DescribeSpotDatafeedSubscriptionCommandOutput extends DescribeSpotDatafeedSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Describes the data feed for Spot Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
@@ -106,7 +104,7 @@ export class DescribeSpotDatafeedSubscriptionCommand extends $Command
   })
   .s("AmazonEC2", "DescribeSpotDatafeedSubscription", {})
   .n("EC2Client", "DescribeSpotDatafeedSubscriptionCommand")
-  .sc(DescribeSpotDatafeedSubscription)
+  .sc(DescribeSpotDatafeedSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

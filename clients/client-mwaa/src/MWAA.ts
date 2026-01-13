@@ -83,7 +83,10 @@ export interface MWAA {
     args: CreateCliTokenCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateCliTokenCommandOutput>;
-  createCliToken(args: CreateCliTokenCommandInput, cb: (err: any, data?: CreateCliTokenCommandOutput) => void): void;
+  createCliToken(
+    args: CreateCliTokenCommandInput,
+    cb: (err: any, data?: CreateCliTokenCommandOutput) => void
+  ): void;
   createCliToken(
     args: CreateCliTokenCommandInput,
     options: __HttpHandlerOptions,
@@ -148,7 +151,10 @@ export interface MWAA {
     args: GetEnvironmentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEnvironmentCommandOutput>;
-  getEnvironment(args: GetEnvironmentCommandInput, cb: (err: any, data?: GetEnvironmentCommandOutput) => void): void;
+  getEnvironment(
+    args: GetEnvironmentCommandInput,
+    cb: (err: any, data?: GetEnvironmentCommandOutput) => void
+  ): void;
   getEnvironment(
     args: GetEnvironmentCommandInput,
     options: __HttpHandlerOptions,
@@ -158,8 +164,14 @@ export interface MWAA {
   /**
    * @see {@link InvokeRestApiCommand}
    */
-  invokeRestApi(args: InvokeRestApiCommandInput, options?: __HttpHandlerOptions): Promise<InvokeRestApiCommandOutput>;
-  invokeRestApi(args: InvokeRestApiCommandInput, cb: (err: any, data?: InvokeRestApiCommandOutput) => void): void;
+  invokeRestApi(
+    args: InvokeRestApiCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeRestApiCommandOutput>;
+  invokeRestApi(
+    args: InvokeRestApiCommandInput,
+    cb: (err: any, data?: InvokeRestApiCommandOutput) => void
+  ): void;
   invokeRestApi(
     args: InvokeRestApiCommandInput,
     options: __HttpHandlerOptions,
@@ -208,7 +220,10 @@ export interface MWAA {
     args: PublishMetricsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PublishMetricsCommandOutput>;
-  publishMetrics(args: PublishMetricsCommandInput, cb: (err: any, data?: PublishMetricsCommandOutput) => void): void;
+  publishMetrics(
+    args: PublishMetricsCommandInput,
+    cb: (err: any, data?: PublishMetricsCommandOutput) => void
+  ): void;
   publishMetrics(
     args: PublishMetricsCommandInput,
     options: __HttpHandlerOptions,
@@ -218,8 +233,14 @@ export interface MWAA {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -229,8 +250,14 @@ export interface MWAA {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

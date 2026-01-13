@@ -8,7 +8,7 @@ import type {
   ListStandardsControlAssociationsRequest,
   ListStandardsControlAssociationsResponse,
 } from "../models/models_2";
-import { ListStandardsControlAssociations } from "../schemas/schemas_0";
+import { ListStandardsControlAssociations$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -27,9 +27,7 @@ export interface ListStandardsControlAssociationsCommandInput extends ListStanda
  *
  * The output of {@link ListStandardsControlAssociationsCommand}.
  */
-export interface ListStandardsControlAssociationsCommandOutput
-  extends ListStandardsControlAssociationsResponse,
-    __MetadataBearer {}
+export interface ListStandardsControlAssociationsCommandOutput extends ListStandardsControlAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -112,7 +110,7 @@ export class ListStandardsControlAssociationsCommand extends $Command
   })
   .s("SecurityHubAPIService", "ListStandardsControlAssociations", {})
   .n("SecurityHubClient", "ListStandardsControlAssociationsCommand")
-  .sc(ListStandardsControlAssociations)
+  .sc(ListStandardsControlAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

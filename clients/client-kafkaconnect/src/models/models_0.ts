@@ -9,6 +9,7 @@ import {
   CustomPluginState,
   KafkaClusterClientAuthenticationType,
   KafkaClusterEncryptionInTransitType,
+  NetworkType,
   WorkerConfigurationState,
 } from "./enums";
 
@@ -72,8 +73,7 @@ export interface ConnectorOperationSummary {
  */
 export interface ScaleInPolicyDescription {
   /**
-   * <p>Specifies the CPU utilization percentage threshold at which you want connector scale in
-   *          to be triggered.</p>
+   * <p>Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.</p>
    * @public
    */
   cpuUtilizationPercentage?: number | undefined;
@@ -85,8 +85,7 @@ export interface ScaleInPolicyDescription {
  */
 export interface ScaleOutPolicyDescription {
   /**
-   * <p>The CPU utilization percentage threshold at which you want connector scale out to be
-   *          triggered.</p>
+   * <p>The CPU utilization percentage threshold at which you want connector scale out to be triggered.</p>
    * @public
    */
   cpuUtilizationPercentage?: number | undefined;
@@ -104,8 +103,7 @@ export interface AutoScalingDescription {
   maxWorkerCount?: number | undefined;
 
   /**
-   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid
-   *          values are 1,2,4,8.</p>
+   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid values are 1,2,4,8.</p>
    * @public
    */
   mcuCount?: number | undefined;
@@ -135,8 +133,7 @@ export interface AutoScalingDescription {
  */
 export interface ProvisionedCapacityDescription {
   /**
-   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid
-   *          values are 1,2,4,8.</p>
+   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid values are 1,2,4,8.</p>
    * @public
    */
   mcuCount?: number | undefined;
@@ -196,8 +193,7 @@ export interface ApacheKafkaClusterDescription {
   bootstrapServers?: string | undefined;
 
   /**
-   * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka
-   *          cluster.</p>
+   * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.</p>
    * @public
    */
   vpc?: VpcDescription | undefined;
@@ -216,14 +212,12 @@ export interface KafkaClusterDescription {
 }
 
 /**
- * <p>The client authentication information used in order to authenticate with the Apache
- *          Kafka cluster.</p>
+ * <p>The client authentication information used in order to authenticate with the Apache Kafka cluster.</p>
  * @public
  */
 export interface KafkaClusterClientAuthenticationDescription {
   /**
-   * <p>The type of client authentication used to connect to the Apache Kafka cluster. Value
-   *          NONE means that no client authentication is used.</p>
+   * <p>The type of client authentication used to connect to the Apache Kafka cluster. Value NONE means that no client authentication is used.</p>
    * @public
    */
   authenticationType?: KafkaClusterClientAuthenticationType | undefined;
@@ -260,14 +254,12 @@ export interface CloudWatchLogsLogDeliveryDescription {
 }
 
 /**
- * <p>A description of the settings for delivering logs to Amazon Kinesis Data
- *          Firehose.</p>
+ * <p>A description of the settings for delivering logs to Amazon Kinesis Data Firehose.</p>
  * @public
  */
 export interface FirehoseLogDeliveryDescription {
   /**
-   * <p>The name of the Kinesis Data Firehose delivery stream that is the destination for log
-   *          delivery.</p>
+   * <p>The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.</p>
    * @public
    */
   deliveryStream?: string | undefined;
@@ -304,8 +296,7 @@ export interface S3LogDeliveryDescription {
 }
 
 /**
- * <p>Workers can send worker logs to different destination types. This configuration
- *          specifies the details of these destinations.</p>
+ * <p>Workers can send worker logs to different destination types. This configuration specifies the details of these destinations.</p>
  * @public
  */
 export interface WorkerLogDeliveryDescription {
@@ -334,8 +325,7 @@ export interface WorkerLogDeliveryDescription {
  */
 export interface LogDeliveryDescription {
   /**
-   * <p>The workers can send worker logs to different destination types. This configuration
-   *          specifies the details of these destinations.</p>
+   * <p>The workers can send worker logs to different destination types. This configuration specifies the details of these destinations.</p>
    * @public
    */
   workerLogDelivery?: WorkerLogDeliveryDescription | undefined;
@@ -443,8 +433,7 @@ export interface ConnectorSummary {
   kafkaCluster?: KafkaClusterDescription | undefined;
 
   /**
-   * <p>The type of client authentication used to connect to the Apache Kafka cluster. The value
-   *          is NONE when no client authentication is used.</p>
+   * <p>The type of client authentication used to connect to the Apache Kafka cluster. The value is NONE when no client authentication is used.</p>
    * @public
    */
   kafkaClusterClientAuthentication?: KafkaClusterClientAuthenticationDescription | undefined;
@@ -456,8 +445,7 @@ export interface ConnectorSummary {
   kafkaClusterEncryptionInTransit?: KafkaClusterEncryptionInTransitDescription | undefined;
 
   /**
-   * <p>The version of Kafka Connect. It has to be compatible with both the Apache Kafka
-   *          cluster's version and the plugins.</p>
+   * <p>The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.</p>
    * @public
    */
   kafkaConnectVersion?: string | undefined;
@@ -469,14 +457,19 @@ export interface ConnectorSummary {
   logDelivery?: LogDeliveryDescription | undefined;
 
   /**
+   * <p>The network type of the connector. It gives connectors connectivity to either IPv4 (IPV4) or IPv4 and IPv6 (DUAL) destinations. Defaults to IPV4.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
+
+  /**
    * <p>Specifies which plugins were used for this connector.</p>
    * @public
    */
   plugins?: PluginDescription[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon
-   *          Web Services resources.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon Web Services resources.</p>
    * @public
    */
   serviceExecutionRoleArn?: string | undefined;
@@ -494,8 +487,7 @@ export interface ConnectorSummary {
  */
 export interface CustomPluginFileDescription {
   /**
-   * <p>The hex-encoded MD5 checksum of the custom plugin file. You can use it to validate the
-   *          file.</p>
+   * <p>The hex-encoded MD5 checksum of the custom plugin file. You can use it to validate the file.</p>
    * @public
    */
   fileMd5?: string | undefined;
@@ -537,8 +529,7 @@ export interface S3LocationDescription {
  */
 export interface CustomPluginLocationDescription {
   /**
-   * <p>The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin
-   *          file stored in Amazon S3.</p>
+   * <p>The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.</p>
    * @public
    */
   s3Location?: S3LocationDescription | undefined;
@@ -754,8 +745,7 @@ export interface ApacheKafkaCluster {
   bootstrapServers: string | undefined;
 
   /**
-   * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka
-   *          cluster.</p>
+   * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.</p>
    * @public
    */
   vpc: Vpc | undefined;
@@ -767,8 +757,7 @@ export interface ApacheKafkaCluster {
  */
 export interface ScaleInPolicy {
   /**
-   * <p>Specifies the CPU utilization percentage threshold at which you want connector scale in
-   *          to be triggered.</p>
+   * <p>Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.</p>
    * @public
    */
   cpuUtilizationPercentage: number | undefined;
@@ -780,8 +769,7 @@ export interface ScaleInPolicy {
  */
 export interface ScaleOutPolicy {
   /**
-   * <p>The CPU utilization percentage threshold at which you want connector scale out to be
-   *          triggered.</p>
+   * <p>The CPU utilization percentage threshold at which you want connector scale out to be triggered.</p>
    * @public
    */
   cpuUtilizationPercentage: number | undefined;
@@ -799,8 +787,7 @@ export interface AutoScaling {
   maxWorkerCount: number | undefined;
 
   /**
-   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid
-   *          values are 1,2,4,8.</p>
+   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid values are 1,2,4,8.</p>
    * @public
    */
   mcuCount: number | undefined;
@@ -830,8 +817,7 @@ export interface AutoScaling {
  */
 export interface ScaleInPolicyUpdate {
   /**
-   * <p>The target CPU utilization percentage threshold at which you want connector scale in to
-   *          be triggered.</p>
+   * <p>The target CPU utilization percentage threshold at which you want connector scale in to be triggered.</p>
    * @public
    */
   cpuUtilizationPercentage: number | undefined;
@@ -843,8 +829,7 @@ export interface ScaleInPolicyUpdate {
  */
 export interface ScaleOutPolicyUpdate {
   /**
-   * <p>The target CPU utilization percentage threshold at which you want connector scale out to
-   *          be triggered.</p>
+   * <p>The target CPU utilization percentage threshold at which you want connector scale out to be triggered.</p>
    * @public
    */
   cpuUtilizationPercentage: number | undefined;
@@ -862,8 +847,7 @@ export interface AutoScalingUpdate {
   maxWorkerCount: number | undefined;
 
   /**
-   * <p>The target number of microcontroller units (MCUs) allocated to each connector worker.
-   *          The valid values are 1,2,4,8.</p>
+   * <p>The target number of microcontroller units (MCUs) allocated to each connector worker. The valid values are 1,2,4,8.</p>
    * @public
    */
   mcuCount: number | undefined;
@@ -893,8 +877,7 @@ export interface AutoScalingUpdate {
  */
 export interface ProvisionedCapacity {
   /**
-   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid
-   *          values are 1,2,4,8.</p>
+   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid values are 1,2,4,8.</p>
    * @public
    */
   mcuCount: number | undefined;
@@ -907,8 +890,7 @@ export interface ProvisionedCapacity {
 }
 
 /**
- * <p>Information about the capacity of the connector, whether it is auto scaled or
- *          provisioned.</p>
+ * <p>Information about the capacity of the connector, whether it is auto scaled or provisioned.</p>
  * @public
  */
 export interface Capacity {
@@ -931,8 +913,7 @@ export interface Capacity {
  */
 export interface ProvisionedCapacityUpdate {
   /**
-   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid
-   *          values are 1,2,4,8.</p>
+   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid values are 1,2,4,8.</p>
    * @public
    */
   mcuCount: number | undefined;
@@ -945,8 +926,7 @@ export interface ProvisionedCapacityUpdate {
 }
 
 /**
- * <p>The target capacity for the connector. The capacity can be auto scaled or
- *          provisioned.</p>
+ * <p>The target capacity for the connector. The capacity can be auto scaled or provisioned.</p>
  * @public
  */
 export interface CapacityUpdate {
@@ -994,14 +974,12 @@ export interface KafkaCluster {
 }
 
 /**
- * <p>The client authentication information used in order to authenticate with the Apache
- *          Kafka cluster.</p>
+ * <p>The client authentication information used in order to authenticate with the Apache Kafka cluster.</p>
  * @public
  */
 export interface KafkaClusterClientAuthentication {
   /**
-   * <p>The type of client authentication used to connect to the Apache Kafka cluster. Value
-   *          NONE means that no client authentication is used.</p>
+   * <p>The type of client authentication used to connect to the Apache Kafka cluster. Value NONE means that no client authentication is used.</p>
    * @public
    */
   authenticationType: KafkaClusterClientAuthenticationType | undefined;
@@ -1025,8 +1003,7 @@ export interface KafkaClusterEncryptionInTransit {
  */
 export interface FirehoseLogDelivery {
   /**
-   * <p>The name of the Kinesis Data Firehose delivery stream that is the destination for log
-   *          delivery.</p>
+   * <p>The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.</p>
    * @public
    */
   deliveryStream?: string | undefined;
@@ -1063,8 +1040,7 @@ export interface S3LogDelivery {
 }
 
 /**
- * <p>Workers can send worker logs to different destination types. This configuration
- *          specifies the details of these destinations.</p>
+ * <p>Workers can send worker logs to different destination types. This configuration specifies the details of these destinations.</p>
  * @public
  */
 export interface WorkerLogDelivery {
@@ -1093,16 +1069,14 @@ export interface WorkerLogDelivery {
  */
 export interface LogDelivery {
   /**
-   * <p>The workers can send worker logs to different destination types. This configuration
-   *          specifies the details of these destinations.</p>
+   * <p>The workers can send worker logs to different destination types. This configuration specifies the details of these destinations.</p>
    * @public
    */
   workerLogDelivery: WorkerLogDelivery | undefined;
 }
 
 /**
- * <p>The configuration of the workers, which are the processes that run the connector
- *          logic.</p>
+ * <p>The configuration of the workers, which are the processes that run the connector logic.</p>
  * @public
  */
 export interface WorkerConfiguration {
@@ -1124,8 +1098,7 @@ export interface WorkerConfiguration {
  */
 export interface CreateConnectorRequest {
   /**
-   * <p>Information about the capacity allocated to the connector. Exactly one of the two
-   *          properties must be specified.</p>
+   * <p>Information about the capacity allocated to the connector. Exactly one of the two properties must be specified.</p>
    * @public
    */
   capacity: Capacity | undefined;
@@ -1167,8 +1140,7 @@ export interface CreateConnectorRequest {
   kafkaClusterEncryptionInTransit: KafkaClusterEncryptionInTransit | undefined;
 
   /**
-   * <p>The version of Kafka Connect. It has to be compatible with both the Apache Kafka
-   *          cluster's version and the plugins.</p>
+   * <p>The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.</p>
    * @public
    */
   kafkaConnectVersion: string | undefined;
@@ -1180,19 +1152,19 @@ export interface CreateConnectorRequest {
   logDelivery?: LogDelivery | undefined;
 
   /**
-   * <important>
-   *             <p>Amazon MSK Connect does not currently support specifying multiple plugins as a list. To use more than one plugin for your connector, you can create a single custom plugin using a ZIP file that bundles multiple plugins together.</p>
-   *          </important>
-   *          <p>Specifies which plugin to use for the connector. You must specify a single-element list containing one <code>customPlugin</code> object.</p>
+   * <p>The network type of the connector. It gives connectors connectivity to either IPv4 (IPV4) or IPv4 and IPv6 (DUAL) destinations. Defaults to IPV4.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
+
+  /**
+   * <important> <p>Amazon MSK Connect does not currently support specifying multiple plugins as a list. To use more than one plugin for your connector, you can create a single custom plugin using a ZIP file that bundles multiple plugins together.</p> </important> <p>Specifies which plugin to use for the connector. You must specify a single-element list containing one <code>customPlugin</code> object.</p>
    * @public
    */
   plugins: Plugin[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access the
-   *          Amazon Web Services resources that it needs. The types of resources depends on the logic of
-   *          the connector. For example, a connector that has Amazon S3 as a destination must have
-   *          permissions that allow it to write to the S3 destination bucket.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.</p>
    * @public
    */
   serviceExecutionRoleArn: string | undefined;
@@ -1263,8 +1235,7 @@ export interface S3Location {
  */
 export interface CustomPluginLocation {
   /**
-   * <p>The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin
-   *          file stored in Amazon S3.</p>
+   * <p>The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.</p>
    * @public
    */
   s3Location: S3Location | undefined;
@@ -1522,8 +1493,7 @@ export interface StateDescription {
  */
 export interface DescribeConnectorResponse {
   /**
-   * <p>Information about the capacity of the connector, whether it is auto scaled or
-   *          provisioned.</p>
+   * <p>Information about the capacity of the connector, whether it is auto scaled or provisioned.</p>
    * @public
    */
   capacity?: CapacityDescription | undefined;
@@ -1577,8 +1547,7 @@ export interface DescribeConnectorResponse {
   kafkaCluster?: KafkaClusterDescription | undefined;
 
   /**
-   * <p>The type of client authentication used to connect to the Apache Kafka cluster. The value
-   *          is NONE when no client authentication is used.</p>
+   * <p>The type of client authentication used to connect to the Apache Kafka cluster. The value is NONE when no client authentication is used.</p>
    * @public
    */
   kafkaClusterClientAuthentication?: KafkaClusterClientAuthenticationDescription | undefined;
@@ -1590,8 +1559,7 @@ export interface DescribeConnectorResponse {
   kafkaClusterEncryptionInTransit?: KafkaClusterEncryptionInTransitDescription | undefined;
 
   /**
-   * <p>The version of Kafka Connect. It has to be compatible with both the Apache Kafka
-   *          cluster's version and the plugins.</p>
+   * <p>The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.</p>
    * @public
    */
   kafkaConnectVersion?: string | undefined;
@@ -1603,14 +1571,19 @@ export interface DescribeConnectorResponse {
   logDelivery?: LogDeliveryDescription | undefined;
 
   /**
+   * <p>The network type of the connector. It gives connectors connectivity to either IPv4 (IPV4) or IPv4 and IPv6 (DUAL) destinations. Defaults to IPV4.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
+
+  /**
    * <p>Specifies which plugins were used for this connector.</p>
    * @public
    */
   plugins?: PluginDescription[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon
-   *          Web Services resources.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon Web Services resources.</p>
    * @public
    */
   serviceExecutionRoleArn?: string | undefined;
@@ -1768,8 +1741,7 @@ export interface DescribeCustomPluginResponse {
   description?: string | undefined;
 
   /**
-   * <p>The latest successfully created revision of the custom plugin. If there are no
-   *          successfully created revisions, this field will be absent.</p>
+   * <p>The latest successfully created revision of the custom plugin. If there are no successfully created revisions, this field will be absent.</p>
    * @public
    */
   latestRevision?: CustomPluginRevisionSummary | undefined;
@@ -1792,8 +1764,7 @@ export interface DescribeCustomPluginResponse {
  */
 export interface DescribeWorkerConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the worker configuration that you want to get
-   *          information about.</p>
+   * <p>The Amazon Resource Name (ARN) of the worker configuration that you want to get information about.</p>
    * @public
    */
   workerConfigurationArn: string | undefined;
@@ -1927,9 +1898,7 @@ export interface ListConnectorsRequest {
   maxResults?: number | undefined;
 
   /**
-   * <p>If the response of a ListConnectors operation is truncated, it will include a NextToken.
-   *          Send this NextToken in a subsequent request to continue listing from where the previous
-   *          operation left off.</p>
+   * <p>If the response of a ListConnectors operation is truncated, it will include a NextToken. Send this NextToken in a subsequent request to continue listing from where the previous operation left off.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1946,9 +1915,7 @@ export interface ListConnectorsResponse {
   connectors?: ConnectorSummary[] | undefined;
 
   /**
-   * <p>If the response of a ListConnectors operation is truncated, it will include a NextToken.
-   *          Send this NextToken in a subsequent request to continue listing from where it left
-   *          off.</p>
+   * <p>If the response of a ListConnectors operation is truncated, it will include a NextToken. Send this NextToken in a subsequent request to continue listing from where it left off.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1965,9 +1932,7 @@ export interface ListCustomPluginsRequest {
   maxResults?: number | undefined;
 
   /**
-   * <p>If the response of a ListCustomPlugins operation is truncated, it will include a
-   *          NextToken. Send this NextToken in a subsequent request to continue listing from where the
-   *          previous operation left off.</p>
+   * <p>If the response of a ListCustomPlugins operation is truncated, it will include a NextToken. Send this NextToken in a subsequent request to continue listing from where the previous operation left off.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1990,9 +1955,7 @@ export interface ListCustomPluginsResponse {
   customPlugins?: CustomPluginSummary[] | undefined;
 
   /**
-   * <p>If the response of a ListCustomPlugins operation is truncated, it will include a
-   *          NextToken. Send this NextToken in a subsequent request to continue listing from where the
-   *          previous operation left off.</p>
+   * <p>If the response of a ListCustomPlugins operation is truncated, it will include a NextToken. Send this NextToken in a subsequent request to continue listing from where the previous operation left off.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2031,9 +1994,7 @@ export interface ListWorkerConfigurationsRequest {
   maxResults?: number | undefined;
 
   /**
-   * <p>If the response of a ListWorkerConfigurations operation is truncated, it will include a
-   *          NextToken. Send this NextToken in a subsequent request to continue listing from where the
-   *          previous operation left off.</p>
+   * <p>If the response of a ListWorkerConfigurations operation is truncated, it will include a NextToken. Send this NextToken in a subsequent request to continue listing from where the previous operation left off.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2050,9 +2011,7 @@ export interface ListWorkerConfigurationsRequest {
  */
 export interface ListWorkerConfigurationsResponse {
   /**
-   * <p>If the response of a ListWorkerConfigurations operation is truncated, it will include a
-   *          NextToken. Send this NextToken in a subsequent request to continue listing from where the
-   *          previous operation left off.</p>
+   * <p>If the response of a ListWorkerConfigurations operation is truncated, it will include a NextToken. Send this NextToken in a subsequent request to continue listing from where the previous operation left off.</p>
    * @public
    */
   nextToken?: string | undefined;

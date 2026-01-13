@@ -9,7 +9,7 @@ import type {
   DescribeGatewayCapabilityConfigurationRequest,
   DescribeGatewayCapabilityConfigurationResponse,
 } from "../models/models_0";
-import { DescribeGatewayCapabilityConfiguration } from "../schemas/schemas_0";
+import { DescribeGatewayCapabilityConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeGatewayCapabilityConfigurationCommand}.
  */
-export interface DescribeGatewayCapabilityConfigurationCommandInput
-  extends DescribeGatewayCapabilityConfigurationRequest {}
+export interface DescribeGatewayCapabilityConfigurationCommandInput extends DescribeGatewayCapabilityConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeGatewayCapabilityConfigurationCommand}.
  */
-export interface DescribeGatewayCapabilityConfigurationCommandOutput
-  extends DescribeGatewayCapabilityConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeGatewayCapabilityConfigurationCommandOutput extends DescribeGatewayCapabilityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Each gateway capability defines data sources for a gateway. This is the namespace of the gateway capability.</p>
@@ -116,7 +113,7 @@ export class DescribeGatewayCapabilityConfigurationCommand extends $Command
   })
   .s("AWSIoTSiteWise", "DescribeGatewayCapabilityConfiguration", {})
   .n("IoTSiteWiseClient", "DescribeGatewayCapabilityConfigurationCommand")
-  .sc(DescribeGatewayCapabilityConfiguration)
+  .sc(DescribeGatewayCapabilityConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

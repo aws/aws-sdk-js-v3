@@ -905,8 +905,14 @@ export interface SSM {
   /**
    * @see {@link CancelCommandCommand}
    */
-  cancelCommand(args: CancelCommandCommandInput, options?: __HttpHandlerOptions): Promise<CancelCommandCommandOutput>;
-  cancelCommand(args: CancelCommandCommandInput, cb: (err: any, data?: CancelCommandCommandOutput) => void): void;
+  cancelCommand(
+    args: CancelCommandCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelCommandCommandOutput>;
+  cancelCommand(
+    args: CancelCommandCommandInput,
+    cb: (err: any, data?: CancelCommandCommandOutput) => void
+  ): void;
   cancelCommand(
     args: CancelCommandCommandInput,
     options: __HttpHandlerOptions,
@@ -988,7 +994,10 @@ export interface SSM {
     args: CreateDocumentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDocumentCommandOutput>;
-  createDocument(args: CreateDocumentCommandInput, cb: (err: any, data?: CreateDocumentCommandOutput) => void): void;
+  createDocument(
+    args: CreateDocumentCommandInput,
+    cb: (err: any, data?: CreateDocumentCommandOutput) => void
+  ): void;
   createDocument(
     args: CreateDocumentCommandInput,
     options: __HttpHandlerOptions,
@@ -1015,8 +1024,14 @@ export interface SSM {
   /**
    * @see {@link CreateOpsItemCommand}
    */
-  createOpsItem(args: CreateOpsItemCommandInput, options?: __HttpHandlerOptions): Promise<CreateOpsItemCommandOutput>;
-  createOpsItem(args: CreateOpsItemCommandInput, cb: (err: any, data?: CreateOpsItemCommandOutput) => void): void;
+  createOpsItem(
+    args: CreateOpsItemCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateOpsItemCommandOutput>;
+  createOpsItem(
+    args: CreateOpsItemCommandInput,
+    cb: (err: any, data?: CreateOpsItemCommandOutput) => void
+  ): void;
   createOpsItem(
     args: CreateOpsItemCommandInput,
     options: __HttpHandlerOptions,
@@ -1116,7 +1131,10 @@ export interface SSM {
     args: DeleteDocumentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDocumentCommandOutput>;
-  deleteDocument(args: DeleteDocumentCommandInput, cb: (err: any, data?: DeleteDocumentCommandOutput) => void): void;
+  deleteDocument(
+    args: DeleteDocumentCommandInput,
+    cb: (err: any, data?: DeleteDocumentCommandOutput) => void
+  ): void;
   deleteDocument(
     args: DeleteDocumentCommandInput,
     options: __HttpHandlerOptions,
@@ -1130,7 +1148,10 @@ export interface SSM {
     args: DeleteInventoryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteInventoryCommandOutput>;
-  deleteInventory(args: DeleteInventoryCommandInput, cb: (err: any, data?: DeleteInventoryCommandOutput) => void): void;
+  deleteInventory(
+    args: DeleteInventoryCommandInput,
+    cb: (err: any, data?: DeleteInventoryCommandOutput) => void
+  ): void;
   deleteInventory(
     args: DeleteInventoryCommandInput,
     options: __HttpHandlerOptions,
@@ -1157,8 +1178,14 @@ export interface SSM {
   /**
    * @see {@link DeleteOpsItemCommand}
    */
-  deleteOpsItem(args: DeleteOpsItemCommandInput, options?: __HttpHandlerOptions): Promise<DeleteOpsItemCommandOutput>;
-  deleteOpsItem(args: DeleteOpsItemCommandInput, cb: (err: any, data?: DeleteOpsItemCommandOutput) => void): void;
+  deleteOpsItem(
+    args: DeleteOpsItemCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteOpsItemCommandOutput>;
+  deleteOpsItem(
+    args: DeleteOpsItemCommandInput,
+    cb: (err: any, data?: DeleteOpsItemCommandOutput) => void
+  ): void;
   deleteOpsItem(
     args: DeleteOpsItemCommandInput,
     options: __HttpHandlerOptions,
@@ -1189,7 +1216,10 @@ export interface SSM {
     args: DeleteParameterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteParameterCommandOutput>;
-  deleteParameter(args: DeleteParameterCommandInput, cb: (err: any, data?: DeleteParameterCommandOutput) => void): void;
+  deleteParameter(
+    args: DeleteParameterCommandInput,
+    cb: (err: any, data?: DeleteParameterCommandOutput) => void
+  ): void;
   deleteParameter(
     args: DeleteParameterCommandInput,
     options: __HttpHandlerOptions,
@@ -1930,7 +1960,10 @@ export interface SSM {
     args: GetAccessTokenCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAccessTokenCommandOutput>;
-  getAccessToken(args: GetAccessTokenCommandInput, cb: (err: any, data?: GetAccessTokenCommandOutput) => void): void;
+  getAccessToken(
+    args: GetAccessTokenCommandInput,
+    cb: (err: any, data?: GetAccessTokenCommandOutput) => void
+  ): void;
   getAccessToken(
     args: GetAccessTokenCommandInput,
     options: __HttpHandlerOptions,
@@ -2043,8 +2076,14 @@ export interface SSM {
   /**
    * @see {@link GetDocumentCommand}
    */
-  getDocument(args: GetDocumentCommandInput, options?: __HttpHandlerOptions): Promise<GetDocumentCommandOutput>;
-  getDocument(args: GetDocumentCommandInput, cb: (err: any, data?: GetDocumentCommandOutput) => void): void;
+  getDocument(
+    args: GetDocumentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDocumentCommandOutput>;
+  getDocument(
+    args: GetDocumentCommandInput,
+    cb: (err: any, data?: GetDocumentCommandOutput) => void
+  ): void;
   getDocument(
     args: GetDocumentCommandInput,
     options: __HttpHandlerOptions,
@@ -2072,8 +2111,14 @@ export interface SSM {
    * @see {@link GetInventoryCommand}
    */
   getInventory(): Promise<GetInventoryCommandOutput>;
-  getInventory(args: GetInventoryCommandInput, options?: __HttpHandlerOptions): Promise<GetInventoryCommandOutput>;
-  getInventory(args: GetInventoryCommandInput, cb: (err: any, data?: GetInventoryCommandOutput) => void): void;
+  getInventory(
+    args: GetInventoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInventoryCommandOutput>;
+  getInventory(
+    args: GetInventoryCommandInput,
+    cb: (err: any, data?: GetInventoryCommandOutput) => void
+  ): void;
   getInventory(
     args: GetInventoryCommandInput,
     options: __HttpHandlerOptions,
@@ -2186,8 +2231,14 @@ export interface SSM {
   /**
    * @see {@link GetOpsItemCommand}
    */
-  getOpsItem(args: GetOpsItemCommandInput, options?: __HttpHandlerOptions): Promise<GetOpsItemCommandOutput>;
-  getOpsItem(args: GetOpsItemCommandInput, cb: (err: any, data?: GetOpsItemCommandOutput) => void): void;
+  getOpsItem(
+    args: GetOpsItemCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOpsItemCommandOutput>;
+  getOpsItem(
+    args: GetOpsItemCommandInput,
+    cb: (err: any, data?: GetOpsItemCommandOutput) => void
+  ): void;
   getOpsItem(
     args: GetOpsItemCommandInput,
     options: __HttpHandlerOptions,
@@ -2201,7 +2252,10 @@ export interface SSM {
     args: GetOpsMetadataCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetOpsMetadataCommandOutput>;
-  getOpsMetadata(args: GetOpsMetadataCommandInput, cb: (err: any, data?: GetOpsMetadataCommandOutput) => void): void;
+  getOpsMetadata(
+    args: GetOpsMetadataCommandInput,
+    cb: (err: any, data?: GetOpsMetadataCommandOutput) => void
+  ): void;
   getOpsMetadata(
     args: GetOpsMetadataCommandInput,
     options: __HttpHandlerOptions,
@@ -2212,8 +2266,14 @@ export interface SSM {
    * @see {@link GetOpsSummaryCommand}
    */
   getOpsSummary(): Promise<GetOpsSummaryCommandOutput>;
-  getOpsSummary(args: GetOpsSummaryCommandInput, options?: __HttpHandlerOptions): Promise<GetOpsSummaryCommandOutput>;
-  getOpsSummary(args: GetOpsSummaryCommandInput, cb: (err: any, data?: GetOpsSummaryCommandOutput) => void): void;
+  getOpsSummary(
+    args: GetOpsSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOpsSummaryCommandOutput>;
+  getOpsSummary(
+    args: GetOpsSummaryCommandInput,
+    cb: (err: any, data?: GetOpsSummaryCommandOutput) => void
+  ): void;
   getOpsSummary(
     args: GetOpsSummaryCommandInput,
     options: __HttpHandlerOptions,
@@ -2223,8 +2283,14 @@ export interface SSM {
   /**
    * @see {@link GetParameterCommand}
    */
-  getParameter(args: GetParameterCommandInput, options?: __HttpHandlerOptions): Promise<GetParameterCommandOutput>;
-  getParameter(args: GetParameterCommandInput, cb: (err: any, data?: GetParameterCommandOutput) => void): void;
+  getParameter(
+    args: GetParameterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetParameterCommandOutput>;
+  getParameter(
+    args: GetParameterCommandInput,
+    cb: (err: any, data?: GetParameterCommandOutput) => void
+  ): void;
   getParameter(
     args: GetParameterCommandInput,
     options: __HttpHandlerOptions,
@@ -2251,8 +2317,14 @@ export interface SSM {
   /**
    * @see {@link GetParametersCommand}
    */
-  getParameters(args: GetParametersCommandInput, options?: __HttpHandlerOptions): Promise<GetParametersCommandOutput>;
-  getParameters(args: GetParametersCommandInput, cb: (err: any, data?: GetParametersCommandOutput) => void): void;
+  getParameters(
+    args: GetParametersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetParametersCommandOutput>;
+  getParameters(
+    args: GetParametersCommandInput,
+    cb: (err: any, data?: GetParametersCommandOutput) => void
+  ): void;
   getParameters(
     args: GetParametersCommandInput,
     options: __HttpHandlerOptions,
@@ -2418,8 +2490,14 @@ export interface SSM {
    * @see {@link ListCommandsCommand}
    */
   listCommands(): Promise<ListCommandsCommandOutput>;
-  listCommands(args: ListCommandsCommandInput, options?: __HttpHandlerOptions): Promise<ListCommandsCommandOutput>;
-  listCommands(args: ListCommandsCommandInput, cb: (err: any, data?: ListCommandsCommandOutput) => void): void;
+  listCommands(
+    args: ListCommandsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCommandsCommandOutput>;
+  listCommands(
+    args: ListCommandsCommandInput,
+    cb: (err: any, data?: ListCommandsCommandOutput) => void
+  ): void;
   listCommands(
     args: ListCommandsCommandInput,
     options: __HttpHandlerOptions,
@@ -2483,8 +2561,14 @@ export interface SSM {
    * @see {@link ListDocumentsCommand}
    */
   listDocuments(): Promise<ListDocumentsCommandOutput>;
-  listDocuments(args: ListDocumentsCommandInput, options?: __HttpHandlerOptions): Promise<ListDocumentsCommandOutput>;
-  listDocuments(args: ListDocumentsCommandInput, cb: (err: any, data?: ListDocumentsCommandOutput) => void): void;
+  listDocuments(
+    args: ListDocumentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDocumentsCommandOutput>;
+  listDocuments(
+    args: ListDocumentsCommandInput,
+    cb: (err: any, data?: ListDocumentsCommandOutput) => void
+  ): void;
   listDocuments(
     args: ListDocumentsCommandInput,
     options: __HttpHandlerOptions,
@@ -2529,8 +2613,14 @@ export interface SSM {
    * @see {@link ListNodesCommand}
    */
   listNodes(): Promise<ListNodesCommandOutput>;
-  listNodes(args: ListNodesCommandInput, options?: __HttpHandlerOptions): Promise<ListNodesCommandOutput>;
-  listNodes(args: ListNodesCommandInput, cb: (err: any, data?: ListNodesCommandOutput) => void): void;
+  listNodes(
+    args: ListNodesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNodesCommandOutput>;
+  listNodes(
+    args: ListNodesCommandInput,
+    cb: (err: any, data?: ListNodesCommandOutput) => void
+  ): void;
   listNodes(
     args: ListNodesCommandInput,
     options: __HttpHandlerOptions,
@@ -2598,7 +2688,10 @@ export interface SSM {
     args: ListOpsMetadataCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListOpsMetadataCommandOutput>;
-  listOpsMetadata(args: ListOpsMetadataCommandInput, cb: (err: any, data?: ListOpsMetadataCommandOutput) => void): void;
+  listOpsMetadata(
+    args: ListOpsMetadataCommandInput,
+    cb: (err: any, data?: ListOpsMetadataCommandOutput) => void
+  ): void;
   listOpsMetadata(
     args: ListOpsMetadataCommandInput,
     options: __HttpHandlerOptions,
@@ -2695,8 +2788,14 @@ export interface SSM {
   /**
    * @see {@link PutInventoryCommand}
    */
-  putInventory(args: PutInventoryCommandInput, options?: __HttpHandlerOptions): Promise<PutInventoryCommandOutput>;
-  putInventory(args: PutInventoryCommandInput, cb: (err: any, data?: PutInventoryCommandOutput) => void): void;
+  putInventory(
+    args: PutInventoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutInventoryCommandOutput>;
+  putInventory(
+    args: PutInventoryCommandInput,
+    cb: (err: any, data?: PutInventoryCommandOutput) => void
+  ): void;
   putInventory(
     args: PutInventoryCommandInput,
     options: __HttpHandlerOptions,
@@ -2706,8 +2805,14 @@ export interface SSM {
   /**
    * @see {@link PutParameterCommand}
    */
-  putParameter(args: PutParameterCommandInput, options?: __HttpHandlerOptions): Promise<PutParameterCommandOutput>;
-  putParameter(args: PutParameterCommandInput, cb: (err: any, data?: PutParameterCommandOutput) => void): void;
+  putParameter(
+    args: PutParameterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutParameterCommandOutput>;
+  putParameter(
+    args: PutParameterCommandInput,
+    cb: (err: any, data?: PutParameterCommandOutput) => void
+  ): void;
   putParameter(
     args: PutParameterCommandInput,
     options: __HttpHandlerOptions,
@@ -2836,8 +2941,14 @@ export interface SSM {
   /**
    * @see {@link ResumeSessionCommand}
    */
-  resumeSession(args: ResumeSessionCommandInput, options?: __HttpHandlerOptions): Promise<ResumeSessionCommandOutput>;
-  resumeSession(args: ResumeSessionCommandInput, cb: (err: any, data?: ResumeSessionCommandOutput) => void): void;
+  resumeSession(
+    args: ResumeSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResumeSessionCommandOutput>;
+  resumeSession(
+    args: ResumeSessionCommandInput,
+    cb: (err: any, data?: ResumeSessionCommandOutput) => void
+  ): void;
   resumeSession(
     args: ResumeSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -2864,8 +2975,14 @@ export interface SSM {
   /**
    * @see {@link SendCommandCommand}
    */
-  sendCommand(args: SendCommandCommandInput, options?: __HttpHandlerOptions): Promise<SendCommandCommandOutput>;
-  sendCommand(args: SendCommandCommandInput, cb: (err: any, data?: SendCommandCommandOutput) => void): void;
+  sendCommand(
+    args: SendCommandCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendCommandCommandOutput>;
+  sendCommand(
+    args: SendCommandCommandInput,
+    cb: (err: any, data?: SendCommandCommandOutput) => void
+  ): void;
   sendCommand(
     args: SendCommandCommandInput,
     options: __HttpHandlerOptions,
@@ -2960,8 +3077,14 @@ export interface SSM {
   /**
    * @see {@link StartSessionCommand}
    */
-  startSession(args: StartSessionCommandInput, options?: __HttpHandlerOptions): Promise<StartSessionCommandOutput>;
-  startSession(args: StartSessionCommandInput, cb: (err: any, data?: StartSessionCommandOutput) => void): void;
+  startSession(
+    args: StartSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSessionCommandOutput>;
+  startSession(
+    args: StartSessionCommandInput,
+    cb: (err: any, data?: StartSessionCommandOutput) => void
+  ): void;
   startSession(
     args: StartSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -3060,7 +3183,10 @@ export interface SSM {
     args: UpdateDocumentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateDocumentCommandOutput>;
-  updateDocument(args: UpdateDocumentCommandInput, cb: (err: any, data?: UpdateDocumentCommandOutput) => void): void;
+  updateDocument(
+    args: UpdateDocumentCommandInput,
+    cb: (err: any, data?: UpdateDocumentCommandOutput) => void
+  ): void;
   updateDocument(
     args: UpdateDocumentCommandInput,
     options: __HttpHandlerOptions,
@@ -3172,8 +3298,14 @@ export interface SSM {
   /**
    * @see {@link UpdateOpsItemCommand}
    */
-  updateOpsItem(args: UpdateOpsItemCommandInput, options?: __HttpHandlerOptions): Promise<UpdateOpsItemCommandOutput>;
-  updateOpsItem(args: UpdateOpsItemCommandInput, cb: (err: any, data?: UpdateOpsItemCommandOutput) => void): void;
+  updateOpsItem(
+    args: UpdateOpsItemCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateOpsItemCommandOutput>;
+  updateOpsItem(
+    args: UpdateOpsItemCommandInput,
+    cb: (err: any, data?: UpdateOpsItemCommandOutput) => void
+  ): void;
   updateOpsItem(
     args: UpdateOpsItemCommandInput,
     options: __HttpHandlerOptions,

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import type { DisassociateTrackerConsumerRequest, DisassociateTrackerConsumerResponse } from "../models/models_0";
-import { DisassociateTrackerConsumer } from "../schemas/schemas_0";
+import { DisassociateTrackerConsumer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DisassociateTrackerConsumerCommandInput extends DisassociateTra
  *
  * The output of {@link DisassociateTrackerConsumerCommand}.
  */
-export interface DisassociateTrackerConsumerCommandOutput
-  extends DisassociateTrackerConsumerResponse,
-    __MetadataBearer {}
+export interface DisassociateTrackerConsumerCommandOutput extends DisassociateTrackerConsumerResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the association between a tracker resource and a geofence collection.</p> <note> <p>Once you unlink a tracker resource from a geofence collection, the tracker positions will no longer be automatically evaluated against geofences.</p> </note>
@@ -89,7 +87,7 @@ export class DisassociateTrackerConsumerCommand extends $Command
   })
   .s("LocationService", "DisassociateTrackerConsumer", {})
   .n("LocationClient", "DisassociateTrackerConsumerCommand")
-  .sc(DisassociateTrackerConsumer)
+  .sc(DisassociateTrackerConsumer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

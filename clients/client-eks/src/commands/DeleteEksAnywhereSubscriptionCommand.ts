@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteEksAnywhereSubscriptionRequest, DeleteEksAnywhereSubscriptionResponse } from "../models/models_0";
-import { DeleteEksAnywhereSubscription } from "../schemas/schemas_0";
+import { DeleteEksAnywhereSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteEksAnywhereSubscriptionCommandInput extends DeleteEksAnyw
  *
  * The output of {@link DeleteEksAnywhereSubscriptionCommand}.
  */
-export interface DeleteEksAnywhereSubscriptionCommandOutput
-  extends DeleteEksAnywhereSubscriptionResponse,
-    __MetadataBearer {}
+export interface DeleteEksAnywhereSubscriptionCommandOutput extends DeleteEksAnywhereSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an expired or inactive subscription. Deleting inactive subscriptions removes
@@ -122,7 +120,7 @@ export class DeleteEksAnywhereSubscriptionCommand extends $Command
   })
   .s("AWSWesleyFrontend", "DeleteEksAnywhereSubscription", {})
   .n("EKSClient", "DeleteEksAnywhereSubscriptionCommand")
-  .sc(DeleteEksAnywhereSubscription)
+  .sc(DeleteEksAnywhereSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

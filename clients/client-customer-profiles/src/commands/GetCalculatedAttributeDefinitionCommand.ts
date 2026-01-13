@@ -13,7 +13,7 @@ import type {
   GetCalculatedAttributeDefinitionRequest,
   GetCalculatedAttributeDefinitionResponse,
 } from "../models/models_0";
-import { GetCalculatedAttributeDefinition } from "../schemas/schemas_0";
+import { GetCalculatedAttributeDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetCalculatedAttributeDefinitionCommandInput extends GetCalcula
  *
  * The output of {@link GetCalculatedAttributeDefinitionCommand}.
  */
-export interface GetCalculatedAttributeDefinitionCommandOutput
-  extends GetCalculatedAttributeDefinitionResponse,
-    __MetadataBearer {}
+export interface GetCalculatedAttributeDefinitionCommandOutput extends GetCalculatedAttributeDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Provides more information on a calculated attribute definition for Customer
@@ -158,7 +156,7 @@ export class GetCalculatedAttributeDefinitionCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "GetCalculatedAttributeDefinition", {})
   .n("CustomerProfilesClient", "GetCalculatedAttributeDefinitionCommand")
-  .sc(GetCalculatedAttributeDefinition)
+  .sc(GetCalculatedAttributeDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

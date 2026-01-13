@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateAccessLogSubscriptionRequest, UpdateAccessLogSubscriptionResponse } from "../models/models_0";
-import { UpdateAccessLogSubscription } from "../schemas/schemas_0";
+import { UpdateAccessLogSubscription$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -24,9 +24,7 @@ export interface UpdateAccessLogSubscriptionCommandInput extends UpdateAccessLog
  *
  * The output of {@link UpdateAccessLogSubscriptionCommand}.
  */
-export interface UpdateAccessLogSubscriptionCommandOutput
-  extends UpdateAccessLogSubscriptionResponse,
-    __MetadataBearer {}
+export interface UpdateAccessLogSubscriptionCommandOutput extends UpdateAccessLogSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the specified access log subscription.</p>
@@ -98,7 +96,7 @@ export class UpdateAccessLogSubscriptionCommand extends $Command
   })
   .s("MercuryControlPlane", "UpdateAccessLogSubscription", {})
   .n("VPCLatticeClient", "UpdateAccessLogSubscriptionCommand")
-  .sc(UpdateAccessLogSubscription)
+  .sc(UpdateAccessLogSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

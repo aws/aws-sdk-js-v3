@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputType
 import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type GetPackageVersionAssetRequest, GetPackageVersionAssetResult } from "../models/models_0";
-import { GetPackageVersionAsset } from "../schemas/schemas_0";
+import { GetPackageVersionAsset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetPackageVersionAssetCommandInput extends GetPackageVersionAss
  *
  * The output of {@link GetPackageVersionAssetCommand}.
  */
-export interface GetPackageVersionAssetCommandOutput
-  extends Omit<GetPackageVersionAssetResult, "asset">,
-    __MetadataBearer {
+export interface GetPackageVersionAssetCommandOutput extends Omit<GetPackageVersionAssetResult, "asset">, __MetadataBearer {
   asset?: StreamingBlobPayloadOutputTypes;
 }
 
@@ -125,7 +123,7 @@ export class GetPackageVersionAssetCommand extends $Command
   })
   .s("CodeArtifactControlPlaneService", "GetPackageVersionAsset", {})
   .n("CodeartifactClient", "GetPackageVersionAssetCommand")
-  .sc(GetPackageVersionAsset)
+  .sc(GetPackageVersionAsset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

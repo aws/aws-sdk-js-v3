@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateQueueLimitAssociationRequest, UpdateQueueLimitAssociationResponse } from "../models/models_1";
-import { UpdateQueueLimitAssociation } from "../schemas/schemas_0";
+import { UpdateQueueLimitAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateQueueLimitAssociationCommandInput extends UpdateQueueLimi
  *
  * The output of {@link UpdateQueueLimitAssociationCommand}.
  */
-export interface UpdateQueueLimitAssociationCommandOutput
-  extends UpdateQueueLimitAssociationResponse,
-    __MetadataBearer {}
+export interface UpdateQueueLimitAssociationCommandOutput extends UpdateQueueLimitAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the status of the queue. If you set the status to one of the
@@ -94,7 +92,7 @@ export class UpdateQueueLimitAssociationCommand extends $Command
   })
   .s("Deadline", "UpdateQueueLimitAssociation", {})
   .n("DeadlineClient", "UpdateQueueLimitAssociationCommand")
-  .sc(UpdateQueueLimitAssociation)
+  .sc(UpdateQueueLimitAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

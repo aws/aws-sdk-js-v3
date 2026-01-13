@@ -9,7 +9,7 @@ import type {
   ListPoliciesGrantingServiceAccessRequest,
   ListPoliciesGrantingServiceAccessResponse,
 } from "../models/models_0";
-import { ListPoliciesGrantingServiceAccess } from "../schemas/schemas_0";
+import { ListPoliciesGrantingServiceAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListPoliciesGrantingServiceAccessCommandInput extends ListPolic
  *
  * The output of {@link ListPoliciesGrantingServiceAccessCommand}.
  */
-export interface ListPoliciesGrantingServiceAccessCommandOutput
-  extends ListPoliciesGrantingServiceAccessResponse,
-    __MetadataBearer {}
+export interface ListPoliciesGrantingServiceAccessCommandOutput extends ListPoliciesGrantingServiceAccessResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of policies that the IAM identity (user, group, or role) can use to
@@ -191,7 +189,7 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "ListPoliciesGrantingServiceAccess", {})
   .n("IAMClient", "ListPoliciesGrantingServiceAccessCommand")
-  .sc(ListPoliciesGrantingServiceAccess)
+  .sc(ListPoliciesGrantingServiceAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

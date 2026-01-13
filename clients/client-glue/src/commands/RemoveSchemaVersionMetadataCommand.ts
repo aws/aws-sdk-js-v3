@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { RemoveSchemaVersionMetadataInput, RemoveSchemaVersionMetadataResponse } from "../models/models_2";
-import { RemoveSchemaVersionMetadata } from "../schemas/schemas_0";
+import { RemoveSchemaVersionMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface RemoveSchemaVersionMetadataCommandInput extends RemoveSchemaVer
  *
  * The output of {@link RemoveSchemaVersionMetadataCommand}.
  */
-export interface RemoveSchemaVersionMetadataCommandOutput
-  extends RemoveSchemaVersionMetadataResponse,
-    __MetadataBearer {}
+export interface RemoveSchemaVersionMetadataCommandOutput extends RemoveSchemaVersionMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a key value pair from the schema version metadata for the specified schema version ID.</p>
@@ -104,7 +102,7 @@ export class RemoveSchemaVersionMetadataCommand extends $Command
   })
   .s("AWSGlue", "RemoveSchemaVersionMetadata", {})
   .n("GlueClient", "RemoveSchemaVersionMetadataCommand")
-  .sc(RemoveSchemaVersionMetadata)
+  .sc(RemoveSchemaVersionMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

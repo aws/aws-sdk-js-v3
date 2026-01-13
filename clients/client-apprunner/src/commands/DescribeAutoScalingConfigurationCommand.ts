@@ -9,7 +9,7 @@ import type {
   DescribeAutoScalingConfigurationRequest,
   DescribeAutoScalingConfigurationResponse,
 } from "../models/models_0";
-import { DescribeAutoScalingConfiguration } from "../schemas/schemas_0";
+import { DescribeAutoScalingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeAutoScalingConfigurationCommandInput extends DescribeAu
  *
  * The output of {@link DescribeAutoScalingConfigurationCommand}.
  */
-export interface DescribeAutoScalingConfigurationCommandOutput
-  extends DescribeAutoScalingConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeAutoScalingConfigurationCommandOutput extends DescribeAutoScalingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Return a full description of an App Runner automatic scaling configuration resource.</p>
@@ -100,7 +98,7 @@ export class DescribeAutoScalingConfigurationCommand extends $Command
   })
   .s("AppRunner", "DescribeAutoScalingConfiguration", {})
   .n("AppRunnerClient", "DescribeAutoScalingConfigurationCommand")
-  .sc(DescribeAutoScalingConfiguration)
+  .sc(DescribeAutoScalingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

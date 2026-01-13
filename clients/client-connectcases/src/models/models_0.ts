@@ -149,7 +149,10 @@ export interface FieldValue {
  * <p>Represents the entity that performed the action.</p>
  * @public
  */
-export type UserUnion = UserUnion.CustomEntityMember | UserUnion.UserArnMember | UserUnion.$UnknownMember;
+export type UserUnion =
+  | UserUnion.CustomEntityMember
+  | UserUnion.UserArnMember
+  | UserUnion.$UnknownMember;
 
 /**
  * @public
@@ -746,7 +749,9 @@ export interface SlaInputConfiguration {
  * <p>Represents the content of an SLA.</p>
  * @public
  */
-export type SlaInputContent = SlaInputContent.SlaInputConfigurationMember | SlaInputContent.$UnknownMember;
+export type SlaInputContent =
+  | SlaInputContent.SlaInputConfigurationMember
+  | SlaInputContent.$UnknownMember;
 
 /**
  * @public
@@ -1653,7 +1658,9 @@ export interface FieldOptionsCaseRule {
  * <p>Represents the left hand operand in the condition. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
  * @public
  */
-export type OperandOne = OperandOne.FieldIdMember | OperandOne.$UnknownMember;
+export type OperandOne =
+  | OperandOne.FieldIdMember
+  | OperandOne.$UnknownMember;
 
 /**
  * @public
@@ -3069,7 +3076,9 @@ export interface FieldGroup {
  * <p>This represents a sections within a panel or tab of the page layout.</p>
  * @public
  */
-export type Section = Section.FieldGroupMember | Section.$UnknownMember;
+export type Section =
+  | Section.FieldGroupMember
+  | Section.$UnknownMember;
 
 /**
  * @public
@@ -3136,7 +3145,9 @@ export interface BasicLayout {
  * <p>Object to store union of different versions of layout content.</p>
  * @public
  */
-export type LayoutContent = LayoutContent.BasicMember | LayoutContent.$UnknownMember;
+export type LayoutContent =
+  | LayoutContent.BasicMember
+  | LayoutContent.$UnknownMember;
 
 /**
  * @public

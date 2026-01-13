@@ -9,7 +9,7 @@ import type {
   BatchDisassociateClientDeviceFromCoreDeviceRequest,
   BatchDisassociateClientDeviceFromCoreDeviceResponse,
 } from "../models/models_0";
-import { BatchDisassociateClientDeviceFromCoreDevice } from "../schemas/schemas_0";
+import { BatchDisassociateClientDeviceFromCoreDevice$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchDisassociateClientDeviceFromCoreDeviceCommand}.
  */
-export interface BatchDisassociateClientDeviceFromCoreDeviceCommandInput
-  extends BatchDisassociateClientDeviceFromCoreDeviceRequest {}
+export interface BatchDisassociateClientDeviceFromCoreDeviceCommandInput extends BatchDisassociateClientDeviceFromCoreDeviceRequest {}
 /**
  * @public
  *
  * The output of {@link BatchDisassociateClientDeviceFromCoreDeviceCommand}.
  */
-export interface BatchDisassociateClientDeviceFromCoreDeviceCommandOutput
-  extends BatchDisassociateClientDeviceFromCoreDeviceResponse,
-    __MetadataBearer {}
+export interface BatchDisassociateClientDeviceFromCoreDeviceCommandOutput extends BatchDisassociateClientDeviceFromCoreDeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a list of client devices from a core device. After you disassociate a client
@@ -109,7 +106,7 @@ export class BatchDisassociateClientDeviceFromCoreDeviceCommand extends $Command
   })
   .s("GreengrassV2", "BatchDisassociateClientDeviceFromCoreDevice", {})
   .n("GreengrassV2Client", "BatchDisassociateClientDeviceFromCoreDeviceCommand")
-  .sc(BatchDisassociateClientDeviceFromCoreDevice)
+  .sc(BatchDisassociateClientDeviceFromCoreDevice$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartMetadataModelConversionMessage, StartMetadataModelConversionResponse } from "../models/models_1";
-import { StartMetadataModelConversion } from "../schemas/schemas_0";
+import { StartMetadataModelConversion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface StartMetadataModelConversionCommandInput extends StartMetadataM
  *
  * The output of {@link StartMetadataModelConversionCommand}.
  */
-export interface StartMetadataModelConversionCommandOutput
-  extends StartMetadataModelConversionResponse,
-    __MetadataBearer {}
+export interface StartMetadataModelConversionCommandOutput extends StartMetadataModelConversionResponse, __MetadataBearer {}
 
 /**
  * <p>Converts your source database objects to a format compatible with the target database. </p>
@@ -122,7 +120,7 @@ export class StartMetadataModelConversionCommand extends $Command
   })
   .s("AmazonDMSv20160101", "StartMetadataModelConversion", {})
   .n("DatabaseMigrationServiceClient", "StartMetadataModelConversionCommand")
-  .sc(StartMetadataModelConversion)
+  .sc(StartMetadataModelConversion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

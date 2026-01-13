@@ -9,7 +9,7 @@ import type {
   CreateTransitGatewayRouteTableAnnouncementRequest,
   CreateTransitGatewayRouteTableAnnouncementResult,
 } from "../models/models_2";
-import { CreateTransitGatewayRouteTableAnnouncement } from "../schemas/schemas_0";
+import { CreateTransitGatewayRouteTableAnnouncement$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateTransitGatewayRouteTableAnnouncementCommand}.
  */
-export interface CreateTransitGatewayRouteTableAnnouncementCommandInput
-  extends CreateTransitGatewayRouteTableAnnouncementRequest {}
+export interface CreateTransitGatewayRouteTableAnnouncementCommandInput extends CreateTransitGatewayRouteTableAnnouncementRequest {}
 /**
  * @public
  *
  * The output of {@link CreateTransitGatewayRouteTableAnnouncementCommand}.
  */
-export interface CreateTransitGatewayRouteTableAnnouncementCommandOutput
-  extends CreateTransitGatewayRouteTableAnnouncementResult,
-    __MetadataBearer {}
+export interface CreateTransitGatewayRouteTableAnnouncementCommandOutput extends CreateTransitGatewayRouteTableAnnouncementResult, __MetadataBearer {}
 
 /**
  * <p>Advertises a new transit gateway route table.</p>
@@ -109,7 +106,7 @@ export class CreateTransitGatewayRouteTableAnnouncementCommand extends $Command
   })
   .s("AmazonEC2", "CreateTransitGatewayRouteTableAnnouncement", {})
   .n("EC2Client", "CreateTransitGatewayRouteTableAnnouncementCommand")
-  .sc(CreateTransitGatewayRouteTableAnnouncement)
+  .sc(CreateTransitGatewayRouteTableAnnouncement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

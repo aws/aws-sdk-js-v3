@@ -9,7 +9,7 @@ import type {
   CreateServiceSpecificCredentialRequest,
   CreateServiceSpecificCredentialResponse,
 } from "../models/models_0";
-import { CreateServiceSpecificCredential } from "../schemas/schemas_0";
+import { CreateServiceSpecificCredential$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateServiceSpecificCredentialCommandInput extends CreateServi
  *
  * The output of {@link CreateServiceSpecificCredentialCommand}.
  */
-export interface CreateServiceSpecificCredentialCommandOutput
-  extends CreateServiceSpecificCredentialResponse,
-    __MetadataBearer {}
+export interface CreateServiceSpecificCredentialCommandOutput extends CreateServiceSpecificCredentialResponse, __MetadataBearer {}
 
 /**
  * <p>Generates a set of credentials consisting of a user name and password that can be used
@@ -110,7 +108,7 @@ export class CreateServiceSpecificCredentialCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "CreateServiceSpecificCredential", {})
   .n("IAMClient", "CreateServiceSpecificCredentialCommand")
-  .sc(CreateServiceSpecificCredential)
+  .sc(CreateServiceSpecificCredential$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartAutoManagementRequest, StartAutoManagementResponse } from "../models/models_0";
-import { StartAutoManagement } from "../schemas/schemas_0";
+import { StartAutoManagement$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -96,7 +96,7 @@ export class StartAutoManagementCommand extends $Command
   })
   .s("ServiceQuotasV20190624", "StartAutoManagement", {})
   .n("ServiceQuotasClient", "StartAutoManagementCommand")
-  .sc(StartAutoManagement)
+  .sc(StartAutoManagement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

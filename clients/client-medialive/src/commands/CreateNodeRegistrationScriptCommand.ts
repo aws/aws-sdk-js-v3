@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { CreateNodeRegistrationScriptRequest, CreateNodeRegistrationScriptResponse } from "../models/models_1";
-import { CreateNodeRegistrationScript } from "../schemas/schemas_0";
+import { CreateNodeRegistrationScript$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateNodeRegistrationScriptCommandInput extends CreateNodeRegi
  *
  * The output of {@link CreateNodeRegistrationScriptCommand}.
  */
-export interface CreateNodeRegistrationScriptCommandOutput
-  extends CreateNodeRegistrationScriptResponse,
-    __MetadataBearer {}
+export interface CreateNodeRegistrationScriptCommandOutput extends CreateNodeRegistrationScriptResponse, __MetadataBearer {}
 
 /**
  * Create the Register Node script for all the nodes intended for a specific Cluster. You will then run the script on each hardware unit that is intended for that Cluster. The script creates a Node in the specified Cluster. It then binds the Node to this hardware unit, and activates the node hardware for use with MediaLive Anywhere.
@@ -107,7 +105,7 @@ export class CreateNodeRegistrationScriptCommand extends $Command
   })
   .s("MediaLive", "CreateNodeRegistrationScript", {})
   .n("MediaLiveClient", "CreateNodeRegistrationScriptCommand")
-  .sc(CreateNodeRegistrationScript)
+  .sc(CreateNodeRegistrationScript$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

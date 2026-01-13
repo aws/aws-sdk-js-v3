@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetIpamPrefixListResolverRulesRequest, GetIpamPrefixListResolverRulesResult } from "../models/models_6";
-import { GetIpamPrefixListResolverRules } from "../schemas/schemas_0";
+import { GetIpamPrefixListResolverRules$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetIpamPrefixListResolverRulesCommandInput extends GetIpamPrefi
  *
  * The output of {@link GetIpamPrefixListResolverRulesCommand}.
  */
-export interface GetIpamPrefixListResolverRulesCommandOutput
-  extends GetIpamPrefixListResolverRulesResult,
-    __MetadataBearer {}
+export interface GetIpamPrefixListResolverRulesCommandOutput extends GetIpamPrefixListResolverRulesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the CIDR selection rules for an IPAM prefix list resolver. Use this operation to view the business logic that determines which CIDRs are selected for synchronization with prefix lists.</p>
@@ -108,7 +106,7 @@ export class GetIpamPrefixListResolverRulesCommand extends $Command
   })
   .s("AmazonEC2", "GetIpamPrefixListResolverRules", {})
   .n("EC2Client", "GetIpamPrefixListResolverRulesCommand")
-  .sc(GetIpamPrefixListResolverRules)
+  .sc(GetIpamPrefixListResolverRules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

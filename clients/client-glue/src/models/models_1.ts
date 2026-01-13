@@ -35,6 +35,8 @@ import {
   JobBookmarksEncryptionMode,
   Language,
   LastRefreshType,
+  MaterializedViewRefreshState,
+  MaterializedViewRefreshType,
   MetadataOperation,
   MLUserDataEncryptionModeString,
   PrincipalType,
@@ -52,14 +54,12 @@ import {
   TaskRunSortColumnType,
   TaskStatusType,
   TaskType,
-  TransformStatusType,
   TransformType,
   TriggerType,
   UnnestSpec,
   ViewDialect,
   WorkerType,
 } from "./enums";
-
 import {
   type AuthConfiguration,
   type AuthenticationConfiguration,
@@ -8091,6 +8091,130 @@ export interface GetMappingResponse {
 /**
  * @public
  */
+export interface GetMaterializedViewRefreshTaskRunRequest {
+  /**
+   * <p>The ID of the Data Catalog where the table resides. If none is supplied, the account ID is used by default.</p>
+   * @public
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * <p>The identifier for the particular materialized view refresh task run.</p>
+   * @public
+   */
+  MaterializedViewRefreshTaskRunId: string | undefined;
+}
+
+/**
+ * <p>The object that shows the details of the materialized view refresh task run.</p>
+ * @public
+ */
+export interface MaterializedViewRefreshTaskRun {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  CustomerId?: string | undefined;
+
+  /**
+   * <p>The identifier of the materialized view refresh task run.</p>
+   * @public
+   */
+  MaterializedViewRefreshTaskRunId?: string | undefined;
+
+  /**
+   * <p>The database where the table resides.</p>
+   * @public
+   */
+  DatabaseName?: string | undefined;
+
+  /**
+   * <p>The name of the table for which statistics is generated.</p>
+   * @public
+   */
+  TableName?: string | undefined;
+
+  /**
+   * <p>The ID of the Data Catalog where the table resides. If none is supplied, the account ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The IAM role that the service assumes to generate statistics.</p>
+   * @public
+   */
+  Role?: string | undefined;
+
+  /**
+   * <p>The status of the task run.</p>
+   * @public
+   */
+  Status?: MaterializedViewRefreshState | undefined;
+
+  /**
+   * <p>The time that this task was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The last point in time when this task was modified.</p>
+   * @public
+   */
+  LastUpdated?: Date | undefined;
+
+  /**
+   * <p>The start time of the task.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The end time of the task.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The error message for the job.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * <p>The calculated DPU usage in seconds for all autoscaled workers.</p>
+   * @public
+   */
+  DPUSeconds?: number | undefined;
+
+  /**
+   * <p>The type of the refresh task run. Either FULL or INCREMENTAL.</p>
+   * @public
+   */
+  RefreshType?: MaterializedViewRefreshType | undefined;
+
+  /**
+   * <p>The number of bytes the refresh task run has scanned to refresh the materialized view.</p>
+   * @public
+   */
+  ProcessedBytes?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMaterializedViewRefreshTaskRunResponse {
+  /**
+   * <p>A MaterializedViewRefreshTaskRun object representing the details of the task run.</p>
+   * @public
+   */
+  MaterializedViewRefreshTaskRun?: MaterializedViewRefreshTaskRun | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetMLTaskRunRequest {
   /**
    * <p>The unique identifier of the machine learning transform.</p>
@@ -8561,178 +8685,4 @@ export interface FindMatchesMetrics {
    * @public
    */
   ColumnImportances?: ColumnImportance[] | undefined;
-}
-
-/**
- * <p>Evaluation metrics provide an estimate of the quality of your machine learning transform.</p>
- * @public
- */
-export interface EvaluationMetrics {
-  /**
-   * <p>The type of machine learning transform.</p>
-   * @public
-   */
-  TransformType: TransformType | undefined;
-
-  /**
-   * <p>The evaluation metrics for the find matches algorithm.</p>
-   * @public
-   */
-  FindMatchesMetrics?: FindMatchesMetrics | undefined;
-}
-
-/**
- * <p>A key-value pair representing a column and data type that this transform can
- *       run against. The <code>Schema</code> parameter of the <code>MLTransform</code> may contain up to 100 of these structures.</p>
- * @public
- */
-export interface SchemaColumn {
-  /**
-   * <p>The name of the column.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The type of data in the column.</p>
-   * @public
-   */
-  DataType?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMLTransformResponse {
-  /**
-   * <p>The unique identifier of the transform, generated at the time that the transform was
-   *       created.</p>
-   * @public
-   */
-  TransformId?: string | undefined;
-
-  /**
-   * <p>The unique name given to the transform when it was created.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A description of the transform.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The last known status of the transform (to indicate whether it can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
-   * @public
-   */
-  Status?: TransformStatusType | undefined;
-
-  /**
-   * <p>The date and time when the transform was created.</p>
-   * @public
-   */
-  CreatedOn?: Date | undefined;
-
-  /**
-   * <p>The date and time when the transform was last modified.</p>
-   * @public
-   */
-  LastModifiedOn?: Date | undefined;
-
-  /**
-   * <p>A list of Glue table definitions used by the transform.</p>
-   * @public
-   */
-  InputRecordTables?: GlueTable[] | undefined;
-
-  /**
-   * <p>The configuration parameters that are specific to the algorithm used.</p>
-   * @public
-   */
-  Parameters?: TransformParameters | undefined;
-
-  /**
-   * <p>The latest evaluation metrics.</p>
-   * @public
-   */
-  EvaluationMetrics?: EvaluationMetrics | undefined;
-
-  /**
-   * <p>The number of labels available for this transform.</p>
-   * @public
-   */
-  LabelCount?: number | undefined;
-
-  /**
-   * <p>The <code>Map<Column, Type></code> object that represents the schema that this
-   *       transform accepts. Has an upper bound of 100 columns.</p>
-   * @public
-   */
-  Schema?: SchemaColumn[] | undefined;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required
-   *       permissions.</p>
-   * @public
-   */
-  Role?: string | undefined;
-
-  /**
-   * <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
-   * @public
-   */
-  GlueVersion?: string | undefined;
-
-  /**
-   * <p>The number of Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
-   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
-   *       information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
-   *         page</a>. </p>
-   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
-   * @public
-   */
-  MaxCapacity?: number | undefined;
-
-  /**
-   * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  WorkerType?: WorkerType | undefined;
-
-  /**
-   * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
-   * @public
-   */
-  NumberOfWorkers?: number | undefined;
-
-  /**
-   * <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-   * @public
-   */
-  Timeout?: number | undefined;
-
-  /**
-   * <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
-   * @public
-   */
-  MaxRetries?: number | undefined;
-
-  /**
-   * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
-   * @public
-   */
-  TransformEncryption?: TransformEncryption | undefined;
 }

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListDataIntegrationEventsRequest, ListDataIntegrationEventsResponse } from "../models/models_0";
-import { ListDataIntegrationEvents } from "../schemas/schemas_0";
+import { ListDataIntegrationEvents$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
@@ -144,7 +144,7 @@ export class ListDataIntegrationEventsCommand extends $Command
   })
   .s("GalaxyPublicAPIGateway", "ListDataIntegrationEvents", {})
   .n("SupplyChainClient", "ListDataIntegrationEventsCommand")
-  .sc(ListDataIntegrationEvents)
+  .sc(ListDataIntegrationEvents$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

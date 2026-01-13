@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import type { DeleteWhatIfForecastRequest } from "../models/models_0";
-import { DeleteWhatIfForecast } from "../schemas/schemas_0";
+import { DeleteWhatIfForecast$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DeleteWhatIfForecastCommand extends $Command
   })
   .s("AmazonForecast", "DeleteWhatIfForecast", {})
   .n("ForecastClient", "DeleteWhatIfForecastCommand")
-  .sc(DeleteWhatIfForecast)
+  .sc(DeleteWhatIfForecast$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

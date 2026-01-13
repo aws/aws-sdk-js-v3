@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { EndpointWithHostLabelOperation } from "../schemas/schemas_0";
+import { EndpointWithHostLabelOperation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -75,7 +75,7 @@ export class EndpointWithHostLabelOperationCommand extends $Command
   })
   .s("RestXml", "EndpointWithHostLabelOperation", {})
   .n("RestXmlProtocolClient", "EndpointWithHostLabelOperationCommand")
-  .sc(EndpointWithHostLabelOperation)
+  .sc(EndpointWithHostLabelOperation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

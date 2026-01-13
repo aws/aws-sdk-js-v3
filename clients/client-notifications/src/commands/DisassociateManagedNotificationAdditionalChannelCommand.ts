@@ -9,7 +9,7 @@ import type {
   DisassociateManagedNotificationAdditionalChannelResponse,
 } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { DisassociateManagedNotificationAdditionalChannel } from "../schemas/schemas_0";
+import { DisassociateManagedNotificationAdditionalChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateManagedNotificationAdditionalChannelCommand}.
  */
-export interface DisassociateManagedNotificationAdditionalChannelCommandInput
-  extends DisassociateManagedNotificationAdditionalChannelRequest {}
+export interface DisassociateManagedNotificationAdditionalChannelCommandInput extends DisassociateManagedNotificationAdditionalChannelRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateManagedNotificationAdditionalChannelCommand}.
  */
-export interface DisassociateManagedNotificationAdditionalChannelCommandOutput
-  extends DisassociateManagedNotificationAdditionalChannelResponse,
-    __MetadataBearer {}
+export interface DisassociateManagedNotificationAdditionalChannelCommandOutput extends DisassociateManagedNotificationAdditionalChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates an additional Channel from a particular <code>ManagedNotificationConfiguration</code>.</p> <p>Supported Channels include Amazon Q Developer in chat applications, the Console Mobile Application, and emails (notifications-contacts).</p>
@@ -93,7 +90,7 @@ export class DisassociateManagedNotificationAdditionalChannelCommand extends $Co
   })
   .s("Notifications", "DisassociateManagedNotificationAdditionalChannel", {})
   .n("NotificationsClient", "DisassociateManagedNotificationAdditionalChannelCommand")
-  .sc(DisassociateManagedNotificationAdditionalChannel)
+  .sc(DisassociateManagedNotificationAdditionalChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

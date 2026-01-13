@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { CreateVpcEndpointAssociation } from "../schemas/schemas_0";
+import { CreateVpcEndpointAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface CreateVpcEndpointAssociationCommandInput extends CreateVpcEndpo
  *
  * The output of {@link CreateVpcEndpointAssociationCommand}.
  */
-export interface CreateVpcEndpointAssociationCommandOutput
-  extends CreateVpcEndpointAssociationResponse,
-    __MetadataBearer {}
+export interface CreateVpcEndpointAssociationCommandOutput extends CreateVpcEndpointAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a firewall endpoint for an Network Firewall firewall. This type of firewall endpoint is independent of the firewall endpoints that you specify in the <code>Firewall</code> itself, and you define it in addition to those endpoints after the firewall has been created. You can define a VPC endpoint association using a different VPC than the one you used in the firewall specifications. </p>
@@ -157,7 +155,7 @@ export class CreateVpcEndpointAssociationCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "CreateVpcEndpointAssociation", {})
   .n("NetworkFirewallClient", "CreateVpcEndpointAssociationCommand")
-  .sc(CreateVpcEndpointAssociation)
+  .sc(CreateVpcEndpointAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

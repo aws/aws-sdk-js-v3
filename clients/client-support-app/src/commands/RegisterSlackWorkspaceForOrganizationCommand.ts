@@ -8,7 +8,7 @@ import type {
   RegisterSlackWorkspaceForOrganizationRequest,
   RegisterSlackWorkspaceForOrganizationResult,
 } from "../models/models_0";
-import { RegisterSlackWorkspaceForOrganization } from "../schemas/schemas_0";
+import { RegisterSlackWorkspaceForOrganization$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link RegisterSlackWorkspaceForOrganizationCommand}.
  */
-export interface RegisterSlackWorkspaceForOrganizationCommandInput
-  extends RegisterSlackWorkspaceForOrganizationRequest {}
+export interface RegisterSlackWorkspaceForOrganizationCommandInput extends RegisterSlackWorkspaceForOrganizationRequest {}
 /**
  * @public
  *
  * The output of {@link RegisterSlackWorkspaceForOrganizationCommand}.
  */
-export interface RegisterSlackWorkspaceForOrganizationCommandOutput
-  extends RegisterSlackWorkspaceForOrganizationResult,
-    __MetadataBearer {}
+export interface RegisterSlackWorkspaceForOrganizationCommandOutput extends RegisterSlackWorkspaceForOrganizationResult, __MetadataBearer {}
 
 /**
  * <p>Registers a Slack workspace for your Amazon Web Services account. To call this API, your account must be
@@ -152,7 +149,7 @@ export class RegisterSlackWorkspaceForOrganizationCommand extends $Command
   })
   .s("SupportApp", "RegisterSlackWorkspaceForOrganization", {})
   .n("SupportAppClient", "RegisterSlackWorkspaceForOrganizationCommand")
-  .sc(RegisterSlackWorkspaceForOrganization)
+  .sc(RegisterSlackWorkspaceForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

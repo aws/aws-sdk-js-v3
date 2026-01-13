@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeEnvironmentHealthRequest, DescribeEnvironmentHealthResult } from "../models/models_0";
-import { DescribeEnvironmentHealth } from "../schemas/schemas_0";
+import { DescribeEnvironmentHealth$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -179,7 +179,7 @@ export class DescribeEnvironmentHealthCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "DescribeEnvironmentHealth", {})
   .n("ElasticBeanstalkClient", "DescribeEnvironmentHealthCommand")
-  .sc(DescribeEnvironmentHealth)
+  .sc(DescribeEnvironmentHealth$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

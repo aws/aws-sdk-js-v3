@@ -11,7 +11,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { DuplexStreamWithInitialMessages } from "../schemas/schemas_0";
+import { DuplexStreamWithInitialMessages$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -29,9 +29,7 @@ export interface DuplexStreamWithInitialMessagesCommandInput extends DuplexStrea
  *
  * The output of {@link DuplexStreamWithInitialMessagesCommand}.
  */
-export interface DuplexStreamWithInitialMessagesCommandOutput
-  extends DuplexStreamWithInitialMessagesOutput,
-    __MetadataBearer {}
+export interface DuplexStreamWithInitialMessagesCommandOutput extends DuplexStreamWithInitialMessagesOutput, __MetadataBearer {}
 
 /**
  * @public
@@ -160,7 +158,10 @@ export class DuplexStreamWithInitialMessagesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getEventStreamPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getEventStreamPlugin(config),
+    ];
   })
   .s("RestJson", "DuplexStreamWithInitialMessages", {
     /**
@@ -172,7 +173,7 @@ export class DuplexStreamWithInitialMessagesCommand extends $Command
     },
   })
   .n("RestJsonProtocolClient", "DuplexStreamWithInitialMessagesCommand")
-  .sc(DuplexStreamWithInitialMessages)
+  .sc(DuplexStreamWithInitialMessages$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

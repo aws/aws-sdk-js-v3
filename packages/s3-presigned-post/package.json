@@ -1,11 +1,11 @@
 {
   "name": "@aws-sdk/s3-presigned-post",
-  "version": "3.952.0",
+  "version": "3.967.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline s3-presigned-post",
     "build:es": "tsc -p tsconfig.es.json",
-    "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
+    "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
@@ -28,9 +28,9 @@
     "@aws-sdk/client-s3": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
-    "@smithy/middleware-endpoint": "^4.3.14",
-    "@smithy/signature-v4": "^5.3.5",
-    "@smithy/types": "^4.9.0",
+    "@smithy/middleware-endpoint": "^4.4.4",
+    "@smithy/signature-v4": "^5.3.7",
+    "@smithy/types": "^4.11.0",
     "@smithy/util-hex-encoding": "^4.2.0",
     "@smithy/util-utf8": "^4.2.0",
     "tslib": "^2.6.2"
@@ -41,7 +41,7 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "form-data": "^4.0.0",
-    "rimraf": "3.0.2",
+    "rimraf": "5.0.10",
     "typescript": "~5.8.3"
   },
   "engines": {

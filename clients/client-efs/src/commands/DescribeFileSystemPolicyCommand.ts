@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeFileSystemPolicyRequest, FileSystemPolicyDescription } from "../models/models_0";
-import { DescribeFileSystemPolicy } from "../schemas/schemas_0";
+import { DescribeFileSystemPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DescribeFileSystemPolicyCommand extends $Command
   })
   .s("MagnolioAPIService_v20150201", "DescribeFileSystemPolicy", {})
   .n("EFSClient", "DescribeFileSystemPolicyCommand")
-  .sc(DescribeFileSystemPolicy)
+  .sc(DescribeFileSystemPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

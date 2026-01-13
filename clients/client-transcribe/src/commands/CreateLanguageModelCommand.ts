@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateLanguageModelRequest, CreateLanguageModelResponse } from "../models/models_0";
-import { CreateLanguageModel } from "../schemas/schemas_0";
+import { CreateLanguageModel$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -128,7 +128,7 @@ export class CreateLanguageModelCommand extends $Command
   })
   .s("Transcribe", "CreateLanguageModel", {})
   .n("TranscribeClient", "CreateLanguageModelCommand")
-  .sc(CreateLanguageModel)
+  .sc(CreateLanguageModel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

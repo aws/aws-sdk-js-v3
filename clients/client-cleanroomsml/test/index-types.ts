@@ -390,6 +390,7 @@ export type {
   UpdateConfiguredAudienceModelRequest,
   UpdateConfiguredAudienceModelResponse,
   WorkerComputeConfiguration,
+  WorkerComputeConfigurationProperties,
   AccessDeniedException,
   ConflictException,
   InternalServiceException,

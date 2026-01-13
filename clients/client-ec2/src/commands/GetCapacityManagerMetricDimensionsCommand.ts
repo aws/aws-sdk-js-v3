@@ -9,7 +9,7 @@ import type {
   GetCapacityManagerMetricDimensionsRequest,
   GetCapacityManagerMetricDimensionsResult,
 } from "../models/models_5";
-import { GetCapacityManagerMetricDimensions } from "../schemas/schemas_0";
+import { GetCapacityManagerMetricDimensions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetCapacityManagerMetricDimensionsCommandInput extends GetCapac
  *
  * The output of {@link GetCapacityManagerMetricDimensionsCommand}.
  */
-export interface GetCapacityManagerMetricDimensionsCommandOutput
-  extends GetCapacityManagerMetricDimensionsResult,
-    __MetadataBearer {}
+export interface GetCapacityManagerMetricDimensionsCommandOutput extends GetCapacityManagerMetricDimensionsResult, __MetadataBearer {}
 
 /**
  * <p>
@@ -123,7 +121,7 @@ export class GetCapacityManagerMetricDimensionsCommand extends $Command
   })
   .s("AmazonEC2", "GetCapacityManagerMetricDimensions", {})
   .n("EC2Client", "GetCapacityManagerMetricDimensionsCommand")
-  .sc(GetCapacityManagerMetricDimensions)
+  .sc(GetCapacityManagerMetricDimensions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

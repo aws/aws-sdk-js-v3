@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import type { DescribeCrossAccountAccessRoleResponse } from "../models/models_0";
-import { DescribeCrossAccountAccessRole } from "../schemas/schemas_0";
+import { DescribeCrossAccountAccessRole$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeCrossAccountAccessRoleCommandInput {}
  *
  * The output of {@link DescribeCrossAccountAccessRoleCommand}.
  */
-export interface DescribeCrossAccountAccessRoleCommandOutput
-  extends DescribeCrossAccountAccessRoleResponse,
-    __MetadataBearer {}
+export interface DescribeCrossAccountAccessRoleCommandOutput extends DescribeCrossAccountAccessRoleResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the IAM role that enables Amazon Inspector to access your AWS
@@ -79,7 +77,7 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command
   })
   .s("InspectorService", "DescribeCrossAccountAccessRole", {})
   .n("InspectorClient", "DescribeCrossAccountAccessRoleCommand")
-  .sc(DescribeCrossAccountAccessRole)
+  .sc(DescribeCrossAccountAccessRole$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

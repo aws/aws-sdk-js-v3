@@ -13,7 +13,7 @@ import type {
   GetOpenIdTokenForDeveloperIdentityInput,
   GetOpenIdTokenForDeveloperIdentityResponse,
 } from "../models/models_0";
-import { GetOpenIdTokenForDeveloperIdentity } from "../schemas/schemas_0";
+import { GetOpenIdTokenForDeveloperIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetOpenIdTokenForDeveloperIdentityCommandInput extends GetOpenI
  *
  * The output of {@link GetOpenIdTokenForDeveloperIdentityCommand}.
  */
-export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
-  extends GetOpenIdTokenForDeveloperIdentityResponse,
-    __MetadataBearer {}
+export interface GetOpenIdTokenForDeveloperIdentityCommandOutput extends GetOpenIdTokenForDeveloperIdentityResponse, __MetadataBearer {}
 
 /**
  * <p>Registers (or retrieves) a Cognito <code>IdentityId</code> and an OpenID Connect
@@ -128,7 +126,7 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command
   })
   .s("AWSCognitoIdentityService", "GetOpenIdTokenForDeveloperIdentity", {})
   .n("CognitoIdentityClient", "GetOpenIdTokenForDeveloperIdentityCommand")
-  .sc(GetOpenIdTokenForDeveloperIdentity)
+  .sc(GetOpenIdTokenForDeveloperIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

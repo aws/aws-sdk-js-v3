@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetEnvironmentCredentialsInput, GetEnvironmentCredentialsOutput } from "../models/models_1";
-import { GetEnvironmentCredentials } from "../schemas/schemas_0";
+import { GetEnvironmentCredentials$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class GetEnvironmentCredentialsCommand extends $Command
   })
   .s("DataZone", "GetEnvironmentCredentials", {})
   .n("DataZoneClient", "GetEnvironmentCredentialsCommand")
-  .sc(GetEnvironmentCredentials)
+  .sc(GetEnvironmentCredentials$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

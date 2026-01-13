@@ -9,7 +9,7 @@ import type {
   DeleteProcurementPortalPreferenceRequest,
   DeleteProcurementPortalPreferenceResponse,
 } from "../models/models_0";
-import { DeleteProcurementPortalPreference } from "../schemas/schemas_0";
+import { DeleteProcurementPortalPreference$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteProcurementPortalPreferenceCommandInput extends DeletePro
  *
  * The output of {@link DeleteProcurementPortalPreferenceCommand}.
  */
-export interface DeleteProcurementPortalPreferenceCommandOutput
-  extends DeleteProcurementPortalPreferenceResponse,
-    __MetadataBearer {}
+export interface DeleteProcurementPortalPreferenceCommandOutput extends DeleteProcurementPortalPreferenceResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing procurement portal preference. This action cannot be undone. Active e-invoice delivery and PO retrieval configurations will be terminated.</p>
@@ -111,7 +109,7 @@ export class DeleteProcurementPortalPreferenceCommand extends $Command
   })
   .s("Invoicing", "DeleteProcurementPortalPreference", {})
   .n("InvoicingClient", "DeleteProcurementPortalPreferenceCommand")
-  .sc(DeleteProcurementPortalPreference)
+  .sc(DeleteProcurementPortalPreference$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

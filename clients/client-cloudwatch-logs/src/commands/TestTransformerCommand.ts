@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TestTransformerRequest, TestTransformerResponse } from "../models/models_0";
-import { TestTransformer } from "../schemas/schemas_0";
+import { TestTransformer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -246,7 +246,7 @@ export class TestTransformerCommand extends $Command
   })
   .s("Logs_20140328", "TestTransformer", {})
   .n("CloudWatchLogsClient", "TestTransformerCommand")
-  .sc(TestTransformer)
+  .sc(TestTransformer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

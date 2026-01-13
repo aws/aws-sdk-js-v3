@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ResetConnectorMetadataCacheRequest, ResetConnectorMetadataCacheResponse } from "../models/models_0";
-import { ResetConnectorMetadataCache } from "../schemas/schemas_0";
+import { ResetConnectorMetadataCache$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ResetConnectorMetadataCacheCommandInput extends ResetConnectorM
  *
  * The output of {@link ResetConnectorMetadataCacheCommand}.
  */
-export interface ResetConnectorMetadataCacheCommandOutput
-  extends ResetConnectorMetadataCacheResponse,
-    __MetadataBearer {}
+export interface ResetConnectorMetadataCacheCommandOutput extends ResetConnectorMetadataCacheResponse, __MetadataBearer {}
 
 /**
  * <p>Resets metadata about your connector entities that Amazon AppFlow stored in its
@@ -98,7 +96,7 @@ export class ResetConnectorMetadataCacheCommand extends $Command
   })
   .s("SandstoneConfigurationServiceLambda", "ResetConnectorMetadataCache", {})
   .n("AppflowClient", "ResetConnectorMetadataCacheCommand")
-  .sc(ResetConnectorMetadataCache)
+  .sc(ResetConnectorMetadataCache$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageV2Client";
 import type { UpdateOriginEndpointRequest, UpdateOriginEndpointResponse } from "../models/models_0";
-import { UpdateOriginEndpoint } from "../schemas/schemas_0";
+import { UpdateOriginEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,6 +77,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *         ],
  *         RoleArn: "STRING_VALUE", // required
  *         Url: "STRING_VALUE", // required
+ *         CertificateArn: "STRING_VALUE",
  *       },
  *     },
  *   },
@@ -258,6 +259,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //         ],
  * //         RoleArn: "STRING_VALUE", // required
  * //         Url: "STRING_VALUE", // required
+ * //         CertificateArn: "STRING_VALUE",
  * //       },
  * //     },
  * //   },
@@ -507,6 +509,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       },
  *       KeyRotationIntervalSeconds: 300,
  *       SpekeKeyProvider: {
+ *         CertificateArn: "arn:aws:acm:us-west-2:123456789012:certificate/0c6a65f1-7bd3-48ac-be17-f38675def22e",
  *         DrmSystems: [
  *           "CLEAR_KEY_AES_128"
  *         ],
@@ -605,6 +608,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       },
  *       KeyRotationIntervalSeconds: 300,
  *       SpekeKeyProvider: {
+ *         CertificateArn: "arn:aws:acm:us-west-2:123456789012:certificate/0c6a65f1-7bd3-48ac-be17-f38675def22e",
  *         DrmSystems: [
  *           "CLEAR_KEY_AES_128"
  *         ],
@@ -770,7 +774,7 @@ export class UpdateOriginEndpointCommand extends $Command
   })
   .s("mediapackagev2", "UpdateOriginEndpoint", {})
   .n("MediaPackageV2Client", "UpdateOriginEndpointCommand")
-  .sc(UpdateOriginEndpoint)
+  .sc(UpdateOriginEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

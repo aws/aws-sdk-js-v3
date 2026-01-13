@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateConstraintInput, UpdateConstraintOutput } from "../models/models_0";
-import { UpdateConstraint } from "../schemas/schemas_0";
+import { UpdateConstraint$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -95,7 +95,7 @@ export class UpdateConstraintCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "UpdateConstraint", {})
   .n("ServiceCatalogClient", "UpdateConstraintCommand")
-  .sc(UpdateConstraint)
+  .sc(UpdateConstraint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

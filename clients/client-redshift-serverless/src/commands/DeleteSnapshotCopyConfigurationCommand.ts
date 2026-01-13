@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { DeleteSnapshotCopyConfiguration } from "../schemas/schemas_0";
+import { DeleteSnapshotCopyConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DeleteSnapshotCopyConfigurationCommandInput extends DeleteSnaps
  *
  * The output of {@link DeleteSnapshotCopyConfigurationCommand}.
  */
-export interface DeleteSnapshotCopyConfigurationCommandOutput
-  extends DeleteSnapshotCopyConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteSnapshotCopyConfigurationCommandOutput extends DeleteSnapshotCopyConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a snapshot copy configuration</p>
@@ -104,7 +102,7 @@ export class DeleteSnapshotCopyConfigurationCommand extends $Command
   })
   .s("RedshiftServerless", "DeleteSnapshotCopyConfiguration", {})
   .n("RedshiftServerlessClient", "DeleteSnapshotCopyConfigurationCommand")
-  .sc(DeleteSnapshotCopyConfiguration)
+  .sc(DeleteSnapshotCopyConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

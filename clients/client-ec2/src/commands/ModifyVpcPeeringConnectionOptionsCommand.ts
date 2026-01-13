@@ -9,7 +9,7 @@ import type {
   ModifyVpcPeeringConnectionOptionsRequest,
   ModifyVpcPeeringConnectionOptionsResult,
 } from "../models/models_7";
-import { ModifyVpcPeeringConnectionOptions } from "../schemas/schemas_0";
+import { ModifyVpcPeeringConnectionOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ModifyVpcPeeringConnectionOptionsCommandInput extends ModifyVpc
  *
  * The output of {@link ModifyVpcPeeringConnectionOptionsCommand}.
  */
-export interface ModifyVpcPeeringConnectionOptionsCommandOutput
-  extends ModifyVpcPeeringConnectionOptionsResult,
-    __MetadataBearer {}
+export interface ModifyVpcPeeringConnectionOptionsCommandOutput extends ModifyVpcPeeringConnectionOptionsResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the VPC peering connection options on one side of a VPC peering connection.</p>
@@ -108,7 +106,7 @@ export class ModifyVpcPeeringConnectionOptionsCommand extends $Command
   })
   .s("AmazonEC2", "ModifyVpcPeeringConnectionOptions", {})
   .n("EC2Client", "ModifyVpcPeeringConnectionOptionsCommand")
-  .sc(ModifyVpcPeeringConnectionOptions)
+  .sc(ModifyVpcPeeringConnectionOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

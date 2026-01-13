@@ -11,10 +11,8 @@ semantic search capabilities to intelligently re-rank a search
 service's results.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-kendra-ranking
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-kendra-ranking`
 - `yarn add @aws-sdk/client-kendra-ranking`
 - `pnpm add @aws-sdk/client-kendra-ranking`
@@ -50,9 +48,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new KendraRankingClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListRescoreExecutionPlansCommand(params);
 ```
 
@@ -211,7 +207,6 @@ CreateRescoreExecutionPlan
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kendra-ranking/command/CreateRescoreExecutionPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kendra-ranking/Interface/CreateRescoreExecutionPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kendra-ranking/Interface/CreateRescoreExecutionPlanCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -219,7 +214,6 @@ DeleteRescoreExecutionPlan
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kendra-ranking/command/DeleteRescoreExecutionPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kendra-ranking/Interface/DeleteRescoreExecutionPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kendra-ranking/Interface/DeleteRescoreExecutionPlanCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -227,7 +221,6 @@ DescribeRescoreExecutionPlan
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kendra-ranking/command/DescribeRescoreExecutionPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kendra-ranking/Interface/DescribeRescoreExecutionPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kendra-ranking/Interface/DescribeRescoreExecutionPlanCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -235,7 +228,6 @@ ListRescoreExecutionPlans
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kendra-ranking/command/ListRescoreExecutionPlansCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kendra-ranking/Interface/ListRescoreExecutionPlansCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kendra-ranking/Interface/ListRescoreExecutionPlansCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -243,7 +235,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kendra-ranking/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kendra-ranking/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kendra-ranking/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -251,7 +242,6 @@ Rescore
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kendra-ranking/command/RescoreCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kendra-ranking/Interface/RescoreCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kendra-ranking/Interface/RescoreCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -259,7 +249,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kendra-ranking/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kendra-ranking/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kendra-ranking/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -267,7 +256,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kendra-ranking/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kendra-ranking/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kendra-ranking/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -275,5 +263,4 @@ UpdateRescoreExecutionPlan
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kendra-ranking/command/UpdateRescoreExecutionPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kendra-ranking/Interface/UpdateRescoreExecutionPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kendra-ranking/Interface/UpdateRescoreExecutionPlanCommandOutput/)
-
 </details>

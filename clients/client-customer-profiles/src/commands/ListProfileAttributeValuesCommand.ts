@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ProfileAttributeValuesRequest, ProfileAttributeValuesResponse } from "../models/models_0";
-import { ListProfileAttributeValues } from "../schemas/schemas_0";
+import { ListProfileAttributeValues$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ListProfileAttributeValuesCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "ListProfileAttributeValues", {})
   .n("CustomerProfilesClient", "ListProfileAttributeValuesCommand")
-  .sc(ListProfileAttributeValues)
+  .sc(ListProfileAttributeValues$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { MalformedContentTypeWithoutBodyEmptyInput } from "../schemas/schemas_0";
+import { MalformedContentTypeWithoutBodyEmptyInput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -22,8 +22,7 @@ export { $Command };
  *
  * The input for {@link MalformedContentTypeWithoutBodyEmptyInputCommand}.
  */
-export interface MalformedContentTypeWithoutBodyEmptyInputCommandInput
-  extends MalformedContentTypeWithoutBodyEmptyInputInput {}
+export interface MalformedContentTypeWithoutBodyEmptyInputCommandInput extends MalformedContentTypeWithoutBodyEmptyInputInput {}
 /**
  * @public
  *
@@ -76,7 +75,7 @@ export class MalformedContentTypeWithoutBodyEmptyInputCommand extends $Command
   })
   .s("RestJson", "MalformedContentTypeWithoutBodyEmptyInput", {})
   .n("RestJsonProtocolClient", "MalformedContentTypeWithoutBodyEmptyInputCommand")
-  .sc(MalformedContentTypeWithoutBodyEmptyInput)
+  .sc(MalformedContentTypeWithoutBodyEmptyInput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

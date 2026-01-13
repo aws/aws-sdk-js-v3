@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NotificationsContactsClient";
-import { SendActivationCode } from "../schemas/schemas_0";
+import { SendActivationCode$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class SendActivationCodeCommand extends $Command
   })
   .s("NotificationsContacts", "SendActivationCode", {})
   .n("NotificationsContactsClient", "SendActivationCodeCommand")
-  .sc(SendActivationCode)
+  .sc(SendActivationCode$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

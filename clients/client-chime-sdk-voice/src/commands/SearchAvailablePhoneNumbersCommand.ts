@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchAvailablePhoneNumbersRequest, SearchAvailablePhoneNumbersResponse } from "../models/models_0";
-import { SearchAvailablePhoneNumbers } from "../schemas/schemas_0";
+import { SearchAvailablePhoneNumbers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface SearchAvailablePhoneNumbersCommandInput extends SearchAvailable
  *
  * The output of {@link SearchAvailablePhoneNumbersCommand}.
  */
-export interface SearchAvailablePhoneNumbersCommandOutput
-  extends SearchAvailablePhoneNumbersResponse,
-    __MetadataBearer {}
+export interface SearchAvailablePhoneNumbersCommandOutput extends SearchAvailablePhoneNumbersResponse, __MetadataBearer {}
 
 /**
  * <p>Searches the provisioned phone numbers in an organization.</p>
@@ -106,7 +104,7 @@ export class SearchAvailablePhoneNumbersCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "SearchAvailablePhoneNumbers", {})
   .n("ChimeSDKVoiceClient", "SearchAvailablePhoneNumbersCommand")
-  .sc(SearchAvailablePhoneNumbers)
+  .sc(SearchAvailablePhoneNumbers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

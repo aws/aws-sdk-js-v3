@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchAvailablePhoneNumbersRequest, SearchAvailablePhoneNumbersResponse } from "../models/models_2";
-import { SearchAvailablePhoneNumbers } from "../schemas/schemas_0";
+import { SearchAvailablePhoneNumbers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface SearchAvailablePhoneNumbersCommandInput extends SearchAvailable
  *
  * The output of {@link SearchAvailablePhoneNumbersCommand}.
  */
-export interface SearchAvailablePhoneNumbersCommandOutput
-  extends SearchAvailablePhoneNumbersResponse,
-    __MetadataBearer {}
+export interface SearchAvailablePhoneNumbersCommandOutput extends SearchAvailablePhoneNumbersResponse, __MetadataBearer {}
 
 /**
  * <p>Searches for available phone numbers that you can claim to your Amazon Connect instance or traffic distribution group. If the
@@ -102,7 +100,7 @@ export class SearchAvailablePhoneNumbersCommand extends $Command
   })
   .s("AmazonConnectService", "SearchAvailablePhoneNumbers", {})
   .n("ConnectClient", "SearchAvailablePhoneNumbersCommand")
-  .sc(SearchAvailablePhoneNumbers)
+  .sc(SearchAvailablePhoneNumbers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

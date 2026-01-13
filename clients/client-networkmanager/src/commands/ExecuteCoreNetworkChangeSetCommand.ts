@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { ExecuteCoreNetworkChangeSet } from "../schemas/schemas_0";
+import { ExecuteCoreNetworkChangeSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ExecuteCoreNetworkChangeSetCommandInput extends ExecuteCoreNetw
  *
  * The output of {@link ExecuteCoreNetworkChangeSetCommand}.
  */
-export interface ExecuteCoreNetworkChangeSetCommandOutput
-  extends ExecuteCoreNetworkChangeSetResponse,
-    __MetadataBearer {}
+export interface ExecuteCoreNetworkChangeSetCommandOutput extends ExecuteCoreNetworkChangeSetResponse, __MetadataBearer {}
 
 /**
  * <p>Executes a change set on your core network. Deploys changes globally based on the policy submitted..</p>
@@ -97,7 +95,7 @@ export class ExecuteCoreNetworkChangeSetCommand extends $Command
   })
   .s("NetworkManager", "ExecuteCoreNetworkChangeSet", {})
   .n("NetworkManagerClient", "ExecuteCoreNetworkChangeSetCommand")
-  .sc(ExecuteCoreNetworkChangeSet)
+  .sc(ExecuteCoreNetworkChangeSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

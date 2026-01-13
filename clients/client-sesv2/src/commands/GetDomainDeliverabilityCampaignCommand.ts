@@ -8,7 +8,7 @@ import type {
   GetDomainDeliverabilityCampaignRequest,
   GetDomainDeliverabilityCampaignResponse,
 } from "../models/models_0";
-import { GetDomainDeliverabilityCampaign } from "../schemas/schemas_0";
+import { GetDomainDeliverabilityCampaign$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -27,9 +27,7 @@ export interface GetDomainDeliverabilityCampaignCommandInput extends GetDomainDe
  *
  * The output of {@link GetDomainDeliverabilityCampaignCommand}.
  */
-export interface GetDomainDeliverabilityCampaignCommandOutput
-  extends GetDomainDeliverabilityCampaignResponse,
-    __MetadataBearer {}
+export interface GetDomainDeliverabilityCampaignCommandOutput extends GetDomainDeliverabilityCampaignResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve all the deliverability data for a specific campaign. This data is available
@@ -108,7 +106,7 @@ export class GetDomainDeliverabilityCampaignCommand extends $Command
   })
   .s("SimpleEmailService_v2", "GetDomainDeliverabilityCampaign", {})
   .n("SESv2Client", "GetDomainDeliverabilityCampaignCommand")
-  .sc(GetDomainDeliverabilityCampaign)
+  .sc(GetDomainDeliverabilityCampaign$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

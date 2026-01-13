@@ -9,7 +9,7 @@ import type {
   UpdateNotebookInstanceLifecycleConfigOutput,
 } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { UpdateNotebookInstanceLifecycleConfig } from "../schemas/schemas_0";
+import { UpdateNotebookInstanceLifecycleConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateNotebookInstanceLifecycleConfigCommandInput extends Updat
  *
  * The output of {@link UpdateNotebookInstanceLifecycleConfigCommand}.
  */
-export interface UpdateNotebookInstanceLifecycleConfigCommandOutput
-  extends UpdateNotebookInstanceLifecycleConfigOutput,
-    __MetadataBearer {}
+export interface UpdateNotebookInstanceLifecycleConfigCommandOutput extends UpdateNotebookInstanceLifecycleConfigOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a notebook instance lifecycle configuration created with the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateNotebookInstanceLifecycleConfig.html">CreateNotebookInstanceLifecycleConfig</a> API.</p>
@@ -89,7 +87,7 @@ export class UpdateNotebookInstanceLifecycleConfigCommand extends $Command
   })
   .s("SageMaker", "UpdateNotebookInstanceLifecycleConfig", {})
   .n("SageMakerClient", "UpdateNotebookInstanceLifecycleConfigCommand")
-  .sc(UpdateNotebookInstanceLifecycleConfig)
+  .sc(UpdateNotebookInstanceLifecycleConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

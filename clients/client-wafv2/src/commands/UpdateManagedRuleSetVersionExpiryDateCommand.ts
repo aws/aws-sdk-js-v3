@@ -8,7 +8,7 @@ import type {
   UpdateManagedRuleSetVersionExpiryDateRequest,
   UpdateManagedRuleSetVersionExpiryDateResponse,
 } from "../models/models_0";
-import { UpdateManagedRuleSetVersionExpiryDate } from "../schemas/schemas_0";
+import { UpdateManagedRuleSetVersionExpiryDate$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateManagedRuleSetVersionExpiryDateCommand}.
  */
-export interface UpdateManagedRuleSetVersionExpiryDateCommandInput
-  extends UpdateManagedRuleSetVersionExpiryDateRequest {}
+export interface UpdateManagedRuleSetVersionExpiryDateCommandInput extends UpdateManagedRuleSetVersionExpiryDateRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateManagedRuleSetVersionExpiryDateCommand}.
  */
-export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput
-  extends UpdateManagedRuleSetVersionExpiryDateResponse,
-    __MetadataBearer {}
+export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput extends UpdateManagedRuleSetVersionExpiryDateResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the expiration information for your managed rule set. Use this to initiate the
@@ -131,7 +128,7 @@ export class UpdateManagedRuleSetVersionExpiryDateCommand extends $Command
   })
   .s("AWSWAF_20190729", "UpdateManagedRuleSetVersionExpiryDate", {})
   .n("WAFV2Client", "UpdateManagedRuleSetVersionExpiryDateCommand")
-  .sc(UpdateManagedRuleSetVersionExpiryDate)
+  .sc(UpdateManagedRuleSetVersionExpiryDate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

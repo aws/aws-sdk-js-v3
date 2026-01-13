@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GameLiftStreamsClient";
 import type { GetStreamGroupInput, GetStreamGroupOutput } from "../models/models_0";
-import { GetStreamGroup } from "../schemas/schemas_0";
+import { GetStreamGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -58,12 +58,14 @@ export interface GetStreamGroupCommandOutput extends GetStreamGroupOutput, __Met
  * //       Status: "ACTIVATING" || "ACTIVE" || "ERROR" || "REMOVING",
  * //       AlwaysOnCapacity: Number("int"),
  * //       OnDemandCapacity: Number("int"),
+ * //       TargetIdleCapacity: Number("int"),
+ * //       MaximumCapacity: Number("int"),
  * //       RequestedCapacity: Number("int"),
  * //       AllocatedCapacity: Number("int"),
  * //       IdleCapacity: Number("int"),
  * //     },
  * //   ],
- * //   StreamClass: "gen4n_high" || "gen4n_ultra" || "gen4n_win2022" || "gen5n_high" || "gen5n_ultra" || "gen5n_win2022",
+ * //   StreamClass: "gen4n_high" || "gen4n_ultra" || "gen4n_win2022" || "gen5n_high" || "gen5n_ultra" || "gen5n_win2022" || "gen6n_small" || "gen6n_medium" || "gen6n_high" || "gen6n_ultra" || "gen6n_ultra_win2022" || "gen6n_pro" || "gen6n_pro_win2022",
  * //   Id: "STRING_VALUE",
  * //   Status: "ACTIVATING" || "UPDATING_LOCATIONS" || "ACTIVE" || "ACTIVE_WITH_ERRORS" || "ERROR" || "DELETING" || "EXPIRED",
  * //   StatusReason: "internalError" || "noAvailableInstances",
@@ -118,7 +120,7 @@ export class GetStreamGroupCommand extends $Command
   })
   .s("GameLiftStreams", "GetStreamGroup", {})
   .n("GameLiftStreamsClient", "GetStreamGroupCommand")
-  .sc(GetStreamGroup)
+  .sc(GetStreamGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

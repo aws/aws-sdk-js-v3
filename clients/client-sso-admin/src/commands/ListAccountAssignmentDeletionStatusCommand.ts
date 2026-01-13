@@ -8,7 +8,7 @@ import type {
   ListAccountAssignmentDeletionStatusRequest,
   ListAccountAssignmentDeletionStatusResponse,
 } from "../models/models_0";
-import { ListAccountAssignmentDeletionStatus } from "../schemas/schemas_0";
+import { ListAccountAssignmentDeletionStatus$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -27,9 +27,7 @@ export interface ListAccountAssignmentDeletionStatusCommandInput extends ListAcc
  *
  * The output of {@link ListAccountAssignmentDeletionStatusCommand}.
  */
-export interface ListAccountAssignmentDeletionStatusCommandOutput
-  extends ListAccountAssignmentDeletionStatusResponse,
-    __MetadataBearer {}
+export interface ListAccountAssignmentDeletionStatusCommandOutput extends ListAccountAssignmentDeletionStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the status of the Amazon Web Services account assignment deletion requests for a specified IAM Identity Center instance.</p>
@@ -105,7 +103,7 @@ export class ListAccountAssignmentDeletionStatusCommand extends $Command
   })
   .s("SWBExternalService", "ListAccountAssignmentDeletionStatus", {})
   .n("SSOAdminClient", "ListAccountAssignmentDeletionStatusCommand")
-  .sc(ListAccountAssignmentDeletionStatus)
+  .sc(ListAccountAssignmentDeletionStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

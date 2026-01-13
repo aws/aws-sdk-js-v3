@@ -9,7 +9,7 @@ import type {
   ListCollaborationMLInputChannelsRequest,
   ListCollaborationMLInputChannelsResponse,
 } from "../models/models_0";
-import { ListCollaborationMLInputChannels } from "../schemas/schemas_0";
+import { ListCollaborationMLInputChannels$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListCollaborationMLInputChannelsCommandInput extends ListCollab
  *
  * The output of {@link ListCollaborationMLInputChannelsCommand}.
  */
-export interface ListCollaborationMLInputChannelsCommandOutput
-  extends ListCollaborationMLInputChannelsResponse,
-    __MetadataBearer {}
+export interface ListCollaborationMLInputChannelsCommandOutput extends ListCollaborationMLInputChannelsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the ML input channels in a collaboration.</p>
@@ -105,7 +103,7 @@ export class ListCollaborationMLInputChannelsCommand extends $Command
   })
   .s("AWSStarkControlService", "ListCollaborationMLInputChannels", {})
   .n("CleanRoomsMLClient", "ListCollaborationMLInputChannelsCommand")
-  .sc(ListCollaborationMLInputChannels)
+  .sc(ListCollaborationMLInputChannels$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

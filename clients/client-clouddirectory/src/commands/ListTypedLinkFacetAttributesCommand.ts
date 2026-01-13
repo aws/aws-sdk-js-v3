@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListTypedLinkFacetAttributesRequest, ListTypedLinkFacetAttributesResponse } from "../models/models_0";
-import { ListTypedLinkFacetAttributes } from "../schemas/schemas_0";
+import { ListTypedLinkFacetAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListTypedLinkFacetAttributesCommandInput extends ListTypedLinkF
  *
  * The output of {@link ListTypedLinkFacetAttributesCommand}.
  */
-export interface ListTypedLinkFacetAttributesCommandOutput
-  extends ListTypedLinkFacetAttributesResponse,
-    __MetadataBearer {}
+export interface ListTypedLinkFacetAttributesCommandOutput extends ListTypedLinkFacetAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of all attribute definitions for a particular <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
@@ -133,7 +131,7 @@ export class ListTypedLinkFacetAttributesCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "ListTypedLinkFacetAttributes", {})
   .n("CloudDirectoryClient", "ListTypedLinkFacetAttributesCommand")
-  .sc(ListTypedLinkFacetAttributes)
+  .sc(ListTypedLinkFacetAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

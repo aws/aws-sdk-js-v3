@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateGatewayToServerInput, AssociateGatewayToServerOutput } from "../models/models_0";
-import { AssociateGatewayToServer } from "../schemas/schemas_0";
+import { AssociateGatewayToServer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class AssociateGatewayToServerCommand extends $Command
   })
   .s("BackupOnPremises_v20210101", "AssociateGatewayToServer", {})
   .n("BackupGatewayClient", "AssociateGatewayToServerCommand")
-  .sc(AssociateGatewayToServer)
+  .sc(AssociateGatewayToServer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

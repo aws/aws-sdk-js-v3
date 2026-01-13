@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AddCustomAttributesRequest, AddCustomAttributesResponse } from "../models/models_0";
-import { AddCustomAttributes } from "../schemas/schemas_0";
+import { AddCustomAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,7 +136,7 @@ export class AddCustomAttributesCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "AddCustomAttributes", {})
   .n("CognitoIdentityProviderClient", "AddCustomAttributesCommand")
-  .sc(AddCustomAttributes)
+  .sc(AddCustomAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

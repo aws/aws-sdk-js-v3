@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PromoteReadReplicaDBClusterMessage, PromoteReadReplicaDBClusterResult } from "../models/models_0";
 import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { PromoteReadReplicaDBCluster } from "../schemas/schemas_0";
+import { PromoteReadReplicaDBCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -174,7 +174,7 @@ export class PromoteReadReplicaDBClusterCommand extends $Command
   })
   .s("AmazonRDSv19", "PromoteReadReplicaDBCluster", {})
   .n("NeptuneClient", "PromoteReadReplicaDBClusterCommand")
-  .sc(PromoteReadReplicaDBCluster)
+  .sc(PromoteReadReplicaDBCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeregisterTypeInput, DeregisterTypeOutput } from "../models/models_0";
-import { DeregisterType } from "../schemas/schemas_0";
+import { DeregisterType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DeregisterTypeCommand extends $Command
   })
   .s("CloudFormation", "DeregisterType", {})
   .n("CloudFormationClient", "DeregisterTypeCommand")
-  .sc(DeregisterType)
+  .sc(DeregisterType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

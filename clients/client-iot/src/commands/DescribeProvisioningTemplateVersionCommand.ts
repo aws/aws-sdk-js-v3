@@ -9,7 +9,7 @@ import type {
   DescribeProvisioningTemplateVersionRequest,
   DescribeProvisioningTemplateVersionResponse,
 } from "../models/models_1";
-import { DescribeProvisioningTemplateVersion } from "../schemas/schemas_0";
+import { DescribeProvisioningTemplateVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeProvisioningTemplateVersionCommandInput extends Describ
  *
  * The output of {@link DescribeProvisioningTemplateVersionCommand}.
  */
-export interface DescribeProvisioningTemplateVersionCommandOutput
-  extends DescribeProvisioningTemplateVersionResponse,
-    __MetadataBearer {}
+export interface DescribeProvisioningTemplateVersionCommandOutput extends DescribeProvisioningTemplateVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a provisioning template version.</p>
@@ -98,7 +96,7 @@ export class DescribeProvisioningTemplateVersionCommand extends $Command
   })
   .s("AWSIotService", "DescribeProvisioningTemplateVersion", {})
   .n("IoTClient", "DescribeProvisioningTemplateVersionCommand")
-  .sc(DescribeProvisioningTemplateVersion)
+  .sc(DescribeProvisioningTemplateVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

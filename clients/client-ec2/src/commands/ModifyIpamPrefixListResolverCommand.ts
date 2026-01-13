@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyIpamPrefixListResolverRequest, ModifyIpamPrefixListResolverResult } from "../models/models_6";
-import { ModifyIpamPrefixListResolver } from "../schemas/schemas_0";
+import { ModifyIpamPrefixListResolver$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ModifyIpamPrefixListResolverCommandInput extends ModifyIpamPref
  *
  * The output of {@link ModifyIpamPrefixListResolverCommand}.
  */
-export interface ModifyIpamPrefixListResolverCommandOutput
-  extends ModifyIpamPrefixListResolverResult,
-    __MetadataBearer {}
+export interface ModifyIpamPrefixListResolverCommandOutput extends ModifyIpamPrefixListResolverResult, __MetadataBearer {}
 
 /**
  * <p>Modifies an IPAM prefix list resolver. You can update the description and CIDR selection rules. Changes to rules will trigger re-evaluation and potential updates to associated prefix lists.</p>
@@ -116,7 +114,7 @@ export class ModifyIpamPrefixListResolverCommand extends $Command
   })
   .s("AmazonEC2", "ModifyIpamPrefixListResolver", {})
   .n("EC2Client", "ModifyIpamPrefixListResolverCommand")
-  .sc(ModifyIpamPrefixListResolver)
+  .sc(ModifyIpamPrefixListResolver$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

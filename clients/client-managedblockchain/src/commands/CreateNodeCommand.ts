@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
 import type { CreateNodeInput, CreateNodeOutput } from "../models/models_0";
-import { CreateNode } from "../schemas/schemas_0";
+import { CreateNode$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,7 +133,7 @@ export class CreateNodeCommand extends $Command
   })
   .s("TaigaWebService", "CreateNode", {})
   .n("ManagedBlockchainClient", "CreateNodeCommand")
-  .sc(CreateNode)
+  .sc(CreateNode$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

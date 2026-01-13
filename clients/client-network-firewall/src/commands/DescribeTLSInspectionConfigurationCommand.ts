@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { DescribeTLSInspectionConfiguration } from "../schemas/schemas_0";
+import { DescribeTLSInspectionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DescribeTLSInspectionConfigurationCommandInput extends Describe
  *
  * The output of {@link DescribeTLSInspectionConfigurationCommand}.
  */
-export interface DescribeTLSInspectionConfigurationCommandOutput
-  extends DescribeTLSInspectionConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeTLSInspectionConfigurationCommandOutput extends DescribeTLSInspectionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the data objects for the specified TLS inspection configuration.</p>
@@ -187,7 +185,7 @@ export class DescribeTLSInspectionConfigurationCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "DescribeTLSInspectionConfiguration", {})
   .n("NetworkFirewallClient", "DescribeTLSInspectionConfigurationCommand")
-  .sc(DescribeTLSInspectionConfiguration)
+  .sc(DescribeTLSInspectionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

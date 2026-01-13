@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getSigV4AuthPlugin } from "@aws-sdk/middleware-signing";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { de_OnlySigv4AuthCommand, se_OnlySigv4AuthCommand } from "../protocols/Aws_restJson1";
+import { OnlySigv4Auth$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
 
 /**
@@ -67,16 +66,13 @@ export class OnlySigv4AuthCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WeatherClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getSigV4AuthPlugin(config),
     ];
   })
   .s("Weather", "OnlySigv4Auth", {})
   .n("WeatherClient", "OnlySigv4AuthCommand")
-  .f(void 0, void 0)
-  .ser(se_OnlySigv4AuthCommand)
-  .de(de_OnlySigv4AuthCommand)
+  .sc(OnlySigv4Auth$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

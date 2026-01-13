@@ -9,7 +9,7 @@ import type {
   GetCodeSecurityScanConfigurationRequest,
   GetCodeSecurityScanConfigurationResponse,
 } from "../models/models_0";
-import { GetCodeSecurityScanConfiguration } from "../schemas/schemas_0";
+import { GetCodeSecurityScanConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetCodeSecurityScanConfigurationCommandInput extends GetCodeSec
  *
  * The output of {@link GetCodeSecurityScanConfigurationCommand}.
  */
-export interface GetCodeSecurityScanConfigurationCommandOutput
-  extends GetCodeSecurityScanConfigurationResponse,
-    __MetadataBearer {}
+export interface GetCodeSecurityScanConfigurationCommandOutput extends GetCodeSecurityScanConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a code security scan configuration.</p>
@@ -121,7 +119,7 @@ export class GetCodeSecurityScanConfigurationCommand extends $Command
   })
   .s("Inspector2", "GetCodeSecurityScanConfiguration", {})
   .n("Inspector2Client", "GetCodeSecurityScanConfigurationCommand")
-  .sc(GetCodeSecurityScanConfiguration)
+  .sc(GetCodeSecurityScanConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

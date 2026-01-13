@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteStackInput } from "../models/models_0";
-import { DeleteStack } from "../schemas/schemas_0";
+import { DeleteStack$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteStackCommand extends $Command
   })
   .s("CloudFormation", "DeleteStack", {})
   .n("CloudFormationClient", "DeleteStackCommand")
-  .sc(DeleteStack)
+  .sc(DeleteStack$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

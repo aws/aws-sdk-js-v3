@@ -8,7 +8,7 @@ import type {
   ModifyWorkspaceCreationPropertiesRequest,
   ModifyWorkspaceCreationPropertiesResult,
 } from "../models/models_0";
-import { ModifyWorkspaceCreationProperties } from "../schemas/schemas_0";
+import { ModifyWorkspaceCreationProperties$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -27,9 +27,7 @@ export interface ModifyWorkspaceCreationPropertiesCommandInput extends ModifyWor
  *
  * The output of {@link ModifyWorkspaceCreationPropertiesCommand}.
  */
-export interface ModifyWorkspaceCreationPropertiesCommandOutput
-  extends ModifyWorkspaceCreationPropertiesResult,
-    __MetadataBearer {}
+export interface ModifyWorkspaceCreationPropertiesCommandOutput extends ModifyWorkspaceCreationPropertiesResult, __MetadataBearer {}
 
 /**
  * <p>Modify the default properties used to create WorkSpaces.</p>
@@ -96,7 +94,7 @@ export class ModifyWorkspaceCreationPropertiesCommand extends $Command
   })
   .s("WorkspacesService", "ModifyWorkspaceCreationProperties", {})
   .n("WorkSpacesClient", "ModifyWorkspaceCreationPropertiesCommand")
-  .sc(ModifyWorkspaceCreationProperties)
+  .sc(ModifyWorkspaceCreationProperties$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

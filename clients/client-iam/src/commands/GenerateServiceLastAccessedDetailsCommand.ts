@@ -9,7 +9,7 @@ import type {
   GenerateServiceLastAccessedDetailsRequest,
   GenerateServiceLastAccessedDetailsResponse,
 } from "../models/models_0";
-import { GenerateServiceLastAccessedDetails } from "../schemas/schemas_0";
+import { GenerateServiceLastAccessedDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GenerateServiceLastAccessedDetailsCommandInput extends Generate
  *
  * The output of {@link GenerateServiceLastAccessedDetailsCommand}.
  */
-export interface GenerateServiceLastAccessedDetailsCommandOutput
-  extends GenerateServiceLastAccessedDetailsResponse,
-    __MetadataBearer {}
+export interface GenerateServiceLastAccessedDetailsCommandOutput extends GenerateServiceLastAccessedDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Generates a report that includes details about when an IAM resource (user, group,
@@ -157,7 +155,7 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "GenerateServiceLastAccessedDetails", {})
   .n("IAMClient", "GenerateServiceLastAccessedDetailsCommand")
-  .sc(GenerateServiceLastAccessedDetails)
+  .sc(GenerateServiceLastAccessedDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

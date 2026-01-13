@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { DeleteUsageLimit } from "../schemas/schemas_0";
+import { DeleteUsageLimit$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DeleteUsageLimitCommand extends $Command
   })
   .s("RedshiftServerless", "DeleteUsageLimit", {})
   .n("RedshiftServerlessClient", "DeleteUsageLimitCommand")
-  .sc(DeleteUsageLimit)
+  .sc(DeleteUsageLimit$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

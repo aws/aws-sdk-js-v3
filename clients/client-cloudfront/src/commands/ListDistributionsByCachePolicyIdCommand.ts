@@ -9,7 +9,7 @@ import type {
   ListDistributionsByCachePolicyIdRequest,
   ListDistributionsByCachePolicyIdResult,
 } from "../models/models_1";
-import { ListDistributionsByCachePolicyId } from "../schemas/schemas_0";
+import { ListDistributionsByCachePolicyId$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListDistributionsByCachePolicyIdCommandInput extends ListDistri
  *
  * The output of {@link ListDistributionsByCachePolicyIdCommand}.
  */
-export interface ListDistributionsByCachePolicyIdCommandOutput
-  extends ListDistributionsByCachePolicyIdResult,
-    __MetadataBearer {}
+export interface ListDistributionsByCachePolicyIdCommandOutput extends ListDistributionsByCachePolicyIdResult, __MetadataBearer {}
 
 /**
  * <p>Gets a list of distribution IDs for distributions that have a cache behavior that's associated with the specified cache policy.</p> <p>You can optionally specify the maximum number of items to receive in the response. If the total number of items in the list exceeds the maximum that you specify, or the default maximum, the response is paginated. To get the next page of items, send a subsequent request that specifies the <code>NextMarker</code> value from the current response as the <code>Marker</code> value in the subsequent request.</p>
@@ -98,7 +96,7 @@ export class ListDistributionsByCachePolicyIdCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "ListDistributionsByCachePolicyId", {})
   .n("CloudFrontClient", "ListDistributionsByCachePolicyIdCommand")
-  .sc(ListDistributionsByCachePolicyId)
+  .sc(ListDistributionsByCachePolicyId$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

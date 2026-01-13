@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListInstanceProfilesRequest, ListInstanceProfilesResult } from "../models/models_0";
-import { ListInstanceProfiles } from "../schemas/schemas_0";
+import { ListInstanceProfiles$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class ListInstanceProfilesCommand extends $Command
   })
   .s("DeviceFarm_20150623", "ListInstanceProfiles", {})
   .n("DeviceFarmClient", "ListInstanceProfilesCommand")
-  .sc(ListInstanceProfiles)
+  .sc(ListInstanceProfiles$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

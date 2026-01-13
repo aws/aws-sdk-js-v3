@@ -10,7 +10,7 @@ import type {
 } from "../AmplifyUIBuilderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMetadataRequest, GetMetadataResponse } from "../models/models_0";
-import { GetMetadata } from "../schemas/schemas_0";
+import { GetMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class GetMetadataCommand extends $Command
   })
   .s("AmplifyUIBuilder", "GetMetadata", {})
   .n("AmplifyUIBuilderClient", "GetMetadataCommand")
-  .sc(GetMetadata)
+  .sc(GetMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import type { AssociateThirdPartyFirewallRequest, AssociateThirdPartyFirewallResponse } from "../models/models_0";
-import { AssociateThirdPartyFirewall } from "../schemas/schemas_0";
+import { AssociateThirdPartyFirewall$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface AssociateThirdPartyFirewallCommandInput extends AssociateThirdP
  *
  * The output of {@link AssociateThirdPartyFirewallCommand}.
  */
-export interface AssociateThirdPartyFirewallCommandOutput
-  extends AssociateThirdPartyFirewallResponse,
-    __MetadataBearer {}
+export interface AssociateThirdPartyFirewallCommandOutput extends AssociateThirdPartyFirewallResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the Firewall Manager policy administrator as a tenant administrator of a third-party firewall service. A tenant is an instance of the third-party firewall service that's associated with your Amazon Web Services customer account.</p>
@@ -92,7 +90,7 @@ export class AssociateThirdPartyFirewallCommand extends $Command
   })
   .s("AWSFMS_20180101", "AssociateThirdPartyFirewall", {})
   .n("FMSClient", "AssociateThirdPartyFirewallCommand")
-  .sc(AssociateThirdPartyFirewall)
+  .sc(AssociateThirdPartyFirewall$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

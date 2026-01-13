@@ -8,8 +8,8 @@ import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 import type {
   DescribeAccountAuditConfigurationRequest,
   DescribeAccountAuditConfigurationResponse,
-} from "../models/models_0";
-import { DescribeAccountAuditConfiguration } from "../schemas/schemas_0";
+} from "../models/models_1";
+import { DescribeAccountAuditConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeAccountAuditConfigurationCommandInput extends DescribeA
  *
  * The output of {@link DescribeAccountAuditConfigurationCommand}.
  */
-export interface DescribeAccountAuditConfigurationCommandOutput
-  extends DescribeAccountAuditConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeAccountAuditConfigurationCommandOutput extends DescribeAccountAuditConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the Device Defender audit settings for this account.
@@ -100,7 +98,7 @@ export class DescribeAccountAuditConfigurationCommand extends $Command
   })
   .s("AWSIotService", "DescribeAccountAuditConfiguration", {})
   .n("IoTClient", "DescribeAccountAuditConfigurationCommand")
-  .sc(DescribeAccountAuditConfiguration)
+  .sc(DescribeAccountAuditConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

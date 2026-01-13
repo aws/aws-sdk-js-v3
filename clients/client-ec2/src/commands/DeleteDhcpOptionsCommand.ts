@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDhcpOptionsRequest } from "../models/models_2";
-import { DeleteDhcpOptions } from "../schemas/schemas_0";
+import { DeleteDhcpOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DeleteDhcpOptionsCommand extends $Command
   })
   .s("AmazonEC2", "DeleteDhcpOptions", {})
   .n("EC2Client", "DeleteDhcpOptionsCommand")
-  .sc(DeleteDhcpOptions)
+  .sc(DeleteDhcpOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

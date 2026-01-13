@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PurchaseCapacityBlockRequest, PurchaseCapacityBlockResult } from "../models/models_7";
-import { PurchaseCapacityBlock } from "../schemas/schemas_0";
+import { PurchaseCapacityBlock$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -163,7 +163,7 @@ export class PurchaseCapacityBlockCommand extends $Command
   })
   .s("AmazonEC2", "PurchaseCapacityBlock", {})
   .n("EC2Client", "PurchaseCapacityBlockCommand")
-  .sc(PurchaseCapacityBlock)
+  .sc(PurchaseCapacityBlock$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

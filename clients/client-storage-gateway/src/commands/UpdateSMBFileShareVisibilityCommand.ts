@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateSMBFileShareVisibilityInput, UpdateSMBFileShareVisibilityOutput } from "../models/models_0";
-import { UpdateSMBFileShareVisibility } from "../schemas/schemas_0";
+import { UpdateSMBFileShareVisibility$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -28,9 +28,7 @@ export interface UpdateSMBFileShareVisibilityCommandInput extends UpdateSMBFileS
  *
  * The output of {@link UpdateSMBFileShareVisibilityCommand}.
  */
-export interface UpdateSMBFileShareVisibilityCommandOutput
-  extends UpdateSMBFileShareVisibilityOutput,
-    __MetadataBearer {}
+export interface UpdateSMBFileShareVisibilityCommandOutput extends UpdateSMBFileShareVisibilityOutput, __MetadataBearer {}
 
 /**
  * <p>Controls whether the shares on an S3 File Gateway are visible in a net view or browse
@@ -89,7 +87,7 @@ export class UpdateSMBFileShareVisibilityCommand extends $Command
   })
   .s("StorageGateway_20130630", "UpdateSMBFileShareVisibility", {})
   .n("StorageGatewayClient", "UpdateSMBFileShareVisibilityCommand")
-  .sc(UpdateSMBFileShareVisibility)
+  .sc(UpdateSMBFileShareVisibility$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

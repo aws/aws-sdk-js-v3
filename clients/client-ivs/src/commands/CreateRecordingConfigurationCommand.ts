@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import type { CreateRecordingConfigurationRequest, CreateRecordingConfigurationResponse } from "../models/models_0";
-import { CreateRecordingConfiguration } from "../schemas/schemas_0";
+import { CreateRecordingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateRecordingConfigurationCommandInput extends CreateRecordin
  *
  * The output of {@link CreateRecordingConfigurationCommand}.
  */
-export interface CreateRecordingConfigurationCommandOutput
-  extends CreateRecordingConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateRecordingConfigurationCommandOutput extends CreateRecordingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new recording configuration, used to enable recording to Amazon S3.</p>
@@ -154,7 +152,7 @@ export class CreateRecordingConfigurationCommand extends $Command
   })
   .s("AmazonInteractiveVideoService", "CreateRecordingConfiguration", {})
   .n("IvsClient", "CreateRecordingConfigurationCommand")
-  .sc(CreateRecordingConfiguration)
+  .sc(CreateRecordingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

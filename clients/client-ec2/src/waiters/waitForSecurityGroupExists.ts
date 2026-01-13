@@ -10,16 +10,16 @@ import { EC2Client } from "../EC2Client";
 const checkState = async (client: EC2Client, input: DescribeSecurityGroupsCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeSecurityGroupsCommand(input));
+    let result: any = await client.send(new DescribeSecurityGroupsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.SecurityGroups);
-        const projection_3 = flat_1.map((element_2: any) => {
+        let flat_1: any[] = [].concat(...result.SecurityGroups);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.GroupId;
         });
-        return projection_3.length > 0.0;
-      };
+        return (projection_3.length > 0.0);
+      }
       if (returnComparator() == true) {
         return { state: WaiterState.SUCCESS, reason };
       }

@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDataProtectionPolicyRequest } from "../models/models_0";
-import { DeleteDataProtectionPolicy } from "../schemas/schemas_0";
+import { DeleteDataProtectionPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteDataProtectionPolicyCommand extends $Command
   })
   .s("Logs_20140328", "DeleteDataProtectionPolicy", {})
   .n("CloudWatchLogsClient", "DeleteDataProtectionPolicyCommand")
-  .sc(DeleteDataProtectionPolicy)
+  .sc(DeleteDataProtectionPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DataShare, DeauthorizeDataShareMessage } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DeauthorizeDataShare } from "../schemas/schemas_0";
+import { DeauthorizeDataShare$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DeauthorizeDataShareCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DeauthorizeDataShare", {})
   .n("RedshiftClient", "DeauthorizeDataShareCommand")
-  .sc(DeauthorizeDataShare)
+  .sc(DeauthorizeDataShare$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   ListServiceNetworkVpcAssociationsRequest,
   ListServiceNetworkVpcAssociationsResponse,
 } from "../models/models_0";
-import { ListServiceNetworkVpcAssociations } from "../schemas/schemas_0";
+import { ListServiceNetworkVpcAssociations$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -27,9 +27,7 @@ export interface ListServiceNetworkVpcAssociationsCommandInput extends ListServi
  *
  * The output of {@link ListServiceNetworkVpcAssociationsCommand}.
  */
-export interface ListServiceNetworkVpcAssociationsCommandOutput
-  extends ListServiceNetworkVpcAssociationsResponse,
-    __MetadataBearer {}
+export interface ListServiceNetworkVpcAssociationsCommandOutput extends ListServiceNetworkVpcAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the associations between a service network and a VPC. You can filter the list either by VPC or service network. You must provide either the ID of the service network identifier or the ID of the VPC.</p>
@@ -114,7 +112,7 @@ export class ListServiceNetworkVpcAssociationsCommand extends $Command
   })
   .s("MercuryControlPlane", "ListServiceNetworkVpcAssociations", {})
   .n("VPCLatticeClient", "ListServiceNetworkVpcAssociationsCommand")
-  .sc(ListServiceNetworkVpcAssociations)
+  .sc(ListServiceNetworkVpcAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

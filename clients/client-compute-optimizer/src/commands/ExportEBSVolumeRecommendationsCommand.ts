@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ExportEBSVolumeRecommendationsRequest, ExportEBSVolumeRecommendationsResponse } from "../models/models_0";
-import { ExportEBSVolumeRecommendations } from "../schemas/schemas_0";
+import { ExportEBSVolumeRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ExportEBSVolumeRecommendationsCommandInput extends ExportEBSVol
  *
  * The output of {@link ExportEBSVolumeRecommendationsCommand}.
  */
-export interface ExportEBSVolumeRecommendationsCommandOutput
-  extends ExportEBSVolumeRecommendationsResponse,
-    __MetadataBearer {}
+export interface ExportEBSVolumeRecommendationsCommandOutput extends ExportEBSVolumeRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Exports optimization recommendations for Amazon EBS volumes.</p>
@@ -133,7 +131,7 @@ export class ExportEBSVolumeRecommendationsCommand extends $Command
   })
   .s("ComputeOptimizerService", "ExportEBSVolumeRecommendations", {})
   .n("ComputeOptimizerClient", "ExportEBSVolumeRecommendationsCommand")
-  .sc(ExportEBSVolumeRecommendations)
+  .sc(ExportEBSVolumeRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

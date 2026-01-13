@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeOrderableDBInstanceOptionsMessage, OrderableDBInstanceOptionsMessage } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DescribeOrderableDBInstanceOptions } from "../schemas/schemas_0";
+import { DescribeOrderableDBInstanceOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeOrderableDBInstanceOptionsCommandInput extends Describe
  *
  * The output of {@link DescribeOrderableDBInstanceOptionsCommand}.
  */
-export interface DescribeOrderableDBInstanceOptionsCommandOutput
-  extends OrderableDBInstanceOptionsMessage,
-    __MetadataBearer {}
+export interface DescribeOrderableDBInstanceOptionsCommandOutput extends OrderableDBInstanceOptionsMessage, __MetadataBearer {}
 
 /**
  * <p>Describes the orderable DB instance options for a specified DB engine.</p>
@@ -211,7 +209,7 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeOrderableDBInstanceOptions", {})
   .n("RDSClient", "DescribeOrderableDBInstanceOptionsCommand")
-  .sc(DescribeOrderableDBInstanceOptions)
+  .sc(DescribeOrderableDBInstanceOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

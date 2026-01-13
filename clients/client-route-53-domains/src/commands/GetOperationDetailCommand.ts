@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { GetOperationDetail } from "../schemas/schemas_0";
+import { GetOperationDetail$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class GetOperationDetailCommand extends $Command
   })
   .s("Route53Domains_v20140515", "GetOperationDetail", {})
   .n("Route53DomainsClient", "GetOperationDetailCommand")
-  .sc(GetOperationDetail)
+  .sc(GetOperationDetail$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

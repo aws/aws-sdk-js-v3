@@ -14,5 +14,5 @@ export * from "./ListMetricAttributionsPaginator";
 export * from "./ListRecipesPaginator";
 export * from "./ListRecommendersPaginator";
 export * from "./ListSchemasPaginator";
-export * from "./ListSolutionVersionsPaginator";
 export * from "./ListSolutionsPaginator";
+export * from "./ListSolutionVersionsPaginator";

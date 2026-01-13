@@ -10,7 +10,7 @@ import type {
   DeleteVPCAssociationAuthorizationResponse,
 } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { DeleteVPCAssociationAuthorization } from "../schemas/schemas_0";
+import { DeleteVPCAssociationAuthorization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DeleteVPCAssociationAuthorizationCommandInput extends DeleteVPC
  *
  * The output of {@link DeleteVPCAssociationAuthorizationCommand}.
  */
-export interface DeleteVPCAssociationAuthorizationCommandOutput
-  extends DeleteVPCAssociationAuthorizationResponse,
-    __MetadataBearer {}
+export interface DeleteVPCAssociationAuthorizationCommandOutput extends DeleteVPCAssociationAuthorizationResponse, __MetadataBearer {}
 
 /**
  * <p>Removes authorization to submit an <code>AssociateVPCWithHostedZone</code> request to
@@ -106,11 +104,14 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "DeleteVPCAssociationAuthorization", {})
   .n("Route53Client", "DeleteVPCAssociationAuthorizationCommand")
-  .sc(DeleteVPCAssociationAuthorization)
+  .sc(DeleteVPCAssociationAuthorization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

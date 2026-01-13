@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { GetUnfilteredPartitionMetadataRequest, GetUnfilteredPartitionMetadataResponse } from "../models/models_2";
-import { GetUnfilteredPartitionMetadata } from "../schemas/schemas_0";
+import { GetUnfilteredPartitionMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetUnfilteredPartitionMetadataCommandInput extends GetUnfiltere
  *
  * The output of {@link GetUnfilteredPartitionMetadataCommand}.
  */
-export interface GetUnfilteredPartitionMetadataCommandOutput
-  extends GetUnfilteredPartitionMetadataResponse,
-    __MetadataBearer {}
+export interface GetUnfilteredPartitionMetadataCommandOutput extends GetUnfilteredPartitionMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves partition metadata from the Data Catalog that contains unfiltered
@@ -197,7 +195,7 @@ export class GetUnfilteredPartitionMetadataCommand extends $Command
   })
   .s("AWSGlue", "GetUnfilteredPartitionMetadata", {})
   .n("GlueClient", "GetUnfilteredPartitionMetadataCommand")
-  .sc(GetUnfilteredPartitionMetadata)
+  .sc(GetUnfilteredPartitionMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

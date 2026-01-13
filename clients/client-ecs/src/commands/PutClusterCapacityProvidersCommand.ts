@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutClusterCapacityProvidersRequest, PutClusterCapacityProvidersResponse } from "../models/models_0";
-import { PutClusterCapacityProviders } from "../schemas/schemas_0";
+import { PutClusterCapacityProviders$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface PutClusterCapacityProvidersCommandInput extends PutClusterCapac
  *
  * The output of {@link PutClusterCapacityProvidersCommand}.
  */
-export interface PutClusterCapacityProvidersCommandOutput
-  extends PutClusterCapacityProvidersResponse,
-    __MetadataBearer {}
+export interface PutClusterCapacityProvidersCommandOutput extends PutClusterCapacityProvidersResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the available capacity providers and the default capacity provider strategy
@@ -444,7 +442,7 @@ export class PutClusterCapacityProvidersCommand extends $Command
   })
   .s("AmazonEC2ContainerServiceV20141113", "PutClusterCapacityProviders", {})
   .n("ECSClient", "PutClusterCapacityProvidersCommand")
-  .sc(PutClusterCapacityProviders)
+  .sc(PutClusterCapacityProviders$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

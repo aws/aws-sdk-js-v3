@@ -8,7 +8,7 @@ import type {
   EnableApplicationLayerAutomaticResponseRequest,
   EnableApplicationLayerAutomaticResponseResponse,
 } from "../models/models_0";
-import { EnableApplicationLayerAutomaticResponse } from "../schemas/schemas_0";
+import { EnableApplicationLayerAutomaticResponse$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link EnableApplicationLayerAutomaticResponseCommand}.
  */
-export interface EnableApplicationLayerAutomaticResponseCommandInput
-  extends EnableApplicationLayerAutomaticResponseRequest {}
+export interface EnableApplicationLayerAutomaticResponseCommandInput extends EnableApplicationLayerAutomaticResponseRequest {}
 /**
  * @public
  *
  * The output of {@link EnableApplicationLayerAutomaticResponseCommand}.
  */
-export interface EnableApplicationLayerAutomaticResponseCommandOutput
-  extends EnableApplicationLayerAutomaticResponseResponse,
-    __MetadataBearer {}
+export interface EnableApplicationLayerAutomaticResponseCommandOutput extends EnableApplicationLayerAutomaticResponseResponse, __MetadataBearer {}
 
 /**
  * <p>Enable the Shield Advanced automatic application layer DDoS mitigation for the protected resource. </p>
@@ -114,7 +111,7 @@ export class EnableApplicationLayerAutomaticResponseCommand extends $Command
   })
   .s("AWSShield_20160616", "EnableApplicationLayerAutomaticResponse", {})
   .n("ShieldClient", "EnableApplicationLayerAutomaticResponseCommand")
-  .sc(EnableApplicationLayerAutomaticResponse)
+  .sc(EnableApplicationLayerAutomaticResponse$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

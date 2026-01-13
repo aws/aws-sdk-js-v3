@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import type { Concurrency, PutFunctionConcurrencyRequest } from "../models/models_0";
-import { PutFunctionConcurrency } from "../schemas/schemas_0";
+import { PutFunctionConcurrency$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class PutFunctionConcurrencyCommand extends $Command
   })
   .s("AWSGirApiService", "PutFunctionConcurrency", {})
   .n("LambdaClient", "PutFunctionConcurrencyCommand")
-  .sc(PutFunctionConcurrency)
+  .sc(PutFunctionConcurrency$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

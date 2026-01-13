@@ -9,7 +9,7 @@ import type {
   ListResourceGroupingRecommendationsResponse,
 } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { ListResourceGroupingRecommendations } from "../schemas/schemas_0";
+import { ListResourceGroupingRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListResourceGroupingRecommendationsCommandInput extends ListRes
  *
  * The output of {@link ListResourceGroupingRecommendationsCommand}.
  */
-export interface ListResourceGroupingRecommendationsCommandOutput
-  extends ListResourceGroupingRecommendationsResponse,
-    __MetadataBearer {}
+export interface ListResourceGroupingRecommendationsCommandOutput extends ListResourceGroupingRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the resource grouping recommendations suggested by Resilience Hub for your application.</p>
@@ -138,7 +136,7 @@ export class ListResourceGroupingRecommendationsCommand extends $Command
   })
   .s("AwsResilienceHub", "ListResourceGroupingRecommendations", {})
   .n("ResiliencehubClient", "ListResourceGroupingRecommendationsCommand")
-  .sc(ListResourceGroupingRecommendations)
+  .sc(ListResourceGroupingRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

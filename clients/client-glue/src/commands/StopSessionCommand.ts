@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { StopSessionRequest, StopSessionResponse } from "../models/models_2";
-import { StopSession } from "../schemas/schemas_0";
+import { StopSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class StopSessionCommand extends $Command
   })
   .s("AWSGlue", "StopSession", {})
   .n("GlueClient", "StopSessionCommand")
-  .sc(StopSession)
+  .sc(StopSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DetachLoadBalancerFromSubnetsInput, DetachLoadBalancerFromSubnetsOutput } from "../models/models_0";
-import { DetachLoadBalancerFromSubnets } from "../schemas/schemas_0";
+import { DetachLoadBalancerFromSubnets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DetachLoadBalancerFromSubnetsCommandInput extends DetachLoadBal
  *
  * The output of {@link DetachLoadBalancerFromSubnetsCommand}.
  */
-export interface DetachLoadBalancerFromSubnetsCommandOutput
-  extends DetachLoadBalancerFromSubnetsOutput,
-    __MetadataBearer {}
+export interface DetachLoadBalancerFromSubnetsCommandOutput extends DetachLoadBalancerFromSubnetsOutput, __MetadataBearer {}
 
 /**
  * <p>Removes the specified subnets from the set of configured subnets for the load balancer.</p>
@@ -113,7 +111,7 @@ export class DetachLoadBalancerFromSubnetsCommand extends $Command
   })
   .s("ElasticLoadBalancing_v7", "DetachLoadBalancerFromSubnets", {})
   .n("ElasticLoadBalancingClient", "DetachLoadBalancerFromSubnetsCommand")
-  .sc(DetachLoadBalancerFromSubnets)
+  .sc(DetachLoadBalancerFromSubnets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   ListAttributeGroupsForApplicationRequest,
   ListAttributeGroupsForApplicationResponse,
 } from "../models/models_0";
-import { ListAttributeGroupsForApplication } from "../schemas/schemas_0";
+import { ListAttributeGroupsForApplication$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -31,9 +31,7 @@ export interface ListAttributeGroupsForApplicationCommandInput extends ListAttri
  *
  * The output of {@link ListAttributeGroupsForApplicationCommand}.
  */
-export interface ListAttributeGroupsForApplicationCommandOutput
-  extends ListAttributeGroupsForApplicationResponse,
-    __MetadataBearer {}
+export interface ListAttributeGroupsForApplicationCommandOutput extends ListAttributeGroupsForApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the details of all attribute groups associated with a specific application. The results display in pages.</p>
@@ -101,7 +99,7 @@ export class ListAttributeGroupsForApplicationCommand extends $Command
   })
   .s("AWS242AppRegistry", "ListAttributeGroupsForApplication", {})
   .n("ServiceCatalogAppRegistryClient", "ListAttributeGroupsForApplicationCommand")
-  .sc(ListAttributeGroupsForApplication)
+  .sc(ListAttributeGroupsForApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

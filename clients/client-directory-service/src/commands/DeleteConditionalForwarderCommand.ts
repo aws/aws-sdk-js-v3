@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteConditionalForwarderRequest, DeleteConditionalForwarderResult } from "../models/models_0";
-import { DeleteConditionalForwarder } from "../schemas/schemas_0";
+import { DeleteConditionalForwarder$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class DeleteConditionalForwarderCommand extends $Command
   })
   .s("DirectoryService_20150416", "DeleteConditionalForwarder", {})
   .n("DirectoryServiceClient", "DeleteConditionalForwarderCommand")
-  .sc(DeleteConditionalForwarder)
+  .sc(DeleteConditionalForwarder$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -7,12 +7,12 @@ import { RTBFabricClient } from "../RTBFabricClient";
 const checkState = async (client: RTBFabricClient, input: GetResponderGatewayCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetResponderGatewayCommand(input));
+    let result: any = await client.send(new GetResponderGatewayCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "DELETED") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: RTBFabricClient, input: GetResponderGatewayCom
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "ERROR") {
         return { state: WaiterState.FAILURE, reason };
       }

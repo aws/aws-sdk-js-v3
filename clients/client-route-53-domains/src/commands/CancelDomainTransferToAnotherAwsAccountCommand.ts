@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { CancelDomainTransferToAnotherAwsAccount } from "../schemas/schemas_0";
+import { CancelDomainTransferToAnotherAwsAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link CancelDomainTransferToAnotherAwsAccountCommand}.
  */
-export interface CancelDomainTransferToAnotherAwsAccountCommandInput
-  extends CancelDomainTransferToAnotherAwsAccountRequest {}
+export interface CancelDomainTransferToAnotherAwsAccountCommandInput extends CancelDomainTransferToAnotherAwsAccountRequest {}
 /**
  * @public
  *
  * The output of {@link CancelDomainTransferToAnotherAwsAccountCommand}.
  */
-export interface CancelDomainTransferToAnotherAwsAccountCommandOutput
-  extends CancelDomainTransferToAnotherAwsAccountResponse,
-    __MetadataBearer {}
+export interface CancelDomainTransferToAnotherAwsAccountCommandOutput extends CancelDomainTransferToAnotherAwsAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels the transfer of a domain from the current Amazon Web Services account to
@@ -103,7 +100,7 @@ export class CancelDomainTransferToAnotherAwsAccountCommand extends $Command
   })
   .s("Route53Domains_v20140515", "CancelDomainTransferToAnotherAwsAccount", {})
   .n("Route53DomainsClient", "CancelDomainTransferToAnotherAwsAccountCommand")
-  .sc(CancelDomainTransferToAnotherAwsAccount)
+  .sc(CancelDomainTransferToAnotherAwsAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

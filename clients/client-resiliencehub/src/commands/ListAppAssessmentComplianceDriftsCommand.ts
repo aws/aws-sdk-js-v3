@@ -9,7 +9,7 @@ import type {
   ListAppAssessmentComplianceDriftsResponse,
 } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { ListAppAssessmentComplianceDrifts } from "../schemas/schemas_0";
+import { ListAppAssessmentComplianceDrifts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListAppAssessmentComplianceDriftsCommandInput extends ListAppAs
  *
  * The output of {@link ListAppAssessmentComplianceDriftsCommand}.
  */
-export interface ListAppAssessmentComplianceDriftsCommandOutput
-  extends ListAppAssessmentComplianceDriftsResponse,
-    __MetadataBearer {}
+export interface ListAppAssessmentComplianceDriftsCommandOutput extends ListAppAssessmentComplianceDriftsResponse, __MetadataBearer {}
 
 /**
  * <p>List of compliance drifts that were detected while running an
@@ -136,7 +134,7 @@ export class ListAppAssessmentComplianceDriftsCommand extends $Command
   })
   .s("AwsResilienceHub", "ListAppAssessmentComplianceDrifts", {})
   .n("ResiliencehubClient", "ListAppAssessmentComplianceDriftsCommand")
-  .sc(ListAppAssessmentComplianceDrifts)
+  .sc(ListAppAssessmentComplianceDrifts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

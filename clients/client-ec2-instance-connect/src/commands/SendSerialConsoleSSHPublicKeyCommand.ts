@@ -10,7 +10,7 @@ import type {
 } from "../EC2InstanceConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SendSerialConsoleSSHPublicKeyRequest, SendSerialConsoleSSHPublicKeyResponse } from "../models/models_0";
-import { SendSerialConsoleSSHPublicKey } from "../schemas/schemas_0";
+import { SendSerialConsoleSSHPublicKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface SendSerialConsoleSSHPublicKeyCommandInput extends SendSerialCon
  *
  * The output of {@link SendSerialConsoleSSHPublicKeyCommand}.
  */
-export interface SendSerialConsoleSSHPublicKeyCommandOutput
-  extends SendSerialConsoleSSHPublicKeyResponse,
-    __MetadataBearer {}
+export interface SendSerialConsoleSSHPublicKeyCommandOutput extends SendSerialConsoleSSHPublicKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Pushes an SSH public key to the specified EC2 instance. The key remains for 60
@@ -127,7 +125,7 @@ export class SendSerialConsoleSSHPublicKeyCommand extends $Command
   })
   .s("AWSEC2InstanceConnectService", "SendSerialConsoleSSHPublicKey", {})
   .n("EC2InstanceConnectClient", "SendSerialConsoleSSHPublicKeyCommand")
-  .sc(SendSerialConsoleSSHPublicKey)
+  .sc(SendSerialConsoleSSHPublicKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

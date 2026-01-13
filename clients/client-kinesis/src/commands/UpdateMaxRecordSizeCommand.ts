@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import type { UpdateMaxRecordSizeInput } from "../models/models_0";
-import { UpdateMaxRecordSize } from "../schemas/schemas_0";
+import { UpdateMaxRecordSize$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class UpdateMaxRecordSizeCommand extends $Command
   })
   .s("Kinesis_20131202", "UpdateMaxRecordSize", {})
   .n("KinesisClient", "UpdateMaxRecordSizeCommand")
-  .sc(UpdateMaxRecordSize)
+  .sc(UpdateMaxRecordSize$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

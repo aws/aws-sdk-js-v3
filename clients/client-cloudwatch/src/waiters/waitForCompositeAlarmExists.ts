@@ -7,13 +7,13 @@ import { DescribeAlarmsCommand, DescribeAlarmsCommandInput } from "../commands/D
 const checkState = async (client: CloudWatchClient, input: DescribeAlarmsCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeAlarmsCommand(input));
+    let result: any = await client.send(new DescribeAlarmsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.CompositeAlarms);
-        return flat_1.length > 0.0;
-      };
+        let flat_1: any[] = [].concat(...result.CompositeAlarms);
+        return (flat_1.length > 0.0);
+      }
       if (returnComparator() == true) {
         return { state: WaiterState.SUCCESS, reason };
       }

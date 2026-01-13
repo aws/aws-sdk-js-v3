@@ -7,13 +7,13 @@ import { EC2Client } from "../EC2Client";
 const checkState = async (client: EC2Client, input: DescribeImagesCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeImagesCommand(input));
+    let result: any = await client.send(new DescribeImagesCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.Images);
-        return flat_1.length > 0.0;
-      };
+        let flat_1: any[] = [].concat(...result.Images);
+        return (flat_1.length > 0.0);
+      }
       if (returnComparator() == true) {
         return { state: WaiterState.SUCCESS, reason };
       }

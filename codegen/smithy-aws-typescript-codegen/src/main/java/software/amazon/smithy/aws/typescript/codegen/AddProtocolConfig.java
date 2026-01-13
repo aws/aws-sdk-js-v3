@@ -12,13 +12,17 @@ import java.util.function.Consumer;
 import software.amazon.smithy.aws.traits.protocols.AwsJson1_0Trait;
 import software.amazon.smithy.aws.traits.protocols.AwsJson1_1Trait;
 import software.amazon.smithy.aws.traits.protocols.AwsQueryCompatibleTrait;
+import software.amazon.smithy.aws.traits.protocols.AwsQueryErrorTrait;
 import software.amazon.smithy.aws.traits.protocols.AwsQueryTrait;
+import software.amazon.smithy.aws.traits.protocols.Ec2QueryNameTrait;
 import software.amazon.smithy.aws.traits.protocols.Ec2QueryTrait;
 import software.amazon.smithy.aws.traits.protocols.RestJson1Trait;
 import software.amazon.smithy.aws.traits.protocols.RestXmlTrait;
+import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ShapeId;
+import software.amazon.smithy.model.traits.Trait;
 import software.amazon.smithy.model.traits.XmlNamespaceTrait;
 import software.amazon.smithy.protocol.traits.Rpcv2CborTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
@@ -26,6 +30,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.typescript.codegen.schema.SchemaGenerationAllowlist;
+import software.amazon.smithy.typescript.codegen.schema.SchemaTraitExtension;
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
@@ -36,6 +41,32 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 public final class AddProtocolConfig implements TypeScriptIntegration {
     static {
         init();
+
+        SchemaTraitExtension.INSTANCE.add(
+            Ec2QueryNameTrait.ID,
+            (Trait trait) -> {
+                if (trait instanceof Ec2QueryNameTrait ec2QueryName) {
+                    return """
+                           `%s`
+                           """.formatted(ec2QueryName.getValue());
+                }
+                throw new CodegenException("Ec2QueryNameTrait handler called with trait of incorrect type.");
+            }
+        );
+
+        SchemaTraitExtension.INSTANCE.add(
+            AwsQueryErrorTrait.ID,
+            (Trait trait) -> {
+                if (trait instanceof AwsQueryErrorTrait awsQueryError) {
+                    return """
+                           [`%s`, %s]""".formatted(
+                        awsQueryError.getCode(),
+                        awsQueryError.getHttpResponseCode()
+                    );
+                }
+                throw new CodegenException("AwsQueryErrorTrait handler called with trait of incorrect type.");
+            }
+        );
     }
 
     public static final Map<ShapeId, Consumer<TypeScriptWriter>> CUSTOMIZATIONS = MapUtils.of(
@@ -109,6 +140,34 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
             .orElse("");
         String awsQueryCompat = settings.getService(model).hasTrait(AwsQueryCompatibleTrait.class) ? "true" : "false";
 
+        Consumer<TypeScriptWriter> typeScriptWriterConsumer = (TypeScriptWriter writer) -> {
+            writer.openBlock(
+                """
+                {
+                  defaultNamespace: $S,""",
+                """
+                }""",
+                namespace,
+                () -> {
+                    if (!xmlns.isEmpty()) {
+                        writer.write("xmlNamespace: $S,", xmlns);
+                    }
+                    String version = settings.getService(model).getVersion();
+                    if (!version.isEmpty()) {
+                        writer.write("version: $S,", version);
+                    }
+                    writer.write("serviceTarget: $S,", rpcTarget);
+                    if (awsQueryCompat.equals("true")) {
+                        writer.write("awsQueryCompatible: $L,", awsQueryCompat);
+                    }
+
+                    if (CUSTOMIZATIONS.containsKey(settings.getService())) {
+                        CUSTOMIZATIONS.get(settings.getService()).accept(writer);
+                    }
+                }
+            );
+        };
+
         switch (target) {
             case SHARED:
                 if (Objects.equals(settings.getProtocol(), RestXmlTrait.ID)) {
@@ -121,16 +180,10 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
                                 AwsDependency.AWS_SDK_CORE,
                                 "/protocols"
                             );
-                            writer.write(
-                                """
-                                new AwsRestXmlProtocol({
-                                  defaultNamespace: $S,
-                                  xmlNamespace: $S,
-                                })""",
-                                namespace,
-                                xmlns
-                            );
-                        }
+                            writer.write("AwsRestXmlProtocol");
+                        },
+                        "protocolSettings",
+                        typeScriptWriterConsumer
                     );
                 } else if (Objects.equals(settings.getProtocol(), AwsQueryTrait.ID)) {
                     return MapUtils.of(
@@ -142,18 +195,10 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
                                 AwsDependency.AWS_SDK_CORE,
                                 "/protocols"
                             );
-                            writer.write(
-                                """
-                                new AwsQueryProtocol({
-                                  defaultNamespace: $S,
-                                  xmlNamespace: $S,
-                                  version: $S,
-                                })""",
-                                namespace,
-                                xmlns,
-                                settings.getService(model).getVersion()
-                            );
-                        }
+                            writer.write("AwsQueryProtocol");
+                        },
+                        "protocolSettings",
+                        typeScriptWriterConsumer
                     );
                 } else if (Objects.equals(settings.getProtocol(), Ec2QueryTrait.ID)) {
                     return MapUtils.of(
@@ -165,18 +210,10 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
                                 AwsDependency.AWS_SDK_CORE,
                                 "/protocols"
                             );
-                            writer.write(
-                                """
-                                new AwsEc2QueryProtocol({
-                                  defaultNamespace: $S,
-                                  xmlNamespace: $S,
-                                  version: $S,
-                                })""",
-                                namespace,
-                                xmlns,
-                                settings.getService(model).getVersion()
-                            );
-                        }
+                            writer.write("AwsEc2QueryProtocol");
+                        },
+                        "protocolSettings",
+                        typeScriptWriterConsumer
                     );
                 } else if (Objects.equals(settings.getProtocol(), RestJson1Trait.ID)) {
                     return MapUtils.of(
@@ -188,8 +225,10 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
                                 AwsDependency.AWS_SDK_CORE,
                                 "/protocols"
                             );
-                            writer.write("new AwsRestJsonProtocol({ defaultNamespace: $S })", namespace);
-                        }
+                            writer.write("AwsRestJsonProtocol");
+                        },
+                        "protocolSettings",
+                        typeScriptWriterConsumer
                     );
                 } else if (Objects.equals(settings.getProtocol(), AwsJson1_0Trait.ID)) {
                     return MapUtils.of(
@@ -201,24 +240,10 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
                                 AwsDependency.AWS_SDK_CORE,
                                 "/protocols"
                             );
-                            writer.openBlock(
-                                """
-                                new AwsJson1_0Protocol({
-                                  defaultNamespace: $S,
-                                  serviceTarget: $S,
-                                  awsQueryCompatible: $L,""",
-                                """
-                                })""",
-                                namespace,
-                                rpcTarget,
-                                awsQueryCompat,
-                                () -> {
-                                    if (CUSTOMIZATIONS.containsKey(settings.getService())) {
-                                        CUSTOMIZATIONS.get(settings.getService()).accept(writer);
-                                    }
-                                }
-                            );
-                        }
+                            writer.write("AwsJson1_0Protocol");
+                        },
+                        "protocolSettings",
+                        typeScriptWriterConsumer
                     );
                 } else if (Objects.equals(settings.getProtocol(), AwsJson1_1Trait.ID)) {
                     return MapUtils.of(
@@ -230,24 +255,10 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
                                 AwsDependency.AWS_SDK_CORE,
                                 "/protocols"
                             );
-                            writer.openBlock(
-                                """
-                                new AwsJson1_1Protocol({
-                                  defaultNamespace: $S,
-                                  serviceTarget: $S,
-                                  awsQueryCompatible: $L,""",
-                                """
-                                })""",
-                                namespace,
-                                rpcTarget,
-                                awsQueryCompat,
-                                () -> {
-                                    if (CUSTOMIZATIONS.containsKey(settings.getService())) {
-                                        CUSTOMIZATIONS.get(settings.getService()).accept(writer);
-                                    }
-                                }
-                            );
-                        }
+                            writer.write("AwsJson1_1Protocol");
+                        },
+                        "protocolSettings",
+                        typeScriptWriterConsumer
                     );
                 } else if (Objects.equals(settings.getProtocol(), Rpcv2CborTrait.ID)) {
                     return MapUtils.of(
@@ -261,14 +272,11 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
                             );
                             writer.write(
                                 """
-                                new AwsSmithyRpcV2CborProtocol({
-                                  defaultNamespace: $S,
-                                  awsQueryCompatible: $L,
-                                })""",
-                                namespace,
-                                awsQueryCompat
+                                AwsSmithyRpcV2CborProtocol"""
                             );
-                        }
+                        },
+                        "protocolSettings",
+                        typeScriptWriterConsumer
                     );
                 }
             case BROWSER:

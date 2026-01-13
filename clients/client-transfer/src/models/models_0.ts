@@ -879,7 +879,9 @@ export interface ConnectorVpcLatticeEgressConfig {
  * <p>Configuration structure that defines how traffic is routed from the connector to the SFTP server. Contains VPC Lattice settings when using VPC_LATTICE egress type for private connectivity through customer VPCs.</p>
  * @public
  */
-export type ConnectorEgressConfig = ConnectorEgressConfig.VpcLatticeMember | ConnectorEgressConfig.$UnknownMember;
+export type ConnectorEgressConfig =
+  | ConnectorEgressConfig.VpcLatticeMember
+  | ConnectorEgressConfig.$UnknownMember;
 
 /**
  * @public
@@ -2015,7 +2017,9 @@ export interface WebAppVpcConfig {
  * <p>Contains the endpoint configuration for a web app, including VPC settings when the endpoint is hosted within a VPC.</p>
  * @public
  */
-export type WebAppEndpointDetails = WebAppEndpointDetails.VpcMember | WebAppEndpointDetails.$UnknownMember;
+export type WebAppEndpointDetails =
+  | WebAppEndpointDetails.VpcMember
+  | WebAppEndpointDetails.$UnknownMember;
 
 /**
  * @public
@@ -2109,7 +2113,9 @@ export namespace WebAppIdentityProviderDetails {
  * <p>Contains an integer value that represents the value for number of concurrent connections or the user sessions on your web app.</p>
  * @public
  */
-export type WebAppUnits = WebAppUnits.ProvisionedMember | WebAppUnits.$UnknownMember;
+export type WebAppUnits =
+  | WebAppUnits.ProvisionedMember
+  | WebAppUnits.$UnknownMember;
 
 /**
  * @public

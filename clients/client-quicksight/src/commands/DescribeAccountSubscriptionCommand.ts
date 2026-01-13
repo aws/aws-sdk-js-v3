@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAccountSubscriptionRequest, DescribeAccountSubscriptionResponse } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeAccountSubscription } from "../schemas/schemas_0";
+import { DescribeAccountSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeAccountSubscriptionCommandInput extends DescribeAccount
  *
  * The output of {@link DescribeAccountSubscriptionCommand}.
  */
-export interface DescribeAccountSubscriptionCommandOutput
-  extends DescribeAccountSubscriptionResponse,
-    __MetadataBearer {}
+export interface DescribeAccountSubscriptionCommandOutput extends DescribeAccountSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Use the DescribeAccountSubscription operation to receive a description of an Quick Sight account's subscription. A successful API call returns an <code>AccountInfo</code> object that includes an account's name, subscription status, authentication type, edition, and notification email address.</p>
@@ -105,7 +103,7 @@ export class DescribeAccountSubscriptionCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeAccountSubscription", {})
   .n("QuickSightClient", "DescribeAccountSubscriptionCommand")
-  .sc(DescribeAccountSubscription)
+  .sc(DescribeAccountSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

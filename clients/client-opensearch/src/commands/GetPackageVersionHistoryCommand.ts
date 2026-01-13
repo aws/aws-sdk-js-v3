@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPackageVersionHistoryRequest, GetPackageVersionHistoryResponse } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { GetPackageVersionHistory } from "../schemas/schemas_0";
+import { GetPackageVersionHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class GetPackageVersionHistoryCommand extends $Command
   })
   .s("AmazonOpenSearchService", "GetPackageVersionHistory", {})
   .n("OpenSearchClient", "GetPackageVersionHistoryCommand")
-  .sc(GetPackageVersionHistory)
+  .sc(GetPackageVersionHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import type { GetCisScanResultDetailsRequest, GetCisScanResultDetailsResponse } from "../models/models_0";
-import { GetCisScanResultDetails } from "../schemas/schemas_0";
+import { GetCisScanResultDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -172,7 +172,7 @@ export class GetCisScanResultDetailsCommand extends $Command
   })
   .s("Inspector2", "GetCisScanResultDetails", {})
   .n("Inspector2Client", "GetCisScanResultDetailsCommand")
-  .sc(GetCisScanResultDetails)
+  .sc(GetCisScanResultDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

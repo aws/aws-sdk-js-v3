@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ExportServerlessCacheSnapshotRequest, ExportServerlessCacheSnapshotResponse } from "../models/models_0";
-import { ExportServerlessCacheSnapshot } from "../schemas/schemas_0";
+import { ExportServerlessCacheSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ExportServerlessCacheSnapshotCommandInput extends ExportServerl
  *
  * The output of {@link ExportServerlessCacheSnapshotCommand}.
  */
-export interface ExportServerlessCacheSnapshotCommandOutput
-  extends ExportServerlessCacheSnapshotResponse,
-    __MetadataBearer {}
+export interface ExportServerlessCacheSnapshotCommandOutput extends ExportServerlessCacheSnapshotResponse, __MetadataBearer {}
 
 /**
  * <p>Provides the functionality to export the serverless cache snapshot data to Amazon S3. Available for Valkey and Redis OSS only.</p>
@@ -102,7 +100,7 @@ export class ExportServerlessCacheSnapshotCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "ExportServerlessCacheSnapshot", {})
   .n("ElastiCacheClient", "ExportServerlessCacheSnapshotCommand")
-  .sc(ExportServerlessCacheSnapshot)
+  .sc(ExportServerlessCacheSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

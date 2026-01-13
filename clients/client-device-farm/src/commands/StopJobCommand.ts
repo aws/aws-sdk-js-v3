@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopJobRequest, StopJobResult } from "../models/models_0";
-import { StopJob } from "../schemas/schemas_0";
+import { StopJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -165,7 +165,7 @@ export class StopJobCommand extends $Command
   })
   .s("DeviceFarm_20150623", "StopJob", {})
   .n("DeviceFarmClient", "StopJobCommand")
-  .sc(StopJob)
+  .sc(StopJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

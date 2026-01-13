@@ -9,7 +9,7 @@ import type {
   AuthorizeCacheSecurityGroupIngressMessage,
   AuthorizeCacheSecurityGroupIngressResult,
 } from "../models/models_0";
-import { AuthorizeCacheSecurityGroupIngress } from "../schemas/schemas_0";
+import { AuthorizeCacheSecurityGroupIngress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface AuthorizeCacheSecurityGroupIngressCommandInput extends Authoriz
  *
  * The output of {@link AuthorizeCacheSecurityGroupIngressCommand}.
  */
-export interface AuthorizeCacheSecurityGroupIngressCommandOutput
-  extends AuthorizeCacheSecurityGroupIngressResult,
-    __MetadataBearer {}
+export interface AuthorizeCacheSecurityGroupIngressCommandOutput extends AuthorizeCacheSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
  * <p>Allows network ingress to a cache security group. Applications using ElastiCache must
@@ -130,7 +128,7 @@ export class AuthorizeCacheSecurityGroupIngressCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "AuthorizeCacheSecurityGroupIngress", {})
   .n("ElastiCacheClient", "AuthorizeCacheSecurityGroupIngressCommand")
-  .sc(AuthorizeCacheSecurityGroupIngress)
+  .sc(AuthorizeCacheSecurityGroupIngress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

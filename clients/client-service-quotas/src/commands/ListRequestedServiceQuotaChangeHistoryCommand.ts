@@ -8,7 +8,7 @@ import type {
   ListRequestedServiceQuotaChangeHistoryRequest,
   ListRequestedServiceQuotaChangeHistoryResponse,
 } from "../models/models_0";
-import { ListRequestedServiceQuotaChangeHistory } from "../schemas/schemas_0";
+import { ListRequestedServiceQuotaChangeHistory$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListRequestedServiceQuotaChangeHistoryCommand}.
  */
-export interface ListRequestedServiceQuotaChangeHistoryCommandInput
-  extends ListRequestedServiceQuotaChangeHistoryRequest {}
+export interface ListRequestedServiceQuotaChangeHistoryCommandInput extends ListRequestedServiceQuotaChangeHistoryRequest {}
 /**
  * @public
  *
  * The output of {@link ListRequestedServiceQuotaChangeHistoryCommand}.
  */
-export interface ListRequestedServiceQuotaChangeHistoryCommandOutput
-  extends ListRequestedServiceQuotaChangeHistoryResponse,
-    __MetadataBearer {}
+export interface ListRequestedServiceQuotaChangeHistoryCommandOutput extends ListRequestedServiceQuotaChangeHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the quota increase requests for the specified Amazon Web Services service. Filter
@@ -129,7 +126,7 @@ export class ListRequestedServiceQuotaChangeHistoryCommand extends $Command
   })
   .s("ServiceQuotasV20190624", "ListRequestedServiceQuotaChangeHistory", {})
   .n("ServiceQuotasClient", "ListRequestedServiceQuotaChangeHistoryCommand")
-  .sc(ListRequestedServiceQuotaChangeHistory)
+  .sc(ListRequestedServiceQuotaChangeHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

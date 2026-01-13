@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RestoreDBClusterFromSnapshotMessage, RestoreDBClusterFromSnapshotResult } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { RestoreDBClusterFromSnapshot } from "../schemas/schemas_0";
+import { RestoreDBClusterFromSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface RestoreDBClusterFromSnapshotCommandInput extends RestoreDBClust
  *
  * The output of {@link RestoreDBClusterFromSnapshotCommand}.
  */
-export interface RestoreDBClusterFromSnapshotCommandOutput
-  extends RestoreDBClusterFromSnapshotResult,
-    __MetadataBearer {}
+export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClusterFromSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
@@ -501,7 +499,7 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command
   })
   .s("AmazonRDSv19", "RestoreDBClusterFromSnapshot", {})
   .n("RDSClient", "RestoreDBClusterFromSnapshotCommand")
-  .sc(RestoreDBClusterFromSnapshot)
+  .sc(RestoreDBClusterFromSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

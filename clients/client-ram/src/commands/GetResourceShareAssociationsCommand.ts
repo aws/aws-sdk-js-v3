@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetResourceShareAssociationsRequest, GetResourceShareAssociationsResponse } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { GetResourceShareAssociations } from "../schemas/schemas_0";
+import { GetResourceShareAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetResourceShareAssociationsCommandInput extends GetResourceSha
  *
  * The output of {@link GetResourceShareAssociationsCommand}.
  */
-export interface GetResourceShareAssociationsCommandOutput
-  extends GetResourceShareAssociationsResponse,
-    __MetadataBearer {}
+export interface GetResourceShareAssociationsCommandOutput extends GetResourceShareAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the lists of resources and principals that associated for resource shares that you
@@ -122,7 +120,7 @@ export class GetResourceShareAssociationsCommand extends $Command
   })
   .s("AmazonResourceSharing", "GetResourceShareAssociations", {})
   .n("RAMClient", "GetResourceShareAssociationsCommand")
-  .sc(GetResourceShareAssociations)
+  .sc(GetResourceShareAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   GetAutomatedReasoningPolicyAnnotationsRequest,
   GetAutomatedReasoningPolicyAnnotationsResponse,
 } from "../models/models_0";
-import { GetAutomatedReasoningPolicyAnnotations } from "../schemas/schemas_0";
+import { GetAutomatedReasoningPolicyAnnotations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetAutomatedReasoningPolicyAnnotationsCommand}.
  */
-export interface GetAutomatedReasoningPolicyAnnotationsCommandInput
-  extends GetAutomatedReasoningPolicyAnnotationsRequest {}
+export interface GetAutomatedReasoningPolicyAnnotationsCommandInput extends GetAutomatedReasoningPolicyAnnotationsRequest {}
 /**
  * @public
  *
  * The output of {@link GetAutomatedReasoningPolicyAnnotationsCommand}.
  */
-export interface GetAutomatedReasoningPolicyAnnotationsCommandOutput
-  extends GetAutomatedReasoningPolicyAnnotationsResponse,
-    __MetadataBearer {}
+export interface GetAutomatedReasoningPolicyAnnotationsCommandOutput extends GetAutomatedReasoningPolicyAnnotationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the current annotations for an Automated Reasoning policy build workflow. Annotations contain corrections to the rules, variables and types to be applied to the policy.</p>
@@ -179,7 +176,7 @@ export class GetAutomatedReasoningPolicyAnnotationsCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "GetAutomatedReasoningPolicyAnnotations", {})
   .n("BedrockClient", "GetAutomatedReasoningPolicyAnnotationsCommand")
-  .sc(GetAutomatedReasoningPolicyAnnotations)
+  .sc(GetAutomatedReasoningPolicyAnnotations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

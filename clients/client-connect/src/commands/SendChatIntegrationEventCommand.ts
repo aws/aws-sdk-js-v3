@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SendChatIntegrationEventRequest, SendChatIntegrationEventResponse } from "../models/models_2";
-import { SendChatIntegrationEvent } from "../schemas/schemas_0";
+import { SendChatIntegrationEvent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class SendChatIntegrationEventCommand extends $Command
   })
   .s("AmazonConnectService", "SendChatIntegrationEvent", {})
   .n("ConnectClient", "SendChatIntegrationEventCommand")
-  .sc(SendChatIntegrationEvent)
+  .sc(SendChatIntegrationEvent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

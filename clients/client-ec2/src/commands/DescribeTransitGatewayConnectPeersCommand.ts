@@ -9,7 +9,7 @@ import type {
   DescribeTransitGatewayConnectPeersRequest,
   DescribeTransitGatewayConnectPeersResult,
 } from "../models/models_4";
-import { DescribeTransitGatewayConnectPeers } from "../schemas/schemas_0";
+import { DescribeTransitGatewayConnectPeers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeTransitGatewayConnectPeersCommandInput extends Describe
  *
  * The output of {@link DescribeTransitGatewayConnectPeersCommand}.
  */
-export interface DescribeTransitGatewayConnectPeersCommandOutput
-  extends DescribeTransitGatewayConnectPeersResult,
-    __MetadataBearer {}
+export interface DescribeTransitGatewayConnectPeersCommandOutput extends DescribeTransitGatewayConnectPeersResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more Connect peers.</p>
@@ -122,7 +120,7 @@ export class DescribeTransitGatewayConnectPeersCommand extends $Command
   })
   .s("AmazonEC2", "DescribeTransitGatewayConnectPeers", {})
   .n("EC2Client", "DescribeTransitGatewayConnectPeersCommand")
-  .sc(DescribeTransitGatewayConnectPeers)
+  .sc(DescribeTransitGatewayConnectPeers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImportSourceCredentialsInput, ImportSourceCredentialsOutput } from "../models/models_0";
-import { ImportSourceCredentials } from "../schemas/schemas_0";
+import { ImportSourceCredentials$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class ImportSourceCredentialsCommand extends $Command
   })
   .s("CodeBuild_20161006", "ImportSourceCredentials", {})
   .n("CodeBuildClient", "ImportSourceCredentialsCommand")
-  .sc(ImportSourceCredentials)
+  .sc(ImportSourceCredentials$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TestMappingRequest, TestMappingResponse } from "../models/models_0";
-import { TestMapping } from "../schemas/schemas_0";
+import { TestMapping$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class TestMappingCommand extends $Command
   })
   .s("B2BI", "TestMapping", {})
   .n("B2biClient", "TestMappingCommand")
-  .sc(TestMapping)
+  .sc(TestMapping$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

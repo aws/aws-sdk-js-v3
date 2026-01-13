@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
 import type { DescribeDetectorModelAnalysisRequest, DescribeDetectorModelAnalysisResponse } from "../models/models_0";
-import { DescribeDetectorModelAnalysis } from "../schemas/schemas_0";
+import { DescribeDetectorModelAnalysis$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeDetectorModelAnalysisCommandInput extends DescribeDetec
  *
  * The output of {@link DescribeDetectorModelAnalysisCommand}.
  */
-export interface DescribeDetectorModelAnalysisCommandOutput
-  extends DescribeDetectorModelAnalysisResponse,
-    __MetadataBearer {}
+export interface DescribeDetectorModelAnalysisCommandOutput extends DescribeDetectorModelAnalysisResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves runtime information about a detector model analysis.</p>
@@ -93,7 +91,7 @@ export class DescribeDetectorModelAnalysisCommand extends $Command
   })
   .s("IotColumboService", "DescribeDetectorModelAnalysis", {})
   .n("IoTEventsClient", "DescribeDetectorModelAnalysisCommand")
-  .sc(DescribeDetectorModelAnalysis)
+  .sc(DescribeDetectorModelAnalysis$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeVpcEncryptionControlsRequest, DescribeVpcEncryptionControlsResult } from "../models/models_5";
-import { DescribeVpcEncryptionControls } from "../schemas/schemas_0";
+import { DescribeVpcEncryptionControls$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeVpcEncryptionControlsCommandInput extends DescribeVpcEn
  *
  * The output of {@link DescribeVpcEncryptionControlsCommand}.
  */
-export interface DescribeVpcEncryptionControlsCommandOutput
-  extends DescribeVpcEncryptionControlsResult,
-    __MetadataBearer {}
+export interface DescribeVpcEncryptionControlsCommandOutput extends DescribeVpcEncryptionControlsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more VPC Encryption Control configurations. VPC Encryption Control enables you to enforce encryption for all data in transit within and between VPCs to meet compliance requirements You can filter the results to return information about specific encryption controls or VPCs.</p>
@@ -132,7 +130,7 @@ export class DescribeVpcEncryptionControlsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeVpcEncryptionControls", {})
   .n("EC2Client", "DescribeVpcEncryptionControlsCommand")
-  .sc(DescribeVpcEncryptionControls)
+  .sc(DescribeVpcEncryptionControls$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

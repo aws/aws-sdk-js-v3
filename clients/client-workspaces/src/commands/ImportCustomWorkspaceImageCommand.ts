@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImportCustomWorkspaceImageRequest, ImportCustomWorkspaceImageResult } from "../models/models_0";
-import { ImportCustomWorkspaceImage } from "../schemas/schemas_0";
+import { ImportCustomWorkspaceImage$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -65,7 +65,7 @@ export interface ImportCustomWorkspaceImageCommandOutput extends ImportCustomWor
  * const response = await client.send(command);
  * // { // ImportCustomWorkspaceImageResult
  * //   ImageId: "STRING_VALUE",
- * //   State: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "ERROR",
+ * //   State: "PENDING" || "IN_PROGRESS" || "PROCESSING_SOURCE_IMAGE" || "IMAGE_TESTING_START" || "UPDATING_OPERATING_SYSTEM" || "IMAGE_COMPATIBILITY_CHECKING" || "IMAGE_TESTING_GENERALIZATION" || "CREATING_TEST_INSTANCE" || "INSTALLING_COMPONENTS" || "GENERALIZING" || "VALIDATING" || "PUBLISHING" || "COMPLETED" || "ERROR",
  * // };
  *
  * ```
@@ -114,7 +114,7 @@ export class ImportCustomWorkspaceImageCommand extends $Command
   })
   .s("WorkspacesService", "ImportCustomWorkspaceImage", {})
   .n("WorkSpacesClient", "ImportCustomWorkspaceImageCommand")
-  .sc(ImportCustomWorkspaceImage)
+  .sc(ImportCustomWorkspaceImage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

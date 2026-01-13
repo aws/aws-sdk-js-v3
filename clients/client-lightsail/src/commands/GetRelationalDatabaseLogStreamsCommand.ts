@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetRelationalDatabaseLogStreamsRequest, GetRelationalDatabaseLogStreamsResult } from "../models/models_1";
-import { GetRelationalDatabaseLogStreams } from "../schemas/schemas_0";
+import { GetRelationalDatabaseLogStreams$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetRelationalDatabaseLogStreamsCommandInput extends GetRelation
  *
  * The output of {@link GetRelationalDatabaseLogStreamsCommand}.
  */
-export interface GetRelationalDatabaseLogStreamsCommandOutput
-  extends GetRelationalDatabaseLogStreamsResult,
-    __MetadataBearer {}
+export interface GetRelationalDatabaseLogStreamsCommandOutput extends GetRelationalDatabaseLogStreamsResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of available log streams for a specific database in Amazon Lightsail.</p>
@@ -111,7 +109,7 @@ export class GetRelationalDatabaseLogStreamsCommand extends $Command
   })
   .s("Lightsail_20161128", "GetRelationalDatabaseLogStreams", {})
   .n("LightsailClient", "GetRelationalDatabaseLogStreamsCommand")
-  .sc(GetRelationalDatabaseLogStreams)
+  .sc(GetRelationalDatabaseLogStreams$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

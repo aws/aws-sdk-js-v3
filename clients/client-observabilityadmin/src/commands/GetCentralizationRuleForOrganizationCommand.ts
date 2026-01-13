@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { GetCentralizationRuleForOrganization } from "../schemas/schemas_0";
+import { GetCentralizationRuleForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetCentralizationRuleForOrganizationCommandInput extends GetCen
  *
  * The output of {@link GetCentralizationRuleForOrganizationCommand}.
  */
-export interface GetCentralizationRuleForOrganizationCommandOutput
-  extends GetCentralizationRuleForOrganizationOutput,
-    __MetadataBearer {}
+export interface GetCentralizationRuleForOrganizationCommandOutput extends GetCentralizationRuleForOrganizationOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the details of a specific organization centralization rule. This operation can only be called by the organization's management account or a delegated administrator account.</p>
@@ -131,7 +129,7 @@ export class GetCentralizationRuleForOrganizationCommand extends $Command
   })
   .s("ObservabilityAdmin", "GetCentralizationRuleForOrganization", {})
   .n("ObservabilityAdminClient", "GetCentralizationRuleForOrganizationCommand")
-  .sc(GetCentralizationRuleForOrganization)
+  .sc(GetCentralizationRuleForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

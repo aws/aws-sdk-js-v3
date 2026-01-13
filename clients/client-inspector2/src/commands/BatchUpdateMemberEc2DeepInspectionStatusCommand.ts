@@ -9,7 +9,7 @@ import type {
   BatchUpdateMemberEc2DeepInspectionStatusRequest,
   BatchUpdateMemberEc2DeepInspectionStatusResponse,
 } from "../models/models_0";
-import { BatchUpdateMemberEc2DeepInspectionStatus } from "../schemas/schemas_0";
+import { BatchUpdateMemberEc2DeepInspectionStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchUpdateMemberEc2DeepInspectionStatusCommand}.
  */
-export interface BatchUpdateMemberEc2DeepInspectionStatusCommandInput
-  extends BatchUpdateMemberEc2DeepInspectionStatusRequest {}
+export interface BatchUpdateMemberEc2DeepInspectionStatusCommandInput extends BatchUpdateMemberEc2DeepInspectionStatusRequest {}
 /**
  * @public
  *
  * The output of {@link BatchUpdateMemberEc2DeepInspectionStatusCommand}.
  */
-export interface BatchUpdateMemberEc2DeepInspectionStatusCommandOutput
-  extends BatchUpdateMemberEc2DeepInspectionStatusResponse,
-    __MetadataBearer {}
+export interface BatchUpdateMemberEc2DeepInspectionStatusCommandOutput extends BatchUpdateMemberEc2DeepInspectionStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Activates or deactivates Amazon Inspector deep inspection for the provided member accounts in your
@@ -114,7 +111,7 @@ export class BatchUpdateMemberEc2DeepInspectionStatusCommand extends $Command
   })
   .s("Inspector2", "BatchUpdateMemberEc2DeepInspectionStatus", {})
   .n("Inspector2Client", "BatchUpdateMemberEc2DeepInspectionStatusCommand")
-  .sc(BatchUpdateMemberEc2DeepInspectionStatus)
+  .sc(BatchUpdateMemberEc2DeepInspectionStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

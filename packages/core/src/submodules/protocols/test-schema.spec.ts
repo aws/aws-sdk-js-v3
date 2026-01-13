@@ -7,6 +7,7 @@ import type {
   StaticListSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
   StringSchema,
   TimestampDefaultSchema,
   TimestampEpochSecondsSchema,
@@ -122,3 +123,21 @@ export const context = {
     };
   },
 } as any;
+
+export const unionStruct = [
+  3,
+  "ns",
+  "UnionStruct",
+  0,
+  ["union"],
+  [[4, "ns", "Union", 0, ["string", "timestamp", "blob"], [0, 7, 21]] satisfies StaticUnionSchema],
+] satisfies StaticStructureSchema;
+
+export const unionStructControl = [
+  3,
+  "ns",
+  "UnionStruct",
+  0,
+  ["union"],
+  [[3, "ns", "Union", 0, ["string", "timestamp", "blob"], [0, 7, 21]] satisfies StaticStructureSchema],
+] satisfies StaticStructureSchema;

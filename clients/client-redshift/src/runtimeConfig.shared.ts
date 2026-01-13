@@ -26,18 +26,19 @@ export const getRuntimeConfig = (config: RedshiftClientConfig) => {
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsQueryProtocol({
-        defaultNamespace: "com.amazonaws.redshift",
-        xmlNamespace: "http://redshift.amazonaws.com/doc/2012-12-01/",
-        version: "2012-12-01",
-      }),
+    protocol: config?.protocol ?? AwsQueryProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.redshift",
+      xmlNamespace: "http://redshift.amazonaws.com/doc/2012-12-01/",
+      version: "2012-12-01",
+      serviceTarget: "RedshiftServiceVersion20121201",
+    },
     serviceId: config?.serviceId ?? "Redshift",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -13,7 +13,7 @@ import type {
   ListRealtimeContactAnalysisSegmentsRequest,
   ListRealtimeContactAnalysisSegmentsResponse,
 } from "../models/models_0";
-import { ListRealtimeContactAnalysisSegments } from "../schemas/schemas_0";
+import { ListRealtimeContactAnalysisSegments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ListRealtimeContactAnalysisSegmentsCommandInput extends ListRea
  *
  * The output of {@link ListRealtimeContactAnalysisSegmentsCommand}.
  */
-export interface ListRealtimeContactAnalysisSegmentsCommandOutput
-  extends ListRealtimeContactAnalysisSegmentsResponse,
-    __MetadataBearer {}
+export interface ListRealtimeContactAnalysisSegmentsCommandOutput extends ListRealtimeContactAnalysisSegmentsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a list of analysis segments for a real-time analysis session.</p>
@@ -141,7 +139,7 @@ export class ListRealtimeContactAnalysisSegmentsCommand extends $Command
   })
   .s("AmazonConnectContactLens", "ListRealtimeContactAnalysisSegments", {})
   .n("ConnectContactLensClient", "ListRealtimeContactAnalysisSegmentsCommand")
-  .sc(ListRealtimeContactAnalysisSegments)
+  .sc(ListRealtimeContactAnalysisSegments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

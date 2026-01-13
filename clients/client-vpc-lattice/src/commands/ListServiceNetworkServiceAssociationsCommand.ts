@@ -8,7 +8,7 @@ import type {
   ListServiceNetworkServiceAssociationsRequest,
   ListServiceNetworkServiceAssociationsResponse,
 } from "../models/models_0";
-import { ListServiceNetworkServiceAssociations } from "../schemas/schemas_0";
+import { ListServiceNetworkServiceAssociations$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListServiceNetworkServiceAssociationsCommand}.
  */
-export interface ListServiceNetworkServiceAssociationsCommandInput
-  extends ListServiceNetworkServiceAssociationsRequest {}
+export interface ListServiceNetworkServiceAssociationsCommandInput extends ListServiceNetworkServiceAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListServiceNetworkServiceAssociationsCommand}.
  */
-export interface ListServiceNetworkServiceAssociationsCommandOutput
-  extends ListServiceNetworkServiceAssociationsResponse,
-    __MetadataBearer {}
+export interface ListServiceNetworkServiceAssociationsCommandOutput extends ListServiceNetworkServiceAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the associations between a service network and a service. You can filter the list either by service or service network. You must provide either the service network identifier or the service identifier.</p> <p>Every association in Amazon VPC Lattice has a unique Amazon Resource Name (ARN), such as when a service network is associated with a VPC or when a service is associated with a service network. If the association is for a resource is shared with another account, the association includes the local account ID as the prefix in the ARN.</p>
@@ -114,7 +111,7 @@ export class ListServiceNetworkServiceAssociationsCommand extends $Command
   })
   .s("MercuryControlPlane", "ListServiceNetworkServiceAssociations", {})
   .n("VPCLatticeClient", "ListServiceNetworkServiceAssociationsCommand")
-  .sc(ListServiceNetworkServiceAssociations)
+  .sc(ListServiceNetworkServiceAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

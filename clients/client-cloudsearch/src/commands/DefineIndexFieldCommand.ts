@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DefineIndexFieldRequest, DefineIndexFieldResponse } from "../models/models_0";
-import { DefineIndexField } from "../schemas/schemas_0";
+import { DefineIndexField$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -274,7 +274,7 @@ export class DefineIndexFieldCommand extends $Command
   })
   .s("A9SearchCloudConfigService2013", "DefineIndexField", {})
   .n("CloudSearchClient", "DefineIndexFieldCommand")
-  .sc(DefineIndexField)
+  .sc(DefineIndexField$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateSizeConstraintSetRequest, UpdateSizeConstraintSetResponse } from "../models/models_0";
-import { UpdateSizeConstraintSet } from "../schemas/schemas_0";
+import { UpdateSizeConstraintSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -276,7 +276,7 @@ export class UpdateSizeConstraintSetCommand extends $Command
   })
   .s("AWSWAF_Regional_20161128", "UpdateSizeConstraintSet", {})
   .n("WAFRegionalClient", "UpdateSizeConstraintSetCommand")
-  .sc(UpdateSizeConstraintSet)
+  .sc(UpdateSizeConstraintSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

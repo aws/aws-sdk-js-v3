@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
 import type { DescribeApplicationOperationRequest, DescribeApplicationOperationResponse } from "../models/models_0";
-import { DescribeApplicationOperation } from "../schemas/schemas_0";
+import { DescribeApplicationOperation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeApplicationOperationCommandInput extends DescribeApplic
  *
  * The output of {@link DescribeApplicationOperationCommand}.
  */
-export interface DescribeApplicationOperationCommandOutput
-  extends DescribeApplicationOperationResponse,
-    __MetadataBearer {}
+export interface DescribeApplicationOperationCommandOutput extends DescribeApplicationOperationResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a detailed description of a specified application operation. To see a list of all the operations of an application, invoke the <a>ListApplicationOperations</a> operation.</p>
@@ -108,7 +106,7 @@ export class DescribeApplicationOperationCommand extends $Command
   })
   .s("KinesisAnalytics_20180523", "DescribeApplicationOperation", {})
   .n("KinesisAnalyticsV2Client", "DescribeApplicationOperationCommand")
-  .sc(DescribeApplicationOperation)
+  .sc(DescribeApplicationOperation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

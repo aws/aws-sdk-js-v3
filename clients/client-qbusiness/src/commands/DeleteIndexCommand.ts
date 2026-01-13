@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteIndexRequest, DeleteIndexResponse } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { DeleteIndex } from "../schemas/schemas_0";
+import { DeleteIndex$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteIndexCommand extends $Command
   })
   .s("ExpertQ", "DeleteIndex", {})
   .n("QBusinessClient", "DeleteIndexCommand")
-  .sc(DeleteIndex)
+  .sc(DeleteIndex$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

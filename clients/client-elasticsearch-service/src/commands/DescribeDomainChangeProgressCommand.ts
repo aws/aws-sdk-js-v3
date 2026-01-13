@@ -10,7 +10,7 @@ import type {
 } from "../ElasticsearchServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeDomainChangeProgressRequest, DescribeDomainChangeProgressResponse } from "../models/models_0";
-import { DescribeDomainChangeProgress } from "../schemas/schemas_0";
+import { DescribeDomainChangeProgress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeDomainChangeProgressCommandInput extends DescribeDomain
  *
  * The output of {@link DescribeDomainChangeProgressCommand}.
  */
-export interface DescribeDomainChangeProgressCommandOutput
-  extends DescribeDomainChangeProgressResponse,
-    __MetadataBearer {}
+export interface DescribeDomainChangeProgressCommandOutput extends DescribeDomainChangeProgressResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the current blue/green deployment happening on a domain, including
@@ -115,7 +113,7 @@ export class DescribeDomainChangeProgressCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "DescribeDomainChangeProgress", {})
   .n("ElasticsearchServiceClient", "DescribeDomainChangeProgressCommand")
-  .sc(DescribeDomainChangeProgress)
+  .sc(DescribeDomainChangeProgress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

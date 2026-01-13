@@ -13,7 +13,7 @@ import type {
   GetWorkloadAccessTokenForUserIdRequest,
   GetWorkloadAccessTokenForUserIdResponse,
 } from "../models/models_0";
-import { GetWorkloadAccessTokenForUserId } from "../schemas/schemas_0";
+import { GetWorkloadAccessTokenForUserId$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetWorkloadAccessTokenForUserIdCommandInput extends GetWorkload
  *
  * The output of {@link GetWorkloadAccessTokenForUserIdCommand}.
  */
-export interface GetWorkloadAccessTokenForUserIdCommandOutput
-  extends GetWorkloadAccessTokenForUserIdResponse,
-    __MetadataBearer {}
+export interface GetWorkloadAccessTokenForUserIdCommandOutput extends GetWorkloadAccessTokenForUserIdResponse, __MetadataBearer {}
 
 /**
  * <p>Obtains a workload access token for agentic workloads acting on behalf of a user, using the user's ID.</p>
@@ -101,7 +99,7 @@ export class GetWorkloadAccessTokenForUserIdCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "GetWorkloadAccessTokenForUserId", {})
   .n("BedrockAgentCoreClient", "GetWorkloadAccessTokenForUserIdCommand")
-  .sc(GetWorkloadAccessTokenForUserId)
+  .sc(GetWorkloadAccessTokenForUserId$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

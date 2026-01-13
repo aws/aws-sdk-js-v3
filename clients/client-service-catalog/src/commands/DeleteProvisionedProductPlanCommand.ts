@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteProvisionedProductPlanInput, DeleteProvisionedProductPlanOutput } from "../models/models_0";
-import { DeleteProvisionedProductPlan } from "../schemas/schemas_0";
+import { DeleteProvisionedProductPlan$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -28,9 +28,7 @@ export interface DeleteProvisionedProductPlanCommandInput extends DeleteProvisio
  *
  * The output of {@link DeleteProvisionedProductPlanCommand}.
  */
-export interface DeleteProvisionedProductPlanCommandOutput
-  extends DeleteProvisionedProductPlanOutput,
-    __MetadataBearer {}
+export interface DeleteProvisionedProductPlanCommandOutput extends DeleteProvisionedProductPlanOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified plan.</p>
@@ -85,7 +83,7 @@ export class DeleteProvisionedProductPlanCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "DeleteProvisionedProductPlan", {})
   .n("ServiceCatalogClient", "DeleteProvisionedProductPlanCommand")
-  .sc(DeleteProvisionedProductPlan)
+  .sc(DeleteProvisionedProductPlan$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

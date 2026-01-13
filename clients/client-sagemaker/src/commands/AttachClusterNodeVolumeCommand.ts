@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AttachClusterNodeVolumeRequest, AttachClusterNodeVolumeResponse } from "../models/models_0";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { AttachClusterNodeVolume } from "../schemas/schemas_0";
+import { AttachClusterNodeVolume$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class AttachClusterNodeVolumeCommand extends $Command
   })
   .s("SageMaker", "AttachClusterNodeVolume", {})
   .n("SageMakerClient", "AttachClusterNodeVolumeCommand")
-  .sc(AttachClusterNodeVolume)
+  .sc(AttachClusterNodeVolume$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

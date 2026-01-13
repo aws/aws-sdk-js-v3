@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListIdentityProviderConfigsRequest, ListIdentityProviderConfigsResponse } from "../models/models_0";
-import { ListIdentityProviderConfigs } from "../schemas/schemas_0";
+import { ListIdentityProviderConfigs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListIdentityProviderConfigsCommandInput extends ListIdentityPro
  *
  * The output of {@link ListIdentityProviderConfigsCommand}.
  */
-export interface ListIdentityProviderConfigsCommandOutput
-  extends ListIdentityProviderConfigsResponse,
-    __MetadataBearer {}
+export interface ListIdentityProviderConfigsCommandOutput extends ListIdentityProviderConfigsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the identity provider configurations for your cluster.</p>
@@ -104,7 +102,7 @@ export class ListIdentityProviderConfigsCommand extends $Command
   })
   .s("AWSWesleyFrontend", "ListIdentityProviderConfigs", {})
   .n("EKSClient", "ListIdentityProviderConfigsCommand")
-  .sc(ListIdentityProviderConfigs)
+  .sc(ListIdentityProviderConfigs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

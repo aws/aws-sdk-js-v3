@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetResourceCollectionRequest, GetResourceCollectionResponse } from "../models/models_0";
-import { GetResourceCollection } from "../schemas/schemas_0";
+import { GetResourceCollection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class GetResourceCollectionCommand extends $Command
   })
   .s("CapstoneControlPlaneService", "GetResourceCollection", {})
   .n("DevOpsGuruClient", "GetResourceCollectionCommand")
-  .sc(GetResourceCollection)
+  .sc(GetResourceCollection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

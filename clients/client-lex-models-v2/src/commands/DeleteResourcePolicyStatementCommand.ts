@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import type { DeleteResourcePolicyStatementRequest, DeleteResourcePolicyStatementResponse } from "../models/models_0";
-import { DeleteResourcePolicyStatement } from "../schemas/schemas_0";
+import { DeleteResourcePolicyStatement$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteResourcePolicyStatementCommandInput extends DeleteResourc
  *
  * The output of {@link DeleteResourcePolicyStatementCommand}.
  */
-export interface DeleteResourcePolicyStatementCommandOutput
-  extends DeleteResourcePolicyStatementResponse,
-    __MetadataBearer {}
+export interface DeleteResourcePolicyStatementCommandOutput extends DeleteResourcePolicyStatementResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a policy statement from a resource policy. If you delete the
@@ -101,7 +99,7 @@ export class DeleteResourcePolicyStatementCommand extends $Command
   })
   .s("LexModelBuildingServiceV2", "DeleteResourcePolicyStatement", {})
   .n("LexModelsV2Client", "DeleteResourcePolicyStatementCommand")
-  .sc(DeleteResourcePolicyStatement)
+  .sc(DeleteResourcePolicyStatement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

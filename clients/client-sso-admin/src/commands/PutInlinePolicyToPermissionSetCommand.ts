@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutInlinePolicyToPermissionSetRequest, PutInlinePolicyToPermissionSetResponse } from "../models/models_0";
-import { PutInlinePolicyToPermissionSet } from "../schemas/schemas_0";
+import { PutInlinePolicyToPermissionSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -24,9 +24,7 @@ export interface PutInlinePolicyToPermissionSetCommandInput extends PutInlinePol
  *
  * The output of {@link PutInlinePolicyToPermissionSetCommand}.
  */
-export interface PutInlinePolicyToPermissionSetCommandOutput
-  extends PutInlinePolicyToPermissionSetResponse,
-    __MetadataBearer {}
+export interface PutInlinePolicyToPermissionSetCommandOutput extends PutInlinePolicyToPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Attaches an inline policy to a permission set.</p> <note> <p>If the permission set is already referenced by one or more account assignments, you will need to call <code> <a>ProvisionPermissionSet</a> </code> after this action to apply the corresponding IAM policy updates to all assigned accounts.</p> </note>
@@ -96,7 +94,7 @@ export class PutInlinePolicyToPermissionSetCommand extends $Command
   })
   .s("SWBExternalService", "PutInlinePolicyToPermissionSet", {})
   .n("SSOAdminClient", "PutInlinePolicyToPermissionSetCommand")
-  .sc(PutInlinePolicyToPermissionSet)
+  .sc(PutInlinePolicyToPermissionSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

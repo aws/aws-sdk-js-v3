@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDeliverabilityTestReportRequest, CreateDeliverabilityTestReportResponse } from "../models/models_0";
-import { CreateDeliverabilityTestReport } from "../schemas/schemas_0";
+import { CreateDeliverabilityTestReport$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -24,9 +24,7 @@ export interface CreateDeliverabilityTestReportCommandInput extends CreateDelive
  *
  * The output of {@link CreateDeliverabilityTestReportCommand}.
  */
-export interface CreateDeliverabilityTestReportCommandOutput
-  extends CreateDeliverabilityTestReportResponse,
-    __MetadataBearer {}
+export interface CreateDeliverabilityTestReportCommandOutput extends CreateDeliverabilityTestReportResponse, __MetadataBearer {}
 
 /**
  * <p>Create a new predictive inbox placement test. Predictive inbox placement tests can help you predict how your messages will be handled
@@ -183,7 +181,7 @@ export class CreateDeliverabilityTestReportCommand extends $Command
   })
   .s("SimpleEmailService_v2", "CreateDeliverabilityTestReport", {})
   .n("SESv2Client", "CreateDeliverabilityTestReportCommand")
-  .sc(CreateDeliverabilityTestReport)
+  .sc(CreateDeliverabilityTestReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

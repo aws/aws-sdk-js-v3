@@ -9,7 +9,7 @@ import type {
   DisableIpamOrganizationAdminAccountRequest,
   DisableIpamOrganizationAdminAccountResult,
 } from "../models/models_5";
-import { DisableIpamOrganizationAdminAccount } from "../schemas/schemas_0";
+import { DisableIpamOrganizationAdminAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DisableIpamOrganizationAdminAccountCommandInput extends Disable
  *
  * The output of {@link DisableIpamOrganizationAdminAccountCommand}.
  */
-export interface DisableIpamOrganizationAdminAccountCommandOutput
-  extends DisableIpamOrganizationAdminAccountResult,
-    __MetadataBearer {}
+export interface DisableIpamOrganizationAdminAccountCommandOutput extends DisableIpamOrganizationAdminAccountResult, __MetadataBearer {}
 
 /**
  * <p>Disable the IPAM account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.
@@ -80,7 +78,7 @@ export class DisableIpamOrganizationAdminAccountCommand extends $Command
   })
   .s("AmazonEC2", "DisableIpamOrganizationAdminAccount", {})
   .n("EC2Client", "DisableIpamOrganizationAdminAccountCommand")
-  .sc(DisableIpamOrganizationAdminAccount)
+  .sc(DisableIpamOrganizationAdminAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

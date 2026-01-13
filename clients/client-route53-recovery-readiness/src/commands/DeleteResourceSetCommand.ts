@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
-import { DeleteResourceSet } from "../schemas/schemas_0";
+import { DeleteResourceSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteResourceSetCommand extends $Command
   })
   .s("Route53RecoveryReadiness", "DeleteResourceSet", {})
   .n("Route53RecoveryReadinessClient", "DeleteResourceSetCommand")
-  .sc(DeleteResourceSet)
+  .sc(DeleteResourceSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

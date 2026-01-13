@@ -9,7 +9,7 @@ import type {
   DescribeApplicationInstanceDetailsResponse,
 } from "../models/models_0";
 import type { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import { DescribeApplicationInstanceDetails } from "../schemas/schemas_0";
+import { DescribeApplicationInstanceDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeApplicationInstanceDetailsCommandInput extends Describe
  *
  * The output of {@link DescribeApplicationInstanceDetailsCommand}.
  */
-export interface DescribeApplicationInstanceDetailsCommandOutput
-  extends DescribeApplicationInstanceDetailsResponse,
-    __MetadataBearer {}
+export interface DescribeApplicationInstanceDetailsCommandOutput extends DescribeApplicationInstanceDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about an application instance's configuration manifest.</p>
@@ -104,7 +102,7 @@ export class DescribeApplicationInstanceDetailsCommand extends $Command
   })
   .s("OmniCloudServiceLambda", "DescribeApplicationInstanceDetails", {})
   .n("PanoramaClient", "DescribeApplicationInstanceDetailsCommand")
-  .sc(DescribeApplicationInstanceDetails)
+  .sc(DescribeApplicationInstanceDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

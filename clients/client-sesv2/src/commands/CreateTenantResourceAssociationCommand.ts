@@ -8,7 +8,7 @@ import type {
   CreateTenantResourceAssociationRequest,
   CreateTenantResourceAssociationResponse,
 } from "../models/models_0";
-import { CreateTenantResourceAssociation } from "../schemas/schemas_0";
+import { CreateTenantResourceAssociation$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -27,9 +27,7 @@ export interface CreateTenantResourceAssociationCommandInput extends CreateTenan
  *
  * The output of {@link CreateTenantResourceAssociationCommand}.
  */
-export interface CreateTenantResourceAssociationCommandOutput
-  extends CreateTenantResourceAssociationResponse,
-    __MetadataBearer {}
+export interface CreateTenantResourceAssociationCommandOutput extends CreateTenantResourceAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Associate a resource with a tenant.</p>
@@ -95,7 +93,7 @@ export class CreateTenantResourceAssociationCommand extends $Command
   })
   .s("SimpleEmailService_v2", "CreateTenantResourceAssociation", {})
   .n("SESv2Client", "CreateTenantResourceAssociationCommand")
-  .sc(CreateTenantResourceAssociation)
+  .sc(CreateTenantResourceAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

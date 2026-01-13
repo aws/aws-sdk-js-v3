@@ -9,7 +9,7 @@ import type {
   ReplaceImageCriteriaInAllowedImagesSettingsRequest,
   ReplaceImageCriteriaInAllowedImagesSettingsResult,
 } from "../models/models_7";
-import { ReplaceImageCriteriaInAllowedImagesSettings } from "../schemas/schemas_0";
+import { ReplaceImageCriteriaInAllowedImagesSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ReplaceImageCriteriaInAllowedImagesSettingsCommand}.
  */
-export interface ReplaceImageCriteriaInAllowedImagesSettingsCommandInput
-  extends ReplaceImageCriteriaInAllowedImagesSettingsRequest {}
+export interface ReplaceImageCriteriaInAllowedImagesSettingsCommandInput extends ReplaceImageCriteriaInAllowedImagesSettingsRequest {}
 /**
  * @public
  *
  * The output of {@link ReplaceImageCriteriaInAllowedImagesSettingsCommand}.
  */
-export interface ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput
-  extends ReplaceImageCriteriaInAllowedImagesSettingsResult,
-    __MetadataBearer {}
+export interface ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput extends ReplaceImageCriteriaInAllowedImagesSettingsResult, __MetadataBearer {}
 
 /**
  * <p>Sets or replaces the criteria for Allowed AMIs.</p>
@@ -106,7 +103,7 @@ export class ReplaceImageCriteriaInAllowedImagesSettingsCommand extends $Command
   })
   .s("AmazonEC2", "ReplaceImageCriteriaInAllowedImagesSettings", {})
   .n("EC2Client", "ReplaceImageCriteriaInAllowedImagesSettingsCommand")
-  .sc(ReplaceImageCriteriaInAllowedImagesSettings)
+  .sc(ReplaceImageCriteriaInAllowedImagesSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

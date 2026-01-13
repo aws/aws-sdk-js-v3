@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateAccountPreferencesRequest, UpdateAccountPreferencesResult } from "../models/models_0";
-import { UpdateAccountPreferences } from "../schemas/schemas_0";
+import { UpdateAccountPreferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class UpdateAccountPreferencesCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "UpdateAccountPreferences", {})
   .n("ChatbotClient", "UpdateAccountPreferencesCommand")
-  .sc(UpdateAccountPreferences)
+  .sc(UpdateAccountPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

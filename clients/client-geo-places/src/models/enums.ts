@@ -75,6 +75,7 @@ export const PlaceType = {
   BLOCK: "Block",
   COUNTRY: "Country",
   DISTRICT: "District",
+  INFERRED_SECONDARY_ADDRESS: "InferredSecondaryAddress",
   INTERPOLATED_ADDRESS: "InterpolatedAddress",
   INTERSECTION: "Intersection",
   LOCALITY: "Locality",

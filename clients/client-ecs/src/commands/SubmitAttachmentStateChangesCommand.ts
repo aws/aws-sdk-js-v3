@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SubmitAttachmentStateChangesRequest, SubmitAttachmentStateChangesResponse } from "../models/models_0";
-import { SubmitAttachmentStateChanges } from "../schemas/schemas_0";
+import { SubmitAttachmentStateChanges$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface SubmitAttachmentStateChangesCommandInput extends SubmitAttachme
  *
  * The output of {@link SubmitAttachmentStateChangesCommand}.
  */
-export interface SubmitAttachmentStateChangesCommandOutput
-  extends SubmitAttachmentStateChangesResponse,
-    __MetadataBearer {}
+export interface SubmitAttachmentStateChangesCommandOutput extends SubmitAttachmentStateChangesResponse, __MetadataBearer {}
 
 /**
  * <note>
@@ -102,7 +100,7 @@ export class SubmitAttachmentStateChangesCommand extends $Command
   })
   .s("AmazonEC2ContainerServiceV20141113", "SubmitAttachmentStateChanges", {})
   .n("ECSClient", "SubmitAttachmentStateChangesCommand")
-  .sc(SubmitAttachmentStateChanges)
+  .sc(SubmitAttachmentStateChanges$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

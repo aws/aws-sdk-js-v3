@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
 import type { OperationWithNestedStructureInput, OperationWithNestedStructureOutput } from "../models/models_0";
-import { OperationWithNestedStructure } from "../schemas/schemas_0";
+import { OperationWithNestedStructure$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface OperationWithNestedStructureCommandInput extends OperationWithN
  *
  * The output of {@link OperationWithNestedStructureCommand}.
  */
-export interface OperationWithNestedStructureCommandOutput
-  extends OperationWithNestedStructureOutput,
-    __MetadataBearer {}
+export interface OperationWithNestedStructureCommandOutput extends OperationWithNestedStructureOutput, __MetadataBearer {}
 
 /**
  * @public
@@ -125,7 +123,7 @@ export class OperationWithNestedStructureCommand extends $Command
   })
   .s("JsonRpc10", "OperationWithNestedStructure", {})
   .n("JSONRPC10Client", "OperationWithNestedStructureCommand")
-  .sc(OperationWithNestedStructure)
+  .sc(OperationWithNestedStructure$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

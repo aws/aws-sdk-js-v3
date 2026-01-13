@@ -7,18 +7,15 @@ import {
   DescribeCertificateAuthorityAuditReportCommandInput,
 } from "../commands/DescribeCertificateAuthorityAuditReportCommand";
 
-const checkState = async (
-  client: ACMPCAClient,
-  input: DescribeCertificateAuthorityAuditReportCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: ACMPCAClient, input: DescribeCertificateAuthorityAuditReportCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeCertificateAuthorityAuditReportCommand(input));
+    let result: any = await client.send(new DescribeCertificateAuthorityAuditReportCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.AuditReportStatus;
-      };
+      }
       if (returnComparator() === "SUCCESS") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -26,7 +23,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.AuditReportStatus;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

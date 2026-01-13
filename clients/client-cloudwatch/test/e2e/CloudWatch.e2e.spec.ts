@@ -32,11 +32,23 @@ describe(CloudWatch.name, () => {
         awsQueryCompatible: true,
       }),
     }),
+    cborShorthand: new CloudWatch({
+      region: "us-west-2",
+      protocol: AwsSmithyRpcV2CborProtocol,
+    }),
+    queryShorthand: new CloudWatch({
+      region: "us-west-2",
+      protocol: AwsQueryProtocol,
+    }),
+    jsonShorthand: new CloudWatch({
+      region: "us-west-2",
+      protocol: AwsJson1_0Protocol,
+    }),
   };
 
   for (const client of Object.values(cloudwatch)) {
     it(`can make requests with ${client.config.protocol.constructor.name}`, async () => {
-      const dashes = await cloudwatch.query.listDashboards();
+      const dashes = await client.listDashboards();
       expect(dashes.DashboardEntries ?? []).toBeInstanceOf(Array);
     });
   }

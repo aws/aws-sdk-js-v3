@@ -8,7 +8,7 @@ import type {
   BatchDisassociateServiceActionFromProvisioningArtifactInput,
   BatchDisassociateServiceActionFromProvisioningArtifactOutput,
 } from "../models/models_0";
-import { BatchDisassociateServiceActionFromProvisioningArtifact } from "../schemas/schemas_0";
+import { BatchDisassociateServiceActionFromProvisioningArtifact$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link BatchDisassociateServiceActionFromProvisioningArtifactCommand}.
  */
-export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandInput
-  extends BatchDisassociateServiceActionFromProvisioningArtifactInput {}
+export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandInput extends BatchDisassociateServiceActionFromProvisioningArtifactInput {}
 /**
  * @public
  *
  * The output of {@link BatchDisassociateServiceActionFromProvisioningArtifactCommand}.
  */
-export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
-  extends BatchDisassociateServiceActionFromProvisioningArtifactOutput,
-    __MetadataBearer {}
+export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput extends BatchDisassociateServiceActionFromProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
  * <p>Disassociates a batch of self-service actions from the specified provisioning artifact.</p>
@@ -101,7 +98,7 @@ export class BatchDisassociateServiceActionFromProvisioningArtifactCommand exten
   })
   .s("AWS242ServiceCatalogService", "BatchDisassociateServiceActionFromProvisioningArtifact", {})
   .n("ServiceCatalogClient", "BatchDisassociateServiceActionFromProvisioningArtifactCommand")
-  .sc(BatchDisassociateServiceActionFromProvisioningArtifact)
+  .sc(BatchDisassociateServiceActionFromProvisioningArtifact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

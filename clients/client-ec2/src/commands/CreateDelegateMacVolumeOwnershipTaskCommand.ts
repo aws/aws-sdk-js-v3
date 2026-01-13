@@ -9,7 +9,7 @@ import type {
   CreateDelegateMacVolumeOwnershipTaskRequest,
   CreateDelegateMacVolumeOwnershipTaskResult,
 } from "../models/models_0";
-import { CreateDelegateMacVolumeOwnershipTask } from "../schemas/schemas_0";
+import { CreateDelegateMacVolumeOwnershipTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateDelegateMacVolumeOwnershipTaskCommandInput extends Create
  *
  * The output of {@link CreateDelegateMacVolumeOwnershipTaskCommand}.
  */
-export interface CreateDelegateMacVolumeOwnershipTaskCommandOutput
-  extends CreateDelegateMacVolumeOwnershipTaskResult,
-    __MetadataBearer {}
+export interface CreateDelegateMacVolumeOwnershipTaskCommandOutput extends CreateDelegateMacVolumeOwnershipTaskResult, __MetadataBearer {}
 
 /**
  * <p>Delegates ownership of the Amazon EBS root volume for an Apple silicon
@@ -115,7 +113,7 @@ export class CreateDelegateMacVolumeOwnershipTaskCommand extends $Command
   })
   .s("AmazonEC2", "CreateDelegateMacVolumeOwnershipTask", {})
   .n("EC2Client", "CreateDelegateMacVolumeOwnershipTaskCommand")
-  .sc(CreateDelegateMacVolumeOwnershipTask)
+  .sc(CreateDelegateMacVolumeOwnershipTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

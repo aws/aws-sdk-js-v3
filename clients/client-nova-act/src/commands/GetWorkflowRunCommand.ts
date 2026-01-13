@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetWorkflowRunRequest, GetWorkflowRunResponse } from "../models/models_0";
 import type { NovaActClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NovaActClient";
-import { GetWorkflowRun } from "../schemas/schemas_0";
+import { GetWorkflowRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class GetWorkflowRunCommand extends $Command
   })
   .s("AmazonNovaAgentsDataPlane", "GetWorkflowRun", {})
   .n("NovaActClient", "GetWorkflowRunCommand")
-  .sc(GetWorkflowRun)
+  .sc(GetWorkflowRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateJobRequest, CreateJobResponse } from "../models/models_0";
-import { CreateJob } from "../schemas/schemas_0";
+import { CreateJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -369,7 +369,7 @@ export class CreateJobCommand extends $Command
   })
   .s("DataExchange", "CreateJob", {})
   .n("DataExchangeClient", "CreateJobCommand")
-  .sc(CreateJob)
+  .sc(CreateJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

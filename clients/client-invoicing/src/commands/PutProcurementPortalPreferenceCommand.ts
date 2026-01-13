@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InvoicingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InvoicingClient";
 import type { PutProcurementPortalPreferenceRequest, PutProcurementPortalPreferenceResponse } from "../models/models_0";
-import { PutProcurementPortalPreference } from "../schemas/schemas_0";
+import { PutProcurementPortalPreference$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface PutProcurementPortalPreferenceCommandInput extends PutProcureme
  *
  * The output of {@link PutProcurementPortalPreferenceCommand}.
  */
-export interface PutProcurementPortalPreferenceCommandOutput
-  extends PutProcurementPortalPreferenceResponse,
-    __MetadataBearer {}
+export interface PutProcurementPortalPreferenceCommandOutput extends PutProcurementPortalPreferenceResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing procurement portal preference configuration. This operation can modify settings for e-invoice delivery and purchase order retrieval.</p>
@@ -197,7 +195,7 @@ export class PutProcurementPortalPreferenceCommand extends $Command
   })
   .s("Invoicing", "PutProcurementPortalPreference", {})
   .n("InvoicingClient", "PutProcurementPortalPreferenceCommand")
-  .sc(PutProcurementPortalPreference)
+  .sc(PutProcurementPortalPreference$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

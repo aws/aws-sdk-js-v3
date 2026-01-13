@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageV2Client";
 import type { CreateOriginEndpointRequest, CreateOriginEndpointResponse } from "../models/models_0";
-import { CreateOriginEndpoint } from "../schemas/schemas_0";
+import { CreateOriginEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,6 +77,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *         ],
  *         RoleArn: "STRING_VALUE", // required
  *         Url: "STRING_VALUE", // required
+ *         CertificateArn: "STRING_VALUE",
  *       },
  *     },
  *   },
@@ -261,6 +262,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //         ],
  * //         RoleArn: "STRING_VALUE", // required
  * //         Url: "STRING_VALUE", // required
+ * //         CertificateArn: "STRING_VALUE",
  * //       },
  * //     },
  * //   },
@@ -510,6 +512,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       },
  *       KeyRotationIntervalSeconds: 300,
  *       SpekeKeyProvider: {
+ *         CertificateArn: "arn:aws:acm:us-west-2:123456789012:certificate/0c6a65f1-7bd3-48ac-be17-f38675def22e",
  *         DrmSystems: [
  *           "CLEAR_KEY_AES_128"
  *         ],
@@ -613,6 +616,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       },
  *       KeyRotationIntervalSeconds: 300,
  *       SpekeKeyProvider: {
+ *         CertificateArn: "arn:aws:acm:us-west-2:123456789012:certificate/0c6a65f1-7bd3-48ac-be17-f38675def22e",
  *         DrmSystems: [
  *           "CLEAR_KEY_AES_128"
  *         ],
@@ -817,6 +821,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       },
  *       KeyRotationIntervalSeconds: 300,
  *       SpekeKeyProvider: {
+ *         CertificateArn: "arn:aws:acm:us-west-2:123456789012:certificate/0c6a65f1-7bd3-48ac-be17-f38675def22e",
  *         DrmSystems: [
  *           "PLAYREADY",
  *           "WIDEVINE"
@@ -1027,6 +1032,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       },
  *       KeyRotationIntervalSeconds: 300,
  *       SpekeKeyProvider: {
+ *         CertificateArn: "arn:aws:acm:us-west-2:123456789012:certificate/0c6a65f1-7bd3-48ac-be17-f38675def22e",
  *         DrmSystems: [
  *           "PLAYREADY",
  *           "WIDEVINE"
@@ -1185,7 +1191,7 @@ export class CreateOriginEndpointCommand extends $Command
   })
   .s("mediapackagev2", "CreateOriginEndpoint", {})
   .n("MediaPackageV2Client", "CreateOriginEndpointCommand")
-  .sc(CreateOriginEndpoint)
+  .sc(CreateOriginEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

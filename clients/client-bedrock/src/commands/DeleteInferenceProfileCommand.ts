@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteInferenceProfileRequest, DeleteInferenceProfileResponse } from "../models/models_1";
-import { DeleteInferenceProfile } from "../schemas/schemas_0";
+import { DeleteInferenceProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeleteInferenceProfileCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "DeleteInferenceProfile", {})
   .n("BedrockClient", "DeleteInferenceProfileCommand")
-  .sc(DeleteInferenceProfile)
+  .sc(DeleteInferenceProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

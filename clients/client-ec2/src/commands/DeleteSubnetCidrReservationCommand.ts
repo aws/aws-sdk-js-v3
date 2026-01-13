@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSubnetCidrReservationRequest, DeleteSubnetCidrReservationResult } from "../models/models_2";
-import { DeleteSubnetCidrReservation } from "../schemas/schemas_0";
+import { DeleteSubnetCidrReservation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteSubnetCidrReservationCommand extends $Command
   })
   .s("AmazonEC2", "DeleteSubnetCidrReservation", {})
   .n("EC2Client", "DeleteSubnetCidrReservationCommand")
-  .sc(DeleteSubnetCidrReservation)
+  .sc(DeleteSubnetCidrReservation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

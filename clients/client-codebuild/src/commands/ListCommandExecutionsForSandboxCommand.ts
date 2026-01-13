@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListCommandExecutionsForSandboxInput, ListCommandExecutionsForSandboxOutput } from "../models/models_0";
-import { ListCommandExecutionsForSandbox } from "../schemas/schemas_0";
+import { ListCommandExecutionsForSandbox$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListCommandExecutionsForSandboxCommandInput extends ListCommand
  *
  * The output of {@link ListCommandExecutionsForSandboxCommand}.
  */
-export interface ListCommandExecutionsForSandboxCommandOutput
-  extends ListCommandExecutionsForSandboxOutput,
-    __MetadataBearer {}
+export interface ListCommandExecutionsForSandboxCommandOutput extends ListCommandExecutionsForSandboxOutput, __MetadataBearer {}
 
 /**
  * <p>Gets a list of command executions for a sandbox.</p>
@@ -119,7 +117,7 @@ export class ListCommandExecutionsForSandboxCommand extends $Command
   })
   .s("CodeBuild_20161006", "ListCommandExecutionsForSandbox", {})
   .n("CodeBuildClient", "ListCommandExecutionsForSandboxCommand")
-  .sc(ListCommandExecutionsForSandbox)
+  .sc(ListCommandExecutionsForSandbox$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

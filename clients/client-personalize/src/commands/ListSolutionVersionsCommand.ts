@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSolutionVersionsRequest, ListSolutionVersionsResponse } from "../models/models_0";
 import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { ListSolutionVersions } from "../schemas/schemas_0";
+import { ListSolutionVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class ListSolutionVersionsCommand extends $Command
   })
   .s("AmazonPersonalize", "ListSolutionVersions", {})
   .n("PersonalizeClient", "ListSolutionVersionsCommand")
-  .sc(ListSolutionVersions)
+  .sc(ListSolutionVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

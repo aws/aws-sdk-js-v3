@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeInstanceImageMetadataRequest, DescribeInstanceImageMetadataResult } from "../models/models_3";
-import { DescribeInstanceImageMetadata } from "../schemas/schemas_0";
+import { DescribeInstanceImageMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeInstanceImageMetadataCommandInput extends DescribeInsta
  *
  * The output of {@link DescribeInstanceImageMetadataCommand}.
  */
-export interface DescribeInstanceImageMetadataCommandOutput
-  extends DescribeInstanceImageMetadataResult,
-    __MetadataBearer {}
+export interface DescribeInstanceImageMetadataCommandOutput extends DescribeInstanceImageMetadataResult, __MetadataBearer {}
 
 /**
  * <p>Describes the AMI that was used to launch an instance, even if the AMI is deprecated,
@@ -142,7 +140,7 @@ export class DescribeInstanceImageMetadataCommand extends $Command
   })
   .s("AmazonEC2", "DescribeInstanceImageMetadata", {})
   .n("EC2Client", "DescribeInstanceImageMetadataCommand")
-  .sc(DescribeInstanceImageMetadata)
+  .sc(DescribeInstanceImageMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

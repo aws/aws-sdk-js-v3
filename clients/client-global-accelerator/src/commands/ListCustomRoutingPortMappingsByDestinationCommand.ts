@@ -13,7 +13,7 @@ import type {
   ListCustomRoutingPortMappingsByDestinationRequest,
   ListCustomRoutingPortMappingsByDestinationResponse,
 } from "../models/models_0";
-import { ListCustomRoutingPortMappingsByDestination } from "../schemas/schemas_0";
+import { ListCustomRoutingPortMappingsByDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListCustomRoutingPortMappingsByDestinationCommand}.
  */
-export interface ListCustomRoutingPortMappingsByDestinationCommandInput
-  extends ListCustomRoutingPortMappingsByDestinationRequest {}
+export interface ListCustomRoutingPortMappingsByDestinationCommandInput extends ListCustomRoutingPortMappingsByDestinationRequest {}
 /**
  * @public
  *
  * The output of {@link ListCustomRoutingPortMappingsByDestinationCommand}.
  */
-export interface ListCustomRoutingPortMappingsByDestinationCommandOutput
-  extends ListCustomRoutingPortMappingsByDestinationResponse,
-    __MetadataBearer {}
+export interface ListCustomRoutingPortMappingsByDestinationCommandOutput extends ListCustomRoutingPortMappingsByDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>List the port mappings for a specific EC2 instance (destination) in a VPC subnet endpoint. The
@@ -121,7 +118,7 @@ export class ListCustomRoutingPortMappingsByDestinationCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "ListCustomRoutingPortMappingsByDestination", {})
   .n("GlobalAcceleratorClient", "ListCustomRoutingPortMappingsByDestinationCommand")
-  .sc(ListCustomRoutingPortMappingsByDestination)
+  .sc(ListCustomRoutingPortMappingsByDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

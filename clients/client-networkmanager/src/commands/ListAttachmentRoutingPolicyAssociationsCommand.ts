@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { ListAttachmentRoutingPolicyAssociations } from "../schemas/schemas_0";
+import { ListAttachmentRoutingPolicyAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListAttachmentRoutingPolicyAssociationsCommand}.
  */
-export interface ListAttachmentRoutingPolicyAssociationsCommandInput
-  extends ListAttachmentRoutingPolicyAssociationsRequest {}
+export interface ListAttachmentRoutingPolicyAssociationsCommandInput extends ListAttachmentRoutingPolicyAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListAttachmentRoutingPolicyAssociationsCommand}.
  */
-export interface ListAttachmentRoutingPolicyAssociationsCommandOutput
-  extends ListAttachmentRoutingPolicyAssociationsResponse,
-    __MetadataBearer {}
+export interface ListAttachmentRoutingPolicyAssociationsCommandOutput extends ListAttachmentRoutingPolicyAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the routing policy associations for attachments in a core network.</p>
@@ -113,7 +110,7 @@ export class ListAttachmentRoutingPolicyAssociationsCommand extends $Command
   })
   .s("NetworkManager", "ListAttachmentRoutingPolicyAssociations", {})
   .n("NetworkManagerClient", "ListAttachmentRoutingPolicyAssociationsCommand")
-  .sc(ListAttachmentRoutingPolicyAssociations)
+  .sc(ListAttachmentRoutingPolicyAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

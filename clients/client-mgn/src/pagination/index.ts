@@ -1,16 +1,11 @@
-export * from "./DescribeJobLogItemsPaginator";
-
-export * from "./DescribeJobsPaginator";
-
-export * from "./DescribeLaunchConfigurationTemplatesPaginator";
-
-export * from "./DescribeReplicationConfigurationTemplatesPaginator";
-
-export * from "./DescribeSourceServersPaginator";
-
-export * from "./DescribeVcenterClientsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeJobLogItemsPaginator";
+export * from "./DescribeJobsPaginator";
+export * from "./DescribeLaunchConfigurationTemplatesPaginator";
+export * from "./DescribeReplicationConfigurationTemplatesPaginator";
+export * from "./DescribeSourceServersPaginator";
+export * from "./DescribeVcenterClientsPaginator";
 export * from "./ListApplicationsPaginator";
 export * from "./ListConnectorsPaginator";
 export * from "./ListExportErrorsPaginator";

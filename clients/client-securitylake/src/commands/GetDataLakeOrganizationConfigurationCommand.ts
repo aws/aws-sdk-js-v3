@@ -8,7 +8,7 @@ import type {
   GetDataLakeOrganizationConfigurationRequest,
   GetDataLakeOrganizationConfigurationResponse,
 } from "../models/models_0";
-import { GetDataLakeOrganizationConfiguration } from "../schemas/schemas_0";
+import { GetDataLakeOrganizationConfiguration$ } from "../schemas/schemas_0";
 import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -27,9 +27,7 @@ export interface GetDataLakeOrganizationConfigurationCommandInput extends GetDat
  *
  * The output of {@link GetDataLakeOrganizationConfigurationCommand}.
  */
-export interface GetDataLakeOrganizationConfigurationCommandOutput
-  extends GetDataLakeOrganizationConfigurationResponse,
-    __MetadataBearer {}
+export interface GetDataLakeOrganizationConfigurationCommandOutput extends GetDataLakeOrganizationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the configuration that will be automatically set up for accounts added to the
@@ -113,7 +111,7 @@ export class GetDataLakeOrganizationConfigurationCommand extends $Command
   })
   .s("SecurityLake", "GetDataLakeOrganizationConfiguration", {})
   .n("SecurityLakeClient", "GetDataLakeOrganizationConfigurationCommand")
-  .sc(GetDataLakeOrganizationConfiguration)
+  .sc(GetDataLakeOrganizationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

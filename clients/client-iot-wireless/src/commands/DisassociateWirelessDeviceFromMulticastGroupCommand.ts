@@ -9,7 +9,7 @@ import type {
   DisassociateWirelessDeviceFromMulticastGroupRequest,
   DisassociateWirelessDeviceFromMulticastGroupResponse,
 } from "../models/models_0";
-import { DisassociateWirelessDeviceFromMulticastGroup } from "../schemas/schemas_0";
+import { DisassociateWirelessDeviceFromMulticastGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateWirelessDeviceFromMulticastGroupCommand}.
  */
-export interface DisassociateWirelessDeviceFromMulticastGroupCommandInput
-  extends DisassociateWirelessDeviceFromMulticastGroupRequest {}
+export interface DisassociateWirelessDeviceFromMulticastGroupCommandInput extends DisassociateWirelessDeviceFromMulticastGroupRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateWirelessDeviceFromMulticastGroupCommand}.
  */
-export interface DisassociateWirelessDeviceFromMulticastGroupCommandOutput
-  extends DisassociateWirelessDeviceFromMulticastGroupResponse,
-    __MetadataBearer {}
+export interface DisassociateWirelessDeviceFromMulticastGroupCommandOutput extends DisassociateWirelessDeviceFromMulticastGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a wireless device from a multicast group.</p>
@@ -93,7 +90,7 @@ export class DisassociateWirelessDeviceFromMulticastGroupCommand extends $Comman
   })
   .s("iotwireless", "DisassociateWirelessDeviceFromMulticastGroup", {})
   .n("IoTWirelessClient", "DisassociateWirelessDeviceFromMulticastGroupCommand")
-  .sc(DisassociateWirelessDeviceFromMulticastGroup)
+  .sc(DisassociateWirelessDeviceFromMulticastGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { RestoreCoreNetworkPolicyVersion } from "../schemas/schemas_0";
+import { RestoreCoreNetworkPolicyVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface RestoreCoreNetworkPolicyVersionCommandInput extends RestoreCore
  *
  * The output of {@link RestoreCoreNetworkPolicyVersionCommand}.
  */
-export interface RestoreCoreNetworkPolicyVersionCommandOutput
-  extends RestoreCoreNetworkPolicyVersionResponse,
-    __MetadataBearer {}
+export interface RestoreCoreNetworkPolicyVersionCommandOutput extends RestoreCoreNetworkPolicyVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Restores a previous policy version as a new, immutable version of a core network policy. A subsequent change set is created showing the differences between the LIVE policy and restored policy.</p>
@@ -117,7 +115,7 @@ export class RestoreCoreNetworkPolicyVersionCommand extends $Command
   })
   .s("NetworkManager", "RestoreCoreNetworkPolicyVersion", {})
   .n("NetworkManagerClient", "RestoreCoreNetworkPolicyVersionCommand")
-  .sc(RestoreCoreNetworkPolicyVersion)
+  .sc(RestoreCoreNetworkPolicyVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

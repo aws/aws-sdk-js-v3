@@ -9,7 +9,7 @@ import type {
   DescribeQuickSightQSearchConfigurationResponse,
 } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeQuickSightQSearchConfiguration } from "../schemas/schemas_0";
+import { DescribeQuickSightQSearchConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeQuickSightQSearchConfigurationCommand}.
  */
-export interface DescribeQuickSightQSearchConfigurationCommandInput
-  extends DescribeQuickSightQSearchConfigurationRequest {}
+export interface DescribeQuickSightQSearchConfigurationCommandInput extends DescribeQuickSightQSearchConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeQuickSightQSearchConfigurationCommand}.
  */
-export interface DescribeQuickSightQSearchConfigurationCommandOutput
-  extends DescribeQuickSightQSearchConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeQuickSightQSearchConfigurationCommandOutput extends DescribeQuickSightQSearchConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the state of a Quick Sight Q Search configuration.</p>
@@ -102,7 +99,7 @@ export class DescribeQuickSightQSearchConfigurationCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeQuickSightQSearchConfiguration", {})
   .n("QuickSightClient", "DescribeQuickSightQSearchConfigurationCommand")
-  .sc(DescribeQuickSightQSearchConfiguration)
+  .sc(DescribeQuickSightQSearchConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

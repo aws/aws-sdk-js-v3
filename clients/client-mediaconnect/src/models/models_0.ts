@@ -3400,7 +3400,9 @@ export interface WindowMaintenanceSchedule {
  * <p>The details of the maintenance schedule.</p>
  * @public
  */
-export type MaintenanceSchedule = MaintenanceSchedule.WindowMember | MaintenanceSchedule.$UnknownMember;
+export type MaintenanceSchedule =
+  | MaintenanceSchedule.WindowMember
+  | MaintenanceSchedule.$UnknownMember;
 
 /**
  * @public

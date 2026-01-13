@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSubscriptionsInput, ListSubscriptionsResponse } from "../models/models_0";
-import { ListSubscriptions } from "../schemas/schemas_0";
+import { ListSubscriptions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -96,7 +96,7 @@ export class ListSubscriptionsCommand extends $Command
   })
   .s("AmazonSimpleNotificationService", "ListSubscriptions", {})
   .n("SNSClient", "ListSubscriptionsCommand")
-  .sc(ListSubscriptions)
+  .sc(ListSubscriptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

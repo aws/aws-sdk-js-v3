@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteEventsConfigurationRequest } from "../models/models_0";
-import { DeleteEventsConfiguration } from "../schemas/schemas_0";
+import { DeleteEventsConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteEventsConfigurationCommand extends $Command
   })
   .s("UCBuzzConsoleService", "DeleteEventsConfiguration", {})
   .n("ChimeClient", "DeleteEventsConfigurationCommand")
-  .sc(DeleteEventsConfiguration)
+  .sc(DeleteEventsConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

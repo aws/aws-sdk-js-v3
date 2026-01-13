@@ -9,7 +9,7 @@ import type {
   ModifyInstanceMaintenanceOptionsRequest,
   ModifyInstanceMaintenanceOptionsResult,
 } from "../models/models_6";
-import { ModifyInstanceMaintenanceOptions } from "../schemas/schemas_0";
+import { ModifyInstanceMaintenanceOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ModifyInstanceMaintenanceOptionsCommandInput extends ModifyInst
  *
  * The output of {@link ModifyInstanceMaintenanceOptionsCommand}.
  */
-export interface ModifyInstanceMaintenanceOptionsCommandOutput
-  extends ModifyInstanceMaintenanceOptionsResult,
-    __MetadataBearer {}
+export interface ModifyInstanceMaintenanceOptionsCommandOutput extends ModifyInstanceMaintenanceOptionsResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the recovery behavior of your instance to disable simplified automatic
@@ -88,7 +86,7 @@ export class ModifyInstanceMaintenanceOptionsCommand extends $Command
   })
   .s("AmazonEC2", "ModifyInstanceMaintenanceOptions", {})
   .n("EC2Client", "ModifyInstanceMaintenanceOptionsCommand")
-  .sc(ModifyInstanceMaintenanceOptions)
+  .sc(ModifyInstanceMaintenanceOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

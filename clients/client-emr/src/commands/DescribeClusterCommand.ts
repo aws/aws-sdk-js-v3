@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeClusterInput, DescribeClusterOutput } from "../models/models_0";
-import { DescribeCluster } from "../schemas/schemas_0";
+import { DescribeCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -215,7 +215,7 @@ export class DescribeClusterCommand extends $Command
   })
   .s("ElasticMapReduce", "DescribeCluster", {})
   .n("EMRClient", "DescribeClusterCommand")
-  .sc(DescribeCluster)
+  .sc(DescribeCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DescribeRegistrationSectionDefinitions } from "../schemas/schemas_0";
+import { DescribeRegistrationSectionDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeRegistrationSectionDefinitionsCommand}.
  */
-export interface DescribeRegistrationSectionDefinitionsCommandInput
-  extends DescribeRegistrationSectionDefinitionsRequest {}
+export interface DescribeRegistrationSectionDefinitionsCommandInput extends DescribeRegistrationSectionDefinitionsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeRegistrationSectionDefinitionsCommand}.
  */
-export interface DescribeRegistrationSectionDefinitionsCommandOutput
-  extends DescribeRegistrationSectionDefinitionsResult,
-    __MetadataBearer {}
+export interface DescribeRegistrationSectionDefinitionsCommandOutput extends DescribeRegistrationSectionDefinitionsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified registration section definitions. You can use DescribeRegistrationSectionDefinitions to view the requirements for creating, filling out, and submitting each registration type.</p>
@@ -113,7 +110,7 @@ export class DescribeRegistrationSectionDefinitionsCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DescribeRegistrationSectionDefinitions", {})
   .n("PinpointSMSVoiceV2Client", "DescribeRegistrationSectionDefinitionsCommand")
-  .sc(DescribeRegistrationSectionDefinitions)
+  .sc(DescribeRegistrationSectionDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

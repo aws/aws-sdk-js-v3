@@ -9,7 +9,7 @@ import type {
   UpdateSPICECapacityConfigurationResponse,
 } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateSPICECapacityConfiguration } from "../schemas/schemas_0";
+import { UpdateSPICECapacityConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateSPICECapacityConfigurationCommandInput extends UpdateSPIC
  *
  * The output of {@link UpdateSPICECapacityConfigurationCommand}.
  */
-export interface UpdateSPICECapacityConfigurationCommandOutput
-  extends UpdateSPICECapacityConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateSPICECapacityConfigurationCommandOutput extends UpdateSPICECapacityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the SPICE capacity configuration for a Quick Sight account.</p>
@@ -98,7 +96,7 @@ export class UpdateSPICECapacityConfigurationCommand extends $Command
   })
   .s("QuickSight_20180401", "UpdateSPICECapacityConfiguration", {})
   .n("QuickSightClient", "UpdateSPICECapacityConfigurationCommand")
-  .sc(UpdateSPICECapacityConfiguration)
+  .sc(UpdateSPICECapacityConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

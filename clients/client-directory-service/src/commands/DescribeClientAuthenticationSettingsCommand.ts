@@ -13,7 +13,7 @@ import type {
   DescribeClientAuthenticationSettingsRequest,
   DescribeClientAuthenticationSettingsResult,
 } from "../models/models_0";
-import { DescribeClientAuthenticationSettings } from "../schemas/schemas_0";
+import { DescribeClientAuthenticationSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DescribeClientAuthenticationSettingsCommandInput extends Descri
  *
  * The output of {@link DescribeClientAuthenticationSettingsCommand}.
  */
-export interface DescribeClientAuthenticationSettingsCommandOutput
-  extends DescribeClientAuthenticationSettingsResult,
-    __MetadataBearer {}
+export interface DescribeClientAuthenticationSettingsCommandOutput extends DescribeClientAuthenticationSettingsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the type of client authentication for the specified directory,
@@ -113,7 +111,7 @@ export class DescribeClientAuthenticationSettingsCommand extends $Command
   })
   .s("DirectoryService_20150416", "DescribeClientAuthenticationSettings", {})
   .n("DirectoryServiceClient", "DescribeClientAuthenticationSettingsCommand")
-  .sc(DescribeClientAuthenticationSettings)
+  .sc(DescribeClientAuthenticationSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

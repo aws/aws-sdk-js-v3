@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutConfigRuleRequest } from "../models/models_0";
-import { PutConfigRule } from "../schemas/schemas_0";
+import { PutConfigRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -42,7 +42,7 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  *          <p>Config Custom Rules are rules that you create from scratch. There are two ways to create Config custom rules: with Lambda functions
  * 			(<a href="https://docs.aws.amazon.com/config/latest/developerguide/gettingstarted-concepts.html#gettingstarted-concepts-function"> Lambda Developer Guide</a>) and with Guard (<a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
  * 					Repository</a>), a policy-as-code language.
- *
+ * 			
  * 			Config custom rules created with Lambda
  * 			are called <i>Config Custom Lambda Rules</i> and Config custom rules created with
  * 			Guard are called <i>Config Custom Policy Rules</i>.</p>
@@ -228,7 +228,7 @@ export class PutConfigRuleCommand extends $Command
   })
   .s("StarlingDoveService", "PutConfigRule", {})
   .n("ConfigServiceClient", "PutConfigRuleCommand")
-  .sc(PutConfigRule)
+  .sc(PutConfigRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

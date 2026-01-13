@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
 import type { UpdateIdentityProviderSettingsRequest, UpdateIdentityProviderSettingsResponse } from "../models/models_0";
-import { UpdateIdentityProviderSettings } from "../schemas/schemas_0";
+import { UpdateIdentityProviderSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface UpdateIdentityProviderSettingsCommandInput extends UpdateIdenti
  *
  * The output of {@link UpdateIdentityProviderSettingsCommand}.
  */
-export interface UpdateIdentityProviderSettingsCommandOutput
-  extends UpdateIdentityProviderSettingsResponse,
-    __MetadataBearer {}
+export interface UpdateIdentityProviderSettingsCommandOutput extends UpdateIdentityProviderSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates additional product configuration settings for the registered identity provider.</p>
@@ -165,7 +163,7 @@ export class UpdateIdentityProviderSettingsCommand extends $Command
   })
   .s("LicenseManagerUserSubscriptions", "UpdateIdentityProviderSettings", {})
   .n("LicenseManagerUserSubscriptionsClient", "UpdateIdentityProviderSettingsCommand")
-  .sc(UpdateIdentityProviderSettings)
+  .sc(UpdateIdentityProviderSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

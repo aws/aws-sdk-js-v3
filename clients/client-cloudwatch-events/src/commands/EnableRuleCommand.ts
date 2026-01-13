@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchEventsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableRuleRequest } from "../models/models_0";
-import { EnableRule } from "../schemas/schemas_0";
+import { EnableRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class EnableRuleCommand extends $Command
   })
   .s("AWSEvents", "EnableRule", {})
   .n("CloudWatchEventsClient", "EnableRuleCommand")
-  .sc(EnableRule)
+  .sc(EnableRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

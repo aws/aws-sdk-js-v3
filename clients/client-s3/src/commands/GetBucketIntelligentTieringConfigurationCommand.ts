@@ -10,7 +10,7 @@ import type {
   GetBucketIntelligentTieringConfigurationRequest,
 } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketIntelligentTieringConfiguration } from "../schemas/schemas_0";
+import { GetBucketIntelligentTieringConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -22,16 +22,13 @@ export { $Command };
  *
  * The input for {@link GetBucketIntelligentTieringConfigurationCommand}.
  */
-export interface GetBucketIntelligentTieringConfigurationCommandInput
-  extends GetBucketIntelligentTieringConfigurationRequest {}
+export interface GetBucketIntelligentTieringConfigurationCommandInput extends GetBucketIntelligentTieringConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link GetBucketIntelligentTieringConfigurationCommand}.
  */
-export interface GetBucketIntelligentTieringConfigurationCommandOutput
-  extends GetBucketIntelligentTieringConfigurationOutput,
-    __MetadataBearer {}
+export interface GetBucketIntelligentTieringConfigurationCommandOutput extends GetBucketIntelligentTieringConfigurationOutput, __MetadataBearer {}
 
 /**
  * <note>
@@ -134,11 +131,14 @@ export class GetBucketIntelligentTieringConfigurationCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
+    ];
   })
   .s("AmazonS3", "GetBucketIntelligentTieringConfiguration", {})
   .n("S3Client", "GetBucketIntelligentTieringConfigurationCommand")
-  .sc(GetBucketIntelligentTieringConfiguration)
+  .sc(GetBucketIntelligentTieringConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

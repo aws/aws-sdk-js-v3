@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateIamRoleFromResourceInput, DisassociateIamRoleFromResourceOutput } from "../models/models_0";
 import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { DisassociateIamRoleFromResource } from "../schemas/schemas_0";
+import { DisassociateIamRoleFromResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DisassociateIamRoleFromResourceCommandInput extends Disassociat
  *
  * The output of {@link DisassociateIamRoleFromResourceCommand}.
  */
-export interface DisassociateIamRoleFromResourceCommandOutput
-  extends DisassociateIamRoleFromResourceOutput,
-    __MetadataBearer {}
+export interface DisassociateIamRoleFromResourceCommandOutput extends DisassociateIamRoleFromResourceOutput, __MetadataBearer {}
 
 /**
  * <p>Disassociates an Amazon Web Services Identity and Access Management (IAM) service role from a specified resource to disable Amazon Web Services service integration.</p>
@@ -93,7 +91,7 @@ export class DisassociateIamRoleFromResourceCommand extends $Command
   })
   .s("Odb", "DisassociateIamRoleFromResource", {})
   .n("OdbClient", "DisassociateIamRoleFromResourceCommand")
-  .sc(DisassociateIamRoleFromResource)
+  .sc(DisassociateIamRoleFromResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

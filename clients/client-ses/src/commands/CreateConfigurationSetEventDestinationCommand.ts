@@ -8,7 +8,7 @@ import type {
   CreateConfigurationSetEventDestinationRequest,
   CreateConfigurationSetEventDestinationResponse,
 } from "../models/models_0";
-import { CreateConfigurationSetEventDestination } from "../schemas/schemas_0";
+import { CreateConfigurationSetEventDestination$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateConfigurationSetEventDestinationCommand}.
  */
-export interface CreateConfigurationSetEventDestinationCommandInput
-  extends CreateConfigurationSetEventDestinationRequest {}
+export interface CreateConfigurationSetEventDestinationCommandInput extends CreateConfigurationSetEventDestinationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateConfigurationSetEventDestinationCommand}.
  */
-export interface CreateConfigurationSetEventDestinationCommandOutput
-  extends CreateConfigurationSetEventDestinationResponse,
-    __MetadataBearer {}
+export interface CreateConfigurationSetEventDestinationCommandOutput extends CreateConfigurationSetEventDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a configuration set event destination.</p>
@@ -133,7 +130,7 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command
   })
   .s("SimpleEmailService", "CreateConfigurationSetEventDestination", {})
   .n("SESClient", "CreateConfigurationSetEventDestinationCommand")
-  .sc(CreateConfigurationSetEventDestination)
+  .sc(CreateConfigurationSetEventDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

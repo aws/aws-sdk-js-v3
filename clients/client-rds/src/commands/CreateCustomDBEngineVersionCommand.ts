@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateCustomDBEngineVersionMessage, DBEngineVersion } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { CreateCustomDBEngineVersion } from "../schemas/schemas_0";
+import { CreateCustomDBEngineVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -203,7 +203,7 @@ export class CreateCustomDBEngineVersionCommand extends $Command
   })
   .s("AmazonRDSv19", "CreateCustomDBEngineVersion", {})
   .n("RDSClient", "CreateCustomDBEngineVersionCommand")
-  .sc(CreateCustomDBEngineVersion)
+  .sc(CreateCustomDBEngineVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

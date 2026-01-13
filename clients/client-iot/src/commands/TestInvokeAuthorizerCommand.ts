@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { TestInvokeAuthorizerRequest, TestInvokeAuthorizerResponse } from "../models/models_2";
-import { TestInvokeAuthorizer } from "../schemas/schemas_0";
+import { TestInvokeAuthorizer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class TestInvokeAuthorizerCommand extends $Command
   })
   .s("AWSIotService", "TestInvokeAuthorizer", {})
   .n("IoTClient", "TestInvokeAuthorizerCommand")
-  .sc(TestInvokeAuthorizer)
+  .sc(TestInvokeAuthorizer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

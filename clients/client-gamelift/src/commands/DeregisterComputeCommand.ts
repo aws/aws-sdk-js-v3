@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import type { DeregisterComputeInput, DeregisterComputeOutput } from "../models/models_0";
-import { DeregisterCompute } from "../schemas/schemas_0";
+import { DeregisterCompute$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeregisterComputeCommand extends $Command
   })
   .s("GameLift", "DeregisterCompute", {})
   .n("GameLiftClient", "DeregisterComputeCommand")
-  .sc(DeregisterCompute)
+  .sc(DeregisterCompute$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

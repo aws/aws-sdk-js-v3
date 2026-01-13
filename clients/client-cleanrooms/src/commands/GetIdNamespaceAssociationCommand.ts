@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetIdNamespaceAssociationInput, GetIdNamespaceAssociationOutput } from "../models/models_0";
-import { GetIdNamespaceAssociation } from "../schemas/schemas_0";
+import { GetIdNamespaceAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetIdNamespaceAssociationCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "GetIdNamespaceAssociation", {})
   .n("CleanRoomsClient", "GetIdNamespaceAssociationCommand")
-  .sc(GetIdNamespaceAssociation)
+  .sc(GetIdNamespaceAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

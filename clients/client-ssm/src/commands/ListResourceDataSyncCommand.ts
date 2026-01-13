@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListResourceDataSyncRequest, ListResourceDataSyncResult } from "../models/models_1";
-import { ListResourceDataSync } from "../schemas/schemas_0";
+import { ListResourceDataSync$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -131,7 +131,7 @@ export class ListResourceDataSyncCommand extends $Command
   })
   .s("AmazonSSM", "ListResourceDataSync", {})
   .n("SSMClient", "ListResourceDataSyncCommand")
-  .sc(ListResourceDataSync)
+  .sc(ListResourceDataSync$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   CreateAccessPointForObjectLambdaResult,
 } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { CreateAccessPointForObjectLambda } from "../schemas/schemas_0";
+import { CreateAccessPointForObjectLambda$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface CreateAccessPointForObjectLambdaCommandInput extends CreateAcce
  *
  * The output of {@link CreateAccessPointForObjectLambdaCommand}.
  */
-export interface CreateAccessPointForObjectLambdaCommandOutput
-  extends CreateAccessPointForObjectLambdaResult,
-    __MetadataBearer {}
+export interface CreateAccessPointForObjectLambdaCommandOutput extends CreateAccessPointForObjectLambdaResult, __MetadataBearer {}
 
 /**
  * <note>
@@ -127,11 +125,14 @@ export class CreateAccessPointForObjectLambdaCommand extends $Command
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getProcessArnablesPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getProcessArnablesPlugin(config),
+    ];
   })
   .s("AWSS3ControlServiceV20180820", "CreateAccessPointForObjectLambda", {})
   .n("S3ControlClient", "CreateAccessPointForObjectLambdaCommand")
-  .sc(CreateAccessPointForObjectLambda)
+  .sc(CreateAccessPointForObjectLambda$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

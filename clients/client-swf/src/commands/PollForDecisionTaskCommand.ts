@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DecisionTask, PollForDecisionTaskInput } from "../models/models_0";
-import { PollForDecisionTask } from "../schemas/schemas_0";
+import { PollForDecisionTask$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -528,7 +528,7 @@ export class PollForDecisionTaskCommand extends $Command
   })
   .s("SimpleWorkflowService", "PollForDecisionTask", {})
   .n("SWFClient", "PollForDecisionTaskCommand")
-  .sc(PollForDecisionTask)
+  .sc(PollForDecisionTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

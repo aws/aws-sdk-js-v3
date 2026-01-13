@@ -8,7 +8,7 @@ import type {
   DescribeBandwidthRateLimitScheduleInput,
   DescribeBandwidthRateLimitScheduleOutput,
 } from "../models/models_0";
-import { DescribeBandwidthRateLimitSchedule } from "../schemas/schemas_0";
+import { DescribeBandwidthRateLimitSchedule$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -31,9 +31,7 @@ export interface DescribeBandwidthRateLimitScheduleCommandInput extends Describe
  *
  * The output of {@link DescribeBandwidthRateLimitScheduleCommand}.
  */
-export interface DescribeBandwidthRateLimitScheduleCommandOutput
-  extends DescribeBandwidthRateLimitScheduleOutput,
-    __MetadataBearer {}
+export interface DescribeBandwidthRateLimitScheduleCommandOutput extends DescribeBandwidthRateLimitScheduleOutput, __MetadataBearer {}
 
 /**
  * <p> Returns information about the bandwidth rate limit schedule of a gateway. By default,
@@ -116,7 +114,7 @@ export class DescribeBandwidthRateLimitScheduleCommand extends $Command
   })
   .s("StorageGateway_20130630", "DescribeBandwidthRateLimitSchedule", {})
   .n("StorageGatewayClient", "DescribeBandwidthRateLimitScheduleCommand")
-  .sc(DescribeBandwidthRateLimitSchedule)
+  .sc(DescribeBandwidthRateLimitSchedule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

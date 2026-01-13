@@ -43,13 +43,10 @@ import {
   type BodyLengthCalculator as __BodyLengthCalculator,
   type CheckOptionalClientConfig as __CheckOptionalClientConfig,
   type ChecksumConstructor as __ChecksumConstructor,
-  type ClientProtocol,
   type Decoder as __Decoder,
   type Encoder as __Encoder,
   type HashConstructor as __HashConstructor,
   type HttpHandlerOptions as __HttpHandlerOptions,
-  type HttpRequest,
-  type HttpResponse,
   type Logger as __Logger,
   type Provider as __Provider,
   type StreamCollector as __StreamCollector,
@@ -367,6 +364,10 @@ import {
   DescribeRoleCustomPermissionCommandOutput,
 } from "./commands/DescribeRoleCustomPermissionCommand";
 import {
+  DescribeSelfUpgradeConfigurationCommandInput,
+  DescribeSelfUpgradeConfigurationCommandOutput,
+} from "./commands/DescribeSelfUpgradeConfigurationCommand";
+import {
   DescribeTemplateAliasCommandInput,
   DescribeTemplateAliasCommandOutput,
 } from "./commands/DescribeTemplateAliasCommand";
@@ -482,6 +483,7 @@ import {
   ListRoleMembershipsCommandInput,
   ListRoleMembershipsCommandOutput,
 } from "./commands/ListRoleMembershipsCommand";
+import { ListSelfUpgradesCommandInput, ListSelfUpgradesCommandOutput } from "./commands/ListSelfUpgradesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -666,6 +668,11 @@ import {
   UpdateRoleCustomPermissionCommandInput,
   UpdateRoleCustomPermissionCommandOutput,
 } from "./commands/UpdateRoleCustomPermissionCommand";
+import { UpdateSelfUpgradeCommandInput, UpdateSelfUpgradeCommandOutput } from "./commands/UpdateSelfUpgradeCommand";
+import {
+  UpdateSelfUpgradeConfigurationCommandInput,
+  UpdateSelfUpgradeConfigurationCommandOutput,
+} from "./commands/UpdateSelfUpgradeConfigurationCommand";
 import {
   UpdateSPICECapacityConfigurationCommandInput,
   UpdateSPICECapacityConfigurationCommandOutput,
@@ -820,6 +827,7 @@ export type ServiceInputTypes =
   | DescribeQuickSightQSearchConfigurationCommandInput
   | DescribeRefreshScheduleCommandInput
   | DescribeRoleCustomPermissionCommandInput
+  | DescribeSelfUpgradeConfigurationCommandInput
   | DescribeTemplateAliasCommandInput
   | DescribeTemplateCommandInput
   | DescribeTemplateDefinitionCommandInput
@@ -864,6 +872,7 @@ export type ServiceInputTypes =
   | ListNamespacesCommandInput
   | ListRefreshSchedulesCommandInput
   | ListRoleMembershipsCommandInput
+  | ListSelfUpgradesCommandInput
   | ListTagsForResourceCommandInput
   | ListTemplateAliasesCommandInput
   | ListTemplateVersionsCommandInput
@@ -932,6 +941,8 @@ export type ServiceInputTypes =
   | UpdateRefreshScheduleCommandInput
   | UpdateRoleCustomPermissionCommandInput
   | UpdateSPICECapacityConfigurationCommandInput
+  | UpdateSelfUpgradeCommandInput
+  | UpdateSelfUpgradeConfigurationCommandInput
   | UpdateTemplateAliasCommandInput
   | UpdateTemplateCommandInput
   | UpdateTemplatePermissionsCommandInput
@@ -1051,6 +1062,7 @@ export type ServiceOutputTypes =
   | DescribeQuickSightQSearchConfigurationCommandOutput
   | DescribeRefreshScheduleCommandOutput
   | DescribeRoleCustomPermissionCommandOutput
+  | DescribeSelfUpgradeConfigurationCommandOutput
   | DescribeTemplateAliasCommandOutput
   | DescribeTemplateCommandOutput
   | DescribeTemplateDefinitionCommandOutput
@@ -1095,6 +1107,7 @@ export type ServiceOutputTypes =
   | ListNamespacesCommandOutput
   | ListRefreshSchedulesCommandOutput
   | ListRoleMembershipsCommandOutput
+  | ListSelfUpgradesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTemplateAliasesCommandOutput
   | ListTemplateVersionsCommandOutput
@@ -1163,6 +1176,8 @@ export type ServiceOutputTypes =
   | UpdateRefreshScheduleCommandOutput
   | UpdateRoleCustomPermissionCommandOutput
   | UpdateSPICECapacityConfigurationCommandOutput
+  | UpdateSelfUpgradeCommandOutput
+  | UpdateSelfUpgradeConfigurationCommandOutput
   | UpdateTemplateAliasCommandOutput
   | UpdateTemplateCommandOutput
   | UpdateTemplatePermissionsCommandOutput
@@ -1320,16 +1335,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * Optional extensions
    */
   extensions?: RuntimeExtension[];
-
-  /**
-   * The protocol controlling the message type (e.g. HTTP) and format (e.g. JSON)
-   * may be overridden. A default will always be set by the client.
-   * Available options depend on the service's supported protocols and will not be validated by
-   * the client.
-   * @alpha
-   *
-   */
-  protocol?: ClientProtocol<HttpRequest, HttpResponse>;
 
   /**
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.

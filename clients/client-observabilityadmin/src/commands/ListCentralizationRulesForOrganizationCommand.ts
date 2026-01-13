@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { ListCentralizationRulesForOrganization } from "../schemas/schemas_0";
+import { ListCentralizationRulesForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListCentralizationRulesForOrganizationCommand}.
  */
-export interface ListCentralizationRulesForOrganizationCommandInput
-  extends ListCentralizationRulesForOrganizationInput {}
+export interface ListCentralizationRulesForOrganizationCommandInput extends ListCentralizationRulesForOrganizationInput {}
 /**
  * @public
  *
  * The output of {@link ListCentralizationRulesForOrganizationCommand}.
  */
-export interface ListCentralizationRulesForOrganizationCommandOutput
-  extends ListCentralizationRulesForOrganizationOutput,
-    __MetadataBearer {}
+export interface ListCentralizationRulesForOrganizationCommandOutput extends ListCentralizationRulesForOrganizationOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all centralization rules in your organization. This operation can only be called by the organization's management account or a delegated administrator account.</p>
@@ -112,7 +109,7 @@ export class ListCentralizationRulesForOrganizationCommand extends $Command
   })
   .s("ObservabilityAdmin", "ListCentralizationRulesForOrganization", {})
   .n("ObservabilityAdminClient", "ListCentralizationRulesForOrganizationCommand")
-  .sc(ListCentralizationRulesForOrganization)
+  .sc(ListCentralizationRulesForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

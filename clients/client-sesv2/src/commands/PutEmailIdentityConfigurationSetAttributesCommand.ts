@@ -8,7 +8,7 @@ import type {
   PutEmailIdentityConfigurationSetAttributesRequest,
   PutEmailIdentityConfigurationSetAttributesResponse,
 } from "../models/models_0";
-import { PutEmailIdentityConfigurationSetAttributes } from "../schemas/schemas_0";
+import { PutEmailIdentityConfigurationSetAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutEmailIdentityConfigurationSetAttributesCommand}.
  */
-export interface PutEmailIdentityConfigurationSetAttributesCommandInput
-  extends PutEmailIdentityConfigurationSetAttributesRequest {}
+export interface PutEmailIdentityConfigurationSetAttributesCommandInput extends PutEmailIdentityConfigurationSetAttributesRequest {}
 /**
  * @public
  *
  * The output of {@link PutEmailIdentityConfigurationSetAttributesCommand}.
  */
-export interface PutEmailIdentityConfigurationSetAttributesCommandOutput
-  extends PutEmailIdentityConfigurationSetAttributesResponse,
-    __MetadataBearer {}
+export interface PutEmailIdentityConfigurationSetAttributesCommandOutput extends PutEmailIdentityConfigurationSetAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Used to associate a configuration set with an email identity.</p>
@@ -87,7 +84,7 @@ export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutEmailIdentityConfigurationSetAttributes", {})
   .n("SESv2Client", "PutEmailIdentityConfigurationSetAttributesCommand")
-  .sc(PutEmailIdentityConfigurationSetAttributes)
+  .sc(PutEmailIdentityConfigurationSetAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

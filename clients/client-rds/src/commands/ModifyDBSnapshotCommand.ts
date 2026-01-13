@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyDBSnapshotMessage, ModifyDBSnapshotResult } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { ModifyDBSnapshot } from "../schemas/schemas_0";
+import { ModifyDBSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -187,7 +187,7 @@ export class ModifyDBSnapshotCommand extends $Command
   })
   .s("AmazonRDSv19", "ModifyDBSnapshot", {})
   .n("RDSClient", "ModifyDBSnapshotCommand")
-  .sc(ModifyDBSnapshot)
+  .sc(ModifyDBSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

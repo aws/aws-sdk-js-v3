@@ -8,7 +8,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMultiRegionAccessPointPolicyRequest, GetMultiRegionAccessPointPolicyResult } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { GetMultiRegionAccessPointPolicy } from "../schemas/schemas_0";
+import { GetMultiRegionAccessPointPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -26,9 +26,7 @@ export interface GetMultiRegionAccessPointPolicyCommandInput extends GetMultiReg
  *
  * The output of {@link GetMultiRegionAccessPointPolicyCommand}.
  */
-export interface GetMultiRegionAccessPointPolicyCommandOutput
-  extends GetMultiRegionAccessPointPolicyResult,
-    __MetadataBearer {}
+export interface GetMultiRegionAccessPointPolicyCommandOutput extends GetMultiRegionAccessPointPolicyResult, __MetadataBearer {}
 
 /**
  * <note>
@@ -113,7 +111,7 @@ export class GetMultiRegionAccessPointPolicyCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "GetMultiRegionAccessPointPolicy", {})
   .n("S3ControlClient", "GetMultiRegionAccessPointPolicyCommand")
-  .sc(GetMultiRegionAccessPointPolicy)
+  .sc(GetMultiRegionAccessPointPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

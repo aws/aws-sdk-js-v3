@@ -226,633 +226,614 @@ const n0 = "com.amazonaws.computeoptimizerautomation";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type {
+  StaticErrorSchema,
+  StaticListSchema,
+  StaticOperationSchema,
+  StaticStructureSchema,
+  StaticUnionSchema,
+} from "@smithy/types";
 
-import { ComputeOptimizerAutomationServiceException as __ComputeOptimizerAutomationServiceException } from "../models/ComputeOptimizerAutomationServiceException";
+import { ComputeOptimizerAutomationServiceException } from "../models/ComputeOptimizerAutomationServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ForbiddenException as __ForbiddenException,
-  IdempotencyTokenInUseException as __IdempotencyTokenInUseException,
-  IdempotentParameterMismatchException as __IdempotentParameterMismatchException,
-  InternalServerException as __InternalServerException,
-  InvalidParameterValueException as __InvalidParameterValueException,
-  NotManagementAccountException as __NotManagementAccountException,
-  OptInRequiredException as __OptInRequiredException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ServiceUnavailableException as __ServiceUnavailableException,
-  ThrottlingException as __ThrottlingException,
+  AccessDeniedException,
+  ForbiddenException,
+  IdempotencyTokenInUseException,
+  IdempotentParameterMismatchException,
+  InternalServerException,
+  InvalidParameterValueException,
+  NotManagementAccountException,
+  OptInRequiredException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ServiceUnavailableException,
+  ThrottlingException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AccountInfo: StaticStructureSchema = [3, n0, _AI, 0, [_aI, _s, _oRM, _sR, _lUT], [0, 0, 0, 0, 4]];
-export var AssociateAccountsRequest: StaticStructureSchema = [3, n0, _AAR, 0, [_aIc, _cT], [64 | 0, [0, 4]]];
-export var AssociateAccountsResponse: StaticStructureSchema = [3, n0, _AARs, 0, [_aIc, _er], [64 | 0, 64 | 0]];
-export var AutomationEvent: StaticStructureSchema = [
-  3,
-  n0,
-  _AE,
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AccountInfo$: StaticStructureSchema = [3, n0, _AI,
+  0,
+  [_aI, _s, _oRM, _sR, _lUT],
+  [0, 0, 0, 0, 4]
+];
+export var AssociateAccountsRequest$: StaticStructureSchema = [3, n0, _AAR,
+  0,
+  [_aIc, _cT],
+  [64 | 0, [0, 4]]
+];
+export var AssociateAccountsResponse$: StaticStructureSchema = [3, n0, _AARs,
+  0,
+  [_aIc, _er],
+  [64 | 0, 64 | 0]
+];
+export var AutomationEvent$: StaticStructureSchema = [3, n0, _AE,
   0,
   [_eI, _eD, _eT, _eS, _eSR, _rA, _rI, _rAI, _aI, _r, _rIu, _rT, _cTr, _cTo, _eMS],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, () => EstimatedMonthlySavings],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, () => EstimatedMonthlySavings$]
 ];
-export var AutomationEventFilter: StaticStructureSchema = [3, n0, _AEF, 0, [_n, _v], [0, 64 | 0]];
-export var AutomationEventStep: StaticStructureSchema = [
-  3,
-  n0,
-  _AES,
+export var AutomationEventFilter$: StaticStructureSchema = [3, n0, _AEF,
+  0,
+  [_n, _v],
+  [0, 64 | 0]
+];
+export var AutomationEventStep$: StaticStructureSchema = [3, n0, _AES,
   0,
   [_eI, _sI, _sT, _sS, _rI, _sTt, _cTo, _eMS],
-  [0, 0, 0, 0, 0, 4, 4, () => EstimatedMonthlySavings],
+  [0, 0, 0, 0, 0, 4, 4, () => EstimatedMonthlySavings$]
 ];
-export var AutomationEventSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _AESu,
+export var AutomationEventSummary$: StaticStructureSchema = [3, n0, _AESu,
   0,
   [_k, _d, _tP, _t],
-  [0, () => SummaryDimensions, () => TimePeriod, () => SummaryTotals],
+  [0, () => SummaryDimensions, () => TimePeriod$, () => SummaryTotals$]
 ];
-export var AutomationRule: StaticStructureSchema = [
-  3,
-  n0,
-  _AR,
+export var AutomationRule$: StaticStructureSchema = [3, n0, _AR,
   0,
   [_rAu, _rIu, _n, _de, _rTu, _rR, _aI, _oC, _p, _rAT, _sc, _s, _cTr, _lUT],
-  [0, 0, 0, 0, 0, 1, 0, () => OrganizationConfiguration, 0, 64 | 0, () => Schedule, 0, 4, 4],
+  [0, 0, 0, 0, 0, 1, 0, () => OrganizationConfiguration$, 0, 64 | 0, () => Schedule$, 0, 4, 4]
 ];
-export var CreateAutomationRuleRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CARR,
+export var CreateAutomationRuleRequest$: StaticStructureSchema = [3, n0, _CARR,
   0,
   [_n, _de, _rTu, _oC, _p, _rAT, _cr, _sc, _s, _ta, _cT],
-  [0, 0, 0, () => OrganizationConfiguration, 0, 64 | 0, () => Criteria, () => Schedule, 0, () => TagList, [0, 4]],
+  [0, 0, 0, () => OrganizationConfiguration$, 0, 64 | 0, () => Criteria$, () => Schedule$, 0, () => TagList, [0, 4]]
 ];
-export var CreateAutomationRuleResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CARRr,
+export var CreateAutomationRuleResponse$: StaticStructureSchema = [3, n0, _CARRr,
   0,
   [_rAu, _rIu, _n, _de, _rTu, _rR, _oC, _p, _rAT, _cr, _sc, _s, _ta, _cTr],
-  [0, 0, 0, 0, 0, 1, () => OrganizationConfiguration, 0, 64 | 0, () => Criteria, () => Schedule, 0, () => TagList, 4],
+  [0, 0, 0, 0, 0, 1, () => OrganizationConfiguration$, 0, 64 | 0, () => Criteria$, () => Schedule$, 0, () => TagList, 4]
 ];
-export var Criteria: StaticStructureSchema = [
-  3,
-  n0,
-  _C,
+export var Criteria$: StaticStructureSchema = [3, n0, _C,
   0,
   [_r, _rA, _eVT, _eVSIG, _eMS, _rTe, _lBPID, _rN],
-  [
-    () => StringCriteriaConditionList,
-    () => StringCriteriaConditionList,
-    () => StringCriteriaConditionList,
-    () => IntegerCriteriaConditionList,
-    () => DoubleCriteriaConditionList,
-    () => ResourceTagsCriteriaConditionList,
-    () => IntegerCriteriaConditionList,
-    () => StringCriteriaConditionList,
-  ],
+  [() => StringCriteriaConditionList, () => StringCriteriaConditionList, () => StringCriteriaConditionList, () => IntegerCriteriaConditionList, () => DoubleCriteriaConditionList, () => ResourceTagsCriteriaConditionList, () => IntegerCriteriaConditionList, () => StringCriteriaConditionList]
 ];
-export var DeleteAutomationRuleRequest: StaticStructureSchema = [3, n0, _DARR, 0, [_rAu, _rR, _cT], [0, 1, [0, 4]]];
-export var DeleteAutomationRuleResponse: StaticStructureSchema = [3, n0, _DARRe, 0, [], []];
-export var DisassociateAccountsRequest: StaticStructureSchema = [3, n0, _DAR, 0, [_aIc, _cT], [64 | 0, [0, 4]]];
-export var DisassociateAccountsResponse: StaticStructureSchema = [3, n0, _DARi, 0, [_aIc, _er], [64 | 0, 64 | 0]];
-export var DoubleCriteriaCondition: StaticStructureSchema = [3, n0, _DCC, 0, [_co, _v], [0, 64 | 1]];
-export var EbsVolume: StaticStructureSchema = [3, n0, _EV, 0, [_con], [() => EbsVolumeConfiguration]];
-export var EbsVolumeConfiguration: StaticStructureSchema = [3, n0, _EVC, 0, [_ty, _sIG, _i, _th], [0, 1, 1, 1]];
-export var EstimatedMonthlySavings: StaticStructureSchema = [3, n0, _EMS, 0, [_cu, _bDS, _aDS, _sEM], [0, 1, 1, 0]];
-export var Filter: StaticStructureSchema = [3, n0, _F, 0, [_n, _v], [0, 64 | 0]];
-export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-export var GetAutomationEventRequest: StaticStructureSchema = [3, n0, _GAER, 0, [_eI], [0]];
-export var GetAutomationEventResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GAERe,
+export var DeleteAutomationRuleRequest$: StaticStructureSchema = [3, n0, _DARR,
+  0,
+  [_rAu, _rR, _cT],
+  [0, 1, [0, 4]]
+];
+export var DeleteAutomationRuleResponse$: StaticStructureSchema = [3, n0, _DARRe,
+  0,
+  [],
+  []
+];
+export var DisassociateAccountsRequest$: StaticStructureSchema = [3, n0, _DAR,
+  0,
+  [_aIc, _cT],
+  [64 | 0, [0, 4]]
+];
+export var DisassociateAccountsResponse$: StaticStructureSchema = [3, n0, _DARi,
+  0,
+  [_aIc, _er],
+  [64 | 0, 64 | 0]
+];
+export var DoubleCriteriaCondition$: StaticStructureSchema = [3, n0, _DCC,
+  0,
+  [_co, _v],
+  [0, 64 | 1]
+];
+export var EbsVolume$: StaticStructureSchema = [3, n0, _EV,
+  0,
+  [_con],
+  [() => EbsVolumeConfiguration$]
+];
+export var EbsVolumeConfiguration$: StaticStructureSchema = [3, n0, _EVC,
+  0,
+  [_ty, _sIG, _i, _th],
+  [0, 1, 1, 1]
+];
+export var EstimatedMonthlySavings$: StaticStructureSchema = [3, n0, _EMS,
+  0,
+  [_cu, _bDS, _aDS, _sEM],
+  [0, 1, 1, 0]
+];
+export var Filter$: StaticStructureSchema = [3, n0, _F,
+  0,
+  [_n, _v],
+  [0, 64 | 0]
+];
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
+export var GetAutomationEventRequest$: StaticStructureSchema = [3, n0, _GAER,
+  0,
+  [_eI],
+  [0]
+];
+export var GetAutomationEventResponse$: StaticStructureSchema = [3, n0, _GAERe,
   0,
   [_eI, _eD, _eT, _eS, _eSR, _rA, _rI, _rAI, _aI, _r, _rIu, _rT, _cTr, _cTo, _eMS],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, () => EstimatedMonthlySavings],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, () => EstimatedMonthlySavings$]
 ];
-export var GetAutomationRuleRequest: StaticStructureSchema = [3, n0, _GARR, 0, [_rAu], [0]];
-export var GetAutomationRuleResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GARRe,
+export var GetAutomationRuleRequest$: StaticStructureSchema = [3, n0, _GARR,
+  0,
+  [_rAu],
+  [0]
+];
+export var GetAutomationRuleResponse$: StaticStructureSchema = [3, n0, _GARRe,
   0,
   [_rAu, _rIu, _n, _de, _rTu, _rR, _aI, _oC, _p, _rAT, _cr, _sc, _s, _ta, _cTr, _lUT],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    0,
-    () => OrganizationConfiguration,
-    0,
-    64 | 0,
-    () => Criteria,
-    () => Schedule,
-    0,
-    () => TagList,
-    4,
-    4,
-  ],
+  [0, 0, 0, 0, 0, 1, 0, () => OrganizationConfiguration$, 0, 64 | 0, () => Criteria$, () => Schedule$, 0, () => TagList, 4, 4]
 ];
-export var GetEnrollmentConfigurationRequest: StaticStructureSchema = [3, n0, _GECR, 0, [], []];
-export var GetEnrollmentConfigurationResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GECRe,
+export var GetEnrollmentConfigurationRequest$: StaticStructureSchema = [3, n0, _GECR,
+  0,
+  [],
+  []
+];
+export var GetEnrollmentConfigurationResponse$: StaticStructureSchema = [3, n0, _GECRe,
   0,
   [_s, _sR, _oRM, _lUT],
-  [0, 0, 0, 4],
+  [0, 0, 0, 4]
 ];
-export var IdempotencyTokenInUseException: StaticErrorSchema = [-3, n0, _ITIUE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(IdempotencyTokenInUseException, __IdempotencyTokenInUseException);
-export var IdempotentParameterMismatchException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPME,
+export var IdempotencyTokenInUseException$: StaticErrorSchema = [-3, n0, _ITIUE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(IdempotentParameterMismatchException, __IdempotentParameterMismatchException);
-export var IntegerCriteriaCondition: StaticStructureSchema = [3, n0, _ICC, 0, [_co, _v], [0, 64 | 1]];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var InvalidParameterValueException: StaticErrorSchema = [-3, n0, _IPVE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
-export var ListAccountsRequest: StaticStructureSchema = [3, n0, _LAR, 0, [_mR, _nT], [1, 0]];
-export var ListAccountsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_a, _nT], [() => AccountInfoList, 0]];
-export var ListAutomationEventsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LAER,
+TypeRegistry.for(n0).registerError(IdempotencyTokenInUseException$, IdempotencyTokenInUseException);
+export var IdempotentParameterMismatchException$: StaticErrorSchema = [-3, n0, _IPME,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(IdempotentParameterMismatchException$, IdempotentParameterMismatchException);
+export var IntegerCriteriaCondition$: StaticStructureSchema = [3, n0, _ICC,
+  0,
+  [_co, _v],
+  [0, 64 | 1]
+];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidParameterValueException$, InvalidParameterValueException);
+export var ListAccountsRequest$: StaticStructureSchema = [3, n0, _LAR,
+  0,
+  [_mR, _nT],
+  [1, 0]
+];
+export var ListAccountsResponse$: StaticStructureSchema = [3, n0, _LARi,
+  0,
+  [_a, _nT],
+  [() => AccountInfoList, 0]
+];
+export var ListAutomationEventsRequest$: StaticStructureSchema = [3, n0, _LAER,
   0,
   [_f, _sTI, _eTE, _mR, _nT],
-  [() => AutomationEventFilterList, 4, 4, 1, 0],
+  [() => AutomationEventFilterList, 4, 4, 1, 0]
 ];
-export var ListAutomationEventsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LAERi,
+export var ListAutomationEventsResponse$: StaticStructureSchema = [3, n0, _LAERi,
   0,
   [_aE, _nT],
-  [() => AutomationEvents, 0],
+  [() => AutomationEvents, 0]
 ];
-export var ListAutomationEventStepsRequest: StaticStructureSchema = [3, n0, _LAESR, 0, [_eI, _mR, _nT], [0, 1, 0]];
-export var ListAutomationEventStepsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LAESRi,
+export var ListAutomationEventStepsRequest$: StaticStructureSchema = [3, n0, _LAESR,
+  0,
+  [_eI, _mR, _nT],
+  [0, 1, 0]
+];
+export var ListAutomationEventStepsResponse$: StaticStructureSchema = [3, n0, _LAESRi,
   0,
   [_aES, _nT],
-  [() => AutomationEventSteps, 0],
+  [() => AutomationEventSteps, 0]
 ];
-export var ListAutomationEventSummariesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LAESRis,
+export var ListAutomationEventSummariesRequest$: StaticStructureSchema = [3, n0, _LAESRis,
   0,
   [_f, _sDI, _eDE, _mR, _nT],
-  [() => AutomationEventFilterList, 0, 0, 1, 0],
+  [() => AutomationEventFilterList, 0, 0, 1, 0]
 ];
-export var ListAutomationEventSummariesResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LAESRist,
+export var ListAutomationEventSummariesResponse$: StaticStructureSchema = [3, n0, _LAESRist,
   0,
   [_aESu, _nT],
-  [() => AutomationEventSummaryList, 0],
+  [() => AutomationEventSummaryList, 0]
 ];
-export var ListAutomationRulePreviewRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LARPR,
+export var ListAutomationRulePreviewRequest$: StaticStructureSchema = [3, n0, _LARPR,
   0,
   [_rTu, _oS, _rAT, _cr, _mR, _nT],
-  [0, () => OrganizationScope, 64 | 0, () => Criteria, 1, 0],
+  [0, () => OrganizationScope$, 64 | 0, () => Criteria$, 1, 0]
 ];
-export var ListAutomationRulePreviewResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LARPRi,
+export var ListAutomationRulePreviewResponse$: StaticStructureSchema = [3, n0, _LARPRi,
   0,
   [_pR, _nT],
-  [() => PreviewResults, 0],
+  [() => PreviewResults, 0]
 ];
-export var ListAutomationRulePreviewSummariesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LARPSR,
+export var ListAutomationRulePreviewSummariesRequest$: StaticStructureSchema = [3, n0, _LARPSR,
   0,
   [_rTu, _oS, _rAT, _cr, _mR, _nT],
-  [0, () => OrganizationScope, 64 | 0, () => Criteria, 1, 0],
+  [0, () => OrganizationScope$, 64 | 0, () => Criteria$, 1, 0]
 ];
-export var ListAutomationRulePreviewSummariesResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LARPSRi,
+export var ListAutomationRulePreviewSummariesResponse$: StaticStructureSchema = [3, n0, _LARPSRi,
   0,
   [_pRS, _nT],
-  [() => PreviewResultSummaries, 0],
+  [() => PreviewResultSummaries, 0]
 ];
-export var ListAutomationRulesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LARR,
+export var ListAutomationRulesRequest$: StaticStructureSchema = [3, n0, _LARR,
   0,
   [_f, _mR, _nT],
-  [() => FilterList, 1, 0],
+  [() => FilterList, 1, 0]
 ];
-export var ListAutomationRulesResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LARRi,
+export var ListAutomationRulesResponse$: StaticStructureSchema = [3, n0, _LARRi,
   0,
   [_aR, _nT],
-  [() => AutomationRules, 0],
+  [() => AutomationRules, 0]
 ];
-export var ListRecommendedActionsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LRAR,
+export var ListRecommendedActionsRequest$: StaticStructureSchema = [3, n0, _LRAR,
   0,
   [_f, _mR, _nT],
-  [() => RecommendedActionFilterList, 1, 0],
+  [() => RecommendedActionFilterList, 1, 0]
 ];
-export var ListRecommendedActionsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LRARi,
+export var ListRecommendedActionsResponse$: StaticStructureSchema = [3, n0, _LRARi,
   0,
   [_rAe, _nT],
-  [() => RecommendedActions, 0],
+  [() => RecommendedActions, 0]
 ];
-export var ListRecommendedActionSummariesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LRASR,
+export var ListRecommendedActionSummariesRequest$: StaticStructureSchema = [3, n0, _LRASR,
   0,
   [_f, _mR, _nT],
-  [() => RecommendedActionFilterList, 1, 0],
+  [() => RecommendedActionFilterList, 1, 0]
 ];
-export var ListRecommendedActionSummariesResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LRASRi,
+export var ListRecommendedActionSummariesResponse$: StaticStructureSchema = [3, n0, _LRASRi,
   0,
   [_rAS, _nT],
-  [() => RecommendedActionSummaries, 0],
+  [() => RecommendedActionSummaries, 0]
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [0]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [() => TagList]];
-export var NotManagementAccountException: StaticErrorSchema = [-3, n0, _NMAE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(NotManagementAccountException, __NotManagementAccountException);
-export var OptInRequiredException: StaticErrorSchema = [-3, n0, _OIRE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(OptInRequiredException, __OptInRequiredException);
-export var OrganizationConfiguration: StaticStructureSchema = [3, n0, _OC, 0, [_rAO, _aIc], [0, 64 | 0]];
-export var OrganizationScope: StaticStructureSchema = [3, n0, _OS, 0, [_aIc], [64 | 0]];
-export var PreviewResult: StaticStructureSchema = [
-  3,
-  n0,
-  _PR,
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
+  0,
+  [_rA],
+  [0]
+];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
+  0,
+  [_ta],
+  [() => TagList]
+];
+export var NotManagementAccountException$: StaticErrorSchema = [-3, n0, _NMAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NotManagementAccountException$, NotManagementAccountException);
+export var OptInRequiredException$: StaticErrorSchema = [-3, n0, _OIRE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(OptInRequiredException$, OptInRequiredException);
+export var OrganizationConfiguration$: StaticStructureSchema = [3, n0, _OC,
+  0,
+  [_rAO, _aIc],
+  [0, 64 | 0]
+];
+export var OrganizationScope$: StaticStructureSchema = [3, n0, _OS,
+  0,
+  [_aIc],
+  [64 | 0]
+];
+export var PreviewResult$: StaticStructureSchema = [3, n0, _PR,
   0,
   [_rAI, _rA, _rI, _aI, _r, _rT, _lBPID, _rATe, _cRS, _cRD, _rRS, _rRD, _rN, _eMS, _rTes],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    0,
-    0,
-    () => ResourceDetails,
-    0,
-    () => ResourceDetails,
-    2,
-    () => EstimatedMonthlySavings,
-    () => TagList,
-  ],
+  [0, 0, 0, 0, 0, 0, 1, 0, 0, () => ResourceDetails$, 0, () => ResourceDetails$, 2, () => EstimatedMonthlySavings$, () => TagList]
 ];
-export var PreviewResultSummary: StaticStructureSchema = [3, n0, _PRS, 0, [_k, _t], [0, () => RulePreviewTotal]];
-export var RecommendedAction: StaticStructureSchema = [
-  3,
-  n0,
-  _RA,
-  0,
-  [_rAI, _rA, _rI, _aI, _r, _rT, _lBPID, _rATe, _cRS, _cRD, _rRS, _rRD, _rN, _eMS, _rTes],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    0,
-    0,
-    () => ResourceDetails,
-    0,
-    () => ResourceDetails,
-    2,
-    () => EstimatedMonthlySavings,
-    () => TagList,
-  ],
-];
-export var RecommendedActionFilter: StaticStructureSchema = [3, n0, _RAF, 0, [_n, _v], [0, 64 | 0]];
-export var RecommendedActionSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _RAS,
+export var PreviewResultSummary$: StaticStructureSchema = [3, n0, _PRS,
   0,
   [_k, _t],
-  [0, () => RecommendedActionTotal],
+  [0, () => RulePreviewTotal$]
 ];
-export var RecommendedActionTotal: StaticStructureSchema = [
-  3,
-  n0,
-  _RAT,
+export var RecommendedAction$: StaticStructureSchema = [3, n0, _RA,
+  0,
+  [_rAI, _rA, _rI, _aI, _r, _rT, _lBPID, _rATe, _cRS, _cRD, _rRS, _rRD, _rN, _eMS, _rTes],
+  [0, 0, 0, 0, 0, 0, 1, 0, 0, () => ResourceDetails$, 0, () => ResourceDetails$, 2, () => EstimatedMonthlySavings$, () => TagList]
+];
+export var RecommendedActionFilter$: StaticStructureSchema = [3, n0, _RAF,
+  0,
+  [_n, _v],
+  [0, 64 | 0]
+];
+export var RecommendedActionSummary$: StaticStructureSchema = [3, n0, _RAS,
+  0,
+  [_k, _t],
+  [0, () => RecommendedActionTotal$]
+];
+export var RecommendedActionTotal$: StaticStructureSchema = [3, n0, _RAT,
   0,
   [_rAC, _eMS],
-  [1, () => EstimatedMonthlySavings],
+  [1, () => EstimatedMonthlySavings$]
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ResourceTagsCriteriaCondition: StaticStructureSchema = [3, n0, _RTCC, 0, [_co, _k, _v], [0, 0, 64 | 0]];
-export var RollbackAutomationEventRequest: StaticStructureSchema = [3, n0, _RAER, 0, [_eI, _cT], [0, [0, 4]]];
-export var RollbackAutomationEventResponse: StaticStructureSchema = [3, n0, _RAERo, 0, [_eI, _eS], [0, 0]];
-export var RulePreviewTotal: StaticStructureSchema = [3, n0, _RPT, 0, [_rAC, _eMS], [1, () => EstimatedMonthlySavings]];
-export var Schedule: StaticStructureSchema = [3, n0, _S, 0, [_sE, _sET, _eWIM], [0, 0, 1]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-export var StartAutomationEventRequest: StaticStructureSchema = [3, n0, _SAER, 0, [_rAI, _cT], [0, [0, 4]]];
-export var StartAutomationEventResponse: StaticStructureSchema = [3, n0, _SAERt, 0, [_rAI, _eI, _eS], [0, 0, 0]];
-export var StringCriteriaCondition: StaticStructureSchema = [3, n0, _SCC, 0, [_co, _v], [0, 64 | 0]];
-export var SummaryDimension: StaticStructureSchema = [3, n0, _SD, 0, [_k, _va], [0, 0]];
-export var SummaryTotals: StaticStructureSchema = [3, n0, _ST, 0, [_aEC, _eMS], [1, () => EstimatedMonthlySavings]];
-export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _va], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _TRR,
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceTagsCriteriaCondition$: StaticStructureSchema = [3, n0, _RTCC,
+  0,
+  [_co, _k, _v],
+  [0, 0, 64 | 0]
+];
+export var RollbackAutomationEventRequest$: StaticStructureSchema = [3, n0, _RAER,
+  0,
+  [_eI, _cT],
+  [0, [0, 4]]
+];
+export var RollbackAutomationEventResponse$: StaticStructureSchema = [3, n0, _RAERo,
+  0,
+  [_eI, _eS],
+  [0, 0]
+];
+export var RulePreviewTotal$: StaticStructureSchema = [3, n0, _RPT,
+  0,
+  [_rAC, _eMS],
+  [1, () => EstimatedMonthlySavings$]
+];
+export var Schedule$: StaticStructureSchema = [3, n0, _S,
+  0,
+  [_sE, _sET, _eWIM],
+  [0, 0, 1]
+];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var StartAutomationEventRequest$: StaticStructureSchema = [3, n0, _SAER,
+  0,
+  [_rAI, _cT],
+  [0, [0, 4]]
+];
+export var StartAutomationEventResponse$: StaticStructureSchema = [3, n0, _SAERt,
+  0,
+  [_rAI, _eI, _eS],
+  [0, 0, 0]
+];
+export var StringCriteriaCondition$: StaticStructureSchema = [3, n0, _SCC,
+  0,
+  [_co, _v],
+  [0, 64 | 0]
+];
+export var SummaryDimension$: StaticStructureSchema = [3, n0, _SD,
+  0,
+  [_k, _va],
+  [0, 0]
+];
+export var SummaryTotals$: StaticStructureSchema = [3, n0, _ST,
+  0,
+  [_aEC, _eMS],
+  [1, () => EstimatedMonthlySavings$]
+];
+export var Tag$: StaticStructureSchema = [3, n0, _T,
+  0,
+  [_k, _va],
+  [0, 0]
+];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _rR, _ta, _cT],
-  [0, 1, () => TagList, [0, 4]],
+  [0, 1, () => TagList, [0, 4]]
 ];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TimePeriod: StaticStructureSchema = [3, n0, _TP, 0, [_sTI, _eTE], [4, 4]];
-export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _rR, _tK, _cT], [0, 1, 64 | 0, [0, 4]]];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateAutomationRuleRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UARR,
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
+  0,
+  [],
+  []
+];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TimePeriod$: StaticStructureSchema = [3, n0, _TP,
+  0,
+  [_sTI, _eTE],
+  [4, 4]
+];
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
+  0,
+  [_rA, _rR, _tK, _cT],
+  [0, 1, 64 | 0, [0, 4]]
+];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
+  0,
+  [],
+  []
+];
+export var UpdateAutomationRuleRequest$: StaticStructureSchema = [3, n0, _UARR,
   0,
   [_rAu, _rR, _n, _de, _rTu, _oC, _p, _rAT, _cr, _sc, _s, _cT],
-  [0, 1, 0, 0, 0, () => OrganizationConfiguration, 0, 64 | 0, () => Criteria, () => Schedule, 0, [0, 4]],
+  [0, 1, 0, 0, 0, () => OrganizationConfiguration$, 0, 64 | 0, () => Criteria$, () => Schedule$, 0, [0, 4]]
 ];
-export var UpdateAutomationRuleResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _UARRp,
+export var UpdateAutomationRuleResponse$: StaticStructureSchema = [3, n0, _UARRp,
   0,
   [_rAu, _rR, _n, _de, _rTu, _oC, _p, _rAT, _cr, _sc, _s, _cTr, _lUT],
-  [0, 1, 0, 0, 0, () => OrganizationConfiguration, 0, 64 | 0, () => Criteria, () => Schedule, 0, 4, 4],
+  [0, 1, 0, 0, 0, () => OrganizationConfiguration$, 0, 64 | 0, () => Criteria$, () => Schedule$, 0, 4, 4]
 ];
-export var UpdateEnrollmentConfigurationRequest: StaticStructureSchema = [3, n0, _UECR, 0, [_s, _cT], [0, [0, 4]]];
-export var UpdateEnrollmentConfigurationResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _UECRp,
+export var UpdateEnrollmentConfigurationRequest$: StaticStructureSchema = [3, n0, _UECR,
+  0,
+  [_s, _cT],
+  [0, [0, 4]]
+];
+export var UpdateEnrollmentConfigurationResponse$: StaticStructureSchema = [3, n0, _UECRp,
   0,
   [_s, _sR, _lUT],
-  [0, 0, 4],
+  [0, 0, 4]
 ];
-export var ComputeOptimizerAutomationServiceException: StaticErrorSchema = [
-  -3,
-  _sm,
-  "ComputeOptimizerAutomationServiceException",
+export var ComputeOptimizerAutomationServiceException$: StaticErrorSchema = [-3, _sm, "ComputeOptimizerAutomationServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(ComputeOptimizerAutomationServiceException$, ComputeOptimizerAutomationServiceException);
+var AccountIdList = 64 | 0;
+var AccountInfoList: StaticListSchema = [1, n0, _AIL,
+  0, () => AccountInfo$
+];
+var AutomationEventFilterList: StaticListSchema = [1, n0, _AEFL,
+  0, () => AutomationEventFilter$
+];
+var AutomationEvents: StaticListSchema = [1, n0, _AEu,
+  0, () => AutomationEvent$
+];
+var AutomationEventSteps: StaticListSchema = [1, n0, _AESut,
+  0, () => AutomationEventStep$
+];
+var AutomationEventSummaryList: StaticListSchema = [1, n0, _AESL,
+  0, () => AutomationEventSummary$
+];
+var AutomationRules: StaticListSchema = [1, n0, _ARu,
+  0, () => AutomationRule$
+];
+var DoubleCriteriaConditionList: StaticListSchema = [1, n0, _DCCL,
+  0, () => DoubleCriteriaCondition$
+];
+var DoubleList = 64 | 1;
+var FilterList: StaticListSchema = [1, n0, _FL,
+  0, () => Filter$
+];
+var FilterValues = 64 | 0;
+var IntegerCriteriaConditionList: StaticListSchema = [1, n0, _ICCL,
+  0, () => IntegerCriteriaCondition$
+];
+var IntegerList = 64 | 1;
+var OrganizationConfigurationAccountIds = 64 | 0;
+var PreviewResults: StaticListSchema = [1, n0, _PRr,
+  0, () => PreviewResult$
+];
+var PreviewResultSummaries: StaticListSchema = [1, n0, _PRSr,
+  0, () => PreviewResultSummary$
+];
+var RecommendedActionFilterList: StaticListSchema = [1, n0, _RAFL,
+  0, () => RecommendedActionFilter$
+];
+var RecommendedActions: StaticListSchema = [1, n0, _RAe,
+  0, () => RecommendedAction$
+];
+var RecommendedActionSummaries: StaticListSchema = [1, n0, _RASe,
+  0, () => RecommendedActionSummary$
+];
+var RecommendedActionTypeList = 64 | 0;
+var ResourceTagsCriteriaConditionList: StaticListSchema = [1, n0, _RTCCL,
+  0, () => ResourceTagsCriteriaCondition$
+];
+var StringCriteriaConditionList: StaticListSchema = [1, n0, _SCCL,
+  0, () => StringCriteriaCondition$
+];
+var StringCriteriaValues = 64 | 0;
+var StringList = 64 | 0;
+var SummaryDimensions: StaticListSchema = [1, n0, _SDu,
+  0, () => SummaryDimension$
+];
+var TagKeyList = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TL,
+  0, () => Tag$
+];
+export var ResourceDetails$: StaticUnionSchema = [4, n0, _RD,
   0,
-  [],
-  [],
+  [_eV],
+  [() => EbsVolume$]
 ];
-TypeRegistry.for(_sm).registerError(
-  ComputeOptimizerAutomationServiceException,
-  __ComputeOptimizerAutomationServiceException
-);
-export var AccountIdList = 64 | 0;
-export var AccountInfoList: StaticListSchema = [1, n0, _AIL, 0, () => AccountInfo];
-export var AutomationEventFilterList: StaticListSchema = [1, n0, _AEFL, 0, () => AutomationEventFilter];
-export var AutomationEvents: StaticListSchema = [1, n0, _AEu, 0, () => AutomationEvent];
-export var AutomationEventSteps: StaticListSchema = [1, n0, _AESut, 0, () => AutomationEventStep];
-export var AutomationEventSummaryList: StaticListSchema = [1, n0, _AESL, 0, () => AutomationEventSummary];
-export var AutomationRules: StaticListSchema = [1, n0, _ARu, 0, () => AutomationRule];
-export var DoubleCriteriaConditionList: StaticListSchema = [1, n0, _DCCL, 0, () => DoubleCriteriaCondition];
-export var DoubleList = 64 | 1;
-export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
-export var FilterValues = 64 | 0;
-export var IntegerCriteriaConditionList: StaticListSchema = [1, n0, _ICCL, 0, () => IntegerCriteriaCondition];
-export var IntegerList = 64 | 1;
-export var OrganizationConfigurationAccountIds = 64 | 0;
-export var PreviewResults: StaticListSchema = [1, n0, _PRr, 0, () => PreviewResult];
-export var PreviewResultSummaries: StaticListSchema = [1, n0, _PRSr, 0, () => PreviewResultSummary];
-export var RecommendedActionFilterList: StaticListSchema = [1, n0, _RAFL, 0, () => RecommendedActionFilter];
-export var RecommendedActions: StaticListSchema = [1, n0, _RAe, 0, () => RecommendedAction];
-export var RecommendedActionSummaries: StaticListSchema = [1, n0, _RASe, 0, () => RecommendedActionSummary];
-export var RecommendedActionTypeList = 64 | 0;
-export var ResourceTagsCriteriaConditionList: StaticListSchema = [
-  1,
-  n0,
-  _RTCCL,
-  0,
-  () => ResourceTagsCriteriaCondition,
+export var AssociateAccounts$: StaticOperationSchema = [9, n0, _AA,
+  2, () => AssociateAccountsRequest$, () => AssociateAccountsResponse$
 ];
-export var StringCriteriaConditionList: StaticListSchema = [1, n0, _SCCL, 0, () => StringCriteriaCondition];
-export var StringCriteriaValues = 64 | 0;
-export var StringList = 64 | 0;
-export var SummaryDimensions: StaticListSchema = [1, n0, _SDu, 0, () => SummaryDimension];
-export var TagKeyList = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
-export var ResourceDetails: StaticStructureSchema = [3, n0, _RD, 0, [_eV], [() => EbsVolume]];
-export var AssociateAccounts: StaticOperationSchema = [
-  9,
-  n0,
-  _AA,
-  2,
-  () => AssociateAccountsRequest,
-  () => AssociateAccountsResponse,
+export var CreateAutomationRule$: StaticOperationSchema = [9, n0, _CAR,
+  2, () => CreateAutomationRuleRequest$, () => CreateAutomationRuleResponse$
 ];
-export var CreateAutomationRule: StaticOperationSchema = [
-  9,
-  n0,
-  _CAR,
-  2,
-  () => CreateAutomationRuleRequest,
-  () => CreateAutomationRuleResponse,
+export var DeleteAutomationRule$: StaticOperationSchema = [9, n0, _DARe,
+  2, () => DeleteAutomationRuleRequest$, () => DeleteAutomationRuleResponse$
 ];
-export var DeleteAutomationRule: StaticOperationSchema = [
-  9,
-  n0,
-  _DARe,
-  2,
-  () => DeleteAutomationRuleRequest,
-  () => DeleteAutomationRuleResponse,
+export var DisassociateAccounts$: StaticOperationSchema = [9, n0, _DA,
+  2, () => DisassociateAccountsRequest$, () => DisassociateAccountsResponse$
 ];
-export var DisassociateAccounts: StaticOperationSchema = [
-  9,
-  n0,
-  _DA,
-  2,
-  () => DisassociateAccountsRequest,
-  () => DisassociateAccountsResponse,
+export var GetAutomationEvent$: StaticOperationSchema = [9, n0, _GAE,
+  0, () => GetAutomationEventRequest$, () => GetAutomationEventResponse$
 ];
-export var GetAutomationEvent: StaticOperationSchema = [
-  9,
-  n0,
-  _GAE,
-  0,
-  () => GetAutomationEventRequest,
-  () => GetAutomationEventResponse,
+export var GetAutomationRule$: StaticOperationSchema = [9, n0, _GAR,
+  0, () => GetAutomationRuleRequest$, () => GetAutomationRuleResponse$
 ];
-export var GetAutomationRule: StaticOperationSchema = [
-  9,
-  n0,
-  _GAR,
-  0,
-  () => GetAutomationRuleRequest,
-  () => GetAutomationRuleResponse,
+export var GetEnrollmentConfiguration$: StaticOperationSchema = [9, n0, _GEC,
+  0, () => GetEnrollmentConfigurationRequest$, () => GetEnrollmentConfigurationResponse$
 ];
-export var GetEnrollmentConfiguration: StaticOperationSchema = [
-  9,
-  n0,
-  _GEC,
-  0,
-  () => GetEnrollmentConfigurationRequest,
-  () => GetEnrollmentConfigurationResponse,
+export var ListAccounts$: StaticOperationSchema = [9, n0, _LA,
+  0, () => ListAccountsRequest$, () => ListAccountsResponse$
 ];
-export var ListAccounts: StaticOperationSchema = [9, n0, _LA, 0, () => ListAccountsRequest, () => ListAccountsResponse];
-export var ListAutomationEvents: StaticOperationSchema = [
-  9,
-  n0,
-  _LAE,
-  0,
-  () => ListAutomationEventsRequest,
-  () => ListAutomationEventsResponse,
+export var ListAutomationEvents$: StaticOperationSchema = [9, n0, _LAE,
+  0, () => ListAutomationEventsRequest$, () => ListAutomationEventsResponse$
 ];
-export var ListAutomationEventSteps: StaticOperationSchema = [
-  9,
-  n0,
-  _LAES,
-  0,
-  () => ListAutomationEventStepsRequest,
-  () => ListAutomationEventStepsResponse,
+export var ListAutomationEventSteps$: StaticOperationSchema = [9, n0, _LAES,
+  0, () => ListAutomationEventStepsRequest$, () => ListAutomationEventStepsResponse$
 ];
-export var ListAutomationEventSummaries: StaticOperationSchema = [
-  9,
-  n0,
-  _LAESi,
-  0,
-  () => ListAutomationEventSummariesRequest,
-  () => ListAutomationEventSummariesResponse,
+export var ListAutomationEventSummaries$: StaticOperationSchema = [9, n0, _LAESi,
+  0, () => ListAutomationEventSummariesRequest$, () => ListAutomationEventSummariesResponse$
 ];
-export var ListAutomationRulePreview: StaticOperationSchema = [
-  9,
-  n0,
-  _LARP,
-  0,
-  () => ListAutomationRulePreviewRequest,
-  () => ListAutomationRulePreviewResponse,
+export var ListAutomationRulePreview$: StaticOperationSchema = [9, n0, _LARP,
+  0, () => ListAutomationRulePreviewRequest$, () => ListAutomationRulePreviewResponse$
 ];
-export var ListAutomationRulePreviewSummaries: StaticOperationSchema = [
-  9,
-  n0,
-  _LARPS,
-  0,
-  () => ListAutomationRulePreviewSummariesRequest,
-  () => ListAutomationRulePreviewSummariesResponse,
+export var ListAutomationRulePreviewSummaries$: StaticOperationSchema = [9, n0, _LARPS,
+  0, () => ListAutomationRulePreviewSummariesRequest$, () => ListAutomationRulePreviewSummariesResponse$
 ];
-export var ListAutomationRules: StaticOperationSchema = [
-  9,
-  n0,
-  _LARis,
-  0,
-  () => ListAutomationRulesRequest,
-  () => ListAutomationRulesResponse,
+export var ListAutomationRules$: StaticOperationSchema = [9, n0, _LARis,
+  0, () => ListAutomationRulesRequest$, () => ListAutomationRulesResponse$
 ];
-export var ListRecommendedActions: StaticOperationSchema = [
-  9,
-  n0,
-  _LRA,
-  0,
-  () => ListRecommendedActionsRequest,
-  () => ListRecommendedActionsResponse,
+export var ListRecommendedActions$: StaticOperationSchema = [9, n0, _LRA,
+  0, () => ListRecommendedActionsRequest$, () => ListRecommendedActionsResponse$
 ];
-export var ListRecommendedActionSummaries: StaticOperationSchema = [
-  9,
-  n0,
-  _LRAS,
-  0,
-  () => ListRecommendedActionSummariesRequest,
-  () => ListRecommendedActionSummariesResponse,
+export var ListRecommendedActionSummaries$: StaticOperationSchema = [9, n0, _LRAS,
+  0, () => ListRecommendedActionSummariesRequest$, () => ListRecommendedActionSummariesResponse$
 ];
-export var ListTagsForResource: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  0,
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  0, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
-export var RollbackAutomationEvent: StaticOperationSchema = [
-  9,
-  n0,
-  _RAE,
-  2,
-  () => RollbackAutomationEventRequest,
-  () => RollbackAutomationEventResponse,
+export var RollbackAutomationEvent$: StaticOperationSchema = [9, n0, _RAE,
+  2, () => RollbackAutomationEventRequest$, () => RollbackAutomationEventResponse$
 ];
-export var StartAutomationEvent: StaticOperationSchema = [
-  9,
-  n0,
-  _SAE,
-  2,
-  () => StartAutomationEventRequest,
-  () => StartAutomationEventResponse,
+export var StartAutomationEvent$: StaticOperationSchema = [9, n0, _SAE,
+  2, () => StartAutomationEventRequest$, () => StartAutomationEventResponse$
 ];
-export var TagResource: StaticOperationSchema = [9, n0, _TR, 2, () => TagResourceRequest, () => TagResourceResponse];
-export var UntagResource: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  2,
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  2, () => TagResourceRequest$, () => TagResourceResponse$
 ];
-export var UpdateAutomationRule: StaticOperationSchema = [
-  9,
-  n0,
-  _UAR,
-  2,
-  () => UpdateAutomationRuleRequest,
-  () => UpdateAutomationRuleResponse,
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  2, () => UntagResourceRequest$, () => UntagResourceResponse$
 ];
-export var UpdateEnrollmentConfiguration: StaticOperationSchema = [
-  9,
-  n0,
-  _UEC,
-  2,
-  () => UpdateEnrollmentConfigurationRequest,
-  () => UpdateEnrollmentConfigurationResponse,
+export var UpdateAutomationRule$: StaticOperationSchema = [9, n0, _UAR,
+  2, () => UpdateAutomationRuleRequest$, () => UpdateAutomationRuleResponse$
+];
+export var UpdateEnrollmentConfiguration$: StaticOperationSchema = [9, n0, _UEC,
+  2, () => UpdateEnrollmentConfigurationRequest$, () => UpdateEnrollmentConfigurationResponse$
 ];

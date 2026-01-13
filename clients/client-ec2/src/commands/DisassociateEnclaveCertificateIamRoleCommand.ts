@@ -9,7 +9,7 @@ import type {
   DisassociateEnclaveCertificateIamRoleRequest,
   DisassociateEnclaveCertificateIamRoleResult,
 } from "../models/models_5";
-import { DisassociateEnclaveCertificateIamRole } from "../schemas/schemas_0";
+import { DisassociateEnclaveCertificateIamRole$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateEnclaveCertificateIamRoleCommand}.
  */
-export interface DisassociateEnclaveCertificateIamRoleCommandInput
-  extends DisassociateEnclaveCertificateIamRoleRequest {}
+export interface DisassociateEnclaveCertificateIamRoleCommandInput extends DisassociateEnclaveCertificateIamRoleRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateEnclaveCertificateIamRoleCommand}.
  */
-export interface DisassociateEnclaveCertificateIamRoleCommandOutput
-  extends DisassociateEnclaveCertificateIamRoleResult,
-    __MetadataBearer {}
+export interface DisassociateEnclaveCertificateIamRoleCommandOutput extends DisassociateEnclaveCertificateIamRoleResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates an IAM role from an Certificate Manager (ACM) certificate. Disassociating an IAM role
@@ -85,7 +82,7 @@ export class DisassociateEnclaveCertificateIamRoleCommand extends $Command
   })
   .s("AmazonEC2", "DisassociateEnclaveCertificateIamRole", {})
   .n("EC2Client", "DisassociateEnclaveCertificateIamRoleCommand")
-  .sc(DisassociateEnclaveCertificateIamRole)
+  .sc(DisassociateEnclaveCertificateIamRole$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

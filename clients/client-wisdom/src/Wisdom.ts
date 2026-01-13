@@ -249,7 +249,10 @@ export interface Wisdom {
     args: CreateAssistantCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateAssistantCommandOutput>;
-  createAssistant(args: CreateAssistantCommandInput, cb: (err: any, data?: CreateAssistantCommandOutput) => void): void;
+  createAssistant(
+    args: CreateAssistantCommandInput,
+    cb: (err: any, data?: CreateAssistantCommandOutput) => void
+  ): void;
   createAssistant(
     args: CreateAssistantCommandInput,
     options: __HttpHandlerOptions,
@@ -276,8 +279,14 @@ export interface Wisdom {
   /**
    * @see {@link CreateContentCommand}
    */
-  createContent(args: CreateContentCommandInput, options?: __HttpHandlerOptions): Promise<CreateContentCommandOutput>;
-  createContent(args: CreateContentCommandInput, cb: (err: any, data?: CreateContentCommandOutput) => void): void;
+  createContent(
+    args: CreateContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContentCommandOutput>;
+  createContent(
+    args: CreateContentCommandInput,
+    cb: (err: any, data?: CreateContentCommandOutput) => void
+  ): void;
   createContent(
     args: CreateContentCommandInput,
     options: __HttpHandlerOptions,
@@ -321,8 +330,14 @@ export interface Wisdom {
   /**
    * @see {@link CreateSessionCommand}
    */
-  createSession(args: CreateSessionCommandInput, options?: __HttpHandlerOptions): Promise<CreateSessionCommandOutput>;
-  createSession(args: CreateSessionCommandInput, cb: (err: any, data?: CreateSessionCommandOutput) => void): void;
+  createSession(
+    args: CreateSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSessionCommandOutput>;
+  createSession(
+    args: CreateSessionCommandInput,
+    cb: (err: any, data?: CreateSessionCommandOutput) => void
+  ): void;
   createSession(
     args: CreateSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -336,7 +351,10 @@ export interface Wisdom {
     args: DeleteAssistantCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteAssistantCommandOutput>;
-  deleteAssistant(args: DeleteAssistantCommandInput, cb: (err: any, data?: DeleteAssistantCommandOutput) => void): void;
+  deleteAssistant(
+    args: DeleteAssistantCommandInput,
+    cb: (err: any, data?: DeleteAssistantCommandOutput) => void
+  ): void;
   deleteAssistant(
     args: DeleteAssistantCommandInput,
     options: __HttpHandlerOptions,
@@ -363,8 +381,14 @@ export interface Wisdom {
   /**
    * @see {@link DeleteContentCommand}
    */
-  deleteContent(args: DeleteContentCommandInput, options?: __HttpHandlerOptions): Promise<DeleteContentCommandOutput>;
-  deleteContent(args: DeleteContentCommandInput, cb: (err: any, data?: DeleteContentCommandOutput) => void): void;
+  deleteContent(
+    args: DeleteContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContentCommandOutput>;
+  deleteContent(
+    args: DeleteContentCommandInput,
+    cb: (err: any, data?: DeleteContentCommandOutput) => void
+  ): void;
   deleteContent(
     args: DeleteContentCommandInput,
     options: __HttpHandlerOptions,
@@ -378,7 +402,10 @@ export interface Wisdom {
     args: DeleteImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteImportJobCommandOutput>;
-  deleteImportJob(args: DeleteImportJobCommandInput, cb: (err: any, data?: DeleteImportJobCommandOutput) => void): void;
+  deleteImportJob(
+    args: DeleteImportJobCommandInput,
+    cb: (err: any, data?: DeleteImportJobCommandOutput) => void
+  ): void;
   deleteImportJob(
     args: DeleteImportJobCommandInput,
     options: __HttpHandlerOptions,
@@ -422,8 +449,14 @@ export interface Wisdom {
   /**
    * @see {@link GetAssistantCommand}
    */
-  getAssistant(args: GetAssistantCommandInput, options?: __HttpHandlerOptions): Promise<GetAssistantCommandOutput>;
-  getAssistant(args: GetAssistantCommandInput, cb: (err: any, data?: GetAssistantCommandOutput) => void): void;
+  getAssistant(
+    args: GetAssistantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssistantCommandOutput>;
+  getAssistant(
+    args: GetAssistantCommandInput,
+    cb: (err: any, data?: GetAssistantCommandOutput) => void
+  ): void;
   getAssistant(
     args: GetAssistantCommandInput,
     options: __HttpHandlerOptions,
@@ -450,8 +483,14 @@ export interface Wisdom {
   /**
    * @see {@link GetContentCommand}
    */
-  getContent(args: GetContentCommandInput, options?: __HttpHandlerOptions): Promise<GetContentCommandOutput>;
-  getContent(args: GetContentCommandInput, cb: (err: any, data?: GetContentCommandOutput) => void): void;
+  getContent(
+    args: GetContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContentCommandOutput>;
+  getContent(
+    args: GetContentCommandInput,
+    cb: (err: any, data?: GetContentCommandOutput) => void
+  ): void;
   getContent(
     args: GetContentCommandInput,
     options: __HttpHandlerOptions,
@@ -478,8 +517,14 @@ export interface Wisdom {
   /**
    * @see {@link GetImportJobCommand}
    */
-  getImportJob(args: GetImportJobCommandInput, options?: __HttpHandlerOptions): Promise<GetImportJobCommandOutput>;
-  getImportJob(args: GetImportJobCommandInput, cb: (err: any, data?: GetImportJobCommandOutput) => void): void;
+  getImportJob(
+    args: GetImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImportJobCommandOutput>;
+  getImportJob(
+    args: GetImportJobCommandInput,
+    cb: (err: any, data?: GetImportJobCommandOutput) => void
+  ): void;
   getImportJob(
     args: GetImportJobCommandInput,
     options: __HttpHandlerOptions,
@@ -540,8 +585,14 @@ export interface Wisdom {
   /**
    * @see {@link GetSessionCommand}
    */
-  getSession(args: GetSessionCommandInput, options?: __HttpHandlerOptions): Promise<GetSessionCommandOutput>;
-  getSession(args: GetSessionCommandInput, cb: (err: any, data?: GetSessionCommandOutput) => void): void;
+  getSession(
+    args: GetSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionCommandOutput>;
+  getSession(
+    args: GetSessionCommandInput,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
   getSession(
     args: GetSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -573,7 +624,10 @@ export interface Wisdom {
     args: ListAssistantsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAssistantsCommandOutput>;
-  listAssistants(args: ListAssistantsCommandInput, cb: (err: any, data?: ListAssistantsCommandOutput) => void): void;
+  listAssistants(
+    args: ListAssistantsCommandInput,
+    cb: (err: any, data?: ListAssistantsCommandOutput) => void
+  ): void;
   listAssistants(
     args: ListAssistantsCommandInput,
     options: __HttpHandlerOptions,
@@ -583,8 +637,14 @@ export interface Wisdom {
   /**
    * @see {@link ListContentsCommand}
    */
-  listContents(args: ListContentsCommandInput, options?: __HttpHandlerOptions): Promise<ListContentsCommandOutput>;
-  listContents(args: ListContentsCommandInput, cb: (err: any, data?: ListContentsCommandOutput) => void): void;
+  listContents(
+    args: ListContentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContentsCommandOutput>;
+  listContents(
+    args: ListContentsCommandInput,
+    cb: (err: any, data?: ListContentsCommandOutput) => void
+  ): void;
   listContents(
     args: ListContentsCommandInput,
     options: __HttpHandlerOptions,
@@ -598,7 +658,10 @@ export interface Wisdom {
     args: ListImportJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListImportJobsCommandOutput>;
-  listImportJobs(args: ListImportJobsCommandInput, cb: (err: any, data?: ListImportJobsCommandOutput) => void): void;
+  listImportJobs(
+    args: ListImportJobsCommandInput,
+    cb: (err: any, data?: ListImportJobsCommandOutput) => void
+  ): void;
   listImportJobs(
     args: ListImportJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -681,7 +744,10 @@ export interface Wisdom {
     args: QueryAssistantCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<QueryAssistantCommandOutput>;
-  queryAssistant(args: QueryAssistantCommandInput, cb: (err: any, data?: QueryAssistantCommandOutput) => void): void;
+  queryAssistant(
+    args: QueryAssistantCommandInput,
+    cb: (err: any, data?: QueryAssistantCommandOutput) => void
+  ): void;
   queryAssistant(
     args: QueryAssistantCommandInput,
     options: __HttpHandlerOptions,
@@ -708,8 +774,14 @@ export interface Wisdom {
   /**
    * @see {@link SearchContentCommand}
    */
-  searchContent(args: SearchContentCommandInput, options?: __HttpHandlerOptions): Promise<SearchContentCommandOutput>;
-  searchContent(args: SearchContentCommandInput, cb: (err: any, data?: SearchContentCommandOutput) => void): void;
+  searchContent(
+    args: SearchContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchContentCommandOutput>;
+  searchContent(
+    args: SearchContentCommandInput,
+    cb: (err: any, data?: SearchContentCommandOutput) => void
+  ): void;
   searchContent(
     args: SearchContentCommandInput,
     options: __HttpHandlerOptions,
@@ -740,7 +812,10 @@ export interface Wisdom {
     args: SearchSessionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SearchSessionsCommandOutput>;
-  searchSessions(args: SearchSessionsCommandInput, cb: (err: any, data?: SearchSessionsCommandOutput) => void): void;
+  searchSessions(
+    args: SearchSessionsCommandInput,
+    cb: (err: any, data?: SearchSessionsCommandOutput) => void
+  ): void;
   searchSessions(
     args: SearchSessionsCommandInput,
     options: __HttpHandlerOptions,
@@ -771,7 +846,10 @@ export interface Wisdom {
     args: StartImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartImportJobCommandOutput>;
-  startImportJob(args: StartImportJobCommandInput, cb: (err: any, data?: StartImportJobCommandOutput) => void): void;
+  startImportJob(
+    args: StartImportJobCommandInput,
+    cb: (err: any, data?: StartImportJobCommandOutput) => void
+  ): void;
   startImportJob(
     args: StartImportJobCommandInput,
     options: __HttpHandlerOptions,
@@ -781,8 +859,14 @@ export interface Wisdom {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -792,8 +876,14 @@ export interface Wisdom {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -803,8 +893,14 @@ export interface Wisdom {
   /**
    * @see {@link UpdateContentCommand}
    */
-  updateContent(args: UpdateContentCommandInput, options?: __HttpHandlerOptions): Promise<UpdateContentCommandOutput>;
-  updateContent(args: UpdateContentCommandInput, cb: (err: any, data?: UpdateContentCommandOutput) => void): void;
+  updateContent(
+    args: UpdateContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContentCommandOutput>;
+  updateContent(
+    args: UpdateContentCommandInput,
+    cb: (err: any, data?: UpdateContentCommandOutput) => void
+  ): void;
   updateContent(
     args: UpdateContentCommandInput,
     options: __HttpHandlerOptions,

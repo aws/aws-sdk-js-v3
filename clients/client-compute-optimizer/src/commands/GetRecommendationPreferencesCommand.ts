@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRecommendationPreferencesRequest, GetRecommendationPreferencesResponse } from "../models/models_0";
-import { GetRecommendationPreferences } from "../schemas/schemas_0";
+import { GetRecommendationPreferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetRecommendationPreferencesCommandInput extends GetRecommendat
  *
  * The output of {@link GetRecommendationPreferencesCommand}.
  */
-export interface GetRecommendationPreferencesCommandOutput
-  extends GetRecommendationPreferencesResponse,
-    __MetadataBearer {}
+export interface GetRecommendationPreferencesCommandOutput extends GetRecommendationPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns existing recommendation preferences, such as enhanced infrastructure
@@ -156,7 +154,7 @@ export class GetRecommendationPreferencesCommand extends $Command
   })
   .s("ComputeOptimizerService", "GetRecommendationPreferences", {})
   .n("ComputeOptimizerClient", "GetRecommendationPreferencesCommand")
-  .sc(GetRecommendationPreferences)
+  .sc(GetRecommendationPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

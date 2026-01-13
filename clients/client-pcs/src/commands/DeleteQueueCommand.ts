@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteQueueRequest, DeleteQueueResponse } from "../models/models_0";
 import type { PCSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PCSClient";
-import { DeleteQueue } from "../schemas/schemas_0";
+import { DeleteQueue$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteQueueCommand extends $Command
   })
   .s("AWSParallelComputingService", "DeleteQueue", {})
   .n("PCSClient", "DeleteQueueCommand")
-  .sc(DeleteQueue)
+  .sc(DeleteQueue$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

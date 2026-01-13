@@ -88,10 +88,17 @@ export const initializeWithMaximalConfiguration = () => {
     sigv4aSigningRegionSet: [],
     authSchemePreference: [],
     userAgentAppId: "testApp",
-    protocol: new AwsRestXmlProtocol({
+    protocol:
+      Math.random() < 0.5
+        ? AwsRestXmlProtocol
+        : new AwsRestXmlProtocol({
+            defaultNamespace: "com.amazonaws.s3",
+            xmlNamespace: "http://s3.amazonaws.com/doc/2006-03-01/",
+          }),
+    protocolSettings: {
       defaultNamespace: "com.amazonaws.s3",
       xmlNamespace: "http://s3.amazonaws.com/doc/2006-03-01/",
-    }),
+    },
     // END user options
 
     // BEGIN internal options
@@ -121,6 +128,7 @@ export const initializeWithMaximalConfiguration = () => {
     httpAuthSchemes: [],
     httpAuthSchemeProvider: (() => null) as unknown as HttpAuthSchemeProvider<any>,
     serviceConfiguredEndpoint: null as never,
+    clientContextParams: {},
     // END internal options
 
     // S3 specific options below

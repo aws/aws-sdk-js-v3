@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetResourcePoliciesRequest, GetResourcePoliciesResponse } from "../models/models_0";
-import { GetResourcePolicies } from "../schemas/schemas_0";
+import { GetResourcePolicies$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -92,7 +92,7 @@ export class GetResourcePoliciesCommand extends $Command
   })
   .s("AmazonSSM", "GetResourcePolicies", {})
   .n("SSMClient", "GetResourcePoliciesCommand")
-  .sc(GetResourcePolicies)
+  .sc(GetResourcePolicies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

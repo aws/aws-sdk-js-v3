@@ -9,7 +9,7 @@ import type {
   PutGraphqlApiEnvironmentVariablesRequest,
   PutGraphqlApiEnvironmentVariablesResponse,
 } from "../models/models_0";
-import { PutGraphqlApiEnvironmentVariables } from "../schemas/schemas_0";
+import { PutGraphqlApiEnvironmentVariables$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface PutGraphqlApiEnvironmentVariablesCommandInput extends PutGraphq
  *
  * The output of {@link PutGraphqlApiEnvironmentVariablesCommand}.
  */
-export interface PutGraphqlApiEnvironmentVariablesCommandOutput
-  extends PutGraphqlApiEnvironmentVariablesResponse,
-    __MetadataBearer {}
+export interface PutGraphqlApiEnvironmentVariablesCommandOutput extends PutGraphqlApiEnvironmentVariablesResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a list of environmental variables in an API by its ID value. </p>
@@ -151,7 +149,7 @@ export class PutGraphqlApiEnvironmentVariablesCommand extends $Command
   })
   .s("AWSDeepdishControlPlaneService", "PutGraphqlApiEnvironmentVariables", {})
   .n("AppSyncClient", "PutGraphqlApiEnvironmentVariablesCommand")
-  .sc(PutGraphqlApiEnvironmentVariables)
+  .sc(PutGraphqlApiEnvironmentVariables$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

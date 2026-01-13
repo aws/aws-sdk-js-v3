@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
-import { GetReadinessCheckResourceStatus } from "../schemas/schemas_0";
+import { GetReadinessCheckResourceStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetReadinessCheckResourceStatusCommandInput extends GetReadines
  *
  * The output of {@link GetReadinessCheckResourceStatusCommand}.
  */
-export interface GetReadinessCheckResourceStatusCommandOutput
-  extends GetReadinessCheckResourceStatusResponse,
-    __MetadataBearer {}
+export interface GetReadinessCheckResourceStatusCommandOutput extends GetReadinessCheckResourceStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Gets individual readiness status for a readiness check. To see the overall readiness status for a recovery group, that considers the readiness status for all the readiness checks in the recovery group, use GetRecoveryGroupReadinessSummary.</p>
@@ -113,7 +111,7 @@ export class GetReadinessCheckResourceStatusCommand extends $Command
   })
   .s("Route53RecoveryReadiness", "GetReadinessCheckResourceStatus", {})
   .n("Route53RecoveryReadinessClient", "GetReadinessCheckResourceStatusCommand")
-  .sc(GetReadinessCheckResourceStatus)
+  .sc(GetReadinessCheckResourceStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

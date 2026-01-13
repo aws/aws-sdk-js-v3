@@ -27,7 +27,8 @@ export const getRuntimeConfig = (config: CognitoIdentityProviderClientConfig) =>
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
       },
       {
@@ -38,13 +39,13 @@ export const getRuntimeConfig = (config: CognitoIdentityProviderClientConfig) =>
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.cognitoidentityprovider",
-        serviceTarget: "AWSCognitoIdentityProviderService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.cognitoidentityprovider",
+      xmlNamespace: "http://cognito-idp.amazonaws.com/doc/2016-04-18/",
+      version: "2016-04-18",
+      serviceTarget: "AWSCognitoIdentityProviderService",
+    },
     serviceId: config?.serviceId ?? "Cognito Identity Provider",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

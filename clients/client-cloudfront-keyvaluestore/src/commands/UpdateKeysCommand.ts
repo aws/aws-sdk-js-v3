@@ -10,7 +10,7 @@ import type {
 } from "../CloudFrontKeyValueStoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateKeysRequest, UpdateKeysResponse } from "../models/models_0";
-import { UpdateKeys } from "../schemas/schemas_0";
+import { UpdateKeys$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -202,7 +202,7 @@ export class UpdateKeysCommand extends $Command
   })
   .s("CloudFrontKeyValueStore", "UpdateKeys", {})
   .n("CloudFrontKeyValueStoreClient", "UpdateKeysCommand")
-  .sc(UpdateKeys)
+  .sc(UpdateKeys$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

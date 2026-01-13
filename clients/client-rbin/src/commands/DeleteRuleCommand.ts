@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRuleRequest, DeleteRuleResponse } from "../models/models_0";
 import type { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
-import { DeleteRule } from "../schemas/schemas_0";
+import { DeleteRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DeleteRuleCommand extends $Command
   })
   .s("AmazonRecycleBin", "DeleteRule", {})
   .n("RbinClient", "DeleteRuleCommand")
-  .sc(DeleteRule)
+  .sc(DeleteRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

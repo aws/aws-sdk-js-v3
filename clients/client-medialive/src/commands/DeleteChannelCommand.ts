@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { DeleteChannelRequest, DeleteChannelResponse } from "../models/models_1";
-import { DeleteChannel } from "../schemas/schemas_0";
+import { DeleteChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -55,6 +55,8 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * //           ChannelId: "STRING_VALUE",
  * //           ChannelGroup: "STRING_VALUE",
  * //           ChannelName: "STRING_VALUE",
+ * //           ChannelEndpointId: "STRING_VALUE",
+ * //           MediaPackageRegionName: "STRING_VALUE",
  * //         },
  * //       ],
  * //       MultiplexSettings: { // MultiplexProgramChannelDestinationSettings
@@ -355,7 +357,9 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * //           CustomEpoch: "STRING_VALUE",
  * //           JamSyncTime: "STRING_VALUE",
  * //         },
- * //         PipelineLockingSettings: {},
+ * //         PipelineLockingSettings: { // PipelineLockingSettings
+ * //           PipelineLockingMethod: "SOURCE_TIMECODE" || "VIDEO_ALIGNMENT",
+ * //         },
  * //       },
  * //     },
  * //     MotionGraphicsConfiguration: { // MotionGraphicsConfiguration
@@ -507,6 +511,13 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * //               TimedMetadataId3Frame: "NONE" || "PRIV" || "TDRL",
  * //               TimedMetadataId3Period: Number("int"),
  * //               TimedMetadataPassthrough: "DISABLED" || "ENABLED",
+ * //               AdditionalDestinations: [ // __listOfMediaPackageAdditionalDestinations
+ * //                 { // MediaPackageAdditionalDestinations
+ * //                   Destination: {
+ * //                     DestinationRefId: "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //               ],
  * //             },
  * //           },
  * //           MsSmoothGroupSettings: { // MsSmoothGroupSettings
@@ -514,9 +525,7 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * //             AudioOnlyTimecodeControl: "PASSTHROUGH" || "USE_CONFIGURED_CLOCK",
  * //             CertificateMode: "SELF_SIGNED" || "VERIFY_AUTHENTICITY",
  * //             ConnectionRetryInterval: Number("int"),
- * //             Destination: {
- * //               DestinationRefId: "STRING_VALUE",
- * //             },
+ * //             Destination: "<OutputLocationRef>", // required
  * //             EventId: "STRING_VALUE",
  * //             EventIdMode: "NO_EVENT_ID" || "USE_CONFIGURED" || "USE_TIMESTAMP",
  * //             EventStopBehavior: "NONE" || "SEND_EOS",
@@ -1312,6 +1321,16 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * //     ExpirationDate: new Date("TIMESTAMP"),
  * //     Version: "STRING_VALUE",
  * //   },
+ * //   LinkedChannelSettings: { // DescribeLinkedChannelSettings
+ * //     FollowerChannelSettings: { // DescribeFollowerChannelSettings
+ * //       LinkedChannelType: "FOLLOWING_CHANNEL" || "PRIMARY_CHANNEL",
+ * //       PrimaryChannelArn: "STRING_VALUE",
+ * //     },
+ * //     PrimaryChannelSettings: { // DescribePrimaryChannelSettings
+ * //       FollowingChannelArns: "<__listOf__string>",
+ * //       LinkedChannelType: "FOLLOWING_CHANNEL" || "PRIMARY_CHANNEL",
+ * //     },
+ * //   },
  * // };
  *
  * ```
@@ -1366,7 +1385,7 @@ export class DeleteChannelCommand extends $Command
   })
   .s("MediaLive", "DeleteChannel", {})
   .n("MediaLiveClient", "DeleteChannelCommand")
-  .sc(DeleteChannel)
+  .sc(DeleteChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeUsageLimitsMessage, UsageLimitList } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeUsageLimits } from "../schemas/schemas_0";
+import { DescribeUsageLimits$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class DescribeUsageLimitsCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DescribeUsageLimits", {})
   .n("RedshiftClient", "DescribeUsageLimitsCommand")
-  .sc(DescribeUsageLimits)
+  .sc(DescribeUsageLimits$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

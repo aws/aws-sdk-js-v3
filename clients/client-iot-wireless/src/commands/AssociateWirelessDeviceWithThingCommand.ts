@@ -9,7 +9,7 @@ import type {
   AssociateWirelessDeviceWithThingRequest,
   AssociateWirelessDeviceWithThingResponse,
 } from "../models/models_0";
-import { AssociateWirelessDeviceWithThing } from "../schemas/schemas_0";
+import { AssociateWirelessDeviceWithThing$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface AssociateWirelessDeviceWithThingCommandInput extends AssociateW
  *
  * The output of {@link AssociateWirelessDeviceWithThingCommand}.
  */
-export interface AssociateWirelessDeviceWithThingCommandOutput
-  extends AssociateWirelessDeviceWithThingResponse,
-    __MetadataBearer {}
+export interface AssociateWirelessDeviceWithThingCommandOutput extends AssociateWirelessDeviceWithThingResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a wireless device with a thing.</p>
@@ -95,7 +93,7 @@ export class AssociateWirelessDeviceWithThingCommand extends $Command
   })
   .s("iotwireless", "AssociateWirelessDeviceWithThing", {})
   .n("IoTWirelessClient", "AssociateWirelessDeviceWithThingCommand")
-  .sc(AssociateWirelessDeviceWithThing)
+  .sc(AssociateWirelessDeviceWithThing$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

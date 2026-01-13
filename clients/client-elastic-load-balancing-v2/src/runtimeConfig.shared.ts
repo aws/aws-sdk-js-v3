@@ -26,18 +26,19 @@ export const getRuntimeConfig = (config: ElasticLoadBalancingV2ClientConfig) => 
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsQueryProtocol({
-        defaultNamespace: "com.amazonaws.elasticloadbalancingv2",
-        xmlNamespace: "http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/",
-        version: "2015-12-01",
-      }),
+    protocol: config?.protocol ?? AwsQueryProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.elasticloadbalancingv2",
+      xmlNamespace: "http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/",
+      version: "2015-12-01",
+      serviceTarget: "ElasticLoadBalancing_v10",
+    },
     serviceId: config?.serviceId ?? "Elastic Load Balancing v2",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

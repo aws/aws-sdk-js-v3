@@ -10,7 +10,7 @@ import type {
 } from "../ComprehendMedicalClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribePHIDetectionJobRequest, DescribePHIDetectionJobResponse } from "../models/models_0";
-import { DescribePHIDetectionJob } from "../schemas/schemas_0";
+import { DescribePHIDetectionJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class DescribePHIDetectionJobCommand extends $Command
   })
   .s("ComprehendMedical_20181030", "DescribePHIDetectionJob", {})
   .n("ComprehendMedicalClient", "DescribePHIDetectionJobCommand")
-  .sc(DescribePHIDetectionJob)
+  .sc(DescribePHIDetectionJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

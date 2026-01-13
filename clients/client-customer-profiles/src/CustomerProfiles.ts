@@ -579,8 +579,14 @@ export interface CustomerProfiles {
   /**
    * @see {@link AddProfileKeyCommand}
    */
-  addProfileKey(args: AddProfileKeyCommandInput, options?: __HttpHandlerOptions): Promise<AddProfileKeyCommandOutput>;
-  addProfileKey(args: AddProfileKeyCommandInput, cb: (err: any, data?: AddProfileKeyCommandOutput) => void): void;
+  addProfileKey(
+    args: AddProfileKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddProfileKeyCommandOutput>;
+  addProfileKey(
+    args: AddProfileKeyCommandInput,
+    cb: (err: any, data?: AddProfileKeyCommandOutput) => void
+  ): void;
   addProfileKey(
     args: AddProfileKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -611,7 +617,10 @@ export interface CustomerProfiles {
     args: BatchGetProfileCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchGetProfileCommandOutput>;
-  batchGetProfile(args: BatchGetProfileCommandInput, cb: (err: any, data?: BatchGetProfileCommandOutput) => void): void;
+  batchGetProfile(
+    args: BatchGetProfileCommandInput,
+    cb: (err: any, data?: BatchGetProfileCommandOutput) => void
+  ): void;
   batchGetProfile(
     args: BatchGetProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -638,8 +647,14 @@ export interface CustomerProfiles {
   /**
    * @see {@link CreateDomainCommand}
    */
-  createDomain(args: CreateDomainCommandInput, options?: __HttpHandlerOptions): Promise<CreateDomainCommandOutput>;
-  createDomain(args: CreateDomainCommandInput, cb: (err: any, data?: CreateDomainCommandOutput) => void): void;
+  createDomain(
+    args: CreateDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDomainCommandOutput>;
+  createDomain(
+    args: CreateDomainCommandInput,
+    cb: (err: any, data?: CreateDomainCommandOutput) => void
+  ): void;
   createDomain(
     args: CreateDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -717,8 +732,14 @@ export interface CustomerProfiles {
   /**
    * @see {@link CreateProfileCommand}
    */
-  createProfile(args: CreateProfileCommandInput, options?: __HttpHandlerOptions): Promise<CreateProfileCommandOutput>;
-  createProfile(args: CreateProfileCommandInput, cb: (err: any, data?: CreateProfileCommandOutput) => void): void;
+  createProfile(
+    args: CreateProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProfileCommandOutput>;
+  createProfile(
+    args: CreateProfileCommandInput,
+    cb: (err: any, data?: CreateProfileCommandOutput) => void
+  ): void;
   createProfile(
     args: CreateProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -800,7 +821,10 @@ export interface CustomerProfiles {
     args: CreateUploadJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateUploadJobCommandOutput>;
-  createUploadJob(args: CreateUploadJobCommandInput, cb: (err: any, data?: CreateUploadJobCommandOutput) => void): void;
+  createUploadJob(
+    args: CreateUploadJobCommandInput,
+    cb: (err: any, data?: CreateUploadJobCommandOutput) => void
+  ): void;
   createUploadJob(
     args: CreateUploadJobCommandInput,
     options: __HttpHandlerOptions,
@@ -827,8 +851,14 @@ export interface CustomerProfiles {
   /**
    * @see {@link DeleteDomainCommand}
    */
-  deleteDomain(args: DeleteDomainCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDomainCommandOutput>;
-  deleteDomain(args: DeleteDomainCommandInput, cb: (err: any, data?: DeleteDomainCommandOutput) => void): void;
+  deleteDomain(
+    args: DeleteDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDomainCommandOutput>;
+  deleteDomain(
+    args: DeleteDomainCommandInput,
+    cb: (err: any, data?: DeleteDomainCommandOutput) => void
+  ): void;
   deleteDomain(
     args: DeleteDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -923,8 +953,14 @@ export interface CustomerProfiles {
   /**
    * @see {@link DeleteProfileCommand}
    */
-  deleteProfile(args: DeleteProfileCommandInput, options?: __HttpHandlerOptions): Promise<DeleteProfileCommandOutput>;
-  deleteProfile(args: DeleteProfileCommandInput, cb: (err: any, data?: DeleteProfileCommandOutput) => void): void;
+  deleteProfile(
+    args: DeleteProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProfileCommandOutput>;
+  deleteProfile(
+    args: DeleteProfileCommandInput,
+    cb: (err: any, data?: DeleteProfileCommandOutput) => void
+  ): void;
   deleteProfile(
     args: DeleteProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -1023,7 +1059,10 @@ export interface CustomerProfiles {
     args: DeleteWorkflowCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteWorkflowCommandOutput>;
-  deleteWorkflow(args: DeleteWorkflowCommandInput, cb: (err: any, data?: DeleteWorkflowCommandOutput) => void): void;
+  deleteWorkflow(
+    args: DeleteWorkflowCommandInput,
+    cb: (err: any, data?: DeleteWorkflowCommandOutput) => void
+  ): void;
   deleteWorkflow(
     args: DeleteWorkflowCommandInput,
     options: __HttpHandlerOptions,
@@ -1101,8 +1140,14 @@ export interface CustomerProfiles {
   /**
    * @see {@link GetDomainCommand}
    */
-  getDomain(args: GetDomainCommandInput, options?: __HttpHandlerOptions): Promise<GetDomainCommandOutput>;
-  getDomain(args: GetDomainCommandInput, cb: (err: any, data?: GetDomainCommandOutput) => void): void;
+  getDomain(
+    args: GetDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDomainCommandOutput>;
+  getDomain(
+    args: GetDomainCommandInput,
+    cb: (err: any, data?: GetDomainCommandOutput) => void
+  ): void;
   getDomain(
     args: GetDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -1116,7 +1161,10 @@ export interface CustomerProfiles {
     args: GetDomainLayoutCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDomainLayoutCommandOutput>;
-  getDomainLayout(args: GetDomainLayoutCommandInput, cb: (err: any, data?: GetDomainLayoutCommandOutput) => void): void;
+  getDomainLayout(
+    args: GetDomainLayoutCommandInput,
+    cb: (err: any, data?: GetDomainLayoutCommandOutput) => void
+  ): void;
   getDomainLayout(
     args: GetDomainLayoutCommandInput,
     options: __HttpHandlerOptions,
@@ -1147,7 +1195,10 @@ export interface CustomerProfiles {
     args: GetEventStreamCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEventStreamCommandOutput>;
-  getEventStream(args: GetEventStreamCommandInput, cb: (err: any, data?: GetEventStreamCommandOutput) => void): void;
+  getEventStream(
+    args: GetEventStreamCommandInput,
+    cb: (err: any, data?: GetEventStreamCommandOutput) => void
+  ): void;
   getEventStream(
     args: GetEventStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -1161,7 +1212,10 @@ export interface CustomerProfiles {
     args: GetEventTriggerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEventTriggerCommandOutput>;
-  getEventTrigger(args: GetEventTriggerCommandInput, cb: (err: any, data?: GetEventTriggerCommandOutput) => void): void;
+  getEventTrigger(
+    args: GetEventTriggerCommandInput,
+    cb: (err: any, data?: GetEventTriggerCommandOutput) => void
+  ): void;
   getEventTrigger(
     args: GetEventTriggerCommandInput,
     options: __HttpHandlerOptions,
@@ -1192,7 +1246,10 @@ export interface CustomerProfiles {
     args: GetIntegrationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetIntegrationCommandOutput>;
-  getIntegration(args: GetIntegrationCommandInput, cb: (err: any, data?: GetIntegrationCommandOutput) => void): void;
+  getIntegration(
+    args: GetIntegrationCommandInput,
+    cb: (err: any, data?: GetIntegrationCommandOutput) => void
+  ): void;
   getIntegration(
     args: GetIntegrationCommandInput,
     options: __HttpHandlerOptions,
@@ -1202,8 +1259,14 @@ export interface CustomerProfiles {
   /**
    * @see {@link GetMatchesCommand}
    */
-  getMatches(args: GetMatchesCommandInput, options?: __HttpHandlerOptions): Promise<GetMatchesCommandOutput>;
-  getMatches(args: GetMatchesCommandInput, cb: (err: any, data?: GetMatchesCommandOutput) => void): void;
+  getMatches(
+    args: GetMatchesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMatchesCommandOutput>;
+  getMatches(
+    args: GetMatchesCommandInput,
+    cb: (err: any, data?: GetMatchesCommandOutput) => void
+  ): void;
   getMatches(
     args: GetMatchesCommandInput,
     options: __HttpHandlerOptions,
@@ -1302,7 +1365,10 @@ export interface CustomerProfiles {
     args: GetRecommenderCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetRecommenderCommandOutput>;
-  getRecommender(args: GetRecommenderCommandInput, cb: (err: any, data?: GetRecommenderCommandOutput) => void): void;
+  getRecommender(
+    args: GetRecommenderCommandInput,
+    cb: (err: any, data?: GetRecommenderCommandOutput) => void
+  ): void;
   getRecommender(
     args: GetRecommenderCommandInput,
     options: __HttpHandlerOptions,
@@ -1397,8 +1463,14 @@ export interface CustomerProfiles {
   /**
    * @see {@link GetUploadJobCommand}
    */
-  getUploadJob(args: GetUploadJobCommandInput, options?: __HttpHandlerOptions): Promise<GetUploadJobCommandOutput>;
-  getUploadJob(args: GetUploadJobCommandInput, cb: (err: any, data?: GetUploadJobCommandOutput) => void): void;
+  getUploadJob(
+    args: GetUploadJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUploadJobCommandOutput>;
+  getUploadJob(
+    args: GetUploadJobCommandInput,
+    cb: (err: any, data?: GetUploadJobCommandOutput) => void
+  ): void;
   getUploadJob(
     args: GetUploadJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1425,8 +1497,14 @@ export interface CustomerProfiles {
   /**
    * @see {@link GetWorkflowCommand}
    */
-  getWorkflow(args: GetWorkflowCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkflowCommandOutput>;
-  getWorkflow(args: GetWorkflowCommandInput, cb: (err: any, data?: GetWorkflowCommandOutput) => void): void;
+  getWorkflow(
+    args: GetWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorkflowCommandOutput>;
+  getWorkflow(
+    args: GetWorkflowCommandInput,
+    cb: (err: any, data?: GetWorkflowCommandOutput) => void
+  ): void;
   getWorkflow(
     args: GetWorkflowCommandInput,
     options: __HttpHandlerOptions,
@@ -1539,8 +1617,14 @@ export interface CustomerProfiles {
    * @see {@link ListDomainsCommand}
    */
   listDomains(): Promise<ListDomainsCommandOutput>;
-  listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
-  listDomains(args: ListDomainsCommandInput, cb: (err: any, data?: ListDomainsCommandOutput) => void): void;
+  listDomains(
+    args: ListDomainsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDomainsCommandOutput>;
+  listDomains(
+    args: ListDomainsCommandInput,
+    cb: (err: any, data?: ListDomainsCommandOutput) => void
+  ): void;
   listDomains(
     args: ListDomainsCommandInput,
     options: __HttpHandlerOptions,
@@ -1828,7 +1912,10 @@ export interface CustomerProfiles {
     args: ListUploadJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListUploadJobsCommandOutput>;
-  listUploadJobs(args: ListUploadJobsCommandInput, cb: (err: any, data?: ListUploadJobsCommandOutput) => void): void;
+  listUploadJobs(
+    args: ListUploadJobsCommandInput,
+    cb: (err: any, data?: ListUploadJobsCommandOutput) => void
+  ): void;
   listUploadJobs(
     args: ListUploadJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -1838,8 +1925,14 @@ export interface CustomerProfiles {
   /**
    * @see {@link ListWorkflowsCommand}
    */
-  listWorkflows(args: ListWorkflowsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkflowsCommandOutput>;
-  listWorkflows(args: ListWorkflowsCommandInput, cb: (err: any, data?: ListWorkflowsCommandOutput) => void): void;
+  listWorkflows(
+    args: ListWorkflowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkflowsCommandOutput>;
+  listWorkflows(
+    args: ListWorkflowsCommandInput,
+    cb: (err: any, data?: ListWorkflowsCommandOutput) => void
+  ): void;
   listWorkflows(
     args: ListWorkflowsCommandInput,
     options: __HttpHandlerOptions,
@@ -1849,8 +1942,14 @@ export interface CustomerProfiles {
   /**
    * @see {@link MergeProfilesCommand}
    */
-  mergeProfiles(args: MergeProfilesCommandInput, options?: __HttpHandlerOptions): Promise<MergeProfilesCommandOutput>;
-  mergeProfiles(args: MergeProfilesCommandInput, cb: (err: any, data?: MergeProfilesCommandOutput) => void): void;
+  mergeProfiles(
+    args: MergeProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MergeProfilesCommandOutput>;
+  mergeProfiles(
+    args: MergeProfilesCommandInput,
+    cb: (err: any, data?: MergeProfilesCommandOutput) => void
+  ): void;
   mergeProfiles(
     args: MergeProfilesCommandInput,
     options: __HttpHandlerOptions,
@@ -1881,7 +1980,10 @@ export interface CustomerProfiles {
     args: PutIntegrationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutIntegrationCommandOutput>;
-  putIntegration(args: PutIntegrationCommandInput, cb: (err: any, data?: PutIntegrationCommandOutput) => void): void;
+  putIntegration(
+    args: PutIntegrationCommandInput,
+    cb: (err: any, data?: PutIntegrationCommandOutput) => void
+  ): void;
   putIntegration(
     args: PutIntegrationCommandInput,
     options: __HttpHandlerOptions,
@@ -1929,7 +2031,10 @@ export interface CustomerProfiles {
     args: SearchProfilesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SearchProfilesCommandOutput>;
-  searchProfiles(args: SearchProfilesCommandInput, cb: (err: any, data?: SearchProfilesCommandOutput) => void): void;
+  searchProfiles(
+    args: SearchProfilesCommandInput,
+    cb: (err: any, data?: SearchProfilesCommandOutput) => void
+  ): void;
   searchProfiles(
     args: SearchProfilesCommandInput,
     options: __HttpHandlerOptions,
@@ -1960,7 +2065,10 @@ export interface CustomerProfiles {
     args: StartUploadJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartUploadJobCommandOutput>;
-  startUploadJob(args: StartUploadJobCommandInput, cb: (err: any, data?: StartUploadJobCommandOutput) => void): void;
+  startUploadJob(
+    args: StartUploadJobCommandInput,
+    cb: (err: any, data?: StartUploadJobCommandOutput) => void
+  ): void;
   startUploadJob(
     args: StartUploadJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1974,7 +2082,10 @@ export interface CustomerProfiles {
     args: StopRecommenderCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopRecommenderCommandOutput>;
-  stopRecommender(args: StopRecommenderCommandInput, cb: (err: any, data?: StopRecommenderCommandOutput) => void): void;
+  stopRecommender(
+    args: StopRecommenderCommandInput,
+    cb: (err: any, data?: StopRecommenderCommandOutput) => void
+  ): void;
   stopRecommender(
     args: StopRecommenderCommandInput,
     options: __HttpHandlerOptions,
@@ -1984,8 +2095,14 @@ export interface CustomerProfiles {
   /**
    * @see {@link StopUploadJobCommand}
    */
-  stopUploadJob(args: StopUploadJobCommandInput, options?: __HttpHandlerOptions): Promise<StopUploadJobCommandOutput>;
-  stopUploadJob(args: StopUploadJobCommandInput, cb: (err: any, data?: StopUploadJobCommandOutput) => void): void;
+  stopUploadJob(
+    args: StopUploadJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopUploadJobCommandOutput>;
+  stopUploadJob(
+    args: StopUploadJobCommandInput,
+    cb: (err: any, data?: StopUploadJobCommandOutput) => void
+  ): void;
   stopUploadJob(
     args: StopUploadJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1995,8 +2112,14 @@ export interface CustomerProfiles {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2006,8 +2129,14 @@ export interface CustomerProfiles {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2034,8 +2163,14 @@ export interface CustomerProfiles {
   /**
    * @see {@link UpdateDomainCommand}
    */
-  updateDomain(args: UpdateDomainCommandInput, options?: __HttpHandlerOptions): Promise<UpdateDomainCommandOutput>;
-  updateDomain(args: UpdateDomainCommandInput, cb: (err: any, data?: UpdateDomainCommandOutput) => void): void;
+  updateDomain(
+    args: UpdateDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDomainCommandOutput>;
+  updateDomain(
+    args: UpdateDomainCommandInput,
+    cb: (err: any, data?: UpdateDomainCommandOutput) => void
+  ): void;
   updateDomain(
     args: UpdateDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -2079,8 +2214,14 @@ export interface CustomerProfiles {
   /**
    * @see {@link UpdateProfileCommand}
    */
-  updateProfile(args: UpdateProfileCommandInput, options?: __HttpHandlerOptions): Promise<UpdateProfileCommandOutput>;
-  updateProfile(args: UpdateProfileCommandInput, cb: (err: any, data?: UpdateProfileCommandOutput) => void): void;
+  updateProfile(
+    args: UpdateProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProfileCommandOutput>;
+  updateProfile(
+    args: UpdateProfileCommandInput,
+    cb: (err: any, data?: UpdateProfileCommandOutput) => void
+  ): void;
   updateProfile(
     args: UpdateProfileCommandInput,
     options: __HttpHandlerOptions,

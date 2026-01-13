@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import type { UpdateRouterNetworkInterfaceRequest, UpdateRouterNetworkInterfaceResponse } from "../models/models_1";
-import { UpdateRouterNetworkInterface } from "../schemas/schemas_0";
+import { UpdateRouterNetworkInterface$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateRouterNetworkInterfaceCommandInput extends UpdateRouterNe
  *
  * The output of {@link UpdateRouterNetworkInterfaceCommand}.
  */
-export interface UpdateRouterNetworkInterfaceCommandOutput
-  extends UpdateRouterNetworkInterfaceResponse,
-    __MetadataBearer {}
+export interface UpdateRouterNetworkInterfaceCommandOutput extends UpdateRouterNetworkInterfaceResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration of an existing router network interface in AWS Elemental MediaConnect.</p>
@@ -138,7 +136,7 @@ export class UpdateRouterNetworkInterfaceCommand extends $Command
   })
   .s("MediaConnect", "UpdateRouterNetworkInterface", {})
   .n("MediaConnectClient", "UpdateRouterNetworkInterfaceCommand")
-  .sc(UpdateRouterNetworkInterface)
+  .sc(UpdateRouterNetworkInterface$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

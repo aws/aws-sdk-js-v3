@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import type { UpdatePortalRequest, UpdatePortalResponse } from "../models/models_1";
-import { UpdatePortal } from "../schemas/schemas_0";
+import { UpdatePortal$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class UpdatePortalCommand extends $Command
   })
   .s("AWSIoTSiteWise", "UpdatePortal", {})
   .n("IoTSiteWiseClient", "UpdatePortalCommand")
-  .sc(UpdatePortal)
+  .sc(UpdatePortal$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

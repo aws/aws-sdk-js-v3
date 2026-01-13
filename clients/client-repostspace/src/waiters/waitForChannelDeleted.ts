@@ -7,12 +7,12 @@ import { RepostspaceClient } from "../RepostspaceClient";
 const checkState = async (client: RepostspaceClient, input: GetChannelCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetChannelCommand(input));
+    let result: any = await client.send(new GetChannelCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.channelStatus;
-      };
+      }
       if (returnComparator() === "DELETED") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: RepostspaceClient, input: GetChannelCommandInp
     try {
       const returnComparator = () => {
         return result.channelStatus;
-      };
+      }
       if (returnComparator() === "DELETE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -28,7 +28,7 @@ const checkState = async (client: RepostspaceClient, input: GetChannelCommandInp
     try {
       const returnComparator = () => {
         return result.channelStatus;
-      };
+      }
       if (returnComparator() === "DELETING") {
         return { state: WaiterState.RETRY, reason };
       }

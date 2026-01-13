@@ -29,7 +29,6 @@ import {
   VerificationState,
   ViolationEventType,
 } from "./enums";
-
 import {
   type AbortConfig,
   type AggregationType,
@@ -64,7 +63,6 @@ import {
   StreamFile,
   Tag,
 } from "./models_0";
-
 import {
   type DetectMitigationActionsTaskTarget,
   type RegistrationConfig,
@@ -74,7 +72,173 @@ import {
   type VersionUpdateByJobsConfig,
   type ViolationEventOccurrenceRange,
   Configuration,
+  GroupNameAndArn,
+  LogEventConfiguration,
+  SecurityProfileTarget,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListTargetsForSecurityProfileRequest {
+  /**
+   * <p>The security profile.</p>
+   * @public
+   */
+  securityProfileName: string | undefined;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTargetsForSecurityProfileResponse {
+  /**
+   * <p>The thing groups to which the security profile is attached.</p>
+   * @public
+   */
+  securityProfileTargets?: SecurityProfileTarget[] | undefined;
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
+   *         additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListThingGroupsRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A filter that limits the results to those with the specified parent group.</p>
+   * @public
+   */
+  parentGroup?: string | undefined;
+
+  /**
+   * <p>A filter that limits the results to those with the specified name prefix.</p>
+   * @public
+   */
+  namePrefixFilter?: string | undefined;
+
+  /**
+   * <p>If true, return child groups as well.</p>
+   * @public
+   */
+  recursive?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListThingGroupsResponse {
+  /**
+   * <p>The thing groups.</p>
+   * @public
+   */
+  thingGroups?: GroupNameAndArn[] | undefined;
+
+  /**
+   * <p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListThingGroupsForThingRequest {
+  /**
+   * <p>The thing name.</p>
+   * @public
+   */
+  thingName: string | undefined;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListThingGroupsForThingResponse {
+  /**
+   * <p>The thing groups.</p>
+   * @public
+   */
+  thingGroups?: GroupNameAndArn[] | undefined;
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The input for the ListThingPrincipal operation.</p>
+ * @public
+ */
+export interface ListThingPrincipalsRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The name of the thing.</p>
+   * @public
+   */
+  thingName: string | undefined;
+}
 
 /**
  * <p>The output from the ListThingPrincipals operation.</p>
@@ -1673,6 +1837,14 @@ export interface SetV2LoggingOptionsRequest {
    * @public
    */
   disableAllLogs?: boolean | undefined;
+
+  /**
+   * <p>
+   *          The list of event configurations that override account-level logging.
+   *       </p>
+   * @public
+   */
+  eventConfigurations?: LogEventConfiguration[] | undefined;
 }
 
 /**
@@ -1902,7 +2074,7 @@ export interface TagResourceResponse {}
  */
 export interface TestAuthorizationRequest {
   /**
-   * <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
+   * <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
    * @public
    */
   principal?: string | undefined;
@@ -2844,13 +3016,13 @@ export interface UpdateDynamicThingGroupResponse {
  */
 export interface UpdateEncryptionConfigurationRequest {
   /**
-   * <p>The type of the Amazon Web Services Key Management Service (KMS) key.</p>
+   * <p>The type of the KMS key.</p>
    * @public
    */
   encryptionType: EncryptionType | undefined;
 
   /**
-   * <p>The ARN of the customer-managed KMS key.</p>
+   * <p>The ARN of the customer managedKMS key.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;

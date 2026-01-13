@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateInstanceEventWindowRequest, AssociateInstanceEventWindowResult } from "../models/models_0";
-import { AssociateInstanceEventWindow } from "../schemas/schemas_0";
+import { AssociateInstanceEventWindow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface AssociateInstanceEventWindowCommandInput extends AssociateInsta
  *
  * The output of {@link AssociateInstanceEventWindowCommand}.
  */
-export interface AssociateInstanceEventWindowCommandOutput
-  extends AssociateInstanceEventWindowResult,
-    __MetadataBearer {}
+export interface AssociateInstanceEventWindowCommandOutput extends AssociateInstanceEventWindowResult, __MetadataBearer {}
 
 /**
  * <p>Associates one or more targets with an event window. Only one type of target (instance
@@ -126,7 +124,7 @@ export class AssociateInstanceEventWindowCommand extends $Command
   })
   .s("AmazonEC2", "AssociateInstanceEventWindow", {})
   .n("EC2Client", "AssociateInstanceEventWindowCommand")
-  .sc(AssociateInstanceEventWindow)
+  .sc(AssociateInstanceEventWindow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

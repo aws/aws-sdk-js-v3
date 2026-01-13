@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import type { ListImagePipelineImagesRequest, ListImagePipelineImagesResponse } from "../models/models_0";
-import { ListImagePipelineImages } from "../schemas/schemas_0";
+import { ListImagePipelineImages$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -160,7 +160,7 @@ export class ListImagePipelineImagesCommand extends $Command
   })
   .s("imagebuilder", "ListImagePipelineImages", {})
   .n("ImagebuilderClient", "ListImagePipelineImagesCommand")
-  .sc(ListImagePipelineImages)
+  .sc(ListImagePipelineImages$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

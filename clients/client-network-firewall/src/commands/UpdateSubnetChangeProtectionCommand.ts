@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { UpdateSubnetChangeProtection } from "../schemas/schemas_0";
+import { UpdateSubnetChangeProtection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface UpdateSubnetChangeProtectionCommandInput extends UpdateSubnetCh
  *
  * The output of {@link UpdateSubnetChangeProtectionCommand}.
  */
-export interface UpdateSubnetChangeProtectionCommandOutput
-  extends UpdateSubnetChangeProtectionResponse,
-    __MetadataBearer {}
+export interface UpdateSubnetChangeProtectionCommandOutput extends UpdateSubnetChangeProtectionResponse, __MetadataBearer {}
 
 /**
  * <p></p>
@@ -117,7 +115,7 @@ export class UpdateSubnetChangeProtectionCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "UpdateSubnetChangeProtection", {})
   .n("NetworkFirewallClient", "UpdateSubnetChangeProtectionCommand")
-  .sc(UpdateSubnetChangeProtection)
+  .sc(UpdateSubnetChangeProtection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

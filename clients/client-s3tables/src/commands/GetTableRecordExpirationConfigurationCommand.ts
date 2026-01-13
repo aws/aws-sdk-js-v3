@@ -9,7 +9,7 @@ import type {
   GetTableRecordExpirationConfigurationResponse,
 } from "../models/models_0";
 import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
-import { GetTableRecordExpirationConfiguration } from "../schemas/schemas_0";
+import { GetTableRecordExpirationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetTableRecordExpirationConfigurationCommand}.
  */
-export interface GetTableRecordExpirationConfigurationCommandInput
-  extends GetTableRecordExpirationConfigurationRequest {}
+export interface GetTableRecordExpirationConfigurationCommandInput extends GetTableRecordExpirationConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link GetTableRecordExpirationConfigurationCommand}.
  */
-export interface GetTableRecordExpirationConfigurationCommandOutput
-  extends GetTableRecordExpirationConfigurationResponse,
-    __MetadataBearer {}
+export interface GetTableRecordExpirationConfigurationCommandOutput extends GetTableRecordExpirationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the expiration configuration settings for records in a table, and the status of the configuration. If the status of the configuration is <code>enabled</code>, records expire and are automatically removed from the table after the specified number of days.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableRecordExpirationConfiguration</code> permission to use this operation.</p> </dd> </dl>
@@ -102,7 +99,7 @@ export class GetTableRecordExpirationConfigurationCommand extends $Command
   })
   .s("S3TableBuckets", "GetTableRecordExpirationConfiguration", {})
   .n("S3TablesClient", "GetTableRecordExpirationConfigurationCommand")
-  .sc(GetTableRecordExpirationConfiguration)
+  .sc(GetTableRecordExpirationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   GetConformancePackComplianceSummaryRequest,
   GetConformancePackComplianceSummaryResponse,
 } from "../models/models_0";
-import { GetConformancePackComplianceSummary } from "../schemas/schemas_0";
+import { GetConformancePackComplianceSummary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetConformancePackComplianceSummaryCommandInput extends GetConf
  *
  * The output of {@link GetConformancePackComplianceSummaryCommand}.
  */
-export interface GetConformancePackComplianceSummaryCommandOutput
-  extends GetConformancePackComplianceSummaryResponse,
-    __MetadataBearer {}
+export interface GetConformancePackComplianceSummaryCommandOutput extends GetConformancePackComplianceSummaryResponse, __MetadataBearer {}
 
 /**
  * <p>Returns compliance details for the conformance pack based on the cumulative compliance results of all the rules in that conformance pack.</p>
@@ -99,7 +97,7 @@ export class GetConformancePackComplianceSummaryCommand extends $Command
   })
   .s("StarlingDoveService", "GetConformancePackComplianceSummary", {})
   .n("ConfigServiceClient", "GetConformancePackComplianceSummaryCommand")
-  .sc(GetConformancePackComplianceSummary)
+  .sc(GetConformancePackComplianceSummary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

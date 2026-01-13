@@ -251,7 +251,9 @@ export interface InvalidConfigurationDetail {
  *          a call.</p>
  * @public
  */
-export type BadRequestDetails = BadRequestDetails.InvalidConfigurationMember | BadRequestDetails.$UnknownMember;
+export type BadRequestDetails =
+  | BadRequestDetails.InvalidConfigurationMember
+  | BadRequestDetails.$UnknownMember;
 
 /**
  * @public

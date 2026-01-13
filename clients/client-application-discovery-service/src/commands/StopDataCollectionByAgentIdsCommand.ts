@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationDiscoveryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopDataCollectionByAgentIdsRequest, StopDataCollectionByAgentIdsResponse } from "../models/models_0";
-import { StopDataCollectionByAgentIds } from "../schemas/schemas_0";
+import { StopDataCollectionByAgentIds$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface StopDataCollectionByAgentIdsCommandInput extends StopDataCollec
  *
  * The output of {@link StopDataCollectionByAgentIdsCommand}.
  */
-export interface StopDataCollectionByAgentIdsCommandOutput
-  extends StopDataCollectionByAgentIdsResponse,
-    __MetadataBearer {}
+export interface StopDataCollectionByAgentIdsCommandOutput extends StopDataCollectionByAgentIdsResponse, __MetadataBearer {}
 
 /**
  * <p>Instructs the specified agents to stop collecting data.</p>
@@ -104,7 +102,7 @@ export class StopDataCollectionByAgentIdsCommand extends $Command
   })
   .s("AWSPoseidonService_V2015_11_01", "StopDataCollectionByAgentIds", {})
   .n("ApplicationDiscoveryServiceClient", "StopDataCollectionByAgentIdsCommand")
-  .sc(StopDataCollectionByAgentIds)
+  .sc(StopDataCollectionByAgentIds$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

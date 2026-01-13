@@ -9,7 +9,7 @@ import type {
   DescribeCapacityBlockExtensionHistoryRequest,
   DescribeCapacityBlockExtensionHistoryResult,
 } from "../models/models_3";
-import { DescribeCapacityBlockExtensionHistory } from "../schemas/schemas_0";
+import { DescribeCapacityBlockExtensionHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeCapacityBlockExtensionHistoryCommand}.
  */
-export interface DescribeCapacityBlockExtensionHistoryCommandInput
-  extends DescribeCapacityBlockExtensionHistoryRequest {}
+export interface DescribeCapacityBlockExtensionHistoryCommandInput extends DescribeCapacityBlockExtensionHistoryRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeCapacityBlockExtensionHistoryCommand}.
  */
-export interface DescribeCapacityBlockExtensionHistoryCommandOutput
-  extends DescribeCapacityBlockExtensionHistoryResult,
-    __MetadataBearer {}
+export interface DescribeCapacityBlockExtensionHistoryCommandOutput extends DescribeCapacityBlockExtensionHistoryResult, __MetadataBearer {}
 
 /**
  * <p>Describes the events for the specified Capacity Block extension during the specified
@@ -110,7 +107,7 @@ export class DescribeCapacityBlockExtensionHistoryCommand extends $Command
   })
   .s("AmazonEC2", "DescribeCapacityBlockExtensionHistory", {})
   .n("EC2Client", "DescribeCapacityBlockExtensionHistoryCommand")
-  .sc(DescribeCapacityBlockExtensionHistory)
+  .sc(DescribeCapacityBlockExtensionHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

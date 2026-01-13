@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateTransitVirtualInterfaceRequest, CreateTransitVirtualInterfaceResult } from "../models/models_0";
-import { CreateTransitVirtualInterface } from "../schemas/schemas_0";
+import { CreateTransitVirtualInterface$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateTransitVirtualInterfaceCommandInput extends CreateTransit
  *
  * The output of {@link CreateTransitVirtualInterfaceCommand}.
  */
-export interface CreateTransitVirtualInterfaceCommandOutput
-  extends CreateTransitVirtualInterfaceResult,
-    __MetadataBearer {}
+export interface CreateTransitVirtualInterfaceCommandOutput extends CreateTransitVirtualInterfaceResult, __MetadataBearer {}
 
 /**
  * <p>Creates a transit virtual interface. A transit virtual interface should be used to access one or more transit gateways associated with Direct Connect gateways. A transit virtual interface enables the connection of multiple VPCs attached to a transit gateway to a Direct Connect gateway.</p>
@@ -166,7 +164,7 @@ export class CreateTransitVirtualInterfaceCommand extends $Command
   })
   .s("OvertureService", "CreateTransitVirtualInterface", {})
   .n("DirectConnectClient", "CreateTransitVirtualInterfaceCommand")
-  .sc(CreateTransitVirtualInterface)
+  .sc(CreateTransitVirtualInterface$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

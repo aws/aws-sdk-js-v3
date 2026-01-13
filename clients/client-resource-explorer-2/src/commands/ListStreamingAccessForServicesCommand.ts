@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
-import { ListStreamingAccessForServices } from "../schemas/schemas_0";
+import { ListStreamingAccessForServices$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListStreamingAccessForServicesCommandInput extends ListStreamin
  *
  * The output of {@link ListStreamingAccessForServicesCommand}.
  */
-export interface ListStreamingAccessForServicesCommandOutput
-  extends ListStreamingAccessForServicesOutput,
-    __MetadataBearer {}
+export interface ListStreamingAccessForServicesCommandOutput extends ListStreamingAccessForServicesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of Amazon Web Services services that have been granted streaming access to your Resource Explorer data. Streaming access allows Amazon Web Services services to receive real-time updates about your resources as they are indexed by Resource Explorer.</p>
@@ -95,7 +93,7 @@ export class ListStreamingAccessForServicesCommand extends $Command
   })
   .s("ResourceExplorer", "ListStreamingAccessForServices", {})
   .n("ResourceExplorer2Client", "ListStreamingAccessForServicesCommand")
-  .sc(ListStreamingAccessForServices)
+  .sc(ListStreamingAccessForServices$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

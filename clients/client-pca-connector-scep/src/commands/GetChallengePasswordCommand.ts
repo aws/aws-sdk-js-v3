@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PcaConnectorScepClient";
-import { GetChallengePassword } from "../schemas/schemas_0";
+import { GetChallengePassword$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetChallengePasswordCommand extends $Command
   })
   .s("PcaConnectorScep", "GetChallengePassword", {})
   .n("PcaConnectorScepClient", "GetChallengePasswordCommand")
-  .sc(GetChallengePassword)
+  .sc(GetChallengePassword$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

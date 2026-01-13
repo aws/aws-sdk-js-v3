@@ -8,7 +8,7 @@ import type {
   GetLinkedWhatsAppBusinessAccountPhoneNumberInput,
   GetLinkedWhatsAppBusinessAccountPhoneNumberOutput,
 } from "../models/models_0";
-import { GetLinkedWhatsAppBusinessAccountPhoneNumber } from "../schemas/schemas_0";
+import { GetLinkedWhatsAppBusinessAccountPhoneNumber$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link GetLinkedWhatsAppBusinessAccountPhoneNumberCommand}.
  */
-export interface GetLinkedWhatsAppBusinessAccountPhoneNumberCommandInput
-  extends GetLinkedWhatsAppBusinessAccountPhoneNumberInput {}
+export interface GetLinkedWhatsAppBusinessAccountPhoneNumberCommandInput extends GetLinkedWhatsAppBusinessAccountPhoneNumberInput {}
 /**
  * @public
  *
  * The output of {@link GetLinkedWhatsAppBusinessAccountPhoneNumberCommand}.
  */
-export interface GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput
-  extends GetLinkedWhatsAppBusinessAccountPhoneNumberOutput,
-    __MetadataBearer {}
+export interface GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput extends GetLinkedWhatsAppBusinessAccountPhoneNumberOutput, __MetadataBearer {}
 
 /**
  * <p>Use your WhatsApp phone number id to get the WABA account id and phone number
@@ -116,7 +113,7 @@ export class GetLinkedWhatsAppBusinessAccountPhoneNumberCommand extends $Command
   })
   .s("SocialMessaging", "GetLinkedWhatsAppBusinessAccountPhoneNumber", {})
   .n("SocialMessagingClient", "GetLinkedWhatsAppBusinessAccountPhoneNumberCommand")
-  .sc(GetLinkedWhatsAppBusinessAccountPhoneNumber)
+  .sc(GetLinkedWhatsAppBusinessAccountPhoneNumber$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

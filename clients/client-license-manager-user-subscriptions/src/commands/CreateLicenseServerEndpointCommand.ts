@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
 import type { CreateLicenseServerEndpointRequest, CreateLicenseServerEndpointResponse } from "../models/models_0";
-import { CreateLicenseServerEndpoint } from "../schemas/schemas_0";
+import { CreateLicenseServerEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface CreateLicenseServerEndpointCommandInput extends CreateLicenseSe
  *
  * The output of {@link CreateLicenseServerEndpointCommand}.
  */
-export interface CreateLicenseServerEndpointCommandOutput
-  extends CreateLicenseServerEndpointResponse,
-    __MetadataBearer {}
+export interface CreateLicenseServerEndpointCommandOutput extends CreateLicenseServerEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a network endpoint for the Remote Desktop Services (RDS) license server.</p>
@@ -116,7 +114,7 @@ export class CreateLicenseServerEndpointCommand extends $Command
   })
   .s("LicenseManagerUserSubscriptions", "CreateLicenseServerEndpoint", {})
   .n("LicenseManagerUserSubscriptionsClient", "CreateLicenseServerEndpointCommand")
-  .sc(CreateLicenseServerEndpoint)
+  .sc(CreateLicenseServerEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

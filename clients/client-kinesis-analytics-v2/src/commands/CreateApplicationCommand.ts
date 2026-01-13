@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
 import type { CreateApplicationRequest, CreateApplicationResponse } from "../models/models_0";
-import { CreateApplication } from "../schemas/schemas_0";
+import { CreateApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -550,7 +550,7 @@ export class CreateApplicationCommand extends $Command
   })
   .s("KinesisAnalytics_20180523", "CreateApplication", {})
   .n("KinesisAnalyticsV2Client", "CreateApplicationCommand")
-  .sc(CreateApplication)
+  .sc(CreateApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

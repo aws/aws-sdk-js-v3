@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetConfigurationCheckOperationInput, GetConfigurationCheckOperationOutput } from "../models/models_0";
-import { GetConfigurationCheckOperation } from "../schemas/schemas_0";
+import { GetConfigurationCheckOperation$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -24,9 +24,7 @@ export interface GetConfigurationCheckOperationCommandInput extends GetConfigura
  *
  * The output of {@link GetConfigurationCheckOperationCommand}.
  */
-export interface GetConfigurationCheckOperationCommandOutput
-  extends GetConfigurationCheckOperationOutput,
-    __MetadataBearer {}
+export interface GetConfigurationCheckOperationCommandOutput extends GetConfigurationCheckOperationOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the details of a configuration check operation by specifying the operation ID.</p>
@@ -98,7 +96,7 @@ export class GetConfigurationCheckOperationCommand extends $Command
   })
   .s("SsmSap", "GetConfigurationCheckOperation", {})
   .n("SsmSapClient", "GetConfigurationCheckOperationCommand")
-  .sc(GetConfigurationCheckOperation)
+  .sc(GetConfigurationCheckOperation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

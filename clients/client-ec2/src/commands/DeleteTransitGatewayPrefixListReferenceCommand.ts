@@ -9,7 +9,7 @@ import type {
   DeleteTransitGatewayPrefixListReferenceRequest,
   DeleteTransitGatewayPrefixListReferenceResult,
 } from "../models/models_3";
-import { DeleteTransitGatewayPrefixListReference } from "../schemas/schemas_0";
+import { DeleteTransitGatewayPrefixListReference$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteTransitGatewayPrefixListReferenceCommand}.
  */
-export interface DeleteTransitGatewayPrefixListReferenceCommandInput
-  extends DeleteTransitGatewayPrefixListReferenceRequest {}
+export interface DeleteTransitGatewayPrefixListReferenceCommandInput extends DeleteTransitGatewayPrefixListReferenceRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteTransitGatewayPrefixListReferenceCommand}.
  */
-export interface DeleteTransitGatewayPrefixListReferenceCommandOutput
-  extends DeleteTransitGatewayPrefixListReferenceResult,
-    __MetadataBearer {}
+export interface DeleteTransitGatewayPrefixListReferenceCommandOutput extends DeleteTransitGatewayPrefixListReferenceResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a reference (route) to a prefix list in a specified transit gateway route table.</p>
@@ -92,7 +89,7 @@ export class DeleteTransitGatewayPrefixListReferenceCommand extends $Command
   })
   .s("AmazonEC2", "DeleteTransitGatewayPrefixListReference", {})
   .n("EC2Client", "DeleteTransitGatewayPrefixListReferenceCommand")
-  .sc(DeleteTransitGatewayPrefixListReference)
+  .sc(DeleteTransitGatewayPrefixListReference$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

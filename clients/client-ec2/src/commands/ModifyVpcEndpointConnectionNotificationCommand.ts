@@ -9,7 +9,7 @@ import type {
   ModifyVpcEndpointConnectionNotificationRequest,
   ModifyVpcEndpointConnectionNotificationResult,
 } from "../models/models_7";
-import { ModifyVpcEndpointConnectionNotification } from "../schemas/schemas_0";
+import { ModifyVpcEndpointConnectionNotification$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ModifyVpcEndpointConnectionNotificationCommand}.
  */
-export interface ModifyVpcEndpointConnectionNotificationCommandInput
-  extends ModifyVpcEndpointConnectionNotificationRequest {}
+export interface ModifyVpcEndpointConnectionNotificationCommandInput extends ModifyVpcEndpointConnectionNotificationRequest {}
 /**
  * @public
  *
  * The output of {@link ModifyVpcEndpointConnectionNotificationCommand}.
  */
-export interface ModifyVpcEndpointConnectionNotificationCommandOutput
-  extends ModifyVpcEndpointConnectionNotificationResult,
-    __MetadataBearer {}
+export interface ModifyVpcEndpointConnectionNotificationCommandOutput extends ModifyVpcEndpointConnectionNotificationResult, __MetadataBearer {}
 
 /**
  * <p>Modifies a connection notification for VPC endpoint or VPC endpoint service. You
@@ -85,7 +82,7 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command
   })
   .s("AmazonEC2", "ModifyVpcEndpointConnectionNotification", {})
   .n("EC2Client", "ModifyVpcEndpointConnectionNotificationCommand")
-  .sc(ModifyVpcEndpointConnectionNotification)
+  .sc(ModifyVpcEndpointConnectionNotification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

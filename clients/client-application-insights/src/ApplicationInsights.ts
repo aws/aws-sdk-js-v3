@@ -201,8 +201,14 @@ export interface ApplicationInsights {
   /**
    * @see {@link AddWorkloadCommand}
    */
-  addWorkload(args: AddWorkloadCommandInput, options?: __HttpHandlerOptions): Promise<AddWorkloadCommandOutput>;
-  addWorkload(args: AddWorkloadCommandInput, cb: (err: any, data?: AddWorkloadCommandOutput) => void): void;
+  addWorkload(
+    args: AddWorkloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddWorkloadCommandOutput>;
+  addWorkload(
+    args: AddWorkloadCommandInput,
+    cb: (err: any, data?: AddWorkloadCommandOutput) => void
+  ): void;
   addWorkload(
     args: AddWorkloadCommandInput,
     options: __HttpHandlerOptions,
@@ -234,7 +240,10 @@ export interface ApplicationInsights {
     args: CreateComponentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateComponentCommandOutput>;
-  createComponent(args: CreateComponentCommandInput, cb: (err: any, data?: CreateComponentCommandOutput) => void): void;
+  createComponent(
+    args: CreateComponentCommandInput,
+    cb: (err: any, data?: CreateComponentCommandOutput) => void
+  ): void;
   createComponent(
     args: CreateComponentCommandInput,
     options: __HttpHandlerOptions,
@@ -282,7 +291,10 @@ export interface ApplicationInsights {
     args: DeleteComponentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteComponentCommandOutput>;
-  deleteComponent(args: DeleteComponentCommandInput, cb: (err: any, data?: DeleteComponentCommandOutput) => void): void;
+  deleteComponent(
+    args: DeleteComponentCommandInput,
+    cb: (err: any, data?: DeleteComponentCommandOutput) => void
+  ): void;
   deleteComponent(
     args: DeleteComponentCommandInput,
     options: __HttpHandlerOptions,
@@ -415,7 +427,10 @@ export interface ApplicationInsights {
     args: DescribeProblemCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeProblemCommandOutput>;
-  describeProblem(args: DescribeProblemCommandInput, cb: (err: any, data?: DescribeProblemCommandOutput) => void): void;
+  describeProblem(
+    args: DescribeProblemCommandInput,
+    cb: (err: any, data?: DescribeProblemCommandOutput) => void
+  ): void;
   describeProblem(
     args: DescribeProblemCommandInput,
     options: __HttpHandlerOptions,
@@ -481,7 +496,10 @@ export interface ApplicationInsights {
     args: ListComponentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListComponentsCommandOutput>;
-  listComponents(args: ListComponentsCommandInput, cb: (err: any, data?: ListComponentsCommandOutput) => void): void;
+  listComponents(
+    args: ListComponentsCommandInput,
+    cb: (err: any, data?: ListComponentsCommandOutput) => void
+  ): void;
   listComponents(
     args: ListComponentsCommandInput,
     options: __HttpHandlerOptions,
@@ -513,7 +531,10 @@ export interface ApplicationInsights {
     args: ListLogPatternsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListLogPatternsCommandOutput>;
-  listLogPatterns(args: ListLogPatternsCommandInput, cb: (err: any, data?: ListLogPatternsCommandOutput) => void): void;
+  listLogPatterns(
+    args: ListLogPatternsCommandInput,
+    cb: (err: any, data?: ListLogPatternsCommandOutput) => void
+  ): void;
   listLogPatterns(
     args: ListLogPatternsCommandInput,
     options: __HttpHandlerOptions,
@@ -541,8 +562,14 @@ export interface ApplicationInsights {
    * @see {@link ListProblemsCommand}
    */
   listProblems(): Promise<ListProblemsCommandOutput>;
-  listProblems(args: ListProblemsCommandInput, options?: __HttpHandlerOptions): Promise<ListProblemsCommandOutput>;
-  listProblems(args: ListProblemsCommandInput, cb: (err: any, data?: ListProblemsCommandOutput) => void): void;
+  listProblems(
+    args: ListProblemsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProblemsCommandOutput>;
+  listProblems(
+    args: ListProblemsCommandInput,
+    cb: (err: any, data?: ListProblemsCommandOutput) => void
+  ): void;
   listProblems(
     args: ListProblemsCommandInput,
     options: __HttpHandlerOptions,
@@ -569,8 +596,14 @@ export interface ApplicationInsights {
   /**
    * @see {@link ListWorkloadsCommand}
    */
-  listWorkloads(args: ListWorkloadsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkloadsCommandOutput>;
-  listWorkloads(args: ListWorkloadsCommandInput, cb: (err: any, data?: ListWorkloadsCommandOutput) => void): void;
+  listWorkloads(
+    args: ListWorkloadsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkloadsCommandOutput>;
+  listWorkloads(
+    args: ListWorkloadsCommandInput,
+    cb: (err: any, data?: ListWorkloadsCommandOutput) => void
+  ): void;
   listWorkloads(
     args: ListWorkloadsCommandInput,
     options: __HttpHandlerOptions,
@@ -584,7 +617,10 @@ export interface ApplicationInsights {
     args: RemoveWorkloadCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RemoveWorkloadCommandOutput>;
-  removeWorkload(args: RemoveWorkloadCommandInput, cb: (err: any, data?: RemoveWorkloadCommandOutput) => void): void;
+  removeWorkload(
+    args: RemoveWorkloadCommandInput,
+    cb: (err: any, data?: RemoveWorkloadCommandOutput) => void
+  ): void;
   removeWorkload(
     args: RemoveWorkloadCommandInput,
     options: __HttpHandlerOptions,
@@ -594,8 +630,14 @@ export interface ApplicationInsights {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -605,8 +647,14 @@ export interface ApplicationInsights {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -637,7 +685,10 @@ export interface ApplicationInsights {
     args: UpdateComponentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateComponentCommandOutput>;
-  updateComponent(args: UpdateComponentCommandInput, cb: (err: any, data?: UpdateComponentCommandOutput) => void): void;
+  updateComponent(
+    args: UpdateComponentCommandInput,
+    cb: (err: any, data?: UpdateComponentCommandOutput) => void
+  ): void;
   updateComponent(
     args: UpdateComponentCommandInput,
     options: __HttpHandlerOptions,
@@ -681,8 +732,14 @@ export interface ApplicationInsights {
   /**
    * @see {@link UpdateProblemCommand}
    */
-  updateProblem(args: UpdateProblemCommandInput, options?: __HttpHandlerOptions): Promise<UpdateProblemCommandOutput>;
-  updateProblem(args: UpdateProblemCommandInput, cb: (err: any, data?: UpdateProblemCommandOutput) => void): void;
+  updateProblem(
+    args: UpdateProblemCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProblemCommandOutput>;
+  updateProblem(
+    args: UpdateProblemCommandInput,
+    cb: (err: any, data?: UpdateProblemCommandOutput) => void
+  ): void;
   updateProblem(
     args: UpdateProblemCommandInput,
     options: __HttpHandlerOptions,
@@ -696,7 +753,10 @@ export interface ApplicationInsights {
     args: UpdateWorkloadCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateWorkloadCommandOutput>;
-  updateWorkload(args: UpdateWorkloadCommandInput, cb: (err: any, data?: UpdateWorkloadCommandOutput) => void): void;
+  updateWorkload(
+    args: UpdateWorkloadCommandInput,
+    cb: (err: any, data?: UpdateWorkloadCommandOutput) => void
+  ): void;
   updateWorkload(
     args: UpdateWorkloadCommandInput,
     options: __HttpHandlerOptions,

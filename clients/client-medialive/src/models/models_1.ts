@@ -3,6 +3,8 @@ import { StreamingBlobTypes } from "@smithy/types";
 
 import {
   AcceptHeader,
+  BlackoutSlateNetworkEndBlackout,
+  BlackoutSlateState,
   ChannelClass,
   ChannelPipelineIdToRestart,
   ChannelPlacementGroupState,
@@ -35,6 +37,7 @@ import {
   InputSourceType,
   InputState,
   InputType,
+  LinkedChannelType,
   LogLevel,
   MaintenanceDay,
   MotionGraphicsInsertion,
@@ -46,6 +49,7 @@ import {
   NodeState,
   OfferingDurationUnits,
   OfferingType,
+  PipelineLockingMethod,
   PreferredChannelPipeline,
   RebootInputDeviceForce,
   ReservationState,
@@ -59,16 +63,17 @@ import {
   TimecodeConfigSource,
   UpdateNodeStateShape,
 } from "./enums";
-
 import {
   type AccountConfiguration,
   type AnywhereSettings,
   type AvailBlanking,
   type AvailConfiguration,
-  type BlackoutSlate,
+  type BatchScheduleActionCreateResult,
+  type BatchScheduleActionDeleteResult,
   type CdiInputSpecification,
   type ClusterNetworkSettings,
   type DescribeAnywhereSettings,
+  type DescribeLinkedChannelSettings,
   type InputDeviceHdSettings,
   type InputDeviceNetworkSettings,
   type InputDeviceUhdSettings,
@@ -147,6 +152,78 @@ import {
   TransferringInputDeviceSummary,
   VideoDescription,
 } from "./models_0";
+
+/**
+ * Placeholder documentation for BatchUpdateScheduleResponse
+ * @public
+ */
+export interface BatchUpdateScheduleResponse {
+  /**
+   * Schedule actions created in the schedule.
+   * @public
+   */
+  Creates?: BatchScheduleActionCreateResult | undefined;
+
+  /**
+   * Schedule actions deleted from the schedule.
+   * @public
+   */
+  Deletes?: BatchScheduleActionDeleteResult | undefined;
+}
+
+/**
+ * Blackout Slate
+ * @public
+ */
+export interface BlackoutSlate {
+  /**
+   * Blackout slate image to be used. Leave empty for solid black. Only bmp and png images are supported.
+   * @public
+   */
+  BlackoutSlateImage?: InputLocation | undefined;
+
+  /**
+   * Setting to enabled causes the encoder to blackout the video, audio, and captions, and raise the "Network Blackout Image" slate when an SCTE104/35 Network End Segmentation Descriptor is encountered. The blackout will be lifted when the Network Start Segmentation Descriptor is encountered. The Network End and Network Start descriptors must contain a network ID that matches the value entered in "Network ID".
+   * @public
+   */
+  NetworkEndBlackout?: BlackoutSlateNetworkEndBlackout | undefined;
+
+  /**
+   * Path to local file to use as Network End Blackout image. Image will be scaled to fill the entire output raster.
+   * @public
+   */
+  NetworkEndBlackoutImage?: InputLocation | undefined;
+
+  /**
+   * Provides Network ID that matches EIDR ID format (e.g., "10.XXXX/XXXX-XXXX-XXXX-XXXX-XXXX-C").
+   * @public
+   */
+  NetworkId?: string | undefined;
+
+  /**
+   * When set to enabled, causes video, audio and captions to be blanked when indicated by program metadata.
+   * @public
+   */
+  State?: BlackoutSlateState | undefined;
+}
+
+/**
+ * Placeholder documentation for CancelInputDeviceTransferRequest
+ * @public
+ */
+export interface CancelInputDeviceTransferRequest {
+  /**
+   * The unique ID of the input device to cancel. For example, hd-123456789abcdef.
+   * @public
+   */
+  InputDeviceId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for CancelInputDeviceTransferResponse
+ * @public
+ */
+export interface CancelInputDeviceTransferResponse {}
 
 /**
  * Property of encoderSettings. Controls color conversion when you are using 3D LUT files to perform color conversion on video.
@@ -238,7 +315,13 @@ export interface EpochLockingSettings {
  * Pipeline Locking Settings
  * @public
  */
-export interface PipelineLockingSettings {}
+export interface PipelineLockingSettings {
+  /**
+   * The method to use to lock the video frames in the pipelines. sourceTimecode (default): Use the timecode in the source. videoAlignment: Lock frames that the encoder identifies as having matching content. If videoAlignment is selected, existing timecodes will not be used for any locking decisions.
+   * @public
+   */
+  PipelineLockingMethod?: PipelineLockingMethod | undefined;
+}
 
 /**
  * Output Locking Settings
@@ -613,6 +696,12 @@ export interface Channel {
    * @public
    */
   ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
+
+  /**
+   * Linked Channel Settings for this channel.
+   * @public
+   */
+  LinkedChannelSettings?: DescribeLinkedChannelSettings | undefined;
 }
 
 /**
@@ -679,6 +768,54 @@ export interface ClusterNetworkSettingsUpdateRequest {
    * @public
    */
   InterfaceMappings?: InterfaceMappingUpdateRequest[] | undefined;
+}
+
+/**
+ * Settings for a follower channel in a linked pair
+ * @public
+ */
+export interface FollowerChannelSettings {
+  /**
+   * Specifies this as a follower channel
+   * @public
+   */
+  LinkedChannelType?: LinkedChannelType | undefined;
+
+  /**
+   * The ARN of the primary channel to follow
+   * @public
+   */
+  PrimaryChannelArn?: string | undefined;
+}
+
+/**
+ * Settings for a primary (leader) channel in a linked pair
+ * @public
+ */
+export interface PrimaryChannelSettings {
+  /**
+   * Specifies this as a primary channel
+   * @public
+   */
+  LinkedChannelType?: LinkedChannelType | undefined;
+}
+
+/**
+ * Configuration for linked channel relationships
+ * @public
+ */
+export interface LinkedChannelSettings {
+  /**
+   * Settings for a follower channel in a linked pair
+   * @public
+   */
+  FollowerChannelSettings?: FollowerChannelSettings | undefined;
+
+  /**
+   * Settings for a primary (leader) channel in a linked pair
+   * @public
+   */
+  PrimaryChannelSettings?: PrimaryChannelSettings | undefined;
 }
 
 /**
@@ -836,6 +973,12 @@ export interface CreateChannelRequest {
    * @public
    */
   DryRun?: boolean | undefined;
+
+  /**
+   * The linked channel settings for the channel.
+   * @public
+   */
+  LinkedChannelSettings?: LinkedChannelSettings | undefined;
 }
 
 /**
@@ -2921,6 +3064,12 @@ export interface DeleteChannelResponse {
    * @public
    */
   ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
+
+  /**
+   * Linked Channel Settings for this channel.
+   * @public
+   */
+  LinkedChannelSettings?: DescribeLinkedChannelSettings | undefined;
 }
 
 /**
@@ -3781,6 +3930,12 @@ export interface DescribeChannelResponse {
    * @public
    */
   ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
+
+  /**
+   * Linked Channel Settings for this channel.
+   * @public
+   */
+  LinkedChannelSettings?: DescribeLinkedChannelSettings | undefined;
 }
 
 /**
@@ -6750,6 +6905,12 @@ export interface RestartChannelPipelinesResponse {
    * @public
    */
   ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
+
+  /**
+   * Linked Channel Settings for this channel.
+   * @public
+   */
+  LinkedChannelSettings?: DescribeLinkedChannelSettings | undefined;
 }
 
 /**
@@ -6890,6 +7051,12 @@ export interface StartChannelResponse {
    * @public
    */
   ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
+
+  /**
+   * Linked Channel Settings for this channel.
+   * @public
+   */
+  LinkedChannelSettings?: DescribeLinkedChannelSettings | undefined;
 }
 
 /**
@@ -7564,6 +7731,12 @@ export interface StopChannelResponse {
    * @public
    */
   ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
+
+  /**
+   * Linked Channel Settings for this channel.
+   * @public
+   */
+  LinkedChannelSettings?: DescribeLinkedChannelSettings | undefined;
 }
 
 /**
@@ -7804,6 +7977,12 @@ export interface UpdateChannelRequest {
    * @public
    */
   AnywhereSettings?: AnywhereSettings | undefined;
+
+  /**
+   * The linked channel settings for the channel.
+   * @public
+   */
+  LinkedChannelSettings?: LinkedChannelSettings | undefined;
 }
 
 /**

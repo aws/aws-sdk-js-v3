@@ -1,24 +1,15 @@
-export * from "./DescribeEntityPaginator";
-
-export * from "./GetBlueprintRunsPaginator";
-
-export * from "./GetClassifiersPaginator";
-
-export * from "./GetColumnStatisticsTaskRunsPaginator";
-
-export * from "./GetConnectionsPaginator";
-
-export * from "./GetCrawlerMetricsPaginator";
-
-export * from "./GetCrawlersPaginator";
-
-export * from "./GetDatabasesPaginator";
-
-export * from "./GetDevEndpointsPaginator";
-
-export * from "./GetJobRunsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeEntityPaginator";
+export * from "./GetBlueprintRunsPaginator";
+export * from "./GetClassifiersPaginator";
+export * from "./GetColumnStatisticsTaskRunsPaginator";
+export * from "./GetConnectionsPaginator";
+export * from "./GetCrawlerMetricsPaginator";
+export * from "./GetCrawlersPaginator";
+export * from "./GetDatabasesPaginator";
+export * from "./GetDevEndpointsPaginator";
+export * from "./GetJobRunsPaginator";
 export * from "./GetJobsPaginator";
 export * from "./GetMLTaskRunsPaginator";
 export * from "./GetMLTransformsPaginator";
@@ -26,8 +17,8 @@ export * from "./GetPartitionIndexesPaginator";
 export * from "./GetPartitionsPaginator";
 export * from "./GetResourcePoliciesPaginator";
 export * from "./GetSecurityConfigurationsPaginator";
-export * from "./GetTableVersionsPaginator";
 export * from "./GetTablesPaginator";
+export * from "./GetTableVersionsPaginator";
 export * from "./GetTriggersPaginator";
 export * from "./GetUnfilteredPartitionsMetadataPaginator";
 export * from "./GetUserDefinedFunctionsPaginator";
@@ -44,10 +35,11 @@ export * from "./ListDataQualityRulesetsPaginator";
 export * from "./ListDevEndpointsPaginator";
 export * from "./ListEntitiesPaginator";
 export * from "./ListJobsPaginator";
+export * from "./ListMaterializedViewRefreshTaskRunsPaginator";
 export * from "./ListMLTransformsPaginator";
 export * from "./ListRegistriesPaginator";
-export * from "./ListSchemaVersionsPaginator";
 export * from "./ListSchemasPaginator";
+export * from "./ListSchemaVersionsPaginator";
 export * from "./ListSessionsPaginator";
 export * from "./ListTableOptimizerRunsPaginator";
 export * from "./ListTriggersPaginator";

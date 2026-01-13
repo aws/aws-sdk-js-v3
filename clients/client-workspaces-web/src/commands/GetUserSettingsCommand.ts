@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetUserSettingsRequest, GetUserSettingsResponse } from "../models/models_0";
-import { GetUserSettings } from "../schemas/schemas_0";
+import { GetUserSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -114,6 +114,7 @@ export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, _
  * //       colorTheme: "Light" || "Dark", // required
  * //       termsOfService: "STRING_VALUE",
  * //     },
+ * //     webAuthnAllowed: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -160,7 +161,7 @@ export class GetUserSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "GetUserSettings", {})
   .n("WorkSpacesWebClient", "GetUserSettingsCommand")
-  .sc(GetUserSettings)
+  .sc(GetUserSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

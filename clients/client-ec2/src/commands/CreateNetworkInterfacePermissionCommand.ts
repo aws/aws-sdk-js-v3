@@ -9,7 +9,7 @@ import type {
   CreateNetworkInterfacePermissionRequest,
   CreateNetworkInterfacePermissionResult,
 } from "../models/models_1";
-import { CreateNetworkInterfacePermission } from "../schemas/schemas_0";
+import { CreateNetworkInterfacePermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateNetworkInterfacePermissionCommandInput extends CreateNetw
  *
  * The output of {@link CreateNetworkInterfacePermissionCommand}.
  */
-export interface CreateNetworkInterfacePermissionCommandOutput
-  extends CreateNetworkInterfacePermissionResult,
-    __MetadataBearer {}
+export interface CreateNetworkInterfacePermissionCommandOutput extends CreateNetworkInterfacePermissionResult, __MetadataBearer {}
 
 /**
  * <p>Grants an Amazon Web Services-authorized account permission to attach the specified
@@ -95,7 +93,7 @@ export class CreateNetworkInterfacePermissionCommand extends $Command
   })
   .s("AmazonEC2", "CreateNetworkInterfacePermission", {})
   .n("EC2Client", "CreateNetworkInterfacePermissionCommand")
-  .sc(CreateNetworkInterfacePermission)
+  .sc(CreateNetworkInterfacePermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

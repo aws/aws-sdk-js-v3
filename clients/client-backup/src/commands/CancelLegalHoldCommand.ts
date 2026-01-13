@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelLegalHoldInput, CancelLegalHoldOutput } from "../models/models_0";
-import { CancelLegalHold } from "../schemas/schemas_0";
+import { CancelLegalHold$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class CancelLegalHoldCommand extends $Command
   })
   .s("CryoControllerUserManager", "CancelLegalHold", {})
   .n("BackupClient", "CancelLegalHoldCommand")
-  .sc(CancelLegalHold)
+  .sc(CancelLegalHold$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

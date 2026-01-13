@@ -1,6 +1,3 @@
-// Required for testing CRC64NVME
-import "@aws-sdk/crc64-nvme-crt";
-
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";

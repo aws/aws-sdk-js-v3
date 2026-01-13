@@ -8,7 +8,7 @@ import type {
   DeleteEmailMonitoringConfigurationRequest,
   DeleteEmailMonitoringConfigurationResponse,
 } from "../models/models_0";
-import { DeleteEmailMonitoringConfiguration } from "../schemas/schemas_0";
+import { DeleteEmailMonitoringConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DeleteEmailMonitoringConfigurationCommandInput extends DeleteEm
  *
  * The output of {@link DeleteEmailMonitoringConfigurationCommand}.
  */
-export interface DeleteEmailMonitoringConfigurationCommandOutput
-  extends DeleteEmailMonitoringConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteEmailMonitoringConfigurationCommandOutput extends DeleteEmailMonitoringConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the email monitoring configuration for a specified organization.</p>
@@ -87,7 +85,7 @@ export class DeleteEmailMonitoringConfigurationCommand extends $Command
   })
   .s("WorkMailService", "DeleteEmailMonitoringConfiguration", {})
   .n("WorkMailClient", "DeleteEmailMonitoringConfigurationCommand")
-  .sc(DeleteEmailMonitoringConfiguration)
+  .sc(DeleteEmailMonitoringConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

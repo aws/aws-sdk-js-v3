@@ -9,7 +9,7 @@ import type {
   ListServiceInstanceProvisionedResourcesOutput,
 } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { ListServiceInstanceProvisionedResources } from "../schemas/schemas_0";
+import { ListServiceInstanceProvisionedResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListServiceInstanceProvisionedResourcesCommand}.
  */
-export interface ListServiceInstanceProvisionedResourcesCommandInput
-  extends ListServiceInstanceProvisionedResourcesInput {}
+export interface ListServiceInstanceProvisionedResourcesCommandInput extends ListServiceInstanceProvisionedResourcesInput {}
 /**
  * @public
  *
  * The output of {@link ListServiceInstanceProvisionedResourcesCommand}.
  */
-export interface ListServiceInstanceProvisionedResourcesCommandOutput
-  extends ListServiceInstanceProvisionedResourcesOutput,
-    __MetadataBearer {}
+export interface ListServiceInstanceProvisionedResourcesCommandOutput extends ListServiceInstanceProvisionedResourcesOutput, __MetadataBearer {}
 
 /**
  * <p>List provisioned resources for a service instance with details.</p>
@@ -105,7 +102,7 @@ export class ListServiceInstanceProvisionedResourcesCommand extends $Command
   })
   .s("AwsProton20200720", "ListServiceInstanceProvisionedResources", {})
   .n("ProtonClient", "ListServiceInstanceProvisionedResourcesCommand")
-  .sc(ListServiceInstanceProvisionedResources)
+  .sc(ListServiceInstanceProvisionedResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

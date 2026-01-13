@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { ListSAMLProviderTagsRequest, ListSAMLProviderTagsResponse } from "../models/models_0";
-import { ListSAMLProviderTags } from "../schemas/schemas_0";
+import { ListSAMLProviderTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class ListSAMLProviderTagsCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "ListSAMLProviderTags", {})
   .n("IAMClient", "ListSAMLProviderTagsCommand")
-  .sc(ListSAMLProviderTags)
+  .sc(ListSAMLProviderTags$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

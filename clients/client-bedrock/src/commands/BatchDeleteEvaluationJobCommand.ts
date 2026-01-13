@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchDeleteEvaluationJobRequest, BatchDeleteEvaluationJobResponse } from "../models/models_0";
-import { BatchDeleteEvaluationJob } from "../schemas/schemas_0";
+import { BatchDeleteEvaluationJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -135,7 +135,7 @@ export class BatchDeleteEvaluationJobCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "BatchDeleteEvaluationJob", {})
   .n("BedrockClient", "BatchDeleteEvaluationJobCommand")
-  .sc(BatchDeleteEvaluationJob)
+  .sc(BatchDeleteEvaluationJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

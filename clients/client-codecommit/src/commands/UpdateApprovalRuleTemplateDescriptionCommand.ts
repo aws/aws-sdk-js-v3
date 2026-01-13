@@ -9,7 +9,7 @@ import type {
   UpdateApprovalRuleTemplateDescriptionInput,
   UpdateApprovalRuleTemplateDescriptionOutput,
 } from "../models/models_0";
-import { UpdateApprovalRuleTemplateDescription } from "../schemas/schemas_0";
+import { UpdateApprovalRuleTemplateDescription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateApprovalRuleTemplateDescriptionCommandInput extends Updat
  *
  * The output of {@link UpdateApprovalRuleTemplateDescriptionCommand}.
  */
-export interface UpdateApprovalRuleTemplateDescriptionCommandOutput
-  extends UpdateApprovalRuleTemplateDescriptionOutput,
-    __MetadataBearer {}
+export interface UpdateApprovalRuleTemplateDescriptionCommandOutput extends UpdateApprovalRuleTemplateDescriptionOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the description for a specified approval rule template.</p>
@@ -105,7 +103,7 @@ export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command
   })
   .s("CodeCommit_20150413", "UpdateApprovalRuleTemplateDescription", {})
   .n("CodeCommitClient", "UpdateApprovalRuleTemplateDescriptionCommand")
-  .sc(UpdateApprovalRuleTemplateDescription)
+  .sc(UpdateApprovalRuleTemplateDescription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DescribeNetworkInsightsAccessScopeAnalysesRequest,
   DescribeNetworkInsightsAccessScopeAnalysesResult,
 } from "../models/models_4";
-import { DescribeNetworkInsightsAccessScopeAnalyses } from "../schemas/schemas_0";
+import { DescribeNetworkInsightsAccessScopeAnalyses$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeNetworkInsightsAccessScopeAnalysesCommand}.
  */
-export interface DescribeNetworkInsightsAccessScopeAnalysesCommandInput
-  extends DescribeNetworkInsightsAccessScopeAnalysesRequest {}
+export interface DescribeNetworkInsightsAccessScopeAnalysesCommandInput extends DescribeNetworkInsightsAccessScopeAnalysesRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeNetworkInsightsAccessScopeAnalysesCommand}.
  */
-export interface DescribeNetworkInsightsAccessScopeAnalysesCommandOutput
-  extends DescribeNetworkInsightsAccessScopeAnalysesResult,
-    __MetadataBearer {}
+export interface DescribeNetworkInsightsAccessScopeAnalysesCommandOutput extends DescribeNetworkInsightsAccessScopeAnalysesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified Network Access Scope analyses.</p>
@@ -115,7 +112,7 @@ export class DescribeNetworkInsightsAccessScopeAnalysesCommand extends $Command
   })
   .s("AmazonEC2", "DescribeNetworkInsightsAccessScopeAnalyses", {})
   .n("EC2Client", "DescribeNetworkInsightsAccessScopeAnalysesCommand")
-  .sc(DescribeNetworkInsightsAccessScopeAnalyses)
+  .sc(DescribeNetworkInsightsAccessScopeAnalyses$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

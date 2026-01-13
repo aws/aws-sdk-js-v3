@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import type { EnableDelegatedAdminAccountRequest, EnableDelegatedAdminAccountResponse } from "../models/models_0";
-import { EnableDelegatedAdminAccount } from "../schemas/schemas_0";
+import { EnableDelegatedAdminAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface EnableDelegatedAdminAccountCommandInput extends EnableDelegated
  *
  * The output of {@link EnableDelegatedAdminAccountCommand}.
  */
-export interface EnableDelegatedAdminAccountCommandOutput
-  extends EnableDelegatedAdminAccountResponse,
-    __MetadataBearer {}
+export interface EnableDelegatedAdminAccountCommandOutput extends EnableDelegatedAdminAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the Amazon Inspector delegated administrator for your Organizations organization.</p>
@@ -99,7 +97,7 @@ export class EnableDelegatedAdminAccountCommand extends $Command
   })
   .s("Inspector2", "EnableDelegatedAdminAccount", {})
   .n("Inspector2Client", "EnableDelegatedAdminAccountCommand")
-  .sc(EnableDelegatedAdminAccount)
+  .sc(EnableDelegatedAdminAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

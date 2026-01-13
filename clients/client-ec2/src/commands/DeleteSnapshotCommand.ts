@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSnapshotRequest } from "../models/models_2";
-import { DeleteSnapshot } from "../schemas/schemas_0";
+import { DeleteSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteSnapshotCommand extends $Command
   })
   .s("AmazonEC2", "DeleteSnapshot", {})
   .n("EC2Client", "DeleteSnapshotCommand")
-  .sc(DeleteSnapshot)
+  .sc(DeleteSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

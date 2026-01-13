@@ -9,7 +9,7 @@ import type {
   GetAutomatedReasoningPolicyNextScenarioRequest,
   GetAutomatedReasoningPolicyNextScenarioResponse,
 } from "../models/models_0";
-import { GetAutomatedReasoningPolicyNextScenario } from "../schemas/schemas_0";
+import { GetAutomatedReasoningPolicyNextScenario$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetAutomatedReasoningPolicyNextScenarioCommand}.
  */
-export interface GetAutomatedReasoningPolicyNextScenarioCommandInput
-  extends GetAutomatedReasoningPolicyNextScenarioRequest {}
+export interface GetAutomatedReasoningPolicyNextScenarioCommandInput extends GetAutomatedReasoningPolicyNextScenarioRequest {}
 /**
  * @public
  *
  * The output of {@link GetAutomatedReasoningPolicyNextScenarioCommand}.
  */
-export interface GetAutomatedReasoningPolicyNextScenarioCommandOutput
-  extends GetAutomatedReasoningPolicyNextScenarioResponse,
-    __MetadataBearer {}
+export interface GetAutomatedReasoningPolicyNextScenarioCommandOutput extends GetAutomatedReasoningPolicyNextScenarioResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the next test scenario for validating an Automated Reasoning policy. This is used during the interactive policy refinement process to test policy behavior.</p>
@@ -103,7 +100,7 @@ export class GetAutomatedReasoningPolicyNextScenarioCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "GetAutomatedReasoningPolicyNextScenario", {})
   .n("BedrockClient", "GetAutomatedReasoningPolicyNextScenarioCommand")
-  .sc(GetAutomatedReasoningPolicyNextScenario)
+  .sc(GetAutomatedReasoningPolicyNextScenario$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

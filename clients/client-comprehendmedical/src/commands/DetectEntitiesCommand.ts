@@ -10,7 +10,7 @@ import type {
 } from "../ComprehendMedicalClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DetectEntitiesRequest, DetectEntitiesResponse } from "../models/models_0";
-import { DetectEntities } from "../schemas/schemas_0";
+import { DetectEntities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -160,7 +160,7 @@ export class DetectEntitiesCommand extends $Command
   })
   .s("ComprehendMedical_20181030", "DetectEntities", {})
   .n("ComprehendMedicalClient", "DetectEntitiesCommand")
-  .sc(DetectEntities)
+  .sc(DetectEntities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

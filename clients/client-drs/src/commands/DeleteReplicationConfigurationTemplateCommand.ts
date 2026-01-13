@@ -9,7 +9,7 @@ import type {
   DeleteReplicationConfigurationTemplateRequest,
   DeleteReplicationConfigurationTemplateResponse,
 } from "../models/models_0";
-import { DeleteReplicationConfigurationTemplate } from "../schemas/schemas_0";
+import { DeleteReplicationConfigurationTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteReplicationConfigurationTemplateCommand}.
  */
-export interface DeleteReplicationConfigurationTemplateCommandInput
-  extends DeleteReplicationConfigurationTemplateRequest {}
+export interface DeleteReplicationConfigurationTemplateCommandInput extends DeleteReplicationConfigurationTemplateRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteReplicationConfigurationTemplateCommand}.
  */
-export interface DeleteReplicationConfigurationTemplateCommandOutput
-  extends DeleteReplicationConfigurationTemplateResponse,
-    __MetadataBearer {}
+export interface DeleteReplicationConfigurationTemplateCommandOutput extends DeleteReplicationConfigurationTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a single Replication Configuration Template by ID</p>
@@ -92,7 +89,7 @@ export class DeleteReplicationConfigurationTemplateCommand extends $Command
   })
   .s("ElasticDisasterRecoveryService", "DeleteReplicationConfigurationTemplate", {})
   .n("DrsClient", "DeleteReplicationConfigurationTemplateCommand")
-  .sc(DeleteReplicationConfigurationTemplate)
+  .sc(DeleteReplicationConfigurationTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

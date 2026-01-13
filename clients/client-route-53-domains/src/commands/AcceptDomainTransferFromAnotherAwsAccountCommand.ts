@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { AcceptDomainTransferFromAnotherAwsAccount } from "../schemas/schemas_0";
+import { AcceptDomainTransferFromAnotherAwsAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link AcceptDomainTransferFromAnotherAwsAccountCommand}.
  */
-export interface AcceptDomainTransferFromAnotherAwsAccountCommandInput
-  extends AcceptDomainTransferFromAnotherAwsAccountRequest {}
+export interface AcceptDomainTransferFromAnotherAwsAccountCommandInput extends AcceptDomainTransferFromAnotherAwsAccountRequest {}
 /**
  * @public
  *
  * The output of {@link AcceptDomainTransferFromAnotherAwsAccountCommand}.
  */
-export interface AcceptDomainTransferFromAnotherAwsAccountCommandOutput
-  extends AcceptDomainTransferFromAnotherAwsAccountResponse,
-    __MetadataBearer {}
+export interface AcceptDomainTransferFromAnotherAwsAccountCommandOutput extends AcceptDomainTransferFromAnotherAwsAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts the transfer of a domain from another Amazon Web Services account to the
@@ -106,7 +103,7 @@ export class AcceptDomainTransferFromAnotherAwsAccountCommand extends $Command
   })
   .s("Route53Domains_v20140515", "AcceptDomainTransferFromAnotherAwsAccount", {})
   .n("Route53DomainsClient", "AcceptDomainTransferFromAnotherAwsAccountCommand")
-  .sc(AcceptDomainTransferFromAnotherAwsAccount)
+  .sc(AcceptDomainTransferFromAnotherAwsAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

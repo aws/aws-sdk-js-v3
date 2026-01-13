@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { StartInstanceRequest, StartInstanceResult } from "../models/models_1";
-import { StartInstance } from "../schemas/schemas_0";
+import { StartInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -134,7 +134,7 @@ export class StartInstanceCommand extends $Command
   })
   .s("Lightsail_20161128", "StartInstance", {})
   .n("LightsailClient", "StartInstanceCommand")
-  .sc(StartInstance)
+  .sc(StartInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

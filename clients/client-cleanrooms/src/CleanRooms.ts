@@ -363,6 +363,11 @@ import {
   UpdateAnalysisTemplateCommandOutput,
 } from "./commands/UpdateAnalysisTemplateCommand";
 import {
+  UpdateCollaborationChangeRequestCommand,
+  UpdateCollaborationChangeRequestCommandInput,
+  UpdateCollaborationChangeRequestCommandOutput,
+} from "./commands/UpdateCollaborationChangeRequestCommand";
+import {
   UpdateCollaborationCommand,
   UpdateCollaborationCommandInput,
   UpdateCollaborationCommandOutput,
@@ -500,6 +505,7 @@ const commands = {
   UntagResourceCommand,
   UpdateAnalysisTemplateCommand,
   UpdateCollaborationCommand,
+  UpdateCollaborationChangeRequestCommand,
   UpdateConfiguredAudienceModelAssociationCommand,
   UpdateConfiguredTableCommand,
   UpdateConfiguredTableAnalysisRuleCommand,
@@ -538,7 +544,10 @@ export interface CleanRooms {
     args: BatchGetSchemaCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchGetSchemaCommandOutput>;
-  batchGetSchema(args: BatchGetSchemaCommandInput, cb: (err: any, data?: BatchGetSchemaCommandOutput) => void): void;
+  batchGetSchema(
+    args: BatchGetSchemaCommandInput,
+    cb: (err: any, data?: BatchGetSchemaCommandOutput) => void
+  ): void;
   batchGetSchema(
     args: BatchGetSchemaCommandInput,
     options: __HttpHandlerOptions,
@@ -922,8 +931,14 @@ export interface CleanRooms {
   /**
    * @see {@link DeleteMemberCommand}
    */
-  deleteMember(args: DeleteMemberCommandInput, options?: __HttpHandlerOptions): Promise<DeleteMemberCommandOutput>;
-  deleteMember(args: DeleteMemberCommandInput, cb: (err: any, data?: DeleteMemberCommandOutput) => void): void;
+  deleteMember(
+    args: DeleteMemberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMemberCommandOutput>;
+  deleteMember(
+    args: DeleteMemberCommandInput,
+    cb: (err: any, data?: DeleteMemberCommandOutput) => void
+  ): void;
   deleteMember(
     args: DeleteMemberCommandInput,
     options: __HttpHandlerOptions,
@@ -1205,8 +1220,14 @@ export interface CleanRooms {
   /**
    * @see {@link GetMembershipCommand}
    */
-  getMembership(args: GetMembershipCommandInput, options?: __HttpHandlerOptions): Promise<GetMembershipCommandOutput>;
-  getMembership(args: GetMembershipCommandInput, cb: (err: any, data?: GetMembershipCommandOutput) => void): void;
+  getMembership(
+    args: GetMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMembershipCommandOutput>;
+  getMembership(
+    args: GetMembershipCommandInput,
+    cb: (err: any, data?: GetMembershipCommandOutput) => void
+  ): void;
   getMembership(
     args: GetMembershipCommandInput,
     options: __HttpHandlerOptions,
@@ -1237,7 +1258,10 @@ export interface CleanRooms {
     args: GetProtectedJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetProtectedJobCommandOutput>;
-  getProtectedJob(args: GetProtectedJobCommandInput, cb: (err: any, data?: GetProtectedJobCommandOutput) => void): void;
+  getProtectedJob(
+    args: GetProtectedJobCommandInput,
+    cb: (err: any, data?: GetProtectedJobCommandOutput) => void
+  ): void;
   getProtectedJob(
     args: GetProtectedJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1264,8 +1288,14 @@ export interface CleanRooms {
   /**
    * @see {@link GetSchemaCommand}
    */
-  getSchema(args: GetSchemaCommandInput, options?: __HttpHandlerOptions): Promise<GetSchemaCommandOutput>;
-  getSchema(args: GetSchemaCommandInput, cb: (err: any, data?: GetSchemaCommandOutput) => void): void;
+  getSchema(
+    args: GetSchemaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSchemaCommandOutput>;
+  getSchema(
+    args: GetSchemaCommandInput,
+    cb: (err: any, data?: GetSchemaCommandOutput) => void
+  ): void;
   getSchema(
     args: GetSchemaCommandInput,
     options: __HttpHandlerOptions,
@@ -1515,8 +1545,14 @@ export interface CleanRooms {
   /**
    * @see {@link ListMembersCommand}
    */
-  listMembers(args: ListMembersCommandInput, options?: __HttpHandlerOptions): Promise<ListMembersCommandOutput>;
-  listMembers(args: ListMembersCommandInput, cb: (err: any, data?: ListMembersCommandOutput) => void): void;
+  listMembers(
+    args: ListMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMembersCommandOutput>;
+  listMembers(
+    args: ListMembersCommandInput,
+    cb: (err: any, data?: ListMembersCommandOutput) => void
+  ): void;
   listMembers(
     args: ListMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -1531,7 +1567,10 @@ export interface CleanRooms {
     args: ListMembershipsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListMembershipsCommandOutput>;
-  listMemberships(args: ListMembershipsCommandInput, cb: (err: any, data?: ListMembershipsCommandOutput) => void): void;
+  listMemberships(
+    args: ListMembershipsCommandInput,
+    cb: (err: any, data?: ListMembershipsCommandOutput) => void
+  ): void;
   listMemberships(
     args: ListMembershipsCommandInput,
     options: __HttpHandlerOptions,
@@ -1609,8 +1648,14 @@ export interface CleanRooms {
   /**
    * @see {@link ListSchemasCommand}
    */
-  listSchemas(args: ListSchemasCommandInput, options?: __HttpHandlerOptions): Promise<ListSchemasCommandOutput>;
-  listSchemas(args: ListSchemasCommandInput, cb: (err: any, data?: ListSchemasCommandOutput) => void): void;
+  listSchemas(
+    args: ListSchemasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSchemasCommandOutput>;
+  listSchemas(
+    args: ListSchemasCommandInput,
+    cb: (err: any, data?: ListSchemasCommandOutput) => void
+  ): void;
   listSchemas(
     args: ListSchemasCommandInput,
     options: __HttpHandlerOptions,
@@ -1705,8 +1750,14 @@ export interface CleanRooms {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1716,8 +1767,14 @@ export interface CleanRooms {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1756,6 +1813,23 @@ export interface CleanRooms {
     args: UpdateCollaborationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCollaborationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCollaborationChangeRequestCommand}
+   */
+  updateCollaborationChangeRequest(
+    args: UpdateCollaborationChangeRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCollaborationChangeRequestCommandOutput>;
+  updateCollaborationChangeRequest(
+    args: UpdateCollaborationChangeRequestCommandInput,
+    cb: (err: any, data?: UpdateCollaborationChangeRequestCommandOutput) => void
+  ): void;
+  updateCollaborationChangeRequest(
+    args: UpdateCollaborationChangeRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCollaborationChangeRequestCommandOutput) => void
   ): void;
 
   /**

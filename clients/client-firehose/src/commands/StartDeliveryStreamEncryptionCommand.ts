@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import type { StartDeliveryStreamEncryptionInput, StartDeliveryStreamEncryptionOutput } from "../models/models_0";
-import { StartDeliveryStreamEncryption } from "../schemas/schemas_0";
+import { StartDeliveryStreamEncryption$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface StartDeliveryStreamEncryptionCommandInput extends StartDelivery
  *
  * The output of {@link StartDeliveryStreamEncryptionCommand}.
  */
-export interface StartDeliveryStreamEncryptionCommandOutput
-  extends StartDeliveryStreamEncryptionOutput,
-    __MetadataBearer {}
+export interface StartDeliveryStreamEncryptionCommandOutput extends StartDeliveryStreamEncryptionOutput, __MetadataBearer {}
 
 /**
  * <p>Enables server-side encryption (SSE) for the Firehose stream. </p>
@@ -133,7 +131,7 @@ export class StartDeliveryStreamEncryptionCommand extends $Command
   })
   .s("Firehose_20150804", "StartDeliveryStreamEncryption", {})
   .n("FirehoseClient", "StartDeliveryStreamEncryptionCommand")
-  .sc(StartDeliveryStreamEncryption)
+  .sc(StartDeliveryStreamEncryption$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

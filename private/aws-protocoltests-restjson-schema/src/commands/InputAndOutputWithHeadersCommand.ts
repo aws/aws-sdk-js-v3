@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { InputAndOutputWithHeaders } from "../schemas/schemas_0";
+import { InputAndOutputWithHeaders$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class InputAndOutputWithHeadersCommand extends $Command
   })
   .s("RestJson", "InputAndOutputWithHeaders", {})
   .n("RestJsonProtocolClient", "InputAndOutputWithHeadersCommand")
-  .sc(InputAndOutputWithHeaders)
+  .sc(InputAndOutputWithHeaders$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

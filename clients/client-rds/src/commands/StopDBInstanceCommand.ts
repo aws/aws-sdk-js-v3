@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopDBInstanceMessage, StopDBInstanceResult } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { StopDBInstance } from "../schemas/schemas_0";
+import { StopDBInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -368,7 +368,7 @@ export class StopDBInstanceCommand extends $Command
   })
   .s("AmazonRDSv19", "StopDBInstance", {})
   .n("RDSClient", "StopDBInstanceCommand")
-  .sc(StopDBInstance)
+  .sc(StopDBInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

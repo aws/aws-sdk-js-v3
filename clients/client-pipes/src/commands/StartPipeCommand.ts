@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartPipeRequest, StartPipeResponse } from "../models/models_0";
 import type { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
-import { StartPipe } from "../schemas/schemas_0";
+import { StartPipe$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class StartPipeCommand extends $Command
   })
   .s("Pipes", "StartPipe", {})
   .n("PipesClient", "StartPipeCommand")
-  .sc(StartPipe)
+  .sc(StartPipe$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

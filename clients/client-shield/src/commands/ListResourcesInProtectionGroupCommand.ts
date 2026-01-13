@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListResourcesInProtectionGroupRequest, ListResourcesInProtectionGroupResponse } from "../models/models_0";
-import { ListResourcesInProtectionGroup } from "../schemas/schemas_0";
+import { ListResourcesInProtectionGroup$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -24,9 +24,7 @@ export interface ListResourcesInProtectionGroupCommandInput extends ListResource
  *
  * The output of {@link ListResourcesInProtectionGroupCommand}.
  */
-export interface ListResourcesInProtectionGroupCommandOutput
-  extends ListResourcesInProtectionGroupResponse,
-    __MetadataBearer {}
+export interface ListResourcesInProtectionGroupCommandOutput extends ListResourcesInProtectionGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the resources that are included in the protection group. </p>
@@ -89,7 +87,7 @@ export class ListResourcesInProtectionGroupCommand extends $Command
   })
   .s("AWSShield_20160616", "ListResourcesInProtectionGroup", {})
   .n("ShieldClient", "ListResourcesInProtectionGroupCommand")
-  .sc(ListResourcesInProtectionGroup)
+  .sc(ListResourcesInProtectionGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

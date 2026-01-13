@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { DeleteTableOptimizerRequest, DeleteTableOptimizerResponse } from "../models/models_1";
-import { DeleteTableOptimizer } from "../schemas/schemas_0";
+import { DeleteTableOptimizer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeleteTableOptimizerCommand extends $Command
   })
   .s("AWSGlue", "DeleteTableOptimizer", {})
   .n("GlueClient", "DeleteTableOptimizerCommand")
-  .sc(DeleteTableOptimizer)
+  .sc(DeleteTableOptimizer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeInstanceTypeOfferingsRequest, DescribeInstanceTypeOfferingsResult } from "../models/models_4";
-import { DescribeInstanceTypeOfferings } from "../schemas/schemas_0";
+import { DescribeInstanceTypeOfferings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeInstanceTypeOfferingsCommandInput extends DescribeInsta
  *
  * The output of {@link DescribeInstanceTypeOfferingsCommand}.
  */
-export interface DescribeInstanceTypeOfferingsCommandOutput
-  extends DescribeInstanceTypeOfferingsResult,
-    __MetadataBearer {}
+export interface DescribeInstanceTypeOfferingsCommandOutput extends DescribeInstanceTypeOfferingsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the instance types that are offered for the specified location. If no location is
@@ -95,7 +93,7 @@ export class DescribeInstanceTypeOfferingsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeInstanceTypeOfferings", {})
   .n("EC2Client", "DescribeInstanceTypeOfferingsCommand")
-  .sc(DescribeInstanceTypeOfferings)
+  .sc(DescribeInstanceTypeOfferings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

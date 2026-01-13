@@ -9,7 +9,7 @@ import type {
   GetManagedNotificationConfigurationResponse,
 } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { GetManagedNotificationConfiguration } from "../schemas/schemas_0";
+import { GetManagedNotificationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetManagedNotificationConfigurationCommandInput extends GetMana
  *
  * The output of {@link GetManagedNotificationConfigurationCommand}.
  */
-export interface GetManagedNotificationConfigurationCommandOutput
-  extends GetManagedNotificationConfigurationResponse,
-    __MetadataBearer {}
+export interface GetManagedNotificationConfigurationCommandOutput extends GetManagedNotificationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a specified <code>ManagedNotificationConfiguration</code>.</p>
@@ -97,7 +95,7 @@ export class GetManagedNotificationConfigurationCommand extends $Command
   })
   .s("Notifications", "GetManagedNotificationConfiguration", {})
   .n("NotificationsClient", "GetManagedNotificationConfigurationCommand")
-  .sc(GetManagedNotificationConfiguration)
+  .sc(GetManagedNotificationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

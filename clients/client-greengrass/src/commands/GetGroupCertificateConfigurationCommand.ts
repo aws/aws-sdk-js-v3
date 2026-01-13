@@ -9,7 +9,7 @@ import type {
   GetGroupCertificateConfigurationRequest,
   GetGroupCertificateConfigurationResponse,
 } from "../models/models_0";
-import { GetGroupCertificateConfiguration } from "../schemas/schemas_0";
+import { GetGroupCertificateConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetGroupCertificateConfigurationCommandInput extends GetGroupCe
  *
  * The output of {@link GetGroupCertificateConfigurationCommand}.
  */
-export interface GetGroupCertificateConfigurationCommandOutput
-  extends GetGroupCertificateConfigurationResponse,
-    __MetadataBearer {}
+export interface GetGroupCertificateConfigurationCommandOutput extends GetGroupCertificateConfigurationResponse, __MetadataBearer {}
 
 /**
  * Retrieves the current configuration for the CA used by the group.
@@ -86,7 +84,7 @@ export class GetGroupCertificateConfigurationCommand extends $Command
   })
   .s("Greengrass", "GetGroupCertificateConfiguration", {})
   .n("GreengrassClient", "GetGroupCertificateConfigurationCommand")
-  .sc(GetGroupCertificateConfiguration)
+  .sc(GetGroupCertificateConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

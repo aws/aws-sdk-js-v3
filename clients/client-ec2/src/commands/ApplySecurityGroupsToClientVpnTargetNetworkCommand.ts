@@ -9,7 +9,7 @@ import type {
   ApplySecurityGroupsToClientVpnTargetNetworkRequest,
   ApplySecurityGroupsToClientVpnTargetNetworkResult,
 } from "../models/models_0";
-import { ApplySecurityGroupsToClientVpnTargetNetwork } from "../schemas/schemas_0";
+import { ApplySecurityGroupsToClientVpnTargetNetwork$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ApplySecurityGroupsToClientVpnTargetNetworkCommand}.
  */
-export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandInput
-  extends ApplySecurityGroupsToClientVpnTargetNetworkRequest {}
+export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandInput extends ApplySecurityGroupsToClientVpnTargetNetworkRequest {}
 /**
  * @public
  *
  * The output of {@link ApplySecurityGroupsToClientVpnTargetNetworkCommand}.
  */
-export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
-  extends ApplySecurityGroupsToClientVpnTargetNetworkResult,
-    __MetadataBearer {}
+export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput extends ApplySecurityGroupsToClientVpnTargetNetworkResult, __MetadataBearer {}
 
 /**
  * <p>Applies a security group to the association between the target network and the Client VPN endpoint. This action replaces the existing
@@ -87,7 +84,7 @@ export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command
   })
   .s("AmazonEC2", "ApplySecurityGroupsToClientVpnTargetNetwork", {})
   .n("EC2Client", "ApplySecurityGroupsToClientVpnTargetNetworkCommand")
-  .sc(ApplySecurityGroupsToClientVpnTargetNetwork)
+  .sc(ApplySecurityGroupsToClientVpnTargetNetwork$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

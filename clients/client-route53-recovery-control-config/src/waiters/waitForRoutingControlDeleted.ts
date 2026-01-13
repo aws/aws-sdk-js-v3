@@ -7,18 +7,15 @@ import {
 } from "../commands/DescribeRoutingControlCommand";
 import { Route53RecoveryControlConfigClient } from "../Route53RecoveryControlConfigClient";
 
-const checkState = async (
-  client: Route53RecoveryControlConfigClient,
-  input: DescribeRoutingControlCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: Route53RecoveryControlConfigClient, input: DescribeRoutingControlCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeRoutingControlCommand(input));
+    let result: any = await client.send(new DescribeRoutingControlCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.RoutingControl.Status;
-      };
+      }
       if (returnComparator() === "PENDING_DELETION") {
         return { state: WaiterState.RETRY, reason };
       }

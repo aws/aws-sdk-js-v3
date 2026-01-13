@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerAutomationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAutomationEventSummariesRequest, ListAutomationEventSummariesResponse } from "../models/models_0";
-import { ListAutomationEventSummaries } from "../schemas/schemas_0";
+import { ListAutomationEventSummaries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListAutomationEventSummariesCommandInput extends ListAutomation
  *
  * The output of {@link ListAutomationEventSummariesCommand}.
  */
-export interface ListAutomationEventSummariesCommandOutput
-  extends ListAutomationEventSummariesResponse,
-    __MetadataBearer {}
+export interface ListAutomationEventSummariesCommandOutput extends ListAutomationEventSummariesResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a summary of automation events based on specified filters. Only events created within the past year will be included in the summary. </p>
@@ -135,7 +133,7 @@ export class ListAutomationEventSummariesCommand extends $Command
   })
   .s("ComputeOptimizerAutomationService", "ListAutomationEventSummaries", {})
   .n("ComputeOptimizerAutomationClient", "ListAutomationEventSummariesCommand")
-  .sc(ListAutomationEventSummaries)
+  .sc(ListAutomationEventSummaries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

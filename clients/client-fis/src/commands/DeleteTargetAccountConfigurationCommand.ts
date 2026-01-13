@@ -9,7 +9,7 @@ import type {
   DeleteTargetAccountConfigurationRequest,
   DeleteTargetAccountConfigurationResponse,
 } from "../models/models_0";
-import { DeleteTargetAccountConfiguration } from "../schemas/schemas_0";
+import { DeleteTargetAccountConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteTargetAccountConfigurationCommandInput extends DeleteTarg
  *
  * The output of {@link DeleteTargetAccountConfigurationCommand}.
  */
-export interface DeleteTargetAccountConfigurationCommandOutput
-  extends DeleteTargetAccountConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteTargetAccountConfigurationCommandOutput extends DeleteTargetAccountConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified target account configuration of the experiment template.</p>
@@ -89,7 +87,7 @@ export class DeleteTargetAccountConfigurationCommand extends $Command
   })
   .s("FaultInjectionSimulator", "DeleteTargetAccountConfiguration", {})
   .n("FisClient", "DeleteTargetAccountConfigurationCommand")
-  .sc(DeleteTargetAccountConfiguration)
+  .sc(DeleteTargetAccountConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../ConnectCampaignsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateCampaignDialerConfigRequest } from "../models/models_0";
-import { UpdateCampaignDialerConfig } from "../schemas/schemas_0";
+import { UpdateCampaignDialerConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class UpdateCampaignDialerConfigCommand extends $Command
   })
   .s("AmazonConnectCampaignService", "UpdateCampaignDialerConfig", {})
   .n("ConnectCampaignsClient", "UpdateCampaignDialerConfigCommand")
-  .sc(UpdateCampaignDialerConfig)
+  .sc(UpdateCampaignDialerConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteApplicationFromEnvironmentRequest,
   DeleteApplicationFromEnvironmentResponse,
 } from "../models/models_0";
-import { DeleteApplicationFromEnvironment } from "../schemas/schemas_0";
+import { DeleteApplicationFromEnvironment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteApplicationFromEnvironmentCommandInput extends DeleteAppl
  *
  * The output of {@link DeleteApplicationFromEnvironmentCommand}.
  */
-export interface DeleteApplicationFromEnvironmentCommandOutput
-  extends DeleteApplicationFromEnvironmentResponse,
-    __MetadataBearer {}
+export interface DeleteApplicationFromEnvironmentCommandOutput extends DeleteApplicationFromEnvironmentResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a specific application from the specific runtime environment where it was
@@ -98,7 +96,7 @@ export class DeleteApplicationFromEnvironmentCommand extends $Command
   })
   .s("AwsSupernovaControlPlaneService", "DeleteApplicationFromEnvironment", {})
   .n("M2Client", "DeleteApplicationFromEnvironmentCommand")
-  .sc(DeleteApplicationFromEnvironment)
+  .sc(DeleteApplicationFromEnvironment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

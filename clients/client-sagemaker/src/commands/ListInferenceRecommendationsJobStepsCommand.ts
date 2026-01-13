@@ -9,7 +9,7 @@ import type {
   ListInferenceRecommendationsJobStepsResponse,
 } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListInferenceRecommendationsJobSteps } from "../schemas/schemas_0";
+import { ListInferenceRecommendationsJobSteps$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListInferenceRecommendationsJobStepsCommandInput extends ListIn
  *
  * The output of {@link ListInferenceRecommendationsJobStepsCommand}.
  */
-export interface ListInferenceRecommendationsJobStepsCommandOutput
-  extends ListInferenceRecommendationsJobStepsResponse,
-    __MetadataBearer {}
+export interface ListInferenceRecommendationsJobStepsCommandOutput extends ListInferenceRecommendationsJobStepsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the subtasks for an Inference Recommender job.</p> <p>The supported subtasks are benchmarks, which evaluate the performance of your model on different instance types.</p>
@@ -132,7 +130,7 @@ export class ListInferenceRecommendationsJobStepsCommand extends $Command
   })
   .s("SageMaker", "ListInferenceRecommendationsJobSteps", {})
   .n("SageMakerClient", "ListInferenceRecommendationsJobStepsCommand")
-  .sc(ListInferenceRecommendationsJobSteps)
+  .sc(ListInferenceRecommendationsJobSteps$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

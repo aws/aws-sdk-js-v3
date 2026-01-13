@@ -13,7 +13,7 @@ import type {
   ListConnectInstanceIntegrationsRequest,
   ListConnectInstanceIntegrationsResponse,
 } from "../models/models_0";
-import { ListConnectInstanceIntegrations } from "../schemas/schemas_0";
+import { ListConnectInstanceIntegrations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ListConnectInstanceIntegrationsCommandInput extends ListConnect
  *
  * The output of {@link ListConnectInstanceIntegrationsCommand}.
  */
-export interface ListConnectInstanceIntegrationsCommandOutput
-  extends ListConnectInstanceIntegrationsResponse,
-    __MetadataBearer {}
+export interface ListConnectInstanceIntegrationsCommandOutput extends ListConnectInstanceIntegrationsResponse, __MetadataBearer {}
 
 /**
  * Provides summary information about the integration under the specified Connect instance.
@@ -115,7 +113,7 @@ export class ListConnectInstanceIntegrationsCommand extends $Command
   })
   .s("AmazonConnectCampaignServiceV2", "ListConnectInstanceIntegrations", {})
   .n("ConnectCampaignsV2Client", "ListConnectInstanceIntegrationsCommand")
-  .sc(ListConnectInstanceIntegrations)
+  .sc(ListConnectInstanceIntegrations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

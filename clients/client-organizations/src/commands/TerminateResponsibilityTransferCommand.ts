@@ -9,7 +9,7 @@ import type {
   TerminateResponsibilityTransferResponse,
 } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { TerminateResponsibilityTransfer } from "../schemas/schemas_0";
+import { TerminateResponsibilityTransfer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface TerminateResponsibilityTransferCommandInput extends TerminateRe
  *
  * The output of {@link TerminateResponsibilityTransferCommand}.
  */
-export interface TerminateResponsibilityTransferCommandOutput
-  extends TerminateResponsibilityTransferResponse,
-    __MetadataBearer {}
+export interface TerminateResponsibilityTransferCommandOutput extends TerminateResponsibilityTransferResponse, __MetadataBearer {}
 
 /**
  * <p>Ends a transfer. A <i>transfer</i> is an arrangement between two
@@ -530,7 +528,7 @@ export class TerminateResponsibilityTransferCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "TerminateResponsibilityTransfer", {})
   .n("OrganizationsClient", "TerminateResponsibilityTransferCommand")
-  .sc(TerminateResponsibilityTransfer)
+  .sc(TerminateResponsibilityTransfer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

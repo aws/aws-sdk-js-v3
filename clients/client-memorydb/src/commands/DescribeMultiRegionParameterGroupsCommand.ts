@@ -9,7 +9,7 @@ import type {
   DescribeMultiRegionParameterGroupsRequest,
   DescribeMultiRegionParameterGroupsResponse,
 } from "../models/models_0";
-import { DescribeMultiRegionParameterGroups } from "../schemas/schemas_0";
+import { DescribeMultiRegionParameterGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeMultiRegionParameterGroupsCommandInput extends Describe
  *
  * The output of {@link DescribeMultiRegionParameterGroupsCommand}.
  */
-export interface DescribeMultiRegionParameterGroupsCommandOutput
-  extends DescribeMultiRegionParameterGroupsResponse,
-    __MetadataBearer {}
+export interface DescribeMultiRegionParameterGroupsCommandOutput extends DescribeMultiRegionParameterGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of multi-region parameter groups.</p>
@@ -100,7 +98,7 @@ export class DescribeMultiRegionParameterGroupsCommand extends $Command
   })
   .s("AmazonMemoryDB", "DescribeMultiRegionParameterGroups", {})
   .n("MemoryDBClient", "DescribeMultiRegionParameterGroupsCommand")
-  .sc(DescribeMultiRegionParameterGroups)
+  .sc(DescribeMultiRegionParameterGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

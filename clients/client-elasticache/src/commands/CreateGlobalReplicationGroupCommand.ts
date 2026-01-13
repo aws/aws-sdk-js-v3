@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateGlobalReplicationGroupMessage, CreateGlobalReplicationGroupResult } from "../models/models_0";
-import { CreateGlobalReplicationGroup } from "../schemas/schemas_0";
+import { CreateGlobalReplicationGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateGlobalReplicationGroupCommandInput extends CreateGlobalRe
  *
  * The output of {@link CreateGlobalReplicationGroupCommand}.
  */
-export interface CreateGlobalReplicationGroupCommandOutput
-  extends CreateGlobalReplicationGroupResult,
-    __MetadataBearer {}
+export interface CreateGlobalReplicationGroupCommandOutput extends CreateGlobalReplicationGroupResult, __MetadataBearer {}
 
 /**
  * <p>Global Datastore offers fully managed, fast, reliable and secure
@@ -134,7 +132,7 @@ export class CreateGlobalReplicationGroupCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "CreateGlobalReplicationGroup", {})
   .n("ElastiCacheClient", "CreateGlobalReplicationGroupCommand")
-  .sc(CreateGlobalReplicationGroup)
+  .sc(CreateGlobalReplicationGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateSlackChannelConfigurationRequest, CreateSlackChannelConfigurationResult } from "../models/models_0";
-import { CreateSlackChannelConfiguration } from "../schemas/schemas_0";
+import { CreateSlackChannelConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
@@ -24,9 +24,7 @@ export interface CreateSlackChannelConfigurationCommandInput extends CreateSlack
  *
  * The output of {@link CreateSlackChannelConfigurationCommand}.
  */
-export interface CreateSlackChannelConfigurationCommandOutput
-  extends CreateSlackChannelConfigurationResult,
-    __MetadataBearer {}
+export interface CreateSlackChannelConfigurationCommandOutput extends CreateSlackChannelConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Creates a Slack channel configuration for your Amazon Web Services account.</p>
@@ -143,7 +141,7 @@ export class CreateSlackChannelConfigurationCommand extends $Command
   })
   .s("SupportApp", "CreateSlackChannelConfiguration", {})
   .n("SupportAppClient", "CreateSlackChannelConfigurationCommand")
-  .sc(CreateSlackChannelConfiguration)
+  .sc(CreateSlackChannelConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

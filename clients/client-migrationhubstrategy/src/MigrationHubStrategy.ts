@@ -173,8 +173,14 @@ export interface MigrationHubStrategy {
   /**
    * @see {@link GetAssessmentCommand}
    */
-  getAssessment(args: GetAssessmentCommandInput, options?: __HttpHandlerOptions): Promise<GetAssessmentCommandOutput>;
-  getAssessment(args: GetAssessmentCommandInput, cb: (err: any, data?: GetAssessmentCommandOutput) => void): void;
+  getAssessment(
+    args: GetAssessmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssessmentCommandOutput>;
+  getAssessment(
+    args: GetAssessmentCommandInput,
+    cb: (err: any, data?: GetAssessmentCommandOutput) => void
+  ): void;
   getAssessment(
     args: GetAssessmentCommandInput,
     options: __HttpHandlerOptions,
@@ -347,7 +353,10 @@ export interface MigrationHubStrategy {
     args: ListCollectorsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListCollectorsCommandOutput>;
-  listCollectors(args: ListCollectorsCommandInput, cb: (err: any, data?: ListCollectorsCommandOutput) => void): void;
+  listCollectors(
+    args: ListCollectorsCommandInput,
+    cb: (err: any, data?: ListCollectorsCommandOutput) => void
+  ): void;
   listCollectors(
     args: ListCollectorsCommandInput,
     options: __HttpHandlerOptions,
@@ -376,8 +385,14 @@ export interface MigrationHubStrategy {
    * @see {@link ListServersCommand}
    */
   listServers(): Promise<ListServersCommandOutput>;
-  listServers(args: ListServersCommandInput, options?: __HttpHandlerOptions): Promise<ListServersCommandOutput>;
-  listServers(args: ListServersCommandInput, cb: (err: any, data?: ListServersCommandOutput) => void): void;
+  listServers(
+    args: ListServersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServersCommandOutput>;
+  listServers(
+    args: ListServersCommandInput,
+    cb: (err: any, data?: ListServersCommandOutput) => void
+  ): void;
   listServers(
     args: ListServersCommandInput,
     options: __HttpHandlerOptions,
@@ -410,7 +425,10 @@ export interface MigrationHubStrategy {
     args: StartAssessmentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartAssessmentCommandOutput>;
-  startAssessment(args: StartAssessmentCommandInput, cb: (err: any, data?: StartAssessmentCommandOutput) => void): void;
+  startAssessment(
+    args: StartAssessmentCommandInput,
+    cb: (err: any, data?: StartAssessmentCommandOutput) => void
+  ): void;
   startAssessment(
     args: StartAssessmentCommandInput,
     options: __HttpHandlerOptions,
@@ -459,7 +477,10 @@ export interface MigrationHubStrategy {
     args: StopAssessmentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopAssessmentCommandOutput>;
-  stopAssessment(args: StopAssessmentCommandInput, cb: (err: any, data?: StopAssessmentCommandOutput) => void): void;
+  stopAssessment(
+    args: StopAssessmentCommandInput,
+    cb: (err: any, data?: StopAssessmentCommandOutput) => void
+  ): void;
   stopAssessment(
     args: StopAssessmentCommandInput,
     options: __HttpHandlerOptions,

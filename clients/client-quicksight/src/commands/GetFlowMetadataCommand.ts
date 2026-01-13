@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetFlowMetadataInput, GetFlowMetadataOutput } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { GetFlowMetadata } from "../schemas/schemas_0";
+import { GetFlowMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class GetFlowMetadataCommand extends $Command
   })
   .s("QuickSight_20180401", "GetFlowMetadata", {})
   .n("QuickSightClient", "GetFlowMetadataCommand")
-  .sc(GetFlowMetadata)
+  .sc(GetFlowMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

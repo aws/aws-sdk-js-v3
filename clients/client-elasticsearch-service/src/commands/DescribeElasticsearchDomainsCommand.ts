@@ -10,7 +10,7 @@ import type {
 } from "../ElasticsearchServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeElasticsearchDomainsRequest, DescribeElasticsearchDomainsResponse } from "../models/models_0";
-import { DescribeElasticsearchDomains } from "../schemas/schemas_0";
+import { DescribeElasticsearchDomains$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeElasticsearchDomainsCommandInput extends DescribeElasti
  *
  * The output of {@link DescribeElasticsearchDomainsCommand}.
  */
-export interface DescribeElasticsearchDomainsCommandOutput
-  extends DescribeElasticsearchDomainsResponse,
-    __MetadataBearer {}
+export interface DescribeElasticsearchDomainsCommandOutput extends DescribeElasticsearchDomainsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns domain configuration information about the specified Elasticsearch domains, including the domain ID, domain endpoint, and domain ARN.</p>
@@ -221,7 +219,7 @@ export class DescribeElasticsearchDomainsCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "DescribeElasticsearchDomains", {})
   .n("ElasticsearchServiceClient", "DescribeElasticsearchDomainsCommand")
-  .sc(DescribeElasticsearchDomains)
+  .sc(DescribeElasticsearchDomains$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

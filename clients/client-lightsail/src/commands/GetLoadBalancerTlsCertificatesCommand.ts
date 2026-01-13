@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetLoadBalancerTlsCertificatesRequest, GetLoadBalancerTlsCertificatesResult } from "../models/models_1";
-import { GetLoadBalancerTlsCertificates } from "../schemas/schemas_0";
+import { GetLoadBalancerTlsCertificates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetLoadBalancerTlsCertificatesCommandInput extends GetLoadBalan
  *
  * The output of {@link GetLoadBalancerTlsCertificatesCommand}.
  */
-export interface GetLoadBalancerTlsCertificatesCommandOutput
-  extends GetLoadBalancerTlsCertificatesResult,
-    __MetadataBearer {}
+export interface GetLoadBalancerTlsCertificatesCommandOutput extends GetLoadBalancerTlsCertificatesResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about the TLS certificates that are associated with the specified
@@ -171,7 +169,7 @@ export class GetLoadBalancerTlsCertificatesCommand extends $Command
   })
   .s("Lightsail_20161128", "GetLoadBalancerTlsCertificates", {})
   .n("LightsailClient", "GetLoadBalancerTlsCertificatesCommand")
-  .sc(GetLoadBalancerTlsCertificates)
+  .sc(GetLoadBalancerTlsCertificates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -7,12 +7,12 @@ import { DescribeScraperCommand, DescribeScraperCommandInput } from "../commands
 const checkState = async (client: AmpClient, input: DescribeScraperCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeScraperCommand(input));
+    let result: any = await client.send(new DescribeScraperCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.scraper.status.statusCode;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: AmpClient, input: DescribeScraperCommandInput)
     try {
       const returnComparator = () => {
         return result.scraper.status.statusCode;
-      };
+      }
       if (returnComparator() === "CREATION_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

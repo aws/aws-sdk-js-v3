@@ -10,7 +10,7 @@ import type {
 } from "../CodeGuruReviewerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListCodeReviewsRequest, ListCodeReviewsResponse } from "../models/models_0";
-import { ListCodeReviews } from "../schemas/schemas_0";
+import { ListCodeReviews$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -152,7 +152,7 @@ export class ListCodeReviewsCommand extends $Command
   })
   .s("AWSGuruFrontendService", "ListCodeReviews", {})
   .n("CodeGuruReviewerClient", "ListCodeReviewsCommand")
-  .sc(ListCodeReviews)
+  .sc(ListCodeReviews$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

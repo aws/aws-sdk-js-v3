@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListDocumentMetadataHistoryRequest, ListDocumentMetadataHistoryResponse } from "../models/models_1";
-import { ListDocumentMetadataHistory } from "../schemas/schemas_0";
+import { ListDocumentMetadataHistory$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -24,9 +24,7 @@ export interface ListDocumentMetadataHistoryCommandInput extends ListDocumentMet
  *
  * The output of {@link ListDocumentMetadataHistoryCommand}.
  */
-export interface ListDocumentMetadataHistoryCommandOutput
-  extends ListDocumentMetadataHistoryResponse,
-    __MetadataBearer {}
+export interface ListDocumentMetadataHistoryCommandOutput extends ListDocumentMetadataHistoryResponse, __MetadataBearer {}
 
 /**
  * <important>
@@ -116,7 +114,7 @@ export class ListDocumentMetadataHistoryCommand extends $Command
   })
   .s("AmazonSSM", "ListDocumentMetadataHistory", {})
   .n("SSMClient", "ListDocumentMetadataHistoryCommand")
-  .sc(ListDocumentMetadataHistory)
+  .sc(ListDocumentMetadataHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetContainerServiceMetricDataRequest, GetContainerServiceMetricDataResult } from "../models/models_0";
-import { GetContainerServiceMetricData } from "../schemas/schemas_0";
+import { GetContainerServiceMetricData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetContainerServiceMetricDataCommandInput extends GetContainerS
  *
  * The output of {@link GetContainerServiceMetricDataCommand}.
  */
-export interface GetContainerServiceMetricDataCommandOutput
-  extends GetContainerServiceMetricDataResult,
-    __MetadataBearer {}
+export interface GetContainerServiceMetricDataCommandOutput extends GetContainerServiceMetricDataResult, __MetadataBearer {}
 
 /**
  * <p>Returns the data points of a specific metric of your Amazon Lightsail container
@@ -123,7 +121,7 @@ export class GetContainerServiceMetricDataCommand extends $Command
   })
   .s("Lightsail_20161128", "GetContainerServiceMetricData", {})
   .n("LightsailClient", "GetContainerServiceMetricDataCommand")
-  .sc(GetContainerServiceMetricData)
+  .sc(GetContainerServiceMetricData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

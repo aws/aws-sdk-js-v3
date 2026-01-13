@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RestoreTableFromClusterSnapshotMessage, RestoreTableFromClusterSnapshotResult } from "../models/models_1";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { RestoreTableFromClusterSnapshot } from "../schemas/schemas_0";
+import { RestoreTableFromClusterSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface RestoreTableFromClusterSnapshotCommandInput extends RestoreTabl
  *
  * The output of {@link RestoreTableFromClusterSnapshotCommand}.
  */
-export interface RestoreTableFromClusterSnapshotCommandOutput
-  extends RestoreTableFromClusterSnapshotResult,
-    __MetadataBearer {}
+export interface RestoreTableFromClusterSnapshotCommandOutput extends RestoreTableFromClusterSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new table from a table in an Amazon Redshift cluster snapshot. You must
@@ -137,7 +135,7 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "RestoreTableFromClusterSnapshot", {})
   .n("RedshiftClient", "RestoreTableFromClusterSnapshotCommand")
-  .sc(RestoreTableFromClusterSnapshot)
+  .sc(RestoreTableFromClusterSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

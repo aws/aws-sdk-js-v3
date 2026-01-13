@@ -9,7 +9,7 @@ import type {
   DescribeAppVersionResourcesResolutionStatusResponse,
 } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { DescribeAppVersionResourcesResolutionStatus } from "../schemas/schemas_0";
+import { DescribeAppVersionResourcesResolutionStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeAppVersionResourcesResolutionStatusCommand}.
  */
-export interface DescribeAppVersionResourcesResolutionStatusCommandInput
-  extends DescribeAppVersionResourcesResolutionStatusRequest {}
+export interface DescribeAppVersionResourcesResolutionStatusCommandInput extends DescribeAppVersionResourcesResolutionStatusRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeAppVersionResourcesResolutionStatusCommand}.
  */
-export interface DescribeAppVersionResourcesResolutionStatusCommandOutput
-  extends DescribeAppVersionResourcesResolutionStatusResponse,
-    __MetadataBearer {}
+export interface DescribeAppVersionResourcesResolutionStatusCommandOutput extends DescribeAppVersionResourcesResolutionStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the resolution status for the specified resolution identifier for an application
@@ -105,7 +102,7 @@ export class DescribeAppVersionResourcesResolutionStatusCommand extends $Command
   })
   .s("AwsResilienceHub", "DescribeAppVersionResourcesResolutionStatus", {})
   .n("ResiliencehubClient", "DescribeAppVersionResourcesResolutionStatusCommand")
-  .sc(DescribeAppVersionResourcesResolutionStatus)
+  .sc(DescribeAppVersionResourcesResolutionStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

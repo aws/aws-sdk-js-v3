@@ -13,7 +13,7 @@ import type {
   ListUsageForLicenseConfigurationRequest,
   ListUsageForLicenseConfigurationResponse,
 } from "../models/models_0";
-import { ListUsageForLicenseConfiguration } from "../schemas/schemas_0";
+import { ListUsageForLicenseConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ListUsageForLicenseConfigurationCommandInput extends ListUsageF
  *
  * The output of {@link ListUsageForLicenseConfigurationCommand}.
  */
-export interface ListUsageForLicenseConfigurationCommandOutput
-  extends ListUsageForLicenseConfigurationResponse,
-    __MetadataBearer {}
+export interface ListUsageForLicenseConfigurationCommandOutput extends ListUsageForLicenseConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all license usage records for a license configuration, displaying license
@@ -123,7 +121,7 @@ export class ListUsageForLicenseConfigurationCommand extends $Command
   })
   .s("AWSLicenseManager", "ListUsageForLicenseConfiguration", {})
   .n("LicenseManagerClient", "ListUsageForLicenseConfigurationCommand")
-  .sc(ListUsageForLicenseConfiguration)
+  .sc(ListUsageForLicenseConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

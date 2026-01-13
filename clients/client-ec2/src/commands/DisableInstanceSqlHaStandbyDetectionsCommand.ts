@@ -9,7 +9,7 @@ import type {
   DisableInstanceSqlHaStandbyDetectionsRequest,
   DisableInstanceSqlHaStandbyDetectionsResult,
 } from "../models/models_5";
-import { DisableInstanceSqlHaStandbyDetections } from "../schemas/schemas_0";
+import { DisableInstanceSqlHaStandbyDetections$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisableInstanceSqlHaStandbyDetectionsCommand}.
  */
-export interface DisableInstanceSqlHaStandbyDetectionsCommandInput
-  extends DisableInstanceSqlHaStandbyDetectionsRequest {}
+export interface DisableInstanceSqlHaStandbyDetectionsCommandInput extends DisableInstanceSqlHaStandbyDetectionsRequest {}
 /**
  * @public
  *
  * The output of {@link DisableInstanceSqlHaStandbyDetectionsCommand}.
  */
-export interface DisableInstanceSqlHaStandbyDetectionsCommandOutput
-  extends DisableInstanceSqlHaStandbyDetectionsResult,
-    __MetadataBearer {}
+export interface DisableInstanceSqlHaStandbyDetectionsCommandOutput extends DisableInstanceSqlHaStandbyDetectionsResult, __MetadataBearer {}
 
 /**
  * <p>Disable Amazon EC2 instances running in an SQL Server High Availability cluster from SQL Server High Availability
@@ -100,7 +97,7 @@ export class DisableInstanceSqlHaStandbyDetectionsCommand extends $Command
   })
   .s("AmazonEC2", "DisableInstanceSqlHaStandbyDetections", {})
   .n("EC2Client", "DisableInstanceSqlHaStandbyDetectionsCommand")
-  .sc(DisableInstanceSqlHaStandbyDetections)
+  .sc(DisableInstanceSqlHaStandbyDetections$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

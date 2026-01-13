@@ -15,7 +15,7 @@ import type {
   InvokeModelWithBidirectionalStreamRequest,
   InvokeModelWithBidirectionalStreamResponse,
 } from "../models/models_0";
-import { InvokeModelWithBidirectionalStream } from "../schemas/schemas_0";
+import { InvokeModelWithBidirectionalStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -33,9 +33,7 @@ export interface InvokeModelWithBidirectionalStreamCommandInput extends InvokeMo
  *
  * The output of {@link InvokeModelWithBidirectionalStreamCommand}.
  */
-export interface InvokeModelWithBidirectionalStreamCommandOutput
-  extends InvokeModelWithBidirectionalStreamResponse,
-    __MetadataBearer {}
+export interface InvokeModelWithBidirectionalStreamCommandOutput extends InvokeModelWithBidirectionalStreamResponse, __MetadataBearer {}
 
 /**
  * <p>Invoke the specified Amazon Bedrock model to run inference using the bidirectional stream. The response is returned in a stream that remains open for 8 minutes. A single session can contain multiple prompts and responses from the model. The prompts to the model are provided as audio files and the model's responses are spoken back to the user and transcribed.</p> <p>It is possible for users to interrupt the model's response with a new prompt, which will halt the response speech. The model will retain contextual awareness of the conversation while pivoting to respond to the new prompt.</p>
@@ -146,7 +144,7 @@ export class InvokeModelWithBidirectionalStreamCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEventStreamPlugin(config),
       getWebSocketPlugin(config, {
-        headerPrefix: "x-amz-bedrock-",
+        headerPrefix: 'x-amz-bedrock-',
       }),
     ];
   })
@@ -160,7 +158,7 @@ export class InvokeModelWithBidirectionalStreamCommand extends $Command
     },
   })
   .n("BedrockRuntimeClient", "InvokeModelWithBidirectionalStreamCommand")
-  .sc(InvokeModelWithBidirectionalStream)
+  .sc(InvokeModelWithBidirectionalStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

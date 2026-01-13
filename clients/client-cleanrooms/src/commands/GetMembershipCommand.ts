@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMembershipInput, GetMembershipOutput } from "../models/models_0";
-import { GetMembership } from "../schemas/schemas_0";
+import { GetMembership$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,6 +102,7 @@ export interface GetMembershipCommandOutput extends GetMembershipOutput, __Metad
  * //         isResponsible: true || false, // required
  * //       },
  * //     },
+ * //     isMetricsEnabled: true || false,
  * //   },
  * // };
  *
@@ -148,7 +149,7 @@ export class GetMembershipCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "GetMembership", {})
   .n("CleanRoomsClient", "GetMembershipCommand")
-  .sc(GetMembership)
+  .sc(GetMembership$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

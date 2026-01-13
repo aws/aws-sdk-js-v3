@@ -9,7 +9,7 @@ import type {
   StartAutomatedReasoningPolicyBuildWorkflowRequest,
   StartAutomatedReasoningPolicyBuildWorkflowResponse,
 } from "../models/models_0";
-import { StartAutomatedReasoningPolicyBuildWorkflow } from "../schemas/schemas_0";
+import { StartAutomatedReasoningPolicyBuildWorkflow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link StartAutomatedReasoningPolicyBuildWorkflowCommand}.
  */
-export interface StartAutomatedReasoningPolicyBuildWorkflowCommandInput
-  extends StartAutomatedReasoningPolicyBuildWorkflowRequest {}
+export interface StartAutomatedReasoningPolicyBuildWorkflowCommandInput extends StartAutomatedReasoningPolicyBuildWorkflowRequest {}
 /**
  * @public
  *
  * The output of {@link StartAutomatedReasoningPolicyBuildWorkflowCommand}.
  */
-export interface StartAutomatedReasoningPolicyBuildWorkflowCommandOutput
-  extends StartAutomatedReasoningPolicyBuildWorkflowResponse,
-    __MetadataBearer {}
+export interface StartAutomatedReasoningPolicyBuildWorkflowCommandOutput extends StartAutomatedReasoningPolicyBuildWorkflowResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a new build workflow for an Automated Reasoning policy. This initiates the process of analyzing source documents and generating policy rules, variables, and types.</p>
@@ -229,7 +226,7 @@ export class StartAutomatedReasoningPolicyBuildWorkflowCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "StartAutomatedReasoningPolicyBuildWorkflow", {})
   .n("BedrockClient", "StartAutomatedReasoningPolicyBuildWorkflowCommand")
-  .sc(StartAutomatedReasoningPolicyBuildWorkflow)
+  .sc(StartAutomatedReasoningPolicyBuildWorkflow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

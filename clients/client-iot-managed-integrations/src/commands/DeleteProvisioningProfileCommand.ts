@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { DeleteProvisioningProfileRequest } from "../models/models_0";
-import { DeleteProvisioningProfile } from "../schemas/schemas_0";
+import { DeleteProvisioningProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DeleteProvisioningProfileCommand extends $Command
   })
   .s("IotManagedIntegrations", "DeleteProvisioningProfile", {})
   .n("IoTManagedIntegrationsClient", "DeleteProvisioningProfileCommand")
-  .sc(DeleteProvisioningProfile)
+  .sc(DeleteProvisioningProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

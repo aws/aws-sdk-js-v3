@@ -9,7 +9,7 @@ import type {
   AssociateSigninDelegateGroupsWithAccountRequest,
   AssociateSigninDelegateGroupsWithAccountResponse,
 } from "../models/models_0";
-import { AssociateSigninDelegateGroupsWithAccount } from "../schemas/schemas_0";
+import { AssociateSigninDelegateGroupsWithAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AssociateSigninDelegateGroupsWithAccountCommand}.
  */
-export interface AssociateSigninDelegateGroupsWithAccountCommandInput
-  extends AssociateSigninDelegateGroupsWithAccountRequest {}
+export interface AssociateSigninDelegateGroupsWithAccountCommandInput extends AssociateSigninDelegateGroupsWithAccountRequest {}
 /**
  * @public
  *
  * The output of {@link AssociateSigninDelegateGroupsWithAccountCommand}.
  */
-export interface AssociateSigninDelegateGroupsWithAccountCommandOutput
-  extends AssociateSigninDelegateGroupsWithAccountResponse,
-    __MetadataBearer {}
+export interface AssociateSigninDelegateGroupsWithAccountCommandOutput extends AssociateSigninDelegateGroupsWithAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Associates the specified sign-in delegate groups with the specified Amazon Chime account.</p>
@@ -103,7 +100,7 @@ export class AssociateSigninDelegateGroupsWithAccountCommand extends $Command
   })
   .s("UCBuzzConsoleService", "AssociateSigninDelegateGroupsWithAccount", {})
   .n("ChimeClient", "AssociateSigninDelegateGroupsWithAccountCommand")
-  .sc(AssociateSigninDelegateGroupsWithAccount)
+  .sc(AssociateSigninDelegateGroupsWithAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

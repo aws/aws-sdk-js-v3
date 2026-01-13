@@ -8,7 +8,7 @@ import type {
   DescribeFraudsterRegistrationJobRequest,
   DescribeFraudsterRegistrationJobResponse,
 } from "../models/models_0";
-import { DescribeFraudsterRegistrationJob } from "../schemas/schemas_0";
+import { DescribeFraudsterRegistrationJob$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DescribeFraudsterRegistrationJobCommandInput extends DescribeFr
  *
  * The output of {@link DescribeFraudsterRegistrationJobCommand}.
  */
-export interface DescribeFraudsterRegistrationJobCommandOutput
-  extends DescribeFraudsterRegistrationJobResponse,
-    __MetadataBearer {}
+export interface DescribeFraudsterRegistrationJobCommandOutput extends DescribeFraudsterRegistrationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the specified fraudster registration job.</p>
@@ -129,7 +127,7 @@ export class DescribeFraudsterRegistrationJobCommand extends $Command
   })
   .s("VoiceID", "DescribeFraudsterRegistrationJob", {})
   .n("VoiceIDClient", "DescribeFraudsterRegistrationJobCommand")
-  .sc(DescribeFraudsterRegistrationJob)
+  .sc(DescribeFraudsterRegistrationJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   StartTargetedSentimentDetectionJobRequest,
   StartTargetedSentimentDetectionJobResponse,
 } from "../models/models_0";
-import { StartTargetedSentimentDetectionJob } from "../schemas/schemas_0";
+import { StartTargetedSentimentDetectionJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface StartTargetedSentimentDetectionJobCommandInput extends StartTar
  *
  * The output of {@link StartTargetedSentimentDetectionJobCommand}.
  */
-export interface StartTargetedSentimentDetectionJobCommandOutput
-  extends StartTargetedSentimentDetectionJobResponse,
-    __MetadataBearer {}
+export interface StartTargetedSentimentDetectionJobCommandOutput extends StartTargetedSentimentDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous targeted sentiment detection job for a collection of documents. Use the
@@ -137,7 +135,7 @@ export class StartTargetedSentimentDetectionJobCommand extends $Command
   })
   .s("Comprehend_20171127", "StartTargetedSentimentDetectionJob", {})
   .n("ComprehendClient", "StartTargetedSentimentDetectionJobCommand")
-  .sc(StartTargetedSentimentDetectionJob)
+  .sc(StartTargetedSentimentDetectionJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

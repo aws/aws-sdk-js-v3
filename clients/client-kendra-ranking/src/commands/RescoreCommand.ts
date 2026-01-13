@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KendraRankingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraRankingClient";
 import type { RescoreRequest, RescoreResult } from "../models/models_0";
-import { Rescore } from "../schemas/schemas_0";
+import { Rescore$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class RescoreCommand extends $Command
   })
   .s("AWSKendraRerankingFrontendService", "Rescore", {})
   .n("KendraRankingClient", "RescoreCommand")
-  .sc(Rescore)
+  .sc(Rescore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

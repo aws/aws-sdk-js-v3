@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeLanguageModelRequest, DescribeLanguageModelResponse } from "../models/models_0";
-import { DescribeLanguageModel } from "../schemas/schemas_0";
+import { DescribeLanguageModel$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -111,7 +111,7 @@ export class DescribeLanguageModelCommand extends $Command
   })
   .s("Transcribe", "DescribeLanguageModel", {})
   .n("TranscribeClient", "DescribeLanguageModelCommand")
-  .sc(DescribeLanguageModel)
+  .sc(DescribeLanguageModel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

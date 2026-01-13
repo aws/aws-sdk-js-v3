@@ -6,7 +6,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type GetSolNetworkPackageContentInput, GetSolNetworkPackageContentOutput } from "../models/models_0";
-import { GetSolNetworkPackageContent } from "../schemas/schemas_0";
+import { GetSolNetworkPackageContent$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -32,9 +32,7 @@ export type GetSolNetworkPackageContentCommandOutputType = Omit<GetSolNetworkPac
  *
  * The output of {@link GetSolNetworkPackageContentCommand}.
  */
-export interface GetSolNetworkPackageContentCommandOutput
-  extends GetSolNetworkPackageContentCommandOutputType,
-    __MetadataBearer {}
+export interface GetSolNetworkPackageContentCommandOutput extends GetSolNetworkPackageContentCommandOutputType, __MetadataBearer {}
 
 /**
  * <p>Gets the contents of a network package.</p>
@@ -119,7 +117,7 @@ export class GetSolNetworkPackageContentCommand extends $Command
   })
   .s("TNB", "GetSolNetworkPackageContent", {})
   .n("TnbClient", "GetSolNetworkPackageContentCommand")
-  .sc(GetSolNetworkPackageContent)
+  .sc(GetSolNetworkPackageContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ProvisionByoipCidrRequest, ProvisionByoipCidrResult } from "../models/models_7";
-import { ProvisionByoipCidr } from "../schemas/schemas_0";
+import { ProvisionByoipCidr$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class ProvisionByoipCidrCommand extends $Command
   })
   .s("AmazonEC2", "ProvisionByoipCidr", {})
   .n("EC2Client", "ProvisionByoipCidrCommand")
-  .sc(ProvisionByoipCidr)
+  .sc(ProvisionByoipCidr$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -11,10 +11,8 @@ triggers actions when such events occur. You can use AWS IoT Events API operatio
 update, and delete inputs and detector models, and to list their versions.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-iot-events
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-iot-events`
 - `yarn add @aws-sdk/client-iot-events`
 - `pnpm add @aws-sdk/client-iot-events`
@@ -50,9 +48,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new IoTEventsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListInputsCommand(params);
 ```
 
@@ -211,7 +207,6 @@ CreateAlarmModel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/CreateAlarmModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/CreateAlarmModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/CreateAlarmModelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -219,7 +214,6 @@ CreateDetectorModel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/CreateDetectorModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/CreateDetectorModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/CreateDetectorModelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -227,7 +221,6 @@ CreateInput
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/CreateInputCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/CreateInputCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/CreateInputCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -235,7 +228,6 @@ DeleteAlarmModel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/DeleteAlarmModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/DeleteAlarmModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/DeleteAlarmModelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -243,7 +235,6 @@ DeleteDetectorModel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/DeleteDetectorModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/DeleteDetectorModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/DeleteDetectorModelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -251,7 +242,6 @@ DeleteInput
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/DeleteInputCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/DeleteInputCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/DeleteInputCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -259,7 +249,6 @@ DescribeAlarmModel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/DescribeAlarmModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/DescribeAlarmModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/DescribeAlarmModelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -267,7 +256,6 @@ DescribeDetectorModel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/DescribeDetectorModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/DescribeDetectorModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/DescribeDetectorModelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -275,7 +263,6 @@ DescribeDetectorModelAnalysis
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/DescribeDetectorModelAnalysisCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/DescribeDetectorModelAnalysisCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/DescribeDetectorModelAnalysisCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -283,7 +270,6 @@ DescribeInput
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/DescribeInputCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/DescribeInputCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/DescribeInputCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -291,7 +277,6 @@ DescribeLoggingOptions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/DescribeLoggingOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/DescribeLoggingOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/DescribeLoggingOptionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -299,7 +284,6 @@ GetDetectorModelAnalysisResults
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/GetDetectorModelAnalysisResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/GetDetectorModelAnalysisResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/GetDetectorModelAnalysisResultsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -307,7 +291,6 @@ ListAlarmModels
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/ListAlarmModelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/ListAlarmModelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/ListAlarmModelsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -315,7 +298,6 @@ ListAlarmModelVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/ListAlarmModelVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/ListAlarmModelVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/ListAlarmModelVersionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -323,7 +305,6 @@ ListDetectorModels
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/ListDetectorModelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/ListDetectorModelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/ListDetectorModelsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -331,7 +312,6 @@ ListDetectorModelVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/ListDetectorModelVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/ListDetectorModelVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/ListDetectorModelVersionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -339,7 +319,6 @@ ListInputRoutings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/ListInputRoutingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/ListInputRoutingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/ListInputRoutingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -347,7 +326,6 @@ ListInputs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/ListInputsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/ListInputsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/ListInputsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -355,7 +333,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -363,7 +340,6 @@ PutLoggingOptions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/PutLoggingOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/PutLoggingOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/PutLoggingOptionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -371,7 +347,6 @@ StartDetectorModelAnalysis
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/StartDetectorModelAnalysisCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/StartDetectorModelAnalysisCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/StartDetectorModelAnalysisCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -379,7 +354,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -387,7 +361,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -395,7 +368,6 @@ UpdateAlarmModel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/UpdateAlarmModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/UpdateAlarmModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/UpdateAlarmModelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -403,7 +375,6 @@ UpdateDetectorModel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/UpdateDetectorModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/UpdateDetectorModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/UpdateDetectorModelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -411,5 +382,4 @@ UpdateInput
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events/command/UpdateInputCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/UpdateInputCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events/Interface/UpdateInputCommandOutput/)
-
 </details>

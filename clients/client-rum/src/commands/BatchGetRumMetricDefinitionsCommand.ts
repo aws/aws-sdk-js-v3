@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchGetRumMetricDefinitionsRequest, BatchGetRumMetricDefinitionsResponse } from "../models/models_0";
 import type { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
-import { BatchGetRumMetricDefinitions } from "../schemas/schemas_0";
+import { BatchGetRumMetricDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface BatchGetRumMetricDefinitionsCommandInput extends BatchGetRumMet
  *
  * The output of {@link BatchGetRumMetricDefinitionsCommand}.
  */
-export interface BatchGetRumMetricDefinitionsCommandOutput
-  extends BatchGetRumMetricDefinitionsResponse,
-    __MetadataBearer {}
+export interface BatchGetRumMetricDefinitionsCommandOutput extends BatchGetRumMetricDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the list of metrics and dimensions that a RUM app monitor is sending to a single destination.</p>
@@ -104,7 +102,7 @@ export class BatchGetRumMetricDefinitionsCommand extends $Command
   })
   .s("RUM", "BatchGetRumMetricDefinitions", {})
   .n("RUMClient", "BatchGetRumMetricDefinitionsCommand")
-  .sc(BatchGetRumMetricDefinitions)
+  .sc(BatchGetRumMetricDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

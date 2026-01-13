@@ -5065,11 +5065,7 @@ export interface UpdatePackageGroupOriginConfigurationResult {
    * <p>Information about the updated allowed repositories after processing the request.</p>
    * @public
    */
-  allowedRepositoryUpdates?:
-    | Partial<
-        Record<PackageGroupOriginRestrictionType, Partial<Record<PackageGroupAllowedRepositoryUpdateType, string[]>>>
-      >
-    | undefined;
+  allowedRepositoryUpdates?: Partial<Record<PackageGroupOriginRestrictionType, Partial<Record<PackageGroupAllowedRepositoryUpdateType, string[]>>>> | undefined;
 }
 
 /**

@@ -9,7 +9,7 @@ import type {
   DescribeRemediationConfigurationsRequest,
   DescribeRemediationConfigurationsResponse,
 } from "../models/models_0";
-import { DescribeRemediationConfigurations } from "../schemas/schemas_0";
+import { DescribeRemediationConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeRemediationConfigurationsCommandInput extends DescribeR
  *
  * The output of {@link DescribeRemediationConfigurationsCommand}.
  */
-export interface DescribeRemediationConfigurationsCommandOutput
-  extends DescribeRemediationConfigurationsResponse,
-    __MetadataBearer {}
+export interface DescribeRemediationConfigurationsCommandOutput extends DescribeRemediationConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the details of one or more remediation configurations.</p>
@@ -111,7 +109,7 @@ export class DescribeRemediationConfigurationsCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeRemediationConfigurations", {})
   .n("ConfigServiceClient", "DescribeRemediationConfigurationsCommand")
-  .sc(DescribeRemediationConfigurations)
+  .sc(DescribeRemediationConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   SetIdentityFeedbackForwardingEnabledRequest,
   SetIdentityFeedbackForwardingEnabledResponse,
 } from "../models/models_0";
-import { SetIdentityFeedbackForwardingEnabled } from "../schemas/schemas_0";
+import { SetIdentityFeedbackForwardingEnabled$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -27,9 +27,7 @@ export interface SetIdentityFeedbackForwardingEnabledCommandInput extends SetIde
  *
  * The output of {@link SetIdentityFeedbackForwardingEnabledCommand}.
  */
-export interface SetIdentityFeedbackForwardingEnabledCommandOutput
-  extends SetIdentityFeedbackForwardingEnabledResponse,
-    __MetadataBearer {}
+export interface SetIdentityFeedbackForwardingEnabledCommandOutput extends SetIdentityFeedbackForwardingEnabledResponse, __MetadataBearer {}
 
 /**
  * <p>Given an identity (an email address or a domain), enables or disables whether Amazon SES
@@ -101,7 +99,7 @@ export class SetIdentityFeedbackForwardingEnabledCommand extends $Command
   })
   .s("SimpleEmailService", "SetIdentityFeedbackForwardingEnabled", {})
   .n("SESClient", "SetIdentityFeedbackForwardingEnabledCommand")
-  .sc(SetIdentityFeedbackForwardingEnabled)
+  .sc(SetIdentityFeedbackForwardingEnabled$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

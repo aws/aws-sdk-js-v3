@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateControlRequest, UpdateControlResponse } from "../models/models_0";
-import { UpdateControl } from "../schemas/schemas_0";
+import { UpdateControl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class UpdateControlCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "UpdateControl", {})
   .n("AuditManagerClient", "UpdateControlCommand")
-  .sc(UpdateControl)
+  .sc(UpdateControl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

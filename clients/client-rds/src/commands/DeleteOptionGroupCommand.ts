@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteOptionGroupMessage } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DeleteOptionGroup } from "../schemas/schemas_0";
+import { DeleteOptionGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteOptionGroupCommand extends $Command
   })
   .s("AmazonRDSv19", "DeleteOptionGroup", {})
   .n("RDSClient", "DeleteOptionGroupCommand")
-  .sc(DeleteOptionGroup)
+  .sc(DeleteOptionGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

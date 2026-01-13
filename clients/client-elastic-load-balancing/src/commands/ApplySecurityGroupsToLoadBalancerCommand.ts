@@ -13,7 +13,7 @@ import type {
   ApplySecurityGroupsToLoadBalancerInput,
   ApplySecurityGroupsToLoadBalancerOutput,
 } from "../models/models_0";
-import { ApplySecurityGroupsToLoadBalancer } from "../schemas/schemas_0";
+import { ApplySecurityGroupsToLoadBalancer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ApplySecurityGroupsToLoadBalancerCommandInput extends ApplySecu
  *
  * The output of {@link ApplySecurityGroupsToLoadBalancerCommand}.
  */
-export interface ApplySecurityGroupsToLoadBalancerCommandOutput
-  extends ApplySecurityGroupsToLoadBalancerOutput,
-    __MetadataBearer {}
+export interface ApplySecurityGroupsToLoadBalancerCommandOutput extends ApplySecurityGroupsToLoadBalancerOutput, __MetadataBearer {}
 
 /**
  * <p>Associates one or more security groups with your load balancer in a virtual private cloud (VPC). The specified security groups override the previously associated security groups.</p>
@@ -118,7 +116,7 @@ export class ApplySecurityGroupsToLoadBalancerCommand extends $Command
   })
   .s("ElasticLoadBalancing_v7", "ApplySecurityGroupsToLoadBalancer", {})
   .n("ElasticLoadBalancingClient", "ApplySecurityGroupsToLoadBalancerCommand")
-  .sc(ApplySecurityGroupsToLoadBalancer)
+  .sc(ApplySecurityGroupsToLoadBalancer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

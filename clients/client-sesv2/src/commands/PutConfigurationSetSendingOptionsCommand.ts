@@ -8,7 +8,7 @@ import type {
   PutConfigurationSetSendingOptionsRequest,
   PutConfigurationSetSendingOptionsResponse,
 } from "../models/models_0";
-import { PutConfigurationSetSendingOptions } from "../schemas/schemas_0";
+import { PutConfigurationSetSendingOptions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -27,9 +27,7 @@ export interface PutConfigurationSetSendingOptionsCommandInput extends PutConfig
  *
  * The output of {@link PutConfigurationSetSendingOptionsCommand}.
  */
-export interface PutConfigurationSetSendingOptionsCommandOutput
-  extends PutConfigurationSetSendingOptionsResponse,
-    __MetadataBearer {}
+export interface PutConfigurationSetSendingOptionsCommandOutput extends PutConfigurationSetSendingOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Enable or disable email sending for messages that use a particular configuration set
@@ -87,7 +85,7 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutConfigurationSetSendingOptions", {})
   .n("SESv2Client", "PutConfigurationSetSendingOptionsCommand")
-  .sc(PutConfigurationSetSendingOptions)
+  .sc(PutConfigurationSetSendingOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { DescribeVpcEndpointAssociation } from "../schemas/schemas_0";
+import { DescribeVpcEndpointAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeVpcEndpointAssociationCommandInput extends DescribeVpcE
  *
  * The output of {@link DescribeVpcEndpointAssociationCommand}.
  */
-export interface DescribeVpcEndpointAssociationCommandOutput
-  extends DescribeVpcEndpointAssociationResponse,
-    __MetadataBearer {}
+export interface DescribeVpcEndpointAssociationCommandOutput extends DescribeVpcEndpointAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the data object for the specified VPC endpoint association. </p>
@@ -134,7 +132,7 @@ export class DescribeVpcEndpointAssociationCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "DescribeVpcEndpointAssociation", {})
   .n("NetworkFirewallClient", "DescribeVpcEndpointAssociationCommand")
-  .sc(DescribeVpcEndpointAssociation)
+  .sc(DescribeVpcEndpointAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

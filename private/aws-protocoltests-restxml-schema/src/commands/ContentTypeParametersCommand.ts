@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { ContentTypeParameters } from "../schemas/schemas_0";
+import { ContentTypeParameters$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -76,7 +76,7 @@ export class ContentTypeParametersCommand extends $Command
   })
   .s("RestXml", "ContentTypeParameters", {})
   .n("RestXmlProtocolClient", "ContentTypeParametersCommand")
-  .sc(ContentTypeParameters)
+  .sc(ContentTypeParameters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

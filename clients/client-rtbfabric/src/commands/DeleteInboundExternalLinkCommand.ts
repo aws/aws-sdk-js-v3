@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteInboundExternalLinkRequest, DeleteInboundExternalLinkResponse } from "../models/models_0";
 import type { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
-import { DeleteInboundExternalLink } from "../schemas/schemas_0";
+import { DeleteInboundExternalLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DeleteInboundExternalLinkCommand extends $Command
   })
   .s("RTBFabric", "DeleteInboundExternalLink", {})
   .n("RTBFabricClient", "DeleteInboundExternalLinkCommand")
-  .sc(DeleteInboundExternalLink)
+  .sc(DeleteInboundExternalLink$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

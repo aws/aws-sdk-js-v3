@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegisterPackageVersionRequest, RegisterPackageVersionResponse } from "../models/models_0";
 import type { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import { RegisterPackageVersion } from "../schemas/schemas_0";
+import { RegisterPackageVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class RegisterPackageVersionCommand extends $Command
   })
   .s("OmniCloudServiceLambda", "RegisterPackageVersion", {})
   .n("PanoramaClient", "RegisterPackageVersionCommand")
-  .sc(RegisterPackageVersion)
+  .sc(RegisterPackageVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

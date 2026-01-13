@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { DeleteUserDefinedFunctionRequest, DeleteUserDefinedFunctionResponse } from "../models/models_1";
-import { DeleteUserDefinedFunction } from "../schemas/schemas_0";
+import { DeleteUserDefinedFunction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DeleteUserDefinedFunctionCommand extends $Command
   })
   .s("AWSGlue", "DeleteUserDefinedFunction", {})
   .n("GlueClient", "DeleteUserDefinedFunctionCommand")
-  .sc(DeleteUserDefinedFunction)
+  .sc(DeleteUserDefinedFunction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

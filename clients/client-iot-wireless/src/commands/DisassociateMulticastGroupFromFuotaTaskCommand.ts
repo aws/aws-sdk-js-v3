@@ -9,7 +9,7 @@ import type {
   DisassociateMulticastGroupFromFuotaTaskRequest,
   DisassociateMulticastGroupFromFuotaTaskResponse,
 } from "../models/models_0";
-import { DisassociateMulticastGroupFromFuotaTask } from "../schemas/schemas_0";
+import { DisassociateMulticastGroupFromFuotaTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateMulticastGroupFromFuotaTaskCommand}.
  */
-export interface DisassociateMulticastGroupFromFuotaTaskCommandInput
-  extends DisassociateMulticastGroupFromFuotaTaskRequest {}
+export interface DisassociateMulticastGroupFromFuotaTaskCommandInput extends DisassociateMulticastGroupFromFuotaTaskRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateMulticastGroupFromFuotaTaskCommand}.
  */
-export interface DisassociateMulticastGroupFromFuotaTaskCommandOutput
-  extends DisassociateMulticastGroupFromFuotaTaskResponse,
-    __MetadataBearer {}
+export interface DisassociateMulticastGroupFromFuotaTaskCommandOutput extends DisassociateMulticastGroupFromFuotaTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a multicast group from a FUOTA task.</p>
@@ -93,7 +90,7 @@ export class DisassociateMulticastGroupFromFuotaTaskCommand extends $Command
   })
   .s("iotwireless", "DisassociateMulticastGroupFromFuotaTask", {})
   .n("IoTWirelessClient", "DisassociateMulticastGroupFromFuotaTaskCommand")
-  .sc(DisassociateMulticastGroupFromFuotaTask)
+  .sc(DisassociateMulticastGroupFromFuotaTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

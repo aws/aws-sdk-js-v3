@@ -13,10 +13,8 @@ create in your Amazon Web Services account. For more information, see the <a hre
 per domain</code> for Amazon OpenSearch Service.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-service-quotas
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-service-quotas`
 - `yarn add @aws-sdk/client-service-quotas`
 - `pnpm add @aws-sdk/client-service-quotas`
@@ -52,9 +50,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new ServiceQuotasClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListServicesCommand(params);
 ```
 
@@ -213,7 +209,6 @@ AssociateServiceQuotaTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/AssociateServiceQuotaTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/AssociateServiceQuotaTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/AssociateServiceQuotaTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -221,7 +216,6 @@ CreateSupportCase
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/CreateSupportCaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/CreateSupportCaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/CreateSupportCaseCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -229,7 +223,6 @@ DeleteServiceQuotaIncreaseRequestFromTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/DeleteServiceQuotaIncreaseRequestFromTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -237,7 +230,6 @@ DisassociateServiceQuotaTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/DisassociateServiceQuotaTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/DisassociateServiceQuotaTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/DisassociateServiceQuotaTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -245,7 +237,6 @@ GetAssociationForServiceQuotaTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/GetAssociationForServiceQuotaTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/GetAssociationForServiceQuotaTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/GetAssociationForServiceQuotaTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -253,7 +244,6 @@ GetAutoManagementConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/GetAutoManagementConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/GetAutoManagementConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/GetAutoManagementConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -261,7 +251,6 @@ GetAWSDefaultServiceQuota
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/GetAWSDefaultServiceQuotaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/GetAWSDefaultServiceQuotaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/GetAWSDefaultServiceQuotaCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -269,7 +258,6 @@ GetQuotaUtilizationReport
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/GetQuotaUtilizationReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/GetQuotaUtilizationReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/GetQuotaUtilizationReportCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -277,7 +265,6 @@ GetRequestedServiceQuotaChange
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/GetRequestedServiceQuotaChangeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/GetRequestedServiceQuotaChangeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/GetRequestedServiceQuotaChangeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -285,7 +272,6 @@ GetServiceQuota
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/GetServiceQuotaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/GetServiceQuotaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/GetServiceQuotaCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -293,7 +279,6 @@ GetServiceQuotaIncreaseRequestFromTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/GetServiceQuotaIncreaseRequestFromTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/GetServiceQuotaIncreaseRequestFromTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/GetServiceQuotaIncreaseRequestFromTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -301,7 +286,6 @@ ListAWSDefaultServiceQuotas
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/ListAWSDefaultServiceQuotasCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/ListAWSDefaultServiceQuotasCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/ListAWSDefaultServiceQuotasCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -309,7 +293,6 @@ ListRequestedServiceQuotaChangeHistory
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/ListRequestedServiceQuotaChangeHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/ListRequestedServiceQuotaChangeHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/ListRequestedServiceQuotaChangeHistoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -317,7 +300,6 @@ ListRequestedServiceQuotaChangeHistoryByQuota
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/ListRequestedServiceQuotaChangeHistoryByQuotaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -325,7 +307,6 @@ ListServiceQuotaIncreaseRequestsInTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/ListServiceQuotaIncreaseRequestsInTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/ListServiceQuotaIncreaseRequestsInTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/ListServiceQuotaIncreaseRequestsInTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -333,7 +314,6 @@ ListServiceQuotas
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/ListServiceQuotasCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/ListServiceQuotasCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/ListServiceQuotasCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -341,7 +321,6 @@ ListServices
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/ListServicesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/ListServicesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/ListServicesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -349,7 +328,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -357,7 +335,6 @@ PutServiceQuotaIncreaseRequestIntoTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/PutServiceQuotaIncreaseRequestIntoTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/PutServiceQuotaIncreaseRequestIntoTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -365,7 +342,6 @@ RequestServiceQuotaIncrease
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/RequestServiceQuotaIncreaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/RequestServiceQuotaIncreaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/RequestServiceQuotaIncreaseCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -373,7 +349,6 @@ StartAutoManagement
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/StartAutoManagementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/StartAutoManagementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/StartAutoManagementCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -381,7 +356,6 @@ StartQuotaUtilizationReport
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/StartQuotaUtilizationReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/StartQuotaUtilizationReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/StartQuotaUtilizationReportCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -389,7 +363,6 @@ StopAutoManagement
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/StopAutoManagementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/StopAutoManagementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/StopAutoManagementCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -397,7 +370,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -405,7 +377,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -413,5 +384,4 @@ UpdateAutoManagement
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/UpdateAutoManagementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/UpdateAutoManagementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/UpdateAutoManagementCommandOutput/)
-
 </details>

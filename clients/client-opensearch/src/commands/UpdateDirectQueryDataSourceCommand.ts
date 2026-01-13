@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDirectQueryDataSourceRequest, UpdateDirectQueryDataSourceResponse } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { UpdateDirectQueryDataSource } from "../schemas/schemas_0";
+import { UpdateDirectQueryDataSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateDirectQueryDataSourceCommandInput extends UpdateDirectQue
  *
  * The output of {@link UpdateDirectQueryDataSourceCommand}.
  */
-export interface UpdateDirectQueryDataSourceCommandOutput
-  extends UpdateDirectQueryDataSourceResponse,
-    __MetadataBearer {}
+export interface UpdateDirectQueryDataSourceCommandOutput extends UpdateDirectQueryDataSourceResponse, __MetadataBearer {}
 
 /**
  * <p> Updates the configuration or properties of an existing direct query data source in
@@ -103,7 +101,7 @@ export class UpdateDirectQueryDataSourceCommand extends $Command
   })
   .s("AmazonOpenSearchService", "UpdateDirectQueryDataSource", {})
   .n("OpenSearchClient", "UpdateDirectQueryDataSourceCommand")
-  .sc(UpdateDirectQueryDataSource)
+  .sc(UpdateDirectQueryDataSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

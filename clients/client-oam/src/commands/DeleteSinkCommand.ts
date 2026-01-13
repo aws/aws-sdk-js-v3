@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSinkInput, DeleteSinkOutput } from "../models/models_0";
 import type { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import { DeleteSink } from "../schemas/schemas_0";
+import { DeleteSink$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class DeleteSinkCommand extends $Command
   })
   .s("oamservice", "DeleteSink", {})
   .n("OAMClient", "DeleteSinkCommand")
-  .sc(DeleteSink)
+  .sc(DeleteSink$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

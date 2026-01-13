@@ -9,7 +9,7 @@ import type {
   DescribeTransitGatewayMulticastDomainsRequest,
   DescribeTransitGatewayMulticastDomainsResult,
 } from "../models/models_4";
-import { DescribeTransitGatewayMulticastDomains } from "../schemas/schemas_0";
+import { DescribeTransitGatewayMulticastDomains$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeTransitGatewayMulticastDomainsCommand}.
  */
-export interface DescribeTransitGatewayMulticastDomainsCommandInput
-  extends DescribeTransitGatewayMulticastDomainsRequest {}
+export interface DescribeTransitGatewayMulticastDomainsCommandInput extends DescribeTransitGatewayMulticastDomainsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeTransitGatewayMulticastDomainsCommand}.
  */
-export interface DescribeTransitGatewayMulticastDomainsCommandOutput
-  extends DescribeTransitGatewayMulticastDomainsResult,
-    __MetadataBearer {}
+export interface DescribeTransitGatewayMulticastDomainsCommandOutput extends DescribeTransitGatewayMulticastDomainsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more transit gateway multicast domains.</p>
@@ -113,7 +110,7 @@ export class DescribeTransitGatewayMulticastDomainsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeTransitGatewayMulticastDomains", {})
   .n("EC2Client", "DescribeTransitGatewayMulticastDomainsCommand")
-  .sc(DescribeTransitGatewayMulticastDomains)
+  .sc(DescribeTransitGatewayMulticastDomains$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

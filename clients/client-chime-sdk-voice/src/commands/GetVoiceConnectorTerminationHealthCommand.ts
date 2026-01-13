@@ -9,7 +9,7 @@ import type {
   GetVoiceConnectorTerminationHealthRequest,
   GetVoiceConnectorTerminationHealthResponse,
 } from "../models/models_0";
-import { GetVoiceConnectorTerminationHealth } from "../schemas/schemas_0";
+import { GetVoiceConnectorTerminationHealth$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetVoiceConnectorTerminationHealthCommandInput extends GetVoice
  *
  * The output of {@link GetVoiceConnectorTerminationHealthCommand}.
  */
-export interface GetVoiceConnectorTerminationHealthCommandOutput
-  extends GetVoiceConnectorTerminationHealthResponse,
-    __MetadataBearer {}
+export interface GetVoiceConnectorTerminationHealthCommandOutput extends GetVoiceConnectorTerminationHealthResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the last time a <code>SIP OPTIONS</code> ping
@@ -104,7 +102,7 @@ export class GetVoiceConnectorTerminationHealthCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "GetVoiceConnectorTerminationHealth", {})
   .n("ChimeSDKVoiceClient", "GetVoiceConnectorTerminationHealthCommand")
-  .sc(GetVoiceConnectorTerminationHealth)
+  .sc(GetVoiceConnectorTerminationHealth$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

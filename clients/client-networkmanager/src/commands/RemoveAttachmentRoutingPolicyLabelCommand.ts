@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { RemoveAttachmentRoutingPolicyLabel } from "../schemas/schemas_0";
+import { RemoveAttachmentRoutingPolicyLabel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface RemoveAttachmentRoutingPolicyLabelCommandInput extends RemoveAt
  *
  * The output of {@link RemoveAttachmentRoutingPolicyLabelCommand}.
  */
-export interface RemoveAttachmentRoutingPolicyLabelCommandOutput
-  extends RemoveAttachmentRoutingPolicyLabelResponse,
-    __MetadataBearer {}
+export interface RemoveAttachmentRoutingPolicyLabelCommandOutput extends RemoveAttachmentRoutingPolicyLabelResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a routing policy label from an attachment.</p>
@@ -107,7 +105,7 @@ export class RemoveAttachmentRoutingPolicyLabelCommand extends $Command
   })
   .s("NetworkManager", "RemoveAttachmentRoutingPolicyLabel", {})
   .n("NetworkManagerClient", "RemoveAttachmentRoutingPolicyLabelCommand")
-  .sc(RemoveAttachmentRoutingPolicyLabel)
+  .sc(RemoveAttachmentRoutingPolicyLabel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

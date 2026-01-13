@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCostCategoryDefinitionRequest, DeleteCostCategoryDefinitionResponse } from "../models/models_0";
-import { DeleteCostCategoryDefinition } from "../schemas/schemas_0";
+import { DeleteCostCategoryDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteCostCategoryDefinitionCommandInput extends DeleteCostCate
  *
  * The output of {@link DeleteCostCategoryDefinitionCommand}.
  */
-export interface DeleteCostCategoryDefinitionCommandOutput
-  extends DeleteCostCategoryDefinitionResponse,
-    __MetadataBearer {}
+export interface DeleteCostCategoryDefinitionCommandOutput extends DeleteCostCategoryDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a cost category. Expenses from this month going forward will no longer be
@@ -83,7 +81,7 @@ export class DeleteCostCategoryDefinitionCommand extends $Command
   })
   .s("AWSInsightsIndexService", "DeleteCostCategoryDefinition", {})
   .n("CostExplorerClient", "DeleteCostCategoryDefinitionCommand")
-  .sc(DeleteCostCategoryDefinition)
+  .sc(DeleteCostCategoryDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

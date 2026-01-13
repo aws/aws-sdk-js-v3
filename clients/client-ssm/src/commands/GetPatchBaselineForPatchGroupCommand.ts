@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPatchBaselineForPatchGroupRequest, GetPatchBaselineForPatchGroupResult } from "../models/models_0";
-import { GetPatchBaselineForPatchGroup } from "../schemas/schemas_0";
+import { GetPatchBaselineForPatchGroup$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -24,9 +24,7 @@ export interface GetPatchBaselineForPatchGroupCommandInput extends GetPatchBasel
  *
  * The output of {@link GetPatchBaselineForPatchGroupCommand}.
  */
-export interface GetPatchBaselineForPatchGroupCommandOutput
-  extends GetPatchBaselineForPatchGroupResult,
-    __MetadataBearer {}
+export interface GetPatchBaselineForPatchGroupCommandOutput extends GetPatchBaselineForPatchGroupResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the patch baseline that should be used for the specified patch group.</p>
@@ -81,7 +79,7 @@ export class GetPatchBaselineForPatchGroupCommand extends $Command
   })
   .s("AmazonSSM", "GetPatchBaselineForPatchGroup", {})
   .n("SSMClient", "GetPatchBaselineForPatchGroupCommand")
-  .sc(GetPatchBaselineForPatchGroup)
+  .sc(GetPatchBaselineForPatchGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

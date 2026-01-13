@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LicenseManagerClient";
 import type { ListAssetsForLicenseAssetGroupRequest, ListAssetsForLicenseAssetGroupResponse } from "../models/models_0";
-import { ListAssetsForLicenseAssetGroup } from "../schemas/schemas_0";
+import { ListAssetsForLicenseAssetGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListAssetsForLicenseAssetGroupCommandInput extends ListAssetsFo
  *
  * The output of {@link ListAssetsForLicenseAssetGroupCommand}.
  */
-export interface ListAssetsForLicenseAssetGroupCommandOutput
-  extends ListAssetsForLicenseAssetGroupResponse,
-    __MetadataBearer {}
+export interface ListAssetsForLicenseAssetGroupCommandOutput extends ListAssetsForLicenseAssetGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Lists assets for a license asset group.</p>
@@ -107,7 +105,7 @@ export class ListAssetsForLicenseAssetGroupCommand extends $Command
   })
   .s("AWSLicenseManager", "ListAssetsForLicenseAssetGroup", {})
   .n("LicenseManagerClient", "ListAssetsForLicenseAssetGroupCommand")
-  .sc(ListAssetsForLicenseAssetGroup)
+  .sc(ListAssetsForLicenseAssetGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

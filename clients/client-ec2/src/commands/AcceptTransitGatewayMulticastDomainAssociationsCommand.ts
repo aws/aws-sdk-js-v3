@@ -9,7 +9,7 @@ import type {
   AcceptTransitGatewayMulticastDomainAssociationsRequest,
   AcceptTransitGatewayMulticastDomainAssociationsResult,
 } from "../models/models_0";
-import { AcceptTransitGatewayMulticastDomainAssociations } from "../schemas/schemas_0";
+import { AcceptTransitGatewayMulticastDomainAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AcceptTransitGatewayMulticastDomainAssociationsCommand}.
  */
-export interface AcceptTransitGatewayMulticastDomainAssociationsCommandInput
-  extends AcceptTransitGatewayMulticastDomainAssociationsRequest {}
+export interface AcceptTransitGatewayMulticastDomainAssociationsCommandInput extends AcceptTransitGatewayMulticastDomainAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link AcceptTransitGatewayMulticastDomainAssociationsCommand}.
  */
-export interface AcceptTransitGatewayMulticastDomainAssociationsCommandOutput
-  extends AcceptTransitGatewayMulticastDomainAssociationsResult,
-    __MetadataBearer {}
+export interface AcceptTransitGatewayMulticastDomainAssociationsCommandOutput extends AcceptTransitGatewayMulticastDomainAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Accepts a request to associate subnets with a transit gateway multicast domain.</p>
@@ -96,7 +93,7 @@ export class AcceptTransitGatewayMulticastDomainAssociationsCommand extends $Com
   })
   .s("AmazonEC2", "AcceptTransitGatewayMulticastDomainAssociations", {})
   .n("EC2Client", "AcceptTransitGatewayMulticastDomainAssociationsCommand")
-  .sc(AcceptTransitGatewayMulticastDomainAssociations)
+  .sc(AcceptTransitGatewayMulticastDomainAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

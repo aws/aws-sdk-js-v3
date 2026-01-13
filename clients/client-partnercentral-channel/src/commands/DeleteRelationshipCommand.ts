@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralChannelClient";
-import { DeleteRelationship } from "../schemas/schemas_0";
+import { DeleteRelationship$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class DeleteRelationshipCommand extends $Command
   })
   .s("PartnerCentralChannel", "DeleteRelationship", {})
   .n("PartnerCentralChannelClient", "DeleteRelationshipCommand")
-  .sc(DeleteRelationship)
+  .sc(DeleteRelationship$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateOpsItemRelatedItemRequest, DisassociateOpsItemRelatedItemResponse } from "../models/models_0";
-import { DisassociateOpsItemRelatedItem } from "../schemas/schemas_0";
+import { DisassociateOpsItemRelatedItem$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DisassociateOpsItemRelatedItemCommandInput extends Disassociate
  *
  * The output of {@link DisassociateOpsItemRelatedItemCommand}.
  */
-export interface DisassociateOpsItemRelatedItemCommandOutput
-  extends DisassociateOpsItemRelatedItemResponse,
-    __MetadataBearer {}
+export interface DisassociateOpsItemRelatedItemCommandOutput extends DisassociateOpsItemRelatedItemResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the association between an OpsItem and a related item. For example, this API
@@ -93,7 +91,7 @@ export class DisassociateOpsItemRelatedItemCommand extends $Command
   })
   .s("AmazonSSM", "DisassociateOpsItemRelatedItem", {})
   .n("SSMClient", "DisassociateOpsItemRelatedItemCommand")
-  .sc(DisassociateOpsItemRelatedItem)
+  .sc(DisassociateOpsItemRelatedItem$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

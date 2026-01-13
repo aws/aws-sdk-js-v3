@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { DeleteRegistryInput, DeleteRegistryResponse } from "../models/models_1";
-import { DeleteRegistry } from "../schemas/schemas_0";
+import { DeleteRegistry$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteRegistryCommand extends $Command
   })
   .s("AWSGlue", "DeleteRegistry", {})
   .n("GlueClient", "DeleteRegistryCommand")
-  .sc(DeleteRegistry)
+  .sc(DeleteRegistry$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

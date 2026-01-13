@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchUpdateMemoryRecordsInput, BatchUpdateMemoryRecordsOutput } from "../models/models_0";
-import { BatchUpdateMemoryRecords } from "../schemas/schemas_0";
+import { BatchUpdateMemoryRecords$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class BatchUpdateMemoryRecordsCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "BatchUpdateMemoryRecords", {})
   .n("BedrockAgentCoreClient", "BatchUpdateMemoryRecordsCommand")
-  .sc(BatchUpdateMemoryRecords)
+  .sc(BatchUpdateMemoryRecords$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

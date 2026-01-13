@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListDataTableAttributesRequest, ListDataTableAttributesResponse } from "../models/models_2";
-import { ListDataTableAttributes } from "../schemas/schemas_0";
+import { ListDataTableAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,7 +28,7 @@ export interface ListDataTableAttributesCommandOutput extends ListDataTableAttri
 
 /**
  * <p>Returns all attributes for a specified data table. A maximum of 100 attributes per data table is allowed.
- *    Customers can request an increase by using AWS Service Quotas. The response can be filtered by specific attribute IDs
+ *    Customers can request an increase by using Amazon Web Services Service Quotas. The response can be filtered by specific attribute IDs
  *    for CloudFormation integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -137,7 +137,7 @@ export class ListDataTableAttributesCommand extends $Command
   })
   .s("AmazonConnectService", "ListDataTableAttributes", {})
   .n("ConnectClient", "ListDataTableAttributesCommand")
-  .sc(ListDataTableAttributes)
+  .sc(ListDataTableAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import type { StartTestRequest, StartTestResponse } from "../models/models_0";
-import { StartTest } from "../schemas/schemas_0";
+import { StartTest$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,7 +136,7 @@ export class StartTestCommand extends $Command
   })
   .s("ApplicationMigrationService", "StartTest", {})
   .n("MgnClient", "StartTestCommand")
-  .sc(StartTest)
+  .sc(StartTest$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

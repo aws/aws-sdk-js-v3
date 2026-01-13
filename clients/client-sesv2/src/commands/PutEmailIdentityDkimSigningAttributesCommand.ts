@@ -8,7 +8,7 @@ import type {
   PutEmailIdentityDkimSigningAttributesRequest,
   PutEmailIdentityDkimSigningAttributesResponse,
 } from "../models/models_0";
-import { PutEmailIdentityDkimSigningAttributes } from "../schemas/schemas_0";
+import { PutEmailIdentityDkimSigningAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutEmailIdentityDkimSigningAttributesCommand}.
  */
-export interface PutEmailIdentityDkimSigningAttributesCommandInput
-  extends PutEmailIdentityDkimSigningAttributesRequest {}
+export interface PutEmailIdentityDkimSigningAttributesCommandInput extends PutEmailIdentityDkimSigningAttributesRequest {}
 /**
  * @public
  *
  * The output of {@link PutEmailIdentityDkimSigningAttributesCommand}.
  */
-export interface PutEmailIdentityDkimSigningAttributesCommandOutput
-  extends PutEmailIdentityDkimSigningAttributesResponse,
-    __MetadataBearer {}
+export interface PutEmailIdentityDkimSigningAttributesCommandOutput extends PutEmailIdentityDkimSigningAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Used to configure or change the DKIM authentication settings for an email domain
@@ -121,7 +118,7 @@ export class PutEmailIdentityDkimSigningAttributesCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutEmailIdentityDkimSigningAttributes", {})
   .n("SESv2Client", "PutEmailIdentityDkimSigningAttributesCommand")
-  .sc(PutEmailIdentityDkimSigningAttributes)
+  .sc(PutEmailIdentityDkimSigningAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

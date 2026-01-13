@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetUserAccessLoggingSettingsRequest, GetUserAccessLoggingSettingsResponse } from "../models/models_0";
-import { GetUserAccessLoggingSettings } from "../schemas/schemas_0";
+import { GetUserAccessLoggingSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -24,9 +24,7 @@ export interface GetUserAccessLoggingSettingsCommandInput extends GetUserAccessL
  *
  * The output of {@link GetUserAccessLoggingSettingsCommand}.
  */
-export interface GetUserAccessLoggingSettingsCommandOutput
-  extends GetUserAccessLoggingSettingsResponse,
-    __MetadataBearer {}
+export interface GetUserAccessLoggingSettingsCommandOutput extends GetUserAccessLoggingSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets user access logging settings.</p>
@@ -96,7 +94,7 @@ export class GetUserAccessLoggingSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "GetUserAccessLoggingSettings", {})
   .n("WorkSpacesWebClient", "GetUserAccessLoggingSettingsCommand")
-  .sc(GetUserAccessLoggingSettings)
+  .sc(GetUserAccessLoggingSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

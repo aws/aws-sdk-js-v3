@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationInsightsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeProblemObservationsRequest, DescribeProblemObservationsResponse } from "../models/models_0";
-import { DescribeProblemObservations } from "../schemas/schemas_0";
+import { DescribeProblemObservations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeProblemObservationsCommandInput extends DescribeProblem
  *
  * The output of {@link DescribeProblemObservationsCommand}.
  */
-export interface DescribeProblemObservationsCommandOutput
-  extends DescribeProblemObservationsResponse,
-    __MetadataBearer {}
+export interface DescribeProblemObservationsCommandOutput extends DescribeProblemObservationsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the anomalies or errors associated with the problem.</p>
@@ -139,7 +137,7 @@ export class DescribeProblemObservationsCommand extends $Command
   })
   .s("EC2WindowsBarleyService", "DescribeProblemObservations", {})
   .n("ApplicationInsightsClient", "DescribeProblemObservationsCommand")
-  .sc(DescribeProblemObservations)
+  .sc(DescribeProblemObservations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

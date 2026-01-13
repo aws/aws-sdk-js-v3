@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteWorkspaceInstanceRequest, DeleteWorkspaceInstanceResponse } from "../models/models_0";
-import { DeleteWorkspaceInstance } from "../schemas/schemas_0";
+import { DeleteWorkspaceInstance$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -93,7 +93,7 @@ export class DeleteWorkspaceInstanceCommand extends $Command
   })
   .s("EUCMIFrontendAPIService", "DeleteWorkspaceInstance", {})
   .n("WorkspacesInstancesClient", "DeleteWorkspaceInstanceCommand")
-  .sc(DeleteWorkspaceInstance)
+  .sc(DeleteWorkspaceInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { ValidateTelemetryPipelineConfiguration } from "../schemas/schemas_0";
+import { ValidateTelemetryPipelineConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ValidateTelemetryPipelineConfigurationCommand}.
  */
-export interface ValidateTelemetryPipelineConfigurationCommandInput
-  extends ValidateTelemetryPipelineConfigurationInput {}
+export interface ValidateTelemetryPipelineConfigurationCommandInput extends ValidateTelemetryPipelineConfigurationInput {}
 /**
  * @public
  *
  * The output of {@link ValidateTelemetryPipelineConfigurationCommand}.
  */
-export interface ValidateTelemetryPipelineConfigurationCommandOutput
-  extends ValidateTelemetryPipelineConfigurationOutput,
-    __MetadataBearer {}
+export interface ValidateTelemetryPipelineConfigurationCommandOutput extends ValidateTelemetryPipelineConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Validates a pipeline configuration without creating the pipeline. This operation checks the configuration for syntax errors and compatibility issues.</p>
@@ -105,7 +102,7 @@ export class ValidateTelemetryPipelineConfigurationCommand extends $Command
   })
   .s("ObservabilityAdmin", "ValidateTelemetryPipelineConfiguration", {})
   .n("ObservabilityAdminClient", "ValidateTelemetryPipelineConfigurationCommand")
-  .sc(ValidateTelemetryPipelineConfiguration)
+  .sc(ValidateTelemetryPipelineConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

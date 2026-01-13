@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SetUserMFAPreferenceRequest, SetUserMFAPreferenceResponse } from "../models/models_0";
-import { SetUserMFAPreference } from "../schemas/schemas_0";
+import { SetUserMFAPreference$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class SetUserMFAPreferenceCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "SetUserMFAPreference", {})
   .n("CognitoIdentityProviderClient", "SetUserMFAPreferenceCommand")
-  .sc(SetUserMFAPreference)
+  .sc(SetUserMFAPreference$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

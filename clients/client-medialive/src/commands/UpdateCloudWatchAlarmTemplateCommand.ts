@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { UpdateCloudWatchAlarmTemplateRequest, UpdateCloudWatchAlarmTemplateResponse } from "../models/models_1";
-import { UpdateCloudWatchAlarmTemplate } from "../schemas/schemas_0";
+import { UpdateCloudWatchAlarmTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateCloudWatchAlarmTemplateCommandInput extends UpdateCloudWa
  *
  * The output of {@link UpdateCloudWatchAlarmTemplateCommand}.
  */
-export interface UpdateCloudWatchAlarmTemplateCommandOutput
-  extends UpdateCloudWatchAlarmTemplateResponse,
-    __MetadataBearer {}
+export interface UpdateCloudWatchAlarmTemplateCommandOutput extends UpdateCloudWatchAlarmTemplateResponse, __MetadataBearer {}
 
 /**
  * Updates the specified cloudwatch alarm template.
@@ -123,7 +121,7 @@ export class UpdateCloudWatchAlarmTemplateCommand extends $Command
   })
   .s("MediaLive", "UpdateCloudWatchAlarmTemplate", {})
   .n("MediaLiveClient", "UpdateCloudWatchAlarmTemplateCommand")
-  .sc(UpdateCloudWatchAlarmTemplate)
+  .sc(UpdateCloudWatchAlarmTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

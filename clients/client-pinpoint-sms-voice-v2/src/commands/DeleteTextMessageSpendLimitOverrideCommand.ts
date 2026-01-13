@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DeleteTextMessageSpendLimitOverride } from "../schemas/schemas_0";
+import { DeleteTextMessageSpendLimitOverride$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,12 +31,10 @@ export interface DeleteTextMessageSpendLimitOverrideCommandInput extends DeleteT
  *
  * The output of {@link DeleteTextMessageSpendLimitOverrideCommand}.
  */
-export interface DeleteTextMessageSpendLimitOverrideCommandOutput
-  extends DeleteTextMessageSpendLimitOverrideResult,
-    __MetadataBearer {}
+export interface DeleteTextMessageSpendLimitOverrideCommandOutput extends DeleteTextMessageSpendLimitOverrideResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an account-level monthly spending limit override for sending text messages. Deleting a spend limit override will set the <code>EnforcedLimit</code> to equal the <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more information on spend limits (quotas) see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html">Quotas </a> in the <i>End User MessagingSMS User Guide</i>.</p>
+ * <p>Deletes an account-level monthly spending limit override for sending text messages. Deleting a spend limit override will set the <code>EnforcedLimit</code> to equal the <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more information on spend limits (quotas) see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html">Quotas </a> in the <i>End User Messaging SMS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,7 +90,7 @@ export class DeleteTextMessageSpendLimitOverrideCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DeleteTextMessageSpendLimitOverride", {})
   .n("PinpointSMSVoiceV2Client", "DeleteTextMessageSpendLimitOverrideCommand")
-  .sc(DeleteTextMessageSpendLimitOverride)
+  .sc(DeleteTextMessageSpendLimitOverride$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

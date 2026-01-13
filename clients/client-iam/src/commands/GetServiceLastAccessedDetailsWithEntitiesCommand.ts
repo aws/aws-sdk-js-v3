@@ -9,7 +9,7 @@ import type {
   GetServiceLastAccessedDetailsWithEntitiesRequest,
   GetServiceLastAccessedDetailsWithEntitiesResponse,
 } from "../models/models_0";
-import { GetServiceLastAccessedDetailsWithEntities } from "../schemas/schemas_0";
+import { GetServiceLastAccessedDetailsWithEntities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetServiceLastAccessedDetailsWithEntitiesCommand}.
  */
-export interface GetServiceLastAccessedDetailsWithEntitiesCommandInput
-  extends GetServiceLastAccessedDetailsWithEntitiesRequest {}
+export interface GetServiceLastAccessedDetailsWithEntitiesCommandInput extends GetServiceLastAccessedDetailsWithEntitiesRequest {}
 /**
  * @public
  *
  * The output of {@link GetServiceLastAccessedDetailsWithEntitiesCommand}.
  */
-export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput
-  extends GetServiceLastAccessedDetailsWithEntitiesResponse,
-    __MetadataBearer {}
+export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput extends GetServiceLastAccessedDetailsWithEntitiesResponse, __MetadataBearer {}
 
 /**
  * <p>After you generate a group or policy report using the
@@ -175,7 +172,7 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "GetServiceLastAccessedDetailsWithEntities", {})
   .n("IAMClient", "GetServiceLastAccessedDetailsWithEntitiesCommand")
-  .sc(GetServiceLastAccessedDetailsWithEntities)
+  .sc(GetServiceLastAccessedDetailsWithEntities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

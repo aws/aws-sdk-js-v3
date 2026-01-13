@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeDBMajorEngineVersionsRequest, DescribeDBMajorEngineVersionsResponse } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DescribeDBMajorEngineVersions } from "../schemas/schemas_0";
+import { DescribeDBMajorEngineVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeDBMajorEngineVersionsCommandInput extends DescribeDBMaj
  *
  * The output of {@link DescribeDBMajorEngineVersionsCommand}.
  */
-export interface DescribeDBMajorEngineVersionsCommandOutput
-  extends DescribeDBMajorEngineVersionsResponse,
-    __MetadataBearer {}
+export interface DescribeDBMajorEngineVersionsCommandOutput extends DescribeDBMajorEngineVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the properties of specific major versions of DB engines.</p>
@@ -91,7 +89,7 @@ export class DescribeDBMajorEngineVersionsCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeDBMajorEngineVersions", {})
   .n("RDSClient", "DescribeDBMajorEngineVersionsCommand")
-  .sc(DescribeDBMajorEngineVersions)
+  .sc(DescribeDBMajorEngineVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

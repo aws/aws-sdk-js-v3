@@ -49,17 +49,13 @@ export const defaultBCMRecommendedActionsHttpAuthSchemeParametersProvider = asyn
 ): Promise<BCMRecommendedActionsHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: BCMRecommendedActionsHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: BCMRecommendedActionsHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface BCMRecommendedActionsHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultBCMRecommendedActionsHttpAuthSchemeProvider: BCMRecommendedActionsHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultBCMRecommendedActionsHttpAuthSchemeProvider: BCMRecommendedActionsHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

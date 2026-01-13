@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeregisterWorkspaceDirectoryRequest, DeregisterWorkspaceDirectoryResult } from "../models/models_0";
-import { DeregisterWorkspaceDirectory } from "../schemas/schemas_0";
+import { DeregisterWorkspaceDirectory$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DeregisterWorkspaceDirectoryCommandInput extends DeregisterWork
  *
  * The output of {@link DeregisterWorkspaceDirectoryCommand}.
  */
-export interface DeregisterWorkspaceDirectoryCommandOutput
-  extends DeregisterWorkspaceDirectoryResult,
-    __MetadataBearer {}
+export interface DeregisterWorkspaceDirectoryCommandOutput extends DeregisterWorkspaceDirectoryResult, __MetadataBearer {}
 
 /**
  * <p>Deregisters the specified directory. This operation is asynchronous and returns before
@@ -101,7 +99,7 @@ export class DeregisterWorkspaceDirectoryCommand extends $Command
   })
   .s("WorkspacesService", "DeregisterWorkspaceDirectory", {})
   .n("WorkSpacesClient", "DeregisterWorkspaceDirectoryCommand")
-  .sc(DeregisterWorkspaceDirectory)
+  .sc(DeregisterWorkspaceDirectory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

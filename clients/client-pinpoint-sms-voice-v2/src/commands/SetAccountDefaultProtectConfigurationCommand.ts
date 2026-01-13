@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { SetAccountDefaultProtectConfiguration } from "../schemas/schemas_0";
+import { SetAccountDefaultProtectConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link SetAccountDefaultProtectConfigurationCommand}.
  */
-export interface SetAccountDefaultProtectConfigurationCommandInput
-  extends SetAccountDefaultProtectConfigurationRequest {}
+export interface SetAccountDefaultProtectConfigurationCommandInput extends SetAccountDefaultProtectConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link SetAccountDefaultProtectConfigurationCommand}.
  */
-export interface SetAccountDefaultProtectConfigurationCommandOutput
-  extends SetAccountDefaultProtectConfigurationResult,
-    __MetadataBearer {}
+export interface SetAccountDefaultProtectConfigurationCommandOutput extends SetAccountDefaultProtectConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Set a protect configuration as your account default. You can only have one account default protect configuration at a time. The current account default protect configuration is replaced with the provided protect configuration.</p>
@@ -99,7 +96,7 @@ export class SetAccountDefaultProtectConfigurationCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "SetAccountDefaultProtectConfiguration", {})
   .n("PinpointSMSVoiceV2Client", "SetAccountDefaultProtectConfigurationCommand")
-  .sc(SetAccountDefaultProtectConfiguration)
+  .sc(SetAccountDefaultProtectConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

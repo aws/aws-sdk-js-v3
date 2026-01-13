@@ -9,7 +9,7 @@ import type {
   CreatePerformanceAnalysisReportResponse,
 } from "../models/models_0";
 import type { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
-import { CreatePerformanceAnalysisReport } from "../schemas/schemas_0";
+import { CreatePerformanceAnalysisReport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreatePerformanceAnalysisReportCommandInput extends CreatePerfo
  *
  * The output of {@link CreatePerformanceAnalysisReportCommand}.
  */
-export interface CreatePerformanceAnalysisReportCommandOutput
-  extends CreatePerformanceAnalysisReportResponse,
-    __MetadataBearer {}
+export interface CreatePerformanceAnalysisReportCommandOutput extends CreatePerformanceAnalysisReportResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new performance analysis report for a specific time period for the
@@ -97,7 +95,7 @@ export class CreatePerformanceAnalysisReportCommand extends $Command
   })
   .s("PerformanceInsightsv20180227", "CreatePerformanceAnalysisReport", {})
   .n("PIClient", "CreatePerformanceAnalysisReportCommand")
-  .sc(CreatePerformanceAnalysisReport)
+  .sc(CreatePerformanceAnalysisReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

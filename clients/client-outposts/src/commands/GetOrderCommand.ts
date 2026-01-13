@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetOrderInput, GetOrderOutput } from "../models/models_0";
 import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import { GetOrder } from "../schemas/schemas_0";
+import { GetOrder$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetOrderCommand extends $Command
   })
   .s("OutpostsOlafService", "GetOrder", {})
   .n("OutpostsClient", "GetOrderCommand")
-  .sc(GetOrder)
+  .sc(GetOrder$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

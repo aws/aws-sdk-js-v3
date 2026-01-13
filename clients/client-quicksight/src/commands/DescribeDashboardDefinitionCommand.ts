@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeDashboardDefinitionRequest, DescribeDashboardDefinitionResponse } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeDashboardDefinition } from "../schemas/schemas_0";
+import { DescribeDashboardDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeDashboardDefinitionCommandInput extends DescribeDashboa
  *
  * The output of {@link DescribeDashboardDefinitionCommand}.
  */
-export interface DescribeDashboardDefinitionCommandOutput
-  extends DescribeDashboardDefinitionResponse,
-    __MetadataBearer {}
+export interface DescribeDashboardDefinitionCommandOutput extends DescribeDashboardDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a detailed description of the definition of a dashboard.</p>
@@ -5828,7 +5826,7 @@ export class DescribeDashboardDefinitionCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeDashboardDefinition", {})
   .n("QuickSightClient", "DescribeDashboardDefinitionCommand")
-  .sc(DescribeDashboardDefinition)
+  .sc(DescribeDashboardDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

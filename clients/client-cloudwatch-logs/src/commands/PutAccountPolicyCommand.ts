@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutAccountPolicyRequest, PutAccountPolicyResponse } from "../models/models_0";
-import { PutAccountPolicy } from "../schemas/schemas_0";
+import { PutAccountPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -512,7 +512,7 @@ export class PutAccountPolicyCommand extends $Command
   })
   .s("Logs_20140328", "PutAccountPolicy", {})
   .n("CloudWatchLogsClient", "PutAccountPolicyCommand")
-  .sc(PutAccountPolicy)
+  .sc(PutAccountPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

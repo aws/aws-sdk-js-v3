@@ -9,7 +9,7 @@ import type {
   BatchDisassociateApprovalRuleTemplateFromRepositoriesInput,
   BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput,
 } from "../models/models_0";
-import { BatchDisassociateApprovalRuleTemplateFromRepositories } from "../schemas/schemas_0";
+import { BatchDisassociateApprovalRuleTemplateFromRepositories$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand}.
  */
-export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput
-  extends BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {}
+export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput extends BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {}
 /**
  * @public
  *
  * The output of {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand}.
  */
-export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
-  extends BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput,
-    __MetadataBearer {}
+export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput extends BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput, __MetadataBearer {}
 
 /**
  * <p>Removes the association between an approval rule template and one or more specified repositories. </p>
@@ -124,7 +121,7 @@ export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extend
   })
   .s("CodeCommit_20150413", "BatchDisassociateApprovalRuleTemplateFromRepositories", {})
   .n("CodeCommitClient", "BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand")
-  .sc(BatchDisassociateApprovalRuleTemplateFromRepositories)
+  .sc(BatchDisassociateApprovalRuleTemplateFromRepositories$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

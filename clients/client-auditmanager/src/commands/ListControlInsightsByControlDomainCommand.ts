@@ -9,7 +9,7 @@ import type {
   ListControlInsightsByControlDomainRequest,
   ListControlInsightsByControlDomainResponse,
 } from "../models/models_0";
-import { ListControlInsightsByControlDomain } from "../schemas/schemas_0";
+import { ListControlInsightsByControlDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListControlInsightsByControlDomainCommandInput extends ListCont
  *
  * The output of {@link ListControlInsightsByControlDomainCommand}.
  */
-export interface ListControlInsightsByControlDomainCommandOutput
-  extends ListControlInsightsByControlDomainResponse,
-    __MetadataBearer {}
+export interface ListControlInsightsByControlDomainCommandOutput extends ListControlInsightsByControlDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the latest analytics data for controls within a specific control domain across all
@@ -113,7 +111,7 @@ export class ListControlInsightsByControlDomainCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "ListControlInsightsByControlDomain", {})
   .n("AuditManagerClient", "ListControlInsightsByControlDomainCommand")
-  .sc(ListControlInsightsByControlDomain)
+  .sc(ListControlInsightsByControlDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

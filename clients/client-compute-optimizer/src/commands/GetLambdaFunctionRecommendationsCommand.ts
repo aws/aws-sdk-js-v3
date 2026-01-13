@@ -13,7 +13,7 @@ import type {
   GetLambdaFunctionRecommendationsRequest,
   GetLambdaFunctionRecommendationsResponse,
 } from "../models/models_0";
-import { GetLambdaFunctionRecommendations } from "../schemas/schemas_0";
+import { GetLambdaFunctionRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetLambdaFunctionRecommendationsCommandInput extends GetLambdaF
  *
  * The output of {@link GetLambdaFunctionRecommendationsCommand}.
  */
-export interface GetLambdaFunctionRecommendationsCommandOutput
-  extends GetLambdaFunctionRecommendationsResponse,
-    __MetadataBearer {}
+export interface GetLambdaFunctionRecommendationsCommandOutput extends GetLambdaFunctionRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns Lambda function recommendations.</p>
@@ -187,7 +185,7 @@ export class GetLambdaFunctionRecommendationsCommand extends $Command
   })
   .s("ComputeOptimizerService", "GetLambdaFunctionRecommendations", {})
   .n("ComputeOptimizerClient", "GetLambdaFunctionRecommendationsCommand")
-  .sc(GetLambdaFunctionRecommendations)
+  .sc(GetLambdaFunctionRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

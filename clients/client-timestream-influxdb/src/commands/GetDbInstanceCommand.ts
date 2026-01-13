@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDbInstanceInput, GetDbInstanceOutput } from "../models/models_0";
-import { GetDbInstance } from "../schemas/schemas_0";
+import { GetDbInstance$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -49,7 +49,7 @@ export interface GetDbInstanceCommandOutput extends GetDbInstanceOutput, __Metad
  * //   id: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
- * //   status: "CREATING" || "AVAILABLE" || "DELETING" || "MODIFYING" || "UPDATING" || "DELETED" || "FAILED" || "UPDATING_DEPLOYMENT_TYPE" || "UPDATING_INSTANCE_TYPE" || "MAINTENANCE",
+ * //   status: "CREATING" || "AVAILABLE" || "DELETING" || "MODIFYING" || "UPDATING" || "DELETED" || "FAILED" || "UPDATING_DEPLOYMENT_TYPE" || "UPDATING_INSTANCE_TYPE" || "MAINTENANCE" || "REBOOTING" || "REBOOT_FAILED",
  * //   endpoint: "STRING_VALUE",
  * //   port: Number("int"),
  * //   networkType: "IPV4" || "DUAL",
@@ -124,7 +124,7 @@ export class GetDbInstanceCommand extends $Command
   })
   .s("AmazonTimestreamInfluxDB", "GetDbInstance", {})
   .n("TimestreamInfluxDBClient", "GetDbInstanceCommand")
-  .sc(GetDbInstance)
+  .sc(GetDbInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

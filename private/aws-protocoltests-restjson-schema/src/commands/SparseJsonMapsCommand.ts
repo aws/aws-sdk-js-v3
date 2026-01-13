@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { SparseJsonMaps } from "../schemas/schemas_0";
+import { SparseJsonMaps$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class SparseJsonMapsCommand extends $Command
   })
   .s("RestJson", "SparseJsonMaps", {})
   .n("RestJsonProtocolClient", "SparseJsonMapsCommand")
-  .sc(SparseJsonMaps)
+  .sc(SparseJsonMaps$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

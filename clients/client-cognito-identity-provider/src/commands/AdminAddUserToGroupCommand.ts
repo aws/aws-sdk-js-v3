@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AdminAddUserToGroupRequest } from "../models/models_0";
-import { AdminAddUserToGroup } from "../schemas/schemas_0";
+import { AdminAddUserToGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class AdminAddUserToGroupCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "AdminAddUserToGroup", {})
   .n("CognitoIdentityProviderClient", "AdminAddUserToGroupCommand")
-  .sc(AdminAddUserToGroup)
+  .sc(AdminAddUserToGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

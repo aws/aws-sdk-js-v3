@@ -9,10 +9,8 @@ AWS SDK for JavaScript SageMakerRuntimeHTTP2 Client for Node.js, Browser and Rea
 <p> The Amazon SageMaker AI runtime HTTP/2 API. </p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-sagemaker-runtime-http2
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-sagemaker-runtime-http2`
 - `yarn add @aws-sdk/client-sagemaker-runtime-http2`
 - `pnpm add @aws-sdk/client-sagemaker-runtime-http2`
@@ -27,18 +25,12 @@ the commands you need, for example `InvokeEndpointWithBidirectionalStreamCommand
 
 ```js
 // ES5 example
-const {
-  SageMakerRuntimeHTTP2Client,
-  InvokeEndpointWithBidirectionalStreamCommand,
-} = require("@aws-sdk/client-sagemaker-runtime-http2");
+const { SageMakerRuntimeHTTP2Client, InvokeEndpointWithBidirectionalStreamCommand } = require("@aws-sdk/client-sagemaker-runtime-http2");
 ```
 
 ```ts
 // ES6+ example
-import {
-  SageMakerRuntimeHTTP2Client,
-  InvokeEndpointWithBidirectionalStreamCommand,
-} from "@aws-sdk/client-sagemaker-runtime-http2";
+import { SageMakerRuntimeHTTP2Client, InvokeEndpointWithBidirectionalStreamCommand } from "@aws-sdk/client-sagemaker-runtime-http2";
 ```
 
 ### Usage
@@ -54,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new SageMakerRuntimeHTTP2Client({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new InvokeEndpointWithBidirectionalStreamCommand(params);
 ```
 
@@ -215,5 +205,4 @@ InvokeEndpointWithBidirectionalStream
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-runtime-http2/command/InvokeEndpointWithBidirectionalStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-runtime-http2/Interface/InvokeEndpointWithBidirectionalStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-runtime-http2/Interface/InvokeEndpointWithBidirectionalStreamCommandOutput/)
-
 </details>

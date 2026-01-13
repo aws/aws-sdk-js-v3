@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import type { DeregisterStreamConsumerInput } from "../models/models_0";
-import { DeregisterStreamConsumer } from "../schemas/schemas_0";
+import { DeregisterStreamConsumer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DeregisterStreamConsumerCommand extends $Command
   })
   .s("Kinesis_20131202", "DeregisterStreamConsumer", {})
   .n("KinesisClient", "DeregisterStreamConsumerCommand")
-  .sc(DeregisterStreamConsumer)
+  .sc(DeregisterStreamConsumer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

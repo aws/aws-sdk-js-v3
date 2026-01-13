@@ -9,7 +9,7 @@ import type {
   DisassociateTransitGatewayPolicyTableRequest,
   DisassociateTransitGatewayPolicyTableResult,
 } from "../models/models_5";
-import { DisassociateTransitGatewayPolicyTable } from "../schemas/schemas_0";
+import { DisassociateTransitGatewayPolicyTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateTransitGatewayPolicyTableCommand}.
  */
-export interface DisassociateTransitGatewayPolicyTableCommandInput
-  extends DisassociateTransitGatewayPolicyTableRequest {}
+export interface DisassociateTransitGatewayPolicyTableCommandInput extends DisassociateTransitGatewayPolicyTableRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateTransitGatewayPolicyTableCommand}.
  */
-export interface DisassociateTransitGatewayPolicyTableCommandOutput
-  extends DisassociateTransitGatewayPolicyTableResult,
-    __MetadataBearer {}
+export interface DisassociateTransitGatewayPolicyTableCommandOutput extends DisassociateTransitGatewayPolicyTableResult, __MetadataBearer {}
 
 /**
  * <p>Removes the association between an an attachment and a policy table.</p>
@@ -87,7 +84,7 @@ export class DisassociateTransitGatewayPolicyTableCommand extends $Command
   })
   .s("AmazonEC2", "DisassociateTransitGatewayPolicyTable", {})
   .n("EC2Client", "DisassociateTransitGatewayPolicyTableCommand")
-  .sc(DisassociateTransitGatewayPolicyTable)
+  .sc(DisassociateTransitGatewayPolicyTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

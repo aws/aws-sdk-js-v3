@@ -9,7 +9,7 @@ import type {
   DescribeNotificationConfigurationInput,
   DescribeNotificationConfigurationOutput,
 } from "../models/models_0";
-import { DescribeNotificationConfiguration } from "../schemas/schemas_0";
+import { DescribeNotificationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeNotificationConfigurationCommandInput extends DescribeN
  *
  * The output of {@link DescribeNotificationConfigurationCommand}.
  */
-export interface DescribeNotificationConfigurationCommandOutput
-  extends DescribeNotificationConfigurationOutput,
-    __MetadataBearer {}
+export interface DescribeNotificationConfigurationCommandOutput extends DescribeNotificationConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the <code>NotificationConfiguration</code> for a given Kinesis video stream.</p>
@@ -97,7 +95,7 @@ export class DescribeNotificationConfigurationCommand extends $Command
   })
   .s("KinesisVideo_20170930", "DescribeNotificationConfiguration", {})
   .n("KinesisVideoClient", "DescribeNotificationConfigurationCommand")
-  .sc(DescribeNotificationConfiguration)
+  .sc(DescribeNotificationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

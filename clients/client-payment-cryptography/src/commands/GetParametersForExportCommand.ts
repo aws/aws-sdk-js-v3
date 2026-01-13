@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyClient";
-import { GetParametersForExport } from "../schemas/schemas_0";
+import { GetParametersForExport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class GetParametersForExportCommand extends $Command
   })
   .s("PaymentCryptographyControlPlane", "GetParametersForExport", {})
   .n("PaymentCryptographyClient", "GetParametersForExportCommand")
-  .sc(GetParametersForExport)
+  .sc(GetParametersForExport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

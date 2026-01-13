@@ -9,7 +9,7 @@ import type {
   DisassociateAssessmentReportEvidenceFolderRequest,
   DisassociateAssessmentReportEvidenceFolderResponse,
 } from "../models/models_0";
-import { DisassociateAssessmentReportEvidenceFolder } from "../schemas/schemas_0";
+import { DisassociateAssessmentReportEvidenceFolder$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateAssessmentReportEvidenceFolderCommand}.
  */
-export interface DisassociateAssessmentReportEvidenceFolderCommandInput
-  extends DisassociateAssessmentReportEvidenceFolderRequest {}
+export interface DisassociateAssessmentReportEvidenceFolderCommandInput extends DisassociateAssessmentReportEvidenceFolderRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateAssessmentReportEvidenceFolderCommand}.
  */
-export interface DisassociateAssessmentReportEvidenceFolderCommandOutput
-  extends DisassociateAssessmentReportEvidenceFolderResponse,
-    __MetadataBearer {}
+export interface DisassociateAssessmentReportEvidenceFolderCommandOutput extends DisassociateAssessmentReportEvidenceFolderResponse, __MetadataBearer {}
 
 /**
  * <p> Disassociates an evidence folder from the specified assessment report in Audit Manager. </p>
@@ -92,7 +89,7 @@ export class DisassociateAssessmentReportEvidenceFolderCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "DisassociateAssessmentReportEvidenceFolder", {})
   .n("AuditManagerClient", "DisassociateAssessmentReportEvidenceFolderCommand")
-  .sc(DisassociateAssessmentReportEvidenceFolder)
+  .sc(DisassociateAssessmentReportEvidenceFolder$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

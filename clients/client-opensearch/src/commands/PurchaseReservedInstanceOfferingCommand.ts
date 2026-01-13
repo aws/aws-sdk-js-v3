@@ -9,7 +9,7 @@ import type {
   PurchaseReservedInstanceOfferingResponse,
 } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { PurchaseReservedInstanceOffering } from "../schemas/schemas_0";
+import { PurchaseReservedInstanceOffering$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface PurchaseReservedInstanceOfferingCommandInput extends PurchaseRe
  *
  * The output of {@link PurchaseReservedInstanceOfferingCommand}.
  */
-export interface PurchaseReservedInstanceOfferingCommandOutput
-  extends PurchaseReservedInstanceOfferingResponse,
-    __MetadataBearer {}
+export interface PurchaseReservedInstanceOfferingCommandOutput extends PurchaseReservedInstanceOfferingResponse, __MetadataBearer {}
 
 /**
  * <p>Allows you to purchase Amazon OpenSearch Service Reserved Instances.</p>
@@ -99,7 +97,7 @@ export class PurchaseReservedInstanceOfferingCommand extends $Command
   })
   .s("AmazonOpenSearchService", "PurchaseReservedInstanceOffering", {})
   .n("OpenSearchClient", "PurchaseReservedInstanceOfferingCommand")
-  .sc(PurchaseReservedInstanceOffering)
+  .sc(PurchaseReservedInstanceOffering$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

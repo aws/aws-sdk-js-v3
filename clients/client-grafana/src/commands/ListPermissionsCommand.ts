@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import type { ListPermissionsRequest, ListPermissionsResponse } from "../models/models_0";
-import { ListPermissions } from "../schemas/schemas_0";
+import { ListPermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class ListPermissionsCommand extends $Command
   })
   .s("AWSGrafanaControlPlane", "ListPermissions", {})
   .n("GrafanaClient", "ListPermissionsCommand")
-  .sc(ListPermissions)
+  .sc(ListPermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

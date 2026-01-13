@@ -8,7 +8,7 @@ import type {
   DescribeAccountAssignmentDeletionStatusRequest,
   DescribeAccountAssignmentDeletionStatusResponse,
 } from "../models/models_0";
-import { DescribeAccountAssignmentDeletionStatus } from "../schemas/schemas_0";
+import { DescribeAccountAssignmentDeletionStatus$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeAccountAssignmentDeletionStatusCommand}.
  */
-export interface DescribeAccountAssignmentDeletionStatusCommandInput
-  extends DescribeAccountAssignmentDeletionStatusRequest {}
+export interface DescribeAccountAssignmentDeletionStatusCommandInput extends DescribeAccountAssignmentDeletionStatusRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeAccountAssignmentDeletionStatusCommand}.
  */
-export interface DescribeAccountAssignmentDeletionStatusCommandOutput
-  extends DescribeAccountAssignmentDeletionStatusResponse,
-    __MetadataBearer {}
+export interface DescribeAccountAssignmentDeletionStatusCommandOutput extends DescribeAccountAssignmentDeletionStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the status of the assignment deletion request.</p>
@@ -105,7 +102,7 @@ export class DescribeAccountAssignmentDeletionStatusCommand extends $Command
   })
   .s("SWBExternalService", "DescribeAccountAssignmentDeletionStatus", {})
   .n("SSOAdminClient", "DescribeAccountAssignmentDeletionStatusCommand")
-  .sc(DescribeAccountAssignmentDeletionStatus)
+  .sc(DescribeAccountAssignmentDeletionStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

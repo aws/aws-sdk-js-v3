@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateCacheSubnetGroupMessage, CreateCacheSubnetGroupResult } from "../models/models_0";
-import { CreateCacheSubnetGroup } from "../schemas/schemas_0";
+import { CreateCacheSubnetGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -178,7 +178,7 @@ export class CreateCacheSubnetGroupCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "CreateCacheSubnetGroup", {})
   .n("ElastiCacheClient", "CreateCacheSubnetGroupCommand")
-  .sc(CreateCacheSubnetGroup)
+  .sc(CreateCacheSubnetGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

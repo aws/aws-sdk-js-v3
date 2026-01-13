@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteServerlessCacheSnapshotRequest, DeleteServerlessCacheSnapshotResponse } from "../models/models_0";
-import { DeleteServerlessCacheSnapshot } from "../schemas/schemas_0";
+import { DeleteServerlessCacheSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteServerlessCacheSnapshotCommandInput extends DeleteServerl
  *
  * The output of {@link DeleteServerlessCacheSnapshotCommand}.
  */
-export interface DeleteServerlessCacheSnapshotCommandOutput
-  extends DeleteServerlessCacheSnapshotResponse,
-    __MetadataBearer {}
+export interface DeleteServerlessCacheSnapshotCommandOutput extends DeleteServerlessCacheSnapshotResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing serverless cache snapshot. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
@@ -101,7 +99,7 @@ export class DeleteServerlessCacheSnapshotCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "DeleteServerlessCacheSnapshot", {})
   .n("ElastiCacheClient", "DeleteServerlessCacheSnapshotCommand")
-  .sc(DeleteServerlessCacheSnapshot)
+  .sc(DeleteServerlessCacheSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

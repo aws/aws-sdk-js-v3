@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LicenseManagerLinuxSubscriptionsClient";
 import type { ListLinuxSubscriptionInstancesRequest, ListLinuxSubscriptionInstancesResponse } from "../models/models_0";
-import { ListLinuxSubscriptionInstances } from "../schemas/schemas_0";
+import { ListLinuxSubscriptionInstances$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListLinuxSubscriptionInstancesCommandInput extends ListLinuxSub
  *
  * The output of {@link ListLinuxSubscriptionInstancesCommand}.
  */
-export interface ListLinuxSubscriptionInstancesCommandOutput
-  extends ListLinuxSubscriptionInstancesResponse,
-    __MetadataBearer {}
+export interface ListLinuxSubscriptionInstancesCommandOutput extends ListLinuxSubscriptionInstancesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the running Amazon EC2 instances that were discovered with commercial Linux
@@ -120,7 +118,7 @@ export class ListLinuxSubscriptionInstancesCommand extends $Command
   })
   .s("LicenseManagerLinuxSubscriptions", "ListLinuxSubscriptionInstances", {})
   .n("LicenseManagerLinuxSubscriptionsClient", "ListLinuxSubscriptionInstancesCommand")
-  .sc(ListLinuxSubscriptionInstances)
+  .sc(ListLinuxSubscriptionInstances$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

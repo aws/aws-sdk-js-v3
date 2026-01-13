@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeProjectsRequest, DescribeProjectsResponse } from "../models/models_0";
 import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { DescribeProjects } from "../schemas/schemas_0";
+import { DescribeProjects$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class DescribeProjectsCommand extends $Command
   })
   .s("RekognitionService", "DescribeProjects", {})
   .n("RekognitionClient", "DescribeProjectsCommand")
-  .sc(DescribeProjects)
+  .sc(DescribeProjects$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

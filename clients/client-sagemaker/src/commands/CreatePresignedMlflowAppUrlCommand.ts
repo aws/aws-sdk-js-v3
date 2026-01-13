@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreatePresignedMlflowAppUrlRequest, CreatePresignedMlflowAppUrlResponse } from "../models/models_1";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreatePresignedMlflowAppUrl } from "../schemas/schemas_0";
+import { CreatePresignedMlflowAppUrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreatePresignedMlflowAppUrlCommandInput extends CreatePresigned
  *
  * The output of {@link CreatePresignedMlflowAppUrlCommand}.
  */
-export interface CreatePresignedMlflowAppUrlCommandOutput
-  extends CreatePresignedMlflowAppUrlResponse,
-    __MetadataBearer {}
+export interface CreatePresignedMlflowAppUrlCommandOutput extends CreatePresignedMlflowAppUrlResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a presigned URL that you can use to connect to the MLflow UI attached to your MLflow App. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-launch-ui.html">Launch the MLflow UI using a presigned URL</a>.</p>
@@ -80,7 +78,7 @@ export class CreatePresignedMlflowAppUrlCommand extends $Command
   })
   .s("SageMaker", "CreatePresignedMlflowAppUrl", {})
   .n("SageMakerClient", "CreatePresignedMlflowAppUrlCommand")
-  .sc(CreatePresignedMlflowAppUrl)
+  .sc(CreatePresignedMlflowAppUrl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

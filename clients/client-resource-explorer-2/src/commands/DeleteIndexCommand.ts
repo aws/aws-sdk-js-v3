@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
-import { DeleteIndex } from "../schemas/schemas_0";
+import { DeleteIndex$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteIndexCommand extends $Command
   })
   .s("ResourceExplorer", "DeleteIndex", {})
   .n("ResourceExplorer2Client", "DeleteIndexCommand")
-  .sc(DeleteIndex)
+  .sc(DeleteIndex$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

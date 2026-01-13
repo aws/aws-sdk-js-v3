@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InitiateLayerUploadRequest, InitiateLayerUploadResponse } from "../models/models_0";
-import { InitiateLayerUpload } from "../schemas/schemas_0";
+import { InitiateLayerUpload$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class InitiateLayerUploadCommand extends $Command
   })
   .s("SpencerFrontendService", "InitiateLayerUpload", {})
   .n("ECRPUBLICClient", "InitiateLayerUploadCommand")
-  .sc(InitiateLayerUpload)
+  .sc(InitiateLayerUpload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

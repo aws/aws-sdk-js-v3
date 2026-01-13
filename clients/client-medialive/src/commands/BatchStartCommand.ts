@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { BatchStartRequest, BatchStartResponse } from "../models/models_0";
-import { BatchStart } from "../schemas/schemas_0";
+import { BatchStart$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class BatchStartCommand extends $Command
   })
   .s("MediaLive", "BatchStart", {})
   .n("MediaLiveClient", "BatchStartCommand")
-  .sc(BatchStart)
+  .sc(BatchStart$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

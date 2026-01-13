@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { ListCustomRoutingPortMappingsRequest, ListCustomRoutingPortMappingsResponse } from "../models/models_0";
-import { ListCustomRoutingPortMappings } from "../schemas/schemas_0";
+import { ListCustomRoutingPortMappings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListCustomRoutingPortMappingsCommandInput extends ListCustomRou
  *
  * The output of {@link ListCustomRoutingPortMappingsCommand}.
  */
-export interface ListCustomRoutingPortMappingsCommandOutput
-  extends ListCustomRoutingPortMappingsResponse,
-    __MetadataBearer {}
+export interface ListCustomRoutingPortMappingsCommandOutput extends ListCustomRoutingPortMappingsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a complete mapping from the public accelerator IP address and port to destination EC2 instance
@@ -120,7 +118,7 @@ export class ListCustomRoutingPortMappingsCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "ListCustomRoutingPortMappings", {})
   .n("GlobalAcceleratorClient", "ListCustomRoutingPortMappingsCommand")
-  .sc(ListCustomRoutingPortMappings)
+  .sc(ListCustomRoutingPortMappings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

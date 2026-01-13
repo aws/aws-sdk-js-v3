@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LookoutEquipmentClient";
 import type { DescribeRetrainingSchedulerRequest, DescribeRetrainingSchedulerResponse } from "../models/models_0";
-import { DescribeRetrainingScheduler } from "../schemas/schemas_0";
+import { DescribeRetrainingScheduler$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeRetrainingSchedulerCommandInput extends DescribeRetrain
  *
  * The output of {@link DescribeRetrainingSchedulerCommand}.
  */
-export interface DescribeRetrainingSchedulerCommandOutput
-  extends DescribeRetrainingSchedulerResponse,
-    __MetadataBearer {}
+export interface DescribeRetrainingSchedulerCommandOutput extends DescribeRetrainingSchedulerResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a description of the retraining scheduler, including information such as the
@@ -130,7 +128,7 @@ export class DescribeRetrainingSchedulerCommand extends $Command
   })
   .s("AWSLookoutEquipmentFrontendService", "DescribeRetrainingScheduler", {})
   .n("LookoutEquipmentClient", "DescribeRetrainingSchedulerCommand")
-  .sc(DescribeRetrainingScheduler)
+  .sc(DescribeRetrainingScheduler$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

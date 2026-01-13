@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LicenseManagerClient";
 import type { DeleteGrantRequest, DeleteGrantResponse } from "../models/models_0";
-import { DeleteGrant } from "../schemas/schemas_0";
+import { DeleteGrant$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class DeleteGrantCommand extends $Command
   })
   .s("AWSLicenseManager", "DeleteGrant", {})
   .n("LicenseManagerClient", "DeleteGrantCommand")
-  .sc(DeleteGrant)
+  .sc(DeleteGrant$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

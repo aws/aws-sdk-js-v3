@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeInstanceRequest, DescribeInstanceResponse } from "../models/models_0";
-import { DescribeInstance } from "../schemas/schemas_0";
+import { DescribeInstance$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -97,7 +97,7 @@ export class DescribeInstanceCommand extends $Command
   })
   .s("SWBExternalService", "DescribeInstance", {})
   .n("SSOAdminClient", "DescribeInstanceCommand")
-  .sc(DescribeInstance)
+  .sc(DescribeInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

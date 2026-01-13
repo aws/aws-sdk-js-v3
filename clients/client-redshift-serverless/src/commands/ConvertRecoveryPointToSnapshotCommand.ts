@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { ConvertRecoveryPointToSnapshot } from "../schemas/schemas_0";
+import { ConvertRecoveryPointToSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ConvertRecoveryPointToSnapshotCommandInput extends ConvertRecov
  *
  * The output of {@link ConvertRecoveryPointToSnapshotCommand}.
  */
-export interface ConvertRecoveryPointToSnapshotCommandOutput
-  extends ConvertRecoveryPointToSnapshotResponse,
-    __MetadataBearer {}
+export interface ConvertRecoveryPointToSnapshotCommandOutput extends ConvertRecoveryPointToSnapshotResponse, __MetadataBearer {}
 
 /**
  * <p>Converts a recovery point to a snapshot. For more information about recovery points and snapshots, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html">Working with snapshots and recovery points</a>.</p>
@@ -132,7 +130,7 @@ export class ConvertRecoveryPointToSnapshotCommand extends $Command
   })
   .s("RedshiftServerless", "ConvertRecoveryPointToSnapshot", {})
   .n("RedshiftServerlessClient", "ConvertRecoveryPointToSnapshotCommand")
-  .sc(ConvertRecoveryPointToSnapshot)
+  .sc(ConvertRecoveryPointToSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

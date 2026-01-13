@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateResourceRequest, DisassociateResourceResponse } from "../models/models_0";
-import { DisassociateResource } from "../schemas/schemas_0";
+import { DisassociateResource$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -144,7 +144,7 @@ export class DisassociateResourceCommand extends $Command
   })
   .s("AWS242AppRegistry", "DisassociateResource", {})
   .n("ServiceCatalogAppRegistryClient", "DisassociateResourceCommand")
-  .sc(DisassociateResource)
+  .sc(DisassociateResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

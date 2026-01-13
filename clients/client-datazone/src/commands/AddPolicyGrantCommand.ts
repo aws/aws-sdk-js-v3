@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AddPolicyGrantInput, AddPolicyGrantOutput } from "../models/models_0";
-import { AddPolicyGrant } from "../schemas/schemas_0";
+import { AddPolicyGrant$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -165,7 +165,7 @@ export class AddPolicyGrantCommand extends $Command
   })
   .s("DataZone", "AddPolicyGrant", {})
   .n("DataZoneClient", "AddPolicyGrantCommand")
-  .sc(AddPolicyGrant)
+  .sc(AddPolicyGrant$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

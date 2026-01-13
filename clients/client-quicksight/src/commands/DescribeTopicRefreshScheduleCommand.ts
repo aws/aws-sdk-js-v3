@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeTopicRefreshScheduleRequest, DescribeTopicRefreshScheduleResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeTopicRefreshSchedule } from "../schemas/schemas_0";
+import { DescribeTopicRefreshSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeTopicRefreshScheduleCommandInput extends DescribeTopicR
  *
  * The output of {@link DescribeTopicRefreshScheduleCommand}.
  */
-export interface DescribeTopicRefreshScheduleCommandOutput
-  extends DescribeTopicRefreshScheduleResponse,
-    __MetadataBearer {}
+export interface DescribeTopicRefreshScheduleCommandOutput extends DescribeTopicRefreshScheduleResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a topic refresh schedule.</p>
@@ -116,7 +114,7 @@ export class DescribeTopicRefreshScheduleCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeTopicRefreshSchedule", {})
   .n("QuickSightClient", "DescribeTopicRefreshScheduleCommand")
-  .sc(DescribeTopicRefreshSchedule)
+  .sc(DescribeTopicRefreshSchedule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

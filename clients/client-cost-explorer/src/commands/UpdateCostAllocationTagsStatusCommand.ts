@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateCostAllocationTagsStatusRequest, UpdateCostAllocationTagsStatusResponse } from "../models/models_0";
-import { UpdateCostAllocationTagsStatus } from "../schemas/schemas_0";
+import { UpdateCostAllocationTagsStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateCostAllocationTagsStatusCommandInput extends UpdateCostAl
  *
  * The output of {@link UpdateCostAllocationTagsStatusCommand}.
  */
-export interface UpdateCostAllocationTagsStatusCommandOutput
-  extends UpdateCostAllocationTagsStatusResponse,
-    __MetadataBearer {}
+export interface UpdateCostAllocationTagsStatusCommandOutput extends UpdateCostAllocationTagsStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Updates status for cost allocation tags in bulk, with maximum batch size of 20. If the tag
@@ -92,7 +90,7 @@ export class UpdateCostAllocationTagsStatusCommand extends $Command
   })
   .s("AWSInsightsIndexService", "UpdateCostAllocationTagsStatus", {})
   .n("CostExplorerClient", "UpdateCostAllocationTagsStatusCommand")
-  .sc(UpdateCostAllocationTagsStatus)
+  .sc(UpdateCostAllocationTagsStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

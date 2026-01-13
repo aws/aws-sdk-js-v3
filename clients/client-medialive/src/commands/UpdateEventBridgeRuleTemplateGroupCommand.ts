@@ -9,7 +9,7 @@ import type {
   UpdateEventBridgeRuleTemplateGroupRequest,
   UpdateEventBridgeRuleTemplateGroupResponse,
 } from "../models/models_1";
-import { UpdateEventBridgeRuleTemplateGroup } from "../schemas/schemas_0";
+import { UpdateEventBridgeRuleTemplateGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateEventBridgeRuleTemplateGroupCommandInput extends UpdateEv
  *
  * The output of {@link UpdateEventBridgeRuleTemplateGroupCommand}.
  */
-export interface UpdateEventBridgeRuleTemplateGroupCommandOutput
-  extends UpdateEventBridgeRuleTemplateGroupResponse,
-    __MetadataBearer {}
+export interface UpdateEventBridgeRuleTemplateGroupCommandOutput extends UpdateEventBridgeRuleTemplateGroupResponse, __MetadataBearer {}
 
 /**
  * Updates the specified eventbridge rule template group.
@@ -105,7 +103,7 @@ export class UpdateEventBridgeRuleTemplateGroupCommand extends $Command
   })
   .s("MediaLive", "UpdateEventBridgeRuleTemplateGroup", {})
   .n("MediaLiveClient", "UpdateEventBridgeRuleTemplateGroupCommand")
-  .sc(UpdateEventBridgeRuleTemplateGroup)
+  .sc(UpdateEventBridgeRuleTemplateGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

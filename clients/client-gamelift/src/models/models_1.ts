@@ -9,7 +9,6 @@ import {
   PlayerSessionCreationPolicy,
   ProtectionPolicy,
 } from "./enums";
-
 import {
   type FilterConfiguration,
   type GameServer,

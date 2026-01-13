@@ -9,7 +9,7 @@ import type {
   DeleteDistributionConfigurationRequest,
   DeleteDistributionConfigurationResponse,
 } from "../models/models_0";
-import { DeleteDistributionConfiguration } from "../schemas/schemas_0";
+import { DeleteDistributionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteDistributionConfigurationCommandInput extends DeleteDistr
  *
  * The output of {@link DeleteDistributionConfigurationCommand}.
  */
-export interface DeleteDistributionConfigurationCommandOutput
-  extends DeleteDistributionConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteDistributionConfigurationCommandOutput extends DeleteDistributionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a distribution configuration.</p>
@@ -104,7 +102,7 @@ export class DeleteDistributionConfigurationCommand extends $Command
   })
   .s("imagebuilder", "DeleteDistributionConfiguration", {})
   .n("ImagebuilderClient", "DeleteDistributionConfigurationCommand")
-  .sc(DeleteDistributionConfiguration)
+  .sc(DeleteDistributionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

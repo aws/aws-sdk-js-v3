@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ResetPasswordRequest, ResetPasswordResponse } from "../models/models_0";
-import { ResetPassword } from "../schemas/schemas_0";
+import { ResetPassword$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -105,7 +105,7 @@ export class ResetPasswordCommand extends $Command
   })
   .s("WorkMailService", "ResetPassword", {})
   .n("WorkMailClient", "ResetPasswordCommand")
-  .sc(ResetPassword)
+  .sc(ResetPassword$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

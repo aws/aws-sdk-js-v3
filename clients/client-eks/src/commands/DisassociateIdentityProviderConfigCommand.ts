@@ -9,7 +9,7 @@ import type {
   DisassociateIdentityProviderConfigRequest,
   DisassociateIdentityProviderConfigResponse,
 } from "../models/models_0";
-import { DisassociateIdentityProviderConfig } from "../schemas/schemas_0";
+import { DisassociateIdentityProviderConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DisassociateIdentityProviderConfigCommandInput extends Disassoc
  *
  * The output of {@link DisassociateIdentityProviderConfigCommand}.
  */
-export interface DisassociateIdentityProviderConfigCommandOutput
-  extends DisassociateIdentityProviderConfigResponse,
-    __MetadataBearer {}
+export interface DisassociateIdentityProviderConfigCommandOutput extends DisassociateIdentityProviderConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates an identity provider configuration from a cluster.</p>
@@ -135,7 +133,7 @@ export class DisassociateIdentityProviderConfigCommand extends $Command
   })
   .s("AWSWesleyFrontend", "DisassociateIdentityProviderConfig", {})
   .n("EKSClient", "DisassociateIdentityProviderConfigCommand")
-  .sc(DisassociateIdentityProviderConfig)
+  .sc(DisassociateIdentityProviderConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

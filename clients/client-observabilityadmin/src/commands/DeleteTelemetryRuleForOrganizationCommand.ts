@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { DeleteTelemetryRuleForOrganization } from "../schemas/schemas_0";
+import { DeleteTelemetryRuleForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteTelemetryRuleForOrganizationCommand extends $Command
   })
   .s("ObservabilityAdmin", "DeleteTelemetryRuleForOrganization", {})
   .n("ObservabilityAdminClient", "DeleteTelemetryRuleForOrganizationCommand")
-  .sc(DeleteTelemetryRuleForOrganization)
+  .sc(DeleteTelemetryRuleForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

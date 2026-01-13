@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyClient";
-import { ExportKey } from "../schemas/schemas_0";
+import { ExportKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,6 +124,10 @@ export interface ExportKeyCommandOutput extends ExportKeyOutput, __MetadataBeare
  *         },
  *       },
  *     },
+ *     As2805KeyCryptogram: { // ExportAs2805KeyCryptogram
+ *       WrappingKeyIdentifier: "STRING_VALUE", // required
+ *       As2805KeyVariant: "TERMINAL_MAJOR_KEY_VARIANT_00" || "PIN_ENCRYPTION_KEY_VARIANT_28" || "MESSAGE_AUTHENTICATION_KEY_VARIANT_24" || "DATA_ENCRYPTION_KEY_VARIANT_22", // required
+ *     },
  *   },
  *   ExportKeyIdentifier: "STRING_VALUE", // required
  *   ExportAttributes: { // ExportAttributes
@@ -194,7 +198,7 @@ export class ExportKeyCommand extends $Command
   })
   .s("PaymentCryptographyControlPlane", "ExportKey", {})
   .n("PaymentCryptographyClient", "ExportKeyCommand")
-  .sc(ExportKey)
+  .sc(ExportKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

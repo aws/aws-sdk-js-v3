@@ -11,7 +11,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { InputStream } from "../schemas/schemas_0";
+import { InputStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,10 @@ export class InputStreamCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getEventStreamPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getEventStreamPlugin(config),
+    ];
   })
   .s("RestJson", "InputStream", {
     /**
@@ -123,7 +126,7 @@ export class InputStreamCommand extends $Command
     },
   })
   .n("RestJsonProtocolClient", "InputStreamCommand")
-  .sc(InputStream)
+  .sc(InputStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

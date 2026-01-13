@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteGeoMatchSetRequest, DeleteGeoMatchSetResponse } from "../models/models_0";
-import { DeleteGeoMatchSet } from "../schemas/schemas_0";
+import { DeleteGeoMatchSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -138,7 +138,7 @@ export class DeleteGeoMatchSetCommand extends $Command
   })
   .s("AWSWAF_20150824", "DeleteGeoMatchSet", {})
   .n("WAFClient", "DeleteGeoMatchSetCommand")
-  .sc(DeleteGeoMatchSet)
+  .sc(DeleteGeoMatchSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import type { DeleteBatchImportJobRequest, DeleteBatchImportJobResult } from "../models/models_0";
-import { DeleteBatchImportJob } from "../schemas/schemas_0";
+import { DeleteBatchImportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class DeleteBatchImportJobCommand extends $Command
   })
   .s("AWSHawksNestServiceFacade", "DeleteBatchImportJob", {})
   .n("FraudDetectorClient", "DeleteBatchImportJobCommand")
-  .sc(DeleteBatchImportJob)
+  .sc(DeleteBatchImportJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

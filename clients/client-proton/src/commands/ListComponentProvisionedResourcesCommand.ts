@@ -9,7 +9,7 @@ import type {
   ListComponentProvisionedResourcesOutput,
 } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { ListComponentProvisionedResources } from "../schemas/schemas_0";
+import { ListComponentProvisionedResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListComponentProvisionedResourcesCommandInput extends ListCompo
  *
  * The output of {@link ListComponentProvisionedResourcesCommand}.
  */
-export interface ListComponentProvisionedResourcesCommandOutput
-  extends ListComponentProvisionedResourcesOutput,
-    __MetadataBearer {}
+export interface ListComponentProvisionedResourcesCommandOutput extends ListComponentProvisionedResourcesOutput, __MetadataBearer {}
 
 /**
  * <p>List provisioned resources for a component with details.</p>
@@ -106,7 +104,7 @@ export class ListComponentProvisionedResourcesCommand extends $Command
   })
   .s("AwsProton20200720", "ListComponentProvisionedResources", {})
   .n("ProtonClient", "ListComponentProvisionedResourcesCommand")
-  .sc(ListComponentProvisionedResources)
+  .sc(ListComponentProvisionedResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

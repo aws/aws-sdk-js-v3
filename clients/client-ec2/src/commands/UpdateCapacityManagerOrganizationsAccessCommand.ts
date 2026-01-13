@@ -9,7 +9,7 @@ import type {
   UpdateCapacityManagerOrganizationsAccessRequest,
   UpdateCapacityManagerOrganizationsAccessResult,
 } from "../models/models_7";
-import { UpdateCapacityManagerOrganizationsAccess } from "../schemas/schemas_0";
+import { UpdateCapacityManagerOrganizationsAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateCapacityManagerOrganizationsAccessCommand}.
  */
-export interface UpdateCapacityManagerOrganizationsAccessCommandInput
-  extends UpdateCapacityManagerOrganizationsAccessRequest {}
+export interface UpdateCapacityManagerOrganizationsAccessCommandInput extends UpdateCapacityManagerOrganizationsAccessRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateCapacityManagerOrganizationsAccessCommand}.
  */
-export interface UpdateCapacityManagerOrganizationsAccessCommandOutput
-  extends UpdateCapacityManagerOrganizationsAccessResult,
-    __MetadataBearer {}
+export interface UpdateCapacityManagerOrganizationsAccessCommandOutput extends UpdateCapacityManagerOrganizationsAccessResult, __MetadataBearer {}
 
 /**
  * <p>
@@ -85,7 +82,7 @@ export class UpdateCapacityManagerOrganizationsAccessCommand extends $Command
   })
   .s("AmazonEC2", "UpdateCapacityManagerOrganizationsAccess", {})
   .n("EC2Client", "UpdateCapacityManagerOrganizationsAccessCommand")
-  .sc(UpdateCapacityManagerOrganizationsAccess)
+  .sc(UpdateCapacityManagerOrganizationsAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

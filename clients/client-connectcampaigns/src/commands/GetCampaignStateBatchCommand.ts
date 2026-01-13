@@ -10,7 +10,7 @@ import type {
 } from "../ConnectCampaignsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCampaignStateBatchRequest, GetCampaignStateBatchResponse } from "../models/models_0";
-import { GetCampaignStateBatch } from "../schemas/schemas_0";
+import { GetCampaignStateBatch$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class GetCampaignStateBatchCommand extends $Command
   })
   .s("AmazonConnectCampaignService", "GetCampaignStateBatch", {})
   .n("ConnectCampaignsClient", "GetCampaignStateBatchCommand")
-  .sc(GetCampaignStateBatch)
+  .sc(GetCampaignStateBatch$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,10 +10,8 @@ AWS SDK for JavaScript ChimeSDKMediaPipelines Client for Node.js, Browser and Re
 create Amazon Chime SDK media pipelines that capture, concatenate, or stream your Amazon Chime SDK meetings. For more information about media pipelines, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Media_Pipelines.html">Amazon Chime SDK media pipelines</a>. </p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-chime-sdk-media-pipelines
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-chime-sdk-media-pipelines`
 - `yarn add @aws-sdk/client-chime-sdk-media-pipelines`
 - `pnpm add @aws-sdk/client-chime-sdk-media-pipelines`
@@ -28,10 +26,7 @@ the commands you need, for example `ListMediaPipelinesCommand`:
 
 ```js
 // ES5 example
-const {
-  ChimeSDKMediaPipelinesClient,
-  ListMediaPipelinesCommand,
-} = require("@aws-sdk/client-chime-sdk-media-pipelines");
+const { ChimeSDKMediaPipelinesClient, ListMediaPipelinesCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines");
 ```
 
 ```ts
@@ -52,9 +47,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new ChimeSDKMediaPipelinesClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListMediaPipelinesCommand(params);
 ```
 
@@ -213,7 +206,6 @@ CreateMediaCapturePipeline
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/CreateMediaCapturePipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/CreateMediaCapturePipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/CreateMediaCapturePipelineCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -221,7 +213,6 @@ CreateMediaConcatenationPipeline
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/CreateMediaConcatenationPipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/CreateMediaConcatenationPipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/CreateMediaConcatenationPipelineCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -229,7 +220,6 @@ CreateMediaInsightsPipeline
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/CreateMediaInsightsPipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/CreateMediaInsightsPipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/CreateMediaInsightsPipelineCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -237,7 +227,6 @@ CreateMediaInsightsPipelineConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/CreateMediaInsightsPipelineConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/CreateMediaInsightsPipelineConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/CreateMediaInsightsPipelineConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -245,7 +234,6 @@ CreateMediaLiveConnectorPipeline
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/CreateMediaLiveConnectorPipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/CreateMediaLiveConnectorPipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/CreateMediaLiveConnectorPipelineCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -253,7 +241,6 @@ CreateMediaPipelineKinesisVideoStreamPool
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/CreateMediaPipelineKinesisVideoStreamPoolCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/CreateMediaPipelineKinesisVideoStreamPoolCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/CreateMediaPipelineKinesisVideoStreamPoolCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -261,7 +248,6 @@ CreateMediaStreamPipeline
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/CreateMediaStreamPipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/CreateMediaStreamPipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/CreateMediaStreamPipelineCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -269,7 +255,6 @@ DeleteMediaCapturePipeline
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/DeleteMediaCapturePipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/DeleteMediaCapturePipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/DeleteMediaCapturePipelineCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -277,7 +262,6 @@ DeleteMediaInsightsPipelineConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/DeleteMediaInsightsPipelineConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/DeleteMediaInsightsPipelineConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/DeleteMediaInsightsPipelineConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -285,7 +269,6 @@ DeleteMediaPipeline
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/DeleteMediaPipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/DeleteMediaPipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/DeleteMediaPipelineCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -293,7 +276,6 @@ DeleteMediaPipelineKinesisVideoStreamPool
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/DeleteMediaPipelineKinesisVideoStreamPoolCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/DeleteMediaPipelineKinesisVideoStreamPoolCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -301,7 +283,6 @@ GetMediaCapturePipeline
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/GetMediaCapturePipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/GetMediaCapturePipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/GetMediaCapturePipelineCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -309,7 +290,6 @@ GetMediaInsightsPipelineConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/GetMediaInsightsPipelineConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/GetMediaInsightsPipelineConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/GetMediaInsightsPipelineConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -317,7 +297,6 @@ GetMediaPipeline
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/GetMediaPipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/GetMediaPipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/GetMediaPipelineCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -325,7 +304,6 @@ GetMediaPipelineKinesisVideoStreamPool
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/GetMediaPipelineKinesisVideoStreamPoolCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/GetMediaPipelineKinesisVideoStreamPoolCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/GetMediaPipelineKinesisVideoStreamPoolCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -333,7 +311,6 @@ GetSpeakerSearchTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/GetSpeakerSearchTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/GetSpeakerSearchTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/GetSpeakerSearchTaskCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -341,7 +318,6 @@ GetVoiceToneAnalysisTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/GetVoiceToneAnalysisTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/GetVoiceToneAnalysisTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/GetVoiceToneAnalysisTaskCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -349,7 +325,6 @@ ListMediaCapturePipelines
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/ListMediaCapturePipelinesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/ListMediaCapturePipelinesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/ListMediaCapturePipelinesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -357,7 +332,6 @@ ListMediaInsightsPipelineConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/ListMediaInsightsPipelineConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/ListMediaInsightsPipelineConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/ListMediaInsightsPipelineConfigurationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -365,7 +339,6 @@ ListMediaPipelineKinesisVideoStreamPools
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/ListMediaPipelineKinesisVideoStreamPoolsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/ListMediaPipelineKinesisVideoStreamPoolsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/ListMediaPipelineKinesisVideoStreamPoolsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -373,7 +346,6 @@ ListMediaPipelines
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/ListMediaPipelinesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/ListMediaPipelinesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/ListMediaPipelinesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -381,7 +353,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -389,7 +360,6 @@ StartSpeakerSearchTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/StartSpeakerSearchTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/StartSpeakerSearchTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/StartSpeakerSearchTaskCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -397,7 +367,6 @@ StartVoiceToneAnalysisTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/StartVoiceToneAnalysisTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/StartVoiceToneAnalysisTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/StartVoiceToneAnalysisTaskCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -405,7 +374,6 @@ StopSpeakerSearchTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/StopSpeakerSearchTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/StopSpeakerSearchTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/StopSpeakerSearchTaskCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -413,7 +381,6 @@ StopVoiceToneAnalysisTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/StopVoiceToneAnalysisTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/StopVoiceToneAnalysisTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/StopVoiceToneAnalysisTaskCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -421,7 +388,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -429,7 +395,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -437,7 +402,6 @@ UpdateMediaInsightsPipelineConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/UpdateMediaInsightsPipelineConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/UpdateMediaInsightsPipelineConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/UpdateMediaInsightsPipelineConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -445,7 +409,6 @@ UpdateMediaInsightsPipelineStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/UpdateMediaInsightsPipelineStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/UpdateMediaInsightsPipelineStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/UpdateMediaInsightsPipelineStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -453,5 +416,4 @@ UpdateMediaPipelineKinesisVideoStreamPool
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-media-pipelines/command/UpdateMediaPipelineKinesisVideoStreamPoolCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/UpdateMediaPipelineKinesisVideoStreamPoolCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-media-pipelines/Interface/UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput/)
-
 </details>

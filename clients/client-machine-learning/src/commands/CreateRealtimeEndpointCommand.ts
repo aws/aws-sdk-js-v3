@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MachineLearningClient";
 import type { CreateRealtimeEndpointInput, CreateRealtimeEndpointOutput } from "../models/models_0";
-import { CreateRealtimeEndpoint } from "../schemas/schemas_0";
+import { CreateRealtimeEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class CreateRealtimeEndpointCommand extends $Command
   })
   .s("AmazonML_20141212", "CreateRealtimeEndpoint", {})
   .n("MachineLearningClient", "CreateRealtimeEndpointCommand")
-  .sc(CreateRealtimeEndpoint)
+  .sc(CreateRealtimeEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

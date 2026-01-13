@@ -6,8 +6,7 @@ import { InspectorScanServiceException as __BaseException } from "./InspectorSca
 import { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>You do not have sufficient access to perform this action.
- *   </p>
+ * <p>You do not have sufficient access to perform this action. </p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,9 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or failure.
- *
- *   </p>
+ * <p>The request processing has failed because of an unknown error, exception or failure. </p>
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -64,9 +61,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.
- *
- *   </p>
+ * <p>The request was denied due to request throttling. </p>
  * @public
  */
 export class ThrottlingException extends __BaseException {

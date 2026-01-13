@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetFaceLivenessSessionResultsRequest, GetFaceLivenessSessionResultsResponse } from "../models/models_0";
 import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { GetFaceLivenessSessionResults } from "../schemas/schemas_0";
+import { GetFaceLivenessSessionResults$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetFaceLivenessSessionResultsCommandInput extends GetFaceLivene
  *
  * The output of {@link GetFaceLivenessSessionResultsCommand}.
  */
-export interface GetFaceLivenessSessionResultsCommandOutput
-  extends GetFaceLivenessSessionResultsResponse,
-    __MetadataBearer {}
+export interface GetFaceLivenessSessionResultsCommandOutput extends GetFaceLivenessSessionResultsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the results of a specific Face Liveness session. It requires the
@@ -139,7 +137,7 @@ export class GetFaceLivenessSessionResultsCommand extends $Command
   })
   .s("RekognitionService", "GetFaceLivenessSessionResults", {})
   .n("RekognitionClient", "GetFaceLivenessSessionResultsCommand")
-  .sc(GetFaceLivenessSessionResults)
+  .sc(GetFaceLivenessSessionResults$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

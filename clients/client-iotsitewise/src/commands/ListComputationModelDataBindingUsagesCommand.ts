@@ -9,7 +9,7 @@ import type {
   ListComputationModelDataBindingUsagesRequest,
   ListComputationModelDataBindingUsagesResponse,
 } from "../models/models_0";
-import { ListComputationModelDataBindingUsages } from "../schemas/schemas_0";
+import { ListComputationModelDataBindingUsages$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListComputationModelDataBindingUsagesCommand}.
  */
-export interface ListComputationModelDataBindingUsagesCommandInput
-  extends ListComputationModelDataBindingUsagesRequest {}
+export interface ListComputationModelDataBindingUsagesCommandInput extends ListComputationModelDataBindingUsagesRequest {}
 /**
  * @public
  *
  * The output of {@link ListComputationModelDataBindingUsagesCommand}.
  */
-export interface ListComputationModelDataBindingUsagesCommandOutput
-  extends ListComputationModelDataBindingUsagesResponse,
-    __MetadataBearer {}
+export interface ListComputationModelDataBindingUsagesCommandOutput extends ListComputationModelDataBindingUsagesResponse, __MetadataBearer {}
 
 /**
  * <p> Lists all data binding usages for computation models. This allows to identify where
@@ -130,7 +127,7 @@ export class ListComputationModelDataBindingUsagesCommand extends $Command
   })
   .s("AWSIoTSiteWise", "ListComputationModelDataBindingUsages", {})
   .n("IoTSiteWiseClient", "ListComputationModelDataBindingUsagesCommand")
-  .sc(ListComputationModelDataBindingUsages)
+  .sc(ListComputationModelDataBindingUsages$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

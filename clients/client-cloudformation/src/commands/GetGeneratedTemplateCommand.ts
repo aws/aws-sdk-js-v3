@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetGeneratedTemplateInput, GetGeneratedTemplateOutput } from "../models/models_0";
-import { GetGeneratedTemplate } from "../schemas/schemas_0";
+import { GetGeneratedTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -154,7 +154,7 @@ export class GetGeneratedTemplateCommand extends $Command
   })
   .s("CloudFormation", "GetGeneratedTemplate", {})
   .n("CloudFormationClient", "GetGeneratedTemplateCommand")
-  .sc(GetGeneratedTemplate)
+  .sc(GetGeneratedTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

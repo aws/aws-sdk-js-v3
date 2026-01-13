@@ -8,7 +8,7 @@ import type {
   DeleteUserAccessLoggingSettingsRequest,
   DeleteUserAccessLoggingSettingsResponse,
 } from "../models/models_0";
-import { DeleteUserAccessLoggingSettings } from "../schemas/schemas_0";
+import { DeleteUserAccessLoggingSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DeleteUserAccessLoggingSettingsCommandInput extends DeleteUserA
  *
  * The output of {@link DeleteUserAccessLoggingSettingsCommand}.
  */
-export interface DeleteUserAccessLoggingSettingsCommandOutput
-  extends DeleteUserAccessLoggingSettingsResponse,
-    __MetadataBearer {}
+export interface DeleteUserAccessLoggingSettingsCommandOutput extends DeleteUserAccessLoggingSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes user access logging settings.</p>
@@ -91,7 +89,7 @@ export class DeleteUserAccessLoggingSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "DeleteUserAccessLoggingSettings", {})
   .n("WorkSpacesWebClient", "DeleteUserAccessLoggingSettingsCommand")
-  .sc(DeleteUserAccessLoggingSettings)
+  .sc(DeleteUserAccessLoggingSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

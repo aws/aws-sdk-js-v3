@@ -29,6 +29,7 @@ import {
   MemoryStatus,
   MemoryStrategyStatus,
   MemoryStrategyType,
+  MemoryView,
   NetworkMode,
   OAuthGrantType,
   OnlineEvaluationConfigStatus,
@@ -501,7 +502,9 @@ export interface S3Location {
  * <p>The source code configuration that specifies the location and details of the code to be executed.</p>
  * @public
  */
-export type Code = Code.S3Member | Code.$UnknownMember;
+export type Code =
+  | Code.S3Member
+  | Code.$UnknownMember;
 
 /**
  * @public
@@ -2473,7 +2476,10 @@ export interface NumericalScaleDefinition {
  * <p> The rating scale that defines how evaluators should score agent performance, supporting both numerical and categorical scales. </p>
  * @public
  */
-export type RatingScale = RatingScale.CategoricalMember | RatingScale.NumericalMember | RatingScale.$UnknownMember;
+export type RatingScale =
+  | RatingScale.CategoricalMember
+  | RatingScale.NumericalMember
+  | RatingScale.$UnknownMember;
 
 /**
  * @public
@@ -2547,7 +2553,9 @@ export interface LlmAsAJudgeEvaluatorConfig {
  * <p> The configuration that defines how an evaluator assesses agent performance, including the evaluation method and parameters. </p>
  * @public
  */
-export type EvaluatorConfig = EvaluatorConfig.LlmAsAJudgeMember | EvaluatorConfig.$UnknownMember;
+export type EvaluatorConfig =
+  | EvaluatorConfig.LlmAsAJudgeMember
+  | EvaluatorConfig.$UnknownMember;
 
 /**
  * @public
@@ -2946,7 +2954,9 @@ export interface LambdaInterceptorConfiguration {
  * <p>The interceptor configuration.</p>
  * @public
  */
-export type InterceptorConfiguration = InterceptorConfiguration.LambdaMember | InterceptorConfiguration.$UnknownMember;
+export type InterceptorConfiguration =
+  | InterceptorConfiguration.LambdaMember
+  | InterceptorConfiguration.$UnknownMember;
 
 /**
  * @public
@@ -3869,6 +3879,30 @@ export interface CredentialProviderConfiguration {
    * @public
    */
   credentialProvider?: CredentialProvider | undefined;
+}
+
+/**
+ * <p>Configuration for HTTP header and query parameter propagation between the gateway and target servers.</p>
+ * @public
+ */
+export interface MetadataConfiguration {
+  /**
+   * <p>A list of HTTP headers that are allowed to be propagated from incoming client requests to the target.</p>
+   * @public
+   */
+  allowedRequestHeaders?: string[] | undefined;
+
+  /**
+   * <p>A list of URL query parameters that are allowed to be propagated from incoming gateway URL to the target.</p>
+   * @public
+   */
+  allowedQueryParameters?: string[] | undefined;
+
+  /**
+   * <p>A list of HTTP headers that are allowed to be propagated from the target response back to the client.</p>
+   * @public
+   */
+  allowedResponseHeaders?: string[] | undefined;
 }
 
 /**
@@ -5945,6 +5979,12 @@ export interface GetMemoryInput {
    * @public
    */
   memoryId: string | undefined;
+
+  /**
+   * <p>The level of detail to return for the memory.</p>
+   * @public
+   */
+  view?: MemoryView | undefined;
 }
 
 /**
@@ -7713,7 +7753,9 @@ export interface CloudWatchLogsInputConfig {
  * <p> The configuration that specifies where to read agent traces for online evaluation. </p>
  * @public
  */
-export type DataSourceConfig = DataSourceConfig.CloudWatchLogsMember | DataSourceConfig.$UnknownMember;
+export type DataSourceConfig =
+  | DataSourceConfig.CloudWatchLogsMember
+  | DataSourceConfig.$UnknownMember;
 
 /**
  * @public
@@ -7750,7 +7792,9 @@ export namespace DataSourceConfig {
  * <p> The reference to an evaluator used in online evaluation configurations, containing the evaluator identifier. </p>
  * @public
  */
-export type EvaluatorReference = EvaluatorReference.EvaluatorIdMember | EvaluatorReference.$UnknownMember;
+export type EvaluatorReference =
+  | EvaluatorReference.EvaluatorIdMember
+  | EvaluatorReference.$UnknownMember;
 
 /**
  * @public
@@ -8753,7 +8797,9 @@ export interface GetPolicyGenerationRequest {
  * <p>Represents a resource within the AgentCore Policy system. Resources are the targets of policy evaluation. Currently, only AgentCore Gateways are supported as resources for policy enforcement.</p>
  * @public
  */
-export type Resource = Resource.ArnMember | Resource.$UnknownMember;
+export type Resource =
+  | Resource.ArnMember
+  | Resource.$UnknownMember;
 
 /**
  * @public
@@ -8896,7 +8942,9 @@ export interface CedarPolicy {
  * <p>Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.</p>
  * @public
  */
-export type PolicyDefinition = PolicyDefinition.CedarMember | PolicyDefinition.$UnknownMember;
+export type PolicyDefinition =
+  | PolicyDefinition.CedarMember
+  | PolicyDefinition.$UnknownMember;
 
 /**
  * @public
@@ -9104,7 +9152,9 @@ export interface ListPolicyGenerationsResponse {
  * <p>Represents content input for policy generation operations. This structure encapsulates the natural language descriptions or other content formats that are used as input for AI-powered policy generation.</p>
  * @public
  */
-export type Content = Content.RawTextMember | Content.$UnknownMember;
+export type Content =
+  | Content.RawTextMember
+  | Content.$UnknownMember;
 
 /**
  * @public
@@ -9505,33 +9555,4 @@ export interface GetPolicyResponse {
    * @public
    */
   statusReasons: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPoliciesRequest {
-  /**
-   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicies.html">ListPolicies</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of policies to return in a single response. If not specified, the default is 10 policies per page, with a maximum of 100 per page.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The identifier of the policy engine whose policies to retrieve.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>Optional filter to list policies that apply to a specific resource scope or resource type. This helps narrow down policy results to those relevant for particular Amazon Web Services resources, agent tools, or operational contexts within the policy engine ecosystem.</p>
-   * @public
-   */
-  targetResourceScope?: string | undefined;
 }

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetResourcesTrendsV2Response } from "../models/models_2";
 import type { GetResourcesTrendsV2Request } from "../models/models_3";
-import { GetResourcesTrendsV2 } from "../schemas/schemas_0";
+import { GetResourcesTrendsV2$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -136,7 +136,7 @@ export class GetResourcesTrendsV2Command extends $Command
   })
   .s("SecurityHubAPIService", "GetResourcesTrendsV2", {})
   .n("SecurityHubClient", "GetResourcesTrendsV2Command")
-  .sc(GetResourcesTrendsV2)
+  .sc(GetResourcesTrendsV2$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListChatResponseConfigurationsRequest, ListChatResponseConfigurationsResponse } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { ListChatResponseConfigurations } from "../schemas/schemas_0";
+import { ListChatResponseConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListChatResponseConfigurationsCommandInput extends ListChatResp
  *
  * The output of {@link ListChatResponseConfigurationsCommand}.
  */
-export interface ListChatResponseConfigurationsCommandOutput
-  extends ListChatResponseConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListChatResponseConfigurationsCommandOutput extends ListChatResponseConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of all chat response configurations available in a specified Amazon Q Business application. This operation returns summary information about each configuration to help administrators manage and select appropriate response settings.</p>
@@ -103,7 +101,7 @@ export class ListChatResponseConfigurationsCommand extends $Command
   })
   .s("ExpertQ", "ListChatResponseConfigurations", {})
   .n("QBusinessClient", "ListChatResponseConfigurationsCommand")
-  .sc(ListChatResponseConfigurations)
+  .sc(ListChatResponseConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

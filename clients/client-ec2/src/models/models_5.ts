@@ -60,7 +60,6 @@ import {
   VpcBlockPublicAccessExclusionsAllowed,
   VpcBlockPublicAccessState,
 } from "./enums";
-
 import {
   type ActiveVpnTunnelStatus,
   type AddressTransfer,
@@ -89,9 +88,7 @@ import {
   VpcEncryptionControl,
   VpcPeeringConnection,
 } from "./models_0";
-
 import type { InstanceRequirementsRequest } from "./models_1";
-
 import {
   ConnectionNotification,
   DnsEntry,
@@ -103,7 +100,6 @@ import {
   VpnConnection,
   VpnGateway,
 } from "./models_2";
-
 import {
   type AttributeBooleanValue,
   type ExportTaskS3Location,
@@ -112,7 +108,6 @@ import {
   Filter,
   ProductCode,
 } from "./models_3";
-
 import {
   type VerifiedAccessLogCloudWatchLogsDestination,
   type VerifiedAccessLogDeliveryStatus,

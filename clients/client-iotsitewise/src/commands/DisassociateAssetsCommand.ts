@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import type { DisassociateAssetsRequest } from "../models/models_0";
-import { DisassociateAssets } from "../schemas/schemas_0";
+import { DisassociateAssets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DisassociateAssetsCommand extends $Command
   })
   .s("AWSIoTSiteWise", "DisassociateAssets", {})
   .n("IoTSiteWiseClient", "DisassociateAssetsCommand")
-  .sc(DisassociateAssets)
+  .sc(DisassociateAssets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

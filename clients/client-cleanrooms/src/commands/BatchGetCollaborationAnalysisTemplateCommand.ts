@@ -9,7 +9,7 @@ import type {
   BatchGetCollaborationAnalysisTemplateInput,
   BatchGetCollaborationAnalysisTemplateOutput,
 } from "../models/models_0";
-import { BatchGetCollaborationAnalysisTemplate } from "../schemas/schemas_0";
+import { BatchGetCollaborationAnalysisTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface BatchGetCollaborationAnalysisTemplateCommandInput extends Batch
  *
  * The output of {@link BatchGetCollaborationAnalysisTemplateCommand}.
  */
-export interface BatchGetCollaborationAnalysisTemplateCommandOutput
-  extends BatchGetCollaborationAnalysisTemplateOutput,
-    __MetadataBearer {}
+export interface BatchGetCollaborationAnalysisTemplateCommandOutput extends BatchGetCollaborationAnalysisTemplateOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves multiple analysis templates within a collaboration by their Amazon Resource Names (ARNs).</p>
@@ -189,7 +187,7 @@ export class BatchGetCollaborationAnalysisTemplateCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "BatchGetCollaborationAnalysisTemplate", {})
   .n("CleanRoomsClient", "BatchGetCollaborationAnalysisTemplateCommand")
-  .sc(BatchGetCollaborationAnalysisTemplate)
+  .sc(BatchGetCollaborationAnalysisTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

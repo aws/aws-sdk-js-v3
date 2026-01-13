@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeletePipeRequest, DeletePipeResponse } from "../models/models_0";
 import type { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
-import { DeletePipe } from "../schemas/schemas_0";
+import { DeletePipe$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeletePipeCommand extends $Command
   })
   .s("Pipes", "DeletePipe", {})
   .n("PipesClient", "DeletePipeCommand")
-  .sc(DeletePipe)
+  .sc(DeletePipe$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   BatchAssociateClientDeviceWithCoreDeviceRequest,
   BatchAssociateClientDeviceWithCoreDeviceResponse,
 } from "../models/models_0";
-import { BatchAssociateClientDeviceWithCoreDevice } from "../schemas/schemas_0";
+import { BatchAssociateClientDeviceWithCoreDevice$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchAssociateClientDeviceWithCoreDeviceCommand}.
  */
-export interface BatchAssociateClientDeviceWithCoreDeviceCommandInput
-  extends BatchAssociateClientDeviceWithCoreDeviceRequest {}
+export interface BatchAssociateClientDeviceWithCoreDeviceCommandInput extends BatchAssociateClientDeviceWithCoreDeviceRequest {}
 /**
  * @public
  *
  * The output of {@link BatchAssociateClientDeviceWithCoreDeviceCommand}.
  */
-export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput
-  extends BatchAssociateClientDeviceWithCoreDeviceResponse,
-    __MetadataBearer {}
+export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput extends BatchAssociateClientDeviceWithCoreDeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a list of client devices with a core device. Use this API operation to specify
@@ -118,7 +115,7 @@ export class BatchAssociateClientDeviceWithCoreDeviceCommand extends $Command
   })
   .s("GreengrassV2", "BatchAssociateClientDeviceWithCoreDevice", {})
   .n("GreengrassV2Client", "BatchAssociateClientDeviceWithCoreDeviceCommand")
-  .sc(BatchAssociateClientDeviceWithCoreDevice)
+  .sc(BatchAssociateClientDeviceWithCoreDevice$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

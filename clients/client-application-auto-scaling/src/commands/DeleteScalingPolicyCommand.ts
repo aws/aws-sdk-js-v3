@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationAutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteScalingPolicyRequest, DeleteScalingPolicyResponse } from "../models/models_0";
-import { DeleteScalingPolicy } from "../schemas/schemas_0";
+import { DeleteScalingPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class DeleteScalingPolicyCommand extends $Command
   })
   .s("AnyScaleFrontendService", "DeleteScalingPolicy", {})
   .n("ApplicationAutoScalingClient", "DeleteScalingPolicyCommand")
-  .sc(DeleteScalingPolicy)
+  .sc(DeleteScalingPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

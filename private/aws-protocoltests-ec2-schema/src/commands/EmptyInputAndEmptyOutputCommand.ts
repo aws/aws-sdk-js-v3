@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EmptyInputAndEmptyOutputInput, EmptyInputAndEmptyOutputOutput } from "../models/models_0";
-import { EmptyInputAndEmptyOutput } from "../schemas/schemas_0";
+import { EmptyInputAndEmptyOutput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -72,7 +72,7 @@ export class EmptyInputAndEmptyOutputCommand extends $Command
   })
   .s("AwsEc2", "EmptyInputAndEmptyOutput", {})
   .n("EC2ProtocolClient", "EmptyInputAndEmptyOutputCommand")
-  .sc(EmptyInputAndEmptyOutput)
+  .sc(EmptyInputAndEmptyOutput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -131,6 +131,20 @@ export type ResourceWarningStatus = (typeof ResourceWarningStatus)[keyof typeof 
  * @public
  * @enum
  */
+export const FailedReportErrorCode = {
+  CONFIGURATION_ERROR: "configurationError",
+  INSUFFICIENT_PERMISSIONS: "insufficientPermissions",
+  INVALID_RESOURCE: "invalidResource",
+} as const;
+/**
+ * @public
+ */
+export type FailedReportErrorCode = (typeof FailedReportErrorCode)[keyof typeof FailedReportErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
 export const WorkflowTargetAction = {
   ACTIVATE: "activate",
   DEACTIVATE: "deactivate",
@@ -177,6 +191,32 @@ export const LambdaUngracefulBehavior = {
  * @public
  */
 export type LambdaUngracefulBehavior = (typeof LambdaUngracefulBehavior)[keyof typeof LambdaUngracefulBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const DocumentDbDefaultBehavior = {
+  FAILOVER: "failover",
+  SWITCHOVER_ONLY: "switchoverOnly",
+} as const;
+/**
+ * @public
+ */
+export type DocumentDbDefaultBehavior = (typeof DocumentDbDefaultBehavior)[keyof typeof DocumentDbDefaultBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const DocumentDbUngracefulBehavior = {
+  FAILOVER: "failover",
+} as const;
+/**
+ * @public
+ */
+export type DocumentDbUngracefulBehavior =
+  (typeof DocumentDbUngracefulBehavior)[keyof typeof DocumentDbUngracefulBehavior];
 
 /**
  * @public
@@ -253,6 +293,7 @@ export type GlobalAuroraUngracefulBehavior =
 export const ExecutionBlockType = {
   AURORA: "AuroraGlobalDatabase",
   CUSTOM_ACTION_LAMBDA: "CustomActionLambda",
+  DOCUMENTDB: "DocumentDb",
   EC2_ASG: "EC2AutoScaling",
   ECS: "ECSServiceScaling",
   EKS_RESOURCE_SCALING: "EKSResourceScaling",
@@ -303,6 +344,7 @@ export const ExecutionEventType = {
   EXECUTION_STARTED: "executionStarted",
   EXECUTION_SUCCEEDED: "executionSucceeded",
   EXECUTION_SUCCESS_MONITORING_APPLICATION_HEALTH: "executionSuccessMonitoringApplicationHealth",
+  PLAN_EVALUATION_WARNING: "planEvaluationWarning",
   STEP_CANCELED: "stepCanceled",
   STEP_EXECUTION_BEHAVIOR_CHANGED_TO_UNGRACEFUL: "stepExecutionBehaviorChangedToUngraceful",
   STEP_FAILED: "stepFailed",
@@ -320,6 +362,20 @@ export const ExecutionEventType = {
  * @public
  */
 export type ExecutionEventType = (typeof ExecutionEventType)[keyof typeof ExecutionEventType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Route53HealthCheckStatus = {
+  HEALTHY: "healthy",
+  UNHEALTHY: "unhealthy",
+  UNKNOWN: "unknown",
+} as const;
+/**
+ * @public
+ */
+export type Route53HealthCheckStatus = (typeof Route53HealthCheckStatus)[keyof typeof Route53HealthCheckStatus];
 
 /**
  * @public

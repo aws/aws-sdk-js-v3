@@ -9,7 +9,7 @@ import type {
   StartDominantLanguageDetectionJobRequest,
   StartDominantLanguageDetectionJobResponse,
 } from "../models/models_0";
-import { StartDominantLanguageDetectionJob } from "../schemas/schemas_0";
+import { StartDominantLanguageDetectionJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface StartDominantLanguageDetectionJobCommandInput extends StartDomi
  *
  * The output of {@link StartDominantLanguageDetectionJobCommand}.
  */
-export interface StartDominantLanguageDetectionJobCommandOutput
-  extends StartDominantLanguageDetectionJobResponse,
-    __MetadataBearer {}
+export interface StartDominantLanguageDetectionJobCommandOutput extends StartDominantLanguageDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous dominant language detection job for a collection of documents. Use
@@ -136,7 +134,7 @@ export class StartDominantLanguageDetectionJobCommand extends $Command
   })
   .s("Comprehend_20171127", "StartDominantLanguageDetectionJob", {})
   .n("ComprehendClient", "StartDominantLanguageDetectionJobCommand")
-  .sc(StartDominantLanguageDetectionJob)
+  .sc(StartDominantLanguageDetectionJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

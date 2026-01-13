@@ -9,7 +9,7 @@ import type {
   ListRepositoriesForApprovalRuleTemplateInput,
   ListRepositoriesForApprovalRuleTemplateOutput,
 } from "../models/models_0";
-import { ListRepositoriesForApprovalRuleTemplate } from "../schemas/schemas_0";
+import { ListRepositoriesForApprovalRuleTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListRepositoriesForApprovalRuleTemplateCommand}.
  */
-export interface ListRepositoriesForApprovalRuleTemplateCommandInput
-  extends ListRepositoriesForApprovalRuleTemplateInput {}
+export interface ListRepositoriesForApprovalRuleTemplateCommandInput extends ListRepositoriesForApprovalRuleTemplateInput {}
 /**
  * @public
  *
  * The output of {@link ListRepositoriesForApprovalRuleTemplateCommand}.
  */
-export interface ListRepositoriesForApprovalRuleTemplateCommandOutput
-  extends ListRepositoriesForApprovalRuleTemplateOutput,
-    __MetadataBearer {}
+export interface ListRepositoriesForApprovalRuleTemplateCommandOutput extends ListRepositoriesForApprovalRuleTemplateOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all repositories associated with the specified approval rule template.</p>
@@ -117,7 +114,7 @@ export class ListRepositoriesForApprovalRuleTemplateCommand extends $Command
   })
   .s("CodeCommit_20150413", "ListRepositoriesForApprovalRuleTemplate", {})
   .n("CodeCommitClient", "ListRepositoriesForApprovalRuleTemplateCommand")
-  .sc(ListRepositoriesForApprovalRuleTemplate)
+  .sc(ListRepositoriesForApprovalRuleTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImportHypervisorConfigurationInput, ImportHypervisorConfigurationOutput } from "../models/models_0";
-import { ImportHypervisorConfiguration } from "../schemas/schemas_0";
+import { ImportHypervisorConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ImportHypervisorConfigurationCommandInput extends ImportHypervi
  *
  * The output of {@link ImportHypervisorConfigurationCommand}.
  */
-export interface ImportHypervisorConfigurationCommandOutput
-  extends ImportHypervisorConfigurationOutput,
-    __MetadataBearer {}
+export interface ImportHypervisorConfigurationCommandOutput extends ImportHypervisorConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Connect to a hypervisor by importing its configuration.</p>
@@ -101,7 +99,7 @@ export class ImportHypervisorConfigurationCommand extends $Command
   })
   .s("BackupOnPremises_v20210101", "ImportHypervisorConfiguration", {})
   .n("BackupGatewayClient", "ImportHypervisorConfigurationCommand")
-  .sc(ImportHypervisorConfiguration)
+  .sc(ImportHypervisorConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { GetOutboundWebIdentityFederationInfoResponse } from "../models/models_0";
-import { GetOutboundWebIdentityFederationInfo } from "../schemas/schemas_0";
+import { GetOutboundWebIdentityFederationInfo$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetOutboundWebIdentityFederationInfoCommandInput {}
  *
  * The output of {@link GetOutboundWebIdentityFederationInfoCommand}.
  */
-export interface GetOutboundWebIdentityFederationInfoCommandOutput
-  extends GetOutboundWebIdentityFederationInfoResponse,
-    __MetadataBearer {}
+export interface GetOutboundWebIdentityFederationInfoCommandOutput extends GetOutboundWebIdentityFederationInfoResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the configuration information for the outbound identity federation feature in your Amazon Web Services account. The response includes the unique issuer URL for your
@@ -78,7 +76,7 @@ export class GetOutboundWebIdentityFederationInfoCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "GetOutboundWebIdentityFederationInfo", {})
   .n("IAMClient", "GetOutboundWebIdentityFederationInfoCommand")
-  .sc(GetOutboundWebIdentityFederationInfo)
+  .sc(GetOutboundWebIdentityFederationInfo$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

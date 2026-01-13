@@ -17,10 +17,8 @@ and visualizations to analyze your metrics, logs, and traces without having to b
 package, or deploy any hardware to run Grafana servers. </p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-grafana
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-grafana`
 - `yarn add @aws-sdk/client-grafana`
 - `pnpm add @aws-sdk/client-grafana`
@@ -56,9 +54,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new GrafanaClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListVersionsCommand(params);
 ```
 
@@ -217,7 +213,6 @@ AssociateLicense
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/AssociateLicenseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/AssociateLicenseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/AssociateLicenseCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +220,6 @@ CreateWorkspace
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/CreateWorkspaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/CreateWorkspaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/CreateWorkspaceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +227,6 @@ CreateWorkspaceApiKey
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/CreateWorkspaceApiKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/CreateWorkspaceApiKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/CreateWorkspaceApiKeyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +234,6 @@ CreateWorkspaceServiceAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/CreateWorkspaceServiceAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/CreateWorkspaceServiceAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/CreateWorkspaceServiceAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +241,6 @@ CreateWorkspaceServiceAccountToken
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/CreateWorkspaceServiceAccountTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/CreateWorkspaceServiceAccountTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/CreateWorkspaceServiceAccountTokenCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +248,6 @@ DeleteWorkspace
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/DeleteWorkspaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DeleteWorkspaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DeleteWorkspaceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +255,6 @@ DeleteWorkspaceApiKey
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/DeleteWorkspaceApiKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DeleteWorkspaceApiKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DeleteWorkspaceApiKeyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +262,6 @@ DeleteWorkspaceServiceAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/DeleteWorkspaceServiceAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DeleteWorkspaceServiceAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DeleteWorkspaceServiceAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +269,6 @@ DeleteWorkspaceServiceAccountToken
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/DeleteWorkspaceServiceAccountTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DeleteWorkspaceServiceAccountTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DeleteWorkspaceServiceAccountTokenCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +276,6 @@ DescribeWorkspace
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/DescribeWorkspaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DescribeWorkspaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DescribeWorkspaceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,7 +283,6 @@ DescribeWorkspaceAuthentication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/DescribeWorkspaceAuthenticationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DescribeWorkspaceAuthenticationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DescribeWorkspaceAuthenticationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -305,7 +290,6 @@ DescribeWorkspaceConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/DescribeWorkspaceConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DescribeWorkspaceConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DescribeWorkspaceConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -313,7 +297,6 @@ DisassociateLicense
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/DisassociateLicenseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DisassociateLicenseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DisassociateLicenseCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -321,7 +304,6 @@ ListPermissions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/ListPermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/ListPermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/ListPermissionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -329,7 +311,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -337,7 +318,6 @@ ListVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/ListVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/ListVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/ListVersionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -345,7 +325,6 @@ ListWorkspaces
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/ListWorkspacesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/ListWorkspacesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/ListWorkspacesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -353,7 +332,6 @@ ListWorkspaceServiceAccounts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/ListWorkspaceServiceAccountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/ListWorkspaceServiceAccountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/ListWorkspaceServiceAccountsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -361,7 +339,6 @@ ListWorkspaceServiceAccountTokens
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/ListWorkspaceServiceAccountTokensCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/ListWorkspaceServiceAccountTokensCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/ListWorkspaceServiceAccountTokensCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -369,7 +346,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -377,7 +353,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -385,7 +360,6 @@ UpdatePermissions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/UpdatePermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/UpdatePermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/UpdatePermissionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -393,7 +367,6 @@ UpdateWorkspace
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/UpdateWorkspaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/UpdateWorkspaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/UpdateWorkspaceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -401,7 +374,6 @@ UpdateWorkspaceAuthentication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/UpdateWorkspaceAuthenticationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/UpdateWorkspaceAuthenticationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/UpdateWorkspaceAuthenticationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -409,5 +381,4 @@ UpdateWorkspaceConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/UpdateWorkspaceConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/UpdateWorkspaceConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/UpdateWorkspaceConfigurationCommandOutput/)
-
 </details>

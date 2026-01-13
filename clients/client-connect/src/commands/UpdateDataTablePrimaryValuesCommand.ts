@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDataTablePrimaryValuesRequest, UpdateDataTablePrimaryValuesResponse } from "../models/models_3";
-import { UpdateDataTablePrimaryValues } from "../schemas/schemas_0";
+import { UpdateDataTablePrimaryValues$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateDataTablePrimaryValuesCommandInput extends UpdateDataTabl
  *
  * The output of {@link UpdateDataTablePrimaryValuesCommand}.
  */
-export interface UpdateDataTablePrimaryValuesCommandOutput
-  extends UpdateDataTablePrimaryValuesResponse,
-    __MetadataBearer {}
+export interface UpdateDataTablePrimaryValuesCommandOutput extends UpdateDataTablePrimaryValuesResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the primary values for a record. This operation affects all existing values that are currently
@@ -123,7 +121,7 @@ export class UpdateDataTablePrimaryValuesCommand extends $Command
   })
   .s("AmazonConnectService", "UpdateDataTablePrimaryValues", {})
   .n("ConnectClient", "UpdateDataTablePrimaryValuesCommand")
-  .sc(UpdateDataTablePrimaryValues)
+  .sc(UpdateDataTablePrimaryValues$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeDataSharesForConsumerMessage, DescribeDataSharesForConsumerResult } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeDataSharesForConsumer } from "../schemas/schemas_0";
+import { DescribeDataSharesForConsumer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeDataSharesForConsumerCommandInput extends DescribeDataS
  *
  * The output of {@link DescribeDataSharesForConsumerCommand}.
  */
-export interface DescribeDataSharesForConsumerCommandOutput
-  extends DescribeDataSharesForConsumerResult,
-    __MetadataBearer {}
+export interface DescribeDataSharesForConsumerCommandOutput extends DescribeDataSharesForConsumerResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of datashares where the account identifier being called is a consumer account identifier.</p>
@@ -101,7 +99,7 @@ export class DescribeDataSharesForConsumerCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DescribeDataSharesForConsumer", {})
   .n("RedshiftClient", "DescribeDataSharesForConsumerCommand")
-  .sc(DescribeDataSharesForConsumer)
+  .sc(DescribeDataSharesForConsumer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

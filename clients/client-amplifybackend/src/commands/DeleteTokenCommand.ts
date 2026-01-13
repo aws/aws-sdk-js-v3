@@ -10,7 +10,7 @@ import type {
 } from "../AmplifyBackendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTokenRequest, DeleteTokenResponse } from "../models/models_0";
-import { DeleteToken } from "../schemas/schemas_0";
+import { DeleteToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteTokenCommand extends $Command
   })
   .s("AmplifyBackend", "DeleteToken", {})
   .n("AmplifyBackendClient", "DeleteTokenCommand")
-  .sc(DeleteToken)
+  .sc(DeleteToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

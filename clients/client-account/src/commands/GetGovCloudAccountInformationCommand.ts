@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetGovCloudAccountInformationRequest, GetGovCloudAccountInformationResponse } from "../models/models_0";
-import { GetGovCloudAccountInformation } from "../schemas/schemas_0";
+import { GetGovCloudAccountInformation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetGovCloudAccountInformationCommandInput extends GetGovCloudAc
  *
  * The output of {@link GetGovCloudAccountInformationCommand}.
  */
-export interface GetGovCloudAccountInformationCommandOutput
-  extends GetGovCloudAccountInformationResponse,
-    __MetadataBearer {}
+export interface GetGovCloudAccountInformationCommandOutput extends GetGovCloudAccountInformationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the GovCloud account linked to the specified standard account (if it exists) including the GovCloud account ID and state. To use this API, an IAM user or role must have the <code>account:GetGovCloudAccountInformation</code> IAM permission. </p>
@@ -94,7 +92,7 @@ export class GetGovCloudAccountInformationCommand extends $Command
   })
   .s("Account", "GetGovCloudAccountInformation", {})
   .n("AccountClient", "GetGovCloudAccountInformationCommand")
-  .sc(GetGovCloudAccountInformation)
+  .sc(GetGovCloudAccountInformation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

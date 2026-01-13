@@ -9,7 +9,7 @@ import type {
   UnassignPrivateNatGatewayAddressRequest,
   UnassignPrivateNatGatewayAddressResult,
 } from "../models/models_7";
-import { UnassignPrivateNatGatewayAddress } from "../schemas/schemas_0";
+import { UnassignPrivateNatGatewayAddress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UnassignPrivateNatGatewayAddressCommandInput extends UnassignPr
  *
  * The output of {@link UnassignPrivateNatGatewayAddressCommand}.
  */
-export interface UnassignPrivateNatGatewayAddressCommandOutput
-  extends UnassignPrivateNatGatewayAddressResult,
-    __MetadataBearer {}
+export interface UnassignPrivateNatGatewayAddressCommandOutput extends UnassignPrivateNatGatewayAddressResult, __MetadataBearer {}
 
 /**
  * <p>Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information,
@@ -107,7 +105,7 @@ export class UnassignPrivateNatGatewayAddressCommand extends $Command
   })
   .s("AmazonEC2", "UnassignPrivateNatGatewayAddress", {})
   .n("EC2Client", "UnassignPrivateNatGatewayAddressCommand")
-  .sc(UnassignPrivateNatGatewayAddress)
+  .sc(UnassignPrivateNatGatewayAddress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

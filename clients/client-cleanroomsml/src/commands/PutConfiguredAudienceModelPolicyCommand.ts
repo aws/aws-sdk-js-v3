@@ -9,7 +9,7 @@ import type {
   PutConfiguredAudienceModelPolicyRequest,
   PutConfiguredAudienceModelPolicyResponse,
 } from "../models/models_0";
-import { PutConfiguredAudienceModelPolicy } from "../schemas/schemas_0";
+import { PutConfiguredAudienceModelPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface PutConfiguredAudienceModelPolicyCommandInput extends PutConfigu
  *
  * The output of {@link PutConfiguredAudienceModelPolicyCommand}.
  */
-export interface PutConfiguredAudienceModelPolicyCommandOutput
-  extends PutConfiguredAudienceModelPolicyResponse,
-    __MetadataBearer {}
+export interface PutConfiguredAudienceModelPolicyCommandOutput extends PutConfiguredAudienceModelPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Create or update the resource policy for a configured audience model.</p>
@@ -91,7 +89,7 @@ export class PutConfiguredAudienceModelPolicyCommand extends $Command
   })
   .s("AWSStarkControlService", "PutConfiguredAudienceModelPolicy", {})
   .n("CleanRoomsMLClient", "PutConfiguredAudienceModelPolicyCommand")
-  .sc(PutConfiguredAudienceModelPolicy)
+  .sc(PutConfiguredAudienceModelPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

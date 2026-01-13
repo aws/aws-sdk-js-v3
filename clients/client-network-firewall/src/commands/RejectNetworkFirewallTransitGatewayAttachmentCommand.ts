@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { RejectNetworkFirewallTransitGatewayAttachment } from "../schemas/schemas_0";
+import { RejectNetworkFirewallTransitGatewayAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link RejectNetworkFirewallTransitGatewayAttachmentCommand}.
  */
-export interface RejectNetworkFirewallTransitGatewayAttachmentCommandInput
-  extends RejectNetworkFirewallTransitGatewayAttachmentRequest {}
+export interface RejectNetworkFirewallTransitGatewayAttachmentCommandInput extends RejectNetworkFirewallTransitGatewayAttachmentRequest {}
 /**
  * @public
  *
  * The output of {@link RejectNetworkFirewallTransitGatewayAttachmentCommand}.
  */
-export interface RejectNetworkFirewallTransitGatewayAttachmentCommandOutput
-  extends RejectNetworkFirewallTransitGatewayAttachmentResponse,
-    __MetadataBearer {}
+export interface RejectNetworkFirewallTransitGatewayAttachmentCommandOutput extends RejectNetworkFirewallTransitGatewayAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Rejects a transit gateway attachment request for Network Firewall. When you reject the attachment request, Network Firewall cancels the creation of routing components between the transit gateway and firewall endpoints.</p>
@@ -115,7 +112,7 @@ export class RejectNetworkFirewallTransitGatewayAttachmentCommand extends $Comma
   })
   .s("NetworkFirewall_20201112", "RejectNetworkFirewallTransitGatewayAttachment", {})
   .n("NetworkFirewallClient", "RejectNetworkFirewallTransitGatewayAttachmentCommand")
-  .sc(RejectNetworkFirewallTransitGatewayAttachment)
+  .sc(RejectNetworkFirewallTransitGatewayAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

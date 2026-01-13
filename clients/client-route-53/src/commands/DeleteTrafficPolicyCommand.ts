@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTrafficPolicyRequest, DeleteTrafficPolicyResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { DeleteTrafficPolicy } from "../schemas/schemas_0";
+import { DeleteTrafficPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,11 +98,14 @@ export class DeleteTrafficPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "DeleteTrafficPolicy", {})
   .n("Route53Client", "DeleteTrafficPolicyCommand")
-  .sc(DeleteTrafficPolicy)
+  .sc(DeleteTrafficPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

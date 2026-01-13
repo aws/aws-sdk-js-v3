@@ -8,7 +8,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAccessGrantsLocationRequest } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { DeleteAccessGrantsLocation } from "../schemas/schemas_0";
+import { DeleteAccessGrantsLocation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteAccessGrantsLocationCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "DeleteAccessGrantsLocation", {})
   .n("S3ControlClient", "DeleteAccessGrantsLocationCommand")
-  .sc(DeleteAccessGrantsLocation)
+  .sc(DeleteAccessGrantsLocation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { ListRecoveryPoints } from "../schemas/schemas_0";
+import { ListRecoveryPoints$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class ListRecoveryPointsCommand extends $Command
   })
   .s("RedshiftServerless", "ListRecoveryPoints", {})
   .n("RedshiftServerlessClient", "ListRecoveryPointsCommand")
-  .sc(ListRecoveryPoints)
+  .sc(ListRecoveryPoints$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

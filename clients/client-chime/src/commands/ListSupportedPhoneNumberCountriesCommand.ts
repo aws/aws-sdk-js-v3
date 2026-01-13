@@ -9,7 +9,7 @@ import type {
   ListSupportedPhoneNumberCountriesRequest,
   ListSupportedPhoneNumberCountriesResponse,
 } from "../models/models_0";
-import { ListSupportedPhoneNumberCountries } from "../schemas/schemas_0";
+import { ListSupportedPhoneNumberCountries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListSupportedPhoneNumberCountriesCommandInput extends ListSuppo
  *
  * The output of {@link ListSupportedPhoneNumberCountriesCommand}.
  */
-export interface ListSupportedPhoneNumberCountriesCommandOutput
-  extends ListSupportedPhoneNumberCountriesResponse,
-    __MetadataBearer {}
+export interface ListSupportedPhoneNumberCountriesCommandOutput extends ListSupportedPhoneNumberCountriesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists supported phone number countries.</p>
@@ -106,7 +104,7 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command
   })
   .s("UCBuzzConsoleService", "ListSupportedPhoneNumberCountries", {})
   .n("ChimeClient", "ListSupportedPhoneNumberCountriesCommand")
-  .sc(ListSupportedPhoneNumberCountries)
+  .sc(ListSupportedPhoneNumberCountries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

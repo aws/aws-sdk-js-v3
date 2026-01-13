@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import type { DeleteBotVersionRequest } from "../models/models_0";
-import { DeleteBotVersion } from "../schemas/schemas_0";
+import { DeleteBotVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class DeleteBotVersionCommand extends $Command
   })
   .s("AWSDeepSenseModelBuildingService", "DeleteBotVersion", {})
   .n("LexModelBuildingServiceClient", "DeleteBotVersionCommand")
-  .sc(DeleteBotVersion)
+  .sc(DeleteBotVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

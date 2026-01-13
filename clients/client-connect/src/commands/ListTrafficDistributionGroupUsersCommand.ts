@@ -9,7 +9,7 @@ import type {
   ListTrafficDistributionGroupUsersRequest,
   ListTrafficDistributionGroupUsersResponse,
 } from "../models/models_2";
-import { ListTrafficDistributionGroupUsers } from "../schemas/schemas_0";
+import { ListTrafficDistributionGroupUsers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListTrafficDistributionGroupUsersCommandInput extends ListTraff
  *
  * The output of {@link ListTrafficDistributionGroupUsersCommand}.
  */
-export interface ListTrafficDistributionGroupUsersCommandOutput
-  extends ListTrafficDistributionGroupUsersResponse,
-    __MetadataBearer {}
+export interface ListTrafficDistributionGroupUsersCommandOutput extends ListTrafficDistributionGroupUsersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists traffic distribution group users.</p>
@@ -100,7 +98,7 @@ export class ListTrafficDistributionGroupUsersCommand extends $Command
   })
   .s("AmazonConnectService", "ListTrafficDistributionGroupUsers", {})
   .n("ConnectClient", "ListTrafficDistributionGroupUsersCommand")
-  .sc(ListTrafficDistributionGroupUsers)
+  .sc(ListTrafficDistributionGroupUsers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

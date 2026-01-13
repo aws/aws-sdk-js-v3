@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteParameterGroupRequest, DeleteParameterGroupResponse } from "../models/models_0";
-import { DeleteParameterGroup } from "../schemas/schemas_0";
+import { DeleteParameterGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeleteParameterGroupCommand extends $Command
   })
   .s("AmazonDAXV3", "DeleteParameterGroup", {})
   .n("DAXClient", "DeleteParameterGroupCommand")
-  .sc(DeleteParameterGroup)
+  .sc(DeleteParameterGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

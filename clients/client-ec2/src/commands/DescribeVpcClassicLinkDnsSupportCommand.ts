@@ -9,7 +9,7 @@ import type {
   DescribeVpcClassicLinkDnsSupportRequest,
   DescribeVpcClassicLinkDnsSupportResult,
 } from "../models/models_5";
-import { DescribeVpcClassicLinkDnsSupport } from "../schemas/schemas_0";
+import { DescribeVpcClassicLinkDnsSupport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeVpcClassicLinkDnsSupportCommandInput extends DescribeVp
  *
  * The output of {@link DescribeVpcClassicLinkDnsSupportCommand}.
  */
-export interface DescribeVpcClassicLinkDnsSupportCommandOutput
-  extends DescribeVpcClassicLinkDnsSupportResult,
-    __MetadataBearer {}
+export interface DescribeVpcClassicLinkDnsSupportCommandOutput extends DescribeVpcClassicLinkDnsSupportResult, __MetadataBearer {}
 
 /**
  * <note>
@@ -95,7 +93,7 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command
   })
   .s("AmazonEC2", "DescribeVpcClassicLinkDnsSupport", {})
   .n("EC2Client", "DescribeVpcClassicLinkDnsSupportCommand")
-  .sc(DescribeVpcClassicLinkDnsSupport)
+  .sc(DescribeVpcClassicLinkDnsSupport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

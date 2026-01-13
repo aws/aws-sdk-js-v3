@@ -26,18 +26,19 @@ export const getRuntimeConfig = (config: IAMClientConfig) => {
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsQueryProtocol({
-        defaultNamespace: "com.amazonaws.iam",
-        xmlNamespace: "https://iam.amazonaws.com/doc/2010-05-08/",
-        version: "2010-05-08",
-      }),
+    protocol: config?.protocol ?? AwsQueryProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.iam",
+      xmlNamespace: "https://iam.amazonaws.com/doc/2010-05-08/",
+      version: "2010-05-08",
+      serviceTarget: "AWSIdentityManagementV20100508",
+    },
     serviceId: config?.serviceId ?? "IAM",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

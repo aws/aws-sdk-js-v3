@@ -9,7 +9,7 @@ import type {
   ModifyVpcBlockPublicAccessExclusionRequest,
   ModifyVpcBlockPublicAccessExclusionResult,
 } from "../models/models_7";
-import { ModifyVpcBlockPublicAccessExclusion } from "../schemas/schemas_0";
+import { ModifyVpcBlockPublicAccessExclusion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ModifyVpcBlockPublicAccessExclusionCommandInput extends ModifyV
  *
  * The output of {@link ModifyVpcBlockPublicAccessExclusionCommand}.
  */
-export interface ModifyVpcBlockPublicAccessExclusionCommandOutput
-  extends ModifyVpcBlockPublicAccessExclusionResult,
-    __MetadataBearer {}
+export interface ModifyVpcBlockPublicAccessExclusionCommandOutput extends ModifyVpcBlockPublicAccessExclusionResult, __MetadataBearer {}
 
 /**
  * <p>Modify VPC Block Public Access (BPA) exclusions. A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account’s BPA mode and will allow bidirectional or egress-only access. You can create BPA exclusions for VPCs and subnets even when BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on.</p>
@@ -95,7 +93,7 @@ export class ModifyVpcBlockPublicAccessExclusionCommand extends $Command
   })
   .s("AmazonEC2", "ModifyVpcBlockPublicAccessExclusion", {})
   .n("EC2Client", "ModifyVpcBlockPublicAccessExclusionCommand")
-  .sc(ModifyVpcBlockPublicAccessExclusion)
+  .sc(ModifyVpcBlockPublicAccessExclusion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

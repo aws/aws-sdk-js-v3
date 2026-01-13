@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAssociatedAttributeGroupsRequest, ListAssociatedAttributeGroupsResponse } from "../models/models_0";
-import { ListAssociatedAttributeGroups } from "../schemas/schemas_0";
+import { ListAssociatedAttributeGroups$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -28,9 +28,7 @@ export interface ListAssociatedAttributeGroupsCommandInput extends ListAssociate
  *
  * The output of {@link ListAssociatedAttributeGroupsCommand}.
  */
-export interface ListAssociatedAttributeGroupsCommandOutput
-  extends ListAssociatedAttributeGroupsResponse,
-    __MetadataBearer {}
+export interface ListAssociatedAttributeGroupsCommandOutput extends ListAssociatedAttributeGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all attribute groups that are associated with specified application.  Results are paginated.</p>
@@ -93,7 +91,7 @@ export class ListAssociatedAttributeGroupsCommand extends $Command
   })
   .s("AWS242AppRegistry", "ListAssociatedAttributeGroups", {})
   .n("ServiceCatalogAppRegistryClient", "ListAssociatedAttributeGroupsCommand")
-  .sc(ListAssociatedAttributeGroups)
+  .sc(ListAssociatedAttributeGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

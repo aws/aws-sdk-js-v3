@@ -9,7 +9,7 @@ import type {
   GetIpamPrefixListResolverVersionsRequest,
   GetIpamPrefixListResolverVersionsResult,
 } from "../models/models_6";
-import { GetIpamPrefixListResolverVersions } from "../schemas/schemas_0";
+import { GetIpamPrefixListResolverVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetIpamPrefixListResolverVersionsCommandInput extends GetIpamPr
  *
  * The output of {@link GetIpamPrefixListResolverVersionsCommand}.
  */
-export interface GetIpamPrefixListResolverVersionsCommandOutput
-  extends GetIpamPrefixListResolverVersionsResult,
-    __MetadataBearer {}
+export interface GetIpamPrefixListResolverVersionsCommandOutput extends GetIpamPrefixListResolverVersionsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves version information for an IPAM prefix list resolver.</p>
@@ -129,7 +127,7 @@ export class GetIpamPrefixListResolverVersionsCommand extends $Command
   })
   .s("AmazonEC2", "GetIpamPrefixListResolverVersions", {})
   .n("EC2Client", "GetIpamPrefixListResolverVersionsCommand")
-  .sc(GetIpamPrefixListResolverVersions)
+  .sc(GetIpamPrefixListResolverVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

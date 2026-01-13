@@ -571,8 +571,14 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link CarrierLookupCommand}
    */
-  carrierLookup(args: CarrierLookupCommandInput, options?: __HttpHandlerOptions): Promise<CarrierLookupCommandOutput>;
-  carrierLookup(args: CarrierLookupCommandInput, cb: (err: any, data?: CarrierLookupCommandOutput) => void): void;
+  carrierLookup(
+    args: CarrierLookupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CarrierLookupCommandOutput>;
+  carrierLookup(
+    args: CarrierLookupCommandInput,
+    cb: (err: any, data?: CarrierLookupCommandOutput) => void
+  ): void;
   carrierLookup(
     args: CarrierLookupCommandInput,
     options: __HttpHandlerOptions,
@@ -633,8 +639,14 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link CreatePoolCommand}
    */
-  createPool(args: CreatePoolCommandInput, options?: __HttpHandlerOptions): Promise<CreatePoolCommandOutput>;
-  createPool(args: CreatePoolCommandInput, cb: (err: any, data?: CreatePoolCommandOutput) => void): void;
+  createPool(
+    args: CreatePoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePoolCommandOutput>;
+  createPool(
+    args: CreatePoolCommandInput,
+    cb: (err: any, data?: CreatePoolCommandOutput) => void
+  ): void;
   createPool(
     args: CreatePoolCommandInput,
     options: __HttpHandlerOptions,
@@ -834,8 +846,14 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link DeleteKeywordCommand}
    */
-  deleteKeyword(args: DeleteKeywordCommandInput, options?: __HttpHandlerOptions): Promise<DeleteKeywordCommandOutput>;
-  deleteKeyword(args: DeleteKeywordCommandInput, cb: (err: any, data?: DeleteKeywordCommandOutput) => void): void;
+  deleteKeyword(
+    args: DeleteKeywordCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteKeywordCommandOutput>;
+  deleteKeyword(
+    args: DeleteKeywordCommandInput,
+    cb: (err: any, data?: DeleteKeywordCommandOutput) => void
+  ): void;
   deleteKeyword(
     args: DeleteKeywordCommandInput,
     options: __HttpHandlerOptions,
@@ -897,8 +915,14 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link DeletePoolCommand}
    */
-  deletePool(args: DeletePoolCommandInput, options?: __HttpHandlerOptions): Promise<DeletePoolCommandOutput>;
-  deletePool(args: DeletePoolCommandInput, cb: (err: any, data?: DeletePoolCommandOutput) => void): void;
+  deletePool(
+    args: DeletePoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePoolCommandOutput>;
+  deletePool(
+    args: DeletePoolCommandInput,
+    cb: (err: any, data?: DeletePoolCommandOutput) => void
+  ): void;
   deletePool(
     args: DeletePoolCommandInput,
     options: __HttpHandlerOptions,
@@ -1188,8 +1212,14 @@ export interface PinpointSMSVoiceV2 {
    * @see {@link DescribePoolsCommand}
    */
   describePools(): Promise<DescribePoolsCommandOutput>;
-  describePools(args: DescribePoolsCommandInput, options?: __HttpHandlerOptions): Promise<DescribePoolsCommandOutput>;
-  describePools(args: DescribePoolsCommandInput, cb: (err: any, data?: DescribePoolsCommandOutput) => void): void;
+  describePools(
+    args: DescribePoolsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePoolsCommandOutput>;
+  describePools(
+    args: DescribePoolsCommandInput,
+    cb: (err: any, data?: DescribePoolsCommandOutput) => void
+  ): void;
   describePools(
     args: DescribePoolsCommandInput,
     options: __HttpHandlerOptions,
@@ -1546,8 +1576,14 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link PutKeywordCommand}
    */
-  putKeyword(args: PutKeywordCommandInput, options?: __HttpHandlerOptions): Promise<PutKeywordCommandOutput>;
-  putKeyword(args: PutKeywordCommandInput, cb: (err: any, data?: PutKeywordCommandOutput) => void): void;
+  putKeyword(
+    args: PutKeywordCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutKeywordCommandOutput>;
+  putKeyword(
+    args: PutKeywordCommandInput,
+    cb: (err: any, data?: PutKeywordCommandOutput) => void
+  ): void;
   putKeyword(
     args: PutKeywordCommandInput,
     options: __HttpHandlerOptions,
@@ -1663,7 +1699,10 @@ export interface PinpointSMSVoiceV2 {
     args: ReleaseSenderIdCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ReleaseSenderIdCommandOutput>;
-  releaseSenderId(args: ReleaseSenderIdCommandInput, cb: (err: any, data?: ReleaseSenderIdCommandOutput) => void): void;
+  releaseSenderId(
+    args: ReleaseSenderIdCommandInput,
+    cb: (err: any, data?: ReleaseSenderIdCommandOutput) => void
+  ): void;
   releaseSenderId(
     args: ReleaseSenderIdCommandInput,
     options: __HttpHandlerOptions,
@@ -1694,7 +1733,10 @@ export interface PinpointSMSVoiceV2 {
     args: RequestSenderIdCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RequestSenderIdCommandOutput>;
-  requestSenderId(args: RequestSenderIdCommandInput, cb: (err: any, data?: RequestSenderIdCommandOutput) => void): void;
+  requestSenderId(
+    args: RequestSenderIdCommandInput,
+    cb: (err: any, data?: RequestSenderIdCommandOutput) => void
+  ): void;
   requestSenderId(
     args: RequestSenderIdCommandInput,
     options: __HttpHandlerOptions,
@@ -1742,7 +1784,10 @@ export interface PinpointSMSVoiceV2 {
     args: SendTextMessageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SendTextMessageCommandOutput>;
-  sendTextMessage(args: SendTextMessageCommandInput, cb: (err: any, data?: SendTextMessageCommandOutput) => void): void;
+  sendTextMessage(
+    args: SendTextMessageCommandInput,
+    cb: (err: any, data?: SendTextMessageCommandOutput) => void
+  ): void;
   sendTextMessage(
     args: SendTextMessageCommandInput,
     options: __HttpHandlerOptions,
@@ -1905,8 +1950,14 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1916,8 +1967,14 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1961,8 +2018,14 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link UpdatePoolCommand}
    */
-  updatePool(args: UpdatePoolCommandInput, options?: __HttpHandlerOptions): Promise<UpdatePoolCommandOutput>;
-  updatePool(args: UpdatePoolCommandInput, cb: (err: any, data?: UpdatePoolCommandOutput) => void): void;
+  updatePool(
+    args: UpdatePoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePoolCommandOutput>;
+  updatePool(
+    args: UpdatePoolCommandInput,
+    cb: (err: any, data?: UpdatePoolCommandOutput) => void
+  ): void;
   updatePool(
     args: UpdatePoolCommandInput,
     options: __HttpHandlerOptions,
@@ -2010,7 +2073,10 @@ export interface PinpointSMSVoiceV2 {
     args: UpdateSenderIdCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateSenderIdCommandOutput>;
-  updateSenderId(args: UpdateSenderIdCommandInput, cb: (err: any, data?: UpdateSenderIdCommandOutput) => void): void;
+  updateSenderId(
+    args: UpdateSenderIdCommandInput,
+    cb: (err: any, data?: UpdateSenderIdCommandOutput) => void
+  ): void;
   updateSenderId(
     args: UpdateSenderIdCommandInput,
     options: __HttpHandlerOptions,
@@ -2036,7 +2102,7 @@ export interface PinpointSMSVoiceV2 {
 }
 
 /**
- * <p>Welcome to the <i>End User MessagingSMS, version 2 API Reference</i>. This guide provides information about End User MessagingSMS, version 2 API resources, including supported HTTP methods, parameters, and schemas.</p> <p>Amazon Pinpoint is an Amazon Web Services service that you can use to engage with your recipients across multiple messaging channels. The End User MessagingSMS, version 2 API provides programmatic access to options that are unique to the SMS and voice channels. End User MessagingSMS, version 2 resources such as phone numbers, sender IDs, and opt-out lists can be used by the Amazon Pinpoint API.</p> <p>If you're new to End User MessagingSMS, it's also helpful to review the <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/what-is-service.html"> End User MessagingSMS User Guide</a>, where you'll find tutorials, code samples, and procedures that demonstrate how to use End User MessagingSMS features programmatically and how to integrate functionality into mobile apps and other types of applications. The guide also provides key information, such as End User MessagingSMS integration with other Amazon Web Services services, and the quotas that apply to use of the service.</p> <p> <b>Regional availability</b> </p> <p>The <i>End User MessagingSMS version 2 API Reference</i> is available in several Amazon Web Services Regions and it provides an endpoint for each of these Regions. For a list of all the Regions and endpoints where the API is currently available, see <a href="https://docs.aws.amazon.com/hgeneral/latest/gr/rande.html#pinpoint_region">Amazon Web Services Service Endpoints</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/pinpoint.html">Amazon Pinpoint endpoints and quotas</a> in the Amazon Web Services General Reference. To learn more about Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">Managing Amazon Web Services Regions</a> in the Amazon Web Services General Reference.</p> <p>In each Region, Amazon Web Services maintains multiple Availability Zones. These Availability Zones are physically isolated from each other, but are united by private, low-latency, high-throughput, and highly redundant network connections. These Availability Zones enable us to provide very high levels of availability and redundancy, while also minimizing latency. To learn more about the number of Availability Zones that are available in each Region, see <a href="http://aws.amazon.com/about-aws/global-infrastructure/">Amazon Web Services Global Infrastructure.</a> </p>
+ * <p>Welcome to the <i>End User Messaging SMS, version 2 API Reference</i>. This guide provides information about End User Messaging SMS, version 2 API resources, including supported HTTP methods, parameters, and schemas.</p> <p>Amazon Pinpoint is an Amazon Web Services service that you can use to engage with your recipients across multiple messaging channels. The End User Messaging SMS, version 2 API provides programmatic access to options that are unique to the SMS and voice channels. End User Messaging SMS, version 2 resources such as phone numbers, sender IDs, and opt-out lists can be used by the Amazon Pinpoint API.</p> <p>If you're new to End User Messaging SMS, it's also helpful to review the <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/what-is-service.html"> End User Messaging SMS User Guide</a>, where you'll find tutorials, code samples, and procedures that demonstrate how to use End User Messaging SMS features programmatically and how to integrate functionality into mobile apps and other types of applications. The guide also provides key information, such as End User Messaging SMS integration with other Amazon Web Services services, and the quotas that apply to use of the service.</p> <p> <b>Regional availability</b> </p> <p>The <i>End User Messaging SMS version 2 API Reference</i> is available in several Amazon Web Services Regions and it provides an endpoint for each of these Regions. For a list of all the Regions and endpoints where the API is currently available, see <a href="https://docs.aws.amazon.com/hgeneral/latest/gr/rande.html#pinpoint_region">Amazon Web Services Service Endpoints</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/pinpoint.html">Amazon Pinpoint endpoints and quotas</a> in the Amazon Web Services General Reference. To learn more about Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">Managing Amazon Web Services Regions</a> in the Amazon Web Services General Reference.</p> <p>In each Region, Amazon Web Services maintains multiple Availability Zones. These Availability Zones are physically isolated from each other, but are united by private, low-latency, high-throughput, and highly redundant network connections. These Availability Zones enable us to provide very high levels of availability and redundancy, while also minimizing latency. To learn more about the number of Availability Zones that are available in each Region, see <a href="http://aws.amazon.com/about-aws/global-infrastructure/">Amazon Web Services Global Infrastructure.</a> </p>
  * @public
  */
 export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client implements PinpointSMSVoiceV2 {}

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AllocateTransitVirtualInterfaceRequest, AllocateTransitVirtualInterfaceResult } from "../models/models_0";
-import { AllocateTransitVirtualInterface } from "../schemas/schemas_0";
+import { AllocateTransitVirtualInterface$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface AllocateTransitVirtualInterfaceCommandInput extends AllocateTra
  *
  * The output of {@link AllocateTransitVirtualInterfaceCommand}.
  */
-export interface AllocateTransitVirtualInterfaceCommandOutput
-  extends AllocateTransitVirtualInterfaceResult,
-    __MetadataBearer {}
+export interface AllocateTransitVirtualInterfaceCommandOutput extends AllocateTransitVirtualInterfaceResult, __MetadataBearer {}
 
 /**
  * <p>Provisions a transit virtual interface to be owned by the specified Amazon Web Services account. Use this type of interface to connect a transit gateway to your Direct Connect gateway.</p>
@@ -158,7 +156,7 @@ export class AllocateTransitVirtualInterfaceCommand extends $Command
   })
   .s("OvertureService", "AllocateTransitVirtualInterface", {})
   .n("DirectConnectClient", "AllocateTransitVirtualInterfaceCommand")
-  .sc(AllocateTransitVirtualInterface)
+  .sc(AllocateTransitVirtualInterface$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

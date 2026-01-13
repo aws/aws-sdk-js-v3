@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateNetworkSettingsRequest, DisassociateNetworkSettingsResponse } from "../models/models_0";
-import { DisassociateNetworkSettings } from "../schemas/schemas_0";
+import { DisassociateNetworkSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DisassociateNetworkSettingsCommandInput extends DisassociateNet
  *
  * The output of {@link DisassociateNetworkSettingsCommand}.
  */
-export interface DisassociateNetworkSettingsCommandOutput
-  extends DisassociateNetworkSettingsResponse,
-    __MetadataBearer {}
+export interface DisassociateNetworkSettingsCommandOutput extends DisassociateNetworkSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates network settings from a web portal.</p>
@@ -91,7 +89,7 @@ export class DisassociateNetworkSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "DisassociateNetworkSettings", {})
   .n("WorkSpacesWebClient", "DisassociateNetworkSettingsCommand")
-  .sc(DisassociateNetworkSettings)
+  .sc(DisassociateNetworkSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

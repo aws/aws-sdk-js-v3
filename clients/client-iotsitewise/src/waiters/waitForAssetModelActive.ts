@@ -7,12 +7,12 @@ import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
 const checkState = async (client: IoTSiteWiseClient, input: DescribeAssetModelCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeAssetModelCommand(input));
+    let result: any = await client.send(new DescribeAssetModelCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.assetModelStatus.state;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: IoTSiteWiseClient, input: DescribeAssetModelCo
     try {
       const returnComparator = () => {
         return result.assetModelStatus.state;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

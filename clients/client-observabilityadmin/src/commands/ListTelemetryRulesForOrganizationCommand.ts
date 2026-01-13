@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { ListTelemetryRulesForOrganization } from "../schemas/schemas_0";
+import { ListTelemetryRulesForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ListTelemetryRulesForOrganizationCommandInput extends ListTelem
  *
  * The output of {@link ListTelemetryRulesForOrganizationCommand}.
  */
-export interface ListTelemetryRulesForOrganizationCommandOutput
-  extends ListTelemetryRulesForOrganizationOutput,
-    __MetadataBearer {}
+export interface ListTelemetryRulesForOrganizationCommandOutput extends ListTelemetryRulesForOrganizationOutput, __MetadataBearer {}
 
 /**
  * <p> Lists all telemetry rules in your organization. This operation can only be called by the organization's management account or a delegated administrator account. </p>
@@ -115,7 +113,7 @@ export class ListTelemetryRulesForOrganizationCommand extends $Command
   })
   .s("ObservabilityAdmin", "ListTelemetryRulesForOrganization", {})
   .n("ObservabilityAdminClient", "ListTelemetryRulesForOrganizationCommand")
-  .sc(ListTelemetryRulesForOrganization)
+  .sc(ListTelemetryRulesForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

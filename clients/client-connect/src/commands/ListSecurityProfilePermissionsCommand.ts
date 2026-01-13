@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSecurityProfilePermissionsRequest, ListSecurityProfilePermissionsResponse } from "../models/models_2";
-import { ListSecurityProfilePermissions } from "../schemas/schemas_0";
+import { ListSecurityProfilePermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListSecurityProfilePermissionsCommandInput extends ListSecurity
  *
  * The output of {@link ListSecurityProfilePermissionsCommand}.
  */
-export interface ListSecurityProfilePermissionsCommandOutput
-  extends ListSecurityProfilePermissionsResponse,
-    __MetadataBearer {}
+export interface ListSecurityProfilePermissionsCommandOutput extends ListSecurityProfilePermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the permissions granted to a security profile.</p>
@@ -101,7 +99,7 @@ export class ListSecurityProfilePermissionsCommand extends $Command
   })
   .s("AmazonConnectService", "ListSecurityProfilePermissions", {})
   .n("ConnectClient", "ListSecurityProfilePermissionsCommand")
-  .sc(ListSecurityProfilePermissions)
+  .sc(ListSecurityProfilePermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -399,7 +399,10 @@ export interface AutoScaling {
     args: AttachInstancesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AttachInstancesCommandOutput>;
-  attachInstances(args: AttachInstancesCommandInput, cb: (err: any, data?: AttachInstancesCommandOutput) => void): void;
+  attachInstances(
+    args: AttachInstancesCommandInput,
+    cb: (err: any, data?: AttachInstancesCommandOutput) => void
+  ): void;
   attachInstances(
     args: AttachInstancesCommandInput,
     options: __HttpHandlerOptions,
@@ -647,8 +650,14 @@ export interface AutoScaling {
   /**
    * @see {@link DeletePolicyCommand}
    */
-  deletePolicy(args: DeletePolicyCommandInput, options?: __HttpHandlerOptions): Promise<DeletePolicyCommandOutput>;
-  deletePolicy(args: DeletePolicyCommandInput, cb: (err: any, data?: DeletePolicyCommandOutput) => void): void;
+  deletePolicy(
+    args: DeletePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePolicyCommandOutput>;
+  deletePolicy(
+    args: DeletePolicyCommandInput,
+    cb: (err: any, data?: DeletePolicyCommandOutput) => void
+  ): void;
   deletePolicy(
     args: DeletePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -675,8 +684,14 @@ export interface AutoScaling {
   /**
    * @see {@link DeleteTagsCommand}
    */
-  deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
-  deleteTags(args: DeleteTagsCommandInput, cb: (err: any, data?: DeleteTagsCommandOutput) => void): void;
+  deleteTags(
+    args: DeleteTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTagsCommandOutput>;
+  deleteTags(
+    args: DeleteTagsCommandInput,
+    cb: (err: any, data?: DeleteTagsCommandOutput) => void
+  ): void;
   deleteTags(
     args: DeleteTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -690,7 +705,10 @@ export interface AutoScaling {
     args: DeleteWarmPoolCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteWarmPoolCommandOutput>;
-  deleteWarmPool(args: DeleteWarmPoolCommandInput, cb: (err: any, data?: DeleteWarmPoolCommandOutput) => void): void;
+  deleteWarmPool(
+    args: DeleteWarmPoolCommandInput,
+    cb: (err: any, data?: DeleteWarmPoolCommandOutput) => void
+  ): void;
   deleteWarmPool(
     args: DeleteWarmPoolCommandInput,
     options: __HttpHandlerOptions,
@@ -1003,8 +1021,14 @@ export interface AutoScaling {
    * @see {@link DescribeTagsCommand}
    */
   describeTags(): Promise<DescribeTagsCommandOutput>;
-  describeTags(args: DescribeTagsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTagsCommandOutput>;
-  describeTags(args: DescribeTagsCommandInput, cb: (err: any, data?: DescribeTagsCommandOutput) => void): void;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTagsCommandOutput>;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    cb: (err: any, data?: DescribeTagsCommandOutput) => void
+  ): void;
   describeTags(
     args: DescribeTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -1070,7 +1094,10 @@ export interface AutoScaling {
     args: DetachInstancesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DetachInstancesCommandOutput>;
-  detachInstances(args: DetachInstancesCommandInput, cb: (err: any, data?: DetachInstancesCommandOutput) => void): void;
+  detachInstances(
+    args: DetachInstancesCommandInput,
+    cb: (err: any, data?: DetachInstancesCommandOutput) => void
+  ): void;
   detachInstances(
     args: DetachInstancesCommandInput,
     options: __HttpHandlerOptions,
@@ -1165,8 +1192,14 @@ export interface AutoScaling {
   /**
    * @see {@link EnterStandbyCommand}
    */
-  enterStandby(args: EnterStandbyCommandInput, options?: __HttpHandlerOptions): Promise<EnterStandbyCommandOutput>;
-  enterStandby(args: EnterStandbyCommandInput, cb: (err: any, data?: EnterStandbyCommandOutput) => void): void;
+  enterStandby(
+    args: EnterStandbyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnterStandbyCommandOutput>;
+  enterStandby(
+    args: EnterStandbyCommandInput,
+    cb: (err: any, data?: EnterStandbyCommandOutput) => void
+  ): void;
   enterStandby(
     args: EnterStandbyCommandInput,
     options: __HttpHandlerOptions,
@@ -1176,8 +1209,14 @@ export interface AutoScaling {
   /**
    * @see {@link ExecutePolicyCommand}
    */
-  executePolicy(args: ExecutePolicyCommandInput, options?: __HttpHandlerOptions): Promise<ExecutePolicyCommandOutput>;
-  executePolicy(args: ExecutePolicyCommandInput, cb: (err: any, data?: ExecutePolicyCommandOutput) => void): void;
+  executePolicy(
+    args: ExecutePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExecutePolicyCommandOutput>;
+  executePolicy(
+    args: ExecutePolicyCommandInput,
+    cb: (err: any, data?: ExecutePolicyCommandOutput) => void
+  ): void;
   executePolicy(
     args: ExecutePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -1187,8 +1226,14 @@ export interface AutoScaling {
   /**
    * @see {@link ExitStandbyCommand}
    */
-  exitStandby(args: ExitStandbyCommandInput, options?: __HttpHandlerOptions): Promise<ExitStandbyCommandOutput>;
-  exitStandby(args: ExitStandbyCommandInput, cb: (err: any, data?: ExitStandbyCommandOutput) => void): void;
+  exitStandby(
+    args: ExitStandbyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExitStandbyCommandOutput>;
+  exitStandby(
+    args: ExitStandbyCommandInput,
+    cb: (err: any, data?: ExitStandbyCommandOutput) => void
+  ): void;
   exitStandby(
     args: ExitStandbyCommandInput,
     options: __HttpHandlerOptions,
@@ -1219,7 +1264,10 @@ export interface AutoScaling {
     args: LaunchInstancesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<LaunchInstancesCommandOutput>;
-  launchInstances(args: LaunchInstancesCommandInput, cb: (err: any, data?: LaunchInstancesCommandOutput) => void): void;
+  launchInstances(
+    args: LaunchInstancesCommandInput,
+    cb: (err: any, data?: LaunchInstancesCommandOutput) => void
+  ): void;
   launchInstances(
     args: LaunchInstancesCommandInput,
     options: __HttpHandlerOptions,
@@ -1297,8 +1345,14 @@ export interface AutoScaling {
   /**
    * @see {@link PutWarmPoolCommand}
    */
-  putWarmPool(args: PutWarmPoolCommandInput, options?: __HttpHandlerOptions): Promise<PutWarmPoolCommandOutput>;
-  putWarmPool(args: PutWarmPoolCommandInput, cb: (err: any, data?: PutWarmPoolCommandOutput) => void): void;
+  putWarmPool(
+    args: PutWarmPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutWarmPoolCommandOutput>;
+  putWarmPool(
+    args: PutWarmPoolCommandInput,
+    cb: (err: any, data?: PutWarmPoolCommandOutput) => void
+  ): void;
   putWarmPool(
     args: PutWarmPoolCommandInput,
     options: __HttpHandlerOptions,
@@ -1329,7 +1383,10 @@ export interface AutoScaling {
     args: ResumeProcessesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ResumeProcessesCommandOutput>;
-  resumeProcesses(args: ResumeProcessesCommandInput, cb: (err: any, data?: ResumeProcessesCommandOutput) => void): void;
+  resumeProcesses(
+    args: ResumeProcessesCommandInput,
+    cb: (err: any, data?: ResumeProcessesCommandOutput) => void
+  ): void;
   resumeProcesses(
     args: ResumeProcessesCommandInput,
     options: __HttpHandlerOptions,

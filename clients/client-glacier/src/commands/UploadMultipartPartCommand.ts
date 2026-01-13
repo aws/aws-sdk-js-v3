@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import type { UploadMultipartPartInput, UploadMultipartPartOutput } from "../models/models_0";
-import { UploadMultipartPart } from "../schemas/schemas_0";
+import { UploadMultipartPart$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -170,7 +170,7 @@ export class UploadMultipartPartCommand extends $Command
   })
   .s("Glacier", "UploadMultipartPart", {})
   .n("GlacierClient", "UploadMultipartPartCommand")
-  .sc(UploadMultipartPart)
+  .sc(UploadMultipartPart$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DisassociateClientVpnTargetNetworkRequest,
   DisassociateClientVpnTargetNetworkResult,
 } from "../models/models_5";
-import { DisassociateClientVpnTargetNetwork } from "../schemas/schemas_0";
+import { DisassociateClientVpnTargetNetwork$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DisassociateClientVpnTargetNetworkCommandInput extends Disassoc
  *
  * The output of {@link DisassociateClientVpnTargetNetworkCommand}.
  */
-export interface DisassociateClientVpnTargetNetworkCommandOutput
-  extends DisassociateClientVpnTargetNetworkResult,
-    __MetadataBearer {}
+export interface DisassociateClientVpnTargetNetworkCommandOutput extends DisassociateClientVpnTargetNetworkResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates a target network from the specified Client VPN endpoint. When you disassociate the
@@ -100,7 +98,7 @@ export class DisassociateClientVpnTargetNetworkCommand extends $Command
   })
   .s("AmazonEC2", "DisassociateClientVpnTargetNetwork", {})
   .n("EC2Client", "DisassociateClientVpnTargetNetworkCommand")
-  .sc(DisassociateClientVpnTargetNetwork)
+  .sc(DisassociateClientVpnTargetNetwork$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

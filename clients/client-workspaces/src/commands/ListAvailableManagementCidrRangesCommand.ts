@@ -8,7 +8,7 @@ import type {
   ListAvailableManagementCidrRangesRequest,
   ListAvailableManagementCidrRangesResult,
 } from "../models/models_0";
-import { ListAvailableManagementCidrRanges } from "../schemas/schemas_0";
+import { ListAvailableManagementCidrRanges$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -27,9 +27,7 @@ export interface ListAvailableManagementCidrRangesCommandInput extends ListAvail
  *
  * The output of {@link ListAvailableManagementCidrRangesCommand}.
  */
-export interface ListAvailableManagementCidrRangesCommandOutput
-  extends ListAvailableManagementCidrRangesResult,
-    __MetadataBearer {}
+export interface ListAvailableManagementCidrRangesCommandOutput extends ListAvailableManagementCidrRangesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of IP address ranges, specified as IPv4 CIDR blocks, that you can use
@@ -96,7 +94,7 @@ export class ListAvailableManagementCidrRangesCommand extends $Command
   })
   .s("WorkspacesService", "ListAvailableManagementCidrRanges", {})
   .n("WorkSpacesClient", "ListAvailableManagementCidrRangesCommand")
-  .sc(ListAvailableManagementCidrRanges)
+  .sc(ListAvailableManagementCidrRanges$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

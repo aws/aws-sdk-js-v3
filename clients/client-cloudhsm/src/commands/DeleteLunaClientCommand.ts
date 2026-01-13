@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteLunaClientRequest, DeleteLunaClientResponse } from "../models/models_0";
-import { DeleteLunaClient } from "../schemas/schemas_0";
+import { DeleteLunaClient$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteLunaClientCommand extends $Command
   })
   .s("CloudHsmFrontendService", "DeleteLunaClient", {})
   .n("CloudHSMClient", "DeleteLunaClientCommand")
-  .sc(DeleteLunaClient)
+  .sc(DeleteLunaClient$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

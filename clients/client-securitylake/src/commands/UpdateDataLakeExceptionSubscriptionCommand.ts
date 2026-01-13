@@ -8,7 +8,7 @@ import type {
   UpdateDataLakeExceptionSubscriptionRequest,
   UpdateDataLakeExceptionSubscriptionResponse,
 } from "../models/models_0";
-import { UpdateDataLakeExceptionSubscription } from "../schemas/schemas_0";
+import { UpdateDataLakeExceptionSubscription$ } from "../schemas/schemas_0";
 import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -27,9 +27,7 @@ export interface UpdateDataLakeExceptionSubscriptionCommandInput extends UpdateD
  *
  * The output of {@link UpdateDataLakeExceptionSubscriptionCommand}.
  */
-export interface UpdateDataLakeExceptionSubscriptionCommandOutput
-  extends UpdateDataLakeExceptionSubscriptionResponse,
-    __MetadataBearer {}
+export interface UpdateDataLakeExceptionSubscriptionCommandOutput extends UpdateDataLakeExceptionSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the specified notification subscription in Amazon Security Lake for the organization
@@ -104,7 +102,7 @@ export class UpdateDataLakeExceptionSubscriptionCommand extends $Command
   })
   .s("SecurityLake", "UpdateDataLakeExceptionSubscription", {})
   .n("SecurityLakeClient", "UpdateDataLakeExceptionSubscriptionCommand")
-  .sc(UpdateDataLakeExceptionSubscription)
+  .sc(UpdateDataLakeExceptionSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

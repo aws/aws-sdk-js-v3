@@ -7,7 +7,6 @@
 AWS SDK for JavaScript CognitoIdentity Client for Node.js, Browser and React Native.
 
 <fullname>Amazon Cognito Federated Identities</fullname>
-
 <p>Amazon Cognito Federated Identities is a web service that delivers scoped temporary
 credentials to mobile devices and other untrusted environments. It uniquely identifies a
 device and supplies the user with a consistent identity over the lifetime of an
@@ -24,10 +23,8 @@ Flow</a>.</p>
 Identities</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-cognito-identity
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-cognito-identity`
 - `yarn add @aws-sdk/client-cognito-identity`
 - `pnpm add @aws-sdk/client-cognito-identity`
@@ -63,9 +60,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new CognitoIdentityClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListIdentityPoolsCommand(params);
 ```
 
@@ -224,7 +219,6 @@ CreateIdentityPool
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/CreateIdentityPoolCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/CreateIdentityPoolCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/CreateIdentityPoolCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -232,7 +226,6 @@ DeleteIdentities
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/DeleteIdentitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/DeleteIdentitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/DeleteIdentitiesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -240,7 +233,6 @@ DeleteIdentityPool
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/DeleteIdentityPoolCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/DeleteIdentityPoolCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/DeleteIdentityPoolCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -248,7 +240,6 @@ DescribeIdentity
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/DescribeIdentityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/DescribeIdentityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/DescribeIdentityCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -256,7 +247,6 @@ DescribeIdentityPool
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/DescribeIdentityPoolCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/DescribeIdentityPoolCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/DescribeIdentityPoolCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -264,7 +254,6 @@ GetCredentialsForIdentity
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/GetCredentialsForIdentityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/GetCredentialsForIdentityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/GetCredentialsForIdentityCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -272,7 +261,6 @@ GetId
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/GetIdCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/GetIdCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/GetIdCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -280,7 +268,6 @@ GetIdentityPoolRoles
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/GetIdentityPoolRolesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/GetIdentityPoolRolesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/GetIdentityPoolRolesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -288,7 +275,6 @@ GetOpenIdToken
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/GetOpenIdTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/GetOpenIdTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/GetOpenIdTokenCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -296,7 +282,6 @@ GetOpenIdTokenForDeveloperIdentity
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/GetOpenIdTokenForDeveloperIdentityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/GetOpenIdTokenForDeveloperIdentityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/GetOpenIdTokenForDeveloperIdentityCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -304,7 +289,6 @@ GetPrincipalTagAttributeMap
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/GetPrincipalTagAttributeMapCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/GetPrincipalTagAttributeMapCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/GetPrincipalTagAttributeMapCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -312,7 +296,6 @@ ListIdentities
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/ListIdentitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/ListIdentitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/ListIdentitiesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -320,7 +303,6 @@ ListIdentityPools
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/ListIdentityPoolsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/ListIdentityPoolsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/ListIdentityPoolsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -328,7 +310,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -336,7 +317,6 @@ LookupDeveloperIdentity
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/LookupDeveloperIdentityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/LookupDeveloperIdentityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/LookupDeveloperIdentityCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -344,7 +324,6 @@ MergeDeveloperIdentities
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/MergeDeveloperIdentitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/MergeDeveloperIdentitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/MergeDeveloperIdentitiesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -352,7 +331,6 @@ SetIdentityPoolRoles
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/SetIdentityPoolRolesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/SetIdentityPoolRolesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/SetIdentityPoolRolesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -360,7 +338,6 @@ SetPrincipalTagAttributeMap
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/SetPrincipalTagAttributeMapCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/SetPrincipalTagAttributeMapCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/SetPrincipalTagAttributeMapCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -368,7 +345,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -376,7 +352,6 @@ UnlinkDeveloperIdentity
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/UnlinkDeveloperIdentityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/UnlinkDeveloperIdentityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/UnlinkDeveloperIdentityCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -384,7 +359,6 @@ UnlinkIdentity
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/UnlinkIdentityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/UnlinkIdentityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/UnlinkIdentityCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -392,7 +366,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -400,5 +373,4 @@ UpdateIdentityPool
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity/command/UpdateIdentityPoolCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/UpdateIdentityPoolCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity/Interface/UpdateIdentityPoolCommandOutput/)
-
 </details>

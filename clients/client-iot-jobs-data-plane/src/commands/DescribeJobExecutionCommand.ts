@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTJobsDataPlaneClient";
 import type { DescribeJobExecutionRequest, DescribeJobExecutionResponse } from "../models/models_0";
-import { DescribeJobExecution } from "../schemas/schemas_0";
+import { DescribeJobExecution$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class DescribeJobExecutionCommand extends $Command
   })
   .s("IotLaserThingJobManagerExternalService", "DescribeJobExecution", {})
   .n("IoTJobsDataPlaneClient", "DescribeJobExecutionCommand")
-  .sc(DescribeJobExecution)
+  .sc(DescribeJobExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import type { DisassociateFileSystemAliasesRequest, DisassociateFileSystemAliasesResponse } from "../models/models_0";
-import { DisassociateFileSystemAliases } from "../schemas/schemas_0";
+import { DisassociateFileSystemAliases$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DisassociateFileSystemAliasesCommandInput extends DisassociateF
  *
  * The output of {@link DisassociateFileSystemAliasesCommand}.
  */
-export interface DisassociateFileSystemAliasesCommandOutput
-  extends DisassociateFileSystemAliasesResponse,
-    __MetadataBearer {}
+export interface DisassociateFileSystemAliasesCommandOutput extends DisassociateFileSystemAliasesResponse, __MetadataBearer {}
 
 /**
  * <p>Use this action to disassociate, or remove, one or more Domain Name Service (DNS) aliases
@@ -101,7 +99,7 @@ export class DisassociateFileSystemAliasesCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "DisassociateFileSystemAliases", {})
   .n("FSxClient", "DisassociateFileSystemAliasesCommand")
-  .sc(DisassociateFileSystemAliases)
+  .sc(DisassociateFileSystemAliases$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

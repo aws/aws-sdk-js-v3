@@ -448,8 +448,14 @@ export interface DeviceFarm {
   /**
    * @see {@link CreateProjectCommand}
    */
-  createProject(args: CreateProjectCommandInput, options?: __HttpHandlerOptions): Promise<CreateProjectCommandOutput>;
-  createProject(args: CreateProjectCommandInput, cb: (err: any, data?: CreateProjectCommandOutput) => void): void;
+  createProject(
+    args: CreateProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProjectCommandOutput>;
+  createProject(
+    args: CreateProjectCommandInput,
+    cb: (err: any, data?: CreateProjectCommandOutput) => void
+  ): void;
   createProject(
     args: CreateProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -510,8 +516,14 @@ export interface DeviceFarm {
   /**
    * @see {@link CreateUploadCommand}
    */
-  createUpload(args: CreateUploadCommandInput, options?: __HttpHandlerOptions): Promise<CreateUploadCommandOutput>;
-  createUpload(args: CreateUploadCommandInput, cb: (err: any, data?: CreateUploadCommandOutput) => void): void;
+  createUpload(
+    args: CreateUploadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUploadCommandOutput>;
+  createUpload(
+    args: CreateUploadCommandInput,
+    cb: (err: any, data?: CreateUploadCommandOutput) => void
+  ): void;
   createUpload(
     args: CreateUploadCommandInput,
     options: __HttpHandlerOptions,
@@ -589,8 +601,14 @@ export interface DeviceFarm {
   /**
    * @see {@link DeleteProjectCommand}
    */
-  deleteProject(args: DeleteProjectCommandInput, options?: __HttpHandlerOptions): Promise<DeleteProjectCommandOutput>;
-  deleteProject(args: DeleteProjectCommandInput, cb: (err: any, data?: DeleteProjectCommandOutput) => void): void;
+  deleteProject(
+    args: DeleteProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProjectCommandOutput>;
+  deleteProject(
+    args: DeleteProjectCommandInput,
+    cb: (err: any, data?: DeleteProjectCommandOutput) => void
+  ): void;
   deleteProject(
     args: DeleteProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -617,8 +635,14 @@ export interface DeviceFarm {
   /**
    * @see {@link DeleteRunCommand}
    */
-  deleteRun(args: DeleteRunCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRunCommandOutput>;
-  deleteRun(args: DeleteRunCommandInput, cb: (err: any, data?: DeleteRunCommandOutput) => void): void;
+  deleteRun(
+    args: DeleteRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRunCommandOutput>;
+  deleteRun(
+    args: DeleteRunCommandInput,
+    cb: (err: any, data?: DeleteRunCommandOutput) => void
+  ): void;
   deleteRun(
     args: DeleteRunCommandInput,
     options: __HttpHandlerOptions,
@@ -645,8 +669,14 @@ export interface DeviceFarm {
   /**
    * @see {@link DeleteUploadCommand}
    */
-  deleteUpload(args: DeleteUploadCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUploadCommandOutput>;
-  deleteUpload(args: DeleteUploadCommandInput, cb: (err: any, data?: DeleteUploadCommandOutput) => void): void;
+  deleteUpload(
+    args: DeleteUploadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUploadCommandOutput>;
+  deleteUpload(
+    args: DeleteUploadCommandInput,
+    cb: (err: any, data?: DeleteUploadCommandOutput) => void
+  ): void;
   deleteUpload(
     args: DeleteUploadCommandInput,
     options: __HttpHandlerOptions,
@@ -691,8 +721,14 @@ export interface DeviceFarm {
   /**
    * @see {@link GetDeviceCommand}
    */
-  getDevice(args: GetDeviceCommandInput, options?: __HttpHandlerOptions): Promise<GetDeviceCommandOutput>;
-  getDevice(args: GetDeviceCommandInput, cb: (err: any, data?: GetDeviceCommandOutput) => void): void;
+  getDevice(
+    args: GetDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeviceCommandOutput>;
+  getDevice(
+    args: GetDeviceCommandInput,
+    cb: (err: any, data?: GetDeviceCommandOutput) => void
+  ): void;
   getDevice(
     args: GetDeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -719,8 +755,14 @@ export interface DeviceFarm {
   /**
    * @see {@link GetDevicePoolCommand}
    */
-  getDevicePool(args: GetDevicePoolCommandInput, options?: __HttpHandlerOptions): Promise<GetDevicePoolCommandOutput>;
-  getDevicePool(args: GetDevicePoolCommandInput, cb: (err: any, data?: GetDevicePoolCommandOutput) => void): void;
+  getDevicePool(
+    args: GetDevicePoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDevicePoolCommandOutput>;
+  getDevicePool(
+    args: GetDevicePoolCommandInput,
+    cb: (err: any, data?: GetDevicePoolCommandOutput) => void
+  ): void;
   getDevicePool(
     args: GetDevicePoolCommandInput,
     options: __HttpHandlerOptions,
@@ -764,8 +806,14 @@ export interface DeviceFarm {
   /**
    * @see {@link GetJobCommand}
    */
-  getJob(args: GetJobCommandInput, options?: __HttpHandlerOptions): Promise<GetJobCommandOutput>;
-  getJob(args: GetJobCommandInput, cb: (err: any, data?: GetJobCommandOutput) => void): void;
+  getJob(
+    args: GetJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJobCommandOutput>;
+  getJob(
+    args: GetJobCommandInput,
+    cb: (err: any, data?: GetJobCommandOutput) => void
+  ): void;
   getJob(
     args: GetJobCommandInput,
     options: __HttpHandlerOptions,
@@ -810,8 +858,14 @@ export interface DeviceFarm {
   /**
    * @see {@link GetProjectCommand}
    */
-  getProject(args: GetProjectCommandInput, options?: __HttpHandlerOptions): Promise<GetProjectCommandOutput>;
-  getProject(args: GetProjectCommandInput, cb: (err: any, data?: GetProjectCommandOutput) => void): void;
+  getProject(
+    args: GetProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProjectCommandOutput>;
+  getProject(
+    args: GetProjectCommandInput,
+    cb: (err: any, data?: GetProjectCommandOutput) => void
+  ): void;
   getProject(
     args: GetProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -838,8 +892,14 @@ export interface DeviceFarm {
   /**
    * @see {@link GetRunCommand}
    */
-  getRun(args: GetRunCommandInput, options?: __HttpHandlerOptions): Promise<GetRunCommandOutput>;
-  getRun(args: GetRunCommandInput, cb: (err: any, data?: GetRunCommandOutput) => void): void;
+  getRun(
+    args: GetRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRunCommandOutput>;
+  getRun(
+    args: GetRunCommandInput,
+    cb: (err: any, data?: GetRunCommandOutput) => void
+  ): void;
   getRun(
     args: GetRunCommandInput,
     options: __HttpHandlerOptions,
@@ -849,8 +909,14 @@ export interface DeviceFarm {
   /**
    * @see {@link GetSuiteCommand}
    */
-  getSuite(args: GetSuiteCommandInput, options?: __HttpHandlerOptions): Promise<GetSuiteCommandOutput>;
-  getSuite(args: GetSuiteCommandInput, cb: (err: any, data?: GetSuiteCommandOutput) => void): void;
+  getSuite(
+    args: GetSuiteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSuiteCommandOutput>;
+  getSuite(
+    args: GetSuiteCommandInput,
+    cb: (err: any, data?: GetSuiteCommandOutput) => void
+  ): void;
   getSuite(
     args: GetSuiteCommandInput,
     options: __HttpHandlerOptions,
@@ -860,8 +926,14 @@ export interface DeviceFarm {
   /**
    * @see {@link GetTestCommand}
    */
-  getTest(args: GetTestCommandInput, options?: __HttpHandlerOptions): Promise<GetTestCommandOutput>;
-  getTest(args: GetTestCommandInput, cb: (err: any, data?: GetTestCommandOutput) => void): void;
+  getTest(
+    args: GetTestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTestCommandOutput>;
+  getTest(
+    args: GetTestCommandInput,
+    cb: (err: any, data?: GetTestCommandOutput) => void
+  ): void;
   getTest(
     args: GetTestCommandInput,
     options: __HttpHandlerOptions,
@@ -906,8 +978,14 @@ export interface DeviceFarm {
   /**
    * @see {@link GetUploadCommand}
    */
-  getUpload(args: GetUploadCommandInput, options?: __HttpHandlerOptions): Promise<GetUploadCommandOutput>;
-  getUpload(args: GetUploadCommandInput, cb: (err: any, data?: GetUploadCommandOutput) => void): void;
+  getUpload(
+    args: GetUploadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUploadCommandOutput>;
+  getUpload(
+    args: GetUploadCommandInput,
+    cb: (err: any, data?: GetUploadCommandOutput) => void
+  ): void;
   getUpload(
     args: GetUploadCommandInput,
     options: __HttpHandlerOptions,
@@ -951,8 +1029,14 @@ export interface DeviceFarm {
   /**
    * @see {@link ListArtifactsCommand}
    */
-  listArtifacts(args: ListArtifactsCommandInput, options?: __HttpHandlerOptions): Promise<ListArtifactsCommandOutput>;
-  listArtifacts(args: ListArtifactsCommandInput, cb: (err: any, data?: ListArtifactsCommandOutput) => void): void;
+  listArtifacts(
+    args: ListArtifactsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListArtifactsCommandOutput>;
+  listArtifacts(
+    args: ListArtifactsCommandInput,
+    cb: (err: any, data?: ListArtifactsCommandOutput) => void
+  ): void;
   listArtifacts(
     args: ListArtifactsCommandInput,
     options: __HttpHandlerOptions,
@@ -984,7 +1068,10 @@ export interface DeviceFarm {
     args: ListDevicePoolsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDevicePoolsCommandOutput>;
-  listDevicePools(args: ListDevicePoolsCommandInput, cb: (err: any, data?: ListDevicePoolsCommandOutput) => void): void;
+  listDevicePools(
+    args: ListDevicePoolsCommandInput,
+    cb: (err: any, data?: ListDevicePoolsCommandOutput) => void
+  ): void;
   listDevicePools(
     args: ListDevicePoolsCommandInput,
     options: __HttpHandlerOptions,
@@ -995,8 +1082,14 @@ export interface DeviceFarm {
    * @see {@link ListDevicesCommand}
    */
   listDevices(): Promise<ListDevicesCommandOutput>;
-  listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
-  listDevices(args: ListDevicesCommandInput, cb: (err: any, data?: ListDevicesCommandOutput) => void): void;
+  listDevices(
+    args: ListDevicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDevicesCommandOutput>;
+  listDevices(
+    args: ListDevicesCommandInput,
+    cb: (err: any, data?: ListDevicesCommandOutput) => void
+  ): void;
   listDevices(
     args: ListDevicesCommandInput,
     options: __HttpHandlerOptions,
@@ -1024,8 +1117,14 @@ export interface DeviceFarm {
   /**
    * @see {@link ListJobsCommand}
    */
-  listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
-  listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
+  listJobs(
+    args: ListJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobsCommandOutput>;
+  listJobs(
+    args: ListJobsCommandInput,
+    cb: (err: any, data?: ListJobsCommandOutput) => void
+  ): void;
   listJobs(
     args: ListJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -1071,8 +1170,14 @@ export interface DeviceFarm {
    * @see {@link ListOfferingsCommand}
    */
   listOfferings(): Promise<ListOfferingsCommandOutput>;
-  listOfferings(args: ListOfferingsCommandInput, options?: __HttpHandlerOptions): Promise<ListOfferingsCommandOutput>;
-  listOfferings(args: ListOfferingsCommandInput, cb: (err: any, data?: ListOfferingsCommandOutput) => void): void;
+  listOfferings(
+    args: ListOfferingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOfferingsCommandOutput>;
+  listOfferings(
+    args: ListOfferingsCommandInput,
+    cb: (err: any, data?: ListOfferingsCommandOutput) => void
+  ): void;
   listOfferings(
     args: ListOfferingsCommandInput,
     options: __HttpHandlerOptions,
@@ -1101,8 +1206,14 @@ export interface DeviceFarm {
    * @see {@link ListProjectsCommand}
    */
   listProjects(): Promise<ListProjectsCommandOutput>;
-  listProjects(args: ListProjectsCommandInput, options?: __HttpHandlerOptions): Promise<ListProjectsCommandOutput>;
-  listProjects(args: ListProjectsCommandInput, cb: (err: any, data?: ListProjectsCommandOutput) => void): void;
+  listProjects(
+    args: ListProjectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProjectsCommandOutput>;
+  listProjects(
+    args: ListProjectsCommandInput,
+    cb: (err: any, data?: ListProjectsCommandOutput) => void
+  ): void;
   listProjects(
     args: ListProjectsCommandInput,
     options: __HttpHandlerOptions,
@@ -1129,8 +1240,14 @@ export interface DeviceFarm {
   /**
    * @see {@link ListRunsCommand}
    */
-  listRuns(args: ListRunsCommandInput, options?: __HttpHandlerOptions): Promise<ListRunsCommandOutput>;
-  listRuns(args: ListRunsCommandInput, cb: (err: any, data?: ListRunsCommandOutput) => void): void;
+  listRuns(
+    args: ListRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRunsCommandOutput>;
+  listRuns(
+    args: ListRunsCommandInput,
+    cb: (err: any, data?: ListRunsCommandOutput) => void
+  ): void;
   listRuns(
     args: ListRunsCommandInput,
     options: __HttpHandlerOptions,
@@ -1140,8 +1257,14 @@ export interface DeviceFarm {
   /**
    * @see {@link ListSamplesCommand}
    */
-  listSamples(args: ListSamplesCommandInput, options?: __HttpHandlerOptions): Promise<ListSamplesCommandOutput>;
-  listSamples(args: ListSamplesCommandInput, cb: (err: any, data?: ListSamplesCommandOutput) => void): void;
+  listSamples(
+    args: ListSamplesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSamplesCommandOutput>;
+  listSamples(
+    args: ListSamplesCommandInput,
+    cb: (err: any, data?: ListSamplesCommandOutput) => void
+  ): void;
   listSamples(
     args: ListSamplesCommandInput,
     options: __HttpHandlerOptions,
@@ -1151,8 +1274,14 @@ export interface DeviceFarm {
   /**
    * @see {@link ListSuitesCommand}
    */
-  listSuites(args: ListSuitesCommandInput, options?: __HttpHandlerOptions): Promise<ListSuitesCommandOutput>;
-  listSuites(args: ListSuitesCommandInput, cb: (err: any, data?: ListSuitesCommandOutput) => void): void;
+  listSuites(
+    args: ListSuitesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSuitesCommandOutput>;
+  listSuites(
+    args: ListSuitesCommandInput,
+    cb: (err: any, data?: ListSuitesCommandOutput) => void
+  ): void;
   listSuites(
     args: ListSuitesCommandInput,
     options: __HttpHandlerOptions,
@@ -1248,8 +1377,14 @@ export interface DeviceFarm {
   /**
    * @see {@link ListTestsCommand}
    */
-  listTests(args: ListTestsCommandInput, options?: __HttpHandlerOptions): Promise<ListTestsCommandOutput>;
-  listTests(args: ListTestsCommandInput, cb: (err: any, data?: ListTestsCommandOutput) => void): void;
+  listTests(
+    args: ListTestsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestsCommandOutput>;
+  listTests(
+    args: ListTestsCommandInput,
+    cb: (err: any, data?: ListTestsCommandOutput) => void
+  ): void;
   listTests(
     args: ListTestsCommandInput,
     options: __HttpHandlerOptions,
@@ -1276,8 +1411,14 @@ export interface DeviceFarm {
   /**
    * @see {@link ListUploadsCommand}
    */
-  listUploads(args: ListUploadsCommandInput, options?: __HttpHandlerOptions): Promise<ListUploadsCommandOutput>;
-  listUploads(args: ListUploadsCommandInput, cb: (err: any, data?: ListUploadsCommandOutput) => void): void;
+  listUploads(
+    args: ListUploadsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUploadsCommandOutput>;
+  listUploads(
+    args: ListUploadsCommandInput,
+    cb: (err: any, data?: ListUploadsCommandOutput) => void
+  ): void;
   listUploads(
     args: ListUploadsCommandInput,
     options: __HttpHandlerOptions,
@@ -1322,8 +1463,14 @@ export interface DeviceFarm {
   /**
    * @see {@link RenewOfferingCommand}
    */
-  renewOffering(args: RenewOfferingCommandInput, options?: __HttpHandlerOptions): Promise<RenewOfferingCommandOutput>;
-  renewOffering(args: RenewOfferingCommandInput, cb: (err: any, data?: RenewOfferingCommandOutput) => void): void;
+  renewOffering(
+    args: RenewOfferingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RenewOfferingCommandOutput>;
+  renewOffering(
+    args: RenewOfferingCommandInput,
+    cb: (err: any, data?: RenewOfferingCommandOutput) => void
+  ): void;
   renewOffering(
     args: RenewOfferingCommandInput,
     options: __HttpHandlerOptions,
@@ -1333,8 +1480,14 @@ export interface DeviceFarm {
   /**
    * @see {@link ScheduleRunCommand}
    */
-  scheduleRun(args: ScheduleRunCommandInput, options?: __HttpHandlerOptions): Promise<ScheduleRunCommandOutput>;
-  scheduleRun(args: ScheduleRunCommandInput, cb: (err: any, data?: ScheduleRunCommandOutput) => void): void;
+  scheduleRun(
+    args: ScheduleRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ScheduleRunCommandOutput>;
+  scheduleRun(
+    args: ScheduleRunCommandInput,
+    cb: (err: any, data?: ScheduleRunCommandOutput) => void
+  ): void;
   scheduleRun(
     args: ScheduleRunCommandInput,
     options: __HttpHandlerOptions,
@@ -1344,8 +1497,14 @@ export interface DeviceFarm {
   /**
    * @see {@link StopJobCommand}
    */
-  stopJob(args: StopJobCommandInput, options?: __HttpHandlerOptions): Promise<StopJobCommandOutput>;
-  stopJob(args: StopJobCommandInput, cb: (err: any, data?: StopJobCommandOutput) => void): void;
+  stopJob(
+    args: StopJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopJobCommandOutput>;
+  stopJob(
+    args: StopJobCommandInput,
+    cb: (err: any, data?: StopJobCommandOutput) => void
+  ): void;
   stopJob(
     args: StopJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1372,8 +1531,14 @@ export interface DeviceFarm {
   /**
    * @see {@link StopRunCommand}
    */
-  stopRun(args: StopRunCommandInput, options?: __HttpHandlerOptions): Promise<StopRunCommandOutput>;
-  stopRun(args: StopRunCommandInput, cb: (err: any, data?: StopRunCommandOutput) => void): void;
+  stopRun(
+    args: StopRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopRunCommandOutput>;
+  stopRun(
+    args: StopRunCommandInput,
+    cb: (err: any, data?: StopRunCommandOutput) => void
+  ): void;
   stopRun(
     args: StopRunCommandInput,
     options: __HttpHandlerOptions,
@@ -1383,8 +1548,14 @@ export interface DeviceFarm {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1394,8 +1565,14 @@ export interface DeviceFarm {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1473,8 +1650,14 @@ export interface DeviceFarm {
   /**
    * @see {@link UpdateProjectCommand}
    */
-  updateProject(args: UpdateProjectCommandInput, options?: __HttpHandlerOptions): Promise<UpdateProjectCommandOutput>;
-  updateProject(args: UpdateProjectCommandInput, cb: (err: any, data?: UpdateProjectCommandOutput) => void): void;
+  updateProject(
+    args: UpdateProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProjectCommandOutput>;
+  updateProject(
+    args: UpdateProjectCommandInput,
+    cb: (err: any, data?: UpdateProjectCommandOutput) => void
+  ): void;
   updateProject(
     args: UpdateProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -1501,8 +1684,14 @@ export interface DeviceFarm {
   /**
    * @see {@link UpdateUploadCommand}
    */
-  updateUpload(args: UpdateUploadCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUploadCommandOutput>;
-  updateUpload(args: UpdateUploadCommandInput, cb: (err: any, data?: UpdateUploadCommandOutput) => void): void;
+  updateUpload(
+    args: UpdateUploadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUploadCommandOutput>;
+  updateUpload(
+    args: UpdateUploadCommandInput,
+    cb: (err: any, data?: UpdateUploadCommandOutput) => void
+  ): void;
   updateUpload(
     args: UpdateUploadCommandInput,
     options: __HttpHandlerOptions,

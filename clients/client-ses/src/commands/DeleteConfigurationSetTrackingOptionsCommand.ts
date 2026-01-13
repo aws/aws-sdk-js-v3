@@ -8,7 +8,7 @@ import type {
   DeleteConfigurationSetTrackingOptionsRequest,
   DeleteConfigurationSetTrackingOptionsResponse,
 } from "../models/models_0";
-import { DeleteConfigurationSetTrackingOptions } from "../schemas/schemas_0";
+import { DeleteConfigurationSetTrackingOptions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteConfigurationSetTrackingOptionsCommand}.
  */
-export interface DeleteConfigurationSetTrackingOptionsCommandInput
-  extends DeleteConfigurationSetTrackingOptionsRequest {}
+export interface DeleteConfigurationSetTrackingOptionsCommandInput extends DeleteConfigurationSetTrackingOptionsRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteConfigurationSetTrackingOptionsCommand}.
  */
-export interface DeleteConfigurationSetTrackingOptionsCommandOutput
-  extends DeleteConfigurationSetTrackingOptionsResponse,
-    __MetadataBearer {}
+export interface DeleteConfigurationSetTrackingOptionsCommandOutput extends DeleteConfigurationSetTrackingOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an association between a configuration set and a custom domain for open and
@@ -92,7 +89,7 @@ export class DeleteConfigurationSetTrackingOptionsCommand extends $Command
   })
   .s("SimpleEmailService", "DeleteConfigurationSetTrackingOptions", {})
   .n("SESClient", "DeleteConfigurationSetTrackingOptionsCommand")
-  .sc(DeleteConfigurationSetTrackingOptions)
+  .sc(DeleteConfigurationSetTrackingOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

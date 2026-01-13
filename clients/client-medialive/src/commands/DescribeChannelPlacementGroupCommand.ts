@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { DescribeChannelPlacementGroupRequest, DescribeChannelPlacementGroupResponse } from "../models/models_1";
-import { DescribeChannelPlacementGroup } from "../schemas/schemas_0";
+import { DescribeChannelPlacementGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeChannelPlacementGroupCommandInput extends DescribeChann
  *
  * The output of {@link DescribeChannelPlacementGroupCommand}.
  */
-export interface DescribeChannelPlacementGroupCommandOutput
-  extends DescribeChannelPlacementGroupResponse,
-    __MetadataBearer {}
+export interface DescribeChannelPlacementGroupCommandOutput extends DescribeChannelPlacementGroupResponse, __MetadataBearer {}
 
 /**
  * Get details about a ChannelPlacementGroup.
@@ -107,7 +105,7 @@ export class DescribeChannelPlacementGroupCommand extends $Command
   })
   .s("MediaLive", "DescribeChannelPlacementGroup", {})
   .n("MediaLiveClient", "DescribeChannelPlacementGroupCommand")
-  .sc(DescribeChannelPlacementGroup)
+  .sc(DescribeChannelPlacementGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   DescribeElasticsearchDomainConfigRequest,
   DescribeElasticsearchDomainConfigResponse,
 } from "../models/models_0";
-import { DescribeElasticsearchDomainConfig } from "../schemas/schemas_0";
+import { DescribeElasticsearchDomainConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DescribeElasticsearchDomainConfigCommandInput extends DescribeE
  *
  * The output of {@link DescribeElasticsearchDomainConfigCommand}.
  */
-export interface DescribeElasticsearchDomainConfigCommandOutput
-  extends DescribeElasticsearchDomainConfigResponse,
-    __MetadataBearer {}
+export interface DescribeElasticsearchDomainConfigCommandOutput extends DescribeElasticsearchDomainConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.</p>
@@ -290,7 +288,7 @@ export class DescribeElasticsearchDomainConfigCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "DescribeElasticsearchDomainConfig", {})
   .n("ElasticsearchServiceClient", "DescribeElasticsearchDomainConfigCommand")
-  .sc(DescribeElasticsearchDomainConfig)
+  .sc(DescribeElasticsearchDomainConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

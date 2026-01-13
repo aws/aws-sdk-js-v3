@@ -114,6 +114,28 @@ export class TooManyDistributionCNAMEs extends __BaseException {
 }
 
 /**
+ * <p>The entity limit has been exceeded.</p>
+ * @public
+ */
+export class EntityLimitExceeded extends __BaseException {
+  readonly name = "EntityLimitExceeded" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityLimitExceeded, __BaseException>) {
+    super({
+      name: "EntityLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityLimitExceeded.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The entity was not found.</p>
  * @public
  */
@@ -366,9 +388,7 @@ export class IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior exten
   /**
    * @internal
    */
-  constructor(
-    opts: __ExceptionOptionType<IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior, __BaseException>
-  ) {
+  constructor(opts: __ExceptionOptionType<IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior, __BaseException>) {
     super({
       name: "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior",
       $fault: "client",
@@ -1182,9 +1202,7 @@ export class TooManyDistributionsAssociatedToFieldLevelEncryptionConfig extends 
   /**
    * @internal
    */
-  constructor(
-    opts: __ExceptionOptionType<TooManyDistributionsAssociatedToFieldLevelEncryptionConfig, __BaseException>
-  ) {
+  constructor(opts: __ExceptionOptionType<TooManyDistributionsAssociatedToFieldLevelEncryptionConfig, __BaseException>) {
     super({
       name: "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig",
       $fault: "client",
@@ -1609,28 +1627,6 @@ export class EntityAlreadyExists extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, EntityAlreadyExists.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The entity limit has been exceeded.</p>
- * @public
- */
-export class EntityLimitExceeded extends __BaseException {
-  readonly name = "EntityLimitExceeded" as const;
-  readonly $fault = "client" as const;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EntityLimitExceeded, __BaseException>) {
-    super({
-      name: "EntityLimitExceeded",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EntityLimitExceeded.prototype);
     this.Message = opts.Message;
   }
 }

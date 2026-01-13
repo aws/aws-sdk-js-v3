@@ -229,8 +229,14 @@ export interface SSMContacts {
   /**
    * @see {@link AcceptPageCommand}
    */
-  acceptPage(args: AcceptPageCommandInput, options?: __HttpHandlerOptions): Promise<AcceptPageCommandOutput>;
-  acceptPage(args: AcceptPageCommandInput, cb: (err: any, data?: AcceptPageCommandOutput) => void): void;
+  acceptPage(
+    args: AcceptPageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptPageCommandOutput>;
+  acceptPage(
+    args: AcceptPageCommandInput,
+    cb: (err: any, data?: AcceptPageCommandOutput) => void
+  ): void;
   acceptPage(
     args: AcceptPageCommandInput,
     options: __HttpHandlerOptions,
@@ -257,8 +263,14 @@ export interface SSMContacts {
   /**
    * @see {@link CreateContactCommand}
    */
-  createContact(args: CreateContactCommandInput, options?: __HttpHandlerOptions): Promise<CreateContactCommandOutput>;
-  createContact(args: CreateContactCommandInput, cb: (err: any, data?: CreateContactCommandOutput) => void): void;
+  createContact(
+    args: CreateContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContactCommandOutput>;
+  createContact(
+    args: CreateContactCommandInput,
+    cb: (err: any, data?: CreateContactCommandOutput) => void
+  ): void;
   createContact(
     args: CreateContactCommandInput,
     options: __HttpHandlerOptions,
@@ -289,7 +301,10 @@ export interface SSMContacts {
     args: CreateRotationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateRotationCommandOutput>;
-  createRotation(args: CreateRotationCommandInput, cb: (err: any, data?: CreateRotationCommandOutput) => void): void;
+  createRotation(
+    args: CreateRotationCommandInput,
+    cb: (err: any, data?: CreateRotationCommandOutput) => void
+  ): void;
   createRotation(
     args: CreateRotationCommandInput,
     options: __HttpHandlerOptions,
@@ -333,8 +348,14 @@ export interface SSMContacts {
   /**
    * @see {@link DeleteContactCommand}
    */
-  deleteContact(args: DeleteContactCommandInput, options?: __HttpHandlerOptions): Promise<DeleteContactCommandOutput>;
-  deleteContact(args: DeleteContactCommandInput, cb: (err: any, data?: DeleteContactCommandOutput) => void): void;
+  deleteContact(
+    args: DeleteContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContactCommandOutput>;
+  deleteContact(
+    args: DeleteContactCommandInput,
+    cb: (err: any, data?: DeleteContactCommandOutput) => void
+  ): void;
   deleteContact(
     args: DeleteContactCommandInput,
     options: __HttpHandlerOptions,
@@ -365,7 +386,10 @@ export interface SSMContacts {
     args: DeleteRotationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteRotationCommandOutput>;
-  deleteRotation(args: DeleteRotationCommandInput, cb: (err: any, data?: DeleteRotationCommandOutput) => void): void;
+  deleteRotation(
+    args: DeleteRotationCommandInput,
+    cb: (err: any, data?: DeleteRotationCommandOutput) => void
+  ): void;
   deleteRotation(
     args: DeleteRotationCommandInput,
     options: __HttpHandlerOptions,
@@ -409,8 +433,14 @@ export interface SSMContacts {
   /**
    * @see {@link DescribePageCommand}
    */
-  describePage(args: DescribePageCommandInput, options?: __HttpHandlerOptions): Promise<DescribePageCommandOutput>;
-  describePage(args: DescribePageCommandInput, cb: (err: any, data?: DescribePageCommandOutput) => void): void;
+  describePage(
+    args: DescribePageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePageCommandOutput>;
+  describePage(
+    args: DescribePageCommandInput,
+    cb: (err: any, data?: DescribePageCommandOutput) => void
+  ): void;
   describePage(
     args: DescribePageCommandInput,
     options: __HttpHandlerOptions,
@@ -420,8 +450,14 @@ export interface SSMContacts {
   /**
    * @see {@link GetContactCommand}
    */
-  getContact(args: GetContactCommandInput, options?: __HttpHandlerOptions): Promise<GetContactCommandOutput>;
-  getContact(args: GetContactCommandInput, cb: (err: any, data?: GetContactCommandOutput) => void): void;
+  getContact(
+    args: GetContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContactCommandOutput>;
+  getContact(
+    args: GetContactCommandInput,
+    cb: (err: any, data?: GetContactCommandOutput) => void
+  ): void;
   getContact(
     args: GetContactCommandInput,
     options: __HttpHandlerOptions,
@@ -465,8 +501,14 @@ export interface SSMContacts {
   /**
    * @see {@link GetRotationCommand}
    */
-  getRotation(args: GetRotationCommandInput, options?: __HttpHandlerOptions): Promise<GetRotationCommandOutput>;
-  getRotation(args: GetRotationCommandInput, cb: (err: any, data?: GetRotationCommandOutput) => void): void;
+  getRotation(
+    args: GetRotationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRotationCommandOutput>;
+  getRotation(
+    args: GetRotationCommandInput,
+    cb: (err: any, data?: GetRotationCommandOutput) => void
+  ): void;
   getRotation(
     args: GetRotationCommandInput,
     options: __HttpHandlerOptions,
@@ -511,8 +553,14 @@ export interface SSMContacts {
    * @see {@link ListContactsCommand}
    */
   listContacts(): Promise<ListContactsCommandOutput>;
-  listContacts(args: ListContactsCommandInput, options?: __HttpHandlerOptions): Promise<ListContactsCommandOutput>;
-  listContacts(args: ListContactsCommandInput, cb: (err: any, data?: ListContactsCommandOutput) => void): void;
+  listContacts(
+    args: ListContactsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContactsCommandOutput>;
+  listContacts(
+    args: ListContactsCommandInput,
+    cb: (err: any, data?: ListContactsCommandOutput) => void
+  ): void;
   listContacts(
     args: ListContactsCommandInput,
     options: __HttpHandlerOptions,
@@ -527,7 +575,10 @@ export interface SSMContacts {
     args: ListEngagementsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListEngagementsCommandOutput>;
-  listEngagements(args: ListEngagementsCommandInput, cb: (err: any, data?: ListEngagementsCommandOutput) => void): void;
+  listEngagements(
+    args: ListEngagementsCommandInput,
+    cb: (err: any, data?: ListEngagementsCommandOutput) => void
+  ): void;
   listEngagements(
     args: ListEngagementsCommandInput,
     options: __HttpHandlerOptions,
@@ -640,8 +691,14 @@ export interface SSMContacts {
    * @see {@link ListRotationsCommand}
    */
   listRotations(): Promise<ListRotationsCommandOutput>;
-  listRotations(args: ListRotationsCommandInput, options?: __HttpHandlerOptions): Promise<ListRotationsCommandOutput>;
-  listRotations(args: ListRotationsCommandInput, cb: (err: any, data?: ListRotationsCommandOutput) => void): void;
+  listRotations(
+    args: ListRotationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRotationsCommandOutput>;
+  listRotations(
+    args: ListRotationsCommandInput,
+    cb: (err: any, data?: ListRotationsCommandOutput) => void
+  ): void;
   listRotations(
     args: ListRotationsCommandInput,
     options: __HttpHandlerOptions,
@@ -723,7 +780,10 @@ export interface SSMContacts {
     args: StartEngagementCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartEngagementCommandOutput>;
-  startEngagement(args: StartEngagementCommandInput, cb: (err: any, data?: StartEngagementCommandOutput) => void): void;
+  startEngagement(
+    args: StartEngagementCommandInput,
+    cb: (err: any, data?: StartEngagementCommandOutput) => void
+  ): void;
   startEngagement(
     args: StartEngagementCommandInput,
     options: __HttpHandlerOptions,
@@ -737,7 +797,10 @@ export interface SSMContacts {
     args: StopEngagementCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopEngagementCommandOutput>;
-  stopEngagement(args: StopEngagementCommandInput, cb: (err: any, data?: StopEngagementCommandOutput) => void): void;
+  stopEngagement(
+    args: StopEngagementCommandInput,
+    cb: (err: any, data?: StopEngagementCommandOutput) => void
+  ): void;
   stopEngagement(
     args: StopEngagementCommandInput,
     options: __HttpHandlerOptions,
@@ -747,8 +810,14 @@ export interface SSMContacts {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -758,8 +827,14 @@ export interface SSMContacts {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -769,8 +844,14 @@ export interface SSMContacts {
   /**
    * @see {@link UpdateContactCommand}
    */
-  updateContact(args: UpdateContactCommandInput, options?: __HttpHandlerOptions): Promise<UpdateContactCommandOutput>;
-  updateContact(args: UpdateContactCommandInput, cb: (err: any, data?: UpdateContactCommandOutput) => void): void;
+  updateContact(
+    args: UpdateContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContactCommandOutput>;
+  updateContact(
+    args: UpdateContactCommandInput,
+    cb: (err: any, data?: UpdateContactCommandOutput) => void
+  ): void;
   updateContact(
     args: UpdateContactCommandInput,
     options: __HttpHandlerOptions,
@@ -801,7 +882,10 @@ export interface SSMContacts {
     args: UpdateRotationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateRotationCommandOutput>;
-  updateRotation(args: UpdateRotationCommandInput, cb: (err: any, data?: UpdateRotationCommandOutput) => void): void;
+  updateRotation(
+    args: UpdateRotationCommandInput,
+    cb: (err: any, data?: UpdateRotationCommandOutput) => void
+  ): void;
   updateRotation(
     args: UpdateRotationCommandInput,
     options: __HttpHandlerOptions,

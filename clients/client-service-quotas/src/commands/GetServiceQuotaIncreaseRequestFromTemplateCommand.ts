@@ -8,7 +8,7 @@ import type {
   GetServiceQuotaIncreaseRequestFromTemplateRequest,
   GetServiceQuotaIncreaseRequestFromTemplateResponse,
 } from "../models/models_0";
-import { GetServiceQuotaIncreaseRequestFromTemplate } from "../schemas/schemas_0";
+import { GetServiceQuotaIncreaseRequestFromTemplate$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetServiceQuotaIncreaseRequestFromTemplateCommand}.
  */
-export interface GetServiceQuotaIncreaseRequestFromTemplateCommandInput
-  extends GetServiceQuotaIncreaseRequestFromTemplateRequest {}
+export interface GetServiceQuotaIncreaseRequestFromTemplateCommandInput extends GetServiceQuotaIncreaseRequestFromTemplateRequest {}
 /**
  * @public
  *
  * The output of {@link GetServiceQuotaIncreaseRequestFromTemplateCommand}.
  */
-export interface GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
-  extends GetServiceQuotaIncreaseRequestFromTemplateResponse,
-    __MetadataBearer {}
+export interface GetServiceQuotaIncreaseRequestFromTemplateCommandOutput extends GetServiceQuotaIncreaseRequestFromTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the specified quota increase request in your quota request
@@ -120,7 +117,7 @@ export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command
   })
   .s("ServiceQuotasV20190624", "GetServiceQuotaIncreaseRequestFromTemplate", {})
   .n("ServiceQuotasClient", "GetServiceQuotaIncreaseRequestFromTemplateCommand")
-  .sc(GetServiceQuotaIncreaseRequestFromTemplate)
+  .sc(GetServiceQuotaIncreaseRequestFromTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

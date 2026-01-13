@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSharesRequest, ListSharesResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { ListShares } from "../schemas/schemas_0";
+import { ListShares$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class ListSharesCommand extends $Command
   })
   .s("Omics", "ListShares", {})
   .n("OmicsClient", "ListSharesCommand")
-  .sc(ListShares)
+  .sc(ListShares$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

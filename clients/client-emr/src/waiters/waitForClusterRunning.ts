@@ -7,12 +7,12 @@ import { EMRClient } from "../EMRClient";
 const checkState = async (client: EMRClient, input: DescribeClusterCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeClusterCommand(input));
+    let result: any = await client.send(new DescribeClusterCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.Cluster.Status.State;
-      };
+      }
       if (returnComparator() === "RUNNING") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: EMRClient, input: DescribeClusterCommandInput)
     try {
       const returnComparator = () => {
         return result.Cluster.Status.State;
-      };
+      }
       if (returnComparator() === "WAITING") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -28,7 +28,7 @@ const checkState = async (client: EMRClient, input: DescribeClusterCommandInput)
     try {
       const returnComparator = () => {
         return result.Cluster.Status.State;
-      };
+      }
       if (returnComparator() === "TERMINATING") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -36,7 +36,7 @@ const checkState = async (client: EMRClient, input: DescribeClusterCommandInput)
     try {
       const returnComparator = () => {
         return result.Cluster.Status.State;
-      };
+      }
       if (returnComparator() === "TERMINATED") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -44,7 +44,7 @@ const checkState = async (client: EMRClient, input: DescribeClusterCommandInput)
     try {
       const returnComparator = () => {
         return result.Cluster.Status.State;
-      };
+      }
       if (returnComparator() === "TERMINATED_WITH_ERRORS") {
         return { state: WaiterState.FAILURE, reason };
       }

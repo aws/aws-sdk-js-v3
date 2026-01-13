@@ -9,7 +9,7 @@ import type {
   BatchDisassociateAssessmentReportEvidenceRequest,
   BatchDisassociateAssessmentReportEvidenceResponse,
 } from "../models/models_0";
-import { BatchDisassociateAssessmentReportEvidence } from "../schemas/schemas_0";
+import { BatchDisassociateAssessmentReportEvidence$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchDisassociateAssessmentReportEvidenceCommand}.
  */
-export interface BatchDisassociateAssessmentReportEvidenceCommandInput
-  extends BatchDisassociateAssessmentReportEvidenceRequest {}
+export interface BatchDisassociateAssessmentReportEvidenceCommandInput extends BatchDisassociateAssessmentReportEvidenceRequest {}
 /**
  * @public
  *
  * The output of {@link BatchDisassociateAssessmentReportEvidenceCommand}.
  */
-export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
-  extends BatchDisassociateAssessmentReportEvidenceResponse,
-    __MetadataBearer {}
+export interface BatchDisassociateAssessmentReportEvidenceCommandOutput extends BatchDisassociateAssessmentReportEvidenceResponse, __MetadataBearer {}
 
 /**
  * <p> Disassociates a list of evidence from an assessment report in Audit Manager.
@@ -107,7 +104,7 @@ export class BatchDisassociateAssessmentReportEvidenceCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "BatchDisassociateAssessmentReportEvidence", {})
   .n("AuditManagerClient", "BatchDisassociateAssessmentReportEvidenceCommand")
-  .sc(BatchDisassociateAssessmentReportEvidence)
+  .sc(BatchDisassociateAssessmentReportEvidence$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

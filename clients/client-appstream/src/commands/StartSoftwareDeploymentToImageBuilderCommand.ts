@@ -9,7 +9,7 @@ import type {
   StartSoftwareDeploymentToImageBuilderRequest,
   StartSoftwareDeploymentToImageBuilderResult,
 } from "../models/models_0";
-import { StartSoftwareDeploymentToImageBuilder } from "../schemas/schemas_0";
+import { StartSoftwareDeploymentToImageBuilder$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link StartSoftwareDeploymentToImageBuilderCommand}.
  */
-export interface StartSoftwareDeploymentToImageBuilderCommandInput
-  extends StartSoftwareDeploymentToImageBuilderRequest {}
+export interface StartSoftwareDeploymentToImageBuilderCommandInput extends StartSoftwareDeploymentToImageBuilderRequest {}
 /**
  * @public
  *
  * The output of {@link StartSoftwareDeploymentToImageBuilderCommand}.
  */
-export interface StartSoftwareDeploymentToImageBuilderCommandOutput
-  extends StartSoftwareDeploymentToImageBuilderResult,
-    __MetadataBearer {}
+export interface StartSoftwareDeploymentToImageBuilderCommandOutput extends StartSoftwareDeploymentToImageBuilderResult, __MetadataBearer {}
 
 /**
  * <p>Initiates license included applications deployment to an image builder instance.</p>
@@ -87,7 +84,7 @@ export class StartSoftwareDeploymentToImageBuilderCommand extends $Command
   })
   .s("PhotonAdminProxyService", "StartSoftwareDeploymentToImageBuilder", {})
   .n("AppStreamClient", "StartSoftwareDeploymentToImageBuilderCommand")
-  .sc(StartSoftwareDeploymentToImageBuilder)
+  .sc(StartSoftwareDeploymentToImageBuilder$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

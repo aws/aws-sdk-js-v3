@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { DeleteChannelPlacementGroupRequest, DeleteChannelPlacementGroupResponse } from "../models/models_1";
-import { DeleteChannelPlacementGroup } from "../schemas/schemas_0";
+import { DeleteChannelPlacementGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteChannelPlacementGroupCommandInput extends DeleteChannelPl
  *
  * The output of {@link DeleteChannelPlacementGroupCommand}.
  */
-export interface DeleteChannelPlacementGroupCommandOutput
-  extends DeleteChannelPlacementGroupResponse,
-    __MetadataBearer {}
+export interface DeleteChannelPlacementGroupCommandOutput extends DeleteChannelPlacementGroupResponse, __MetadataBearer {}
 
 /**
  * Delete the specified ChannelPlacementGroup that exists in the specified Cluster.
@@ -110,7 +108,7 @@ export class DeleteChannelPlacementGroupCommand extends $Command
   })
   .s("MediaLive", "DeleteChannelPlacementGroup", {})
   .n("MediaLiveClient", "DeleteChannelPlacementGroupCommand")
-  .sc(DeleteChannelPlacementGroup)
+  .sc(DeleteChannelPlacementGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { ListCrossAccountAttachmentsRequest, ListCrossAccountAttachmentsResponse } from "../models/models_0";
-import { ListCrossAccountAttachments } from "../schemas/schemas_0";
+import { ListCrossAccountAttachments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListCrossAccountAttachmentsCommandInput extends ListCrossAccoun
  *
  * The output of {@link ListCrossAccountAttachmentsCommand}.
  */
-export interface ListCrossAccountAttachmentsCommandOutput
-  extends ListCrossAccountAttachmentsResponse,
-    __MetadataBearer {}
+export interface ListCrossAccountAttachmentsCommandOutput extends ListCrossAccountAttachmentsResponse, __MetadataBearer {}
 
 /**
  * <p>List the cross-account attachments that have been created in Global Accelerator.</p>
@@ -110,7 +108,7 @@ export class ListCrossAccountAttachmentsCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "ListCrossAccountAttachments", {})
   .n("GlobalAcceleratorClient", "ListCrossAccountAttachmentsCommand")
-  .sc(ListCrossAccountAttachments)
+  .sc(ListCrossAccountAttachments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

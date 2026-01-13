@@ -9,7 +9,7 @@ import type {
   DisassociateFromAdministratorAccountRequest,
   DisassociateFromAdministratorAccountResponse,
 } from "../models/models_0";
-import { DisassociateFromAdministratorAccount } from "../schemas/schemas_0";
+import { DisassociateFromAdministratorAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DisassociateFromAdministratorAccountCommandInput extends Disass
  *
  * The output of {@link DisassociateFromAdministratorAccountCommand}.
  */
-export interface DisassociateFromAdministratorAccountCommandOutput
-  extends DisassociateFromAdministratorAccountResponse,
-    __MetadataBearer {}
+export interface DisassociateFromAdministratorAccountCommandOutput extends DisassociateFromAdministratorAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a member account from its Amazon Macie administrator account.</p>
@@ -95,7 +93,7 @@ export class DisassociateFromAdministratorAccountCommand extends $Command
   })
   .s("Macie2", "DisassociateFromAdministratorAccount", {})
   .n("Macie2Client", "DisassociateFromAdministratorAccountCommand")
-  .sc(DisassociateFromAdministratorAccount)
+  .sc(DisassociateFromAdministratorAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteAccountAuditConfigurationRequest,
   DeleteAccountAuditConfigurationResponse,
 } from "../models/models_0";
-import { DeleteAccountAuditConfiguration } from "../schemas/schemas_0";
+import { DeleteAccountAuditConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteAccountAuditConfigurationCommandInput extends DeleteAccou
  *
  * The output of {@link DeleteAccountAuditConfigurationCommand}.
  */
-export interface DeleteAccountAuditConfigurationCommandOutput
-  extends DeleteAccountAuditConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteAccountAuditConfigurationCommandOutput extends DeleteAccountAuditConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Restores the default settings for Device Defender audits for this account. Any
@@ -91,7 +89,7 @@ export class DeleteAccountAuditConfigurationCommand extends $Command
   })
   .s("AWSIotService", "DeleteAccountAuditConfiguration", {})
   .n("IoTClient", "DeleteAccountAuditConfigurationCommand")
-  .sc(DeleteAccountAuditConfiguration)
+  .sc(DeleteAccountAuditConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

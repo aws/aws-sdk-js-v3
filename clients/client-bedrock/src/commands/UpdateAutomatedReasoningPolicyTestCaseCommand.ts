@@ -9,7 +9,7 @@ import type {
   UpdateAutomatedReasoningPolicyTestCaseRequest,
   UpdateAutomatedReasoningPolicyTestCaseResponse,
 } from "../models/models_0";
-import { UpdateAutomatedReasoningPolicyTestCase } from "../schemas/schemas_0";
+import { UpdateAutomatedReasoningPolicyTestCase$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateAutomatedReasoningPolicyTestCaseCommand}.
  */
-export interface UpdateAutomatedReasoningPolicyTestCaseCommandInput
-  extends UpdateAutomatedReasoningPolicyTestCaseRequest {}
+export interface UpdateAutomatedReasoningPolicyTestCaseCommandInput extends UpdateAutomatedReasoningPolicyTestCaseRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateAutomatedReasoningPolicyTestCaseCommand}.
  */
-export interface UpdateAutomatedReasoningPolicyTestCaseCommandOutput
-  extends UpdateAutomatedReasoningPolicyTestCaseResponse,
-    __MetadataBearer {}
+export interface UpdateAutomatedReasoningPolicyTestCaseCommandOutput extends UpdateAutomatedReasoningPolicyTestCaseResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing Automated Reasoning policy test. You can modify the content, query, expected result, and confidence threshold.</p>
@@ -108,7 +105,7 @@ export class UpdateAutomatedReasoningPolicyTestCaseCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "UpdateAutomatedReasoningPolicyTestCase", {})
   .n("BedrockClient", "UpdateAutomatedReasoningPolicyTestCaseCommand")
-  .sc(UpdateAutomatedReasoningPolicyTestCase)
+  .sc(UpdateAutomatedReasoningPolicyTestCase$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListTrainingPlansRequest, ListTrainingPlansResponse } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListTrainingPlans } from "../schemas/schemas_0";
+import { ListTrainingPlans$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,7 +79,7 @@ export interface ListTrainingPlansCommandOutput extends ListTrainingPlansRespons
  * //           ReservedCapacityType: "UltraServer" || "Instance",
  * //           UltraServerType: "STRING_VALUE",
  * //           UltraServerCount: Number("int"),
- * //           InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge" || "ml.p6-b200.48xlarge" || "ml.p4de.24xlarge" || "ml.p6e-gb200.36xlarge" || "ml.p5.4xlarge", // required
+ * //           InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge" || "ml.p6-b200.48xlarge" || "ml.p4de.24xlarge" || "ml.p6e-gb200.36xlarge" || "ml.p5.4xlarge" || "ml.p6-b300.48xlarge", // required
  * //           TotalInstanceCount: Number("int"), // required
  * //           Status: "Pending" || "Active" || "Scheduled" || "Expired" || "Failed", // required
  * //           AvailabilityZone: "STRING_VALUE",
@@ -121,7 +121,7 @@ export class ListTrainingPlansCommand extends $Command
   })
   .s("SageMaker", "ListTrainingPlans", {})
   .n("SageMakerClient", "ListTrainingPlansCommand")
-  .sc(ListTrainingPlans)
+  .sc(ListTrainingPlans$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

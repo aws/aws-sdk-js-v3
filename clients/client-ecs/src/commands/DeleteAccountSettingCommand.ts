@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAccountSettingRequest, DeleteAccountSettingResponse } from "../models/models_0";
-import { DeleteAccountSetting } from "../schemas/schemas_0";
+import { DeleteAccountSetting$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -38,14 +38,14 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
  * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // DeleteAccountSettingRequest
- *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization" || "fargateTaskRetirementWaitPeriod" || "guardDutyActivate" || "defaultLogDriverMode", // required
+ *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization" || "fargateTaskRetirementWaitPeriod" || "guardDutyActivate" || "defaultLogDriverMode" || "fargateEventWindows", // required
  *   principalArn: "STRING_VALUE",
  * };
  * const command = new DeleteAccountSettingCommand(input);
  * const response = await client.send(command);
  * // { // DeleteAccountSettingResponse
  * //   setting: { // Setting
- * //     name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization" || "fargateTaskRetirementWaitPeriod" || "guardDutyActivate" || "defaultLogDriverMode",
+ * //     name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization" || "fargateTaskRetirementWaitPeriod" || "guardDutyActivate" || "defaultLogDriverMode" || "fargateEventWindows",
  * //     value: "STRING_VALUE",
  * //     principalArn: "STRING_VALUE",
  * //     type: "user" || "aws_managed",
@@ -133,7 +133,7 @@ export class DeleteAccountSettingCommand extends $Command
   })
   .s("AmazonEC2ContainerServiceV20141113", "DeleteAccountSetting", {})
   .n("ECSClient", "DeleteAccountSettingCommand")
-  .sc(DeleteAccountSetting)
+  .sc(DeleteAccountSetting$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

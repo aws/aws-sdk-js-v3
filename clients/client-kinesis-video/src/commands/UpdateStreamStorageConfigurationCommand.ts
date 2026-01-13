@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import type { UpdateStreamStorageConfigurationInput, UpdateStreamStorageConfigurationOutput } from "../models/models_0";
-import { UpdateStreamStorageConfiguration } from "../schemas/schemas_0";
+import { UpdateStreamStorageConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateStreamStorageConfigurationCommandInput extends UpdateStre
  *
  * The output of {@link UpdateStreamStorageConfigurationCommand}.
  */
-export interface UpdateStreamStorageConfigurationCommandOutput
-  extends UpdateStreamStorageConfigurationOutput,
-    __MetadataBearer {}
+export interface UpdateStreamStorageConfigurationCommandOutput extends UpdateStreamStorageConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the storage configuration for an existing Kinesis video stream.</p>
@@ -120,7 +118,7 @@ export class UpdateStreamStorageConfigurationCommand extends $Command
   })
   .s("KinesisVideo_20170930", "UpdateStreamStorageConfiguration", {})
   .n("KinesisVideoClient", "UpdateStreamStorageConfigurationCommand")
-  .sc(UpdateStreamStorageConfiguration)
+  .sc(UpdateStreamStorageConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

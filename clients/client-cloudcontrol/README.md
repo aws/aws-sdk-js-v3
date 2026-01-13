@@ -10,10 +10,8 @@ AWS SDK for JavaScript CloudControl Client for Node.js, Browser and React Native
 Guide</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-cloudcontrol
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-cloudcontrol`
 - `yarn add @aws-sdk/client-cloudcontrol`
 - `pnpm add @aws-sdk/client-cloudcontrol`
@@ -49,9 +47,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new CloudControlClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListResourceRequestsCommand(params);
 ```
 
@@ -210,7 +206,6 @@ CancelResourceRequest
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudcontrol/command/CancelResourceRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudcontrol/Interface/CancelResourceRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudcontrol/Interface/CancelResourceRequestCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -218,7 +213,6 @@ CreateResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudcontrol/command/CreateResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudcontrol/Interface/CreateResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudcontrol/Interface/CreateResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -226,7 +220,6 @@ DeleteResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudcontrol/command/DeleteResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudcontrol/Interface/DeleteResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudcontrol/Interface/DeleteResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -234,7 +227,6 @@ GetResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudcontrol/command/GetResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudcontrol/Interface/GetResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudcontrol/Interface/GetResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -242,7 +234,6 @@ GetResourceRequestStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudcontrol/command/GetResourceRequestStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudcontrol/Interface/GetResourceRequestStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudcontrol/Interface/GetResourceRequestStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -250,7 +241,6 @@ ListResourceRequests
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudcontrol/command/ListResourceRequestsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudcontrol/Interface/ListResourceRequestsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudcontrol/Interface/ListResourceRequestsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -258,7 +248,6 @@ ListResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudcontrol/command/ListResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudcontrol/Interface/ListResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudcontrol/Interface/ListResourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -266,5 +255,4 @@ UpdateResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudcontrol/command/UpdateResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudcontrol/Interface/UpdateResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudcontrol/Interface/UpdateResourceCommandOutput/)
-
 </details>

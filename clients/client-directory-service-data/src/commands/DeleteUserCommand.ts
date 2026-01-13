@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceDataClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteUserRequest, DeleteUserResult } from "../models/models_0";
-import { DeleteUser } from "../schemas/schemas_0";
+import { DeleteUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class DeleteUserCommand extends $Command
   })
   .s("DirectoryServiceData", "DeleteUser", {})
   .n("DirectoryServiceDataClient", "DeleteUserCommand")
-  .sc(DeleteUser)
+  .sc(DeleteUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

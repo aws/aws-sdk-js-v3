@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeSavingsPlansOfferingsRequest, DescribeSavingsPlansOfferingsResponse } from "../models/models_0";
 import type { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
-import { DescribeSavingsPlansOfferings } from "../schemas/schemas_0";
+import { DescribeSavingsPlansOfferings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeSavingsPlansOfferingsCommandInput extends DescribeSavin
  *
  * The output of {@link DescribeSavingsPlansOfferingsCommand}.
  */
-export interface DescribeSavingsPlansOfferingsCommandOutput
-  extends DescribeSavingsPlansOfferingsResponse,
-    __MetadataBearer {}
+export interface DescribeSavingsPlansOfferingsCommandOutput extends DescribeSavingsPlansOfferingsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the offerings for the specified Savings Plans.</p>
@@ -140,7 +138,7 @@ export class DescribeSavingsPlansOfferingsCommand extends $Command
   })
   .s("AWSSavingsPlan", "DescribeSavingsPlansOfferings", {})
   .n("SavingsplansClient", "DescribeSavingsPlansOfferingsCommand")
-  .sc(DescribeSavingsPlansOfferings)
+  .sc(DescribeSavingsPlansOfferings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

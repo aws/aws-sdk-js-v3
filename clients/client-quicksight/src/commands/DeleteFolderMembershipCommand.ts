@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteFolderMembershipRequest, DeleteFolderMembershipResponse } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DeleteFolderMembership } from "../schemas/schemas_0";
+import { DeleteFolderMembership$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DeleteFolderMembershipCommand extends $Command
   })
   .s("QuickSight_20180401", "DeleteFolderMembership", {})
   .n("QuickSightClient", "DeleteFolderMembershipCommand")
-  .sc(DeleteFolderMembership)
+  .sc(DeleteFolderMembership$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

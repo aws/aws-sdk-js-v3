@@ -8,7 +8,7 @@ import type {
   ListLinkedWhatsAppBusinessAccountsInput,
   ListLinkedWhatsAppBusinessAccountsOutput,
 } from "../models/models_0";
-import { ListLinkedWhatsAppBusinessAccounts } from "../schemas/schemas_0";
+import { ListLinkedWhatsAppBusinessAccounts$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -31,9 +31,7 @@ export interface ListLinkedWhatsAppBusinessAccountsCommandInput extends ListLink
  *
  * The output of {@link ListLinkedWhatsAppBusinessAccountsCommand}.
  */
-export interface ListLinkedWhatsAppBusinessAccountsCommandOutput
-  extends ListLinkedWhatsAppBusinessAccountsOutput,
-    __MetadataBearer {}
+export interface ListLinkedWhatsAppBusinessAccountsCommandOutput extends ListLinkedWhatsAppBusinessAccountsOutput, __MetadataBearer {}
 
 /**
  * <p>List all WhatsApp Business Accounts linked to your Amazon Web Services account.</p>
@@ -118,7 +116,7 @@ export class ListLinkedWhatsAppBusinessAccountsCommand extends $Command
   })
   .s("SocialMessaging", "ListLinkedWhatsAppBusinessAccounts", {})
   .n("SocialMessagingClient", "ListLinkedWhatsAppBusinessAccountsCommand")
-  .sc(ListLinkedWhatsAppBusinessAccounts)
+  .sc(ListLinkedWhatsAppBusinessAccounts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

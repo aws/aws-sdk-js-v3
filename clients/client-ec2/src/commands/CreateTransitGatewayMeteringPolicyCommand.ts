@@ -9,7 +9,7 @@ import type {
   CreateTransitGatewayMeteringPolicyRequest,
   CreateTransitGatewayMeteringPolicyResult,
 } from "../models/models_2";
-import { CreateTransitGatewayMeteringPolicy } from "../schemas/schemas_0";
+import { CreateTransitGatewayMeteringPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateTransitGatewayMeteringPolicyCommandInput extends CreateTr
  *
  * The output of {@link CreateTransitGatewayMeteringPolicyCommand}.
  */
-export interface CreateTransitGatewayMeteringPolicyCommandOutput
-  extends CreateTransitGatewayMeteringPolicyResult,
-    __MetadataBearer {}
+export interface CreateTransitGatewayMeteringPolicyCommandOutput extends CreateTransitGatewayMeteringPolicyResult, __MetadataBearer {}
 
 /**
  * <p>Creates a metering policy for a transit gateway to track and measure network traffic.</p>
@@ -107,7 +105,7 @@ export class CreateTransitGatewayMeteringPolicyCommand extends $Command
   })
   .s("AmazonEC2", "CreateTransitGatewayMeteringPolicy", {})
   .n("EC2Client", "CreateTransitGatewayMeteringPolicyCommand")
-  .sc(CreateTransitGatewayMeteringPolicy)
+  .sc(CreateTransitGatewayMeteringPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

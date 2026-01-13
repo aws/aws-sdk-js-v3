@@ -9,7 +9,7 @@ import type {
   GetRestoreTestingInferredMetadataInput,
   GetRestoreTestingInferredMetadataOutput,
 } from "../models/models_0";
-import { GetRestoreTestingInferredMetadata } from "../schemas/schemas_0";
+import { GetRestoreTestingInferredMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetRestoreTestingInferredMetadataCommandInput extends GetRestor
  *
  * The output of {@link GetRestoreTestingInferredMetadataCommand}.
  */
-export interface GetRestoreTestingInferredMetadataCommandOutput
-  extends GetRestoreTestingInferredMetadataOutput,
-    __MetadataBearer {}
+export interface GetRestoreTestingInferredMetadataCommandOutput extends GetRestoreTestingInferredMetadataOutput, __MetadataBearer {}
 
 /**
  * <p>This request returns the minimal required set of metadata needed to
@@ -98,7 +96,7 @@ export class GetRestoreTestingInferredMetadataCommand extends $Command
   })
   .s("CryoControllerUserManager", "GetRestoreTestingInferredMetadata", {})
   .n("BackupClient", "GetRestoreTestingInferredMetadataCommand")
-  .sc(GetRestoreTestingInferredMetadata)
+  .sc(GetRestoreTestingInferredMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

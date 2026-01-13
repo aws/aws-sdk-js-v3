@@ -9,7 +9,7 @@ import type {
   CreateTargetAccountConfigurationRequest,
   CreateTargetAccountConfigurationResponse,
 } from "../models/models_0";
-import { CreateTargetAccountConfiguration } from "../schemas/schemas_0";
+import { CreateTargetAccountConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateTargetAccountConfigurationCommandInput extends CreateTarg
  *
  * The output of {@link CreateTargetAccountConfigurationCommand}.
  */
-export interface CreateTargetAccountConfigurationCommandOutput
-  extends CreateTargetAccountConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateTargetAccountConfigurationCommandOutput extends CreateTargetAccountConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a target account configuration for the experiment template. A target account configuration
@@ -102,7 +100,7 @@ export class CreateTargetAccountConfigurationCommand extends $Command
   })
   .s("FaultInjectionSimulator", "CreateTargetAccountConfiguration", {})
   .n("FisClient", "CreateTargetAccountConfigurationCommand")
-  .sc(CreateTargetAccountConfiguration)
+  .sc(CreateTargetAccountConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

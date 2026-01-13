@@ -9,7 +9,7 @@ import type {
   GetServiceLinkedRoleDeletionStatusRequest,
   GetServiceLinkedRoleDeletionStatusResponse,
 } from "../models/models_0";
-import { GetServiceLinkedRoleDeletionStatus } from "../schemas/schemas_0";
+import { GetServiceLinkedRoleDeletionStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetServiceLinkedRoleDeletionStatusCommandInput extends GetServi
  *
  * The output of {@link GetServiceLinkedRoleDeletionStatusCommand}.
  */
-export interface GetServiceLinkedRoleDeletionStatusCommandOutput
-  extends GetServiceLinkedRoleDeletionStatusResponse,
-    __MetadataBearer {}
+export interface GetServiceLinkedRoleDeletionStatusCommandOutput extends GetServiceLinkedRoleDeletionStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the status of your service-linked role deletion. After you use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceLinkedRole.html">DeleteServiceLinkedRole</a> to submit a service-linked role for deletion, you
@@ -105,7 +103,7 @@ export class GetServiceLinkedRoleDeletionStatusCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "GetServiceLinkedRoleDeletionStatus", {})
   .n("IAMClient", "GetServiceLinkedRoleDeletionStatusCommand")
-  .sc(GetServiceLinkedRoleDeletionStatus)
+  .sc(GetServiceLinkedRoleDeletionStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPrincipalTagAttributeMapInput, GetPrincipalTagAttributeMapResponse } from "../models/models_0";
-import { GetPrincipalTagAttributeMap } from "../schemas/schemas_0";
+import { GetPrincipalTagAttributeMap$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetPrincipalTagAttributeMapCommandInput extends GetPrincipalTag
  *
  * The output of {@link GetPrincipalTagAttributeMapCommand}.
  */
-export interface GetPrincipalTagAttributeMapCommandOutput
-  extends GetPrincipalTagAttributeMapResponse,
-    __MetadataBearer {}
+export interface GetPrincipalTagAttributeMapCommandOutput extends GetPrincipalTagAttributeMapResponse, __MetadataBearer {}
 
 /**
  * <p>Use <code>GetPrincipalTagAttributeMap</code> to list all mappings between
@@ -102,7 +100,7 @@ export class GetPrincipalTagAttributeMapCommand extends $Command
   })
   .s("AWSCognitoIdentityService", "GetPrincipalTagAttributeMap", {})
   .n("CognitoIdentityClient", "GetPrincipalTagAttributeMapCommand")
-  .sc(GetPrincipalTagAttributeMap)
+  .sc(GetPrincipalTagAttributeMap$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

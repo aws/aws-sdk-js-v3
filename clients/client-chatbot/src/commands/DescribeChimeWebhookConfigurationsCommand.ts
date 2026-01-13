@@ -9,7 +9,7 @@ import type {
   DescribeChimeWebhookConfigurationsRequest,
   DescribeChimeWebhookConfigurationsResult,
 } from "../models/models_0";
-import { DescribeChimeWebhookConfigurations } from "../schemas/schemas_0";
+import { DescribeChimeWebhookConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeChimeWebhookConfigurationsCommandInput extends Describe
  *
  * The output of {@link DescribeChimeWebhookConfigurationsCommand}.
  */
-export interface DescribeChimeWebhookConfigurationsCommandOutput
-  extends DescribeChimeWebhookConfigurationsResult,
-    __MetadataBearer {}
+export interface DescribeChimeWebhookConfigurationsCommandOutput extends DescribeChimeWebhookConfigurationsResult, __MetadataBearer {}
 
 /**
  * <p>Lists Amazon Chime webhook configurations optionally filtered by ChatConfigurationArn</p>
@@ -109,7 +107,7 @@ export class DescribeChimeWebhookConfigurationsCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "DescribeChimeWebhookConfigurations", {})
   .n("ChatbotClient", "DescribeChimeWebhookConfigurationsCommand")
-  .sc(DescribeChimeWebhookConfigurations)
+  .sc(DescribeChimeWebhookConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

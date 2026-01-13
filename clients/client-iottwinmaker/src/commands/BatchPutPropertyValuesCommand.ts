@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import type { BatchPutPropertyValuesRequest, BatchPutPropertyValuesResponse } from "../models/models_0";
-import { BatchPutPropertyValues } from "../schemas/schemas_0";
+import { BatchPutPropertyValues$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -200,7 +200,7 @@ export class BatchPutPropertyValuesCommand extends $Command
   })
   .s("AWSIoTTwinMaker", "BatchPutPropertyValues", {})
   .n("IoTTwinMakerClient", "BatchPutPropertyValuesCommand")
-  .sc(BatchPutPropertyValues)
+  .sc(BatchPutPropertyValues$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

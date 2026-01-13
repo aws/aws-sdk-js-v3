@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAppVersionResourceMappingsRequest, ListAppVersionResourceMappingsResponse } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { ListAppVersionResourceMappings } from "../schemas/schemas_0";
+import { ListAppVersionResourceMappings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListAppVersionResourceMappingsCommandInput extends ListAppVersi
  *
  * The output of {@link ListAppVersionResourceMappingsCommand}.
  */
-export interface ListAppVersionResourceMappingsCommandOutput
-  extends ListAppVersionResourceMappingsResponse,
-    __MetadataBearer {}
+export interface ListAppVersionResourceMappingsCommandOutput extends ListAppVersionResourceMappingsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists how the resources in an application version are mapped/sourced from. Mappings can be
@@ -115,7 +113,7 @@ export class ListAppVersionResourceMappingsCommand extends $Command
   })
   .s("AwsResilienceHub", "ListAppVersionResourceMappings", {})
   .n("ResiliencehubClient", "ListAppVersionResourceMappingsCommand")
-  .sc(ListAppVersionResourceMappings)
+  .sc(ListAppVersionResourceMappings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

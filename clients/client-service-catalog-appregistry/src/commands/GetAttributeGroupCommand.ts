@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAttributeGroupRequest, GetAttributeGroupResponse } from "../models/models_0";
-import { GetAttributeGroup } from "../schemas/schemas_0";
+import { GetAttributeGroup$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -105,7 +105,7 @@ export class GetAttributeGroupCommand extends $Command
   })
   .s("AWS242AppRegistry", "GetAttributeGroup", {})
   .n("ServiceCatalogAppRegistryClient", "GetAttributeGroupCommand")
-  .sc(GetAttributeGroup)
+  .sc(GetAttributeGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

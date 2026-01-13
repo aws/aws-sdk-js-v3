@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeReplaceRootVolumeTasksRequest, DescribeReplaceRootVolumeTasksResult } from "../models/models_4";
-import { DescribeReplaceRootVolumeTasks } from "../schemas/schemas_0";
+import { DescribeReplaceRootVolumeTasks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeReplaceRootVolumeTasksCommandInput extends DescribeRepl
  *
  * The output of {@link DescribeReplaceRootVolumeTasksCommand}.
  */
-export interface DescribeReplaceRootVolumeTasksCommandOutput
-  extends DescribeReplaceRootVolumeTasksResult,
-    __MetadataBearer {}
+export interface DescribeReplaceRootVolumeTasksCommandOutput extends DescribeReplaceRootVolumeTasksResult, __MetadataBearer {}
 
 /**
  * <p>Describes a root volume replacement task. For more information, see
@@ -107,7 +105,7 @@ export class DescribeReplaceRootVolumeTasksCommand extends $Command
   })
   .s("AmazonEC2", "DescribeReplaceRootVolumeTasks", {})
   .n("EC2Client", "DescribeReplaceRootVolumeTasksCommand")
-  .sc(DescribeReplaceRootVolumeTasks)
+  .sc(DescribeReplaceRootVolumeTasks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

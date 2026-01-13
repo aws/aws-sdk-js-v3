@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RetrieveTapeRecoveryPointInput, RetrieveTapeRecoveryPointOutput } from "../models/models_0";
-import { RetrieveTapeRecoveryPoint } from "../schemas/schemas_0";
+import { RetrieveTapeRecoveryPoint$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -111,7 +111,7 @@ export class RetrieveTapeRecoveryPointCommand extends $Command
   })
   .s("StorageGateway_20130630", "RetrieveTapeRecoveryPoint", {})
   .n("StorageGatewayClient", "RetrieveTapeRecoveryPointCommand")
-  .sc(RetrieveTapeRecoveryPoint)
+  .sc(RetrieveTapeRecoveryPoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

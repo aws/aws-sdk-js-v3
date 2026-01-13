@@ -9,7 +9,7 @@ import type {
   RevokeClusterSecurityGroupIngressResult,
 } from "../models/models_1";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { RevokeClusterSecurityGroupIngress } from "../schemas/schemas_0";
+import { RevokeClusterSecurityGroupIngress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface RevokeClusterSecurityGroupIngressCommandInput extends RevokeClu
  *
  * The output of {@link RevokeClusterSecurityGroupIngressCommand}.
  */
-export interface RevokeClusterSecurityGroupIngressCommandOutput
-  extends RevokeClusterSecurityGroupIngressResult,
-    __MetadataBearer {}
+export interface RevokeClusterSecurityGroupIngressCommandOutput extends RevokeClusterSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
  * <p>Revokes an ingress rule in an Amazon Redshift security group for a previously authorized
@@ -130,7 +128,7 @@ export class RevokeClusterSecurityGroupIngressCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "RevokeClusterSecurityGroupIngress", {})
   .n("RedshiftClient", "RevokeClusterSecurityGroupIngressCommand")
-  .sc(RevokeClusterSecurityGroupIngress)
+  .sc(RevokeClusterSecurityGroupIngress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

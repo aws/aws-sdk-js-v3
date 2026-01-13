@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GameLiftStreamsClient";
 import type { AssociateApplicationsInput, AssociateApplicationsOutput } from "../models/models_0";
-import { AssociateApplications } from "../schemas/schemas_0";
+import { AssociateApplications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class AssociateApplicationsCommand extends $Command
   })
   .s("GameLiftStreams", "AssociateApplications", {})
   .n("GameLiftStreamsClient", "AssociateApplicationsCommand")
-  .sc(AssociateApplications)
+  .sc(AssociateApplications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

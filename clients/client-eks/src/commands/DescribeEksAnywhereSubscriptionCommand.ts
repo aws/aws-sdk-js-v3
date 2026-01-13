@@ -9,7 +9,7 @@ import type {
   DescribeEksAnywhereSubscriptionRequest,
   DescribeEksAnywhereSubscriptionResponse,
 } from "../models/models_0";
-import { DescribeEksAnywhereSubscription } from "../schemas/schemas_0";
+import { DescribeEksAnywhereSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeEksAnywhereSubscriptionCommandInput extends DescribeEks
  *
  * The output of {@link DescribeEksAnywhereSubscriptionCommand}.
  */
-export interface DescribeEksAnywhereSubscriptionCommandOutput
-  extends DescribeEksAnywhereSubscriptionResponse,
-    __MetadataBearer {}
+export interface DescribeEksAnywhereSubscriptionCommandOutput extends DescribeEksAnywhereSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Returns descriptive information about a subscription.</p>
@@ -121,7 +119,7 @@ export class DescribeEksAnywhereSubscriptionCommand extends $Command
   })
   .s("AWSWesleyFrontend", "DescribeEksAnywhereSubscription", {})
   .n("EKSClient", "DescribeEksAnywhereSubscriptionCommand")
-  .sc(DescribeEksAnywhereSubscription)
+  .sc(DescribeEksAnywhereSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

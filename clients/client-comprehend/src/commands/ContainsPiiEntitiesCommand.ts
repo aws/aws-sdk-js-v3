@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ContainsPiiEntitiesRequest, ContainsPiiEntitiesResponse } from "../models/models_0";
-import { ContainsPiiEntities } from "../schemas/schemas_0";
+import { ContainsPiiEntities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class ContainsPiiEntitiesCommand extends $Command
   })
   .s("Comprehend_20171127", "ContainsPiiEntities", {})
   .n("ComprehendClient", "ContainsPiiEntitiesCommand")
-  .sc(ContainsPiiEntities)
+  .sc(ContainsPiiEntities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

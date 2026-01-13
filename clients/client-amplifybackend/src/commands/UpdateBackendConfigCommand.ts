@@ -10,7 +10,7 @@ import type {
 } from "../AmplifyBackendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateBackendConfigRequest, UpdateBackendConfigResponse } from "../models/models_0";
-import { UpdateBackendConfig } from "../schemas/schemas_0";
+import { UpdateBackendConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class UpdateBackendConfigCommand extends $Command
   })
   .s("AmplifyBackend", "UpdateBackendConfig", {})
   .n("AmplifyBackendClient", "UpdateBackendConfigCommand")
-  .sc(UpdateBackendConfig)
+  .sc(UpdateBackendConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

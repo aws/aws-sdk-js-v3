@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { AttachCertificateToDistributionRequest, AttachCertificateToDistributionResult } from "../models/models_0";
-import { AttachCertificateToDistribution } from "../schemas/schemas_0";
+import { AttachCertificateToDistribution$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface AttachCertificateToDistributionCommandInput extends AttachCerti
  *
  * The output of {@link AttachCertificateToDistributionCommand}.
  */
-export interface AttachCertificateToDistributionCommandOutput
-  extends AttachCertificateToDistributionResult,
-    __MetadataBearer {}
+export interface AttachCertificateToDistributionCommandOutput extends AttachCertificateToDistributionResult, __MetadataBearer {}
 
 /**
  * <p>Attaches an SSL/TLS certificate to your Amazon Lightsail content delivery network (CDN)
@@ -130,7 +128,7 @@ export class AttachCertificateToDistributionCommand extends $Command
   })
   .s("Lightsail_20161128", "AttachCertificateToDistribution", {})
   .n("LightsailClient", "AttachCertificateToDistributionCommand")
-  .sc(AttachCertificateToDistribution)
+  .sc(AttachCertificateToDistribution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

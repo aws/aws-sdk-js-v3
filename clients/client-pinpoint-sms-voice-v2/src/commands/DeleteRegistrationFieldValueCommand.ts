@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DeleteRegistrationFieldValue } from "../schemas/schemas_0";
+import { DeleteRegistrationFieldValue$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DeleteRegistrationFieldValueCommandInput extends DeleteRegistra
  *
  * The output of {@link DeleteRegistrationFieldValueCommand}.
  */
-export interface DeleteRegistrationFieldValueCommandOutput
-  extends DeleteRegistrationFieldValueResult,
-    __MetadataBearer {}
+export interface DeleteRegistrationFieldValueCommandOutput extends DeleteRegistrationFieldValueResult, __MetadataBearer {}
 
 /**
  * <p>Delete the value in a registration form field.</p>
@@ -106,7 +104,7 @@ export class DeleteRegistrationFieldValueCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DeleteRegistrationFieldValue", {})
   .n("PinpointSMSVoiceV2Client", "DeleteRegistrationFieldValueCommand")
-  .sc(DeleteRegistrationFieldValue)
+  .sc(DeleteRegistrationFieldValue$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

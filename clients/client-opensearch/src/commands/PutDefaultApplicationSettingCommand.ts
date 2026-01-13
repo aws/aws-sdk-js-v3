@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutDefaultApplicationSettingRequest, PutDefaultApplicationSettingResponse } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { PutDefaultApplicationSetting } from "../schemas/schemas_0";
+import { PutDefaultApplicationSetting$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface PutDefaultApplicationSettingCommandInput extends PutDefaultAppl
  *
  * The output of {@link PutDefaultApplicationSettingCommand}.
  */
-export interface PutDefaultApplicationSettingCommandOutput
-  extends PutDefaultApplicationSettingResponse,
-    __MetadataBearer {}
+export interface PutDefaultApplicationSettingCommandOutput extends PutDefaultApplicationSettingResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the default application to the application with the specified ARN.</p>
@@ -92,7 +90,7 @@ export class PutDefaultApplicationSettingCommand extends $Command
   })
   .s("AmazonOpenSearchService", "PutDefaultApplicationSetting", {})
   .n("OpenSearchClient", "PutDefaultApplicationSettingCommand")
-  .sc(PutDefaultApplicationSetting)
+  .sc(PutDefaultApplicationSetting$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

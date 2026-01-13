@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { ListCustomRoutingAcceleratorsRequest, ListCustomRoutingAcceleratorsResponse } from "../models/models_0";
-import { ListCustomRoutingAccelerators } from "../schemas/schemas_0";
+import { ListCustomRoutingAccelerators$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListCustomRoutingAcceleratorsCommandInput extends ListCustomRou
  *
  * The output of {@link ListCustomRoutingAcceleratorsCommand}.
  */
-export interface ListCustomRoutingAcceleratorsCommandOutput
-  extends ListCustomRoutingAcceleratorsResponse,
-    __MetadataBearer {}
+export interface ListCustomRoutingAcceleratorsCommandOutput extends ListCustomRoutingAcceleratorsResponse, __MetadataBearer {}
 
 /**
  * <p>List the custom routing accelerators for an Amazon Web Services account. </p>
@@ -110,7 +108,7 @@ export class ListCustomRoutingAcceleratorsCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "ListCustomRoutingAccelerators", {})
   .n("GlobalAcceleratorClient", "ListCustomRoutingAcceleratorsCommand")
-  .sc(ListCustomRoutingAccelerators)
+  .sc(ListCustomRoutingAccelerators$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

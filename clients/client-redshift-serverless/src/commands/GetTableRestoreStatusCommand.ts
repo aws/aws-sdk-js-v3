@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { GetTableRestoreStatus } from "../schemas/schemas_0";
+import { GetTableRestoreStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class GetTableRestoreStatusCommand extends $Command
   })
   .s("RedshiftServerless", "GetTableRestoreStatus", {})
   .n("RedshiftServerlessClient", "GetTableRestoreStatusCommand")
-  .sc(GetTableRestoreStatus)
+  .sc(GetTableRestoreStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

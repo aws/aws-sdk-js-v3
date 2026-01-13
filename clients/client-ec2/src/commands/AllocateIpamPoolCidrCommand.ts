@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AllocateIpamPoolCidrRequest, AllocateIpamPoolCidrResult } from "../models/models_0";
-import { AllocateIpamPoolCidr } from "../schemas/schemas_0";
+import { AllocateIpamPoolCidr$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class AllocateIpamPoolCidrCommand extends $Command
   })
   .s("AmazonEC2", "AllocateIpamPoolCidr", {})
   .n("EC2Client", "AllocateIpamPoolCidrCommand")
-  .sc(AllocateIpamPoolCidr)
+  .sc(AllocateIpamPoolCidr$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

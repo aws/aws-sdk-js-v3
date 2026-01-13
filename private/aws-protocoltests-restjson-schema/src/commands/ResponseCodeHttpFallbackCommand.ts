@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { ResponseCodeHttpFallback } from "../schemas/schemas_0";
+import { ResponseCodeHttpFallback$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -73,7 +73,7 @@ export class ResponseCodeHttpFallbackCommand extends $Command
   })
   .s("RestJson", "ResponseCodeHttpFallback", {})
   .n("RestJsonProtocolClient", "ResponseCodeHttpFallbackCommand")
-  .sc(ResponseCodeHttpFallback)
+  .sc(ResponseCodeHttpFallback$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

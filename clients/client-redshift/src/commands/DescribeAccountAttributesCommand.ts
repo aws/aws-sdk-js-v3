@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AccountAttributeList, DescribeAccountAttributesMessage } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeAccountAttributes } from "../schemas/schemas_0";
+import { DescribeAccountAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DescribeAccountAttributesCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DescribeAccountAttributes", {})
   .n("RedshiftClient", "DescribeAccountAttributesCommand")
-  .sc(DescribeAccountAttributes)
+  .sc(DescribeAccountAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

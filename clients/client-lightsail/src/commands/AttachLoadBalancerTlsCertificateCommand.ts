@@ -9,7 +9,7 @@ import type {
   AttachLoadBalancerTlsCertificateRequest,
   AttachLoadBalancerTlsCertificateResult,
 } from "../models/models_0";
-import { AttachLoadBalancerTlsCertificate } from "../schemas/schemas_0";
+import { AttachLoadBalancerTlsCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface AttachLoadBalancerTlsCertificateCommandInput extends AttachLoad
  *
  * The output of {@link AttachLoadBalancerTlsCertificateCommand}.
  */
-export interface AttachLoadBalancerTlsCertificateCommandOutput
-  extends AttachLoadBalancerTlsCertificateResult,
-    __MetadataBearer {}
+export interface AttachLoadBalancerTlsCertificateCommandOutput extends AttachLoadBalancerTlsCertificateResult, __MetadataBearer {}
 
 /**
  * <p>Attaches a Transport Layer Security (TLS) certificate to your load balancer. TLS is just
@@ -139,7 +137,7 @@ export class AttachLoadBalancerTlsCertificateCommand extends $Command
   })
   .s("Lightsail_20161128", "AttachLoadBalancerTlsCertificate", {})
   .n("LightsailClient", "AttachLoadBalancerTlsCertificateCommand")
-  .sc(AttachLoadBalancerTlsCertificate)
+  .sc(AttachLoadBalancerTlsCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

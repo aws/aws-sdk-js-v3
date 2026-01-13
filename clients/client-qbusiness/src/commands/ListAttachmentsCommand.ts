@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAttachmentsRequest, ListAttachmentsResponse } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { ListAttachments } from "../schemas/schemas_0";
+import { ListAttachments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class ListAttachmentsCommand extends $Command
   })
   .s("ExpertQ", "ListAttachments", {})
   .n("QBusinessClient", "ListAttachmentsCommand")
-  .sc(ListAttachments)
+  .sc(ListAttachments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   UpdateEventConfigurationByResourceTypesRequest,
   UpdateEventConfigurationByResourceTypesResponse,
 } from "../models/models_1";
-import { UpdateEventConfigurationByResourceTypes } from "../schemas/schemas_0";
+import { UpdateEventConfigurationByResourceTypes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateEventConfigurationByResourceTypesCommand}.
  */
-export interface UpdateEventConfigurationByResourceTypesCommandInput
-  extends UpdateEventConfigurationByResourceTypesRequest {}
+export interface UpdateEventConfigurationByResourceTypesCommandInput extends UpdateEventConfigurationByResourceTypesRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateEventConfigurationByResourceTypesCommand}.
  */
-export interface UpdateEventConfigurationByResourceTypesCommandOutput
-  extends UpdateEventConfigurationByResourceTypesResponse,
-    __MetadataBearer {}
+export interface UpdateEventConfigurationByResourceTypesCommandOutput extends UpdateEventConfigurationByResourceTypesResponse, __MetadataBearer {}
 
 /**
  * <p>Update the event configuration based on resource types.</p>
@@ -113,7 +110,7 @@ export class UpdateEventConfigurationByResourceTypesCommand extends $Command
   })
   .s("iotwireless", "UpdateEventConfigurationByResourceTypes", {})
   .n("IoTWirelessClient", "UpdateEventConfigurationByResourceTypesCommand")
-  .sc(UpdateEventConfigurationByResourceTypes)
+  .sc(UpdateEventConfigurationByResourceTypes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

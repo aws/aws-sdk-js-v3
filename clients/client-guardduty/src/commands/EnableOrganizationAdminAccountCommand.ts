@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import type { EnableOrganizationAdminAccountRequest, EnableOrganizationAdminAccountResponse } from "../models/models_0";
-import { EnableOrganizationAdminAccount } from "../schemas/schemas_0";
+import { EnableOrganizationAdminAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface EnableOrganizationAdminAccountCommandInput extends EnableOrgani
  *
  * The output of {@link EnableOrganizationAdminAccountCommand}.
  */
-export interface EnableOrganizationAdminAccountCommandOutput
-  extends EnableOrganizationAdminAccountResponse,
-    __MetadataBearer {}
+export interface EnableOrganizationAdminAccountCommandOutput extends EnableOrganizationAdminAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Designates an Amazon Web Services account within the organization as your GuardDuty delegated
@@ -81,7 +79,7 @@ export class EnableOrganizationAdminAccountCommand extends $Command
   })
   .s("GuardDutyAPIService", "EnableOrganizationAdminAccount", {})
   .n("GuardDutyClient", "EnableOrganizationAdminAccountCommand")
-  .sc(EnableOrganizationAdminAccount)
+  .sc(EnableOrganizationAdminAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

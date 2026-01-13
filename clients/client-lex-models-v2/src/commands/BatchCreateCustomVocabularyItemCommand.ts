@@ -9,7 +9,7 @@ import type {
   BatchCreateCustomVocabularyItemRequest,
   BatchCreateCustomVocabularyItemResponse,
 } from "../models/models_0";
-import { BatchCreateCustomVocabularyItem } from "../schemas/schemas_0";
+import { BatchCreateCustomVocabularyItem$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface BatchCreateCustomVocabularyItemCommandInput extends BatchCreate
  *
  * The output of {@link BatchCreateCustomVocabularyItemCommand}.
  */
-export interface BatchCreateCustomVocabularyItemCommandOutput
-  extends BatchCreateCustomVocabularyItemResponse,
-    __MetadataBearer {}
+export interface BatchCreateCustomVocabularyItemCommandOutput extends BatchCreateCustomVocabularyItemResponse, __MetadataBearer {}
 
 /**
  * <p>Create a batch of custom vocabulary items for a given bot locale's
@@ -124,7 +122,7 @@ export class BatchCreateCustomVocabularyItemCommand extends $Command
   })
   .s("LexModelBuildingServiceV2", "BatchCreateCustomVocabularyItem", {})
   .n("LexModelsV2Client", "BatchCreateCustomVocabularyItemCommand")
-  .sc(BatchCreateCustomVocabularyItem)
+  .sc(BatchCreateCustomVocabularyItem$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

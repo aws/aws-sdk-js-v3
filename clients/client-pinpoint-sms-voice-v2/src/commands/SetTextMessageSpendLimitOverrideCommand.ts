@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { SetTextMessageSpendLimitOverride } from "../schemas/schemas_0";
+import { SetTextMessageSpendLimitOverride$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface SetTextMessageSpendLimitOverrideCommandInput extends SetTextMes
  *
  * The output of {@link SetTextMessageSpendLimitOverrideCommand}.
  */
-export interface SetTextMessageSpendLimitOverrideCommandOutput
-  extends SetTextMessageSpendLimitOverrideResult,
-    __MetadataBearer {}
+export interface SetTextMessageSpendLimitOverrideCommandOutput extends SetTextMessageSpendLimitOverrideResult, __MetadataBearer {}
 
 /**
  * <p>Sets an account level monthly spend limit override for sending text messages. The requested spend limit must be less than or equal to the <code>MaxLimit</code>, which is set by Amazon Web Services. </p>
@@ -94,7 +92,7 @@ export class SetTextMessageSpendLimitOverrideCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "SetTextMessageSpendLimitOverride", {})
   .n("PinpointSMSVoiceV2Client", "SetTextMessageSpendLimitOverrideCommand")
-  .sc(SetTextMessageSpendLimitOverride)
+  .sc(SetTextMessageSpendLimitOverride$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

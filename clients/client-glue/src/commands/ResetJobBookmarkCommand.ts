@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { ResetJobBookmarkRequest, ResetJobBookmarkResponse } from "../models/models_2";
-import { ResetJobBookmark } from "../schemas/schemas_0";
+import { ResetJobBookmark$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class ResetJobBookmarkCommand extends $Command
   })
   .s("AWSGlue", "ResetJobBookmark", {})
   .n("GlueClient", "ResetJobBookmarkCommand")
-  .sc(ResetJobBookmark)
+  .sc(ResetJobBookmark$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

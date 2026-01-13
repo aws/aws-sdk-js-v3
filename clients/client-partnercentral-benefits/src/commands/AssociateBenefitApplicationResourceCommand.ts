@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralBenefitsClient";
-import { AssociateBenefitApplicationResource } from "../schemas/schemas_0";
+import { AssociateBenefitApplicationResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface AssociateBenefitApplicationResourceCommandInput extends Associa
  *
  * The output of {@link AssociateBenefitApplicationResourceCommand}.
  */
-export interface AssociateBenefitApplicationResourceCommandOutput
-  extends AssociateBenefitApplicationResourceOutput,
-    __MetadataBearer {}
+export interface AssociateBenefitApplicationResourceCommandOutput extends AssociateBenefitApplicationResourceOutput, __MetadataBearer {}
 
 /**
  * <p>Links an AWS resource to an existing benefit application for tracking and management purposes.</p>
@@ -104,7 +102,7 @@ export class AssociateBenefitApplicationResourceCommand extends $Command
   })
   .s("PartnerCentralBenefitsService", "AssociateBenefitApplicationResource", {})
   .n("PartnerCentralBenefitsClient", "AssociateBenefitApplicationResourceCommand")
-  .sc(AssociateBenefitApplicationResource)
+  .sc(AssociateBenefitApplicationResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

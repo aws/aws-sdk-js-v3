@@ -8,7 +8,7 @@ import type {
   ListCustomerManagedPolicyReferencesInPermissionSetRequest,
   ListCustomerManagedPolicyReferencesInPermissionSetResponse,
 } from "../models/models_0";
-import { ListCustomerManagedPolicyReferencesInPermissionSet } from "../schemas/schemas_0";
+import { ListCustomerManagedPolicyReferencesInPermissionSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListCustomerManagedPolicyReferencesInPermissionSetCommand}.
  */
-export interface ListCustomerManagedPolicyReferencesInPermissionSetCommandInput
-  extends ListCustomerManagedPolicyReferencesInPermissionSetRequest {}
+export interface ListCustomerManagedPolicyReferencesInPermissionSetCommandInput extends ListCustomerManagedPolicyReferencesInPermissionSetRequest {}
 /**
  * @public
  *
  * The output of {@link ListCustomerManagedPolicyReferencesInPermissionSetCommand}.
  */
-export interface ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput
-  extends ListCustomerManagedPolicyReferencesInPermissionSetResponse,
-    __MetadataBearer {}
+export interface ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput extends ListCustomerManagedPolicyReferencesInPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all customer managed policies attached to a specified <a>PermissionSet</a>.</p>
@@ -103,7 +100,7 @@ export class ListCustomerManagedPolicyReferencesInPermissionSetCommand extends $
   })
   .s("SWBExternalService", "ListCustomerManagedPolicyReferencesInPermissionSet", {})
   .n("SSOAdminClient", "ListCustomerManagedPolicyReferencesInPermissionSetCommand")
-  .sc(ListCustomerManagedPolicyReferencesInPermissionSet)
+  .sc(ListCustomerManagedPolicyReferencesInPermissionSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

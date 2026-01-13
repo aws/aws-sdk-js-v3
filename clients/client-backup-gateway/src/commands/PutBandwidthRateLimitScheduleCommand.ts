@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutBandwidthRateLimitScheduleInput, PutBandwidthRateLimitScheduleOutput } from "../models/models_0";
-import { PutBandwidthRateLimitSchedule } from "../schemas/schemas_0";
+import { PutBandwidthRateLimitSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface PutBandwidthRateLimitScheduleCommandInput extends PutBandwidthR
  *
  * The output of {@link PutBandwidthRateLimitScheduleCommand}.
  */
-export interface PutBandwidthRateLimitScheduleCommandOutput
-  extends PutBandwidthRateLimitScheduleOutput,
-    __MetadataBearer {}
+export interface PutBandwidthRateLimitScheduleCommandOutput extends PutBandwidthRateLimitScheduleOutput, __MetadataBearer {}
 
 /**
  * <p>This action sets the bandwidth rate limit schedule for a specified gateway.
@@ -103,7 +101,7 @@ export class PutBandwidthRateLimitScheduleCommand extends $Command
   })
   .s("BackupOnPremises_v20210101", "PutBandwidthRateLimitSchedule", {})
   .n("BackupGatewayClient", "PutBandwidthRateLimitScheduleCommand")
-  .sc(PutBandwidthRateLimitSchedule)
+  .sc(PutBandwidthRateLimitSchedule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

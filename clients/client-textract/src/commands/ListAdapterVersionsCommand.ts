@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAdapterVersionsRequest, ListAdapterVersionsResponse } from "../models/models_0";
-import { ListAdapterVersions } from "../schemas/schemas_0";
+import { ListAdapterVersions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
@@ -116,7 +116,7 @@ export class ListAdapterVersionsCommand extends $Command
   })
   .s("Textract", "ListAdapterVersions", {})
   .n("TextractClient", "ListAdapterVersionsCommand")
-  .sc(ListAdapterVersions)
+  .sc(ListAdapterVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

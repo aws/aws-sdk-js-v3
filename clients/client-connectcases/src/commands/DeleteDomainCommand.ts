@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDomainRequest, DeleteDomainResponse } from "../models/models_0";
-import { DeleteDomain } from "../schemas/schemas_0";
+import { DeleteDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeleteDomainCommand extends $Command
   })
   .s("AmazonConnectCases", "DeleteDomain", {})
   .n("ConnectCasesClient", "DeleteDomainCommand")
-  .sc(DeleteDomain)
+  .sc(DeleteDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

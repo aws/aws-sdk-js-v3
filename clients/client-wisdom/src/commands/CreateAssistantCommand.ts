@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateAssistantRequest, CreateAssistantResponse } from "../models/models_0";
-import { CreateAssistant } from "../schemas/schemas_0";
+import { CreateAssistant$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -114,7 +114,7 @@ export class CreateAssistantCommand extends $Command
   })
   .s("WisdomService", "CreateAssistant", {})
   .n("WisdomClient", "CreateAssistantCommand")
-  .sc(CreateAssistant)
+  .sc(CreateAssistant$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

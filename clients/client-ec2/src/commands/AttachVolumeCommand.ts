@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AttachVolumeRequest, VolumeAttachment } from "../models/models_0";
-import { AttachVolume } from "../schemas/schemas_0";
+import { AttachVolume$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -134,7 +134,7 @@ export class AttachVolumeCommand extends $Command
   })
   .s("AmazonEC2", "AttachVolume", {})
   .n("EC2Client", "AttachVolumeCommand")
-  .sc(AttachVolume)
+  .sc(AttachVolume$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

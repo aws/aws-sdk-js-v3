@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DeleteVerifiedDestinationNumber } from "../schemas/schemas_0";
+import { DeleteVerifiedDestinationNumber$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DeleteVerifiedDestinationNumberCommandInput extends DeleteVerif
  *
  * The output of {@link DeleteVerifiedDestinationNumberCommand}.
  */
-export interface DeleteVerifiedDestinationNumberCommandOutput
-  extends DeleteVerifiedDestinationNumberResult,
-    __MetadataBearer {}
+export interface DeleteVerifiedDestinationNumberCommandOutput extends DeleteVerifiedDestinationNumberResult, __MetadataBearer {}
 
 /**
  * <p>Delete a verified destination phone number.</p>
@@ -100,7 +98,7 @@ export class DeleteVerifiedDestinationNumberCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DeleteVerifiedDestinationNumber", {})
   .n("PinpointSMSVoiceV2Client", "DeleteVerifiedDestinationNumberCommand")
-  .sc(DeleteVerifiedDestinationNumber)
+  .sc(DeleteVerifiedDestinationNumber$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

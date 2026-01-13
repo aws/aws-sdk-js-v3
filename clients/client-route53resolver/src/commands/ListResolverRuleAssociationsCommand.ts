@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { ListResolverRuleAssociations } from "../schemas/schemas_0";
+import { ListResolverRuleAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListResolverRuleAssociationsCommandInput extends ListResolverRu
  *
  * The output of {@link ListResolverRuleAssociationsCommand}.
  */
-export interface ListResolverRuleAssociationsCommandOutput
-  extends ListResolverRuleAssociationsResponse,
-    __MetadataBearer {}
+export interface ListResolverRuleAssociationsCommandOutput extends ListResolverRuleAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the associations that were created between Resolver rules and VPCs using the current Amazon Web Services account.</p>
@@ -114,7 +112,7 @@ export class ListResolverRuleAssociationsCommand extends $Command
   })
   .s("Route53Resolver", "ListResolverRuleAssociations", {})
   .n("Route53ResolverClient", "ListResolverRuleAssociationsCommand")
-  .sc(ListResolverRuleAssociations)
+  .sc(ListResolverRuleAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

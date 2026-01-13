@@ -9,7 +9,7 @@ import type {
   StartDashboardSnapshotJobScheduleResponse,
 } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { StartDashboardSnapshotJobSchedule } from "../schemas/schemas_0";
+import { StartDashboardSnapshotJobSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface StartDashboardSnapshotJobScheduleCommandInput extends StartDash
  *
  * The output of {@link StartDashboardSnapshotJobScheduleCommand}.
  */
-export interface StartDashboardSnapshotJobScheduleCommandOutput
-  extends StartDashboardSnapshotJobScheduleResponse,
-    __MetadataBearer {}
+export interface StartDashboardSnapshotJobScheduleCommandOutput extends StartDashboardSnapshotJobScheduleResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous job that runs an existing dashboard schedule and sends the dashboard snapshot through email. </p>
@@ -110,7 +108,7 @@ export class StartDashboardSnapshotJobScheduleCommand extends $Command
   })
   .s("QuickSight_20180401", "StartDashboardSnapshotJobSchedule", {})
   .n("QuickSightClient", "StartDashboardSnapshotJobScheduleCommand")
-  .sc(StartDashboardSnapshotJobSchedule)
+  .sc(StartDashboardSnapshotJobSchedule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

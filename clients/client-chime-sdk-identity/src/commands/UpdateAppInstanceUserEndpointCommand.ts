@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateAppInstanceUserEndpointRequest, UpdateAppInstanceUserEndpointResponse } from "../models/models_0";
-import { UpdateAppInstanceUserEndpoint } from "../schemas/schemas_0";
+import { UpdateAppInstanceUserEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface UpdateAppInstanceUserEndpointCommandInput extends UpdateAppInst
  *
  * The output of {@link UpdateAppInstanceUserEndpointCommand}.
  */
-export interface UpdateAppInstanceUserEndpointCommandOutput
-  extends UpdateAppInstanceUserEndpointResponse,
-    __MetadataBearer {}
+export interface UpdateAppInstanceUserEndpointCommandOutput extends UpdateAppInstanceUserEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the details of an <code>AppInstanceUserEndpoint</code>. You can update the name and <code>AllowMessage</code> values.</p>
@@ -105,7 +103,7 @@ export class UpdateAppInstanceUserEndpointCommand extends $Command
   })
   .s("ChimeIdentityService", "UpdateAppInstanceUserEndpoint", {})
   .n("ChimeSDKIdentityClient", "UpdateAppInstanceUserEndpointCommand")
-  .sc(UpdateAppInstanceUserEndpoint)
+  .sc(UpdateAppInstanceUserEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -11,7 +11,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { PutWithContentEncoding } from "../schemas/schemas_0";
+import { PutWithContentEncoding$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -76,13 +76,13 @@ export class PutWithContentEncodingCommand extends $Command
     return [
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getCompressionPlugin(config, {
-        encodings: ["gzip"],
+        'encodings': ['gzip'],
       }),
     ];
   })
   .s("RestXml", "PutWithContentEncoding", {})
   .n("RestXmlProtocolClient", "PutWithContentEncodingCommand")
-  .sc(PutWithContentEncoding)
+  .sc(PutWithContentEncoding$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

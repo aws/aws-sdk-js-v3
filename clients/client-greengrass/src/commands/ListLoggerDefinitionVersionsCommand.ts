@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import type { ListLoggerDefinitionVersionsRequest, ListLoggerDefinitionVersionsResponse } from "../models/models_0";
-import { ListLoggerDefinitionVersions } from "../schemas/schemas_0";
+import { ListLoggerDefinitionVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListLoggerDefinitionVersionsCommandInput extends ListLoggerDefi
  *
  * The output of {@link ListLoggerDefinitionVersionsCommand}.
  */
-export interface ListLoggerDefinitionVersionsCommandOutput
-  extends ListLoggerDefinitionVersionsResponse,
-    __MetadataBearer {}
+export interface ListLoggerDefinitionVersionsCommandOutput extends ListLoggerDefinitionVersionsResponse, __MetadataBearer {}
 
 /**
  * Lists the versions of a logger definition.
@@ -88,7 +86,7 @@ export class ListLoggerDefinitionVersionsCommand extends $Command
   })
   .s("Greengrass", "ListLoggerDefinitionVersions", {})
   .n("GreengrassClient", "ListLoggerDefinitionVersionsCommand")
-  .sc(ListLoggerDefinitionVersions)
+  .sc(ListLoggerDefinitionVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

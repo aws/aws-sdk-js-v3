@@ -13,7 +13,7 @@ import type {
   UpdateCalculatedAttributeDefinitionRequest,
   UpdateCalculatedAttributeDefinitionResponse,
 } from "../models/models_1";
-import { UpdateCalculatedAttributeDefinition } from "../schemas/schemas_0";
+import { UpdateCalculatedAttributeDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface UpdateCalculatedAttributeDefinitionCommandInput extends UpdateC
  *
  * The output of {@link UpdateCalculatedAttributeDefinitionCommand}.
  */
-export interface UpdateCalculatedAttributeDefinitionCommandOutput
-  extends UpdateCalculatedAttributeDefinitionResponse,
-    __MetadataBearer {}
+export interface UpdateCalculatedAttributeDefinitionCommandOutput extends UpdateCalculatedAttributeDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing calculated attribute definition. When updating the Conditions, note
@@ -158,7 +156,7 @@ export class UpdateCalculatedAttributeDefinitionCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "UpdateCalculatedAttributeDefinition", {})
   .n("CustomerProfilesClient", "UpdateCalculatedAttributeDefinitionCommand")
-  .sc(UpdateCalculatedAttributeDefinition)
+  .sc(UpdateCalculatedAttributeDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

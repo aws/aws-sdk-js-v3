@@ -9,7 +9,7 @@ import type {
   CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest,
   CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
 } from "../models/models_1";
-import { CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation } from "../schemas/schemas_0";
+import { CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand}.
  */
-export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput
-  extends CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {}
+export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput extends CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand}.
  */
-export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput
-  extends CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
-    __MetadataBearer {}
+export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput extends CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult, __MetadataBearer {}
 
 /**
  * <p>
@@ -108,7 +105,7 @@ export class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
   })
   .s("AmazonEC2", "CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation", {})
   .n("EC2Client", "CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand")
-  .sc(CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation)
+  .sc(CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

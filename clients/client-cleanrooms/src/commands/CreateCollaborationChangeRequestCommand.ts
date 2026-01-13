@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateCollaborationChangeRequestInput, CreateCollaborationChangeRequestOutput } from "../models/models_0";
-import { CreateCollaborationChangeRequest } from "../schemas/schemas_0";
+import { CreateCollaborationChangeRequest$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateCollaborationChangeRequestCommandInput extends CreateColl
  *
  * The output of {@link CreateCollaborationChangeRequestCommand}.
  */
-export interface CreateCollaborationChangeRequestCommandOutput
-  extends CreateCollaborationChangeRequestOutput,
-    __MetadataBearer {}
+export interface CreateCollaborationChangeRequestCommandOutput extends CreateCollaborationChangeRequestOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new change request to modify an existing collaboration. This enables post-creation modifications to collaborations through a structured API-driven approach.</p>
@@ -42,7 +40,7 @@ export interface CreateCollaborationChangeRequestCommandOutput
  *   collaborationIdentifier: "STRING_VALUE", // required
  *   changes: [ // ChangeInputList // required
  *     { // ChangeInput
- *       specificationType: "MEMBER", // required
+ *       specificationType: "MEMBER" || "COLLABORATION", // required
  *       specification: { // ChangeSpecification Union: only one key present
  *         member: { // MemberChangeSpecification
  *           accountId: "STRING_VALUE", // required
@@ -50,6 +48,11 @@ export interface CreateCollaborationChangeRequestCommandOutput
  *             "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB",
  *           ],
  *           displayName: "STRING_VALUE",
+ *         },
+ *         collaboration: { // CollaborationChangeSpecification
+ *           autoApprovedChangeTypes: [ // AutoApprovedChangeTypeList
+ *             "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY",
+ *           ],
  *         },
  *       },
  *     },
@@ -67,7 +70,7 @@ export interface CreateCollaborationChangeRequestCommandOutput
  * //     isAutoApproved: true || false, // required
  * //     changes: [ // ChangeList // required
  * //       { // Change
- * //         specificationType: "MEMBER", // required
+ * //         specificationType: "MEMBER" || "COLLABORATION", // required
  * //         specification: { // ChangeSpecification Union: only one key present
  * //           member: { // MemberChangeSpecification
  * //             accountId: "STRING_VALUE", // required
@@ -76,12 +79,22 @@ export interface CreateCollaborationChangeRequestCommandOutput
  * //             ],
  * //             displayName: "STRING_VALUE",
  * //           },
+ * //           collaboration: { // CollaborationChangeSpecification
+ * //             autoApprovedChangeTypes: [ // AutoApprovedChangeTypeList
+ * //               "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY",
+ * //             ],
+ * //           },
  * //         },
  * //         types: [ // ChangeTypeList // required
- * //           "ADD_MEMBER",
+ * //           "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY" || "EDIT_AUTO_APPROVED_CHANGE_TYPES",
  * //         ],
  * //       },
  * //     ],
+ * //     approvals: { // ApprovalStatuses
+ * //       "<keys>": { // ApprovalStatusDetails
+ * //         status: "APPROVED" || "DENIED" || "PENDING", // required
+ * //       },
+ * //     },
  * //   },
  * // };
  *
@@ -134,7 +147,7 @@ export class CreateCollaborationChangeRequestCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "CreateCollaborationChangeRequest", {})
   .n("CleanRoomsClient", "CreateCollaborationChangeRequestCommand")
-  .sc(CreateCollaborationChangeRequest)
+  .sc(CreateCollaborationChangeRequest$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

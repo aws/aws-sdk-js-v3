@@ -9,7 +9,7 @@ import type {
   PutBlockPublicAccessConfigurationInput,
   PutBlockPublicAccessConfigurationOutput,
 } from "../models/models_0";
-import { PutBlockPublicAccessConfiguration } from "../schemas/schemas_0";
+import { PutBlockPublicAccessConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface PutBlockPublicAccessConfigurationCommandInput extends PutBlockP
  *
  * The output of {@link PutBlockPublicAccessConfigurationCommand}.
  */
-export interface PutBlockPublicAccessConfigurationCommandOutput
-  extends PutBlockPublicAccessConfigurationOutput,
-    __MetadataBearer {}
+export interface PutBlockPublicAccessConfigurationCommandOutput extends PutBlockPublicAccessConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Creates or updates an Amazon EMR block public access configuration for your
@@ -113,7 +111,7 @@ export class PutBlockPublicAccessConfigurationCommand extends $Command
   })
   .s("ElasticMapReduce", "PutBlockPublicAccessConfiguration", {})
   .n("EMRClient", "PutBlockPublicAccessConfigurationCommand")
-  .sc(PutBlockPublicAccessConfiguration)
+  .sc(PutBlockPublicAccessConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

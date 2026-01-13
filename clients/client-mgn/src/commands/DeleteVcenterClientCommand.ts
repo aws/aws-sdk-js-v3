@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import type { DeleteVcenterClientRequest } from "../models/models_0";
-import { DeleteVcenterClient } from "../schemas/schemas_0";
+import { DeleteVcenterClient$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,7 +80,7 @@ export class DeleteVcenterClientCommand extends $Command
   })
   .s("ApplicationMigrationService", "DeleteVcenterClient", {})
   .n("MgnClient", "DeleteVcenterClientCommand")
-  .sc(DeleteVcenterClient)
+  .sc(DeleteVcenterClient$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

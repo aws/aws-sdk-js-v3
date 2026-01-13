@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartExecutionInput, StartExecutionOutput } from "../models/models_0";
-import { StartExecution } from "../schemas/schemas_0";
+import { StartExecution$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -157,7 +157,7 @@ export class StartExecutionCommand extends $Command
   })
   .s("AWSStepFunctions", "StartExecution", {})
   .n("SFNClient", "StartExecutionCommand")
-  .sc(StartExecution)
+  .sc(StartExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

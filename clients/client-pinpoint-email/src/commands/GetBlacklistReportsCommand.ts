@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetBlacklistReportsRequest, GetBlacklistReportsResponse } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { GetBlacklistReports } from "../schemas/schemas_0";
+import { GetBlacklistReports$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class GetBlacklistReportsCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "GetBlacklistReports", {})
   .n("PinpointEmailClient", "GetBlacklistReportsCommand")
-  .sc(GetBlacklistReports)
+  .sc(GetBlacklistReports$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

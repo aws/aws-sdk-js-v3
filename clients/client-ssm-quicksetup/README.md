@@ -11,10 +11,8 @@ recommended best practices. Quick Setup simplifies setting up services, includin
 Systems Manager, by automating common or recommended tasks.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-ssm-quicksetup
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-ssm-quicksetup`
 - `yarn add @aws-sdk/client-ssm-quicksetup`
 - `pnpm add @aws-sdk/client-ssm-quicksetup`
@@ -50,9 +48,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new SSMQuickSetupClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListConfigurationsCommand(params);
 ```
 
@@ -211,7 +207,6 @@ CreateConfigurationManager
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-quicksetup/command/CreateConfigurationManagerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/CreateConfigurationManagerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/CreateConfigurationManagerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -219,7 +214,6 @@ DeleteConfigurationManager
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-quicksetup/command/DeleteConfigurationManagerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/DeleteConfigurationManagerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/DeleteConfigurationManagerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -227,7 +221,6 @@ GetConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-quicksetup/command/GetConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/GetConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/GetConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -235,7 +228,6 @@ GetConfigurationManager
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-quicksetup/command/GetConfigurationManagerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/GetConfigurationManagerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/GetConfigurationManagerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -243,7 +235,6 @@ GetServiceSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-quicksetup/command/GetServiceSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/GetServiceSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/GetServiceSettingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -251,7 +242,6 @@ ListConfigurationManagers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-quicksetup/command/ListConfigurationManagersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/ListConfigurationManagersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/ListConfigurationManagersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -259,7 +249,6 @@ ListConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-quicksetup/command/ListConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/ListConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/ListConfigurationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -267,7 +256,6 @@ ListQuickSetupTypes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-quicksetup/command/ListQuickSetupTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/ListQuickSetupTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/ListQuickSetupTypesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -275,7 +263,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-quicksetup/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -283,7 +270,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-quicksetup/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -291,7 +277,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-quicksetup/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -299,7 +284,6 @@ UpdateConfigurationDefinition
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-quicksetup/command/UpdateConfigurationDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/UpdateConfigurationDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/UpdateConfigurationDefinitionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -307,7 +291,6 @@ UpdateConfigurationManager
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-quicksetup/command/UpdateConfigurationManagerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/UpdateConfigurationManagerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/UpdateConfigurationManagerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -315,5 +298,4 @@ UpdateServiceSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-quicksetup/command/UpdateServiceSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/UpdateServiceSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/UpdateServiceSettingsCommandOutput/)
-
 </details>

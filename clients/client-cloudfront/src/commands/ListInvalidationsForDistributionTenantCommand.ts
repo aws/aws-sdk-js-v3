@@ -9,7 +9,7 @@ import type {
   ListInvalidationsForDistributionTenantRequest,
   ListInvalidationsForDistributionTenantResult,
 } from "../models/models_1";
-import { ListInvalidationsForDistributionTenant } from "../schemas/schemas_0";
+import { ListInvalidationsForDistributionTenant$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListInvalidationsForDistributionTenantCommand}.
  */
-export interface ListInvalidationsForDistributionTenantCommandInput
-  extends ListInvalidationsForDistributionTenantRequest {}
+export interface ListInvalidationsForDistributionTenantCommandInput extends ListInvalidationsForDistributionTenantRequest {}
 /**
  * @public
  *
  * The output of {@link ListInvalidationsForDistributionTenantCommand}.
  */
-export interface ListInvalidationsForDistributionTenantCommandOutput
-  extends ListInvalidationsForDistributionTenantResult,
-    __MetadataBearer {}
+export interface ListInvalidationsForDistributionTenantCommandOutput extends ListInvalidationsForDistributionTenantResult, __MetadataBearer {}
 
 /**
  * <p>Lists the invalidations for a distribution tenant.</p>
@@ -103,7 +100,7 @@ export class ListInvalidationsForDistributionTenantCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "ListInvalidationsForDistributionTenant", {})
   .n("CloudFrontClient", "ListInvalidationsForDistributionTenantCommand")
-  .sc(ListInvalidationsForDistributionTenant)
+  .sc(ListInvalidationsForDistributionTenant$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

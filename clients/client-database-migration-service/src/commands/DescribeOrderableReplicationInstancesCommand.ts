@@ -13,7 +13,7 @@ import type {
   DescribeOrderableReplicationInstancesMessage,
   DescribeOrderableReplicationInstancesResponse,
 } from "../models/models_0";
-import { DescribeOrderableReplicationInstances } from "../schemas/schemas_0";
+import { DescribeOrderableReplicationInstances$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeOrderableReplicationInstancesCommand}.
  */
-export interface DescribeOrderableReplicationInstancesCommandInput
-  extends DescribeOrderableReplicationInstancesMessage {}
+export interface DescribeOrderableReplicationInstancesCommandInput extends DescribeOrderableReplicationInstancesMessage {}
 /**
  * @public
  *
  * The output of {@link DescribeOrderableReplicationInstancesCommand}.
  */
-export interface DescribeOrderableReplicationInstancesCommandOutput
-  extends DescribeOrderableReplicationInstancesResponse,
-    __MetadataBearer {}
+export interface DescribeOrderableReplicationInstancesCommandOutput extends DescribeOrderableReplicationInstancesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the replication instance types that can be created in the
@@ -117,7 +114,7 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeOrderableReplicationInstances", {})
   .n("DatabaseMigrationServiceClient", "DescribeOrderableReplicationInstancesCommand")
-  .sc(DescribeOrderableReplicationInstances)
+  .sc(DescribeOrderableReplicationInstances$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

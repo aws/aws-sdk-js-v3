@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { DisassociateTransitGatewayConnectPeer } from "../schemas/schemas_0";
+import { DisassociateTransitGatewayConnectPeer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DisassociateTransitGatewayConnectPeerCommand}.
  */
-export interface DisassociateTransitGatewayConnectPeerCommandInput
-  extends DisassociateTransitGatewayConnectPeerRequest {}
+export interface DisassociateTransitGatewayConnectPeerCommandInput extends DisassociateTransitGatewayConnectPeerRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateTransitGatewayConnectPeerCommand}.
  */
-export interface DisassociateTransitGatewayConnectPeerCommandOutput
-  extends DisassociateTransitGatewayConnectPeerResponse,
-    __MetadataBearer {}
+export interface DisassociateTransitGatewayConnectPeerCommandOutput extends DisassociateTransitGatewayConnectPeerResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a transit gateway Connect peer from a device and link.</p>
@@ -109,7 +106,7 @@ export class DisassociateTransitGatewayConnectPeerCommand extends $Command
   })
   .s("NetworkManager", "DisassociateTransitGatewayConnectPeer", {})
   .n("NetworkManagerClient", "DisassociateTransitGatewayConnectPeerCommand")
-  .sc(DisassociateTransitGatewayConnectPeer)
+  .sc(DisassociateTransitGatewayConnectPeer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

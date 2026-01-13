@@ -10,7 +10,7 @@ import type {
 } from "../CodeStarConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetResourceSyncStatusInput, GetResourceSyncStatusOutput } from "../models/models_0";
-import { GetResourceSyncStatus } from "../schemas/schemas_0";
+import { GetResourceSyncStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -159,7 +159,7 @@ export class GetResourceSyncStatusCommand extends $Command
   })
   .s("CodeStar_connections_20191201", "GetResourceSyncStatus", {})
   .n("CodeStarConnectionsClient", "GetResourceSyncStatusCommand")
-  .sc(GetResourceSyncStatus)
+  .sc(GetResourceSyncStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

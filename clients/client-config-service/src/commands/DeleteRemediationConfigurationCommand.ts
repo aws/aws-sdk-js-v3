@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRemediationConfigurationRequest, DeleteRemediationConfigurationResponse } from "../models/models_0";
-import { DeleteRemediationConfiguration } from "../schemas/schemas_0";
+import { DeleteRemediationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteRemediationConfigurationCommandInput extends DeleteRemedi
  *
  * The output of {@link DeleteRemediationConfigurationCommand}.
  */
-export interface DeleteRemediationConfigurationCommandOutput
-  extends DeleteRemediationConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteRemediationConfigurationCommandOutput extends DeleteRemediationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the remediation configuration.</p>
@@ -112,7 +110,7 @@ export class DeleteRemediationConfigurationCommand extends $Command
   })
   .s("StarlingDoveService", "DeleteRemediationConfiguration", {})
   .n("ConfigServiceClient", "DeleteRemediationConfigurationCommand")
-  .sc(DeleteRemediationConfiguration)
+  .sc(DeleteRemediationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

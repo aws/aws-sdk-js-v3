@@ -13,7 +13,7 @@ import type {
   UpdateMediaPipelineKinesisVideoStreamPoolRequest,
   UpdateMediaPipelineKinesisVideoStreamPoolResponse,
 } from "../models/models_0";
-import { UpdateMediaPipelineKinesisVideoStreamPool } from "../schemas/schemas_0";
+import { UpdateMediaPipelineKinesisVideoStreamPool$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link UpdateMediaPipelineKinesisVideoStreamPoolCommand}.
  */
-export interface UpdateMediaPipelineKinesisVideoStreamPoolCommandInput
-  extends UpdateMediaPipelineKinesisVideoStreamPoolRequest {}
+export interface UpdateMediaPipelineKinesisVideoStreamPoolCommandInput extends UpdateMediaPipelineKinesisVideoStreamPoolRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateMediaPipelineKinesisVideoStreamPoolCommand}.
  */
-export interface UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput
-  extends UpdateMediaPipelineKinesisVideoStreamPoolResponse,
-    __MetadataBearer {}
+export interface UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput extends UpdateMediaPipelineKinesisVideoStreamPoolResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an Amazon Kinesis Video Stream pool in a media pipeline.</p>
@@ -123,7 +120,7 @@ export class UpdateMediaPipelineKinesisVideoStreamPoolCommand extends $Command
   })
   .s("ChimeSDKMediaPipelinesService", "UpdateMediaPipelineKinesisVideoStreamPool", {})
   .n("ChimeSDKMediaPipelinesClient", "UpdateMediaPipelineKinesisVideoStreamPoolCommand")
-  .sc(UpdateMediaPipelineKinesisVideoStreamPool)
+  .sc(UpdateMediaPipelineKinesisVideoStreamPool$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { ListProtectConfigurationRuleSetNumberOverrides } from "../schemas/schemas_0";
+import { ListProtectConfigurationRuleSetNumberOverrides$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListProtectConfigurationRuleSetNumberOverridesCommand}.
  */
-export interface ListProtectConfigurationRuleSetNumberOverridesCommandInput
-  extends ListProtectConfigurationRuleSetNumberOverridesRequest {}
+export interface ListProtectConfigurationRuleSetNumberOverridesCommandInput extends ListProtectConfigurationRuleSetNumberOverridesRequest {}
 /**
  * @public
  *
  * The output of {@link ListProtectConfigurationRuleSetNumberOverridesCommand}.
  */
-export interface ListProtectConfigurationRuleSetNumberOverridesCommandOutput
-  extends ListProtectConfigurationRuleSetNumberOverridesResult,
-    __MetadataBearer {}
+export interface ListProtectConfigurationRuleSetNumberOverridesCommandOutput extends ListProtectConfigurationRuleSetNumberOverridesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieve all of the protect configuration rule set number overrides that match the filters.</p>
@@ -119,7 +116,7 @@ export class ListProtectConfigurationRuleSetNumberOverridesCommand extends $Comm
   })
   .s("PinpointSMSVoiceV2", "ListProtectConfigurationRuleSetNumberOverrides", {})
   .n("PinpointSMSVoiceV2Client", "ListProtectConfigurationRuleSetNumberOverridesCommand")
-  .sc(ListProtectConfigurationRuleSetNumberOverrides)
+  .sc(ListProtectConfigurationRuleSetNumberOverrides$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   GetBucketMetadataTableConfigurationRequest,
 } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketMetadataTableConfiguration } from "../schemas/schemas_0";
+import { GetBucketMetadataTableConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetBucketMetadataTableConfigurationCommandInput extends GetBuck
  *
  * The output of {@link GetBucketMetadataTableConfigurationCommand}.
  */
-export interface GetBucketMetadataTableConfigurationCommandOutput
-  extends GetBucketMetadataTableConfigurationOutput,
-    __MetadataBearer {}
+export interface GetBucketMetadataTableConfigurationCommandOutput extends GetBucketMetadataTableConfigurationOutput, __MetadataBearer {}
 
 /**
  * <important>
@@ -139,11 +137,14 @@ export class GetBucketMetadataTableConfigurationCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
+    ];
   })
   .s("AmazonS3", "GetBucketMetadataTableConfiguration", {})
   .n("S3Client", "GetBucketMetadataTableConfigurationCommand")
-  .sc(GetBucketMetadataTableConfiguration)
+  .sc(GetBucketMetadataTableConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   DisassociateServiceQuotaTemplateRequest,
   DisassociateServiceQuotaTemplateResponse,
 } from "../models/models_0";
-import { DisassociateServiceQuotaTemplate } from "../schemas/schemas_0";
+import { DisassociateServiceQuotaTemplate$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DisassociateServiceQuotaTemplateCommandInput extends Disassocia
  *
  * The output of {@link DisassociateServiceQuotaTemplateCommand}.
  */
-export interface DisassociateServiceQuotaTemplateCommandOutput
-  extends DisassociateServiceQuotaTemplateResponse,
-    __MetadataBearer {}
+export interface DisassociateServiceQuotaTemplateCommandOutput extends DisassociateServiceQuotaTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Disables your quota request template. After a template is disabled, the quota increase
@@ -102,7 +100,7 @@ export class DisassociateServiceQuotaTemplateCommand extends $Command
   })
   .s("ServiceQuotasV20190624", "DisassociateServiceQuotaTemplate", {})
   .n("ServiceQuotasClient", "DisassociateServiceQuotaTemplateCommand")
-  .sc(DisassociateServiceQuotaTemplate)
+  .sc(DisassociateServiceQuotaTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { PutAlarmRequest, PutAlarmResult } from "../models/models_1";
-import { PutAlarm } from "../schemas/schemas_0";
+import { PutAlarm$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -145,7 +145,7 @@ export class PutAlarmCommand extends $Command
   })
   .s("Lightsail_20161128", "PutAlarm", {})
   .n("LightsailClient", "PutAlarmCommand")
-  .sc(PutAlarm)
+  .sc(PutAlarm$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

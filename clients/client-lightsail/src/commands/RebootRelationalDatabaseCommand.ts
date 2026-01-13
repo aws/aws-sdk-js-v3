@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { RebootRelationalDatabaseRequest, RebootRelationalDatabaseResult } from "../models/models_1";
-import { RebootRelationalDatabase } from "../schemas/schemas_0";
+import { RebootRelationalDatabase$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class RebootRelationalDatabaseCommand extends $Command
   })
   .s("Lightsail_20161128", "RebootRelationalDatabase", {})
   .n("LightsailClient", "RebootRelationalDatabaseCommand")
-  .sc(RebootRelationalDatabase)
+  .sc(RebootRelationalDatabase$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

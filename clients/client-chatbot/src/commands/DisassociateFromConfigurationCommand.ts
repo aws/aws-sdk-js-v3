@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateFromConfigurationRequest, DisassociateFromConfigurationResult } from "../models/models_0";
-import { DisassociateFromConfiguration } from "../schemas/schemas_0";
+import { DisassociateFromConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DisassociateFromConfigurationCommandInput extends DisassociateF
  *
  * The output of {@link DisassociateFromConfigurationCommand}.
  */
-export interface DisassociateFromConfigurationCommandOutput
-  extends DisassociateFromConfigurationResult,
-    __MetadataBearer {}
+export interface DisassociateFromConfigurationCommandOutput extends DisassociateFromConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Unlink a resource, for example a custom action, from a channel configuration.</p>
@@ -97,7 +95,7 @@ export class DisassociateFromConfigurationCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "DisassociateFromConfiguration", {})
   .n("ChatbotClient", "DisassociateFromConfigurationCommand")
-  .sc(DisassociateFromConfiguration)
+  .sc(DisassociateFromConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

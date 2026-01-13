@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchQuickResponsesRequest, SearchQuickResponsesResponse } from "../models/models_0";
-import { SearchQuickResponses } from "../schemas/schemas_0";
+import { SearchQuickResponses$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -163,7 +163,7 @@ export class SearchQuickResponsesCommand extends $Command
   })
   .s("WisdomService", "SearchQuickResponses", {})
   .n("WisdomClient", "SearchQuickResponsesCommand")
-  .sc(SearchQuickResponses)
+  .sc(SearchQuickResponses$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRequestedServiceQuotaChangeRequest, GetRequestedServiceQuotaChangeResponse } from "../models/models_0";
-import { GetRequestedServiceQuotaChange } from "../schemas/schemas_0";
+import { GetRequestedServiceQuotaChange$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -24,9 +24,7 @@ export interface GetRequestedServiceQuotaChangeCommandInput extends GetRequested
  *
  * The output of {@link GetRequestedServiceQuotaChangeCommand}.
  */
-export interface GetRequestedServiceQuotaChangeCommandOutput
-  extends GetRequestedServiceQuotaChangeResponse,
-    __MetadataBearer {}
+export interface GetRequestedServiceQuotaChangeCommandOutput extends GetRequestedServiceQuotaChangeResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the specified quota increase request.</p>
@@ -113,7 +111,7 @@ export class GetRequestedServiceQuotaChangeCommand extends $Command
   })
   .s("ServiceQuotasV20190624", "GetRequestedServiceQuotaChange", {})
   .n("ServiceQuotasClient", "GetRequestedServiceQuotaChangeCommand")
-  .sc(GetRequestedServiceQuotaChange)
+  .sc(GetRequestedServiceQuotaChange$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

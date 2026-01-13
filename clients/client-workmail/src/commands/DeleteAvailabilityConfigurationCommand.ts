@@ -8,7 +8,7 @@ import type {
   DeleteAvailabilityConfigurationRequest,
   DeleteAvailabilityConfigurationResponse,
 } from "../models/models_0";
-import { DeleteAvailabilityConfiguration } from "../schemas/schemas_0";
+import { DeleteAvailabilityConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DeleteAvailabilityConfigurationCommandInput extends DeleteAvail
  *
  * The output of {@link DeleteAvailabilityConfigurationCommand}.
  */
-export interface DeleteAvailabilityConfigurationCommandOutput
-  extends DeleteAvailabilityConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteAvailabilityConfigurationCommandOutput extends DeleteAvailabilityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the <code>AvailabilityConfiguration</code> for the given WorkMail organization and domain.</p>
@@ -85,7 +83,7 @@ export class DeleteAvailabilityConfigurationCommand extends $Command
   })
   .s("WorkMailService", "DeleteAvailabilityConfiguration", {})
   .n("WorkMailClient", "DeleteAvailabilityConfigurationCommand")
-  .sc(DeleteAvailabilityConfiguration)
+  .sc(DeleteAvailabilityConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDomainEndpointOptionsRequest, UpdateDomainEndpointOptionsResponse } from "../models/models_0";
-import { UpdateDomainEndpointOptions } from "../schemas/schemas_0";
+import { UpdateDomainEndpointOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateDomainEndpointOptionsCommandInput extends UpdateDomainEnd
  *
  * The output of {@link UpdateDomainEndpointOptionsCommand}.
  */
-export interface UpdateDomainEndpointOptionsCommandOutput
-  extends UpdateDomainEndpointOptionsResponse,
-    __MetadataBearer {}
+export interface UpdateDomainEndpointOptionsCommandOutput extends UpdateDomainEndpointOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the domain's endpoint options, specifically whether all requests to the domain must arrive over HTTPS. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html" target="_blank">Configuring Domain Endpoint Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
@@ -113,7 +111,7 @@ export class UpdateDomainEndpointOptionsCommand extends $Command
   })
   .s("A9SearchCloudConfigService2013", "UpdateDomainEndpointOptions", {})
   .n("CloudSearchClient", "UpdateDomainEndpointOptionsCommand")
-  .sc(UpdateDomainEndpointOptions)
+  .sc(UpdateDomainEndpointOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

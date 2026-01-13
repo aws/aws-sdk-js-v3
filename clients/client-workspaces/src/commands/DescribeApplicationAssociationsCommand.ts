@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeApplicationAssociationsRequest, DescribeApplicationAssociationsResult } from "../models/models_0";
-import { DescribeApplicationAssociations } from "../schemas/schemas_0";
+import { DescribeApplicationAssociations$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DescribeApplicationAssociationsCommandInput extends DescribeApp
  *
  * The output of {@link DescribeApplicationAssociationsCommand}.
  */
-export interface DescribeApplicationAssociationsCommandOutput
-  extends DescribeApplicationAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeApplicationAssociationsCommandOutput extends DescribeApplicationAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the associations between the application and the specified associated resources.</p>
@@ -58,7 +56,7 @@ export interface DescribeApplicationAssociationsCommandOutput
  * //       LastUpdatedTime: new Date("TIMESTAMP"),
  * //       State: "PENDING_INSTALL" || "PENDING_INSTALL_DEPLOYMENT" || "PENDING_UNINSTALL" || "PENDING_UNINSTALL_DEPLOYMENT" || "INSTALLING" || "UNINSTALLING" || "ERROR" || "COMPLETED" || "REMOVED",
  * //       StateReason: { // AssociationStateReason
- * //         ErrorCode: "ValidationError.InsufficientDiskSpace" || "ValidationError.InsufficientMemory" || "ValidationError.UnsupportedOperatingSystem" || "DeploymentError.InternalServerError" || "DeploymentError.WorkspaceUnreachable",
+ * //         ErrorCode: "ValidationError.InsufficientDiskSpace" || "ValidationError.InsufficientMemory" || "ValidationError.UnsupportedOperatingSystem" || "DeploymentError.InternalServerError" || "DeploymentError.WorkspaceUnreachable" || "ValidationError.ApplicationOldVersionExists",
  * //         ErrorMessage: "STRING_VALUE",
  * //       },
  * //     },
@@ -106,7 +104,7 @@ export class DescribeApplicationAssociationsCommand extends $Command
   })
   .s("WorkspacesService", "DescribeApplicationAssociations", {})
   .n("WorkSpacesClient", "DescribeApplicationAssociationsCommand")
-  .sc(DescribeApplicationAssociations)
+  .sc(DescribeApplicationAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

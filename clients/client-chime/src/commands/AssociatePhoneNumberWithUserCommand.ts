@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociatePhoneNumberWithUserRequest, AssociatePhoneNumberWithUserResponse } from "../models/models_0";
-import { AssociatePhoneNumberWithUser } from "../schemas/schemas_0";
+import { AssociatePhoneNumberWithUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface AssociatePhoneNumberWithUserCommandInput extends AssociatePhone
  *
  * The output of {@link AssociatePhoneNumberWithUserCommand}.
  */
-export interface AssociatePhoneNumberWithUserCommandOutput
-  extends AssociatePhoneNumberWithUserResponse,
-    __MetadataBearer {}
+export interface AssociatePhoneNumberWithUserCommandOutput extends AssociatePhoneNumberWithUserResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a phone number with the specified Amazon Chime user.</p>
@@ -99,7 +97,7 @@ export class AssociatePhoneNumberWithUserCommand extends $Command
   })
   .s("UCBuzzConsoleService", "AssociatePhoneNumberWithUser", {})
   .n("ChimeClient", "AssociatePhoneNumberWithUserCommand")
-  .sc(AssociatePhoneNumberWithUser)
+  .sc(AssociatePhoneNumberWithUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   CancelDataQualityRuleRecommendationRunRequest,
   CancelDataQualityRuleRecommendationRunResponse,
 } from "../models/models_0";
-import { CancelDataQualityRuleRecommendationRun } from "../schemas/schemas_0";
+import { CancelDataQualityRuleRecommendationRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CancelDataQualityRuleRecommendationRunCommand}.
  */
-export interface CancelDataQualityRuleRecommendationRunCommandInput
-  extends CancelDataQualityRuleRecommendationRunRequest {}
+export interface CancelDataQualityRuleRecommendationRunCommandInput extends CancelDataQualityRuleRecommendationRunRequest {}
 /**
  * @public
  *
  * The output of {@link CancelDataQualityRuleRecommendationRunCommand}.
  */
-export interface CancelDataQualityRuleRecommendationRunCommandOutput
-  extends CancelDataQualityRuleRecommendationRunResponse,
-    __MetadataBearer {}
+export interface CancelDataQualityRuleRecommendationRunCommandOutput extends CancelDataQualityRuleRecommendationRunResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels the specified recommendation run that was being used to generate rules.</p>
@@ -89,7 +86,7 @@ export class CancelDataQualityRuleRecommendationRunCommand extends $Command
   })
   .s("AWSGlue", "CancelDataQualityRuleRecommendationRun", {})
   .n("GlueClient", "CancelDataQualityRuleRecommendationRunCommand")
-  .sc(CancelDataQualityRuleRecommendationRun)
+  .sc(CancelDataQualityRuleRecommendationRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -85,7 +85,10 @@ export interface Keyspaces {
     args: CreateKeyspaceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateKeyspaceCommandOutput>;
-  createKeyspace(args: CreateKeyspaceCommandInput, cb: (err: any, data?: CreateKeyspaceCommandOutput) => void): void;
+  createKeyspace(
+    args: CreateKeyspaceCommandInput,
+    cb: (err: any, data?: CreateKeyspaceCommandOutput) => void
+  ): void;
   createKeyspace(
     args: CreateKeyspaceCommandInput,
     options: __HttpHandlerOptions,
@@ -95,8 +98,14 @@ export interface Keyspaces {
   /**
    * @see {@link CreateTableCommand}
    */
-  createTable(args: CreateTableCommandInput, options?: __HttpHandlerOptions): Promise<CreateTableCommandOutput>;
-  createTable(args: CreateTableCommandInput, cb: (err: any, data?: CreateTableCommandOutput) => void): void;
+  createTable(
+    args: CreateTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTableCommandOutput>;
+  createTable(
+    args: CreateTableCommandInput,
+    cb: (err: any, data?: CreateTableCommandOutput) => void
+  ): void;
   createTable(
     args: CreateTableCommandInput,
     options: __HttpHandlerOptions,
@@ -106,8 +115,14 @@ export interface Keyspaces {
   /**
    * @see {@link CreateTypeCommand}
    */
-  createType(args: CreateTypeCommandInput, options?: __HttpHandlerOptions): Promise<CreateTypeCommandOutput>;
-  createType(args: CreateTypeCommandInput, cb: (err: any, data?: CreateTypeCommandOutput) => void): void;
+  createType(
+    args: CreateTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTypeCommandOutput>;
+  createType(
+    args: CreateTypeCommandInput,
+    cb: (err: any, data?: CreateTypeCommandOutput) => void
+  ): void;
   createType(
     args: CreateTypeCommandInput,
     options: __HttpHandlerOptions,
@@ -121,7 +136,10 @@ export interface Keyspaces {
     args: DeleteKeyspaceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteKeyspaceCommandOutput>;
-  deleteKeyspace(args: DeleteKeyspaceCommandInput, cb: (err: any, data?: DeleteKeyspaceCommandOutput) => void): void;
+  deleteKeyspace(
+    args: DeleteKeyspaceCommandInput,
+    cb: (err: any, data?: DeleteKeyspaceCommandOutput) => void
+  ): void;
   deleteKeyspace(
     args: DeleteKeyspaceCommandInput,
     options: __HttpHandlerOptions,
@@ -131,8 +149,14 @@ export interface Keyspaces {
   /**
    * @see {@link DeleteTableCommand}
    */
-  deleteTable(args: DeleteTableCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTableCommandOutput>;
-  deleteTable(args: DeleteTableCommandInput, cb: (err: any, data?: DeleteTableCommandOutput) => void): void;
+  deleteTable(
+    args: DeleteTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTableCommandOutput>;
+  deleteTable(
+    args: DeleteTableCommandInput,
+    cb: (err: any, data?: DeleteTableCommandOutput) => void
+  ): void;
   deleteTable(
     args: DeleteTableCommandInput,
     options: __HttpHandlerOptions,
@@ -142,8 +166,14 @@ export interface Keyspaces {
   /**
    * @see {@link DeleteTypeCommand}
    */
-  deleteType(args: DeleteTypeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTypeCommandOutput>;
-  deleteType(args: DeleteTypeCommandInput, cb: (err: any, data?: DeleteTypeCommandOutput) => void): void;
+  deleteType(
+    args: DeleteTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTypeCommandOutput>;
+  deleteType(
+    args: DeleteTypeCommandInput,
+    cb: (err: any, data?: DeleteTypeCommandOutput) => void
+  ): void;
   deleteType(
     args: DeleteTypeCommandInput,
     options: __HttpHandlerOptions,
@@ -153,8 +183,14 @@ export interface Keyspaces {
   /**
    * @see {@link GetKeyspaceCommand}
    */
-  getKeyspace(args: GetKeyspaceCommandInput, options?: __HttpHandlerOptions): Promise<GetKeyspaceCommandOutput>;
-  getKeyspace(args: GetKeyspaceCommandInput, cb: (err: any, data?: GetKeyspaceCommandOutput) => void): void;
+  getKeyspace(
+    args: GetKeyspaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetKeyspaceCommandOutput>;
+  getKeyspace(
+    args: GetKeyspaceCommandInput,
+    cb: (err: any, data?: GetKeyspaceCommandOutput) => void
+  ): void;
   getKeyspace(
     args: GetKeyspaceCommandInput,
     options: __HttpHandlerOptions,
@@ -164,8 +200,14 @@ export interface Keyspaces {
   /**
    * @see {@link GetTableCommand}
    */
-  getTable(args: GetTableCommandInput, options?: __HttpHandlerOptions): Promise<GetTableCommandOutput>;
-  getTable(args: GetTableCommandInput, cb: (err: any, data?: GetTableCommandOutput) => void): void;
+  getTable(
+    args: GetTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTableCommandOutput>;
+  getTable(
+    args: GetTableCommandInput,
+    cb: (err: any, data?: GetTableCommandOutput) => void
+  ): void;
   getTable(
     args: GetTableCommandInput,
     options: __HttpHandlerOptions,
@@ -192,8 +234,14 @@ export interface Keyspaces {
   /**
    * @see {@link GetTypeCommand}
    */
-  getType(args: GetTypeCommandInput, options?: __HttpHandlerOptions): Promise<GetTypeCommandOutput>;
-  getType(args: GetTypeCommandInput, cb: (err: any, data?: GetTypeCommandOutput) => void): void;
+  getType(
+    args: GetTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTypeCommandOutput>;
+  getType(
+    args: GetTypeCommandInput,
+    cb: (err: any, data?: GetTypeCommandOutput) => void
+  ): void;
   getType(
     args: GetTypeCommandInput,
     options: __HttpHandlerOptions,
@@ -204,8 +252,14 @@ export interface Keyspaces {
    * @see {@link ListKeyspacesCommand}
    */
   listKeyspaces(): Promise<ListKeyspacesCommandOutput>;
-  listKeyspaces(args: ListKeyspacesCommandInput, options?: __HttpHandlerOptions): Promise<ListKeyspacesCommandOutput>;
-  listKeyspaces(args: ListKeyspacesCommandInput, cb: (err: any, data?: ListKeyspacesCommandOutput) => void): void;
+  listKeyspaces(
+    args: ListKeyspacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListKeyspacesCommandOutput>;
+  listKeyspaces(
+    args: ListKeyspacesCommandInput,
+    cb: (err: any, data?: ListKeyspacesCommandOutput) => void
+  ): void;
   listKeyspaces(
     args: ListKeyspacesCommandInput,
     options: __HttpHandlerOptions,
@@ -215,8 +269,14 @@ export interface Keyspaces {
   /**
    * @see {@link ListTablesCommand}
    */
-  listTables(args: ListTablesCommandInput, options?: __HttpHandlerOptions): Promise<ListTablesCommandOutput>;
-  listTables(args: ListTablesCommandInput, cb: (err: any, data?: ListTablesCommandOutput) => void): void;
+  listTables(
+    args: ListTablesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTablesCommandOutput>;
+  listTables(
+    args: ListTablesCommandInput,
+    cb: (err: any, data?: ListTablesCommandOutput) => void
+  ): void;
   listTables(
     args: ListTablesCommandInput,
     options: __HttpHandlerOptions,
@@ -243,8 +303,14 @@ export interface Keyspaces {
   /**
    * @see {@link ListTypesCommand}
    */
-  listTypes(args: ListTypesCommandInput, options?: __HttpHandlerOptions): Promise<ListTypesCommandOutput>;
-  listTypes(args: ListTypesCommandInput, cb: (err: any, data?: ListTypesCommandOutput) => void): void;
+  listTypes(
+    args: ListTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTypesCommandOutput>;
+  listTypes(
+    args: ListTypesCommandInput,
+    cb: (err: any, data?: ListTypesCommandOutput) => void
+  ): void;
   listTypes(
     args: ListTypesCommandInput,
     options: __HttpHandlerOptions,
@@ -254,8 +320,14 @@ export interface Keyspaces {
   /**
    * @see {@link RestoreTableCommand}
    */
-  restoreTable(args: RestoreTableCommandInput, options?: __HttpHandlerOptions): Promise<RestoreTableCommandOutput>;
-  restoreTable(args: RestoreTableCommandInput, cb: (err: any, data?: RestoreTableCommandOutput) => void): void;
+  restoreTable(
+    args: RestoreTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreTableCommandOutput>;
+  restoreTable(
+    args: RestoreTableCommandInput,
+    cb: (err: any, data?: RestoreTableCommandOutput) => void
+  ): void;
   restoreTable(
     args: RestoreTableCommandInput,
     options: __HttpHandlerOptions,
@@ -265,8 +337,14 @@ export interface Keyspaces {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -276,8 +354,14 @@ export interface Keyspaces {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -291,7 +375,10 @@ export interface Keyspaces {
     args: UpdateKeyspaceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateKeyspaceCommandOutput>;
-  updateKeyspace(args: UpdateKeyspaceCommandInput, cb: (err: any, data?: UpdateKeyspaceCommandOutput) => void): void;
+  updateKeyspace(
+    args: UpdateKeyspaceCommandInput,
+    cb: (err: any, data?: UpdateKeyspaceCommandOutput) => void
+  ): void;
   updateKeyspace(
     args: UpdateKeyspaceCommandInput,
     options: __HttpHandlerOptions,
@@ -301,8 +388,14 @@ export interface Keyspaces {
   /**
    * @see {@link UpdateTableCommand}
    */
-  updateTable(args: UpdateTableCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTableCommandOutput>;
-  updateTable(args: UpdateTableCommandInput, cb: (err: any, data?: UpdateTableCommandOutput) => void): void;
+  updateTable(
+    args: UpdateTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTableCommandOutput>;
+  updateTable(
+    args: UpdateTableCommandInput,
+    cb: (err: any, data?: UpdateTableCommandOutput) => void
+  ): void;
   updateTable(
     args: UpdateTableCommandInput,
     options: __HttpHandlerOptions,

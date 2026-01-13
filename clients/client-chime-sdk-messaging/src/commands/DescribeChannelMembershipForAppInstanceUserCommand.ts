@@ -13,7 +13,7 @@ import type {
   DescribeChannelMembershipForAppInstanceUserRequest,
   DescribeChannelMembershipForAppInstanceUserResponse,
 } from "../models/models_0";
-import { DescribeChannelMembershipForAppInstanceUser } from "../schemas/schemas_0";
+import { DescribeChannelMembershipForAppInstanceUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeChannelMembershipForAppInstanceUserCommand}.
  */
-export interface DescribeChannelMembershipForAppInstanceUserCommandInput
-  extends DescribeChannelMembershipForAppInstanceUserRequest {}
+export interface DescribeChannelMembershipForAppInstanceUserCommandInput extends DescribeChannelMembershipForAppInstanceUserRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeChannelMembershipForAppInstanceUserCommand}.
  */
-export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
-  extends DescribeChannelMembershipForAppInstanceUserResponse,
-    __MetadataBearer {}
+export interface DescribeChannelMembershipForAppInstanceUserCommandOutput extends DescribeChannelMembershipForAppInstanceUserResponse, __MetadataBearer {}
 
 /**
  * <p> Returns the details of a channel based on the membership of the specified
@@ -123,7 +120,7 @@ export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command
   })
   .s("ChimeMessagingService", "DescribeChannelMembershipForAppInstanceUser", {})
   .n("ChimeSDKMessagingClient", "DescribeChannelMembershipForAppInstanceUserCommand")
-  .sc(DescribeChannelMembershipForAppInstanceUser)
+  .sc(DescribeChannelMembershipForAppInstanceUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

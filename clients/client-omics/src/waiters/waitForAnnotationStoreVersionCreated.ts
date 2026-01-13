@@ -10,12 +10,12 @@ import { OmicsClient } from "../OmicsClient";
 const checkState = async (client: OmicsClient, input: GetAnnotationStoreVersionCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetAnnotationStoreVersionCommand(input));
+    let result: any = await client.send(new GetAnnotationStoreVersionCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -23,7 +23,7 @@ const checkState = async (client: OmicsClient, input: GetAnnotationStoreVersionC
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "CREATING") {
         return { state: WaiterState.RETRY, reason };
       }
@@ -31,7 +31,7 @@ const checkState = async (client: OmicsClient, input: GetAnnotationStoreVersionC
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "UPDATING") {
         return { state: WaiterState.RETRY, reason };
       }
@@ -39,7 +39,7 @@ const checkState = async (client: OmicsClient, input: GetAnnotationStoreVersionC
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

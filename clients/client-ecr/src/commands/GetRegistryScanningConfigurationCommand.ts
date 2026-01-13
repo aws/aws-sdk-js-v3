@@ -9,7 +9,7 @@ import type {
   GetRegistryScanningConfigurationRequest,
   GetRegistryScanningConfigurationResponse,
 } from "../models/models_0";
-import { GetRegistryScanningConfiguration } from "../schemas/schemas_0";
+import { GetRegistryScanningConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetRegistryScanningConfigurationCommandInput extends GetRegistr
  *
  * The output of {@link GetRegistryScanningConfigurationCommand}.
  */
-export interface GetRegistryScanningConfigurationCommandOutput
-  extends GetRegistryScanningConfigurationResponse,
-    __MetadataBearer {}
+export interface GetRegistryScanningConfigurationCommandOutput extends GetRegistryScanningConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the scanning configuration for a registry.</p>
@@ -100,7 +98,7 @@ export class GetRegistryScanningConfigurationCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "GetRegistryScanningConfiguration", {})
   .n("ECRClient", "GetRegistryScanningConfigurationCommand")
-  .sc(GetRegistryScanningConfiguration)
+  .sc(GetRegistryScanningConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

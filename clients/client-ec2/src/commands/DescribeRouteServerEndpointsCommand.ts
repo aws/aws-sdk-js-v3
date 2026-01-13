@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeRouteServerEndpointsRequest, DescribeRouteServerEndpointsResult } from "../models/models_4";
-import { DescribeRouteServerEndpoints } from "../schemas/schemas_0";
+import { DescribeRouteServerEndpoints$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeRouteServerEndpointsCommandInput extends DescribeRouteS
  *
  * The output of {@link DescribeRouteServerEndpointsCommand}.
  */
-export interface DescribeRouteServerEndpointsCommandOutput
-  extends DescribeRouteServerEndpointsResult,
-    __MetadataBearer {}
+export interface DescribeRouteServerEndpointsCommandOutput extends DescribeRouteServerEndpointsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more route server endpoints.</p>
@@ -108,7 +106,7 @@ export class DescribeRouteServerEndpointsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeRouteServerEndpoints", {})
   .n("EC2Client", "DescribeRouteServerEndpointsCommand")
-  .sc(DescribeRouteServerEndpoints)
+  .sc(DescribeRouteServerEndpoints$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

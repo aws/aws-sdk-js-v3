@@ -76,7 +76,6 @@ import {
   WarmPoolResourceStatus,
   WorkforceIpAddressType,
 } from "./enums";
-
 import {
   type AlgorithmSpecification,
   type AppSpecification,
@@ -111,7 +110,6 @@ import {
   OutputParameter,
   Tag,
 } from "./models_0";
-
 import {
   type DefaultSpaceSettings,
   type DeploymentConfig,
@@ -154,7 +152,6 @@ import {
   ProcessingInput,
   ProvisioningParameter,
 } from "./models_1";
-
 import {
   type DataProcessing,
   type DebugHookConfig,
@@ -184,7 +181,6 @@ import {
   TrialComponentArtifact,
   TrialComponentParameterValue,
 } from "./models_2";
-
 import {
   type DomainSettingsForUpdate,
   type Endpoint,
@@ -4272,13 +4268,13 @@ export interface SearchTrainingPlanOfferingsRequest {
    * <p>The desired duration in hours for the training plan offerings.</p>
    * @public
    */
-  DurationHours: number | undefined;
+  DurationHours?: number | undefined;
 
   /**
    * <p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod, SageMaker Endpoints) to search for in the offerings.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> </ul>
    * @public
    */
-  TargetResources: SageMakerResourceName[] | undefined;
+  TargetResources?: SageMakerResourceName[] | undefined;
 }
 
 /**
@@ -4556,7 +4552,7 @@ export interface StartPipelineExecutionRequest {
   PipelineVersionId?: number | undefined;
 
   /**
-   * <p> The MLflow experiment name of the start execution. </p>
+   * <p> The MLflow experiment name of the pipeline execution. </p>
    * @public
    */
   MlflowExperimentName?: string | undefined;

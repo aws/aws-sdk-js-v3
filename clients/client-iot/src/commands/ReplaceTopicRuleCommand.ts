@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { ReplaceTopicRuleRequest } from "../models/models_2";
-import { ReplaceTopicRule } from "../schemas/schemas_0";
+import { ReplaceTopicRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -215,6 +215,12 @@ export interface ReplaceTopicRuleCommandOutput extends __MetadataBearer {}
  *               serviceName: "STRING_VALUE", // required
  *               roleArn: "STRING_VALUE", // required
  *             },
+ *           },
+ *           enableBatching: true || false,
+ *           batchConfig: { // BatchConfig
+ *             maxBatchOpenMs: Number("int"),
+ *             maxBatchSize: Number("int"),
+ *             maxBatchSizeBytes: Number("int"),
  *           },
  *         },
  *         kafka: { // KafkaAction
@@ -425,6 +431,12 @@ export interface ReplaceTopicRuleCommandOutput extends __MetadataBearer {}
  *             roleArn: "STRING_VALUE", // required
  *           },
  *         },
+ *         enableBatching: true || false,
+ *         batchConfig: {
+ *           maxBatchOpenMs: Number("int"),
+ *           maxBatchSize: Number("int"),
+ *           maxBatchSizeBytes: Number("int"),
+ *         },
  *       },
  *       kafka: {
  *         destinationArn: "STRING_VALUE", // required
@@ -513,7 +525,7 @@ export class ReplaceTopicRuleCommand extends $Command
   })
   .s("AWSIotService", "ReplaceTopicRule", {})
   .n("IoTClient", "ReplaceTopicRuleCommand")
-  .sc(ReplaceTopicRule)
+  .sc(ReplaceTopicRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

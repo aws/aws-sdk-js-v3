@@ -8,7 +8,7 @@ import type {
   AssociateUserAccessLoggingSettingsRequest,
   AssociateUserAccessLoggingSettingsResponse,
 } from "../models/models_0";
-import { AssociateUserAccessLoggingSettings } from "../schemas/schemas_0";
+import { AssociateUserAccessLoggingSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -27,9 +27,7 @@ export interface AssociateUserAccessLoggingSettingsCommandInput extends Associat
  *
  * The output of {@link AssociateUserAccessLoggingSettingsCommand}.
  */
-export interface AssociateUserAccessLoggingSettingsCommandOutput
-  extends AssociateUserAccessLoggingSettingsResponse,
-    __MetadataBearer {}
+export interface AssociateUserAccessLoggingSettingsCommandOutput extends AssociateUserAccessLoggingSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a user access logging settings resource with a web portal.</p>
@@ -98,7 +96,7 @@ export class AssociateUserAccessLoggingSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "AssociateUserAccessLoggingSettings", {})
   .n("WorkSpacesWebClient", "AssociateUserAccessLoggingSettingsCommand")
-  .sc(AssociateUserAccessLoggingSettings)
+  .sc(AssociateUserAccessLoggingSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

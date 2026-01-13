@@ -534,8 +534,14 @@ export interface BedrockAgentCoreControl {
   /**
    * @see {@link CreateBrowserCommand}
    */
-  createBrowser(args: CreateBrowserCommandInput, options?: __HttpHandlerOptions): Promise<CreateBrowserCommandOutput>;
-  createBrowser(args: CreateBrowserCommandInput, cb: (err: any, data?: CreateBrowserCommandOutput) => void): void;
+  createBrowser(
+    args: CreateBrowserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBrowserCommandOutput>;
+  createBrowser(
+    args: CreateBrowserCommandInput,
+    cb: (err: any, data?: CreateBrowserCommandOutput) => void
+  ): void;
   createBrowser(
     args: CreateBrowserCommandInput,
     options: __HttpHandlerOptions,
@@ -566,7 +572,10 @@ export interface BedrockAgentCoreControl {
     args: CreateEvaluatorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateEvaluatorCommandOutput>;
-  createEvaluator(args: CreateEvaluatorCommandInput, cb: (err: any, data?: CreateEvaluatorCommandOutput) => void): void;
+  createEvaluator(
+    args: CreateEvaluatorCommandInput,
+    cb: (err: any, data?: CreateEvaluatorCommandOutput) => void
+  ): void;
   createEvaluator(
     args: CreateEvaluatorCommandInput,
     options: __HttpHandlerOptions,
@@ -576,8 +585,14 @@ export interface BedrockAgentCoreControl {
   /**
    * @see {@link CreateGatewayCommand}
    */
-  createGateway(args: CreateGatewayCommandInput, options?: __HttpHandlerOptions): Promise<CreateGatewayCommandOutput>;
-  createGateway(args: CreateGatewayCommandInput, cb: (err: any, data?: CreateGatewayCommandOutput) => void): void;
+  createGateway(
+    args: CreateGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGatewayCommandOutput>;
+  createGateway(
+    args: CreateGatewayCommandInput,
+    cb: (err: any, data?: CreateGatewayCommandOutput) => void
+  ): void;
   createGateway(
     args: CreateGatewayCommandInput,
     options: __HttpHandlerOptions,
@@ -604,8 +619,14 @@ export interface BedrockAgentCoreControl {
   /**
    * @see {@link CreateMemoryCommand}
    */
-  createMemory(args: CreateMemoryCommandInput, options?: __HttpHandlerOptions): Promise<CreateMemoryCommandOutput>;
-  createMemory(args: CreateMemoryCommandInput, cb: (err: any, data?: CreateMemoryCommandOutput) => void): void;
+  createMemory(
+    args: CreateMemoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMemoryCommandOutput>;
+  createMemory(
+    args: CreateMemoryCommandInput,
+    cb: (err: any, data?: CreateMemoryCommandOutput) => void
+  ): void;
   createMemory(
     args: CreateMemoryCommandInput,
     options: __HttpHandlerOptions,
@@ -649,8 +670,14 @@ export interface BedrockAgentCoreControl {
   /**
    * @see {@link CreatePolicyCommand}
    */
-  createPolicy(args: CreatePolicyCommandInput, options?: __HttpHandlerOptions): Promise<CreatePolicyCommandOutput>;
-  createPolicy(args: CreatePolicyCommandInput, cb: (err: any, data?: CreatePolicyCommandOutput) => void): void;
+  createPolicy(
+    args: CreatePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePolicyCommandOutput>;
+  createPolicy(
+    args: CreatePolicyCommandInput,
+    cb: (err: any, data?: CreatePolicyCommandOutput) => void
+  ): void;
   createPolicy(
     args: CreatePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -745,8 +772,14 @@ export interface BedrockAgentCoreControl {
   /**
    * @see {@link DeleteBrowserCommand}
    */
-  deleteBrowser(args: DeleteBrowserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBrowserCommandOutput>;
-  deleteBrowser(args: DeleteBrowserCommandInput, cb: (err: any, data?: DeleteBrowserCommandOutput) => void): void;
+  deleteBrowser(
+    args: DeleteBrowserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBrowserCommandOutput>;
+  deleteBrowser(
+    args: DeleteBrowserCommandInput,
+    cb: (err: any, data?: DeleteBrowserCommandOutput) => void
+  ): void;
   deleteBrowser(
     args: DeleteBrowserCommandInput,
     options: __HttpHandlerOptions,
@@ -777,7 +810,10 @@ export interface BedrockAgentCoreControl {
     args: DeleteEvaluatorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEvaluatorCommandOutput>;
-  deleteEvaluator(args: DeleteEvaluatorCommandInput, cb: (err: any, data?: DeleteEvaluatorCommandOutput) => void): void;
+  deleteEvaluator(
+    args: DeleteEvaluatorCommandInput,
+    cb: (err: any, data?: DeleteEvaluatorCommandOutput) => void
+  ): void;
   deleteEvaluator(
     args: DeleteEvaluatorCommandInput,
     options: __HttpHandlerOptions,
@@ -787,8 +823,14 @@ export interface BedrockAgentCoreControl {
   /**
    * @see {@link DeleteGatewayCommand}
    */
-  deleteGateway(args: DeleteGatewayCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGatewayCommandOutput>;
-  deleteGateway(args: DeleteGatewayCommandInput, cb: (err: any, data?: DeleteGatewayCommandOutput) => void): void;
+  deleteGateway(
+    args: DeleteGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGatewayCommandOutput>;
+  deleteGateway(
+    args: DeleteGatewayCommandInput,
+    cb: (err: any, data?: DeleteGatewayCommandOutput) => void
+  ): void;
   deleteGateway(
     args: DeleteGatewayCommandInput,
     options: __HttpHandlerOptions,
@@ -815,8 +857,14 @@ export interface BedrockAgentCoreControl {
   /**
    * @see {@link DeleteMemoryCommand}
    */
-  deleteMemory(args: DeleteMemoryCommandInput, options?: __HttpHandlerOptions): Promise<DeleteMemoryCommandOutput>;
-  deleteMemory(args: DeleteMemoryCommandInput, cb: (err: any, data?: DeleteMemoryCommandOutput) => void): void;
+  deleteMemory(
+    args: DeleteMemoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMemoryCommandOutput>;
+  deleteMemory(
+    args: DeleteMemoryCommandInput,
+    cb: (err: any, data?: DeleteMemoryCommandOutput) => void
+  ): void;
   deleteMemory(
     args: DeleteMemoryCommandInput,
     options: __HttpHandlerOptions,
@@ -860,8 +908,14 @@ export interface BedrockAgentCoreControl {
   /**
    * @see {@link DeletePolicyCommand}
    */
-  deletePolicy(args: DeletePolicyCommandInput, options?: __HttpHandlerOptions): Promise<DeletePolicyCommandOutput>;
-  deletePolicy(args: DeletePolicyCommandInput, cb: (err: any, data?: DeletePolicyCommandOutput) => void): void;
+  deletePolicy(
+    args: DeletePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePolicyCommandOutput>;
+  deletePolicy(
+    args: DeletePolicyCommandInput,
+    cb: (err: any, data?: DeletePolicyCommandOutput) => void
+  ): void;
   deletePolicy(
     args: DeletePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -926,7 +980,10 @@ export interface BedrockAgentCoreControl {
     args: GetAgentRuntimeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAgentRuntimeCommandOutput>;
-  getAgentRuntime(args: GetAgentRuntimeCommandInput, cb: (err: any, data?: GetAgentRuntimeCommandOutput) => void): void;
+  getAgentRuntime(
+    args: GetAgentRuntimeCommandInput,
+    cb: (err: any, data?: GetAgentRuntimeCommandOutput) => void
+  ): void;
   getAgentRuntime(
     args: GetAgentRuntimeCommandInput,
     options: __HttpHandlerOptions,
@@ -970,8 +1027,14 @@ export interface BedrockAgentCoreControl {
   /**
    * @see {@link GetBrowserCommand}
    */
-  getBrowser(args: GetBrowserCommandInput, options?: __HttpHandlerOptions): Promise<GetBrowserCommandOutput>;
-  getBrowser(args: GetBrowserCommandInput, cb: (err: any, data?: GetBrowserCommandOutput) => void): void;
+  getBrowser(
+    args: GetBrowserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBrowserCommandOutput>;
+  getBrowser(
+    args: GetBrowserCommandInput,
+    cb: (err: any, data?: GetBrowserCommandOutput) => void
+  ): void;
   getBrowser(
     args: GetBrowserCommandInput,
     options: __HttpHandlerOptions,
@@ -998,8 +1061,14 @@ export interface BedrockAgentCoreControl {
   /**
    * @see {@link GetEvaluatorCommand}
    */
-  getEvaluator(args: GetEvaluatorCommandInput, options?: __HttpHandlerOptions): Promise<GetEvaluatorCommandOutput>;
-  getEvaluator(args: GetEvaluatorCommandInput, cb: (err: any, data?: GetEvaluatorCommandOutput) => void): void;
+  getEvaluator(
+    args: GetEvaluatorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEvaluatorCommandOutput>;
+  getEvaluator(
+    args: GetEvaluatorCommandInput,
+    cb: (err: any, data?: GetEvaluatorCommandOutput) => void
+  ): void;
   getEvaluator(
     args: GetEvaluatorCommandInput,
     options: __HttpHandlerOptions,
@@ -1009,8 +1078,14 @@ export interface BedrockAgentCoreControl {
   /**
    * @see {@link GetGatewayCommand}
    */
-  getGateway(args: GetGatewayCommandInput, options?: __HttpHandlerOptions): Promise<GetGatewayCommandOutput>;
-  getGateway(args: GetGatewayCommandInput, cb: (err: any, data?: GetGatewayCommandOutput) => void): void;
+  getGateway(
+    args: GetGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGatewayCommandOutput>;
+  getGateway(
+    args: GetGatewayCommandInput,
+    cb: (err: any, data?: GetGatewayCommandOutput) => void
+  ): void;
   getGateway(
     args: GetGatewayCommandInput,
     options: __HttpHandlerOptions,
@@ -1037,8 +1112,14 @@ export interface BedrockAgentCoreControl {
   /**
    * @see {@link GetMemoryCommand}
    */
-  getMemory(args: GetMemoryCommandInput, options?: __HttpHandlerOptions): Promise<GetMemoryCommandOutput>;
-  getMemory(args: GetMemoryCommandInput, cb: (err: any, data?: GetMemoryCommandOutput) => void): void;
+  getMemory(
+    args: GetMemoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMemoryCommandOutput>;
+  getMemory(
+    args: GetMemoryCommandInput,
+    cb: (err: any, data?: GetMemoryCommandOutput) => void
+  ): void;
   getMemory(
     args: GetMemoryCommandInput,
     options: __HttpHandlerOptions,
@@ -1082,8 +1163,14 @@ export interface BedrockAgentCoreControl {
   /**
    * @see {@link GetPolicyCommand}
    */
-  getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
-  getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPolicyCommandOutput>;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    cb: (err: any, data?: GetPolicyCommandOutput) => void
+  ): void;
   getPolicy(
     args: GetPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -1097,7 +1184,10 @@ export interface BedrockAgentCoreControl {
     args: GetPolicyEngineCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPolicyEngineCommandOutput>;
-  getPolicyEngine(args: GetPolicyEngineCommandInput, cb: (err: any, data?: GetPolicyEngineCommandOutput) => void): void;
+  getPolicyEngine(
+    args: GetPolicyEngineCommandInput,
+    cb: (err: any, data?: GetPolicyEngineCommandOutput) => void
+  ): void;
   getPolicyEngine(
     args: GetPolicyEngineCommandInput,
     options: __HttpHandlerOptions,
@@ -1142,8 +1232,14 @@ export interface BedrockAgentCoreControl {
    * @see {@link GetTokenVaultCommand}
    */
   getTokenVault(): Promise<GetTokenVaultCommandOutput>;
-  getTokenVault(args: GetTokenVaultCommandInput, options?: __HttpHandlerOptions): Promise<GetTokenVaultCommandOutput>;
-  getTokenVault(args: GetTokenVaultCommandInput, cb: (err: any, data?: GetTokenVaultCommandOutput) => void): void;
+  getTokenVault(
+    args: GetTokenVaultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTokenVaultCommandOutput>;
+  getTokenVault(
+    args: GetTokenVaultCommandInput,
+    cb: (err: any, data?: GetTokenVaultCommandOutput) => void
+  ): void;
   getTokenVault(
     args: GetTokenVaultCommandInput,
     options: __HttpHandlerOptions,
@@ -1241,8 +1337,14 @@ export interface BedrockAgentCoreControl {
    * @see {@link ListBrowsersCommand}
    */
   listBrowsers(): Promise<ListBrowsersCommandOutput>;
-  listBrowsers(args: ListBrowsersCommandInput, options?: __HttpHandlerOptions): Promise<ListBrowsersCommandOutput>;
-  listBrowsers(args: ListBrowsersCommandInput, cb: (err: any, data?: ListBrowsersCommandOutput) => void): void;
+  listBrowsers(
+    args: ListBrowsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBrowsersCommandOutput>;
+  listBrowsers(
+    args: ListBrowsersCommandInput,
+    cb: (err: any, data?: ListBrowsersCommandOutput) => void
+  ): void;
   listBrowsers(
     args: ListBrowsersCommandInput,
     options: __HttpHandlerOptions,
@@ -1275,7 +1377,10 @@ export interface BedrockAgentCoreControl {
     args: ListEvaluatorsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListEvaluatorsCommandOutput>;
-  listEvaluators(args: ListEvaluatorsCommandInput, cb: (err: any, data?: ListEvaluatorsCommandOutput) => void): void;
+  listEvaluators(
+    args: ListEvaluatorsCommandInput,
+    cb: (err: any, data?: ListEvaluatorsCommandOutput) => void
+  ): void;
   listEvaluators(
     args: ListEvaluatorsCommandInput,
     options: __HttpHandlerOptions,
@@ -1286,8 +1391,14 @@ export interface BedrockAgentCoreControl {
    * @see {@link ListGatewaysCommand}
    */
   listGateways(): Promise<ListGatewaysCommandOutput>;
-  listGateways(args: ListGatewaysCommandInput, options?: __HttpHandlerOptions): Promise<ListGatewaysCommandOutput>;
-  listGateways(args: ListGatewaysCommandInput, cb: (err: any, data?: ListGatewaysCommandOutput) => void): void;
+  listGateways(
+    args: ListGatewaysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGatewaysCommandOutput>;
+  listGateways(
+    args: ListGatewaysCommandInput,
+    cb: (err: any, data?: ListGatewaysCommandOutput) => void
+  ): void;
   listGateways(
     args: ListGatewaysCommandInput,
     options: __HttpHandlerOptions,
@@ -1315,8 +1426,14 @@ export interface BedrockAgentCoreControl {
    * @see {@link ListMemoriesCommand}
    */
   listMemories(): Promise<ListMemoriesCommandOutput>;
-  listMemories(args: ListMemoriesCommandInput, options?: __HttpHandlerOptions): Promise<ListMemoriesCommandOutput>;
-  listMemories(args: ListMemoriesCommandInput, cb: (err: any, data?: ListMemoriesCommandOutput) => void): void;
+  listMemories(
+    args: ListMemoriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMemoriesCommandOutput>;
+  listMemories(
+    args: ListMemoriesCommandInput,
+    cb: (err: any, data?: ListMemoriesCommandOutput) => void
+  ): void;
   listMemories(
     args: ListMemoriesCommandInput,
     options: __HttpHandlerOptions,
@@ -1362,8 +1479,14 @@ export interface BedrockAgentCoreControl {
   /**
    * @see {@link ListPoliciesCommand}
    */
-  listPolicies(args: ListPoliciesCommandInput, options?: __HttpHandlerOptions): Promise<ListPoliciesCommandOutput>;
-  listPolicies(args: ListPoliciesCommandInput, cb: (err: any, data?: ListPoliciesCommandOutput) => void): void;
+  listPolicies(
+    args: ListPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPoliciesCommandOutput>;
+  listPolicies(
+    args: ListPoliciesCommandInput,
+    cb: (err: any, data?: ListPoliciesCommandOutput) => void
+  ): void;
   listPolicies(
     args: ListPoliciesCommandInput,
     options: __HttpHandlerOptions,
@@ -1528,8 +1651,14 @@ export interface BedrockAgentCoreControl {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1539,8 +1668,14 @@ export interface BedrockAgentCoreControl {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1605,7 +1740,10 @@ export interface BedrockAgentCoreControl {
     args: UpdateEvaluatorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateEvaluatorCommandOutput>;
-  updateEvaluator(args: UpdateEvaluatorCommandInput, cb: (err: any, data?: UpdateEvaluatorCommandOutput) => void): void;
+  updateEvaluator(
+    args: UpdateEvaluatorCommandInput,
+    cb: (err: any, data?: UpdateEvaluatorCommandOutput) => void
+  ): void;
   updateEvaluator(
     args: UpdateEvaluatorCommandInput,
     options: __HttpHandlerOptions,
@@ -1615,8 +1753,14 @@ export interface BedrockAgentCoreControl {
   /**
    * @see {@link UpdateGatewayCommand}
    */
-  updateGateway(args: UpdateGatewayCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGatewayCommandOutput>;
-  updateGateway(args: UpdateGatewayCommandInput, cb: (err: any, data?: UpdateGatewayCommandOutput) => void): void;
+  updateGateway(
+    args: UpdateGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGatewayCommandOutput>;
+  updateGateway(
+    args: UpdateGatewayCommandInput,
+    cb: (err: any, data?: UpdateGatewayCommandOutput) => void
+  ): void;
   updateGateway(
     args: UpdateGatewayCommandInput,
     options: __HttpHandlerOptions,
@@ -1643,8 +1787,14 @@ export interface BedrockAgentCoreControl {
   /**
    * @see {@link UpdateMemoryCommand}
    */
-  updateMemory(args: UpdateMemoryCommandInput, options?: __HttpHandlerOptions): Promise<UpdateMemoryCommandOutput>;
-  updateMemory(args: UpdateMemoryCommandInput, cb: (err: any, data?: UpdateMemoryCommandOutput) => void): void;
+  updateMemory(
+    args: UpdateMemoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMemoryCommandOutput>;
+  updateMemory(
+    args: UpdateMemoryCommandInput,
+    cb: (err: any, data?: UpdateMemoryCommandOutput) => void
+  ): void;
   updateMemory(
     args: UpdateMemoryCommandInput,
     options: __HttpHandlerOptions,
@@ -1688,8 +1838,14 @@ export interface BedrockAgentCoreControl {
   /**
    * @see {@link UpdatePolicyCommand}
    */
-  updatePolicy(args: UpdatePolicyCommandInput, options?: __HttpHandlerOptions): Promise<UpdatePolicyCommandOutput>;
-  updatePolicy(args: UpdatePolicyCommandInput, cb: (err: any, data?: UpdatePolicyCommandOutput) => void): void;
+  updatePolicy(
+    args: UpdatePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePolicyCommandOutput>;
+  updatePolicy(
+    args: UpdatePolicyCommandInput,
+    cb: (err: any, data?: UpdatePolicyCommandOutput) => void
+  ): void;
   updatePolicy(
     args: UpdatePolicyCommandInput,
     options: __HttpHandlerOptions,

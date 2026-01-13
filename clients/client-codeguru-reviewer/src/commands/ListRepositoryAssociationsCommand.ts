@@ -10,7 +10,7 @@ import type {
 } from "../CodeGuruReviewerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListRepositoryAssociationsRequest, ListRepositoryAssociationsResponse } from "../models/models_0";
-import { ListRepositoryAssociations } from "../schemas/schemas_0";
+import { ListRepositoryAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class ListRepositoryAssociationsCommand extends $Command
   })
   .s("AWSGuruFrontendService", "ListRepositoryAssociations", {})
   .n("CodeGuruReviewerClient", "ListRepositoryAssociationsCommand")
-  .sc(ListRepositoryAssociations)
+  .sc(ListRepositoryAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

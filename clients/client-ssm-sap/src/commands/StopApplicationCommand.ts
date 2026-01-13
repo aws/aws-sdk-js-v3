@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopApplicationInput, StopApplicationOutput } from "../models/models_0";
-import { StopApplication } from "../schemas/schemas_0";
+import { StopApplication$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -87,7 +87,7 @@ export class StopApplicationCommand extends $Command
   })
   .s("SsmSap", "StopApplication", {})
   .n("SsmSapClient", "StopApplicationCommand")
-  .sc(StopApplication)
+  .sc(StopApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

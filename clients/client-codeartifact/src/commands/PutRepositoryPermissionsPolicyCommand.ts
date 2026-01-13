@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutRepositoryPermissionsPolicyRequest, PutRepositoryPermissionsPolicyResult } from "../models/models_0";
-import { PutRepositoryPermissionsPolicy } from "../schemas/schemas_0";
+import { PutRepositoryPermissionsPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface PutRepositoryPermissionsPolicyCommandInput extends PutRepositor
  *
  * The output of {@link PutRepositoryPermissionsPolicyCommand}.
  */
-export interface PutRepositoryPermissionsPolicyCommandOutput
-  extends PutRepositoryPermissionsPolicyResult,
-    __MetadataBearer {}
+export interface PutRepositoryPermissionsPolicyCommandOutput extends PutRepositoryPermissionsPolicyResult, __MetadataBearer {}
 
 /**
  * <p>
@@ -123,7 +121,7 @@ export class PutRepositoryPermissionsPolicyCommand extends $Command
   })
   .s("CodeArtifactControlPlaneService", "PutRepositoryPermissionsPolicy", {})
   .n("CodeartifactClient", "PutRepositoryPermissionsPolicyCommand")
-  .sc(PutRepositoryPermissionsPolicy)
+  .sc(PutRepositoryPermissionsPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

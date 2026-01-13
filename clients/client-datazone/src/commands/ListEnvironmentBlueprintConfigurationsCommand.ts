@@ -9,7 +9,7 @@ import type {
   ListEnvironmentBlueprintConfigurationsInput,
   ListEnvironmentBlueprintConfigurationsOutput,
 } from "../models/models_1";
-import { ListEnvironmentBlueprintConfigurations } from "../schemas/schemas_0";
+import { ListEnvironmentBlueprintConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListEnvironmentBlueprintConfigurationsCommand}.
  */
-export interface ListEnvironmentBlueprintConfigurationsCommandInput
-  extends ListEnvironmentBlueprintConfigurationsInput {}
+export interface ListEnvironmentBlueprintConfigurationsCommandInput extends ListEnvironmentBlueprintConfigurationsInput {}
 /**
  * @public
  *
  * The output of {@link ListEnvironmentBlueprintConfigurationsCommand}.
  */
-export interface ListEnvironmentBlueprintConfigurationsCommandOutput
-  extends ListEnvironmentBlueprintConfigurationsOutput,
-    __MetadataBearer {}
+export interface ListEnvironmentBlueprintConfigurationsCommandOutput extends ListEnvironmentBlueprintConfigurationsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists blueprint configurations for a Amazon DataZone environment.</p>
@@ -128,7 +125,7 @@ export class ListEnvironmentBlueprintConfigurationsCommand extends $Command
   })
   .s("DataZone", "ListEnvironmentBlueprintConfigurations", {})
   .n("DataZoneClient", "ListEnvironmentBlueprintConfigurationsCommand")
-  .sc(ListEnvironmentBlueprintConfigurations)
+  .sc(ListEnvironmentBlueprintConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

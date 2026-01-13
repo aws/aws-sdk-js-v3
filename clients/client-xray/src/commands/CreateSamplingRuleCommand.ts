@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateSamplingRuleRequest, CreateSamplingRuleResult } from "../models/models_0";
-import { CreateSamplingRule } from "../schemas/schemas_0";
+import { CreateSamplingRule$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -138,7 +138,7 @@ export class CreateSamplingRuleCommand extends $Command
   })
   .s("AWSXRay", "CreateSamplingRule", {})
   .n("XRayClient", "CreateSamplingRuleCommand")
-  .sc(CreateSamplingRule)
+  .sc(CreateSamplingRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

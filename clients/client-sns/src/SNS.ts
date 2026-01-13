@@ -235,8 +235,14 @@ export interface SNS {
   /**
    * @see {@link AddPermissionCommand}
    */
-  addPermission(args: AddPermissionCommandInput, options?: __HttpHandlerOptions): Promise<AddPermissionCommandOutput>;
-  addPermission(args: AddPermissionCommandInput, cb: (err: any, data?: AddPermissionCommandOutput) => void): void;
+  addPermission(
+    args: AddPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddPermissionCommandOutput>;
+  addPermission(
+    args: AddPermissionCommandInput,
+    cb: (err: any, data?: AddPermissionCommandOutput) => void
+  ): void;
   addPermission(
     args: AddPermissionCommandInput,
     options: __HttpHandlerOptions,
@@ -331,8 +337,14 @@ export interface SNS {
   /**
    * @see {@link CreateTopicCommand}
    */
-  createTopic(args: CreateTopicCommandInput, options?: __HttpHandlerOptions): Promise<CreateTopicCommandOutput>;
-  createTopic(args: CreateTopicCommandInput, cb: (err: any, data?: CreateTopicCommandOutput) => void): void;
+  createTopic(
+    args: CreateTopicCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTopicCommandOutput>;
+  createTopic(
+    args: CreateTopicCommandInput,
+    cb: (err: any, data?: CreateTopicCommandOutput) => void
+  ): void;
   createTopic(
     args: CreateTopicCommandInput,
     options: __HttpHandlerOptions,
@@ -346,7 +358,10 @@ export interface SNS {
     args: DeleteEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEndpointCommandOutput>;
-  deleteEndpoint(args: DeleteEndpointCommandInput, cb: (err: any, data?: DeleteEndpointCommandOutput) => void): void;
+  deleteEndpoint(
+    args: DeleteEndpointCommandInput,
+    cb: (err: any, data?: DeleteEndpointCommandOutput) => void
+  ): void;
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
     options: __HttpHandlerOptions,
@@ -390,8 +405,14 @@ export interface SNS {
   /**
    * @see {@link DeleteTopicCommand}
    */
-  deleteTopic(args: DeleteTopicCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTopicCommandOutput>;
-  deleteTopic(args: DeleteTopicCommandInput, cb: (err: any, data?: DeleteTopicCommandOutput) => void): void;
+  deleteTopic(
+    args: DeleteTopicCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTopicCommandOutput>;
+  deleteTopic(
+    args: DeleteTopicCommandInput,
+    cb: (err: any, data?: DeleteTopicCommandOutput) => void
+  ): void;
   deleteTopic(
     args: DeleteTopicCommandInput,
     options: __HttpHandlerOptions,
@@ -664,8 +685,14 @@ export interface SNS {
    * @see {@link ListTopicsCommand}
    */
   listTopics(): Promise<ListTopicsCommandOutput>;
-  listTopics(args: ListTopicsCommandInput, options?: __HttpHandlerOptions): Promise<ListTopicsCommandOutput>;
-  listTopics(args: ListTopicsCommandInput, cb: (err: any, data?: ListTopicsCommandOutput) => void): void;
+  listTopics(
+    args: ListTopicsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTopicsCommandOutput>;
+  listTopics(
+    args: ListTopicsCommandInput,
+    cb: (err: any, data?: ListTopicsCommandOutput) => void
+  ): void;
   listTopics(
     args: ListTopicsCommandInput,
     options: __HttpHandlerOptions,
@@ -692,8 +719,14 @@ export interface SNS {
   /**
    * @see {@link PublishCommand}
    */
-  publish(args: PublishCommandInput, options?: __HttpHandlerOptions): Promise<PublishCommandOutput>;
-  publish(args: PublishCommandInput, cb: (err: any, data?: PublishCommandOutput) => void): void;
+  publish(
+    args: PublishCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PublishCommandOutput>;
+  publish(
+    args: PublishCommandInput,
+    cb: (err: any, data?: PublishCommandOutput) => void
+  ): void;
   publish(
     args: PublishCommandInput,
     options: __HttpHandlerOptions,
@@ -703,8 +736,14 @@ export interface SNS {
   /**
    * @see {@link PublishBatchCommand}
    */
-  publishBatch(args: PublishBatchCommandInput, options?: __HttpHandlerOptions): Promise<PublishBatchCommandOutput>;
-  publishBatch(args: PublishBatchCommandInput, cb: (err: any, data?: PublishBatchCommandOutput) => void): void;
+  publishBatch(
+    args: PublishBatchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PublishBatchCommandOutput>;
+  publishBatch(
+    args: PublishBatchCommandInput,
+    cb: (err: any, data?: PublishBatchCommandOutput) => void
+  ): void;
   publishBatch(
     args: PublishBatchCommandInput,
     options: __HttpHandlerOptions,
@@ -833,8 +872,14 @@ export interface SNS {
   /**
    * @see {@link SubscribeCommand}
    */
-  subscribe(args: SubscribeCommandInput, options?: __HttpHandlerOptions): Promise<SubscribeCommandOutput>;
-  subscribe(args: SubscribeCommandInput, cb: (err: any, data?: SubscribeCommandOutput) => void): void;
+  subscribe(
+    args: SubscribeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SubscribeCommandOutput>;
+  subscribe(
+    args: SubscribeCommandInput,
+    cb: (err: any, data?: SubscribeCommandOutput) => void
+  ): void;
   subscribe(
     args: SubscribeCommandInput,
     options: __HttpHandlerOptions,
@@ -844,8 +889,14 @@ export interface SNS {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -855,8 +906,14 @@ export interface SNS {
   /**
    * @see {@link UnsubscribeCommand}
    */
-  unsubscribe(args: UnsubscribeCommandInput, options?: __HttpHandlerOptions): Promise<UnsubscribeCommandOutput>;
-  unsubscribe(args: UnsubscribeCommandInput, cb: (err: any, data?: UnsubscribeCommandOutput) => void): void;
+  unsubscribe(
+    args: UnsubscribeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnsubscribeCommandOutput>;
+  unsubscribe(
+    args: UnsubscribeCommandInput,
+    cb: (err: any, data?: UnsubscribeCommandOutput) => void
+  ): void;
   unsubscribe(
     args: UnsubscribeCommandInput,
     options: __HttpHandlerOptions,
@@ -866,8 +923,14 @@ export interface SNS {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

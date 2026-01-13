@@ -9,7 +9,7 @@ import type {
   CreateEnvironmentAccountConnectionOutput,
 } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { CreateEnvironmentAccountConnection } from "../schemas/schemas_0";
+import { CreateEnvironmentAccountConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateEnvironmentAccountConnectionCommandInput extends CreateEn
  *
  * The output of {@link CreateEnvironmentAccountConnectionCommand}.
  */
-export interface CreateEnvironmentAccountConnectionCommandOutput
-  extends CreateEnvironmentAccountConnectionOutput,
-    __MetadataBearer {}
+export interface CreateEnvironmentAccountConnectionCommandOutput extends CreateEnvironmentAccountConnectionOutput, __MetadataBearer {}
 
 /**
  * <p>Create an environment account connection in an environment account so that environment infrastructure resources can be provisioned in the environment
@@ -126,7 +124,7 @@ export class CreateEnvironmentAccountConnectionCommand extends $Command
   })
   .s("AwsProton20200720", "CreateEnvironmentAccountConnection", {})
   .n("ProtonClient", "CreateEnvironmentAccountConnectionCommand")
-  .sc(CreateEnvironmentAccountConnection)
+  .sc(CreateEnvironmentAccountConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { UpdateFirewallAnalysisSettings } from "../schemas/schemas_0";
+import { UpdateFirewallAnalysisSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface UpdateFirewallAnalysisSettingsCommandInput extends UpdateFirewa
  *
  * The output of {@link UpdateFirewallAnalysisSettingsCommand}.
  */
-export interface UpdateFirewallAnalysisSettingsCommandOutput
-  extends UpdateFirewallAnalysisSettingsResponse,
-    __MetadataBearer {}
+export interface UpdateFirewallAnalysisSettingsCommandOutput extends UpdateFirewallAnalysisSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Enables specific types of firewall analysis on a specific firewall you define.</p>
@@ -118,7 +116,7 @@ export class UpdateFirewallAnalysisSettingsCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "UpdateFirewallAnalysisSettings", {})
   .n("NetworkFirewallClient", "UpdateFirewallAnalysisSettingsCommand")
-  .sc(UpdateFirewallAnalysisSettings)
+  .sc(UpdateFirewallAnalysisSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

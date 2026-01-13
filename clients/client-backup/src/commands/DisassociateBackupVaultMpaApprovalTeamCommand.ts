@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateBackupVaultMpaApprovalTeamInput } from "../models/models_0";
-import { DisassociateBackupVaultMpaApprovalTeam } from "../schemas/schemas_0";
+import { DisassociateBackupVaultMpaApprovalTeam$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link DisassociateBackupVaultMpaApprovalTeamCommand}.
  */
-export interface DisassociateBackupVaultMpaApprovalTeamCommandInput
-  extends DisassociateBackupVaultMpaApprovalTeamInput {}
+export interface DisassociateBackupVaultMpaApprovalTeamCommandInput extends DisassociateBackupVaultMpaApprovalTeamInput {}
 /**
  * @public
  *
@@ -90,7 +89,7 @@ export class DisassociateBackupVaultMpaApprovalTeamCommand extends $Command
   })
   .s("CryoControllerUserManager", "DisassociateBackupVaultMpaApprovalTeam", {})
   .n("BackupClient", "DisassociateBackupVaultMpaApprovalTeamCommand")
-  .sc(DisassociateBackupVaultMpaApprovalTeam)
+  .sc(DisassociateBackupVaultMpaApprovalTeam$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

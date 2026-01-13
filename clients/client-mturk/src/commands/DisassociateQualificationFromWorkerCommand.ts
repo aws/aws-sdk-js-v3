@@ -9,7 +9,7 @@ import type {
   DisassociateQualificationFromWorkerResponse,
 } from "../models/models_0";
 import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { DisassociateQualificationFromWorker } from "../schemas/schemas_0";
+import { DisassociateQualificationFromWorker$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DisassociateQualificationFromWorkerCommandInput extends Disasso
  *
  * The output of {@link DisassociateQualificationFromWorkerCommand}.
  */
-export interface DisassociateQualificationFromWorkerCommandOutput
-  extends DisassociateQualificationFromWorkerResponse,
-    __MetadataBearer {}
+export interface DisassociateQualificationFromWorkerCommandOutput extends DisassociateQualificationFromWorkerResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -91,7 +89,7 @@ export class DisassociateQualificationFromWorkerCommand extends $Command
   })
   .s("MTurkRequesterServiceV20170117", "DisassociateQualificationFromWorker", {})
   .n("MTurkClient", "DisassociateQualificationFromWorkerCommand")
-  .sc(DisassociateQualificationFromWorker)
+  .sc(DisassociateQualificationFromWorker$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

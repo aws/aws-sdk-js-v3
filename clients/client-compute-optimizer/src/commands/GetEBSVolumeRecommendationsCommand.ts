@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetEBSVolumeRecommendationsRequest, GetEBSVolumeRecommendationsResponse } from "../models/models_0";
-import { GetEBSVolumeRecommendations } from "../schemas/schemas_0";
+import { GetEBSVolumeRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetEBSVolumeRecommendationsCommandInput extends GetEBSVolumeRec
  *
  * The output of {@link GetEBSVolumeRecommendationsCommand}.
  */
-export interface GetEBSVolumeRecommendationsCommandOutput
-  extends GetEBSVolumeRecommendationsResponse,
-    __MetadataBearer {}
+export interface GetEBSVolumeRecommendationsCommandOutput extends GetEBSVolumeRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns Amazon Elastic Block Store (Amazon EBS) volume recommendations.</p>
@@ -196,7 +194,7 @@ export class GetEBSVolumeRecommendationsCommand extends $Command
   })
   .s("ComputeOptimizerService", "GetEBSVolumeRecommendations", {})
   .n("ComputeOptimizerClient", "GetEBSVolumeRecommendationsCommand")
-  .sc(GetEBSVolumeRecommendations)
+  .sc(GetEBSVolumeRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

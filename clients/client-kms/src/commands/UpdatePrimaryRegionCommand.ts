@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import type { UpdatePrimaryRegionRequest } from "../models/models_0";
-import { UpdatePrimaryRegion } from "../schemas/schemas_0";
+import { UpdatePrimaryRegion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -197,7 +197,7 @@ export class UpdatePrimaryRegionCommand extends $Command
   })
   .s("TrentService", "UpdatePrimaryRegion", {})
   .n("KMSClient", "UpdatePrimaryRegionCommand")
-  .sc(UpdatePrimaryRegion)
+  .sc(UpdatePrimaryRegion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

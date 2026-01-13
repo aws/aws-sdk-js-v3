@@ -9,7 +9,7 @@ import type {
   CreateFieldLevelEncryptionConfigRequest,
   CreateFieldLevelEncryptionConfigResult,
 } from "../models/models_0";
-import { CreateFieldLevelEncryptionConfig } from "../schemas/schemas_0";
+import { CreateFieldLevelEncryptionConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateFieldLevelEncryptionConfigCommandInput extends CreateFiel
  *
  * The output of {@link CreateFieldLevelEncryptionConfigCommand}.
  */
-export interface CreateFieldLevelEncryptionConfigCommandOutput
-  extends CreateFieldLevelEncryptionConfigResult,
-    __MetadataBearer {}
+export interface CreateFieldLevelEncryptionConfigCommandOutput extends CreateFieldLevelEncryptionConfigResult, __MetadataBearer {}
 
 /**
  * <p>Create a new field-level encryption configuration.</p>
@@ -164,7 +162,7 @@ export class CreateFieldLevelEncryptionConfigCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "CreateFieldLevelEncryptionConfig", {})
   .n("CloudFrontClient", "CreateFieldLevelEncryptionConfigCommand")
-  .sc(CreateFieldLevelEncryptionConfig)
+  .sc(CreateFieldLevelEncryptionConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

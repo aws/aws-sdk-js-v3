@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateUnreferencedMergeCommitInput, CreateUnreferencedMergeCommitOutput } from "../models/models_0";
-import { CreateUnreferencedMergeCommit } from "../schemas/schemas_0";
+import { CreateUnreferencedMergeCommit$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateUnreferencedMergeCommitCommandInput extends CreateUnrefer
  *
  * The output of {@link CreateUnreferencedMergeCommitCommand}.
  */
-export interface CreateUnreferencedMergeCommitCommandOutput
-  extends CreateUnreferencedMergeCommitOutput,
-    __MetadataBearer {}
+export interface CreateUnreferencedMergeCommitCommandOutput extends CreateUnreferencedMergeCommitOutput, __MetadataBearer {}
 
 /**
  * <p>Creates an unreferenced commit that represents the result of merging two branches
@@ -233,7 +231,7 @@ export class CreateUnreferencedMergeCommitCommand extends $Command
   })
   .s("CodeCommit_20150413", "CreateUnreferencedMergeCommit", {})
   .n("CodeCommitClient", "CreateUnreferencedMergeCommitCommand")
-  .sc(CreateUnreferencedMergeCommit)
+  .sc(CreateUnreferencedMergeCommit$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

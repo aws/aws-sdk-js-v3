@@ -13,7 +13,7 @@ import type {
   ListCalculatedAttributeDefinitionsRequest,
   ListCalculatedAttributeDefinitionsResponse,
 } from "../models/models_0";
-import { ListCalculatedAttributeDefinitions } from "../schemas/schemas_0";
+import { ListCalculatedAttributeDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ListCalculatedAttributeDefinitionsCommandInput extends ListCalc
  *
  * The output of {@link ListCalculatedAttributeDefinitionsCommand}.
  */
-export interface ListCalculatedAttributeDefinitionsCommandOutput
-  extends ListCalculatedAttributeDefinitionsResponse,
-    __MetadataBearer {}
+export interface ListCalculatedAttributeDefinitionsCommandOutput extends ListCalculatedAttributeDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists calculated attribute definitions for Customer Profiles</p>
@@ -113,7 +111,7 @@ export class ListCalculatedAttributeDefinitionsCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "ListCalculatedAttributeDefinitions", {})
   .n("CustomerProfilesClient", "ListCalculatedAttributeDefinitionsCommand")
-  .sc(ListCalculatedAttributeDefinitions)
+  .sc(ListCalculatedAttributeDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

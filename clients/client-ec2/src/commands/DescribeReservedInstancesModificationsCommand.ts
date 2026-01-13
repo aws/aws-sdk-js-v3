@@ -9,7 +9,7 @@ import type {
   DescribeReservedInstancesModificationsRequest,
   DescribeReservedInstancesModificationsResult,
 } from "../models/models_4";
-import { DescribeReservedInstancesModifications } from "../schemas/schemas_0";
+import { DescribeReservedInstancesModifications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeReservedInstancesModificationsCommand}.
  */
-export interface DescribeReservedInstancesModificationsCommandInput
-  extends DescribeReservedInstancesModificationsRequest {}
+export interface DescribeReservedInstancesModificationsCommandInput extends DescribeReservedInstancesModificationsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeReservedInstancesModificationsCommand}.
  */
-export interface DescribeReservedInstancesModificationsCommandOutput
-  extends DescribeReservedInstancesModificationsResult,
-    __MetadataBearer {}
+export interface DescribeReservedInstancesModificationsCommandOutput extends DescribeReservedInstancesModificationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the modifications made to your Reserved Instances. If no parameter is specified,
@@ -128,7 +125,7 @@ export class DescribeReservedInstancesModificationsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeReservedInstancesModifications", {})
   .n("EC2Client", "DescribeReservedInstancesModificationsCommand")
-  .sc(DescribeReservedInstancesModifications)
+  .sc(DescribeReservedInstancesModifications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

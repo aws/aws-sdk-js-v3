@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import type { ListDeviceDefinitionVersionsRequest, ListDeviceDefinitionVersionsResponse } from "../models/models_0";
-import { ListDeviceDefinitionVersions } from "../schemas/schemas_0";
+import { ListDeviceDefinitionVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListDeviceDefinitionVersionsCommandInput extends ListDeviceDefi
  *
  * The output of {@link ListDeviceDefinitionVersionsCommand}.
  */
-export interface ListDeviceDefinitionVersionsCommandOutput
-  extends ListDeviceDefinitionVersionsResponse,
-    __MetadataBearer {}
+export interface ListDeviceDefinitionVersionsCommandOutput extends ListDeviceDefinitionVersionsResponse, __MetadataBearer {}
 
 /**
  * Lists the versions of a device definition.
@@ -88,7 +86,7 @@ export class ListDeviceDefinitionVersionsCommand extends $Command
   })
   .s("Greengrass", "ListDeviceDefinitionVersions", {})
   .n("GreengrassClient", "ListDeviceDefinitionVersionsCommand")
-  .sc(ListDeviceDefinitionVersions)
+  .sc(ListDeviceDefinitionVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

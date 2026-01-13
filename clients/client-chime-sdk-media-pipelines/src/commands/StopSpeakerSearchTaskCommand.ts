@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMediaPipelinesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopSpeakerSearchTaskRequest } from "../models/models_0";
-import { StopSpeakerSearchTask } from "../schemas/schemas_0";
+import { StopSpeakerSearchTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class StopSpeakerSearchTaskCommand extends $Command
   })
   .s("ChimeSDKMediaPipelinesService", "StopSpeakerSearchTask", {})
   .n("ChimeSDKMediaPipelinesClient", "StopSpeakerSearchTaskCommand")
-  .sc(StopSpeakerSearchTask)
+  .sc(StopSpeakerSearchTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

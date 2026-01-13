@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GameLiftStreamsClient";
 import type { GetStreamSessionInput, GetStreamSessionOutput } from "../models/models_0";
-import { GetStreamSession } from "../schemas/schemas_0";
+import { GetStreamSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -64,6 +64,9 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionOutput, _
  * //   ],
  * //   AdditionalEnvironmentVariables: { // EnvironmentVariables
  * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   PerformanceStatsConfiguration: { // PerformanceStatsConfiguration
+ * //     SharedWithClient: true || false,
  * //   },
  * //   LogFileLocationUri: "STRING_VALUE",
  * //   WebSdkProtocolUrl: "STRING_VALUE",
@@ -120,7 +123,7 @@ export class GetStreamSessionCommand extends $Command
   })
   .s("GameLiftStreams", "GetStreamSession", {})
   .n("GameLiftStreamsClient", "GetStreamSessionCommand")
-  .sc(GetStreamSession)
+  .sc(GetStreamSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

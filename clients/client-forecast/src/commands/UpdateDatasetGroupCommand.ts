@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import type { UpdateDatasetGroupRequest, UpdateDatasetGroupResponse } from "../models/models_0";
-import { UpdateDatasetGroup } from "../schemas/schemas_0";
+import { UpdateDatasetGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class UpdateDatasetGroupCommand extends $Command
   })
   .s("AmazonForecast", "UpdateDatasetGroup", {})
   .n("ForecastClient", "UpdateDatasetGroupCommand")
-  .sc(UpdateDatasetGroup)
+  .sc(UpdateDatasetGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

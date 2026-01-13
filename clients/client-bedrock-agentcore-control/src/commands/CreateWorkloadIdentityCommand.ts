@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateWorkloadIdentityRequest, CreateWorkloadIdentityResponse } from "../models/models_1";
-import { CreateWorkloadIdentity } from "../schemas/schemas_0";
+import { CreateWorkloadIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class CreateWorkloadIdentityCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "CreateWorkloadIdentity", {})
   .n("BedrockAgentCoreControlClient", "CreateWorkloadIdentityCommand")
-  .sc(CreateWorkloadIdentity)
+  .sc(CreateWorkloadIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

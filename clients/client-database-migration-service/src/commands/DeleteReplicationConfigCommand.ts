@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteReplicationConfigMessage, DeleteReplicationConfigResponse } from "../models/models_0";
-import { DeleteReplicationConfig } from "../schemas/schemas_0";
+import { DeleteReplicationConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class DeleteReplicationConfigCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DeleteReplicationConfig", {})
   .n("DatabaseMigrationServiceClient", "DeleteReplicationConfigCommand")
-  .sc(DeleteReplicationConfig)
+  .sc(DeleteReplicationConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

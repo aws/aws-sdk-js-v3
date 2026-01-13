@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputType
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { type GetWorkUnitResultsRequest, GetWorkUnitResultsResponse } from "../models/models_0";
-import { GetWorkUnitResults } from "../schemas/schemas_0";
+import { GetWorkUnitResults$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetWorkUnitResultsCommandInput extends GetWorkUnitResultsReques
  *
  * The output of {@link GetWorkUnitResultsCommand}.
  */
-export interface GetWorkUnitResultsCommandOutput
-  extends Omit<GetWorkUnitResultsResponse, "ResultStream">,
-    __MetadataBearer {
+export interface GetWorkUnitResultsCommandOutput extends Omit<GetWorkUnitResultsResponse, "ResultStream">, __MetadataBearer {
   ResultStream?: StreamingBlobPayloadOutputTypes;
 }
 
@@ -99,7 +97,7 @@ export class GetWorkUnitResultsCommand extends $Command
   })
   .s("AWSLakeFormation", "GetWorkUnitResults", {})
   .n("LakeFormationClient", "GetWorkUnitResultsCommand")
-  .sc(GetWorkUnitResults)
+  .sc(GetWorkUnitResults$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

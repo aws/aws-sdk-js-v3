@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TerminateClientVpnConnectionsRequest, TerminateClientVpnConnectionsResult } from "../models/models_7";
-import { TerminateClientVpnConnections } from "../schemas/schemas_0";
+import { TerminateClientVpnConnections$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface TerminateClientVpnConnectionsCommandInput extends TerminateClie
  *
  * The output of {@link TerminateClientVpnConnectionsCommand}.
  */
-export interface TerminateClientVpnConnectionsCommandOutput
-  extends TerminateClientVpnConnectionsResult,
-    __MetadataBearer {}
+export interface TerminateClientVpnConnectionsCommandOutput extends TerminateClientVpnConnectionsResult, __MetadataBearer {}
 
 /**
  * <p>Terminates active Client VPN endpoint connections. This action can be used to terminate a specific client connection, or up to five connections established by a specific user.</p>
@@ -92,7 +90,7 @@ export class TerminateClientVpnConnectionsCommand extends $Command
   })
   .s("AmazonEC2", "TerminateClientVpnConnections", {})
   .n("EC2Client", "TerminateClientVpnConnectionsCommand")
-  .sc(TerminateClientVpnConnections)
+  .sc(TerminateClientVpnConnections$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UntagQueueRequest } from "../models/models_0";
-import { UntagQueue } from "../schemas/schemas_0";
+import { UntagQueue$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -107,7 +107,7 @@ export class UntagQueueCommand extends $Command
   })
   .s("AmazonSQS", "UntagQueue", {})
   .n("SQSClient", "UntagQueueCommand")
-  .sc(UntagQueue)
+  .sc(UntagQueue$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

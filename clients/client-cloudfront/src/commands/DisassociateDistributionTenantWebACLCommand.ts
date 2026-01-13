@@ -9,7 +9,7 @@ import type {
   DisassociateDistributionTenantWebACLRequest,
   DisassociateDistributionTenantWebACLResult,
 } from "../models/models_0";
-import { DisassociateDistributionTenantWebACL } from "../schemas/schemas_0";
+import { DisassociateDistributionTenantWebACL$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DisassociateDistributionTenantWebACLCommandInput extends Disass
  *
  * The output of {@link DisassociateDistributionTenantWebACLCommand}.
  */
-export interface DisassociateDistributionTenantWebACLCommandOutput
-  extends DisassociateDistributionTenantWebACLResult,
-    __MetadataBearer {}
+export interface DisassociateDistributionTenantWebACLCommandOutput extends DisassociateDistributionTenantWebACLResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates a distribution tenant from the WAF web ACL.</p>
@@ -95,7 +93,7 @@ export class DisassociateDistributionTenantWebACLCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "DisassociateDistributionTenantWebACL", {})
   .n("CloudFrontClient", "DisassociateDistributionTenantWebACLCommand")
-  .sc(DisassociateDistributionTenantWebACL)
+  .sc(DisassociateDistributionTenantWebACL$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

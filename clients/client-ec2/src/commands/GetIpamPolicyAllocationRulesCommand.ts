@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetIpamPolicyAllocationRulesRequest, GetIpamPolicyAllocationRulesResult } from "../models/models_6";
-import { GetIpamPolicyAllocationRules } from "../schemas/schemas_0";
+import { GetIpamPolicyAllocationRules$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetIpamPolicyAllocationRulesCommandInput extends GetIpamPolicyA
  *
  * The output of {@link GetIpamPolicyAllocationRulesCommand}.
  */
-export interface GetIpamPolicyAllocationRulesCommandOutput
-  extends GetIpamPolicyAllocationRulesResult,
-    __MetadataBearer {}
+export interface GetIpamPolicyAllocationRulesCommandOutput extends GetIpamPolicyAllocationRulesResult, __MetadataBearer {}
 
 /**
  * <p>Gets the allocation rules for an IPAM policy.</p>
@@ -102,7 +100,7 @@ export class GetIpamPolicyAllocationRulesCommand extends $Command
   })
   .s("AmazonEC2", "GetIpamPolicyAllocationRules", {})
   .n("EC2Client", "GetIpamPolicyAllocationRulesCommand")
-  .sc(GetIpamPolicyAllocationRules)
+  .sc(GetIpamPolicyAllocationRules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

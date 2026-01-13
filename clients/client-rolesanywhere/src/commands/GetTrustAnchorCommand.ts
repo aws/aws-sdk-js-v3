@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ScalarTrustAnchorRequest, TrustAnchorDetailResponse } from "../models/models_0";
 import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
-import { GetTrustAnchor } from "../schemas/schemas_0";
+import { GetTrustAnchor$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class GetTrustAnchorCommand extends $Command
   })
   .s("RolesAnywhere", "GetTrustAnchor", {})
   .n("RolesAnywhereClient", "GetTrustAnchorCommand")
-  .sc(GetTrustAnchor)
+  .sc(GetTrustAnchor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

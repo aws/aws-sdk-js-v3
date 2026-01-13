@@ -9,7 +9,7 @@ import type {
   AssociateCapacityReservationBillingOwnerRequest,
   AssociateCapacityReservationBillingOwnerResult,
 } from "../models/models_0";
-import { AssociateCapacityReservationBillingOwner } from "../schemas/schemas_0";
+import { AssociateCapacityReservationBillingOwner$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AssociateCapacityReservationBillingOwnerCommand}.
  */
-export interface AssociateCapacityReservationBillingOwnerCommandInput
-  extends AssociateCapacityReservationBillingOwnerRequest {}
+export interface AssociateCapacityReservationBillingOwnerCommandInput extends AssociateCapacityReservationBillingOwnerRequest {}
 /**
  * @public
  *
  * The output of {@link AssociateCapacityReservationBillingOwnerCommand}.
  */
-export interface AssociateCapacityReservationBillingOwnerCommandOutput
-  extends AssociateCapacityReservationBillingOwnerResult,
-    __MetadataBearer {}
+export interface AssociateCapacityReservationBillingOwnerCommandOutput extends AssociateCapacityReservationBillingOwnerResult, __MetadataBearer {}
 
 /**
  * <p>Initiates a request to assign billing of the unused capacity of a shared Capacity
@@ -84,7 +81,7 @@ export class AssociateCapacityReservationBillingOwnerCommand extends $Command
   })
   .s("AmazonEC2", "AssociateCapacityReservationBillingOwner", {})
   .n("EC2Client", "AssociateCapacityReservationBillingOwnerCommand")
-  .sc(AssociateCapacityReservationBillingOwner)
+  .sc(AssociateCapacityReservationBillingOwner$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

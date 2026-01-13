@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListStackSetOperationResultsInput, ListStackSetOperationResultsOutput } from "../models/models_0";
-import { ListStackSetOperationResults } from "../schemas/schemas_0";
+import { ListStackSetOperationResults$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListStackSetOperationResultsCommandInput extends ListStackSetOp
  *
  * The output of {@link ListStackSetOperationResultsCommand}.
  */
-export interface ListStackSetOperationResultsCommandOutput
-  extends ListStackSetOperationResultsOutput,
-    __MetadataBearer {}
+export interface ListStackSetOperationResultsCommandOutput extends ListStackSetOperationResultsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns summary information about the results of a StackSet operation.</p>
@@ -112,7 +110,7 @@ export class ListStackSetOperationResultsCommand extends $Command
   })
   .s("CloudFormation", "ListStackSetOperationResults", {})
   .n("CloudFormationClient", "ListStackSetOperationResultsCommand")
-  .sc(ListStackSetOperationResults)
+  .sc(ListStackSetOperationResults$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

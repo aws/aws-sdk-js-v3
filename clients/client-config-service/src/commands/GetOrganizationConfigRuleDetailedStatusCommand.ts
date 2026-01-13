@@ -9,7 +9,7 @@ import type {
   GetOrganizationConfigRuleDetailedStatusRequest,
   GetOrganizationConfigRuleDetailedStatusResponse,
 } from "../models/models_0";
-import { GetOrganizationConfigRuleDetailedStatus } from "../schemas/schemas_0";
+import { GetOrganizationConfigRuleDetailedStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetOrganizationConfigRuleDetailedStatusCommand}.
  */
-export interface GetOrganizationConfigRuleDetailedStatusCommandInput
-  extends GetOrganizationConfigRuleDetailedStatusRequest {}
+export interface GetOrganizationConfigRuleDetailedStatusCommandInput extends GetOrganizationConfigRuleDetailedStatusRequest {}
 /**
  * @public
  *
  * The output of {@link GetOrganizationConfigRuleDetailedStatusCommand}.
  */
-export interface GetOrganizationConfigRuleDetailedStatusCommandOutput
-  extends GetOrganizationConfigRuleDetailedStatusResponse,
-    __MetadataBearer {}
+export interface GetOrganizationConfigRuleDetailedStatusCommandOutput extends GetOrganizationConfigRuleDetailedStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Returns detailed status for each member account within an organization for a given organization Config rule.</p>
@@ -127,7 +124,7 @@ export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command
   })
   .s("StarlingDoveService", "GetOrganizationConfigRuleDetailedStatus", {})
   .n("ConfigServiceClient", "GetOrganizationConfigRuleDetailedStatusCommand")
-  .sc(GetOrganizationConfigRuleDetailedStatus)
+  .sc(GetOrganizationConfigRuleDetailedStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

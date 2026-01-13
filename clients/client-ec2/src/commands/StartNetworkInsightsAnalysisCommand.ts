@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartNetworkInsightsAnalysisRequest, StartNetworkInsightsAnalysisResult } from "../models/models_7";
-import { StartNetworkInsightsAnalysis } from "../schemas/schemas_0";
+import { StartNetworkInsightsAnalysis$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface StartNetworkInsightsAnalysisCommandInput extends StartNetworkIn
  *
  * The output of {@link StartNetworkInsightsAnalysisCommand}.
  */
-export interface StartNetworkInsightsAnalysisCommandOutput
-  extends StartNetworkInsightsAnalysisResult,
-    __MetadataBearer {}
+export interface StartNetworkInsightsAnalysisCommandOutput extends StartNetworkInsightsAnalysisResult, __MetadataBearer {}
 
 /**
  * <p>Starts analyzing the specified path. If the path is reachable, the
@@ -822,7 +820,7 @@ export class StartNetworkInsightsAnalysisCommand extends $Command
   })
   .s("AmazonEC2", "StartNetworkInsightsAnalysis", {})
   .n("EC2Client", "StartNetworkInsightsAnalysisCommand")
-  .sc(StartNetworkInsightsAnalysis)
+  .sc(StartNetworkInsightsAnalysis$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1034,7 +1034,10 @@ export interface IAM {
     args: AddUserToGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AddUserToGroupCommandOutput>;
-  addUserToGroup(args: AddUserToGroupCommandInput, cb: (err: any, data?: AddUserToGroupCommandOutput) => void): void;
+  addUserToGroup(
+    args: AddUserToGroupCommandInput,
+    cb: (err: any, data?: AddUserToGroupCommandOutput) => void
+  ): void;
   addUserToGroup(
     args: AddUserToGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1116,7 +1119,10 @@ export interface IAM {
     args: ChangePasswordCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ChangePasswordCommandOutput>;
-  changePassword(args: ChangePasswordCommandInput, cb: (err: any, data?: ChangePasswordCommandOutput) => void): void;
+  changePassword(
+    args: ChangePasswordCommandInput,
+    cb: (err: any, data?: ChangePasswordCommandOutput) => void
+  ): void;
   changePassword(
     args: ChangePasswordCommandInput,
     options: __HttpHandlerOptions,
@@ -1131,7 +1137,10 @@ export interface IAM {
     args: CreateAccessKeyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateAccessKeyCommandOutput>;
-  createAccessKey(args: CreateAccessKeyCommandInput, cb: (err: any, data?: CreateAccessKeyCommandOutput) => void): void;
+  createAccessKey(
+    args: CreateAccessKeyCommandInput,
+    cb: (err: any, data?: CreateAccessKeyCommandOutput) => void
+  ): void;
   createAccessKey(
     args: CreateAccessKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -1175,8 +1184,14 @@ export interface IAM {
   /**
    * @see {@link CreateGroupCommand}
    */
-  createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
-  createGroup(args: CreateGroupCommandInput, cb: (err: any, data?: CreateGroupCommandOutput) => void): void;
+  createGroup(
+    args: CreateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGroupCommandOutput>;
+  createGroup(
+    args: CreateGroupCommandInput,
+    cb: (err: any, data?: CreateGroupCommandOutput) => void
+  ): void;
   createGroup(
     args: CreateGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1238,8 +1253,14 @@ export interface IAM {
   /**
    * @see {@link CreatePolicyCommand}
    */
-  createPolicy(args: CreatePolicyCommandInput, options?: __HttpHandlerOptions): Promise<CreatePolicyCommandOutput>;
-  createPolicy(args: CreatePolicyCommandInput, cb: (err: any, data?: CreatePolicyCommandOutput) => void): void;
+  createPolicy(
+    args: CreatePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePolicyCommandOutput>;
+  createPolicy(
+    args: CreatePolicyCommandInput,
+    cb: (err: any, data?: CreatePolicyCommandOutput) => void
+  ): void;
   createPolicy(
     args: CreatePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -1266,8 +1287,14 @@ export interface IAM {
   /**
    * @see {@link CreateRoleCommand}
    */
-  createRole(args: CreateRoleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRoleCommandOutput>;
-  createRole(args: CreateRoleCommandInput, cb: (err: any, data?: CreateRoleCommandOutput) => void): void;
+  createRole(
+    args: CreateRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRoleCommandOutput>;
+  createRole(
+    args: CreateRoleCommandInput,
+    cb: (err: any, data?: CreateRoleCommandOutput) => void
+  ): void;
   createRole(
     args: CreateRoleCommandInput,
     options: __HttpHandlerOptions,
@@ -1328,8 +1355,14 @@ export interface IAM {
   /**
    * @see {@link CreateUserCommand}
    */
-  createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
-  createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
+  createUser(
+    args: CreateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUserCommandOutput>;
+  createUser(
+    args: CreateUserCommandInput,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
   createUser(
     args: CreateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -1377,7 +1410,10 @@ export interface IAM {
     args: DeleteAccessKeyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteAccessKeyCommandOutput>;
-  deleteAccessKey(args: DeleteAccessKeyCommandInput, cb: (err: any, data?: DeleteAccessKeyCommandOutput) => void): void;
+  deleteAccessKey(
+    args: DeleteAccessKeyCommandInput,
+    cb: (err: any, data?: DeleteAccessKeyCommandOutput) => void
+  ): void;
   deleteAccessKey(
     args: DeleteAccessKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -1422,8 +1458,14 @@ export interface IAM {
   /**
    * @see {@link DeleteGroupCommand}
    */
-  deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
-  deleteGroup(args: DeleteGroupCommandInput, cb: (err: any, data?: DeleteGroupCommandOutput) => void): void;
+  deleteGroup(
+    args: DeleteGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGroupCommandOutput>;
+  deleteGroup(
+    args: DeleteGroupCommandInput,
+    cb: (err: any, data?: DeleteGroupCommandOutput) => void
+  ): void;
   deleteGroup(
     args: DeleteGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1502,8 +1544,14 @@ export interface IAM {
   /**
    * @see {@link DeletePolicyCommand}
    */
-  deletePolicy(args: DeletePolicyCommandInput, options?: __HttpHandlerOptions): Promise<DeletePolicyCommandOutput>;
-  deletePolicy(args: DeletePolicyCommandInput, cb: (err: any, data?: DeletePolicyCommandOutput) => void): void;
+  deletePolicy(
+    args: DeletePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePolicyCommandOutput>;
+  deletePolicy(
+    args: DeletePolicyCommandInput,
+    cb: (err: any, data?: DeletePolicyCommandOutput) => void
+  ): void;
   deletePolicy(
     args: DeletePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -1530,8 +1578,14 @@ export interface IAM {
   /**
    * @see {@link DeleteRoleCommand}
    */
-  deleteRole(args: DeleteRoleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRoleCommandOutput>;
-  deleteRole(args: DeleteRoleCommandInput, cb: (err: any, data?: DeleteRoleCommandOutput) => void): void;
+  deleteRole(
+    args: DeleteRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRoleCommandOutput>;
+  deleteRole(
+    args: DeleteRoleCommandInput,
+    cb: (err: any, data?: DeleteRoleCommandOutput) => void
+  ): void;
   deleteRole(
     args: DeleteRoleCommandInput,
     options: __HttpHandlerOptions,
@@ -1677,8 +1731,14 @@ export interface IAM {
   /**
    * @see {@link DeleteUserCommand}
    */
-  deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
-  deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUserCommandOutput>;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    cb: (err: any, data?: DeleteUserCommandOutput) => void
+  ): void;
   deleteUser(
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
@@ -1848,7 +1908,10 @@ export interface IAM {
     args: EnableMFADeviceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<EnableMFADeviceCommandOutput>;
-  enableMFADevice(args: EnableMFADeviceCommandInput, cb: (err: any, data?: EnableMFADeviceCommandOutput) => void): void;
+  enableMFADevice(
+    args: EnableMFADeviceCommandInput,
+    cb: (err: any, data?: EnableMFADeviceCommandOutput) => void
+  ): void;
   enableMFADevice(
     args: EnableMFADeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -2104,8 +2167,14 @@ export interface IAM {
   /**
    * @see {@link GetGroupCommand}
    */
-  getGroup(args: GetGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetGroupCommandOutput>;
-  getGroup(args: GetGroupCommandInput, cb: (err: any, data?: GetGroupCommandOutput) => void): void;
+  getGroup(
+    args: GetGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGroupCommandOutput>;
+  getGroup(
+    args: GetGroupCommandInput,
+    cb: (err: any, data?: GetGroupCommandOutput) => void
+  ): void;
   getGroup(
     args: GetGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -2119,7 +2188,10 @@ export interface IAM {
     args: GetGroupPolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetGroupPolicyCommandOutput>;
-  getGroupPolicy(args: GetGroupPolicyCommandInput, cb: (err: any, data?: GetGroupPolicyCommandOutput) => void): void;
+  getGroupPolicy(
+    args: GetGroupPolicyCommandInput,
+    cb: (err: any, data?: GetGroupPolicyCommandOutput) => void
+  ): void;
   getGroupPolicy(
     args: GetGroupPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -2168,7 +2240,10 @@ export interface IAM {
     args: GetLoginProfileCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetLoginProfileCommandOutput>;
-  getLoginProfile(args: GetLoginProfileCommandInput, cb: (err: any, data?: GetLoginProfileCommandOutput) => void): void;
+  getLoginProfile(
+    args: GetLoginProfileCommandInput,
+    cb: (err: any, data?: GetLoginProfileCommandOutput) => void
+  ): void;
   getLoginProfile(
     args: GetLoginProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -2178,8 +2253,14 @@ export interface IAM {
   /**
    * @see {@link GetMFADeviceCommand}
    */
-  getMFADevice(args: GetMFADeviceCommandInput, options?: __HttpHandlerOptions): Promise<GetMFADeviceCommandOutput>;
-  getMFADevice(args: GetMFADeviceCommandInput, cb: (err: any, data?: GetMFADeviceCommandOutput) => void): void;
+  getMFADevice(
+    args: GetMFADeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMFADeviceCommandOutput>;
+  getMFADevice(
+    args: GetMFADeviceCommandInput,
+    cb: (err: any, data?: GetMFADeviceCommandOutput) => void
+  ): void;
   getMFADevice(
     args: GetMFADeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -2241,8 +2322,14 @@ export interface IAM {
   /**
    * @see {@link GetPolicyCommand}
    */
-  getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
-  getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPolicyCommandOutput>;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    cb: (err: any, data?: GetPolicyCommandOutput) => void
+  ): void;
   getPolicy(
     args: GetPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -2269,8 +2356,14 @@ export interface IAM {
   /**
    * @see {@link GetRoleCommand}
    */
-  getRole(args: GetRoleCommandInput, options?: __HttpHandlerOptions): Promise<GetRoleCommandOutput>;
-  getRole(args: GetRoleCommandInput, cb: (err: any, data?: GetRoleCommandOutput) => void): void;
+  getRole(
+    args: GetRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRoleCommandOutput>;
+  getRole(
+    args: GetRoleCommandInput,
+    cb: (err: any, data?: GetRoleCommandOutput) => void
+  ): void;
   getRole(
     args: GetRoleCommandInput,
     options: __HttpHandlerOptions,
@@ -2280,8 +2373,14 @@ export interface IAM {
   /**
    * @see {@link GetRolePolicyCommand}
    */
-  getRolePolicy(args: GetRolePolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetRolePolicyCommandOutput>;
-  getRolePolicy(args: GetRolePolicyCommandInput, cb: (err: any, data?: GetRolePolicyCommandOutput) => void): void;
+  getRolePolicy(
+    args: GetRolePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRolePolicyCommandOutput>;
+  getRolePolicy(
+    args: GetRolePolicyCommandInput,
+    cb: (err: any, data?: GetRolePolicyCommandOutput) => void
+  ): void;
   getRolePolicy(
     args: GetRolePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -2295,7 +2394,10 @@ export interface IAM {
     args: GetSAMLProviderCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSAMLProviderCommandOutput>;
-  getSAMLProvider(args: GetSAMLProviderCommandInput, cb: (err: any, data?: GetSAMLProviderCommandOutput) => void): void;
+  getSAMLProvider(
+    args: GetSAMLProviderCommandInput,
+    cb: (err: any, data?: GetSAMLProviderCommandOutput) => void
+  ): void;
   getSAMLProvider(
     args: GetSAMLProviderCommandInput,
     options: __HttpHandlerOptions,
@@ -2377,7 +2479,10 @@ export interface IAM {
     args: GetSSHPublicKeyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSSHPublicKeyCommandOutput>;
-  getSSHPublicKey(args: GetSSHPublicKeyCommandInput, cb: (err: any, data?: GetSSHPublicKeyCommandOutput) => void): void;
+  getSSHPublicKey(
+    args: GetSSHPublicKeyCommandInput,
+    cb: (err: any, data?: GetSSHPublicKeyCommandOutput) => void
+  ): void;
   getSSHPublicKey(
     args: GetSSHPublicKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -2388,8 +2493,14 @@ export interface IAM {
    * @see {@link GetUserCommand}
    */
   getUser(): Promise<GetUserCommandOutput>;
-  getUser(args: GetUserCommandInput, options?: __HttpHandlerOptions): Promise<GetUserCommandOutput>;
-  getUser(args: GetUserCommandInput, cb: (err: any, data?: GetUserCommandOutput) => void): void;
+  getUser(
+    args: GetUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUserCommandOutput>;
+  getUser(
+    args: GetUserCommandInput,
+    cb: (err: any, data?: GetUserCommandOutput) => void
+  ): void;
   getUser(
     args: GetUserCommandInput,
     options: __HttpHandlerOptions,
@@ -2399,8 +2510,14 @@ export interface IAM {
   /**
    * @see {@link GetUserPolicyCommand}
    */
-  getUserPolicy(args: GetUserPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetUserPolicyCommandOutput>;
-  getUserPolicy(args: GetUserPolicyCommandInput, cb: (err: any, data?: GetUserPolicyCommandOutput) => void): void;
+  getUserPolicy(
+    args: GetUserPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUserPolicyCommandOutput>;
+  getUserPolicy(
+    args: GetUserPolicyCommandInput,
+    cb: (err: any, data?: GetUserPolicyCommandOutput) => void
+  ): void;
   getUserPolicy(
     args: GetUserPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -2415,7 +2532,10 @@ export interface IAM {
     args: ListAccessKeysCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAccessKeysCommandOutput>;
-  listAccessKeys(args: ListAccessKeysCommandInput, cb: (err: any, data?: ListAccessKeysCommandOutput) => void): void;
+  listAccessKeys(
+    args: ListAccessKeysCommandInput,
+    cb: (err: any, data?: ListAccessKeysCommandOutput) => void
+  ): void;
   listAccessKeys(
     args: ListAccessKeysCommandInput,
     options: __HttpHandlerOptions,
@@ -2547,8 +2667,14 @@ export interface IAM {
    * @see {@link ListGroupsCommand}
    */
   listGroups(): Promise<ListGroupsCommandOutput>;
-  listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
-  listGroups(args: ListGroupsCommandInput, cb: (err: any, data?: ListGroupsCommandOutput) => void): void;
+  listGroups(
+    args: ListGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGroupsCommandOutput>;
+  listGroups(
+    args: ListGroupsCommandInput,
+    cb: (err: any, data?: ListGroupsCommandOutput) => void
+  ): void;
   listGroups(
     args: ListGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -2632,7 +2758,10 @@ export interface IAM {
     args: ListMFADevicesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListMFADevicesCommandOutput>;
-  listMFADevices(args: ListMFADevicesCommandInput, cb: (err: any, data?: ListMFADevicesCommandOutput) => void): void;
+  listMFADevices(
+    args: ListMFADevicesCommandInput,
+    cb: (err: any, data?: ListMFADevicesCommandOutput) => void
+  ): void;
   listMFADevices(
     args: ListMFADevicesCommandInput,
     options: __HttpHandlerOptions,
@@ -2713,8 +2842,14 @@ export interface IAM {
    * @see {@link ListPoliciesCommand}
    */
   listPolicies(): Promise<ListPoliciesCommandOutput>;
-  listPolicies(args: ListPoliciesCommandInput, options?: __HttpHandlerOptions): Promise<ListPoliciesCommandOutput>;
-  listPolicies(args: ListPoliciesCommandInput, cb: (err: any, data?: ListPoliciesCommandOutput) => void): void;
+  listPolicies(
+    args: ListPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPoliciesCommandOutput>;
+  listPolicies(
+    args: ListPoliciesCommandInput,
+    cb: (err: any, data?: ListPoliciesCommandOutput) => void
+  ): void;
   listPolicies(
     args: ListPoliciesCommandInput,
     options: __HttpHandlerOptions,
@@ -2745,7 +2880,10 @@ export interface IAM {
     args: ListPolicyTagsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListPolicyTagsCommandOutput>;
-  listPolicyTags(args: ListPolicyTagsCommandInput, cb: (err: any, data?: ListPolicyTagsCommandOutput) => void): void;
+  listPolicyTags(
+    args: ListPolicyTagsCommandInput,
+    cb: (err: any, data?: ListPolicyTagsCommandOutput) => void
+  ): void;
   listPolicyTags(
     args: ListPolicyTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -2790,8 +2928,14 @@ export interface IAM {
    * @see {@link ListRolesCommand}
    */
   listRoles(): Promise<ListRolesCommandOutput>;
-  listRoles(args: ListRolesCommandInput, options?: __HttpHandlerOptions): Promise<ListRolesCommandOutput>;
-  listRoles(args: ListRolesCommandInput, cb: (err: any, data?: ListRolesCommandOutput) => void): void;
+  listRoles(
+    args: ListRolesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRolesCommandOutput>;
+  listRoles(
+    args: ListRolesCommandInput,
+    cb: (err: any, data?: ListRolesCommandOutput) => void
+  ): void;
   listRoles(
     args: ListRolesCommandInput,
     options: __HttpHandlerOptions,
@@ -2801,8 +2945,14 @@ export interface IAM {
   /**
    * @see {@link ListRoleTagsCommand}
    */
-  listRoleTags(args: ListRoleTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListRoleTagsCommandOutput>;
-  listRoleTags(args: ListRoleTagsCommandInput, cb: (err: any, data?: ListRoleTagsCommandOutput) => void): void;
+  listRoleTags(
+    args: ListRoleTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRoleTagsCommandOutput>;
+  listRoleTags(
+    args: ListRoleTagsCommandInput,
+    cb: (err: any, data?: ListRoleTagsCommandOutput) => void
+  ): void;
   listRoleTags(
     args: ListRoleTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -2954,8 +3104,14 @@ export interface IAM {
    * @see {@link ListUsersCommand}
    */
   listUsers(): Promise<ListUsersCommandOutput>;
-  listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
-  listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
+  listUsers(
+    args: ListUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUsersCommandOutput>;
+  listUsers(
+    args: ListUsersCommandInput,
+    cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
   listUsers(
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -2965,8 +3121,14 @@ export interface IAM {
   /**
    * @see {@link ListUserTagsCommand}
    */
-  listUserTags(args: ListUserTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListUserTagsCommandOutput>;
-  listUserTags(args: ListUserTagsCommandInput, cb: (err: any, data?: ListUserTagsCommandOutput) => void): void;
+  listUserTags(
+    args: ListUserTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUserTagsCommandOutput>;
+  listUserTags(
+    args: ListUserTagsCommandInput,
+    cb: (err: any, data?: ListUserTagsCommandOutput) => void
+  ): void;
   listUserTags(
     args: ListUserTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -2998,7 +3160,10 @@ export interface IAM {
     args: PutGroupPolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutGroupPolicyCommandOutput>;
-  putGroupPolicy(args: PutGroupPolicyCommandInput, cb: (err: any, data?: PutGroupPolicyCommandOutput) => void): void;
+  putGroupPolicy(
+    args: PutGroupPolicyCommandInput,
+    cb: (err: any, data?: PutGroupPolicyCommandOutput) => void
+  ): void;
   putGroupPolicy(
     args: PutGroupPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -3025,8 +3190,14 @@ export interface IAM {
   /**
    * @see {@link PutRolePolicyCommand}
    */
-  putRolePolicy(args: PutRolePolicyCommandInput, options?: __HttpHandlerOptions): Promise<PutRolePolicyCommandOutput>;
-  putRolePolicy(args: PutRolePolicyCommandInput, cb: (err: any, data?: PutRolePolicyCommandOutput) => void): void;
+  putRolePolicy(
+    args: PutRolePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutRolePolicyCommandOutput>;
+  putRolePolicy(
+    args: PutRolePolicyCommandInput,
+    cb: (err: any, data?: PutRolePolicyCommandOutput) => void
+  ): void;
   putRolePolicy(
     args: PutRolePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -3053,8 +3224,14 @@ export interface IAM {
   /**
    * @see {@link PutUserPolicyCommand}
    */
-  putUserPolicy(args: PutUserPolicyCommandInput, options?: __HttpHandlerOptions): Promise<PutUserPolicyCommandOutput>;
-  putUserPolicy(args: PutUserPolicyCommandInput, cb: (err: any, data?: PutUserPolicyCommandOutput) => void): void;
+  putUserPolicy(
+    args: PutUserPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutUserPolicyCommandOutput>;
+  putUserPolicy(
+    args: PutUserPolicyCommandInput,
+    cb: (err: any, data?: PutUserPolicyCommandOutput) => void
+  ): void;
   putUserPolicy(
     args: PutUserPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -3153,7 +3330,10 @@ export interface IAM {
     args: ResyncMFADeviceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ResyncMFADeviceCommandOutput>;
-  resyncMFADevice(args: ResyncMFADeviceCommandInput, cb: (err: any, data?: ResyncMFADeviceCommandOutput) => void): void;
+  resyncMFADevice(
+    args: ResyncMFADeviceCommandInput,
+    cb: (err: any, data?: ResyncMFADeviceCommandOutput) => void
+  ): void;
   resyncMFADevice(
     args: ResyncMFADeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -3265,8 +3445,14 @@ export interface IAM {
   /**
    * @see {@link TagMFADeviceCommand}
    */
-  tagMFADevice(args: TagMFADeviceCommandInput, options?: __HttpHandlerOptions): Promise<TagMFADeviceCommandOutput>;
-  tagMFADevice(args: TagMFADeviceCommandInput, cb: (err: any, data?: TagMFADeviceCommandOutput) => void): void;
+  tagMFADevice(
+    args: TagMFADeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagMFADeviceCommandOutput>;
+  tagMFADevice(
+    args: TagMFADeviceCommandInput,
+    cb: (err: any, data?: TagMFADeviceCommandOutput) => void
+  ): void;
   tagMFADevice(
     args: TagMFADeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -3293,8 +3479,14 @@ export interface IAM {
   /**
    * @see {@link TagPolicyCommand}
    */
-  tagPolicy(args: TagPolicyCommandInput, options?: __HttpHandlerOptions): Promise<TagPolicyCommandOutput>;
-  tagPolicy(args: TagPolicyCommandInput, cb: (err: any, data?: TagPolicyCommandOutput) => void): void;
+  tagPolicy(
+    args: TagPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagPolicyCommandOutput>;
+  tagPolicy(
+    args: TagPolicyCommandInput,
+    cb: (err: any, data?: TagPolicyCommandOutput) => void
+  ): void;
   tagPolicy(
     args: TagPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -3304,8 +3496,14 @@ export interface IAM {
   /**
    * @see {@link TagRoleCommand}
    */
-  tagRole(args: TagRoleCommandInput, options?: __HttpHandlerOptions): Promise<TagRoleCommandOutput>;
-  tagRole(args: TagRoleCommandInput, cb: (err: any, data?: TagRoleCommandOutput) => void): void;
+  tagRole(
+    args: TagRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagRoleCommandOutput>;
+  tagRole(
+    args: TagRoleCommandInput,
+    cb: (err: any, data?: TagRoleCommandOutput) => void
+  ): void;
   tagRole(
     args: TagRoleCommandInput,
     options: __HttpHandlerOptions,
@@ -3319,7 +3517,10 @@ export interface IAM {
     args: TagSAMLProviderCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<TagSAMLProviderCommandOutput>;
-  tagSAMLProvider(args: TagSAMLProviderCommandInput, cb: (err: any, data?: TagSAMLProviderCommandOutput) => void): void;
+  tagSAMLProvider(
+    args: TagSAMLProviderCommandInput,
+    cb: (err: any, data?: TagSAMLProviderCommandOutput) => void
+  ): void;
   tagSAMLProvider(
     args: TagSAMLProviderCommandInput,
     options: __HttpHandlerOptions,
@@ -3346,8 +3547,14 @@ export interface IAM {
   /**
    * @see {@link TagUserCommand}
    */
-  tagUser(args: TagUserCommandInput, options?: __HttpHandlerOptions): Promise<TagUserCommandOutput>;
-  tagUser(args: TagUserCommandInput, cb: (err: any, data?: TagUserCommandOutput) => void): void;
+  tagUser(
+    args: TagUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagUserCommandOutput>;
+  tagUser(
+    args: TagUserCommandInput,
+    cb: (err: any, data?: TagUserCommandOutput) => void
+  ): void;
   tagUser(
     args: TagUserCommandInput,
     options: __HttpHandlerOptions,
@@ -3378,7 +3585,10 @@ export interface IAM {
     args: UntagMFADeviceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UntagMFADeviceCommandOutput>;
-  untagMFADevice(args: UntagMFADeviceCommandInput, cb: (err: any, data?: UntagMFADeviceCommandOutput) => void): void;
+  untagMFADevice(
+    args: UntagMFADeviceCommandInput,
+    cb: (err: any, data?: UntagMFADeviceCommandOutput) => void
+  ): void;
   untagMFADevice(
     args: UntagMFADeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -3405,8 +3615,14 @@ export interface IAM {
   /**
    * @see {@link UntagPolicyCommand}
    */
-  untagPolicy(args: UntagPolicyCommandInput, options?: __HttpHandlerOptions): Promise<UntagPolicyCommandOutput>;
-  untagPolicy(args: UntagPolicyCommandInput, cb: (err: any, data?: UntagPolicyCommandOutput) => void): void;
+  untagPolicy(
+    args: UntagPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagPolicyCommandOutput>;
+  untagPolicy(
+    args: UntagPolicyCommandInput,
+    cb: (err: any, data?: UntagPolicyCommandOutput) => void
+  ): void;
   untagPolicy(
     args: UntagPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -3416,8 +3632,14 @@ export interface IAM {
   /**
    * @see {@link UntagRoleCommand}
    */
-  untagRole(args: UntagRoleCommandInput, options?: __HttpHandlerOptions): Promise<UntagRoleCommandOutput>;
-  untagRole(args: UntagRoleCommandInput, cb: (err: any, data?: UntagRoleCommandOutput) => void): void;
+  untagRole(
+    args: UntagRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagRoleCommandOutput>;
+  untagRole(
+    args: UntagRoleCommandInput,
+    cb: (err: any, data?: UntagRoleCommandOutput) => void
+  ): void;
   untagRole(
     args: UntagRoleCommandInput,
     options: __HttpHandlerOptions,
@@ -3461,8 +3683,14 @@ export interface IAM {
   /**
    * @see {@link UntagUserCommand}
    */
-  untagUser(args: UntagUserCommandInput, options?: __HttpHandlerOptions): Promise<UntagUserCommandOutput>;
-  untagUser(args: UntagUserCommandInput, cb: (err: any, data?: UntagUserCommandOutput) => void): void;
+  untagUser(
+    args: UntagUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagUserCommandOutput>;
+  untagUser(
+    args: UntagUserCommandInput,
+    cb: (err: any, data?: UntagUserCommandOutput) => void
+  ): void;
   untagUser(
     args: UntagUserCommandInput,
     options: __HttpHandlerOptions,
@@ -3476,7 +3704,10 @@ export interface IAM {
     args: UpdateAccessKeyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateAccessKeyCommandOutput>;
-  updateAccessKey(args: UpdateAccessKeyCommandInput, cb: (err: any, data?: UpdateAccessKeyCommandOutput) => void): void;
+  updateAccessKey(
+    args: UpdateAccessKeyCommandInput,
+    cb: (err: any, data?: UpdateAccessKeyCommandOutput) => void
+  ): void;
   updateAccessKey(
     args: UpdateAccessKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -3538,8 +3769,14 @@ export interface IAM {
   /**
    * @see {@link UpdateGroupCommand}
    */
-  updateGroup(args: UpdateGroupCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGroupCommandOutput>;
-  updateGroup(args: UpdateGroupCommandInput, cb: (err: any, data?: UpdateGroupCommandOutput) => void): void;
+  updateGroup(
+    args: UpdateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGroupCommandOutput>;
+  updateGroup(
+    args: UpdateGroupCommandInput,
+    cb: (err: any, data?: UpdateGroupCommandOutput) => void
+  ): void;
   updateGroup(
     args: UpdateGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -3583,8 +3820,14 @@ export interface IAM {
   /**
    * @see {@link UpdateRoleCommand}
    */
-  updateRole(args: UpdateRoleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRoleCommandOutput>;
-  updateRole(args: UpdateRoleCommandInput, cb: (err: any, data?: UpdateRoleCommandOutput) => void): void;
+  updateRole(
+    args: UpdateRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRoleCommandOutput>;
+  updateRole(
+    args: UpdateRoleCommandInput,
+    cb: (err: any, data?: UpdateRoleCommandOutput) => void
+  ): void;
   updateRole(
     args: UpdateRoleCommandInput,
     options: __HttpHandlerOptions,
@@ -3696,8 +3939,14 @@ export interface IAM {
   /**
    * @see {@link UpdateUserCommand}
    */
-  updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
-  updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
+  updateUser(
+    args: UpdateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserCommandOutput>;
+  updateUser(
+    args: UpdateUserCommandInput,
+    cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): void;
   updateUser(
     args: UpdateUserCommandInput,
     options: __HttpHandlerOptions,

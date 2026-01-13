@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartSchemaCreationRequest, StartSchemaCreationResponse } from "../models/models_0";
-import { StartSchemaCreation } from "../schemas/schemas_0";
+import { StartSchemaCreation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class StartSchemaCreationCommand extends $Command
   })
   .s("AWSDeepdishControlPlaneService", "StartSchemaCreation", {})
   .n("AppSyncClient", "StartSchemaCreationCommand")
-  .sc(StartSchemaCreation)
+  .sc(StartSchemaCreation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

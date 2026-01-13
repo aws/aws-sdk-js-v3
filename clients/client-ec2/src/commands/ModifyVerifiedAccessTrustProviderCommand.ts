@@ -9,7 +9,7 @@ import type {
   ModifyVerifiedAccessTrustProviderRequest,
   ModifyVerifiedAccessTrustProviderResult,
 } from "../models/models_7";
-import { ModifyVerifiedAccessTrustProvider } from "../schemas/schemas_0";
+import { ModifyVerifiedAccessTrustProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ModifyVerifiedAccessTrustProviderCommandInput extends ModifyVer
  *
  * The output of {@link ModifyVerifiedAccessTrustProviderCommand}.
  */
-export interface ModifyVerifiedAccessTrustProviderCommandOutput
-  extends ModifyVerifiedAccessTrustProviderResult,
-    __MetadataBearer {}
+export interface ModifyVerifiedAccessTrustProviderCommandOutput extends ModifyVerifiedAccessTrustProviderResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the configuration of the specified Amazon Web Services Verified Access trust provider.</p>
@@ -148,7 +146,7 @@ export class ModifyVerifiedAccessTrustProviderCommand extends $Command
   })
   .s("AmazonEC2", "ModifyVerifiedAccessTrustProvider", {})
   .n("EC2Client", "ModifyVerifiedAccessTrustProviderCommand")
-  .sc(ModifyVerifiedAccessTrustProvider)
+  .sc(ModifyVerifiedAccessTrustProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

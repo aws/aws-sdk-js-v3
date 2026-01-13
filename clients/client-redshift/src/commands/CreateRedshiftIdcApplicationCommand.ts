@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateRedshiftIdcApplicationMessage, CreateRedshiftIdcApplicationResult } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { CreateRedshiftIdcApplication } from "../schemas/schemas_0";
+import { CreateRedshiftIdcApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateRedshiftIdcApplicationCommandInput extends CreateRedshift
  *
  * The output of {@link CreateRedshiftIdcApplicationCommand}.
  */
-export interface CreateRedshiftIdcApplicationCommandOutput
-  extends CreateRedshiftIdcApplicationResult,
-    __MetadataBearer {}
+export interface CreateRedshiftIdcApplicationCommandOutput extends CreateRedshiftIdcApplicationResult, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Redshift application for use with IAM Identity Center.</p>
@@ -196,7 +194,7 @@ export class CreateRedshiftIdcApplicationCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "CreateRedshiftIdcApplication", {})
   .n("RedshiftClient", "CreateRedshiftIdcApplicationCommand")
-  .sc(CreateRedshiftIdcApplication)
+  .sc(CreateRedshiftIdcApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

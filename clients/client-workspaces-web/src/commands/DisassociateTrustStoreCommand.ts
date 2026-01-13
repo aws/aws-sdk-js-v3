@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateTrustStoreRequest, DisassociateTrustStoreResponse } from "../models/models_0";
-import { DisassociateTrustStore } from "../schemas/schemas_0";
+import { DisassociateTrustStore$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -89,7 +89,7 @@ export class DisassociateTrustStoreCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "DisassociateTrustStore", {})
   .n("WorkSpacesWebClient", "DisassociateTrustStoreCommand")
-  .sc(DisassociateTrustStore)
+  .sc(DisassociateTrustStore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

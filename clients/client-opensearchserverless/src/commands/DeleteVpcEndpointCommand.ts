@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import { DeleteVpcEndpoint } from "../schemas/schemas_0";
+import { DeleteVpcEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteVpcEndpointCommand extends $Command
   })
   .s("OpenSearchServerless", "DeleteVpcEndpoint", {})
   .n("OpenSearchServerlessClient", "DeleteVpcEndpointCommand")
-  .sc(DeleteVpcEndpoint)
+  .sc(DeleteVpcEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

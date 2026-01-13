@@ -9,7 +9,7 @@ import type {
   BatchGetAssetPropertyAggregatesRequest,
   BatchGetAssetPropertyAggregatesResponse,
 } from "../models/models_0";
-import { BatchGetAssetPropertyAggregates } from "../schemas/schemas_0";
+import { BatchGetAssetPropertyAggregates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface BatchGetAssetPropertyAggregatesCommandInput extends BatchGetAss
  *
  * The output of {@link BatchGetAssetPropertyAggregatesCommand}.
  */
-export interface BatchGetAssetPropertyAggregatesCommandOutput
-  extends BatchGetAssetPropertyAggregatesResponse,
-    __MetadataBearer {}
+export interface BatchGetAssetPropertyAggregatesCommandOutput extends BatchGetAssetPropertyAggregatesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets aggregated values (for example, average, minimum, and maximum) for one or more asset
@@ -151,7 +149,7 @@ export class BatchGetAssetPropertyAggregatesCommand extends $Command
   })
   .s("AWSIoTSiteWise", "BatchGetAssetPropertyAggregates", {})
   .n("IoTSiteWiseClient", "BatchGetAssetPropertyAggregatesCommand")
-  .sc(BatchGetAssetPropertyAggregates)
+  .sc(BatchGetAssetPropertyAggregates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

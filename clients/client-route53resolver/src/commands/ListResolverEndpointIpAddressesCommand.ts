@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { ListResolverEndpointIpAddresses } from "../schemas/schemas_0";
+import { ListResolverEndpointIpAddresses$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ListResolverEndpointIpAddressesCommandInput extends ListResolve
  *
  * The output of {@link ListResolverEndpointIpAddressesCommand}.
  */
-export interface ListResolverEndpointIpAddressesCommandOutput
-  extends ListResolverEndpointIpAddressesResponse,
-    __MetadataBearer {}
+export interface ListResolverEndpointIpAddressesCommandOutput extends ListResolverEndpointIpAddressesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the IP addresses for a specified Resolver endpoint.</p>
@@ -112,7 +110,7 @@ export class ListResolverEndpointIpAddressesCommand extends $Command
   })
   .s("Route53Resolver", "ListResolverEndpointIpAddresses", {})
   .n("Route53ResolverClient", "ListResolverEndpointIpAddressesCommand")
-  .sc(ListResolverEndpointIpAddresses)
+  .sc(ListResolverEndpointIpAddresses$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

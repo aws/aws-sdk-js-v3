@@ -10,7 +10,7 @@ import type {
 } from "../ConnectCampaignsV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutConnectInstanceIntegrationRequest } from "../models/models_0";
-import { PutConnectInstanceIntegration } from "../schemas/schemas_0";
+import { PutConnectInstanceIntegration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class PutConnectInstanceIntegrationCommand extends $Command
   })
   .s("AmazonConnectCampaignServiceV2", "PutConnectInstanceIntegration", {})
   .n("ConnectCampaignsV2Client", "PutConnectInstanceIntegrationCommand")
-  .sc(PutConnectInstanceIntegration)
+  .sc(PutConnectInstanceIntegration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../ComprehendMedicalClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartICD10CMInferenceJobRequest, StartICD10CMInferenceJobResponse } from "../models/models_0";
-import { StartICD10CMInferenceJob } from "../schemas/schemas_0";
+import { StartICD10CMInferenceJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class StartICD10CMInferenceJobCommand extends $Command
   })
   .s("ComprehendMedical_20181030", "StartICD10CMInferenceJob", {})
   .n("ComprehendMedicalClient", "StartICD10CMInferenceJobCommand")
-  .sc(StartICD10CMInferenceJob)
+  .sc(StartICD10CMInferenceJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

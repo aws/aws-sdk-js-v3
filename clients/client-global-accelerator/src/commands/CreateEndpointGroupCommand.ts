@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { CreateEndpointGroupRequest, CreateEndpointGroupResponse } from "../models/models_0";
-import { CreateEndpointGroup } from "../schemas/schemas_0";
+import { CreateEndpointGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -148,7 +148,7 @@ export class CreateEndpointGroupCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "CreateEndpointGroup", {})
   .n("GlobalAcceleratorClient", "CreateEndpointGroupCommand")
-  .sc(CreateEndpointGroup)
+  .sc(CreateEndpointGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

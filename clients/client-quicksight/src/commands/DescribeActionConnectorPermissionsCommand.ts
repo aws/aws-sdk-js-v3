@@ -9,7 +9,7 @@ import type {
   DescribeActionConnectorPermissionsResponse,
 } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeActionConnectorPermissions } from "../schemas/schemas_0";
+import { DescribeActionConnectorPermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeActionConnectorPermissionsCommandInput extends Describe
  *
  * The output of {@link DescribeActionConnectorPermissionsCommand}.
  */
-export interface DescribeActionConnectorPermissionsCommandOutput
-  extends DescribeActionConnectorPermissionsResponse,
-    __MetadataBearer {}
+export interface DescribeActionConnectorPermissionsCommandOutput extends DescribeActionConnectorPermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the permissions configuration for an action connector, showing which users, groups, and namespaces have access and what operations they can perform.</p>
@@ -108,7 +106,7 @@ export class DescribeActionConnectorPermissionsCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeActionConnectorPermissions", {})
   .n("QuickSightClient", "DescribeActionConnectorPermissionsCommand")
-  .sc(DescribeActionConnectorPermissions)
+  .sc(DescribeActionConnectorPermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

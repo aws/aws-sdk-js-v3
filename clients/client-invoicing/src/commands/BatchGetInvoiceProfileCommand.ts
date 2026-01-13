@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InvoicingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InvoicingClient";
 import type { BatchGetInvoiceProfileRequest, BatchGetInvoiceProfileResponse } from "../models/models_0";
-import { BatchGetInvoiceProfile } from "../schemas/schemas_0";
+import { BatchGetInvoiceProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class BatchGetInvoiceProfileCommand extends $Command
   })
   .s("Invoicing", "BatchGetInvoiceProfile", {})
   .n("InvoicingClient", "BatchGetInvoiceProfileCommand")
-  .sc(BatchGetInvoiceProfile)
+  .sc(BatchGetInvoiceProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

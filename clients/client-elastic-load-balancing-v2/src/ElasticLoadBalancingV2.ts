@@ -310,8 +310,14 @@ export interface ElasticLoadBalancingV2 {
   /**
    * @see {@link AddTagsCommand}
    */
-  addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
-  addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
+  addTags(
+    args: AddTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddTagsCommandOutput>;
+  addTags(
+    args: AddTagsCommandInput,
+    cb: (err: any, data?: AddTagsCommandOutput) => void
+  ): void;
   addTags(
     args: AddTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -342,7 +348,10 @@ export interface ElasticLoadBalancingV2 {
     args: CreateListenerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateListenerCommandOutput>;
-  createListener(args: CreateListenerCommandInput, cb: (err: any, data?: CreateListenerCommandOutput) => void): void;
+  createListener(
+    args: CreateListenerCommandInput,
+    cb: (err: any, data?: CreateListenerCommandOutput) => void
+  ): void;
   createListener(
     args: CreateListenerCommandInput,
     options: __HttpHandlerOptions,
@@ -369,8 +378,14 @@ export interface ElasticLoadBalancingV2 {
   /**
    * @see {@link CreateRuleCommand}
    */
-  createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
-  createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
+  createRule(
+    args: CreateRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRuleCommandOutput>;
+  createRule(
+    args: CreateRuleCommandInput,
+    cb: (err: any, data?: CreateRuleCommandOutput) => void
+  ): void;
   createRule(
     args: CreateRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -418,7 +433,10 @@ export interface ElasticLoadBalancingV2 {
     args: DeleteListenerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteListenerCommandOutput>;
-  deleteListener(args: DeleteListenerCommandInput, cb: (err: any, data?: DeleteListenerCommandOutput) => void): void;
+  deleteListener(
+    args: DeleteListenerCommandInput,
+    cb: (err: any, data?: DeleteListenerCommandOutput) => void
+  ): void;
   deleteListener(
     args: DeleteListenerCommandInput,
     options: __HttpHandlerOptions,
@@ -445,8 +463,14 @@ export interface ElasticLoadBalancingV2 {
   /**
    * @see {@link DeleteRuleCommand}
    */
-  deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
-  deleteRule(args: DeleteRuleCommandInput, cb: (err: any, data?: DeleteRuleCommandOutput) => void): void;
+  deleteRule(
+    args: DeleteRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRuleCommandOutput>;
+  deleteRule(
+    args: DeleteRuleCommandInput,
+    cb: (err: any, data?: DeleteRuleCommandOutput) => void
+  ): void;
   deleteRule(
     args: DeleteRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -647,8 +671,14 @@ export interface ElasticLoadBalancingV2 {
    * @see {@link DescribeRulesCommand}
    */
   describeRules(): Promise<DescribeRulesCommandOutput>;
-  describeRules(args: DescribeRulesCommandInput, options?: __HttpHandlerOptions): Promise<DescribeRulesCommandOutput>;
-  describeRules(args: DescribeRulesCommandInput, cb: (err: any, data?: DescribeRulesCommandOutput) => void): void;
+  describeRules(
+    args: DescribeRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRulesCommandOutput>;
+  describeRules(
+    args: DescribeRulesCommandInput,
+    cb: (err: any, data?: DescribeRulesCommandOutput) => void
+  ): void;
   describeRules(
     args: DescribeRulesCommandInput,
     options: __HttpHandlerOptions,
@@ -676,8 +706,14 @@ export interface ElasticLoadBalancingV2 {
   /**
    * @see {@link DescribeTagsCommand}
    */
-  describeTags(args: DescribeTagsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTagsCommandOutput>;
-  describeTags(args: DescribeTagsCommandInput, cb: (err: any, data?: DescribeTagsCommandOutput) => void): void;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTagsCommandOutput>;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    cb: (err: any, data?: DescribeTagsCommandOutput) => void
+  ): void;
   describeTags(
     args: DescribeTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -859,8 +895,14 @@ export interface ElasticLoadBalancingV2 {
   /**
    * @see {@link ModifyIpPoolsCommand}
    */
-  modifyIpPools(args: ModifyIpPoolsCommandInput, options?: __HttpHandlerOptions): Promise<ModifyIpPoolsCommandOutput>;
-  modifyIpPools(args: ModifyIpPoolsCommandInput, cb: (err: any, data?: ModifyIpPoolsCommandOutput) => void): void;
+  modifyIpPools(
+    args: ModifyIpPoolsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyIpPoolsCommandOutput>;
+  modifyIpPools(
+    args: ModifyIpPoolsCommandInput,
+    cb: (err: any, data?: ModifyIpPoolsCommandOutput) => void
+  ): void;
   modifyIpPools(
     args: ModifyIpPoolsCommandInput,
     options: __HttpHandlerOptions,
@@ -874,7 +916,10 @@ export interface ElasticLoadBalancingV2 {
     args: ModifyListenerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ModifyListenerCommandOutput>;
-  modifyListener(args: ModifyListenerCommandInput, cb: (err: any, data?: ModifyListenerCommandOutput) => void): void;
+  modifyListener(
+    args: ModifyListenerCommandInput,
+    cb: (err: any, data?: ModifyListenerCommandOutput) => void
+  ): void;
   modifyListener(
     args: ModifyListenerCommandInput,
     options: __HttpHandlerOptions,
@@ -918,8 +963,14 @@ export interface ElasticLoadBalancingV2 {
   /**
    * @see {@link ModifyRuleCommand}
    */
-  modifyRule(args: ModifyRuleCommandInput, options?: __HttpHandlerOptions): Promise<ModifyRuleCommandOutput>;
-  modifyRule(args: ModifyRuleCommandInput, cb: (err: any, data?: ModifyRuleCommandOutput) => void): void;
+  modifyRule(
+    args: ModifyRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyRuleCommandOutput>;
+  modifyRule(
+    args: ModifyRuleCommandInput,
+    cb: (err: any, data?: ModifyRuleCommandOutput) => void
+  ): void;
   modifyRule(
     args: ModifyRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -984,7 +1035,10 @@ export interface ElasticLoadBalancingV2 {
     args: RegisterTargetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RegisterTargetsCommandOutput>;
-  registerTargets(args: RegisterTargetsCommandInput, cb: (err: any, data?: RegisterTargetsCommandOutput) => void): void;
+  registerTargets(
+    args: RegisterTargetsCommandInput,
+    cb: (err: any, data?: RegisterTargetsCommandOutput) => void
+  ): void;
   registerTargets(
     args: RegisterTargetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1011,8 +1065,14 @@ export interface ElasticLoadBalancingV2 {
   /**
    * @see {@link RemoveTagsCommand}
    */
-  removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;
-  removeTags(args: RemoveTagsCommandInput, cb: (err: any, data?: RemoveTagsCommandOutput) => void): void;
+  removeTags(
+    args: RemoveTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveTagsCommandOutput>;
+  removeTags(
+    args: RemoveTagsCommandInput,
+    cb: (err: any, data?: RemoveTagsCommandOutput) => void
+  ): void;
   removeTags(
     args: RemoveTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -1090,8 +1150,14 @@ export interface ElasticLoadBalancingV2 {
   /**
    * @see {@link SetSubnetsCommand}
    */
-  setSubnets(args: SetSubnetsCommandInput, options?: __HttpHandlerOptions): Promise<SetSubnetsCommandOutput>;
-  setSubnets(args: SetSubnetsCommandInput, cb: (err: any, data?: SetSubnetsCommandOutput) => void): void;
+  setSubnets(
+    args: SetSubnetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetSubnetsCommandOutput>;
+  setSubnets(
+    args: SetSubnetsCommandInput,
+    cb: (err: any, data?: SetSubnetsCommandOutput) => void
+  ): void;
   setSubnets(
     args: SetSubnetsCommandInput,
     options: __HttpHandlerOptions,

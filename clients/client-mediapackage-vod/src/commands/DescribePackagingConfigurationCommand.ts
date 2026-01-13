@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageVodClient";
 import type { DescribePackagingConfigurationRequest, DescribePackagingConfigurationResponse } from "../models/models_0";
-import { DescribePackagingConfiguration } from "../schemas/schemas_0";
+import { DescribePackagingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribePackagingConfigurationCommandInput extends DescribePack
  *
  * The output of {@link DescribePackagingConfigurationCommand}.
  */
-export interface DescribePackagingConfigurationCommandOutput
-  extends DescribePackagingConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribePackagingConfigurationCommandOutput extends DescribePackagingConfigurationResponse, __MetadataBearer {}
 
 /**
  * Returns a description of a MediaPackage VOD PackagingConfiguration resource.
@@ -231,7 +229,7 @@ export class DescribePackagingConfigurationCommand extends $Command
   })
   .s("MediaPackageVod", "DescribePackagingConfiguration", {})
   .n("MediaPackageVodClient", "DescribePackagingConfigurationCommand")
-  .sc(DescribePackagingConfiguration)
+  .sc(DescribePackagingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

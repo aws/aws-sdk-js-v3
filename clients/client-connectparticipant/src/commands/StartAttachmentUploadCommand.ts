@@ -10,7 +10,7 @@ import type {
 } from "../ConnectParticipantClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartAttachmentUploadRequest, StartAttachmentUploadResponse } from "../models/models_0";
-import { StartAttachmentUpload } from "../schemas/schemas_0";
+import { StartAttachmentUpload$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class StartAttachmentUploadCommand extends $Command
   })
   .s("AmazonConnectParticipantServiceLambda", "StartAttachmentUpload", {})
   .n("ConnectParticipantClient", "StartAttachmentUploadCommand")
-  .sc(StartAttachmentUpload)
+  .sc(StartAttachmentUpload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteInactiveApprovalTeamVersionResponse,
 } from "../models/models_0";
 import type { MPAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MPAClient";
-import { DeleteInactiveApprovalTeamVersion } from "../schemas/schemas_0";
+import { DeleteInactiveApprovalTeamVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteInactiveApprovalTeamVersionCommandInput extends DeleteIna
  *
  * The output of {@link DeleteInactiveApprovalTeamVersionCommand}.
  */
-export interface DeleteInactiveApprovalTeamVersionCommandOutput
-  extends DeleteInactiveApprovalTeamVersionResponse,
-    __MetadataBearer {}
+export interface DeleteInactiveApprovalTeamVersionCommandOutput extends DeleteInactiveApprovalTeamVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an inactive approval team. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-health.html">Team health</a> in the <i>Multi-party approval User Guide</i>.</p> <p>You can also use this operation to delete a team draft. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/update-team.html#update-team-draft-status">Interacting with drafts</a> in the <i>Multi-party approval User Guide</i>.</p>
@@ -95,7 +93,7 @@ export class DeleteInactiveApprovalTeamVersionCommand extends $Command
   })
   .s("AWSFluffyCoreService", "DeleteInactiveApprovalTeamVersion", {})
   .n("MPAClient", "DeleteInactiveApprovalTeamVersionCommand")
-  .sc(DeleteInactiveApprovalTeamVersion)
+  .sc(DeleteInactiveApprovalTeamVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

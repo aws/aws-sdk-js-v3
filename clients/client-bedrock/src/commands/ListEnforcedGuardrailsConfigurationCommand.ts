@@ -9,7 +9,7 @@ import type {
   ListEnforcedGuardrailsConfigurationRequest,
   ListEnforcedGuardrailsConfigurationResponse,
 } from "../models/models_0";
-import { ListEnforcedGuardrailsConfiguration } from "../schemas/schemas_0";
+import { ListEnforcedGuardrailsConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListEnforcedGuardrailsConfigurationCommandInput extends ListEnf
  *
  * The output of {@link ListEnforcedGuardrailsConfigurationCommand}.
  */
-export interface ListEnforcedGuardrailsConfigurationCommandOutput
-  extends ListEnforcedGuardrailsConfigurationResponse,
-    __MetadataBearer {}
+export interface ListEnforcedGuardrailsConfigurationCommandOutput extends ListEnforcedGuardrailsConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the account-level enforced guardrail configurations.</p>
@@ -107,7 +105,7 @@ export class ListEnforcedGuardrailsConfigurationCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "ListEnforcedGuardrailsConfiguration", {})
   .n("BedrockClient", "ListEnforcedGuardrailsConfigurationCommand")
-  .sc(ListEnforcedGuardrailsConfiguration)
+  .sc(ListEnforcedGuardrailsConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetArchiveRuleRequest, GetArchiveRuleResponse } from "../models/models_0";
-import { GetArchiveRule } from "../schemas/schemas_0";
+import { GetArchiveRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class GetArchiveRuleCommand extends $Command
   })
   .s("AccessAnalyzer", "GetArchiveRule", {})
   .n("AccessAnalyzerClient", "GetArchiveRuleCommand")
-  .sc(GetArchiveRule)
+  .sc(GetArchiveRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

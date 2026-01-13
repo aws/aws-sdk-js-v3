@@ -9,7 +9,7 @@ import type {
   GetReservationPurchaseRecommendationRequest,
   GetReservationPurchaseRecommendationResponse,
 } from "../models/models_0";
-import { GetReservationPurchaseRecommendation } from "../schemas/schemas_0";
+import { GetReservationPurchaseRecommendation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetReservationPurchaseRecommendationCommandInput extends GetRes
  *
  * The output of {@link GetReservationPurchaseRecommendationCommand}.
  */
-export interface GetReservationPurchaseRecommendationCommandOutput
-  extends GetReservationPurchaseRecommendationResponse,
-    __MetadataBearer {}
+export interface GetReservationPurchaseRecommendationCommandOutput extends GetReservationPurchaseRecommendationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets recommendations for reservation purchases. These recommendations might help you to
@@ -181,6 +179,7 @@ export interface GetReservationPurchaseRecommendationCommandOutput
  * //               LicenseModel: "STRING_VALUE",
  * //               CurrentGeneration: true || false,
  * //               SizeFlexEligible: true || false,
+ * //               DeploymentModel: "STRING_VALUE",
  * //             },
  * //             RedshiftInstanceDetails: { // RedshiftInstanceDetails
  * //               Family: "STRING_VALUE",
@@ -288,7 +287,7 @@ export class GetReservationPurchaseRecommendationCommand extends $Command
   })
   .s("AWSInsightsIndexService", "GetReservationPurchaseRecommendation", {})
   .n("CostExplorerClient", "GetReservationPurchaseRecommendationCommand")
-  .sc(GetReservationPurchaseRecommendation)
+  .sc(GetReservationPurchaseRecommendation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

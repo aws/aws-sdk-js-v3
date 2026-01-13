@@ -9,7 +9,7 @@ import type {
   CreatePresignedMlflowTrackingServerUrlResponse,
 } from "../models/models_1";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreatePresignedMlflowTrackingServerUrl } from "../schemas/schemas_0";
+import { CreatePresignedMlflowTrackingServerUrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreatePresignedMlflowTrackingServerUrlCommand}.
  */
-export interface CreatePresignedMlflowTrackingServerUrlCommandInput
-  extends CreatePresignedMlflowTrackingServerUrlRequest {}
+export interface CreatePresignedMlflowTrackingServerUrlCommandInput extends CreatePresignedMlflowTrackingServerUrlRequest {}
 /**
  * @public
  *
  * The output of {@link CreatePresignedMlflowTrackingServerUrlCommand}.
  */
-export interface CreatePresignedMlflowTrackingServerUrlCommandOutput
-  extends CreatePresignedMlflowTrackingServerUrlResponse,
-    __MetadataBearer {}
+export interface CreatePresignedMlflowTrackingServerUrlCommandOutput extends CreatePresignedMlflowTrackingServerUrlResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a presigned URL that you can use to connect to the MLflow UI attached to your tracking server. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-launch-ui.html">Launch the MLflow UI using a presigned URL</a>.</p>
@@ -84,7 +81,7 @@ export class CreatePresignedMlflowTrackingServerUrlCommand extends $Command
   })
   .s("SageMaker", "CreatePresignedMlflowTrackingServerUrl", {})
   .n("SageMakerClient", "CreatePresignedMlflowTrackingServerUrlCommand")
-  .sc(CreatePresignedMlflowTrackingServerUrl)
+  .sc(CreatePresignedMlflowTrackingServerUrl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   ModifyDBClusterSnapshotAttributeResult,
 } from "../models/models_0";
 import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { ModifyDBClusterSnapshotAttribute } from "../schemas/schemas_0";
+import { ModifyDBClusterSnapshotAttribute$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ModifyDBClusterSnapshotAttributeCommandInput extends ModifyDBCl
  *
  * The output of {@link ModifyDBClusterSnapshotAttributeCommand}.
  */
-export interface ModifyDBClusterSnapshotAttributeCommandOutput
-  extends ModifyDBClusterSnapshotAttributeResult,
-    __MetadataBearer {}
+export interface ModifyDBClusterSnapshotAttributeCommandOutput extends ModifyDBClusterSnapshotAttributeResult, __MetadataBearer {}
 
 /**
  * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB
@@ -119,7 +117,7 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command
   })
   .s("AmazonRDSv19", "ModifyDBClusterSnapshotAttribute", {})
   .n("NeptuneClient", "ModifyDBClusterSnapshotAttributeCommand")
-  .sc(ModifyDBClusterSnapshotAttribute)
+  .sc(ModifyDBClusterSnapshotAttribute$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

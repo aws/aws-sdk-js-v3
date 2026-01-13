@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateSipMediaApplicationCallRequest, UpdateSipMediaApplicationCallResponse } from "../models/models_0";
-import { UpdateSipMediaApplicationCall } from "../schemas/schemas_0";
+import { UpdateSipMediaApplicationCall$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateSipMediaApplicationCallCommandInput extends UpdateSipMedi
  *
  * The output of {@link UpdateSipMediaApplicationCallCommand}.
  */
-export interface UpdateSipMediaApplicationCallCommandOutput
-  extends UpdateSipMediaApplicationCallResponse,
-    __MetadataBearer {}
+export interface UpdateSipMediaApplicationCallCommandOutput extends UpdateSipMediaApplicationCallResponse, __MetadataBearer {}
 
 /**
  * <p>Invokes the AWS Lambda function associated with the SIP media application and
@@ -107,7 +105,7 @@ export class UpdateSipMediaApplicationCallCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "UpdateSipMediaApplicationCall", {})
   .n("ChimeSDKVoiceClient", "UpdateSipMediaApplicationCallCommand")
-  .sc(UpdateSipMediaApplicationCall)
+  .sc(UpdateSipMediaApplicationCall$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

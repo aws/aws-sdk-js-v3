@@ -13,7 +13,7 @@ import type {
   DescribeManagedLoginBrandingByClientRequest,
   DescribeManagedLoginBrandingByClientResponse,
 } from "../models/models_0";
-import { DescribeManagedLoginBrandingByClient } from "../schemas/schemas_0";
+import { DescribeManagedLoginBrandingByClient$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DescribeManagedLoginBrandingByClientCommandInput extends Descri
  *
  * The output of {@link DescribeManagedLoginBrandingByClientCommand}.
  */
-export interface DescribeManagedLoginBrandingByClientCommandOutput
-  extends DescribeManagedLoginBrandingByClientResponse,
-    __MetadataBearer {}
+export interface DescribeManagedLoginBrandingByClientCommandOutput extends DescribeManagedLoginBrandingByClientResponse, __MetadataBearer {}
 
 /**
  * <p>Given the ID of a user pool app client, returns detailed information about the style
@@ -119,7 +117,7 @@ export class DescribeManagedLoginBrandingByClientCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "DescribeManagedLoginBrandingByClient", {})
   .n("CognitoIdentityProviderClient", "DescribeManagedLoginBrandingByClientCommand")
-  .sc(DescribeManagedLoginBrandingByClient)
+  .sc(DescribeManagedLoginBrandingByClient$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

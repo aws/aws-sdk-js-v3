@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import type { DisassociateTimeSeriesFromAssetPropertyRequest } from "../models/models_0";
-import { DisassociateTimeSeriesFromAssetProperty } from "../schemas/schemas_0";
+import { DisassociateTimeSeriesFromAssetProperty$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link DisassociateTimeSeriesFromAssetPropertyCommand}.
  */
-export interface DisassociateTimeSeriesFromAssetPropertyCommandInput
-  extends DisassociateTimeSeriesFromAssetPropertyRequest {}
+export interface DisassociateTimeSeriesFromAssetPropertyCommandInput extends DisassociateTimeSeriesFromAssetPropertyRequest {}
 /**
  * @public
  *
@@ -95,7 +94,7 @@ export class DisassociateTimeSeriesFromAssetPropertyCommand extends $Command
   })
   .s("AWSIoTSiteWise", "DisassociateTimeSeriesFromAssetProperty", {})
   .n("IoTSiteWiseClient", "DisassociateTimeSeriesFromAssetPropertyCommand")
-  .sc(DisassociateTimeSeriesFromAssetProperty)
+  .sc(DisassociateTimeSeriesFromAssetProperty$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

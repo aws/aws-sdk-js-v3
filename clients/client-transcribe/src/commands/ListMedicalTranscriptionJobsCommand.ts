@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListMedicalTranscriptionJobsRequest, ListMedicalTranscriptionJobsResponse } from "../models/models_0";
-import { ListMedicalTranscriptionJobs } from "../schemas/schemas_0";
+import { ListMedicalTranscriptionJobs$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -24,9 +24,7 @@ export interface ListMedicalTranscriptionJobsCommandInput extends ListMedicalTra
  *
  * The output of {@link ListMedicalTranscriptionJobsCommand}.
  */
-export interface ListMedicalTranscriptionJobsCommandOutput
-  extends ListMedicalTranscriptionJobsResponse,
-    __MetadataBearer {}
+export interface ListMedicalTranscriptionJobsCommandOutput extends ListMedicalTranscriptionJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a list of medical transcription jobs that match the specified criteria. If no
@@ -110,7 +108,7 @@ export class ListMedicalTranscriptionJobsCommand extends $Command
   })
   .s("Transcribe", "ListMedicalTranscriptionJobs", {})
   .n("TranscribeClient", "ListMedicalTranscriptionJobsCommand")
-  .sc(ListMedicalTranscriptionJobs)
+  .sc(ListMedicalTranscriptionJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

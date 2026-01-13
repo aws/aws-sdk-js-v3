@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
 import type { ListAccessorsInput, ListAccessorsOutput } from "../models/models_0";
-import { ListAccessors } from "../schemas/schemas_0";
+import { ListAccessors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class ListAccessorsCommand extends $Command
   })
   .s("TaigaWebService", "ListAccessors", {})
   .n("ManagedBlockchainClient", "ListAccessorsCommand")
-  .sc(ListAccessors)
+  .sc(ListAccessors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

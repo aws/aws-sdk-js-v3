@@ -7,12 +7,12 @@ import { GetDeploymentCommand, GetDeploymentCommandInput } from "../commands/Get
 const checkState = async (client: AppConfigClient, input: GetDeploymentCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetDeploymentCommand(input));
+    let result: any = await client.send(new GetDeploymentCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "COMPLETE") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: AppConfigClient, input: GetDeploymentCommandIn
     try {
       const returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "ROLLED_BACK") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -28,7 +28,7 @@ const checkState = async (client: AppConfigClient, input: GetDeploymentCommandIn
     try {
       const returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "REVERTED") {
         return { state: WaiterState.FAILURE, reason };
       }

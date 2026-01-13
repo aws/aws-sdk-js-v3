@@ -454,7 +454,9 @@ export interface S3Configuration {
  * <p>The output data configuration supplied when the export job was created.</p>
  * @public
  */
-export type OutputDataConfig = OutputDataConfig.S3ConfigurationMember | OutputDataConfig.$UnknownMember;
+export type OutputDataConfig =
+  | OutputDataConfig.S3ConfigurationMember
+  | OutputDataConfig.$UnknownMember;
 
 /**
  * @public
@@ -579,7 +581,9 @@ export interface DescribeFHIRImportJobRequest {
  * <p> The import job input properties.</p>
  * @public
  */
-export type InputDataConfig = InputDataConfig.S3UriMember | InputDataConfig.$UnknownMember;
+export type InputDataConfig =
+  | InputDataConfig.S3UriMember
+  | InputDataConfig.$UnknownMember;
 
 /**
  * @public

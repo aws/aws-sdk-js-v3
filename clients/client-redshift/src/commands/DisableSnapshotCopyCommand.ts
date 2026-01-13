@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisableSnapshotCopyMessage, DisableSnapshotCopyResult } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DisableSnapshotCopy } from "../schemas/schemas_0";
+import { DisableSnapshotCopy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -283,7 +283,7 @@ export class DisableSnapshotCopyCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DisableSnapshotCopy", {})
   .n("RedshiftClient", "DisableSnapshotCopyCommand")
-  .sc(DisableSnapshotCopy)
+  .sc(DisableSnapshotCopy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

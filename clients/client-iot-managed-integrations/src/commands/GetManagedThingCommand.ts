@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { GetManagedThingRequest, GetManagedThingResponse } from "../models/models_0";
-import { GetManagedThing } from "../schemas/schemas_0";
+import { GetManagedThing$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -76,6 +76,11 @@ export interface GetManagedThingCommandOutput extends GetManagedThingResponse, _
  * //   Tags: { // TagsMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   WiFiSimpleSetupConfiguration: { // WiFiSimpleSetupConfiguration
+ * //     EnableAsProvisioner: true || false,
+ * //     EnableAsProvisionee: true || false,
+ * //     TimeoutInMinutes: Number("int"),
+ * //   },
  * // };
  *
  * ```
@@ -127,7 +132,7 @@ export class GetManagedThingCommand extends $Command
   })
   .s("IotManagedIntegrations", "GetManagedThing", {})
   .n("IoTManagedIntegrationsClient", "GetManagedThingCommand")
-  .sc(GetManagedThing)
+  .sc(GetManagedThing$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

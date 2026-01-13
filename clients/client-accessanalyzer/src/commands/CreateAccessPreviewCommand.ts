@@ -10,7 +10,7 @@ import type {
 } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateAccessPreviewRequest, CreateAccessPreviewResponse } from "../models/models_0";
-import { CreateAccessPreview } from "../schemas/schemas_0";
+import { CreateAccessPreview$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -225,7 +225,7 @@ export class CreateAccessPreviewCommand extends $Command
   })
   .s("AccessAnalyzer", "CreateAccessPreview", {})
   .n("AccessAnalyzerClient", "CreateAccessPreviewCommand")
-  .sc(CreateAccessPreview)
+  .sc(CreateAccessPreview$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

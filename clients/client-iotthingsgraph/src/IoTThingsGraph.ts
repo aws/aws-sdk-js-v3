@@ -303,7 +303,10 @@ export interface IoTThingsGraph {
     args: DeleteNamespaceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteNamespaceCommandOutput>;
-  deleteNamespace(args: DeleteNamespaceCommandInput, cb: (err: any, data?: DeleteNamespaceCommandOutput) => void): void;
+  deleteNamespace(
+    args: DeleteNamespaceCommandInput,
+    cb: (err: any, data?: DeleteNamespaceCommandOutput) => void
+  ): void;
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
     options: __HttpHandlerOptions,
@@ -435,8 +438,14 @@ export interface IoTThingsGraph {
   /**
    * @see {@link GetEntitiesCommand}
    */
-  getEntities(args: GetEntitiesCommandInput, options?: __HttpHandlerOptions): Promise<GetEntitiesCommandOutput>;
-  getEntities(args: GetEntitiesCommandInput, cb: (err: any, data?: GetEntitiesCommandOutput) => void): void;
+  getEntities(
+    args: GetEntitiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEntitiesCommandOutput>;
+  getEntities(
+    args: GetEntitiesCommandInput,
+    cb: (err: any, data?: GetEntitiesCommandOutput) => void
+  ): void;
   getEntities(
     args: GetEntitiesCommandInput,
     options: __HttpHandlerOptions,
@@ -450,7 +459,10 @@ export interface IoTThingsGraph {
     args: GetFlowTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetFlowTemplateCommandOutput>;
-  getFlowTemplate(args: GetFlowTemplateCommandInput, cb: (err: any, data?: GetFlowTemplateCommandOutput) => void): void;
+  getFlowTemplate(
+    args: GetFlowTemplateCommandInput,
+    cb: (err: any, data?: GetFlowTemplateCommandOutput) => void
+  ): void;
   getFlowTemplate(
     args: GetFlowTemplateCommandInput,
     options: __HttpHandlerOptions,
@@ -550,7 +562,10 @@ export interface IoTThingsGraph {
     args: GetUploadStatusCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetUploadStatusCommandOutput>;
-  getUploadStatus(args: GetUploadStatusCommandInput, cb: (err: any, data?: GetUploadStatusCommandOutput) => void): void;
+  getUploadStatus(
+    args: GetUploadStatusCommandInput,
+    cb: (err: any, data?: GetUploadStatusCommandOutput) => void
+  ): void;
   getUploadStatus(
     args: GetUploadStatusCommandInput,
     options: __HttpHandlerOptions,
@@ -598,7 +613,10 @@ export interface IoTThingsGraph {
     args: SearchEntitiesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SearchEntitiesCommandOutput>;
-  searchEntities(args: SearchEntitiesCommandInput, cb: (err: any, data?: SearchEntitiesCommandOutput) => void): void;
+  searchEntities(
+    args: SearchEntitiesCommandInput,
+    cb: (err: any, data?: SearchEntitiesCommandOutput) => void
+  ): void;
   searchEntities(
     args: SearchEntitiesCommandInput,
     options: __HttpHandlerOptions,
@@ -679,8 +697,14 @@ export interface IoTThingsGraph {
   /**
    * @see {@link SearchThingsCommand}
    */
-  searchThings(args: SearchThingsCommandInput, options?: __HttpHandlerOptions): Promise<SearchThingsCommandOutput>;
-  searchThings(args: SearchThingsCommandInput, cb: (err: any, data?: SearchThingsCommandOutput) => void): void;
+  searchThings(
+    args: SearchThingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchThingsCommandOutput>;
+  searchThings(
+    args: SearchThingsCommandInput,
+    cb: (err: any, data?: SearchThingsCommandOutput) => void
+  ): void;
   searchThings(
     args: SearchThingsCommandInput,
     options: __HttpHandlerOptions,
@@ -690,8 +714,14 @@ export interface IoTThingsGraph {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -719,8 +749,14 @@ export interface IoTThingsGraph {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

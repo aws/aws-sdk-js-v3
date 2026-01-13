@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListObjectParentPathsRequest, ListObjectParentPathsResponse } from "../models/models_0";
-import { ListObjectParentPaths } from "../schemas/schemas_0";
+import { ListObjectParentPaths$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class ListObjectParentPathsCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "ListObjectParentPaths", {})
   .n("CloudDirectoryClient", "ListObjectParentPathsCommand")
-  .sc(ListObjectParentPaths)
+  .sc(ListObjectParentPaths$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

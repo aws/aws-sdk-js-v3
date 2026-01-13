@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import type { GetFindingsRequest, GetFindingsResponse } from "../models/models_0";
-import { GetFindings } from "../schemas/schemas_0";
+import { GetFindings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -351,6 +351,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //           EngineVersion: "STRING_VALUE",
  * //           DbClusterIdentifier: "STRING_VALUE",
  * //           DbInstanceArn: "STRING_VALUE",
+ * //           DbiResourceId: "STRING_VALUE",
  * //           Tags: "<Tags>",
  * //         },
  * //         RdsLimitlessDbDetails: { // RdsLimitlessDbDetails
@@ -1145,7 +1146,7 @@ export class GetFindingsCommand extends $Command
   })
   .s("GuardDutyAPIService", "GetFindings", {})
   .n("GuardDutyClient", "GetFindingsCommand")
-  .sc(GetFindings)
+  .sc(GetFindings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

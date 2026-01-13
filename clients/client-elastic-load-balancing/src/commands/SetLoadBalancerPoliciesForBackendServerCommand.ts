@@ -13,7 +13,7 @@ import type {
   SetLoadBalancerPoliciesForBackendServerInput,
   SetLoadBalancerPoliciesForBackendServerOutput,
 } from "../models/models_0";
-import { SetLoadBalancerPoliciesForBackendServer } from "../schemas/schemas_0";
+import { SetLoadBalancerPoliciesForBackendServer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link SetLoadBalancerPoliciesForBackendServerCommand}.
  */
-export interface SetLoadBalancerPoliciesForBackendServerCommandInput
-  extends SetLoadBalancerPoliciesForBackendServerInput {}
+export interface SetLoadBalancerPoliciesForBackendServerCommandInput extends SetLoadBalancerPoliciesForBackendServerInput {}
 /**
  * @public
  *
  * The output of {@link SetLoadBalancerPoliciesForBackendServerCommand}.
  */
-export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
-  extends SetLoadBalancerPoliciesForBackendServerOutput,
-    __MetadataBearer {}
+export interface SetLoadBalancerPoliciesForBackendServerCommandOutput extends SetLoadBalancerPoliciesForBackendServerOutput, __MetadataBearer {}
 
 /**
  * <p>Replaces the set of policies associated with the specified port on which the EC2 instance is listening with a new set of policies.
@@ -121,7 +118,7 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command
   })
   .s("ElasticLoadBalancing_v7", "SetLoadBalancerPoliciesForBackendServer", {})
   .n("ElasticLoadBalancingClient", "SetLoadBalancerPoliciesForBackendServerCommand")
-  .sc(SetLoadBalancerPoliciesForBackendServer)
+  .sc(SetLoadBalancerPoliciesForBackendServer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

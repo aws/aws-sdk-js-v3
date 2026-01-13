@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateFailbackReplicationConfigurationRequest } from "../models/models_0";
-import { UpdateFailbackReplicationConfiguration } from "../schemas/schemas_0";
+import { UpdateFailbackReplicationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link UpdateFailbackReplicationConfigurationCommand}.
  */
-export interface UpdateFailbackReplicationConfigurationCommandInput
-  extends UpdateFailbackReplicationConfigurationRequest {}
+export interface UpdateFailbackReplicationConfigurationCommandInput extends UpdateFailbackReplicationConfigurationRequest {}
 /**
  * @public
  *
@@ -90,7 +89,7 @@ export class UpdateFailbackReplicationConfigurationCommand extends $Command
   })
   .s("ElasticDisasterRecoveryService", "UpdateFailbackReplicationConfiguration", {})
   .n("DrsClient", "UpdateFailbackReplicationConfigurationCommand")
-  .sc(UpdateFailbackReplicationConfiguration)
+  .sc(UpdateFailbackReplicationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,12 @@
 {
   "name": "@aws-sdk/aws-middleware-test",
   "description": "Integration test suite for AWS middleware",
-  "version": "3.952.0",
+  "version": "3.967.0",
   "scripts": {
     "build": "exit 0",
     "build:cjs": "exit 0",
     "build:es": "exit 0",
-    "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
+    "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "exit 0",
     "build:types:downlevel": "exit 0",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
@@ -26,9 +26,9 @@
     "@aws-sdk/client-sagemaker": "*",
     "@aws-sdk/client-sagemaker-runtime": "*",
     "@aws-sdk/client-xray": "*",
-    "@smithy/protocol-http": "^5.3.5",
-    "@smithy/types": "^4.9.0",
-    "@smithy/util-stream": "^4.5.6",
+    "@smithy/protocol-http": "^5.3.7",
+    "@smithy/types": "^4.11.0",
+    "@smithy/util-stream": "^4.5.8",
     "@smithy/util-utf8": "^4.2.0",
     "tslib": "^2.6.2"
   },

@@ -9,7 +9,7 @@ import type {
   GetTableRecordExpirationJobStatusResponse,
 } from "../models/models_0";
 import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
-import { GetTableRecordExpirationJobStatus } from "../schemas/schemas_0";
+import { GetTableRecordExpirationJobStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetTableRecordExpirationJobStatusCommandInput extends GetTableR
  *
  * The output of {@link GetTableRecordExpirationJobStatusCommand}.
  */
-export interface GetTableRecordExpirationJobStatusCommandOutput
-  extends GetTableRecordExpirationJobStatusResponse,
-    __MetadataBearer {}
+export interface GetTableRecordExpirationJobStatusCommandOutput extends GetTableRecordExpirationJobStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the status, metrics, and details of the latest record expiration job for a table. This includes when the job ran, and whether it succeeded or failed. If the job ran successfully, this also includes statistics about the records that were removed.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableRecordExpirationJobStatus</code> permission to use this operation.</p> </dd> </dl>
@@ -103,7 +101,7 @@ export class GetTableRecordExpirationJobStatusCommand extends $Command
   })
   .s("S3TableBuckets", "GetTableRecordExpirationJobStatus", {})
   .n("S3TablesClient", "GetTableRecordExpirationJobStatusCommand")
-  .sc(GetTableRecordExpirationJobStatus)
+  .sc(GetTableRecordExpirationJobStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

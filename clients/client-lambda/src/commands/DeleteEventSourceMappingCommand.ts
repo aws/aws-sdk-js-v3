@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import type { DeleteEventSourceMappingRequest, EventSourceMappingConfiguration } from "../models/models_0";
-import { DeleteEventSourceMapping } from "../schemas/schemas_0";
+import { DeleteEventSourceMapping$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -224,7 +224,7 @@ export class DeleteEventSourceMappingCommand extends $Command
   })
   .s("AWSGirApiService", "DeleteEventSourceMapping", {})
   .n("LambdaClient", "DeleteEventSourceMappingCommand")
-  .sc(DeleteEventSourceMapping)
+  .sc(DeleteEventSourceMapping$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

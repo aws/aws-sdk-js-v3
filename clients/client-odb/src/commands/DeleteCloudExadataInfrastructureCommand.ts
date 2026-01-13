@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCloudExadataInfrastructureInput, DeleteCloudExadataInfrastructureOutput } from "../models/models_0";
 import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { DeleteCloudExadataInfrastructure } from "../schemas/schemas_0";
+import { DeleteCloudExadataInfrastructure$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteCloudExadataInfrastructureCommandInput extends DeleteClou
  *
  * The output of {@link DeleteCloudExadataInfrastructureCommand}.
  */
-export interface DeleteCloudExadataInfrastructureCommandOutput
-  extends DeleteCloudExadataInfrastructureOutput,
-    __MetadataBearer {}
+export interface DeleteCloudExadataInfrastructureCommandOutput extends DeleteCloudExadataInfrastructureOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Exadata infrastructure. Before you use this operation, make sure to delete all of the VM clusters that are hosted on this Exadata infrastructure.</p>
@@ -91,7 +89,7 @@ export class DeleteCloudExadataInfrastructureCommand extends $Command
   })
   .s("Odb", "DeleteCloudExadataInfrastructure", {})
   .n("OdbClient", "DeleteCloudExadataInfrastructureCommand")
-  .sc(DeleteCloudExadataInfrastructure)
+  .sc(DeleteCloudExadataInfrastructure$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

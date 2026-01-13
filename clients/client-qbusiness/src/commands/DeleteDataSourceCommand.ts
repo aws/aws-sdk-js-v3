@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDataSourceRequest, DeleteDataSourceResponse } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { DeleteDataSource } from "../schemas/schemas_0";
+import { DeleteDataSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteDataSourceCommand extends $Command
   })
   .s("ExpertQ", "DeleteDataSource", {})
   .n("QBusinessClient", "DeleteDataSourceCommand")
-  .sc(DeleteDataSource)
+  .sc(DeleteDataSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeServiceEnvironmentsRequest, DescribeServiceEnvironmentsResponse } from "../models/models_0";
-import { DescribeServiceEnvironments } from "../schemas/schemas_0";
+import { DescribeServiceEnvironments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeServiceEnvironmentsCommandInput extends DescribeService
  *
  * The output of {@link DescribeServiceEnvironmentsCommand}.
  */
-export interface DescribeServiceEnvironmentsCommandOutput
-  extends DescribeServiceEnvironmentsResponse,
-    __MetadataBearer {}
+export interface DescribeServiceEnvironmentsCommandOutput extends DescribeServiceEnvironmentsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your service environments.</p>
@@ -105,7 +103,7 @@ export class DescribeServiceEnvironmentsCommand extends $Command
   })
   .s("AWSBatchV20160810", "DescribeServiceEnvironments", {})
   .n("BatchClient", "DescribeServiceEnvironmentsCommand")
-  .sc(DescribeServiceEnvironments)
+  .sc(DescribeServiceEnvironments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

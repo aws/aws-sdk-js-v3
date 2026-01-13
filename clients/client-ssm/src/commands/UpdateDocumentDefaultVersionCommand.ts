@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDocumentDefaultVersionRequest, UpdateDocumentDefaultVersionResult } from "../models/models_1";
-import { UpdateDocumentDefaultVersion } from "../schemas/schemas_0";
+import { UpdateDocumentDefaultVersion$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -24,9 +24,7 @@ export interface UpdateDocumentDefaultVersionCommandInput extends UpdateDocument
  *
  * The output of {@link UpdateDocumentDefaultVersionCommand}.
  */
-export interface UpdateDocumentDefaultVersionCommandOutput
-  extends UpdateDocumentDefaultVersionResult,
-    __MetadataBearer {}
+export interface UpdateDocumentDefaultVersionCommandOutput extends UpdateDocumentDefaultVersionResult, __MetadataBearer {}
 
 /**
  * <p>Set the default version of a document. </p>
@@ -97,7 +95,7 @@ export class UpdateDocumentDefaultVersionCommand extends $Command
   })
   .s("AmazonSSM", "UpdateDocumentDefaultVersion", {})
   .n("SSMClient", "UpdateDocumentDefaultVersionCommand")
-  .sc(UpdateDocumentDefaultVersion)
+  .sc(UpdateDocumentDefaultVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

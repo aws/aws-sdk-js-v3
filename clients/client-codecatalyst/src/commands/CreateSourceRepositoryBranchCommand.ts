@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateSourceRepositoryBranchRequest, CreateSourceRepositoryBranchResponse } from "../models/models_0";
-import { CreateSourceRepositoryBranch } from "../schemas/schemas_0";
+import { CreateSourceRepositoryBranch$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateSourceRepositoryBranchCommandInput extends CreateSourceRe
  *
  * The output of {@link CreateSourceRepositoryBranchCommand}.
  */
-export interface CreateSourceRepositoryBranchCommandOutput
-  extends CreateSourceRepositoryBranchResponse,
-    __MetadataBearer {}
+export interface CreateSourceRepositoryBranchCommandOutput extends CreateSourceRepositoryBranchResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a branch in a specified source repository in Amazon CodeCatalyst. </p>
@@ -105,7 +103,7 @@ export class CreateSourceRepositoryBranchCommand extends $Command
   })
   .s("CodeCatalyst", "CreateSourceRepositoryBranch", {})
   .n("CodeCatalystClient", "CreateSourceRepositoryBranchCommand")
-  .sc(CreateSourceRepositoryBranch)
+  .sc(CreateSourceRepositoryBranch$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeRepositoriesRequest, DescribeRepositoriesResponse } from "../models/models_0";
-import { DescribeRepositories } from "../schemas/schemas_0";
+import { DescribeRepositories$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,7 +136,7 @@ export class DescribeRepositoriesCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "DescribeRepositories", {})
   .n("ECRClient", "DescribeRepositoriesCommand")
-  .sc(DescribeRepositories)
+  .sc(DescribeRepositories$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

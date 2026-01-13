@@ -9,7 +9,7 @@ import type {
   UpdateApplicationWithTokenExchangeGrantResponse,
 } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateApplicationWithTokenExchangeGrant } from "../schemas/schemas_0";
+import { UpdateApplicationWithTokenExchangeGrant$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateApplicationWithTokenExchangeGrantCommand}.
  */
-export interface UpdateApplicationWithTokenExchangeGrantCommandInput
-  extends UpdateApplicationWithTokenExchangeGrantRequest {}
+export interface UpdateApplicationWithTokenExchangeGrantCommandInput extends UpdateApplicationWithTokenExchangeGrantRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateApplicationWithTokenExchangeGrantCommand}.
  */
-export interface UpdateApplicationWithTokenExchangeGrantCommandOutput
-  extends UpdateApplicationWithTokenExchangeGrantResponse,
-    __MetadataBearer {}
+export interface UpdateApplicationWithTokenExchangeGrantCommandOutput extends UpdateApplicationWithTokenExchangeGrantResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an Quick Suite application with a token exchange grant. This operation only supports Quick Suite applications that are registered with IAM Identity Center.</p>
@@ -105,7 +102,7 @@ export class UpdateApplicationWithTokenExchangeGrantCommand extends $Command
   })
   .s("QuickSight_20180401", "UpdateApplicationWithTokenExchangeGrant", {})
   .n("QuickSightClient", "UpdateApplicationWithTokenExchangeGrantCommand")
-  .sc(UpdateApplicationWithTokenExchangeGrant)
+  .sc(UpdateApplicationWithTokenExchangeGrant$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

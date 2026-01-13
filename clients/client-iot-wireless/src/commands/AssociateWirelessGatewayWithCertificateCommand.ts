@@ -9,7 +9,7 @@ import type {
   AssociateWirelessGatewayWithCertificateRequest,
   AssociateWirelessGatewayWithCertificateResponse,
 } from "../models/models_0";
-import { AssociateWirelessGatewayWithCertificate } from "../schemas/schemas_0";
+import { AssociateWirelessGatewayWithCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AssociateWirelessGatewayWithCertificateCommand}.
  */
-export interface AssociateWirelessGatewayWithCertificateCommandInput
-  extends AssociateWirelessGatewayWithCertificateRequest {}
+export interface AssociateWirelessGatewayWithCertificateCommandInput extends AssociateWirelessGatewayWithCertificateRequest {}
 /**
  * @public
  *
  * The output of {@link AssociateWirelessGatewayWithCertificateCommand}.
  */
-export interface AssociateWirelessGatewayWithCertificateCommandOutput
-  extends AssociateWirelessGatewayWithCertificateResponse,
-    __MetadataBearer {}
+export interface AssociateWirelessGatewayWithCertificateCommandOutput extends AssociateWirelessGatewayWithCertificateResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a wireless gateway with a certificate.</p>
@@ -98,7 +95,7 @@ export class AssociateWirelessGatewayWithCertificateCommand extends $Command
   })
   .s("iotwireless", "AssociateWirelessGatewayWithCertificate", {})
   .n("IoTWirelessClient", "AssociateWirelessGatewayWithCertificateCommand")
-  .sc(AssociateWirelessGatewayWithCertificate)
+  .sc(AssociateWirelessGatewayWithCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

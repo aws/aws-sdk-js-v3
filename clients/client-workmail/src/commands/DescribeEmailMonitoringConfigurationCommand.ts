@@ -8,7 +8,7 @@ import type {
   DescribeEmailMonitoringConfigurationRequest,
   DescribeEmailMonitoringConfigurationResponse,
 } from "../models/models_0";
-import { DescribeEmailMonitoringConfiguration } from "../schemas/schemas_0";
+import { DescribeEmailMonitoringConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DescribeEmailMonitoringConfigurationCommandInput extends Descri
  *
  * The output of {@link DescribeEmailMonitoringConfigurationCommand}.
  */
-export interface DescribeEmailMonitoringConfigurationCommandOutput
-  extends DescribeEmailMonitoringConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeEmailMonitoringConfigurationCommandOutput extends DescribeEmailMonitoringConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the current email monitoring configuration for a specified organization.</p>
@@ -93,7 +91,7 @@ export class DescribeEmailMonitoringConfigurationCommand extends $Command
   })
   .s("WorkMailService", "DescribeEmailMonitoringConfiguration", {})
   .n("WorkMailClient", "DescribeEmailMonitoringConfigurationCommand")
-  .sc(DescribeEmailMonitoringConfiguration)
+  .sc(DescribeEmailMonitoringConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

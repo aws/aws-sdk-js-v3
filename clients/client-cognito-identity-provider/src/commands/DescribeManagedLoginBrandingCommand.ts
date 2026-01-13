@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeManagedLoginBrandingRequest, DescribeManagedLoginBrandingResponse } from "../models/models_0";
-import { DescribeManagedLoginBranding } from "../schemas/schemas_0";
+import { DescribeManagedLoginBranding$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeManagedLoginBrandingCommandInput extends DescribeManage
  *
  * The output of {@link DescribeManagedLoginBrandingCommand}.
  */
-export interface DescribeManagedLoginBrandingCommandOutput
-  extends DescribeManagedLoginBrandingResponse,
-    __MetadataBearer {}
+export interface DescribeManagedLoginBrandingCommandOutput extends DescribeManagedLoginBrandingResponse, __MetadataBearer {}
 
 /**
  * <p>Given the ID of a managed login branding style, returns detailed information about the
@@ -116,7 +114,7 @@ export class DescribeManagedLoginBrandingCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "DescribeManagedLoginBranding", {})
   .n("CognitoIdentityProviderClient", "DescribeManagedLoginBrandingCommand")
-  .sc(DescribeManagedLoginBranding)
+  .sc(DescribeManagedLoginBranding$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopEventDataStoreIngestionRequest, StopEventDataStoreIngestionResponse } from "../models/models_0";
-import { StopEventDataStoreIngestion } from "../schemas/schemas_0";
+import { StopEventDataStoreIngestion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface StopEventDataStoreIngestionCommandInput extends StopEventDataSt
  *
  * The output of {@link StopEventDataStoreIngestionCommand}.
  */
-export interface StopEventDataStoreIngestionCommandOutput
-  extends StopEventDataStoreIngestionResponse,
-    __MetadataBearer {}
+export interface StopEventDataStoreIngestionCommandOutput extends StopEventDataStoreIngestionResponse, __MetadataBearer {}
 
 /**
  * <p>Stops the ingestion of live events on an event data store specified as either an ARN or the ID portion of the ARN. To stop ingestion, the event data store <code>Status</code> must be <code>ENABLED</code>
@@ -117,7 +115,7 @@ export class StopEventDataStoreIngestionCommand extends $Command
   })
   .s("CloudTrail_20131101", "StopEventDataStoreIngestion", {})
   .n("CloudTrailClient", "StopEventDataStoreIngestionCommand")
-  .sc(StopEventDataStoreIngestion)
+  .sc(StopEventDataStoreIngestion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

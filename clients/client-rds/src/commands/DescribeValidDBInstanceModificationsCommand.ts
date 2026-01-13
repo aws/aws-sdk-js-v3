@@ -9,7 +9,7 @@ import type {
   DescribeValidDBInstanceModificationsResult,
 } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DescribeValidDBInstanceModifications } from "../schemas/schemas_0";
+import { DescribeValidDBInstanceModifications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeValidDBInstanceModificationsCommandInput extends Descri
  *
  * The output of {@link DescribeValidDBInstanceModificationsCommand}.
  */
-export interface DescribeValidDBInstanceModificationsCommandOutput
-  extends DescribeValidDBInstanceModificationsResult,
-    __MetadataBearer {}
+export interface DescribeValidDBInstanceModificationsCommandOutput extends DescribeValidDBInstanceModificationsResult, __MetadataBearer {}
 
 /**
  * <p>You can call <code>DescribeValidDBInstanceModifications</code> to learn what modifications you can make to
@@ -209,7 +207,7 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeValidDBInstanceModifications", {})
   .n("RDSClient", "DescribeValidDBInstanceModificationsCommand")
-  .sc(DescribeValidDBInstanceModifications)
+  .sc(DescribeValidDBInstanceModifications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   GetCloudExadataInfrastructureUnallocatedResourcesOutput,
 } from "../models/models_0";
 import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { GetCloudExadataInfrastructureUnallocatedResources } from "../schemas/schemas_0";
+import { GetCloudExadataInfrastructureUnallocatedResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetCloudExadataInfrastructureUnallocatedResourcesCommand}.
  */
-export interface GetCloudExadataInfrastructureUnallocatedResourcesCommandInput
-  extends GetCloudExadataInfrastructureUnallocatedResourcesInput {}
+export interface GetCloudExadataInfrastructureUnallocatedResourcesCommandInput extends GetCloudExadataInfrastructureUnallocatedResourcesInput {}
 /**
  * @public
  *
  * The output of {@link GetCloudExadataInfrastructureUnallocatedResourcesCommand}.
  */
-export interface GetCloudExadataInfrastructureUnallocatedResourcesCommandOutput
-  extends GetCloudExadataInfrastructureUnallocatedResourcesOutput,
-    __MetadataBearer {}
+export interface GetCloudExadataInfrastructureUnallocatedResourcesCommandOutput extends GetCloudExadataInfrastructureUnallocatedResourcesOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about unallocated resources in a specified Cloud Exadata Infrastructure.</p>
@@ -110,7 +107,7 @@ export class GetCloudExadataInfrastructureUnallocatedResourcesCommand extends $C
   })
   .s("Odb", "GetCloudExadataInfrastructureUnallocatedResources", {})
   .n("OdbClient", "GetCloudExadataInfrastructureUnallocatedResourcesCommand")
-  .sc(GetCloudExadataInfrastructureUnallocatedResources)
+  .sc(GetCloudExadataInfrastructureUnallocatedResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

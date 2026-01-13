@@ -10,7 +10,7 @@ import type {
 } from "../AmplifyUIBuilderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RefreshTokenRequest, RefreshTokenResponse } from "../models/models_0";
-import { RefreshToken } from "../schemas/schemas_0";
+import { RefreshToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class RefreshTokenCommand extends $Command
   })
   .s("AmplifyUIBuilder", "RefreshToken", {})
   .n("AmplifyUIBuilderClient", "RefreshTokenCommand")
-  .sc(RefreshToken)
+  .sc(RefreshToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,8 +9,8 @@ import {
   OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
-  ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
+  ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __BaseException,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
@@ -33,40 +33,27 @@ import {
 } from "../../protocols/Aws_restJson1";
 import { RestJsonService } from "../RestJsonService";
 
-export type DuplexStreamWithInitialMessages<Context> = __Operation<
-  DuplexStreamWithInitialMessagesServerInput,
-  DuplexStreamWithInitialMessagesServerOutput,
-  Context
->;
+export type DuplexStreamWithInitialMessages<Context> = __Operation<DuplexStreamWithInitialMessagesServerInput, DuplexStreamWithInitialMessagesServerOutput, Context>
 
 export interface DuplexStreamWithInitialMessagesServerInput extends DuplexStreamWithInitialMessagesInput {}
 export namespace DuplexStreamWithInitialMessagesServerInput {
   /**
    * @internal
    */
-  export const validate: (
-    obj: Parameters<typeof DuplexStreamWithInitialMessagesInput.validate>[0]
-  ) => __ValidationFailure[] = DuplexStreamWithInitialMessagesInput.validate;
+  export const validate: (obj: Parameters<typeof DuplexStreamWithInitialMessagesInput.validate>[0]) => __ValidationFailure[] = DuplexStreamWithInitialMessagesInput.validate;
 }
 export interface DuplexStreamWithInitialMessagesServerOutput extends DuplexStreamWithInitialMessagesOutput {}
 
-export type DuplexStreamWithInitialMessagesErrors = ServiceUnavailableError;
+export type DuplexStreamWithInitialMessagesErrors = ServiceUnavailableError
 
-export class DuplexStreamWithInitialMessagesSerializer
-  implements
-    __OperationSerializer<
-      RestJsonService<any>,
-      "DuplexStreamWithInitialMessages",
-      DuplexStreamWithInitialMessagesErrors
-    >
-{
+export class DuplexStreamWithInitialMessagesSerializer implements __OperationSerializer<RestJsonService<any>, "DuplexStreamWithInitialMessages", DuplexStreamWithInitialMessagesErrors> {
   serialize = serializeDuplexStreamWithInitialMessagesResponse;
   deserialize = deserializeDuplexStreamWithInitialMessagesRequest;
 
   isOperationError(error: any): error is DuplexStreamWithInitialMessagesErrors {
-    const names: DuplexStreamWithInitialMessagesErrors["name"][] = ["ServiceUnavailableError"];
+    const names: DuplexStreamWithInitialMessagesErrors['name'][] = ["ServiceUnavailableError"];
     return names.includes(error.name);
-  }
+  };
 
   serializeError(error: DuplexStreamWithInitialMessagesErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     switch (error.name) {
@@ -78,32 +65,22 @@ export class DuplexStreamWithInitialMessagesSerializer
       }
     }
   }
+
 }
 
-export const getDuplexStreamWithInitialMessagesHandler = <Context>(
-  operation: __Operation<
-    DuplexStreamWithInitialMessagesServerInput,
-    DuplexStreamWithInitialMessagesServerOutput,
-    Context
-  >,
-  customizer: __ValidationCustomizer<"DuplexStreamWithInitialMessages">
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getDuplexStreamWithInitialMessagesHandler = <Context>(operation: __Operation<DuplexStreamWithInitialMessagesServerInput, DuplexStreamWithInitialMessagesServerOutput, Context>, customizer: __ValidationCustomizer<"DuplexStreamWithInitialMessages">): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJson", "DuplexStreamWithInitialMessages">([
     new httpbinding.UriSpec<"RestJson", "DuplexStreamWithInitialMessages">(
-      "POST",
-      [{ type: "path_literal", value: "DuplexStreamWithInitialMessages" }],
-      [],
-      { service: "RestJson", operation: "DuplexStreamWithInitialMessages" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "DuplexStreamWithInitialMessages" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "DuplexStreamWithInitialMessages" }),
   ]);
-  return new DuplexStreamWithInitialMessagesHandler(
-    operation,
-    mux,
-    new DuplexStreamWithInitialMessagesSerializer(),
-    serializeFrameworkException,
-    customizer
-  );
-};
+  return new DuplexStreamWithInitialMessagesHandler(operation, mux, new DuplexStreamWithInitialMessagesSerializer(), serializeFrameworkException, customizer);
+}
 
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -112,7 +89,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -127,49 +104,37 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
 export class DuplexStreamWithInitialMessagesHandler<Context> implements __ServiceHandler<Context> {
-  private readonly operation: __Operation<
-    DuplexStreamWithInitialMessagesServerInput,
-    DuplexStreamWithInitialMessagesServerOutput,
-    Context
-  >;
+  private readonly operation: __Operation<DuplexStreamWithInitialMessagesServerInput, DuplexStreamWithInitialMessagesServerOutput, Context>;
   private readonly mux: __Mux<"RestJson", "DuplexStreamWithInitialMessages">;
-  private readonly serializer: __OperationSerializer<
-    RestJsonService<Context>,
-    "DuplexStreamWithInitialMessages",
-    DuplexStreamWithInitialMessagesErrors
-  >;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializer: __OperationSerializer<RestJsonService<Context>, "DuplexStreamWithInitialMessages", DuplexStreamWithInitialMessagesErrors>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<"DuplexStreamWithInitialMessages">;
   /**
    * Construct a DuplexStreamWithInitialMessages handler.
@@ -181,17 +146,9 @@ export class DuplexStreamWithInitialMessagesHandler<Context> implements __Servic
    * @param validationCustomizer A {@link __ValidationCustomizer} for turning validation failures into {@link __SmithyFrameworkException}s
    */
   constructor(
-    operation: __Operation<
-      DuplexStreamWithInitialMessagesServerInput,
-      DuplexStreamWithInitialMessagesServerOutput,
-      Context
-    >,
+    operation: __Operation<DuplexStreamWithInitialMessagesServerInput, DuplexStreamWithInitialMessagesServerOutput, Context>,
     mux: __Mux<"RestJson", "DuplexStreamWithInitialMessages">,
-    serializer: __OperationSerializer<
-      RestJsonService<Context>,
-      "DuplexStreamWithInitialMessages",
-      DuplexStreamWithInitialMessagesErrors
-    >,
+    serializer: __OperationSerializer<RestJsonService<Context>, "DuplexStreamWithInitialMessages", DuplexStreamWithInitialMessagesErrors>,
     serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>,
     validationCustomizer: __ValidationCustomizer<"DuplexStreamWithInitialMessages">
   ) {
@@ -204,20 +161,9 @@ export class DuplexStreamWithInitialMessagesHandler<Context> implements __Servic
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
     const target = this.mux.match(request);
     if (target === undefined) {
-      console.log(
-        "Received a request that did not match aws.protocoltests.restjson#RestJson.DuplexStreamWithInitialMessages. This indicates a misconfiguration."
-      );
+      console.log('Received a request that did not match aws.protocoltests.restjson#RestJson.DuplexStreamWithInitialMessages. This indicates a misconfiguration.');
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
-    return handle(
-      request,
-      context,
-      "DuplexStreamWithInitialMessages",
-      this.serializer,
-      this.operation,
-      this.serializeFrameworkException,
-      DuplexStreamWithInitialMessagesServerInput.validate,
-      this.validationCustomizer
-    );
+    return handle(request, context, "DuplexStreamWithInitialMessages", this.serializer, this.operation, this.serializeFrameworkException, DuplexStreamWithInitialMessagesServerInput.validate, this.validationCustomizer);
   }
 }

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { StartDeleteMonitorDeploymentRequest, StartDeleteMonitorDeploymentResponse } from "../models/models_1";
-import { StartDeleteMonitorDeployment } from "../schemas/schemas_0";
+import { StartDeleteMonitorDeployment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface StartDeleteMonitorDeploymentCommandInput extends StartDeleteMon
  *
  * The output of {@link StartDeleteMonitorDeploymentCommand}.
  */
-export interface StartDeleteMonitorDeploymentCommandOutput
-  extends StartDeleteMonitorDeploymentResponse,
-    __MetadataBearer {}
+export interface StartDeleteMonitorDeploymentCommandOutput extends StartDeleteMonitorDeploymentResponse, __MetadataBearer {}
 
 /**
  * Initiates a deployment to delete the monitor of the specified signal map.
@@ -155,7 +153,7 @@ export class StartDeleteMonitorDeploymentCommand extends $Command
   })
   .s("MediaLive", "StartDeleteMonitorDeployment", {})
   .n("MediaLiveClient", "StartDeleteMonitorDeploymentCommand")
-  .sc(StartDeleteMonitorDeployment)
+  .sc(StartDeleteMonitorDeployment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

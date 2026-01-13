@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteReplicationSubnetGroupMessage, DeleteReplicationSubnetGroupResponse } from "../models/models_0";
-import { DeleteReplicationSubnetGroup } from "../schemas/schemas_0";
+import { DeleteReplicationSubnetGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DeleteReplicationSubnetGroupCommandInput extends DeleteReplicat
  *
  * The output of {@link DeleteReplicationSubnetGroupCommand}.
  */
-export interface DeleteReplicationSubnetGroupCommandOutput
-  extends DeleteReplicationSubnetGroupResponse,
-    __MetadataBearer {}
+export interface DeleteReplicationSubnetGroupCommandOutput extends DeleteReplicationSubnetGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a subnet group.</p>
@@ -100,7 +98,7 @@ export class DeleteReplicationSubnetGroupCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DeleteReplicationSubnetGroup", {})
   .n("DatabaseMigrationServiceClient", "DeleteReplicationSubnetGroupCommand")
-  .sc(DeleteReplicationSubnetGroup)
+  .sc(DeleteReplicationSubnetGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

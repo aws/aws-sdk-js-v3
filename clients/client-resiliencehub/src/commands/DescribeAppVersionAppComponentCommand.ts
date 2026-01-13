@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAppVersionAppComponentRequest, DescribeAppVersionAppComponentResponse } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { DescribeAppVersionAppComponent } from "../schemas/schemas_0";
+import { DescribeAppVersionAppComponent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeAppVersionAppComponentCommandInput extends DescribeAppV
  *
  * The output of {@link DescribeAppVersionAppComponentCommand}.
  */
-export interface DescribeAppVersionAppComponentCommandOutput
-  extends DescribeAppVersionAppComponentResponse,
-    __MetadataBearer {}
+export interface DescribeAppVersionAppComponentCommandOutput extends DescribeAppVersionAppComponentResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an Application Component in the Resilience Hub application.</p>
@@ -112,7 +110,7 @@ export class DescribeAppVersionAppComponentCommand extends $Command
   })
   .s("AwsResilienceHub", "DescribeAppVersionAppComponent", {})
   .n("ResiliencehubClient", "DescribeAppVersionAppComponentCommand")
-  .sc(DescribeAppVersionAppComponent)
+  .sc(DescribeAppVersionAppComponent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

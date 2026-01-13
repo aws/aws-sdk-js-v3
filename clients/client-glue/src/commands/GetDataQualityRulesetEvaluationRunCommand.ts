@@ -9,7 +9,7 @@ import type {
   GetDataQualityRulesetEvaluationRunRequest,
   GetDataQualityRulesetEvaluationRunResponse,
 } from "../models/models_1";
-import { GetDataQualityRulesetEvaluationRun } from "../schemas/schemas_0";
+import { GetDataQualityRulesetEvaluationRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetDataQualityRulesetEvaluationRunCommandInput extends GetDataQ
  *
  * The output of {@link GetDataQualityRulesetEvaluationRunCommand}.
  */
-export interface GetDataQualityRulesetEvaluationRunCommandOutput
-  extends GetDataQualityRulesetEvaluationRunResponse,
-    __MetadataBearer {}
+export interface GetDataQualityRulesetEvaluationRunCommandOutput extends GetDataQualityRulesetEvaluationRunResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a specific run where a ruleset is evaluated against a data source.</p>
@@ -154,7 +152,7 @@ export class GetDataQualityRulesetEvaluationRunCommand extends $Command
   })
   .s("AWSGlue", "GetDataQualityRulesetEvaluationRun", {})
   .n("GlueClient", "GetDataQualityRulesetEvaluationRunCommand")
-  .sc(GetDataQualityRulesetEvaluationRun)
+  .sc(GetDataQualityRulesetEvaluationRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

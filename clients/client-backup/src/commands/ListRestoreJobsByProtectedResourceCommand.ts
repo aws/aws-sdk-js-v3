@@ -9,7 +9,7 @@ import type {
   ListRestoreJobsByProtectedResourceInput,
   ListRestoreJobsByProtectedResourceOutput,
 } from "../models/models_0";
-import { ListRestoreJobsByProtectedResource } from "../schemas/schemas_0";
+import { ListRestoreJobsByProtectedResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListRestoreJobsByProtectedResourceCommandInput extends ListRest
  *
  * The output of {@link ListRestoreJobsByProtectedResourceCommand}.
  */
-export interface ListRestoreJobsByProtectedResourceCommandOutput
-  extends ListRestoreJobsByProtectedResourceOutput,
-    __MetadataBearer {}
+export interface ListRestoreJobsByProtectedResourceCommandOutput extends ListRestoreJobsByProtectedResourceOutput, __MetadataBearer {}
 
 /**
  * <p>This returns restore jobs that contain the specified protected resource.</p>
@@ -129,7 +127,7 @@ export class ListRestoreJobsByProtectedResourceCommand extends $Command
   })
   .s("CryoControllerUserManager", "ListRestoreJobsByProtectedResource", {})
   .n("BackupClient", "ListRestoreJobsByProtectedResourceCommand")
-  .sc(ListRestoreJobsByProtectedResource)
+  .sc(ListRestoreJobsByProtectedResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

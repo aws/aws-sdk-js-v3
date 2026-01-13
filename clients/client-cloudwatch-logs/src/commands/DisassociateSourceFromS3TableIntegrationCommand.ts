@@ -13,7 +13,7 @@ import type {
   DisassociateSourceFromS3TableIntegrationRequest,
   DisassociateSourceFromS3TableIntegrationResponse,
 } from "../models/models_0";
-import { DisassociateSourceFromS3TableIntegration } from "../schemas/schemas_0";
+import { DisassociateSourceFromS3TableIntegration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DisassociateSourceFromS3TableIntegrationCommand}.
  */
-export interface DisassociateSourceFromS3TableIntegrationCommandInput
-  extends DisassociateSourceFromS3TableIntegrationRequest {}
+export interface DisassociateSourceFromS3TableIntegrationCommandInput extends DisassociateSourceFromS3TableIntegrationRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateSourceFromS3TableIntegrationCommand}.
  */
-export interface DisassociateSourceFromS3TableIntegrationCommandOutput
-  extends DisassociateSourceFromS3TableIntegrationResponse,
-    __MetadataBearer {}
+export interface DisassociateSourceFromS3TableIntegrationCommandOutput extends DisassociateSourceFromS3TableIntegrationResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a data source from an S3 Table Integration, removing query access and
@@ -101,7 +98,7 @@ export class DisassociateSourceFromS3TableIntegrationCommand extends $Command
   })
   .s("Logs_20140328", "DisassociateSourceFromS3TableIntegration", {})
   .n("CloudWatchLogsClient", "DisassociateSourceFromS3TableIntegrationCommand")
-  .sc(DisassociateSourceFromS3TableIntegration)
+  .sc(DisassociateSourceFromS3TableIntegration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

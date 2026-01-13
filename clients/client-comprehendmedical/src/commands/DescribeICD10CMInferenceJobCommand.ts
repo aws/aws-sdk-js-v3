@@ -10,7 +10,7 @@ import type {
 } from "../ComprehendMedicalClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeICD10CMInferenceJobRequest, DescribeICD10CMInferenceJobResponse } from "../models/models_0";
-import { DescribeICD10CMInferenceJob } from "../schemas/schemas_0";
+import { DescribeICD10CMInferenceJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeICD10CMInferenceJobCommandInput extends DescribeICD10CM
  *
  * The output of {@link DescribeICD10CMInferenceJobCommand}.
  */
-export interface DescribeICD10CMInferenceJobCommandOutput
-  extends DescribeICD10CMInferenceJobResponse,
-    __MetadataBearer {}
+export interface DescribeICD10CMInferenceJobCommandOutput extends DescribeICD10CMInferenceJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with an InferICD10CM job. Use this operation to get the
@@ -117,7 +115,7 @@ export class DescribeICD10CMInferenceJobCommand extends $Command
   })
   .s("ComprehendMedical_20181030", "DescribeICD10CMInferenceJob", {})
   .n("ComprehendMedicalClient", "DescribeICD10CMInferenceJobCommand")
-  .sc(DescribeICD10CMInferenceJob)
+  .sc(DescribeICD10CMInferenceJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

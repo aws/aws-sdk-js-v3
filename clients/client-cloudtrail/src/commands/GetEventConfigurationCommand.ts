@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetEventConfigurationRequest, GetEventConfigurationResponse } from "../models/models_0";
-import { GetEventConfiguration } from "../schemas/schemas_0";
+import { GetEventConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -162,7 +162,7 @@ export class GetEventConfigurationCommand extends $Command
   })
   .s("CloudTrail_20131101", "GetEventConfiguration", {})
   .n("CloudTrailClient", "GetEventConfigurationCommand")
-  .sc(GetEventConfiguration)
+  .sc(GetEventConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

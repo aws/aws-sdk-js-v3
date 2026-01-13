@@ -13,7 +13,7 @@ import type {
   GetAutoScalingGroupRecommendationsRequest,
   GetAutoScalingGroupRecommendationsResponse,
 } from "../models/models_0";
-import { GetAutoScalingGroupRecommendations } from "../schemas/schemas_0";
+import { GetAutoScalingGroupRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetAutoScalingGroupRecommendationsCommandInput extends GetAutoS
  *
  * The output of {@link GetAutoScalingGroupRecommendationsCommand}.
  */
-export interface GetAutoScalingGroupRecommendationsCommandOutput
-  extends GetAutoScalingGroupRecommendationsResponse,
-    __MetadataBearer {}
+export interface GetAutoScalingGroupRecommendationsCommandOutput extends GetAutoScalingGroupRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns Amazon EC2 Auto Scaling group recommendations.</p>
@@ -264,7 +262,7 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command
   })
   .s("ComputeOptimizerService", "GetAutoScalingGroupRecommendations", {})
   .n("ComputeOptimizerClient", "GetAutoScalingGroupRecommendationsCommand")
-  .sc(GetAutoScalingGroupRecommendations)
+  .sc(GetAutoScalingGroupRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

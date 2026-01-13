@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { CreateDirectConnectGatewayAttachment } from "../schemas/schemas_0";
+import { CreateDirectConnectGatewayAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface CreateDirectConnectGatewayAttachmentCommandInput extends Create
  *
  * The output of {@link CreateDirectConnectGatewayAttachmentCommand}.
  */
-export interface CreateDirectConnectGatewayAttachmentCommandOutput
-  extends CreateDirectConnectGatewayAttachmentResponse,
-    __MetadataBearer {}
+export interface CreateDirectConnectGatewayAttachmentCommandOutput extends CreateDirectConnectGatewayAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Web Services Direct Connect gateway attachment </p>
@@ -167,7 +165,7 @@ export class CreateDirectConnectGatewayAttachmentCommand extends $Command
   })
   .s("NetworkManager", "CreateDirectConnectGatewayAttachment", {})
   .n("NetworkManagerClient", "CreateDirectConnectGatewayAttachmentCommand")
-  .sc(CreateDirectConnectGatewayAttachment)
+  .sc(CreateDirectConnectGatewayAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

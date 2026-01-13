@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSoftwareUpdatesRequest, GetSoftwareUpdatesResult } from "../models/models_0";
-import { GetSoftwareUpdates } from "../schemas/schemas_0";
+import { GetSoftwareUpdates$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -82,7 +82,7 @@ export class GetSoftwareUpdatesCommand extends $Command
   })
   .s("AWSIESnowballJobManagementService", "GetSoftwareUpdates", {})
   .n("SnowballClient", "GetSoftwareUpdatesCommand")
-  .sc(GetSoftwareUpdates)
+  .sc(GetSoftwareUpdates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

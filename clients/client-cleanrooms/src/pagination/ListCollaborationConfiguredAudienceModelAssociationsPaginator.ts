@@ -21,10 +21,4 @@ export const paginateListCollaborationConfiguredAudienceModelAssociations: (
   CleanRoomsPaginationConfiguration,
   ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
   ListCollaborationConfiguredAudienceModelAssociationsCommandOutput
->(
-  CleanRoomsClient,
-  ListCollaborationConfiguredAudienceModelAssociationsCommand,
-  "nextToken",
-  "nextToken",
-  "maxResults"
-);
+>(CleanRoomsClient, ListCollaborationConfiguredAudienceModelAssociationsCommand, "nextToken", "nextToken", "maxResults");

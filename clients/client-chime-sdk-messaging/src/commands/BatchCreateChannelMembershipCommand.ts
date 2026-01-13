@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMessagingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchCreateChannelMembershipRequest, BatchCreateChannelMembershipResponse } from "../models/models_0";
-import { BatchCreateChannelMembership } from "../schemas/schemas_0";
+import { BatchCreateChannelMembership$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface BatchCreateChannelMembershipCommandInput extends BatchCreateCha
  *
  * The output of {@link BatchCreateChannelMembershipCommand}.
  */
-export interface BatchCreateChannelMembershipCommandOutput
-  extends BatchCreateChannelMembershipResponse,
-    __MetadataBearer {}
+export interface BatchCreateChannelMembershipCommandOutput extends BatchCreateChannelMembershipResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a specified number of users and bots to a channel. </p>
@@ -130,7 +128,7 @@ export class BatchCreateChannelMembershipCommand extends $Command
   })
   .s("ChimeMessagingService", "BatchCreateChannelMembership", {})
   .n("ChimeSDKMessagingClient", "BatchCreateChannelMembershipCommand")
-  .sc(BatchCreateChannelMembership)
+  .sc(BatchCreateChannelMembership$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

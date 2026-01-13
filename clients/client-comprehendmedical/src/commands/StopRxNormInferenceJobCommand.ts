@@ -10,7 +10,7 @@ import type {
 } from "../ComprehendMedicalClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopRxNormInferenceJobRequest, StopRxNormInferenceJobResponse } from "../models/models_0";
-import { StopRxNormInferenceJob } from "../schemas/schemas_0";
+import { StopRxNormInferenceJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class StopRxNormInferenceJobCommand extends $Command
   })
   .s("ComprehendMedical_20181030", "StopRxNormInferenceJob", {})
   .n("ComprehendMedicalClient", "StopRxNormInferenceJobCommand")
-  .sc(StopRxNormInferenceJob)
+  .sc(StopRxNormInferenceJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

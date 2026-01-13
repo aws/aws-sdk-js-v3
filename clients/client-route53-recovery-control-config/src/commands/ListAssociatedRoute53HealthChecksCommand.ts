@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
-import { ListAssociatedRoute53HealthChecks } from "../schemas/schemas_0";
+import { ListAssociatedRoute53HealthChecks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ListAssociatedRoute53HealthChecksCommandInput extends ListAssoc
  *
  * The output of {@link ListAssociatedRoute53HealthChecksCommand}.
  */
-export interface ListAssociatedRoute53HealthChecksCommandOutput
-  extends ListAssociatedRoute53HealthChecksResponse,
-    __MetadataBearer {}
+export interface ListAssociatedRoute53HealthChecksCommandOutput extends ListAssociatedRoute53HealthChecksResponse, __MetadataBearer {}
 
 /**
  * <p>Returns an array of all Amazon Route 53 health checks associated with a specific routing control.</p>
@@ -96,7 +94,7 @@ export class ListAssociatedRoute53HealthChecksCommand extends $Command
   })
   .s("Route53RecoveryControlConfig", "ListAssociatedRoute53HealthChecks", {})
   .n("Route53RecoveryControlConfigClient", "ListAssociatedRoute53HealthChecksCommand")
-  .sc(ListAssociatedRoute53HealthChecks)
+  .sc(ListAssociatedRoute53HealthChecks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

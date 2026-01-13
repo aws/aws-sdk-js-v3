@@ -7,12 +7,12 @@ import { DynamoDBClient } from "../DynamoDBClient";
 const checkState = async (client: DynamoDBClient, input: DescribeTableCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeTableCommand(input));
+    let result: any = await client.send(new DescribeTableCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.Table.TableStatus;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }

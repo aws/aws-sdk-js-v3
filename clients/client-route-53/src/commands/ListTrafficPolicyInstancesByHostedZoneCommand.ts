@@ -10,7 +10,7 @@ import type {
   ListTrafficPolicyInstancesByHostedZoneResponse,
 } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { ListTrafficPolicyInstancesByHostedZone } from "../schemas/schemas_0";
+import { ListTrafficPolicyInstancesByHostedZone$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -22,16 +22,13 @@ export { $Command };
  *
  * The input for {@link ListTrafficPolicyInstancesByHostedZoneCommand}.
  */
-export interface ListTrafficPolicyInstancesByHostedZoneCommandInput
-  extends ListTrafficPolicyInstancesByHostedZoneRequest {}
+export interface ListTrafficPolicyInstancesByHostedZoneCommandInput extends ListTrafficPolicyInstancesByHostedZoneRequest {}
 /**
  * @public
  *
  * The output of {@link ListTrafficPolicyInstancesByHostedZoneCommand}.
  */
-export interface ListTrafficPolicyInstancesByHostedZoneCommandOutput
-  extends ListTrafficPolicyInstancesByHostedZoneResponse,
-    __MetadataBearer {}
+export interface ListTrafficPolicyInstancesByHostedZoneCommandOutput extends ListTrafficPolicyInstancesByHostedZoneResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the traffic policy instances that you created in a specified
@@ -115,11 +112,14 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "ListTrafficPolicyInstancesByHostedZone", {})
   .n("Route53Client", "ListTrafficPolicyInstancesByHostedZoneCommand")
-  .sc(ListTrafficPolicyInstancesByHostedZone)
+  .sc(ListTrafficPolicyInstancesByHostedZone$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

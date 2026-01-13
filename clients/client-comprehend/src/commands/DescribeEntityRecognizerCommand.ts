@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeEntityRecognizerRequest, DescribeEntityRecognizerResponse } from "../models/models_0";
-import { DescribeEntityRecognizer } from "../schemas/schemas_0";
+import { DescribeEntityRecognizer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -164,7 +164,7 @@ export class DescribeEntityRecognizerCommand extends $Command
   })
   .s("Comprehend_20171127", "DescribeEntityRecognizer", {})
   .n("ComprehendClient", "DescribeEntityRecognizerCommand")
-  .sc(DescribeEntityRecognizer)
+  .sc(DescribeEntityRecognizer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

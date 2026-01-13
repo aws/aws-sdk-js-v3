@@ -9,7 +9,7 @@ import type {
   UpdateGlueIdentityCenterConfigurationRequest,
   UpdateGlueIdentityCenterConfigurationResponse,
 } from "../models/models_2";
-import { UpdateGlueIdentityCenterConfiguration } from "../schemas/schemas_0";
+import { UpdateGlueIdentityCenterConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateGlueIdentityCenterConfigurationCommand}.
  */
-export interface UpdateGlueIdentityCenterConfigurationCommandInput
-  extends UpdateGlueIdentityCenterConfigurationRequest {}
+export interface UpdateGlueIdentityCenterConfigurationCommandInput extends UpdateGlueIdentityCenterConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateGlueIdentityCenterConfigurationCommand}.
  */
-export interface UpdateGlueIdentityCenterConfigurationCommandOutput
-  extends UpdateGlueIdentityCenterConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateGlueIdentityCenterConfigurationCommandOutput extends UpdateGlueIdentityCenterConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the existing Glue Identity Center configuration, allowing modification of scopes and permissions for the integration.</p>
@@ -98,7 +95,7 @@ export class UpdateGlueIdentityCenterConfigurationCommand extends $Command
   })
   .s("AWSGlue", "UpdateGlueIdentityCenterConfiguration", {})
   .n("GlueClient", "UpdateGlueIdentityCenterConfigurationCommand")
-  .sc(UpdateGlueIdentityCenterConfiguration)
+  .sc(UpdateGlueIdentityCenterConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

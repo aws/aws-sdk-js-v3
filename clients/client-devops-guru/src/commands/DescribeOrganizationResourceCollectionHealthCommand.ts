@@ -9,7 +9,7 @@ import type {
   DescribeOrganizationResourceCollectionHealthRequest,
   DescribeOrganizationResourceCollectionHealthResponse,
 } from "../models/models_0";
-import { DescribeOrganizationResourceCollectionHealth } from "../schemas/schemas_0";
+import { DescribeOrganizationResourceCollectionHealth$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeOrganizationResourceCollectionHealthCommand}.
  */
-export interface DescribeOrganizationResourceCollectionHealthCommandInput
-  extends DescribeOrganizationResourceCollectionHealthRequest {}
+export interface DescribeOrganizationResourceCollectionHealthCommandInput extends DescribeOrganizationResourceCollectionHealthRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeOrganizationResourceCollectionHealthCommand}.
  */
-export interface DescribeOrganizationResourceCollectionHealthCommandOutput
-  extends DescribeOrganizationResourceCollectionHealthResponse,
-    __MetadataBearer {}
+export interface DescribeOrganizationResourceCollectionHealthCommandOutput extends DescribeOrganizationResourceCollectionHealthResponse, __MetadataBearer {}
 
 /**
  * <p>Provides an overview of your system's health. If additional member accounts are part
@@ -147,7 +144,7 @@ export class DescribeOrganizationResourceCollectionHealthCommand extends $Comman
   })
   .s("CapstoneControlPlaneService", "DescribeOrganizationResourceCollectionHealth", {})
   .n("DevOpsGuruClient", "DescribeOrganizationResourceCollectionHealthCommand")
-  .sc(DescribeOrganizationResourceCollectionHealth)
+  .sc(DescribeOrganizationResourceCollectionHealth$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DescribeAggregationAuthorizationsRequest,
   DescribeAggregationAuthorizationsResponse,
 } from "../models/models_0";
-import { DescribeAggregationAuthorizations } from "../schemas/schemas_0";
+import { DescribeAggregationAuthorizations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeAggregationAuthorizationsCommandInput extends DescribeA
  *
  * The output of {@link DescribeAggregationAuthorizationsCommand}.
  */
-export interface DescribeAggregationAuthorizationsCommandOutput
-  extends DescribeAggregationAuthorizationsResponse,
-    __MetadataBearer {}
+export interface DescribeAggregationAuthorizationsCommandOutput extends DescribeAggregationAuthorizationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of authorizations granted to various aggregator
@@ -100,7 +98,7 @@ export class DescribeAggregationAuthorizationsCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeAggregationAuthorizations", {})
   .n("ConfigServiceClient", "DescribeAggregationAuthorizationsCommand")
-  .sc(DescribeAggregationAuthorizations)
+  .sc(DescribeAggregationAuthorizations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

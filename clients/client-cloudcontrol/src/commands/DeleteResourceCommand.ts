@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteResourceInput, DeleteResourceOutput } from "../models/models_0";
-import { DeleteResource } from "../schemas/schemas_0";
+import { DeleteResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -166,7 +166,7 @@ export class DeleteResourceCommand extends $Command
   })
   .s("CloudApiService", "DeleteResource", {})
   .n("CloudControlClient", "DeleteResourceCommand")
-  .sc(DeleteResource)
+  .sc(DeleteResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

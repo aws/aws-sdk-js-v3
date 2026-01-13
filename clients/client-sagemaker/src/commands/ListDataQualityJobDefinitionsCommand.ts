@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListDataQualityJobDefinitionsRequest, ListDataQualityJobDefinitionsResponse } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListDataQualityJobDefinitions } from "../schemas/schemas_0";
+import { ListDataQualityJobDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListDataQualityJobDefinitionsCommandInput extends ListDataQuali
  *
  * The output of {@link ListDataQualityJobDefinitionsCommand}.
  */
-export interface ListDataQualityJobDefinitionsCommandOutput
-  extends ListDataQualityJobDefinitionsResponse,
-    __MetadataBearer {}
+export interface ListDataQualityJobDefinitionsCommandOutput extends ListDataQualityJobDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the data quality job definitions in your account.</p>
@@ -90,7 +88,7 @@ export class ListDataQualityJobDefinitionsCommand extends $Command
   })
   .s("SageMaker", "ListDataQualityJobDefinitions", {})
   .n("SageMakerClient", "ListDataQualityJobDefinitionsCommand")
-  .sc(ListDataQualityJobDefinitions)
+  .sc(ListDataQualityJobDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

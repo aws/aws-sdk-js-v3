@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSolFunctionPackageInput, GetSolFunctionPackageOutput } from "../models/models_0";
-import { GetSolFunctionPackage } from "../schemas/schemas_0";
+import { GetSolFunctionPackage$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -144,7 +144,7 @@ export class GetSolFunctionPackageCommand extends $Command
   })
   .s("TNB", "GetSolFunctionPackage", {})
   .n("TnbClient", "GetSolFunctionPackageCommand")
-  .sc(GetSolFunctionPackage)
+  .sc(GetSolFunctionPackage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

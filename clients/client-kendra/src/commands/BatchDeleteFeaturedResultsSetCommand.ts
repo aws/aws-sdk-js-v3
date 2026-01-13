@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import type { BatchDeleteFeaturedResultsSetRequest, BatchDeleteFeaturedResultsSetResponse } from "../models/models_0";
-import { BatchDeleteFeaturedResultsSet } from "../schemas/schemas_0";
+import { BatchDeleteFeaturedResultsSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface BatchDeleteFeaturedResultsSetCommandInput extends BatchDeleteFe
  *
  * The output of {@link BatchDeleteFeaturedResultsSetCommand}.
  */
-export interface BatchDeleteFeaturedResultsSetCommandOutput
-  extends BatchDeleteFeaturedResultsSetResponse,
-    __MetadataBearer {}
+export interface BatchDeleteFeaturedResultsSetCommandOutput extends BatchDeleteFeaturedResultsSetResponse, __MetadataBearer {}
 
 /**
  * <p>Removes one or more sets of featured results. Features results are placed
@@ -106,7 +104,7 @@ export class BatchDeleteFeaturedResultsSetCommand extends $Command
   })
   .s("AWSKendraFrontendService", "BatchDeleteFeaturedResultsSet", {})
   .n("KendraClient", "BatchDeleteFeaturedResultsSetCommand")
-  .sc(BatchDeleteFeaturedResultsSet)
+  .sc(BatchDeleteFeaturedResultsSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PcaConnectorAdClient";
-import { GetTemplateGroupAccessControlEntry } from "../schemas/schemas_0";
+import { GetTemplateGroupAccessControlEntry$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetTemplateGroupAccessControlEntryCommandInput extends GetTempl
  *
  * The output of {@link GetTemplateGroupAccessControlEntryCommand}.
  */
-export interface GetTemplateGroupAccessControlEntryCommandOutput
-  extends GetTemplateGroupAccessControlEntryResponse,
-    __MetadataBearer {}
+export interface GetTemplateGroupAccessControlEntryCommandOutput extends GetTemplateGroupAccessControlEntryResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the group access control entries for a template.</p>
@@ -115,7 +113,7 @@ export class GetTemplateGroupAccessControlEntryCommand extends $Command
   })
   .s("PcaConnectorAd", "GetTemplateGroupAccessControlEntry", {})
   .n("PcaConnectorAdClient", "GetTemplateGroupAccessControlEntryCommand")
-  .sc(GetTemplateGroupAccessControlEntry)
+  .sc(GetTemplateGroupAccessControlEntry$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

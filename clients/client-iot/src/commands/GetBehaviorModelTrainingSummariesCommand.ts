@@ -9,7 +9,7 @@ import type {
   GetBehaviorModelTrainingSummariesRequest,
   GetBehaviorModelTrainingSummariesResponse,
 } from "../models/models_1";
-import { GetBehaviorModelTrainingSummaries } from "../schemas/schemas_0";
+import { GetBehaviorModelTrainingSummaries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetBehaviorModelTrainingSummariesCommandInput extends GetBehavi
  *
  * The output of {@link GetBehaviorModelTrainingSummariesCommand}.
  */
-export interface GetBehaviorModelTrainingSummariesCommandOutput
-  extends GetBehaviorModelTrainingSummariesResponse,
-    __MetadataBearer {}
+export interface GetBehaviorModelTrainingSummariesCommandOutput extends GetBehaviorModelTrainingSummariesResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -105,7 +103,7 @@ export class GetBehaviorModelTrainingSummariesCommand extends $Command
   })
   .s("AWSIotService", "GetBehaviorModelTrainingSummaries", {})
   .n("IoTClient", "GetBehaviorModelTrainingSummariesCommand")
-  .sc(GetBehaviorModelTrainingSummaries)
+  .sc(GetBehaviorModelTrainingSummaries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

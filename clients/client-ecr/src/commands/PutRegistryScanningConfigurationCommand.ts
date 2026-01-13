@@ -9,7 +9,7 @@ import type {
   PutRegistryScanningConfigurationRequest,
   PutRegistryScanningConfigurationResponse,
 } from "../models/models_0";
-import { PutRegistryScanningConfiguration } from "../schemas/schemas_0";
+import { PutRegistryScanningConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface PutRegistryScanningConfigurationCommandInput extends PutRegistr
  *
  * The output of {@link PutRegistryScanningConfigurationCommand}.
  */
-export interface PutRegistryScanningConfigurationCommandOutput
-  extends PutRegistryScanningConfigurationResponse,
-    __MetadataBearer {}
+export interface PutRegistryScanningConfigurationCommandOutput extends PutRegistryScanningConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates the scanning configuration for your private registry.</p>
@@ -115,7 +113,7 @@ export class PutRegistryScanningConfigurationCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "PutRegistryScanningConfiguration", {})
   .n("ECRClient", "PutRegistryScanningConfigurationCommand")
-  .sc(PutRegistryScanningConfiguration)
+  .sc(PutRegistryScanningConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

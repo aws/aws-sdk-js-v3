@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutMaintenanceStartTimeInput, PutMaintenanceStartTimeOutput } from "../models/models_0";
-import { PutMaintenanceStartTime } from "../schemas/schemas_0";
+import { PutMaintenanceStartTime$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class PutMaintenanceStartTimeCommand extends $Command
   })
   .s("BackupOnPremises_v20210101", "PutMaintenanceStartTime", {})
   .n("BackupGatewayClient", "PutMaintenanceStartTimeCommand")
-  .sc(PutMaintenanceStartTime)
+  .sc(PutMaintenanceStartTime$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import type { DeleteAssetModelCompositeModelRequest, DeleteAssetModelCompositeModelResponse } from "../models/models_0";
-import { DeleteAssetModelCompositeModel } from "../schemas/schemas_0";
+import { DeleteAssetModelCompositeModel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteAssetModelCompositeModelCommandInput extends DeleteAssetM
  *
  * The output of {@link DeleteAssetModelCompositeModelCommand}.
  */
-export interface DeleteAssetModelCompositeModelCommandOutput
-  extends DeleteAssetModelCompositeModelResponse,
-    __MetadataBearer {}
+export interface DeleteAssetModelCompositeModelCommandOutput extends DeleteAssetModelCompositeModelResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a composite model. This action can't be undone. You must delete all assets created
@@ -120,7 +118,7 @@ export class DeleteAssetModelCompositeModelCommand extends $Command
   })
   .s("AWSIoTSiteWise", "DeleteAssetModelCompositeModel", {})
   .n("IoTSiteWiseClient", "DeleteAssetModelCompositeModelCommand")
-  .sc(DeleteAssetModelCompositeModel)
+  .sc(DeleteAssetModelCompositeModel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

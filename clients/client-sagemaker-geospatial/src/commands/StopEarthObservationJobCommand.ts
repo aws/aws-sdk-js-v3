@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerGeospatialClient";
-import { StopEarthObservationJob } from "../schemas/schemas_0";
+import { StopEarthObservationJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class StopEarthObservationJobCommand extends $Command
   })
   .s("SageMakerGeospatial", "StopEarthObservationJob", {})
   .n("SageMakerGeospatialClient", "StopEarthObservationJobCommand")
-  .sc(StopEarthObservationJob)
+  .sc(StopEarthObservationJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

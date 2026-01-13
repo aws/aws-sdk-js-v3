@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralChannelClient";
-import { DeleteProgramManagementAccount } from "../schemas/schemas_0";
+import { DeleteProgramManagementAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DeleteProgramManagementAccountCommandInput extends DeleteProgra
  *
  * The output of {@link DeleteProgramManagementAccountCommand}.
  */
-export interface DeleteProgramManagementAccountCommandOutput
-  extends DeleteProgramManagementAccountResponse,
-    __MetadataBearer {}
+export interface DeleteProgramManagementAccountCommandOutput extends DeleteProgramManagementAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a program management account.</p>
@@ -112,7 +110,7 @@ export class DeleteProgramManagementAccountCommand extends $Command
   })
   .s("PartnerCentralChannel", "DeleteProgramManagementAccount", {})
   .n("PartnerCentralChannelClient", "DeleteProgramManagementAccountCommand")
-  .sc(DeleteProgramManagementAccount)
+  .sc(DeleteProgramManagementAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

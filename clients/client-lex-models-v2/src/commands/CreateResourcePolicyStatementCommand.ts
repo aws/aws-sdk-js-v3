@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import type { CreateResourcePolicyStatementRequest, CreateResourcePolicyStatementResponse } from "../models/models_0";
-import { CreateResourcePolicyStatement } from "../schemas/schemas_0";
+import { CreateResourcePolicyStatement$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateResourcePolicyStatementCommandInput extends CreateResourc
  *
  * The output of {@link CreateResourcePolicyStatementCommand}.
  */
-export interface CreateResourcePolicyStatementCommandOutput
-  extends CreateResourcePolicyStatementResponse,
-    __MetadataBearer {}
+export interface CreateResourcePolicyStatementCommandOutput extends CreateResourcePolicyStatementResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a new resource policy statement to a bot or bot alias. If a
@@ -128,7 +126,7 @@ export class CreateResourcePolicyStatementCommand extends $Command
   })
   .s("LexModelBuildingServiceV2", "CreateResourcePolicyStatement", {})
   .n("LexModelsV2Client", "CreateResourcePolicyStatementCommand")
-  .sc(CreateResourcePolicyStatement)
+  .sc(CreateResourcePolicyStatement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeVpcIngressConnectionRequest, DescribeVpcIngressConnectionResponse } from "../models/models_0";
-import { DescribeVpcIngressConnection } from "../schemas/schemas_0";
+import { DescribeVpcIngressConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeVpcIngressConnectionCommandInput extends DescribeVpcIng
  *
  * The output of {@link DescribeVpcIngressConnectionCommand}.
  */
-export interface DescribeVpcIngressConnectionCommandOutput
-  extends DescribeVpcIngressConnectionResponse,
-    __MetadataBearer {}
+export interface DescribeVpcIngressConnectionCommandOutput extends DescribeVpcIngressConnectionResponse, __MetadataBearer {}
 
 /**
  * <p>Return a full description of an App Runner VPC Ingress Connection resource.</p>
@@ -97,7 +95,7 @@ export class DescribeVpcIngressConnectionCommand extends $Command
   })
   .s("AppRunner", "DescribeVpcIngressConnection", {})
   .n("AppRunnerClient", "DescribeVpcIngressConnectionCommand")
-  .sc(DescribeVpcIngressConnection)
+  .sc(DescribeVpcIngressConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

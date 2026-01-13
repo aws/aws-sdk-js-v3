@@ -10,12 +10,12 @@ import { SageMakerClient } from "../SageMakerClient";
 const checkState = async (client: SageMakerClient, input: DescribeProcessingJobCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeProcessingJobCommand(input));
+    let result: any = await client.send(new DescribeProcessingJobCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.ProcessingJobStatus;
-      };
+      }
       if (returnComparator() === "Completed") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -23,7 +23,7 @@ const checkState = async (client: SageMakerClient, input: DescribeProcessingJobC
     try {
       const returnComparator = () => {
         return result.ProcessingJobStatus;
-      };
+      }
       if (returnComparator() === "Stopped") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -31,7 +31,7 @@ const checkState = async (client: SageMakerClient, input: DescribeProcessingJobC
     try {
       const returnComparator = () => {
         return result.ProcessingJobStatus;
-      };
+      }
       if (returnComparator() === "Failed") {
         return { state: WaiterState.FAILURE, reason };
       }

@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { AssociateResolverQueryLogConfig } from "../schemas/schemas_0";
+import { AssociateResolverQueryLogConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface AssociateResolverQueryLogConfigCommandInput extends AssociateRe
  *
  * The output of {@link AssociateResolverQueryLogConfigCommand}.
  */
-export interface AssociateResolverQueryLogConfigCommandOutput
-  extends AssociateResolverQueryLogConfigResponse,
-    __MetadataBearer {}
+export interface AssociateResolverQueryLogConfigCommandOutput extends AssociateResolverQueryLogConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Associates an Amazon VPC with a specified query logging configuration. Route 53 Resolver logs DNS queries that originate in all of the Amazon VPCs
@@ -125,7 +123,7 @@ export class AssociateResolverQueryLogConfigCommand extends $Command
   })
   .s("Route53Resolver", "AssociateResolverQueryLogConfig", {})
   .n("Route53ResolverClient", "AssociateResolverQueryLogConfigCommand")
-  .sc(AssociateResolverQueryLogConfig)
+  .sc(AssociateResolverQueryLogConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

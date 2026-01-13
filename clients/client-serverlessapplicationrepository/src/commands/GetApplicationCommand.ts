@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetApplicationRequest, GetApplicationResponse } from "../models/models_0";
-import { GetApplication } from "../schemas/schemas_0";
+import { GetApplication$ } from "../schemas/schemas_0";
 import type {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
@@ -139,7 +139,7 @@ export class GetApplicationCommand extends $Command
   })
   .s("ServerlessApplicationRepository", "GetApplication", {})
   .n("ServerlessApplicationRepositoryClient", "GetApplicationCommand")
-  .sc(GetApplication)
+  .sc(GetApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

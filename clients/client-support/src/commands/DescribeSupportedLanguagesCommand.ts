@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeSupportedLanguagesRequest, DescribeSupportedLanguagesResponse } from "../models/models_0";
-import { DescribeSupportedLanguages } from "../schemas/schemas_0";
+import { DescribeSupportedLanguages$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
@@ -105,7 +105,7 @@ export class DescribeSupportedLanguagesCommand extends $Command
   })
   .s("AWSSupport_20130415", "DescribeSupportedLanguages", {})
   .n("SupportClient", "DescribeSupportedLanguagesCommand")
-  .sc(DescribeSupportedLanguages)
+  .sc(DescribeSupportedLanguages$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

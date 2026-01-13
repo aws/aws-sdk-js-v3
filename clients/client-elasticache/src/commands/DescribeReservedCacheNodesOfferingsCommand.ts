@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeReservedCacheNodesOfferingsMessage, ReservedCacheNodesOfferingMessage } from "../models/models_0";
-import { DescribeReservedCacheNodesOfferings } from "../schemas/schemas_0";
+import { DescribeReservedCacheNodesOfferings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeReservedCacheNodesOfferingsCommandInput extends Describ
  *
  * The output of {@link DescribeReservedCacheNodesOfferingsCommand}.
  */
-export interface DescribeReservedCacheNodesOfferingsCommandOutput
-  extends ReservedCacheNodesOfferingMessage,
-    __MetadataBearer {}
+export interface DescribeReservedCacheNodesOfferingsCommandOutput extends ReservedCacheNodesOfferingMessage, __MetadataBearer {}
 
 /**
  * <p>Lists available reserved cache node offerings.</p>
@@ -421,7 +419,7 @@ export class DescribeReservedCacheNodesOfferingsCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "DescribeReservedCacheNodesOfferings", {})
   .n("ElastiCacheClient", "DescribeReservedCacheNodesOfferingsCommand")
-  .sc(DescribeReservedCacheNodesOfferings)
+  .sc(DescribeReservedCacheNodesOfferings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

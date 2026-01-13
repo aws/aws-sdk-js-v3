@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./DecryptDataCommand";
 export * from "./EncryptDataCommand";
+export * from "./GenerateAs2805KekValidationCommand";
 export * from "./GenerateCardValidationDataCommand";
 export * from "./GenerateMacCommand";
 export * from "./GenerateMacEmvPinChangeCommand";

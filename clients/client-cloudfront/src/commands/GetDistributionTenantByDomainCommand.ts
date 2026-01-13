@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDistributionTenantByDomainRequest, GetDistributionTenantByDomainResult } from "../models/models_0";
-import { GetDistributionTenantByDomain } from "../schemas/schemas_0";
+import { GetDistributionTenantByDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetDistributionTenantByDomainCommandInput extends GetDistributi
  *
  * The output of {@link GetDistributionTenantByDomainCommand}.
  */
-export interface GetDistributionTenantByDomainCommandOutput
-  extends GetDistributionTenantByDomainResult,
-    __MetadataBearer {}
+export interface GetDistributionTenantByDomainCommandOutput extends GetDistributionTenantByDomainResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about a distribution tenant by the associated domain.</p>
@@ -127,7 +125,7 @@ export class GetDistributionTenantByDomainCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "GetDistributionTenantByDomain", {})
   .n("CloudFrontClient", "GetDistributionTenantByDomainCommand")
-  .sc(GetDistributionTenantByDomain)
+  .sc(GetDistributionTenantByDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

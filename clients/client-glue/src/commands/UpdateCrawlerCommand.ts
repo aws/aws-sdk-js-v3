@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { UpdateCrawlerRequest, UpdateCrawlerResponse } from "../models/models_2";
-import { UpdateCrawler } from "../schemas/schemas_0";
+import { UpdateCrawler$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -193,7 +193,7 @@ export class UpdateCrawlerCommand extends $Command
   })
   .s("AWSGlue", "UpdateCrawler", {})
   .n("GlueClient", "UpdateCrawlerCommand")
-  .sc(UpdateCrawler)
+  .sc(UpdateCrawler$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

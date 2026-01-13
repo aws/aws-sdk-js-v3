@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyDataClient";
-import { TranslatePinData } from "../schemas/schemas_0";
+import { TranslatePinData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -54,6 +54,9 @@ export interface TranslatePinDataCommandOutput extends TranslatePinDataOutput, _
  *     IsoFormat4: {
  *       PrimaryAccountNumber: "STRING_VALUE", // required
  *     },
+ *     As2805Format0: { // TranslationPinDataAs2805Format0
+ *       PrimaryAccountNumber: "STRING_VALUE", // required
+ *     },
  *   },
  *   OutgoingTranslationAttributes: {//  Union: only one key present
  *     IsoFormat0: {
@@ -64,6 +67,9 @@ export interface TranslatePinDataCommandOutput extends TranslatePinDataOutput, _
  *       PrimaryAccountNumber: "STRING_VALUE", // required
  *     },
  *     IsoFormat4: "<TranslationPinDataIsoFormat034>",
+ *     As2805Format0: {
+ *       PrimaryAccountNumber: "STRING_VALUE", // required
+ *     },
  *   },
  *   EncryptedPinBlock: "STRING_VALUE", // required
  *   IncomingDukptAttributes: { // DukptDerivationAttributes
@@ -103,6 +109,10 @@ export interface TranslatePinDataCommandOutput extends TranslatePinDataOutput, _
  *       },
  *     },
  *     KeyCheckValueAlgorithm: "STRING_VALUE",
+ *   },
+ *   IncomingAs2805Attributes: { // As2805PekDerivationAttributes
+ *     SystemTraceAuditNumber: "STRING_VALUE", // required
+ *     TransactionAmount: "STRING_VALUE", // required
  *   },
  * };
  * const command = new TranslatePinDataCommand(input);
@@ -156,7 +166,7 @@ export class TranslatePinDataCommand extends $Command
   })
   .s("PaymentCryptographyDataPlane", "TranslatePinData", {})
   .n("PaymentCryptographyDataClient", "TranslatePinDataCommand")
-  .sc(TranslatePinData)
+  .sc(TranslatePinData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   UpdateSecurityGroupRuleDescriptionsEgressRequest,
   UpdateSecurityGroupRuleDescriptionsEgressResult,
 } from "../models/models_7";
-import { UpdateSecurityGroupRuleDescriptionsEgress } from "../schemas/schemas_0";
+import { UpdateSecurityGroupRuleDescriptionsEgress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateSecurityGroupRuleDescriptionsEgressCommand}.
  */
-export interface UpdateSecurityGroupRuleDescriptionsEgressCommandInput
-  extends UpdateSecurityGroupRuleDescriptionsEgressRequest {}
+export interface UpdateSecurityGroupRuleDescriptionsEgressCommandInput extends UpdateSecurityGroupRuleDescriptionsEgressRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateSecurityGroupRuleDescriptionsEgressCommand}.
  */
-export interface UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
-  extends UpdateSecurityGroupRuleDescriptionsEgressResult,
-    __MetadataBearer {}
+export interface UpdateSecurityGroupRuleDescriptionsEgressCommandOutput extends UpdateSecurityGroupRuleDescriptionsEgressResult, __MetadataBearer {}
 
 /**
  * <p>Updates the description of an egress (outbound) security group rule. You
@@ -152,7 +149,7 @@ export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command
   })
   .s("AmazonEC2", "UpdateSecurityGroupRuleDescriptionsEgress", {})
   .n("EC2Client", "UpdateSecurityGroupRuleDescriptionsEgressCommand")
-  .sc(UpdateSecurityGroupRuleDescriptionsEgress)
+  .sc(UpdateSecurityGroupRuleDescriptionsEgress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

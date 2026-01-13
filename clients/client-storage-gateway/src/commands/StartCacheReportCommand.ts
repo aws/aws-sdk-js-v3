@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartCacheReportInput, StartCacheReportOutput } from "../models/models_0";
-import { StartCacheReport } from "../schemas/schemas_0";
+import { StartCacheReport$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -147,7 +147,7 @@ export class StartCacheReportCommand extends $Command
   })
   .s("StorageGateway_20130630", "StartCacheReport", {})
   .n("StorageGatewayClient", "StartCacheReportCommand")
-  .sc(StartCacheReport)
+  .sc(StartCacheReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

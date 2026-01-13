@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { GetIntegrationResourcePropertyRequest, GetIntegrationResourcePropertyResponse } from "../models/models_1";
-import { GetIntegrationResourceProperty } from "../schemas/schemas_0";
+import { GetIntegrationResourceProperty$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetIntegrationResourcePropertyCommandInput extends GetIntegrati
  *
  * The output of {@link GetIntegrationResourcePropertyCommand}.
  */
-export interface GetIntegrationResourcePropertyCommandOutput
-  extends GetIntegrationResourcePropertyResponse,
-    __MetadataBearer {}
+export interface GetIntegrationResourcePropertyCommandOutput extends GetIntegrationResourcePropertyResponse, __MetadataBearer {}
 
 /**
  * <p>This API is used for fetching the <code>ResourceProperty</code> of the Glue connection (for the source) or Glue database ARN (for the target)</p>
@@ -106,7 +104,7 @@ export class GetIntegrationResourcePropertyCommand extends $Command
   })
   .s("AWSGlue", "GetIntegrationResourceProperty", {})
   .n("GlueClient", "GetIntegrationResourcePropertyCommand")
-  .sc(GetIntegrationResourceProperty)
+  .sc(GetIntegrationResourceProperty$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

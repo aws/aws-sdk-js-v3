@@ -13,7 +13,7 @@ import type {
   GetECSServiceRecommendationProjectedMetricsRequest,
   GetECSServiceRecommendationProjectedMetricsResponse,
 } from "../models/models_0";
-import { GetECSServiceRecommendationProjectedMetrics } from "../schemas/schemas_0";
+import { GetECSServiceRecommendationProjectedMetrics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link GetECSServiceRecommendationProjectedMetricsCommand}.
  */
-export interface GetECSServiceRecommendationProjectedMetricsCommandInput
-  extends GetECSServiceRecommendationProjectedMetricsRequest {}
+export interface GetECSServiceRecommendationProjectedMetricsCommandInput extends GetECSServiceRecommendationProjectedMetricsRequest {}
 /**
  * @public
  *
  * The output of {@link GetECSServiceRecommendationProjectedMetricsCommand}.
  */
-export interface GetECSServiceRecommendationProjectedMetricsCommandOutput
-  extends GetECSServiceRecommendationProjectedMetricsResponse,
-    __MetadataBearer {}
+export interface GetECSServiceRecommendationProjectedMetricsCommandOutput extends GetECSServiceRecommendationProjectedMetricsResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -133,7 +130,7 @@ export class GetECSServiceRecommendationProjectedMetricsCommand extends $Command
   })
   .s("ComputeOptimizerService", "GetECSServiceRecommendationProjectedMetrics", {})
   .n("ComputeOptimizerClient", "GetECSServiceRecommendationProjectedMetricsCommand")
-  .sc(GetECSServiceRecommendationProjectedMetrics)
+  .sc(GetECSServiceRecommendationProjectedMetrics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

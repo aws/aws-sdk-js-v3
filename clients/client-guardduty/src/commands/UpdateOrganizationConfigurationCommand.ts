@@ -9,7 +9,7 @@ import type {
   UpdateOrganizationConfigurationRequest,
   UpdateOrganizationConfigurationResponse,
 } from "../models/models_1";
-import { UpdateOrganizationConfiguration } from "../schemas/schemas_0";
+import { UpdateOrganizationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateOrganizationConfigurationCommandInput extends UpdateOrgan
  *
  * The output of {@link UpdateOrganizationConfigurationCommand}.
  */
-export interface UpdateOrganizationConfigurationCommandOutput
-  extends UpdateOrganizationConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateOrganizationConfigurationCommandOutput extends UpdateOrganizationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Configures the delegated administrator account with the provided values. You must provide
@@ -122,7 +120,7 @@ export class UpdateOrganizationConfigurationCommand extends $Command
   })
   .s("GuardDutyAPIService", "UpdateOrganizationConfiguration", {})
   .n("GuardDutyClient", "UpdateOrganizationConfigurationCommand")
-  .sc(UpdateOrganizationConfiguration)
+  .sc(UpdateOrganizationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

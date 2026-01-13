@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateBrowserSettingsRequest, UpdateBrowserSettingsResponse } from "../models/models_0";
-import { UpdateBrowserSettings } from "../schemas/schemas_0";
+import { UpdateBrowserSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -122,7 +122,7 @@ export class UpdateBrowserSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "UpdateBrowserSettings", {})
   .n("WorkSpacesWebClient", "UpdateBrowserSettingsCommand")
-  .sc(UpdateBrowserSettings)
+  .sc(UpdateBrowserSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

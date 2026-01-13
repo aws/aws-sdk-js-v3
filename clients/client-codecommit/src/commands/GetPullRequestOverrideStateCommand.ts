@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPullRequestOverrideStateInput, GetPullRequestOverrideStateOutput } from "../models/models_0";
-import { GetPullRequestOverrideState } from "../schemas/schemas_0";
+import { GetPullRequestOverrideState$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class GetPullRequestOverrideStateCommand extends $Command
   })
   .s("CodeCommit_20150413", "GetPullRequestOverrideState", {})
   .n("CodeCommitClient", "GetPullRequestOverrideStateCommand")
-  .sc(GetPullRequestOverrideState)
+  .sc(GetPullRequestOverrideState$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

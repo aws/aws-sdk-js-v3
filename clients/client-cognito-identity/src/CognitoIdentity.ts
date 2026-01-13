@@ -243,8 +243,14 @@ export interface CognitoIdentity {
   /**
    * @see {@link GetIdCommand}
    */
-  getId(args: GetIdCommandInput, options?: __HttpHandlerOptions): Promise<GetIdCommandOutput>;
-  getId(args: GetIdCommandInput, cb: (err: any, data?: GetIdCommandOutput) => void): void;
+  getId(
+    args: GetIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIdCommandOutput>;
+  getId(
+    args: GetIdCommandInput,
+    cb: (err: any, data?: GetIdCommandOutput) => void
+  ): void;
   getId(
     args: GetIdCommandInput,
     options: __HttpHandlerOptions,
@@ -275,7 +281,10 @@ export interface CognitoIdentity {
     args: GetOpenIdTokenCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetOpenIdTokenCommandOutput>;
-  getOpenIdToken(args: GetOpenIdTokenCommandInput, cb: (err: any, data?: GetOpenIdTokenCommandOutput) => void): void;
+  getOpenIdToken(
+    args: GetOpenIdTokenCommandInput,
+    cb: (err: any, data?: GetOpenIdTokenCommandOutput) => void
+  ): void;
   getOpenIdToken(
     args: GetOpenIdTokenCommandInput,
     options: __HttpHandlerOptions,
@@ -323,7 +332,10 @@ export interface CognitoIdentity {
     args: ListIdentitiesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListIdentitiesCommandOutput>;
-  listIdentities(args: ListIdentitiesCommandInput, cb: (err: any, data?: ListIdentitiesCommandOutput) => void): void;
+  listIdentities(
+    args: ListIdentitiesCommandInput,
+    cb: (err: any, data?: ListIdentitiesCommandOutput) => void
+  ): void;
   listIdentities(
     args: ListIdentitiesCommandInput,
     options: __HttpHandlerOptions,
@@ -435,8 +447,14 @@ export interface CognitoIdentity {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -467,7 +485,10 @@ export interface CognitoIdentity {
     args: UnlinkIdentityCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UnlinkIdentityCommandOutput>;
-  unlinkIdentity(args: UnlinkIdentityCommandInput, cb: (err: any, data?: UnlinkIdentityCommandOutput) => void): void;
+  unlinkIdentity(
+    args: UnlinkIdentityCommandInput,
+    cb: (err: any, data?: UnlinkIdentityCommandOutput) => void
+  ): void;
   unlinkIdentity(
     args: UnlinkIdentityCommandInput,
     options: __HttpHandlerOptions,
@@ -477,8 +498,14 @@ export interface CognitoIdentity {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

@@ -9,7 +9,7 @@ import type {
   DescribeTransitGatewayPolicyTablesRequest,
   DescribeTransitGatewayPolicyTablesResult,
 } from "../models/models_4";
-import { DescribeTransitGatewayPolicyTables } from "../schemas/schemas_0";
+import { DescribeTransitGatewayPolicyTables$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeTransitGatewayPolicyTablesCommandInput extends Describe
  *
  * The output of {@link DescribeTransitGatewayPolicyTablesCommand}.
  */
-export interface DescribeTransitGatewayPolicyTablesCommandOutput
-  extends DescribeTransitGatewayPolicyTablesResult,
-    __MetadataBearer {}
+export interface DescribeTransitGatewayPolicyTablesCommandOutput extends DescribeTransitGatewayPolicyTablesResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more transit gateway route policy tables.  </p>
@@ -105,7 +103,7 @@ export class DescribeTransitGatewayPolicyTablesCommand extends $Command
   })
   .s("AmazonEC2", "DescribeTransitGatewayPolicyTables", {})
   .n("EC2Client", "DescribeTransitGatewayPolicyTablesCommand")
-  .sc(DescribeTransitGatewayPolicyTables)
+  .sc(DescribeTransitGatewayPolicyTables$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

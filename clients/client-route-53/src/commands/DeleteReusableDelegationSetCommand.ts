@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteReusableDelegationSetRequest, DeleteReusableDelegationSetResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { DeleteReusableDelegationSet } from "../schemas/schemas_0";
+import { DeleteReusableDelegationSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,9 +25,7 @@ export interface DeleteReusableDelegationSetCommandInput extends DeleteReusableD
  *
  * The output of {@link DeleteReusableDelegationSetCommand}.
  */
-export interface DeleteReusableDelegationSetCommandOutput
-  extends DeleteReusableDelegationSetResponse,
-    __MetadataBearer {}
+export interface DeleteReusableDelegationSetCommandOutput extends DeleteReusableDelegationSetResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a reusable delegation set.</p>
@@ -90,11 +88,14 @@ export class DeleteReusableDelegationSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "DeleteReusableDelegationSet", {})
   .n("Route53Client", "DeleteReusableDelegationSetCommand")
-  .sc(DeleteReusableDelegationSet)
+  .sc(DeleteReusableDelegationSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteObjectTaggingOutput, DeleteObjectTaggingRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { DeleteObjectTagging } from "../schemas/schemas_0";
+import { DeleteObjectTagging$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -134,11 +134,14 @@ export class DeleteObjectTaggingCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
+    ];
   })
   .s("AmazonS3", "DeleteObjectTagging", {})
   .n("S3Client", "DeleteObjectTaggingCommand")
-  .sc(DeleteObjectTagging)
+  .sc(DeleteObjectTagging$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

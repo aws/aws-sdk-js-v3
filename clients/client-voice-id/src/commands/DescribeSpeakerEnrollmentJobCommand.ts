@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeSpeakerEnrollmentJobRequest, DescribeSpeakerEnrollmentJobResponse } from "../models/models_0";
-import { DescribeSpeakerEnrollmentJob } from "../schemas/schemas_0";
+import { DescribeSpeakerEnrollmentJob$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DescribeSpeakerEnrollmentJobCommandInput extends DescribeSpeake
  *
  * The output of {@link DescribeSpeakerEnrollmentJobCommand}.
  */
-export interface DescribeSpeakerEnrollmentJobCommandOutput
-  extends DescribeSpeakerEnrollmentJobResponse,
-    __MetadataBearer {}
+export interface DescribeSpeakerEnrollmentJobCommandOutput extends DescribeSpeakerEnrollmentJobResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the specified speaker enrollment job.</p>
@@ -129,7 +127,7 @@ export class DescribeSpeakerEnrollmentJobCommand extends $Command
   })
   .s("VoiceID", "DescribeSpeakerEnrollmentJob", {})
   .n("VoiceIDClient", "DescribeSpeakerEnrollmentJobCommand")
-  .sc(DescribeSpeakerEnrollmentJob)
+  .sc(DescribeSpeakerEnrollmentJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

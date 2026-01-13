@@ -13,7 +13,7 @@ import type {
   AddApplicationReferenceDataSourceRequest,
   AddApplicationReferenceDataSourceResponse,
 } from "../models/models_0";
-import { AddApplicationReferenceDataSource } from "../schemas/schemas_0";
+import { AddApplicationReferenceDataSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface AddApplicationReferenceDataSourceCommandInput extends AddApplic
  *
  * The output of {@link AddApplicationReferenceDataSourceCommand}.
  */
-export interface AddApplicationReferenceDataSourceCommandOutput
-  extends AddApplicationReferenceDataSourceResponse,
-    __MetadataBearer {}
+export interface AddApplicationReferenceDataSourceCommandOutput extends AddApplicationReferenceDataSourceResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a reference data source to an existing SQL-based Kinesis Data Analytics application.</p>
@@ -168,7 +166,7 @@ export class AddApplicationReferenceDataSourceCommand extends $Command
   })
   .s("KinesisAnalytics_20180523", "AddApplicationReferenceDataSource", {})
   .n("KinesisAnalyticsV2Client", "AddApplicationReferenceDataSourceCommand")
-  .sc(AddApplicationReferenceDataSource)
+  .sc(AddApplicationReferenceDataSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { GetTransitGatewayRegistrations } from "../schemas/schemas_0";
+import { GetTransitGatewayRegistrations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetTransitGatewayRegistrationsCommandInput extends GetTransitGa
  *
  * The output of {@link GetTransitGatewayRegistrationsCommand}.
  */
-export interface GetTransitGatewayRegistrationsCommandOutput
-  extends GetTransitGatewayRegistrationsResponse,
-    __MetadataBearer {}
+export interface GetTransitGatewayRegistrationsCommandOutput extends GetTransitGatewayRegistrationsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the transit gateway registrations in a specified
@@ -110,7 +108,7 @@ export class GetTransitGatewayRegistrationsCommand extends $Command
   })
   .s("NetworkManager", "GetTransitGatewayRegistrations", {})
   .n("NetworkManagerClient", "GetTransitGatewayRegistrationsCommand")
-  .sc(GetTransitGatewayRegistrations)
+  .sc(GetTransitGatewayRegistrations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

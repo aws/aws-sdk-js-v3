@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListDistributionsByTrustStoreRequest, ListDistributionsByTrustStoreResult } from "../models/models_1";
-import { ListDistributionsByTrustStore } from "../schemas/schemas_0";
+import { ListDistributionsByTrustStore$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListDistributionsByTrustStoreCommandInput extends ListDistribut
  *
  * The output of {@link ListDistributionsByTrustStoreCommand}.
  */
-export interface ListDistributionsByTrustStoreCommandOutput
-  extends ListDistributionsByTrustStoreResult,
-    __MetadataBearer {}
+export interface ListDistributionsByTrustStoreCommandOutput extends ListDistributionsByTrustStoreResult, __MetadataBearer {}
 
 /**
  * <p>Lists distributions by trust store.</p>
@@ -413,7 +411,7 @@ export class ListDistributionsByTrustStoreCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "ListDistributionsByTrustStore", {})
   .n("CloudFrontClient", "ListDistributionsByTrustStoreCommand")
-  .sc(ListDistributionsByTrustStore)
+  .sc(ListDistributionsByTrustStore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

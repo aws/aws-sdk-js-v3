@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import type { BatchDisassociateProjectAssetsRequest, BatchDisassociateProjectAssetsResponse } from "../models/models_0";
-import { BatchDisassociateProjectAssets } from "../schemas/schemas_0";
+import { BatchDisassociateProjectAssets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface BatchDisassociateProjectAssetsCommandInput extends BatchDisasso
  *
  * The output of {@link BatchDisassociateProjectAssetsCommand}.
  */
-export interface BatchDisassociateProjectAssetsCommandOutput
-  extends BatchDisassociateProjectAssetsResponse,
-    __MetadataBearer {}
+export interface BatchDisassociateProjectAssetsCommandOutput extends BatchDisassociateProjectAssetsResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a group (batch) of assets from an IoT SiteWise Monitor project.</p>
@@ -101,7 +99,7 @@ export class BatchDisassociateProjectAssetsCommand extends $Command
   })
   .s("AWSIoTSiteWise", "BatchDisassociateProjectAssets", {})
   .n("IoTSiteWiseClient", "BatchDisassociateProjectAssetsCommand")
-  .sc(BatchDisassociateProjectAssets)
+  .sc(BatchDisassociateProjectAssets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

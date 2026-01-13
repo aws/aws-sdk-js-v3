@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPrimaryEmailRequest, GetPrimaryEmailResponse } from "../models/models_0";
-import { GetPrimaryEmail } from "../schemas/schemas_0";
+import { GetPrimaryEmail$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class GetPrimaryEmailCommand extends $Command
   })
   .s("Account", "GetPrimaryEmail", {})
   .n("AccountClient", "GetPrimaryEmailCommand")
-  .sc(GetPrimaryEmail)
+  .sc(GetPrimaryEmail$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

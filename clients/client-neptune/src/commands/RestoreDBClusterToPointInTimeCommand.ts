@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RestoreDBClusterToPointInTimeMessage, RestoreDBClusterToPointInTimeResult } from "../models/models_0";
 import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { RestoreDBClusterToPointInTime } from "../schemas/schemas_0";
+import { RestoreDBClusterToPointInTime$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface RestoreDBClusterToPointInTimeCommandInput extends RestoreDBClus
  *
  * The output of {@link RestoreDBClusterToPointInTimeCommand}.
  */
-export interface RestoreDBClusterToPointInTimeCommandOutput
-  extends RestoreDBClusterToPointInTimeResult,
-    __MetadataBearer {}
+export interface RestoreDBClusterToPointInTimeCommandOutput extends RestoreDBClusterToPointInTimeResult, __MetadataBearer {}
 
 /**
  * <p>Restores a DB cluster to an arbitrary point in time. Users can restore to any point in
@@ -271,7 +269,7 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command
   })
   .s("AmazonRDSv19", "RestoreDBClusterToPointInTime", {})
   .n("NeptuneClient", "RestoreDBClusterToPointInTimeCommand")
-  .sc(RestoreDBClusterToPointInTime)
+  .sc(RestoreDBClusterToPointInTime$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

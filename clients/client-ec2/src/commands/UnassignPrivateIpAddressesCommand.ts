@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UnassignPrivateIpAddressesRequest } from "../models/models_7";
-import { UnassignPrivateIpAddresses } from "../schemas/schemas_0";
+import { UnassignPrivateIpAddresses$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class UnassignPrivateIpAddressesCommand extends $Command
   })
   .s("AmazonEC2", "UnassignPrivateIpAddresses", {})
   .n("EC2Client", "UnassignPrivateIpAddressesCommand")
-  .sc(UnassignPrivateIpAddresses)
+  .sc(UnassignPrivateIpAddresses$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

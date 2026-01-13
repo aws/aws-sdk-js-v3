@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListResourceRecordSetsRequest, ListResourceRecordSetsResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { ListResourceRecordSets } from "../schemas/schemas_0";
+import { ListResourceRecordSets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -199,11 +199,14 @@ export class ListResourceRecordSetsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "ListResourceRecordSets", {})
   .n("Route53Client", "ListResourceRecordSetsCommand")
-  .sc(ListResourceRecordSets)
+  .sc(ListResourceRecordSets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

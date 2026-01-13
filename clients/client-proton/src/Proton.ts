@@ -614,7 +614,10 @@ export interface Proton {
     args: CreateComponentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateComponentCommandOutput>;
-  createComponent(args: CreateComponentCommandInput, cb: (err: any, data?: CreateComponentCommandOutput) => void): void;
+  createComponent(
+    args: CreateComponentCommandInput,
+    cb: (err: any, data?: CreateComponentCommandOutput) => void
+  ): void;
   createComponent(
     args: CreateComponentCommandInput,
     options: __HttpHandlerOptions,
@@ -709,8 +712,14 @@ export interface Proton {
   /**
    * @see {@link CreateServiceCommand}
    */
-  createService(args: CreateServiceCommandInput, options?: __HttpHandlerOptions): Promise<CreateServiceCommandOutput>;
-  createService(args: CreateServiceCommandInput, cb: (err: any, data?: CreateServiceCommandOutput) => void): void;
+  createService(
+    args: CreateServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateServiceCommandOutput>;
+  createService(
+    args: CreateServiceCommandInput,
+    cb: (err: any, data?: CreateServiceCommandOutput) => void
+  ): void;
   createService(
     args: CreateServiceCommandInput,
     options: __HttpHandlerOptions,
@@ -809,7 +818,10 @@ export interface Proton {
     args: DeleteComponentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteComponentCommandOutput>;
-  deleteComponent(args: DeleteComponentCommandInput, cb: (err: any, data?: DeleteComponentCommandOutput) => void): void;
+  deleteComponent(
+    args: DeleteComponentCommandInput,
+    cb: (err: any, data?: DeleteComponentCommandOutput) => void
+  ): void;
   deleteComponent(
     args: DeleteComponentCommandInput,
     options: __HttpHandlerOptions,
@@ -921,8 +933,14 @@ export interface Proton {
   /**
    * @see {@link DeleteServiceCommand}
    */
-  deleteService(args: DeleteServiceCommandInput, options?: __HttpHandlerOptions): Promise<DeleteServiceCommandOutput>;
-  deleteService(args: DeleteServiceCommandInput, cb: (err: any, data?: DeleteServiceCommandOutput) => void): void;
+  deleteService(
+    args: DeleteServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteServiceCommandOutput>;
+  deleteService(
+    args: DeleteServiceCommandInput,
+    cb: (err: any, data?: DeleteServiceCommandOutput) => void
+  ): void;
   deleteService(
     args: DeleteServiceCommandInput,
     options: __HttpHandlerOptions,
@@ -1018,8 +1036,14 @@ export interface Proton {
   /**
    * @see {@link GetComponentCommand}
    */
-  getComponent(args: GetComponentCommandInput, options?: __HttpHandlerOptions): Promise<GetComponentCommandOutput>;
-  getComponent(args: GetComponentCommandInput, cb: (err: any, data?: GetComponentCommandOutput) => void): void;
+  getComponent(
+    args: GetComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetComponentCommandOutput>;
+  getComponent(
+    args: GetComponentCommandInput,
+    cb: (err: any, data?: GetComponentCommandOutput) => void
+  ): void;
   getComponent(
     args: GetComponentCommandInput,
     options: __HttpHandlerOptions,
@@ -1029,8 +1053,14 @@ export interface Proton {
   /**
    * @see {@link GetDeploymentCommand}
    */
-  getDeployment(args: GetDeploymentCommandInput, options?: __HttpHandlerOptions): Promise<GetDeploymentCommandOutput>;
-  getDeployment(args: GetDeploymentCommandInput, cb: (err: any, data?: GetDeploymentCommandOutput) => void): void;
+  getDeployment(
+    args: GetDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeploymentCommandOutput>;
+  getDeployment(
+    args: GetDeploymentCommandInput,
+    cb: (err: any, data?: GetDeploymentCommandOutput) => void
+  ): void;
   getDeployment(
     args: GetDeploymentCommandInput,
     options: __HttpHandlerOptions,
@@ -1044,7 +1074,10 @@ export interface Proton {
     args: GetEnvironmentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEnvironmentCommandOutput>;
-  getEnvironment(args: GetEnvironmentCommandInput, cb: (err: any, data?: GetEnvironmentCommandOutput) => void): void;
+  getEnvironment(
+    args: GetEnvironmentCommandInput,
+    cb: (err: any, data?: GetEnvironmentCommandOutput) => void
+  ): void;
   getEnvironment(
     args: GetEnvironmentCommandInput,
     options: __HttpHandlerOptions,
@@ -1105,8 +1138,14 @@ export interface Proton {
   /**
    * @see {@link GetRepositoryCommand}
    */
-  getRepository(args: GetRepositoryCommandInput, options?: __HttpHandlerOptions): Promise<GetRepositoryCommandOutput>;
-  getRepository(args: GetRepositoryCommandInput, cb: (err: any, data?: GetRepositoryCommandOutput) => void): void;
+  getRepository(
+    args: GetRepositoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRepositoryCommandOutput>;
+  getRepository(
+    args: GetRepositoryCommandInput,
+    cb: (err: any, data?: GetRepositoryCommandOutput) => void
+  ): void;
   getRepository(
     args: GetRepositoryCommandInput,
     options: __HttpHandlerOptions,
@@ -1151,8 +1190,14 @@ export interface Proton {
   /**
    * @see {@link GetServiceCommand}
    */
-  getService(args: GetServiceCommandInput, options?: __HttpHandlerOptions): Promise<GetServiceCommandOutput>;
-  getService(args: GetServiceCommandInput, cb: (err: any, data?: GetServiceCommandOutput) => void): void;
+  getService(
+    args: GetServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetServiceCommandOutput>;
+  getService(
+    args: GetServiceCommandInput,
+    cb: (err: any, data?: GetServiceCommandOutput) => void
+  ): void;
   getService(
     args: GetServiceCommandInput,
     options: __HttpHandlerOptions,
@@ -1337,7 +1382,10 @@ export interface Proton {
     args: ListComponentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListComponentsCommandOutput>;
-  listComponents(args: ListComponentsCommandInput, cb: (err: any, data?: ListComponentsCommandOutput) => void): void;
+  listComponents(
+    args: ListComponentsCommandInput,
+    cb: (err: any, data?: ListComponentsCommandOutput) => void
+  ): void;
   listComponents(
     args: ListComponentsCommandInput,
     options: __HttpHandlerOptions,
@@ -1352,7 +1400,10 @@ export interface Proton {
     args: ListDeploymentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDeploymentsCommandOutput>;
-  listDeployments(args: ListDeploymentsCommandInput, cb: (err: any, data?: ListDeploymentsCommandOutput) => void): void;
+  listDeployments(
+    args: ListDeploymentsCommandInput,
+    cb: (err: any, data?: ListDeploymentsCommandOutput) => void
+  ): void;
   listDeployments(
     args: ListDeploymentsCommandInput,
     options: __HttpHandlerOptions,
@@ -1588,8 +1639,14 @@ export interface Proton {
    * @see {@link ListServicesCommand}
    */
   listServices(): Promise<ListServicesCommandOutput>;
-  listServices(args: ListServicesCommandInput, options?: __HttpHandlerOptions): Promise<ListServicesCommandOutput>;
-  listServices(args: ListServicesCommandInput, cb: (err: any, data?: ListServicesCommandOutput) => void): void;
+  listServices(
+    args: ListServicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServicesCommandOutput>;
+  listServices(
+    args: ListServicesCommandInput,
+    cb: (err: any, data?: ListServicesCommandOutput) => void
+  ): void;
   listServices(
     args: ListServicesCommandInput,
     options: __HttpHandlerOptions,
@@ -1685,8 +1742,14 @@ export interface Proton {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1696,8 +1759,14 @@ export interface Proton {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1729,7 +1798,10 @@ export interface Proton {
     args: UpdateComponentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateComponentCommandOutput>;
-  updateComponent(args: UpdateComponentCommandInput, cb: (err: any, data?: UpdateComponentCommandOutput) => void): void;
+  updateComponent(
+    args: UpdateComponentCommandInput,
+    cb: (err: any, data?: UpdateComponentCommandOutput) => void
+  ): void;
   updateComponent(
     args: UpdateComponentCommandInput,
     options: __HttpHandlerOptions,
@@ -1807,8 +1879,14 @@ export interface Proton {
   /**
    * @see {@link UpdateServiceCommand}
    */
-  updateService(args: UpdateServiceCommandInput, options?: __HttpHandlerOptions): Promise<UpdateServiceCommandOutput>;
-  updateService(args: UpdateServiceCommandInput, cb: (err: any, data?: UpdateServiceCommandOutput) => void): void;
+  updateService(
+    args: UpdateServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateServiceCommandOutput>;
+  updateService(
+    args: UpdateServiceCommandInput,
+    cb: (err: any, data?: UpdateServiceCommandOutput) => void
+  ): void;
   updateService(
     args: UpdateServiceCommandInput,
     options: __HttpHandlerOptions,

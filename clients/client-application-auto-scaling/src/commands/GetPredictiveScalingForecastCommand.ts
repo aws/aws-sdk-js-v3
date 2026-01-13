@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationAutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPredictiveScalingForecastRequest, GetPredictiveScalingForecastResponse } from "../models/models_0";
-import { GetPredictiveScalingForecast } from "../schemas/schemas_0";
+import { GetPredictiveScalingForecast$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetPredictiveScalingForecastCommandInput extends GetPredictiveS
  *
  * The output of {@link GetPredictiveScalingForecastCommand}.
  */
-export interface GetPredictiveScalingForecastCommandOutput
-  extends GetPredictiveScalingForecastResponse,
-    __MetadataBearer {}
+export interface GetPredictiveScalingForecastCommandOutput extends GetPredictiveScalingForecastResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the forecast data for a predictive scaling policy.</p>
@@ -202,7 +200,7 @@ export class GetPredictiveScalingForecastCommand extends $Command
   })
   .s("AnyScaleFrontendService", "GetPredictiveScalingForecast", {})
   .n("ApplicationAutoScalingClient", "GetPredictiveScalingForecastCommand")
-  .sc(GetPredictiveScalingForecast)
+  .sc(GetPredictiveScalingForecast$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

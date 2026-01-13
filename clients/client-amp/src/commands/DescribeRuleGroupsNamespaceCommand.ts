@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeRuleGroupsNamespaceRequest, DescribeRuleGroupsNamespaceResponse } from "../models/models_0";
-import { DescribeRuleGroupsNamespace } from "../schemas/schemas_0";
+import { DescribeRuleGroupsNamespace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeRuleGroupsNamespaceCommandInput extends DescribeRuleGro
  *
  * The output of {@link DescribeRuleGroupsNamespaceCommand}.
  */
-export interface DescribeRuleGroupsNamespaceCommandOutput
-  extends DescribeRuleGroupsNamespaceResponse,
-    __MetadataBearer {}
+export interface DescribeRuleGroupsNamespaceCommandOutput extends DescribeRuleGroupsNamespaceResponse, __MetadataBearer {}
 
 /**
  * <p>Returns complete information about one rule groups namespace. To retrieve a list of rule groups namespaces, use <code>ListRuleGroupsNamespaces</code>.</p>
@@ -104,7 +102,7 @@ export class DescribeRuleGroupsNamespaceCommand extends $Command
   })
   .s("AmazonPrometheusService", "DescribeRuleGroupsNamespace", {})
   .n("AmpClient", "DescribeRuleGroupsNamespaceCommand")
-  .sc(DescribeRuleGroupsNamespace)
+  .sc(DescribeRuleGroupsNamespace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

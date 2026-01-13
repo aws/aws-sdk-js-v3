@@ -9,7 +9,7 @@ import type {
   UpdateRepositoryCreationTemplateRequest,
   UpdateRepositoryCreationTemplateResponse,
 } from "../models/models_0";
-import { UpdateRepositoryCreationTemplate } from "../schemas/schemas_0";
+import { UpdateRepositoryCreationTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateRepositoryCreationTemplateCommandInput extends UpdateRepo
  *
  * The output of {@link UpdateRepositoryCreationTemplateCommand}.
  */
-export interface UpdateRepositoryCreationTemplateCommandOutput
-  extends UpdateRepositoryCreationTemplateResponse,
-    __MetadataBearer {}
+export interface UpdateRepositoryCreationTemplateCommandOutput extends UpdateRepositoryCreationTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing repository creation template.</p>
@@ -64,7 +62,7 @@ export interface UpdateRepositoryCreationTemplateCommandOutput
  *   repositoryPolicy: "STRING_VALUE",
  *   lifecyclePolicy: "STRING_VALUE",
  *   appliedFor: [ // RCTAppliedForList
- *     "REPLICATION" || "PULL_THROUGH_CACHE",
+ *     "REPLICATION" || "PULL_THROUGH_CACHE" || "CREATE_ON_PUSH",
  *   ],
  *   customRoleArn: "STRING_VALUE",
  * };
@@ -95,7 +93,7 @@ export interface UpdateRepositoryCreationTemplateCommandOutput
  * //     repositoryPolicy: "STRING_VALUE",
  * //     lifecyclePolicy: "STRING_VALUE",
  * //     appliedFor: [ // RCTAppliedForList
- * //       "REPLICATION" || "PULL_THROUGH_CACHE",
+ * //       "REPLICATION" || "PULL_THROUGH_CACHE" || "CREATE_ON_PUSH",
  * //     ],
  * //     customRoleArn: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
@@ -145,7 +143,7 @@ export class UpdateRepositoryCreationTemplateCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "UpdateRepositoryCreationTemplate", {})
   .n("ECRClient", "UpdateRepositoryCreationTemplateCommand")
-  .sc(UpdateRepositoryCreationTemplate)
+  .sc(UpdateRepositoryCreationTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   StartSavingsPlansPurchaseRecommendationGenerationRequest,
   StartSavingsPlansPurchaseRecommendationGenerationResponse,
 } from "../models/models_0";
-import { StartSavingsPlansPurchaseRecommendationGeneration } from "../schemas/schemas_0";
+import { StartSavingsPlansPurchaseRecommendationGeneration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link StartSavingsPlansPurchaseRecommendationGenerationCommand}.
  */
-export interface StartSavingsPlansPurchaseRecommendationGenerationCommandInput
-  extends StartSavingsPlansPurchaseRecommendationGenerationRequest {}
+export interface StartSavingsPlansPurchaseRecommendationGenerationCommandInput extends StartSavingsPlansPurchaseRecommendationGenerationRequest {}
 /**
  * @public
  *
  * The output of {@link StartSavingsPlansPurchaseRecommendationGenerationCommand}.
  */
-export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
-  extends StartSavingsPlansPurchaseRecommendationGenerationResponse,
-    __MetadataBearer {}
+export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput extends StartSavingsPlansPurchaseRecommendationGenerationResponse, __MetadataBearer {}
 
 /**
  * <p>Requests a Savings Plans recommendation generation. This enables you to calculate a fresh
@@ -100,7 +97,7 @@ export class StartSavingsPlansPurchaseRecommendationGenerationCommand extends $C
   })
   .s("AWSInsightsIndexService", "StartSavingsPlansPurchaseRecommendationGeneration", {})
   .n("CostExplorerClient", "StartSavingsPlansPurchaseRecommendationGenerationCommand")
-  .sc(StartSavingsPlansPurchaseRecommendationGeneration)
+  .sc(StartSavingsPlansPurchaseRecommendationGeneration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

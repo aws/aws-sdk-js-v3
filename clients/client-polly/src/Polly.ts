@@ -57,8 +57,14 @@ export interface Polly {
   /**
    * @see {@link DeleteLexiconCommand}
    */
-  deleteLexicon(args: DeleteLexiconCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLexiconCommandOutput>;
-  deleteLexicon(args: DeleteLexiconCommandInput, cb: (err: any, data?: DeleteLexiconCommandOutput) => void): void;
+  deleteLexicon(
+    args: DeleteLexiconCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLexiconCommandOutput>;
+  deleteLexicon(
+    args: DeleteLexiconCommandInput,
+    cb: (err: any, data?: DeleteLexiconCommandOutput) => void
+  ): void;
   deleteLexicon(
     args: DeleteLexiconCommandInput,
     options: __HttpHandlerOptions,
@@ -73,7 +79,10 @@ export interface Polly {
     args: DescribeVoicesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeVoicesCommandOutput>;
-  describeVoices(args: DescribeVoicesCommandInput, cb: (err: any, data?: DescribeVoicesCommandOutput) => void): void;
+  describeVoices(
+    args: DescribeVoicesCommandInput,
+    cb: (err: any, data?: DescribeVoicesCommandOutput) => void
+  ): void;
   describeVoices(
     args: DescribeVoicesCommandInput,
     options: __HttpHandlerOptions,
@@ -83,8 +92,14 @@ export interface Polly {
   /**
    * @see {@link GetLexiconCommand}
    */
-  getLexicon(args: GetLexiconCommandInput, options?: __HttpHandlerOptions): Promise<GetLexiconCommandOutput>;
-  getLexicon(args: GetLexiconCommandInput, cb: (err: any, data?: GetLexiconCommandOutput) => void): void;
+  getLexicon(
+    args: GetLexiconCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLexiconCommandOutput>;
+  getLexicon(
+    args: GetLexiconCommandInput,
+    cb: (err: any, data?: GetLexiconCommandOutput) => void
+  ): void;
   getLexicon(
     args: GetLexiconCommandInput,
     options: __HttpHandlerOptions,
@@ -112,8 +127,14 @@ export interface Polly {
    * @see {@link ListLexiconsCommand}
    */
   listLexicons(): Promise<ListLexiconsCommandOutput>;
-  listLexicons(args: ListLexiconsCommandInput, options?: __HttpHandlerOptions): Promise<ListLexiconsCommandOutput>;
-  listLexicons(args: ListLexiconsCommandInput, cb: (err: any, data?: ListLexiconsCommandOutput) => void): void;
+  listLexicons(
+    args: ListLexiconsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLexiconsCommandOutput>;
+  listLexicons(
+    args: ListLexiconsCommandInput,
+    cb: (err: any, data?: ListLexiconsCommandOutput) => void
+  ): void;
   listLexicons(
     args: ListLexiconsCommandInput,
     options: __HttpHandlerOptions,
@@ -141,8 +162,14 @@ export interface Polly {
   /**
    * @see {@link PutLexiconCommand}
    */
-  putLexicon(args: PutLexiconCommandInput, options?: __HttpHandlerOptions): Promise<PutLexiconCommandOutput>;
-  putLexicon(args: PutLexiconCommandInput, cb: (err: any, data?: PutLexiconCommandOutput) => void): void;
+  putLexicon(
+    args: PutLexiconCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutLexiconCommandOutput>;
+  putLexicon(
+    args: PutLexiconCommandInput,
+    cb: (err: any, data?: PutLexiconCommandOutput) => void
+  ): void;
   putLexicon(
     args: PutLexiconCommandInput,
     options: __HttpHandlerOptions,

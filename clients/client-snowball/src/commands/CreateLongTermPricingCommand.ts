@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateLongTermPricingRequest, CreateLongTermPricingResult } from "../models/models_0";
-import { CreateLongTermPricing } from "../schemas/schemas_0";
+import { CreateLongTermPricing$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -81,7 +81,7 @@ export class CreateLongTermPricingCommand extends $Command
   })
   .s("AWSIESnowballJobManagementService", "CreateLongTermPricing", {})
   .n("SnowballClient", "CreateLongTermPricingCommand")
-  .sc(CreateLongTermPricing)
+  .sc(CreateLongTermPricing$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

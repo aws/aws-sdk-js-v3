@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAutoScalingConfigurationsRequest, ListAutoScalingConfigurationsResponse } from "../models/models_0";
-import { ListAutoScalingConfigurations } from "../schemas/schemas_0";
+import { ListAutoScalingConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListAutoScalingConfigurationsCommandInput extends ListAutoScali
  *
  * The output of {@link ListAutoScalingConfigurationsCommand}.
  */
-export interface ListAutoScalingConfigurationsCommandOutput
-  extends ListAutoScalingConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListAutoScalingConfigurationsCommandOutput extends ListAutoScalingConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of active App Runner automatic scaling configurations in your Amazon Web Services account. You can query the revisions for a specific
@@ -99,7 +97,7 @@ export class ListAutoScalingConfigurationsCommand extends $Command
   })
   .s("AppRunner", "ListAutoScalingConfigurations", {})
   .n("AppRunnerClient", "ListAutoScalingConfigurationsCommand")
-  .sc(ListAutoScalingConfigurations)
+  .sc(ListAutoScalingConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

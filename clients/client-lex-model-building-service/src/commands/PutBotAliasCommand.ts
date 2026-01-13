@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import type { PutBotAliasRequest, PutBotAliasResponse } from "../models/models_0";
-import { PutBotAlias } from "../schemas/schemas_0";
+import { PutBotAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -147,7 +147,7 @@ export class PutBotAliasCommand extends $Command
   })
   .s("AWSDeepSenseModelBuildingService", "PutBotAlias", {})
   .n("LexModelBuildingServiceClient", "PutBotAliasCommand")
-  .sc(PutBotAlias)
+  .sc(PutBotAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

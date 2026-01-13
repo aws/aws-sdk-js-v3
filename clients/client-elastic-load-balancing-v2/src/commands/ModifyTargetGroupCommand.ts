@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyTargetGroupInput, ModifyTargetGroupOutput } from "../models/models_0";
-import { ModifyTargetGroup } from "../schemas/schemas_0";
+import { ModifyTargetGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -160,7 +160,7 @@ export class ModifyTargetGroupCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "ModifyTargetGroup", {})
   .n("ElasticLoadBalancingV2Client", "ModifyTargetGroupCommand")
-  .sc(ModifyTargetGroup)
+  .sc(ModifyTargetGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

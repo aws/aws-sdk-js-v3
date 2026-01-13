@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { ListNotificationConfigurationsRequest, ListNotificationConfigurationsResponse } from "../models/models_0";
-import { ListNotificationConfigurations } from "../schemas/schemas_0";
+import { ListNotificationConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListNotificationConfigurationsCommandInput extends ListNotifica
  *
  * The output of {@link ListNotificationConfigurationsCommand}.
  */
-export interface ListNotificationConfigurationsCommandOutput
-  extends ListNotificationConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListNotificationConfigurationsCommandOutput extends ListNotificationConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p> List all notification configurations.</p>
@@ -51,7 +49,7 @@ export interface ListNotificationConfigurationsCommandOutput
  * // { // ListNotificationConfigurationsResponse
  * //   NotificationConfigurationList: [ // NotificationConfigurationListDefinition
  * //     { // NotificationConfigurationSummary
- * //       EventType: "DEVICE_COMMAND" || "DEVICE_COMMAND_REQUEST" || "DEVICE_DISCOVERY_STATUS" || "DEVICE_EVENT" || "DEVICE_LIFE_CYCLE" || "DEVICE_STATE" || "DEVICE_OTA" || "CONNECTOR_ASSOCIATION" || "ACCOUNT_ASSOCIATION" || "CONNECTOR_ERROR_REPORT",
+ * //       EventType: "DEVICE_COMMAND" || "DEVICE_COMMAND_REQUEST" || "DEVICE_DISCOVERY_STATUS" || "DEVICE_EVENT" || "DEVICE_LIFE_CYCLE" || "DEVICE_STATE" || "DEVICE_OTA" || "DEVICE_WSS" || "CONNECTOR_ASSOCIATION" || "ACCOUNT_ASSOCIATION" || "CONNECTOR_ERROR_REPORT",
  * //       DestinationName: "STRING_VALUE",
  * //     },
  * //   ],
@@ -98,7 +96,7 @@ export class ListNotificationConfigurationsCommand extends $Command
   })
   .s("IotManagedIntegrations", "ListNotificationConfigurations", {})
   .n("IoTManagedIntegrationsClient", "ListNotificationConfigurationsCommand")
-  .sc(ListNotificationConfigurations)
+  .sc(ListNotificationConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

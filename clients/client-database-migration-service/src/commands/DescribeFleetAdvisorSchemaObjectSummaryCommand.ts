@@ -13,7 +13,7 @@ import type {
   DescribeFleetAdvisorSchemaObjectSummaryRequest,
   DescribeFleetAdvisorSchemaObjectSummaryResponse,
 } from "../models/models_0";
-import { DescribeFleetAdvisorSchemaObjectSummary } from "../schemas/schemas_0";
+import { DescribeFleetAdvisorSchemaObjectSummary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeFleetAdvisorSchemaObjectSummaryCommand}.
  */
-export interface DescribeFleetAdvisorSchemaObjectSummaryCommandInput
-  extends DescribeFleetAdvisorSchemaObjectSummaryRequest {}
+export interface DescribeFleetAdvisorSchemaObjectSummaryCommandInput extends DescribeFleetAdvisorSchemaObjectSummaryRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeFleetAdvisorSchemaObjectSummaryCommand}.
  */
-export interface DescribeFleetAdvisorSchemaObjectSummaryCommandOutput
-  extends DescribeFleetAdvisorSchemaObjectSummaryResponse,
-    __MetadataBearer {}
+export interface DescribeFleetAdvisorSchemaObjectSummaryCommandOutput extends DescribeFleetAdvisorSchemaObjectSummaryResponse, __MetadataBearer {}
 
 /**
  * <important>
@@ -110,7 +107,7 @@ export class DescribeFleetAdvisorSchemaObjectSummaryCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeFleetAdvisorSchemaObjectSummary", {})
   .n("DatabaseMigrationServiceClient", "DescribeFleetAdvisorSchemaObjectSummaryCommand")
-  .sc(DescribeFleetAdvisorSchemaObjectSummary)
+  .sc(DescribeFleetAdvisorSchemaObjectSummary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

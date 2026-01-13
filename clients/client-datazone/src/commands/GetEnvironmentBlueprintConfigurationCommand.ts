@@ -9,7 +9,7 @@ import type {
   GetEnvironmentBlueprintConfigurationInput,
   GetEnvironmentBlueprintConfigurationOutput,
 } from "../models/models_1";
-import { GetEnvironmentBlueprintConfiguration } from "../schemas/schemas_0";
+import { GetEnvironmentBlueprintConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetEnvironmentBlueprintConfigurationCommandInput extends GetEnv
  *
  * The output of {@link GetEnvironmentBlueprintConfigurationCommand}.
  */
-export interface GetEnvironmentBlueprintConfigurationCommandOutput
-  extends GetEnvironmentBlueprintConfigurationOutput,
-    __MetadataBearer {}
+export interface GetEnvironmentBlueprintConfigurationCommandOutput extends GetEnvironmentBlueprintConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the blueprint configuration in Amazon DataZone.</p>
@@ -121,7 +119,7 @@ export class GetEnvironmentBlueprintConfigurationCommand extends $Command
   })
   .s("DataZone", "GetEnvironmentBlueprintConfiguration", {})
   .n("DataZoneClient", "GetEnvironmentBlueprintConfigurationCommand")
-  .sc(GetEnvironmentBlueprintConfiguration)
+  .sc(GetEnvironmentBlueprintConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   ListApplicationAssignmentsForPrincipalRequest,
   ListApplicationAssignmentsForPrincipalResponse,
 } from "../models/models_0";
-import { ListApplicationAssignmentsForPrincipal } from "../schemas/schemas_0";
+import { ListApplicationAssignmentsForPrincipal$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListApplicationAssignmentsForPrincipalCommand}.
  */
-export interface ListApplicationAssignmentsForPrincipalCommandInput
-  extends ListApplicationAssignmentsForPrincipalRequest {}
+export interface ListApplicationAssignmentsForPrincipalCommandInput extends ListApplicationAssignmentsForPrincipalRequest {}
 /**
  * @public
  *
  * The output of {@link ListApplicationAssignmentsForPrincipalCommand}.
  */
-export interface ListApplicationAssignmentsForPrincipalCommandOutput
-  extends ListApplicationAssignmentsForPrincipalResponse,
-    __MetadataBearer {}
+export interface ListApplicationAssignmentsForPrincipalCommandOutput extends ListApplicationAssignmentsForPrincipalResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the applications to which a specified principal is assigned. You must provide a filter when calling this action from a member account against your organization instance of IAM Identity Center. A filter is not required when called from the management account against an organization instance of IAM Identity Center, or from a member account against an account instance of IAM Identity Center in the same account.</p>
@@ -108,7 +105,7 @@ export class ListApplicationAssignmentsForPrincipalCommand extends $Command
   })
   .s("SWBExternalService", "ListApplicationAssignmentsForPrincipal", {})
   .n("SSOAdminClient", "ListApplicationAssignmentsForPrincipalCommand")
-  .sc(ListApplicationAssignmentsForPrincipal)
+  .sc(ListApplicationAssignmentsForPrincipal$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

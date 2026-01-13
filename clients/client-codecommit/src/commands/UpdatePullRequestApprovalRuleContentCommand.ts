@@ -9,7 +9,7 @@ import type {
   UpdatePullRequestApprovalRuleContentInput,
   UpdatePullRequestApprovalRuleContentOutput,
 } from "../models/models_0";
-import { UpdatePullRequestApprovalRuleContent } from "../schemas/schemas_0";
+import { UpdatePullRequestApprovalRuleContent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdatePullRequestApprovalRuleContentCommandInput extends Update
  *
  * The output of {@link UpdatePullRequestApprovalRuleContentCommand}.
  */
-export interface UpdatePullRequestApprovalRuleContentCommandOutput
-  extends UpdatePullRequestApprovalRuleContentOutput,
-    __MetadataBearer {}
+export interface UpdatePullRequestApprovalRuleContentCommandOutput extends UpdatePullRequestApprovalRuleContentOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the structure of an approval rule created specifically for a pull request. For example, you can change the number of required approvers and
@@ -143,7 +141,7 @@ export class UpdatePullRequestApprovalRuleContentCommand extends $Command
   })
   .s("CodeCommit_20150413", "UpdatePullRequestApprovalRuleContent", {})
   .n("CodeCommitClient", "UpdatePullRequestApprovalRuleContentCommand")
-  .sc(UpdatePullRequestApprovalRuleContent)
+  .sc(UpdatePullRequestApprovalRuleContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

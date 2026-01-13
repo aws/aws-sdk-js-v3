@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { DeleteVirtualMFADeviceRequest } from "../models/models_0";
-import { DeleteVirtualMFADevice } from "../schemas/schemas_0";
+import { DeleteVirtualMFADevice$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class DeleteVirtualMFADeviceCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "DeleteVirtualMFADevice", {})
   .n("IAMClient", "DeleteVirtualMFADeviceCommand")
-  .sc(DeleteVirtualMFADevice)
+  .sc(DeleteVirtualMFADevice$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

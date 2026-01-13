@@ -9,7 +9,7 @@ import type {
   AcceptReservedNodeExchangeOutputMessage,
 } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { AcceptReservedNodeExchange } from "../schemas/schemas_0";
+import { AcceptReservedNodeExchange$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface AcceptReservedNodeExchangeCommandInput extends AcceptReservedNo
  *
  * The output of {@link AcceptReservedNodeExchangeCommand}.
  */
-export interface AcceptReservedNodeExchangeCommandOutput
-  extends AcceptReservedNodeExchangeOutputMessage,
-    __MetadataBearer {}
+export interface AcceptReservedNodeExchangeCommandOutput extends AcceptReservedNodeExchangeOutputMessage, __MetadataBearer {}
 
 /**
  * <p>Exchanges a DC1 Reserved Node for a DC2 Reserved Node with no changes to the
@@ -122,7 +120,7 @@ export class AcceptReservedNodeExchangeCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "AcceptReservedNodeExchange", {})
   .n("RedshiftClient", "AcceptReservedNodeExchangeCommand")
-  .sc(AcceptReservedNodeExchange)
+  .sc(AcceptReservedNodeExchange$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

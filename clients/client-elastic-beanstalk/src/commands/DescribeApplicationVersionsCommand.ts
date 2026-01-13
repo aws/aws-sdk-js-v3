@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ApplicationVersionDescriptionsMessage, DescribeApplicationVersionsMessage } from "../models/models_0";
-import { DescribeApplicationVersions } from "../schemas/schemas_0";
+import { DescribeApplicationVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeApplicationVersionsCommandInput extends DescribeApplica
  *
  * The output of {@link DescribeApplicationVersionsCommand}.
  */
-export interface DescribeApplicationVersionsCommandOutput
-  extends ApplicationVersionDescriptionsMessage,
-    __MetadataBearer {}
+export interface DescribeApplicationVersionsCommandOutput extends ApplicationVersionDescriptionsMessage, __MetadataBearer {}
 
 /**
  * <p>Retrieve a list of application versions.</p>
@@ -146,7 +144,7 @@ export class DescribeApplicationVersionsCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "DescribeApplicationVersions", {})
   .n("ElasticBeanstalkClient", "DescribeApplicationVersionsCommand")
-  .sc(DescribeApplicationVersions)
+  .sc(DescribeApplicationVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

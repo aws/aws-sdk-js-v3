@@ -9,7 +9,7 @@ import type {
   GetCloudFrontOriginAccessIdentityConfigRequest,
   GetCloudFrontOriginAccessIdentityConfigResult,
 } from "../models/models_0";
-import { GetCloudFrontOriginAccessIdentityConfig } from "../schemas/schemas_0";
+import { GetCloudFrontOriginAccessIdentityConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetCloudFrontOriginAccessIdentityConfigCommand}.
  */
-export interface GetCloudFrontOriginAccessIdentityConfigCommandInput
-  extends GetCloudFrontOriginAccessIdentityConfigRequest {}
+export interface GetCloudFrontOriginAccessIdentityConfigCommandInput extends GetCloudFrontOriginAccessIdentityConfigRequest {}
 /**
  * @public
  *
  * The output of {@link GetCloudFrontOriginAccessIdentityConfigCommand}.
  */
-export interface GetCloudFrontOriginAccessIdentityConfigCommandOutput
-  extends GetCloudFrontOriginAccessIdentityConfigResult,
-    __MetadataBearer {}
+export interface GetCloudFrontOriginAccessIdentityConfigCommandOutput extends GetCloudFrontOriginAccessIdentityConfigResult, __MetadataBearer {}
 
 /**
  * <p>Get the configuration information about an origin access identity.</p>
@@ -89,7 +86,7 @@ export class GetCloudFrontOriginAccessIdentityConfigCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "GetCloudFrontOriginAccessIdentityConfig", {})
   .n("CloudFrontClient", "GetCloudFrontOriginAccessIdentityConfigCommand")
-  .sc(GetCloudFrontOriginAccessIdentityConfig)
+  .sc(GetCloudFrontOriginAccessIdentityConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

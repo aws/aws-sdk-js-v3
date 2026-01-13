@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteVectorBucketInput, DeleteVectorBucketOutput } from "../models/models_0";
 import type { S3VectorsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3VectorsClient";
-import { DeleteVectorBucket } from "../schemas/schemas_0";
+import { DeleteVectorBucket$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DeleteVectorBucketCommand extends $Command
   })
   .s("S3Vectors", "DeleteVectorBucket", {})
   .n("S3VectorsClient", "DeleteVectorBucketCommand")
-  .sc(DeleteVectorBucket)
+  .sc(DeleteVectorBucket$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

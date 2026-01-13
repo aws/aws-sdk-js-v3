@@ -9,7 +9,7 @@ import type {
   DeleteColumnStatisticsForPartitionRequest,
   DeleteColumnStatisticsForPartitionResponse,
 } from "../models/models_1";
-import { DeleteColumnStatisticsForPartition } from "../schemas/schemas_0";
+import { DeleteColumnStatisticsForPartition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteColumnStatisticsForPartitionCommandInput extends DeleteCo
  *
  * The output of {@link DeleteColumnStatisticsForPartitionCommand}.
  */
-export interface DeleteColumnStatisticsForPartitionCommandOutput
-  extends DeleteColumnStatisticsForPartitionResponse,
-    __MetadataBearer {}
+export interface DeleteColumnStatisticsForPartitionCommandOutput extends DeleteColumnStatisticsForPartitionResponse, __MetadataBearer {}
 
 /**
  * <p>Delete the partition column statistics of a column.</p>
@@ -98,7 +96,7 @@ export class DeleteColumnStatisticsForPartitionCommand extends $Command
   })
   .s("AWSGlue", "DeleteColumnStatisticsForPartition", {})
   .n("GlueClient", "DeleteColumnStatisticsForPartitionCommand")
-  .sc(DeleteColumnStatisticsForPartition)
+  .sc(DeleteColumnStatisticsForPartition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

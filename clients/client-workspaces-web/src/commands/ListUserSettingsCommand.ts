@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListUserSettingsRequest, ListUserSettingsResponse } from "../models/models_0";
-import { ListUserSettings } from "../schemas/schemas_0";
+import { ListUserSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -109,6 +109,7 @@ export interface ListUserSettingsCommandOutput extends ListUserSettingsResponse,
  * //         colorTheme: "Light" || "Dark", // required
  * //         termsOfService: "STRING_VALUE",
  * //       },
+ * //       webAuthnAllowed: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -154,7 +155,7 @@ export class ListUserSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "ListUserSettings", {})
   .n("WorkSpacesWebClient", "ListUserSettingsCommand")
-  .sc(ListUserSettings)
+  .sc(ListUserSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

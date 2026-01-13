@@ -2,6 +2,7 @@ import { determineTimestampFormat } from "@smithy/core/protocols";
 import { NormalizedSchema } from "@smithy/core/schema";
 import { dateToUtcString, generateIdempotencyToken, LazyJsonString, NumericValue } from "@smithy/core/serde";
 import type {
+  DocumentSchema,
   Schema,
   ShapeSerializer,
   TimestampDateTimeSchema,
@@ -79,6 +80,13 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
             const jsonName = memberSchema.getMergedTraits().jsonName;
             const targetKey = this.settings.jsonName ? jsonName ?? memberName : memberName;
             out[targetKey] = serializableValue;
+          }
+        }
+        if (ns.isUnionSchema() && Object.keys(out).length === 0) {
+          const { $unknown } = value as any;
+          if (Array.isArray($unknown)) {
+            const [k, v] = $unknown;
+            out[k] = this._write(15 satisfies DocumentSchema, v);
           }
         }
         return out;

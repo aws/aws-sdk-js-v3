@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MedicalImagingClient";
 import type { DeleteDatastoreRequest, DeleteDatastoreResponse } from "../models/models_0";
-import { DeleteDatastore } from "../schemas/schemas_0";
+import { DeleteDatastore$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DeleteDatastoreCommand extends $Command
   })
   .s("AHIGatewayService", "DeleteDatastore", {})
   .n("MedicalImagingClient", "DeleteDatastoreCommand")
-  .sc(DeleteDatastore)
+  .sc(DeleteDatastore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

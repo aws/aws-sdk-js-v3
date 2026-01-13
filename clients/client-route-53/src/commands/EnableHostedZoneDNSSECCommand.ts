@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableHostedZoneDNSSECRequest, EnableHostedZoneDNSSECResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { EnableHostedZoneDNSSEC } from "../schemas/schemas_0";
+import { EnableHostedZoneDNSSEC$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,11 +106,14 @@ export class EnableHostedZoneDNSSECCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "EnableHostedZoneDNSSEC", {})
   .n("Route53Client", "EnableHostedZoneDNSSECCommand")
-  .sc(EnableHostedZoneDNSSEC)
+  .sc(EnableHostedZoneDNSSEC$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

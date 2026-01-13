@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DSQLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DSQLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateClusterInput, UpdateClusterOutput } from "../models/models_0";
-import { UpdateCluster } from "../schemas/schemas_0";
+import { UpdateCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class UpdateClusterCommand extends $Command
   })
   .s("DSQL", "UpdateCluster", {})
   .n("DSQLClient", "UpdateClusterCommand")
-  .sc(UpdateCluster)
+  .sc(UpdateCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

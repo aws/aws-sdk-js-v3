@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDomainRequest, GetDomainResponse } from "../models/models_0";
-import { GetDomain } from "../schemas/schemas_0";
+import { GetDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -176,7 +176,7 @@ export class GetDomainCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "GetDomain", {})
   .n("CustomerProfilesClient", "GetDomainCommand")
-  .sc(GetDomain)
+  .sc(GetDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

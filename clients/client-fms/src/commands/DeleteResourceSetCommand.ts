@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import type { DeleteResourceSetRequest } from "../models/models_0";
-import { DeleteResourceSet } from "../schemas/schemas_0";
+import { DeleteResourceSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteResourceSetCommand extends $Command
   })
   .s("AWSFMS_20180101", "DeleteResourceSet", {})
   .n("FMSClient", "DeleteResourceSetCommand")
-  .sc(DeleteResourceSet)
+  .sc(DeleteResourceSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

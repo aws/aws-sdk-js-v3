@@ -6,7 +6,7 @@ import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { type InvokeWithResponseStreamResponse, InvokeWithResponseStreamRequest } from "../models/models_0";
-import { InvokeWithResponseStream } from "../schemas/schemas_0";
+import { InvokeWithResponseStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -201,7 +201,7 @@ export class InvokeWithResponseStreamCommand extends $Command
     },
   })
   .n("LambdaClient", "InvokeWithResponseStreamCommand")
-  .sc(InvokeWithResponseStream)
+  .sc(InvokeWithResponseStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

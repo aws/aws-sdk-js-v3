@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMessagingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ChannelFlowCallbackRequest, ChannelFlowCallbackResponse } from "../models/models_0";
-import { ChannelFlowCallback } from "../schemas/schemas_0";
+import { ChannelFlowCallback$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,7 +133,7 @@ export class ChannelFlowCallbackCommand extends $Command
   })
   .s("ChimeMessagingService", "ChannelFlowCallback", {})
   .n("ChimeSDKMessagingClient", "ChannelFlowCallbackCommand")
-  .sc(ChannelFlowCallback)
+  .sc(ChannelFlowCallback$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

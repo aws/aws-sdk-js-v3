@@ -9,7 +9,7 @@ import type {
   RotateIngestEndpointCredentialsRequest,
   RotateIngestEndpointCredentialsResponse,
 } from "../models/models_0";
-import { RotateIngestEndpointCredentials } from "../schemas/schemas_0";
+import { RotateIngestEndpointCredentials$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface RotateIngestEndpointCredentialsCommandInput extends RotateInges
  *
  * The output of {@link RotateIngestEndpointCredentialsCommand}.
  */
-export interface RotateIngestEndpointCredentialsCommandOutput
-  extends RotateIngestEndpointCredentialsResponse,
-    __MetadataBearer {}
+export interface RotateIngestEndpointCredentialsCommandOutput extends RotateIngestEndpointCredentialsResponse, __MetadataBearer {}
 
 /**
  * Rotate the IngestEndpoint's username and password, as specified by the IngestEndpoint's id.
@@ -119,7 +117,7 @@ export class RotateIngestEndpointCredentialsCommand extends $Command
   })
   .s("MediaPackage", "RotateIngestEndpointCredentials", {})
   .n("MediaPackageClient", "RotateIngestEndpointCredentialsCommand")
-  .sc(RotateIngestEndpointCredentials)
+  .sc(RotateIngestEndpointCredentials$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

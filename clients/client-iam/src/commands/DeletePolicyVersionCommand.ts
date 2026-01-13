@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { DeletePolicyVersionRequest } from "../models/models_0";
-import { DeletePolicyVersion } from "../schemas/schemas_0";
+import { DeletePolicyVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DeletePolicyVersionCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "DeletePolicyVersion", {})
   .n("IAMClient", "DeletePolicyVersionCommand")
-  .sc(DeletePolicyVersion)
+  .sc(DeletePolicyVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

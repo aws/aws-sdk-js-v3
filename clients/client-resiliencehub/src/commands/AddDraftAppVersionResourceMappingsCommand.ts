@@ -9,7 +9,7 @@ import type {
   AddDraftAppVersionResourceMappingsResponse,
 } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { AddDraftAppVersionResourceMappings } from "../schemas/schemas_0";
+import { AddDraftAppVersionResourceMappings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface AddDraftAppVersionResourceMappingsCommandInput extends AddDraft
  *
  * The output of {@link AddDraftAppVersionResourceMappingsCommand}.
  */
-export interface AddDraftAppVersionResourceMappingsCommandOutput
-  extends AddDraftAppVersionResourceMappingsResponse,
-    __MetadataBearer {}
+export interface AddDraftAppVersionResourceMappingsCommandOutput extends AddDraftAppVersionResourceMappingsResponse, __MetadataBearer {}
 
 /**
  * <p>Adds the source of resource-maps to the draft version of an application. During
@@ -146,7 +144,7 @@ export class AddDraftAppVersionResourceMappingsCommand extends $Command
   })
   .s("AwsResilienceHub", "AddDraftAppVersionResourceMappings", {})
   .n("ResiliencehubClient", "AddDraftAppVersionResourceMappingsCommand")
-  .sc(AddDraftAppVersionResourceMappings)
+  .sc(AddDraftAppVersionResourceMappings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

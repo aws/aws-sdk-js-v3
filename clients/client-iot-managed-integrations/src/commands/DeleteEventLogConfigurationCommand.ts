@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { DeleteEventLogConfigurationRequest } from "../models/models_0";
-import { DeleteEventLogConfiguration } from "../schemas/schemas_0";
+import { DeleteEventLogConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteEventLogConfigurationCommand extends $Command
   })
   .s("IotManagedIntegrations", "DeleteEventLogConfiguration", {})
   .n("IoTManagedIntegrationsClient", "DeleteEventLogConfigurationCommand")
-  .sc(DeleteEventLogConfiguration)
+  .sc(DeleteEventLogConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

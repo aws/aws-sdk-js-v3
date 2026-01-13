@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateXssMatchSetRequest, UpdateXssMatchSetResponse } from "../models/models_0";
-import { UpdateXssMatchSet } from "../schemas/schemas_0";
+import { UpdateXssMatchSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -62,7 +62,7 @@ export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetRespons
  *          you want to allow, block, or count. For example, if you're receiving
  *          requests that contain cross-site scripting attacks in the request body and you want to
  *          block the requests, you can create an <code>XssMatchSet</code> with the applicable
- *          settings, and then configure AWS WAF to block the requests. </p>
+ *          settings, and then configure AWS WAF to block the requests. </p>		
  * 		       <p>To create and configure an <code>XssMatchSet</code>, perform the following steps:</p>
  * 		       <ol>
  *             <li>
@@ -262,7 +262,7 @@ export class UpdateXssMatchSetCommand extends $Command
   })
   .s("AWSWAF_20150824", "UpdateXssMatchSet", {})
   .n("WAFClient", "UpdateXssMatchSetCommand")
-  .sc(UpdateXssMatchSet)
+  .sc(UpdateXssMatchSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

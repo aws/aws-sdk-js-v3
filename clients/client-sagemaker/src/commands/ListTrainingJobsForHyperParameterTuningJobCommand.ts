@@ -9,7 +9,7 @@ import type {
   ListTrainingJobsForHyperParameterTuningJobResponse,
 } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListTrainingJobsForHyperParameterTuningJob } from "../schemas/schemas_0";
+import { ListTrainingJobsForHyperParameterTuningJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListTrainingJobsForHyperParameterTuningJobCommand}.
  */
-export interface ListTrainingJobsForHyperParameterTuningJobCommandInput
-  extends ListTrainingJobsForHyperParameterTuningJobRequest {}
+export interface ListTrainingJobsForHyperParameterTuningJobCommandInput extends ListTrainingJobsForHyperParameterTuningJobRequest {}
 /**
  * @public
  *
  * The output of {@link ListTrainingJobsForHyperParameterTuningJobCommand}.
  */
-export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput
-  extends ListTrainingJobsForHyperParameterTuningJobResponse,
-    __MetadataBearer {}
+export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput extends ListTrainingJobsForHyperParameterTuningJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html">TrainingJobSummary</a> objects that describe the training jobs that a hyperparameter tuning job launched.</p>
@@ -109,7 +106,7 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command
   })
   .s("SageMaker", "ListTrainingJobsForHyperParameterTuningJob", {})
   .n("SageMakerClient", "ListTrainingJobsForHyperParameterTuningJobCommand")
-  .sc(ListTrainingJobsForHyperParameterTuningJob)
+  .sc(ListTrainingJobsForHyperParameterTuningJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

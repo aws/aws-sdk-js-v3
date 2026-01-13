@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeInboundDmarcSettingsRequest, DescribeInboundDmarcSettingsResponse } from "../models/models_0";
-import { DescribeInboundDmarcSettings } from "../schemas/schemas_0";
+import { DescribeInboundDmarcSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DescribeInboundDmarcSettingsCommandInput extends DescribeInboun
  *
  * The output of {@link DescribeInboundDmarcSettingsCommand}.
  */
-export interface DescribeInboundDmarcSettingsCommandOutput
-  extends DescribeInboundDmarcSettingsResponse,
-    __MetadataBearer {}
+export interface DescribeInboundDmarcSettingsCommandOutput extends DescribeInboundDmarcSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the settings in a DMARC policy for a specified organization.</p>
@@ -83,7 +81,7 @@ export class DescribeInboundDmarcSettingsCommand extends $Command
   })
   .s("WorkMailService", "DescribeInboundDmarcSettings", {})
   .n("WorkMailClient", "DescribeInboundDmarcSettingsCommand")
-  .sc(DescribeInboundDmarcSettings)
+  .sc(DescribeInboundDmarcSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

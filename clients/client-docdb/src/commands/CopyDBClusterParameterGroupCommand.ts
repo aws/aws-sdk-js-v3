@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CopyDBClusterParameterGroupMessage, CopyDBClusterParameterGroupResult } from "../models/models_0";
-import { CopyDBClusterParameterGroup } from "../schemas/schemas_0";
+import { CopyDBClusterParameterGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class CopyDBClusterParameterGroupCommand extends $Command
   })
   .s("AmazonRDSv19", "CopyDBClusterParameterGroup", {})
   .n("DocDBClient", "CopyDBClusterParameterGroupCommand")
-  .sc(CopyDBClusterParameterGroup)
+  .sc(CopyDBClusterParameterGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

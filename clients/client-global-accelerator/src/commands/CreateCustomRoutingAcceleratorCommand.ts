@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { CreateCustomRoutingAcceleratorRequest, CreateCustomRoutingAcceleratorResponse } from "../models/models_0";
-import { CreateCustomRoutingAccelerator } from "../schemas/schemas_0";
+import { CreateCustomRoutingAccelerator$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface CreateCustomRoutingAcceleratorCommandInput extends CreateCustom
  *
  * The output of {@link CreateCustomRoutingAcceleratorCommand}.
  */
-export interface CreateCustomRoutingAcceleratorCommandOutput
-  extends CreateCustomRoutingAcceleratorResponse,
-    __MetadataBearer {}
+export interface CreateCustomRoutingAcceleratorCommandOutput extends CreateCustomRoutingAcceleratorResponse, __MetadataBearer {}
 
 /**
  * <p>Create a custom routing accelerator. A custom routing accelerator directs traffic to one of possibly thousands
@@ -134,7 +132,7 @@ export class CreateCustomRoutingAcceleratorCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "CreateCustomRoutingAccelerator", {})
   .n("GlobalAcceleratorClient", "CreateCustomRoutingAcceleratorCommand")
-  .sc(CreateCustomRoutingAccelerator)
+  .sc(CreateCustomRoutingAccelerator$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -7,7 +7,7 @@ import { LambdaClient } from "../LambdaClient";
 const checkState = async (client: LambdaClient, input: GetFunctionCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetFunctionCommand(input));
+    let result: any = await client.send(new GetFunctionCommand(input));
     reason = result;
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {

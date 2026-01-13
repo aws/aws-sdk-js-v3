@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralAccountClient";
-import { UpdateConnectionPreferences } from "../schemas/schemas_0";
+import { UpdateConnectionPreferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface UpdateConnectionPreferencesCommandInput extends UpdateConnectio
  *
  * The output of {@link UpdateConnectionPreferencesCommand}.
  */
-export interface UpdateConnectionPreferencesCommandOutput
-  extends UpdateConnectionPreferencesResponse,
-    __MetadataBearer {}
+export interface UpdateConnectionPreferencesCommandOutput extends UpdateConnectionPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the connection preferences for a partner account, modifying access settings and exclusions.</p>
@@ -106,7 +104,7 @@ export class UpdateConnectionPreferencesCommand extends $Command
   })
   .s("PartnerCentralAccount", "UpdateConnectionPreferences", {})
   .n("PartnerCentralAccountClient", "UpdateConnectionPreferencesCommand")
-  .sc(UpdateConnectionPreferences)
+  .sc(UpdateConnectionPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

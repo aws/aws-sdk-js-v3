@@ -7,7 +7,7 @@ import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchEvaluationFormsResponse } from "../models/models_2";
 import type { SearchEvaluationFormsRequest } from "../models/models_3";
-import { SearchEvaluationForms } from "../schemas/schemas_0";
+import { SearchEvaluationForms$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -222,7 +222,7 @@ export class SearchEvaluationFormsCommand extends $Command
   })
   .s("AmazonConnectService", "SearchEvaluationForms", {})
   .n("ConnectClient", "SearchEvaluationFormsCommand")
-  .sc(SearchEvaluationForms)
+  .sc(SearchEvaluationForms$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

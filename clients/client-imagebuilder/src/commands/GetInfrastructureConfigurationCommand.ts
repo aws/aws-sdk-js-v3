@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import type { GetInfrastructureConfigurationRequest, GetInfrastructureConfigurationResponse } from "../models/models_0";
-import { GetInfrastructureConfiguration } from "../schemas/schemas_0";
+import { GetInfrastructureConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetInfrastructureConfigurationCommandInput extends GetInfrastru
  *
  * The output of {@link GetInfrastructureConfigurationCommand}.
  */
-export interface GetInfrastructureConfigurationCommandOutput
-  extends GetInfrastructureConfigurationResponse,
-    __MetadataBearer {}
+export interface GetInfrastructureConfigurationCommandOutput extends GetInfrastructureConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets an infrastructure configuration.</p>
@@ -136,7 +134,7 @@ export class GetInfrastructureConfigurationCommand extends $Command
   })
   .s("imagebuilder", "GetInfrastructureConfiguration", {})
   .n("ImagebuilderClient", "GetInfrastructureConfigurationCommand")
-  .sc(GetInfrastructureConfiguration)
+  .sc(GetInfrastructureConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

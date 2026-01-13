@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAggregateLogGroupSummariesRequest, ListAggregateLogGroupSummariesResponse } from "../models/models_0";
-import { ListAggregateLogGroupSummaries } from "../schemas/schemas_0";
+import { ListAggregateLogGroupSummaries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListAggregateLogGroupSummariesCommandInput extends ListAggregat
  *
  * The output of {@link ListAggregateLogGroupSummariesCommand}.
  */
-export interface ListAggregateLogGroupSummariesCommandOutput
-  extends ListAggregateLogGroupSummariesResponse,
-    __MetadataBearer {}
+export interface ListAggregateLogGroupSummariesCommandOutput extends ListAggregateLogGroupSummariesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns an aggregate summary of all log groups in the Region grouped by specified data
@@ -123,7 +121,7 @@ export class ListAggregateLogGroupSummariesCommand extends $Command
   })
   .s("Logs_20140328", "ListAggregateLogGroupSummaries", {})
   .n("CloudWatchLogsClient", "ListAggregateLogGroupSummariesCommand")
-  .sc(ListAggregateLogGroupSummaries)
+  .sc(ListAggregateLogGroupSummaries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KendraRankingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraRankingClient";
 import type { DescribeRescoreExecutionPlanRequest, DescribeRescoreExecutionPlanResponse } from "../models/models_0";
-import { DescribeRescoreExecutionPlan } from "../schemas/schemas_0";
+import { DescribeRescoreExecutionPlan$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeRescoreExecutionPlanCommandInput extends DescribeRescor
  *
  * The output of {@link DescribeRescoreExecutionPlanCommand}.
  */
-export interface DescribeRescoreExecutionPlanCommandOutput
-  extends DescribeRescoreExecutionPlanResponse,
-    __MetadataBearer {}
+export interface DescribeRescoreExecutionPlanCommandOutput extends DescribeRescoreExecutionPlanResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a rescore execution plan. A rescore
@@ -113,7 +111,7 @@ export class DescribeRescoreExecutionPlanCommand extends $Command
   })
   .s("AWSKendraRerankingFrontendService", "DescribeRescoreExecutionPlan", {})
   .n("KendraRankingClient", "DescribeRescoreExecutionPlanCommand")
-  .sc(DescribeRescoreExecutionPlan)
+  .sc(DescribeRescoreExecutionPlan$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

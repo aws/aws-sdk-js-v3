@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralAccountClient";
-import { AssociateAwsTrainingCertificationEmailDomain } from "../schemas/schemas_0";
+import { AssociateAwsTrainingCertificationEmailDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link AssociateAwsTrainingCertificationEmailDomainCommand}.
  */
-export interface AssociateAwsTrainingCertificationEmailDomainCommandInput
-  extends AssociateAwsTrainingCertificationEmailDomainRequest {}
+export interface AssociateAwsTrainingCertificationEmailDomainCommandInput extends AssociateAwsTrainingCertificationEmailDomainRequest {}
 /**
  * @public
  *
  * The output of {@link AssociateAwsTrainingCertificationEmailDomainCommand}.
  */
-export interface AssociateAwsTrainingCertificationEmailDomainCommandOutput
-  extends AssociateAwsTrainingCertificationEmailDomainResponse,
-    __MetadataBearer {}
+export interface AssociateAwsTrainingCertificationEmailDomainCommandOutput extends AssociateAwsTrainingCertificationEmailDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Associates an email domain with AWS training and certification for the partner account, enabling automatic verification of employee certifications.</p>
@@ -103,7 +100,7 @@ export class AssociateAwsTrainingCertificationEmailDomainCommand extends $Comman
   })
   .s("PartnerCentralAccount", "AssociateAwsTrainingCertificationEmailDomain", {})
   .n("PartnerCentralAccountClient", "AssociateAwsTrainingCertificationEmailDomainCommand")
-  .sc(AssociateAwsTrainingCertificationEmailDomain)
+  .sc(AssociateAwsTrainingCertificationEmailDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

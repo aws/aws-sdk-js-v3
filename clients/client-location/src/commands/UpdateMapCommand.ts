@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import type { UpdateMapRequest, UpdateMapResponse } from "../models/models_0";
-import { UpdateMap } from "../schemas/schemas_0";
+import { UpdateMap$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class UpdateMapCommand extends $Command
   })
   .s("LocationService", "UpdateMap", {})
   .n("LocationClient", "UpdateMapCommand")
-  .sc(UpdateMap)
+  .sc(UpdateMap$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

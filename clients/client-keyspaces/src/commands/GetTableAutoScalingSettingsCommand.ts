@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
 import type { GetTableAutoScalingSettingsRequest, GetTableAutoScalingSettingsResponse } from "../models/models_0";
-import { GetTableAutoScalingSettings } from "../schemas/schemas_0";
+import { GetTableAutoScalingSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetTableAutoScalingSettingsCommandInput extends GetTableAutoSca
  *
  * The output of {@link GetTableAutoScalingSettingsCommand}.
  */
-export interface GetTableAutoScalingSettingsCommandOutput
-  extends GetTableAutoScalingSettingsResponse,
-    __MetadataBearer {}
+export interface GetTableAutoScalingSettingsCommandOutput extends GetTableAutoScalingSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns auto scaling related settings of the specified table in JSON format. If the table is a multi-Region table, the Amazon Web Services Region specific auto scaling settings of the table are included.</p> <p>Amazon Keyspaces auto scaling helps you provision throughput capacity for variable workloads efficiently by increasing and decreasing your table's read and write capacity automatically in response to application traffic. For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html">Managing throughput capacity automatically with Amazon Keyspaces auto scaling</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p> <important> <p> <code>GetTableAutoScalingSettings</code> can't be used as an action in an IAM policy.</p> </important> <p>To define permissions for <code>GetTableAutoScalingSettings</code>, you must allow the following two actions in the IAM policy statement's <code>Action</code> element:</p> <ul> <li> <p> <code>application-autoscaling:DescribeScalableTargets</code> </p> </li> <li> <p> <code>application-autoscaling:DescribeScalingPolicies</code> </p> </li> </ul>
@@ -154,7 +152,7 @@ export class GetTableAutoScalingSettingsCommand extends $Command
   })
   .s("KeyspacesService", "GetTableAutoScalingSettings", {})
   .n("KeyspacesClient", "GetTableAutoScalingSettingsCommand")
-  .sc(GetTableAutoScalingSettings)
+  .sc(GetTableAutoScalingSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

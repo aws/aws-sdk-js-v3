@@ -7,7 +7,7 @@ import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateSpotDatafeedSubscriptionRequest } from "../models/models_1";
 import type { CreateSpotDatafeedSubscriptionResult } from "../models/models_2";
-import { CreateSpotDatafeedSubscription } from "../schemas/schemas_0";
+import { CreateSpotDatafeedSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,9 +25,7 @@ export interface CreateSpotDatafeedSubscriptionCommandInput extends CreateSpotDa
  *
  * The output of {@link CreateSpotDatafeedSubscriptionCommand}.
  */
-export interface CreateSpotDatafeedSubscriptionCommandOutput
-  extends CreateSpotDatafeedSubscriptionResult,
-    __MetadataBearer {}
+export interface CreateSpotDatafeedSubscriptionCommandOutput extends CreateSpotDatafeedSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs.
@@ -111,7 +109,7 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command
   })
   .s("AmazonEC2", "CreateSpotDatafeedSubscription", {})
   .n("EC2Client", "CreateSpotDatafeedSubscriptionCommand")
-  .sc(CreateSpotDatafeedSubscription)
+  .sc(CreateSpotDatafeedSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

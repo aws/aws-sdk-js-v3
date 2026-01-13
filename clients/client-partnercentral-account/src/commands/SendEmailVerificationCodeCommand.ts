@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralAccountClient";
-import { SendEmailVerificationCode } from "../schemas/schemas_0";
+import { SendEmailVerificationCode$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class SendEmailVerificationCodeCommand extends $Command
   })
   .s("PartnerCentralAccount", "SendEmailVerificationCode", {})
   .n("PartnerCentralAccountClient", "SendEmailVerificationCodeCommand")
-  .sc(SendEmailVerificationCode)
+  .sc(SendEmailVerificationCode$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

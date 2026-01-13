@@ -9,7 +9,7 @@ import type {
   ListInferenceRecommendationsJobsResponse,
 } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListInferenceRecommendationsJobs } from "../schemas/schemas_0";
+import { ListInferenceRecommendationsJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListInferenceRecommendationsJobsCommandInput extends ListInfere
  *
  * The output of {@link ListInferenceRecommendationsJobsCommand}.
  */
-export interface ListInferenceRecommendationsJobsCommandOutput
-  extends ListInferenceRecommendationsJobsResponse,
-    __MetadataBearer {}
+export interface ListInferenceRecommendationsJobsCommandOutput extends ListInferenceRecommendationsJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists recommendation jobs that satisfy various filters.</p>
@@ -106,7 +104,7 @@ export class ListInferenceRecommendationsJobsCommand extends $Command
   })
   .s("SageMaker", "ListInferenceRecommendationsJobs", {})
   .n("SageMakerClient", "ListInferenceRecommendationsJobsCommand")
-  .sc(ListInferenceRecommendationsJobs)
+  .sc(ListInferenceRecommendationsJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

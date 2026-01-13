@@ -7,12 +7,12 @@ import { TransferClient } from "../TransferClient";
 const checkState = async (client: TransferClient, input: DescribeServerCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeServerCommand(input));
+    let result: any = await client.send(new DescribeServerCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.Server.State;
-      };
+      }
       if (returnComparator() === "OFFLINE") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: TransferClient, input: DescribeServerCommandIn
     try {
       const returnComparator = () => {
         return result.Server.State;
-      };
+      }
       if (returnComparator() === "STOP_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

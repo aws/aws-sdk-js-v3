@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetEnvironmentAccountConnectionInput, GetEnvironmentAccountConnectionOutput } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { GetEnvironmentAccountConnection } from "../schemas/schemas_0";
+import { GetEnvironmentAccountConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetEnvironmentAccountConnectionCommandInput extends GetEnvironm
  *
  * The output of {@link GetEnvironmentAccountConnectionCommand}.
  */
-export interface GetEnvironmentAccountConnectionCommandOutput
-  extends GetEnvironmentAccountConnectionOutput,
-    __MetadataBearer {}
+export interface GetEnvironmentAccountConnectionCommandOutput extends GetEnvironmentAccountConnectionOutput, __MetadataBearer {}
 
 /**
  * <p>In an environment account, get the detailed data for an environment account connection.</p>
@@ -106,7 +104,7 @@ export class GetEnvironmentAccountConnectionCommand extends $Command
   })
   .s("AwsProton20200720", "GetEnvironmentAccountConnection", {})
   .n("ProtonClient", "GetEnvironmentAccountConnectionCommand")
-  .sc(GetEnvironmentAccountConnection)
+  .sc(GetEnvironmentAccountConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

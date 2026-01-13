@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateRegexMatchSetRequest, UpdateRegexMatchSetResponse } from "../models/models_0";
-import { UpdateRegexMatchSet } from "../schemas/schemas_0";
+import { UpdateRegexMatchSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -53,7 +53,7 @@ export interface UpdateRegexMatchSetCommandOutput extends UpdateRegexMatchSetRes
  *             </li>
  *          </ul>
  * 		       <p> For example, you can create a <code>RegexPatternSet</code> that matches any requests with <code>User-Agent</code> headers
- *          that contain the string <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p>
+ *          that contain the string <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p>		
  * 		       <p>To create and configure a <code>RegexMatchSet</code>, perform the following steps:</p>
  * 		       <ol>
  *             <li>
@@ -190,7 +190,7 @@ export class UpdateRegexMatchSetCommand extends $Command
   })
   .s("AWSWAF_20150824", "UpdateRegexMatchSet", {})
   .n("WAFClient", "UpdateRegexMatchSetCommand")
-  .sc(UpdateRegexMatchSet)
+  .sc(UpdateRegexMatchSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

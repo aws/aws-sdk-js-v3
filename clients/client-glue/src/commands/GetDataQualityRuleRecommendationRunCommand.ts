@@ -9,7 +9,7 @@ import type {
   GetDataQualityRuleRecommendationRunRequest,
   GetDataQualityRuleRecommendationRunResponse,
 } from "../models/models_1";
-import { GetDataQualityRuleRecommendationRun } from "../schemas/schemas_0";
+import { GetDataQualityRuleRecommendationRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetDataQualityRuleRecommendationRunCommandInput extends GetData
  *
  * The output of {@link GetDataQualityRuleRecommendationRunCommand}.
  */
-export interface GetDataQualityRuleRecommendationRunCommandOutput
-  extends GetDataQualityRuleRecommendationRunResponse,
-    __MetadataBearer {}
+export interface GetDataQualityRuleRecommendationRunCommandOutput extends GetDataQualityRuleRecommendationRunResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the specified recommendation run that was used to generate rules.</p>
@@ -123,7 +121,7 @@ export class GetDataQualityRuleRecommendationRunCommand extends $Command
   })
   .s("AWSGlue", "GetDataQualityRuleRecommendationRun", {})
   .n("GlueClient", "GetDataQualityRuleRecommendationRunCommand")
-  .sc(GetDataQualityRuleRecommendationRun)
+  .sc(GetDataQualityRuleRecommendationRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

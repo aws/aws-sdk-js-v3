@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeReservedInstancesRequest, DescribeReservedInstancesResponse } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { DescribeReservedInstances } from "../schemas/schemas_0";
+import { DescribeReservedInstances$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class DescribeReservedInstancesCommand extends $Command
   })
   .s("AmazonOpenSearchService", "DescribeReservedInstances", {})
   .n("OpenSearchClient", "DescribeReservedInstancesCommand")
-  .sc(DescribeReservedInstances)
+  .sc(DescribeReservedInstances$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   BatchGetConfigurationPolicyAssociationsRequest,
   BatchGetConfigurationPolicyAssociationsResponse,
 } from "../models/models_2";
-import { BatchGetConfigurationPolicyAssociations } from "../schemas/schemas_0";
+import { BatchGetConfigurationPolicyAssociations$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchGetConfigurationPolicyAssociationsCommand}.
  */
-export interface BatchGetConfigurationPolicyAssociationsCommandInput
-  extends BatchGetConfigurationPolicyAssociationsRequest {}
+export interface BatchGetConfigurationPolicyAssociationsCommandInput extends BatchGetConfigurationPolicyAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link BatchGetConfigurationPolicyAssociationsCommand}.
  */
-export interface BatchGetConfigurationPolicyAssociationsCommandOutput
-  extends BatchGetConfigurationPolicyAssociationsResponse,
-    __MetadataBearer {}
+export interface BatchGetConfigurationPolicyAssociationsCommandOutput extends BatchGetConfigurationPolicyAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -181,7 +178,7 @@ export class BatchGetConfigurationPolicyAssociationsCommand extends $Command
   })
   .s("SecurityHubAPIService", "BatchGetConfigurationPolicyAssociations", {})
   .n("SecurityHubClient", "BatchGetConfigurationPolicyAssociationsCommand")
-  .sc(BatchGetConfigurationPolicyAssociations)
+  .sc(BatchGetConfigurationPolicyAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -245,8 +245,14 @@ export interface Evidently {
   /**
    * @see {@link CreateFeatureCommand}
    */
-  createFeature(args: CreateFeatureCommandInput, options?: __HttpHandlerOptions): Promise<CreateFeatureCommandOutput>;
-  createFeature(args: CreateFeatureCommandInput, cb: (err: any, data?: CreateFeatureCommandOutput) => void): void;
+  createFeature(
+    args: CreateFeatureCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFeatureCommandOutput>;
+  createFeature(
+    args: CreateFeatureCommandInput,
+    cb: (err: any, data?: CreateFeatureCommandOutput) => void
+  ): void;
   createFeature(
     args: CreateFeatureCommandInput,
     options: __HttpHandlerOptions,
@@ -256,8 +262,14 @@ export interface Evidently {
   /**
    * @see {@link CreateLaunchCommand}
    */
-  createLaunch(args: CreateLaunchCommandInput, options?: __HttpHandlerOptions): Promise<CreateLaunchCommandOutput>;
-  createLaunch(args: CreateLaunchCommandInput, cb: (err: any, data?: CreateLaunchCommandOutput) => void): void;
+  createLaunch(
+    args: CreateLaunchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLaunchCommandOutput>;
+  createLaunch(
+    args: CreateLaunchCommandInput,
+    cb: (err: any, data?: CreateLaunchCommandOutput) => void
+  ): void;
   createLaunch(
     args: CreateLaunchCommandInput,
     options: __HttpHandlerOptions,
@@ -267,8 +279,14 @@ export interface Evidently {
   /**
    * @see {@link CreateProjectCommand}
    */
-  createProject(args: CreateProjectCommandInput, options?: __HttpHandlerOptions): Promise<CreateProjectCommandOutput>;
-  createProject(args: CreateProjectCommandInput, cb: (err: any, data?: CreateProjectCommandOutput) => void): void;
+  createProject(
+    args: CreateProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProjectCommandOutput>;
+  createProject(
+    args: CreateProjectCommandInput,
+    cb: (err: any, data?: CreateProjectCommandOutput) => void
+  ): void;
   createProject(
     args: CreateProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -278,8 +296,14 @@ export interface Evidently {
   /**
    * @see {@link CreateSegmentCommand}
    */
-  createSegment(args: CreateSegmentCommandInput, options?: __HttpHandlerOptions): Promise<CreateSegmentCommandOutput>;
-  createSegment(args: CreateSegmentCommandInput, cb: (err: any, data?: CreateSegmentCommandOutput) => void): void;
+  createSegment(
+    args: CreateSegmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSegmentCommandOutput>;
+  createSegment(
+    args: CreateSegmentCommandInput,
+    cb: (err: any, data?: CreateSegmentCommandOutput) => void
+  ): void;
   createSegment(
     args: CreateSegmentCommandInput,
     options: __HttpHandlerOptions,
@@ -306,8 +330,14 @@ export interface Evidently {
   /**
    * @see {@link DeleteFeatureCommand}
    */
-  deleteFeature(args: DeleteFeatureCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFeatureCommandOutput>;
-  deleteFeature(args: DeleteFeatureCommandInput, cb: (err: any, data?: DeleteFeatureCommandOutput) => void): void;
+  deleteFeature(
+    args: DeleteFeatureCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFeatureCommandOutput>;
+  deleteFeature(
+    args: DeleteFeatureCommandInput,
+    cb: (err: any, data?: DeleteFeatureCommandOutput) => void
+  ): void;
   deleteFeature(
     args: DeleteFeatureCommandInput,
     options: __HttpHandlerOptions,
@@ -317,8 +347,14 @@ export interface Evidently {
   /**
    * @see {@link DeleteLaunchCommand}
    */
-  deleteLaunch(args: DeleteLaunchCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLaunchCommandOutput>;
-  deleteLaunch(args: DeleteLaunchCommandInput, cb: (err: any, data?: DeleteLaunchCommandOutput) => void): void;
+  deleteLaunch(
+    args: DeleteLaunchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLaunchCommandOutput>;
+  deleteLaunch(
+    args: DeleteLaunchCommandInput,
+    cb: (err: any, data?: DeleteLaunchCommandOutput) => void
+  ): void;
   deleteLaunch(
     args: DeleteLaunchCommandInput,
     options: __HttpHandlerOptions,
@@ -328,8 +364,14 @@ export interface Evidently {
   /**
    * @see {@link DeleteProjectCommand}
    */
-  deleteProject(args: DeleteProjectCommandInput, options?: __HttpHandlerOptions): Promise<DeleteProjectCommandOutput>;
-  deleteProject(args: DeleteProjectCommandInput, cb: (err: any, data?: DeleteProjectCommandOutput) => void): void;
+  deleteProject(
+    args: DeleteProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProjectCommandOutput>;
+  deleteProject(
+    args: DeleteProjectCommandInput,
+    cb: (err: any, data?: DeleteProjectCommandOutput) => void
+  ): void;
   deleteProject(
     args: DeleteProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -339,8 +381,14 @@ export interface Evidently {
   /**
    * @see {@link DeleteSegmentCommand}
    */
-  deleteSegment(args: DeleteSegmentCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSegmentCommandOutput>;
-  deleteSegment(args: DeleteSegmentCommandInput, cb: (err: any, data?: DeleteSegmentCommandOutput) => void): void;
+  deleteSegment(
+    args: DeleteSegmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSegmentCommandOutput>;
+  deleteSegment(
+    args: DeleteSegmentCommandInput,
+    cb: (err: any, data?: DeleteSegmentCommandOutput) => void
+  ): void;
   deleteSegment(
     args: DeleteSegmentCommandInput,
     options: __HttpHandlerOptions,
@@ -354,7 +402,10 @@ export interface Evidently {
     args: EvaluateFeatureCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<EvaluateFeatureCommandOutput>;
-  evaluateFeature(args: EvaluateFeatureCommandInput, cb: (err: any, data?: EvaluateFeatureCommandOutput) => void): void;
+  evaluateFeature(
+    args: EvaluateFeatureCommandInput,
+    cb: (err: any, data?: EvaluateFeatureCommandOutput) => void
+  ): void;
   evaluateFeature(
     args: EvaluateFeatureCommandInput,
     options: __HttpHandlerOptions,
@@ -364,8 +415,14 @@ export interface Evidently {
   /**
    * @see {@link GetExperimentCommand}
    */
-  getExperiment(args: GetExperimentCommandInput, options?: __HttpHandlerOptions): Promise<GetExperimentCommandOutput>;
-  getExperiment(args: GetExperimentCommandInput, cb: (err: any, data?: GetExperimentCommandOutput) => void): void;
+  getExperiment(
+    args: GetExperimentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExperimentCommandOutput>;
+  getExperiment(
+    args: GetExperimentCommandInput,
+    cb: (err: any, data?: GetExperimentCommandOutput) => void
+  ): void;
   getExperiment(
     args: GetExperimentCommandInput,
     options: __HttpHandlerOptions,
@@ -392,8 +449,14 @@ export interface Evidently {
   /**
    * @see {@link GetFeatureCommand}
    */
-  getFeature(args: GetFeatureCommandInput, options?: __HttpHandlerOptions): Promise<GetFeatureCommandOutput>;
-  getFeature(args: GetFeatureCommandInput, cb: (err: any, data?: GetFeatureCommandOutput) => void): void;
+  getFeature(
+    args: GetFeatureCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFeatureCommandOutput>;
+  getFeature(
+    args: GetFeatureCommandInput,
+    cb: (err: any, data?: GetFeatureCommandOutput) => void
+  ): void;
   getFeature(
     args: GetFeatureCommandInput,
     options: __HttpHandlerOptions,
@@ -403,8 +466,14 @@ export interface Evidently {
   /**
    * @see {@link GetLaunchCommand}
    */
-  getLaunch(args: GetLaunchCommandInput, options?: __HttpHandlerOptions): Promise<GetLaunchCommandOutput>;
-  getLaunch(args: GetLaunchCommandInput, cb: (err: any, data?: GetLaunchCommandOutput) => void): void;
+  getLaunch(
+    args: GetLaunchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLaunchCommandOutput>;
+  getLaunch(
+    args: GetLaunchCommandInput,
+    cb: (err: any, data?: GetLaunchCommandOutput) => void
+  ): void;
   getLaunch(
     args: GetLaunchCommandInput,
     options: __HttpHandlerOptions,
@@ -414,8 +483,14 @@ export interface Evidently {
   /**
    * @see {@link GetProjectCommand}
    */
-  getProject(args: GetProjectCommandInput, options?: __HttpHandlerOptions): Promise<GetProjectCommandOutput>;
-  getProject(args: GetProjectCommandInput, cb: (err: any, data?: GetProjectCommandOutput) => void): void;
+  getProject(
+    args: GetProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProjectCommandOutput>;
+  getProject(
+    args: GetProjectCommandInput,
+    cb: (err: any, data?: GetProjectCommandOutput) => void
+  ): void;
   getProject(
     args: GetProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -425,8 +500,14 @@ export interface Evidently {
   /**
    * @see {@link GetSegmentCommand}
    */
-  getSegment(args: GetSegmentCommandInput, options?: __HttpHandlerOptions): Promise<GetSegmentCommandOutput>;
-  getSegment(args: GetSegmentCommandInput, cb: (err: any, data?: GetSegmentCommandOutput) => void): void;
+  getSegment(
+    args: GetSegmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSegmentCommandOutput>;
+  getSegment(
+    args: GetSegmentCommandInput,
+    cb: (err: any, data?: GetSegmentCommandOutput) => void
+  ): void;
   getSegment(
     args: GetSegmentCommandInput,
     options: __HttpHandlerOptions,
@@ -440,7 +521,10 @@ export interface Evidently {
     args: ListExperimentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListExperimentsCommandOutput>;
-  listExperiments(args: ListExperimentsCommandInput, cb: (err: any, data?: ListExperimentsCommandOutput) => void): void;
+  listExperiments(
+    args: ListExperimentsCommandInput,
+    cb: (err: any, data?: ListExperimentsCommandOutput) => void
+  ): void;
   listExperiments(
     args: ListExperimentsCommandInput,
     options: __HttpHandlerOptions,
@@ -450,8 +534,14 @@ export interface Evidently {
   /**
    * @see {@link ListFeaturesCommand}
    */
-  listFeatures(args: ListFeaturesCommandInput, options?: __HttpHandlerOptions): Promise<ListFeaturesCommandOutput>;
-  listFeatures(args: ListFeaturesCommandInput, cb: (err: any, data?: ListFeaturesCommandOutput) => void): void;
+  listFeatures(
+    args: ListFeaturesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFeaturesCommandOutput>;
+  listFeatures(
+    args: ListFeaturesCommandInput,
+    cb: (err: any, data?: ListFeaturesCommandOutput) => void
+  ): void;
   listFeatures(
     args: ListFeaturesCommandInput,
     options: __HttpHandlerOptions,
@@ -461,8 +551,14 @@ export interface Evidently {
   /**
    * @see {@link ListLaunchesCommand}
    */
-  listLaunches(args: ListLaunchesCommandInput, options?: __HttpHandlerOptions): Promise<ListLaunchesCommandOutput>;
-  listLaunches(args: ListLaunchesCommandInput, cb: (err: any, data?: ListLaunchesCommandOutput) => void): void;
+  listLaunches(
+    args: ListLaunchesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLaunchesCommandOutput>;
+  listLaunches(
+    args: ListLaunchesCommandInput,
+    cb: (err: any, data?: ListLaunchesCommandOutput) => void
+  ): void;
   listLaunches(
     args: ListLaunchesCommandInput,
     options: __HttpHandlerOptions,
@@ -473,8 +569,14 @@ export interface Evidently {
    * @see {@link ListProjectsCommand}
    */
   listProjects(): Promise<ListProjectsCommandOutput>;
-  listProjects(args: ListProjectsCommandInput, options?: __HttpHandlerOptions): Promise<ListProjectsCommandOutput>;
-  listProjects(args: ListProjectsCommandInput, cb: (err: any, data?: ListProjectsCommandOutput) => void): void;
+  listProjects(
+    args: ListProjectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProjectsCommandOutput>;
+  listProjects(
+    args: ListProjectsCommandInput,
+    cb: (err: any, data?: ListProjectsCommandOutput) => void
+  ): void;
   listProjects(
     args: ListProjectsCommandInput,
     options: __HttpHandlerOptions,
@@ -502,8 +604,14 @@ export interface Evidently {
    * @see {@link ListSegmentsCommand}
    */
   listSegments(): Promise<ListSegmentsCommandOutput>;
-  listSegments(args: ListSegmentsCommandInput, options?: __HttpHandlerOptions): Promise<ListSegmentsCommandOutput>;
-  listSegments(args: ListSegmentsCommandInput, cb: (err: any, data?: ListSegmentsCommandOutput) => void): void;
+  listSegments(
+    args: ListSegmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSegmentsCommandOutput>;
+  listSegments(
+    args: ListSegmentsCommandInput,
+    cb: (err: any, data?: ListSegmentsCommandOutput) => void
+  ): void;
   listSegments(
     args: ListSegmentsCommandInput,
     options: __HttpHandlerOptions,
@@ -551,7 +659,10 @@ export interface Evidently {
     args: StartExperimentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartExperimentCommandOutput>;
-  startExperiment(args: StartExperimentCommandInput, cb: (err: any, data?: StartExperimentCommandOutput) => void): void;
+  startExperiment(
+    args: StartExperimentCommandInput,
+    cb: (err: any, data?: StartExperimentCommandOutput) => void
+  ): void;
   startExperiment(
     args: StartExperimentCommandInput,
     options: __HttpHandlerOptions,
@@ -561,8 +672,14 @@ export interface Evidently {
   /**
    * @see {@link StartLaunchCommand}
    */
-  startLaunch(args: StartLaunchCommandInput, options?: __HttpHandlerOptions): Promise<StartLaunchCommandOutput>;
-  startLaunch(args: StartLaunchCommandInput, cb: (err: any, data?: StartLaunchCommandOutput) => void): void;
+  startLaunch(
+    args: StartLaunchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartLaunchCommandOutput>;
+  startLaunch(
+    args: StartLaunchCommandInput,
+    cb: (err: any, data?: StartLaunchCommandOutput) => void
+  ): void;
   startLaunch(
     args: StartLaunchCommandInput,
     options: __HttpHandlerOptions,
@@ -576,7 +693,10 @@ export interface Evidently {
     args: StopExperimentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopExperimentCommandOutput>;
-  stopExperiment(args: StopExperimentCommandInput, cb: (err: any, data?: StopExperimentCommandOutput) => void): void;
+  stopExperiment(
+    args: StopExperimentCommandInput,
+    cb: (err: any, data?: StopExperimentCommandOutput) => void
+  ): void;
   stopExperiment(
     args: StopExperimentCommandInput,
     options: __HttpHandlerOptions,
@@ -586,8 +706,14 @@ export interface Evidently {
   /**
    * @see {@link StopLaunchCommand}
    */
-  stopLaunch(args: StopLaunchCommandInput, options?: __HttpHandlerOptions): Promise<StopLaunchCommandOutput>;
-  stopLaunch(args: StopLaunchCommandInput, cb: (err: any, data?: StopLaunchCommandOutput) => void): void;
+  stopLaunch(
+    args: StopLaunchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopLaunchCommandOutput>;
+  stopLaunch(
+    args: StopLaunchCommandInput,
+    cb: (err: any, data?: StopLaunchCommandOutput) => void
+  ): void;
   stopLaunch(
     args: StopLaunchCommandInput,
     options: __HttpHandlerOptions,
@@ -597,8 +723,14 @@ export interface Evidently {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -625,8 +757,14 @@ export interface Evidently {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -653,8 +791,14 @@ export interface Evidently {
   /**
    * @see {@link UpdateFeatureCommand}
    */
-  updateFeature(args: UpdateFeatureCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFeatureCommandOutput>;
-  updateFeature(args: UpdateFeatureCommandInput, cb: (err: any, data?: UpdateFeatureCommandOutput) => void): void;
+  updateFeature(
+    args: UpdateFeatureCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFeatureCommandOutput>;
+  updateFeature(
+    args: UpdateFeatureCommandInput,
+    cb: (err: any, data?: UpdateFeatureCommandOutput) => void
+  ): void;
   updateFeature(
     args: UpdateFeatureCommandInput,
     options: __HttpHandlerOptions,
@@ -664,8 +808,14 @@ export interface Evidently {
   /**
    * @see {@link UpdateLaunchCommand}
    */
-  updateLaunch(args: UpdateLaunchCommandInput, options?: __HttpHandlerOptions): Promise<UpdateLaunchCommandOutput>;
-  updateLaunch(args: UpdateLaunchCommandInput, cb: (err: any, data?: UpdateLaunchCommandOutput) => void): void;
+  updateLaunch(
+    args: UpdateLaunchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLaunchCommandOutput>;
+  updateLaunch(
+    args: UpdateLaunchCommandInput,
+    cb: (err: any, data?: UpdateLaunchCommandOutput) => void
+  ): void;
   updateLaunch(
     args: UpdateLaunchCommandInput,
     options: __HttpHandlerOptions,
@@ -675,8 +825,14 @@ export interface Evidently {
   /**
    * @see {@link UpdateProjectCommand}
    */
-  updateProject(args: UpdateProjectCommandInput, options?: __HttpHandlerOptions): Promise<UpdateProjectCommandOutput>;
-  updateProject(args: UpdateProjectCommandInput, cb: (err: any, data?: UpdateProjectCommandOutput) => void): void;
+  updateProject(
+    args: UpdateProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProjectCommandOutput>;
+  updateProject(
+    args: UpdateProjectCommandInput,
+    cb: (err: any, data?: UpdateProjectCommandOutput) => void
+  ): void;
   updateProject(
     args: UpdateProjectCommandInput,
     options: __HttpHandlerOptions,

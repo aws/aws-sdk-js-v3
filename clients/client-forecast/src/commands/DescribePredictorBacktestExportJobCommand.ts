@@ -9,7 +9,7 @@ import type {
   DescribePredictorBacktestExportJobRequest,
   DescribePredictorBacktestExportJobResponse,
 } from "../models/models_0";
-import { DescribePredictorBacktestExportJob } from "../schemas/schemas_0";
+import { DescribePredictorBacktestExportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribePredictorBacktestExportJobCommandInput extends Describe
  *
  * The output of {@link DescribePredictorBacktestExportJobCommand}.
  */
-export interface DescribePredictorBacktestExportJobCommandOutput
-  extends DescribePredictorBacktestExportJobResponse,
-    __MetadataBearer {}
+export interface DescribePredictorBacktestExportJobCommandOutput extends DescribePredictorBacktestExportJobResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a predictor backtest export job created using the <a>CreatePredictorBacktestExportJob</a> operation.</p>
@@ -124,7 +122,7 @@ export class DescribePredictorBacktestExportJobCommand extends $Command
   })
   .s("AmazonForecast", "DescribePredictorBacktestExportJob", {})
   .n("ForecastClient", "DescribePredictorBacktestExportJobCommand")
-  .sc(DescribePredictorBacktestExportJob)
+  .sc(DescribePredictorBacktestExportJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

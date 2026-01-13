@@ -9,7 +9,7 @@ import type {
   GetVpcResourcesBlockingEncryptionEnforcementRequest,
   GetVpcResourcesBlockingEncryptionEnforcementResult,
 } from "../models/models_6";
-import { GetVpcResourcesBlockingEncryptionEnforcement } from "../schemas/schemas_0";
+import { GetVpcResourcesBlockingEncryptionEnforcement$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetVpcResourcesBlockingEncryptionEnforcementCommand}.
  */
-export interface GetVpcResourcesBlockingEncryptionEnforcementCommandInput
-  extends GetVpcResourcesBlockingEncryptionEnforcementRequest {}
+export interface GetVpcResourcesBlockingEncryptionEnforcementCommandInput extends GetVpcResourcesBlockingEncryptionEnforcementRequest {}
 /**
  * @public
  *
  * The output of {@link GetVpcResourcesBlockingEncryptionEnforcementCommand}.
  */
-export interface GetVpcResourcesBlockingEncryptionEnforcementCommandOutput
-  extends GetVpcResourcesBlockingEncryptionEnforcementResult,
-    __MetadataBearer {}
+export interface GetVpcResourcesBlockingEncryptionEnforcementCommandOutput extends GetVpcResourcesBlockingEncryptionEnforcementResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about resources in a VPC that are blocking encryption enforcement.</p>
@@ -91,7 +88,7 @@ export class GetVpcResourcesBlockingEncryptionEnforcementCommand extends $Comman
   })
   .s("AmazonEC2", "GetVpcResourcesBlockingEncryptionEnforcement", {})
   .n("EC2Client", "GetVpcResourcesBlockingEncryptionEnforcementCommand")
-  .sc(GetVpcResourcesBlockingEncryptionEnforcement)
+  .sc(GetVpcResourcesBlockingEncryptionEnforcement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

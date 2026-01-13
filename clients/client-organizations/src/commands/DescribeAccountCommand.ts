@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAccountRequest, DescribeAccountResponse } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { DescribeAccount } from "../schemas/schemas_0";
+import { DescribeAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -276,7 +276,7 @@ export class DescribeAccountCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "DescribeAccount", {})
   .n("OrganizationsClient", "DescribeAccountCommand")
-  .sc(DescribeAccount)
+  .sc(DescribeAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

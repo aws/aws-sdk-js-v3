@@ -8,7 +8,7 @@ import type {
   BatchUpdateRecommendationResourceExclusionRequest,
   BatchUpdateRecommendationResourceExclusionResponse,
 } from "../models/models_0";
-import { BatchUpdateRecommendationResourceExclusion } from "../schemas/schemas_0";
+import { BatchUpdateRecommendationResourceExclusion$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link BatchUpdateRecommendationResourceExclusionCommand}.
  */
-export interface BatchUpdateRecommendationResourceExclusionCommandInput
-  extends BatchUpdateRecommendationResourceExclusionRequest {}
+export interface BatchUpdateRecommendationResourceExclusionCommandInput extends BatchUpdateRecommendationResourceExclusionRequest {}
 /**
  * @public
  *
  * The output of {@link BatchUpdateRecommendationResourceExclusionCommand}.
  */
-export interface BatchUpdateRecommendationResourceExclusionCommandOutput
-  extends BatchUpdateRecommendationResourceExclusionResponse,
-    __MetadataBearer {}
+export interface BatchUpdateRecommendationResourceExclusionCommandOutput extends BatchUpdateRecommendationResourceExclusionResponse, __MetadataBearer {}
 
 /**
  * <p>Update one or more exclusion status for a list of recommendation resources</p>
@@ -135,7 +132,7 @@ export class BatchUpdateRecommendationResourceExclusionCommand extends $Command
   })
   .s("TrustedAdvisor", "BatchUpdateRecommendationResourceExclusion", {})
   .n("TrustedAdvisorClient", "BatchUpdateRecommendationResourceExclusionCommand")
-  .sc(BatchUpdateRecommendationResourceExclusion)
+  .sc(BatchUpdateRecommendationResourceExclusion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

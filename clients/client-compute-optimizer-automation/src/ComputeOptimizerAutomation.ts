@@ -266,8 +266,14 @@ export interface ComputeOptimizerAutomation {
    * @see {@link ListAccountsCommand}
    */
   listAccounts(): Promise<ListAccountsCommandOutput>;
-  listAccounts(args: ListAccountsCommandInput, options?: __HttpHandlerOptions): Promise<ListAccountsCommandOutput>;
-  listAccounts(args: ListAccountsCommandInput, cb: (err: any, data?: ListAccountsCommandOutput) => void): void;
+  listAccounts(
+    args: ListAccountsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccountsCommandOutput>;
+  listAccounts(
+    args: ListAccountsCommandInput,
+    cb: (err: any, data?: ListAccountsCommandOutput) => void
+  ): void;
   listAccounts(
     args: ListAccountsCommandInput,
     options: __HttpHandlerOptions,
@@ -469,8 +475,14 @@ export interface ComputeOptimizerAutomation {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -480,8 +492,14 @@ export interface ComputeOptimizerAutomation {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -527,7 +545,5 @@ export interface ComputeOptimizerAutomation {
  * <p> Automation is a feature within Amazon Web Services Compute Optimizer that enables you to apply optimization recommendations to your Amazon Web Services resources, reducing costs and improving performance. You can apply recommended actions directly or create automation rules that implement recommendations on a recurring schedule when they match your specified criteria. With automation rules, set criteria such as Amazon Web Services Region and Resource Tags to target specific geographies and workloads. Configure rules to run daily, weekly, or monthly, and Compute Optimizer continuously evaluates new recommendations against your criteria. Track automation events over time, examine detailed step history, estimate savings achieved, and reverse actions directly from Compute Optimizer when needed. </p>
  * @public
  */
-export class ComputeOptimizerAutomation
-  extends ComputeOptimizerAutomationClient
-  implements ComputeOptimizerAutomation {}
+export class ComputeOptimizerAutomation extends ComputeOptimizerAutomationClient implements ComputeOptimizerAutomation {}
 createAggregatedClient(commands, ComputeOptimizerAutomation);

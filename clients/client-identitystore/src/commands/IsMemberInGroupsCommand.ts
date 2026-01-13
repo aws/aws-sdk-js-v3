@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
 import type { IsMemberInGroupsRequest, IsMemberInGroupsResponse } from "../models/models_0";
-import { IsMemberInGroups } from "../schemas/schemas_0";
+import { IsMemberInGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class IsMemberInGroupsCommand extends $Command
   })
   .s("AWSIdentityStore", "IsMemberInGroups", {})
   .n("IdentitystoreClient", "IsMemberInGroupsCommand")
-  .sc(IsMemberInGroups)
+  .sc(IsMemberInGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -26,18 +26,18 @@ export const getRuntimeConfig = (config: MarketplaceCommerceAnalyticsClientConfi
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.marketplacecommerceanalytics",
-        serviceTarget: "MarketplaceCommerceAnalytics20150701",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.marketplacecommerceanalytics",
+      version: "2015-07-01",
+      serviceTarget: "MarketplaceCommerceAnalytics20150701",
+    },
     serviceId: config?.serviceId ?? "Marketplace Commerce Analytics",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

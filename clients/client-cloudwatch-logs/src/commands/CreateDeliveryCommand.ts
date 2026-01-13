@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDeliveryRequest, CreateDeliveryResponse } from "../models/models_0";
-import { CreateDelivery } from "../schemas/schemas_0";
+import { CreateDelivery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -159,7 +159,7 @@ export class CreateDeliveryCommand extends $Command
   })
   .s("Logs_20140328", "CreateDelivery", {})
   .n("CloudWatchLogsClient", "CreateDeliveryCommand")
-  .sc(CreateDelivery)
+  .sc(CreateDelivery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

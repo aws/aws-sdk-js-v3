@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateMaintenanceWindowRequest, CreateMaintenanceWindowResult } from "../models/models_0";
-import { CreateMaintenanceWindow } from "../schemas/schemas_0";
+import { CreateMaintenanceWindow$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -110,7 +110,7 @@ export class CreateMaintenanceWindowCommand extends $Command
   })
   .s("AmazonSSM", "CreateMaintenanceWindow", {})
   .n("SSMClient", "CreateMaintenanceWindowCommand")
-  .sc(CreateMaintenanceWindow)
+  .sc(CreateMaintenanceWindow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

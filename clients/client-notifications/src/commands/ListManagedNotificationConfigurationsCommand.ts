@@ -9,7 +9,7 @@ import type {
   ListManagedNotificationConfigurationsResponse,
 } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { ListManagedNotificationConfigurations } from "../schemas/schemas_0";
+import { ListManagedNotificationConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListManagedNotificationConfigurationsCommand}.
  */
-export interface ListManagedNotificationConfigurationsCommandInput
-  extends ListManagedNotificationConfigurationsRequest {}
+export interface ListManagedNotificationConfigurationsCommandInput extends ListManagedNotificationConfigurationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListManagedNotificationConfigurationsCommand}.
  */
-export interface ListManagedNotificationConfigurationsCommandOutput
-  extends ListManagedNotificationConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListManagedNotificationConfigurationsCommandOutput extends ListManagedNotificationConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of Managed Notification Configurations according to specified filters, ordered by creation time in reverse chronological order (newest first).</p>
@@ -100,7 +97,7 @@ export class ListManagedNotificationConfigurationsCommand extends $Command
   })
   .s("Notifications", "ListManagedNotificationConfigurations", {})
   .n("NotificationsClient", "ListManagedNotificationConfigurationsCommand")
-  .sc(ListManagedNotificationConfigurations)
+  .sc(ListManagedNotificationConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

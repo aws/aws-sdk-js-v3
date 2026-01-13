@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDeliveryConfigurationRequest, UpdateDeliveryConfigurationResponse } from "../models/models_0";
-import { UpdateDeliveryConfiguration } from "../schemas/schemas_0";
+import { UpdateDeliveryConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface UpdateDeliveryConfigurationCommandInput extends UpdateDeliveryC
  *
  * The output of {@link UpdateDeliveryConfigurationCommand}.
  */
-export interface UpdateDeliveryConfigurationCommandOutput
-  extends UpdateDeliveryConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateDeliveryConfigurationCommandOutput extends UpdateDeliveryConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Use this operation to update the configuration of a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Delivery.html">delivery</a> to change
@@ -105,7 +103,7 @@ export class UpdateDeliveryConfigurationCommand extends $Command
   })
   .s("Logs_20140328", "UpdateDeliveryConfiguration", {})
   .n("CloudWatchLogsClient", "UpdateDeliveryConfigurationCommand")
-  .sc(UpdateDeliveryConfiguration)
+  .sc(UpdateDeliveryConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

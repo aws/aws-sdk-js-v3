@@ -9,7 +9,7 @@ import type {
   DescribeBudgetNotificationsForAccountRequest,
   DescribeBudgetNotificationsForAccountResponse,
 } from "../models/models_0";
-import { DescribeBudgetNotificationsForAccount } from "../schemas/schemas_0";
+import { DescribeBudgetNotificationsForAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeBudgetNotificationsForAccountCommand}.
  */
-export interface DescribeBudgetNotificationsForAccountCommandInput
-  extends DescribeBudgetNotificationsForAccountRequest {}
+export interface DescribeBudgetNotificationsForAccountCommandInput extends DescribeBudgetNotificationsForAccountRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeBudgetNotificationsForAccountCommand}.
  */
-export interface DescribeBudgetNotificationsForAccountCommandOutput
-  extends DescribeBudgetNotificationsForAccountResponse,
-    __MetadataBearer {}
+export interface DescribeBudgetNotificationsForAccountCommandOutput extends DescribeBudgetNotificationsForAccountResponse, __MetadataBearer {}
 
 /**
  * <p> Lists the budget names and notifications that are associated with an account. </p>
@@ -117,7 +114,7 @@ export class DescribeBudgetNotificationsForAccountCommand extends $Command
   })
   .s("AWSBudgetServiceGateway", "DescribeBudgetNotificationsForAccount", {})
   .n("BudgetsClient", "DescribeBudgetNotificationsForAccountCommand")
-  .sc(DescribeBudgetNotificationsForAccount)
+  .sc(DescribeBudgetNotificationsForAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

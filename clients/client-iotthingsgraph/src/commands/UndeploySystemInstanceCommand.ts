@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTThingsGraphClient";
 import type { UndeploySystemInstanceRequest, UndeploySystemInstanceResponse } from "../models/models_0";
-import { UndeploySystemInstance } from "../schemas/schemas_0";
+import { UndeploySystemInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class UndeploySystemInstanceCommand extends $Command
   })
   .s("IotThingsGraphFrontEndService", "UndeploySystemInstance", {})
   .n("IoTThingsGraphClient", "UndeploySystemInstanceCommand")
-  .sc(UndeploySystemInstance)
+  .sc(UndeploySystemInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

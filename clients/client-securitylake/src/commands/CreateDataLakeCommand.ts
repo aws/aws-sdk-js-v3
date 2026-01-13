@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDataLakeRequest, CreateDataLakeResponse } from "../models/models_0";
-import { CreateDataLake } from "../schemas/schemas_0";
+import { CreateDataLake$ } from "../schemas/schemas_0";
 import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -177,7 +177,7 @@ export class CreateDataLakeCommand extends $Command
   })
   .s("SecurityLake", "CreateDataLake", {})
   .n("SecurityLakeClient", "CreateDataLakeCommand")
-  .sc(CreateDataLake)
+  .sc(CreateDataLake$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

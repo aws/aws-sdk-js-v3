@@ -201,7 +201,10 @@ export interface Ivs {
     args: BatchGetChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchGetChannelCommandOutput>;
-  batchGetChannel(args: BatchGetChannelCommandInput, cb: (err: any, data?: BatchGetChannelCommandOutput) => void): void;
+  batchGetChannel(
+    args: BatchGetChannelCommandInput,
+    cb: (err: any, data?: BatchGetChannelCommandOutput) => void
+  ): void;
   batchGetChannel(
     args: BatchGetChannelCommandInput,
     options: __HttpHandlerOptions,
@@ -246,8 +249,14 @@ export interface Ivs {
    * @see {@link CreateChannelCommand}
    */
   createChannel(): Promise<CreateChannelCommandOutput>;
-  createChannel(args: CreateChannelCommandInput, options?: __HttpHandlerOptions): Promise<CreateChannelCommandOutput>;
-  createChannel(args: CreateChannelCommandInput, cb: (err: any, data?: CreateChannelCommandOutput) => void): void;
+  createChannel(
+    args: CreateChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelCommandOutput>;
+  createChannel(
+    args: CreateChannelCommandInput,
+    cb: (err: any, data?: CreateChannelCommandOutput) => void
+  ): void;
   createChannel(
     args: CreateChannelCommandInput,
     options: __HttpHandlerOptions,
@@ -296,7 +305,10 @@ export interface Ivs {
     args: CreateStreamKeyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateStreamKeyCommandOutput>;
-  createStreamKey(args: CreateStreamKeyCommandInput, cb: (err: any, data?: CreateStreamKeyCommandOutput) => void): void;
+  createStreamKey(
+    args: CreateStreamKeyCommandInput,
+    cb: (err: any, data?: CreateStreamKeyCommandOutput) => void
+  ): void;
   createStreamKey(
     args: CreateStreamKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -306,8 +318,14 @@ export interface Ivs {
   /**
    * @see {@link DeleteChannelCommand}
    */
-  deleteChannel(args: DeleteChannelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteChannelCommandOutput>;
-  deleteChannel(args: DeleteChannelCommandInput, cb: (err: any, data?: DeleteChannelCommandOutput) => void): void;
+  deleteChannel(
+    args: DeleteChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelCommandOutput>;
+  deleteChannel(
+    args: DeleteChannelCommandInput,
+    cb: (err: any, data?: DeleteChannelCommandOutput) => void
+  ): void;
   deleteChannel(
     args: DeleteChannelCommandInput,
     options: __HttpHandlerOptions,
@@ -372,7 +390,10 @@ export interface Ivs {
     args: DeleteStreamKeyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteStreamKeyCommandOutput>;
-  deleteStreamKey(args: DeleteStreamKeyCommandInput, cb: (err: any, data?: DeleteStreamKeyCommandOutput) => void): void;
+  deleteStreamKey(
+    args: DeleteStreamKeyCommandInput,
+    cb: (err: any, data?: DeleteStreamKeyCommandOutput) => void
+  ): void;
   deleteStreamKey(
     args: DeleteStreamKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -382,8 +403,14 @@ export interface Ivs {
   /**
    * @see {@link GetChannelCommand}
    */
-  getChannel(args: GetChannelCommandInput, options?: __HttpHandlerOptions): Promise<GetChannelCommandOutput>;
-  getChannel(args: GetChannelCommandInput, cb: (err: any, data?: GetChannelCommandOutput) => void): void;
+  getChannel(
+    args: GetChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetChannelCommandOutput>;
+  getChannel(
+    args: GetChannelCommandInput,
+    cb: (err: any, data?: GetChannelCommandOutput) => void
+  ): void;
   getChannel(
     args: GetChannelCommandInput,
     options: __HttpHandlerOptions,
@@ -444,8 +471,14 @@ export interface Ivs {
   /**
    * @see {@link GetStreamCommand}
    */
-  getStream(args: GetStreamCommandInput, options?: __HttpHandlerOptions): Promise<GetStreamCommandOutput>;
-  getStream(args: GetStreamCommandInput, cb: (err: any, data?: GetStreamCommandOutput) => void): void;
+  getStream(
+    args: GetStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStreamCommandOutput>;
+  getStream(
+    args: GetStreamCommandInput,
+    cb: (err: any, data?: GetStreamCommandOutput) => void
+  ): void;
   getStream(
     args: GetStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -455,8 +488,14 @@ export interface Ivs {
   /**
    * @see {@link GetStreamKeyCommand}
    */
-  getStreamKey(args: GetStreamKeyCommandInput, options?: __HttpHandlerOptions): Promise<GetStreamKeyCommandOutput>;
-  getStreamKey(args: GetStreamKeyCommandInput, cb: (err: any, data?: GetStreamKeyCommandOutput) => void): void;
+  getStreamKey(
+    args: GetStreamKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStreamKeyCommandOutput>;
+  getStreamKey(
+    args: GetStreamKeyCommandInput,
+    cb: (err: any, data?: GetStreamKeyCommandOutput) => void
+  ): void;
   getStreamKey(
     args: GetStreamKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -501,8 +540,14 @@ export interface Ivs {
    * @see {@link ListChannelsCommand}
    */
   listChannels(): Promise<ListChannelsCommandOutput>;
-  listChannels(args: ListChannelsCommandInput, options?: __HttpHandlerOptions): Promise<ListChannelsCommandOutput>;
-  listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
+  listChannels(
+    args: ListChannelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelsCommandOutput>;
+  listChannels(
+    args: ListChannelsCommandInput,
+    cb: (err: any, data?: ListChannelsCommandOutput) => void
+  ): void;
   listChannels(
     args: ListChannelsCommandInput,
     options: __HttpHandlerOptions,
@@ -570,7 +615,10 @@ export interface Ivs {
     args: ListStreamKeysCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListStreamKeysCommandOutput>;
-  listStreamKeys(args: ListStreamKeysCommandInput, cb: (err: any, data?: ListStreamKeysCommandOutput) => void): void;
+  listStreamKeys(
+    args: ListStreamKeysCommandInput,
+    cb: (err: any, data?: ListStreamKeysCommandOutput) => void
+  ): void;
   listStreamKeys(
     args: ListStreamKeysCommandInput,
     options: __HttpHandlerOptions,
@@ -581,8 +629,14 @@ export interface Ivs {
    * @see {@link ListStreamsCommand}
    */
   listStreams(): Promise<ListStreamsCommandOutput>;
-  listStreams(args: ListStreamsCommandInput, options?: __HttpHandlerOptions): Promise<ListStreamsCommandOutput>;
-  listStreams(args: ListStreamsCommandInput, cb: (err: any, data?: ListStreamsCommandOutput) => void): void;
+  listStreams(
+    args: ListStreamsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStreamsCommandOutput>;
+  listStreams(
+    args: ListStreamsCommandInput,
+    cb: (err: any, data?: ListStreamsCommandOutput) => void
+  ): void;
   listStreams(
     args: ListStreamsCommandInput,
     options: __HttpHandlerOptions,
@@ -626,8 +680,14 @@ export interface Ivs {
   /**
    * @see {@link PutMetadataCommand}
    */
-  putMetadata(args: PutMetadataCommandInput, options?: __HttpHandlerOptions): Promise<PutMetadataCommandOutput>;
-  putMetadata(args: PutMetadataCommandInput, cb: (err: any, data?: PutMetadataCommandOutput) => void): void;
+  putMetadata(
+    args: PutMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutMetadataCommandOutput>;
+  putMetadata(
+    args: PutMetadataCommandInput,
+    cb: (err: any, data?: PutMetadataCommandOutput) => void
+  ): void;
   putMetadata(
     args: PutMetadataCommandInput,
     options: __HttpHandlerOptions,
@@ -654,8 +714,14 @@ export interface Ivs {
   /**
    * @see {@link StopStreamCommand}
    */
-  stopStream(args: StopStreamCommandInput, options?: __HttpHandlerOptions): Promise<StopStreamCommandOutput>;
-  stopStream(args: StopStreamCommandInput, cb: (err: any, data?: StopStreamCommandOutput) => void): void;
+  stopStream(
+    args: StopStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopStreamCommandOutput>;
+  stopStream(
+    args: StopStreamCommandInput,
+    cb: (err: any, data?: StopStreamCommandOutput) => void
+  ): void;
   stopStream(
     args: StopStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -665,8 +731,14 @@ export interface Ivs {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -676,8 +748,14 @@ export interface Ivs {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -687,8 +765,14 @@ export interface Ivs {
   /**
    * @see {@link UpdateChannelCommand}
    */
-  updateChannel(args: UpdateChannelCommandInput, options?: __HttpHandlerOptions): Promise<UpdateChannelCommandOutput>;
-  updateChannel(args: UpdateChannelCommandInput, cb: (err: any, data?: UpdateChannelCommandOutput) => void): void;
+  updateChannel(
+    args: UpdateChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateChannelCommandOutput>;
+  updateChannel(
+    args: UpdateChannelCommandInput,
+    cb: (err: any, data?: UpdateChannelCommandOutput) => void
+  ): void;
   updateChannel(
     args: UpdateChannelCommandInput,
     options: __HttpHandlerOptions,

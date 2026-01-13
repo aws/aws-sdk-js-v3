@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import type { DescribeRuntimeConfigurationInput, DescribeRuntimeConfigurationOutput } from "../models/models_0";
-import { DescribeRuntimeConfiguration } from "../schemas/schemas_0";
+import { DescribeRuntimeConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeRuntimeConfigurationCommandInput extends DescribeRuntim
  *
  * The output of {@link DescribeRuntimeConfigurationCommand}.
  */
-export interface DescribeRuntimeConfigurationCommandOutput
-  extends DescribeRuntimeConfigurationOutput,
-    __MetadataBearer {}
+export interface DescribeRuntimeConfigurationCommandOutput extends DescribeRuntimeConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>
@@ -120,7 +118,7 @@ export class DescribeRuntimeConfigurationCommand extends $Command
   })
   .s("GameLift", "DescribeRuntimeConfiguration", {})
   .n("GameLiftClient", "DescribeRuntimeConfigurationCommand")
-  .sc(DescribeRuntimeConfiguration)
+  .sc(DescribeRuntimeConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

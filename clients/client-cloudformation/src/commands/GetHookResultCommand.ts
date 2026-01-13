@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetHookResultInput, GetHookResultOutput } from "../models/models_0";
-import { GetHookResult } from "../schemas/schemas_0";
+import { GetHookResult$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class GetHookResultCommand extends $Command
   })
   .s("CloudFormation", "GetHookResult", {})
   .n("CloudFormationClient", "GetHookResultCommand")
-  .sc(GetHookResult)
+  .sc(GetHookResult$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   ListBulkDeploymentDetailedReportsRequest,
   ListBulkDeploymentDetailedReportsResponse,
 } from "../models/models_0";
-import { ListBulkDeploymentDetailedReports } from "../schemas/schemas_0";
+import { ListBulkDeploymentDetailedReports$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListBulkDeploymentDetailedReportsCommandInput extends ListBulkD
  *
  * The output of {@link ListBulkDeploymentDetailedReportsCommand}.
  */
-export interface ListBulkDeploymentDetailedReportsCommandOutput
-  extends ListBulkDeploymentDetailedReportsResponse,
-    __MetadataBearer {}
+export interface ListBulkDeploymentDetailedReportsCommandOutput extends ListBulkDeploymentDetailedReportsResponse, __MetadataBearer {}
 
 /**
  * Gets a paginated list of the deployments that have been started in a bulk deployment operation, and their current deployment status.
@@ -100,7 +98,7 @@ export class ListBulkDeploymentDetailedReportsCommand extends $Command
   })
   .s("Greengrass", "ListBulkDeploymentDetailedReports", {})
   .n("GreengrassClient", "ListBulkDeploymentDetailedReportsCommand")
-  .sc(ListBulkDeploymentDetailedReports)
+  .sc(ListBulkDeploymentDetailedReports$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

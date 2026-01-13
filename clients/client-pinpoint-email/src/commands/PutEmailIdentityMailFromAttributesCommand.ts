@@ -9,7 +9,7 @@ import type {
   PutEmailIdentityMailFromAttributesResponse,
 } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { PutEmailIdentityMailFromAttributes } from "../schemas/schemas_0";
+import { PutEmailIdentityMailFromAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface PutEmailIdentityMailFromAttributesCommandInput extends PutEmail
  *
  * The output of {@link PutEmailIdentityMailFromAttributesCommand}.
  */
-export interface PutEmailIdentityMailFromAttributesCommandOutput
-  extends PutEmailIdentityMailFromAttributesResponse,
-    __MetadataBearer {}
+export interface PutEmailIdentityMailFromAttributesCommandOutput extends PutEmailIdentityMailFromAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Used to enable or disable the custom Mail-From domain configuration for an email
@@ -88,7 +86,7 @@ export class PutEmailIdentityMailFromAttributesCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "PutEmailIdentityMailFromAttributes", {})
   .n("PinpointEmailClient", "PutEmailIdentityMailFromAttributesCommand")
-  .sc(PutEmailIdentityMailFromAttributes)
+  .sc(PutEmailIdentityMailFromAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

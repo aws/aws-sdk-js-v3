@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSystemVersionsInput, ListSystemVersionsOutput } from "../models/models_0";
 import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { ListSystemVersions } from "../schemas/schemas_0";
+import { ListSystemVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ListSystemVersionsCommand extends $Command
   })
   .s("Odb", "ListSystemVersions", {})
   .n("OdbClient", "ListSystemVersionsCommand")
-  .sc(ListSystemVersions)
+  .sc(ListSystemVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

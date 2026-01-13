@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateChannelRequest, AssociateChannelResponse } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { AssociateChannel } from "../schemas/schemas_0";
+import { AssociateChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class AssociateChannelCommand extends $Command
   })
   .s("Notifications", "AssociateChannel", {})
   .n("NotificationsClient", "AssociateChannelCommand")
-  .sc(AssociateChannel)
+  .sc(AssociateChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

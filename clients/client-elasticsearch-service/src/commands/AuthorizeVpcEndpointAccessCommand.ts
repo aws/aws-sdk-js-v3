@@ -10,7 +10,7 @@ import type {
 } from "../ElasticsearchServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AuthorizeVpcEndpointAccessRequest, AuthorizeVpcEndpointAccessResponse } from "../models/models_0";
-import { AuthorizeVpcEndpointAccess } from "../schemas/schemas_0";
+import { AuthorizeVpcEndpointAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class AuthorizeVpcEndpointAccessCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "AuthorizeVpcEndpointAccess", {})
   .n("ElasticsearchServiceClient", "AuthorizeVpcEndpointAccessCommand")
-  .sc(AuthorizeVpcEndpointAccess)
+  .sc(AuthorizeVpcEndpointAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateHealthCheckRequest, AssociateHealthCheckResponse } from "../models/models_0";
-import { AssociateHealthCheck } from "../schemas/schemas_0";
+import { AssociateHealthCheck$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -92,7 +92,7 @@ export class AssociateHealthCheckCommand extends $Command
   })
   .s("AWSShield_20160616", "AssociateHealthCheck", {})
   .n("ShieldClient", "AssociateHealthCheckCommand")
-  .sc(AssociateHealthCheck)
+  .sc(AssociateHealthCheck$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

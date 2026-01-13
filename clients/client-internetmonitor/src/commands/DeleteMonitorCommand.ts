@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../InternetMonitorClient";
 import type { DeleteMonitorInput, DeleteMonitorOutput } from "../models/models_0";
-import { DeleteMonitor } from "../schemas/schemas_0";
+import { DeleteMonitor$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteMonitorCommand extends $Command
   })
   .s("InternetMonitor20210603", "DeleteMonitor", {})
   .n("InternetMonitorClient", "DeleteMonitorCommand")
-  .sc(DeleteMonitor)
+  .sc(DeleteMonitor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

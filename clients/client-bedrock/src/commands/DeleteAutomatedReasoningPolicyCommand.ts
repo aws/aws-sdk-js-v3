@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAutomatedReasoningPolicyRequest, DeleteAutomatedReasoningPolicyResponse } from "../models/models_0";
-import { DeleteAutomatedReasoningPolicy } from "../schemas/schemas_0";
+import { DeleteAutomatedReasoningPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteAutomatedReasoningPolicyCommandInput extends DeleteAutoma
  *
  * The output of {@link DeleteAutomatedReasoningPolicyCommand}.
  */
-export interface DeleteAutomatedReasoningPolicyCommandOutput
-  extends DeleteAutomatedReasoningPolicyResponse,
-    __MetadataBearer {}
+export interface DeleteAutomatedReasoningPolicyCommandOutput extends DeleteAutomatedReasoningPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an Automated Reasoning policy or policy version. This operation is idempotent. If you delete a policy more than once, each call succeeds. Deleting a policy removes it permanently and cannot be undone.</p>
@@ -95,7 +93,7 @@ export class DeleteAutomatedReasoningPolicyCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "DeleteAutomatedReasoningPolicy", {})
   .n("BedrockClient", "DeleteAutomatedReasoningPolicyCommand")
-  .sc(DeleteAutomatedReasoningPolicy)
+  .sc(DeleteAutomatedReasoningPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

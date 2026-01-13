@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { DeletePartitionIndexRequest, DeletePartitionIndexResponse } from "../models/models_1";
-import { DeletePartitionIndex } from "../schemas/schemas_0";
+import { DeletePartitionIndex$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DeletePartitionIndexCommand extends $Command
   })
   .s("AWSGlue", "DeletePartitionIndex", {})
   .n("GlueClient", "DeletePartitionIndexCommand")
-  .sc(DeletePartitionIndex)
+  .sc(DeletePartitionIndex$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   DescribeReplicationTaskAssessmentRunsMessage,
   DescribeReplicationTaskAssessmentRunsResponse,
 } from "../models/models_0";
-import { DescribeReplicationTaskAssessmentRuns } from "../schemas/schemas_0";
+import { DescribeReplicationTaskAssessmentRuns$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeReplicationTaskAssessmentRunsCommand}.
  */
-export interface DescribeReplicationTaskAssessmentRunsCommandInput
-  extends DescribeReplicationTaskAssessmentRunsMessage {}
+export interface DescribeReplicationTaskAssessmentRunsCommandInput extends DescribeReplicationTaskAssessmentRunsMessage {}
 /**
  * @public
  *
  * The output of {@link DescribeReplicationTaskAssessmentRunsCommand}.
  */
-export interface DescribeReplicationTaskAssessmentRunsCommandOutput
-  extends DescribeReplicationTaskAssessmentRunsResponse,
-    __MetadataBearer {}
+export interface DescribeReplicationTaskAssessmentRunsCommandOutput extends DescribeReplicationTaskAssessmentRunsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of premigration assessment runs based on filter
@@ -131,7 +128,7 @@ export class DescribeReplicationTaskAssessmentRunsCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeReplicationTaskAssessmentRuns", {})
   .n("DatabaseMigrationServiceClient", "DescribeReplicationTaskAssessmentRunsCommand")
-  .sc(DescribeReplicationTaskAssessmentRuns)
+  .sc(DescribeReplicationTaskAssessmentRuns$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

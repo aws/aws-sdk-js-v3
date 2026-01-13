@@ -111,8 +111,14 @@ export interface MedicalImaging {
   /**
    * @see {@link CopyImageSetCommand}
    */
-  copyImageSet(args: CopyImageSetCommandInput, options?: __HttpHandlerOptions): Promise<CopyImageSetCommandOutput>;
-  copyImageSet(args: CopyImageSetCommandInput, cb: (err: any, data?: CopyImageSetCommandOutput) => void): void;
+  copyImageSet(
+    args: CopyImageSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CopyImageSetCommandOutput>;
+  copyImageSet(
+    args: CopyImageSetCommandInput,
+    cb: (err: any, data?: CopyImageSetCommandOutput) => void
+  ): void;
   copyImageSet(
     args: CopyImageSetCommandInput,
     options: __HttpHandlerOptions,
@@ -126,7 +132,10 @@ export interface MedicalImaging {
     args: CreateDatastoreCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDatastoreCommandOutput>;
-  createDatastore(args: CreateDatastoreCommandInput, cb: (err: any, data?: CreateDatastoreCommandOutput) => void): void;
+  createDatastore(
+    args: CreateDatastoreCommandInput,
+    cb: (err: any, data?: CreateDatastoreCommandOutput) => void
+  ): void;
   createDatastore(
     args: CreateDatastoreCommandInput,
     options: __HttpHandlerOptions,
@@ -140,7 +149,10 @@ export interface MedicalImaging {
     args: DeleteDatastoreCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDatastoreCommandOutput>;
-  deleteDatastore(args: DeleteDatastoreCommandInput, cb: (err: any, data?: DeleteDatastoreCommandOutput) => void): void;
+  deleteDatastore(
+    args: DeleteDatastoreCommandInput,
+    cb: (err: any, data?: DeleteDatastoreCommandOutput) => void
+  ): void;
   deleteDatastore(
     args: DeleteDatastoreCommandInput,
     options: __HttpHandlerOptions,
@@ -154,7 +166,10 @@ export interface MedicalImaging {
     args: DeleteImageSetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteImageSetCommandOutput>;
-  deleteImageSet(args: DeleteImageSetCommandInput, cb: (err: any, data?: DeleteImageSetCommandOutput) => void): void;
+  deleteImageSet(
+    args: DeleteImageSetCommandInput,
+    cb: (err: any, data?: DeleteImageSetCommandOutput) => void
+  ): void;
   deleteImageSet(
     args: DeleteImageSetCommandInput,
     options: __HttpHandlerOptions,
@@ -164,8 +179,14 @@ export interface MedicalImaging {
   /**
    * @see {@link GetDatastoreCommand}
    */
-  getDatastore(args: GetDatastoreCommandInput, options?: __HttpHandlerOptions): Promise<GetDatastoreCommandOutput>;
-  getDatastore(args: GetDatastoreCommandInput, cb: (err: any, data?: GetDatastoreCommandOutput) => void): void;
+  getDatastore(
+    args: GetDatastoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDatastoreCommandOutput>;
+  getDatastore(
+    args: GetDatastoreCommandInput,
+    cb: (err: any, data?: GetDatastoreCommandOutput) => void
+  ): void;
   getDatastore(
     args: GetDatastoreCommandInput,
     options: __HttpHandlerOptions,
@@ -192,8 +213,14 @@ export interface MedicalImaging {
   /**
    * @see {@link GetImageFrameCommand}
    */
-  getImageFrame(args: GetImageFrameCommandInput, options?: __HttpHandlerOptions): Promise<GetImageFrameCommandOutput>;
-  getImageFrame(args: GetImageFrameCommandInput, cb: (err: any, data?: GetImageFrameCommandOutput) => void): void;
+  getImageFrame(
+    args: GetImageFrameCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImageFrameCommandOutput>;
+  getImageFrame(
+    args: GetImageFrameCommandInput,
+    cb: (err: any, data?: GetImageFrameCommandOutput) => void
+  ): void;
   getImageFrame(
     args: GetImageFrameCommandInput,
     options: __HttpHandlerOptions,
@@ -203,8 +230,14 @@ export interface MedicalImaging {
   /**
    * @see {@link GetImageSetCommand}
    */
-  getImageSet(args: GetImageSetCommandInput, options?: __HttpHandlerOptions): Promise<GetImageSetCommandOutput>;
-  getImageSet(args: GetImageSetCommandInput, cb: (err: any, data?: GetImageSetCommandOutput) => void): void;
+  getImageSet(
+    args: GetImageSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImageSetCommandOutput>;
+  getImageSet(
+    args: GetImageSetCommandInput,
+    cb: (err: any, data?: GetImageSetCommandOutput) => void
+  ): void;
   getImageSet(
     args: GetImageSetCommandInput,
     options: __HttpHandlerOptions,
@@ -236,7 +269,10 @@ export interface MedicalImaging {
     args: ListDatastoresCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDatastoresCommandOutput>;
-  listDatastores(args: ListDatastoresCommandInput, cb: (err: any, data?: ListDatastoresCommandOutput) => void): void;
+  listDatastores(
+    args: ListDatastoresCommandInput,
+    cb: (err: any, data?: ListDatastoresCommandOutput) => void
+  ): void;
   listDatastores(
     args: ListDatastoresCommandInput,
     options: __HttpHandlerOptions,
@@ -301,7 +337,10 @@ export interface MedicalImaging {
     args: SearchImageSetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SearchImageSetsCommandOutput>;
-  searchImageSets(args: SearchImageSetsCommandInput, cb: (err: any, data?: SearchImageSetsCommandOutput) => void): void;
+  searchImageSets(
+    args: SearchImageSetsCommandInput,
+    cb: (err: any, data?: SearchImageSetsCommandOutput) => void
+  ): void;
   searchImageSets(
     args: SearchImageSetsCommandInput,
     options: __HttpHandlerOptions,
@@ -328,8 +367,14 @@ export interface MedicalImaging {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -339,8 +384,14 @@ export interface MedicalImaging {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

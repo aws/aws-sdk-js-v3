@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RestoreDBInstanceFromDBSnapshotMessage, RestoreDBInstanceFromDBSnapshotResult } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { RestoreDBInstanceFromDBSnapshot } from "../schemas/schemas_0";
+import { RestoreDBInstanceFromDBSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface RestoreDBInstanceFromDBSnapshotCommandInput extends RestoreDBIn
  *
  * The output of {@link RestoreDBInstanceFromDBSnapshotCommand}.
  */
-export interface RestoreDBInstanceFromDBSnapshotCommandOutput
-  extends RestoreDBInstanceFromDBSnapshotResult,
-    __MetadataBearer {}
+export interface RestoreDBInstanceFromDBSnapshotCommandOutput extends RestoreDBInstanceFromDBSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with most
@@ -545,7 +543,7 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command
   })
   .s("AmazonRDSv19", "RestoreDBInstanceFromDBSnapshot", {})
   .n("RDSClient", "RestoreDBInstanceFromDBSnapshotCommand")
-  .sc(RestoreDBInstanceFromDBSnapshot)
+  .sc(RestoreDBInstanceFromDBSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -43,13 +43,10 @@ import {
   type BodyLengthCalculator as __BodyLengthCalculator,
   type CheckOptionalClientConfig as __CheckOptionalClientConfig,
   type ChecksumConstructor as __ChecksumConstructor,
-  type ClientProtocol,
   type Decoder as __Decoder,
   type Encoder as __Encoder,
   type HashConstructor as __HashConstructor,
   type HttpHandlerOptions as __HttpHandlerOptions,
-  type HttpRequest,
-  type HttpResponse,
   type Logger as __Logger,
   type Provider as __Provider,
   type StreamCollector as __StreamCollector,
@@ -290,16 +287,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   extensions?: RuntimeExtension[];
 
   /**
-   * The protocol controlling the message type (e.g. HTTP) and format (e.g. JSON)
-   * may be overridden. A default will always be set by the client.
-   * Available options depend on the service's supported protocols and will not be validated by
-   * the client.
-   * @alpha
-   *
-   */
-  protocol?: ClientProtocol<HttpRequest, HttpResponse>;
-
-  /**
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
@@ -322,30 +309,27 @@ export type LicenseManagerLinuxSubscriptionsClientConfigType = Partial<__SmithyC
  *
  *  The configuration interface of LicenseManagerLinuxSubscriptionsClient class constructor that set the region, credentials and other options.
  */
-export interface LicenseManagerLinuxSubscriptionsClientConfig
-  extends LicenseManagerLinuxSubscriptionsClientConfigType {}
+export interface LicenseManagerLinuxSubscriptionsClientConfig extends LicenseManagerLinuxSubscriptionsClientConfigType {}
 
 /**
  * @public
  */
-export type LicenseManagerLinuxSubscriptionsClientResolvedConfigType =
-  __SmithyResolvedConfiguration<__HttpHandlerOptions> &
-    Required<ClientDefaults> &
-    RuntimeExtensionsConfig &
-    UserAgentResolvedConfig &
-    RetryResolvedConfig &
-    RegionResolvedConfig &
-    HostHeaderResolvedConfig &
-    EndpointResolvedConfig<EndpointParameters> &
-    HttpAuthSchemeResolvedConfig &
-    ClientResolvedEndpointParameters;
+export type LicenseManagerLinuxSubscriptionsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+  Required<ClientDefaults> &
+  RuntimeExtensionsConfig &
+  UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
+  HttpAuthSchemeResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * @public
  *
  *  The resolved configuration interface of LicenseManagerLinuxSubscriptionsClient class. This is resolved and normalized from the {@link LicenseManagerLinuxSubscriptionsClientConfig | constructor configuration interface}.
  */
-export interface LicenseManagerLinuxSubscriptionsClientResolvedConfig
-  extends LicenseManagerLinuxSubscriptionsClientResolvedConfigType {}
+export interface LicenseManagerLinuxSubscriptionsClientResolvedConfig extends LicenseManagerLinuxSubscriptionsClientResolvedConfigType {}
 
 /**
  * <p>With License Manager, you can discover and track your commercial Linux subscriptions on running

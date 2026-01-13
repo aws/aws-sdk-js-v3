@@ -9,7 +9,7 @@ import type {
   DeleteConfiguredAudienceModelAssociationInput,
   DeleteConfiguredAudienceModelAssociationOutput,
 } from "../models/models_0";
-import { DeleteConfiguredAudienceModelAssociation } from "../schemas/schemas_0";
+import { DeleteConfiguredAudienceModelAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteConfiguredAudienceModelAssociationCommand}.
  */
-export interface DeleteConfiguredAudienceModelAssociationCommandInput
-  extends DeleteConfiguredAudienceModelAssociationInput {}
+export interface DeleteConfiguredAudienceModelAssociationCommandInput extends DeleteConfiguredAudienceModelAssociationInput {}
 /**
  * @public
  *
  * The output of {@link DeleteConfiguredAudienceModelAssociationCommand}.
  */
-export interface DeleteConfiguredAudienceModelAssociationCommandOutput
-  extends DeleteConfiguredAudienceModelAssociationOutput,
-    __MetadataBearer {}
+export interface DeleteConfiguredAudienceModelAssociationCommandOutput extends DeleteConfiguredAudienceModelAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Provides the information necessary to delete a configured audience model association.</p>
@@ -93,7 +90,7 @@ export class DeleteConfiguredAudienceModelAssociationCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "DeleteConfiguredAudienceModelAssociation", {})
   .n("CleanRoomsClient", "DeleteConfiguredAudienceModelAssociationCommand")
-  .sc(DeleteConfiguredAudienceModelAssociation)
+  .sc(DeleteConfiguredAudienceModelAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

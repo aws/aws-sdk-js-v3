@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAccountInformationRequest, GetAccountInformationResponse } from "../models/models_0";
-import { GetAccountInformation } from "../schemas/schemas_0";
+import { GetAccountInformation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class GetAccountInformationCommand extends $Command
   })
   .s("Account", "GetAccountInformation", {})
   .n("AccountClient", "GetAccountInformationCommand")
-  .sc(GetAccountInformation)
+  .sc(GetAccountInformation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

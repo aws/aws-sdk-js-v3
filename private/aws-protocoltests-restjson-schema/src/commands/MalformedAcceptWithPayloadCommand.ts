@@ -11,7 +11,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { MalformedAcceptWithPayload } from "../schemas/schemas_0";
+import { MalformedAcceptWithPayload$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -36,9 +36,7 @@ export type MalformedAcceptWithPayloadCommandOutputType = Omit<MalformedAcceptWi
  *
  * The output of {@link MalformedAcceptWithPayloadCommand}.
  */
-export interface MalformedAcceptWithPayloadCommandOutput
-  extends MalformedAcceptWithPayloadCommandOutputType,
-    __MetadataBearer {}
+export interface MalformedAcceptWithPayloadCommandOutput extends MalformedAcceptWithPayloadCommandOutputType, __MetadataBearer {}
 
 /**
  * @public
@@ -85,7 +83,7 @@ export class MalformedAcceptWithPayloadCommand extends $Command
   })
   .s("RestJson", "MalformedAcceptWithPayload", {})
   .n("RestJsonProtocolClient", "MalformedAcceptWithPayloadCommand")
-  .sc(MalformedAcceptWithPayload)
+  .sc(MalformedAcceptWithPayload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

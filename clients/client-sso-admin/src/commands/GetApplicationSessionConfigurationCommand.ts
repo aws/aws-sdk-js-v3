@@ -8,7 +8,7 @@ import type {
   GetApplicationSessionConfigurationRequest,
   GetApplicationSessionConfigurationResponse,
 } from "../models/models_0";
-import { GetApplicationSessionConfiguration } from "../schemas/schemas_0";
+import { GetApplicationSessionConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -27,9 +27,7 @@ export interface GetApplicationSessionConfigurationCommandInput extends GetAppli
  *
  * The output of {@link GetApplicationSessionConfigurationCommand}.
  */
-export interface GetApplicationSessionConfigurationCommandOutput
-  extends GetApplicationSessionConfigurationResponse,
-    __MetadataBearer {}
+export interface GetApplicationSessionConfigurationCommandOutput extends GetApplicationSessionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the session configuration for an application in IAM Identity Center.</p> <p>The session configuration determines how users can access an application. This includes whether user background sessions are enabled. User background sessions allow users to start a job on a supported Amazon Web Services managed application without having to remain signed in to an active session while the job runs.</p>
@@ -93,7 +91,7 @@ export class GetApplicationSessionConfigurationCommand extends $Command
   })
   .s("SWBExternalService", "GetApplicationSessionConfiguration", {})
   .n("SSOAdminClient", "GetApplicationSessionConfigurationCommand")
-  .sc(GetApplicationSessionConfiguration)
+  .sc(GetApplicationSessionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

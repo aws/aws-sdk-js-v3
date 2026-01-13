@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageVodClient";
 import type { DeletePackagingConfigurationRequest, DeletePackagingConfigurationResponse } from "../models/models_0";
-import { DeletePackagingConfiguration } from "../schemas/schemas_0";
+import { DeletePackagingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DeletePackagingConfigurationCommandInput extends DeletePackagin
  *
  * The output of {@link DeletePackagingConfigurationCommand}.
  */
-export interface DeletePackagingConfigurationCommandOutput
-  extends DeletePackagingConfigurationResponse,
-    __MetadataBearer {}
+export interface DeletePackagingConfigurationCommandOutput extends DeletePackagingConfigurationResponse, __MetadataBearer {}
 
 /**
  * Deletes a MediaPackage VOD PackagingConfiguration resource.
@@ -95,7 +93,7 @@ export class DeletePackagingConfigurationCommand extends $Command
   })
   .s("MediaPackageVod", "DeletePackagingConfiguration", {})
   .n("MediaPackageVodClient", "DeletePackagingConfigurationCommand")
-  .sc(DeletePackagingConfiguration)
+  .sc(DeletePackagingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   ListSupplementalTaxRegistrationsRequest,
   ListSupplementalTaxRegistrationsResponse,
 } from "../models/models_0";
-import { ListSupplementalTaxRegistrations } from "../schemas/schemas_0";
+import { ListSupplementalTaxRegistrations$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig } from "../TaxSettingsClient";
 
 /**
@@ -27,9 +27,7 @@ export interface ListSupplementalTaxRegistrationsCommandInput extends ListSupple
  *
  * The output of {@link ListSupplementalTaxRegistrationsCommand}.
  */
-export interface ListSupplementalTaxRegistrationsCommandOutput
-  extends ListSupplementalTaxRegistrationsResponse,
-    __MetadataBearer {}
+export interface ListSupplementalTaxRegistrationsCommandOutput extends ListSupplementalTaxRegistrationsResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -110,7 +108,7 @@ export class ListSupplementalTaxRegistrationsCommand extends $Command
   })
   .s("TaxSettings", "ListSupplementalTaxRegistrations", {})
   .n("TaxSettingsClient", "ListSupplementalTaxRegistrationsCommand")
-  .sc(ListSupplementalTaxRegistrations)
+  .sc(ListSupplementalTaxRegistrations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

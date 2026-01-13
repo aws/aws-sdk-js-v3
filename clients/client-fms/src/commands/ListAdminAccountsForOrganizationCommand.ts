@@ -9,7 +9,7 @@ import type {
   ListAdminAccountsForOrganizationRequest,
   ListAdminAccountsForOrganizationResponse,
 } from "../models/models_0";
-import { ListAdminAccountsForOrganization } from "../schemas/schemas_0";
+import { ListAdminAccountsForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListAdminAccountsForOrganizationCommandInput extends ListAdminA
  *
  * The output of {@link ListAdminAccountsForOrganizationCommand}.
  */
-export interface ListAdminAccountsForOrganizationCommandOutput
-  extends ListAdminAccountsForOrganizationResponse,
-    __MetadataBearer {}
+export interface ListAdminAccountsForOrganizationCommandOutput extends ListAdminAccountsForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a <code>AdminAccounts</code> object that lists the Firewall Manager administrators within the organization that are onboarded to Firewall Manager by <a>AssociateAdminAccount</a>.</p>
@@ -107,7 +105,7 @@ export class ListAdminAccountsForOrganizationCommand extends $Command
   })
   .s("AWSFMS_20180101", "ListAdminAccountsForOrganization", {})
   .n("FMSClient", "ListAdminAccountsForOrganizationCommand")
-  .sc(ListAdminAccountsForOrganization)
+  .sc(ListAdminAccountsForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

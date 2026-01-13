@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import type { GetRecommendationReportDetailsRequest, GetRecommendationReportDetailsResponse } from "../models/models_0";
-import { GetRecommendationReportDetails } from "../schemas/schemas_0";
+import { GetRecommendationReportDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetRecommendationReportDetailsCommandInput extends GetRecommend
  *
  * The output of {@link GetRecommendationReportDetailsCommand}.
  */
-export interface GetRecommendationReportDetailsCommandOutput
-  extends GetRecommendationReportDetailsResponse,
-    __MetadataBearer {}
+export interface GetRecommendationReportDetailsCommandOutput extends GetRecommendationReportDetailsResponse, __MetadataBearer {}
 
 /**
  * <p> Retrieves detailed information about the specified recommendation report. </p>
@@ -105,7 +103,7 @@ export class GetRecommendationReportDetailsCommand extends $Command
   })
   .s("AWSMigrationHubStrategyRecommendation", "GetRecommendationReportDetails", {})
   .n("MigrationHubStrategyClient", "GetRecommendationReportDetailsCommand")
-  .sc(GetRecommendationReportDetails)
+  .sc(GetRecommendationReportDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

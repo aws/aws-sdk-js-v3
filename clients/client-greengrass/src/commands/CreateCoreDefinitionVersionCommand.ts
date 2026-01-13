@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import type { CreateCoreDefinitionVersionRequest, CreateCoreDefinitionVersionResponse } from "../models/models_0";
-import { CreateCoreDefinitionVersion } from "../schemas/schemas_0";
+import { CreateCoreDefinitionVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateCoreDefinitionVersionCommandInput extends CreateCoreDefin
  *
  * The output of {@link CreateCoreDefinitionVersionCommand}.
  */
-export interface CreateCoreDefinitionVersionCommandOutput
-  extends CreateCoreDefinitionVersionResponse,
-    __MetadataBearer {}
+export interface CreateCoreDefinitionVersionCommandOutput extends CreateCoreDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Creates a version of a core definition that has already been defined. Greengrass groups must each contain exactly one Greengrass core.
@@ -90,7 +88,7 @@ export class CreateCoreDefinitionVersionCommand extends $Command
   })
   .s("Greengrass", "CreateCoreDefinitionVersion", {})
   .n("GreengrassClient", "CreateCoreDefinitionVersionCommand")
-  .sc(CreateCoreDefinitionVersion)
+  .sc(CreateCoreDefinitionVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

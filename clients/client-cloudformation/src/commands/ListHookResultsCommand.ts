@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListHookResultsInput, ListHookResultsOutput } from "../models/models_0";
-import { ListHookResults } from "../schemas/schemas_0";
+import { ListHookResults$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class ListHookResultsCommand extends $Command
   })
   .s("CloudFormation", "ListHookResults", {})
   .n("CloudFormationClient", "ListHookResultsCommand")
-  .sc(ListHookResults)
+  .sc(ListHookResults$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyClient";
-import { EnableDefaultKeyReplicationRegions } from "../schemas/schemas_0";
+import { EnableDefaultKeyReplicationRegions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface EnableDefaultKeyReplicationRegionsCommandInput extends EnableDe
  *
  * The output of {@link EnableDefaultKeyReplicationRegionsCommand}.
  */
-export interface EnableDefaultKeyReplicationRegionsCommandOutput
-  extends EnableDefaultKeyReplicationRegionsOutput,
-    __MetadataBearer {}
+export interface EnableDefaultKeyReplicationRegionsCommandOutput extends EnableDefaultKeyReplicationRegionsOutput, __MetadataBearer {}
 
 /**
  * <p>Enables <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-multi-region-replication.html">Multi-Region key replication</a> settings for your Amazon Web Services account, causing new keys to be automatically replicated to the specified Amazon Web Services Regions when created.</p> <p>When Multi-Region key replication are enabled, any new keys created in your account will automatically be replicated to these regions unless you explicitly override this behavior during key creation. This simplifies key management for applications that operate across multiple regions.</p> <p>Existing keys are not affected by this operation - only keys created after enabling default replication will be automatically replicated.</p> <p> <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DisableDefaultKeyReplicationRegions.html">DisableDefaultKeyReplicationRegions</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetDefaultKeyReplicationRegions.html">GetDefaultKeyReplicationRegions</a> </p> </li> </ul>
@@ -107,7 +105,7 @@ export class EnableDefaultKeyReplicationRegionsCommand extends $Command
   })
   .s("PaymentCryptographyControlPlane", "EnableDefaultKeyReplicationRegions", {})
   .n("PaymentCryptographyClient", "EnableDefaultKeyReplicationRegionsCommand")
-  .sc(EnableDefaultKeyReplicationRegions)
+  .sc(EnableDefaultKeyReplicationRegions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

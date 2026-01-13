@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateAccessPointInput, CreateAccessPointOutput } from "../models/models_0";
-import { CreateLoadBalancer } from "../schemas/schemas_0";
+import { CreateLoadBalancer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -307,7 +307,7 @@ export class CreateLoadBalancerCommand extends $Command
   })
   .s("ElasticLoadBalancing_v7", "CreateLoadBalancer", {})
   .n("ElasticLoadBalancingClient", "CreateLoadBalancerCommand")
-  .sc(CreateLoadBalancer)
+  .sc(CreateLoadBalancer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

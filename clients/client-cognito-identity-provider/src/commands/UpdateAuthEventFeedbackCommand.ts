@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateAuthEventFeedbackRequest, UpdateAuthEventFeedbackResponse } from "../models/models_0";
-import { UpdateAuthEventFeedback } from "../schemas/schemas_0";
+import { UpdateAuthEventFeedback$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class UpdateAuthEventFeedbackCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "UpdateAuthEventFeedback", {})
   .n("CognitoIdentityProviderClient", "UpdateAuthEventFeedbackCommand")
-  .sc(UpdateAuthEventFeedback)
+  .sc(UpdateAuthEventFeedback$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

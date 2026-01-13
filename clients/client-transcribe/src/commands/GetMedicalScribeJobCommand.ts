@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMedicalScribeJobRequest, GetMedicalScribeJobResponse } from "../models/models_0";
-import { GetMedicalScribeJob } from "../schemas/schemas_0";
+import { GetMedicalScribeJob$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -139,7 +139,7 @@ export class GetMedicalScribeJobCommand extends $Command
   })
   .s("Transcribe", "GetMedicalScribeJob", {})
   .n("TranscribeClient", "GetMedicalScribeJobCommand")
-  .sc(GetMedicalScribeJob)
+  .sc(GetMedicalScribeJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

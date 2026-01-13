@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeSchedulingPoliciesRequest, DescribeSchedulingPoliciesResponse } from "../models/models_0";
-import { DescribeSchedulingPolicies } from "../schemas/schemas_0";
+import { DescribeSchedulingPolicies$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DescribeSchedulingPoliciesCommand extends $Command
   })
   .s("AWSBatchV20160810", "DescribeSchedulingPolicies", {})
   .n("BatchClient", "DescribeSchedulingPoliciesCommand")
-  .sc(DescribeSchedulingPolicies)
+  .sc(DescribeSchedulingPolicies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   ListSecurityProfileApplicationsRequest,
   ListSecurityProfileApplicationsResponse,
 } from "../models/models_2";
-import { ListSecurityProfileApplications } from "../schemas/schemas_0";
+import { ListSecurityProfileApplications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListSecurityProfileApplicationsCommandInput extends ListSecurit
  *
  * The output of {@link ListSecurityProfileApplicationsCommand}.
  */
-export interface ListSecurityProfileApplicationsCommandOutput
-  extends ListSecurityProfileApplicationsResponse,
-    __MetadataBearer {}
+export interface ListSecurityProfileApplicationsCommandOutput extends ListSecurityProfileApplicationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of third-party applications or MCP Servers in a specific security profile.</p>
@@ -107,7 +105,7 @@ export class ListSecurityProfileApplicationsCommand extends $Command
   })
   .s("AmazonConnectService", "ListSecurityProfileApplications", {})
   .n("ConnectClient", "ListSecurityProfileApplicationsCommand")
-  .sc(ListSecurityProfileApplications)
+  .sc(ListSecurityProfileApplications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

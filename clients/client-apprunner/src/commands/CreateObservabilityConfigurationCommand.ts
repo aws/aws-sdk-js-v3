@@ -9,7 +9,7 @@ import type {
   CreateObservabilityConfigurationRequest,
   CreateObservabilityConfigurationResponse,
 } from "../models/models_0";
-import { CreateObservabilityConfiguration } from "../schemas/schemas_0";
+import { CreateObservabilityConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateObservabilityConfigurationCommandInput extends CreateObse
  *
  * The output of {@link CreateObservabilityConfigurationCommand}.
  */
-export interface CreateObservabilityConfigurationCommandOutput
-  extends CreateObservabilityConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateObservabilityConfigurationCommandOutput extends CreateObservabilityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Create an App Runner observability configuration resource. App Runner requires this resource when you create or update App Runner services and you want to enable
@@ -117,7 +115,7 @@ export class CreateObservabilityConfigurationCommand extends $Command
   })
   .s("AppRunner", "CreateObservabilityConfiguration", {})
   .n("AppRunnerClient", "CreateObservabilityConfigurationCommand")
-  .sc(CreateObservabilityConfiguration)
+  .sc(CreateObservabilityConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

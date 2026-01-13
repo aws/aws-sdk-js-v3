@@ -10,7 +10,7 @@ import type {
 } from "../CostAndUsageReportServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteReportDefinitionRequest, DeleteReportDefinitionResponse } from "../models/models_0";
-import { DeleteReportDefinition } from "../schemas/schemas_0";
+import { DeleteReportDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DeleteReportDefinitionCommand extends $Command
   })
   .s("AWSOrigamiServiceGatewayService", "DeleteReportDefinition", {})
   .n("CostAndUsageReportServiceClient", "DeleteReportDefinitionCommand")
-  .sc(DeleteReportDefinition)
+  .sc(DeleteReportDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeletePerformanceAnalysisReportResponse,
 } from "../models/models_0";
 import type { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
-import { DeletePerformanceAnalysisReport } from "../schemas/schemas_0";
+import { DeletePerformanceAnalysisReport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeletePerformanceAnalysisReportCommandInput extends DeletePerfo
  *
  * The output of {@link DeletePerformanceAnalysisReportCommand}.
  */
-export interface DeletePerformanceAnalysisReportCommandOutput
-  extends DeletePerformanceAnalysisReportResponse,
-    __MetadataBearer {}
+export interface DeletePerformanceAnalysisReportCommandOutput extends DeletePerformanceAnalysisReportResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a performance analysis report.</p>
@@ -87,7 +85,7 @@ export class DeletePerformanceAnalysisReportCommand extends $Command
   })
   .s("PerformanceInsightsv20180227", "DeletePerformanceAnalysisReport", {})
   .n("PIClient", "DeletePerformanceAnalysisReportCommand")
-  .sc(DeletePerformanceAnalysisReport)
+  .sc(DeletePerformanceAnalysisReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

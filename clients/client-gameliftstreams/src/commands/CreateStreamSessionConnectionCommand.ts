@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GameLiftStreamsClient";
 import type { CreateStreamSessionConnectionInput, CreateStreamSessionConnectionOutput } from "../models/models_0";
-import { CreateStreamSessionConnection } from "../schemas/schemas_0";
+import { CreateStreamSessionConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface CreateStreamSessionConnectionCommandInput extends CreateStreamS
  *
  * The output of {@link CreateStreamSessionConnectionCommand}.
  */
-export interface CreateStreamSessionConnectionCommandOutput
-  extends CreateStreamSessionConnectionOutput,
-    __MetadataBearer {}
+export interface CreateStreamSessionConnectionCommandOutput extends CreateStreamSessionConnectionOutput, __MetadataBearer {}
 
 /**
  * <p>Enables clients to reconnect to a stream session while preserving all session state and data in the disconnected session. This reconnection process can be initiated when a stream session is in either <code>PENDING_CLIENT_RECONNECTION</code> or <code>ACTIVE</code> status. The process works as follows: </p> <ol> <li> <p>Initial disconnect:</p> <ul> <li> <p>When a client disconnects or loses connection, the stream session transitions from <code>CONNECTED</code> to <code>PENDING_CLIENT_RECONNECTION</code> </p> </li> </ul> </li> <li> <p>Reconnection time window:</p> <ul> <li> <p>Clients have <code>ConnectionTimeoutSeconds</code> (defined in <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_StartStreamSession.html">StartStreamSession</a>) to reconnect before session termination</p> </li> <li> <p>Your backend server must call <b>CreateStreamSessionConnection</b> to initiate reconnection</p> </li> <li> <p>Session transitions to <code>RECONNECTING</code> status</p> </li> </ul> </li> <li> <p>Reconnection completion:</p> <ul> <li> <p>On successful <b>CreateStreamSessionConnection</b>, session status changes to <code>ACTIVE</code> </p> </li> <li> <p>Provide the new connection information to the requesting client</p> </li> <li> <p>Client must establish connection within <code>ConnectionTimeoutSeconds</code> </p> </li> <li> <p>Session terminates automatically if client fails to connect in time</p> </li> </ul> </li> </ol> <p>For more information about the stream session lifecycle, see <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/stream-sessions.html">Stream sessions</a> in the <i>Amazon GameLift Streams Developer Guide</i>.</p> <p>To begin re-connecting to an existing stream session, specify the stream group ID and stream session ID that you want to reconnect to, and the signal request to use with the stream.</p>
@@ -100,7 +98,7 @@ export class CreateStreamSessionConnectionCommand extends $Command
   })
   .s("GameLiftStreams", "CreateStreamSessionConnection", {})
   .n("GameLiftStreamsClient", "CreateStreamSessionConnectionCommand")
-  .sc(CreateStreamSessionConnection)
+  .sc(CreateStreamSessionConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

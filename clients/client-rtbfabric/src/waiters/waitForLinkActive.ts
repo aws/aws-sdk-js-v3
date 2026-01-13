@@ -7,12 +7,12 @@ import { RTBFabricClient } from "../RTBFabricClient";
 const checkState = async (client: RTBFabricClient, input: GetLinkCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetLinkCommand(input));
+    let result: any = await client.send(new GetLinkCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: RTBFabricClient, input: GetLinkCommandInput): 
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "REJECTED") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -28,7 +28,7 @@ const checkState = async (client: RTBFabricClient, input: GetLinkCommandInput): 
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -36,7 +36,7 @@ const checkState = async (client: RTBFabricClient, input: GetLinkCommandInput): 
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "DELETED") {
         return { state: WaiterState.FAILURE, reason };
       }

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateLibraryItemReviewInput } from "../models/models_0";
 import type { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
-import { DisassociateLibraryItemReview } from "../schemas/schemas_0";
+import { DisassociateLibraryItemReview$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DisassociateLibraryItemReviewCommand extends $Command
   })
   .s("QAppsService", "DisassociateLibraryItemReview", {})
   .n("QAppsClient", "DisassociateLibraryItemReviewCommand")
-  .sc(DisassociateLibraryItemReview)
+  .sc(DisassociateLibraryItemReview$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

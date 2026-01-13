@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateMonitoringSubscriptionRequest, CreateMonitoringSubscriptionResult } from "../models/models_0";
-import { CreateMonitoringSubscription } from "../schemas/schemas_0";
+import { CreateMonitoringSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateMonitoringSubscriptionCommandInput extends CreateMonitori
  *
  * The output of {@link CreateMonitoringSubscriptionCommand}.
  */
-export interface CreateMonitoringSubscriptionCommandOutput
-  extends CreateMonitoringSubscriptionResult,
-    __MetadataBearer {}
+export interface CreateMonitoringSubscriptionCommandOutput extends CreateMonitoringSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Enables or disables additional Amazon CloudWatch metrics for the specified CloudFront distribution. The additional metrics incur an additional cost.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional">Viewing additional CloudFront distribution metrics</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
@@ -96,7 +94,7 @@ export class CreateMonitoringSubscriptionCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "CreateMonitoringSubscription", {})
   .n("CloudFrontClient", "CreateMonitoringSubscriptionCommand")
-  .sc(CreateMonitoringSubscription)
+  .sc(CreateMonitoringSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

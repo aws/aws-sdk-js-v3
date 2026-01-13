@@ -109,8 +109,14 @@ export interface LicenseManagerUserSubscriptions {
   /**
    * @see {@link AssociateUserCommand}
    */
-  associateUser(args: AssociateUserCommandInput, options?: __HttpHandlerOptions): Promise<AssociateUserCommandOutput>;
-  associateUser(args: AssociateUserCommandInput, cb: (err: any, data?: AssociateUserCommandOutput) => void): void;
+  associateUser(
+    args: AssociateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateUserCommandOutput>;
+  associateUser(
+    args: AssociateUserCommandInput,
+    cb: (err: any, data?: AssociateUserCommandOutput) => void
+  ): void;
   associateUser(
     args: AssociateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -209,8 +215,14 @@ export interface LicenseManagerUserSubscriptions {
    * @see {@link ListInstancesCommand}
    */
   listInstances(): Promise<ListInstancesCommandOutput>;
-  listInstances(args: ListInstancesCommandInput, options?: __HttpHandlerOptions): Promise<ListInstancesCommandOutput>;
-  listInstances(args: ListInstancesCommandInput, cb: (err: any, data?: ListInstancesCommandOutput) => void): void;
+  listInstances(
+    args: ListInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInstancesCommandOutput>;
+  listInstances(
+    args: ListInstancesCommandInput,
+    cb: (err: any, data?: ListInstancesCommandOutput) => void
+  ): void;
   listInstances(
     args: ListInstancesCommandInput,
     options: __HttpHandlerOptions,
@@ -341,8 +353,14 @@ export interface LicenseManagerUserSubscriptions {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -352,8 +370,14 @@ export interface LicenseManagerUserSubscriptions {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -382,7 +406,5 @@ export interface LicenseManagerUserSubscriptions {
  * <p>With License Manager, you can create user-based subscriptions to utilize licensed software with a per user subscription fee on Amazon EC2 instances.</p>
  * @public
  */
-export class LicenseManagerUserSubscriptions
-  extends LicenseManagerUserSubscriptionsClient
-  implements LicenseManagerUserSubscriptions {}
+export class LicenseManagerUserSubscriptions extends LicenseManagerUserSubscriptionsClient implements LicenseManagerUserSubscriptions {}
 createAggregatedClient(commands, LicenseManagerUserSubscriptions);

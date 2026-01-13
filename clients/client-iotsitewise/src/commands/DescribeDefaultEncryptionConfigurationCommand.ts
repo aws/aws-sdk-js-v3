@@ -9,7 +9,7 @@ import type {
   DescribeDefaultEncryptionConfigurationRequest,
   DescribeDefaultEncryptionConfigurationResponse,
 } from "../models/models_0";
-import { DescribeDefaultEncryptionConfiguration } from "../schemas/schemas_0";
+import { DescribeDefaultEncryptionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeDefaultEncryptionConfigurationCommand}.
  */
-export interface DescribeDefaultEncryptionConfigurationCommandInput
-  extends DescribeDefaultEncryptionConfigurationRequest {}
+export interface DescribeDefaultEncryptionConfigurationCommandInput extends DescribeDefaultEncryptionConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeDefaultEncryptionConfigurationCommand}.
  */
-export interface DescribeDefaultEncryptionConfigurationCommandOutput
-  extends DescribeDefaultEncryptionConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeDefaultEncryptionConfigurationCommandOutput extends DescribeDefaultEncryptionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the default encryption configuration for the Amazon Web Services account in
@@ -100,7 +97,7 @@ export class DescribeDefaultEncryptionConfigurationCommand extends $Command
   })
   .s("AWSIoTSiteWise", "DescribeDefaultEncryptionConfiguration", {})
   .n("IoTSiteWiseClient", "DescribeDefaultEncryptionConfigurationCommand")
-  .sc(DescribeDefaultEncryptionConfiguration)
+  .sc(DescribeDefaultEncryptionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import type { DescribeSlotRequest } from "../models/models_0";
 import type { DescribeSlotResponse } from "../models/models_1";
-import { DescribeSlot } from "../schemas/schemas_0";
+import { DescribeSlot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -500,7 +500,7 @@ export class DescribeSlotCommand extends $Command
   })
   .s("LexModelBuildingServiceV2", "DescribeSlot", {})
   .n("LexModelsV2Client", "DescribeSlotCommand")
-  .sc(DescribeSlot)
+  .sc(DescribeSlot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

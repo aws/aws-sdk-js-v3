@@ -9,7 +9,7 @@ import type {
   BatchDisassociateCodeSecurityScanConfigurationRequest,
   BatchDisassociateCodeSecurityScanConfigurationResponse,
 } from "../models/models_0";
-import { BatchDisassociateCodeSecurityScanConfiguration } from "../schemas/schemas_0";
+import { BatchDisassociateCodeSecurityScanConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchDisassociateCodeSecurityScanConfigurationCommand}.
  */
-export interface BatchDisassociateCodeSecurityScanConfigurationCommandInput
-  extends BatchDisassociateCodeSecurityScanConfigurationRequest {}
+export interface BatchDisassociateCodeSecurityScanConfigurationCommandInput extends BatchDisassociateCodeSecurityScanConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link BatchDisassociateCodeSecurityScanConfigurationCommand}.
  */
-export interface BatchDisassociateCodeSecurityScanConfigurationCommandOutput
-  extends BatchDisassociateCodeSecurityScanConfigurationResponse,
-    __MetadataBearer {}
+export interface BatchDisassociateCodeSecurityScanConfigurationCommandOutput extends BatchDisassociateCodeSecurityScanConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates multiple code repositories from an Amazon Inspector code security scan
@@ -127,7 +124,7 @@ export class BatchDisassociateCodeSecurityScanConfigurationCommand extends $Comm
   })
   .s("Inspector2", "BatchDisassociateCodeSecurityScanConfiguration", {})
   .n("Inspector2Client", "BatchDisassociateCodeSecurityScanConfigurationCommand")
-  .sc(BatchDisassociateCodeSecurityScanConfiguration)
+  .sc(BatchDisassociateCodeSecurityScanConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

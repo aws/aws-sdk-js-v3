@@ -21,10 +21,4 @@ export const paginateListLinuxSubscriptionInstances: (
   LicenseManagerLinuxSubscriptionsPaginationConfiguration,
   ListLinuxSubscriptionInstancesCommandInput,
   ListLinuxSubscriptionInstancesCommandOutput
->(
-  LicenseManagerLinuxSubscriptionsClient,
-  ListLinuxSubscriptionInstancesCommand,
-  "NextToken",
-  "NextToken",
-  "MaxResults"
-);
+>(LicenseManagerLinuxSubscriptionsClient, ListLinuxSubscriptionInstancesCommand, "NextToken", "NextToken", "MaxResults");

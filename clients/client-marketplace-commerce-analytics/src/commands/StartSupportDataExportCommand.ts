@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MarketplaceCommerceAnalyticsClient";
 import type { StartSupportDataExportRequest, StartSupportDataExportResult } from "../models/models_0";
-import { StartSupportDataExport } from "../schemas/schemas_0";
+import { StartSupportDataExport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class StartSupportDataExportCommand extends $Command
   })
   .s("MarketplaceCommerceAnalytics20150701", "StartSupportDataExport", {})
   .n("MarketplaceCommerceAnalyticsClient", "StartSupportDataExportCommand")
-  .sc(StartSupportDataExport)
+  .sc(StartSupportDataExport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

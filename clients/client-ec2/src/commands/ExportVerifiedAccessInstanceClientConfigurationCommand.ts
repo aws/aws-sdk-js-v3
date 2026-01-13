@@ -9,7 +9,7 @@ import type {
   ExportVerifiedAccessInstanceClientConfigurationRequest,
   ExportVerifiedAccessInstanceClientConfigurationResult,
 } from "../models/models_5";
-import { ExportVerifiedAccessInstanceClientConfiguration } from "../schemas/schemas_0";
+import { ExportVerifiedAccessInstanceClientConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ExportVerifiedAccessInstanceClientConfigurationCommand}.
  */
-export interface ExportVerifiedAccessInstanceClientConfigurationCommandInput
-  extends ExportVerifiedAccessInstanceClientConfigurationRequest {}
+export interface ExportVerifiedAccessInstanceClientConfigurationCommandInput extends ExportVerifiedAccessInstanceClientConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link ExportVerifiedAccessInstanceClientConfigurationCommand}.
  */
-export interface ExportVerifiedAccessInstanceClientConfigurationCommandOutput
-  extends ExportVerifiedAccessInstanceClientConfigurationResult,
-    __MetadataBearer {}
+export interface ExportVerifiedAccessInstanceClientConfigurationCommandOutput extends ExportVerifiedAccessInstanceClientConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Exports the client configuration for a Verified Access instance.</p>
@@ -107,7 +104,7 @@ export class ExportVerifiedAccessInstanceClientConfigurationCommand extends $Com
   })
   .s("AmazonEC2", "ExportVerifiedAccessInstanceClientConfiguration", {})
   .n("EC2Client", "ExportVerifiedAccessInstanceClientConfigurationCommand")
-  .sc(ExportVerifiedAccessInstanceClientConfiguration)
+  .sc(ExportVerifiedAccessInstanceClientConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

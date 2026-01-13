@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { UpdateFirewallEncryptionConfiguration } from "../schemas/schemas_0";
+import { UpdateFirewallEncryptionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link UpdateFirewallEncryptionConfigurationCommand}.
  */
-export interface UpdateFirewallEncryptionConfigurationCommandInput
-  extends UpdateFirewallEncryptionConfigurationRequest {}
+export interface UpdateFirewallEncryptionConfigurationCommandInput extends UpdateFirewallEncryptionConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateFirewallEncryptionConfigurationCommand}.
  */
-export interface UpdateFirewallEncryptionConfigurationCommandOutput
-  extends UpdateFirewallEncryptionConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateFirewallEncryptionConfigurationCommandOutput extends UpdateFirewallEncryptionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>A complex type that contains settings for encryption of your firewall resources.</p>
@@ -127,7 +124,7 @@ export class UpdateFirewallEncryptionConfigurationCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "UpdateFirewallEncryptionConfiguration", {})
   .n("NetworkFirewallClient", "UpdateFirewallEncryptionConfigurationCommand")
-  .sc(UpdateFirewallEncryptionConfiguration)
+  .sc(UpdateFirewallEncryptionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

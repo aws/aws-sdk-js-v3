@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAppVersionAppComponentRequest, DeleteAppVersionAppComponentResponse } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { DeleteAppVersionAppComponent } from "../schemas/schemas_0";
+import { DeleteAppVersionAppComponent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteAppVersionAppComponentCommandInput extends DeleteAppVersi
  *
  * The output of {@link DeleteAppVersionAppComponentCommand}.
  */
-export interface DeleteAppVersionAppComponentCommandOutput
-  extends DeleteAppVersionAppComponentResponse,
-    __MetadataBearer {}
+export interface DeleteAppVersionAppComponentCommandOutput extends DeleteAppVersionAppComponentResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an Application Component from the Resilience Hub application.</p>
@@ -125,7 +123,7 @@ export class DeleteAppVersionAppComponentCommand extends $Command
   })
   .s("AwsResilienceHub", "DeleteAppVersionAppComponent", {})
   .n("ResiliencehubClient", "DeleteAppVersionAppComponentCommand")
-  .sc(DeleteAppVersionAppComponent)
+  .sc(DeleteAppVersionAppComponent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

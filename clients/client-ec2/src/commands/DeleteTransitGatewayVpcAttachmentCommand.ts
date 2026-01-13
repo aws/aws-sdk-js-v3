@@ -9,7 +9,7 @@ import type {
   DeleteTransitGatewayVpcAttachmentRequest,
   DeleteTransitGatewayVpcAttachmentResult,
 } from "../models/models_3";
-import { DeleteTransitGatewayVpcAttachment } from "../schemas/schemas_0";
+import { DeleteTransitGatewayVpcAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteTransitGatewayVpcAttachmentCommandInput extends DeleteTra
  *
  * The output of {@link DeleteTransitGatewayVpcAttachmentCommand}.
  */
-export interface DeleteTransitGatewayVpcAttachmentCommandOutput
-  extends DeleteTransitGatewayVpcAttachmentResult,
-    __MetadataBearer {}
+export interface DeleteTransitGatewayVpcAttachmentCommandOutput extends DeleteTransitGatewayVpcAttachmentResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified VPC attachment.</p>
@@ -101,7 +99,7 @@ export class DeleteTransitGatewayVpcAttachmentCommand extends $Command
   })
   .s("AmazonEC2", "DeleteTransitGatewayVpcAttachment", {})
   .n("EC2Client", "DeleteTransitGatewayVpcAttachmentCommand")
-  .sc(DeleteTransitGatewayVpcAttachment)
+  .sc(DeleteTransitGatewayVpcAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

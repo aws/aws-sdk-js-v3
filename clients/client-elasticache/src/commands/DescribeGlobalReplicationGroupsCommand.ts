@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeGlobalReplicationGroupsMessage, DescribeGlobalReplicationGroupsResult } from "../models/models_0";
-import { DescribeGlobalReplicationGroups } from "../schemas/schemas_0";
+import { DescribeGlobalReplicationGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeGlobalReplicationGroupsCommandInput extends DescribeGlo
  *
  * The output of {@link DescribeGlobalReplicationGroupsCommand}.
  */
-export interface DescribeGlobalReplicationGroupsCommandOutput
-  extends DescribeGlobalReplicationGroupsResult,
-    __MetadataBearer {}
+export interface DescribeGlobalReplicationGroupsCommandOutput extends DescribeGlobalReplicationGroupsResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about a particular global replication group. If no identifier is
@@ -118,7 +116,7 @@ export class DescribeGlobalReplicationGroupsCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "DescribeGlobalReplicationGroups", {})
   .n("ElastiCacheClient", "DescribeGlobalReplicationGroupsCommand")
-  .sc(DescribeGlobalReplicationGroups)
+  .sc(DescribeGlobalReplicationGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   UpdateConfigurationSetTrackingOptionsRequest,
   UpdateConfigurationSetTrackingOptionsResponse,
 } from "../models/models_0";
-import { UpdateConfigurationSetTrackingOptions } from "../schemas/schemas_0";
+import { UpdateConfigurationSetTrackingOptions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateConfigurationSetTrackingOptionsCommand}.
  */
-export interface UpdateConfigurationSetTrackingOptionsCommandInput
-  extends UpdateConfigurationSetTrackingOptionsRequest {}
+export interface UpdateConfigurationSetTrackingOptionsCommandInput extends UpdateConfigurationSetTrackingOptionsRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateConfigurationSetTrackingOptionsCommand}.
  */
-export interface UpdateConfigurationSetTrackingOptionsCommandOutput
-  extends UpdateConfigurationSetTrackingOptionsResponse,
-    __MetadataBearer {}
+export interface UpdateConfigurationSetTrackingOptionsCommandOutput extends UpdateConfigurationSetTrackingOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies an association between a configuration set and a custom domain for open and
@@ -103,7 +100,7 @@ export class UpdateConfigurationSetTrackingOptionsCommand extends $Command
   })
   .s("SimpleEmailService", "UpdateConfigurationSetTrackingOptions", {})
   .n("SESClient", "UpdateConfigurationSetTrackingOptionsCommand")
-  .sc(UpdateConfigurationSetTrackingOptions)
+  .sc(UpdateConfigurationSetTrackingOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

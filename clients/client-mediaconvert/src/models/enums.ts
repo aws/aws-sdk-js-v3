@@ -1744,6 +1744,7 @@ export const CaptionSourceType = {
   STL: "STL",
   TELETEXT: "TELETEXT",
   TTML: "TTML",
+  TT_3GPP: "TT_3GPP",
   WEBVTT: "WEBVTT",
 } as const;
 /**
@@ -4816,6 +4817,33 @@ export type H265InterlaceMode = (typeof H265InterlaceMode)[keyof typeof H265Inte
  * @public
  * @enum
  */
+export const H265MvOverPictureBoundaries = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type H265MvOverPictureBoundaries =
+  (typeof H265MvOverPictureBoundaries)[keyof typeof H265MvOverPictureBoundaries];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265MvTemporalPredictor = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type H265MvTemporalPredictor = (typeof H265MvTemporalPredictor)[keyof typeof H265MvTemporalPredictor];
+
+/**
+ * @public
+ * @enum
+ */
 export const H265ParControl = {
   INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
   SPECIFIED: "SPECIFIED",
@@ -4967,6 +4995,19 @@ export type H265TemporalIds = (typeof H265TemporalIds)[keyof typeof H265Temporal
  * @public
  * @enum
  */
+export const H265TilePadding = {
+  NONE: "NONE",
+  PADDED: "PADDED",
+} as const;
+/**
+ * @public
+ */
+export type H265TilePadding = (typeof H265TilePadding)[keyof typeof H265TilePadding];
+
+/**
+ * @public
+ * @enum
+ */
 export const H265Tiles = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -4975,6 +5016,19 @@ export const H265Tiles = {
  * @public
  */
 export type H265Tiles = (typeof H265Tiles)[keyof typeof H265Tiles];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265TreeBlockSize = {
+  AUTO: "AUTO",
+  TREE_SIZE_32X32: "TREE_SIZE_32X32",
+} as const;
+/**
+ * @public
+ */
+export type H265TreeBlockSize = (typeof H265TreeBlockSize)[keyof typeof H265TreeBlockSize];
 
 /**
  * @public

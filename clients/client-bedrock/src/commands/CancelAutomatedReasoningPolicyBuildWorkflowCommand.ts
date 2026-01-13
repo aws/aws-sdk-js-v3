@@ -9,7 +9,7 @@ import type {
   CancelAutomatedReasoningPolicyBuildWorkflowRequest,
   CancelAutomatedReasoningPolicyBuildWorkflowResponse,
 } from "../models/models_0";
-import { CancelAutomatedReasoningPolicyBuildWorkflow } from "../schemas/schemas_0";
+import { CancelAutomatedReasoningPolicyBuildWorkflow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CancelAutomatedReasoningPolicyBuildWorkflowCommand}.
  */
-export interface CancelAutomatedReasoningPolicyBuildWorkflowCommandInput
-  extends CancelAutomatedReasoningPolicyBuildWorkflowRequest {}
+export interface CancelAutomatedReasoningPolicyBuildWorkflowCommandInput extends CancelAutomatedReasoningPolicyBuildWorkflowRequest {}
 /**
  * @public
  *
  * The output of {@link CancelAutomatedReasoningPolicyBuildWorkflowCommand}.
  */
-export interface CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput
-  extends CancelAutomatedReasoningPolicyBuildWorkflowResponse,
-    __MetadataBearer {}
+export interface CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput extends CancelAutomatedReasoningPolicyBuildWorkflowResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a running Automated Reasoning policy build workflow. This stops the policy generation process and prevents further processing of the source documents.</p>
@@ -93,7 +90,7 @@ export class CancelAutomatedReasoningPolicyBuildWorkflowCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "CancelAutomatedReasoningPolicyBuildWorkflow", {})
   .n("BedrockClient", "CancelAutomatedReasoningPolicyBuildWorkflowCommand")
-  .sc(CancelAutomatedReasoningPolicyBuildWorkflow)
+  .sc(CancelAutomatedReasoningPolicyBuildWorkflow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { QueryLineageRequest, QueryLineageResponse } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { QueryLineage } from "../schemas/schemas_0";
+import { QueryLineage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class QueryLineageCommand extends $Command
   })
   .s("SageMaker", "QueryLineage", {})
   .n("SageMakerClient", "QueryLineageCommand")
-  .sc(QueryLineage)
+  .sc(QueryLineage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

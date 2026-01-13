@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import type { CreateDashboardRequest, CreateDashboardResponse } from "../models/models_0";
-import { CreateDashboard } from "../schemas/schemas_0";
+import { CreateDashboard$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class CreateDashboardCommand extends $Command
   })
   .s("AWSIoTSiteWise", "CreateDashboard", {})
   .n("IoTSiteWiseClient", "CreateDashboardCommand")
-  .sc(CreateDashboard)
+  .sc(CreateDashboard$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

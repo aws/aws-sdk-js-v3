@@ -9,7 +9,7 @@ import type {
   UpdateAutomatedDiscoveryConfigurationRequest,
   UpdateAutomatedDiscoveryConfigurationResponse,
 } from "../models/models_0";
-import { UpdateAutomatedDiscoveryConfiguration } from "../schemas/schemas_0";
+import { UpdateAutomatedDiscoveryConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateAutomatedDiscoveryConfigurationCommand}.
  */
-export interface UpdateAutomatedDiscoveryConfigurationCommandInput
-  extends UpdateAutomatedDiscoveryConfigurationRequest {}
+export interface UpdateAutomatedDiscoveryConfigurationCommandInput extends UpdateAutomatedDiscoveryConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateAutomatedDiscoveryConfigurationCommand}.
  */
-export interface UpdateAutomatedDiscoveryConfigurationCommandOutput
-  extends UpdateAutomatedDiscoveryConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateAutomatedDiscoveryConfigurationCommandOutput extends UpdateAutomatedDiscoveryConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Changes the configuration settings and status of automated sensitive data discovery for an organization or standalone account.</p>
@@ -90,7 +87,7 @@ export class UpdateAutomatedDiscoveryConfigurationCommand extends $Command
   })
   .s("Macie2", "UpdateAutomatedDiscoveryConfiguration", {})
   .n("Macie2Client", "UpdateAutomatedDiscoveryConfigurationCommand")
-  .sc(UpdateAutomatedDiscoveryConfiguration)
+  .sc(UpdateAutomatedDiscoveryConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

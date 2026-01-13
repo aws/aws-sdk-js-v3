@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetFunctionRequest, GetFunctionResponse } from "../models/models_0";
-import { GetFunction } from "../schemas/schemas_0";
+import { GetFunction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class GetFunctionCommand extends $Command
   })
   .s("AWSDeepdishControlPlaneService", "GetFunction", {})
   .n("AppSyncClient", "GetFunctionCommand")
-  .sc(GetFunction)
+  .sc(GetFunction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

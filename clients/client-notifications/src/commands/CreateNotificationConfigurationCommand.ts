@@ -9,7 +9,7 @@ import type {
   CreateNotificationConfigurationResponse,
 } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { CreateNotificationConfiguration } from "../schemas/schemas_0";
+import { CreateNotificationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateNotificationConfigurationCommandInput extends CreateNotif
  *
  * The output of {@link CreateNotificationConfigurationCommand}.
  */
-export interface CreateNotificationConfigurationCommandOutput
-  extends CreateNotificationConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateNotificationConfigurationCommandOutput extends CreateNotificationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new <code>NotificationConfiguration</code>.</p>
@@ -102,7 +100,7 @@ export class CreateNotificationConfigurationCommand extends $Command
   })
   .s("Notifications", "CreateNotificationConfiguration", {})
   .n("NotificationsClient", "CreateNotificationConfigurationCommand")
-  .sc(CreateNotificationConfiguration)
+  .sc(CreateNotificationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -7,7 +7,7 @@ import { GlacierClient } from "../GlacierClient";
 const checkState = async (client: GlacierClient, input: DescribeVaultCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeVaultCommand(input));
+    let result: any = await client.send(new DescribeVaultCommand(input));
     reason = result;
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {

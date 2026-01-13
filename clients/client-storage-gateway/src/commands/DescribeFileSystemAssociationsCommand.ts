@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeFileSystemAssociationsInput, DescribeFileSystemAssociationsOutput } from "../models/models_0";
-import { DescribeFileSystemAssociations } from "../schemas/schemas_0";
+import { DescribeFileSystemAssociations$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -28,9 +28,7 @@ export interface DescribeFileSystemAssociationsCommandInput extends DescribeFile
  *
  * The output of {@link DescribeFileSystemAssociationsCommand}.
  */
-export interface DescribeFileSystemAssociationsCommandOutput
-  extends DescribeFileSystemAssociationsOutput,
-    __MetadataBearer {}
+export interface DescribeFileSystemAssociationsCommandOutput extends DescribeFileSystemAssociationsOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the file system association information. This operation is only supported for FSx
@@ -117,7 +115,7 @@ export class DescribeFileSystemAssociationsCommand extends $Command
   })
   .s("StorageGateway_20130630", "DescribeFileSystemAssociations", {})
   .n("StorageGatewayClient", "DescribeFileSystemAssociationsCommand")
-  .sc(DescribeFileSystemAssociations)
+  .sc(DescribeFileSystemAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

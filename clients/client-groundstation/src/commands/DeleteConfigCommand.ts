@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import type { ConfigIdResponse, DeleteConfigRequest } from "../models/models_0";
-import { DeleteConfig } from "../schemas/schemas_0";
+import { DeleteConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DeleteConfigCommand extends $Command
   })
   .s("GroundStation", "DeleteConfig", {})
   .n("GroundStationClient", "DeleteConfigCommand")
-  .sc(DeleteConfig)
+  .sc(DeleteConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

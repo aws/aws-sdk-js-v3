@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ConfirmPrivateVirtualInterfaceRequest, ConfirmPrivateVirtualInterfaceResponse } from "../models/models_0";
-import { ConfirmPrivateVirtualInterface } from "../schemas/schemas_0";
+import { ConfirmPrivateVirtualInterface$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ConfirmPrivateVirtualInterfaceCommandInput extends ConfirmPriva
  *
  * The output of {@link ConfirmPrivateVirtualInterfaceCommand}.
  */
-export interface ConfirmPrivateVirtualInterfaceCommandOutput
-  extends ConfirmPrivateVirtualInterfaceResponse,
-    __MetadataBearer {}
+export interface ConfirmPrivateVirtualInterfaceCommandOutput extends ConfirmPrivateVirtualInterfaceResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts ownership of a private virtual interface created by another Amazon Web Services account.</p>
@@ -86,7 +84,7 @@ export class ConfirmPrivateVirtualInterfaceCommand extends $Command
   })
   .s("OvertureService", "ConfirmPrivateVirtualInterface", {})
   .n("DirectConnectClient", "ConfirmPrivateVirtualInterfaceCommand")
-  .sc(ConfirmPrivateVirtualInterface)
+  .sc(ConfirmPrivateVirtualInterface$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

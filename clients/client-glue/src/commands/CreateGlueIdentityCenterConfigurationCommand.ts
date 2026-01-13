@@ -9,7 +9,7 @@ import type {
   CreateGlueIdentityCenterConfigurationRequest,
   CreateGlueIdentityCenterConfigurationResponse,
 } from "../models/models_1";
-import { CreateGlueIdentityCenterConfiguration } from "../schemas/schemas_0";
+import { CreateGlueIdentityCenterConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateGlueIdentityCenterConfigurationCommand}.
  */
-export interface CreateGlueIdentityCenterConfigurationCommandInput
-  extends CreateGlueIdentityCenterConfigurationRequest {}
+export interface CreateGlueIdentityCenterConfigurationCommandInput extends CreateGlueIdentityCenterConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateGlueIdentityCenterConfigurationCommand}.
  */
-export interface CreateGlueIdentityCenterConfigurationCommandOutput
-  extends CreateGlueIdentityCenterConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateGlueIdentityCenterConfigurationCommandOutput extends CreateGlueIdentityCenterConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new Glue Identity Center configuration to enable integration between Glue and Amazon Web Services IAM
@@ -102,7 +99,7 @@ export class CreateGlueIdentityCenterConfigurationCommand extends $Command
   })
   .s("AWSGlue", "CreateGlueIdentityCenterConfiguration", {})
   .n("GlueClient", "CreateGlueIdentityCenterConfigurationCommand")
-  .sc(CreateGlueIdentityCenterConfiguration)
+  .sc(CreateGlueIdentityCenterConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

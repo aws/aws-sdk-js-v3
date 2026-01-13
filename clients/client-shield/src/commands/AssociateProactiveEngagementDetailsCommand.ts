@@ -8,7 +8,7 @@ import type {
   AssociateProactiveEngagementDetailsRequest,
   AssociateProactiveEngagementDetailsResponse,
 } from "../models/models_0";
-import { AssociateProactiveEngagementDetails } from "../schemas/schemas_0";
+import { AssociateProactiveEngagementDetails$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -27,9 +27,7 @@ export interface AssociateProactiveEngagementDetailsCommandInput extends Associa
  *
  * The output of {@link AssociateProactiveEngagementDetailsCommand}.
  */
-export interface AssociateProactiveEngagementDetailsCommandOutput
-  extends AssociateProactiveEngagementDetailsResponse,
-    __MetadataBearer {}
+export interface AssociateProactiveEngagementDetailsCommandOutput extends AssociateProactiveEngagementDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Initializes proactive engagement and sets the list of contacts for the Shield Response Team (SRT) to use. You must provide at least one phone number in the emergency contact list. </p>
@@ -103,7 +101,7 @@ export class AssociateProactiveEngagementDetailsCommand extends $Command
   })
   .s("AWSShield_20160616", "AssociateProactiveEngagementDetails", {})
   .n("ShieldClient", "AssociateProactiveEngagementDetailsCommand")
-  .sc(AssociateProactiveEngagementDetails)
+  .sc(AssociateProactiveEngagementDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

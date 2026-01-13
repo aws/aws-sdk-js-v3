@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { GetAccountAuthorizationDetailsRequest, GetAccountAuthorizationDetailsResponse } from "../models/models_0";
-import { GetAccountAuthorizationDetails } from "../schemas/schemas_0";
+import { GetAccountAuthorizationDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetAccountAuthorizationDetailsCommandInput extends GetAccountAu
  *
  * The output of {@link GetAccountAuthorizationDetailsCommand}.
  */
-export interface GetAccountAuthorizationDetailsCommandOutput
-  extends GetAccountAuthorizationDetailsResponse,
-    __MetadataBearer {}
+export interface GetAccountAuthorizationDetailsCommandOutput extends GetAccountAuthorizationDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about all IAM users, groups, roles, and policies in your Amazon Web Services
@@ -243,7 +241,7 @@ export class GetAccountAuthorizationDetailsCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "GetAccountAuthorizationDetails", {})
   .n("IAMClient", "GetAccountAuthorizationDetailsCommand")
-  .sc(GetAccountAuthorizationDetails)
+  .sc(GetAccountAuthorizationDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

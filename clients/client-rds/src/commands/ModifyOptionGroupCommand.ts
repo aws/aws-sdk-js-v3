@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyOptionGroupMessage, ModifyOptionGroupResult } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { ModifyOptionGroup } from "../schemas/schemas_0";
+import { ModifyOptionGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -179,7 +179,7 @@ export class ModifyOptionGroupCommand extends $Command
   })
   .s("AmazonRDSv19", "ModifyOptionGroup", {})
   .n("RDSClient", "ModifyOptionGroupCommand")
-  .sc(ModifyOptionGroup)
+  .sc(ModifyOptionGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

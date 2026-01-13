@@ -49,11 +49,9 @@ export const defaultSageMakerA2IRuntimeHttpAuthSchemeParametersProvider = async 
 ): Promise<SageMakerA2IRuntimeHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -85,9 +83,7 @@ export interface SageMakerA2IRuntimeHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultSageMakerA2IRuntimeHttpAuthSchemeProvider: SageMakerA2IRuntimeHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultSageMakerA2IRuntimeHttpAuthSchemeProvider: SageMakerA2IRuntimeHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

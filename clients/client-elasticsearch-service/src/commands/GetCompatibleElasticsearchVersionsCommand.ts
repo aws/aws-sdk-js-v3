@@ -13,7 +13,7 @@ import type {
   GetCompatibleElasticsearchVersionsRequest,
   GetCompatibleElasticsearchVersionsResponse,
 } from "../models/models_0";
-import { GetCompatibleElasticsearchVersions } from "../schemas/schemas_0";
+import { GetCompatibleElasticsearchVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetCompatibleElasticsearchVersionsCommandInput extends GetCompa
  *
  * The output of {@link GetCompatibleElasticsearchVersionsCommand}.
  */
-export interface GetCompatibleElasticsearchVersionsCommandOutput
-  extends GetCompatibleElasticsearchVersionsResponse,
-    __MetadataBearer {}
+export interface GetCompatibleElasticsearchVersionsCommandOutput extends GetCompatibleElasticsearchVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -111,7 +109,7 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "GetCompatibleElasticsearchVersions", {})
   .n("ElasticsearchServiceClient", "GetCompatibleElasticsearchVersionsCommand")
-  .sc(GetCompatibleElasticsearchVersions)
+  .sc(GetCompatibleElasticsearchVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

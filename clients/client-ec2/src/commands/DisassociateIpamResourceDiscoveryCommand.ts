@@ -9,7 +9,7 @@ import type {
   DisassociateIpamResourceDiscoveryRequest,
   DisassociateIpamResourceDiscoveryResult,
 } from "../models/models_5";
-import { DisassociateIpamResourceDiscovery } from "../schemas/schemas_0";
+import { DisassociateIpamResourceDiscovery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DisassociateIpamResourceDiscoveryCommandInput extends Disassoci
  *
  * The output of {@link DisassociateIpamResourceDiscoveryCommand}.
  */
-export interface DisassociateIpamResourceDiscoveryCommandOutput
-  extends DisassociateIpamResourceDiscoveryResult,
-    __MetadataBearer {}
+export interface DisassociateIpamResourceDiscoveryCommandOutput extends DisassociateIpamResourceDiscoveryResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates a resource discovery from an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
@@ -96,7 +94,7 @@ export class DisassociateIpamResourceDiscoveryCommand extends $Command
   })
   .s("AmazonEC2", "DisassociateIpamResourceDiscovery", {})
   .n("EC2Client", "DisassociateIpamResourceDiscoveryCommand")
-  .sc(DisassociateIpamResourceDiscovery)
+  .sc(DisassociateIpamResourceDiscovery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

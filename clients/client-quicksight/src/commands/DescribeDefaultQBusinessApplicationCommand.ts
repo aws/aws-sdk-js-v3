@@ -9,7 +9,7 @@ import type {
   DescribeDefaultQBusinessApplicationResponse,
 } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeDefaultQBusinessApplication } from "../schemas/schemas_0";
+import { DescribeDefaultQBusinessApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeDefaultQBusinessApplicationCommandInput extends Describ
  *
  * The output of {@link DescribeDefaultQBusinessApplicationCommand}.
  */
-export interface DescribeDefaultQBusinessApplicationCommandOutput
-  extends DescribeDefaultQBusinessApplicationResponse,
-    __MetadataBearer {}
+export interface DescribeDefaultQBusinessApplicationCommandOutput extends DescribeDefaultQBusinessApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a Amazon Q Business application that is linked to an Quick Sight account.</p>
@@ -99,7 +97,7 @@ export class DescribeDefaultQBusinessApplicationCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeDefaultQBusinessApplication", {})
   .n("QuickSightClient", "DescribeDefaultQBusinessApplicationCommand")
-  .sc(DescribeDefaultQBusinessApplication)
+  .sc(DescribeDefaultQBusinessApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

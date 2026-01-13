@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartMetadataModelAssessmentMessage, StartMetadataModelAssessmentResponse } from "../models/models_1";
-import { StartMetadataModelAssessment } from "../schemas/schemas_0";
+import { StartMetadataModelAssessment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface StartMetadataModelAssessmentCommandInput extends StartMetadataM
  *
  * The output of {@link StartMetadataModelAssessmentCommand}.
  */
-export interface StartMetadataModelAssessmentCommandOutput
-  extends StartMetadataModelAssessmentResponse,
-    __MetadataBearer {}
+export interface StartMetadataModelAssessmentCommandOutput extends StartMetadataModelAssessmentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a database migration assessment report by assessing the migration complexity for
@@ -126,7 +124,7 @@ export class StartMetadataModelAssessmentCommand extends $Command
   })
   .s("AmazonDMSv20160101", "StartMetadataModelAssessment", {})
   .n("DatabaseMigrationServiceClient", "StartMetadataModelAssessmentCommand")
-  .sc(StartMetadataModelAssessment)
+  .sc(StartMetadataModelAssessment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

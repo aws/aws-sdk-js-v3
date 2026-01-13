@@ -8,7 +8,7 @@ import type {
   GetServiceNetworkResourceAssociationRequest,
   GetServiceNetworkResourceAssociationResponse,
 } from "../models/models_0";
-import { GetServiceNetworkResourceAssociation } from "../schemas/schemas_0";
+import { GetServiceNetworkResourceAssociation$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -27,9 +27,7 @@ export interface GetServiceNetworkResourceAssociationCommandInput extends GetSer
  *
  * The output of {@link GetServiceNetworkResourceAssociationCommand}.
  */
-export interface GetServiceNetworkResourceAssociationCommandOutput
-  extends GetServiceNetworkResourceAssociationResponse,
-    __MetadataBearer {}
+export interface GetServiceNetworkResourceAssociationCommandOutput extends GetServiceNetworkResourceAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the specified association between a service network and a resource configuration.</p>
@@ -117,7 +115,7 @@ export class GetServiceNetworkResourceAssociationCommand extends $Command
   })
   .s("MercuryControlPlane", "GetServiceNetworkResourceAssociation", {})
   .n("VPCLatticeClient", "GetServiceNetworkResourceAssociationCommand")
-  .sc(GetServiceNetworkResourceAssociation)
+  .sc(GetServiceNetworkResourceAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

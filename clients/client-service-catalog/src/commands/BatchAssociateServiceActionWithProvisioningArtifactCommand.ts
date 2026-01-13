@@ -8,7 +8,7 @@ import type {
   BatchAssociateServiceActionWithProvisioningArtifactInput,
   BatchAssociateServiceActionWithProvisioningArtifactOutput,
 } from "../models/models_0";
-import { BatchAssociateServiceActionWithProvisioningArtifact } from "../schemas/schemas_0";
+import { BatchAssociateServiceActionWithProvisioningArtifact$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link BatchAssociateServiceActionWithProvisioningArtifactCommand}.
  */
-export interface BatchAssociateServiceActionWithProvisioningArtifactCommandInput
-  extends BatchAssociateServiceActionWithProvisioningArtifactInput {}
+export interface BatchAssociateServiceActionWithProvisioningArtifactCommandInput extends BatchAssociateServiceActionWithProvisioningArtifactInput {}
 /**
  * @public
  *
  * The output of {@link BatchAssociateServiceActionWithProvisioningArtifactCommand}.
  */
-export interface BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
-  extends BatchAssociateServiceActionWithProvisioningArtifactOutput,
-    __MetadataBearer {}
+export interface BatchAssociateServiceActionWithProvisioningArtifactCommandOutput extends BatchAssociateServiceActionWithProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
  * <p>Associates multiple self-service actions with provisioning artifacts.</p>
@@ -101,7 +98,7 @@ export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends 
   })
   .s("AWS242ServiceCatalogService", "BatchAssociateServiceActionWithProvisioningArtifact", {})
   .n("ServiceCatalogClient", "BatchAssociateServiceActionWithProvisioningArtifactCommand")
-  .sc(BatchAssociateServiceActionWithProvisioningArtifact)
+  .sc(BatchAssociateServiceActionWithProvisioningArtifact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   CreateUserAccessLoggingSettingsRequest,
   CreateUserAccessLoggingSettingsResponse,
 } from "../models/models_0";
-import { CreateUserAccessLoggingSettings } from "../schemas/schemas_0";
+import { CreateUserAccessLoggingSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -27,9 +27,7 @@ export interface CreateUserAccessLoggingSettingsCommandInput extends CreateUserA
  *
  * The output of {@link CreateUserAccessLoggingSettingsCommand}.
  */
-export interface CreateUserAccessLoggingSettingsCommandOutput
-  extends CreateUserAccessLoggingSettingsResponse,
-    __MetadataBearer {}
+export interface CreateUserAccessLoggingSettingsCommandOutput extends CreateUserAccessLoggingSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a user access logging settings resource that can be associated with a web portal.</p>
@@ -103,7 +101,7 @@ export class CreateUserAccessLoggingSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "CreateUserAccessLoggingSettings", {})
   .n("WorkSpacesWebClient", "CreateUserAccessLoggingSettingsCommand")
-  .sc(CreateUserAccessLoggingSettings)
+  .sc(CreateUserAccessLoggingSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

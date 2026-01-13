@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchEventsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeauthorizeConnectionRequest, DeauthorizeConnectionResponse } from "../models/models_0";
-import { DeauthorizeConnection } from "../schemas/schemas_0";
+import { DeauthorizeConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeauthorizeConnectionCommand extends $Command
   })
   .s("AWSEvents", "DeauthorizeConnection", {})
   .n("CloudWatchEventsClient", "DeauthorizeConnectionCommand")
-  .sc(DeauthorizeConnection)
+  .sc(DeauthorizeConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

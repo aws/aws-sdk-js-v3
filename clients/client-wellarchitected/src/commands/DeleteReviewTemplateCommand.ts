@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteReviewTemplateInput } from "../models/models_0";
-import { DeleteReviewTemplate } from "../schemas/schemas_0";
+import { DeleteReviewTemplate$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -98,7 +98,7 @@ export class DeleteReviewTemplateCommand extends $Command
   })
   .s("WellArchitectedApiServiceLambda", "DeleteReviewTemplate", {})
   .n("WellArchitectedClient", "DeleteReviewTemplateCommand")
-  .sc(DeleteReviewTemplate)
+  .sc(DeleteReviewTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

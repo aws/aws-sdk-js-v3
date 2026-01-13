@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { DataShare } from "../models/models_0";
 import type { RejectDataShareMessage } from "../models/models_1";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { RejectDataShare } from "../schemas/schemas_0";
+import { RejectDataShare$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class RejectDataShareCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "RejectDataShare", {})
   .n("RedshiftClient", "RejectDataShareCommand")
-  .sc(RejectDataShare)
+  .sc(RejectDataShare$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DisassociateCapacityReservationBillingOwnerRequest,
   DisassociateCapacityReservationBillingOwnerResult,
 } from "../models/models_5";
-import { DisassociateCapacityReservationBillingOwner } from "../schemas/schemas_0";
+import { DisassociateCapacityReservationBillingOwner$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateCapacityReservationBillingOwnerCommand}.
  */
-export interface DisassociateCapacityReservationBillingOwnerCommandInput
-  extends DisassociateCapacityReservationBillingOwnerRequest {}
+export interface DisassociateCapacityReservationBillingOwnerCommandInput extends DisassociateCapacityReservationBillingOwnerRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateCapacityReservationBillingOwnerCommand}.
  */
-export interface DisassociateCapacityReservationBillingOwnerCommandOutput
-  extends DisassociateCapacityReservationBillingOwnerResult,
-    __MetadataBearer {}
+export interface DisassociateCapacityReservationBillingOwnerCommandOutput extends DisassociateCapacityReservationBillingOwnerResult, __MetadataBearer {}
 
 /**
  * <p>Cancels a pending request to assign billing of the unused capacity of a Capacity
@@ -84,7 +81,7 @@ export class DisassociateCapacityReservationBillingOwnerCommand extends $Command
   })
   .s("AmazonEC2", "DisassociateCapacityReservationBillingOwner", {})
   .n("EC2Client", "DisassociateCapacityReservationBillingOwnerCommand")
-  .sc(DisassociateCapacityReservationBillingOwner)
+  .sc(DisassociateCapacityReservationBillingOwner$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

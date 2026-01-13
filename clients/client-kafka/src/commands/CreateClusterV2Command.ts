@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import type { CreateClusterV2Request, CreateClusterV2Response } from "../models/models_0";
-import { CreateClusterV2 } from "../schemas/schemas_0";
+import { CreateClusterV2$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -227,7 +227,7 @@ export class CreateClusterV2Command extends $Command
   })
   .s("Kafka", "CreateClusterV2", {})
   .n("KafkaClient", "CreateClusterV2Command")
-  .sc(CreateClusterV2)
+  .sc(CreateClusterV2$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -11,7 +11,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { DuplexStream } from "../schemas/schemas_0";
+import { DuplexStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -154,7 +154,10 @@ export class DuplexStreamCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getEventStreamPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getEventStreamPlugin(config),
+    ];
   })
   .s("RestJson", "DuplexStream", {
     /**
@@ -166,7 +169,7 @@ export class DuplexStreamCommand extends $Command
     },
   })
   .n("RestJsonProtocolClient", "DuplexStreamCommand")
-  .sc(DuplexStream)
+  .sc(DuplexStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

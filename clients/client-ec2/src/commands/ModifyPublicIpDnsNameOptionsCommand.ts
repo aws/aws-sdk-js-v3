@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyPublicIpDnsNameOptionsRequest, ModifyPublicIpDnsNameOptionsResult } from "../models/models_6";
-import { ModifyPublicIpDnsNameOptions } from "../schemas/schemas_0";
+import { ModifyPublicIpDnsNameOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ModifyPublicIpDnsNameOptionsCommandInput extends ModifyPublicIp
  *
  * The output of {@link ModifyPublicIpDnsNameOptionsCommand}.
  */
-export interface ModifyPublicIpDnsNameOptionsCommandOutput
-  extends ModifyPublicIpDnsNameOptionsResult,
-    __MetadataBearer {}
+export interface ModifyPublicIpDnsNameOptionsCommandOutput extends ModifyPublicIpDnsNameOptionsResult, __MetadataBearer {}
 
 /**
  * <p>Modify public hostname options for a network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -77,7 +75,7 @@ export class ModifyPublicIpDnsNameOptionsCommand extends $Command
   })
   .s("AmazonEC2", "ModifyPublicIpDnsNameOptions", {})
   .n("EC2Client", "ModifyPublicIpDnsNameOptionsCommand")
-  .sc(ModifyPublicIpDnsNameOptions)
+  .sc(ModifyPublicIpDnsNameOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

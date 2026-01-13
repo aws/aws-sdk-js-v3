@@ -8,7 +8,7 @@ import type {
   GetDataIntegrationFlowExecutionRequest,
   GetDataIntegrationFlowExecutionResponse,
 } from "../models/models_0";
-import { GetDataIntegrationFlowExecution } from "../schemas/schemas_0";
+import { GetDataIntegrationFlowExecution$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
@@ -27,9 +27,7 @@ export interface GetDataIntegrationFlowExecutionCommandInput extends GetDataInte
  *
  * The output of {@link GetDataIntegrationFlowExecutionCommand}.
  */
-export interface GetDataIntegrationFlowExecutionCommandOutput
-  extends GetDataIntegrationFlowExecutionResponse,
-    __MetadataBearer {}
+export interface GetDataIntegrationFlowExecutionCommandOutput extends GetDataIntegrationFlowExecutionResponse, __MetadataBearer {}
 
 /**
  * <p>Get the flow execution.</p>
@@ -183,7 +181,7 @@ export class GetDataIntegrationFlowExecutionCommand extends $Command
   })
   .s("GalaxyPublicAPIGateway", "GetDataIntegrationFlowExecution", {})
   .n("SupplyChainClient", "GetDataIntegrationFlowExecutionCommand")
-  .sc(GetDataIntegrationFlowExecution)
+  .sc(GetDataIntegrationFlowExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

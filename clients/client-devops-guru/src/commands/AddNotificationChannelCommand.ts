@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AddNotificationChannelRequest, AddNotificationChannelResponse } from "../models/models_0";
-import { AddNotificationChannel } from "../schemas/schemas_0";
+import { AddNotificationChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class AddNotificationChannelCommand extends $Command
   })
   .s("CapstoneControlPlaneService", "AddNotificationChannel", {})
   .n("DevOpsGuruClient", "AddNotificationChannelCommand")
-  .sc(AddNotificationChannel)
+  .sc(AddNotificationChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

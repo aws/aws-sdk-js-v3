@@ -8,7 +8,7 @@ import type {
   ListAccountAssignmentCreationStatusRequest,
   ListAccountAssignmentCreationStatusResponse,
 } from "../models/models_0";
-import { ListAccountAssignmentCreationStatus } from "../schemas/schemas_0";
+import { ListAccountAssignmentCreationStatus$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -27,9 +27,7 @@ export interface ListAccountAssignmentCreationStatusCommandInput extends ListAcc
  *
  * The output of {@link ListAccountAssignmentCreationStatusCommand}.
  */
-export interface ListAccountAssignmentCreationStatusCommandOutput
-  extends ListAccountAssignmentCreationStatusResponse,
-    __MetadataBearer {}
+export interface ListAccountAssignmentCreationStatusCommandOutput extends ListAccountAssignmentCreationStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the status of the Amazon Web Services account assignment creation requests for a specified IAM Identity Center instance.</p>
@@ -105,7 +103,7 @@ export class ListAccountAssignmentCreationStatusCommand extends $Command
   })
   .s("SWBExternalService", "ListAccountAssignmentCreationStatus", {})
   .n("SSOAdminClient", "ListAccountAssignmentCreationStatusCommand")
-  .sc(ListAccountAssignmentCreationStatus)
+  .sc(ListAccountAssignmentCreationStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

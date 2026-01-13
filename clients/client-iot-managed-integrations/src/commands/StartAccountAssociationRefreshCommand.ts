@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { StartAccountAssociationRefreshRequest, StartAccountAssociationRefreshResponse } from "../models/models_0";
-import { StartAccountAssociationRefresh } from "../schemas/schemas_0";
+import { StartAccountAssociationRefresh$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface StartAccountAssociationRefreshCommandInput extends StartAccount
  *
  * The output of {@link StartAccountAssociationRefreshCommand}.
  */
-export interface StartAccountAssociationRefreshCommandOutput
-  extends StartAccountAssociationRefreshResponse,
-    __MetadataBearer {}
+export interface StartAccountAssociationRefreshCommandOutput extends StartAccountAssociationRefreshResponse, __MetadataBearer {}
 
 /**
  * <p>Initiates a refresh of an existing account association to update its authorization and connection status.</p>
@@ -97,7 +95,7 @@ export class StartAccountAssociationRefreshCommand extends $Command
   })
   .s("IotManagedIntegrations", "StartAccountAssociationRefresh", {})
   .n("IoTManagedIntegrationsClient", "StartAccountAssociationRefreshCommand")
-  .sc(StartAccountAssociationRefresh)
+  .sc(StartAccountAssociationRefresh$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

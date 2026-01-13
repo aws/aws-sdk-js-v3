@@ -9,7 +9,7 @@ import type {
   GetSensitiveDataOccurrencesAvailabilityRequest,
   GetSensitiveDataOccurrencesAvailabilityResponse,
 } from "../models/models_0";
-import { GetSensitiveDataOccurrencesAvailability } from "../schemas/schemas_0";
+import { GetSensitiveDataOccurrencesAvailability$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetSensitiveDataOccurrencesAvailabilityCommand}.
  */
-export interface GetSensitiveDataOccurrencesAvailabilityCommandInput
-  extends GetSensitiveDataOccurrencesAvailabilityRequest {}
+export interface GetSensitiveDataOccurrencesAvailabilityCommandInput extends GetSensitiveDataOccurrencesAvailabilityRequest {}
 /**
  * @public
  *
  * The output of {@link GetSensitiveDataOccurrencesAvailabilityCommand}.
  */
-export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput
-  extends GetSensitiveDataOccurrencesAvailabilityResponse,
-    __MetadataBearer {}
+export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput extends GetSensitiveDataOccurrencesAvailabilityResponse, __MetadataBearer {}
 
 /**
  * <p>Checks whether occurrences of sensitive data can be retrieved for a finding.</p>
@@ -94,7 +91,7 @@ export class GetSensitiveDataOccurrencesAvailabilityCommand extends $Command
   })
   .s("Macie2", "GetSensitiveDataOccurrencesAvailability", {})
   .n("Macie2Client", "GetSensitiveDataOccurrencesAvailabilityCommand")
-  .sc(GetSensitiveDataOccurrencesAvailability)
+  .sc(GetSensitiveDataOccurrencesAvailability$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

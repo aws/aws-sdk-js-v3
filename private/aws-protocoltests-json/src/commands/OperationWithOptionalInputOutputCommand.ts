@@ -28,9 +28,7 @@ export interface OperationWithOptionalInputOutputCommandInput extends OperationW
  *
  * The output of {@link OperationWithOptionalInputOutputCommand}.
  */
-export interface OperationWithOptionalInputOutputCommandOutput
-  extends OperationWithOptionalInputOutputOutput,
-    __MetadataBearer {}
+export interface OperationWithOptionalInputOutputCommandOutput extends OperationWithOptionalInputOutputOutput, __MetadataBearer {}
 
 /**
  * @public

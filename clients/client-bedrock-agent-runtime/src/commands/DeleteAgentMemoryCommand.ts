@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAgentMemoryRequest, DeleteAgentMemoryResponse } from "../models/models_0";
-import { DeleteAgentMemory } from "../schemas/schemas_0";
+import { DeleteAgentMemory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class DeleteAgentMemoryCommand extends $Command
   })
   .s("AmazonBedrockAgentRunTimeService", "DeleteAgentMemory", {})
   .n("BedrockAgentRuntimeClient", "DeleteAgentMemoryCommand")
-  .sc(DeleteAgentMemory)
+  .sc(DeleteAgentMemory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

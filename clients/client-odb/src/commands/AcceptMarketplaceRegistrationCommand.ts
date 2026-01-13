@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AcceptMarketplaceRegistrationInput, AcceptMarketplaceRegistrationOutput } from "../models/models_0";
 import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { AcceptMarketplaceRegistration } from "../schemas/schemas_0";
+import { AcceptMarketplaceRegistration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface AcceptMarketplaceRegistrationCommandInput extends AcceptMarketp
  *
  * The output of {@link AcceptMarketplaceRegistrationCommand}.
  */
-export interface AcceptMarketplaceRegistrationCommandOutput
-  extends AcceptMarketplaceRegistrationOutput,
-    __MetadataBearer {}
+export interface AcceptMarketplaceRegistrationCommandOutput extends AcceptMarketplaceRegistrationOutput, __MetadataBearer {}
 
 /**
  * <p>Registers the Amazon Web Services Marketplace token for your Amazon Web Services account to activate your Oracle Database@Amazon Web Services subscription.</p>
@@ -88,7 +86,7 @@ export class AcceptMarketplaceRegistrationCommand extends $Command
   })
   .s("Odb", "AcceptMarketplaceRegistration", {})
   .n("OdbClient", "AcceptMarketplaceRegistrationCommand")
-  .sc(AcceptMarketplaceRegistration)
+  .sc(AcceptMarketplaceRegistration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

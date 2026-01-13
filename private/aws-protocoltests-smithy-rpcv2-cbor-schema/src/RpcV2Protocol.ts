@@ -104,8 +104,14 @@ export interface RpcV2Protocol {
    * @see {@link Float16Command}
    */
   float16(): Promise<Float16CommandOutput>;
-  float16(args: Float16CommandInput, options?: __HttpHandlerOptions): Promise<Float16CommandOutput>;
-  float16(args: Float16CommandInput, cb: (err: any, data?: Float16CommandOutput) => void): void;
+  float16(
+    args: Float16CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<Float16CommandOutput>;
+  float16(
+    args: Float16CommandInput,
+    cb: (err: any, data?: Float16CommandOutput) => void
+  ): void;
   float16(
     args: Float16CommandInput,
     options: __HttpHandlerOptions,
@@ -152,8 +158,14 @@ export interface RpcV2Protocol {
    * @see {@link NoInputOutputCommand}
    */
   noInputOutput(): Promise<NoInputOutputCommandOutput>;
-  noInputOutput(args: NoInputOutputCommandInput, options?: __HttpHandlerOptions): Promise<NoInputOutputCommandOutput>;
-  noInputOutput(args: NoInputOutputCommandInput, cb: (err: any, data?: NoInputOutputCommandOutput) => void): void;
+  noInputOutput(
+    args: NoInputOutputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<NoInputOutputCommandOutput>;
+  noInputOutput(
+    args: NoInputOutputCommandInput,
+    cb: (err: any, data?: NoInputOutputCommandOutput) => void
+  ): void;
   noInputOutput(
     args: NoInputOutputCommandInput,
     options: __HttpHandlerOptions,
@@ -204,7 +216,10 @@ export interface RpcV2Protocol {
     args: RecursiveShapesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RecursiveShapesCommandOutput>;
-  recursiveShapes(args: RecursiveShapesCommandInput, cb: (err: any, data?: RecursiveShapesCommandOutput) => void): void;
+  recursiveShapes(
+    args: RecursiveShapesCommandInput,
+    cb: (err: any, data?: RecursiveShapesCommandOutput) => void
+  ): void;
   recursiveShapes(
     args: RecursiveShapesCommandInput,
     options: __HttpHandlerOptions,
@@ -237,7 +252,10 @@ export interface RpcV2Protocol {
     args: RpcV2CborListsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RpcV2CborListsCommandOutput>;
-  rpcV2CborLists(args: RpcV2CborListsCommandInput, cb: (err: any, data?: RpcV2CborListsCommandOutput) => void): void;
+  rpcV2CborLists(
+    args: RpcV2CborListsCommandInput,
+    cb: (err: any, data?: RpcV2CborListsCommandOutput) => void
+  ): void;
   rpcV2CborLists(
     args: RpcV2CborListsCommandInput,
     options: __HttpHandlerOptions,

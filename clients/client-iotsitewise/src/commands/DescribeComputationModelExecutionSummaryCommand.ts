@@ -9,7 +9,7 @@ import type {
   DescribeComputationModelExecutionSummaryRequest,
   DescribeComputationModelExecutionSummaryResponse,
 } from "../models/models_0";
-import { DescribeComputationModelExecutionSummary } from "../schemas/schemas_0";
+import { DescribeComputationModelExecutionSummary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeComputationModelExecutionSummaryCommand}.
  */
-export interface DescribeComputationModelExecutionSummaryCommandInput
-  extends DescribeComputationModelExecutionSummaryRequest {}
+export interface DescribeComputationModelExecutionSummaryCommandInput extends DescribeComputationModelExecutionSummaryRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeComputationModelExecutionSummaryCommand}.
  */
-export interface DescribeComputationModelExecutionSummaryCommandOutput
-  extends DescribeComputationModelExecutionSummaryResponse,
-    __MetadataBearer {}
+export interface DescribeComputationModelExecutionSummaryCommandOutput extends DescribeComputationModelExecutionSummaryResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the execution summary of a computation model.</p>
@@ -103,7 +100,7 @@ export class DescribeComputationModelExecutionSummaryCommand extends $Command
   })
   .s("AWSIoTSiteWise", "DescribeComputationModelExecutionSummary", {})
   .n("IoTSiteWiseClient", "DescribeComputationModelExecutionSummaryCommand")
-  .sc(DescribeComputationModelExecutionSummary)
+  .sc(DescribeComputationModelExecutionSummary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

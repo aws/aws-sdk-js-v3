@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateSpendingLimitRequest, UpdateSpendingLimitResponse } from "../models/models_0";
-import { UpdateSpendingLimit } from "../schemas/schemas_0";
+import { UpdateSpendingLimit$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class UpdateSpendingLimitCommand extends $Command
   })
   .s("Braket", "UpdateSpendingLimit", {})
   .n("BraketClient", "UpdateSpendingLimitCommand")
-  .sc(UpdateSpendingLimit)
+  .sc(UpdateSpendingLimit$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

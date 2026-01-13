@@ -9,7 +9,7 @@ import type {
   ListOrganizationalUnitsForParentResponse,
 } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { ListOrganizationalUnitsForParent } from "../schemas/schemas_0";
+import { ListOrganizationalUnitsForParent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListOrganizationalUnitsForParentCommandInput extends ListOrgani
  *
  * The output of {@link ListOrganizationalUnitsForParentCommand}.
  */
-export interface ListOrganizationalUnitsForParentCommandOutput
-  extends ListOrganizationalUnitsForParentResponse,
-    __MetadataBearer {}
+export interface ListOrganizationalUnitsForParentCommandOutput extends ListOrganizationalUnitsForParentResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the organizational units (OUs) in a parent organizational unit or root.</p>
@@ -290,7 +288,7 @@ export class ListOrganizationalUnitsForParentCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "ListOrganizationalUnitsForParent", {})
   .n("OrganizationsClient", "ListOrganizationalUnitsForParentCommand")
-  .sc(ListOrganizationalUnitsForParent)
+  .sc(ListOrganizationalUnitsForParent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

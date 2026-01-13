@@ -13,7 +13,7 @@ import type {
   DeleteApplicationInputProcessingConfigurationRequest,
   DeleteApplicationInputProcessingConfigurationResponse,
 } from "../models/models_0";
-import { DeleteApplicationInputProcessingConfiguration } from "../schemas/schemas_0";
+import { DeleteApplicationInputProcessingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DeleteApplicationInputProcessingConfigurationCommand}.
  */
-export interface DeleteApplicationInputProcessingConfigurationCommandInput
-  extends DeleteApplicationInputProcessingConfigurationRequest {}
+export interface DeleteApplicationInputProcessingConfigurationCommandInput extends DeleteApplicationInputProcessingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteApplicationInputProcessingConfigurationCommand}.
  */
-export interface DeleteApplicationInputProcessingConfigurationCommandOutput
-  extends DeleteApplicationInputProcessingConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteApplicationInputProcessingConfigurationCommandOutput extends DeleteApplicationInputProcessingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an <a>InputProcessingConfiguration</a> from an input.</p>
@@ -103,7 +100,7 @@ export class DeleteApplicationInputProcessingConfigurationCommand extends $Comma
   })
   .s("KinesisAnalytics_20180523", "DeleteApplicationInputProcessingConfiguration", {})
   .n("KinesisAnalyticsV2Client", "DeleteApplicationInputProcessingConfigurationCommand")
-  .sc(DeleteApplicationInputProcessingConfiguration)
+  .sc(DeleteApplicationInputProcessingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

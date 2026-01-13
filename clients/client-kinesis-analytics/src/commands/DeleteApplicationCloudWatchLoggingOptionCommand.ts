@@ -13,7 +13,7 @@ import type {
   DeleteApplicationCloudWatchLoggingOptionRequest,
   DeleteApplicationCloudWatchLoggingOptionResponse,
 } from "../models/models_0";
-import { DeleteApplicationCloudWatchLoggingOption } from "../schemas/schemas_0";
+import { DeleteApplicationCloudWatchLoggingOption$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DeleteApplicationCloudWatchLoggingOptionCommand}.
  */
-export interface DeleteApplicationCloudWatchLoggingOptionCommandInput
-  extends DeleteApplicationCloudWatchLoggingOptionRequest {}
+export interface DeleteApplicationCloudWatchLoggingOptionCommandInput extends DeleteApplicationCloudWatchLoggingOptionRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteApplicationCloudWatchLoggingOptionCommand}.
  */
-export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
-  extends DeleteApplicationCloudWatchLoggingOptionResponse,
-    __MetadataBearer {}
+export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput extends DeleteApplicationCloudWatchLoggingOptionResponse, __MetadataBearer {}
 
 /**
  * <note>
@@ -103,7 +100,7 @@ export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command
   })
   .s("KinesisAnalytics_20150814", "DeleteApplicationCloudWatchLoggingOption", {})
   .n("KinesisAnalyticsClient", "DeleteApplicationCloudWatchLoggingOptionCommand")
-  .sc(DeleteApplicationCloudWatchLoggingOption)
+  .sc(DeleteApplicationCloudWatchLoggingOption$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

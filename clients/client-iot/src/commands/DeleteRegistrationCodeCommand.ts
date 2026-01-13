@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { DeleteRegistrationCodeRequest, DeleteRegistrationCodeResponse } from "../models/models_0";
-import { DeleteRegistrationCode } from "../schemas/schemas_0";
+import { DeleteRegistrationCode$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DeleteRegistrationCodeCommand extends $Command
   })
   .s("AWSIotService", "DeleteRegistrationCode", {})
   .n("IoTClient", "DeleteRegistrationCodeCommand")
-  .sc(DeleteRegistrationCode)
+  .sc(DeleteRegistrationCode$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

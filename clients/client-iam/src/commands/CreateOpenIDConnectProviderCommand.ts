@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { CreateOpenIDConnectProviderRequest, CreateOpenIDConnectProviderResponse } from "../models/models_0";
-import { CreateOpenIDConnectProvider } from "../schemas/schemas_0";
+import { CreateOpenIDConnectProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateOpenIDConnectProviderCommandInput extends CreateOpenIDCon
  *
  * The output of {@link CreateOpenIDConnectProviderCommand}.
  */
-export interface CreateOpenIDConnectProviderCommandOutput
-  extends CreateOpenIDConnectProviderResponse,
-    __MetadataBearer {}
+export interface CreateOpenIDConnectProviderCommandOutput extends CreateOpenIDConnectProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an IAM entity to describe an identity provider (IdP) that supports <a href="http://openid.net/connect/">OpenID Connect (OIDC)</a>.</p>
@@ -178,7 +176,7 @@ export class CreateOpenIDConnectProviderCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "CreateOpenIDConnectProvider", {})
   .n("IAMClient", "CreateOpenIDConnectProviderCommand")
-  .sc(CreateOpenIDConnectProvider)
+  .sc(CreateOpenIDConnectProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

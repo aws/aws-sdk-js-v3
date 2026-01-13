@@ -10,7 +10,7 @@ import type {
   CreateVPCAssociationAuthorizationResponse,
 } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { CreateVPCAssociationAuthorization } from "../schemas/schemas_0";
+import { CreateVPCAssociationAuthorization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface CreateVPCAssociationAuthorizationCommandInput extends CreateVPC
  *
  * The output of {@link CreateVPCAssociationAuthorizationCommand}.
  */
-export interface CreateVPCAssociationAuthorizationCommandOutput
-  extends CreateVPCAssociationAuthorizationResponse,
-    __MetadataBearer {}
+export interface CreateVPCAssociationAuthorizationCommandOutput extends CreateVPCAssociationAuthorizationResponse, __MetadataBearer {}
 
 /**
  * <p>Authorizes the Amazon Web Services account that created a specified VPC to submit an
@@ -114,11 +112,14 @@ export class CreateVPCAssociationAuthorizationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "CreateVPCAssociationAuthorization", {})
   .n("Route53Client", "CreateVPCAssociationAuthorizationCommand")
-  .sc(CreateVPCAssociationAuthorization)
+  .sc(CreateVPCAssociationAuthorization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

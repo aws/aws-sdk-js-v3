@@ -13,7 +13,7 @@ import type {
   DeleteCalculatedAttributeDefinitionRequest,
   DeleteCalculatedAttributeDefinitionResponse,
 } from "../models/models_0";
-import { DeleteCalculatedAttributeDefinition } from "../schemas/schemas_0";
+import { DeleteCalculatedAttributeDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DeleteCalculatedAttributeDefinitionCommandInput extends DeleteC
  *
  * The output of {@link DeleteCalculatedAttributeDefinitionCommand}.
  */
-export interface DeleteCalculatedAttributeDefinitionCommandOutput
-  extends DeleteCalculatedAttributeDefinitionResponse,
-    __MetadataBearer {}
+export interface DeleteCalculatedAttributeDefinitionCommandOutput extends DeleteCalculatedAttributeDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing calculated attribute definition. Note that deleting a default
@@ -99,7 +97,7 @@ export class DeleteCalculatedAttributeDefinitionCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "DeleteCalculatedAttributeDefinition", {})
   .n("CustomerProfilesClient", "DeleteCalculatedAttributeDefinitionCommand")
-  .sc(DeleteCalculatedAttributeDefinition)
+  .sc(DeleteCalculatedAttributeDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

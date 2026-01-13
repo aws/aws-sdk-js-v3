@@ -9,7 +9,7 @@ import type {
   StartColumnStatisticsTaskRunScheduleRequest,
   StartColumnStatisticsTaskRunScheduleResponse,
 } from "../models/models_2";
-import { StartColumnStatisticsTaskRunSchedule } from "../schemas/schemas_0";
+import { StartColumnStatisticsTaskRunSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface StartColumnStatisticsTaskRunScheduleCommandInput extends StartC
  *
  * The output of {@link StartColumnStatisticsTaskRunScheduleCommand}.
  */
-export interface StartColumnStatisticsTaskRunScheduleCommandOutput
-  extends StartColumnStatisticsTaskRunScheduleResponse,
-    __MetadataBearer {}
+export interface StartColumnStatisticsTaskRunScheduleCommandOutput extends StartColumnStatisticsTaskRunScheduleResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a column statistics task run schedule.</p>
@@ -89,7 +87,7 @@ export class StartColumnStatisticsTaskRunScheduleCommand extends $Command
   })
   .s("AWSGlue", "StartColumnStatisticsTaskRunSchedule", {})
   .n("GlueClient", "StartColumnStatisticsTaskRunScheduleCommand")
-  .sc(StartColumnStatisticsTaskRunSchedule)
+  .sc(StartColumnStatisticsTaskRunSchedule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   CreateRelationalDatabaseSnapshotRequest,
   CreateRelationalDatabaseSnapshotResult,
 } from "../models/models_0";
-import { CreateRelationalDatabaseSnapshot } from "../schemas/schemas_0";
+import { CreateRelationalDatabaseSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateRelationalDatabaseSnapshotCommandInput extends CreateRela
  *
  * The output of {@link CreateRelationalDatabaseSnapshotCommand}.
  */
-export interface CreateRelationalDatabaseSnapshotCommandOutput
-  extends CreateRelationalDatabaseSnapshotResult,
-    __MetadataBearer {}
+export interface CreateRelationalDatabaseSnapshotCommandOutput extends CreateRelationalDatabaseSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Creates a snapshot of your database in Amazon Lightsail. You can use snapshots for backups,
@@ -140,7 +138,7 @@ export class CreateRelationalDatabaseSnapshotCommand extends $Command
   })
   .s("Lightsail_20161128", "CreateRelationalDatabaseSnapshot", {})
   .n("LightsailClient", "CreateRelationalDatabaseSnapshotCommand")
-  .sc(CreateRelationalDatabaseSnapshot)
+  .sc(CreateRelationalDatabaseSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

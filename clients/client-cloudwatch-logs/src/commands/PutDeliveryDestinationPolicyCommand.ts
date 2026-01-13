@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutDeliveryDestinationPolicyRequest, PutDeliveryDestinationPolicyResponse } from "../models/models_0";
-import { PutDeliveryDestinationPolicy } from "../schemas/schemas_0";
+import { PutDeliveryDestinationPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface PutDeliveryDestinationPolicyCommandInput extends PutDeliveryDes
  *
  * The output of {@link PutDeliveryDestinationPolicyCommand}.
  */
-export interface PutDeliveryDestinationPolicyCommandOutput
-  extends PutDeliveryDestinationPolicyResponse,
-    __MetadataBearer {}
+export interface PutDeliveryDestinationPolicyCommandOutput extends PutDeliveryDestinationPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates and assigns an IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account. To
@@ -122,7 +120,7 @@ export class PutDeliveryDestinationPolicyCommand extends $Command
   })
   .s("Logs_20140328", "PutDeliveryDestinationPolicy", {})
   .n("CloudWatchLogsClient", "PutDeliveryDestinationPolicyCommand")
-  .sc(PutDeliveryDestinationPolicy)
+  .sc(PutDeliveryDestinationPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

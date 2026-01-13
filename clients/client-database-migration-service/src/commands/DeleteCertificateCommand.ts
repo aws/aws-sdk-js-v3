@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCertificateMessage, DeleteCertificateResponse } from "../models/models_0";
-import { DeleteCertificate } from "../schemas/schemas_0";
+import { DeleteCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DeleteCertificateCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DeleteCertificate", {})
   .n("DatabaseMigrationServiceClient", "DeleteCertificateCommand")
-  .sc(DeleteCertificate)
+  .sc(DeleteCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

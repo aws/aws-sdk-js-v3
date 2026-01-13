@@ -21,10 +21,4 @@ export const paginateDescribeFleetAdvisorSchemaObjectSummary: (
   DatabaseMigrationServicePaginationConfiguration,
   DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
   DescribeFleetAdvisorSchemaObjectSummaryCommandOutput
->(
-  DatabaseMigrationServiceClient,
-  DescribeFleetAdvisorSchemaObjectSummaryCommand,
-  "NextToken",
-  "NextToken",
-  "MaxRecords"
-);
+>(DatabaseMigrationServiceClient, DescribeFleetAdvisorSchemaObjectSummaryCommand, "NextToken", "NextToken", "MaxRecords");

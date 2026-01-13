@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAccountHealthRequest, DescribeAccountHealthResponse } from "../models/models_0";
-import { DescribeAccountHealth } from "../schemas/schemas_0";
+import { DescribeAccountHealth$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DescribeAccountHealthCommand extends $Command
   })
   .s("CapstoneControlPlaneService", "DescribeAccountHealth", {})
   .n("DevOpsGuruClient", "DescribeAccountHealthCommand")
-  .sc(DescribeAccountHealth)
+  .sc(DescribeAccountHealth$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

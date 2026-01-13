@@ -5,9 +5,11 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import type { DescribeAuditMitigationActionsTaskRequest } from "../models/models_0";
-import type { DescribeAuditMitigationActionsTaskResponse } from "../models/models_1";
-import { DescribeAuditMitigationActionsTask } from "../schemas/schemas_0";
+import type {
+  DescribeAuditMitigationActionsTaskRequest,
+  DescribeAuditMitigationActionsTaskResponse,
+} from "../models/models_1";
+import { DescribeAuditMitigationActionsTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,9 +27,7 @@ export interface DescribeAuditMitigationActionsTaskCommandInput extends Describe
  *
  * The output of {@link DescribeAuditMitigationActionsTaskCommand}.
  */
-export interface DescribeAuditMitigationActionsTaskCommandOutput
-  extends DescribeAuditMitigationActionsTaskResponse,
-    __MetadataBearer {}
+export interface DescribeAuditMitigationActionsTaskCommandOutput extends DescribeAuditMitigationActionsTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about an audit mitigation task that is used to apply mitigation actions to a set of audit findings. Properties include the actions being applied, the audit checks to which they're being applied, the task status, and aggregated task statistics.</p>
@@ -146,7 +146,7 @@ export class DescribeAuditMitigationActionsTaskCommand extends $Command
   })
   .s("AWSIotService", "DescribeAuditMitigationActionsTask", {})
   .n("IoTClient", "DescribeAuditMitigationActionsTaskCommand")
-  .sc(DescribeAuditMitigationActionsTask)
+  .sc(DescribeAuditMitigationActionsTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

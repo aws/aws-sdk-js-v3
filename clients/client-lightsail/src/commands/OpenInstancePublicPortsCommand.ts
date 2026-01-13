@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { OpenInstancePublicPortsRequest, OpenInstancePublicPortsResult } from "../models/models_1";
-import { OpenInstancePublicPorts } from "../schemas/schemas_0";
+import { OpenInstancePublicPorts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -141,7 +141,7 @@ export class OpenInstancePublicPortsCommand extends $Command
   })
   .s("Lightsail_20161128", "OpenInstancePublicPorts", {})
   .n("LightsailClient", "OpenInstancePublicPortsCommand")
-  .sc(OpenInstancePublicPorts)
+  .sc(OpenInstancePublicPorts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

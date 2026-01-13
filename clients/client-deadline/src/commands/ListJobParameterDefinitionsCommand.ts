@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListJobParameterDefinitionsRequest, ListJobParameterDefinitionsResponse } from "../models/models_0";
-import { ListJobParameterDefinitions } from "../schemas/schemas_0";
+import { ListJobParameterDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListJobParameterDefinitionsCommandInput extends ListJobParamete
  *
  * The output of {@link ListJobParameterDefinitionsCommand}.
  */
-export interface ListJobParameterDefinitionsCommandOutput
-  extends ListJobParameterDefinitionsResponse,
-    __MetadataBearer {}
+export interface ListJobParameterDefinitionsCommandOutput extends ListJobParameterDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists parameter definitions of a job.</p>
@@ -98,7 +96,7 @@ export class ListJobParameterDefinitionsCommand extends $Command
   })
   .s("Deadline", "ListJobParameterDefinitions", {})
   .n("DeadlineClient", "ListJobParameterDefinitionsCommand")
-  .sc(ListJobParameterDefinitions)
+  .sc(ListJobParameterDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

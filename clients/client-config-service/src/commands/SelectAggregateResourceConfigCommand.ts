@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SelectAggregateResourceConfigRequest, SelectAggregateResourceConfigResponse } from "../models/models_0";
-import { SelectAggregateResourceConfig } from "../schemas/schemas_0";
+import { SelectAggregateResourceConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface SelectAggregateResourceConfigCommandInput extends SelectAggrega
  *
  * The output of {@link SelectAggregateResourceConfigCommand}.
  */
-export interface SelectAggregateResourceConfigCommandOutput
-  extends SelectAggregateResourceConfigResponse,
-    __MetadataBearer {}
+export interface SelectAggregateResourceConfigCommandOutput extends SelectAggregateResourceConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts a structured query language (SQL) SELECT command and an aggregator to query configuration state of Amazon Web Services resources across multiple accounts and regions,
@@ -114,7 +112,7 @@ export class SelectAggregateResourceConfigCommand extends $Command
   })
   .s("StarlingDoveService", "SelectAggregateResourceConfig", {})
   .n("ConfigServiceClient", "SelectAggregateResourceConfigCommand")
-  .sc(SelectAggregateResourceConfig)
+  .sc(SelectAggregateResourceConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateAnnotationStoreRequest, CreateAnnotationStoreResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { CreateAnnotationStore } from "../schemas/schemas_0";
+import { CreateAnnotationStore$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -141,7 +141,7 @@ export class CreateAnnotationStoreCommand extends $Command
   })
   .s("Omics", "CreateAnnotationStore", {})
   .n("OmicsClient", "CreateAnnotationStoreCommand")
-  .sc(CreateAnnotationStore)
+  .sc(CreateAnnotationStore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

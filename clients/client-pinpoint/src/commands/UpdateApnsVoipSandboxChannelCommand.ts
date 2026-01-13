@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateApnsVoipSandboxChannelRequest, UpdateApnsVoipSandboxChannelResponse } from "../models/models_1";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { UpdateApnsVoipSandboxChannel } from "../schemas/schemas_0";
+import { UpdateApnsVoipSandboxChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateApnsVoipSandboxChannelCommandInput extends UpdateApnsVoip
  *
  * The output of {@link UpdateApnsVoipSandboxChannelCommand}.
  */
-export interface UpdateApnsVoipSandboxChannelCommandOutput
-  extends UpdateApnsVoipSandboxChannelResponse,
-    __MetadataBearer {}
+export interface UpdateApnsVoipSandboxChannelCommandOutput extends UpdateApnsVoipSandboxChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the APNs VoIP sandbox channel for an application or updates the status and settings of the APNs VoIP sandbox channel for an application.</p>
@@ -119,7 +117,7 @@ export class UpdateApnsVoipSandboxChannelCommand extends $Command
   })
   .s("Pinpoint", "UpdateApnsVoipSandboxChannel", {})
   .n("PinpointClient", "UpdateApnsVoipSandboxChannelCommand")
-  .sc(UpdateApnsVoipSandboxChannel)
+  .sc(UpdateApnsVoipSandboxChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

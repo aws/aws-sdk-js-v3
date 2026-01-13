@@ -13,7 +13,7 @@ import type {
   CancelParticipantAuthenticationRequest,
   CancelParticipantAuthenticationResponse,
 } from "../models/models_0";
-import { CancelParticipantAuthentication } from "../schemas/schemas_0";
+import { CancelParticipantAuthentication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface CancelParticipantAuthenticationCommandInput extends CancelParti
  *
  * The output of {@link CancelParticipantAuthenticationCommand}.
  */
-export interface CancelParticipantAuthenticationCommandOutput
-  extends CancelParticipantAuthenticationResponse,
-    __MetadataBearer {}
+export interface CancelParticipantAuthenticationCommandOutput extends CancelParticipantAuthenticationResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels the authentication session. The opted out branch of the Authenticate Customer
@@ -105,7 +103,7 @@ export class CancelParticipantAuthenticationCommand extends $Command
   })
   .s("AmazonConnectParticipantServiceLambda", "CancelParticipantAuthentication", {})
   .n("ConnectParticipantClient", "CancelParticipantAuthenticationCommand")
-  .sc(CancelParticipantAuthentication)
+  .sc(CancelParticipantAuthentication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

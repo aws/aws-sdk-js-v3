@@ -9,7 +9,7 @@ import type {
   GetConfiguredTableAssociationAnalysisRuleInput,
   GetConfiguredTableAssociationAnalysisRuleOutput,
 } from "../models/models_0";
-import { GetConfiguredTableAssociationAnalysisRule } from "../schemas/schemas_0";
+import { GetConfiguredTableAssociationAnalysisRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetConfiguredTableAssociationAnalysisRuleCommand}.
  */
-export interface GetConfiguredTableAssociationAnalysisRuleCommandInput
-  extends GetConfiguredTableAssociationAnalysisRuleInput {}
+export interface GetConfiguredTableAssociationAnalysisRuleCommandInput extends GetConfiguredTableAssociationAnalysisRuleInput {}
 /**
  * @public
  *
  * The output of {@link GetConfiguredTableAssociationAnalysisRuleCommand}.
  */
-export interface GetConfiguredTableAssociationAnalysisRuleCommandOutput
-  extends GetConfiguredTableAssociationAnalysisRuleOutput,
-    __MetadataBearer {}
+export interface GetConfiguredTableAssociationAnalysisRuleCommandOutput extends GetConfiguredTableAssociationAnalysisRuleOutput, __MetadataBearer {}
 
 /**
  * <p> Retrieves the analysis rule for a configured table association.</p>
@@ -131,7 +128,7 @@ export class GetConfiguredTableAssociationAnalysisRuleCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "GetConfiguredTableAssociationAnalysisRule", {})
   .n("CleanRoomsClient", "GetConfiguredTableAssociationAnalysisRuleCommand")
-  .sc(GetConfiguredTableAssociationAnalysisRule)
+  .sc(GetConfiguredTableAssociationAnalysisRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

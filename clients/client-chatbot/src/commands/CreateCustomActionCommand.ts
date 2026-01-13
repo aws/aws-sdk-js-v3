@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateCustomActionRequest, CreateCustomActionResult } from "../models/models_0";
-import { CreateCustomAction } from "../schemas/schemas_0";
+import { CreateCustomAction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -158,7 +158,7 @@ export class CreateCustomActionCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "CreateCustomAction", {})
   .n("ChatbotClient", "CreateCustomActionCommand")
-  .sc(CreateCustomAction)
+  .sc(CreateCustomAction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

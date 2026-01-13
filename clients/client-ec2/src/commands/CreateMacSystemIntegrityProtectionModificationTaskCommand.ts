@@ -9,7 +9,7 @@ import type {
   CreateMacSystemIntegrityProtectionModificationTaskRequest,
   CreateMacSystemIntegrityProtectionModificationTaskResult,
 } from "../models/models_1";
-import { CreateMacSystemIntegrityProtectionModificationTask } from "../schemas/schemas_0";
+import { CreateMacSystemIntegrityProtectionModificationTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateMacSystemIntegrityProtectionModificationTaskCommand}.
  */
-export interface CreateMacSystemIntegrityProtectionModificationTaskCommandInput
-  extends CreateMacSystemIntegrityProtectionModificationTaskRequest {}
+export interface CreateMacSystemIntegrityProtectionModificationTaskCommandInput extends CreateMacSystemIntegrityProtectionModificationTaskRequest {}
 /**
  * @public
  *
  * The output of {@link CreateMacSystemIntegrityProtectionModificationTaskCommand}.
  */
-export interface CreateMacSystemIntegrityProtectionModificationTaskCommandOutput
-  extends CreateMacSystemIntegrityProtectionModificationTaskResult,
-    __MetadataBearer {}
+export interface CreateMacSystemIntegrityProtectionModificationTaskCommandOutput extends CreateMacSystemIntegrityProtectionModificationTaskResult, __MetadataBearer {}
 
 /**
  * <p>Creates a System Integrity Protection (SIP) modification task to configure the SIP settings
@@ -168,7 +165,7 @@ export class CreateMacSystemIntegrityProtectionModificationTaskCommand extends $
   })
   .s("AmazonEC2", "CreateMacSystemIntegrityProtectionModificationTask", {})
   .n("EC2Client", "CreateMacSystemIntegrityProtectionModificationTaskCommand")
-  .sc(CreateMacSystemIntegrityProtectionModificationTask)
+  .sc(CreateMacSystemIntegrityProtectionModificationTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

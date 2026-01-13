@@ -4,8 +4,6 @@ const { emptyDirSync } = require("fs-extra");
 const { generateGenericClient } = require("./code-gen");
 const { copyToClients } = require("./copy-to-clients");
 const { CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR } = require("./code-gen-dir");
-const { prettifyCode } = require("./code-prettify");
-const { eslintFixCode } = require("./code-eslint-fix");
 
 const PRIVATE_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "private"));
 
@@ -14,8 +12,6 @@ const PRIVATE_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "pri
   try {
     await generateGenericClient();
 
-    await eslintFixCode();
-    await prettifyCode(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR);
     await copyToClients(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR, PRIVATE_CLIENTS_DIR);
     emptyDirSync(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR);
   } catch (e) {

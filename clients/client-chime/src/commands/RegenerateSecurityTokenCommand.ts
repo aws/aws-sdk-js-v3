@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegenerateSecurityTokenRequest, RegenerateSecurityTokenResponse } from "../models/models_0";
-import { RegenerateSecurityToken } from "../schemas/schemas_0";
+import { RegenerateSecurityToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class RegenerateSecurityTokenCommand extends $Command
   })
   .s("UCBuzzConsoleService", "RegenerateSecurityToken", {})
   .n("ChimeClient", "RegenerateSecurityTokenCommand")
-  .sc(RegenerateSecurityToken)
+  .sc(RegenerateSecurityToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import type { DeleteJobRequest, DeleteJobResponse } from "../models/models_0";
-import { DeleteJob } from "../schemas/schemas_0";
+import { DeleteJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,7 +81,7 @@ export class DeleteJobCommand extends $Command
   })
   .s("ApplicationMigrationService", "DeleteJob", {})
   .n("MgnClient", "DeleteJobCommand")
-  .sc(DeleteJob)
+  .sc(DeleteJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

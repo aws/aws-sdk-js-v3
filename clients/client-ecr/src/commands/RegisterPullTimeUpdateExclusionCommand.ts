@@ -9,7 +9,7 @@ import type {
   RegisterPullTimeUpdateExclusionRequest,
   RegisterPullTimeUpdateExclusionResponse,
 } from "../models/models_0";
-import { RegisterPullTimeUpdateExclusion } from "../schemas/schemas_0";
+import { RegisterPullTimeUpdateExclusion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface RegisterPullTimeUpdateExclusionCommandInput extends RegisterPul
  *
  * The output of {@link RegisterPullTimeUpdateExclusionCommand}.
  */
-export interface RegisterPullTimeUpdateExclusionCommandOutput
-  extends RegisterPullTimeUpdateExclusionResponse,
-    __MetadataBearer {}
+export interface RegisterPullTimeUpdateExclusionCommandOutput extends RegisterPullTimeUpdateExclusionResponse, __MetadataBearer {}
 
 /**
  * <p>Adds an IAM principal to the pull time update exclusion list for a registry. Amazon ECR will not record the pull time if an excluded principal pulls an image.</p>
@@ -97,7 +95,7 @@ export class RegisterPullTimeUpdateExclusionCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "RegisterPullTimeUpdateExclusion", {})
   .n("ECRClient", "RegisterPullTimeUpdateExclusionCommand")
-  .sc(RegisterPullTimeUpdateExclusion)
+  .sc(RegisterPullTimeUpdateExclusion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

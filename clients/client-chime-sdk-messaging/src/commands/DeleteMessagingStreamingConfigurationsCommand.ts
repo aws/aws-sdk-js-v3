@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMessagingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteMessagingStreamingConfigurationsRequest } from "../models/models_0";
-import { DeleteMessagingStreamingConfigurations } from "../schemas/schemas_0";
+import { DeleteMessagingStreamingConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -22,8 +22,7 @@ export { $Command };
  *
  * The input for {@link DeleteMessagingStreamingConfigurationsCommand}.
  */
-export interface DeleteMessagingStreamingConfigurationsCommandInput
-  extends DeleteMessagingStreamingConfigurationsRequest {}
+export interface DeleteMessagingStreamingConfigurationsCommandInput extends DeleteMessagingStreamingConfigurationsRequest {}
 /**
  * @public
  *
@@ -95,7 +94,7 @@ export class DeleteMessagingStreamingConfigurationsCommand extends $Command
   })
   .s("ChimeMessagingService", "DeleteMessagingStreamingConfigurations", {})
   .n("ChimeSDKMessagingClient", "DeleteMessagingStreamingConfigurationsCommand")
-  .sc(DeleteMessagingStreamingConfigurations)
+  .sc(DeleteMessagingStreamingConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

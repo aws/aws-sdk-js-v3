@@ -243,7 +243,10 @@ export interface NotificationSetting {
  * <p>The data field of the trust anchor depending on its type. </p>
  * @public
  */
-export type SourceData = SourceData.AcmPcaArnMember | SourceData.X509CertificateDataMember | SourceData.$UnknownMember;
+export type SourceData =
+  | SourceData.AcmPcaArnMember
+  | SourceData.X509CertificateDataMember
+  | SourceData.$UnknownMember;
 
 /**
  * @public

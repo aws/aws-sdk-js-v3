@@ -8,7 +8,7 @@ import type {
   GetApplicationAuthenticationMethodRequest,
   GetApplicationAuthenticationMethodResponse,
 } from "../models/models_0";
-import { GetApplicationAuthenticationMethod } from "../schemas/schemas_0";
+import { GetApplicationAuthenticationMethod$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -27,9 +27,7 @@ export interface GetApplicationAuthenticationMethodCommandInput extends GetAppli
  *
  * The output of {@link GetApplicationAuthenticationMethodCommand}.
  */
-export interface GetApplicationAuthenticationMethodCommandOutput
-  extends GetApplicationAuthenticationMethodResponse,
-    __MetadataBearer {}
+export interface GetApplicationAuthenticationMethodCommandOutput extends GetApplicationAuthenticationMethodResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details about an authentication method used by an application.</p>
@@ -98,7 +96,7 @@ export class GetApplicationAuthenticationMethodCommand extends $Command
   })
   .s("SWBExternalService", "GetApplicationAuthenticationMethod", {})
   .n("SSOAdminClient", "GetApplicationAuthenticationMethodCommand")
-  .sc(GetApplicationAuthenticationMethod)
+  .sc(GetApplicationAuthenticationMethod$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

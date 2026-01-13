@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateCapacityReservationFleetRequest, CreateCapacityReservationFleetResult } from "../models/models_0";
-import { CreateCapacityReservationFleet } from "../schemas/schemas_0";
+import { CreateCapacityReservationFleet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateCapacityReservationFleetCommandInput extends CreateCapaci
  *
  * The output of {@link CreateCapacityReservationFleetCommand}.
  */
-export interface CreateCapacityReservationFleetCommandOutput
-  extends CreateCapacityReservationFleetResult,
-    __MetadataBearer {}
+export interface CreateCapacityReservationFleetCommandOutput extends CreateCapacityReservationFleetResult, __MetadataBearer {}
 
 /**
  * <p>Creates a Capacity Reservation Fleet. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-cr-fleets.html#create-crfleet">Create a
@@ -134,7 +132,7 @@ export class CreateCapacityReservationFleetCommand extends $Command
   })
   .s("AmazonEC2", "CreateCapacityReservationFleet", {})
   .n("EC2Client", "CreateCapacityReservationFleetCommand")
-  .sc(CreateCapacityReservationFleet)
+  .sc(CreateCapacityReservationFleet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

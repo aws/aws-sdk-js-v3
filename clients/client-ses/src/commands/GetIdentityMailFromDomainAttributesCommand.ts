@@ -8,7 +8,7 @@ import type {
   GetIdentityMailFromDomainAttributesRequest,
   GetIdentityMailFromDomainAttributesResponse,
 } from "../models/models_0";
-import { GetIdentityMailFromDomainAttributes } from "../schemas/schemas_0";
+import { GetIdentityMailFromDomainAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -27,9 +27,7 @@ export interface GetIdentityMailFromDomainAttributesCommandInput extends GetIden
  *
  * The output of {@link GetIdentityMailFromDomainAttributesCommand}.
  */
-export interface GetIdentityMailFromDomainAttributesCommandOutput
-  extends GetIdentityMailFromDomainAttributesResponse,
-    __MetadataBearer {}
+export interface GetIdentityMailFromDomainAttributesCommandOutput extends GetIdentityMailFromDomainAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the custom MAIL FROM attributes for a list of identities (email addresses :
@@ -112,7 +110,7 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command
   })
   .s("SimpleEmailService", "GetIdentityMailFromDomainAttributes", {})
   .n("SESClient", "GetIdentityMailFromDomainAttributesCommand")
-  .sc(GetIdentityMailFromDomainAttributes)
+  .sc(GetIdentityMailFromDomainAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

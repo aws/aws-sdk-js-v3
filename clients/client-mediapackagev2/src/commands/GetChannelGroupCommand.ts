@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageV2Client";
 import type { GetChannelGroupRequest, GetChannelGroupResponse } from "../models/models_0";
-import { GetChannelGroup } from "../schemas/schemas_0";
+import { GetChannelGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class GetChannelGroupCommand extends $Command
   })
   .s("mediapackagev2", "GetChannelGroup", {})
   .n("MediaPackageV2Client", "GetChannelGroupCommand")
-  .sc(GetChannelGroup)
+  .sc(GetChannelGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

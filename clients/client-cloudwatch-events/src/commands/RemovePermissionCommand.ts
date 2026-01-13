@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchEventsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemovePermissionRequest } from "../models/models_0";
-import { RemovePermission } from "../schemas/schemas_0";
+import { RemovePermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class RemovePermissionCommand extends $Command
   })
   .s("AWSEvents", "RemovePermission", {})
   .n("CloudWatchEventsClient", "RemovePermissionCommand")
-  .sc(RemovePermission)
+  .sc(RemovePermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

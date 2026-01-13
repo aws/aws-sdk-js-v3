@@ -9,7 +9,7 @@ import type {
   DeleteVerifiedAccessTrustProviderRequest,
   DeleteVerifiedAccessTrustProviderResult,
 } from "../models/models_3";
-import { DeleteVerifiedAccessTrustProvider } from "../schemas/schemas_0";
+import { DeleteVerifiedAccessTrustProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteVerifiedAccessTrustProviderCommandInput extends DeleteVer
  *
  * The output of {@link DeleteVerifiedAccessTrustProviderCommand}.
  */
-export interface DeleteVerifiedAccessTrustProviderCommandOutput
-  extends DeleteVerifiedAccessTrustProviderResult,
-    __MetadataBearer {}
+export interface DeleteVerifiedAccessTrustProviderCommandOutput extends DeleteVerifiedAccessTrustProviderResult, __MetadataBearer {}
 
 /**
  * <p>Delete an Amazon Web Services Verified Access trust provider.</p>
@@ -121,7 +119,7 @@ export class DeleteVerifiedAccessTrustProviderCommand extends $Command
   })
   .s("AmazonEC2", "DeleteVerifiedAccessTrustProvider", {})
   .n("EC2Client", "DeleteVerifiedAccessTrustProviderCommand")
-  .sc(DeleteVerifiedAccessTrustProvider)
+  .sc(DeleteVerifiedAccessTrustProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

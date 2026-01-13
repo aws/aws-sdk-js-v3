@@ -9,7 +9,7 @@ import type {
   UpdateDefaultAutoScalingConfigurationRequest,
   UpdateDefaultAutoScalingConfigurationResponse,
 } from "../models/models_0";
-import { UpdateDefaultAutoScalingConfiguration } from "../schemas/schemas_0";
+import { UpdateDefaultAutoScalingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateDefaultAutoScalingConfigurationCommand}.
  */
-export interface UpdateDefaultAutoScalingConfigurationCommandInput
-  extends UpdateDefaultAutoScalingConfigurationRequest {}
+export interface UpdateDefaultAutoScalingConfigurationCommandInput extends UpdateDefaultAutoScalingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateDefaultAutoScalingConfigurationCommand}.
  */
-export interface UpdateDefaultAutoScalingConfigurationCommandOutput
-  extends UpdateDefaultAutoScalingConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateDefaultAutoScalingConfigurationCommandOutput extends UpdateDefaultAutoScalingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Update an auto scaling configuration to be the default. The existing default auto scaling configuration will be set to non-default
@@ -102,7 +99,7 @@ export class UpdateDefaultAutoScalingConfigurationCommand extends $Command
   })
   .s("AppRunner", "UpdateDefaultAutoScalingConfiguration", {})
   .n("AppRunnerClient", "UpdateDefaultAutoScalingConfigurationCommand")
-  .sc(UpdateDefaultAutoScalingConfiguration)
+  .sc(UpdateDefaultAutoScalingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

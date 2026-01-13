@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EstimateTemplateCostInput, EstimateTemplateCostOutput } from "../models/models_0";
-import { EstimateTemplateCost } from "../schemas/schemas_0";
+import { EstimateTemplateCost$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class EstimateTemplateCostCommand extends $Command
   })
   .s("CloudFormation", "EstimateTemplateCost", {})
   .n("CloudFormationClient", "EstimateTemplateCostCommand")
-  .sc(EstimateTemplateCost)
+  .sc(EstimateTemplateCost$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

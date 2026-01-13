@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { GetResolverQueryLogConfigPolicy } from "../schemas/schemas_0";
+import { GetResolverQueryLogConfigPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetResolverQueryLogConfigPolicyCommandInput extends GetResolver
  *
  * The output of {@link GetResolverQueryLogConfigPolicyCommand}.
  */
-export interface GetResolverQueryLogConfigPolicyCommandOutput
-  extends GetResolverQueryLogConfigPolicyResponse,
-    __MetadataBearer {}
+export interface GetResolverQueryLogConfigPolicyCommandOutput extends GetResolverQueryLogConfigPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a query logging policy. A query logging policy specifies the Resolver query logging
@@ -100,7 +98,7 @@ export class GetResolverQueryLogConfigPolicyCommand extends $Command
   })
   .s("Route53Resolver", "GetResolverQueryLogConfigPolicy", {})
   .n("Route53ResolverClient", "GetResolverQueryLogConfigPolicyCommand")
-  .sc(GetResolverQueryLogConfigPolicy)
+  .sc(GetResolverQueryLogConfigPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

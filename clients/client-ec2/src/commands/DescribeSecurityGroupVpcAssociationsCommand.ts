@@ -9,7 +9,7 @@ import type {
   DescribeSecurityGroupVpcAssociationsRequest,
   DescribeSecurityGroupVpcAssociationsResult,
 } from "../models/models_4";
-import { DescribeSecurityGroupVpcAssociations } from "../schemas/schemas_0";
+import { DescribeSecurityGroupVpcAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeSecurityGroupVpcAssociationsCommandInput extends Descri
  *
  * The output of {@link DescribeSecurityGroupVpcAssociationsCommand}.
  */
-export interface DescribeSecurityGroupVpcAssociationsCommandOutput
-  extends DescribeSecurityGroupVpcAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeSecurityGroupVpcAssociationsCommandOutput extends DescribeSecurityGroupVpcAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes security group VPC associations made with <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateSecurityGroupVpc.html">AssociateSecurityGroupVpc</a>.</p>
@@ -98,7 +96,7 @@ export class DescribeSecurityGroupVpcAssociationsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeSecurityGroupVpcAssociations", {})
   .n("EC2Client", "DescribeSecurityGroupVpcAssociationsCommand")
-  .sc(DescribeSecurityGroupVpcAssociations)
+  .sc(DescribeSecurityGroupVpcAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

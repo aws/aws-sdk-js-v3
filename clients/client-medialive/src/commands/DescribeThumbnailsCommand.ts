@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { DescribeThumbnailsRequest, DescribeThumbnailsResponse } from "../models/models_1";
-import { DescribeThumbnails } from "../schemas/schemas_0";
+import { DescribeThumbnails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class DescribeThumbnailsCommand extends $Command
   })
   .s("MediaLive", "DescribeThumbnails", {})
   .n("MediaLiveClient", "DescribeThumbnailsCommand")
-  .sc(DescribeThumbnails)
+  .sc(DescribeThumbnails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

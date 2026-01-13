@@ -8,7 +8,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutBucketTaggingRequest } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { PutBucketTagging } from "../schemas/schemas_0";
+import { PutBucketTagging$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -173,7 +173,7 @@ export class PutBucketTaggingCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "PutBucketTagging", {})
   .n("S3ControlClient", "PutBucketTaggingCommand")
-  .sc(PutBucketTagging)
+  .sc(PutBucketTagging$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

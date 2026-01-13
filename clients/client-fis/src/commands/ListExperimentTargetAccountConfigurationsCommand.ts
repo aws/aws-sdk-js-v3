@@ -9,7 +9,7 @@ import type {
   ListExperimentTargetAccountConfigurationsRequest,
   ListExperimentTargetAccountConfigurationsResponse,
 } from "../models/models_0";
-import { ListExperimentTargetAccountConfigurations } from "../schemas/schemas_0";
+import { ListExperimentTargetAccountConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListExperimentTargetAccountConfigurationsCommand}.
  */
-export interface ListExperimentTargetAccountConfigurationsCommandInput
-  extends ListExperimentTargetAccountConfigurationsRequest {}
+export interface ListExperimentTargetAccountConfigurationsCommandInput extends ListExperimentTargetAccountConfigurationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListExperimentTargetAccountConfigurationsCommand}.
  */
-export interface ListExperimentTargetAccountConfigurationsCommandOutput
-  extends ListExperimentTargetAccountConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListExperimentTargetAccountConfigurationsCommandOutput extends ListExperimentTargetAccountConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the target account configurations of the specified experiment.</p>
@@ -93,7 +90,7 @@ export class ListExperimentTargetAccountConfigurationsCommand extends $Command
   })
   .s("FaultInjectionSimulator", "ListExperimentTargetAccountConfigurations", {})
   .n("FisClient", "ListExperimentTargetAccountConfigurationsCommand")
-  .sc(ListExperimentTargetAccountConfigurations)
+  .sc(ListExperimentTargetAccountConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

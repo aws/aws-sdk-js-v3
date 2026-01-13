@@ -251,6 +251,34 @@ export type SuppressionListReason = (typeof SuppressionListReason)[keyof typeof 
  * @public
  * @enum
  */
+export const FeatureStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SuppressionConfidenceVerdictThreshold = {
+  HIGH: "HIGH",
+  MANAGED: "MANAGED",
+  MEDIUM: "MEDIUM",
+} as const;
+/**
+ * @public
+ */
+export type SuppressionConfidenceVerdictThreshold =
+  (typeof SuppressionConfidenceVerdictThreshold)[keyof typeof SuppressionConfidenceVerdictThreshold];
+
+/**
+ * @public
+ * @enum
+ */
 export const HttpsPolicy = {
   OPTIONAL: "OPTIONAL",
   REQUIRE: "REQUIRE",
@@ -260,19 +288,6 @@ export const HttpsPolicy = {
  * @public
  */
 export type HttpsPolicy = (typeof HttpsPolicy)[keyof typeof HttpsPolicy];
-
-/**
- * @public
- * @enum
- */
-export const FeatureStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-/**
- * @public
- */
-export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
 
 /**
  * @public
@@ -532,6 +547,21 @@ export const DeliverabilityDashboardAccountStatus = {
  */
 export type DeliverabilityDashboardAccountStatus =
   (typeof DeliverabilityDashboardAccountStatus)[keyof typeof DeliverabilityDashboardAccountStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EmailAddressInsightsConfidenceVerdict = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+/**
+ * @public
+ */
+export type EmailAddressInsightsConfidenceVerdict =
+  (typeof EmailAddressInsightsConfidenceVerdict)[keyof typeof EmailAddressInsightsConfidenceVerdict];
 
 /**
  * @public

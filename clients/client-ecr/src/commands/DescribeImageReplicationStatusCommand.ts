@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeImageReplicationStatusRequest, DescribeImageReplicationStatusResponse } from "../models/models_0";
-import { DescribeImageReplicationStatus } from "../schemas/schemas_0";
+import { DescribeImageReplicationStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeImageReplicationStatusCommandInput extends DescribeImag
  *
  * The output of {@link DescribeImageReplicationStatusCommand}.
  */
-export interface DescribeImageReplicationStatusCommandOutput
-  extends DescribeImageReplicationStatusResponse,
-    __MetadataBearer {}
+export interface DescribeImageReplicationStatusCommandOutput extends DescribeImageReplicationStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the replication status for a specified image.</p>
@@ -109,7 +107,7 @@ export class DescribeImageReplicationStatusCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "DescribeImageReplicationStatus", {})
   .n("ECRClient", "DescribeImageReplicationStatusCommand")
-  .sc(DescribeImageReplicationStatus)
+  .sc(DescribeImageReplicationStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

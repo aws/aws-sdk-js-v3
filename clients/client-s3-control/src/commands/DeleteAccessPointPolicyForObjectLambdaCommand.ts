@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAccessPointPolicyForObjectLambdaRequest } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { DeleteAccessPointPolicyForObjectLambda } from "../schemas/schemas_0";
+import { DeleteAccessPointPolicyForObjectLambda$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -19,8 +19,7 @@ export { $Command };
  *
  * The input for {@link DeleteAccessPointPolicyForObjectLambdaCommand}.
  */
-export interface DeleteAccessPointPolicyForObjectLambdaCommandInput
-  extends DeleteAccessPointPolicyForObjectLambdaRequest {}
+export interface DeleteAccessPointPolicyForObjectLambdaCommandInput extends DeleteAccessPointPolicyForObjectLambdaRequest {}
 /**
  * @public
  *
@@ -91,11 +90,14 @@ export class DeleteAccessPointPolicyForObjectLambdaCommand extends $Command
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getProcessArnablesPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getProcessArnablesPlugin(config),
+    ];
   })
   .s("AWSS3ControlServiceV20180820", "DeleteAccessPointPolicyForObjectLambda", {})
   .n("S3ControlClient", "DeleteAccessPointPolicyForObjectLambdaCommand")
-  .sc(DeleteAccessPointPolicyForObjectLambda)
+  .sc(DeleteAccessPointPolicyForObjectLambda$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

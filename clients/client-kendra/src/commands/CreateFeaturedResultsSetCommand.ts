@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import type { CreateFeaturedResultsSetRequest, CreateFeaturedResultsSetResponse } from "../models/models_0";
-import { CreateFeaturedResultsSet } from "../schemas/schemas_0";
+import { CreateFeaturedResultsSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -142,7 +142,7 @@ export class CreateFeaturedResultsSetCommand extends $Command
   })
   .s("AWSKendraFrontendService", "CreateFeaturedResultsSet", {})
   .n("KendraClient", "CreateFeaturedResultsSetCommand")
-  .sc(CreateFeaturedResultsSet)
+  .sc(CreateFeaturedResultsSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

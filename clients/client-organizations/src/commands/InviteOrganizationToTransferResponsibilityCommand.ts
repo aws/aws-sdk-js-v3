@@ -9,7 +9,7 @@ import type {
   InviteOrganizationToTransferResponsibilityResponse,
 } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { InviteOrganizationToTransferResponsibility } from "../schemas/schemas_0";
+import { InviteOrganizationToTransferResponsibility$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link InviteOrganizationToTransferResponsibilityCommand}.
  */
-export interface InviteOrganizationToTransferResponsibilityCommandInput
-  extends InviteOrganizationToTransferResponsibilityRequest {}
+export interface InviteOrganizationToTransferResponsibilityCommandInput extends InviteOrganizationToTransferResponsibilityRequest {}
 /**
  * @public
  *
  * The output of {@link InviteOrganizationToTransferResponsibilityCommand}.
  */
-export interface InviteOrganizationToTransferResponsibilityCommandOutput
-  extends InviteOrganizationToTransferResponsibilityResponse,
-    __MetadataBearer {}
+export interface InviteOrganizationToTransferResponsibilityCommandOutput extends InviteOrganizationToTransferResponsibilityResponse, __MetadataBearer {}
 
 /**
  * <p>Sends an invitation to another organization's management account to designate your
@@ -622,7 +619,7 @@ export class InviteOrganizationToTransferResponsibilityCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "InviteOrganizationToTransferResponsibility", {})
   .n("OrganizationsClient", "InviteOrganizationToTransferResponsibilityCommand")
-  .sc(InviteOrganizationToTransferResponsibility)
+  .sc(InviteOrganizationToTransferResponsibility$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   CreateContinuousDeploymentPolicyRequest,
   CreateContinuousDeploymentPolicyResult,
 } from "../models/models_0";
-import { CreateContinuousDeploymentPolicy } from "../schemas/schemas_0";
+import { CreateContinuousDeploymentPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateContinuousDeploymentPolicyCommandInput extends CreateCont
  *
  * The output of {@link CreateContinuousDeploymentPolicyCommand}.
  */
-export interface CreateContinuousDeploymentPolicyCommandOutput
-  extends CreateContinuousDeploymentPolicyResult,
-    __MetadataBearer {}
+export interface CreateContinuousDeploymentPolicyCommandOutput extends CreateContinuousDeploymentPolicyResult, __MetadataBearer {}
 
 /**
  * <p>Creates a continuous deployment policy that distributes traffic for a custom domain name to two different CloudFront distributions.</p> <p>To use a continuous deployment policy, first use <code>CopyDistribution</code> to create a staging distribution, then use <code>UpdateDistribution</code> to modify the staging distribution's configuration.</p> <p>After you create and update a staging distribution, you can use a continuous deployment policy to incrementally move traffic to the staging distribution. This workflow enables you to test changes to a distribution's configuration before moving all of your domain's production traffic to the new configuration.</p>
@@ -146,7 +144,7 @@ export class CreateContinuousDeploymentPolicyCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "CreateContinuousDeploymentPolicy", {})
   .n("CloudFrontClient", "CreateContinuousDeploymentPolicyCommand")
-  .sc(CreateContinuousDeploymentPolicy)
+  .sc(CreateContinuousDeploymentPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

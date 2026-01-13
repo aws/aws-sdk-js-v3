@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import type { UpdateTableRequest, UpdateTableResponse } from "../models/models_2";
-import { UpdateTable } from "../schemas/schemas_0";
+import type { UpdateTableRequest, UpdateTableResponse } from "../models/models_3";
+import { UpdateTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -282,7 +282,7 @@ export class UpdateTableCommand extends $Command
   })
   .s("AWSGlue", "UpdateTable", {})
   .n("GlueClient", "UpdateTableCommand")
-  .sc(UpdateTable)
+  .sc(UpdateTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

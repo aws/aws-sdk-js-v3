@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RejectResourceShareInvitationRequest, RejectResourceShareInvitationResponse } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { RejectResourceShareInvitation } from "../schemas/schemas_0";
+import { RejectResourceShareInvitation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface RejectResourceShareInvitationCommandInput extends RejectResourc
  *
  * The output of {@link RejectResourceShareInvitationCommand}.
  */
-export interface RejectResourceShareInvitationCommandOutput
-  extends RejectResourceShareInvitationResponse,
-    __MetadataBearer {}
+export interface RejectResourceShareInvitationCommandOutput extends RejectResourceShareInvitationResponse, __MetadataBearer {}
 
 /**
  * <p>Rejects an invitation to a resource share from another Amazon Web Services account.</p>
@@ -135,7 +133,7 @@ export class RejectResourceShareInvitationCommand extends $Command
   })
   .s("AmazonResourceSharing", "RejectResourceShareInvitation", {})
   .n("RAMClient", "RejectResourceShareInvitationCommand")
-  .sc(RejectResourceShareInvitation)
+  .sc(RejectResourceShareInvitation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

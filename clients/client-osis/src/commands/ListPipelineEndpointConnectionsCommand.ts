@@ -9,7 +9,7 @@ import type {
   ListPipelineEndpointConnectionsResponse,
 } from "../models/models_0";
 import type { OSISClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OSISClient";
-import { ListPipelineEndpointConnections } from "../schemas/schemas_0";
+import { ListPipelineEndpointConnections$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListPipelineEndpointConnectionsCommandInput extends ListPipelin
  *
  * The output of {@link ListPipelineEndpointConnectionsCommand}.
  */
-export interface ListPipelineEndpointConnectionsCommandOutput
-  extends ListPipelineEndpointConnectionsResponse,
-    __MetadataBearer {}
+export interface ListPipelineEndpointConnectionsCommandOutput extends ListPipelineEndpointConnectionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the pipeline endpoints connected to pipelines in your account.</p>
@@ -103,7 +101,7 @@ export class ListPipelineEndpointConnectionsCommand extends $Command
   })
   .s("AmazonOpenSearchIngestionService", "ListPipelineEndpointConnections", {})
   .n("OSISClient", "ListPipelineEndpointConnectionsCommand")
-  .sc(ListPipelineEndpointConnections)
+  .sc(ListPipelineEndpointConnections$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

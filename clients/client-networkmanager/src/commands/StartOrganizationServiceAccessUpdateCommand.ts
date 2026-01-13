@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { StartOrganizationServiceAccessUpdate } from "../schemas/schemas_0";
+import { StartOrganizationServiceAccessUpdate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface StartOrganizationServiceAccessUpdateCommandInput extends StartO
  *
  * The output of {@link StartOrganizationServiceAccessUpdateCommand}.
  */
-export interface StartOrganizationServiceAccessUpdateCommandOutput
-  extends StartOrganizationServiceAccessUpdateResponse,
-    __MetadataBearer {}
+export interface StartOrganizationServiceAccessUpdateCommandOutput extends StartOrganizationServiceAccessUpdateResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the Network Manager service for an Amazon Web Services Organization. This can only be called by a management account within the organization. </p>
@@ -111,7 +109,7 @@ export class StartOrganizationServiceAccessUpdateCommand extends $Command
   })
   .s("NetworkManager", "StartOrganizationServiceAccessUpdate", {})
   .n("NetworkManagerClient", "StartOrganizationServiceAccessUpdateCommand")
-  .sc(StartOrganizationServiceAccessUpdate)
+  .sc(StartOrganizationServiceAccessUpdate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DisassociateEntitiesFromExperienceRequest,
   DisassociateEntitiesFromExperienceResponse,
 } from "../models/models_0";
-import { DisassociateEntitiesFromExperience } from "../schemas/schemas_0";
+import { DisassociateEntitiesFromExperience$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DisassociateEntitiesFromExperienceCommandInput extends Disassoc
  *
  * The output of {@link DisassociateEntitiesFromExperienceCommand}.
  */
-export interface DisassociateEntitiesFromExperienceCommandOutput
-  extends DisassociateEntitiesFromExperienceResponse,
-    __MetadataBearer {}
+export interface DisassociateEntitiesFromExperienceCommandOutput extends DisassociateEntitiesFromExperienceResponse, __MetadataBearer {}
 
 /**
  * <p>Prevents users or groups in your IAM Identity Center identity source
@@ -114,7 +112,7 @@ export class DisassociateEntitiesFromExperienceCommand extends $Command
   })
   .s("AWSKendraFrontendService", "DisassociateEntitiesFromExperience", {})
   .n("KendraClient", "DisassociateEntitiesFromExperienceCommand")
-  .sc(DisassociateEntitiesFromExperience)
+  .sc(DisassociateEntitiesFromExperience$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

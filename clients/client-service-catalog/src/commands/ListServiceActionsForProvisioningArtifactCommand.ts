@@ -8,7 +8,7 @@ import type {
   ListServiceActionsForProvisioningArtifactInput,
   ListServiceActionsForProvisioningArtifactOutput,
 } from "../models/models_0";
-import { ListServiceActionsForProvisioningArtifact } from "../schemas/schemas_0";
+import { ListServiceActionsForProvisioningArtifact$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListServiceActionsForProvisioningArtifactCommand}.
  */
-export interface ListServiceActionsForProvisioningArtifactCommandInput
-  extends ListServiceActionsForProvisioningArtifactInput {}
+export interface ListServiceActionsForProvisioningArtifactCommandInput extends ListServiceActionsForProvisioningArtifactInput {}
 /**
  * @public
  *
  * The output of {@link ListServiceActionsForProvisioningArtifactCommand}.
  */
-export interface ListServiceActionsForProvisioningArtifactCommandOutput
-  extends ListServiceActionsForProvisioningArtifactOutput,
-    __MetadataBearer {}
+export interface ListServiceActionsForProvisioningArtifactCommandOutput extends ListServiceActionsForProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of self-service actions associated with the specified Product ID and Provisioning Artifact ID.</p>
@@ -101,7 +98,7 @@ export class ListServiceActionsForProvisioningArtifactCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "ListServiceActionsForProvisioningArtifact", {})
   .n("ServiceCatalogClient", "ListServiceActionsForProvisioningArtifactCommand")
-  .sc(ListServiceActionsForProvisioningArtifact)
+  .sc(ListServiceActionsForProvisioningArtifact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

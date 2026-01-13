@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyLoadBalancerAttributesInput, ModifyLoadBalancerAttributesOutput } from "../models/models_0";
-import { ModifyLoadBalancerAttributes } from "../schemas/schemas_0";
+import { ModifyLoadBalancerAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ModifyLoadBalancerAttributesCommandInput extends ModifyLoadBala
  *
  * The output of {@link ModifyLoadBalancerAttributesCommand}.
  */
-export interface ModifyLoadBalancerAttributesCommandOutput
-  extends ModifyLoadBalancerAttributesOutput,
-    __MetadataBearer {}
+export interface ModifyLoadBalancerAttributesCommandOutput extends ModifyLoadBalancerAttributesOutput, __MetadataBearer {}
 
 /**
  * <p>Modifies the specified attributes of the specified Application Load Balancer, Network Load
@@ -233,7 +231,7 @@ export class ModifyLoadBalancerAttributesCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "ModifyLoadBalancerAttributes", {})
   .n("ElasticLoadBalancingV2Client", "ModifyLoadBalancerAttributesCommand")
-  .sc(ModifyLoadBalancerAttributes)
+  .sc(ModifyLoadBalancerAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

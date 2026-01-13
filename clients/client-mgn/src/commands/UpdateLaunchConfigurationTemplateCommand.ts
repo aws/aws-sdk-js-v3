@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import type { LaunchConfigurationTemplate, UpdateLaunchConfigurationTemplateRequest } from "../models/models_0";
-import { UpdateLaunchConfigurationTemplate } from "../schemas/schemas_0";
+import { UpdateLaunchConfigurationTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -192,7 +192,7 @@ export class UpdateLaunchConfigurationTemplateCommand extends $Command
   })
   .s("ApplicationMigrationService", "UpdateLaunchConfigurationTemplate", {})
   .n("MgnClient", "UpdateLaunchConfigurationTemplateCommand")
-  .sc(UpdateLaunchConfigurationTemplate)
+  .sc(UpdateLaunchConfigurationTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

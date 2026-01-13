@@ -13,7 +13,7 @@ import type {
   GetApplicationComponentStrategiesRequest,
   GetApplicationComponentStrategiesResponse,
 } from "../models/models_0";
-import { GetApplicationComponentStrategies } from "../schemas/schemas_0";
+import { GetApplicationComponentStrategies$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetApplicationComponentStrategiesCommandInput extends GetApplic
  *
  * The output of {@link GetApplicationComponentStrategiesCommand}.
  */
-export interface GetApplicationComponentStrategiesCommandOutput
-  extends GetApplicationComponentStrategiesResponse,
-    __MetadataBearer {}
+export interface GetApplicationComponentStrategiesCommandOutput extends GetApplicationComponentStrategiesResponse, __MetadataBearer {}
 
 /**
  * <p> Retrieves a list of all the recommended strategies and tools for an application component
@@ -106,7 +104,7 @@ export class GetApplicationComponentStrategiesCommand extends $Command
   })
   .s("AWSMigrationHubStrategyRecommendation", "GetApplicationComponentStrategies", {})
   .n("MigrationHubStrategyClient", "GetApplicationComponentStrategiesCommand")
-  .sc(GetApplicationComponentStrategies)
+  .sc(GetApplicationComponentStrategies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateByteMatchSetRequest, UpdateByteMatchSetResponse } from "../models/models_0";
-import { UpdateByteMatchSet } from "../schemas/schemas_0";
+import { UpdateByteMatchSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -57,7 +57,7 @@ export interface UpdateByteMatchSetCommandOutput extends UpdateByteMatchSetRespo
  *             </li>
  *          </ul>
  * 		       <p>For example, you can add a <code>ByteMatchSetUpdate</code> object that matches web requests in which <code>User-Agent</code> headers contain
- * 			the string <code>BadBot</code>. You can then configure AWS WAF to block those requests.</p>
+ * 			the string <code>BadBot</code>. You can then configure AWS WAF to block those requests.</p>		
  * 		       <p>To create and configure a <code>ByteMatchSet</code>, perform the following steps:</p>
  * 		       <ol>
  *             <li>
@@ -262,7 +262,7 @@ export class UpdateByteMatchSetCommand extends $Command
   })
   .s("AWSWAF_20150824", "UpdateByteMatchSet", {})
   .n("WAFClient", "UpdateByteMatchSetCommand")
-  .sc(UpdateByteMatchSet)
+  .sc(UpdateByteMatchSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ReplaceNetworkAclAssociationRequest, ReplaceNetworkAclAssociationResult } from "../models/models_7";
-import { ReplaceNetworkAclAssociation } from "../schemas/schemas_0";
+import { ReplaceNetworkAclAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ReplaceNetworkAclAssociationCommandInput extends ReplaceNetwork
  *
  * The output of {@link ReplaceNetworkAclAssociationCommand}.
  */
-export interface ReplaceNetworkAclAssociationCommandOutput
-  extends ReplaceNetworkAclAssociationResult,
-    __MetadataBearer {}
+export interface ReplaceNetworkAclAssociationCommandOutput extends ReplaceNetworkAclAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Changes which network ACL a subnet is associated with. By default when you create a
@@ -96,7 +94,7 @@ export class ReplaceNetworkAclAssociationCommand extends $Command
   })
   .s("AmazonEC2", "ReplaceNetworkAclAssociation", {})
   .n("EC2Client", "ReplaceNetworkAclAssociationCommand")
-  .sc(ReplaceNetworkAclAssociation)
+  .sc(ReplaceNetworkAclAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

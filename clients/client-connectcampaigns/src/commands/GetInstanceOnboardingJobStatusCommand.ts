@@ -10,7 +10,7 @@ import type {
 } from "../ConnectCampaignsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetInstanceOnboardingJobStatusRequest, GetInstanceOnboardingJobStatusResponse } from "../models/models_0";
-import { GetInstanceOnboardingJobStatus } from "../schemas/schemas_0";
+import { GetInstanceOnboardingJobStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetInstanceOnboardingJobStatusCommandInput extends GetInstanceO
  *
  * The output of {@link GetInstanceOnboardingJobStatusCommand}.
  */
-export interface GetInstanceOnboardingJobStatusCommandOutput
-  extends GetInstanceOnboardingJobStatusResponse,
-    __MetadataBearer {}
+export interface GetInstanceOnboardingJobStatusCommandOutput extends GetInstanceOnboardingJobStatusResponse, __MetadataBearer {}
 
 /**
  * Get the specific instance onboarding job status.
@@ -95,7 +93,7 @@ export class GetInstanceOnboardingJobStatusCommand extends $Command
   })
   .s("AmazonConnectCampaignService", "GetInstanceOnboardingJobStatus", {})
   .n("ConnectCampaignsClient", "GetInstanceOnboardingJobStatusCommand")
-  .sc(GetInstanceOnboardingJobStatus)
+  .sc(GetInstanceOnboardingJobStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

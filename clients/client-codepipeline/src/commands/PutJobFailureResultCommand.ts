@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutJobFailureResultInput } from "../models/models_0";
-import { PutJobFailureResult } from "../schemas/schemas_0";
+import { PutJobFailureResult$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class PutJobFailureResultCommand extends $Command
   })
   .s("CodePipeline_20150709", "PutJobFailureResult", {})
   .n("CodePipelineClient", "PutJobFailureResultCommand")
-  .sc(PutJobFailureResult)
+  .sc(PutJobFailureResult$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteSlackWorkspaceAuthorizationRequest,
   DeleteSlackWorkspaceAuthorizationResult,
 } from "../models/models_0";
-import { DeleteSlackWorkspaceAuthorization } from "../schemas/schemas_0";
+import { DeleteSlackWorkspaceAuthorization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteSlackWorkspaceAuthorizationCommandInput extends DeleteSla
  *
  * The output of {@link DeleteSlackWorkspaceAuthorizationCommand}.
  */
-export interface DeleteSlackWorkspaceAuthorizationCommandOutput
-  extends DeleteSlackWorkspaceAuthorizationResult,
-    __MetadataBearer {}
+export interface DeleteSlackWorkspaceAuthorizationCommandOutput extends DeleteSlackWorkspaceAuthorizationResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the Slack workspace authorization that allows channels to be configured in that workspace. This requires all configured channels in the workspace to be deleted.
@@ -83,7 +81,7 @@ export class DeleteSlackWorkspaceAuthorizationCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "DeleteSlackWorkspaceAuthorization", {})
   .n("ChatbotClient", "DeleteSlackWorkspaceAuthorizationCommand")
-  .sc(DeleteSlackWorkspaceAuthorization)
+  .sc(DeleteSlackWorkspaceAuthorization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

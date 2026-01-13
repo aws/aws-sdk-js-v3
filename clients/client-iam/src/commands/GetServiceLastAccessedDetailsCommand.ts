@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { GetServiceLastAccessedDetailsRequest, GetServiceLastAccessedDetailsResponse } from "../models/models_0";
-import { GetServiceLastAccessedDetails } from "../schemas/schemas_0";
+import { GetServiceLastAccessedDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetServiceLastAccessedDetailsCommandInput extends GetServiceLas
  *
  * The output of {@link GetServiceLastAccessedDetailsCommand}.
  */
-export interface GetServiceLastAccessedDetailsCommandOutput
-  extends GetServiceLastAccessedDetailsResponse,
-    __MetadataBearer {}
+export interface GetServiceLastAccessedDetailsCommandOutput extends GetServiceLastAccessedDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a service last accessed report that was created using the
@@ -195,7 +193,7 @@ export class GetServiceLastAccessedDetailsCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "GetServiceLastAccessedDetails", {})
   .n("IAMClient", "GetServiceLastAccessedDetailsCommand")
-  .sc(GetServiceLastAccessedDetails)
+  .sc(GetServiceLastAccessedDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

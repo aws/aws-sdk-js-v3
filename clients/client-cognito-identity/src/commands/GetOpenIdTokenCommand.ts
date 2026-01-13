@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetOpenIdTokenInput, GetOpenIdTokenResponse } from "../models/models_0";
-import { GetOpenIdToken } from "../schemas/schemas_0";
+import { GetOpenIdToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class GetOpenIdTokenCommand extends $Command
   })
   .s("AWSCognitoIdentityService", "GetOpenIdToken", {})
   .n("CognitoIdentityClient", "GetOpenIdTokenCommand")
-  .sc(GetOpenIdToken)
+  .sc(GetOpenIdToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

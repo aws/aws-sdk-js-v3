@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDbClusterInput, GetDbClusterOutput } from "../models/models_0";
-import { GetDbCluster } from "../schemas/schemas_0";
+import { GetDbCluster$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -49,7 +49,7 @@ export interface GetDbClusterCommandOutput extends GetDbClusterOutput, __Metadat
  * //   id: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
- * //   status: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE",
+ * //   status: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE" || "UPDATING_INSTANCE_TYPE" || "REBOOTING" || "REBOOT_FAILED" || "PARTIALLY_AVAILABLE",
  * //   endpoint: "STRING_VALUE",
  * //   readerEndpoint: "STRING_VALUE",
  * //   port: Number("int"),
@@ -120,7 +120,7 @@ export class GetDbClusterCommand extends $Command
   })
   .s("AmazonTimestreamInfluxDB", "GetDbCluster", {})
   .n("TimestreamInfluxDBClient", "GetDbClusterCommand")
-  .sc(GetDbCluster)
+  .sc(GetDbCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

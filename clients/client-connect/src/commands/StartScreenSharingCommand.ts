@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartScreenSharingRequest, StartScreenSharingResponse } from "../models/models_3";
-import { StartScreenSharing } from "../schemas/schemas_0";
+import { StartScreenSharing$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class StartScreenSharingCommand extends $Command
   })
   .s("AmazonConnectService", "StartScreenSharing", {})
   .n("ConnectClient", "StartScreenSharingCommand")
-  .sc(StartScreenSharing)
+  .sc(StartScreenSharing$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

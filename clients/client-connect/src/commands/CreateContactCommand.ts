@@ -7,7 +7,7 @@ import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateContactResponse } from "../models/models_0";
 import type { CreateContactRequest } from "../models/models_3";
-import { CreateContact } from "../schemas/schemas_0";
+import { CreateContact$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -170,7 +170,7 @@ export class CreateContactCommand extends $Command
   })
   .s("AmazonConnectService", "CreateContact", {})
   .n("ConnectClient", "CreateContactCommand")
-  .sc(CreateContact)
+  .sc(CreateContact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

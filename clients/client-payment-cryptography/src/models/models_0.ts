@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import {
+  As2805KeyVariant,
   DeriveKeyUsage,
   KeyAlgorithm,
   KeyCheckValueAlgorithm,
@@ -454,7 +455,7 @@ export interface CertificateSubjectType {
   City?: string | undefined;
 
   /**
-   * <p>The city you provide to create the certificate signing request.</p>
+   * <p>The country you provide to create the certificate signing request.</p>
    * @public
    */
   Country?: string | undefined;
@@ -661,6 +662,24 @@ export interface EnableDefaultKeyReplicationRegionsOutput {
    * @public
    */
   EnabledReplicationRegions: string[] | undefined;
+}
+
+/**
+ * <p>Parameter information for key material export using AS2805 key cryptogram format.</p>
+ * @public
+ */
+export interface ExportAs2805KeyCryptogram {
+  /**
+   * <p>A key identifier that can be either a key ARN or an alias name. This allows flexible key identification in operations.</p> <p>When using a key ARN, it must be a fully qualified ARN in the format: <code>arn:aws:payment-cryptography:region:account:key/key-id</code>.</p> <p>When using an alias, it must begin with <code>alias/</code> followed by the alias name.</p> <important> <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important>
+   * @public
+   */
+  WrappingKeyIdentifier: string | undefined;
+
+  /**
+   * <p>The cryptographic usage of the key under export.</p>
+   * @public
+   */
+  As2805KeyVariant: As2805KeyVariant | undefined;
 }
 
 /**
@@ -878,6 +897,7 @@ export interface ExportTr34KeyBlock {
  * @public
  */
 export type ExportKeyMaterial =
+  | ExportKeyMaterial.As2805KeyCryptogramMember
   | ExportKeyMaterial.DiffieHellmanTr31KeyBlockMember
   | ExportKeyMaterial.KeyCryptogramMember
   | ExportKeyMaterial.Tr31KeyBlockMember
@@ -897,6 +917,7 @@ export namespace ExportKeyMaterial {
     Tr34KeyBlock?: never;
     KeyCryptogram?: never;
     DiffieHellmanTr31KeyBlock?: never;
+    As2805KeyCryptogram?: never;
     $unknown?: never;
   }
 
@@ -909,6 +930,7 @@ export namespace ExportKeyMaterial {
     Tr34KeyBlock: ExportTr34KeyBlock;
     KeyCryptogram?: never;
     DiffieHellmanTr31KeyBlock?: never;
+    As2805KeyCryptogram?: never;
     $unknown?: never;
   }
 
@@ -921,6 +943,7 @@ export namespace ExportKeyMaterial {
     Tr34KeyBlock?: never;
     KeyCryptogram: ExportKeyCryptogram;
     DiffieHellmanTr31KeyBlock?: never;
+    As2805KeyCryptogram?: never;
     $unknown?: never;
   }
 
@@ -933,6 +956,20 @@ export namespace ExportKeyMaterial {
     Tr34KeyBlock?: never;
     KeyCryptogram?: never;
     DiffieHellmanTr31KeyBlock: ExportDiffieHellmanTr31KeyBlock;
+    As2805KeyCryptogram?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Parameter information for key material export using AS2805 key cryptogram format.</p>
+   * @public
+   */
+  export interface As2805KeyCryptogramMember {
+    Tr31KeyBlock?: never;
+    Tr34KeyBlock?: never;
+    KeyCryptogram?: never;
+    DiffieHellmanTr31KeyBlock?: never;
+    As2805KeyCryptogram: ExportAs2805KeyCryptogram;
     $unknown?: never;
   }
 
@@ -944,6 +981,7 @@ export namespace ExportKeyMaterial {
     Tr34KeyBlock?: never;
     KeyCryptogram?: never;
     DiffieHellmanTr31KeyBlock?: never;
+    As2805KeyCryptogram?: never;
     $unknown: [string, any];
   }
 
@@ -956,6 +994,7 @@ export namespace ExportKeyMaterial {
     Tr34KeyBlock: (value: ExportTr34KeyBlock) => T;
     KeyCryptogram: (value: ExportKeyCryptogram) => T;
     DiffieHellmanTr31KeyBlock: (value: ExportDiffieHellmanTr31KeyBlock) => T;
+    As2805KeyCryptogram: (value: ExportAs2805KeyCryptogram) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -1237,6 +1276,48 @@ export interface GetPublicKeyCertificateOutput {
 }
 
 /**
+ * <p>Parameter information for key material import using AS2805 key cryptogram format.</p>
+ * @public
+ */
+export interface ImportAs2805KeyCryptogram {
+  /**
+   * <p>The cryptographic usage of the key under import.</p>
+   * @public
+   */
+  As2805KeyVariant: As2805KeyVariant | undefined;
+
+  /**
+   * <p>The list of cryptographic operations that you can perform using the key. The modes of use are deﬁned in section A.5.3 of the TR-31 spec.</p>
+   * @public
+   */
+  KeyModesOfUse: KeyModesOfUse | undefined;
+
+  /**
+   * <p>The key algorithm of the key under import.</p>
+   * @public
+   */
+  KeyAlgorithm: KeyAlgorithm | undefined;
+
+  /**
+   * <p>Specified whether the key is exportable. This data is immutable after the key is imported.</p>
+   * @public
+   */
+  Exportable: boolean | undefined;
+
+  /**
+   * <p>A key identifier that can be either a key ARN or an alias name. This allows flexible key identification in operations.</p> <p>When using a key ARN, it must be a fully qualified ARN in the format: <code>arn:aws:payment-cryptography:region:account:key/key-id</code>.</p> <p>When using an alias, it must begin with <code>alias/</code> followed by the alias name.</p> <important> <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important>
+   * @public
+   */
+  WrappingKeyIdentifier: string | undefined;
+
+  /**
+   * <p>The wrapped key cryptogram under import.</p>
+   * @public
+   */
+  WrappedKeyCryptogram: string | undefined;
+}
+
+/**
  * <p>Key derivation parameter information for key material import using asymmetric ECDH key exchange method.</p>
  * @public
  */
@@ -1445,6 +1526,7 @@ export interface TrustedCertificatePublicKey {
  * @public
  */
 export type ImportKeyMaterial =
+  | ImportKeyMaterial.As2805KeyCryptogramMember
   | ImportKeyMaterial.DiffieHellmanTr31KeyBlockMember
   | ImportKeyMaterial.KeyCryptogramMember
   | ImportKeyMaterial.RootCertificatePublicKeyMember
@@ -1468,6 +1550,7 @@ export namespace ImportKeyMaterial {
     Tr34KeyBlock?: never;
     KeyCryptogram?: never;
     DiffieHellmanTr31KeyBlock?: never;
+    As2805KeyCryptogram?: never;
     $unknown?: never;
   }
 
@@ -1482,6 +1565,7 @@ export namespace ImportKeyMaterial {
     Tr34KeyBlock?: never;
     KeyCryptogram?: never;
     DiffieHellmanTr31KeyBlock?: never;
+    As2805KeyCryptogram?: never;
     $unknown?: never;
   }
 
@@ -1496,6 +1580,7 @@ export namespace ImportKeyMaterial {
     Tr34KeyBlock?: never;
     KeyCryptogram?: never;
     DiffieHellmanTr31KeyBlock?: never;
+    As2805KeyCryptogram?: never;
     $unknown?: never;
   }
 
@@ -1510,6 +1595,7 @@ export namespace ImportKeyMaterial {
     Tr34KeyBlock: ImportTr34KeyBlock;
     KeyCryptogram?: never;
     DiffieHellmanTr31KeyBlock?: never;
+    As2805KeyCryptogram?: never;
     $unknown?: never;
   }
 
@@ -1524,6 +1610,7 @@ export namespace ImportKeyMaterial {
     Tr34KeyBlock?: never;
     KeyCryptogram: ImportKeyCryptogram;
     DiffieHellmanTr31KeyBlock?: never;
+    As2805KeyCryptogram?: never;
     $unknown?: never;
   }
 
@@ -1538,6 +1625,22 @@ export namespace ImportKeyMaterial {
     Tr34KeyBlock?: never;
     KeyCryptogram?: never;
     DiffieHellmanTr31KeyBlock: ImportDiffieHellmanTr31KeyBlock;
+    As2805KeyCryptogram?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Parameter information for key material import using AS2805 key cryptogram format.</p>
+   * @public
+   */
+  export interface As2805KeyCryptogramMember {
+    RootCertificatePublicKey?: never;
+    TrustedCertificatePublicKey?: never;
+    Tr31KeyBlock?: never;
+    Tr34KeyBlock?: never;
+    KeyCryptogram?: never;
+    DiffieHellmanTr31KeyBlock?: never;
+    As2805KeyCryptogram: ImportAs2805KeyCryptogram;
     $unknown?: never;
   }
 
@@ -1551,6 +1654,7 @@ export namespace ImportKeyMaterial {
     Tr34KeyBlock?: never;
     KeyCryptogram?: never;
     DiffieHellmanTr31KeyBlock?: never;
+    As2805KeyCryptogram?: never;
     $unknown: [string, any];
   }
 
@@ -1565,6 +1669,7 @@ export namespace ImportKeyMaterial {
     Tr34KeyBlock: (value: ImportTr34KeyBlock) => T;
     KeyCryptogram: (value: ImportKeyCryptogram) => T;
     DiffieHellmanTr31KeyBlock: (value: ImportDiffieHellmanTr31KeyBlock) => T;
+    As2805KeyCryptogram: (value: ImportAs2805KeyCryptogram) => T;
     _: (name: string, value: any) => T;
   }
 }

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImportTableInput, ImportTableOutput } from "../models/models_0";
-import { ImportTable } from "../schemas/schemas_0";
+import { ImportTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -271,13 +271,14 @@ export class ImportTableCommand extends $Command
   .ep({
     ...commonParams,
     ResourceArn: { type: "operationContextParams", get: (input?: any) => input?.TableCreationParameters?.TableName },
+
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DynamoDB_20120810", "ImportTable", {})
   .n("DynamoDBClient", "ImportTableCommand")
-  .sc(ImportTable)
+  .sc(ImportTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { SetDefaultPolicyVersionRequest } from "../models/models_2";
-import { SetDefaultPolicyVersion } from "../schemas/schemas_0";
+import { SetDefaultPolicyVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class SetDefaultPolicyVersionCommand extends $Command
   })
   .s("AWSIotService", "SetDefaultPolicyVersion", {})
   .n("IoTClient", "SetDefaultPolicyVersionCommand")
-  .sc(SetDefaultPolicyVersion)
+  .sc(SetDefaultPolicyVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

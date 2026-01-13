@@ -8,7 +8,7 @@ import type {
   DescribeWorkspaceImagePermissionsRequest,
   DescribeWorkspaceImagePermissionsResult,
 } from "../models/models_0";
-import { DescribeWorkspaceImagePermissions } from "../schemas/schemas_0";
+import { DescribeWorkspaceImagePermissions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DescribeWorkspaceImagePermissionsCommandInput extends DescribeW
  *
  * The output of {@link DescribeWorkspaceImagePermissionsCommand}.
  */
-export interface DescribeWorkspaceImagePermissionsCommandOutput
-  extends DescribeWorkspaceImagePermissionsResult,
-    __MetadataBearer {}
+export interface DescribeWorkspaceImagePermissionsCommandOutput extends DescribeWorkspaceImagePermissionsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the permissions that the owner of an image has granted to other Amazon Web Services accounts for an image.</p>
@@ -95,7 +93,7 @@ export class DescribeWorkspaceImagePermissionsCommand extends $Command
   })
   .s("WorkspacesService", "DescribeWorkspaceImagePermissions", {})
   .n("WorkSpacesClient", "DescribeWorkspaceImagePermissionsCommand")
-  .sc(DescribeWorkspaceImagePermissions)
+  .sc(DescribeWorkspaceImagePermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

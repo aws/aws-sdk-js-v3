@@ -8,7 +8,7 @@ import type {
   DescribeAssociationExecutionTargetsRequest,
   DescribeAssociationExecutionTargetsResult,
 } from "../models/models_0";
-import { DescribeAssociationExecutionTargets } from "../schemas/schemas_0";
+import { DescribeAssociationExecutionTargets$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DescribeAssociationExecutionTargetsCommandInput extends Describ
  *
  * The output of {@link DescribeAssociationExecutionTargetsCommand}.
  */
-export interface DescribeAssociationExecutionTargetsCommandOutput
-  extends DescribeAssociationExecutionTargetsResult,
-    __MetadataBearer {}
+export interface DescribeAssociationExecutionTargetsCommandOutput extends DescribeAssociationExecutionTargetsResult, __MetadataBearer {}
 
 /**
  * <p>Views information about a specific execution of a specific association.</p>
@@ -115,7 +113,7 @@ export class DescribeAssociationExecutionTargetsCommand extends $Command
   })
   .s("AmazonSSM", "DescribeAssociationExecutionTargets", {})
   .n("SSMClient", "DescribeAssociationExecutionTargetsCommand")
-  .sc(DescribeAssociationExecutionTargets)
+  .sc(DescribeAssociationExecutionTargets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

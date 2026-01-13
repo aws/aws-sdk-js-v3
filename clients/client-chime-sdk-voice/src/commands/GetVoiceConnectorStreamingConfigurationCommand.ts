@@ -9,7 +9,7 @@ import type {
   GetVoiceConnectorStreamingConfigurationRequest,
   GetVoiceConnectorStreamingConfigurationResponse,
 } from "../models/models_0";
-import { GetVoiceConnectorStreamingConfiguration } from "../schemas/schemas_0";
+import { GetVoiceConnectorStreamingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetVoiceConnectorStreamingConfigurationCommand}.
  */
-export interface GetVoiceConnectorStreamingConfigurationCommandInput
-  extends GetVoiceConnectorStreamingConfigurationRequest {}
+export interface GetVoiceConnectorStreamingConfigurationCommandInput extends GetVoiceConnectorStreamingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link GetVoiceConnectorStreamingConfigurationCommand}.
  */
-export interface GetVoiceConnectorStreamingConfigurationCommandOutput
-  extends GetVoiceConnectorStreamingConfigurationResponse,
-    __MetadataBearer {}
+export interface GetVoiceConnectorStreamingConfigurationCommandOutput extends GetVoiceConnectorStreamingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the streaming configuration details for the specified Amazon Chime SDK
@@ -114,7 +111,7 @@ export class GetVoiceConnectorStreamingConfigurationCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "GetVoiceConnectorStreamingConfiguration", {})
   .n("ChimeSDKVoiceClient", "GetVoiceConnectorStreamingConfigurationCommand")
-  .sc(GetVoiceConnectorStreamingConfiguration)
+  .sc(GetVoiceConnectorStreamingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

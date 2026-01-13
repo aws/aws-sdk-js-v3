@@ -9,7 +9,7 @@ import type {
   AssociateTransitGatewayMulticastDomainRequest,
   AssociateTransitGatewayMulticastDomainResult,
 } from "../models/models_0";
-import { AssociateTransitGatewayMulticastDomain } from "../schemas/schemas_0";
+import { AssociateTransitGatewayMulticastDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AssociateTransitGatewayMulticastDomainCommand}.
  */
-export interface AssociateTransitGatewayMulticastDomainCommandInput
-  extends AssociateTransitGatewayMulticastDomainRequest {}
+export interface AssociateTransitGatewayMulticastDomainCommandInput extends AssociateTransitGatewayMulticastDomainRequest {}
 /**
  * @public
  *
  * The output of {@link AssociateTransitGatewayMulticastDomainCommand}.
  */
-export interface AssociateTransitGatewayMulticastDomainCommandOutput
-  extends AssociateTransitGatewayMulticastDomainResult,
-    __MetadataBearer {}
+export interface AssociateTransitGatewayMulticastDomainCommandOutput extends AssociateTransitGatewayMulticastDomainResult, __MetadataBearer {}
 
 /**
  * <p>Associates the specified subnets and transit gateway attachments with the specified transit gateway multicast domain.</p>
@@ -98,7 +95,7 @@ export class AssociateTransitGatewayMulticastDomainCommand extends $Command
   })
   .s("AmazonEC2", "AssociateTransitGatewayMulticastDomain", {})
   .n("EC2Client", "AssociateTransitGatewayMulticastDomainCommand")
-  .sc(AssociateTransitGatewayMulticastDomain)
+  .sc(AssociateTransitGatewayMulticastDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

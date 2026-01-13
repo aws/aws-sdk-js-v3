@@ -9,7 +9,7 @@ import type {
   DescribeCapacityReservationTopologyRequest,
   DescribeCapacityReservationTopologyResult,
 } from "../models/models_3";
-import { DescribeCapacityReservationTopology } from "../schemas/schemas_0";
+import { DescribeCapacityReservationTopology$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeCapacityReservationTopologyCommandInput extends Describ
  *
  * The output of {@link DescribeCapacityReservationTopologyCommand}.
  */
-export interface DescribeCapacityReservationTopologyCommandOutput
-  extends DescribeCapacityReservationTopologyResult,
-    __MetadataBearer {}
+export interface DescribeCapacityReservationTopologyCommandOutput extends DescribeCapacityReservationTopologyResult, __MetadataBearer {}
 
 /**
  * <p>Describes a tree-based hierarchy that represents the physical host placement of your
@@ -126,7 +124,7 @@ export class DescribeCapacityReservationTopologyCommand extends $Command
   })
   .s("AmazonEC2", "DescribeCapacityReservationTopology", {})
   .n("EC2Client", "DescribeCapacityReservationTopologyCommand")
-  .sc(DescribeCapacityReservationTopology)
+  .sc(DescribeCapacityReservationTopology$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

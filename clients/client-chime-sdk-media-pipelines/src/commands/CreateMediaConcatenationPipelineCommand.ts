@@ -13,7 +13,7 @@ import type {
   CreateMediaConcatenationPipelineRequest,
   CreateMediaConcatenationPipelineResponse,
 } from "../models/models_0";
-import { CreateMediaConcatenationPipeline } from "../schemas/schemas_0";
+import { CreateMediaConcatenationPipeline$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface CreateMediaConcatenationPipelineCommandInput extends CreateMedi
  *
  * The output of {@link CreateMediaConcatenationPipelineCommand}.
  */
-export interface CreateMediaConcatenationPipelineCommandOutput
-  extends CreateMediaConcatenationPipelineResponse,
-    __MetadataBearer {}
+export interface CreateMediaConcatenationPipelineCommandOutput extends CreateMediaConcatenationPipelineResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a media concatenation pipeline.</p>
@@ -197,7 +195,7 @@ export class CreateMediaConcatenationPipelineCommand extends $Command
   })
   .s("ChimeSDKMediaPipelinesService", "CreateMediaConcatenationPipeline", {})
   .n("ChimeSDKMediaPipelinesClient", "CreateMediaConcatenationPipelineCommand")
-  .sc(CreateMediaConcatenationPipeline)
+  .sc(CreateMediaConcatenationPipeline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

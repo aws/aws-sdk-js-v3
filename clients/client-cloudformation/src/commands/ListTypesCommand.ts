@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListTypesInput, ListTypesOutput } from "../models/models_0";
-import { ListTypes } from "../schemas/schemas_0";
+import { ListTypes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class ListTypesCommand extends $Command
   })
   .s("CloudFormation", "ListTypes", {})
   .n("CloudFormationClient", "ListTypesCommand")
-  .sc(ListTypes)
+  .sc(ListTypes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

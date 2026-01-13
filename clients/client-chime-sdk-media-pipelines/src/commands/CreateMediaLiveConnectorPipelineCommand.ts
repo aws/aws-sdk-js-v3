@@ -13,7 +13,7 @@ import type {
   CreateMediaLiveConnectorPipelineRequest,
   CreateMediaLiveConnectorPipelineResponse,
 } from "../models/models_0";
-import { CreateMediaLiveConnectorPipeline } from "../schemas/schemas_0";
+import { CreateMediaLiveConnectorPipeline$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface CreateMediaLiveConnectorPipelineCommandInput extends CreateMedi
  *
  * The output of {@link CreateMediaLiveConnectorPipelineCommand}.
  */
-export interface CreateMediaLiveConnectorPipelineCommandOutput
-  extends CreateMediaLiveConnectorPipelineResponse,
-    __MetadataBearer {}
+export interface CreateMediaLiveConnectorPipelineCommandOutput extends CreateMediaLiveConnectorPipelineResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a media live connector pipeline in an Amazon Chime SDK meeting.</p>
@@ -237,7 +235,7 @@ export class CreateMediaLiveConnectorPipelineCommand extends $Command
   })
   .s("ChimeSDKMediaPipelinesService", "CreateMediaLiveConnectorPipeline", {})
   .n("ChimeSDKMediaPipelinesClient", "CreateMediaLiveConnectorPipelineCommand")
-  .sc(CreateMediaLiveConnectorPipeline)
+  .sc(CreateMediaLiveConnectorPipeline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

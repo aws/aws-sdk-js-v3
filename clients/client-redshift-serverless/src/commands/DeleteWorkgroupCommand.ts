@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { DeleteWorkgroup } from "../schemas/schemas_0";
+import { DeleteWorkgroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -147,7 +147,7 @@ export class DeleteWorkgroupCommand extends $Command
   })
   .s("RedshiftServerless", "DeleteWorkgroup", {})
   .n("RedshiftServerlessClient", "DeleteWorkgroupCommand")
-  .sc(DeleteWorkgroup)
+  .sc(DeleteWorkgroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateAwsLogSourceRequest, CreateAwsLogSourceResponse } from "../models/models_0";
-import { CreateAwsLogSource } from "../schemas/schemas_0";
+import { CreateAwsLogSource$ } from "../schemas/schemas_0";
 import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -117,7 +117,7 @@ export class CreateAwsLogSourceCommand extends $Command
   })
   .s("SecurityLake", "CreateAwsLogSource", {})
   .n("SecurityLakeClient", "CreateAwsLogSourceCommand")
-  .sc(CreateAwsLogSource)
+  .sc(CreateAwsLogSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -26,6 +26,7 @@ const packageFolders = [
   ...fs.readdirSync(path.join(root, "lib"), { withFileTypes: true }),
   ...fs.readdirSync(path.join(root, "clients"), { withFileTypes: true }),
   ...fs.readdirSync(path.join(root, "packages"), { withFileTypes: true }),
+  ...fs.readdirSync(path.join(root, "packages-internal"), { withFileTypes: true }),
   ...fs.readdirSync(path.join(root, "private"), { withFileTypes: true }),
 ];
 

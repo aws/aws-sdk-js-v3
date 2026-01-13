@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { GetTelemetryEvaluationStatusForOrganization } from "../schemas/schemas_0";
+import { GetTelemetryEvaluationStatusForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetTelemetryEvaluationStatusForOrganizationCommandInput {}
  *
  * The output of {@link GetTelemetryEvaluationStatusForOrganizationCommand}.
  */
-export interface GetTelemetryEvaluationStatusForOrganizationCommandOutput
-  extends GetTelemetryEvaluationStatusForOrganizationOutput,
-    __MetadataBearer {}
+export interface GetTelemetryEvaluationStatusForOrganizationCommandOutput extends GetTelemetryEvaluationStatusForOrganizationOutput, __MetadataBearer {}
 
 /**
  * <p> This returns the onboarding status of the telemetry configuration feature for the organization. It can only be called by a Management Account of an Amazon Web Services Organization or an assigned Delegated Admin Account of Amazon CloudWatch telemetry config. </p>
@@ -90,7 +88,7 @@ export class GetTelemetryEvaluationStatusForOrganizationCommand extends $Command
   })
   .s("ObservabilityAdmin", "GetTelemetryEvaluationStatusForOrganization", {})
   .n("ObservabilityAdminClient", "GetTelemetryEvaluationStatusForOrganizationCommand")
-  .sc(GetTelemetryEvaluationStatusForOrganization)
+  .sc(GetTelemetryEvaluationStatusForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

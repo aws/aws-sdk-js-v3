@@ -9,7 +9,7 @@ import type {
   ListCodeSecurityScanConfigurationAssociationsRequest,
   ListCodeSecurityScanConfigurationAssociationsResponse,
 } from "../models/models_0";
-import { ListCodeSecurityScanConfigurationAssociations } from "../schemas/schemas_0";
+import { ListCodeSecurityScanConfigurationAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListCodeSecurityScanConfigurationAssociationsCommand}.
  */
-export interface ListCodeSecurityScanConfigurationAssociationsCommandInput
-  extends ListCodeSecurityScanConfigurationAssociationsRequest {}
+export interface ListCodeSecurityScanConfigurationAssociationsCommandInput extends ListCodeSecurityScanConfigurationAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListCodeSecurityScanConfigurationAssociationsCommand}.
  */
-export interface ListCodeSecurityScanConfigurationAssociationsCommandOutput
-  extends ListCodeSecurityScanConfigurationAssociationsResponse,
-    __MetadataBearer {}
+export interface ListCodeSecurityScanConfigurationAssociationsCommandOutput extends ListCodeSecurityScanConfigurationAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the associations between code repositories and Amazon Inspector code security scan
@@ -108,7 +105,7 @@ export class ListCodeSecurityScanConfigurationAssociationsCommand extends $Comma
   })
   .s("Inspector2", "ListCodeSecurityScanConfigurationAssociations", {})
   .n("Inspector2Client", "ListCodeSecurityScanConfigurationAssociationsCommand")
-  .sc(ListCodeSecurityScanConfigurationAssociations)
+  .sc(ListCodeSecurityScanConfigurationAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

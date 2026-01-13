@@ -404,8 +404,14 @@ export interface CostExplorer {
   /**
    * @see {@link GetAnomaliesCommand}
    */
-  getAnomalies(args: GetAnomaliesCommandInput, options?: __HttpHandlerOptions): Promise<GetAnomaliesCommandOutput>;
-  getAnomalies(args: GetAnomaliesCommandInput, cb: (err: any, data?: GetAnomaliesCommandOutput) => void): void;
+  getAnomalies(
+    args: GetAnomaliesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAnomaliesCommandOutput>;
+  getAnomalies(
+    args: GetAnomaliesCommandInput,
+    cb: (err: any, data?: GetAnomaliesCommandOutput) => void
+  ): void;
   getAnomalies(
     args: GetAnomaliesCommandInput,
     options: __HttpHandlerOptions,
@@ -489,7 +495,10 @@ export interface CostExplorer {
     args: GetCostAndUsageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCostAndUsageCommandOutput>;
-  getCostAndUsage(args: GetCostAndUsageCommandInput, cb: (err: any, data?: GetCostAndUsageCommandOutput) => void): void;
+  getCostAndUsage(
+    args: GetCostAndUsageCommandInput,
+    cb: (err: any, data?: GetCostAndUsageCommandOutput) => void
+  ): void;
   getCostAndUsage(
     args: GetCostAndUsageCommandInput,
     options: __HttpHandlerOptions,
@@ -571,7 +580,10 @@ export interface CostExplorer {
     args: GetCostForecastCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCostForecastCommandOutput>;
-  getCostForecast(args: GetCostForecastCommandInput, cb: (err: any, data?: GetCostForecastCommandOutput) => void): void;
+  getCostForecast(
+    args: GetCostForecastCommandInput,
+    cb: (err: any, data?: GetCostForecastCommandOutput) => void
+  ): void;
   getCostForecast(
     args: GetCostForecastCommandInput,
     options: __HttpHandlerOptions,
@@ -751,8 +763,14 @@ export interface CostExplorer {
   /**
    * @see {@link GetTagsCommand}
    */
-  getTags(args: GetTagsCommandInput, options?: __HttpHandlerOptions): Promise<GetTagsCommandOutput>;
-  getTags(args: GetTagsCommandInput, cb: (err: any, data?: GetTagsCommandOutput) => void): void;
+  getTags(
+    args: GetTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTagsCommandOutput>;
+  getTags(
+    args: GetTagsCommandInput,
+    cb: (err: any, data?: GetTagsCommandOutput) => void
+  ): void;
   getTags(
     args: GetTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -973,8 +991,14 @@ export interface CostExplorer {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -984,8 +1008,14 @@ export interface CostExplorer {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

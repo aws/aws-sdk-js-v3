@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { NoInputAndOutput } from "../schemas/schemas_0";
+import { NoInputAndOutput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -76,7 +76,7 @@ export class NoInputAndOutputCommand extends $Command
   })
   .s("RestXml", "NoInputAndOutput", {})
   .n("RestXmlProtocolClient", "NoInputAndOutputCommand")
-  .sc(NoInputAndOutput)
+  .sc(NoInputAndOutput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateNumberOfDomainControllersRequest, UpdateNumberOfDomainControllersResult } from "../models/models_0";
-import { UpdateNumberOfDomainControllers } from "../schemas/schemas_0";
+import { UpdateNumberOfDomainControllers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface UpdateNumberOfDomainControllersCommandInput extends UpdateNumbe
  *
  * The output of {@link UpdateNumberOfDomainControllersCommand}.
  */
-export interface UpdateNumberOfDomainControllersCommandOutput
-  extends UpdateNumberOfDomainControllersResult,
-    __MetadataBearer {}
+export interface UpdateNumberOfDomainControllersCommandOutput extends UpdateNumberOfDomainControllersResult, __MetadataBearer {}
 
 /**
  * <p>Adds or removes domain controllers to or from the directory. Based on the difference
@@ -104,7 +102,7 @@ export class UpdateNumberOfDomainControllersCommand extends $Command
   })
   .s("DirectoryService_20150416", "UpdateNumberOfDomainControllers", {})
   .n("DirectoryServiceClient", "UpdateNumberOfDomainControllersCommand")
-  .sc(UpdateNumberOfDomainControllers)
+  .sc(UpdateNumberOfDomainControllers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

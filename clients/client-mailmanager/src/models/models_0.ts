@@ -694,7 +694,9 @@ export interface ArchiveBooleanExpression {
  * <p>Specifies the email attribute to evaluate in a string expression.</p>
  * @public
  */
-export type ArchiveStringToEvaluate = ArchiveStringToEvaluate.AttributeMember | ArchiveStringToEvaluate.$UnknownMember;
+export type ArchiveStringToEvaluate =
+  | ArchiveStringToEvaluate.AttributeMember
+  | ArchiveStringToEvaluate.$UnknownMember;
 
 /**
  * @public
@@ -826,7 +828,9 @@ export interface ArchiveFilters {
  * <p>The retention policy for an email archive that specifies how long emails are kept before being automatically deleted. </p>
  * @public
  */
-export type ArchiveRetention = ArchiveRetention.RetentionPeriodMember | ArchiveRetention.$UnknownMember;
+export type ArchiveRetention =
+  | ArchiveRetention.RetentionPeriodMember
+  | ArchiveRetention.$UnknownMember;
 
 /**
  * @public
@@ -1970,7 +1974,9 @@ export interface RuleDmarcExpression {
  * <p>The IP address to evaluate for this condition.</p>
  * @public
  */
-export type RuleIpToEvaluate = RuleIpToEvaluate.AttributeMember | RuleIpToEvaluate.$UnknownMember;
+export type RuleIpToEvaluate =
+  | RuleIpToEvaluate.AttributeMember
+  | RuleIpToEvaluate.$UnknownMember;
 
 /**
  * @public
@@ -2031,7 +2037,9 @@ export interface RuleIpExpression {
  * <p>The number to evaluate in a numeric condition expression.</p>
  * @public
  */
-export type RuleNumberToEvaluate = RuleNumberToEvaluate.AttributeMember | RuleNumberToEvaluate.$UnknownMember;
+export type RuleNumberToEvaluate =
+  | RuleNumberToEvaluate.AttributeMember
+  | RuleNumberToEvaluate.$UnknownMember;
 
 /**
  * @public
@@ -2568,7 +2576,9 @@ export interface IngressBooleanExpression {
  * <p>The structure for an IP based condition matching on the incoming mail.</p>
  * @public
  */
-export type IngressIpToEvaluate = IngressIpToEvaluate.AttributeMember | IngressIpToEvaluate.$UnknownMember;
+export type IngressIpToEvaluate =
+  | IngressIpToEvaluate.AttributeMember
+  | IngressIpToEvaluate.$UnknownMember;
 
 /**
  * @public
@@ -2629,7 +2639,9 @@ export interface IngressIpv4Expression {
  * <p>The structure for an IPv6 based condition matching on the incoming mail.</p>
  * @public
  */
-export type IngressIpv6ToEvaluate = IngressIpv6ToEvaluate.AttributeMember | IngressIpv6ToEvaluate.$UnknownMember;
+export type IngressIpv6ToEvaluate =
+  | IngressIpv6ToEvaluate.AttributeMember
+  | IngressIpv6ToEvaluate.$UnknownMember;
 
 /**
  * @public

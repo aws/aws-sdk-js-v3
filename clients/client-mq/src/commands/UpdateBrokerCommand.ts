@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateBrokerRequest, UpdateBrokerResponse } from "../models/models_0";
 import type { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import { UpdateBroker } from "../schemas/schemas_0";
+import { UpdateBroker$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -174,7 +174,7 @@ export class UpdateBrokerCommand extends $Command
   })
   .s("mq", "UpdateBroker", {})
   .n("MqClient", "UpdateBrokerCommand")
-  .sc(UpdateBroker)
+  .sc(UpdateBroker$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

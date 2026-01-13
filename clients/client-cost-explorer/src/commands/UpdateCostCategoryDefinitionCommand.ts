@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateCostCategoryDefinitionRequest, UpdateCostCategoryDefinitionResponse } from "../models/models_0";
-import { UpdateCostCategoryDefinition } from "../schemas/schemas_0";
+import { UpdateCostCategoryDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateCostCategoryDefinitionCommandInput extends UpdateCostCate
  *
  * The output of {@link UpdateCostCategoryDefinitionCommand}.
  */
-export interface UpdateCostCategoryDefinitionCommandOutput
-  extends UpdateCostCategoryDefinitionResponse,
-    __MetadataBearer {}
+export interface UpdateCostCategoryDefinitionCommandOutput extends UpdateCostCategoryDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing cost category. Changes made to the cost category rules will be used to
@@ -185,7 +183,7 @@ export class UpdateCostCategoryDefinitionCommand extends $Command
   })
   .s("AWSInsightsIndexService", "UpdateCostCategoryDefinition", {})
   .n("CostExplorerClient", "UpdateCostCategoryDefinitionCommand")
-  .sc(UpdateCostCategoryDefinition)
+  .sc(UpdateCostCategoryDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

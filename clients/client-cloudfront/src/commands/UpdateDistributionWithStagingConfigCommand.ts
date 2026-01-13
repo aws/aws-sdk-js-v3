@@ -9,7 +9,7 @@ import type {
   UpdateDistributionWithStagingConfigRequest,
   UpdateDistributionWithStagingConfigResult,
 } from "../models/models_1";
-import { UpdateDistributionWithStagingConfig } from "../schemas/schemas_0";
+import { UpdateDistributionWithStagingConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateDistributionWithStagingConfigCommandInput extends UpdateD
  *
  * The output of {@link UpdateDistributionWithStagingConfigCommand}.
  */
-export interface UpdateDistributionWithStagingConfigCommandOutput
-  extends UpdateDistributionWithStagingConfigResult,
-    __MetadataBearer {}
+export interface UpdateDistributionWithStagingConfigCommandOutput extends UpdateDistributionWithStagingConfigResult, __MetadataBearer {}
 
 /**
  * <p>Copies the staging distribution's configuration to its corresponding primary distribution. The primary distribution retains its <code>Aliases</code> (also known as alternate domain names or CNAMEs) and <code>ContinuousDeploymentPolicyId</code> value, but otherwise its configuration is overwritten to match the staging distribution.</p> <p>You can use this operation in a continuous deployment workflow after you have tested configuration changes on the staging distribution. After using a continuous deployment policy to move a portion of your domain name's traffic to the staging distribution and verifying that it works as intended, you can use this operation to copy the staging distribution's configuration to the primary distribution. This action will disable the continuous deployment policy and move your domain's traffic back to the primary distribution.</p> <p>This API operation requires the following IAM permissions:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistribution.html">GetDistribution</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a> </p> </li> </ul>
@@ -440,6 +438,9 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * @throws {@link CNAMEAlreadyExists} (client fault)
  *  <p>The CNAME specified is already defined for CloudFront.</p>
  *
+ * @throws {@link EntityLimitExceeded} (client fault)
+ *  <p>The entity limit has been exceeded.</p>
+ *
  * @throws {@link EntityNotFound} (client fault)
  *  <p>The entity was not found.</p>
  *
@@ -640,7 +641,7 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "UpdateDistributionWithStagingConfig", {})
   .n("CloudFrontClient", "UpdateDistributionWithStagingConfigCommand")
-  .sc(UpdateDistributionWithStagingConfig)
+  .sc(UpdateDistributionWithStagingConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

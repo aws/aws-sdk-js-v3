@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPromptFileRequest, GetPromptFileResponse } from "../models/models_1";
-import { GetPromptFile } from "../schemas/schemas_0";
+import { GetPromptFile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class GetPromptFileCommand extends $Command
   })
   .s("AmazonConnectService", "GetPromptFile", {})
   .n("ConnectClient", "GetPromptFileCommand")
-  .sc(GetPromptFile)
+  .sc(GetPromptFile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

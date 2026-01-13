@@ -8,7 +8,7 @@ import type {
   ListSlackWorkspaceConfigurationsRequest,
   ListSlackWorkspaceConfigurationsResult,
 } from "../models/models_0";
-import { ListSlackWorkspaceConfigurations } from "../schemas/schemas_0";
+import { ListSlackWorkspaceConfigurations$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
@@ -27,9 +27,7 @@ export interface ListSlackWorkspaceConfigurationsCommandInput extends ListSlackW
  *
  * The output of {@link ListSlackWorkspaceConfigurationsCommand}.
  */
-export interface ListSlackWorkspaceConfigurationsCommandOutput
-  extends ListSlackWorkspaceConfigurationsResult,
-    __MetadataBearer {}
+export interface ListSlackWorkspaceConfigurationsCommandOutput extends ListSlackWorkspaceConfigurationsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the Slack workspace configurations for an Amazon Web Services account.</p>
@@ -91,7 +89,7 @@ export class ListSlackWorkspaceConfigurationsCommand extends $Command
   })
   .s("SupportApp", "ListSlackWorkspaceConfigurations", {})
   .n("SupportAppClient", "ListSlackWorkspaceConfigurationsCommand")
-  .sc(ListSlackWorkspaceConfigurations)
+  .sc(ListSlackWorkspaceConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

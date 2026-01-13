@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BillingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateBillingViewRequest, UpdateBillingViewResponse } from "../models/models_0";
-import { UpdateBillingView } from "../schemas/schemas_0";
+import { UpdateBillingView$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -48,6 +48,12 @@ export interface UpdateBillingViewCommandOutput extends UpdateBillingViewRespons
  *       ],
  *     },
  *     tags: { // TagValues
+ *       key: "STRING_VALUE", // required
+ *       values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     costCategories: { // CostCategoryValues
  *       key: "STRING_VALUE", // required
  *       values: [ // required
  *         "STRING_VALUE",
@@ -144,7 +150,7 @@ export class UpdateBillingViewCommand extends $Command
   })
   .s("AWSBilling", "UpdateBillingView", {})
   .n("BillingClient", "UpdateBillingViewCommand")
-  .sc(UpdateBillingView)
+  .sc(UpdateBillingView$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

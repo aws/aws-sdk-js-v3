@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopTaskRequest, StopTaskResponse } from "../models/models_0";
-import { StopTask } from "../schemas/schemas_0";
+import { StopTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -330,7 +330,7 @@ export class StopTaskCommand extends $Command
   })
   .s("AmazonEC2ContainerServiceV20141113", "StopTask", {})
   .n("ECSClient", "StopTaskCommand")
-  .sc(StopTask)
+  .sc(StopTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

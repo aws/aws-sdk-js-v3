@@ -9,7 +9,7 @@ import type {
   BatchAssociateApprovalRuleTemplateWithRepositoriesInput,
   BatchAssociateApprovalRuleTemplateWithRepositoriesOutput,
 } from "../models/models_0";
-import { BatchAssociateApprovalRuleTemplateWithRepositories } from "../schemas/schemas_0";
+import { BatchAssociateApprovalRuleTemplateWithRepositories$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommand}.
  */
-export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput
-  extends BatchAssociateApprovalRuleTemplateWithRepositoriesInput {}
+export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput extends BatchAssociateApprovalRuleTemplateWithRepositoriesInput {}
 /**
  * @public
  *
  * The output of {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommand}.
  */
-export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
-  extends BatchAssociateApprovalRuleTemplateWithRepositoriesOutput,
-    __MetadataBearer {}
+export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput extends BatchAssociateApprovalRuleTemplateWithRepositoriesOutput, __MetadataBearer {}
 
 /**
  * <p>Creates an association between an approval rule template and one or more specified repositories. </p>
@@ -124,7 +121,7 @@ export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $
   })
   .s("CodeCommit_20150413", "BatchAssociateApprovalRuleTemplateWithRepositories", {})
   .n("CodeCommitClient", "BatchAssociateApprovalRuleTemplateWithRepositoriesCommand")
-  .sc(BatchAssociateApprovalRuleTemplateWithRepositories)
+  .sc(BatchAssociateApprovalRuleTemplateWithRepositories$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

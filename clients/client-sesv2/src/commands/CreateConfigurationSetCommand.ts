@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateConfigurationSetRequest, CreateConfigurationSetResponse } from "../models/models_0";
-import { CreateConfigurationSet } from "../schemas/schemas_0";
+import { CreateConfigurationSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -68,6 +68,14 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  *     SuppressedReasons: [ // SuppressionListReasons
  *       "BOUNCE" || "COMPLAINT",
  *     ],
+ *     ValidationOptions: { // SuppressionValidationOptions
+ *       ConditionThreshold: { // SuppressionConditionThreshold
+ *         ConditionThresholdEnabled: "ENABLED" || "DISABLED", // required
+ *         OverallConfidenceThreshold: { // SuppressionConfidenceThreshold
+ *           ConfidenceVerdictThreshold: "MEDIUM" || "HIGH" || "MANAGED", // required
+ *         },
+ *       },
+ *     },
  *   },
  *   VdmOptions: { // VdmOptions
  *     DashboardOptions: { // DashboardOptions
@@ -131,7 +139,7 @@ export class CreateConfigurationSetCommand extends $Command
   })
   .s("SimpleEmailService_v2", "CreateConfigurationSet", {})
   .n("SESv2Client", "CreateConfigurationSetCommand")
-  .sc(CreateConfigurationSet)
+  .sc(CreateConfigurationSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

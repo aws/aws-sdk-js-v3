@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListReviewPolicyResultsForHITRequest, ListReviewPolicyResultsForHITResponse } from "../models/models_0";
 import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { ListReviewPolicyResultsForHIT } from "../schemas/schemas_0";
+import { ListReviewPolicyResultsForHIT$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListReviewPolicyResultsForHITCommandInput extends ListReviewPol
  *
  * The output of {@link ListReviewPolicyResultsForHITCommand}.
  */
-export interface ListReviewPolicyResultsForHITCommandOutput
-  extends ListReviewPolicyResultsForHITResponse,
-    __MetadataBearer {}
+export interface ListReviewPolicyResultsForHITCommandOutput extends ListReviewPolicyResultsForHITResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -181,7 +179,7 @@ export class ListReviewPolicyResultsForHITCommand extends $Command
   })
   .s("MTurkRequesterServiceV20170117", "ListReviewPolicyResultsForHIT", {})
   .n("MTurkClient", "ListReviewPolicyResultsForHITCommand")
-  .sc(ListReviewPolicyResultsForHIT)
+  .sc(ListReviewPolicyResultsForHIT$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

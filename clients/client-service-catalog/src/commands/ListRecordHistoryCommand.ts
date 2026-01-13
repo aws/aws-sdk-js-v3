@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListRecordHistoryInput, ListRecordHistoryOutput } from "../models/models_0";
-import { ListRecordHistory } from "../schemas/schemas_0";
+import { ListRecordHistory$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -118,7 +118,7 @@ export class ListRecordHistoryCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "ListRecordHistory", {})
   .n("ServiceCatalogClient", "ListRecordHistoryCommand")
-  .sc(ListRecordHistory)
+  .sc(ListRecordHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsClient";
-import { GroupResources } from "../schemas/schemas_0";
+import { GroupResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class GroupResourcesCommand extends $Command
   })
   .s("Ardi", "GroupResources", {})
   .n("ResourceGroupsClient", "GroupResourcesCommand")
-  .sc(GroupResources)
+  .sc(GroupResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

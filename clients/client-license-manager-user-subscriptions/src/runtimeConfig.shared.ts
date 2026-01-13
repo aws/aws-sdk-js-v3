@@ -22,19 +22,22 @@ export const getRuntimeConfig = (config: LicenseManagerUserSubscriptionsClientCo
     disableHostPrefix: config?.disableHostPrefix ?? false,
     endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
     extensions: config?.extensions ?? [],
-    httpAuthSchemeProvider:
-      config?.httpAuthSchemeProvider ?? defaultLicenseManagerUserSubscriptionsHttpAuthSchemeProvider,
+    httpAuthSchemeProvider: config?.httpAuthSchemeProvider ?? defaultLicenseManagerUserSubscriptionsHttpAuthSchemeProvider,
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.licensemanagerusersubscriptions" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.licensemanagerusersubscriptions",
+      version: "2018-05-10",
+      serviceTarget: "LicenseManagerUserSubscriptions",
+    },
     serviceId: config?.serviceId ?? "License Manager User Subscriptions",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

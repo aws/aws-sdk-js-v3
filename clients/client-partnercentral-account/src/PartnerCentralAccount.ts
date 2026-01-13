@@ -279,8 +279,14 @@ export interface PartnerCentralAccount {
   /**
    * @see {@link CreatePartnerCommand}
    */
-  createPartner(args: CreatePartnerCommandInput, options?: __HttpHandlerOptions): Promise<CreatePartnerCommandOutput>;
-  createPartner(args: CreatePartnerCommandInput, cb: (err: any, data?: CreatePartnerCommandOutput) => void): void;
+  createPartner(
+    args: CreatePartnerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePartnerCommandOutput>;
+  createPartner(
+    args: CreatePartnerCommandInput,
+    cb: (err: any, data?: CreatePartnerCommandOutput) => void
+  ): void;
   createPartner(
     args: CreatePartnerCommandInput,
     options: __HttpHandlerOptions,
@@ -324,8 +330,14 @@ export interface PartnerCentralAccount {
   /**
    * @see {@link GetConnectionCommand}
    */
-  getConnection(args: GetConnectionCommandInput, options?: __HttpHandlerOptions): Promise<GetConnectionCommandOutput>;
-  getConnection(args: GetConnectionCommandInput, cb: (err: any, data?: GetConnectionCommandOutput) => void): void;
+  getConnection(
+    args: GetConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectionCommandOutput>;
+  getConnection(
+    args: GetConnectionCommandInput,
+    cb: (err: any, data?: GetConnectionCommandOutput) => void
+  ): void;
   getConnection(
     args: GetConnectionCommandInput,
     options: __HttpHandlerOptions,
@@ -369,8 +381,14 @@ export interface PartnerCentralAccount {
   /**
    * @see {@link GetPartnerCommand}
    */
-  getPartner(args: GetPartnerCommandInput, options?: __HttpHandlerOptions): Promise<GetPartnerCommandOutput>;
-  getPartner(args: GetPartnerCommandInput, cb: (err: any, data?: GetPartnerCommandOutput) => void): void;
+  getPartner(
+    args: GetPartnerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPartnerCommandOutput>;
+  getPartner(
+    args: GetPartnerCommandInput,
+    cb: (err: any, data?: GetPartnerCommandOutput) => void
+  ): void;
   getPartner(
     args: GetPartnerCommandInput,
     options: __HttpHandlerOptions,
@@ -418,7 +436,10 @@ export interface PartnerCentralAccount {
     args: GetVerificationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetVerificationCommandOutput>;
-  getVerification(args: GetVerificationCommandInput, cb: (err: any, data?: GetVerificationCommandOutput) => void): void;
+  getVerification(
+    args: GetVerificationCommandInput,
+    cb: (err: any, data?: GetVerificationCommandOutput) => void
+  ): void;
   getVerification(
     args: GetVerificationCommandInput,
     options: __HttpHandlerOptions,
@@ -449,7 +470,10 @@ export interface PartnerCentralAccount {
     args: ListConnectionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListConnectionsCommandOutput>;
-  listConnections(args: ListConnectionsCommandInput, cb: (err: any, data?: ListConnectionsCommandOutput) => void): void;
+  listConnections(
+    args: ListConnectionsCommandInput,
+    cb: (err: any, data?: ListConnectionsCommandOutput) => void
+  ): void;
   listConnections(
     args: ListConnectionsCommandInput,
     options: __HttpHandlerOptions,
@@ -459,8 +483,14 @@ export interface PartnerCentralAccount {
   /**
    * @see {@link ListPartnersCommand}
    */
-  listPartners(args: ListPartnersCommandInput, options?: __HttpHandlerOptions): Promise<ListPartnersCommandOutput>;
-  listPartners(args: ListPartnersCommandInput, cb: (err: any, data?: ListPartnersCommandOutput) => void): void;
+  listPartners(
+    args: ListPartnersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPartnersCommandOutput>;
+  listPartners(
+    args: ListPartnersCommandInput,
+    cb: (err: any, data?: ListPartnersCommandOutput) => void
+  ): void;
   listPartners(
     args: ListPartnersCommandInput,
     options: __HttpHandlerOptions,
@@ -590,8 +620,14 @@ export interface PartnerCentralAccount {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -601,8 +637,14 @@ export interface PartnerCentralAccount {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

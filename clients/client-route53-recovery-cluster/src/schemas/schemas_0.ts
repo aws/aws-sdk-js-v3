@@ -56,163 +56,142 @@ import { TypeRegistry } from "@smithy/core/schema";
 import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  EndpointTemporarilyUnavailableException as __EndpointTemporarilyUnavailableException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceLimitExceededException as __ServiceLimitExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  EndpointTemporarilyUnavailableException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceLimitExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { Route53RecoveryClusterServiceException as __Route53RecoveryClusterServiceException } from "../models/Route53RecoveryClusterServiceException";
+import { Route53RecoveryClusterServiceException } from "../models/Route53RecoveryClusterServiceException";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var EndpointTemporarilyUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ETUE,
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0]
+];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var EndpointTemporarilyUnavailableException$: StaticErrorSchema = [-3, n0, _ETUE,
   { [_e]: _s, [_hE]: 503 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(EndpointTemporarilyUnavailableException, __EndpointTemporarilyUnavailableException);
-export var GetRoutingControlStateRequest: StaticStructureSchema = [3, n0, _GRCSR, 0, [_RCA], [0]];
-export var GetRoutingControlStateResponse: StaticStructureSchema = [3, n0, _GRCSRe, 0, [_RCA, _RCS, _RCN], [0, 0, 0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
+TypeRegistry.for(n0).registerError(EndpointTemporarilyUnavailableException$, EndpointTemporarilyUnavailableException);
+export var GetRoutingControlStateRequest$: StaticStructureSchema = [3, n0, _GRCSR,
+  0,
+  [_RCA],
+  [0]
+];
+export var GetRoutingControlStateResponse$: StaticStructureSchema = [3, n0, _GRCSRe,
+  0,
+  [_RCA, _RCS, _RCN],
+  [0, 0, 0]
+];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]],
+  [0, [1, { [_hH]: _RA }]]
 ];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var ListRoutingControlsRequest: StaticStructureSchema = [3, n0, _LRCR, 0, [_CPA, _NT, _MR], [0, 0, 1]];
-export var ListRoutingControlsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LRCRi,
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var ListRoutingControlsRequest$: StaticStructureSchema = [3, n0, _LRCR,
+  0,
+  [_CPA, _NT, _MR],
+  [0, 0, 1]
+];
+export var ListRoutingControlsResponse$: StaticStructureSchema = [3, n0, _LRCRi,
   0,
   [_RC, _NT],
-  [() => RoutingControls, 0],
+  [() => RoutingControls, 0]
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var RoutingControl: StaticStructureSchema = [
-  3,
-  n0,
-  _RCo,
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var RoutingControl$: StaticStructureSchema = [3, n0, _RCo,
   0,
   [_CPA, _CPN, _RCA, _RCN, _RCS, _O],
-  [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0]
 ];
-export var ServiceLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SLEE,
+export var ServiceLimitExceededException$: StaticErrorSchema = [-3, n0, _SLEE,
   { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _lC, _sC],
-  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(ServiceLimitExceededException, __ServiceLimitExceededException);
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
+TypeRegistry.for(n0).registerError(ServiceLimitExceededException$, ServiceLimitExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]],
+  [0, [1, { [_hH]: _RA }]]
 ];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UpdateRoutingControlStateEntry: StaticStructureSchema = [3, n0, _URCSE, 0, [_RCA, _RCS], [0, 0]];
-export var UpdateRoutingControlStateRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _URCSR,
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UpdateRoutingControlStateEntry$: StaticStructureSchema = [3, n0, _URCSE,
+  0,
+  [_RCA, _RCS],
+  [0, 0]
+];
+export var UpdateRoutingControlStateRequest$: StaticStructureSchema = [3, n0, _URCSR,
   0,
   [_RCA, _RCS, _SRTO],
-  [0, 0, 64 | 0],
+  [0, 0, 64 | 0]
 ];
-export var UpdateRoutingControlStateResponse: StaticStructureSchema = [3, n0, _URCSRp, 0, [], []];
-export var UpdateRoutingControlStatesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _URCSRpd,
+export var UpdateRoutingControlStateResponse$: StaticStructureSchema = [3, n0, _URCSRp,
+  0,
+  [],
+  []
+];
+export var UpdateRoutingControlStatesRequest$: StaticStructureSchema = [3, n0, _URCSRpd,
   0,
   [_URCSEp, _SRTO],
-  [() => UpdateRoutingControlStateEntries, 64 | 0],
+  [() => UpdateRoutingControlStateEntries, 64 | 0]
 ];
-export var UpdateRoutingControlStatesResponse: StaticStructureSchema = [3, n0, _URCSRpda, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
+export var UpdateRoutingControlStatesResponse$: StaticStructureSchema = [3, n0, _URCSRpda,
+  0,
+  [],
+  []
+];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _r, _f],
-  [0, 0, () => ValidationExceptionFieldList],
+  [0, 0, () => ValidationExceptionFieldList]
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var Route53RecoveryClusterServiceException: StaticErrorSchema = [
-  -3,
-  _sm,
-  "Route53RecoveryClusterServiceException",
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
-  [],
-  [],
+  [_n, _m],
+  [0, 0]
 ];
-TypeRegistry.for(_sm).registerError(Route53RecoveryClusterServiceException, __Route53RecoveryClusterServiceException);
-export var Arns = 64 | 0;
-export var RoutingControls: StaticListSchema = [1, n0, _RC, 0, () => RoutingControl];
-export var UpdateRoutingControlStateEntries: StaticListSchema = [
-  1,
-  n0,
-  _URCSEp,
-  0,
-  () => UpdateRoutingControlStateEntry,
+export var Route53RecoveryClusterServiceException$: StaticErrorSchema = [-3, _sm, "Route53RecoveryClusterServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(Route53RecoveryClusterServiceException$, Route53RecoveryClusterServiceException);
+var Arns = 64 | 0;
+var RoutingControls: StaticListSchema = [1, n0, _RC,
+  0, () => RoutingControl$
 ];
-export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
-export var GetRoutingControlState: StaticOperationSchema = [
-  9,
-  n0,
-  _GRCS,
-  0,
-  () => GetRoutingControlStateRequest,
-  () => GetRoutingControlStateResponse,
+var UpdateRoutingControlStateEntries: StaticListSchema = [1, n0, _URCSEp,
+  0, () => UpdateRoutingControlStateEntry$
 ];
-export var ListRoutingControls: StaticOperationSchema = [
-  9,
-  n0,
-  _LRC,
-  0,
-  () => ListRoutingControlsRequest,
-  () => ListRoutingControlsResponse,
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
+  0, () => ValidationExceptionField$
 ];
-export var UpdateRoutingControlState: StaticOperationSchema = [
-  9,
-  n0,
-  _URCS,
-  0,
-  () => UpdateRoutingControlStateRequest,
-  () => UpdateRoutingControlStateResponse,
+export var GetRoutingControlState$: StaticOperationSchema = [9, n0, _GRCS,
+  0, () => GetRoutingControlStateRequest$, () => GetRoutingControlStateResponse$
 ];
-export var UpdateRoutingControlStates: StaticOperationSchema = [
-  9,
-  n0,
-  _URCSp,
-  0,
-  () => UpdateRoutingControlStatesRequest,
-  () => UpdateRoutingControlStatesResponse,
+export var ListRoutingControls$: StaticOperationSchema = [9, n0, _LRC,
+  0, () => ListRoutingControlsRequest$, () => ListRoutingControlsResponse$
+];
+export var UpdateRoutingControlState$: StaticOperationSchema = [9, n0, _URCS,
+  0, () => UpdateRoutingControlStateRequest$, () => UpdateRoutingControlStateResponse$
+];
+export var UpdateRoutingControlStates$: StaticOperationSchema = [9, n0, _URCSp,
+  0, () => UpdateRoutingControlStatesRequest$, () => UpdateRoutingControlStatesResponse$
 ];

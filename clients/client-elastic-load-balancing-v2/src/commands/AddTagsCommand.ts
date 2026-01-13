@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AddTagsInput, AddTagsOutput } from "../models/models_0";
-import { AddTags } from "../schemas/schemas_0";
+import { AddTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,7 +133,7 @@ export class AddTagsCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "AddTags", {})
   .n("ElasticLoadBalancingV2Client", "AddTagsCommand")
-  .sc(AddTags)
+  .sc(AddTags$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

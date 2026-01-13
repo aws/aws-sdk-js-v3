@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCatalogItemInput, GetCatalogItemOutput } from "../models/models_0";
 import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import { GetCatalogItem } from "../schemas/schemas_0";
+import { GetCatalogItem$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class GetCatalogItemCommand extends $Command
   })
   .s("OutpostsOlafService", "GetCatalogItem", {})
   .n("OutpostsClient", "GetCatalogItemCommand")
-  .sc(GetCatalogItem)
+  .sc(GetCatalogItem$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

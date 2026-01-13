@@ -13,7 +13,7 @@ import type {
   ListServiceLevelObjectiveExclusionWindowsInput,
   ListServiceLevelObjectiveExclusionWindowsOutput,
 } from "../models/models_0";
-import { ListServiceLevelObjectiveExclusionWindows } from "../schemas/schemas_0";
+import { ListServiceLevelObjectiveExclusionWindows$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListServiceLevelObjectiveExclusionWindowsCommand}.
  */
-export interface ListServiceLevelObjectiveExclusionWindowsCommandInput
-  extends ListServiceLevelObjectiveExclusionWindowsInput {}
+export interface ListServiceLevelObjectiveExclusionWindowsCommandInput extends ListServiceLevelObjectiveExclusionWindowsInput {}
 /**
  * @public
  *
  * The output of {@link ListServiceLevelObjectiveExclusionWindowsCommand}.
  */
-export interface ListServiceLevelObjectiveExclusionWindowsCommandOutput
-  extends ListServiceLevelObjectiveExclusionWindowsOutput,
-    __MetadataBearer {}
+export interface ListServiceLevelObjectiveExclusionWindowsCommandOutput extends ListServiceLevelObjectiveExclusionWindowsOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves all exclusion windows configured for a specific SLO.</p>
@@ -107,7 +104,7 @@ export class ListServiceLevelObjectiveExclusionWindowsCommand extends $Command
   })
   .s("ApplicationSignals", "ListServiceLevelObjectiveExclusionWindows", {})
   .n("ApplicationSignalsClient", "ListServiceLevelObjectiveExclusionWindowsCommand")
-  .sc(ListServiceLevelObjectiveExclusionWindows)
+  .sc(ListServiceLevelObjectiveExclusionWindows$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

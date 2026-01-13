@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyHostsRequest, ModifyHostsResult } from "../models/models_6";
-import { ModifyHosts } from "../schemas/schemas_0";
+import { ModifyHosts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class ModifyHostsCommand extends $Command
   })
   .s("AmazonEC2", "ModifyHosts", {})
   .n("EC2Client", "ModifyHostsCommand")
-  .sc(ModifyHosts)
+  .sc(ModifyHosts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

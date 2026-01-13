@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SetReceiptRulePositionRequest, SetReceiptRulePositionResponse } from "../models/models_0";
-import { SetReceiptRulePosition } from "../schemas/schemas_0";
+import { SetReceiptRulePosition$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -97,7 +97,7 @@ export class SetReceiptRulePositionCommand extends $Command
   })
   .s("SimpleEmailService", "SetReceiptRulePosition", {})
   .n("SESClient", "SetReceiptRulePositionCommand")
-  .sc(SetReceiptRulePosition)
+  .sc(SetReceiptRulePosition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

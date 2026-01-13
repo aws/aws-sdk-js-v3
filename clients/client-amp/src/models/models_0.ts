@@ -249,7 +249,9 @@ export interface AmpConfiguration {
  * <p>Where to send the metrics from a scraper.</p>
  * @public
  */
-export type Destination = Destination.AmpConfigurationMember | Destination.$UnknownMember;
+export type Destination =
+  | Destination.AmpConfigurationMember
+  | Destination.$UnknownMember;
 
 /**
  * @public
@@ -304,7 +306,9 @@ export interface RoleConfiguration {
  * <p>A scrape configuration for a scraper, base 64 encoded. For more information, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration">Scraper configuration</a> in the <i>Amazon Managed Service for Prometheus User Guide</i>.</p>
  * @public
  */
-export type ScrapeConfiguration = ScrapeConfiguration.ConfigurationBlobMember | ScrapeConfiguration.$UnknownMember;
+export type ScrapeConfiguration =
+  | ScrapeConfiguration.ConfigurationBlobMember
+  | ScrapeConfiguration.$UnknownMember;
 
 /**
  * @public
@@ -383,7 +387,10 @@ export interface VpcConfiguration {
  * <p>The source of collected metrics for a scraper.</p>
  * @public
  */
-export type Source = Source.EksConfigurationMember | Source.VpcConfigurationMember | Source.$UnknownMember;
+export type Source =
+  | Source.EksConfigurationMember
+  | Source.VpcConfigurationMember
+  | Source.$UnknownMember;
 
 /**
  * @public

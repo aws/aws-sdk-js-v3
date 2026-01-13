@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteResourceDataSyncRequest, DeleteResourceDataSyncResult } from "../models/models_0";
-import { DeleteResourceDataSync } from "../schemas/schemas_0";
+import { DeleteResourceDataSync$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -83,7 +83,7 @@ export class DeleteResourceDataSyncCommand extends $Command
   })
   .s("AmazonSSM", "DeleteResourceDataSync", {})
   .n("SSMClient", "DeleteResourceDataSyncCommand")
-  .sc(DeleteResourceDataSync)
+  .sc(DeleteResourceDataSync$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

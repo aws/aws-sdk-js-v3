@@ -8,7 +8,7 @@ import type {
   DescribeMaintenanceWindowTargetsRequest,
   DescribeMaintenanceWindowTargetsResult,
 } from "../models/models_0";
-import { DescribeMaintenanceWindowTargets } from "../schemas/schemas_0";
+import { DescribeMaintenanceWindowTargets$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DescribeMaintenanceWindowTargetsCommandInput extends DescribeMa
  *
  * The output of {@link DescribeMaintenanceWindowTargetsCommand}.
  */
-export interface DescribeMaintenanceWindowTargetsCommandOutput
-  extends DescribeMaintenanceWindowTargetsResult,
-    __MetadataBearer {}
+export interface DescribeMaintenanceWindowTargetsCommandOutput extends DescribeMaintenanceWindowTargetsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the targets registered with the maintenance window.</p>
@@ -115,7 +113,7 @@ export class DescribeMaintenanceWindowTargetsCommand extends $Command
   })
   .s("AmazonSSM", "DescribeMaintenanceWindowTargets", {})
   .n("SSMClient", "DescribeMaintenanceWindowTargetsCommand")
-  .sc(DescribeMaintenanceWindowTargets)
+  .sc(DescribeMaintenanceWindowTargets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

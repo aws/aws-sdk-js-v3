@@ -7,18 +7,15 @@ import {
 } from "../commands/GetOutboundExternalLinkCommand";
 import { RTBFabricClient } from "../RTBFabricClient";
 
-const checkState = async (
-  client: RTBFabricClient,
-  input: GetOutboundExternalLinkCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: RTBFabricClient, input: GetOutboundExternalLinkCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetOutboundExternalLinkCommand(input));
+    let result: any = await client.send(new GetOutboundExternalLinkCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -26,7 +23,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "REJECTED") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -34,7 +31,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -42,7 +39,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "DELETED") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -50,7 +47,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "ISOLATED") {
         return { state: WaiterState.FAILURE, reason };
       }

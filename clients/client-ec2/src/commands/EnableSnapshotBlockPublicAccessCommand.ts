@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableSnapshotBlockPublicAccessRequest, EnableSnapshotBlockPublicAccessResult } from "../models/models_5";
-import { EnableSnapshotBlockPublicAccess } from "../schemas/schemas_0";
+import { EnableSnapshotBlockPublicAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface EnableSnapshotBlockPublicAccessCommandInput extends EnableSnaps
  *
  * The output of {@link EnableSnapshotBlockPublicAccessCommand}.
  */
-export interface EnableSnapshotBlockPublicAccessCommandOutput
-  extends EnableSnapshotBlockPublicAccessResult,
-    __MetadataBearer {}
+export interface EnableSnapshotBlockPublicAccessCommandOutput extends EnableSnapshotBlockPublicAccessResult, __MetadataBearer {}
 
 /**
  * <p>Enables or modifies the <i>block public access for snapshots</i>
@@ -92,7 +90,7 @@ export class EnableSnapshotBlockPublicAccessCommand extends $Command
   })
   .s("AmazonEC2", "EnableSnapshotBlockPublicAccess", {})
   .n("EC2Client", "EnableSnapshotBlockPublicAccessCommand")
-  .sc(EnableSnapshotBlockPublicAccess)
+  .sc(EnableSnapshotBlockPublicAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

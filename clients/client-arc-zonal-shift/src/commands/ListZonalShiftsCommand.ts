@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListZonalShiftsRequest, ListZonalShiftsResponse } from "../models/models_0";
-import { ListZonalShifts } from "../schemas/schemas_0";
+import { ListZonalShifts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class ListZonalShiftsCommand extends $Command
   })
   .s("PercDataPlane", "ListZonalShifts", {})
   .n("ARCZonalShiftClient", "ListZonalShiftsCommand")
-  .sc(ListZonalShifts)
+  .sc(ListZonalShifts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

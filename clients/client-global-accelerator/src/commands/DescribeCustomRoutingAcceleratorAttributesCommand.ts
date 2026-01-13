@@ -13,7 +13,7 @@ import type {
   DescribeCustomRoutingAcceleratorAttributesRequest,
   DescribeCustomRoutingAcceleratorAttributesResponse,
 } from "../models/models_0";
-import { DescribeCustomRoutingAcceleratorAttributes } from "../schemas/schemas_0";
+import { DescribeCustomRoutingAcceleratorAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeCustomRoutingAcceleratorAttributesCommand}.
  */
-export interface DescribeCustomRoutingAcceleratorAttributesCommandInput
-  extends DescribeCustomRoutingAcceleratorAttributesRequest {}
+export interface DescribeCustomRoutingAcceleratorAttributesCommandInput extends DescribeCustomRoutingAcceleratorAttributesRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeCustomRoutingAcceleratorAttributesCommand}.
  */
-export interface DescribeCustomRoutingAcceleratorAttributesCommandOutput
-  extends DescribeCustomRoutingAcceleratorAttributesResponse,
-    __MetadataBearer {}
+export interface DescribeCustomRoutingAcceleratorAttributesCommandOutput extends DescribeCustomRoutingAcceleratorAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Describe the attributes of a custom routing accelerator. </p>
@@ -96,7 +93,7 @@ export class DescribeCustomRoutingAcceleratorAttributesCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "DescribeCustomRoutingAcceleratorAttributes", {})
   .n("GlobalAcceleratorClient", "DescribeCustomRoutingAcceleratorAttributesCommand")
-  .sc(DescribeCustomRoutingAcceleratorAttributes)
+  .sc(DescribeCustomRoutingAcceleratorAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

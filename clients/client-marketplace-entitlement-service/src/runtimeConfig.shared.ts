@@ -22,23 +22,22 @@ export const getRuntimeConfig = (config: MarketplaceEntitlementServiceClientConf
     disableHostPrefix: config?.disableHostPrefix ?? false,
     endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
     extensions: config?.extensions ?? [],
-    httpAuthSchemeProvider:
-      config?.httpAuthSchemeProvider ?? defaultMarketplaceEntitlementServiceHttpAuthSchemeProvider,
+    httpAuthSchemeProvider: config?.httpAuthSchemeProvider ?? defaultMarketplaceEntitlementServiceHttpAuthSchemeProvider,
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.marketplaceentitlementservice",
-        serviceTarget: "AWSMPEntitlementService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.marketplaceentitlementservice",
+      version: "2017-01-11",
+      serviceTarget: "AWSMPEntitlementService",
+    },
     serviceId: config?.serviceId ?? "Marketplace Entitlement Service",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

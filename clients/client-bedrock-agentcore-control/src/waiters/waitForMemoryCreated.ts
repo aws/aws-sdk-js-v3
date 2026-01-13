@@ -4,18 +4,15 @@ import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, Waite
 import { BedrockAgentCoreControlClient } from "../BedrockAgentCoreControlClient";
 import { GetMemoryCommand, GetMemoryCommandInput } from "../commands/GetMemoryCommand";
 
-const checkState = async (
-  client: BedrockAgentCoreControlClient,
-  input: GetMemoryCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: BedrockAgentCoreControlClient, input: GetMemoryCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetMemoryCommand(input));
+    let result: any = await client.send(new GetMemoryCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.memory.status;
-      };
+      }
       if (returnComparator() === "CREATING") {
         return { state: WaiterState.RETRY, reason };
       }
@@ -23,7 +20,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.memory.status;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -31,7 +28,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.memory.status;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import type { UpdateNotificationConfigurationInput, UpdateNotificationConfigurationOutput } from "../models/models_0";
-import { UpdateNotificationConfiguration } from "../schemas/schemas_0";
+import { UpdateNotificationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateNotificationConfigurationCommandInput extends UpdateNotif
  *
  * The output of {@link UpdateNotificationConfigurationCommand}.
  */
-export interface UpdateNotificationConfigurationCommandOutput
-  extends UpdateNotificationConfigurationOutput,
-    __MetadataBearer {}
+export interface UpdateNotificationConfigurationCommandOutput extends UpdateNotificationConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the notification information for a stream.</p>
@@ -116,7 +114,7 @@ export class UpdateNotificationConfigurationCommand extends $Command
   })
   .s("KinesisVideo_20170930", "UpdateNotificationConfiguration", {})
   .n("KinesisVideoClient", "UpdateNotificationConfigurationCommand")
-  .sc(UpdateNotificationConfiguration)
+  .sc(UpdateNotificationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

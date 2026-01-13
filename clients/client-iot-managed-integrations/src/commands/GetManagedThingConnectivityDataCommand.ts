@@ -13,7 +13,7 @@ import type {
   GetManagedThingConnectivityDataRequest,
   GetManagedThingConnectivityDataResponse,
 } from "../models/models_0";
-import { GetManagedThingConnectivityData } from "../schemas/schemas_0";
+import { GetManagedThingConnectivityData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetManagedThingConnectivityDataCommandInput extends GetManagedT
  *
  * The output of {@link GetManagedThingConnectivityDataCommand}.
  */
-export interface GetManagedThingConnectivityDataCommandOutput
-  extends GetManagedThingConnectivityDataResponse,
-    __MetadataBearer {}
+export interface GetManagedThingConnectivityDataCommandOutput extends GetManagedThingConnectivityDataResponse, __MetadataBearer {}
 
 /**
  * <p>Get the connectivity status of a managed thing.</p>
@@ -106,7 +104,7 @@ export class GetManagedThingConnectivityDataCommand extends $Command
   })
   .s("IotManagedIntegrations", "GetManagedThingConnectivityData", {})
   .n("IoTManagedIntegrationsClient", "GetManagedThingConnectivityDataCommand")
-  .sc(GetManagedThingConnectivityData)
+  .sc(GetManagedThingConnectivityData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

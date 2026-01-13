@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { StartFlowCapture } from "../schemas/schemas_0";
+import { StartFlowCapture$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class StartFlowCaptureCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "StartFlowCapture", {})
   .n("NetworkFirewallClient", "StartFlowCaptureCommand")
-  .sc(StartFlowCapture)
+  .sc(StartFlowCapture$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveRegionsFromReplicationRequest, RemoveRegionsFromReplicationResponse } from "../models/models_0";
-import { RemoveRegionsFromReplication } from "../schemas/schemas_0";
+import { RemoveRegionsFromReplication$ } from "../schemas/schemas_0";
 import type {
   SecretsManagerClientResolvedConfig,
   ServiceInputTypes,
@@ -28,9 +28,7 @@ export interface RemoveRegionsFromReplicationCommandInput extends RemoveRegionsF
  *
  * The output of {@link RemoveRegionsFromReplicationCommand}.
  */
-export interface RemoveRegionsFromReplicationCommandOutput
-  extends RemoveRegionsFromReplicationResponse,
-    __MetadataBearer {}
+export interface RemoveRegionsFromReplicationCommandOutput extends RemoveRegionsFromReplicationResponse, __MetadataBearer {}
 
 /**
  * <p>For a secret that is replicated to other Regions, deletes the secret replicas from the
@@ -127,7 +125,7 @@ export class RemoveRegionsFromReplicationCommand extends $Command
   })
   .s("secretsmanager", "RemoveRegionsFromReplication", {})
   .n("SecretsManagerClient", "RemoveRegionsFromReplicationCommand")
-  .sc(RemoveRegionsFromReplication)
+  .sc(RemoveRegionsFromReplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { IgnoreQueryParamsInResponse } from "../schemas/schemas_0";
+import { IgnoreQueryParamsInResponse$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class IgnoreQueryParamsInResponseCommand extends $Command
   })
   .s("RestXml", "IgnoreQueryParamsInResponse", {})
   .n("RestXmlProtocolClient", "IgnoreQueryParamsInResponseCommand")
-  .sc(IgnoreQueryParamsInResponse)
+  .sc(IgnoreQueryParamsInResponse$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

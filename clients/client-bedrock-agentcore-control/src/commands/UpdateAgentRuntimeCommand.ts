@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateAgentRuntimeRequest, UpdateAgentRuntimeResponse } from "../models/models_0";
-import { UpdateAgentRuntime } from "../schemas/schemas_0";
+import { UpdateAgentRuntime$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -182,7 +182,7 @@ export class UpdateAgentRuntimeCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "UpdateAgentRuntime", {})
   .n("BedrockAgentCoreControlClient", "UpdateAgentRuntimeCommand")
-  .sc(UpdateAgentRuntime)
+  .sc(UpdateAgentRuntime$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

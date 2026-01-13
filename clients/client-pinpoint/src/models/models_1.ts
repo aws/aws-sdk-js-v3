@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { DeliveryStatus, JourneyRunStatus, State, TemplateType } from "./enums";
-
 import {
   type ADMChannelRequest,
   type ADMChannelResponse,

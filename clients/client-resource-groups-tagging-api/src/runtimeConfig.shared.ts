@@ -26,18 +26,18 @@ export const getRuntimeConfig = (config: ResourceGroupsTaggingAPIClientConfig) =
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.resourcegroupstaggingapi",
-        serviceTarget: "ResourceGroupsTaggingAPI_20170126",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.resourcegroupstaggingapi",
+      version: "2017-01-26",
+      serviceTarget: "ResourceGroupsTaggingAPI_20170126",
+    },
     serviceId: config?.serviceId ?? "Resource Groups Tagging API",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

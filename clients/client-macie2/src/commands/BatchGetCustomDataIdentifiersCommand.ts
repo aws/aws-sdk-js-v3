@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import type { BatchGetCustomDataIdentifiersRequest, BatchGetCustomDataIdentifiersResponse } from "../models/models_0";
-import { BatchGetCustomDataIdentifiers } from "../schemas/schemas_0";
+import { BatchGetCustomDataIdentifiers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface BatchGetCustomDataIdentifiersCommandInput extends BatchGetCusto
  *
  * The output of {@link BatchGetCustomDataIdentifiersCommand}.
  */
-export interface BatchGetCustomDataIdentifiersCommandOutput
-  extends BatchGetCustomDataIdentifiersResponse,
-    __MetadataBearer {}
+export interface BatchGetCustomDataIdentifiersCommandOutput extends BatchGetCustomDataIdentifiersResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about one or more custom data identifiers.</p>
@@ -110,7 +108,7 @@ export class BatchGetCustomDataIdentifiersCommand extends $Command
   })
   .s("Macie2", "BatchGetCustomDataIdentifiers", {})
   .n("Macie2Client", "BatchGetCustomDataIdentifiersCommand")
-  .sc(BatchGetCustomDataIdentifiers)
+  .sc(BatchGetCustomDataIdentifiers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

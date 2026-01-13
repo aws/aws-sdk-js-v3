@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisVideoSignalingClient";
 import type { SendAlexaOfferToMasterRequest, SendAlexaOfferToMasterResponse } from "../models/models_0";
-import { SendAlexaOfferToMaster } from "../schemas/schemas_0";
+import { SendAlexaOfferToMaster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class SendAlexaOfferToMasterCommand extends $Command
   })
   .s("AWSAcuitySignalingService", "SendAlexaOfferToMaster", {})
   .n("KinesisVideoSignalingClient", "SendAlexaOfferToMasterCommand")
-  .sc(SendAlexaOfferToMaster)
+  .sc(SendAlexaOfferToMaster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageVodClient";
 import type { DeleteAssetRequest, DeleteAssetResponse } from "../models/models_0";
-import { DeleteAsset } from "../schemas/schemas_0";
+import { DeleteAsset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteAssetCommand extends $Command
   })
   .s("MediaPackageVod", "DeleteAsset", {})
   .n("MediaPackageVodClient", "DeleteAssetCommand")
-  .sc(DeleteAsset)
+  .sc(DeleteAsset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

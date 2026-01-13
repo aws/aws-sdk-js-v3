@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { UpdateColumnStatisticsForTableRequest, UpdateColumnStatisticsForTableResponse } from "../models/models_2";
-import { UpdateColumnStatisticsForTable } from "../schemas/schemas_0";
+import { UpdateColumnStatisticsForTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateColumnStatisticsForTableCommandInput extends UpdateColumn
  *
  * The output of {@link UpdateColumnStatisticsForTableCommand}.
  */
-export interface UpdateColumnStatisticsForTableCommandOutput
-  extends UpdateColumnStatisticsForTableResponse,
-    __MetadataBearer {}
+export interface UpdateColumnStatisticsForTableCommandOutput extends UpdateColumnStatisticsForTableResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates table statistics of columns.</p>
@@ -210,7 +208,7 @@ export class UpdateColumnStatisticsForTableCommand extends $Command
   })
   .s("AWSGlue", "UpdateColumnStatisticsForTable", {})
   .n("GlueClient", "UpdateColumnStatisticsForTableCommand")
-  .sc(UpdateColumnStatisticsForTable)
+  .sc(UpdateColumnStatisticsForTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

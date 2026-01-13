@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTaxExemptionTypesRequest, GetTaxExemptionTypesResponse } from "../models/models_0";
-import { GetTaxExemptionTypes } from "../schemas/schemas_0";
+import { GetTaxExemptionTypes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig } from "../TaxSettingsClient";
 
 /**
@@ -93,7 +93,7 @@ export class GetTaxExemptionTypesCommand extends $Command
   })
   .s("TaxSettings", "GetTaxExemptionTypes", {})
   .n("TaxSettingsClient", "GetTaxExemptionTypesCommand")
-  .sc(GetTaxExemptionTypes)
+  .sc(GetTaxExemptionTypes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

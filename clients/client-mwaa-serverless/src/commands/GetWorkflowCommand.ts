@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MWAAServerlessClient";
-import { GetWorkflow } from "../schemas/schemas_0";
+import { GetWorkflow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class GetWorkflowCommand extends $Command
   })
   .s("AmazonMWAAServerless", "GetWorkflow", {})
   .n("MWAAServerlessClient", "GetWorkflowCommand")
-  .sc(GetWorkflow)
+  .sc(GetWorkflow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   DisassociateWhatsAppBusinessAccountInput,
   DisassociateWhatsAppBusinessAccountOutput,
 } from "../models/models_0";
-import { DisassociateWhatsAppBusinessAccount } from "../schemas/schemas_0";
+import { DisassociateWhatsAppBusinessAccount$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -31,9 +31,7 @@ export interface DisassociateWhatsAppBusinessAccountCommandInput extends Disasso
  *
  * The output of {@link DisassociateWhatsAppBusinessAccountCommand}.
  */
-export interface DisassociateWhatsAppBusinessAccountCommandOutput
-  extends DisassociateWhatsAppBusinessAccountOutput,
-    __MetadataBearer {}
+export interface DisassociateWhatsAppBusinessAccountCommandOutput extends DisassociateWhatsAppBusinessAccountOutput, __MetadataBearer {}
 
 /**
  * <p>Disassociate a WhatsApp Business Account (WABA) from your Amazon Web Services account.</p>
@@ -98,7 +96,7 @@ export class DisassociateWhatsAppBusinessAccountCommand extends $Command
   })
   .s("SocialMessaging", "DisassociateWhatsAppBusinessAccount", {})
   .n("SocialMessagingClient", "DisassociateWhatsAppBusinessAccountCommand")
-  .sc(DisassociateWhatsAppBusinessAccount)
+  .sc(DisassociateWhatsAppBusinessAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

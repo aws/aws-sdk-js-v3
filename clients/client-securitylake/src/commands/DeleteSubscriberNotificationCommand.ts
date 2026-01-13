@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSubscriberNotificationRequest, DeleteSubscriberNotificationResponse } from "../models/models_0";
-import { DeleteSubscriberNotification } from "../schemas/schemas_0";
+import { DeleteSubscriberNotification$ } from "../schemas/schemas_0";
 import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DeleteSubscriberNotificationCommandInput extends DeleteSubscrib
  *
  * The output of {@link DeleteSubscriberNotificationCommand}.
  */
-export interface DeleteSubscriberNotificationCommandOutput
-  extends DeleteSubscriberNotificationResponse,
-    __MetadataBearer {}
+export interface DeleteSubscriberNotificationCommandOutput extends DeleteSubscriberNotificationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified subscription notification in Amazon Security Lake for the organization
@@ -99,7 +97,7 @@ export class DeleteSubscriberNotificationCommand extends $Command
   })
   .s("SecurityLake", "DeleteSubscriberNotification", {})
   .n("SecurityLakeClient", "DeleteSubscriberNotificationCommand")
-  .sc(DeleteSubscriberNotification)
+  .sc(DeleteSubscriberNotification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

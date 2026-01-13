@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { RestoreTableFromRecoveryPoint } from "../schemas/schemas_0";
+import { RestoreTableFromRecoveryPoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface RestoreTableFromRecoveryPointCommandInput extends RestoreTableF
  *
  * The output of {@link RestoreTableFromRecoveryPointCommand}.
  */
-export interface RestoreTableFromRecoveryPointCommandOutput
-  extends RestoreTableFromRecoveryPointResponse,
-    __MetadataBearer {}
+export interface RestoreTableFromRecoveryPointCommandOutput extends RestoreTableFromRecoveryPointResponse, __MetadataBearer {}
 
 /**
  * <p>Restores a table from a recovery point to your Amazon Redshift Serverless instance. You can't use this operation to restore tables with interleaved sort keys.</p>
@@ -117,7 +115,7 @@ export class RestoreTableFromRecoveryPointCommand extends $Command
   })
   .s("RedshiftServerless", "RestoreTableFromRecoveryPoint", {})
   .n("RedshiftServerlessClient", "RestoreTableFromRecoveryPointCommand")
-  .sc(RestoreTableFromRecoveryPoint)
+  .sc(RestoreTableFromRecoveryPoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

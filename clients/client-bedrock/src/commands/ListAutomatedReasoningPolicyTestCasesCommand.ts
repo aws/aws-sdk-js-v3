@@ -9,7 +9,7 @@ import type {
   ListAutomatedReasoningPolicyTestCasesRequest,
   ListAutomatedReasoningPolicyTestCasesResponse,
 } from "../models/models_0";
-import { ListAutomatedReasoningPolicyTestCases } from "../schemas/schemas_0";
+import { ListAutomatedReasoningPolicyTestCases$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListAutomatedReasoningPolicyTestCasesCommand}.
  */
-export interface ListAutomatedReasoningPolicyTestCasesCommandInput
-  extends ListAutomatedReasoningPolicyTestCasesRequest {}
+export interface ListAutomatedReasoningPolicyTestCasesCommandInput extends ListAutomatedReasoningPolicyTestCasesRequest {}
 /**
  * @public
  *
  * The output of {@link ListAutomatedReasoningPolicyTestCasesCommand}.
  */
-export interface ListAutomatedReasoningPolicyTestCasesCommandOutput
-  extends ListAutomatedReasoningPolicyTestCasesResponse,
-    __MetadataBearer {}
+export interface ListAutomatedReasoningPolicyTestCasesCommandOutput extends ListAutomatedReasoningPolicyTestCasesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists tests for an Automated Reasoning policy. We recommend using pagination to ensure that the operation returns quickly and successfully.</p>
@@ -107,7 +104,7 @@ export class ListAutomatedReasoningPolicyTestCasesCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "ListAutomatedReasoningPolicyTestCases", {})
   .n("BedrockClient", "ListAutomatedReasoningPolicyTestCasesCommand")
-  .sc(ListAutomatedReasoningPolicyTestCases)
+  .sc(ListAutomatedReasoningPolicyTestCases$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

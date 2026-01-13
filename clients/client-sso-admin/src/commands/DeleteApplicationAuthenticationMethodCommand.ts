@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteApplicationAuthenticationMethodRequest } from "../models/models_0";
-import { DeleteApplicationAuthenticationMethod } from "../schemas/schemas_0";
+import { DeleteApplicationAuthenticationMethod$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link DeleteApplicationAuthenticationMethodCommand}.
  */
-export interface DeleteApplicationAuthenticationMethodCommandInput
-  extends DeleteApplicationAuthenticationMethodRequest {}
+export interface DeleteApplicationAuthenticationMethodCommandInput extends DeleteApplicationAuthenticationMethodRequest {}
 /**
  * @public
  *
@@ -91,7 +90,7 @@ export class DeleteApplicationAuthenticationMethodCommand extends $Command
   })
   .s("SWBExternalService", "DeleteApplicationAuthenticationMethod", {})
   .n("SSOAdminClient", "DeleteApplicationAuthenticationMethodCommand")
-  .sc(DeleteApplicationAuthenticationMethod)
+  .sc(DeleteApplicationAuthenticationMethod$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

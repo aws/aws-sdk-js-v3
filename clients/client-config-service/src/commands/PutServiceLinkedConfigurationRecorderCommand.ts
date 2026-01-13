@@ -9,7 +9,7 @@ import type {
   PutServiceLinkedConfigurationRecorderRequest,
   PutServiceLinkedConfigurationRecorderResponse,
 } from "../models/models_0";
-import { PutServiceLinkedConfigurationRecorder } from "../schemas/schemas_0";
+import { PutServiceLinkedConfigurationRecorder$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutServiceLinkedConfigurationRecorderCommand}.
  */
-export interface PutServiceLinkedConfigurationRecorderCommandInput
-  extends PutServiceLinkedConfigurationRecorderRequest {}
+export interface PutServiceLinkedConfigurationRecorderCommandInput extends PutServiceLinkedConfigurationRecorderRequest {}
 /**
  * @public
  *
  * The output of {@link PutServiceLinkedConfigurationRecorderCommand}.
  */
-export interface PutServiceLinkedConfigurationRecorderCommandOutput
-  extends PutServiceLinkedConfigurationRecorderResponse,
-    __MetadataBearer {}
+export interface PutServiceLinkedConfigurationRecorderCommandOutput extends PutServiceLinkedConfigurationRecorderResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a service-linked configuration recorder that is linked to a specific Amazon Web Services service based on the <code>ServicePrincipal</code> you specify.</p>
@@ -190,7 +187,7 @@ export class PutServiceLinkedConfigurationRecorderCommand extends $Command
   })
   .s("StarlingDoveService", "PutServiceLinkedConfigurationRecorder", {})
   .n("ConfigServiceClient", "PutServiceLinkedConfigurationRecorderCommand")
-  .sc(PutServiceLinkedConfigurationRecorder)
+  .sc(PutServiceLinkedConfigurationRecorder$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

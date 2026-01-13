@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import type { GetDataViewRequest, GetDataViewResponse } from "../models/models_0";
-import { GetDataView } from "../schemas/schemas_0";
+import { GetDataView$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class GetDataViewCommand extends $Command
   })
   .s("AWSHabaneroPublicAPI", "GetDataView", {})
   .n("FinspaceDataClient", "GetDataViewCommand")
-  .sc(GetDataView)
+  .sc(GetDataView$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

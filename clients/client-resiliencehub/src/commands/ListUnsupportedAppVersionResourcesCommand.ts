@@ -9,7 +9,7 @@ import type {
   ListUnsupportedAppVersionResourcesResponse,
 } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { ListUnsupportedAppVersionResources } from "../schemas/schemas_0";
+import { ListUnsupportedAppVersionResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListUnsupportedAppVersionResourcesCommandInput extends ListUnsu
  *
  * The output of {@link ListUnsupportedAppVersionResourcesCommand}.
  */
-export interface ListUnsupportedAppVersionResourcesCommandOutput
-  extends ListUnsupportedAppVersionResourcesResponse,
-    __MetadataBearer {}
+export interface ListUnsupportedAppVersionResourcesCommandOutput extends ListUnsupportedAppVersionResourcesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the resources that are not currently supported in Resilience Hub. An
@@ -128,7 +126,7 @@ export class ListUnsupportedAppVersionResourcesCommand extends $Command
   })
   .s("AwsResilienceHub", "ListUnsupportedAppVersionResources", {})
   .n("ResiliencehubClient", "ListUnsupportedAppVersionResourcesCommand")
-  .sc(ListUnsupportedAppVersionResources)
+  .sc(ListUnsupportedAppVersionResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

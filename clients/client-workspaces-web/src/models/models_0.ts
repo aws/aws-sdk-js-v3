@@ -2504,7 +2504,10 @@ export interface Unit {}
  * <p>The filter that specifies the events to monitor.</p>
  * @public
  */
-export type EventFilter = EventFilter.AllMember | EventFilter.IncludeMember | EventFilter.$UnknownMember;
+export type EventFilter =
+  | EventFilter.AllMember
+  | EventFilter.IncludeMember
+  | EventFilter.$UnknownMember;
 
 /**
  * @public
@@ -3584,7 +3587,10 @@ export interface CookieSynchronizationConfiguration {
  * <p>The input for an icon image (logo or favicon). Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.</p>
  * @public
  */
-export type IconImageInput = IconImageInput.BlobMember | IconImageInput.S3UriMember | IconImageInput.$UnknownMember;
+export type IconImageInput =
+  | IconImageInput.BlobMember
+  | IconImageInput.S3UriMember
+  | IconImageInput.$UnknownMember;
 
 /**
  * @public
@@ -3848,6 +3854,12 @@ export interface CreateUserSettingsRequest {
    * @public
    */
   brandingConfigurationInput?: BrandingConfigurationCreateInput | undefined;
+
+  /**
+   * <p>Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.</p>
+   * @public
+   */
+  webAuthnAllowed?: EnabledType | undefined;
 }
 
 /**
@@ -3982,6 +3994,12 @@ export interface UserSettings {
    * @public
    */
   brandingConfiguration?: BrandingConfiguration | undefined;
+
+  /**
+   * <p>Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.</p>
+   * @public
+   */
+  webAuthnAllowed?: EnabledType | undefined;
 }
 
 /**
@@ -4088,6 +4106,12 @@ export interface UserSettingsSummary {
    * @public
    */
   brandingConfiguration?: BrandingConfiguration | undefined;
+
+  /**
+   * <p>Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.</p>
+   * @public
+   */
+  webAuthnAllowed?: EnabledType | undefined;
 }
 
 /**
@@ -4230,6 +4254,12 @@ export interface UpdateUserSettingsRequest {
    * @public
    */
   brandingConfigurationInput?: BrandingConfigurationUpdateInput | undefined;
+
+  /**
+   * <p>Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.</p>
+   * @public
+   */
+  webAuthnAllowed?: EnabledType | undefined;
 }
 
 /**

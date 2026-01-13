@@ -9,7 +9,7 @@ import type {
   AuthorizeClusterSecurityGroupIngressResult,
 } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { AuthorizeClusterSecurityGroupIngress } from "../schemas/schemas_0";
+import { AuthorizeClusterSecurityGroupIngress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface AuthorizeClusterSecurityGroupIngressCommandInput extends Author
  *
  * The output of {@link AuthorizeClusterSecurityGroupIngressCommand}.
  */
-export interface AuthorizeClusterSecurityGroupIngressCommandOutput
-  extends AuthorizeClusterSecurityGroupIngressResult,
-    __MetadataBearer {}
+export interface AuthorizeClusterSecurityGroupIngressCommandOutput extends AuthorizeClusterSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
  * <p>Adds an inbound (ingress) rule to an Amazon Redshift security group. Depending on whether
@@ -144,7 +142,7 @@ export class AuthorizeClusterSecurityGroupIngressCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "AuthorizeClusterSecurityGroupIngress", {})
   .n("RedshiftClient", "AuthorizeClusterSecurityGroupIngressCommand")
-  .sc(AuthorizeClusterSecurityGroupIngress)
+  .sc(AuthorizeClusterSecurityGroupIngress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

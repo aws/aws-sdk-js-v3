@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UntagContactRequest, UntagContactResponse } from "../models/models_3";
-import { UntagContact } from "../schemas/schemas_0";
+import { UntagContact$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -59,6 +59,9 @@ export interface UntagContactCommandOutput extends UntagContactResponse, __Metad
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
  *
+ * @throws {@link InvalidActiveRegionException} (client fault)
+ *  <p>This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.</p>
+ *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more of the specified parameters are not valid.</p>
  *
@@ -91,7 +94,7 @@ export class UntagContactCommand extends $Command
   })
   .s("AmazonConnectService", "UntagContact", {})
   .n("ConnectClient", "UntagContactCommand")
-  .sc(UntagContact)
+  .sc(UntagContact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

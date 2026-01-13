@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import type { GetIntentVersionsRequest, GetIntentVersionsResponse } from "../models/models_0";
-import { GetIntentVersions } from "../schemas/schemas_0";
+import { GetIntentVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetIntentVersionsCommand extends $Command
   })
   .s("AWSDeepSenseModelBuildingService", "GetIntentVersions", {})
   .n("LexModelBuildingServiceClient", "GetIntentVersionsCommand")
-  .sc(GetIntentVersions)
+  .sc(GetIntentVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

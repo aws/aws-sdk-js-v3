@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import type { GetWirelessGatewayCertificateRequest, GetWirelessGatewayCertificateResponse } from "../models/models_0";
-import { GetWirelessGatewayCertificate } from "../schemas/schemas_0";
+import { GetWirelessGatewayCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetWirelessGatewayCertificateCommandInput extends GetWirelessGa
  *
  * The output of {@link GetWirelessGatewayCertificateCommand}.
  */
-export interface GetWirelessGatewayCertificateCommandOutput
-  extends GetWirelessGatewayCertificateResponse,
-    __MetadataBearer {}
+export interface GetWirelessGatewayCertificateCommandOutput extends GetWirelessGatewayCertificateResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the ID of the certificate that is currently associated with a wireless
@@ -92,7 +90,7 @@ export class GetWirelessGatewayCertificateCommand extends $Command
   })
   .s("iotwireless", "GetWirelessGatewayCertificate", {})
   .n("IoTWirelessClient", "GetWirelessGatewayCertificateCommand")
-  .sc(GetWirelessGatewayCertificate)
+  .sc(GetWirelessGatewayCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

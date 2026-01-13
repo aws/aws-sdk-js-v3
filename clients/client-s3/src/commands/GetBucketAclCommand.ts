@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetBucketAclOutput, GetBucketAclRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketAcl } from "../schemas/schemas_0";
+import { GetBucketAcl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,11 +119,14 @@ export class GetBucketAclCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
+    ];
   })
   .s("AmazonS3", "GetBucketAcl", {})
   .n("S3Client", "GetBucketAclCommand")
-  .sc(GetBucketAcl)
+  .sc(GetBucketAcl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

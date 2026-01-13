@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribePackageRequest, DescribePackageResponse } from "../models/models_0";
 import type { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import { DescribePackage } from "../schemas/schemas_0";
+import { DescribePackage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class DescribePackageCommand extends $Command
   })
   .s("OmniCloudServiceLambda", "DescribePackage", {})
   .n("PanoramaClient", "DescribePackageCommand")
-  .sc(DescribePackage)
+  .sc(DescribePackage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

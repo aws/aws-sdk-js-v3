@@ -9,7 +9,7 @@ import type {
   ListAppComponentRecommendationsResponse,
 } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { ListAppComponentRecommendations } from "../schemas/schemas_0";
+import { ListAppComponentRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListAppComponentRecommendationsCommandInput extends ListAppComp
  *
  * The output of {@link ListAppComponentRecommendationsCommand}.
  */
-export interface ListAppComponentRecommendationsCommandOutput
-  extends ListAppComponentRecommendationsResponse,
-    __MetadataBearer {}
+export interface ListAppComponentRecommendationsCommandOutput extends ListAppComponentRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the recommendations for an Resilience Hub Application Component.</p>
@@ -145,7 +143,7 @@ export class ListAppComponentRecommendationsCommand extends $Command
   })
   .s("AwsResilienceHub", "ListAppComponentRecommendations", {})
   .n("ResiliencehubClient", "ListAppComponentRecommendationsCommand")
-  .sc(ListAppComponentRecommendations)
+  .sc(ListAppComponentRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

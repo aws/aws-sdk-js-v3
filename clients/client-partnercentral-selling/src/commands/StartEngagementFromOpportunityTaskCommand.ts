@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { StartEngagementFromOpportunityTask } from "../schemas/schemas_0";
+import { StartEngagementFromOpportunityTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface StartEngagementFromOpportunityTaskCommandInput extends StartEng
  *
  * The output of {@link StartEngagementFromOpportunityTaskCommand}.
  */
-export interface StartEngagementFromOpportunityTaskCommandOutput
-  extends StartEngagementFromOpportunityTaskResponse,
-    __MetadataBearer {}
+export interface StartEngagementFromOpportunityTaskCommandOutput extends StartEngagementFromOpportunityTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Similar to <code>StartEngagementByAcceptingInvitationTask</code>, this action is asynchronous and performs multiple steps before completion. This action orchestrates a comprehensive workflow that combines multiple API operations into a single task to create and initiate an engagement from an existing opportunity. It automatically executes a sequence of operations including <code>GetOpportunity</code>, <code>CreateEngagement</code> (if it doesn't exist), <code>CreateResourceSnapshot</code>, <code>CreateResourceSnapshotJob</code>, <code>CreateEngagementInvitation</code> (if not already invited/accepted), and <code>SubmitOpportunity</code>. </p>
@@ -124,7 +122,7 @@ export class StartEngagementFromOpportunityTaskCommand extends $Command
   })
   .s("AWSPartnerCentralSelling", "StartEngagementFromOpportunityTask", {})
   .n("PartnerCentralSellingClient", "StartEngagementFromOpportunityTaskCommand")
-  .sc(StartEngagementFromOpportunityTask)
+  .sc(StartEngagementFromOpportunityTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

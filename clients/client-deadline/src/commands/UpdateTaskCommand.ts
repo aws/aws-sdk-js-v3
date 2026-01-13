@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateTaskRequest, UpdateTaskResponse } from "../models/models_0";
-import { UpdateTask } from "../schemas/schemas_0";
+import { UpdateTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class UpdateTaskCommand extends $Command
   })
   .s("Deadline", "UpdateTask", {})
   .n("DeadlineClient", "UpdateTaskCommand")
-  .sc(UpdateTask)
+  .sc(UpdateTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

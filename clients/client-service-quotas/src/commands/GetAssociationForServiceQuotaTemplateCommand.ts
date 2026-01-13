@@ -8,7 +8,7 @@ import type {
   GetAssociationForServiceQuotaTemplateRequest,
   GetAssociationForServiceQuotaTemplateResponse,
 } from "../models/models_0";
-import { GetAssociationForServiceQuotaTemplate } from "../schemas/schemas_0";
+import { GetAssociationForServiceQuotaTemplate$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetAssociationForServiceQuotaTemplateCommand}.
  */
-export interface GetAssociationForServiceQuotaTemplateCommandInput
-  extends GetAssociationForServiceQuotaTemplateRequest {}
+export interface GetAssociationForServiceQuotaTemplateCommandInput extends GetAssociationForServiceQuotaTemplateRequest {}
 /**
  * @public
  *
  * The output of {@link GetAssociationForServiceQuotaTemplateCommand}.
  */
-export interface GetAssociationForServiceQuotaTemplateCommandOutput
-  extends GetAssociationForServiceQuotaTemplateResponse,
-    __MetadataBearer {}
+export interface GetAssociationForServiceQuotaTemplateCommandOutput extends GetAssociationForServiceQuotaTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the status of the association for the quota request template.</p>
@@ -103,7 +100,7 @@ export class GetAssociationForServiceQuotaTemplateCommand extends $Command
   })
   .s("ServiceQuotasV20190624", "GetAssociationForServiceQuotaTemplate", {})
   .n("ServiceQuotasClient", "GetAssociationForServiceQuotaTemplateCommand")
-  .sc(GetAssociationForServiceQuotaTemplate)
+  .sc(GetAssociationForServiceQuotaTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

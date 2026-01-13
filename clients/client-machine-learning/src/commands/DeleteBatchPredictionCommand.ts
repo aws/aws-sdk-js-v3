@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MachineLearningClient";
 import type { DeleteBatchPredictionInput, DeleteBatchPredictionOutput } from "../models/models_0";
-import { DeleteBatchPrediction } from "../schemas/schemas_0";
+import { DeleteBatchPrediction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteBatchPredictionCommand extends $Command
   })
   .s("AmazonML_20141212", "DeleteBatchPrediction", {})
   .n("MachineLearningClient", "DeleteBatchPredictionCommand")
-  .sc(DeleteBatchPrediction)
+  .sc(DeleteBatchPrediction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

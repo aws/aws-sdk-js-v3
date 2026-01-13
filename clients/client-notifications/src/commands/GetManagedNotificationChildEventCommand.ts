@@ -9,7 +9,7 @@ import type {
   GetManagedNotificationChildEventResponse,
 } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { GetManagedNotificationChildEvent } from "../schemas/schemas_0";
+import { GetManagedNotificationChildEvent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetManagedNotificationChildEventCommandInput extends GetManaged
  *
  * The output of {@link GetManagedNotificationChildEventCommand}.
  */
-export interface GetManagedNotificationChildEventCommandOutput
-  extends GetManagedNotificationChildEventResponse,
-    __MetadataBearer {}
+export interface GetManagedNotificationChildEventCommandOutput extends GetManagedNotificationChildEventResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the child event of a specific given <code>ManagedNotificationEvent</code>.</p>
@@ -137,7 +135,7 @@ export class GetManagedNotificationChildEventCommand extends $Command
   })
   .s("Notifications", "GetManagedNotificationChildEvent", {})
   .n("NotificationsClient", "GetManagedNotificationChildEventCommand")
-  .sc(GetManagedNotificationChildEvent)
+  .sc(GetManagedNotificationChildEvent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

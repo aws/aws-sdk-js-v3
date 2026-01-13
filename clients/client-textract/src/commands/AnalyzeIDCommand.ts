@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AnalyzeIDRequest, AnalyzeIDResponse } from "../models/models_0";
-import { AnalyzeID } from "../schemas/schemas_0";
+import { AnalyzeID$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
@@ -201,7 +201,7 @@ export class AnalyzeIDCommand extends $Command
   })
   .s("Textract", "AnalyzeID", {})
   .n("TextractClient", "AnalyzeIDCommand")
-  .sc(AnalyzeID)
+  .sc(AnalyzeID$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   UpdateCloudWatchAlarmTemplateGroupRequest,
   UpdateCloudWatchAlarmTemplateGroupResponse,
 } from "../models/models_1";
-import { UpdateCloudWatchAlarmTemplateGroup } from "../schemas/schemas_0";
+import { UpdateCloudWatchAlarmTemplateGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateCloudWatchAlarmTemplateGroupCommandInput extends UpdateCl
  *
  * The output of {@link UpdateCloudWatchAlarmTemplateGroupCommand}.
  */
-export interface UpdateCloudWatchAlarmTemplateGroupCommandOutput
-  extends UpdateCloudWatchAlarmTemplateGroupResponse,
-    __MetadataBearer {}
+export interface UpdateCloudWatchAlarmTemplateGroupCommandOutput extends UpdateCloudWatchAlarmTemplateGroupResponse, __MetadataBearer {}
 
 /**
  * Updates the specified cloudwatch alarm template group.
@@ -105,7 +103,7 @@ export class UpdateCloudWatchAlarmTemplateGroupCommand extends $Command
   })
   .s("MediaLive", "UpdateCloudWatchAlarmTemplateGroup", {})
   .n("MediaLiveClient", "UpdateCloudWatchAlarmTemplateGroupCommand")
-  .sc(UpdateCloudWatchAlarmTemplateGroup)
+  .sc(UpdateCloudWatchAlarmTemplateGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

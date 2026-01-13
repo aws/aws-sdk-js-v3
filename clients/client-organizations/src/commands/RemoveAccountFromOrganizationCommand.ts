@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveAccountFromOrganizationRequest } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { RemoveAccountFromOrganization } from "../schemas/schemas_0";
+import { RemoveAccountFromOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -543,7 +543,7 @@ export class RemoveAccountFromOrganizationCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "RemoveAccountFromOrganization", {})
   .n("OrganizationsClient", "RemoveAccountFromOrganizationCommand")
-  .sc(RemoveAccountFromOrganization)
+  .sc(RemoveAccountFromOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

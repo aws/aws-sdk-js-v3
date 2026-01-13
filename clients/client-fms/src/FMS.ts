@@ -315,7 +315,10 @@ export interface FMS {
     args: DeleteAppsListCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteAppsListCommandOutput>;
-  deleteAppsList(args: DeleteAppsListCommandInput, cb: (err: any, data?: DeleteAppsListCommandOutput) => void): void;
+  deleteAppsList(
+    args: DeleteAppsListCommandInput,
+    cb: (err: any, data?: DeleteAppsListCommandOutput) => void
+  ): void;
   deleteAppsList(
     args: DeleteAppsListCommandInput,
     options: __HttpHandlerOptions,
@@ -343,8 +346,14 @@ export interface FMS {
   /**
    * @see {@link DeletePolicyCommand}
    */
-  deletePolicy(args: DeletePolicyCommandInput, options?: __HttpHandlerOptions): Promise<DeletePolicyCommandOutput>;
-  deletePolicy(args: DeletePolicyCommandInput, cb: (err: any, data?: DeletePolicyCommandOutput) => void): void;
+  deletePolicy(
+    args: DeletePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePolicyCommandOutput>;
+  deletePolicy(
+    args: DeletePolicyCommandInput,
+    cb: (err: any, data?: DeletePolicyCommandOutput) => void
+  ): void;
   deletePolicy(
     args: DeletePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -428,7 +437,10 @@ export interface FMS {
     args: GetAdminAccountCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAdminAccountCommandOutput>;
-  getAdminAccount(args: GetAdminAccountCommandInput, cb: (err: any, data?: GetAdminAccountCommandOutput) => void): void;
+  getAdminAccount(
+    args: GetAdminAccountCommandInput,
+    cb: (err: any, data?: GetAdminAccountCommandOutput) => void
+  ): void;
   getAdminAccount(
     args: GetAdminAccountCommandInput,
     options: __HttpHandlerOptions,
@@ -438,8 +450,14 @@ export interface FMS {
   /**
    * @see {@link GetAdminScopeCommand}
    */
-  getAdminScope(args: GetAdminScopeCommandInput, options?: __HttpHandlerOptions): Promise<GetAdminScopeCommandOutput>;
-  getAdminScope(args: GetAdminScopeCommandInput, cb: (err: any, data?: GetAdminScopeCommandOutput) => void): void;
+  getAdminScope(
+    args: GetAdminScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAdminScopeCommandOutput>;
+  getAdminScope(
+    args: GetAdminScopeCommandInput,
+    cb: (err: any, data?: GetAdminScopeCommandOutput) => void
+  ): void;
   getAdminScope(
     args: GetAdminScopeCommandInput,
     options: __HttpHandlerOptions,
@@ -449,8 +467,14 @@ export interface FMS {
   /**
    * @see {@link GetAppsListCommand}
    */
-  getAppsList(args: GetAppsListCommandInput, options?: __HttpHandlerOptions): Promise<GetAppsListCommandOutput>;
-  getAppsList(args: GetAppsListCommandInput, cb: (err: any, data?: GetAppsListCommandOutput) => void): void;
+  getAppsList(
+    args: GetAppsListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAppsListCommandOutput>;
+  getAppsList(
+    args: GetAppsListCommandInput,
+    cb: (err: any, data?: GetAppsListCommandOutput) => void
+  ): void;
   getAppsList(
     args: GetAppsListCommandInput,
     options: __HttpHandlerOptions,
@@ -495,8 +519,14 @@ export interface FMS {
   /**
    * @see {@link GetPolicyCommand}
    */
-  getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
-  getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPolicyCommandOutput>;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    cb: (err: any, data?: GetPolicyCommandOutput) => void
+  ): void;
   getPolicy(
     args: GetPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -544,7 +574,10 @@ export interface FMS {
     args: GetResourceSetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetResourceSetCommandOutput>;
-  getResourceSet(args: GetResourceSetCommandInput, cb: (err: any, data?: GetResourceSetCommandOutput) => void): void;
+  getResourceSet(
+    args: GetResourceSetCommandInput,
+    cb: (err: any, data?: GetResourceSetCommandOutput) => void
+  ): void;
   getResourceSet(
     args: GetResourceSetCommandInput,
     options: __HttpHandlerOptions,
@@ -624,8 +657,14 @@ export interface FMS {
   /**
    * @see {@link ListAppsListsCommand}
    */
-  listAppsLists(args: ListAppsListsCommandInput, options?: __HttpHandlerOptions): Promise<ListAppsListsCommandOutput>;
-  listAppsLists(args: ListAppsListsCommandInput, cb: (err: any, data?: ListAppsListsCommandOutput) => void): void;
+  listAppsLists(
+    args: ListAppsListsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAppsListsCommandOutput>;
+  listAppsLists(
+    args: ListAppsListsCommandInput,
+    cb: (err: any, data?: ListAppsListsCommandOutput) => void
+  ): void;
   listAppsLists(
     args: ListAppsListsCommandInput,
     options: __HttpHandlerOptions,
@@ -688,8 +727,14 @@ export interface FMS {
    * @see {@link ListPoliciesCommand}
    */
   listPolicies(): Promise<ListPoliciesCommandOutput>;
-  listPolicies(args: ListPoliciesCommandInput, options?: __HttpHandlerOptions): Promise<ListPoliciesCommandOutput>;
-  listPolicies(args: ListPoliciesCommandInput, cb: (err: any, data?: ListPoliciesCommandOutput) => void): void;
+  listPolicies(
+    args: ListPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPoliciesCommandOutput>;
+  listPolicies(
+    args: ListPoliciesCommandInput,
+    cb: (err: any, data?: ListPoliciesCommandOutput) => void
+  ): void;
   listPolicies(
     args: ListPoliciesCommandInput,
     options: __HttpHandlerOptions,
@@ -789,7 +834,10 @@ export interface FMS {
     args: PutAdminAccountCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutAdminAccountCommandOutput>;
-  putAdminAccount(args: PutAdminAccountCommandInput, cb: (err: any, data?: PutAdminAccountCommandOutput) => void): void;
+  putAdminAccount(
+    args: PutAdminAccountCommandInput,
+    cb: (err: any, data?: PutAdminAccountCommandOutput) => void
+  ): void;
   putAdminAccount(
     args: PutAdminAccountCommandInput,
     options: __HttpHandlerOptions,
@@ -799,8 +847,14 @@ export interface FMS {
   /**
    * @see {@link PutAppsListCommand}
    */
-  putAppsList(args: PutAppsListCommandInput, options?: __HttpHandlerOptions): Promise<PutAppsListCommandOutput>;
-  putAppsList(args: PutAppsListCommandInput, cb: (err: any, data?: PutAppsListCommandOutput) => void): void;
+  putAppsList(
+    args: PutAppsListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAppsListCommandOutput>;
+  putAppsList(
+    args: PutAppsListCommandInput,
+    cb: (err: any, data?: PutAppsListCommandOutput) => void
+  ): void;
   putAppsList(
     args: PutAppsListCommandInput,
     options: __HttpHandlerOptions,
@@ -827,8 +881,14 @@ export interface FMS {
   /**
    * @see {@link PutPolicyCommand}
    */
-  putPolicy(args: PutPolicyCommandInput, options?: __HttpHandlerOptions): Promise<PutPolicyCommandOutput>;
-  putPolicy(args: PutPolicyCommandInput, cb: (err: any, data?: PutPolicyCommandOutput) => void): void;
+  putPolicy(
+    args: PutPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutPolicyCommandOutput>;
+  putPolicy(
+    args: PutPolicyCommandInput,
+    cb: (err: any, data?: PutPolicyCommandOutput) => void
+  ): void;
   putPolicy(
     args: PutPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -859,7 +919,10 @@ export interface FMS {
     args: PutResourceSetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutResourceSetCommandOutput>;
-  putResourceSet(args: PutResourceSetCommandInput, cb: (err: any, data?: PutResourceSetCommandOutput) => void): void;
+  putResourceSet(
+    args: PutResourceSetCommandInput,
+    cb: (err: any, data?: PutResourceSetCommandOutput) => void
+  ): void;
   putResourceSet(
     args: PutResourceSetCommandInput,
     options: __HttpHandlerOptions,
@@ -869,8 +932,14 @@ export interface FMS {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -880,8 +949,14 @@ export interface FMS {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

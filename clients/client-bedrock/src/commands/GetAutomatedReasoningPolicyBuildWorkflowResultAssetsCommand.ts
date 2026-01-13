@@ -9,7 +9,7 @@ import type {
   GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest,
   GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse,
 } from "../models/models_0";
-import { GetAutomatedReasoningPolicyBuildWorkflowResultAssets } from "../schemas/schemas_0";
+import { GetAutomatedReasoningPolicyBuildWorkflowResultAssets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand}.
  */
-export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandInput
-  extends GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest {}
+export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandInput extends GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest {}
 /**
  * @public
  *
  * The output of {@link GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand}.
  */
-export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutput
-  extends GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse,
-    __MetadataBearer {}
+export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutput extends GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the resulting assets from a completed Automated Reasoning policy build workflow, including build logs, quality reports, and generated policy artifacts.</p>
@@ -335,7 +332,7 @@ export class GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand extends
   })
   .s("AmazonBedrockControlPlaneService", "GetAutomatedReasoningPolicyBuildWorkflowResultAssets", {})
   .n("BedrockClient", "GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand")
-  .sc(GetAutomatedReasoningPolicyBuildWorkflowResultAssets)
+  .sc(GetAutomatedReasoningPolicyBuildWorkflowResultAssets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

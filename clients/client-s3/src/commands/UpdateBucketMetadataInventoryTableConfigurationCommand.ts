@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateBucketMetadataInventoryTableConfigurationRequest } from "../models/models_1";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { UpdateBucketMetadataInventoryTableConfiguration } from "../schemas/schemas_0";
+import { UpdateBucketMetadataInventoryTableConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -19,8 +19,7 @@ export { $Command };
  *
  * The input for {@link UpdateBucketMetadataInventoryTableConfigurationCommand}.
  */
-export interface UpdateBucketMetadataInventoryTableConfigurationCommandInput
-  extends UpdateBucketMetadataInventoryTableConfigurationRequest {}
+export interface UpdateBucketMetadataInventoryTableConfigurationCommandInput extends UpdateBucketMetadataInventoryTableConfigurationRequest {}
 /**
  * @public
  *
@@ -170,14 +169,14 @@ export class UpdateBucketMetadataInventoryTableConfigurationCommand extends $Com
     return [
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
+        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
         requestChecksumRequired: true,
       }),
     ];
   })
   .s("AmazonS3", "UpdateBucketMetadataInventoryTableConfiguration", {})
   .n("S3Client", "UpdateBucketMetadataInventoryTableConfigurationCommand")
-  .sc(UpdateBucketMetadataInventoryTableConfiguration)
+  .sc(UpdateBucketMetadataInventoryTableConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

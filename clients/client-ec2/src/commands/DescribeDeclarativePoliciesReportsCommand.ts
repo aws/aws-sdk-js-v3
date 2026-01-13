@@ -9,7 +9,7 @@ import type {
   DescribeDeclarativePoliciesReportsRequest,
   DescribeDeclarativePoliciesReportsResult,
 } from "../models/models_3";
-import { DescribeDeclarativePoliciesReports } from "../schemas/schemas_0";
+import { DescribeDeclarativePoliciesReports$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeDeclarativePoliciesReportsCommandInput extends Describe
  *
  * The output of {@link DescribeDeclarativePoliciesReportsCommand}.
  */
-export interface DescribeDeclarativePoliciesReportsCommandOutput
-  extends DescribeDeclarativePoliciesReportsResult,
-    __MetadataBearer {}
+export interface DescribeDeclarativePoliciesReportsCommandOutput extends DescribeDeclarativePoliciesReportsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the metadata of an account status report, including the status of the
@@ -109,7 +107,7 @@ export class DescribeDeclarativePoliciesReportsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeDeclarativePoliciesReports", {})
   .n("EC2Client", "DescribeDeclarativePoliciesReportsCommand")
-  .sc(DescribeDeclarativePoliciesReports)
+  .sc(DescribeDeclarativePoliciesReports$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

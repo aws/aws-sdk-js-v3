@@ -8,6 +8,6 @@ export type { GlacierExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 
 export * from "./models/errors";
-export type * from "./models/models_0";
+export * from "./models/models_0";
 
 export { GlacierServiceException } from "./models/GlacierServiceException";

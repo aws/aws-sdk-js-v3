@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerFeatureStoreRuntimeClient";
-import { GetRecord } from "../schemas/schemas_0";
+import { GetRecord$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class GetRecordCommand extends $Command
   })
   .s("AmazonSageMakerFeatureStoreRuntime", "GetRecord", {})
   .n("SageMakerFeatureStoreRuntimeClient", "GetRecordCommand")
-  .sc(GetRecord)
+  .sc(GetRecord$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

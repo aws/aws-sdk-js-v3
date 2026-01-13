@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutHypervisorPropertyMappingsInput, PutHypervisorPropertyMappingsOutput } from "../models/models_0";
-import { PutHypervisorPropertyMappings } from "../schemas/schemas_0";
+import { PutHypervisorPropertyMappings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface PutHypervisorPropertyMappingsCommandInput extends PutHypervisor
  *
  * The output of {@link PutHypervisorPropertyMappingsCommand}.
  */
-export interface PutHypervisorPropertyMappingsCommandOutput
-  extends PutHypervisorPropertyMappingsOutput,
-    __MetadataBearer {}
+export interface PutHypervisorPropertyMappingsCommandOutput extends PutHypervisorPropertyMappingsOutput, __MetadataBearer {}
 
 /**
  * <p>This action sets the property mappings for the specified hypervisor.
@@ -105,7 +103,7 @@ export class PutHypervisorPropertyMappingsCommand extends $Command
   })
   .s("BackupOnPremises_v20210101", "PutHypervisorPropertyMappings", {})
   .n("BackupGatewayClient", "PutHypervisorPropertyMappingsCommand")
-  .sc(PutHypervisorPropertyMappings)
+  .sc(PutHypervisorPropertyMappings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

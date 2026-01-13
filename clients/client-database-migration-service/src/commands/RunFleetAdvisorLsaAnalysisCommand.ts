@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RunFleetAdvisorLsaAnalysisResponse } from "../models/models_1";
-import { RunFleetAdvisorLsaAnalysis } from "../schemas/schemas_0";
+import { RunFleetAdvisorLsaAnalysis$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class RunFleetAdvisorLsaAnalysisCommand extends $Command
   })
   .s("AmazonDMSv20160101", "RunFleetAdvisorLsaAnalysis", {})
   .n("DatabaseMigrationServiceClient", "RunFleetAdvisorLsaAnalysisCommand")
-  .sc(RunFleetAdvisorLsaAnalysis)
+  .sc(RunFleetAdvisorLsaAnalysis$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

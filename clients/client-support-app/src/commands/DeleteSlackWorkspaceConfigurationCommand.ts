@@ -8,7 +8,7 @@ import type {
   DeleteSlackWorkspaceConfigurationRequest,
   DeleteSlackWorkspaceConfigurationResult,
 } from "../models/models_0";
-import { DeleteSlackWorkspaceConfiguration } from "../schemas/schemas_0";
+import { DeleteSlackWorkspaceConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DeleteSlackWorkspaceConfigurationCommandInput extends DeleteSla
  *
  * The output of {@link DeleteSlackWorkspaceConfigurationCommand}.
  */
-export interface DeleteSlackWorkspaceConfigurationCommandOutput
-  extends DeleteSlackWorkspaceConfigurationResult,
-    __MetadataBearer {}
+export interface DeleteSlackWorkspaceConfigurationCommandOutput extends DeleteSlackWorkspaceConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a Slack workspace configuration from your Amazon Web Services account. This operation doesn't
@@ -119,7 +117,7 @@ export class DeleteSlackWorkspaceConfigurationCommand extends $Command
   })
   .s("SupportApp", "DeleteSlackWorkspaceConfiguration", {})
   .n("SupportAppClient", "DeleteSlackWorkspaceConfigurationCommand")
-  .sc(DeleteSlackWorkspaceConfiguration)
+  .sc(DeleteSlackWorkspaceConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

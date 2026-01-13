@@ -13,7 +13,7 @@ import type {
   ListAssociationsForLicenseConfigurationRequest,
   ListAssociationsForLicenseConfigurationResponse,
 } from "../models/models_0";
-import { ListAssociationsForLicenseConfiguration } from "../schemas/schemas_0";
+import { ListAssociationsForLicenseConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListAssociationsForLicenseConfigurationCommand}.
  */
-export interface ListAssociationsForLicenseConfigurationCommandInput
-  extends ListAssociationsForLicenseConfigurationRequest {}
+export interface ListAssociationsForLicenseConfigurationCommandInput extends ListAssociationsForLicenseConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link ListAssociationsForLicenseConfigurationCommand}.
  */
-export interface ListAssociationsForLicenseConfigurationCommandOutput
-  extends ListAssociationsForLicenseConfigurationResponse,
-    __MetadataBearer {}
+export interface ListAssociationsForLicenseConfigurationCommandOutput extends ListAssociationsForLicenseConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the resource associations for the specified license configuration.</p>
@@ -116,7 +113,7 @@ export class ListAssociationsForLicenseConfigurationCommand extends $Command
   })
   .s("AWSLicenseManager", "ListAssociationsForLicenseConfiguration", {})
   .n("LicenseManagerClient", "ListAssociationsForLicenseConfigurationCommand")
-  .sc(ListAssociationsForLicenseConfiguration)
+  .sc(ListAssociationsForLicenseConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

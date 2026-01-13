@@ -9,7 +9,7 @@ import type {
   UpdateAssessmentControlSetStatusRequest,
   UpdateAssessmentControlSetStatusResponse,
 } from "../models/models_0";
-import { UpdateAssessmentControlSetStatus } from "../schemas/schemas_0";
+import { UpdateAssessmentControlSetStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateAssessmentControlSetStatusCommandInput extends UpdateAsse
  *
  * The output of {@link UpdateAssessmentControlSetStatusCommand}.
  */
-export interface UpdateAssessmentControlSetStatusCommandOutput
-  extends UpdateAssessmentControlSetStatusResponse,
-    __MetadataBearer {}
+export interface UpdateAssessmentControlSetStatusCommandOutput extends UpdateAssessmentControlSetStatusResponse, __MetadataBearer {}
 
 /**
  * <p> Updates the status of a control set in an Audit Manager assessment. </p>
@@ -143,7 +141,7 @@ export class UpdateAssessmentControlSetStatusCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "UpdateAssessmentControlSetStatus", {})
   .n("AuditManagerClient", "UpdateAssessmentControlSetStatusCommand")
-  .sc(UpdateAssessmentControlSetStatus)
+  .sc(UpdateAssessmentControlSetStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -523,7 +523,10 @@ export interface GuardDuty {
     args: ArchiveFindingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ArchiveFindingsCommandOutput>;
-  archiveFindings(args: ArchiveFindingsCommandInput, cb: (err: any, data?: ArchiveFindingsCommandOutput) => void): void;
+  archiveFindings(
+    args: ArchiveFindingsCommandInput,
+    cb: (err: any, data?: ArchiveFindingsCommandOutput) => void
+  ): void;
   archiveFindings(
     args: ArchiveFindingsCommandInput,
     options: __HttpHandlerOptions,
@@ -537,7 +540,10 @@ export interface GuardDuty {
     args: CreateDetectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDetectorCommandOutput>;
-  createDetector(args: CreateDetectorCommandInput, cb: (err: any, data?: CreateDetectorCommandOutput) => void): void;
+  createDetector(
+    args: CreateDetectorCommandInput,
+    cb: (err: any, data?: CreateDetectorCommandOutput) => void
+  ): void;
   createDetector(
     args: CreateDetectorCommandInput,
     options: __HttpHandlerOptions,
@@ -547,8 +553,14 @@ export interface GuardDuty {
   /**
    * @see {@link CreateFilterCommand}
    */
-  createFilter(args: CreateFilterCommandInput, options?: __HttpHandlerOptions): Promise<CreateFilterCommandOutput>;
-  createFilter(args: CreateFilterCommandInput, cb: (err: any, data?: CreateFilterCommandOutput) => void): void;
+  createFilter(
+    args: CreateFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFilterCommandOutput>;
+  createFilter(
+    args: CreateFilterCommandInput,
+    cb: (err: any, data?: CreateFilterCommandOutput) => void
+  ): void;
   createFilter(
     args: CreateFilterCommandInput,
     options: __HttpHandlerOptions,
@@ -558,8 +570,14 @@ export interface GuardDuty {
   /**
    * @see {@link CreateIPSetCommand}
    */
-  createIPSet(args: CreateIPSetCommandInput, options?: __HttpHandlerOptions): Promise<CreateIPSetCommandOutput>;
-  createIPSet(args: CreateIPSetCommandInput, cb: (err: any, data?: CreateIPSetCommandOutput) => void): void;
+  createIPSet(
+    args: CreateIPSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIPSetCommandOutput>;
+  createIPSet(
+    args: CreateIPSetCommandInput,
+    cb: (err: any, data?: CreateIPSetCommandOutput) => void
+  ): void;
   createIPSet(
     args: CreateIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -586,8 +604,14 @@ export interface GuardDuty {
   /**
    * @see {@link CreateMembersCommand}
    */
-  createMembers(args: CreateMembersCommandInput, options?: __HttpHandlerOptions): Promise<CreateMembersCommandOutput>;
-  createMembers(args: CreateMembersCommandInput, cb: (err: any, data?: CreateMembersCommandOutput) => void): void;
+  createMembers(
+    args: CreateMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMembersCommandOutput>;
+  createMembers(
+    args: CreateMembersCommandInput,
+    cb: (err: any, data?: CreateMembersCommandOutput) => void
+  ): void;
   createMembers(
     args: CreateMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -703,7 +727,10 @@ export interface GuardDuty {
     args: DeleteDetectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDetectorCommandOutput>;
-  deleteDetector(args: DeleteDetectorCommandInput, cb: (err: any, data?: DeleteDetectorCommandOutput) => void): void;
+  deleteDetector(
+    args: DeleteDetectorCommandInput,
+    cb: (err: any, data?: DeleteDetectorCommandOutput) => void
+  ): void;
   deleteDetector(
     args: DeleteDetectorCommandInput,
     options: __HttpHandlerOptions,
@@ -713,8 +740,14 @@ export interface GuardDuty {
   /**
    * @see {@link DeleteFilterCommand}
    */
-  deleteFilter(args: DeleteFilterCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFilterCommandOutput>;
-  deleteFilter(args: DeleteFilterCommandInput, cb: (err: any, data?: DeleteFilterCommandOutput) => void): void;
+  deleteFilter(
+    args: DeleteFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFilterCommandOutput>;
+  deleteFilter(
+    args: DeleteFilterCommandInput,
+    cb: (err: any, data?: DeleteFilterCommandOutput) => void
+  ): void;
   deleteFilter(
     args: DeleteFilterCommandInput,
     options: __HttpHandlerOptions,
@@ -741,8 +774,14 @@ export interface GuardDuty {
   /**
    * @see {@link DeleteIPSetCommand}
    */
-  deleteIPSet(args: DeleteIPSetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteIPSetCommandOutput>;
-  deleteIPSet(args: DeleteIPSetCommandInput, cb: (err: any, data?: DeleteIPSetCommandOutput) => void): void;
+  deleteIPSet(
+    args: DeleteIPSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIPSetCommandOutput>;
+  deleteIPSet(
+    args: DeleteIPSetCommandInput,
+    cb: (err: any, data?: DeleteIPSetCommandOutput) => void
+  ): void;
   deleteIPSet(
     args: DeleteIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -769,8 +808,14 @@ export interface GuardDuty {
   /**
    * @see {@link DeleteMembersCommand}
    */
-  deleteMembers(args: DeleteMembersCommandInput, options?: __HttpHandlerOptions): Promise<DeleteMembersCommandOutput>;
-  deleteMembers(args: DeleteMembersCommandInput, cb: (err: any, data?: DeleteMembersCommandOutput) => void): void;
+  deleteMembers(
+    args: DeleteMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMembersCommandOutput>;
+  deleteMembers(
+    args: DeleteMembersCommandInput,
+    cb: (err: any, data?: DeleteMembersCommandOutput) => void
+  ): void;
   deleteMembers(
     args: DeleteMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -1018,8 +1063,14 @@ export interface GuardDuty {
   /**
    * @see {@link GetDetectorCommand}
    */
-  getDetector(args: GetDetectorCommandInput, options?: __HttpHandlerOptions): Promise<GetDetectorCommandOutput>;
-  getDetector(args: GetDetectorCommandInput, cb: (err: any, data?: GetDetectorCommandOutput) => void): void;
+  getDetector(
+    args: GetDetectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDetectorCommandOutput>;
+  getDetector(
+    args: GetDetectorCommandInput,
+    cb: (err: any, data?: GetDetectorCommandOutput) => void
+  ): void;
   getDetector(
     args: GetDetectorCommandInput,
     options: __HttpHandlerOptions,
@@ -1029,8 +1080,14 @@ export interface GuardDuty {
   /**
    * @see {@link GetFilterCommand}
    */
-  getFilter(args: GetFilterCommandInput, options?: __HttpHandlerOptions): Promise<GetFilterCommandOutput>;
-  getFilter(args: GetFilterCommandInput, cb: (err: any, data?: GetFilterCommandOutput) => void): void;
+  getFilter(
+    args: GetFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFilterCommandOutput>;
+  getFilter(
+    args: GetFilterCommandInput,
+    cb: (err: any, data?: GetFilterCommandOutput) => void
+  ): void;
   getFilter(
     args: GetFilterCommandInput,
     options: __HttpHandlerOptions,
@@ -1040,8 +1097,14 @@ export interface GuardDuty {
   /**
    * @see {@link GetFindingsCommand}
    */
-  getFindings(args: GetFindingsCommandInput, options?: __HttpHandlerOptions): Promise<GetFindingsCommandOutput>;
-  getFindings(args: GetFindingsCommandInput, cb: (err: any, data?: GetFindingsCommandOutput) => void): void;
+  getFindings(
+    args: GetFindingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFindingsCommandOutput>;
+  getFindings(
+    args: GetFindingsCommandInput,
+    cb: (err: any, data?: GetFindingsCommandOutput) => void
+  ): void;
   getFindings(
     args: GetFindingsCommandInput,
     options: __HttpHandlerOptions,
@@ -1086,8 +1149,14 @@ export interface GuardDuty {
   /**
    * @see {@link GetIPSetCommand}
    */
-  getIPSet(args: GetIPSetCommandInput, options?: __HttpHandlerOptions): Promise<GetIPSetCommandOutput>;
-  getIPSet(args: GetIPSetCommandInput, cb: (err: any, data?: GetIPSetCommandOutput) => void): void;
+  getIPSet(
+    args: GetIPSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIPSetCommandOutput>;
+  getIPSet(
+    args: GetIPSetCommandInput,
+    cb: (err: any, data?: GetIPSetCommandOutput) => void
+  ): void;
   getIPSet(
     args: GetIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -1118,7 +1187,10 @@ export interface GuardDuty {
     args: GetMalwareScanCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetMalwareScanCommandOutput>;
-  getMalwareScan(args: GetMalwareScanCommandInput, cb: (err: any, data?: GetMalwareScanCommandOutput) => void): void;
+  getMalwareScan(
+    args: GetMalwareScanCommandInput,
+    cb: (err: any, data?: GetMalwareScanCommandOutput) => void
+  ): void;
   getMalwareScan(
     args: GetMalwareScanCommandInput,
     options: __HttpHandlerOptions,
@@ -1179,8 +1251,14 @@ export interface GuardDuty {
   /**
    * @see {@link GetMembersCommand}
    */
-  getMembers(args: GetMembersCommandInput, options?: __HttpHandlerOptions): Promise<GetMembersCommandOutput>;
-  getMembers(args: GetMembersCommandInput, cb: (err: any, data?: GetMembersCommandOutput) => void): void;
+  getMembers(
+    args: GetMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMembersCommandOutput>;
+  getMembers(
+    args: GetMembersCommandInput,
+    cb: (err: any, data?: GetMembersCommandOutput) => void
+  ): void;
   getMembers(
     args: GetMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -1293,8 +1371,14 @@ export interface GuardDuty {
   /**
    * @see {@link InviteMembersCommand}
    */
-  inviteMembers(args: InviteMembersCommandInput, options?: __HttpHandlerOptions): Promise<InviteMembersCommandOutput>;
-  inviteMembers(args: InviteMembersCommandInput, cb: (err: any, data?: InviteMembersCommandOutput) => void): void;
+  inviteMembers(
+    args: InviteMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InviteMembersCommandOutput>;
+  inviteMembers(
+    args: InviteMembersCommandInput,
+    cb: (err: any, data?: InviteMembersCommandOutput) => void
+  ): void;
   inviteMembers(
     args: InviteMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -1304,8 +1388,14 @@ export interface GuardDuty {
   /**
    * @see {@link ListCoverageCommand}
    */
-  listCoverage(args: ListCoverageCommandInput, options?: __HttpHandlerOptions): Promise<ListCoverageCommandOutput>;
-  listCoverage(args: ListCoverageCommandInput, cb: (err: any, data?: ListCoverageCommandOutput) => void): void;
+  listCoverage(
+    args: ListCoverageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCoverageCommandOutput>;
+  listCoverage(
+    args: ListCoverageCommandInput,
+    cb: (err: any, data?: ListCoverageCommandOutput) => void
+  ): void;
   listCoverage(
     args: ListCoverageCommandInput,
     options: __HttpHandlerOptions,
@@ -1316,8 +1406,14 @@ export interface GuardDuty {
    * @see {@link ListDetectorsCommand}
    */
   listDetectors(): Promise<ListDetectorsCommandOutput>;
-  listDetectors(args: ListDetectorsCommandInput, options?: __HttpHandlerOptions): Promise<ListDetectorsCommandOutput>;
-  listDetectors(args: ListDetectorsCommandInput, cb: (err: any, data?: ListDetectorsCommandOutput) => void): void;
+  listDetectors(
+    args: ListDetectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDetectorsCommandOutput>;
+  listDetectors(
+    args: ListDetectorsCommandInput,
+    cb: (err: any, data?: ListDetectorsCommandOutput) => void
+  ): void;
   listDetectors(
     args: ListDetectorsCommandInput,
     options: __HttpHandlerOptions,
@@ -1327,8 +1423,14 @@ export interface GuardDuty {
   /**
    * @see {@link ListFiltersCommand}
    */
-  listFilters(args: ListFiltersCommandInput, options?: __HttpHandlerOptions): Promise<ListFiltersCommandOutput>;
-  listFilters(args: ListFiltersCommandInput, cb: (err: any, data?: ListFiltersCommandOutput) => void): void;
+  listFilters(
+    args: ListFiltersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFiltersCommandOutput>;
+  listFilters(
+    args: ListFiltersCommandInput,
+    cb: (err: any, data?: ListFiltersCommandOutput) => void
+  ): void;
   listFilters(
     args: ListFiltersCommandInput,
     options: __HttpHandlerOptions,
@@ -1338,8 +1440,14 @@ export interface GuardDuty {
   /**
    * @see {@link ListFindingsCommand}
    */
-  listFindings(args: ListFindingsCommandInput, options?: __HttpHandlerOptions): Promise<ListFindingsCommandOutput>;
-  listFindings(args: ListFindingsCommandInput, cb: (err: any, data?: ListFindingsCommandOutput) => void): void;
+  listFindings(
+    args: ListFindingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFindingsCommandOutput>;
+  listFindings(
+    args: ListFindingsCommandInput,
+    cb: (err: any, data?: ListFindingsCommandOutput) => void
+  ): void;
   listFindings(
     args: ListFindingsCommandInput,
     options: __HttpHandlerOptions,
@@ -1354,7 +1462,10 @@ export interface GuardDuty {
     args: ListInvitationsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListInvitationsCommandOutput>;
-  listInvitations(args: ListInvitationsCommandInput, cb: (err: any, data?: ListInvitationsCommandOutput) => void): void;
+  listInvitations(
+    args: ListInvitationsCommandInput,
+    cb: (err: any, data?: ListInvitationsCommandOutput) => void
+  ): void;
   listInvitations(
     args: ListInvitationsCommandInput,
     options: __HttpHandlerOptions,
@@ -1364,8 +1475,14 @@ export interface GuardDuty {
   /**
    * @see {@link ListIPSetsCommand}
    */
-  listIPSets(args: ListIPSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListIPSetsCommandOutput>;
-  listIPSets(args: ListIPSetsCommandInput, cb: (err: any, data?: ListIPSetsCommandOutput) => void): void;
+  listIPSets(
+    args: ListIPSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIPSetsCommandOutput>;
+  listIPSets(
+    args: ListIPSetsCommandInput,
+    cb: (err: any, data?: ListIPSetsCommandOutput) => void
+  ): void;
   listIPSets(
     args: ListIPSetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1411,8 +1528,14 @@ export interface GuardDuty {
   /**
    * @see {@link ListMembersCommand}
    */
-  listMembers(args: ListMembersCommandInput, options?: __HttpHandlerOptions): Promise<ListMembersCommandOutput>;
-  listMembers(args: ListMembersCommandInput, cb: (err: any, data?: ListMembersCommandOutput) => void): void;
+  listMembers(
+    args: ListMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMembersCommandOutput>;
+  listMembers(
+    args: ListMembersCommandInput,
+    cb: (err: any, data?: ListMembersCommandOutput) => void
+  ): void;
   listMembers(
     args: ListMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -1594,8 +1717,14 @@ export interface GuardDuty {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1622,8 +1751,14 @@ export interface GuardDuty {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1637,7 +1772,10 @@ export interface GuardDuty {
     args: UpdateDetectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateDetectorCommandOutput>;
-  updateDetector(args: UpdateDetectorCommandInput, cb: (err: any, data?: UpdateDetectorCommandOutput) => void): void;
+  updateDetector(
+    args: UpdateDetectorCommandInput,
+    cb: (err: any, data?: UpdateDetectorCommandOutput) => void
+  ): void;
   updateDetector(
     args: UpdateDetectorCommandInput,
     options: __HttpHandlerOptions,
@@ -1647,8 +1785,14 @@ export interface GuardDuty {
   /**
    * @see {@link UpdateFilterCommand}
    */
-  updateFilter(args: UpdateFilterCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFilterCommandOutput>;
-  updateFilter(args: UpdateFilterCommandInput, cb: (err: any, data?: UpdateFilterCommandOutput) => void): void;
+  updateFilter(
+    args: UpdateFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFilterCommandOutput>;
+  updateFilter(
+    args: UpdateFilterCommandInput,
+    cb: (err: any, data?: UpdateFilterCommandOutput) => void
+  ): void;
   updateFilter(
     args: UpdateFilterCommandInput,
     options: __HttpHandlerOptions,
@@ -1675,8 +1819,14 @@ export interface GuardDuty {
   /**
    * @see {@link UpdateIPSetCommand}
    */
-  updateIPSet(args: UpdateIPSetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateIPSetCommandOutput>;
-  updateIPSet(args: UpdateIPSetCommandInput, cb: (err: any, data?: UpdateIPSetCommandOutput) => void): void;
+  updateIPSet(
+    args: UpdateIPSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateIPSetCommandOutput>;
+  updateIPSet(
+    args: UpdateIPSetCommandInput,
+    cb: (err: any, data?: UpdateIPSetCommandOutput) => void
+  ): void;
   updateIPSet(
     args: UpdateIPSetCommandInput,
     options: __HttpHandlerOptions,

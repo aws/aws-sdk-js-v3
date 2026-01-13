@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MWAAServerlessClient";
-import { GetTaskInstance } from "../schemas/schemas_0";
+import { GetTaskInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetTaskInstanceCommand extends $Command
   })
   .s("AmazonMWAAServerless", "GetTaskInstance", {})
   .n("MWAAServerlessClient", "GetTaskInstanceCommand")
-  .sc(GetTaskInstance)
+  .sc(GetTaskInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

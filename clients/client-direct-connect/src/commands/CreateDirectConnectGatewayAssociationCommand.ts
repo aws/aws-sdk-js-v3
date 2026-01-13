@@ -9,7 +9,7 @@ import type {
   CreateDirectConnectGatewayAssociationRequest,
   CreateDirectConnectGatewayAssociationResult,
 } from "../models/models_0";
-import { CreateDirectConnectGatewayAssociation } from "../schemas/schemas_0";
+import { CreateDirectConnectGatewayAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateDirectConnectGatewayAssociationCommand}.
  */
-export interface CreateDirectConnectGatewayAssociationCommandInput
-  extends CreateDirectConnectGatewayAssociationRequest {}
+export interface CreateDirectConnectGatewayAssociationCommandInput extends CreateDirectConnectGatewayAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateDirectConnectGatewayAssociationCommand}.
  */
-export interface CreateDirectConnectGatewayAssociationCommandOutput
-  extends CreateDirectConnectGatewayAssociationResult,
-    __MetadataBearer {}
+export interface CreateDirectConnectGatewayAssociationCommandOutput extends CreateDirectConnectGatewayAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Creates an association between a Direct Connect gateway and a virtual private gateway. The virtual
@@ -118,7 +115,7 @@ export class CreateDirectConnectGatewayAssociationCommand extends $Command
   })
   .s("OvertureService", "CreateDirectConnectGatewayAssociation", {})
   .n("DirectConnectClient", "CreateDirectConnectGatewayAssociationCommand")
-  .sc(CreateDirectConnectGatewayAssociation)
+  .sc(CreateDirectConnectGatewayAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

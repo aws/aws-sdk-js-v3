@@ -227,8 +227,14 @@ export interface ApplicationSignals {
   /**
    * @see {@link GetServiceCommand}
    */
-  getService(args: GetServiceCommandInput, options?: __HttpHandlerOptions): Promise<GetServiceCommandOutput>;
-  getService(args: GetServiceCommandInput, cb: (err: any, data?: GetServiceCommandOutput) => void): void;
+  getService(
+    args: GetServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetServiceCommandOutput>;
+  getService(
+    args: GetServiceCommandInput,
+    cb: (err: any, data?: GetServiceCommandOutput) => void
+  ): void;
   getService(
     args: GetServiceCommandInput,
     options: __HttpHandlerOptions,
@@ -393,8 +399,14 @@ export interface ApplicationSignals {
   /**
    * @see {@link ListServicesCommand}
    */
-  listServices(args: ListServicesCommandInput, options?: __HttpHandlerOptions): Promise<ListServicesCommandOutput>;
-  listServices(args: ListServicesCommandInput, cb: (err: any, data?: ListServicesCommandOutput) => void): void;
+  listServices(
+    args: ListServicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServicesCommandOutput>;
+  listServices(
+    args: ListServicesCommandInput,
+    cb: (err: any, data?: ListServicesCommandOutput) => void
+  ): void;
   listServices(
     args: ListServicesCommandInput,
     options: __HttpHandlerOptions,
@@ -460,7 +472,10 @@ export interface ApplicationSignals {
     args: StartDiscoveryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartDiscoveryCommandOutput>;
-  startDiscovery(args: StartDiscoveryCommandInput, cb: (err: any, data?: StartDiscoveryCommandOutput) => void): void;
+  startDiscovery(
+    args: StartDiscoveryCommandInput,
+    cb: (err: any, data?: StartDiscoveryCommandOutput) => void
+  ): void;
   startDiscovery(
     args: StartDiscoveryCommandInput,
     options: __HttpHandlerOptions,
@@ -470,8 +485,14 @@ export interface ApplicationSignals {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -481,8 +502,14 @@ export interface ApplicationSignals {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

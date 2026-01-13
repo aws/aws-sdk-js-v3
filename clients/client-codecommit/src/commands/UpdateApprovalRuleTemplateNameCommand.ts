@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateApprovalRuleTemplateNameInput, UpdateApprovalRuleTemplateNameOutput } from "../models/models_0";
-import { UpdateApprovalRuleTemplateName } from "../schemas/schemas_0";
+import { UpdateApprovalRuleTemplateName$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateApprovalRuleTemplateNameCommandInput extends UpdateApprov
  *
  * The output of {@link UpdateApprovalRuleTemplateNameCommand}.
  */
-export interface UpdateApprovalRuleTemplateNameCommandOutput
-  extends UpdateApprovalRuleTemplateNameOutput,
-    __MetadataBearer {}
+export interface UpdateApprovalRuleTemplateNameCommandOutput extends UpdateApprovalRuleTemplateNameOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the name of a specified approval rule template.</p>
@@ -102,7 +100,7 @@ export class UpdateApprovalRuleTemplateNameCommand extends $Command
   })
   .s("CodeCommit_20150413", "UpdateApprovalRuleTemplateName", {})
   .n("CodeCommitClient", "UpdateApprovalRuleTemplateNameCommand")
-  .sc(UpdateApprovalRuleTemplateName)
+  .sc(UpdateApprovalRuleTemplateName$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

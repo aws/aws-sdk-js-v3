@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociatePrincipalWithPortfolioInput, AssociatePrincipalWithPortfolioOutput } from "../models/models_0";
-import { AssociatePrincipalWithPortfolio } from "../schemas/schemas_0";
+import { AssociatePrincipalWithPortfolio$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -28,9 +28,7 @@ export interface AssociatePrincipalWithPortfolioCommandInput extends AssociatePr
  *
  * The output of {@link AssociatePrincipalWithPortfolioCommand}.
  */
-export interface AssociatePrincipalWithPortfolioCommandOutput
-  extends AssociatePrincipalWithPortfolioOutput,
-    __MetadataBearer {}
+export interface AssociatePrincipalWithPortfolioCommandOutput extends AssociatePrincipalWithPortfolioOutput, __MetadataBearer {}
 
 /**
  * <p>Associates the specified principal ARN with the specified portfolio.</p>
@@ -104,7 +102,7 @@ export class AssociatePrincipalWithPortfolioCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "AssociatePrincipalWithPortfolio", {})
   .n("ServiceCatalogClient", "AssociatePrincipalWithPortfolioCommand")
-  .sc(AssociatePrincipalWithPortfolio)
+  .sc(AssociatePrincipalWithPortfolio$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

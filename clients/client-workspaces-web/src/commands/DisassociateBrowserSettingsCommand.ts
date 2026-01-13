@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateBrowserSettingsRequest, DisassociateBrowserSettingsResponse } from "../models/models_0";
-import { DisassociateBrowserSettings } from "../schemas/schemas_0";
+import { DisassociateBrowserSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DisassociateBrowserSettingsCommandInput extends DisassociateBro
  *
  * The output of {@link DisassociateBrowserSettingsCommand}.
  */
-export interface DisassociateBrowserSettingsCommandOutput
-  extends DisassociateBrowserSettingsResponse,
-    __MetadataBearer {}
+export interface DisassociateBrowserSettingsCommandOutput extends DisassociateBrowserSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates browser settings from a web portal.</p>
@@ -91,7 +89,7 @@ export class DisassociateBrowserSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "DisassociateBrowserSettings", {})
   .n("WorkSpacesWebClient", "DisassociateBrowserSettingsCommand")
-  .sc(DisassociateBrowserSettings)
+  .sc(DisassociateBrowserSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

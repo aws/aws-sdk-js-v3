@@ -9,7 +9,7 @@ import type {
   GetAggregateComplianceDetailsByConfigRuleRequest,
   GetAggregateComplianceDetailsByConfigRuleResponse,
 } from "../models/models_0";
-import { GetAggregateComplianceDetailsByConfigRule } from "../schemas/schemas_0";
+import { GetAggregateComplianceDetailsByConfigRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetAggregateComplianceDetailsByConfigRuleCommand}.
  */
-export interface GetAggregateComplianceDetailsByConfigRuleCommandInput
-  extends GetAggregateComplianceDetailsByConfigRuleRequest {}
+export interface GetAggregateComplianceDetailsByConfigRuleCommandInput extends GetAggregateComplianceDetailsByConfigRuleRequest {}
 /**
  * @public
  *
  * The output of {@link GetAggregateComplianceDetailsByConfigRuleCommand}.
  */
-export interface GetAggregateComplianceDetailsByConfigRuleCommandOutput
-  extends GetAggregateComplianceDetailsByConfigRuleResponse,
-    __MetadataBearer {}
+export interface GetAggregateComplianceDetailsByConfigRuleCommandOutput extends GetAggregateComplianceDetailsByConfigRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the evaluation results for the specified Config
@@ -160,7 +157,7 @@ export class GetAggregateComplianceDetailsByConfigRuleCommand extends $Command
   })
   .s("StarlingDoveService", "GetAggregateComplianceDetailsByConfigRule", {})
   .n("ConfigServiceClient", "GetAggregateComplianceDetailsByConfigRuleCommand")
-  .sc(GetAggregateComplianceDetailsByConfigRule)
+  .sc(GetAggregateComplianceDetailsByConfigRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

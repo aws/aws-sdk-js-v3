@@ -10,7 +10,7 @@ import type {
 } from "../ControlCatalogClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetControlRequest, GetControlResponse } from "../models/models_0";
-import { GetControl } from "../schemas/schemas_0";
+import { GetControl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class GetControlCommand extends $Command
   })
   .s("ControlCatalog", "GetControl", {})
   .n("ControlCatalogClient", "GetControlCommand")
-  .sc(GetControl)
+  .sc(GetControl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

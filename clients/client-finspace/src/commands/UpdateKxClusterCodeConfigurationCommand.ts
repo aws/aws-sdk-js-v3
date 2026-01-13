@@ -9,7 +9,7 @@ import type {
   UpdateKxClusterCodeConfigurationRequest,
   UpdateKxClusterCodeConfigurationResponse,
 } from "../models/models_0";
-import { UpdateKxClusterCodeConfiguration } from "../schemas/schemas_0";
+import { UpdateKxClusterCodeConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateKxClusterCodeConfigurationCommandInput extends UpdateKxCl
  *
  * The output of {@link UpdateKxClusterCodeConfigurationCommand}.
  */
-export interface UpdateKxClusterCodeConfigurationCommandOutput
-  extends UpdateKxClusterCodeConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateKxClusterCodeConfigurationCommandOutput extends UpdateKxClusterCodeConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -118,7 +116,7 @@ export class UpdateKxClusterCodeConfigurationCommand extends $Command
   })
   .s("AWSHabaneroManagementService", "UpdateKxClusterCodeConfiguration", {})
   .n("FinspaceClient", "UpdateKxClusterCodeConfigurationCommand")
-  .sc(UpdateKxClusterCodeConfiguration)
+  .sc(UpdateKxClusterCodeConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

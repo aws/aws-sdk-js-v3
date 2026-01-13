@@ -10,7 +10,7 @@ import type {
 } from "../AmplifyUIBuilderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateComponentRequest, UpdateComponentResponse } from "../models/models_0";
-import { UpdateComponent } from "../schemas/schemas_0";
+import { UpdateComponent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -519,7 +519,7 @@ export class UpdateComponentCommand extends $Command
   })
   .s("AmplifyUIBuilder", "UpdateComponent", {})
   .n("AmplifyUIBuilderClient", "UpdateComponentCommand")
-  .sc(UpdateComponent)
+  .sc(UpdateComponent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

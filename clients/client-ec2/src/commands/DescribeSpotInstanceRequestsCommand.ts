@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeSpotInstanceRequestsRequest, DescribeSpotInstanceRequestsResult } from "../models/models_4";
-import { DescribeSpotInstanceRequests } from "../schemas/schemas_0";
+import { DescribeSpotInstanceRequests$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeSpotInstanceRequestsCommandInput extends DescribeSpotIn
  *
  * The output of {@link DescribeSpotInstanceRequestsCommand}.
  */
-export interface DescribeSpotInstanceRequestsCommandOutput
-  extends DescribeSpotInstanceRequestsResult,
-    __MetadataBearer {}
+export interface DescribeSpotInstanceRequestsCommandOutput extends DescribeSpotInstanceRequestsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified Spot Instance requests.</p>
@@ -177,6 +175,7 @@ export interface DescribeSpotInstanceRequestsCommandOutput
  * //           AvailabilityZone: "STRING_VALUE",
  * //           GroupName: "STRING_VALUE",
  * //           Tenancy: "default" || "dedicated" || "host",
+ * //           AvailabilityZoneId: "STRING_VALUE",
  * //         },
  * //         RamdiskId: "STRING_VALUE",
  * //         SubnetId: "STRING_VALUE",
@@ -299,7 +298,7 @@ export class DescribeSpotInstanceRequestsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeSpotInstanceRequests", {})
   .n("EC2Client", "DescribeSpotInstanceRequestsCommand")
-  .sc(DescribeSpotInstanceRequests)
+  .sc(DescribeSpotInstanceRequests$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

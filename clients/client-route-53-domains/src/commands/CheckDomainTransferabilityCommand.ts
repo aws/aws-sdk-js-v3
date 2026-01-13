@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { CheckDomainTransferability } from "../schemas/schemas_0";
+import { CheckDomainTransferability$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class CheckDomainTransferabilityCommand extends $Command
   })
   .s("Route53Domains_v20140515", "CheckDomainTransferability", {})
   .n("Route53DomainsClient", "CheckDomainTransferabilityCommand")
-  .sc(CheckDomainTransferability)
+  .sc(CheckDomainTransferability$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

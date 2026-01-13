@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateCapacityProviderRequest, UpdateCapacityProviderResponse } from "../models/models_0";
-import { UpdateCapacityProvider } from "../schemas/schemas_0";
+import { UpdateCapacityProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -180,6 +180,7 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  * //           storageSizeGiB: Number("int"),
  * //         },
  * //         monitoring: "BASIC" || "DETAILED",
+ * //         capacityOptionType: "ON_DEMAND" || "SPOT",
  * //         instanceRequirements: { // InstanceRequirementsRequest
  * //           vCpuCount: { // VCpuCountRangeRequest
  * //             min: Number("int"), // required
@@ -354,7 +355,7 @@ export class UpdateCapacityProviderCommand extends $Command
   })
   .s("AmazonEC2ContainerServiceV20141113", "UpdateCapacityProvider", {})
   .n("ECSClient", "UpdateCapacityProviderCommand")
-  .sc(UpdateCapacityProvider)
+  .sc(UpdateCapacityProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

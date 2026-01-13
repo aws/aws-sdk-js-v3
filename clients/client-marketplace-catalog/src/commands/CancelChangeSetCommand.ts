@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
 import type { CancelChangeSetRequest, CancelChangeSetResponse } from "../models/models_0";
-import { CancelChangeSet } from "../schemas/schemas_0";
+import { CancelChangeSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class CancelChangeSetCommand extends $Command
   })
   .s("AWSMPSeymour", "CancelChangeSet", {})
   .n("MarketplaceCatalogClient", "CancelChangeSetCommand")
-  .sc(CancelChangeSet)
+  .sc(CancelChangeSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

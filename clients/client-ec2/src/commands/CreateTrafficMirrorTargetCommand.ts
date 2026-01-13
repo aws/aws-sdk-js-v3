@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateTrafficMirrorTargetRequest, CreateTrafficMirrorTargetResult } from "../models/models_2";
-import { CreateTrafficMirrorTarget } from "../schemas/schemas_0";
+import { CreateTrafficMirrorTarget$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class CreateTrafficMirrorTargetCommand extends $Command
   })
   .s("AmazonEC2", "CreateTrafficMirrorTarget", {})
   .n("EC2Client", "CreateTrafficMirrorTargetCommand")
-  .sc(CreateTrafficMirrorTarget)
+  .sc(CreateTrafficMirrorTarget$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

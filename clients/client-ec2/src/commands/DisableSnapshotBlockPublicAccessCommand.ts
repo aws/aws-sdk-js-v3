@@ -9,7 +9,7 @@ import type {
   DisableSnapshotBlockPublicAccessRequest,
   DisableSnapshotBlockPublicAccessResult,
 } from "../models/models_5";
-import { DisableSnapshotBlockPublicAccess } from "../schemas/schemas_0";
+import { DisableSnapshotBlockPublicAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DisableSnapshotBlockPublicAccessCommandInput extends DisableSna
  *
  * The output of {@link DisableSnapshotBlockPublicAccessCommand}.
  */
-export interface DisableSnapshotBlockPublicAccessCommandOutput
-  extends DisableSnapshotBlockPublicAccessResult,
-    __MetadataBearer {}
+export interface DisableSnapshotBlockPublicAccessCommandOutput extends DisableSnapshotBlockPublicAccessResult, __MetadataBearer {}
 
 /**
  * <p>Disables the <i>block public access for snapshots</i> setting at
@@ -92,7 +90,7 @@ export class DisableSnapshotBlockPublicAccessCommand extends $Command
   })
   .s("AmazonEC2", "DisableSnapshotBlockPublicAccess", {})
   .n("EC2Client", "DisableSnapshotBlockPublicAccessCommand")
-  .sc(DisableSnapshotBlockPublicAccess)
+  .sc(DisableSnapshotBlockPublicAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

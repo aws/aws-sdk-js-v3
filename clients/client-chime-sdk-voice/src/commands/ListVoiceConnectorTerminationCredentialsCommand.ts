@@ -9,7 +9,7 @@ import type {
   ListVoiceConnectorTerminationCredentialsRequest,
   ListVoiceConnectorTerminationCredentialsResponse,
 } from "../models/models_0";
-import { ListVoiceConnectorTerminationCredentials } from "../schemas/schemas_0";
+import { ListVoiceConnectorTerminationCredentials$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListVoiceConnectorTerminationCredentialsCommand}.
  */
-export interface ListVoiceConnectorTerminationCredentialsCommandInput
-  extends ListVoiceConnectorTerminationCredentialsRequest {}
+export interface ListVoiceConnectorTerminationCredentialsCommandInput extends ListVoiceConnectorTerminationCredentialsRequest {}
 /**
  * @public
  *
  * The output of {@link ListVoiceConnectorTerminationCredentialsCommand}.
  */
-export interface ListVoiceConnectorTerminationCredentialsCommandOutput
-  extends ListVoiceConnectorTerminationCredentialsResponse,
-    __MetadataBearer {}
+export interface ListVoiceConnectorTerminationCredentialsCommandOutput extends ListVoiceConnectorTerminationCredentialsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the SIP credentials for the specified Amazon Chime SDK Voice Connector.</p>
@@ -102,7 +99,7 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "ListVoiceConnectorTerminationCredentials", {})
   .n("ChimeSDKVoiceClient", "ListVoiceConnectorTerminationCredentialsCommand")
-  .sc(ListVoiceConnectorTerminationCredentials)
+  .sc(ListVoiceConnectorTerminationCredentials$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

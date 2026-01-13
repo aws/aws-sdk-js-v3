@@ -9,7 +9,7 @@ import type {
   BatchDeleteRumMetricDefinitionsResponse,
 } from "../models/models_0";
 import type { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
-import { BatchDeleteRumMetricDefinitions } from "../schemas/schemas_0";
+import { BatchDeleteRumMetricDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface BatchDeleteRumMetricDefinitionsCommandInput extends BatchDelete
  *
  * The output of {@link BatchDeleteRumMetricDefinitionsCommand}.
  */
-export interface BatchDeleteRumMetricDefinitionsCommandOutput
-  extends BatchDeleteRumMetricDefinitionsResponse,
-    __MetadataBearer {}
+export interface BatchDeleteRumMetricDefinitionsCommandOutput extends BatchDeleteRumMetricDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the specified metrics from being sent to an extended metrics destination.</p> <p>If some metric definition IDs specified in a <code>BatchDeleteRumMetricDefinitions</code> operations are not valid, those metric definitions fail and return errors, but all valid metric definition IDs in the same operation are still deleted.</p> <p>The maximum number of metric definitions that you can specify in one <code>BatchDeleteRumMetricDefinitions</code> operation is 200.</p>
@@ -110,7 +108,7 @@ export class BatchDeleteRumMetricDefinitionsCommand extends $Command
   })
   .s("RUM", "BatchDeleteRumMetricDefinitions", {})
   .n("RUMClient", "BatchDeleteRumMetricDefinitionsCommand")
-  .sc(BatchDeleteRumMetricDefinitions)
+  .sc(BatchDeleteRumMetricDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

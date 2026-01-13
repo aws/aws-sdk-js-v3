@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMessagingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateChannelMessageRequest, UpdateChannelMessageResponse } from "../models/models_0";
-import { UpdateChannelMessage } from "../schemas/schemas_0";
+import { UpdateChannelMessage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class UpdateChannelMessageCommand extends $Command
   })
   .s("ChimeMessagingService", "UpdateChannelMessage", {})
   .n("ChimeSDKMessagingClient", "UpdateChannelMessageCommand")
-  .sc(UpdateChannelMessage)
+  .sc(UpdateChannelMessage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

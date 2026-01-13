@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { GetAccountSummaryResponse } from "../models/models_0";
-import { GetAccountSummary } from "../schemas/schemas_0";
+import { GetAccountSummary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class GetAccountSummaryCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "GetAccountSummary", {})
   .n("IAMClient", "GetAccountSummaryCommand")
-  .sc(GetAccountSummary)
+  .sc(GetAccountSummary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

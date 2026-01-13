@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutWebhookInput, PutWebhookOutput } from "../models/models_0";
-import { PutWebhook } from "../schemas/schemas_0";
+import { PutWebhook$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -166,7 +166,7 @@ export class PutWebhookCommand extends $Command
   })
   .s("CodePipeline_20150709", "PutWebhook", {})
   .n("CodePipelineClient", "PutWebhookCommand")
-  .sc(PutWebhook)
+  .sc(PutWebhook$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

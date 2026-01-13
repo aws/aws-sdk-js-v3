@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateAddonRequest, CreateAddonResponse } from "../models/models_0";
-import { CreateAddon } from "../schemas/schemas_0";
+import { CreateAddon$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -155,7 +155,7 @@ export class CreateAddonCommand extends $Command
   })
   .s("AWSWesleyFrontend", "CreateAddon", {})
   .n("EKSClient", "CreateAddonCommand")
-  .sc(CreateAddon)
+  .sc(CreateAddon$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

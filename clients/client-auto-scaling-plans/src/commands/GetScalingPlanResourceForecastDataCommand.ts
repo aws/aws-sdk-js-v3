@@ -13,7 +13,7 @@ import type {
   GetScalingPlanResourceForecastDataRequest,
   GetScalingPlanResourceForecastDataResponse,
 } from "../models/models_0";
-import { GetScalingPlanResourceForecastData } from "../schemas/schemas_0";
+import { GetScalingPlanResourceForecastData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetScalingPlanResourceForecastDataCommandInput extends GetScali
  *
  * The output of {@link GetScalingPlanResourceForecastDataCommand}.
  */
-export interface GetScalingPlanResourceForecastDataCommandOutput
-  extends GetScalingPlanResourceForecastDataResponse,
-    __MetadataBearer {}
+export interface GetScalingPlanResourceForecastDataCommandOutput extends GetScalingPlanResourceForecastDataResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the forecast data for a scalable resource.</p>
@@ -103,7 +101,7 @@ export class GetScalingPlanResourceForecastDataCommand extends $Command
   })
   .s("AnyScaleScalingPlannerFrontendService", "GetScalingPlanResourceForecastData", {})
   .n("AutoScalingPlansClient", "GetScalingPlanResourceForecastDataCommand")
-  .sc(GetScalingPlanResourceForecastData)
+  .sc(GetScalingPlanResourceForecastData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

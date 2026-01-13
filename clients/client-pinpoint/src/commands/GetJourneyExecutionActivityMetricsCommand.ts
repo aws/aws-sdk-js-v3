@@ -9,7 +9,7 @@ import type {
   GetJourneyExecutionActivityMetricsResponse,
 } from "../models/models_1";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetJourneyExecutionActivityMetrics } from "../schemas/schemas_0";
+import { GetJourneyExecutionActivityMetrics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetJourneyExecutionActivityMetricsCommandInput extends GetJourn
  *
  * The output of {@link GetJourneyExecutionActivityMetricsCommand}.
  */
-export interface GetJourneyExecutionActivityMetricsCommandOutput
-  extends GetJourneyExecutionActivityMetricsResponse,
-    __MetadataBearer {}
+export interface GetJourneyExecutionActivityMetricsCommandOutput extends GetJourneyExecutionActivityMetricsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves (queries) pre-aggregated data for a standard execution metric that applies to a journey activity.</p>
@@ -112,7 +110,7 @@ export class GetJourneyExecutionActivityMetricsCommand extends $Command
   })
   .s("Pinpoint", "GetJourneyExecutionActivityMetrics", {})
   .n("PinpointClient", "GetJourneyExecutionActivityMetricsCommand")
-  .sc(GetJourneyExecutionActivityMetrics)
+  .sc(GetJourneyExecutionActivityMetrics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

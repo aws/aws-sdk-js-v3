@@ -42,7 +42,6 @@ import {
   Trace,
   VideoFormat,
 } from "./enums";
-
 import {
   InternalServerException,
   ModelStreamErrorException,
@@ -377,7 +376,9 @@ export interface StartAsyncInvokeResponse {
  * <p>The image source (image bytes) of the guardrail image source. Object used in independent api.</p>
  * @public
  */
-export type GuardrailImageSource = GuardrailImageSource.BytesMember | GuardrailImageSource.$UnknownMember;
+export type GuardrailImageSource =
+  | GuardrailImageSource.BytesMember
+  | GuardrailImageSource.$UnknownMember;
 
 /**
  * @public
@@ -1632,7 +1633,10 @@ export interface S3Location {
  * <p>The source of audio data, which can be provided either as raw bytes or a reference to an S3 location.</p>
  * @public
  */
-export type AudioSource = AudioSource.BytesMember | AudioSource.S3LocationMember | AudioSource.$UnknownMember;
+export type AudioSource =
+  | AudioSource.BytesMember
+  | AudioSource.S3LocationMember
+  | AudioSource.$UnknownMember;
 
 /**
  * @public
@@ -1939,7 +1943,9 @@ export namespace CitationLocation {
  * <p>Contains the actual text content from a source document that is being cited or referenced in the model's response.</p>
  * @public
  */
-export type CitationSourceContent = CitationSourceContent.TextMember | CitationSourceContent.$UnknownMember;
+export type CitationSourceContent =
+  | CitationSourceContent.TextMember
+  | CitationSourceContent.$UnknownMember;
 
 /**
  * @public
@@ -2006,7 +2012,9 @@ export interface Citation {
  * <p>Contains the generated text content that corresponds to or is supported by a citation from a source document.</p>
  * @public
  */
-export type CitationGeneratedContent = CitationGeneratedContent.TextMember | CitationGeneratedContent.$UnknownMember;
+export type CitationGeneratedContent =
+  | CitationGeneratedContent.TextMember
+  | CitationGeneratedContent.$UnknownMember;
 
 /**
  * @public
@@ -2073,7 +2081,9 @@ export interface CitationsConfig {
  * <p>Contains the actual content of a document that can be processed by the model and potentially cited in the response.</p>
  * @public
  */
-export type DocumentContentBlock = DocumentContentBlock.TextMember | DocumentContentBlock.$UnknownMember;
+export type DocumentContentBlock =
+  | DocumentContentBlock.TextMember
+  | DocumentContentBlock.$UnknownMember;
 
 /**
  * @public
@@ -2361,7 +2371,10 @@ export namespace GuardrailConverseContentBlock {
  * <p>The source for an image.</p>
  * @public
  */
-export type ImageSource = ImageSource.BytesMember | ImageSource.S3LocationMember | ImageSource.$UnknownMember;
+export type ImageSource =
+  | ImageSource.BytesMember
+  | ImageSource.S3LocationMember
+  | ImageSource.$UnknownMember;
 
 /**
  * @public
@@ -2548,7 +2561,10 @@ export interface SearchResultBlock {
  * <p>A video source. You can upload a smaller video as a base64-encoded string as long as the encoded file is less than 25MB. You can also transfer videos up to 1GB in size from an S3 bucket.</p>
  * @public
  */
-export type VideoSource = VideoSource.BytesMember | VideoSource.S3LocationMember | VideoSource.$UnknownMember;
+export type VideoSource =
+  | VideoSource.BytesMember
+  | VideoSource.S3LocationMember
+  | VideoSource.$UnknownMember;
 
 /**
  * @public
@@ -3138,7 +3154,9 @@ export interface PerformanceConfiguration {
  * <p>Contains a map of variables in a prompt from Prompt management to an object containing the values to fill in for them when running model invocation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-how.html">How Prompt management works</a>.</p>
  * @public
  */
-export type PromptVariableValues = PromptVariableValues.TextMember | PromptVariableValues.$UnknownMember;
+export type PromptVariableValues =
+  | PromptVariableValues.TextMember
+  | PromptVariableValues.$UnknownMember;
 
 /**
  * @public
@@ -3361,7 +3379,9 @@ export interface SystemTool {
  * <p>The schema for the tool. The top level schema type must be <code>object</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Call a tool with the Converse API</a> in the Amazon Bedrock User Guide.</p>
  * @public
  */
-export type ToolInputSchema = ToolInputSchema.JsonMember | ToolInputSchema.$UnknownMember;
+export type ToolInputSchema =
+  | ToolInputSchema.JsonMember
+  | ToolInputSchema.$UnknownMember;
 
 /**
  * @public
@@ -3422,7 +3442,11 @@ export interface ToolSpecification {
  * <p>Information about a tool that you can use with the Converse API. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Call a tool with the Converse API</a> in the Amazon Bedrock User Guide.</p>
  * @public
  */
-export type Tool = Tool.CachePointMember | Tool.SystemToolMember | Tool.ToolSpecMember | Tool.$UnknownMember;
+export type Tool =
+  | Tool.CachePointMember
+  | Tool.SystemToolMember
+  | Tool.ToolSpecMember
+  | Tool.$UnknownMember;
 
 /**
  * @public
@@ -3594,7 +3618,9 @@ export interface ConverseMetrics {
  * <p>The output from a call to <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a>.</p>
  * @public
  */
-export type ConverseOutput = ConverseOutput.MessageMember | ConverseOutput.$UnknownMember;
+export type ConverseOutput =
+  | ConverseOutput.MessageMember
+  | ConverseOutput.$UnknownMember;
 
 /**
  * @public

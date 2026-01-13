@@ -1022,6 +1022,28 @@ export class SchedulerRunningException extends __BaseException {
 }
 
 /**
+ * <p>Exception thrown when a task is already in running state.</p>
+ * @public
+ */
+export class MaterializedViewRefreshTaskRunningException extends __BaseException {
+  readonly name = "MaterializedViewRefreshTaskRunningException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MaterializedViewRefreshTaskRunningException, __BaseException>) {
+    super({
+      name: "MaterializedViewRefreshTaskRunningException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaterializedViewRefreshTaskRunningException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The machine learning transform is not ready to run.</p>
  * @public
  */
@@ -1173,6 +1195,50 @@ export class SchedulerNotRunningException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, SchedulerNotRunningException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Exception thrown when stopping a task that is not in running state.</p>
+ * @public
+ */
+export class MaterializedViewRefreshTaskNotRunningException extends __BaseException {
+  readonly name = "MaterializedViewRefreshTaskNotRunningException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MaterializedViewRefreshTaskNotRunningException, __BaseException>) {
+    super({
+      name: "MaterializedViewRefreshTaskNotRunningException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaterializedViewRefreshTaskNotRunningException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Exception thrown when a task is already in stopping state.</p>
+ * @public
+ */
+export class MaterializedViewRefreshTaskStoppingException extends __BaseException {
+  readonly name = "MaterializedViewRefreshTaskStoppingException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MaterializedViewRefreshTaskStoppingException, __BaseException>) {
+    super({
+      name: "MaterializedViewRefreshTaskStoppingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaterializedViewRefreshTaskStoppingException.prototype);
     this.Message = opts.Message;
   }
 }

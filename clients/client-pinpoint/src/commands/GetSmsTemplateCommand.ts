@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSmsTemplateRequest, GetSmsTemplateResponse } from "../models/models_1";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetSmsTemplate } from "../schemas/schemas_0";
+import { GetSmsTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class GetSmsTemplateCommand extends $Command
   })
   .s("Pinpoint", "GetSmsTemplate", {})
   .n("PinpointClient", "GetSmsTemplateCommand")
-  .sc(GetSmsTemplate)
+  .sc(GetSmsTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

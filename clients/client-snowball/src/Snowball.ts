@@ -153,8 +153,14 @@ export interface Snowball {
   /**
    * @see {@link CancelClusterCommand}
    */
-  cancelCluster(args: CancelClusterCommandInput, options?: __HttpHandlerOptions): Promise<CancelClusterCommandOutput>;
-  cancelCluster(args: CancelClusterCommandInput, cb: (err: any, data?: CancelClusterCommandOutput) => void): void;
+  cancelCluster(
+    args: CancelClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelClusterCommandOutput>;
+  cancelCluster(
+    args: CancelClusterCommandInput,
+    cb: (err: any, data?: CancelClusterCommandOutput) => void
+  ): void;
   cancelCluster(
     args: CancelClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -164,8 +170,14 @@ export interface Snowball {
   /**
    * @see {@link CancelJobCommand}
    */
-  cancelJob(args: CancelJobCommandInput, options?: __HttpHandlerOptions): Promise<CancelJobCommandOutput>;
-  cancelJob(args: CancelJobCommandInput, cb: (err: any, data?: CancelJobCommandOutput) => void): void;
+  cancelJob(
+    args: CancelJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelJobCommandOutput>;
+  cancelJob(
+    args: CancelJobCommandInput,
+    cb: (err: any, data?: CancelJobCommandOutput) => void
+  ): void;
   cancelJob(
     args: CancelJobCommandInput,
     options: __HttpHandlerOptions,
@@ -175,8 +187,14 @@ export interface Snowball {
   /**
    * @see {@link CreateAddressCommand}
    */
-  createAddress(args: CreateAddressCommandInput, options?: __HttpHandlerOptions): Promise<CreateAddressCommandOutput>;
-  createAddress(args: CreateAddressCommandInput, cb: (err: any, data?: CreateAddressCommandOutput) => void): void;
+  createAddress(
+    args: CreateAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAddressCommandOutput>;
+  createAddress(
+    args: CreateAddressCommandInput,
+    cb: (err: any, data?: CreateAddressCommandOutput) => void
+  ): void;
   createAddress(
     args: CreateAddressCommandInput,
     options: __HttpHandlerOptions,
@@ -186,8 +204,14 @@ export interface Snowball {
   /**
    * @see {@link CreateClusterCommand}
    */
-  createCluster(args: CreateClusterCommandInput, options?: __HttpHandlerOptions): Promise<CreateClusterCommandOutput>;
-  createCluster(args: CreateClusterCommandInput, cb: (err: any, data?: CreateClusterCommandOutput) => void): void;
+  createCluster(
+    args: CreateClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateClusterCommandOutput>;
+  createCluster(
+    args: CreateClusterCommandInput,
+    cb: (err: any, data?: CreateClusterCommandOutput) => void
+  ): void;
   createCluster(
     args: CreateClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -198,8 +222,14 @@ export interface Snowball {
    * @see {@link CreateJobCommand}
    */
   createJob(): Promise<CreateJobCommandOutput>;
-  createJob(args: CreateJobCommandInput, options?: __HttpHandlerOptions): Promise<CreateJobCommandOutput>;
-  createJob(args: CreateJobCommandInput, cb: (err: any, data?: CreateJobCommandOutput) => void): void;
+  createJob(
+    args: CreateJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateJobCommandOutput>;
+  createJob(
+    args: CreateJobCommandInput,
+    cb: (err: any, data?: CreateJobCommandOutput) => void
+  ): void;
   createJob(
     args: CreateJobCommandInput,
     options: __HttpHandlerOptions,
@@ -247,7 +277,10 @@ export interface Snowball {
     args: DescribeAddressCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeAddressCommandOutput>;
-  describeAddress(args: DescribeAddressCommandInput, cb: (err: any, data?: DescribeAddressCommandOutput) => void): void;
+  describeAddress(
+    args: DescribeAddressCommandInput,
+    cb: (err: any, data?: DescribeAddressCommandOutput) => void
+  ): void;
   describeAddress(
     args: DescribeAddressCommandInput,
     options: __HttpHandlerOptions,
@@ -279,7 +312,10 @@ export interface Snowball {
     args: DescribeClusterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeClusterCommandOutput>;
-  describeCluster(args: DescribeClusterCommandInput, cb: (err: any, data?: DescribeClusterCommandOutput) => void): void;
+  describeCluster(
+    args: DescribeClusterCommandInput,
+    cb: (err: any, data?: DescribeClusterCommandOutput) => void
+  ): void;
   describeCluster(
     args: DescribeClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -289,8 +325,14 @@ export interface Snowball {
   /**
    * @see {@link DescribeJobCommand}
    */
-  describeJob(args: DescribeJobCommandInput, options?: __HttpHandlerOptions): Promise<DescribeJobCommandOutput>;
-  describeJob(args: DescribeJobCommandInput, cb: (err: any, data?: DescribeJobCommandOutput) => void): void;
+  describeJob(
+    args: DescribeJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeJobCommandOutput>;
+  describeJob(
+    args: DescribeJobCommandInput,
+    cb: (err: any, data?: DescribeJobCommandOutput) => void
+  ): void;
   describeJob(
     args: DescribeJobCommandInput,
     options: __HttpHandlerOptions,
@@ -321,7 +363,10 @@ export interface Snowball {
     args: GetJobManifestCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetJobManifestCommandOutput>;
-  getJobManifest(args: GetJobManifestCommandInput, cb: (err: any, data?: GetJobManifestCommandOutput) => void): void;
+  getJobManifest(
+    args: GetJobManifestCommandInput,
+    cb: (err: any, data?: GetJobManifestCommandOutput) => void
+  ): void;
   getJobManifest(
     args: GetJobManifestCommandInput,
     options: __HttpHandlerOptions,
@@ -387,7 +432,10 @@ export interface Snowball {
     args: ListClusterJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListClusterJobsCommandOutput>;
-  listClusterJobs(args: ListClusterJobsCommandInput, cb: (err: any, data?: ListClusterJobsCommandOutput) => void): void;
+  listClusterJobs(
+    args: ListClusterJobsCommandInput,
+    cb: (err: any, data?: ListClusterJobsCommandOutput) => void
+  ): void;
   listClusterJobs(
     args: ListClusterJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -398,8 +446,14 @@ export interface Snowball {
    * @see {@link ListClustersCommand}
    */
   listClusters(): Promise<ListClustersCommandOutput>;
-  listClusters(args: ListClustersCommandInput, options?: __HttpHandlerOptions): Promise<ListClustersCommandOutput>;
-  listClusters(args: ListClustersCommandInput, cb: (err: any, data?: ListClustersCommandOutput) => void): void;
+  listClusters(
+    args: ListClustersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListClustersCommandOutput>;
+  listClusters(
+    args: ListClustersCommandInput,
+    cb: (err: any, data?: ListClustersCommandOutput) => void
+  ): void;
   listClusters(
     args: ListClustersCommandInput,
     options: __HttpHandlerOptions,
@@ -428,8 +482,14 @@ export interface Snowball {
    * @see {@link ListJobsCommand}
    */
   listJobs(): Promise<ListJobsCommandOutput>;
-  listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
-  listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
+  listJobs(
+    args: ListJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobsCommandOutput>;
+  listJobs(
+    args: ListJobsCommandInput,
+    cb: (err: any, data?: ListJobsCommandOutput) => void
+  ): void;
   listJobs(
     args: ListJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -492,8 +552,14 @@ export interface Snowball {
   /**
    * @see {@link UpdateClusterCommand}
    */
-  updateCluster(args: UpdateClusterCommandInput, options?: __HttpHandlerOptions): Promise<UpdateClusterCommandOutput>;
-  updateCluster(args: UpdateClusterCommandInput, cb: (err: any, data?: UpdateClusterCommandOutput) => void): void;
+  updateCluster(
+    args: UpdateClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateClusterCommandOutput>;
+  updateCluster(
+    args: UpdateClusterCommandInput,
+    cb: (err: any, data?: UpdateClusterCommandOutput) => void
+  ): void;
   updateCluster(
     args: UpdateClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -503,8 +569,14 @@ export interface Snowball {
   /**
    * @see {@link UpdateJobCommand}
    */
-  updateJob(args: UpdateJobCommandInput, options?: __HttpHandlerOptions): Promise<UpdateJobCommandOutput>;
-  updateJob(args: UpdateJobCommandInput, cb: (err: any, data?: UpdateJobCommandOutput) => void): void;
+  updateJob(
+    args: UpdateJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateJobCommandOutput>;
+  updateJob(
+    args: UpdateJobCommandInput,
+    cb: (err: any, data?: UpdateJobCommandOutput) => void
+  ): void;
   updateJob(
     args: UpdateJobCommandInput,
     options: __HttpHandlerOptions,

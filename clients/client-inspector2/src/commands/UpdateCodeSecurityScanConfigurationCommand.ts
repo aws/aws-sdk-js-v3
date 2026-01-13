@@ -9,7 +9,7 @@ import type {
   UpdateCodeSecurityScanConfigurationRequest,
   UpdateCodeSecurityScanConfigurationResponse,
 } from "../models/models_1";
-import { UpdateCodeSecurityScanConfiguration } from "../schemas/schemas_0";
+import { UpdateCodeSecurityScanConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateCodeSecurityScanConfigurationCommandInput extends UpdateC
  *
  * The output of {@link UpdateCodeSecurityScanConfigurationCommand}.
  */
-export interface UpdateCodeSecurityScanConfigurationCommandOutput
-  extends UpdateCodeSecurityScanConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateCodeSecurityScanConfigurationCommandOutput extends UpdateCodeSecurityScanConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing code security scan configuration.</p>
@@ -115,7 +113,7 @@ export class UpdateCodeSecurityScanConfigurationCommand extends $Command
   })
   .s("Inspector2", "UpdateCodeSecurityScanConfiguration", {})
   .n("Inspector2Client", "UpdateCodeSecurityScanConfigurationCommand")
-  .sc(UpdateCodeSecurityScanConfiguration)
+  .sc(UpdateCodeSecurityScanConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateAppAuthorizationRequest, CreateAppAuthorizationResponse } from "../models/models_0";
-import { CreateAppAuthorization } from "../schemas/schemas_0";
+import { CreateAppAuthorization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class CreateAppAuthorizationCommand extends $Command
   })
   .s("FabricFrontEndService", "CreateAppAuthorization", {})
   .n("AppFabricClient", "CreateAppAuthorizationCommand")
-  .sc(CreateAppAuthorization)
+  .sc(CreateAppAuthorization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

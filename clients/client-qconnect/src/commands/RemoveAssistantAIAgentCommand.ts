@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveAssistantAIAgentRequest, RemoveAssistantAIAgentResponse } from "../models/models_0";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { RemoveAssistantAIAgent } from "../schemas/schemas_0";
+import { RemoveAssistantAIAgent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class RemoveAssistantAIAgentCommand extends $Command
   })
   .s("WisdomService", "RemoveAssistantAIAgent", {})
   .n("QConnectClient", "RemoveAssistantAIAgentCommand")
-  .sc(RemoveAssistantAIAgent)
+  .sc(RemoveAssistantAIAgent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

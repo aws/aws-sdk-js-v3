@@ -9,7 +9,7 @@ import type {
   DeleteEnvironmentAccountConnectionOutput,
 } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { DeleteEnvironmentAccountConnection } from "../schemas/schemas_0";
+import { DeleteEnvironmentAccountConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteEnvironmentAccountConnectionCommandInput extends DeleteEn
  *
  * The output of {@link DeleteEnvironmentAccountConnectionCommand}.
  */
-export interface DeleteEnvironmentAccountConnectionCommandOutput
-  extends DeleteEnvironmentAccountConnectionOutput,
-    __MetadataBearer {}
+export interface DeleteEnvironmentAccountConnectionCommandOutput extends DeleteEnvironmentAccountConnectionOutput, __MetadataBearer {}
 
 /**
  * <p>In an environment account, delete an environment account connection.</p>
@@ -115,7 +113,7 @@ export class DeleteEnvironmentAccountConnectionCommand extends $Command
   })
   .s("AwsProton20200720", "DeleteEnvironmentAccountConnection", {})
   .n("ProtonClient", "DeleteEnvironmentAccountConnectionCommand")
-  .sc(DeleteEnvironmentAccountConnection)
+  .sc(DeleteEnvironmentAccountConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

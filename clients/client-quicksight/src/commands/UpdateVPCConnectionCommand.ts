@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateVPCConnectionRequest, UpdateVPCConnectionResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateVPCConnection } from "../schemas/schemas_0";
+import { UpdateVPCConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class UpdateVPCConnectionCommand extends $Command
   })
   .s("QuickSight_20180401", "UpdateVPCConnection", {})
   .n("QuickSightClient", "UpdateVPCConnectionCommand")
-  .sc(UpdateVPCConnection)
+  .sc(UpdateVPCConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

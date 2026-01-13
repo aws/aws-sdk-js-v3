@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import type { DescribeConfigurationRevisionRequest, DescribeConfigurationRevisionResponse } from "../models/models_0";
-import { DescribeConfigurationRevision } from "../schemas/schemas_0";
+import { DescribeConfigurationRevision$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeConfigurationRevisionCommandInput extends DescribeConfi
  *
  * The output of {@link DescribeConfigurationRevisionCommand}.
  */
-export interface DescribeConfigurationRevisionCommandOutput
-  extends DescribeConfigurationRevisionResponse,
-    __MetadataBearer {}
+export interface DescribeConfigurationRevisionCommandOutput extends DescribeConfigurationRevisionResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a description of this revision of the configuration.</p>
@@ -98,7 +96,7 @@ export class DescribeConfigurationRevisionCommand extends $Command
   })
   .s("Kafka", "DescribeConfigurationRevision", {})
   .n("KafkaClient", "DescribeConfigurationRevisionCommand")
-  .sc(DescribeConfigurationRevision)
+  .sc(DescribeConfigurationRevision$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

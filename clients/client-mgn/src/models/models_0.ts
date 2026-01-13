@@ -1436,7 +1436,9 @@ export interface DescribeJobsRequest {
  * <p>AWS Systems Manager Document external parameter.</p>
  * @public
  */
-export type SsmExternalParameter = SsmExternalParameter.DynamicPathMember | SsmExternalParameter.$UnknownMember;
+export type SsmExternalParameter =
+  | SsmExternalParameter.DynamicPathMember
+  | SsmExternalParameter.$UnknownMember;
 
 /**
  * @public

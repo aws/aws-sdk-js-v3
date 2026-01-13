@@ -9,7 +9,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
-import { DisassociateDefaultView } from "../schemas/schemas_0";
+import { DisassociateDefaultView$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DisassociateDefaultViewCommand extends $Command
   })
   .s("ResourceExplorer", "DisassociateDefaultView", {})
   .n("ResourceExplorer2Client", "DisassociateDefaultViewCommand")
-  .sc(DisassociateDefaultView)
+  .sc(DisassociateDefaultView$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

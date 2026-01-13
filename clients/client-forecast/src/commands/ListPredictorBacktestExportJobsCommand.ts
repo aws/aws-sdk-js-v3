@@ -9,7 +9,7 @@ import type {
   ListPredictorBacktestExportJobsRequest,
   ListPredictorBacktestExportJobsResponse,
 } from "../models/models_0";
-import { ListPredictorBacktestExportJobs } from "../schemas/schemas_0";
+import { ListPredictorBacktestExportJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListPredictorBacktestExportJobsCommandInput extends ListPredict
  *
  * The output of {@link ListPredictorBacktestExportJobsCommand}.
  */
-export interface ListPredictorBacktestExportJobsCommandOutput
-  extends ListPredictorBacktestExportJobsResponse,
-    __MetadataBearer {}
+export interface ListPredictorBacktestExportJobsCommandOutput extends ListPredictorBacktestExportJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of predictor backtest export jobs created using the <a>CreatePredictorBacktestExportJob</a> operation. This operation returns a
@@ -113,7 +111,7 @@ export class ListPredictorBacktestExportJobsCommand extends $Command
   })
   .s("AmazonForecast", "ListPredictorBacktestExportJobs", {})
   .n("ForecastClient", "ListPredictorBacktestExportJobsCommand")
-  .sc(ListPredictorBacktestExportJobs)
+  .sc(ListPredictorBacktestExportJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

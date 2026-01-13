@@ -119,7 +119,6 @@ import {
   VolumeType,
   WeekDay,
 } from "./enums";
-
 import {
   type AcceleratorCount,
   type AcceleratorCountRequest,
@@ -1451,7 +1450,10 @@ export interface FleetLaunchTemplateOverridesRequest {
   SubnetId?: string | undefined;
 
   /**
-   * <p>The Availability Zone in which to launch the instances.</p>
+   * <p>The Availability Zone in which to launch the instances. For example,
+   *             <code>us-east-2a</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be
+   *          specified in the request, but not both.</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
@@ -1585,6 +1587,15 @@ export interface FleetLaunchTemplateOverridesRequest {
    * @public
    */
   ImageId?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone in which to launch the instances. For example,
+   *             <code>use2-az1</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be
+   *          specified in the request, but not both.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 }
 
 /**
@@ -2992,7 +3003,9 @@ export interface FleetLaunchTemplateOverrides {
   SubnetId?: string | undefined;
 
   /**
-   * <p>The Availability Zone in which to launch the instances.</p>
+   * <p>The Availability Zone in which to launch the instances. For example,
+   *             <code>us-east-2a</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified in the request, but not both.</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
@@ -3126,6 +3139,15 @@ export interface FleetLaunchTemplateOverrides {
    * @public
    */
   BlockDeviceMappings?: BlockDeviceMappingResponse[] | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone in which to launch the instances. For example,
+   *             <code>use2-az1</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be
+   *          specified in the request, but not both.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 }
 
 /**
@@ -9831,9 +9853,7 @@ export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRes
    * <p>Information about the local gateway route table virtual interface group association.</p>
    * @public
    */
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociation?:
-    | LocalGatewayRouteTableVirtualInterfaceGroupAssociation
-    | undefined;
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociation?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation | undefined;
 }
 
 /**
@@ -12413,6 +12433,12 @@ export interface CreatePlacementGroupRequest {
   SpreadLevel?: SpreadLevel | undefined;
 
   /**
+   * <p>Reserved for future use.</p>
+   * @public
+   */
+  LinkedGroupId?: string | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the operation, without actually making the
    *   request, and provides an error response. If you have the required permissions, the error response is
    *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -12489,6 +12515,12 @@ export interface PlacementGroup {
    * @public
    */
   SpreadLevel?: SpreadLevel | undefined;
+
+  /**
+   * <p>Reserved for future use.</p>
+   * @public
+   */
+  LinkedGroupId?: string | undefined;
 }
 
 /**

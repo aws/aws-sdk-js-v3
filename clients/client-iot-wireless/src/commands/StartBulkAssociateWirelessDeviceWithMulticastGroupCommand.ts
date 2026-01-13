@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import type { StartBulkAssociateWirelessDeviceWithMulticastGroupRequest } from "../models/models_0";
 import type { StartBulkAssociateWirelessDeviceWithMulticastGroupResponse } from "../models/models_1";
-import { StartBulkAssociateWirelessDeviceWithMulticastGroup } from "../schemas/schemas_0";
+import { StartBulkAssociateWirelessDeviceWithMulticastGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -19,16 +19,13 @@ export { $Command };
  *
  * The input for {@link StartBulkAssociateWirelessDeviceWithMulticastGroupCommand}.
  */
-export interface StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput
-  extends StartBulkAssociateWirelessDeviceWithMulticastGroupRequest {}
+export interface StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput extends StartBulkAssociateWirelessDeviceWithMulticastGroupRequest {}
 /**
  * @public
  *
  * The output of {@link StartBulkAssociateWirelessDeviceWithMulticastGroupCommand}.
  */
-export interface StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput
-  extends StartBulkAssociateWirelessDeviceWithMulticastGroupResponse,
-    __MetadataBearer {}
+export interface StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput extends StartBulkAssociateWirelessDeviceWithMulticastGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a bulk association of all qualifying wireless devices with a multicast
@@ -98,7 +95,7 @@ export class StartBulkAssociateWirelessDeviceWithMulticastGroupCommand extends $
   })
   .s("iotwireless", "StartBulkAssociateWirelessDeviceWithMulticastGroup", {})
   .n("IoTWirelessClient", "StartBulkAssociateWirelessDeviceWithMulticastGroupCommand")
-  .sc(StartBulkAssociateWirelessDeviceWithMulticastGroup)
+  .sc(StartBulkAssociateWirelessDeviceWithMulticastGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

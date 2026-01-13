@@ -4,18 +4,15 @@ import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, Waite
 import { ARCRegionSwitchClient } from "../ARCRegionSwitchClient";
 import { GetPlanExecutionCommand, GetPlanExecutionCommandInput } from "../commands/GetPlanExecutionCommand";
 
-const checkState = async (
-  client: ARCRegionSwitchClient,
-  input: GetPlanExecutionCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: ARCRegionSwitchClient, input: GetPlanExecutionCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetPlanExecutionCommand(input));
+    let result: any = await client.send(new GetPlanExecutionCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.executionState;
-      };
+      }
       if (returnComparator() === "completed") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -23,7 +20,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.executionState;
-      };
+      }
       if (returnComparator() === "completedWithExceptions") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -31,7 +28,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.executionState;
-      };
+      }
       if (returnComparator() === "failed") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -39,7 +36,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.executionState;
-      };
+      }
       if (returnComparator() === "canceled") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -47,7 +44,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.executionState;
-      };
+      }
       if (returnComparator() === "planExecutionTimedOut") {
         return { state: WaiterState.FAILURE, reason };
       }

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { ListPoolOriginationIdentities } from "../schemas/schemas_0";
+import { ListPoolOriginationIdentities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListPoolOriginationIdentitiesCommandInput extends ListPoolOrigi
  *
  * The output of {@link ListPoolOriginationIdentitiesCommand}.
  */
-export interface ListPoolOriginationIdentitiesCommandOutput
-  extends ListPoolOriginationIdentitiesResult,
-    __MetadataBearer {}
+export interface ListPoolOriginationIdentitiesCommandOutput extends ListPoolOriginationIdentitiesResult, __MetadataBearer {}
 
 /**
  * <p>Lists all associated origination identities in your pool.</p> <p>If you specify filters, the output includes information for only those origination identities that meet the filter criteria.</p>
@@ -117,7 +115,7 @@ export class ListPoolOriginationIdentitiesCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "ListPoolOriginationIdentities", {})
   .n("PinpointSMSVoiceV2Client", "ListPoolOriginationIdentitiesCommand")
-  .sc(ListPoolOriginationIdentities)
+  .sc(ListPoolOriginationIdentities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

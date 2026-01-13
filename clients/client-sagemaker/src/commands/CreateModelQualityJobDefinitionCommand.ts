@@ -9,7 +9,7 @@ import type {
   CreateModelQualityJobDefinitionResponse,
 } from "../models/models_1";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateModelQualityJobDefinition } from "../schemas/schemas_0";
+import { CreateModelQualityJobDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateModelQualityJobDefinitionCommandInput extends CreateModel
  *
  * The output of {@link CreateModelQualityJobDefinitionCommand}.
  */
-export interface CreateModelQualityJobDefinitionCommandOutput
-  extends CreateModelQualityJobDefinitionResponse,
-    __MetadataBearer {}
+export interface CreateModelQualityJobDefinitionCommandOutput extends CreateModelQualityJobDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a definition for a job that monitors model quality and drift. For information about model monitor, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Amazon SageMaker AI Model Monitor</a>.</p>
@@ -187,7 +185,7 @@ export class CreateModelQualityJobDefinitionCommand extends $Command
   })
   .s("SageMaker", "CreateModelQualityJobDefinition", {})
   .n("SageMakerClient", "CreateModelQualityJobDefinitionCommand")
-  .sc(CreateModelQualityJobDefinition)
+  .sc(CreateModelQualityJobDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

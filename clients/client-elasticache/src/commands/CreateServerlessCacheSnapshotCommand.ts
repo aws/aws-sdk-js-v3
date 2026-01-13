@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateServerlessCacheSnapshotRequest, CreateServerlessCacheSnapshotResponse } from "../models/models_0";
-import { CreateServerlessCacheSnapshot } from "../schemas/schemas_0";
+import { CreateServerlessCacheSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateServerlessCacheSnapshotCommandInput extends CreateServerl
  *
  * The output of {@link CreateServerlessCacheSnapshotCommand}.
  */
-export interface CreateServerlessCacheSnapshotCommandOutput
-  extends CreateServerlessCacheSnapshotResponse,
-    __MetadataBearer {}
+export interface CreateServerlessCacheSnapshotCommandOutput extends CreateServerlessCacheSnapshotResponse, __MetadataBearer {}
 
 /**
  * <p>This API creates a copy of an entire ServerlessCache at a specific moment in time. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
@@ -123,7 +121,7 @@ export class CreateServerlessCacheSnapshotCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "CreateServerlessCacheSnapshot", {})
   .n("ElastiCacheClient", "CreateServerlessCacheSnapshotCommand")
-  .sc(CreateServerlessCacheSnapshot)
+  .sc(CreateServerlessCacheSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

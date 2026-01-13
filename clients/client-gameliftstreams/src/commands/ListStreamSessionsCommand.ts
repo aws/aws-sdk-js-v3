@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GameLiftStreamsClient";
 import type { ListStreamSessionsInput, ListStreamSessionsOutput } from "../models/models_0";
-import { ListStreamSessions } from "../schemas/schemas_0";
+import { ListStreamSessions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -55,6 +55,7 @@ export interface ListStreamSessionsCommandOutput extends ListStreamSessionsOutpu
  * //       Arn: "STRING_VALUE",
  * //       UserId: "STRING_VALUE",
  * //       Status: "ACTIVATING" || "ACTIVE" || "CONNECTED" || "PENDING_CLIENT_RECONNECTION" || "RECONNECTING" || "TERMINATING" || "TERMINATED" || "ERROR",
+ * //       StatusReason: "internalError" || "invalidSignalRequest" || "placementTimeout" || "applicationLogS3DestinationError" || "applicationExit" || "connectionTimeout" || "reconnectionTimeout" || "maxSessionLengthTimeout" || "idleTimeout" || "apiTerminated",
  * //       Protocol: "WebRTC",
  * //       LastUpdatedAt: new Date("TIMESTAMP"),
  * //       CreatedAt: new Date("TIMESTAMP"),
@@ -113,7 +114,7 @@ export class ListStreamSessionsCommand extends $Command
   })
   .s("GameLiftStreams", "ListStreamSessions", {})
   .n("GameLiftStreamsClient", "ListStreamSessionsCommand")
-  .sc(ListStreamSessions)
+  .sc(ListStreamSessions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

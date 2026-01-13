@@ -9,7 +9,7 @@ import type {
   DescribeModelExplainabilityJobDefinitionResponse,
 } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribeModelExplainabilityJobDefinition } from "../schemas/schemas_0";
+import { DescribeModelExplainabilityJobDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeModelExplainabilityJobDefinitionCommand}.
  */
-export interface DescribeModelExplainabilityJobDefinitionCommandInput
-  extends DescribeModelExplainabilityJobDefinitionRequest {}
+export interface DescribeModelExplainabilityJobDefinitionCommandInput extends DescribeModelExplainabilityJobDefinitionRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeModelExplainabilityJobDefinitionCommand}.
  */
-export interface DescribeModelExplainabilityJobDefinitionCommandOutput
-  extends DescribeModelExplainabilityJobDefinitionResponse,
-    __MetadataBearer {}
+export interface DescribeModelExplainabilityJobDefinitionCommandOutput extends DescribeModelExplainabilityJobDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a description of a model explainability job definition.</p>
@@ -170,7 +167,7 @@ export class DescribeModelExplainabilityJobDefinitionCommand extends $Command
   })
   .s("SageMaker", "DescribeModelExplainabilityJobDefinition", {})
   .n("SageMakerClient", "DescribeModelExplainabilityJobDefinitionCommand")
-  .sc(DescribeModelExplainabilityJobDefinition)
+  .sc(DescribeModelExplainabilityJobDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

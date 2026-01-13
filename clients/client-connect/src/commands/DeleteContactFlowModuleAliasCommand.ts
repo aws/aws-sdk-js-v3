@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteContactFlowModuleAliasRequest, DeleteContactFlowModuleAliasResponse } from "../models/models_1";
-import { DeleteContactFlowModuleAlias } from "../schemas/schemas_0";
+import { DeleteContactFlowModuleAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteContactFlowModuleAliasCommandInput extends DeleteContactF
  *
  * The output of {@link DeleteContactFlowModuleAliasCommand}.
  */
-export interface DeleteContactFlowModuleAliasCommandOutput
-  extends DeleteContactFlowModuleAliasResponse,
-    __MetadataBearer {}
+export interface DeleteContactFlowModuleAliasCommandOutput extends DeleteContactFlowModuleAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Removes an alias reference, breaking the named connection to the underlying module version without affecting the
@@ -94,7 +92,7 @@ export class DeleteContactFlowModuleAliasCommand extends $Command
   })
   .s("AmazonConnectService", "DeleteContactFlowModuleAlias", {})
   .n("ConnectClient", "DeleteContactFlowModuleAliasCommand")
-  .sc(DeleteContactFlowModuleAlias)
+  .sc(DeleteContactFlowModuleAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

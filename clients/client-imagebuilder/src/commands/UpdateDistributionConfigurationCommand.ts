@@ -9,7 +9,7 @@ import type {
   UpdateDistributionConfigurationRequest,
   UpdateDistributionConfigurationResponse,
 } from "../models/models_0";
-import { UpdateDistributionConfiguration } from "../schemas/schemas_0";
+import { UpdateDistributionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateDistributionConfigurationCommandInput extends UpdateDistr
  *
  * The output of {@link UpdateDistributionConfigurationCommand}.
  */
-export interface UpdateDistributionConfigurationCommandOutput
-  extends UpdateDistributionConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateDistributionConfigurationCommandOutput extends UpdateDistributionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a new distribution configuration. Distribution configurations define and
@@ -194,7 +192,7 @@ export class UpdateDistributionConfigurationCommand extends $Command
   })
   .s("imagebuilder", "UpdateDistributionConfiguration", {})
   .n("ImagebuilderClient", "UpdateDistributionConfigurationCommand")
-  .sc(UpdateDistributionConfiguration)
+  .sc(UpdateDistributionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

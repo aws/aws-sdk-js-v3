@@ -9,7 +9,7 @@ import type {
   GetTransitGatewayMeteringPolicyEntriesRequest,
   GetTransitGatewayMeteringPolicyEntriesResult,
 } from "../models/models_6";
-import { GetTransitGatewayMeteringPolicyEntries } from "../schemas/schemas_0";
+import { GetTransitGatewayMeteringPolicyEntries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetTransitGatewayMeteringPolicyEntriesCommand}.
  */
-export interface GetTransitGatewayMeteringPolicyEntriesCommandInput
-  extends GetTransitGatewayMeteringPolicyEntriesRequest {}
+export interface GetTransitGatewayMeteringPolicyEntriesCommandInput extends GetTransitGatewayMeteringPolicyEntriesRequest {}
 /**
  * @public
  *
  * The output of {@link GetTransitGatewayMeteringPolicyEntriesCommand}.
  */
-export interface GetTransitGatewayMeteringPolicyEntriesCommandOutput
-  extends GetTransitGatewayMeteringPolicyEntriesResult,
-    __MetadataBearer {}
+export interface GetTransitGatewayMeteringPolicyEntriesCommandOutput extends GetTransitGatewayMeteringPolicyEntriesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the entries for a transit gateway metering policy.</p>
@@ -110,7 +107,7 @@ export class GetTransitGatewayMeteringPolicyEntriesCommand extends $Command
   })
   .s("AmazonEC2", "GetTransitGatewayMeteringPolicyEntries", {})
   .n("EC2Client", "GetTransitGatewayMeteringPolicyEntriesCommand")
-  .sc(GetTransitGatewayMeteringPolicyEntries)
+  .sc(GetTransitGatewayMeteringPolicyEntries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

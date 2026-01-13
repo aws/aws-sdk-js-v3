@@ -26,18 +26,19 @@ export const getRuntimeConfig = (config: SNSClientConfig) => {
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsQueryProtocol({
-        defaultNamespace: "com.amazonaws.sns",
-        xmlNamespace: "http://sns.amazonaws.com/doc/2010-03-31/",
-        version: "2010-03-31",
-      }),
+    protocol: config?.protocol ?? AwsQueryProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.sns",
+      xmlNamespace: "http://sns.amazonaws.com/doc/2010-03-31/",
+      version: "2010-03-31",
+      serviceTarget: "AmazonSimpleNotificationService",
+    },
     serviceId: config?.serviceId ?? "SNS",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

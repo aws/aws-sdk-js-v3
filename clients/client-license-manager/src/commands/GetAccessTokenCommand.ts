@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LicenseManagerClient";
 import type { GetAccessTokenRequest, GetAccessTokenResponse } from "../models/models_0";
-import { GetAccessToken } from "../schemas/schemas_0";
+import { GetAccessToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetAccessTokenCommand extends $Command
   })
   .s("AWSLicenseManager", "GetAccessToken", {})
   .n("LicenseManagerClient", "GetAccessTokenCommand")
-  .sc(GetAccessToken)
+  .sc(GetAccessToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

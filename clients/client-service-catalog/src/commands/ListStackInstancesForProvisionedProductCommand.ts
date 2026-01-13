@@ -8,7 +8,7 @@ import type {
   ListStackInstancesForProvisionedProductInput,
   ListStackInstancesForProvisionedProductOutput,
 } from "../models/models_0";
-import { ListStackInstancesForProvisionedProduct } from "../schemas/schemas_0";
+import { ListStackInstancesForProvisionedProduct$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListStackInstancesForProvisionedProductCommand}.
  */
-export interface ListStackInstancesForProvisionedProductCommandInput
-  extends ListStackInstancesForProvisionedProductInput {}
+export interface ListStackInstancesForProvisionedProductCommandInput extends ListStackInstancesForProvisionedProductInput {}
 /**
  * @public
  *
  * The output of {@link ListStackInstancesForProvisionedProductCommand}.
  */
-export interface ListStackInstancesForProvisionedProductCommandOutput
-  extends ListStackInstancesForProvisionedProductOutput,
-    __MetadataBearer {}
+export interface ListStackInstancesForProvisionedProductCommandOutput extends ListStackInstancesForProvisionedProductOutput, __MetadataBearer {}
 
 /**
  * <p>Returns summary information about stack instances that are associated with the specified <code>CFN_STACKSET</code> type provisioned product. You can filter for stack instances that are associated with a specific Amazon Web Services account name or Region. </p>
@@ -99,7 +96,7 @@ export class ListStackInstancesForProvisionedProductCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "ListStackInstancesForProvisionedProduct", {})
   .n("ServiceCatalogClient", "ListStackInstancesForProvisionedProductCommand")
-  .sc(ListStackInstancesForProvisionedProduct)
+  .sc(ListStackInstancesForProvisionedProduct$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

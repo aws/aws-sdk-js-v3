@@ -8,6 +8,8 @@ const fs = require("node:fs/promises");
 const util = require("node:util");
 const exec = util.promisify(require("node:child_process").exec);
 
+require("./prepare-schemas");
+
 (async () => {
   try {
     try {

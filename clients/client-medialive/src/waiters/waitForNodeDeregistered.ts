@@ -7,12 +7,12 @@ import { MediaLiveClient } from "../MediaLiveClient";
 const checkState = async (client: MediaLiveClient, input: DescribeNodeCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeNodeCommand(input));
+    let result: any = await client.send(new DescribeNodeCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "DEREGISTERED") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeNodeCommandInp
     try {
       const returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "DEREGISTERING") {
         return { state: WaiterState.RETRY, reason };
       }
@@ -28,7 +28,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeNodeCommandInp
     try {
       const returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "DRAINING") {
         return { state: WaiterState.RETRY, reason };
       }

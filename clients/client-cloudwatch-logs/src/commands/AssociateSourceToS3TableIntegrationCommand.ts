@@ -13,7 +13,7 @@ import type {
   AssociateSourceToS3TableIntegrationRequest,
   AssociateSourceToS3TableIntegrationResponse,
 } from "../models/models_0";
-import { AssociateSourceToS3TableIntegration } from "../schemas/schemas_0";
+import { AssociateSourceToS3TableIntegration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface AssociateSourceToS3TableIntegrationCommandInput extends Associa
  *
  * The output of {@link AssociateSourceToS3TableIntegrationCommand}.
  */
-export interface AssociateSourceToS3TableIntegrationCommandOutput
-  extends AssociateSourceToS3TableIntegrationResponse,
-    __MetadataBearer {}
+export interface AssociateSourceToS3TableIntegrationCommandOutput extends AssociateSourceToS3TableIntegrationResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a data source with an S3 Table Integration for query access in the 'logs'
@@ -105,7 +103,7 @@ export class AssociateSourceToS3TableIntegrationCommand extends $Command
   })
   .s("Logs_20140328", "AssociateSourceToS3TableIntegration", {})
   .n("CloudWatchLogsClient", "AssociateSourceToS3TableIntegrationCommand")
-  .sc(AssociateSourceToS3TableIntegration)
+  .sc(AssociateSourceToS3TableIntegration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

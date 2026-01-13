@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Lag, UpdateLagRequest } from "../models/models_0";
-import { UpdateLag } from "../schemas/schemas_0";
+import { UpdateLag$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -174,7 +174,7 @@ export class UpdateLagCommand extends $Command
   })
   .s("OvertureService", "UpdateLag", {})
   .n("DirectConnectClient", "UpdateLagCommand")
-  .sc(UpdateLag)
+  .sc(UpdateLag$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

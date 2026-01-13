@@ -9,7 +9,7 @@ import type {
   DescribeVpcEndpointServicePermissionsRequest,
   DescribeVpcEndpointServicePermissionsResult,
 } from "../models/models_5";
-import { DescribeVpcEndpointServicePermissions } from "../schemas/schemas_0";
+import { DescribeVpcEndpointServicePermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeVpcEndpointServicePermissionsCommand}.
  */
-export interface DescribeVpcEndpointServicePermissionsCommandInput
-  extends DescribeVpcEndpointServicePermissionsRequest {}
+export interface DescribeVpcEndpointServicePermissionsCommandInput extends DescribeVpcEndpointServicePermissionsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeVpcEndpointServicePermissionsCommand}.
  */
-export interface DescribeVpcEndpointServicePermissionsCommandOutput
-  extends DescribeVpcEndpointServicePermissionsResult,
-    __MetadataBearer {}
+export interface DescribeVpcEndpointServicePermissionsCommandOutput extends DescribeVpcEndpointServicePermissionsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the principals (service consumers) that are permitted to discover your VPC
@@ -105,7 +102,7 @@ export class DescribeVpcEndpointServicePermissionsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeVpcEndpointServicePermissions", {})
   .n("EC2Client", "DescribeVpcEndpointServicePermissionsCommand")
-  .sc(DescribeVpcEndpointServicePermissions)
+  .sc(DescribeVpcEndpointServicePermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

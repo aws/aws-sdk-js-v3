@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteMetricFilterRequest } from "../models/models_0";
-import { DeleteMetricFilter } from "../schemas/schemas_0";
+import { DeleteMetricFilter$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteMetricFilterCommand extends $Command
   })
   .s("Logs_20140328", "DeleteMetricFilter", {})
   .n("CloudWatchLogsClient", "DeleteMetricFilterCommand")
-  .sc(DeleteMetricFilter)
+  .sc(DeleteMetricFilter$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

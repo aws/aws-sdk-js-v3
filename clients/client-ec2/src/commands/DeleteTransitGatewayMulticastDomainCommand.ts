@@ -9,7 +9,7 @@ import type {
   DeleteTransitGatewayMulticastDomainRequest,
   DeleteTransitGatewayMulticastDomainResult,
 } from "../models/models_2";
-import { DeleteTransitGatewayMulticastDomain } from "../schemas/schemas_0";
+import { DeleteTransitGatewayMulticastDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteTransitGatewayMulticastDomainCommandInput extends DeleteT
  *
  * The output of {@link DeleteTransitGatewayMulticastDomainCommand}.
  */
-export interface DeleteTransitGatewayMulticastDomainCommandOutput
-  extends DeleteTransitGatewayMulticastDomainResult,
-    __MetadataBearer {}
+export interface DeleteTransitGatewayMulticastDomainCommandOutput extends DeleteTransitGatewayMulticastDomainResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified transit gateway multicast domain.</p>
@@ -97,7 +95,7 @@ export class DeleteTransitGatewayMulticastDomainCommand extends $Command
   })
   .s("AmazonEC2", "DeleteTransitGatewayMulticastDomain", {})
   .n("EC2Client", "DeleteTransitGatewayMulticastDomainCommand")
-  .sc(DeleteTransitGatewayMulticastDomain)
+  .sc(DeleteTransitGatewayMulticastDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateAccessTokenRequest, CreateAccessTokenResponse } from "../models/models_0";
-import { CreateAccessToken } from "../schemas/schemas_0";
+import { CreateAccessToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class CreateAccessTokenCommand extends $Command
   })
   .s("CodeCatalyst", "CreateAccessToken", {})
   .n("CodeCatalystClient", "CreateAccessTokenCommand")
-  .sc(CreateAccessToken)
+  .sc(CreateAccessToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

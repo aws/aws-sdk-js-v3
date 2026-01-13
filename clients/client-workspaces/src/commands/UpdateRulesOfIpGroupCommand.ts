@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateRulesOfIpGroupRequest, UpdateRulesOfIpGroupResult } from "../models/models_0";
-import { UpdateRulesOfIpGroup } from "../schemas/schemas_0";
+import { UpdateRulesOfIpGroup$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -93,7 +93,7 @@ export class UpdateRulesOfIpGroupCommand extends $Command
   })
   .s("WorkspacesService", "UpdateRulesOfIpGroup", {})
   .n("WorkSpacesClient", "UpdateRulesOfIpGroupCommand")
-  .sc(UpdateRulesOfIpGroup)
+  .sc(UpdateRulesOfIpGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

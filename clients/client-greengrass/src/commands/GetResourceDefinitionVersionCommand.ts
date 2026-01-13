@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import type { GetResourceDefinitionVersionRequest, GetResourceDefinitionVersionResponse } from "../models/models_0";
-import { GetResourceDefinitionVersion } from "../schemas/schemas_0";
+import { GetResourceDefinitionVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetResourceDefinitionVersionCommandInput extends GetResourceDef
  *
  * The output of {@link GetResourceDefinitionVersionCommand}.
  */
-export interface GetResourceDefinitionVersionCommandOutput
-  extends GetResourceDefinitionVersionResponse,
-    __MetadataBearer {}
+export interface GetResourceDefinitionVersionCommandOutput extends GetResourceDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Retrieves information about a resource definition version, including which resources are included in the version.
@@ -129,7 +127,7 @@ export class GetResourceDefinitionVersionCommand extends $Command
   })
   .s("Greengrass", "GetResourceDefinitionVersion", {})
   .n("GreengrassClient", "GetResourceDefinitionVersionCommand")
-  .sc(GetResourceDefinitionVersion)
+  .sc(GetResourceDefinitionVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

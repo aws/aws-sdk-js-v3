@@ -9,7 +9,7 @@ import type {
   GetTransitGatewayRouteTableAssociationsRequest,
   GetTransitGatewayRouteTableAssociationsResult,
 } from "../models/models_6";
-import { GetTransitGatewayRouteTableAssociations } from "../schemas/schemas_0";
+import { GetTransitGatewayRouteTableAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetTransitGatewayRouteTableAssociationsCommand}.
  */
-export interface GetTransitGatewayRouteTableAssociationsCommandInput
-  extends GetTransitGatewayRouteTableAssociationsRequest {}
+export interface GetTransitGatewayRouteTableAssociationsCommandInput extends GetTransitGatewayRouteTableAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link GetTransitGatewayRouteTableAssociationsCommand}.
  */
-export interface GetTransitGatewayRouteTableAssociationsCommandOutput
-  extends GetTransitGatewayRouteTableAssociationsResult,
-    __MetadataBearer {}
+export interface GetTransitGatewayRouteTableAssociationsCommandOutput extends GetTransitGatewayRouteTableAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about the associations for the specified transit gateway route table.</p>
@@ -98,7 +95,7 @@ export class GetTransitGatewayRouteTableAssociationsCommand extends $Command
   })
   .s("AmazonEC2", "GetTransitGatewayRouteTableAssociations", {})
   .n("EC2Client", "GetTransitGatewayRouteTableAssociationsCommand")
-  .sc(GetTransitGatewayRouteTableAssociations)
+  .sc(GetTransitGatewayRouteTableAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

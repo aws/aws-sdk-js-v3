@@ -13,7 +13,7 @@ import type {
   DescribeApplicableIndividualAssessmentsMessage,
   DescribeApplicableIndividualAssessmentsResponse,
 } from "../models/models_0";
-import { DescribeApplicableIndividualAssessments } from "../schemas/schemas_0";
+import { DescribeApplicableIndividualAssessments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeApplicableIndividualAssessmentsCommand}.
  */
-export interface DescribeApplicableIndividualAssessmentsCommandInput
-  extends DescribeApplicableIndividualAssessmentsMessage {}
+export interface DescribeApplicableIndividualAssessmentsCommandInput extends DescribeApplicableIndividualAssessmentsMessage {}
 /**
  * @public
  *
  * The output of {@link DescribeApplicableIndividualAssessmentsCommand}.
  */
-export interface DescribeApplicableIndividualAssessmentsCommandOutput
-  extends DescribeApplicableIndividualAssessmentsResponse,
-    __MetadataBearer {}
+export interface DescribeApplicableIndividualAssessmentsCommandOutput extends DescribeApplicableIndividualAssessmentsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a list of individual assessments that you can specify for a new premigration
@@ -118,7 +115,7 @@ export class DescribeApplicableIndividualAssessmentsCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeApplicableIndividualAssessments", {})
   .n("DatabaseMigrationServiceClient", "DescribeApplicableIndividualAssessmentsCommand")
-  .sc(DescribeApplicableIndividualAssessments)
+  .sc(DescribeApplicableIndividualAssessments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetVerifiedAccessGroupPolicyRequest, GetVerifiedAccessGroupPolicyResult } from "../models/models_6";
-import { GetVerifiedAccessGroupPolicy } from "../schemas/schemas_0";
+import { GetVerifiedAccessGroupPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetVerifiedAccessGroupPolicyCommandInput extends GetVerifiedAcc
  *
  * The output of {@link GetVerifiedAccessGroupPolicyCommand}.
  */
-export interface GetVerifiedAccessGroupPolicyCommandOutput
-  extends GetVerifiedAccessGroupPolicyResult,
-    __MetadataBearer {}
+export interface GetVerifiedAccessGroupPolicyCommandOutput extends GetVerifiedAccessGroupPolicyResult, __MetadataBearer {}
 
 /**
  * <p>Shows the contents of the Verified Access policy associated with the group.</p>
@@ -77,7 +75,7 @@ export class GetVerifiedAccessGroupPolicyCommand extends $Command
   })
   .s("AmazonEC2", "GetVerifiedAccessGroupPolicy", {})
   .n("EC2Client", "GetVerifiedAccessGroupPolicyCommand")
-  .sc(GetVerifiedAccessGroupPolicy)
+  .sc(GetVerifiedAccessGroupPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

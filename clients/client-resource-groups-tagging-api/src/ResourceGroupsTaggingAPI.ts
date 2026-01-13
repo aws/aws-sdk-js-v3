@@ -98,8 +98,14 @@ export interface ResourceGroupsTaggingAPI {
    * @see {@link GetResourcesCommand}
    */
   getResources(): Promise<GetResourcesCommandOutput>;
-  getResources(args: GetResourcesCommandInput, options?: __HttpHandlerOptions): Promise<GetResourcesCommandOutput>;
-  getResources(args: GetResourcesCommandInput, cb: (err: any, data?: GetResourcesCommandOutput) => void): void;
+  getResources(
+    args: GetResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcesCommandOutput>;
+  getResources(
+    args: GetResourcesCommandInput,
+    cb: (err: any, data?: GetResourcesCommandOutput) => void
+  ): void;
   getResources(
     args: GetResourcesCommandInput,
     options: __HttpHandlerOptions,
@@ -110,8 +116,14 @@ export interface ResourceGroupsTaggingAPI {
    * @see {@link GetTagKeysCommand}
    */
   getTagKeys(): Promise<GetTagKeysCommandOutput>;
-  getTagKeys(args: GetTagKeysCommandInput, options?: __HttpHandlerOptions): Promise<GetTagKeysCommandOutput>;
-  getTagKeys(args: GetTagKeysCommandInput, cb: (err: any, data?: GetTagKeysCommandOutput) => void): void;
+  getTagKeys(
+    args: GetTagKeysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTagKeysCommandOutput>;
+  getTagKeys(
+    args: GetTagKeysCommandInput,
+    cb: (err: any, data?: GetTagKeysCommandOutput) => void
+  ): void;
   getTagKeys(
     args: GetTagKeysCommandInput,
     options: __HttpHandlerOptions,
@@ -121,8 +133,14 @@ export interface ResourceGroupsTaggingAPI {
   /**
    * @see {@link GetTagValuesCommand}
    */
-  getTagValues(args: GetTagValuesCommandInput, options?: __HttpHandlerOptions): Promise<GetTagValuesCommandOutput>;
-  getTagValues(args: GetTagValuesCommandInput, cb: (err: any, data?: GetTagValuesCommandOutput) => void): void;
+  getTagValues(
+    args: GetTagValuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTagValuesCommandOutput>;
+  getTagValues(
+    args: GetTagValuesCommandInput,
+    cb: (err: any, data?: GetTagValuesCommandOutput) => void
+  ): void;
   getTagValues(
     args: GetTagValuesCommandInput,
     options: __HttpHandlerOptions,
@@ -167,8 +185,14 @@ export interface ResourceGroupsTaggingAPI {
   /**
    * @see {@link TagResourcesCommand}
    */
-  tagResources(args: TagResourcesCommandInput, options?: __HttpHandlerOptions): Promise<TagResourcesCommandOutput>;
-  tagResources(args: TagResourcesCommandInput, cb: (err: any, data?: TagResourcesCommandOutput) => void): void;
+  tagResources(
+    args: TagResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourcesCommandOutput>;
+  tagResources(
+    args: TagResourcesCommandInput,
+    cb: (err: any, data?: TagResourcesCommandOutput) => void
+  ): void;
   tagResources(
     args: TagResourcesCommandInput,
     options: __HttpHandlerOptions,
@@ -182,7 +206,10 @@ export interface ResourceGroupsTaggingAPI {
     args: UntagResourcesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UntagResourcesCommandOutput>;
-  untagResources(args: UntagResourcesCommandInput, cb: (err: any, data?: UntagResourcesCommandOutput) => void): void;
+  untagResources(
+    args: UntagResourcesCommandInput,
+    cb: (err: any, data?: UntagResourcesCommandOutput) => void
+  ): void;
   untagResources(
     args: UntagResourcesCommandInput,
     options: __HttpHandlerOptions,

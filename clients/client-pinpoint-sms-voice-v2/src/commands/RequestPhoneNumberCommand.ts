@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { RequestPhoneNumber } from "../schemas/schemas_0";
+import { RequestPhoneNumber$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,7 +31,7 @@ export interface RequestPhoneNumberCommandInput extends RequestPhoneNumberReques
 export interface RequestPhoneNumberCommandOutput extends RequestPhoneNumberResult, __MetadataBearer {}
 
 /**
- * <p>Request an origination phone number for use in your account. For more information on phone number request see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-request.html">Request a phone number</a> in the <i>End User MessagingSMS User Guide</i>.</p>
+ * <p>Request an origination phone number for use in your account. For more information on phone number request see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-request.html">Request a phone number</a> in the <i>End User Messaging SMS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -141,7 +141,7 @@ export class RequestPhoneNumberCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "RequestPhoneNumber", {})
   .n("PinpointSMSVoiceV2Client", "RequestPhoneNumberCommand")
-  .sc(RequestPhoneNumber)
+  .sc(RequestPhoneNumber$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

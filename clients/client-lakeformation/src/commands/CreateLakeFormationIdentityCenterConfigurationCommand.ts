@@ -9,7 +9,7 @@ import type {
   CreateLakeFormationIdentityCenterConfigurationRequest,
   CreateLakeFormationIdentityCenterConfigurationResponse,
 } from "../models/models_0";
-import { CreateLakeFormationIdentityCenterConfiguration } from "../schemas/schemas_0";
+import { CreateLakeFormationIdentityCenterConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateLakeFormationIdentityCenterConfigurationCommand}.
  */
-export interface CreateLakeFormationIdentityCenterConfigurationCommandInput
-  extends CreateLakeFormationIdentityCenterConfigurationRequest {}
+export interface CreateLakeFormationIdentityCenterConfigurationCommandInput extends CreateLakeFormationIdentityCenterConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateLakeFormationIdentityCenterConfigurationCommand}.
  */
-export interface CreateLakeFormationIdentityCenterConfigurationCommandOutput
-  extends CreateLakeFormationIdentityCenterConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateLakeFormationIdentityCenterConfigurationCommandOutput extends CreateLakeFormationIdentityCenterConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an IAM Identity Center connection with Lake Formation to allow IAM Identity Center users and groups to access Data Catalog resources.</p>
@@ -120,7 +117,7 @@ export class CreateLakeFormationIdentityCenterConfigurationCommand extends $Comm
   })
   .s("AWSLakeFormation", "CreateLakeFormationIdentityCenterConfiguration", {})
   .n("LakeFormationClient", "CreateLakeFormationIdentityCenterConfigurationCommand")
-  .sc(CreateLakeFormationIdentityCenterConfiguration)
+  .sc(CreateLakeFormationIdentityCenterConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

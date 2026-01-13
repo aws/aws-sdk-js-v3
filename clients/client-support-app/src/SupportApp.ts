@@ -145,7 +145,10 @@ export interface SupportApp {
     args: GetAccountAliasCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAccountAliasCommandOutput>;
-  getAccountAlias(args: GetAccountAliasCommandInput, cb: (err: any, data?: GetAccountAliasCommandOutput) => void): void;
+  getAccountAlias(
+    args: GetAccountAliasCommandInput,
+    cb: (err: any, data?: GetAccountAliasCommandOutput) => void
+  ): void;
   getAccountAlias(
     args: GetAccountAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -195,7 +198,10 @@ export interface SupportApp {
     args: PutAccountAliasCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutAccountAliasCommandOutput>;
-  putAccountAlias(args: PutAccountAliasCommandInput, cb: (err: any, data?: PutAccountAliasCommandOutput) => void): void;
+  putAccountAlias(
+    args: PutAccountAliasCommandInput,
+    cb: (err: any, data?: PutAccountAliasCommandOutput) => void
+  ): void;
   putAccountAlias(
     args: PutAccountAliasCommandInput,
     options: __HttpHandlerOptions,

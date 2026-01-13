@@ -9,7 +9,7 @@ import type {
   ListDecoderManifestNetworkInterfacesRequest,
   ListDecoderManifestNetworkInterfacesResponse,
 } from "../models/models_0";
-import { ListDecoderManifestNetworkInterfaces } from "../schemas/schemas_0";
+import { ListDecoderManifestNetworkInterfaces$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListDecoderManifestNetworkInterfacesCommandInput extends ListDe
  *
  * The output of {@link ListDecoderManifestNetworkInterfacesCommand}.
  */
-export interface ListDecoderManifestNetworkInterfacesCommandOutput
-  extends ListDecoderManifestNetworkInterfacesResponse,
-    __MetadataBearer {}
+export interface ListDecoderManifestNetworkInterfacesCommandOutput extends ListDecoderManifestNetworkInterfacesResponse, __MetadataBearer {}
 
 /**
  * <p> Lists the network interfaces specified in a decoder manifest. </p>
@@ -125,7 +123,7 @@ export class ListDecoderManifestNetworkInterfacesCommand extends $Command
   })
   .s("IoTAutobahnControlPlane", "ListDecoderManifestNetworkInterfaces", {})
   .n("IoTFleetWiseClient", "ListDecoderManifestNetworkInterfacesCommand")
-  .sc(ListDecoderManifestNetworkInterfaces)
+  .sc(ListDecoderManifestNetworkInterfaces$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

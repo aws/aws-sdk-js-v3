@@ -9,7 +9,7 @@ import type {
   ListDistributionsByConnectionFunctionRequest,
   ListDistributionsByConnectionFunctionResult,
 } from "../models/models_1";
-import { ListDistributionsByConnectionFunction } from "../schemas/schemas_0";
+import { ListDistributionsByConnectionFunction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListDistributionsByConnectionFunctionCommand}.
  */
-export interface ListDistributionsByConnectionFunctionCommandInput
-  extends ListDistributionsByConnectionFunctionRequest {}
+export interface ListDistributionsByConnectionFunctionCommandInput extends ListDistributionsByConnectionFunctionRequest {}
 /**
  * @public
  *
  * The output of {@link ListDistributionsByConnectionFunctionCommand}.
  */
-export interface ListDistributionsByConnectionFunctionCommandOutput
-  extends ListDistributionsByConnectionFunctionResult,
-    __MetadataBearer {}
+export interface ListDistributionsByConnectionFunctionCommandOutput extends ListDistributionsByConnectionFunctionResult, __MetadataBearer {}
 
 /**
  * <p>Lists distributions by connection function.</p>
@@ -417,7 +414,7 @@ export class ListDistributionsByConnectionFunctionCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "ListDistributionsByConnectionFunction", {})
   .n("CloudFrontClient", "ListDistributionsByConnectionFunctionCommand")
-  .sc(ListDistributionsByConnectionFunction)
+  .sc(ListDistributionsByConnectionFunction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

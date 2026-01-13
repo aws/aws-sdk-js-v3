@@ -9,7 +9,7 @@ import type {
   DeleteLakeFormationIdentityCenterConfigurationRequest,
   DeleteLakeFormationIdentityCenterConfigurationResponse,
 } from "../models/models_0";
-import { DeleteLakeFormationIdentityCenterConfiguration } from "../schemas/schemas_0";
+import { DeleteLakeFormationIdentityCenterConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteLakeFormationIdentityCenterConfigurationCommand}.
  */
-export interface DeleteLakeFormationIdentityCenterConfigurationCommandInput
-  extends DeleteLakeFormationIdentityCenterConfigurationRequest {}
+export interface DeleteLakeFormationIdentityCenterConfigurationCommandInput extends DeleteLakeFormationIdentityCenterConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteLakeFormationIdentityCenterConfigurationCommand}.
  */
-export interface DeleteLakeFormationIdentityCenterConfigurationCommandOutput
-  extends DeleteLakeFormationIdentityCenterConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteLakeFormationIdentityCenterConfigurationCommandOutput extends DeleteLakeFormationIdentityCenterConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an IAM Identity Center connection with Lake Formation.</p>
@@ -95,7 +92,7 @@ export class DeleteLakeFormationIdentityCenterConfigurationCommand extends $Comm
   })
   .s("AWSLakeFormation", "DeleteLakeFormationIdentityCenterConfiguration", {})
   .n("LakeFormationClient", "DeleteLakeFormationIdentityCenterConfigurationCommand")
-  .sc(DeleteLakeFormationIdentityCenterConfiguration)
+  .sc(DeleteLakeFormationIdentityCenterConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

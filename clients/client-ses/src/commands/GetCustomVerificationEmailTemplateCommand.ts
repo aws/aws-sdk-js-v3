@@ -8,7 +8,7 @@ import type {
   GetCustomVerificationEmailTemplateRequest,
   GetCustomVerificationEmailTemplateResponse,
 } from "../models/models_0";
-import { GetCustomVerificationEmailTemplate } from "../schemas/schemas_0";
+import { GetCustomVerificationEmailTemplate$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -27,9 +27,7 @@ export interface GetCustomVerificationEmailTemplateCommandInput extends GetCusto
  *
  * The output of {@link GetCustomVerificationEmailTemplateCommand}.
  */
-export interface GetCustomVerificationEmailTemplateCommandOutput
-  extends GetCustomVerificationEmailTemplateResponse,
-    __MetadataBearer {}
+export interface GetCustomVerificationEmailTemplateCommandOutput extends GetCustomVerificationEmailTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the custom email verification template for the template name you
@@ -92,7 +90,7 @@ export class GetCustomVerificationEmailTemplateCommand extends $Command
   })
   .s("SimpleEmailService", "GetCustomVerificationEmailTemplate", {})
   .n("SESClient", "GetCustomVerificationEmailTemplateCommand")
-  .sc(GetCustomVerificationEmailTemplate)
+  .sc(GetCustomVerificationEmailTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

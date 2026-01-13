@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDeviceRegistrationRequest, GetDeviceRegistrationResult } from "../models/models_0";
 import type { SagemakerEdgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SagemakerEdgeClient";
-import { GetDeviceRegistration } from "../schemas/schemas_0";
+import { GetDeviceRegistration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,7 +79,7 @@ export class GetDeviceRegistrationCommand extends $Command
   })
   .s("AmazonSageMakerEdge", "GetDeviceRegistration", {})
   .n("SagemakerEdgeClient", "GetDeviceRegistrationCommand")
-  .sc(GetDeviceRegistration)
+  .sc(GetDeviceRegistration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

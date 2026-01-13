@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeObjectsInput, DescribeObjectsOutput } from "../models/models_0";
-import { DescribeObjects } from "../schemas/schemas_0";
+import { DescribeObjects$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -162,7 +162,7 @@ export class DescribeObjectsCommand extends $Command
   })
   .s("DataPipeline", "DescribeObjects", {})
   .n("DataPipelineClient", "DescribeObjectsCommand")
-  .sc(DescribeObjects)
+  .sc(DescribeObjects$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

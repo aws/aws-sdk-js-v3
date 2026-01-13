@@ -13,7 +13,7 @@ import type {
   CreateLicenseConversionTaskForResourceRequest,
   CreateLicenseConversionTaskForResourceResponse,
 } from "../models/models_0";
-import { CreateLicenseConversionTaskForResource } from "../schemas/schemas_0";
+import { CreateLicenseConversionTaskForResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link CreateLicenseConversionTaskForResourceCommand}.
  */
-export interface CreateLicenseConversionTaskForResourceCommandInput
-  extends CreateLicenseConversionTaskForResourceRequest {}
+export interface CreateLicenseConversionTaskForResourceCommandInput extends CreateLicenseConversionTaskForResourceRequest {}
 /**
  * @public
  *
  * The output of {@link CreateLicenseConversionTaskForResourceCommand}.
  */
-export interface CreateLicenseConversionTaskForResourceCommandOutput
-  extends CreateLicenseConversionTaskForResourceResponse,
-    __MetadataBearer {}
+export interface CreateLicenseConversionTaskForResourceCommandOutput extends CreateLicenseConversionTaskForResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new license conversion task.</p>
@@ -120,7 +117,7 @@ export class CreateLicenseConversionTaskForResourceCommand extends $Command
   })
   .s("AWSLicenseManager", "CreateLicenseConversionTaskForResource", {})
   .n("LicenseManagerClient", "CreateLicenseConversionTaskForResourceCommand")
-  .sc(CreateLicenseConversionTaskForResource)
+  .sc(CreateLicenseConversionTaskForResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

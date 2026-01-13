@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DBClusterParameterGroupsMessage, DescribeDBClusterParameterGroupsMessage } from "../models/models_0";
-import { DescribeDBClusterParameterGroups } from "../schemas/schemas_0";
+import { DescribeDBClusterParameterGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeDBClusterParameterGroupsCommandInput extends DescribeDB
  *
  * The output of {@link DescribeDBClusterParameterGroupsCommand}.
  */
-export interface DescribeDBClusterParameterGroupsCommandOutput
-  extends DBClusterParameterGroupsMessage,
-    __MetadataBearer {}
+export interface DescribeDBClusterParameterGroupsCommandOutput extends DBClusterParameterGroupsMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a <code>DBClusterParameterGroupName</code> parameter is specified, the list contains only the description of the specified cluster parameter group. </p>
@@ -97,7 +95,7 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeDBClusterParameterGroups", {})
   .n("DocDBClient", "DescribeDBClusterParameterGroupsCommand")
-  .sc(DescribeDBClusterParameterGroups)
+  .sc(DescribeDBClusterParameterGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

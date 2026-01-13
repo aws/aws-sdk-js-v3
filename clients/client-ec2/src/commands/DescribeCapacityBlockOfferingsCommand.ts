@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeCapacityBlockOfferingsRequest, DescribeCapacityBlockOfferingsResult } from "../models/models_3";
-import { DescribeCapacityBlockOfferings } from "../schemas/schemas_0";
+import { DescribeCapacityBlockOfferings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeCapacityBlockOfferingsCommandInput extends DescribeCapa
  *
  * The output of {@link DescribeCapacityBlockOfferingsCommand}.
  */
-export interface DescribeCapacityBlockOfferingsCommandOutput
-  extends DescribeCapacityBlockOfferingsResult,
-    __MetadataBearer {}
+export interface DescribeCapacityBlockOfferingsCommandOutput extends DescribeCapacityBlockOfferingsResult, __MetadataBearer {}
 
 /**
  * <p>Describes Capacity Block offerings available for purchase in the Amazon Web Services Region that you're currently using. With Capacity Blocks, you can
@@ -104,7 +102,7 @@ export class DescribeCapacityBlockOfferingsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeCapacityBlockOfferings", {})
   .n("EC2Client", "DescribeCapacityBlockOfferingsCommand")
-  .sc(DescribeCapacityBlockOfferings)
+  .sc(DescribeCapacityBlockOfferings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RespondToAuthChallengeRequest, RespondToAuthChallengeResponse } from "../models/models_0";
-import { RespondToAuthChallenge } from "../schemas/schemas_0";
+import { RespondToAuthChallenge$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -224,7 +224,7 @@ export class RespondToAuthChallengeCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "RespondToAuthChallenge", {})
   .n("CognitoIdentityProviderClient", "RespondToAuthChallengeCommand")
-  .sc(RespondToAuthChallenge)
+  .sc(RespondToAuthChallenge$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

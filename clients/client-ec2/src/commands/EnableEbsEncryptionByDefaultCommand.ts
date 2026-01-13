@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableEbsEncryptionByDefaultRequest, EnableEbsEncryptionByDefaultResult } from "../models/models_5";
-import { EnableEbsEncryptionByDefault } from "../schemas/schemas_0";
+import { EnableEbsEncryptionByDefault$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface EnableEbsEncryptionByDefaultCommandInput extends EnableEbsEncry
  *
  * The output of {@link EnableEbsEncryptionByDefaultCommand}.
  */
-export interface EnableEbsEncryptionByDefaultCommandOutput
-  extends EnableEbsEncryptionByDefaultResult,
-    __MetadataBearer {}
+export interface EnableEbsEncryptionByDefaultCommandOutput extends EnableEbsEncryptionByDefaultResult, __MetadataBearer {}
 
 /**
  * <p>Enables EBS encryption by default for your account in the current Region.</p>
@@ -84,7 +82,7 @@ export class EnableEbsEncryptionByDefaultCommand extends $Command
   })
   .s("AmazonEC2", "EnableEbsEncryptionByDefault", {})
   .n("EC2Client", "EnableEbsEncryptionByDefaultCommand")
-  .sc(EnableEbsEncryptionByDefault)
+  .sc(EnableEbsEncryptionByDefault$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

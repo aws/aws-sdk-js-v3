@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateIpamByoasnRequest, DisassociateIpamByoasnResult } from "../models/models_5";
-import { DisassociateIpamByoasn } from "../schemas/schemas_0";
+import { DisassociateIpamByoasn$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,7 +81,7 @@ export class DisassociateIpamByoasnCommand extends $Command
   })
   .s("AmazonEC2", "DisassociateIpamByoasn", {})
   .n("EC2Client", "DisassociateIpamByoasnCommand")
-  .sc(DisassociateIpamByoasn)
+  .sc(DisassociateIpamByoasn$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

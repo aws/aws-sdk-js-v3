@@ -13,7 +13,7 @@ import type {
   GetTrustStoreCaCertificatesBundleInput,
   GetTrustStoreCaCertificatesBundleOutput,
 } from "../models/models_0";
-import { GetTrustStoreCaCertificatesBundle } from "../schemas/schemas_0";
+import { GetTrustStoreCaCertificatesBundle$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetTrustStoreCaCertificatesBundleCommandInput extends GetTrustS
  *
  * The output of {@link GetTrustStoreCaCertificatesBundleCommand}.
  */
-export interface GetTrustStoreCaCertificatesBundleCommandOutput
-  extends GetTrustStoreCaCertificatesBundleOutput,
-    __MetadataBearer {}
+export interface GetTrustStoreCaCertificatesBundleCommandOutput extends GetTrustStoreCaCertificatesBundleOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the ca certificate bundle.</p>
@@ -87,7 +85,7 @@ export class GetTrustStoreCaCertificatesBundleCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "GetTrustStoreCaCertificatesBundle", {})
   .n("ElasticLoadBalancingV2Client", "GetTrustStoreCaCertificatesBundleCommand")
-  .sc(GetTrustStoreCaCertificatesBundle)
+  .sc(GetTrustStoreCaCertificatesBundle$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

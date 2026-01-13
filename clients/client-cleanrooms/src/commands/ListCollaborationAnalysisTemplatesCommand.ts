@@ -9,7 +9,7 @@ import type {
   ListCollaborationAnalysisTemplatesInput,
   ListCollaborationAnalysisTemplatesOutput,
 } from "../models/models_0";
-import { ListCollaborationAnalysisTemplates } from "../schemas/schemas_0";
+import { ListCollaborationAnalysisTemplates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListCollaborationAnalysisTemplatesCommandInput extends ListColl
  *
  * The output of {@link ListCollaborationAnalysisTemplatesCommand}.
  */
-export interface ListCollaborationAnalysisTemplatesCommandOutput
-  extends ListCollaborationAnalysisTemplatesOutput,
-    __MetadataBearer {}
+export interface ListCollaborationAnalysisTemplatesCommandOutput extends ListCollaborationAnalysisTemplatesOutput, __MetadataBearer {}
 
 /**
  * <p>Lists analysis templates within a collaboration.</p>
@@ -109,7 +107,7 @@ export class ListCollaborationAnalysisTemplatesCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "ListCollaborationAnalysisTemplates", {})
   .n("CleanRoomsClient", "ListCollaborationAnalysisTemplatesCommand")
-  .sc(ListCollaborationAnalysisTemplates)
+  .sc(ListCollaborationAnalysisTemplates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

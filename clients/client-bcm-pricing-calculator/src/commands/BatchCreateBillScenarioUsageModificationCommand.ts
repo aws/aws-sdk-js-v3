@@ -13,7 +13,7 @@ import type {
   BatchCreateBillScenarioUsageModificationRequest,
   BatchCreateBillScenarioUsageModificationResponse,
 } from "../models/models_0";
-import { BatchCreateBillScenarioUsageModification } from "../schemas/schemas_0";
+import { BatchCreateBillScenarioUsageModification$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link BatchCreateBillScenarioUsageModificationCommand}.
  */
-export interface BatchCreateBillScenarioUsageModificationCommandInput
-  extends BatchCreateBillScenarioUsageModificationRequest {}
+export interface BatchCreateBillScenarioUsageModificationCommandInput extends BatchCreateBillScenarioUsageModificationRequest {}
 /**
  * @public
  *
  * The output of {@link BatchCreateBillScenarioUsageModificationCommand}.
  */
-export interface BatchCreateBillScenarioUsageModificationCommandOutput
-  extends BatchCreateBillScenarioUsageModificationResponse,
-    __MetadataBearer {}
+export interface BatchCreateBillScenarioUsageModificationCommandOutput extends BatchCreateBillScenarioUsageModificationResponse, __MetadataBearer {}
 
 /**
  * <p> Create Amazon Web Services service usage that you want to model in a Bill Scenario. </p> <note> <p>The <code>BatchCreateBillScenarioUsageModification</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals, include the permission <code>bcm-pricing-calculator:CreateBillScenarioUsageModification</code> in your policies.</p> </note>
@@ -279,7 +276,7 @@ export class BatchCreateBillScenarioUsageModificationCommand extends $Command
   })
   .s("AWSBCMPricingCalculator", "BatchCreateBillScenarioUsageModification", {})
   .n("BCMPricingCalculatorClient", "BatchCreateBillScenarioUsageModificationCommand")
-  .sc(BatchCreateBillScenarioUsageModification)
+  .sc(BatchCreateBillScenarioUsageModification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

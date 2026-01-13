@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import type { BatchCreateVehicleRequest, BatchCreateVehicleResponse } from "../models/models_0";
-import { BatchCreateVehicle } from "../schemas/schemas_0";
+import { BatchCreateVehicle$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -137,7 +137,7 @@ export class BatchCreateVehicleCommand extends $Command
   })
   .s("IoTAutobahnControlPlane", "BatchCreateVehicle", {})
   .n("IoTFleetWiseClient", "BatchCreateVehicleCommand")
-  .sc(BatchCreateVehicle)
+  .sc(BatchCreateVehicle$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

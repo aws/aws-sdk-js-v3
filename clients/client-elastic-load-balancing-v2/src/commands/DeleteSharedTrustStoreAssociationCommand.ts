@@ -13,7 +13,7 @@ import type {
   DeleteSharedTrustStoreAssociationInput,
   DeleteSharedTrustStoreAssociationOutput,
 } from "../models/models_0";
-import { DeleteSharedTrustStoreAssociation } from "../schemas/schemas_0";
+import { DeleteSharedTrustStoreAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DeleteSharedTrustStoreAssociationCommandInput extends DeleteSha
  *
  * The output of {@link DeleteSharedTrustStoreAssociationCommand}.
  */
-export interface DeleteSharedTrustStoreAssociationCommandOutput
-  extends DeleteSharedTrustStoreAssociationOutput,
-    __MetadataBearer {}
+export interface DeleteSharedTrustStoreAssociationCommandOutput extends DeleteSharedTrustStoreAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a shared trust store association.</p>
@@ -104,7 +102,7 @@ export class DeleteSharedTrustStoreAssociationCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "DeleteSharedTrustStoreAssociation", {})
   .n("ElasticLoadBalancingV2Client", "DeleteSharedTrustStoreAssociationCommand")
-  .sc(DeleteSharedTrustStoreAssociation)
+  .sc(DeleteSharedTrustStoreAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

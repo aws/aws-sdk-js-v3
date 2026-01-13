@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteServiceActionInput, DeleteServiceActionOutput } from "../models/models_0";
-import { DeleteServiceAction } from "../schemas/schemas_0";
+import { DeleteServiceAction$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -86,7 +86,7 @@ export class DeleteServiceActionCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "DeleteServiceAction", {})
   .n("ServiceCatalogClient", "DeleteServiceActionCommand")
-  .sc(DeleteServiceAction)
+  .sc(DeleteServiceAction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

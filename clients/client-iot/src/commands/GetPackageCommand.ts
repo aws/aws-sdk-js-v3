@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { GetPackageRequest, GetPackageResponse } from "../models/models_1";
-import { GetPackage } from "../schemas/schemas_0";
+import { GetPackage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class GetPackageCommand extends $Command
   })
   .s("AWSIotService", "GetPackage", {})
   .n("IoTClient", "GetPackageCommand")
-  .sc(GetPackage)
+  .sc(GetPackage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

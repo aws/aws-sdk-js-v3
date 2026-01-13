@@ -13,7 +13,7 @@ import type {
   CreateNotificationConfigurationRequest,
   CreateNotificationConfigurationResponse,
 } from "../models/models_0";
-import { CreateNotificationConfiguration } from "../schemas/schemas_0";
+import { CreateNotificationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface CreateNotificationConfigurationCommandInput extends CreateNotif
  *
  * The output of {@link CreateNotificationConfigurationCommand}.
  */
-export interface CreateNotificationConfigurationCommandOutput
-  extends CreateNotificationConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateNotificationConfigurationCommandOutput extends CreateNotificationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a notification configuration. A configuration is a connection between an event type and a destination that you have already created. </p>
@@ -46,7 +44,7 @@ export interface CreateNotificationConfigurationCommandOutput
  * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // CreateNotificationConfigurationRequest
- *   EventType: "DEVICE_COMMAND" || "DEVICE_COMMAND_REQUEST" || "DEVICE_DISCOVERY_STATUS" || "DEVICE_EVENT" || "DEVICE_LIFE_CYCLE" || "DEVICE_STATE" || "DEVICE_OTA" || "CONNECTOR_ASSOCIATION" || "ACCOUNT_ASSOCIATION" || "CONNECTOR_ERROR_REPORT", // required
+ *   EventType: "DEVICE_COMMAND" || "DEVICE_COMMAND_REQUEST" || "DEVICE_DISCOVERY_STATUS" || "DEVICE_EVENT" || "DEVICE_LIFE_CYCLE" || "DEVICE_STATE" || "DEVICE_OTA" || "DEVICE_WSS" || "CONNECTOR_ASSOCIATION" || "ACCOUNT_ASSOCIATION" || "CONNECTOR_ERROR_REPORT", // required
  *   DestinationName: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",
  *   Tags: { // TagsMap
@@ -56,7 +54,7 @@ export interface CreateNotificationConfigurationCommandOutput
  * const command = new CreateNotificationConfigurationCommand(input);
  * const response = await client.send(command);
  * // { // CreateNotificationConfigurationResponse
- * //   EventType: "DEVICE_COMMAND" || "DEVICE_COMMAND_REQUEST" || "DEVICE_DISCOVERY_STATUS" || "DEVICE_EVENT" || "DEVICE_LIFE_CYCLE" || "DEVICE_STATE" || "DEVICE_OTA" || "CONNECTOR_ASSOCIATION" || "ACCOUNT_ASSOCIATION" || "CONNECTOR_ERROR_REPORT",
+ * //   EventType: "DEVICE_COMMAND" || "DEVICE_COMMAND_REQUEST" || "DEVICE_DISCOVERY_STATUS" || "DEVICE_EVENT" || "DEVICE_LIFE_CYCLE" || "DEVICE_STATE" || "DEVICE_OTA" || "DEVICE_WSS" || "CONNECTOR_ASSOCIATION" || "ACCOUNT_ASSOCIATION" || "CONNECTOR_ERROR_REPORT",
  * // };
  *
  * ```
@@ -102,7 +100,7 @@ export class CreateNotificationConfigurationCommand extends $Command
   })
   .s("IotManagedIntegrations", "CreateNotificationConfiguration", {})
   .n("IoTManagedIntegrationsClient", "CreateNotificationConfigurationCommand")
-  .sc(CreateNotificationConfiguration)
+  .sc(CreateNotificationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

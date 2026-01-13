@@ -44,13 +44,10 @@ import {
   type BodyLengthCalculator as __BodyLengthCalculator,
   type CheckOptionalClientConfig as __CheckOptionalClientConfig,
   type ChecksumConstructor as __ChecksumConstructor,
-  type ClientProtocol,
   type Decoder as __Decoder,
   type Encoder as __Encoder,
   type HashConstructor as __HashConstructor,
   type HttpHandlerOptions as __HttpHandlerOptions,
-  type HttpRequest,
-  type HttpResponse,
   type Logger as __Logger,
   type Provider as __Provider,
   type StreamCollector as __StreamCollector,
@@ -1527,16 +1524,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   extensions?: RuntimeExtension[];
 
   /**
-   * The protocol controlling the message type (e.g. HTTP) and format (e.g. JSON)
-   * may be overridden. A default will always be set by the client.
-   * Available options depend on the service's supported protocols and will not be validated by
-   * the client.
-   * @alpha
-   *
-   */
-  protocol?: ClientProtocol<HttpRequest, HttpResponse>;
-
-  /**
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
@@ -1584,19 +1571,19 @@ export interface IoTClientResolvedConfig extends IoTClientResolvedConfigType {}
 /**
  * <fullname>IoT</fullname>
  *          <p>IoT provides secure, bi-directional communication between Internet-connected
- *             devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services
- *             cloud. You can discover your custom IoT-Data endpoint to communicate with, configure
- *             rules for data processing and integration with other services, organize resources
- *             associated with each device (Registry), configure logging, and create and manage
- *             policies and credentials to authenticate devices.</p>
+ *          devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services
+ *          cloud. You can discover your custom IoT-Data endpoint to communicate with, configure
+ *          rules for data processing and integration with other services, organize resources
+ *          associated with each device (Registry), configure logging, and create and manage
+ *          policies and credentials to authenticate devices.</p>
  *          <p>The service endpoints that expose this API are listed in
- *             <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>.
- *             You must use the endpoint for the region that has the resources you want to access.</p>
+ *          <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>.
+ *          You must use the endpoint for the region that has the resources you want to access.</p>
  *          <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services
- *                 Signature Version 4</a> to sign the request is:
- *             <i>execute-api</i>.</p>
+ *          Signature Version 4</a> to sign the request is:
+ *          <i>execute-api</i>.</p>
  *          <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer
- *             Guide</a>.</p>
+ *          Guide</a>.</p>
  *          <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>
  * @public
  */

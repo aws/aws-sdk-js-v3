@@ -9,7 +9,7 @@ import type {
   GetSipMediaApplicationLoggingConfigurationRequest,
   GetSipMediaApplicationLoggingConfigurationResponse,
 } from "../models/models_0";
-import { GetSipMediaApplicationLoggingConfiguration } from "../schemas/schemas_0";
+import { GetSipMediaApplicationLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetSipMediaApplicationLoggingConfigurationCommand}.
  */
-export interface GetSipMediaApplicationLoggingConfigurationCommandInput
-  extends GetSipMediaApplicationLoggingConfigurationRequest {}
+export interface GetSipMediaApplicationLoggingConfigurationCommandInput extends GetSipMediaApplicationLoggingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link GetSipMediaApplicationLoggingConfigurationCommand}.
  */
-export interface GetSipMediaApplicationLoggingConfigurationCommandOutput
-  extends GetSipMediaApplicationLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface GetSipMediaApplicationLoggingConfigurationCommandOutput extends GetSipMediaApplicationLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the logging configuration for the specified SIP media application.</p>
@@ -102,7 +99,7 @@ export class GetSipMediaApplicationLoggingConfigurationCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "GetSipMediaApplicationLoggingConfiguration", {})
   .n("ChimeSDKVoiceClient", "GetSipMediaApplicationLoggingConfigurationCommand")
-  .sc(GetSipMediaApplicationLoggingConfiguration)
+  .sc(GetSipMediaApplicationLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

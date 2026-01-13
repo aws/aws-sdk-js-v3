@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetModelCopyJobRequest, GetModelCopyJobResponse } from "../models/models_1";
-import { GetModelCopyJob } from "../schemas/schemas_0";
+import { GetModelCopyJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class GetModelCopyJobCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "GetModelCopyJob", {})
   .n("BedrockClient", "GetModelCopyJobCommand")
-  .sc(GetModelCopyJob)
+  .sc(GetModelCopyJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

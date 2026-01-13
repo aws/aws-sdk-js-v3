@@ -11,7 +11,7 @@ import type {
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SynchronizeGatewayTargetsRequest } from "../models/models_0";
 import type { SynchronizeGatewayTargetsResponse } from "../models/models_1";
-import { SynchronizeGatewayTargets } from "../schemas/schemas_0";
+import { SynchronizeGatewayTargets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -167,6 +167,17 @@ export interface SynchronizeGatewayTargetsCommandOutput extends SynchronizeGatew
  * //         },
  * //       ],
  * //       lastSynchronizedAt: new Date("TIMESTAMP"),
+ * //       metadataConfiguration: { // MetadataConfiguration
+ * //         allowedRequestHeaders: [ // AllowedRequestHeaders
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         allowedQueryParameters: [ // AllowedQueryParameters
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         allowedResponseHeaders: [ // AllowedResponseHeaders
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * // };
@@ -220,7 +231,7 @@ export class SynchronizeGatewayTargetsCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "SynchronizeGatewayTargets", {})
   .n("BedrockAgentCoreControlClient", "SynchronizeGatewayTargetsCommand")
-  .sc(SynchronizeGatewayTargets)
+  .sc(SynchronizeGatewayTargets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

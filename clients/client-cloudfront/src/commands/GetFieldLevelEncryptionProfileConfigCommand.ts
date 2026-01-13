@@ -9,7 +9,7 @@ import type {
   GetFieldLevelEncryptionProfileConfigRequest,
   GetFieldLevelEncryptionProfileConfigResult,
 } from "../models/models_0";
-import { GetFieldLevelEncryptionProfileConfig } from "../schemas/schemas_0";
+import { GetFieldLevelEncryptionProfileConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetFieldLevelEncryptionProfileConfigCommandInput extends GetFie
  *
  * The output of {@link GetFieldLevelEncryptionProfileConfigCommand}.
  */
-export interface GetFieldLevelEncryptionProfileConfigCommandOutput
-  extends GetFieldLevelEncryptionProfileConfigResult,
-    __MetadataBearer {}
+export interface GetFieldLevelEncryptionProfileConfigCommandOutput extends GetFieldLevelEncryptionProfileConfigResult, __MetadataBearer {}
 
 /**
  * <p>Get the field-level encryption profile configuration information.</p>
@@ -104,7 +102,7 @@ export class GetFieldLevelEncryptionProfileConfigCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "GetFieldLevelEncryptionProfileConfig", {})
   .n("CloudFrontClient", "GetFieldLevelEncryptionProfileConfigCommand")
-  .sc(GetFieldLevelEncryptionProfileConfig)
+  .sc(GetFieldLevelEncryptionProfileConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

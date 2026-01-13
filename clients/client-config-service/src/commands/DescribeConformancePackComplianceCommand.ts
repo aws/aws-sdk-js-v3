@@ -9,7 +9,7 @@ import type {
   DescribeConformancePackComplianceRequest,
   DescribeConformancePackComplianceResponse,
 } from "../models/models_0";
-import { DescribeConformancePackCompliance } from "../schemas/schemas_0";
+import { DescribeConformancePackCompliance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeConformancePackComplianceCommandInput extends DescribeC
  *
  * The output of {@link DescribeConformancePackComplianceCommand}.
  */
-export interface DescribeConformancePackComplianceCommandOutput
-  extends DescribeConformancePackComplianceResponse,
-    __MetadataBearer {}
+export interface DescribeConformancePackComplianceCommandOutput extends DescribeConformancePackComplianceResponse, __MetadataBearer {}
 
 /**
  * <p>Returns compliance details for each rule in that conformance pack.</p>
@@ -117,7 +115,7 @@ export class DescribeConformancePackComplianceCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeConformancePackCompliance", {})
   .n("ConfigServiceClient", "DescribeConformancePackComplianceCommand")
-  .sc(DescribeConformancePackCompliance)
+  .sc(DescribeConformancePackCompliance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutBucketLifecycleConfigurationOutput, PutBucketLifecycleConfigurationRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { PutBucketLifecycleConfiguration } from "../schemas/schemas_0";
+import { PutBucketLifecycleConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -26,9 +26,7 @@ export interface PutBucketLifecycleConfigurationCommandInput extends PutBucketLi
  *
  * The output of {@link PutBucketLifecycleConfigurationCommand}.
  */
-export interface PutBucketLifecycleConfigurationCommandOutput
-  extends PutBucketLifecycleConfigurationOutput,
-    __MetadataBearer {}
+export interface PutBucketLifecycleConfigurationCommandOutput extends PutBucketLifecycleConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle
@@ -298,7 +296,7 @@ export class PutBucketLifecycleConfigurationCommand extends $Command
     return [
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
+        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
         requestChecksumRequired: true,
       }),
       getThrow200ExceptionsPlugin(config),
@@ -306,7 +304,7 @@ export class PutBucketLifecycleConfigurationCommand extends $Command
   })
   .s("AmazonS3", "PutBucketLifecycleConfiguration", {})
   .n("S3Client", "PutBucketLifecycleConfigurationCommand")
-  .sc(PutBucketLifecycleConfiguration)
+  .sc(PutBucketLifecycleConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

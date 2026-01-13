@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeVerifiedAccessInstancesRequest, DescribeVerifiedAccessInstancesResult } from "../models/models_5";
-import { DescribeVerifiedAccessInstances } from "../schemas/schemas_0";
+import { DescribeVerifiedAccessInstances$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeVerifiedAccessInstancesCommandInput extends DescribeVer
  *
  * The output of {@link DescribeVerifiedAccessInstancesCommand}.
  */
-export interface DescribeVerifiedAccessInstancesCommandOutput
-  extends DescribeVerifiedAccessInstancesResult,
-    __MetadataBearer {}
+export interface DescribeVerifiedAccessInstancesCommandOutput extends DescribeVerifiedAccessInstancesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified Amazon Web Services Verified Access instances.</p>
@@ -118,7 +116,7 @@ export class DescribeVerifiedAccessInstancesCommand extends $Command
   })
   .s("AmazonEC2", "DescribeVerifiedAccessInstances", {})
   .n("EC2Client", "DescribeVerifiedAccessInstancesCommand")
-  .sc(DescribeVerifiedAccessInstances)
+  .sc(DescribeVerifiedAccessInstances$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCustomModelDeploymentRequest, DeleteCustomModelDeploymentResponse } from "../models/models_0";
-import { DeleteCustomModelDeployment } from "../schemas/schemas_0";
+import { DeleteCustomModelDeployment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteCustomModelDeploymentCommandInput extends DeleteCustomMod
  *
  * The output of {@link DeleteCustomModelDeploymentCommand}.
  */
-export interface DeleteCustomModelDeploymentCommandOutput
-  extends DeleteCustomModelDeploymentResponse,
-    __MetadataBearer {}
+export interface DeleteCustomModelDeploymentCommandOutput extends DeleteCustomModelDeploymentResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a custom model deployment. This operation stops the deployment and removes it from your account. After deletion, the deployment ARN can no longer be used for inference requests.</p> <p>The following actions are related to the <code>DeleteCustomModelDeployment</code> operation:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateCustomModelDeployment.html">CreateCustomModelDeployment</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModelDeployment.html">GetCustomModelDeployment</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListCustomModelDeployments.html">ListCustomModelDeployments</a> </p> </li> </ul>
@@ -91,7 +89,7 @@ export class DeleteCustomModelDeploymentCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "DeleteCustomModelDeployment", {})
   .n("BedrockClient", "DeleteCustomModelDeploymentCommand")
-  .sc(DeleteCustomModelDeployment)
+  .sc(DeleteCustomModelDeployment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

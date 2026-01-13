@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CopyDBParameterGroupMessage, CopyDBParameterGroupResult } from "../models/models_0";
 import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { CopyDBParameterGroup } from "../schemas/schemas_0";
+import { CopyDBParameterGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class CopyDBParameterGroupCommand extends $Command
   })
   .s("AmazonRDSv19", "CopyDBParameterGroup", {})
   .n("NeptuneClient", "CopyDBParameterGroupCommand")
-  .sc(CopyDBParameterGroup)
+  .sc(CopyDBParameterGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

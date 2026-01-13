@@ -13,7 +13,7 @@ import type {
   DescribeConversionConfigurationMessage,
   DescribeConversionConfigurationResponse,
 } from "../models/models_0";
-import { DescribeConversionConfiguration } from "../schemas/schemas_0";
+import { DescribeConversionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DescribeConversionConfigurationCommandInput extends DescribeCon
  *
  * The output of {@link DescribeConversionConfigurationCommand}.
  */
-export interface DescribeConversionConfigurationCommandOutput
-  extends DescribeConversionConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeConversionConfigurationCommandOutput extends DescribeConversionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns configuration parameters for a schema conversion project.</p>
@@ -102,7 +100,7 @@ export class DescribeConversionConfigurationCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeConversionConfiguration", {})
   .n("DatabaseMigrationServiceClient", "DescribeConversionConfigurationCommand")
-  .sc(DescribeConversionConfiguration)
+  .sc(DescribeConversionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyTrustStoreInput, ModifyTrustStoreOutput } from "../models/models_0";
-import { ModifyTrustStore } from "../schemas/schemas_0";
+import { ModifyTrustStore$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class ModifyTrustStoreCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "ModifyTrustStore", {})
   .n("ElasticLoadBalancingV2Client", "ModifyTrustStoreCommand")
-  .sc(ModifyTrustStore)
+  .sc(ModifyTrustStore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

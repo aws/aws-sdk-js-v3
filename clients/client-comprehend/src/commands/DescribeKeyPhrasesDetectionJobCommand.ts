@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeKeyPhrasesDetectionJobRequest, DescribeKeyPhrasesDetectionJobResponse } from "../models/models_0";
-import { DescribeKeyPhrasesDetectionJob } from "../schemas/schemas_0";
+import { DescribeKeyPhrasesDetectionJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeKeyPhrasesDetectionJobCommandInput extends DescribeKeyP
  *
  * The output of {@link DescribeKeyPhrasesDetectionJobCommand}.
  */
-export interface DescribeKeyPhrasesDetectionJobCommandOutput
-  extends DescribeKeyPhrasesDetectionJobResponse,
-    __MetadataBearer {}
+export interface DescribeKeyPhrasesDetectionJobCommandOutput extends DescribeKeyPhrasesDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a key phrases detection job. Use this operation to get
@@ -122,7 +120,7 @@ export class DescribeKeyPhrasesDetectionJobCommand extends $Command
   })
   .s("Comprehend_20171127", "DescribeKeyPhrasesDetectionJob", {})
   .n("ComprehendClient", "DescribeKeyPhrasesDetectionJobCommand")
-  .sc(DescribeKeyPhrasesDetectionJob)
+  .sc(DescribeKeyPhrasesDetectionJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

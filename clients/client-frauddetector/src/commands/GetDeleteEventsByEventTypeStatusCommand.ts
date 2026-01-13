@@ -9,7 +9,7 @@ import type {
   GetDeleteEventsByEventTypeStatusRequest,
   GetDeleteEventsByEventTypeStatusResult,
 } from "../models/models_0";
-import { GetDeleteEventsByEventTypeStatus } from "../schemas/schemas_0";
+import { GetDeleteEventsByEventTypeStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetDeleteEventsByEventTypeStatusCommandInput extends GetDeleteE
  *
  * The output of {@link GetDeleteEventsByEventTypeStatusCommand}.
  */
-export interface GetDeleteEventsByEventTypeStatusCommandOutput
-  extends GetDeleteEventsByEventTypeStatusResult,
-    __MetadataBearer {}
+export interface GetDeleteEventsByEventTypeStatusCommandOutput extends GetDeleteEventsByEventTypeStatusResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the status of a <code>DeleteEventsByEventType</code> action.</p>
@@ -94,7 +92,7 @@ export class GetDeleteEventsByEventTypeStatusCommand extends $Command
   })
   .s("AWSHawksNestServiceFacade", "GetDeleteEventsByEventTypeStatus", {})
   .n("FraudDetectorClient", "GetDeleteEventsByEventTypeStatusCommand")
-  .sc(GetDeleteEventsByEventTypeStatus)
+  .sc(GetDeleteEventsByEventTypeStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

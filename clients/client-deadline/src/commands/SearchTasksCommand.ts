@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchTasksRequest, SearchTasksResponse } from "../models/models_1";
-import { SearchTasks } from "../schemas/schemas_0";
+import { SearchTasks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -188,7 +188,7 @@ export class SearchTasksCommand extends $Command
   })
   .s("Deadline", "SearchTasks", {})
   .n("DeadlineClient", "SearchTasksCommand")
-  .sc(SearchTasks)
+  .sc(SearchTasks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

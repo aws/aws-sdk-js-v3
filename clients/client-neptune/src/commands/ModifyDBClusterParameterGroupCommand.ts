@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DBClusterParameterGroupNameMessage, ModifyDBClusterParameterGroupMessage } from "../models/models_0";
 import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { ModifyDBClusterParameterGroup } from "../schemas/schemas_0";
+import { ModifyDBClusterParameterGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ModifyDBClusterParameterGroupCommandInput extends ModifyDBClust
  *
  * The output of {@link ModifyDBClusterParameterGroupCommand}.
  */
-export interface ModifyDBClusterParameterGroupCommandOutput
-  extends DBClusterParameterGroupNameMessage,
-    __MetadataBearer {}
+export interface ModifyDBClusterParameterGroupCommandOutput extends DBClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**
  * <p> Modifies the parameters of a DB cluster parameter group. To modify more than one
@@ -117,7 +115,7 @@ export class ModifyDBClusterParameterGroupCommand extends $Command
   })
   .s("AmazonRDSv19", "ModifyDBClusterParameterGroup", {})
   .n("NeptuneClient", "ModifyDBClusterParameterGroupCommand")
-  .sc(ModifyDBClusterParameterGroup)
+  .sc(ModifyDBClusterParameterGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListResourcesInput, ListResourcesOutput } from "../models/models_0";
-import { ListResources } from "../schemas/schemas_0";
+import { ListResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -152,7 +152,7 @@ export class ListResourcesCommand extends $Command
   })
   .s("CloudApiService", "ListResources", {})
   .n("CloudControlClient", "ListResourcesCommand")
-  .sc(ListResources)
+  .sc(ListResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

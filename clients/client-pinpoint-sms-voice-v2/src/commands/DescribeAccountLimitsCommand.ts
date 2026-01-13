@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DescribeAccountLimits } from "../schemas/schemas_0";
+import { DescribeAccountLimits$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,7 +31,7 @@ export interface DescribeAccountLimitsCommandInput extends DescribeAccountLimits
 export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimitsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the current End User MessagingSMS SMS Voice V2 resource quotas for your account. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value.</p> <p>When you establish an Amazon Web Services account, the account has initial quotas on the maximum number of configuration sets, opt-out lists, phone numbers, and pools that you can create in a given Region. For more information see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html">Quotas </a> in the <i>End User MessagingSMS User Guide</i>.</p>
+ * <p>Describes the current End User Messaging SMS SMS Voice V2 resource quotas for your account. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value.</p> <p>When you establish an Amazon Web Services account, the account has initial quotas on the maximum number of configuration sets, opt-out lists, phone numbers, and pools that you can create in a given Region. For more information see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html">Quotas </a> in the <i>End User Messaging SMS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,7 +97,7 @@ export class DescribeAccountLimitsCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DescribeAccountLimits", {})
   .n("PinpointSMSVoiceV2Client", "DescribeAccountLimitsCommand")
-  .sc(DescribeAccountLimits)
+  .sc(DescribeAccountLimits$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

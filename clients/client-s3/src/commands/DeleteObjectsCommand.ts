@@ -8,7 +8,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteObjectsOutput, DeleteObjectsRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { DeleteObjects } from "../schemas/schemas_0";
+import { DeleteObjects$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -321,7 +321,7 @@ export class DeleteObjectsCommand extends $Command
     return [
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
+        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
         requestChecksumRequired: true,
       }),
       getThrow200ExceptionsPlugin(config),
@@ -329,7 +329,7 @@ export class DeleteObjectsCommand extends $Command
   })
   .s("AmazonS3", "DeleteObjects", {})
   .n("S3Client", "DeleteObjectsCommand")
-  .sc(DeleteObjects)
+  .sc(DeleteObjects$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

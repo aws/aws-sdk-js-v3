@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TerminateWorkspacesRequest, TerminateWorkspacesResult } from "../models/models_0";
-import { TerminateWorkspaces } from "../schemas/schemas_0";
+import { TerminateWorkspaces$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -30,7 +30,7 @@ export interface TerminateWorkspacesCommandOutput extends TerminateWorkspacesRes
  * <p>Terminates the specified WorkSpaces.</p>
  *          <important>
  *             <p>Terminating a WorkSpace is a permanent action and cannot be undone. The user's data
- *             is destroyed. If you need to archive any user data, contact Amazon Web ServicesSupport before
+ *             is destroyed. If you need to archive any user data, contact Amazon Web Services Support before
  *             terminating the WorkSpace.</p>
  *          </important>
  *          <p>You can terminate a WorkSpace that is in any state except <code>SUSPENDED</code>.</p>
@@ -107,7 +107,7 @@ export class TerminateWorkspacesCommand extends $Command
   })
   .s("WorkspacesService", "TerminateWorkspaces", {})
   .n("WorkSpacesClient", "TerminateWorkspacesCommand")
-  .sc(TerminateWorkspaces)
+  .sc(TerminateWorkspaces$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

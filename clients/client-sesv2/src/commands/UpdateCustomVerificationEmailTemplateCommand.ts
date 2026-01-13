@@ -8,7 +8,7 @@ import type {
   UpdateCustomVerificationEmailTemplateRequest,
   UpdateCustomVerificationEmailTemplateResponse,
 } from "../models/models_1";
-import { UpdateCustomVerificationEmailTemplate } from "../schemas/schemas_0";
+import { UpdateCustomVerificationEmailTemplate$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateCustomVerificationEmailTemplateCommand}.
  */
-export interface UpdateCustomVerificationEmailTemplateCommandInput
-  extends UpdateCustomVerificationEmailTemplateRequest {}
+export interface UpdateCustomVerificationEmailTemplateCommandInput extends UpdateCustomVerificationEmailTemplateRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateCustomVerificationEmailTemplateCommand}.
  */
-export interface UpdateCustomVerificationEmailTemplateCommandOutput
-  extends UpdateCustomVerificationEmailTemplateResponse,
-    __MetadataBearer {}
+export interface UpdateCustomVerificationEmailTemplateCommandOutput extends UpdateCustomVerificationEmailTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing custom verification email template.</p>
@@ -95,7 +92,7 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command
   })
   .s("SimpleEmailService_v2", "UpdateCustomVerificationEmailTemplate", {})
   .n("SESv2Client", "UpdateCustomVerificationEmailTemplateCommand")
-  .sc(UpdateCustomVerificationEmailTemplate)
+  .sc(UpdateCustomVerificationEmailTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

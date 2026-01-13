@@ -49,17 +49,13 @@ export const defaultRoute53RecoveryReadinessHttpAuthSchemeParametersProvider = a
 ): Promise<Route53RecoveryReadinessHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: Route53RecoveryReadinessHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: Route53RecoveryReadinessHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface Route53RecoveryReadinessHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultRoute53RecoveryReadinessHttpAuthSchemeProvider: Route53RecoveryReadinessHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultRoute53RecoveryReadinessHttpAuthSchemeProvider: Route53RecoveryReadinessHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

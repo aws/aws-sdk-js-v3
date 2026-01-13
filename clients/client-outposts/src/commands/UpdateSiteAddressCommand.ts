@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateSiteAddressInput, UpdateSiteAddressOutput } from "../models/models_0";
 import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import { UpdateSiteAddress } from "../schemas/schemas_0";
+import { UpdateSiteAddress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class UpdateSiteAddressCommand extends $Command
   })
   .s("OutpostsOlafService", "UpdateSiteAddress", {})
   .n("OutpostsClient", "UpdateSiteAddressCommand")
-  .sc(UpdateSiteAddress)
+  .sc(UpdateSiteAddress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

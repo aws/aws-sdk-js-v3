@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateAnomalyRequest } from "../models/models_0";
-import { UpdateAnomaly } from "../schemas/schemas_0";
+import { UpdateAnomaly$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class UpdateAnomalyCommand extends $Command
   })
   .s("Logs_20140328", "UpdateAnomaly", {})
   .n("CloudWatchLogsClient", "UpdateAnomalyCommand")
-  .sc(UpdateAnomaly)
+  .sc(UpdateAnomaly$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

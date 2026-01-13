@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { CreateEventBridgeRuleTemplateRequest, CreateEventBridgeRuleTemplateResponse } from "../models/models_1";
-import { CreateEventBridgeRuleTemplate } from "../schemas/schemas_0";
+import { CreateEventBridgeRuleTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateEventBridgeRuleTemplateCommandInput extends CreateEventBr
  *
  * The output of {@link CreateEventBridgeRuleTemplateCommand}.
  */
-export interface CreateEventBridgeRuleTemplateCommandOutput
-  extends CreateEventBridgeRuleTemplateResponse,
-    __MetadataBearer {}
+export interface CreateEventBridgeRuleTemplateCommandOutput extends CreateEventBridgeRuleTemplateResponse, __MetadataBearer {}
 
 /**
  * Creates an eventbridge rule template to monitor events and send notifications to your targeted resources.
@@ -120,7 +118,7 @@ export class CreateEventBridgeRuleTemplateCommand extends $Command
   })
   .s("MediaLive", "CreateEventBridgeRuleTemplate", {})
   .n("MediaLiveClient", "CreateEventBridgeRuleTemplateCommand")
-  .sc(CreateEventBridgeRuleTemplate)
+  .sc(CreateEventBridgeRuleTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

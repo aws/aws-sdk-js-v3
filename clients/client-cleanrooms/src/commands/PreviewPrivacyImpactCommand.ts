@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PreviewPrivacyImpactInput, PreviewPrivacyImpactOutput } from "../models/models_1";
-import { PreviewPrivacyImpact } from "../schemas/schemas_0";
+import { PreviewPrivacyImpact$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class PreviewPrivacyImpactCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "PreviewPrivacyImpact", {})
   .n("CleanRoomsClient", "PreviewPrivacyImpactCommand")
-  .sc(PreviewPrivacyImpact)
+  .sc(PreviewPrivacyImpact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

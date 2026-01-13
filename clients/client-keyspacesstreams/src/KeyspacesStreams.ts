@@ -23,8 +23,14 @@ export interface KeyspacesStreams {
   /**
    * @see {@link GetRecordsCommand}
    */
-  getRecords(args: GetRecordsCommandInput, options?: __HttpHandlerOptions): Promise<GetRecordsCommandOutput>;
-  getRecords(args: GetRecordsCommandInput, cb: (err: any, data?: GetRecordsCommandOutput) => void): void;
+  getRecords(
+    args: GetRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRecordsCommandOutput>;
+  getRecords(
+    args: GetRecordsCommandInput,
+    cb: (err: any, data?: GetRecordsCommandOutput) => void
+  ): void;
   getRecords(
     args: GetRecordsCommandInput,
     options: __HttpHandlerOptions,
@@ -51,8 +57,14 @@ export interface KeyspacesStreams {
   /**
    * @see {@link GetStreamCommand}
    */
-  getStream(args: GetStreamCommandInput, options?: __HttpHandlerOptions): Promise<GetStreamCommandOutput>;
-  getStream(args: GetStreamCommandInput, cb: (err: any, data?: GetStreamCommandOutput) => void): void;
+  getStream(
+    args: GetStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStreamCommandOutput>;
+  getStream(
+    args: GetStreamCommandInput,
+    cb: (err: any, data?: GetStreamCommandOutput) => void
+  ): void;
   getStream(
     args: GetStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -63,8 +75,14 @@ export interface KeyspacesStreams {
    * @see {@link ListStreamsCommand}
    */
   listStreams(): Promise<ListStreamsCommandOutput>;
-  listStreams(args: ListStreamsCommandInput, options?: __HttpHandlerOptions): Promise<ListStreamsCommandOutput>;
-  listStreams(args: ListStreamsCommandInput, cb: (err: any, data?: ListStreamsCommandOutput) => void): void;
+  listStreams(
+    args: ListStreamsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStreamsCommandOutput>;
+  listStreams(
+    args: ListStreamsCommandInput,
+    cb: (err: any, data?: ListStreamsCommandOutput) => void
+  ): void;
   listStreams(
     args: ListStreamsCommandInput,
     options: __HttpHandlerOptions,

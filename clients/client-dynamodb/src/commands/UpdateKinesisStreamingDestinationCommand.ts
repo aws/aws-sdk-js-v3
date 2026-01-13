@@ -9,7 +9,7 @@ import type {
   UpdateKinesisStreamingDestinationInput,
   UpdateKinesisStreamingDestinationOutput,
 } from "../models/models_0";
-import { UpdateKinesisStreamingDestination } from "../schemas/schemas_0";
+import { UpdateKinesisStreamingDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateKinesisStreamingDestinationCommandInput extends UpdateKin
  *
  * The output of {@link UpdateKinesisStreamingDestinationCommand}.
  */
-export interface UpdateKinesisStreamingDestinationCommandOutput
-  extends UpdateKinesisStreamingDestinationOutput,
-    __MetadataBearer {}
+export interface UpdateKinesisStreamingDestinationCommandOutput extends UpdateKinesisStreamingDestinationOutput, __MetadataBearer {}
 
 /**
  * <p>The command to update the Kinesis stream destination.</p>
@@ -134,7 +132,7 @@ export class UpdateKinesisStreamingDestinationCommand extends $Command
   })
   .s("DynamoDB_20120810", "UpdateKinesisStreamingDestination", {})
   .n("DynamoDBClient", "UpdateKinesisStreamingDestinationCommand")
-  .sc(UpdateKinesisStreamingDestination)
+  .sc(UpdateKinesisStreamingDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

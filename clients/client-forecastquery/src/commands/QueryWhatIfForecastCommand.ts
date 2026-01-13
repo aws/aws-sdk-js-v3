@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ForecastqueryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastqueryClient";
 import type { QueryWhatIfForecastRequest, QueryWhatIfForecastResponse } from "../models/models_0";
-import { QueryWhatIfForecast } from "../schemas/schemas_0";
+import { QueryWhatIfForecast$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class QueryWhatIfForecastCommand extends $Command
   })
   .s("AmazonForecastRuntime", "QueryWhatIfForecast", {})
   .n("ForecastqueryClient", "QueryWhatIfForecastCommand")
-  .sc(QueryWhatIfForecast)
+  .sc(QueryWhatIfForecast$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

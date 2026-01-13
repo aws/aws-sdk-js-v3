@@ -2,7 +2,7 @@ import { NumericValue } from "@smithy/core/serde";
 import type { TimestampDateTimeSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
-import { createNestingWidget, nestingWidget, widget } from "../test-schema.spec";
+import { createNestingWidget, nestingWidget, unionStruct, unionStructControl, widget } from "../test-schema.spec";
 import { simpleFormatXml } from "./simpleFormatXml";
 import { XmlShapeSerializer } from "./XmlShapeSerializer";
 
@@ -18,7 +18,7 @@ describe(XmlShapeSerializer.name, () => {
     },
   } as any);
 
-  it("serializes data to Query", async () => {
+  it("serializes data to XML", async () => {
     const data = {
       timestamp: new Date(0),
       bigint: 10000000000000000000000054321n,
@@ -43,13 +43,34 @@ describe(XmlShapeSerializer.name, () => {
 </Struct>`);
   });
 
+  it("serializes $unknown union members", () => {
+    {
+      serializer.write(unionStruct, {
+        union: {
+          $unknown: ["UK", "UV"],
+        },
+      });
+      const serialization = serializer.flush();
+      expect(serialization).toEqual(`<UnionStruct xmlns="namespace"><union><UK>UV</UK></union></UnionStruct>`);
+    }
+    {
+      serializer.write(unionStructControl, {
+        union: {
+          $unknown: ["UK", "UV"],
+        },
+      });
+      const serialization = serializer.flush();
+      expect(serialization).toEqual(`<UnionStruct xmlns="namespace"><union/></UnionStruct>`);
+    }
+  });
+
   describe("performance baseline indicator", () => {
     it("should serialize objects", () => {
       const timings: string[] = [];
       const objects = [];
 
       // warmup
-      for (let i = 0; i < 13; ++i) {
+      for (let i = 0; i < 10; ++i) {
         const o = createNestingWidget(2 ** i);
         objects.push(o);
         serializer.write(nestingWidget, o);

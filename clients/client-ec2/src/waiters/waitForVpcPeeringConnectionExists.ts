@@ -7,13 +7,10 @@ import {
 } from "../commands/DescribeVpcPeeringConnectionsCommand";
 import { EC2Client } from "../EC2Client";
 
-const checkState = async (
-  client: EC2Client,
-  input: DescribeVpcPeeringConnectionsCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: EC2Client, input: DescribeVpcPeeringConnectionsCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeVpcPeeringConnectionsCommand(input));
+    let result: any = await client.send(new DescribeVpcPeeringConnectionsCommand(input));
     reason = result;
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {

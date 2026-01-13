@@ -13,7 +13,7 @@ import type {
   ExportECSServiceRecommendationsRequest,
   ExportECSServiceRecommendationsResponse,
 } from "../models/models_0";
-import { ExportECSServiceRecommendations } from "../schemas/schemas_0";
+import { ExportECSServiceRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ExportECSServiceRecommendationsCommandInput extends ExportECSSe
  *
  * The output of {@link ExportECSServiceRecommendationsCommand}.
  */
-export interface ExportECSServiceRecommendationsCommandOutput
-  extends ExportECSServiceRecommendationsResponse,
-    __MetadataBearer {}
+export interface ExportECSServiceRecommendationsCommandOutput extends ExportECSServiceRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -138,7 +136,7 @@ export class ExportECSServiceRecommendationsCommand extends $Command
   })
   .s("ComputeOptimizerService", "ExportECSServiceRecommendations", {})
   .n("ComputeOptimizerClient", "ExportECSServiceRecommendationsCommand")
-  .sc(ExportECSServiceRecommendations)
+  .sc(ExportECSServiceRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

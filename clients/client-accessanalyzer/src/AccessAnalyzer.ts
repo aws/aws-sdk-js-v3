@@ -327,7 +327,10 @@ export interface AccessAnalyzer {
     args: CreateAnalyzerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateAnalyzerCommandOutput>;
-  createAnalyzer(args: CreateAnalyzerCommandInput, cb: (err: any, data?: CreateAnalyzerCommandOutput) => void): void;
+  createAnalyzer(
+    args: CreateAnalyzerCommandInput,
+    cb: (err: any, data?: CreateAnalyzerCommandOutput) => void
+  ): void;
   createAnalyzer(
     args: CreateAnalyzerCommandInput,
     options: __HttpHandlerOptions,
@@ -358,7 +361,10 @@ export interface AccessAnalyzer {
     args: DeleteAnalyzerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteAnalyzerCommandOutput>;
-  deleteAnalyzer(args: DeleteAnalyzerCommandInput, cb: (err: any, data?: DeleteAnalyzerCommandOutput) => void): void;
+  deleteAnalyzer(
+    args: DeleteAnalyzerCommandInput,
+    cb: (err: any, data?: DeleteAnalyzerCommandOutput) => void
+  ): void;
   deleteAnalyzer(
     args: DeleteAnalyzerCommandInput,
     options: __HttpHandlerOptions,
@@ -436,8 +442,14 @@ export interface AccessAnalyzer {
   /**
    * @see {@link GetAnalyzerCommand}
    */
-  getAnalyzer(args: GetAnalyzerCommandInput, options?: __HttpHandlerOptions): Promise<GetAnalyzerCommandOutput>;
-  getAnalyzer(args: GetAnalyzerCommandInput, cb: (err: any, data?: GetAnalyzerCommandOutput) => void): void;
+  getAnalyzer(
+    args: GetAnalyzerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAnalyzerCommandOutput>;
+  getAnalyzer(
+    args: GetAnalyzerCommandInput,
+    cb: (err: any, data?: GetAnalyzerCommandOutput) => void
+  ): void;
   getAnalyzer(
     args: GetAnalyzerCommandInput,
     options: __HttpHandlerOptions,
@@ -451,7 +463,10 @@ export interface AccessAnalyzer {
     args: GetArchiveRuleCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetArchiveRuleCommandOutput>;
-  getArchiveRule(args: GetArchiveRuleCommandInput, cb: (err: any, data?: GetArchiveRuleCommandOutput) => void): void;
+  getArchiveRule(
+    args: GetArchiveRuleCommandInput,
+    cb: (err: any, data?: GetArchiveRuleCommandOutput) => void
+  ): void;
   getArchiveRule(
     args: GetArchiveRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -461,8 +476,14 @@ export interface AccessAnalyzer {
   /**
    * @see {@link GetFindingCommand}
    */
-  getFinding(args: GetFindingCommandInput, options?: __HttpHandlerOptions): Promise<GetFindingCommandOutput>;
-  getFinding(args: GetFindingCommandInput, cb: (err: any, data?: GetFindingCommandOutput) => void): void;
+  getFinding(
+    args: GetFindingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFindingCommandOutput>;
+  getFinding(
+    args: GetFindingCommandInput,
+    cb: (err: any, data?: GetFindingCommandOutput) => void
+  ): void;
   getFinding(
     args: GetFindingCommandInput,
     options: __HttpHandlerOptions,
@@ -506,8 +527,14 @@ export interface AccessAnalyzer {
   /**
    * @see {@link GetFindingV2Command}
    */
-  getFindingV2(args: GetFindingV2CommandInput, options?: __HttpHandlerOptions): Promise<GetFindingV2CommandOutput>;
-  getFindingV2(args: GetFindingV2CommandInput, cb: (err: any, data?: GetFindingV2CommandOutput) => void): void;
+  getFindingV2(
+    args: GetFindingV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFindingV2CommandOutput>;
+  getFindingV2(
+    args: GetFindingV2CommandInput,
+    cb: (err: any, data?: GetFindingV2CommandOutput) => void
+  ): void;
   getFindingV2(
     args: GetFindingV2CommandInput,
     options: __HttpHandlerOptions,
@@ -586,8 +613,14 @@ export interface AccessAnalyzer {
    * @see {@link ListAnalyzersCommand}
    */
   listAnalyzers(): Promise<ListAnalyzersCommandOutput>;
-  listAnalyzers(args: ListAnalyzersCommandInput, options?: __HttpHandlerOptions): Promise<ListAnalyzersCommandOutput>;
-  listAnalyzers(args: ListAnalyzersCommandInput, cb: (err: any, data?: ListAnalyzersCommandOutput) => void): void;
+  listAnalyzers(
+    args: ListAnalyzersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAnalyzersCommandOutput>;
+  listAnalyzers(
+    args: ListAnalyzersCommandInput,
+    cb: (err: any, data?: ListAnalyzersCommandOutput) => void
+  ): void;
   listAnalyzers(
     args: ListAnalyzersCommandInput,
     options: __HttpHandlerOptions,
@@ -614,8 +647,14 @@ export interface AccessAnalyzer {
   /**
    * @see {@link ListFindingsCommand}
    */
-  listFindings(args: ListFindingsCommandInput, options?: __HttpHandlerOptions): Promise<ListFindingsCommandOutput>;
-  listFindings(args: ListFindingsCommandInput, cb: (err: any, data?: ListFindingsCommandOutput) => void): void;
+  listFindings(
+    args: ListFindingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFindingsCommandOutput>;
+  listFindings(
+    args: ListFindingsCommandInput,
+    cb: (err: any, data?: ListFindingsCommandOutput) => void
+  ): void;
   listFindings(
     args: ListFindingsCommandInput,
     options: __HttpHandlerOptions,
@@ -629,7 +668,10 @@ export interface AccessAnalyzer {
     args: ListFindingsV2CommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListFindingsV2CommandOutput>;
-  listFindingsV2(args: ListFindingsV2CommandInput, cb: (err: any, data?: ListFindingsV2CommandOutput) => void): void;
+  listFindingsV2(
+    args: ListFindingsV2CommandInput,
+    cb: (err: any, data?: ListFindingsV2CommandOutput) => void
+  ): void;
   listFindingsV2(
     args: ListFindingsV2CommandInput,
     options: __HttpHandlerOptions,
@@ -708,8 +750,14 @@ export interface AccessAnalyzer {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -719,8 +767,14 @@ export interface AccessAnalyzer {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -734,7 +788,10 @@ export interface AccessAnalyzer {
     args: UpdateAnalyzerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateAnalyzerCommandOutput>;
-  updateAnalyzer(args: UpdateAnalyzerCommandInput, cb: (err: any, data?: UpdateAnalyzerCommandOutput) => void): void;
+  updateAnalyzer(
+    args: UpdateAnalyzerCommandInput,
+    cb: (err: any, data?: UpdateAnalyzerCommandOutput) => void
+  ): void;
   updateAnalyzer(
     args: UpdateAnalyzerCommandInput,
     options: __HttpHandlerOptions,
@@ -765,7 +822,10 @@ export interface AccessAnalyzer {
     args: UpdateFindingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateFindingsCommandOutput>;
-  updateFindings(args: UpdateFindingsCommandInput, cb: (err: any, data?: UpdateFindingsCommandOutput) => void): void;
+  updateFindings(
+    args: UpdateFindingsCommandInput,
+    cb: (err: any, data?: UpdateFindingsCommandOutput) => void
+  ): void;
   updateFindings(
     args: UpdateFindingsCommandInput,
     options: __HttpHandlerOptions,
@@ -779,7 +839,10 @@ export interface AccessAnalyzer {
     args: ValidatePolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ValidatePolicyCommandOutput>;
-  validatePolicy(args: ValidatePolicyCommandInput, cb: (err: any, data?: ValidatePolicyCommandOutput) => void): void;
+  validatePolicy(
+    args: ValidatePolicyCommandInput,
+    cb: (err: any, data?: ValidatePolicyCommandOutput) => void
+  ): void;
   validatePolicy(
     args: ValidatePolicyCommandInput,
     options: __HttpHandlerOptions,

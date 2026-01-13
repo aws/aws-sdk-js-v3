@@ -32,10 +32,8 @@ home region.</p>
 API reference. </p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-migrationhub-config
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-migrationhub-config`
 - `yarn add @aws-sdk/client-migrationhub-config`
 - `pnpm add @aws-sdk/client-migrationhub-config`
@@ -71,9 +69,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new MigrationHubConfigClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new GetHomeRegionCommand(params);
 ```
 
@@ -232,7 +228,6 @@ CreateHomeRegionControl
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhub-config/command/CreateHomeRegionControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhub-config/Interface/CreateHomeRegionControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhub-config/Interface/CreateHomeRegionControlCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -240,7 +235,6 @@ DeleteHomeRegionControl
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhub-config/command/DeleteHomeRegionControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhub-config/Interface/DeleteHomeRegionControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhub-config/Interface/DeleteHomeRegionControlCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -248,7 +242,6 @@ DescribeHomeRegionControls
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhub-config/command/DescribeHomeRegionControlsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhub-config/Interface/DescribeHomeRegionControlsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhub-config/Interface/DescribeHomeRegionControlsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -256,5 +249,4 @@ GetHomeRegion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhub-config/command/GetHomeRegionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhub-config/Interface/GetHomeRegionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhub-config/Interface/GetHomeRegionCommandOutput/)
-
 </details>

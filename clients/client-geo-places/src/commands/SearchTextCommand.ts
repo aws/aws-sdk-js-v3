@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GeoPlacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoPlacesClient";
 import type { SearchTextRequest, SearchTextResponse } from "../models/models_0";
-import { SearchText } from "../schemas/schemas_0";
+import { SearchText$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,7 +27,7 @@ export interface SearchTextCommandInput extends SearchTextRequest {}
 export interface SearchTextCommandOutput extends SearchTextResponse, __MetadataBearer {}
 
 /**
- * <p> <code>SearchText</code> searches for geocode and place information. You can then complete a follow-up query suggested from the <code>Suggest</code> API via a query id.</p>
+ * <p> <code>SearchText</code> searches for geocode and place information. You can then complete a follow-up query suggested from the <code>Suggest</code> API via a query id.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/search-text.html">Search Text</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -117,6 +117,7 @@ export interface SearchTextCommandOutput extends SearchTextResponse, __MetadataB
  * //         SecondaryAddressComponents: [ // SecondaryAddressComponentList
  * //           { // SecondaryAddressComponent
  * //             Number: "STRING_VALUE", // required
+ * //             Designator: "STRING_VALUE",
  * //           },
  * //         ],
  * //       },
@@ -331,7 +332,7 @@ export class SearchTextCommand extends $Command
   })
   .s("PlacesService", "SearchText", {})
   .n("GeoPlacesClient", "SearchTextCommand")
-  .sc(SearchText)
+  .sc(SearchText$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

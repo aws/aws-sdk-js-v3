@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFlowMonitorClient";
-import { StopQueryMonitorTopContributors } from "../schemas/schemas_0";
+import { StopQueryMonitorTopContributors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface StopQueryMonitorTopContributorsCommandInput extends StopQueryMo
  *
  * The output of {@link StopQueryMonitorTopContributorsCommand}.
  */
-export interface StopQueryMonitorTopContributorsCommandOutput
-  extends StopQueryMonitorTopContributorsOutput,
-    __MetadataBearer {}
+export interface StopQueryMonitorTopContributorsCommandOutput extends StopQueryMonitorTopContributorsOutput, __MetadataBearer {}
 
 /**
  * <p>Stop a top contributors query for a monitor. Specify the query that you want to stop by providing a query ID and a monitor name. </p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned.</p>
@@ -93,7 +91,7 @@ export class StopQueryMonitorTopContributorsCommand extends $Command
   })
   .s("NetworkFlowMonitor", "StopQueryMonitorTopContributors", {})
   .n("NetworkFlowMonitorClient", "StopQueryMonitorTopContributorsCommand")
-  .sc(StopQueryMonitorTopContributors)
+  .sc(StopQueryMonitorTopContributors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

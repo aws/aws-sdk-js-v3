@@ -143,7 +143,6 @@ import {
   WorkforceIpAddressType,
   WorkforceStatus,
 } from "./enums";
-
 import {
   type AlgorithmSpecification,
   type AmazonQSettings,
@@ -192,7 +191,6 @@ import {
   OutputParameter,
   Tag,
 } from "./models_0";
-
 import {
   type DockerSettings,
   type EdgeOutputConfig,
@@ -217,7 +215,6 @@ import {
   FeatureDefinition,
   HyperParameterTrainingJobDefinition,
 } from "./models_1";
-
 import {
   type DataCaptureConfigSummary,
   type DataProcessing,
@@ -2795,7 +2792,9 @@ export interface TargetTrackingScalingPolicyConfiguration {
  * <p>An object containing a recommended scaling policy.</p>
  * @public
  */
-export type ScalingPolicy = ScalingPolicy.TargetTrackingMember | ScalingPolicy.$UnknownMember;
+export type ScalingPolicy =
+  | ScalingPolicy.TargetTrackingMember
+  | ScalingPolicy.$UnknownMember;
 
 /**
  * @public
@@ -4552,7 +4551,7 @@ export interface ImportHubContentResponse {
  */
 export interface InferenceComponentMetadata {
   /**
-   * <p> The Amazon Resource Name (ARN) of the inference component metadata. </p>
+   * <p> The Amazon Resource Name (ARN) of the inference component. </p>
    * @public
    */
   Arn?: string | undefined;
@@ -5044,25 +5043,25 @@ export interface LineageGroupSummary {
  */
 export interface LineageMetadata {
   /**
-   * <p> The Amazon Resource Name (ARN) of the lineage metadata action. </p>
+   * <p> The Amazon Resource Name (ARN) of the lineage action. </p>
    * @public
    */
   ActionArns?: Record<string, string> | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the lineage metadata artifact. </p>
+   * <p> The Amazon Resource Name (ARN) of the lineage artifact. </p>
    * @public
    */
   ArtifactArns?: Record<string, string> | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the lineage metadata context. </p>
+   * <p> The Amazon Resource Name (ARN) of the lineage context. </p>
    * @public
    */
   ContextArns?: Record<string, string> | undefined;
 
   /**
-   * <p> The lineage metadata associations. </p>
+   * <p> The lineage associations. </p>
    * @public
    */
   Associations?: AssociationInfo[] | undefined;

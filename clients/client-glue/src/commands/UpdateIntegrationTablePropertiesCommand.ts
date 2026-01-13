@@ -9,7 +9,7 @@ import type {
   UpdateIntegrationTablePropertiesRequest,
   UpdateIntegrationTablePropertiesResponse,
 } from "../models/models_2";
-import { UpdateIntegrationTableProperties } from "../schemas/schemas_0";
+import { UpdateIntegrationTableProperties$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateIntegrationTablePropertiesCommandInput extends UpdateInte
  *
  * The output of {@link UpdateIntegrationTablePropertiesCommand}.
  */
-export interface UpdateIntegrationTablePropertiesCommandOutput
-  extends UpdateIntegrationTablePropertiesResponse,
-    __MetadataBearer {}
+export interface UpdateIntegrationTablePropertiesCommandOutput extends UpdateIntegrationTablePropertiesResponse, __MetadataBearer {}
 
 /**
  * <p>This API is used to provide optional override properties for the tables that need to be replicated. These properties can include properties for filtering and partitioning for the source and target tables. To set both source and target properties the same API need to be invoked with the Glue connection ARN as <code>ResourceArn</code> with <code>SourceTableConfig</code>, and the Glue database ARN as <code>ResourceArn</code> with <code>TargetTableConfig</code> respectively.</p>
@@ -120,7 +118,7 @@ export class UpdateIntegrationTablePropertiesCommand extends $Command
   })
   .s("AWSGlue", "UpdateIntegrationTableProperties", {})
   .n("GlueClient", "UpdateIntegrationTablePropertiesCommand")
-  .sc(UpdateIntegrationTableProperties)
+  .sc(UpdateIntegrationTableProperties$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

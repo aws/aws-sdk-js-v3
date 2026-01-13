@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDataTableRequest, CreateDataTableResponse } from "../models/models_0";
-import { CreateDataTable } from "../schemas/schemas_0";
+import { CreateDataTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -29,7 +29,7 @@ export interface CreateDataTableCommandOutput extends CreateDataTableResponse, _
 /**
  * <p>Creates a new data table with the specified properties. Supports the creation of all table properties except for
  *    attributes and values. A table with no attributes and values is a valid state for a table. The number of tables per
- *    instance is limited to 100 per instance. Customers can request an increase by using AWS Service Quotas.</p>
+ *    instance is limited to 100 per instance. Customers can request an increase by using Amazon Web Services Service Quotas.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -118,7 +118,7 @@ export class CreateDataTableCommand extends $Command
   })
   .s("AmazonConnectService", "CreateDataTable", {})
   .n("ConnectClient", "CreateDataTableCommand")
-  .sc(CreateDataTable)
+  .sc(CreateDataTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

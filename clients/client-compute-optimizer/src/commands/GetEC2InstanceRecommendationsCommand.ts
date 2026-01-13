@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetEC2InstanceRecommendationsRequest, GetEC2InstanceRecommendationsResponse } from "../models/models_0";
-import { GetEC2InstanceRecommendations } from "../schemas/schemas_0";
+import { GetEC2InstanceRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetEC2InstanceRecommendationsCommandInput extends GetEC2Instanc
  *
  * The output of {@link GetEC2InstanceRecommendationsCommand}.
  */
-export interface GetEC2InstanceRecommendationsCommandOutput
-  extends GetEC2InstanceRecommendationsResponse,
-    __MetadataBearer {}
+export interface GetEC2InstanceRecommendationsCommandOutput extends GetEC2InstanceRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns Amazon EC2 instance recommendations.</p>
@@ -263,7 +261,7 @@ export class GetEC2InstanceRecommendationsCommand extends $Command
   })
   .s("ComputeOptimizerService", "GetEC2InstanceRecommendations", {})
   .n("ComputeOptimizerClient", "GetEC2InstanceRecommendationsCommand")
-  .sc(GetEC2InstanceRecommendations)
+  .sc(GetEC2InstanceRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

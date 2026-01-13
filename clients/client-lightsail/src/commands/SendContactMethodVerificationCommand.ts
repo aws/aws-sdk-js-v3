@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { SendContactMethodVerificationRequest, SendContactMethodVerificationResult } from "../models/models_1";
-import { SendContactMethodVerification } from "../schemas/schemas_0";
+import { SendContactMethodVerification$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface SendContactMethodVerificationCommandInput extends SendContactMe
  *
  * The output of {@link SendContactMethodVerificationCommand}.
  */
-export interface SendContactMethodVerificationCommandOutput
-  extends SendContactMethodVerificationResult,
-    __MetadataBearer {}
+export interface SendContactMethodVerificationCommandOutput extends SendContactMethodVerificationResult, __MetadataBearer {}
 
 /**
  * <p>Sends a verification request to an email contact method to ensure it's owned by the
@@ -135,7 +133,7 @@ export class SendContactMethodVerificationCommand extends $Command
   })
   .s("Lightsail_20161128", "SendContactMethodVerification", {})
   .n("LightsailClient", "SendContactMethodVerificationCommand")
-  .sc(SendContactMethodVerification)
+  .sc(SendContactMethodVerification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

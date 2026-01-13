@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteChimeWebhookConfigurationRequest, DeleteChimeWebhookConfigurationResult } from "../models/models_0";
-import { DeleteChimeWebhookConfiguration } from "../schemas/schemas_0";
+import { DeleteChimeWebhookConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteChimeWebhookConfigurationCommandInput extends DeleteChime
  *
  * The output of {@link DeleteChimeWebhookConfigurationCommand}.
  */
-export interface DeleteChimeWebhookConfigurationCommandOutput
-  extends DeleteChimeWebhookConfigurationResult,
-    __MetadataBearer {}
+export interface DeleteChimeWebhookConfigurationCommandOutput extends DeleteChimeWebhookConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a Amazon Chime webhook configuration for AWS Chatbot.</p>
@@ -85,7 +83,7 @@ export class DeleteChimeWebhookConfigurationCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "DeleteChimeWebhookConfiguration", {})
   .n("ChatbotClient", "DeleteChimeWebhookConfigurationCommand")
-  .sc(DeleteChimeWebhookConfiguration)
+  .sc(DeleteChimeWebhookConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -39,11 +39,12 @@ export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ElasticLoadBalancingV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
+export * from "./schemas/schemas_0";
 export * from "./pagination";
 export * from "./waiters";
 
 export * from "./models/enums";
 export * from "./models/errors";
-export type * from "./models/models_0";
+export * from "./models/models_0";
 
 export { ElasticLoadBalancingV2ServiceException } from "./models/ElasticLoadBalancingV2ServiceException";

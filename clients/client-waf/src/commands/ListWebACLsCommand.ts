@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListWebACLsRequest, ListWebACLsResponse } from "../models/models_0";
-import { ListWebACLs } from "../schemas/schemas_0";
+import { ListWebACLs$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -114,7 +114,7 @@ export class ListWebACLsCommand extends $Command
   })
   .s("AWSWAF_20150824", "ListWebACLs", {})
   .n("WAFClient", "ListWebACLsCommand")
-  .sc(ListWebACLs)
+  .sc(ListWebACLs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

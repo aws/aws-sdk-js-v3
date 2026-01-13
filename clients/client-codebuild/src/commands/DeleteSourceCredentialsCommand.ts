@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSourceCredentialsInput, DeleteSourceCredentialsOutput } from "../models/models_0";
-import { DeleteSourceCredentials } from "../schemas/schemas_0";
+import { DeleteSourceCredentials$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,7 +79,7 @@ export class DeleteSourceCredentialsCommand extends $Command
   })
   .s("CodeBuild_20161006", "DeleteSourceCredentials", {})
   .n("CodeBuildClient", "DeleteSourceCredentialsCommand")
-  .sc(DeleteSourceCredentials)
+  .sc(DeleteSourceCredentials$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

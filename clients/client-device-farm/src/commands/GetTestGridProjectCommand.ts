@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTestGridProjectRequest, GetTestGridProjectResult } from "../models/models_0";
-import { GetTestGridProject } from "../schemas/schemas_0";
+import { GetTestGridProject$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetTestGridProjectCommand extends $Command
   })
   .s("DeviceFarm_20150623", "GetTestGridProject", {})
   .n("DeviceFarmClient", "GetTestGridProjectCommand")
-  .sc(GetTestGridProject)
+  .sc(GetTestGridProject$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

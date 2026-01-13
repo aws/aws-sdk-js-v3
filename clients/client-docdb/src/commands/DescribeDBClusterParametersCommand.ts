@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DBClusterParameterGroupDetails, DescribeDBClusterParametersMessage } from "../models/models_0";
-import { DescribeDBClusterParameters } from "../schemas/schemas_0";
+import { DescribeDBClusterParameters$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class DescribeDBClusterParametersCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeDBClusterParameters", {})
   .n("DocDBClient", "DescribeDBClusterParametersCommand")
-  .sc(DescribeDBClusterParameters)
+  .sc(DescribeDBClusterParameters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteApiKeyCredentialProviderRequest, DeleteApiKeyCredentialProviderResponse } from "../models/models_0";
-import { DeleteApiKeyCredentialProvider } from "../schemas/schemas_0";
+import { DeleteApiKeyCredentialProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DeleteApiKeyCredentialProviderCommandInput extends DeleteApiKey
  *
  * The output of {@link DeleteApiKeyCredentialProviderCommand}.
  */
-export interface DeleteApiKeyCredentialProviderCommandOutput
-  extends DeleteApiKeyCredentialProviderResponse,
-    __MetadataBearer {}
+export interface DeleteApiKeyCredentialProviderCommandOutput extends DeleteApiKeyCredentialProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an API key credential provider.</p>
@@ -95,7 +93,7 @@ export class DeleteApiKeyCredentialProviderCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "DeleteApiKeyCredentialProvider", {})
   .n("BedrockAgentCoreControlClient", "DeleteApiKeyCredentialProviderCommand")
-  .sc(DeleteApiKeyCredentialProvider)
+  .sc(DeleteApiKeyCredentialProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

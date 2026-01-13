@@ -23,8 +23,14 @@ export interface Forecastquery {
   /**
    * @see {@link QueryForecastCommand}
    */
-  queryForecast(args: QueryForecastCommandInput, options?: __HttpHandlerOptions): Promise<QueryForecastCommandOutput>;
-  queryForecast(args: QueryForecastCommandInput, cb: (err: any, data?: QueryForecastCommandOutput) => void): void;
+  queryForecast(
+    args: QueryForecastCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<QueryForecastCommandOutput>;
+  queryForecast(
+    args: QueryForecastCommandInput,
+    cb: (err: any, data?: QueryForecastCommandOutput) => void
+  ): void;
   queryForecast(
     args: QueryForecastCommandInput,
     options: __HttpHandlerOptions,

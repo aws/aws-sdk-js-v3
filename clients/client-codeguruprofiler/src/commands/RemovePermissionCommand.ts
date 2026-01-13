@@ -10,7 +10,7 @@ import type {
 } from "../CodeGuruProfilerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemovePermissionRequest, RemovePermissionResponse } from "../models/models_0";
-import { RemovePermission } from "../schemas/schemas_0";
+import { RemovePermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class RemovePermissionCommand extends $Command
   })
   .s("CodeGuruProfiler", "RemovePermission", {})
   .n("CodeGuruProfilerClient", "RemovePermissionCommand")
-  .sc(RemovePermission)
+  .sc(RemovePermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1063,7 +1063,7 @@ export interface RecordingModeOverride {
 
 /**
  * <p>Specifies the default recording frequency that Config uses to record configuration changes.
- *
+ * 			
  * 			Config supports <i>Continuous recording</i> and <i>Daily recording</i>.</p>
  *          <ul>
  *             <li>
@@ -1166,7 +1166,7 @@ export interface ConfigurationRecorder {
    *             <p>
    *                <b>Keep Minimum Permisions When Reusing an IAM role</b>
    *             </p>
-   *             <p>If you use an Amazon Web Services service that uses Config, such as Security Hub or
+   *             <p>If you use an Amazon Web Services service that uses Config, such as Security Hub CSPM or
    * 				Control Tower, and an IAM role has already been created, make sure that the
    * 				IAM role that you use when setting up Config keeps the same minimum
    * 				permissions as the pre-existing IAM role. You must do this to ensure that the
@@ -1206,7 +1206,7 @@ export interface ConfigurationRecorder {
 
   /**
    * <p>Specifies the default recording frequency for the configuration recorder.
-   *
+   * 			
    * 			Config supports <i>Continuous recording</i> and <i>Daily recording</i>.</p>
    *          <ul>
    *             <li>
@@ -1474,7 +1474,7 @@ export interface BatchGetResourceConfigResponse {
    * 			current response. The unprocessesResourceKeys value is in the same
    * 			form as ResourceKeys, so the value can be directly provided to a
    * 			subsequent BatchGetResourceConfig operation.
-   *
+   * 			
    * 			If there are no unprocessed resource keys, the response contains an
    * 			empty unprocessedResourceKeys list. </p>
    * @public
@@ -1814,7 +1814,7 @@ export interface Source {
  *          <p>Config Custom Rules are rules that you create from scratch. There are two ways to create Config custom rules: with Lambda functions
  * 				(<a href="https://docs.aws.amazon.com/config/latest/developerguide/gettingstarted-concepts.html#gettingstarted-concepts-function"> Lambda Developer Guide</a>) and with Guard (<a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
  * 						Repository</a>), a policy-as-code language.
- *
+ * 				
  * 				Config custom rules created with Lambda
  * 				are called <i>Config Custom Lambda Rules</i> and Config custom rules created with
  * 				Guard are called <i>Config Custom Policy Rules</i>.</p>
@@ -5026,7 +5026,7 @@ export interface RemediationConfiguration {
   /**
    * <p>The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.</p>
    *          <p>For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptSeconds as 50 seconds,
-   *
+   * 			
    * 			Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.</p>
    * @public
    */
@@ -7644,7 +7644,7 @@ export interface PutAggregationAuthorizationRequest {
 export interface PutAggregationAuthorizationResponse {
   /**
    * <p>Returns an AggregationAuthorization object.
-   *
+   * 			
    * 		</p>
    * @public
    */
@@ -7680,7 +7680,7 @@ export interface PutConfigurationAggregatorRequest {
 
   /**
    * <p>A list of AccountAggregationSource object.
-   *
+   * 			
    * 		</p>
    * @public
    */

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GameLiftStreamsClient";
 import type { AddStreamGroupLocationsInput, AddStreamGroupLocationsOutput } from "../models/models_0";
-import { AddStreamGroupLocations } from "../schemas/schemas_0";
+import { AddStreamGroupLocations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -47,6 +47,8 @@ export interface AddStreamGroupLocationsCommandOutput extends AddStreamGroupLoca
  *       LocationName: "STRING_VALUE", // required
  *       AlwaysOnCapacity: Number("int"),
  *       OnDemandCapacity: Number("int"),
+ *       TargetIdleCapacity: Number("int"),
+ *       MaximumCapacity: Number("int"),
  *     },
  *   ],
  * };
@@ -60,6 +62,8 @@ export interface AddStreamGroupLocationsCommandOutput extends AddStreamGroupLoca
  * //       Status: "ACTIVATING" || "ACTIVE" || "ERROR" || "REMOVING",
  * //       AlwaysOnCapacity: Number("int"),
  * //       OnDemandCapacity: Number("int"),
+ * //       TargetIdleCapacity: Number("int"),
+ * //       MaximumCapacity: Number("int"),
  * //       RequestedCapacity: Number("int"),
  * //       AllocatedCapacity: Number("int"),
  * //       IdleCapacity: Number("int"),
@@ -113,7 +117,7 @@ export class AddStreamGroupLocationsCommand extends $Command
   })
   .s("GameLiftStreams", "AddStreamGroupLocations", {})
   .n("GameLiftStreamsClient", "AddStreamGroupLocationsCommand")
-  .sc(AddStreamGroupLocations)
+  .sc(AddStreamGroupLocations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

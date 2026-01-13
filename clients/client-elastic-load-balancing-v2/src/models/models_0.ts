@@ -4676,9 +4676,7 @@ export interface SetSecurityGroupsInput {
    *       has an associated security group. The default is <code>on</code>.</p>
    * @public
    */
-  EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?:
-    | EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum
-    | undefined;
+  EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum | undefined;
 }
 
 /**
@@ -4696,9 +4694,7 @@ export interface SetSecurityGroupsOutput {
    *       Network Load Balancer through Amazon Web Services PrivateLink.</p>
    * @public
    */
-  EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?:
-    | EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum
-    | undefined;
+  EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum | undefined;
 }
 
 /**

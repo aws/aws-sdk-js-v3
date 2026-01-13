@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteQualificationTypeRequest, DeleteQualificationTypeResponse } from "../models/models_0";
 import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { DeleteQualificationType } from "../schemas/schemas_0";
+import { DeleteQualificationType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeleteQualificationTypeCommand extends $Command
   })
   .s("MTurkRequesterServiceV20170117", "DeleteQualificationType", {})
   .n("MTurkClient", "DeleteQualificationTypeCommand")
-  .sc(DeleteQualificationType)
+  .sc(DeleteQualificationType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

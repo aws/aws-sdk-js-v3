@@ -9,7 +9,7 @@ import type {
   DeleteProvisioningTemplateVersionRequest,
   DeleteProvisioningTemplateVersionResponse,
 } from "../models/models_0";
-import { DeleteProvisioningTemplateVersion } from "../schemas/schemas_0";
+import { DeleteProvisioningTemplateVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteProvisioningTemplateVersionCommandInput extends DeletePro
  *
  * The output of {@link DeleteProvisioningTemplateVersionCommand}.
  */
-export interface DeleteProvisioningTemplateVersionCommandOutput
-  extends DeleteProvisioningTemplateVersionResponse,
-    __MetadataBearer {}
+export interface DeleteProvisioningTemplateVersionCommandOutput extends DeleteProvisioningTemplateVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a provisioning template version.</p>
@@ -101,7 +99,7 @@ export class DeleteProvisioningTemplateVersionCommand extends $Command
   })
   .s("AWSIotService", "DeleteProvisioningTemplateVersion", {})
   .n("IoTClient", "DeleteProvisioningTemplateVersionCommand")
-  .sc(DeleteProvisioningTemplateVersion)
+  .sc(DeleteProvisioningTemplateVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

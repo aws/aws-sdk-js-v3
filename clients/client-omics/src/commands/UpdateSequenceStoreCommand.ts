@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateSequenceStoreRequest, UpdateSequenceStoreResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { UpdateSequenceStore } from "../schemas/schemas_0";
+import { UpdateSequenceStore$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class UpdateSequenceStoreCommand extends $Command
   })
   .s("Omics", "UpdateSequenceStore", {})
   .n("OmicsClient", "UpdateSequenceStoreCommand")
-  .sc(UpdateSequenceStore)
+  .sc(UpdateSequenceStore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

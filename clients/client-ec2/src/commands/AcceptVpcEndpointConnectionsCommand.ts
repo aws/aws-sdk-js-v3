@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AcceptVpcEndpointConnectionsRequest, AcceptVpcEndpointConnectionsResult } from "../models/models_0";
-import { AcceptVpcEndpointConnections } from "../schemas/schemas_0";
+import { AcceptVpcEndpointConnections$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface AcceptVpcEndpointConnectionsCommandInput extends AcceptVpcEndpo
  *
  * The output of {@link AcceptVpcEndpointConnectionsCommand}.
  */
-export interface AcceptVpcEndpointConnectionsCommandOutput
-  extends AcceptVpcEndpointConnectionsResult,
-    __MetadataBearer {}
+export interface AcceptVpcEndpointConnectionsCommandOutput extends AcceptVpcEndpointConnectionsResult, __MetadataBearer {}
 
 /**
  * <p>Accepts connection requests to your VPC endpoint service.</p>
@@ -87,7 +85,7 @@ export class AcceptVpcEndpointConnectionsCommand extends $Command
   })
   .s("AmazonEC2", "AcceptVpcEndpointConnections", {})
   .n("EC2Client", "AcceptVpcEndpointConnectionsCommand")
-  .sc(AcceptVpcEndpointConnections)
+  .sc(AcceptVpcEndpointConnections$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -325,8 +325,14 @@ export interface FSx {
   /**
    * @see {@link CopyBackupCommand}
    */
-  copyBackup(args: CopyBackupCommandInput, options?: __HttpHandlerOptions): Promise<CopyBackupCommandOutput>;
-  copyBackup(args: CopyBackupCommandInput, cb: (err: any, data?: CopyBackupCommandOutput) => void): void;
+  copyBackup(
+    args: CopyBackupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CopyBackupCommandOutput>;
+  copyBackup(
+    args: CopyBackupCommandInput,
+    cb: (err: any, data?: CopyBackupCommandOutput) => void
+  ): void;
   copyBackup(
     args: CopyBackupCommandInput,
     options: __HttpHandlerOptions,
@@ -371,8 +377,14 @@ export interface FSx {
    * @see {@link CreateBackupCommand}
    */
   createBackup(): Promise<CreateBackupCommandOutput>;
-  createBackup(args: CreateBackupCommandInput, options?: __HttpHandlerOptions): Promise<CreateBackupCommandOutput>;
-  createBackup(args: CreateBackupCommandInput, cb: (err: any, data?: CreateBackupCommandOutput) => void): void;
+  createBackup(
+    args: CreateBackupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBackupCommandOutput>;
+  createBackup(
+    args: CreateBackupCommandInput,
+    cb: (err: any, data?: CreateBackupCommandOutput) => void
+  ): void;
   createBackup(
     args: CreateBackupCommandInput,
     options: __HttpHandlerOptions,
@@ -420,7 +432,10 @@ export interface FSx {
     args: CreateFileCacheCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateFileCacheCommandOutput>;
-  createFileCache(args: CreateFileCacheCommandInput, cb: (err: any, data?: CreateFileCacheCommandOutput) => void): void;
+  createFileCache(
+    args: CreateFileCacheCommandInput,
+    cb: (err: any, data?: CreateFileCacheCommandOutput) => void
+  ): void;
   createFileCache(
     args: CreateFileCacheCommandInput,
     options: __HttpHandlerOptions,
@@ -468,7 +483,10 @@ export interface FSx {
     args: CreateSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateSnapshotCommandOutput>;
-  createSnapshot(args: CreateSnapshotCommandInput, cb: (err: any, data?: CreateSnapshotCommandOutput) => void): void;
+  createSnapshot(
+    args: CreateSnapshotCommandInput,
+    cb: (err: any, data?: CreateSnapshotCommandOutput) => void
+  ): void;
   createSnapshot(
     args: CreateSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -495,8 +513,14 @@ export interface FSx {
   /**
    * @see {@link CreateVolumeCommand}
    */
-  createVolume(args: CreateVolumeCommandInput, options?: __HttpHandlerOptions): Promise<CreateVolumeCommandOutput>;
-  createVolume(args: CreateVolumeCommandInput, cb: (err: any, data?: CreateVolumeCommandOutput) => void): void;
+  createVolume(
+    args: CreateVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVolumeCommandOutput>;
+  createVolume(
+    args: CreateVolumeCommandInput,
+    cb: (err: any, data?: CreateVolumeCommandOutput) => void
+  ): void;
   createVolume(
     args: CreateVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -523,8 +547,14 @@ export interface FSx {
   /**
    * @see {@link DeleteBackupCommand}
    */
-  deleteBackup(args: DeleteBackupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBackupCommandOutput>;
-  deleteBackup(args: DeleteBackupCommandInput, cb: (err: any, data?: DeleteBackupCommandOutput) => void): void;
+  deleteBackup(
+    args: DeleteBackupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBackupCommandOutput>;
+  deleteBackup(
+    args: DeleteBackupCommandInput,
+    cb: (err: any, data?: DeleteBackupCommandOutput) => void
+  ): void;
   deleteBackup(
     args: DeleteBackupCommandInput,
     options: __HttpHandlerOptions,
@@ -555,7 +585,10 @@ export interface FSx {
     args: DeleteFileCacheCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteFileCacheCommandOutput>;
-  deleteFileCache(args: DeleteFileCacheCommandInput, cb: (err: any, data?: DeleteFileCacheCommandOutput) => void): void;
+  deleteFileCache(
+    args: DeleteFileCacheCommandInput,
+    cb: (err: any, data?: DeleteFileCacheCommandOutput) => void
+  ): void;
   deleteFileCache(
     args: DeleteFileCacheCommandInput,
     options: __HttpHandlerOptions,
@@ -586,7 +619,10 @@ export interface FSx {
     args: DeleteSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteSnapshotCommandOutput>;
-  deleteSnapshot(args: DeleteSnapshotCommandInput, cb: (err: any, data?: DeleteSnapshotCommandOutput) => void): void;
+  deleteSnapshot(
+    args: DeleteSnapshotCommandInput,
+    cb: (err: any, data?: DeleteSnapshotCommandOutput) => void
+  ): void;
   deleteSnapshot(
     args: DeleteSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -613,8 +649,14 @@ export interface FSx {
   /**
    * @see {@link DeleteVolumeCommand}
    */
-  deleteVolume(args: DeleteVolumeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteVolumeCommandOutput>;
-  deleteVolume(args: DeleteVolumeCommandInput, cb: (err: any, data?: DeleteVolumeCommandOutput) => void): void;
+  deleteVolume(
+    args: DeleteVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVolumeCommandOutput>;
+  deleteVolume(
+    args: DeleteVolumeCommandInput,
+    cb: (err: any, data?: DeleteVolumeCommandOutput) => void
+  ): void;
   deleteVolume(
     args: DeleteVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -629,7 +671,10 @@ export interface FSx {
     args: DescribeBackupsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeBackupsCommandOutput>;
-  describeBackups(args: DescribeBackupsCommandInput, cb: (err: any, data?: DescribeBackupsCommandOutput) => void): void;
+  describeBackups(
+    args: DescribeBackupsCommandInput,
+    cb: (err: any, data?: DescribeBackupsCommandOutput) => void
+  ): void;
   describeBackups(
     args: DescribeBackupsCommandInput,
     options: __HttpHandlerOptions,
@@ -805,7 +850,10 @@ export interface FSx {
     args: DescribeVolumesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeVolumesCommandOutput>;
-  describeVolumes(args: DescribeVolumesCommandInput, cb: (err: any, data?: DescribeVolumesCommandOutput) => void): void;
+  describeVolumes(
+    args: DescribeVolumesCommandInput,
+    cb: (err: any, data?: DescribeVolumesCommandOutput) => void
+  ): void;
   describeVolumes(
     args: DescribeVolumesCommandInput,
     options: __HttpHandlerOptions,
@@ -917,8 +965,14 @@ export interface FSx {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -928,8 +982,14 @@ export interface FSx {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -960,7 +1020,10 @@ export interface FSx {
     args: UpdateFileCacheCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateFileCacheCommandOutput>;
-  updateFileCache(args: UpdateFileCacheCommandInput, cb: (err: any, data?: UpdateFileCacheCommandOutput) => void): void;
+  updateFileCache(
+    args: UpdateFileCacheCommandInput,
+    cb: (err: any, data?: UpdateFileCacheCommandOutput) => void
+  ): void;
   updateFileCache(
     args: UpdateFileCacheCommandInput,
     options: __HttpHandlerOptions,
@@ -1009,7 +1072,10 @@ export interface FSx {
     args: UpdateSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateSnapshotCommandOutput>;
-  updateSnapshot(args: UpdateSnapshotCommandInput, cb: (err: any, data?: UpdateSnapshotCommandOutput) => void): void;
+  updateSnapshot(
+    args: UpdateSnapshotCommandInput,
+    cb: (err: any, data?: UpdateSnapshotCommandOutput) => void
+  ): void;
   updateSnapshot(
     args: UpdateSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -1036,8 +1102,14 @@ export interface FSx {
   /**
    * @see {@link UpdateVolumeCommand}
    */
-  updateVolume(args: UpdateVolumeCommandInput, options?: __HttpHandlerOptions): Promise<UpdateVolumeCommandOutput>;
-  updateVolume(args: UpdateVolumeCommandInput, cb: (err: any, data?: UpdateVolumeCommandOutput) => void): void;
+  updateVolume(
+    args: UpdateVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVolumeCommandOutput>;
+  updateVolume(
+    args: UpdateVolumeCommandInput,
+    cb: (err: any, data?: UpdateVolumeCommandOutput) => void
+  ): void;
   updateVolume(
     args: UpdateVolumeCommandInput,
     options: __HttpHandlerOptions,

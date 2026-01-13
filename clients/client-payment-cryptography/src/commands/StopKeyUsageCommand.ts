@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyClient";
-import { StopKeyUsage } from "../schemas/schemas_0";
+import { StopKeyUsage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class StopKeyUsageCommand extends $Command
   })
   .s("PaymentCryptographyControlPlane", "StopKeyUsage", {})
   .n("PaymentCryptographyClient", "StopKeyUsageCommand")
-  .sc(StopKeyUsage)
+  .sc(StopKeyUsage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

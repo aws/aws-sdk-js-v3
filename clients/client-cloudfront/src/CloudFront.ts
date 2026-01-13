@@ -1005,7 +1005,10 @@ export interface CloudFront {
     args: AssociateAliasCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AssociateAliasCommandOutput>;
-  associateAlias(args: AssociateAliasCommandInput, cb: (err: any, data?: AssociateAliasCommandOutput) => void): void;
+  associateAlias(
+    args: AssociateAliasCommandInput,
+    cb: (err: any, data?: AssociateAliasCommandOutput) => void
+  ): void;
   associateAlias(
     args: AssociateAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -1257,7 +1260,10 @@ export interface CloudFront {
     args: CreateFunctionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateFunctionCommandOutput>;
-  createFunction(args: CreateFunctionCommandInput, cb: (err: any, data?: CreateFunctionCommandOutput) => void): void;
+  createFunction(
+    args: CreateFunctionCommandInput,
+    cb: (err: any, data?: CreateFunctionCommandOutput) => void
+  ): void;
   createFunction(
     args: CreateFunctionCommandInput,
     options: __HttpHandlerOptions,
@@ -1305,7 +1311,10 @@ export interface CloudFront {
     args: CreateKeyGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateKeyGroupCommandOutput>;
-  createKeyGroup(args: CreateKeyGroupCommandInput, cb: (err: any, data?: CreateKeyGroupCommandOutput) => void): void;
+  createKeyGroup(
+    args: CreateKeyGroupCommandInput,
+    cb: (err: any, data?: CreateKeyGroupCommandOutput) => void
+  ): void;
   createKeyGroup(
     args: CreateKeyGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1387,7 +1396,10 @@ export interface CloudFront {
     args: CreatePublicKeyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreatePublicKeyCommandOutput>;
-  createPublicKey(args: CreatePublicKeyCommandInput, cb: (err: any, data?: CreatePublicKeyCommandOutput) => void): void;
+  createPublicKey(
+    args: CreatePublicKeyCommandInput,
+    cb: (err: any, data?: CreatePublicKeyCommandOutput) => void
+  ): void;
   createPublicKey(
     args: CreatePublicKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -1486,7 +1498,10 @@ export interface CloudFront {
     args: CreateVpcOriginCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateVpcOriginCommandOutput>;
-  createVpcOrigin(args: CreateVpcOriginCommandInput, cb: (err: any, data?: CreateVpcOriginCommandOutput) => void): void;
+  createVpcOrigin(
+    args: CreateVpcOriginCommandInput,
+    cb: (err: any, data?: CreateVpcOriginCommandOutput) => void
+  ): void;
   createVpcOrigin(
     args: CreateVpcOriginCommandInput,
     options: __HttpHandlerOptions,
@@ -1670,7 +1685,10 @@ export interface CloudFront {
     args: DeleteFunctionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteFunctionCommandOutput>;
-  deleteFunction(args: DeleteFunctionCommandInput, cb: (err: any, data?: DeleteFunctionCommandOutput) => void): void;
+  deleteFunction(
+    args: DeleteFunctionCommandInput,
+    cb: (err: any, data?: DeleteFunctionCommandOutput) => void
+  ): void;
   deleteFunction(
     args: DeleteFunctionCommandInput,
     options: __HttpHandlerOptions,
@@ -1684,7 +1702,10 @@ export interface CloudFront {
     args: DeleteKeyGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteKeyGroupCommandOutput>;
-  deleteKeyGroup(args: DeleteKeyGroupCommandInput, cb: (err: any, data?: DeleteKeyGroupCommandOutput) => void): void;
+  deleteKeyGroup(
+    args: DeleteKeyGroupCommandInput,
+    cb: (err: any, data?: DeleteKeyGroupCommandOutput) => void
+  ): void;
   deleteKeyGroup(
     args: DeleteKeyGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1766,7 +1787,10 @@ export interface CloudFront {
     args: DeletePublicKeyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeletePublicKeyCommandOutput>;
-  deletePublicKey(args: DeletePublicKeyCommandInput, cb: (err: any, data?: DeletePublicKeyCommandOutput) => void): void;
+  deletePublicKey(
+    args: DeletePublicKeyCommandInput,
+    cb: (err: any, data?: DeletePublicKeyCommandOutput) => void
+  ): void;
   deletePublicKey(
     args: DeletePublicKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -1866,7 +1890,10 @@ export interface CloudFront {
     args: DeleteVpcOriginCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteVpcOriginCommandOutput>;
-  deleteVpcOrigin(args: DeleteVpcOriginCommandInput, cb: (err: any, data?: DeleteVpcOriginCommandOutput) => void): void;
+  deleteVpcOrigin(
+    args: DeleteVpcOriginCommandInput,
+    cb: (err: any, data?: DeleteVpcOriginCommandOutput) => void
+  ): void;
   deleteVpcOrigin(
     args: DeleteVpcOriginCommandInput,
     options: __HttpHandlerOptions,
@@ -1982,7 +2009,10 @@ export interface CloudFront {
     args: GetCachePolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCachePolicyCommandOutput>;
-  getCachePolicy(args: GetCachePolicyCommandInput, cb: (err: any, data?: GetCachePolicyCommandOutput) => void): void;
+  getCachePolicy(
+    args: GetCachePolicyCommandInput,
+    cb: (err: any, data?: GetCachePolicyCommandOutput) => void
+  ): void;
   getCachePolicy(
     args: GetCachePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -2132,7 +2162,10 @@ export interface CloudFront {
     args: GetDistributionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDistributionCommandOutput>;
-  getDistribution(args: GetDistributionCommandInput, cb: (err: any, data?: GetDistributionCommandOutput) => void): void;
+  getDistribution(
+    args: GetDistributionCommandInput,
+    cb: (err: any, data?: GetDistributionCommandOutput) => void
+  ): void;
   getDistribution(
     args: GetDistributionCommandInput,
     options: __HttpHandlerOptions,
@@ -2261,8 +2294,14 @@ export interface CloudFront {
   /**
    * @see {@link GetFunctionCommand}
    */
-  getFunction(args: GetFunctionCommandInput, options?: __HttpHandlerOptions): Promise<GetFunctionCommandOutput>;
-  getFunction(args: GetFunctionCommandInput, cb: (err: any, data?: GetFunctionCommandOutput) => void): void;
+  getFunction(
+    args: GetFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFunctionCommandOutput>;
+  getFunction(
+    args: GetFunctionCommandInput,
+    cb: (err: any, data?: GetFunctionCommandOutput) => void
+  ): void;
   getFunction(
     args: GetFunctionCommandInput,
     options: __HttpHandlerOptions,
@@ -2276,7 +2315,10 @@ export interface CloudFront {
     args: GetInvalidationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetInvalidationCommandOutput>;
-  getInvalidation(args: GetInvalidationCommandInput, cb: (err: any, data?: GetInvalidationCommandOutput) => void): void;
+  getInvalidation(
+    args: GetInvalidationCommandInput,
+    cb: (err: any, data?: GetInvalidationCommandOutput) => void
+  ): void;
   getInvalidation(
     args: GetInvalidationCommandInput,
     options: __HttpHandlerOptions,
@@ -2303,8 +2345,14 @@ export interface CloudFront {
   /**
    * @see {@link GetKeyGroupCommand}
    */
-  getKeyGroup(args: GetKeyGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetKeyGroupCommandOutput>;
-  getKeyGroup(args: GetKeyGroupCommandInput, cb: (err: any, data?: GetKeyGroupCommandOutput) => void): void;
+  getKeyGroup(
+    args: GetKeyGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetKeyGroupCommandOutput>;
+  getKeyGroup(
+    args: GetKeyGroupCommandInput,
+    cb: (err: any, data?: GetKeyGroupCommandOutput) => void
+  ): void;
   getKeyGroup(
     args: GetKeyGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -2433,8 +2481,14 @@ export interface CloudFront {
   /**
    * @see {@link GetPublicKeyCommand}
    */
-  getPublicKey(args: GetPublicKeyCommandInput, options?: __HttpHandlerOptions): Promise<GetPublicKeyCommandOutput>;
-  getPublicKey(args: GetPublicKeyCommandInput, cb: (err: any, data?: GetPublicKeyCommandOutput) => void): void;
+  getPublicKey(
+    args: GetPublicKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPublicKeyCommandOutput>;
+  getPublicKey(
+    args: GetPublicKeyCommandInput,
+    cb: (err: any, data?: GetPublicKeyCommandOutput) => void
+  ): void;
   getPublicKey(
     args: GetPublicKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -2564,8 +2618,14 @@ export interface CloudFront {
   /**
    * @see {@link GetTrustStoreCommand}
    */
-  getTrustStore(args: GetTrustStoreCommandInput, options?: __HttpHandlerOptions): Promise<GetTrustStoreCommandOutput>;
-  getTrustStore(args: GetTrustStoreCommandInput, cb: (err: any, data?: GetTrustStoreCommandOutput) => void): void;
+  getTrustStore(
+    args: GetTrustStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTrustStoreCommandOutput>;
+  getTrustStore(
+    args: GetTrustStoreCommandInput,
+    cb: (err: any, data?: GetTrustStoreCommandOutput) => void
+  ): void;
   getTrustStore(
     args: GetTrustStoreCommandInput,
     options: __HttpHandlerOptions,
@@ -2575,8 +2635,14 @@ export interface CloudFront {
   /**
    * @see {@link GetVpcOriginCommand}
    */
-  getVpcOrigin(args: GetVpcOriginCommandInput, options?: __HttpHandlerOptions): Promise<GetVpcOriginCommandOutput>;
-  getVpcOrigin(args: GetVpcOriginCommandInput, cb: (err: any, data?: GetVpcOriginCommandOutput) => void): void;
+  getVpcOrigin(
+    args: GetVpcOriginCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVpcOriginCommandOutput>;
+  getVpcOrigin(
+    args: GetVpcOriginCommandInput,
+    cb: (err: any, data?: GetVpcOriginCommandOutput) => void
+  ): void;
   getVpcOrigin(
     args: GetVpcOriginCommandInput,
     options: __HttpHandlerOptions,
@@ -3024,8 +3090,14 @@ export interface CloudFront {
    * @see {@link ListFunctionsCommand}
    */
   listFunctions(): Promise<ListFunctionsCommandOutput>;
-  listFunctions(args: ListFunctionsCommandInput, options?: __HttpHandlerOptions): Promise<ListFunctionsCommandOutput>;
-  listFunctions(args: ListFunctionsCommandInput, cb: (err: any, data?: ListFunctionsCommandOutput) => void): void;
+  listFunctions(
+    args: ListFunctionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFunctionsCommandOutput>;
+  listFunctions(
+    args: ListFunctionsCommandInput,
+    cb: (err: any, data?: ListFunctionsCommandOutput) => void
+  ): void;
   listFunctions(
     args: ListFunctionsCommandInput,
     options: __HttpHandlerOptions,
@@ -3070,8 +3142,14 @@ export interface CloudFront {
    * @see {@link ListKeyGroupsCommand}
    */
   listKeyGroups(): Promise<ListKeyGroupsCommandOutput>;
-  listKeyGroups(args: ListKeyGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListKeyGroupsCommandOutput>;
-  listKeyGroups(args: ListKeyGroupsCommandInput, cb: (err: any, data?: ListKeyGroupsCommandOutput) => void): void;
+  listKeyGroups(
+    args: ListKeyGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListKeyGroupsCommandOutput>;
+  listKeyGroups(
+    args: ListKeyGroupsCommandInput,
+    cb: (err: any, data?: ListKeyGroupsCommandOutput) => void
+  ): void;
   listKeyGroups(
     args: ListKeyGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -3140,7 +3218,10 @@ export interface CloudFront {
     args: ListPublicKeysCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListPublicKeysCommandOutput>;
-  listPublicKeys(args: ListPublicKeysCommandInput, cb: (err: any, data?: ListPublicKeysCommandOutput) => void): void;
+  listPublicKeys(
+    args: ListPublicKeysCommandInput,
+    cb: (err: any, data?: ListPublicKeysCommandOutput) => void
+  ): void;
   listPublicKeys(
     args: ListPublicKeysCommandInput,
     options: __HttpHandlerOptions,
@@ -3226,7 +3307,10 @@ export interface CloudFront {
     args: ListTrustStoresCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTrustStoresCommandOutput>;
-  listTrustStores(args: ListTrustStoresCommandInput, cb: (err: any, data?: ListTrustStoresCommandOutput) => void): void;
+  listTrustStores(
+    args: ListTrustStoresCommandInput,
+    cb: (err: any, data?: ListTrustStoresCommandOutput) => void
+  ): void;
   listTrustStores(
     args: ListTrustStoresCommandInput,
     options: __HttpHandlerOptions,
@@ -3241,7 +3325,10 @@ export interface CloudFront {
     args: ListVpcOriginsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListVpcOriginsCommandOutput>;
-  listVpcOrigins(args: ListVpcOriginsCommandInput, cb: (err: any, data?: ListVpcOriginsCommandOutput) => void): void;
+  listVpcOrigins(
+    args: ListVpcOriginsCommandInput,
+    cb: (err: any, data?: ListVpcOriginsCommandOutput) => void
+  ): void;
   listVpcOrigins(
     args: ListVpcOriginsCommandInput,
     options: __HttpHandlerOptions,
@@ -3272,7 +3359,10 @@ export interface CloudFront {
     args: PublishFunctionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PublishFunctionCommandOutput>;
-  publishFunction(args: PublishFunctionCommandInput, cb: (err: any, data?: PublishFunctionCommandOutput) => void): void;
+  publishFunction(
+    args: PublishFunctionCommandInput,
+    cb: (err: any, data?: PublishFunctionCommandOutput) => void
+  ): void;
   publishFunction(
     args: PublishFunctionCommandInput,
     options: __HttpHandlerOptions,
@@ -3299,8 +3389,14 @@ export interface CloudFront {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -3327,8 +3423,14 @@ export interface CloudFront {
   /**
    * @see {@link TestFunctionCommand}
    */
-  testFunction(args: TestFunctionCommandInput, options?: __HttpHandlerOptions): Promise<TestFunctionCommandOutput>;
-  testFunction(args: TestFunctionCommandInput, cb: (err: any, data?: TestFunctionCommandOutput) => void): void;
+  testFunction(
+    args: TestFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestFunctionCommandOutput>;
+  testFunction(
+    args: TestFunctionCommandInput,
+    cb: (err: any, data?: TestFunctionCommandOutput) => void
+  ): void;
   testFunction(
     args: TestFunctionCommandInput,
     options: __HttpHandlerOptions,
@@ -3338,8 +3440,14 @@ export interface CloudFront {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -3557,7 +3665,10 @@ export interface CloudFront {
     args: UpdateFunctionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateFunctionCommandOutput>;
-  updateFunction(args: UpdateFunctionCommandInput, cb: (err: any, data?: UpdateFunctionCommandOutput) => void): void;
+  updateFunction(
+    args: UpdateFunctionCommandInput,
+    cb: (err: any, data?: UpdateFunctionCommandOutput) => void
+  ): void;
   updateFunction(
     args: UpdateFunctionCommandInput,
     options: __HttpHandlerOptions,
@@ -3571,7 +3682,10 @@ export interface CloudFront {
     args: UpdateKeyGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateKeyGroupCommandOutput>;
-  updateKeyGroup(args: UpdateKeyGroupCommandInput, cb: (err: any, data?: UpdateKeyGroupCommandOutput) => void): void;
+  updateKeyGroup(
+    args: UpdateKeyGroupCommandInput,
+    cb: (err: any, data?: UpdateKeyGroupCommandOutput) => void
+  ): void;
   updateKeyGroup(
     args: UpdateKeyGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -3636,7 +3750,10 @@ export interface CloudFront {
     args: UpdatePublicKeyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdatePublicKeyCommandOutput>;
-  updatePublicKey(args: UpdatePublicKeyCommandInput, cb: (err: any, data?: UpdatePublicKeyCommandOutput) => void): void;
+  updatePublicKey(
+    args: UpdatePublicKeyCommandInput,
+    cb: (err: any, data?: UpdatePublicKeyCommandOutput) => void
+  ): void;
   updatePublicKey(
     args: UpdatePublicKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -3719,7 +3836,10 @@ export interface CloudFront {
     args: UpdateVpcOriginCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateVpcOriginCommandOutput>;
-  updateVpcOrigin(args: UpdateVpcOriginCommandInput, cb: (err: any, data?: UpdateVpcOriginCommandOutput) => void): void;
+  updateVpcOrigin(
+    args: UpdateVpcOriginCommandInput,
+    cb: (err: any, data?: UpdateVpcOriginCommandOutput) => void
+  ): void;
   updateVpcOrigin(
     args: UpdateVpcOriginCommandInput,
     options: __HttpHandlerOptions,

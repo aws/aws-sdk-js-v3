@@ -9,7 +9,7 @@ import type {
   DeleteNetworkInterfacePermissionRequest,
   DeleteNetworkInterfacePermissionResult,
 } from "../models/models_2";
-import { DeleteNetworkInterfacePermission } from "../schemas/schemas_0";
+import { DeleteNetworkInterfacePermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteNetworkInterfacePermissionCommandInput extends DeleteNetw
  *
  * The output of {@link DeleteNetworkInterfacePermissionCommand}.
  */
-export interface DeleteNetworkInterfacePermissionCommandOutput
-  extends DeleteNetworkInterfacePermissionResult,
-    __MetadataBearer {}
+export interface DeleteNetworkInterfacePermissionCommandOutput extends DeleteNetworkInterfacePermissionResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a permission for a network interface. By default, you cannot delete the
@@ -83,7 +81,7 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command
   })
   .s("AmazonEC2", "DeleteNetworkInterfacePermission", {})
   .n("EC2Client", "DeleteNetworkInterfacePermissionCommand")
-  .sc(DeleteNetworkInterfacePermission)
+  .sc(DeleteNetworkInterfacePermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { DescribeCrossAccountAttachmentRequest, DescribeCrossAccountAttachmentResponse } from "../models/models_0";
-import { DescribeCrossAccountAttachment } from "../schemas/schemas_0";
+import { DescribeCrossAccountAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeCrossAccountAttachmentCommandInput extends DescribeCros
  *
  * The output of {@link DescribeCrossAccountAttachmentCommand}.
  */
-export interface DescribeCrossAccountAttachmentCommandOutput
-  extends DescribeCrossAccountAttachmentResponse,
-    __MetadataBearer {}
+export interface DescribeCrossAccountAttachmentCommandOutput extends DescribeCrossAccountAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Gets configuration information about a cross-account attachment.</p>
@@ -106,7 +104,7 @@ export class DescribeCrossAccountAttachmentCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "DescribeCrossAccountAttachment", {})
   .n("GlobalAcceleratorClient", "DescribeCrossAccountAttachmentCommand")
-  .sc(DescribeCrossAccountAttachment)
+  .sc(DescribeCrossAccountAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   UpdateEndpointWeightsAndCapacitiesOutput,
 } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { UpdateEndpointWeightsAndCapacities } from "../schemas/schemas_0";
+import { UpdateEndpointWeightsAndCapacities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandInput extends UpdateEn
  *
  * The output of {@link UpdateEndpointWeightsAndCapacitiesCommand}.
  */
-export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
-  extends UpdateEndpointWeightsAndCapacitiesOutput,
-    __MetadataBearer {}
+export interface UpdateEndpointWeightsAndCapacitiesCommandOutput extends UpdateEndpointWeightsAndCapacitiesOutput, __MetadataBearer {}
 
 /**
  * <p>Updates variant weight of one or more variants associated with an existing endpoint, or capacity of one variant associated with an existing endpoint. When it receives the request, SageMaker sets the endpoint status to <code>Updating</code>. After updating the endpoint, it sets the status to <code>InService</code>. To check the status of an endpoint, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a> API. </p>
@@ -92,7 +90,7 @@ export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command
   })
   .s("SageMaker", "UpdateEndpointWeightsAndCapacities", {})
   .n("SageMakerClient", "UpdateEndpointWeightsAndCapacitiesCommand")
-  .sc(UpdateEndpointWeightsAndCapacities)
+  .sc(UpdateEndpointWeightsAndCapacities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

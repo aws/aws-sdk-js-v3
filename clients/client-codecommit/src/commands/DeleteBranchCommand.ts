@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteBranchInput, DeleteBranchOutput } from "../models/models_0";
-import { DeleteBranch } from "../schemas/schemas_0";
+import { DeleteBranch$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class DeleteBranchCommand extends $Command
   })
   .s("CodeCommit_20150413", "DeleteBranch", {})
   .n("CodeCommitClient", "DeleteBranchCommand")
-  .sc(DeleteBranch)
+  .sc(DeleteBranch$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

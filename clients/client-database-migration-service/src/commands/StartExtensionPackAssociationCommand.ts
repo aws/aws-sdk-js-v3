@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartExtensionPackAssociationMessage, StartExtensionPackAssociationResponse } from "../models/models_1";
-import { StartExtensionPackAssociation } from "../schemas/schemas_0";
+import { StartExtensionPackAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface StartExtensionPackAssociationCommandInput extends StartExtensio
  *
  * The output of {@link StartExtensionPackAssociationCommand}.
  */
-export interface StartExtensionPackAssociationCommandOutput
-  extends StartExtensionPackAssociationResponse,
-    __MetadataBearer {}
+export interface StartExtensionPackAssociationCommandOutput extends StartExtensionPackAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Applies the extension pack to your target database. An extension pack is an add-on
@@ -122,7 +120,7 @@ export class StartExtensionPackAssociationCommand extends $Command
   })
   .s("AmazonDMSv20160101", "StartExtensionPackAssociation", {})
   .n("DatabaseMigrationServiceClient", "StartExtensionPackAssociationCommand")
-  .sc(StartExtensionPackAssociation)
+  .sc(StartExtensionPackAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

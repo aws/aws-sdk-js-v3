@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeTrustedAdvisorChecksRequest, DescribeTrustedAdvisorChecksResponse } from "../models/models_0";
-import { DescribeTrustedAdvisorChecks } from "../schemas/schemas_0";
+import { DescribeTrustedAdvisorChecks$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DescribeTrustedAdvisorChecksCommandInput extends DescribeTruste
  *
  * The output of {@link DescribeTrustedAdvisorChecksCommand}.
  */
-export interface DescribeTrustedAdvisorChecksCommandOutput
-  extends DescribeTrustedAdvisorChecksResponse,
-    __MetadataBearer {}
+export interface DescribeTrustedAdvisorChecksCommandOutput extends DescribeTrustedAdvisorChecksResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about all available Trusted Advisor checks, including the name, ID,
@@ -118,7 +116,7 @@ export class DescribeTrustedAdvisorChecksCommand extends $Command
   })
   .s("AWSSupport_20130415", "DescribeTrustedAdvisorChecks", {})
   .n("SupportClient", "DescribeTrustedAdvisorChecksCommand")
-  .sc(DescribeTrustedAdvisorChecks)
+  .sc(DescribeTrustedAdvisorChecks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

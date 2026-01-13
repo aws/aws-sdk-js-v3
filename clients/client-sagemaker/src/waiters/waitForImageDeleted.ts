@@ -7,12 +7,12 @@ import { SageMakerClient } from "../SageMakerClient";
 const checkState = async (client: SageMakerClient, input: DescribeImageCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeImageCommand(input));
+    let result: any = await client.send(new DescribeImageCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.ImageStatus;
-      };
+      }
       if (returnComparator() === "DELETE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

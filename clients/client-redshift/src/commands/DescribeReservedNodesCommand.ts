@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeReservedNodesMessage, ReservedNodesMessage } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeReservedNodes } from "../schemas/schemas_0";
+import { DescribeReservedNodes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DescribeReservedNodesCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DescribeReservedNodes", {})
   .n("RedshiftClient", "DescribeReservedNodesCommand")
-  .sc(DescribeReservedNodes)
+  .sc(DescribeReservedNodes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

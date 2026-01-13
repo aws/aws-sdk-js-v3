@@ -9,7 +9,7 @@ import type {
   BatchDeleteDelegationByAssessmentRequest,
   BatchDeleteDelegationByAssessmentResponse,
 } from "../models/models_0";
-import { BatchDeleteDelegationByAssessment } from "../schemas/schemas_0";
+import { BatchDeleteDelegationByAssessment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface BatchDeleteDelegationByAssessmentCommandInput extends BatchDele
  *
  * The output of {@link BatchDeleteDelegationByAssessmentCommand}.
  */
-export interface BatchDeleteDelegationByAssessmentCommandOutput
-  extends BatchDeleteDelegationByAssessmentResponse,
-    __MetadataBearer {}
+export interface BatchDeleteDelegationByAssessmentCommandOutput extends BatchDeleteDelegationByAssessmentResponse, __MetadataBearer {}
 
 /**
  * <p> Deletes a batch of delegations for an assessment in Audit Manager. </p>
@@ -101,7 +99,7 @@ export class BatchDeleteDelegationByAssessmentCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "BatchDeleteDelegationByAssessment", {})
   .n("AuditManagerClient", "BatchDeleteDelegationByAssessmentCommand")
-  .sc(BatchDeleteDelegationByAssessment)
+  .sc(BatchDeleteDelegationByAssessment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTrafficDistributionGroupRequest, DeleteTrafficDistributionGroupResponse } from "../models/models_1";
-import { DeleteTrafficDistributionGroup } from "../schemas/schemas_0";
+import { DeleteTrafficDistributionGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteTrafficDistributionGroupCommandInput extends DeleteTraffi
  *
  * The output of {@link DeleteTrafficDistributionGroupCommand}.
  */
-export interface DeleteTrafficDistributionGroupCommandOutput
-  extends DeleteTrafficDistributionGroupResponse,
-    __MetadataBearer {}
+export interface DeleteTrafficDistributionGroupCommandOutput extends DeleteTrafficDistributionGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a traffic distribution group. This API can be called only in the Region where the traffic distribution group is created.</p>
@@ -92,7 +90,7 @@ export class DeleteTrafficDistributionGroupCommand extends $Command
   })
   .s("AmazonConnectService", "DeleteTrafficDistributionGroup", {})
   .n("ConnectClient", "DeleteTrafficDistributionGroupCommand")
-  .sc(DeleteTrafficDistributionGroup)
+  .sc(DeleteTrafficDistributionGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

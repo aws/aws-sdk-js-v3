@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDirectQueryDataSourceRequest } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { DeleteDirectQueryDataSource } from "../schemas/schemas_0";
+import { DeleteDirectQueryDataSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteDirectQueryDataSourceCommand extends $Command
   })
   .s("AmazonOpenSearchService", "DeleteDirectQueryDataSource", {})
   .n("OpenSearchClient", "DeleteDirectQueryDataSourceCommand")
-  .sc(DeleteDirectQueryDataSource)
+  .sc(DeleteDirectQueryDataSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeletePropertygraphStatisticsOutput } from "../models/models_0";
 import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
-import { DeletePropertygraphStatistics } from "../schemas/schemas_0";
+import { DeletePropertygraphStatistics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeletePropertygraphStatisticsCommandInput {}
  *
  * The output of {@link DeletePropertygraphStatisticsCommand}.
  */
-export interface DeletePropertygraphStatisticsCommandOutput
-  extends DeletePropertygraphStatisticsOutput,
-    __MetadataBearer {}
+export interface DeletePropertygraphStatisticsCommandOutput extends DeletePropertygraphStatisticsOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes statistics for Gremlin and openCypher (property graph) data.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletestatistics">neptune-db:DeleteStatistics</a> IAM action in that cluster.</p>
@@ -117,7 +115,7 @@ export class DeletePropertygraphStatisticsCommand extends $Command
   })
   .s("AmazonNeptuneDataplane", "DeletePropertygraphStatistics", {})
   .n("NeptunedataClient", "DeletePropertygraphStatisticsCommand")
-  .sc(DeletePropertygraphStatistics)
+  .sc(DeletePropertygraphStatistics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

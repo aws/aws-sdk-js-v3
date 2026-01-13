@@ -49,17 +49,13 @@ export const defaultServiceCatalogAppRegistryHttpAuthSchemeParametersProvider = 
 ): Promise<ServiceCatalogAppRegistryHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: ServiceCatalogAppRegistryHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: ServiceCatalogAppRegistryHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface ServiceCatalogAppRegistryHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultServiceCatalogAppRegistryHttpAuthSchemeProvider: ServiceCatalogAppRegistryHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultServiceCatalogAppRegistryHttpAuthSchemeProvider: ServiceCatalogAppRegistryHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SendApiAssetRequest, SendApiAssetResponse } from "../models/models_0";
-import { SendApiAsset } from "../schemas/schemas_0";
+import { SendApiAsset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class SendApiAssetCommand extends $Command
   })
   .s("DataExchange", "SendApiAsset", {})
   .n("DataExchangeClient", "SendApiAssetCommand")
-  .sc(SendApiAsset)
+  .sc(SendApiAsset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

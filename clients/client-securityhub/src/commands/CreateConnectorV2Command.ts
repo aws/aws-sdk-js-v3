@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateConnectorV2Request, CreateConnectorV2Response } from "../models/models_2";
-import { CreateConnectorV2 } from "../schemas/schemas_0";
+import { CreateConnectorV2$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -116,7 +116,7 @@ export class CreateConnectorV2Command extends $Command
   })
   .s("SecurityHubAPIService", "CreateConnectorV2", {})
   .n("SecurityHubClient", "CreateConnectorV2Command")
-  .sc(CreateConnectorV2)
+  .sc(CreateConnectorV2$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

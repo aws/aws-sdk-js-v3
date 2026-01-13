@@ -10,7 +10,7 @@ import type {
 } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetFindingRecommendationRequest, GetFindingRecommendationResponse } from "../models/models_0";
-import { GetFindingRecommendation } from "../schemas/schemas_0";
+import { GetFindingRecommendation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -210,7 +210,7 @@ export class GetFindingRecommendationCommand extends $Command
   })
   .s("AccessAnalyzer", "GetFindingRecommendation", {})
   .n("AccessAnalyzerClient", "GetFindingRecommendationCommand")
-  .sc(GetFindingRecommendation)
+  .sc(GetFindingRecommendation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

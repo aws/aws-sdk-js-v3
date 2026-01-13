@@ -9,7 +9,7 @@ import type {
   UpdateResourceProfileDetectionsRequest,
   UpdateResourceProfileDetectionsResponse,
 } from "../models/models_0";
-import { UpdateResourceProfileDetections } from "../schemas/schemas_0";
+import { UpdateResourceProfileDetections$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateResourceProfileDetectionsCommandInput extends UpdateResou
  *
  * The output of {@link UpdateResourceProfileDetectionsCommand}.
  */
-export interface UpdateResourceProfileDetectionsCommandOutput
-  extends UpdateResourceProfileDetectionsResponse,
-    __MetadataBearer {}
+export interface UpdateResourceProfileDetectionsCommandOutput extends UpdateResourceProfileDetectionsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the sensitivity scoring settings for an S3 bucket.</p>
@@ -100,7 +98,7 @@ export class UpdateResourceProfileDetectionsCommand extends $Command
   })
   .s("Macie2", "UpdateResourceProfileDetections", {})
   .n("Macie2Client", "UpdateResourceProfileDetectionsCommand")
-  .sc(UpdateResourceProfileDetections)
+  .sc(UpdateResourceProfileDetections$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

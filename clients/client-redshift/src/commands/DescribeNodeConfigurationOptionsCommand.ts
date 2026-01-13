@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeNodeConfigurationOptionsMessage, NodeConfigurationOptionsMessage } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeNodeConfigurationOptions } from "../schemas/schemas_0";
+import { DescribeNodeConfigurationOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeNodeConfigurationOptionsCommandInput extends DescribeNo
  *
  * The output of {@link DescribeNodeConfigurationOptionsCommand}.
  */
-export interface DescribeNodeConfigurationOptionsCommandOutput
-  extends NodeConfigurationOptionsMessage,
-    __MetadataBearer {}
+export interface DescribeNodeConfigurationOptionsCommandOutput extends NodeConfigurationOptionsMessage, __MetadataBearer {}
 
 /**
  * <p>Returns properties of possible node configurations such as node type, number of nodes, and
@@ -117,7 +115,7 @@ export class DescribeNodeConfigurationOptionsCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DescribeNodeConfigurationOptions", {})
   .n("RedshiftClient", "DescribeNodeConfigurationOptionsCommand")
-  .sc(DescribeNodeConfigurationOptions)
+  .sc(DescribeNodeConfigurationOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { DeleteSecurityConfigurationRequest, DeleteSecurityConfigurationResponse } from "../models/models_1";
-import { DeleteSecurityConfiguration } from "../schemas/schemas_0";
+import { DeleteSecurityConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteSecurityConfigurationCommandInput extends DeleteSecurityC
  *
  * The output of {@link DeleteSecurityConfigurationCommand}.
  */
-export interface DeleteSecurityConfigurationCommandOutput
-  extends DeleteSecurityConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteSecurityConfigurationCommandOutput extends DeleteSecurityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a specified security configuration.</p>
@@ -85,7 +83,7 @@ export class DeleteSecurityConfigurationCommand extends $Command
   })
   .s("AWSGlue", "DeleteSecurityConfiguration", {})
   .n("GlueClient", "DeleteSecurityConfigurationCommand")
-  .sc(DeleteSecurityConfiguration)
+  .sc(DeleteSecurityConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

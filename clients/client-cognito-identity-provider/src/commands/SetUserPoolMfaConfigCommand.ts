@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SetUserPoolMfaConfigRequest, SetUserPoolMfaConfigResponse } from "../models/models_0";
-import { SetUserPoolMfaConfig } from "../schemas/schemas_0";
+import { SetUserPoolMfaConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -170,7 +170,7 @@ export class SetUserPoolMfaConfigCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "SetUserPoolMfaConfig", {})
   .n("CognitoIdentityProviderClient", "SetUserPoolMfaConfigCommand")
-  .sc(SetUserPoolMfaConfig)
+  .sc(SetUserPoolMfaConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -25,26 +25,6 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * This exception is thrown when there is a conflict performing an operation
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name = "ConflictException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
  * This exception is thrown if there was an unexpected error during processing of request
  * @public
  */
@@ -65,22 +45,22 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * This exception is thrown when a request is made beyond the service quota
+ * This exception is thrown when a resource referenced by the operation does not exist
  * @public
  */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name = "ServiceQuotaExceededException" as const;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
     super({
-      name: "ServiceQuotaExceededException",
+      name: "ResourceNotFoundException",
       $fault: "client",
       ...opts,
     });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
   }
 }
 
@@ -132,21 +112,41 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * This exception is thrown when a resource referenced by the operation does not exist
+ * This exception is thrown when a request is made beyond the service quota
  * @public
  */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name = "ResourceNotFoundException" as const;
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
     super({
-      name: "ResourceNotFoundException",
+      name: "ServiceQuotaExceededException",
       $fault: "client",
       ...opts,
     });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}
+
+/**
+ * This exception is thrown when there is a conflict performing an operation
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name = "ConflictException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
   }
 }

@@ -9,7 +9,7 @@ import type {
   DescribeSavingsPlansOfferingRatesResponse,
 } from "../models/models_0";
 import type { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
-import { DescribeSavingsPlansOfferingRates } from "../schemas/schemas_0";
+import { DescribeSavingsPlansOfferingRates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeSavingsPlansOfferingRatesCommandInput extends DescribeS
  *
  * The output of {@link DescribeSavingsPlansOfferingRatesCommand}.
  */
-export interface DescribeSavingsPlansOfferingRatesCommandOutput
-  extends DescribeSavingsPlansOfferingRatesResponse,
-    __MetadataBearer {}
+export interface DescribeSavingsPlansOfferingRatesCommandOutput extends DescribeSavingsPlansOfferingRatesResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the offering rates for Savings Plans you might want to purchase.</p>
@@ -138,7 +136,7 @@ export class DescribeSavingsPlansOfferingRatesCommand extends $Command
   })
   .s("AWSSavingsPlan", "DescribeSavingsPlansOfferingRates", {})
   .n("SavingsplansClient", "DescribeSavingsPlansOfferingRatesCommand")
-  .sc(DescribeSavingsPlansOfferingRates)
+  .sc(DescribeSavingsPlansOfferingRates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

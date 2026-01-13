@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DBClusterEndpoint, DeleteDBClusterEndpointMessage } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DeleteDBClusterEndpoint } from "../schemas/schemas_0";
+import { DeleteDBClusterEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class DeleteDBClusterEndpointCommand extends $Command
   })
   .s("AmazonRDSv19", "DeleteDBClusterEndpoint", {})
   .n("RDSClient", "DeleteDBClusterEndpointCommand")
-  .sc(DeleteDBClusterEndpoint)
+  .sc(DeleteDBClusterEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { DeleteEventBridgeRuleTemplateGroupRequest } from "../models/models_1";
-import { DeleteEventBridgeRuleTemplateGroup } from "../schemas/schemas_0";
+import { DeleteEventBridgeRuleTemplateGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeleteEventBridgeRuleTemplateGroupCommand extends $Command
   })
   .s("MediaLive", "DeleteEventBridgeRuleTemplateGroup", {})
   .n("MediaLiveClient", "DeleteEventBridgeRuleTemplateGroupCommand")
-  .sc(DeleteEventBridgeRuleTemplateGroup)
+  .sc(DeleteEventBridgeRuleTemplateGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

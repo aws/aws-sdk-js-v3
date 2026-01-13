@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDirectConnectGatewayRequest, CreateDirectConnectGatewayResult } from "../models/models_0";
-import { CreateDirectConnectGateway } from "../schemas/schemas_0";
+import { CreateDirectConnectGateway$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class CreateDirectConnectGatewayCommand extends $Command
   })
   .s("OvertureService", "CreateDirectConnectGateway", {})
   .n("DirectConnectClient", "CreateDirectConnectGatewayCommand")
-  .sc(CreateDirectConnectGateway)
+  .sc(CreateDirectConnectGateway$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { GetSites } from "../schemas/schemas_0";
+import { GetSites$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class GetSitesCommand extends $Command
   })
   .s("NetworkManager", "GetSites", {})
   .n("NetworkManagerClient", "GetSitesCommand")
-  .sc(GetSites)
+  .sc(GetSites$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

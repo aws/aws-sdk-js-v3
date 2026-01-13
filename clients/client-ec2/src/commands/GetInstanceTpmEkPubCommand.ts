@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetInstanceTpmEkPubRequest, GetInstanceTpmEkPubResult } from "../models/models_5";
-import { GetInstanceTpmEkPub } from "../schemas/schemas_0";
+import { GetInstanceTpmEkPub$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,7 +80,7 @@ export class GetInstanceTpmEkPubCommand extends $Command
   })
   .s("AmazonEC2", "GetInstanceTpmEkPub", {})
   .n("EC2Client", "GetInstanceTpmEkPubCommand")
-  .sc(GetInstanceTpmEkPub)
+  .sc(GetInstanceTpmEkPub$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

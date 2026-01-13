@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListStorageProfilesForQueueRequest, ListStorageProfilesForQueueResponse } from "../models/models_0";
-import { ListStorageProfilesForQueue } from "../schemas/schemas_0";
+import { ListStorageProfilesForQueue$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListStorageProfilesForQueueCommandInput extends ListStorageProf
  *
  * The output of {@link ListStorageProfilesForQueueCommand}.
  */
-export interface ListStorageProfilesForQueueCommandOutput
-  extends ListStorageProfilesForQueueResponse,
-    __MetadataBearer {}
+export interface ListStorageProfilesForQueueCommandOutput extends ListStorageProfilesForQueueResponse, __MetadataBearer {}
 
 /**
  * <p>Lists storage profiles for a queue.</p>
@@ -101,7 +99,7 @@ export class ListStorageProfilesForQueueCommand extends $Command
   })
   .s("Deadline", "ListStorageProfilesForQueue", {})
   .n("DeadlineClient", "ListStorageProfilesForQueueCommand")
-  .sc(ListStorageProfilesForQueue)
+  .sc(ListStorageProfilesForQueue$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

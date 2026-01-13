@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeBudgetActionHistoriesRequest, DescribeBudgetActionHistoriesResponse } from "../models/models_0";
-import { DescribeBudgetActionHistories } from "../schemas/schemas_0";
+import { DescribeBudgetActionHistories$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeBudgetActionHistoriesCommandInput extends DescribeBudge
  *
  * The output of {@link DescribeBudgetActionHistoriesCommand}.
  */
-export interface DescribeBudgetActionHistoriesCommandOutput
-  extends DescribeBudgetActionHistoriesResponse,
-    __MetadataBearer {}
+export interface DescribeBudgetActionHistoriesCommandOutput extends DescribeBudgetActionHistoriesResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -160,7 +158,7 @@ export class DescribeBudgetActionHistoriesCommand extends $Command
   })
   .s("AWSBudgetServiceGateway", "DescribeBudgetActionHistories", {})
   .n("BudgetsClient", "DescribeBudgetActionHistoriesCommand")
-  .sc(DescribeBudgetActionHistories)
+  .sc(DescribeBudgetActionHistories$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteNotificationConfigurationResponse,
 } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { DeleteNotificationConfiguration } from "../schemas/schemas_0";
+import { DeleteNotificationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteNotificationConfigurationCommandInput extends DeleteNotif
  *
  * The output of {@link DeleteNotificationConfigurationCommand}.
  */
-export interface DeleteNotificationConfigurationCommandOutput
-  extends DeleteNotificationConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteNotificationConfigurationCommandOutput extends DeleteNotificationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a <code>NotificationConfiguration</code>.</p>
@@ -94,7 +92,7 @@ export class DeleteNotificationConfigurationCommand extends $Command
   })
   .s("Notifications", "DeleteNotificationConfiguration", {})
   .n("NotificationsClient", "DeleteNotificationConfigurationCommand")
-  .sc(DeleteNotificationConfiguration)
+  .sc(DeleteNotificationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

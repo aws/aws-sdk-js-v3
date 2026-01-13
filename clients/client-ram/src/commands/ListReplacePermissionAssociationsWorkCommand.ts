@@ -9,7 +9,7 @@ import type {
   ListReplacePermissionAssociationsWorkResponse,
 } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { ListReplacePermissionAssociationsWork } from "../schemas/schemas_0";
+import { ListReplacePermissionAssociationsWork$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListReplacePermissionAssociationsWorkCommand}.
  */
-export interface ListReplacePermissionAssociationsWorkCommandInput
-  extends ListReplacePermissionAssociationsWorkRequest {}
+export interface ListReplacePermissionAssociationsWorkCommandInput extends ListReplacePermissionAssociationsWorkRequest {}
 /**
  * @public
  *
  * The output of {@link ListReplacePermissionAssociationsWorkCommand}.
  */
-export interface ListReplacePermissionAssociationsWorkCommandOutput
-  extends ListReplacePermissionAssociationsWorkResponse,
-    __MetadataBearer {}
+export interface ListReplacePermissionAssociationsWorkCommandOutput extends ListReplacePermissionAssociationsWorkResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the current status of the asynchronous tasks performed by RAM when you
@@ -113,7 +110,7 @@ export class ListReplacePermissionAssociationsWorkCommand extends $Command
   })
   .s("AmazonResourceSharing", "ListReplacePermissionAssociationsWork", {})
   .n("RAMClient", "ListReplacePermissionAssociationsWorkCommand")
-  .sc(ListReplacePermissionAssociationsWork)
+  .sc(ListReplacePermissionAssociationsWork$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

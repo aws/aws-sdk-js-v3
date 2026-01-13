@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { GetTelemetryRuleForOrganization } from "../schemas/schemas_0";
+import { GetTelemetryRuleForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetTelemetryRuleForOrganizationCommandInput extends GetTelemetr
  *
  * The output of {@link GetTelemetryRuleForOrganizationCommand}.
  */
-export interface GetTelemetryRuleForOrganizationCommandOutput
-  extends GetTelemetryRuleForOrganizationOutput,
-    __MetadataBearer {}
+export interface GetTelemetryRuleForOrganizationCommandOutput extends GetTelemetryRuleForOrganizationOutput, __MetadataBearer {}
 
 /**
  * <p> Retrieves the details of a specific organization telemetry rule. This operation can only be called by the organization's management account or a delegated administrator account. </p>
@@ -185,7 +183,7 @@ export class GetTelemetryRuleForOrganizationCommand extends $Command
   })
   .s("ObservabilityAdmin", "GetTelemetryRuleForOrganization", {})
   .n("ObservabilityAdminClient", "GetTelemetryRuleForOrganizationCommand")
-  .sc(GetTelemetryRuleForOrganization)
+  .sc(GetTelemetryRuleForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

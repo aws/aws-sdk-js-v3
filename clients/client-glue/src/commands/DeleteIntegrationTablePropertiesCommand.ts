@@ -9,7 +9,7 @@ import type {
   DeleteIntegrationTablePropertiesRequest,
   DeleteIntegrationTablePropertiesResponse,
 } from "../models/models_1";
-import { DeleteIntegrationTableProperties } from "../schemas/schemas_0";
+import { DeleteIntegrationTableProperties$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteIntegrationTablePropertiesCommandInput extends DeleteInte
  *
  * The output of {@link DeleteIntegrationTablePropertiesCommand}.
  */
-export interface DeleteIntegrationTablePropertiesCommandOutput
-  extends DeleteIntegrationTablePropertiesResponse,
-    __MetadataBearer {}
+export interface DeleteIntegrationTablePropertiesCommandOutput extends DeleteIntegrationTablePropertiesResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the table properties that have been created for the tables that need to be replicated.</p>
@@ -98,7 +96,7 @@ export class DeleteIntegrationTablePropertiesCommand extends $Command
   })
   .s("AWSGlue", "DeleteIntegrationTableProperties", {})
   .n("GlueClient", "DeleteIntegrationTablePropertiesCommand")
-  .sc(DeleteIntegrationTableProperties)
+  .sc(DeleteIntegrationTableProperties$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

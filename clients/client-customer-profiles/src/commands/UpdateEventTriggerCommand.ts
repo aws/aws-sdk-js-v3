@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateEventTriggerRequest, UpdateEventTriggerResponse } from "../models/models_1";
-import { UpdateEventTrigger } from "../schemas/schemas_0";
+import { UpdateEventTrigger$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -164,7 +164,7 @@ export class UpdateEventTriggerCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "UpdateEventTrigger", {})
   .n("CustomerProfilesClient", "UpdateEventTriggerCommand")
-  .sc(UpdateEventTrigger)
+  .sc(UpdateEventTrigger$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

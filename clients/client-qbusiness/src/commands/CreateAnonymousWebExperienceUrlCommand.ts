@@ -9,7 +9,7 @@ import type {
   CreateAnonymousWebExperienceUrlResponse,
 } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { CreateAnonymousWebExperienceUrl } from "../schemas/schemas_0";
+import { CreateAnonymousWebExperienceUrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateAnonymousWebExperienceUrlCommandInput extends CreateAnony
  *
  * The output of {@link CreateAnonymousWebExperienceUrlCommand}.
  */
-export interface CreateAnonymousWebExperienceUrlCommandOutput
-  extends CreateAnonymousWebExperienceUrlResponse,
-    __MetadataBearer {}
+export interface CreateAnonymousWebExperienceUrlCommandOutput extends CreateAnonymousWebExperienceUrlResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a unique URL for anonymous Amazon Q Business web experience. This URL can only be used once and must be used within 5 minutes after it's generated.</p>
@@ -98,7 +96,7 @@ export class CreateAnonymousWebExperienceUrlCommand extends $Command
   })
   .s("ExpertQ", "CreateAnonymousWebExperienceUrl", {})
   .n("QBusinessClient", "CreateAnonymousWebExperienceUrlCommand")
-  .sc(CreateAnonymousWebExperienceUrl)
+  .sc(CreateAnonymousWebExperienceUrl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

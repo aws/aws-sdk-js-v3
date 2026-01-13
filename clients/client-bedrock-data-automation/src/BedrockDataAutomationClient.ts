@@ -43,13 +43,10 @@ import {
   type BodyLengthCalculator as __BodyLengthCalculator,
   type CheckOptionalClientConfig as __CheckOptionalClientConfig,
   type ChecksumConstructor as __ChecksumConstructor,
-  type ClientProtocol,
   type Decoder as __Decoder,
   type Encoder as __Encoder,
   type HashConstructor as __HashConstructor,
   type HttpHandlerOptions as __HttpHandlerOptions,
-  type HttpRequest,
-  type HttpResponse,
   type Logger as __Logger,
   type Provider as __Provider,
   type StreamCollector as __StreamCollector,
@@ -66,6 +63,7 @@ import {
   defaultBedrockDataAutomationHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { CopyBlueprintStageCommandInput, CopyBlueprintStageCommandOutput } from "./commands/CopyBlueprintStageCommand";
 import { CreateBlueprintCommandInput, CreateBlueprintCommandOutput } from "./commands/CreateBlueprintCommand";
 import {
   CreateBlueprintVersionCommandInput,
@@ -82,9 +80,17 @@ import {
 } from "./commands/DeleteDataAutomationProjectCommand";
 import { GetBlueprintCommandInput, GetBlueprintCommandOutput } from "./commands/GetBlueprintCommand";
 import {
+  GetBlueprintOptimizationStatusCommandInput,
+  GetBlueprintOptimizationStatusCommandOutput,
+} from "./commands/GetBlueprintOptimizationStatusCommand";
+import {
   GetDataAutomationProjectCommandInput,
   GetDataAutomationProjectCommandOutput,
 } from "./commands/GetDataAutomationProjectCommand";
+import {
+  InvokeBlueprintOptimizationAsyncCommandInput,
+  InvokeBlueprintOptimizationAsyncCommandOutput,
+} from "./commands/InvokeBlueprintOptimizationAsyncCommand";
 import { ListBlueprintsCommandInput, ListBlueprintsCommandOutput } from "./commands/ListBlueprintsCommand";
 import {
   ListDataAutomationProjectsCommandInput,
@@ -116,13 +122,16 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CopyBlueprintStageCommandInput
   | CreateBlueprintCommandInput
   | CreateBlueprintVersionCommandInput
   | CreateDataAutomationProjectCommandInput
   | DeleteBlueprintCommandInput
   | DeleteDataAutomationProjectCommandInput
   | GetBlueprintCommandInput
+  | GetBlueprintOptimizationStatusCommandInput
   | GetDataAutomationProjectCommandInput
+  | InvokeBlueprintOptimizationAsyncCommandInput
   | ListBlueprintsCommandInput
   | ListDataAutomationProjectsCommandInput
   | ListTagsForResourceCommandInput
@@ -135,13 +144,16 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CopyBlueprintStageCommandOutput
   | CreateBlueprintCommandOutput
   | CreateBlueprintVersionCommandOutput
   | CreateDataAutomationProjectCommandOutput
   | DeleteBlueprintCommandOutput
   | DeleteDataAutomationProjectCommandOutput
   | GetBlueprintCommandOutput
+  | GetBlueprintOptimizationStatusCommandOutput
   | GetDataAutomationProjectCommandOutput
+  | InvokeBlueprintOptimizationAsyncCommandOutput
   | ListBlueprintsCommandOutput
   | ListDataAutomationProjectsCommandOutput
   | ListTagsForResourceCommandOutput
@@ -294,16 +306,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * Optional extensions
    */
   extensions?: RuntimeExtension[];
-
-  /**
-   * The protocol controlling the message type (e.g. HTTP) and format (e.g. JSON)
-   * may be overridden. A default will always be set by the client.
-   * Available options depend on the service's supported protocols and will not be validated by
-   * the client.
-   * @alpha
-   *
-   */
-  protocol?: ClientProtocol<HttpRequest, HttpResponse>;
 
   /**
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.

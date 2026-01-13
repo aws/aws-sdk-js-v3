@@ -10,7 +10,7 @@ import type {
 } from "../BedrockDataAutomationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDataAutomationProjectRequest, CreateDataAutomationProjectResponse } from "../models/models_0";
-import { CreateDataAutomationProject } from "../schemas/schemas_0";
+import { CreateDataAutomationProject$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface CreateDataAutomationProjectCommandInput extends CreateDataAutom
  *
  * The output of {@link CreateDataAutomationProjectCommand}.
  */
-export interface CreateDataAutomationProjectCommandOutput
-  extends CreateDataAutomationProjectResponse,
-    __MetadataBearer {}
+export interface CreateDataAutomationProjectCommandOutput extends CreateDataAutomationProjectResponse, __MetadataBearer {}
 
 /**
  * Creates an Amazon Bedrock Data Automation Project
@@ -301,7 +299,7 @@ export class CreateDataAutomationProjectCommand extends $Command
   })
   .s("AmazonBedrockKeystoneBuildTimeService", "CreateDataAutomationProject", {})
   .n("BedrockDataAutomationClient", "CreateDataAutomationProjectCommand")
-  .sc(CreateDataAutomationProject)
+  .sc(CreateDataAutomationProject$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

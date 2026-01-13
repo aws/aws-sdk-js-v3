@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GeoPlacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoPlacesClient";
 import type { GetPlaceRequest, GetPlaceResponse } from "../models/models_0";
-import { GetPlace } from "../schemas/schemas_0";
+import { GetPlace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,7 +27,7 @@ export interface GetPlaceCommandInput extends GetPlaceRequest {}
 export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBearer {}
 
 /**
- * <p> <code>GetPlace</code> finds a place by its unique ID. A <code>PlaceId</code> is returned by other place operations.</p>
+ * <p> <code>GetPlace</code> finds a place by its unique ID. A <code>PlaceId</code> is returned by other place operations.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/get-place.html">GetPlace</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,6 +95,7 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * //     SecondaryAddressComponents: [ // SecondaryAddressComponentList
  * //       { // SecondaryAddressComponent
  * //         Number: "STRING_VALUE", // required
+ * //         Designator: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },
@@ -322,6 +323,7 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * //       SecondaryAddressComponents: [
  * //         {
  * //           Number: "STRING_VALUE", // required
+ * //           Designator: "STRING_VALUE",
  * //         },
  * //       ],
  * //     },
@@ -384,7 +386,7 @@ export class GetPlaceCommand extends $Command
   })
   .s("PlacesService", "GetPlace", {})
   .n("GeoPlacesClient", "GetPlaceCommand")
-  .sc(GetPlace)
+  .sc(GetPlace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

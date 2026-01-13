@@ -9,7 +9,7 @@ import type {
   EnableSharingWithAwsOrganizationResponse,
 } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { EnableSharingWithAwsOrganization } from "../schemas/schemas_0";
+import { EnableSharingWithAwsOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface EnableSharingWithAwsOrganizationCommandInput extends EnableShar
  *
  * The output of {@link EnableSharingWithAwsOrganizationCommand}.
  */
-export interface EnableSharingWithAwsOrganizationCommandOutput
-  extends EnableSharingWithAwsOrganizationResponse,
-    __MetadataBearer {}
+export interface EnableSharingWithAwsOrganizationCommandOutput extends EnableSharingWithAwsOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Enables resource sharing within your organization in Organizations. This operation creates
@@ -96,7 +94,7 @@ export class EnableSharingWithAwsOrganizationCommand extends $Command
   })
   .s("AmazonResourceSharing", "EnableSharingWithAwsOrganization", {})
   .n("RAMClient", "EnableSharingWithAwsOrganizationCommand")
-  .sc(EnableSharingWithAwsOrganization)
+  .sc(EnableSharingWithAwsOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetBucketInventoryConfigurationOutput, GetBucketInventoryConfigurationRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketInventoryConfiguration } from "../schemas/schemas_0";
+import { GetBucketInventoryConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,9 +25,7 @@ export interface GetBucketInventoryConfigurationCommandInput extends GetBucketIn
  *
  * The output of {@link GetBucketInventoryConfigurationCommand}.
  */
-export interface GetBucketInventoryConfigurationCommandOutput
-  extends GetBucketInventoryConfigurationOutput,
-    __MetadataBearer {}
+export interface GetBucketInventoryConfigurationCommandOutput extends GetBucketInventoryConfigurationOutput, __MetadataBearer {}
 
 /**
  * <note>
@@ -135,11 +133,14 @@ export class GetBucketInventoryConfigurationCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
+    ];
   })
   .s("AmazonS3", "GetBucketInventoryConfiguration", {})
   .n("S3Client", "GetBucketInventoryConfigurationCommand")
-  .sc(GetBucketInventoryConfiguration)
+  .sc(GetBucketInventoryConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

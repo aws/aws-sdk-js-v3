@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetConfiguredModelAlgorithmRequest, GetConfiguredModelAlgorithmResponse } from "../models/models_0";
-import { GetConfiguredModelAlgorithm } from "../schemas/schemas_0";
+import { GetConfiguredModelAlgorithm$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetConfiguredModelAlgorithmCommandInput extends GetConfiguredMo
  *
  * The output of {@link GetConfiguredModelAlgorithmCommand}.
  */
-export interface GetConfiguredModelAlgorithmCommandOutput
-  extends GetConfiguredModelAlgorithmResponse,
-    __MetadataBearer {}
+export interface GetConfiguredModelAlgorithmCommandOutput extends GetConfiguredModelAlgorithmResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a configured model algorithm.</p>
@@ -111,7 +109,7 @@ export class GetConfiguredModelAlgorithmCommand extends $Command
   })
   .s("AWSStarkControlService", "GetConfiguredModelAlgorithm", {})
   .n("CleanRoomsMLClient", "GetConfiguredModelAlgorithmCommand")
-  .sc(GetConfiguredModelAlgorithm)
+  .sc(GetConfiguredModelAlgorithm$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

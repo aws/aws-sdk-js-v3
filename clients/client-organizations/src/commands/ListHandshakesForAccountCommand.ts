@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListHandshakesForAccountRequest, ListHandshakesForAccountResponse } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { ListHandshakesForAccount } from "../schemas/schemas_0";
+import { ListHandshakesForAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -340,7 +340,7 @@ export class ListHandshakesForAccountCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "ListHandshakesForAccount", {})
   .n("OrganizationsClient", "ListHandshakesForAccountCommand")
-  .sc(ListHandshakesForAccount)
+  .sc(ListHandshakesForAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

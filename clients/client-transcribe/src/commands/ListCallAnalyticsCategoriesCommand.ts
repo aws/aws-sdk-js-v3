@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListCallAnalyticsCategoriesRequest, ListCallAnalyticsCategoriesResponse } from "../models/models_0";
-import { ListCallAnalyticsCategories } from "../schemas/schemas_0";
+import { ListCallAnalyticsCategories$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -24,9 +24,7 @@ export interface ListCallAnalyticsCategoriesCommandInput extends ListCallAnalyti
  *
  * The output of {@link ListCallAnalyticsCategoriesCommand}.
  */
-export interface ListCallAnalyticsCategoriesCommandOutput
-  extends ListCallAnalyticsCategoriesResponse,
-    __MetadataBearer {}
+export interface ListCallAnalyticsCategoriesCommandOutput extends ListCallAnalyticsCategoriesResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a list of Call Analytics categories, including all rules that make up each
@@ -182,7 +180,7 @@ export class ListCallAnalyticsCategoriesCommand extends $Command
   })
   .s("Transcribe", "ListCallAnalyticsCategories", {})
   .n("TranscribeClient", "ListCallAnalyticsCategoriesCommand")
-  .sc(ListCallAnalyticsCategories)
+  .sc(ListCallAnalyticsCategories$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

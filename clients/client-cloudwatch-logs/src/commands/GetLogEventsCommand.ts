@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetLogEventsRequest, GetLogEventsResponse } from "../models/models_0";
-import { GetLogEvents } from "../schemas/schemas_0";
+import { GetLogEvents$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -134,7 +134,7 @@ export class GetLogEventsCommand extends $Command
   })
   .s("Logs_20140328", "GetLogEvents", {})
   .n("CloudWatchLogsClient", "GetLogEventsCommand")
-  .sc(GetLogEvents)
+  .sc(GetLogEvents$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

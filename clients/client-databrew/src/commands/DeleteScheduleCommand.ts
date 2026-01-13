@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteScheduleRequest, DeleteScheduleResponse } from "../models/models_0";
-import { DeleteSchedule } from "../schemas/schemas_0";
+import { DeleteSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,7 +79,7 @@ export class DeleteScheduleCommand extends $Command
   })
   .s("AWSGlueDataBrew", "DeleteSchedule", {})
   .n("DataBrewClient", "DeleteScheduleCommand")
-  .sc(DeleteSchedule)
+  .sc(DeleteSchedule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import type { DescribeVpcPeeringConnectionsInput, DescribeVpcPeeringConnectionsOutput } from "../models/models_0";
-import { DescribeVpcPeeringConnections } from "../schemas/schemas_0";
+import { DescribeVpcPeeringConnections$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeVpcPeeringConnectionsCommandInput extends DescribeVpcPe
  *
  * The output of {@link DescribeVpcPeeringConnectionsCommand}.
  */
-export interface DescribeVpcPeeringConnectionsCommandOutput
-  extends DescribeVpcPeeringConnectionsOutput,
-    __MetadataBearer {}
+export interface DescribeVpcPeeringConnectionsCommandOutput extends DescribeVpcPeeringConnectionsOutput, __MetadataBearer {}
 
 /**
  * <p>
@@ -116,7 +114,7 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command
   })
   .s("GameLift", "DescribeVpcPeeringConnections", {})
   .n("GameLiftClient", "DescribeVpcPeeringConnectionsCommand")
-  .sc(DescribeVpcPeeringConnections)
+  .sc(DescribeVpcPeeringConnections$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

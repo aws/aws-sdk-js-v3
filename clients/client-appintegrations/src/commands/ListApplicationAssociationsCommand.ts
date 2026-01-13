@@ -10,7 +10,7 @@ import type {
 } from "../AppIntegrationsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListApplicationAssociationsRequest, ListApplicationAssociationsResponse } from "../models/models_0";
-import { ListApplicationAssociations } from "../schemas/schemas_0";
+import { ListApplicationAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListApplicationAssociationsCommandInput extends ListApplication
  *
  * The output of {@link ListApplicationAssociationsCommand}.
  */
-export interface ListApplicationAssociationsCommandOutput
-  extends ListApplicationAssociationsResponse,
-    __MetadataBearer {}
+export interface ListApplicationAssociationsCommandOutput extends ListApplicationAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of application associations for an application.</p>
@@ -125,7 +123,7 @@ export class ListApplicationAssociationsCommand extends $Command
   })
   .s("AmazonAppIntegrationService", "ListApplicationAssociations", {})
   .n("AppIntegrationsClient", "ListApplicationAssociationsCommand")
-  .sc(ListApplicationAssociations)
+  .sc(ListApplicationAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

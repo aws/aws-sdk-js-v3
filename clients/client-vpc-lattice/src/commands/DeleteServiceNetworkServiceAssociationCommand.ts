@@ -8,7 +8,7 @@ import type {
   DeleteServiceNetworkServiceAssociationRequest,
   DeleteServiceNetworkServiceAssociationResponse,
 } from "../models/models_0";
-import { DeleteServiceNetworkServiceAssociation } from "../schemas/schemas_0";
+import { DeleteServiceNetworkServiceAssociation$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteServiceNetworkServiceAssociationCommand}.
  */
-export interface DeleteServiceNetworkServiceAssociationCommandInput
-  extends DeleteServiceNetworkServiceAssociationRequest {}
+export interface DeleteServiceNetworkServiceAssociationCommandInput extends DeleteServiceNetworkServiceAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteServiceNetworkServiceAssociationCommand}.
  */
-export interface DeleteServiceNetworkServiceAssociationCommandOutput
-  extends DeleteServiceNetworkServiceAssociationResponse,
-    __MetadataBearer {}
+export interface DeleteServiceNetworkServiceAssociationCommandOutput extends DeleteServiceNetworkServiceAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the association between a service and a service network. This operation fails if an association is still in progress.</p>
@@ -99,7 +96,7 @@ export class DeleteServiceNetworkServiceAssociationCommand extends $Command
   })
   .s("MercuryControlPlane", "DeleteServiceNetworkServiceAssociation", {})
   .n("VPCLatticeClient", "DeleteServiceNetworkServiceAssociationCommand")
-  .sc(DeleteServiceNetworkServiceAssociation)
+  .sc(DeleteServiceNetworkServiceAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetRelationalDatabaseBundlesRequest, GetRelationalDatabaseBundlesResult } from "../models/models_1";
-import { GetRelationalDatabaseBundles } from "../schemas/schemas_0";
+import { GetRelationalDatabaseBundles$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetRelationalDatabaseBundlesCommandInput extends GetRelationalD
  *
  * The output of {@link GetRelationalDatabaseBundlesCommand}.
  */
-export interface GetRelationalDatabaseBundlesCommandOutput
-  extends GetRelationalDatabaseBundlesResult,
-    __MetadataBearer {}
+export interface GetRelationalDatabaseBundlesCommandOutput extends GetRelationalDatabaseBundlesResult, __MetadataBearer {}
 
 /**
  * <p>Returns the list of bundles that are available in Amazon Lightsail. A bundle describes the
@@ -126,7 +124,7 @@ export class GetRelationalDatabaseBundlesCommand extends $Command
   })
   .s("Lightsail_20161128", "GetRelationalDatabaseBundles", {})
   .n("LightsailClient", "GetRelationalDatabaseBundlesCommand")
-  .sc(GetRelationalDatabaseBundles)
+  .sc(GetRelationalDatabaseBundles$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

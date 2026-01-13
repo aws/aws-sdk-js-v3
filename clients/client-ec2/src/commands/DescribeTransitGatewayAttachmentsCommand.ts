@@ -9,7 +9,7 @@ import type {
   DescribeTransitGatewayAttachmentsRequest,
   DescribeTransitGatewayAttachmentsResult,
 } from "../models/models_4";
-import { DescribeTransitGatewayAttachments } from "../schemas/schemas_0";
+import { DescribeTransitGatewayAttachments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeTransitGatewayAttachmentsCommandInput extends DescribeT
  *
  * The output of {@link DescribeTransitGatewayAttachmentsCommand}.
  */
-export interface DescribeTransitGatewayAttachmentsCommandOutput
-  extends DescribeTransitGatewayAttachmentsResult,
-    __MetadataBearer {}
+export interface DescribeTransitGatewayAttachmentsCommandOutput extends DescribeTransitGatewayAttachmentsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more attachments between resources and transit gateways. By default, all attachments are described.
@@ -114,7 +112,7 @@ export class DescribeTransitGatewayAttachmentsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeTransitGatewayAttachments", {})
   .n("EC2Client", "DescribeTransitGatewayAttachmentsCommand")
-  .sc(DescribeTransitGatewayAttachments)
+  .sc(DescribeTransitGatewayAttachments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

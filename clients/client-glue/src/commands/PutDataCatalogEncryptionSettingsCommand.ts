@@ -9,7 +9,7 @@ import type {
   PutDataCatalogEncryptionSettingsRequest,
   PutDataCatalogEncryptionSettingsResponse,
 } from "../models/models_2";
-import { PutDataCatalogEncryptionSettings } from "../schemas/schemas_0";
+import { PutDataCatalogEncryptionSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface PutDataCatalogEncryptionSettingsCommandInput extends PutDataCat
  *
  * The output of {@link PutDataCatalogEncryptionSettingsCommand}.
  */
-export interface PutDataCatalogEncryptionSettingsCommandOutput
-  extends PutDataCatalogEncryptionSettingsResponse,
-    __MetadataBearer {}
+export interface PutDataCatalogEncryptionSettingsCommandOutput extends PutDataCatalogEncryptionSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the security configuration for a specified catalog. After the configuration has been
@@ -97,7 +95,7 @@ export class PutDataCatalogEncryptionSettingsCommand extends $Command
   })
   .s("AWSGlue", "PutDataCatalogEncryptionSettings", {})
   .n("GlueClient", "PutDataCatalogEncryptionSettingsCommand")
-  .sc(PutDataCatalogEncryptionSettings)
+  .sc(PutDataCatalogEncryptionSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

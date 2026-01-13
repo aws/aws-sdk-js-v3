@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateAppCookieStickinessPolicyInput, CreateAppCookieStickinessPolicyOutput } from "../models/models_0";
-import { CreateAppCookieStickinessPolicy } from "../schemas/schemas_0";
+import { CreateAppCookieStickinessPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface CreateAppCookieStickinessPolicyCommandInput extends CreateAppCo
  *
  * The output of {@link CreateAppCookieStickinessPolicyCommand}.
  */
-export interface CreateAppCookieStickinessPolicyCommandOutput
-  extends CreateAppCookieStickinessPolicyOutput,
-    __MetadataBearer {}
+export interface CreateAppCookieStickinessPolicyCommandOutput extends CreateAppCookieStickinessPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Generates a stickiness policy with sticky session lifetimes that follow that of an application-generated cookie. This policy can be associated only with HTTP/HTTPS listeners.</p>
@@ -114,7 +112,7 @@ export class CreateAppCookieStickinessPolicyCommand extends $Command
   })
   .s("ElasticLoadBalancing_v7", "CreateAppCookieStickinessPolicy", {})
   .n("ElasticLoadBalancingClient", "CreateAppCookieStickinessPolicyCommand")
-  .sc(CreateAppCookieStickinessPolicy)
+  .sc(CreateAppCookieStickinessPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

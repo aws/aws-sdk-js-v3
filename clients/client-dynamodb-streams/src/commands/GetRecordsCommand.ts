@@ -10,7 +10,7 @@ import type {
 } from "../DynamoDBStreamsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRecordsInput, GetRecordsOutput } from "../models/models_0";
-import { GetRecords } from "../schemas/schemas_0";
+import { GetRecords$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -201,7 +201,7 @@ export class GetRecordsCommand extends $Command
   })
   .s("DynamoDBStreams_20120810", "GetRecords", {})
   .n("DynamoDBStreamsClient", "GetRecordsCommand")
-  .sc(GetRecords)
+  .sc(GetRecords$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

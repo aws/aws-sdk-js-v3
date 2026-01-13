@@ -10,7 +10,7 @@ import type {
 } from "../AmplifyUIBuilderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListThemesRequest, ListThemesResponse } from "../models/models_0";
-import { ListThemes } from "../schemas/schemas_0";
+import { ListThemes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class ListThemesCommand extends $Command
   })
   .s("AmplifyUIBuilder", "ListThemes", {})
   .n("AmplifyUIBuilderClient", "ListThemesCommand")
-  .sc(ListThemes)
+  .sc(ListThemes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

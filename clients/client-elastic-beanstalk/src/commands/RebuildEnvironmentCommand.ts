@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RebuildEnvironmentMessage } from "../models/models_0";
-import { RebuildEnvironment } from "../schemas/schemas_0";
+import { RebuildEnvironment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class RebuildEnvironmentCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "RebuildEnvironment", {})
   .n("ElasticBeanstalkClient", "RebuildEnvironmentCommand")
-  .sc(RebuildEnvironment)
+  .sc(RebuildEnvironment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

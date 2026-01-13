@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateEnvironmentRoleInput, AssociateEnvironmentRoleOutput } from "../models/models_0";
-import { AssociateEnvironmentRole } from "../schemas/schemas_0";
+import { AssociateEnvironmentRole$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class AssociateEnvironmentRoleCommand extends $Command
   })
   .s("DataZone", "AssociateEnvironmentRole", {})
   .n("DataZoneClient", "AssociateEnvironmentRoleCommand")
-  .sc(AssociateEnvironmentRole)
+  .sc(AssociateEnvironmentRole$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

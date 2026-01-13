@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListTargetsForPolicyRequest, ListTargetsForPolicyResponse } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { ListTargetsForPolicy } from "../schemas/schemas_0";
+import { ListTargetsForPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -298,7 +298,7 @@ export class ListTargetsForPolicyCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "ListTargetsForPolicy", {})
   .n("OrganizationsClient", "ListTargetsForPolicyCommand")
-  .sc(ListTargetsForPolicy)
+  .sc(ListTargetsForPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

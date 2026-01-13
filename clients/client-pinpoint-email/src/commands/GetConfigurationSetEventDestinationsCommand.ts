@@ -9,7 +9,7 @@ import type {
   GetConfigurationSetEventDestinationsResponse,
 } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { GetConfigurationSetEventDestinations } from "../schemas/schemas_0";
+import { GetConfigurationSetEventDestinations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetConfigurationSetEventDestinationsCommandInput extends GetCon
  *
  * The output of {@link GetConfigurationSetEventDestinationsCommand}.
  */
-export interface GetConfigurationSetEventDestinationsCommandOutput
-  extends GetConfigurationSetEventDestinationsResponse,
-    __MetadataBearer {}
+export interface GetConfigurationSetEventDestinationsCommandOutput extends GetConfigurationSetEventDestinationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve a list of event destinations that are associated with a configuration
@@ -120,7 +118,7 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "GetConfigurationSetEventDestinations", {})
   .n("PinpointEmailClient", "GetConfigurationSetEventDestinationsCommand")
-  .sc(GetConfigurationSetEventDestinations)
+  .sc(GetConfigurationSetEventDestinations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

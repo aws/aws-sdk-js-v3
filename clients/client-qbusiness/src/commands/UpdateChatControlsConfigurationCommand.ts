@@ -9,7 +9,7 @@ import type {
   UpdateChatControlsConfigurationResponse,
 } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { UpdateChatControlsConfiguration } from "../schemas/schemas_0";
+import { UpdateChatControlsConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateChatControlsConfigurationCommandInput extends UpdateChatC
  *
  * The output of {@link UpdateChatControlsConfigurationCommand}.
  */
-export interface UpdateChatControlsConfigurationCommandOutput
-  extends UpdateChatControlsConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateChatControlsConfigurationCommandOutput extends UpdateChatControlsConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a set of chat controls configured for an existing Amazon Q Business application.</p>
@@ -203,7 +201,7 @@ export class UpdateChatControlsConfigurationCommand extends $Command
   })
   .s("ExpertQ", "UpdateChatControlsConfiguration", {})
   .n("QBusinessClient", "UpdateChatControlsConfigurationCommand")
-  .sc(UpdateChatControlsConfiguration)
+  .sc(UpdateChatControlsConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

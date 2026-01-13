@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RevokeRevisionRequest, RevokeRevisionResponse } from "../models/models_0";
-import { RevokeRevision } from "../schemas/schemas_0";
+import { RevokeRevision$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class RevokeRevisionCommand extends $Command
   })
   .s("DataExchange", "RevokeRevision", {})
   .n("DataExchangeClient", "RevokeRevisionCommand")
-  .sc(RevokeRevision)
+  .sc(RevokeRevision$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

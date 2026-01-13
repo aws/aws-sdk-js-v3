@@ -9,7 +9,7 @@ import type {
   CreateStreamingDistributionWithTagsRequest,
   CreateStreamingDistributionWithTagsResult,
 } from "../models/models_0";
-import { CreateStreamingDistributionWithTags } from "../schemas/schemas_0";
+import { CreateStreamingDistributionWithTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateStreamingDistributionWithTagsCommandInput extends CreateS
  *
  * The output of {@link CreateStreamingDistributionWithTagsCommand}.
  */
-export interface CreateStreamingDistributionWithTagsCommandOutput
-  extends CreateStreamingDistributionWithTagsResult,
-    __MetadataBearer {}
+export interface CreateStreamingDistributionWithTagsCommandOutput extends CreateStreamingDistributionWithTagsResult, __MetadataBearer {}
 
 /**
  * <p>This API is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP) distributions on December 31, 2020. For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion forum.</p>
@@ -208,7 +206,7 @@ export class CreateStreamingDistributionWithTagsCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "CreateStreamingDistributionWithTags", {})
   .n("CloudFrontClient", "CreateStreamingDistributionWithTagsCommand")
-  .sc(CreateStreamingDistributionWithTags)
+  .sc(CreateStreamingDistributionWithTags$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

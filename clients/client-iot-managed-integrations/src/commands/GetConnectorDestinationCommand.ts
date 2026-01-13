@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { GetConnectorDestinationRequest, GetConnectorDestinationResponse } from "../models/models_0";
-import { GetConnectorDestination } from "../schemas/schemas_0";
+import { GetConnectorDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class GetConnectorDestinationCommand extends $Command
   })
   .s("IotManagedIntegrations", "GetConnectorDestination", {})
   .n("IoTManagedIntegrationsClient", "GetConnectorDestinationCommand")
-  .sc(GetConnectorDestination)
+  .sc(GetConnectorDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

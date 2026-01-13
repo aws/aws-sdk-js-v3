@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { CreateCoreNetworkPrefixListAssociation } from "../schemas/schemas_0";
+import { CreateCoreNetworkPrefixListAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link CreateCoreNetworkPrefixListAssociationCommand}.
  */
-export interface CreateCoreNetworkPrefixListAssociationCommandInput
-  extends CreateCoreNetworkPrefixListAssociationRequest {}
+export interface CreateCoreNetworkPrefixListAssociationCommandInput extends CreateCoreNetworkPrefixListAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateCoreNetworkPrefixListAssociationCommand}.
  */
-export interface CreateCoreNetworkPrefixListAssociationCommandOutput
-  extends CreateCoreNetworkPrefixListAssociationResponse,
-    __MetadataBearer {}
+export interface CreateCoreNetworkPrefixListAssociationCommandOutput extends CreateCoreNetworkPrefixListAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an association between a core network and a prefix list for routing control.</p>
@@ -110,7 +107,7 @@ export class CreateCoreNetworkPrefixListAssociationCommand extends $Command
   })
   .s("NetworkManager", "CreateCoreNetworkPrefixListAssociation", {})
   .n("NetworkManagerClient", "CreateCoreNetworkPrefixListAssociationCommand")
-  .sc(CreateCoreNetworkPrefixListAssociation)
+  .sc(CreateCoreNetworkPrefixListAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

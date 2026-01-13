@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import type { CreateBotVersionRequest, CreateBotVersionResponse } from "../models/models_0";
-import { CreateBotVersion } from "../schemas/schemas_0";
+import { CreateBotVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -154,7 +154,7 @@ export class CreateBotVersionCommand extends $Command
   })
   .s("AWSDeepSenseModelBuildingService", "CreateBotVersion", {})
   .n("LexModelBuildingServiceClient", "CreateBotVersionCommand")
-  .sc(CreateBotVersion)
+  .sc(CreateBotVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

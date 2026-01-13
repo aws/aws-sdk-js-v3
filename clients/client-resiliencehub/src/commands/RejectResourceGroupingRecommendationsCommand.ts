@@ -9,7 +9,7 @@ import type {
   RejectResourceGroupingRecommendationsResponse,
 } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { RejectResourceGroupingRecommendations } from "../schemas/schemas_0";
+import { RejectResourceGroupingRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link RejectResourceGroupingRecommendationsCommand}.
  */
-export interface RejectResourceGroupingRecommendationsCommandInput
-  extends RejectResourceGroupingRecommendationsRequest {}
+export interface RejectResourceGroupingRecommendationsCommandInput extends RejectResourceGroupingRecommendationsRequest {}
 /**
  * @public
  *
  * The output of {@link RejectResourceGroupingRecommendationsCommand}.
  */
-export interface RejectResourceGroupingRecommendationsCommandOutput
-  extends RejectResourceGroupingRecommendationsResponse,
-    __MetadataBearer {}
+export interface RejectResourceGroupingRecommendationsCommandOutput extends RejectResourceGroupingRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Rejects resource grouping recommendations.</p>
@@ -109,7 +106,7 @@ export class RejectResourceGroupingRecommendationsCommand extends $Command
   })
   .s("AwsResilienceHub", "RejectResourceGroupingRecommendations", {})
   .n("ResiliencehubClient", "RejectResourceGroupingRecommendationsCommand")
-  .sc(RejectResourceGroupingRecommendations)
+  .sc(RejectResourceGroupingRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

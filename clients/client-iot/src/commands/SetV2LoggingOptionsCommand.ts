@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { SetV2LoggingOptionsRequest } from "../models/models_2";
-import { SetV2LoggingOptions } from "../schemas/schemas_0";
+import { SetV2LoggingOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -41,6 +41,13 @@ export interface SetV2LoggingOptionsCommandOutput extends __MetadataBearer {}
  *   roleArn: "STRING_VALUE",
  *   defaultLogLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED",
  *   disableAllLogs: true || false,
+ *   eventConfigurations: [ // LogEventConfigurations
+ *     { // LogEventConfiguration
+ *       eventType: "STRING_VALUE", // required
+ *       logLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED",
+ *       logDestination: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new SetV2LoggingOptionsCommand(input);
  * const response = await client.send(command);
@@ -83,7 +90,7 @@ export class SetV2LoggingOptionsCommand extends $Command
   })
   .s("AWSIotService", "SetV2LoggingOptions", {})
   .n("IoTClient", "SetV2LoggingOptionsCommand")
-  .sc(SetV2LoggingOptions)
+  .sc(SetV2LoggingOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

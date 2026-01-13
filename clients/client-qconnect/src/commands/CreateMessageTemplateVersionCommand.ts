@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateMessageTemplateVersionRequest, CreateMessageTemplateVersionResponse } from "../models/models_0";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { CreateMessageTemplateVersion } from "../schemas/schemas_0";
+import { CreateMessageTemplateVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateMessageTemplateVersionCommandInput extends CreateMessageT
  *
  * The output of {@link CreateMessageTemplateVersionCommand}.
  */
-export interface CreateMessageTemplateVersionCommandOutput
-  extends CreateMessageTemplateVersionResponse,
-    __MetadataBearer {}
+export interface CreateMessageTemplateVersionCommandOutput extends CreateMessageTemplateVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new Amazon Q in Connect message template version from the current content and configuration of a message template. Versions are immutable and monotonically increasing. Once a version is created, you can reference a specific version of the message template by passing in <code>&lt;message-template-id&gt;:&lt;versionNumber&gt;</code> as the message template identifier. An error is displayed if the supplied <code>messageTemplateContentSha256</code> is different from the <code>messageTemplateContentSha256</code> of the message template with <code>$LATEST</code> qualifier. If multiple <code>CreateMessageTemplateVersion</code> requests are made while the message template remains the same, only the first invocation creates a new version and the succeeding requests will return the same response as the first invocation.</p>
@@ -303,7 +301,7 @@ export class CreateMessageTemplateVersionCommand extends $Command
   })
   .s("WisdomService", "CreateMessageTemplateVersion", {})
   .n("QConnectClient", "CreateMessageTemplateVersionCommand")
-  .sc(CreateMessageTemplateVersion)
+  .sc(CreateMessageTemplateVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

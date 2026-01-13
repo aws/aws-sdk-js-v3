@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAnnotationStoreVersionsRequest, DeleteAnnotationStoreVersionsResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { DeleteAnnotationStoreVersions } from "../schemas/schemas_0";
+import { DeleteAnnotationStoreVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteAnnotationStoreVersionsCommandInput extends DeleteAnnotat
  *
  * The output of {@link DeleteAnnotationStoreVersionsCommand}.
  */
-export interface DeleteAnnotationStoreVersionsCommandOutput
-  extends DeleteAnnotationStoreVersionsResponse,
-    __MetadataBearer {}
+export interface DeleteAnnotationStoreVersionsCommandOutput extends DeleteAnnotationStoreVersionsResponse, __MetadataBearer {}
 
 /**
  * <p> Deletes one or multiple versions of an annotation store. </p>
@@ -102,7 +100,7 @@ export class DeleteAnnotationStoreVersionsCommand extends $Command
   })
   .s("Omics", "DeleteAnnotationStoreVersions", {})
   .n("OmicsClient", "DeleteAnnotationStoreVersionsCommand")
-  .sc(DeleteAnnotationStoreVersions)
+  .sc(DeleteAnnotationStoreVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

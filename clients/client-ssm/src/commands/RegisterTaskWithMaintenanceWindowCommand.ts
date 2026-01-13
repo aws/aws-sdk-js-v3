@@ -8,7 +8,7 @@ import type {
   RegisterTaskWithMaintenanceWindowRequest,
   RegisterTaskWithMaintenanceWindowResult,
 } from "../models/models_1";
-import { RegisterTaskWithMaintenanceWindow } from "../schemas/schemas_0";
+import { RegisterTaskWithMaintenanceWindow$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -27,9 +27,7 @@ export interface RegisterTaskWithMaintenanceWindowCommandInput extends RegisterT
  *
  * The output of {@link RegisterTaskWithMaintenanceWindowCommand}.
  */
-export interface RegisterTaskWithMaintenanceWindowCommandOutput
-  extends RegisterTaskWithMaintenanceWindowResult,
-    __MetadataBearer {}
+export interface RegisterTaskWithMaintenanceWindowCommandOutput extends RegisterTaskWithMaintenanceWindowResult, __MetadataBearer {}
 
 /**
  * <p>Adds a new task to a maintenance window.</p>
@@ -184,7 +182,7 @@ export class RegisterTaskWithMaintenanceWindowCommand extends $Command
   })
   .s("AmazonSSM", "RegisterTaskWithMaintenanceWindow", {})
   .n("SSMClient", "RegisterTaskWithMaintenanceWindowCommand")
-  .sc(RegisterTaskWithMaintenanceWindow)
+  .sc(RegisterTaskWithMaintenanceWindow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

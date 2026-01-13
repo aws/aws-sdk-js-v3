@@ -9,7 +9,7 @@ import type {
   GetReservedNodeExchangeConfigurationOptionsOutputMessage,
 } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { GetReservedNodeExchangeConfigurationOptions } from "../schemas/schemas_0";
+import { GetReservedNodeExchangeConfigurationOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetReservedNodeExchangeConfigurationOptionsCommand}.
  */
-export interface GetReservedNodeExchangeConfigurationOptionsCommandInput
-  extends GetReservedNodeExchangeConfigurationOptionsInputMessage {}
+export interface GetReservedNodeExchangeConfigurationOptionsCommandInput extends GetReservedNodeExchangeConfigurationOptionsInputMessage {}
 /**
  * @public
  *
  * The output of {@link GetReservedNodeExchangeConfigurationOptionsCommand}.
  */
-export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput
-  extends GetReservedNodeExchangeConfigurationOptionsOutputMessage,
-    __MetadataBearer {}
+export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput extends GetReservedNodeExchangeConfigurationOptionsOutputMessage, __MetadataBearer {}
 
 /**
  * <p>Gets the configuration options for the reserved-node exchange. These options
@@ -152,7 +149,7 @@ export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "GetReservedNodeExchangeConfigurationOptions", {})
   .n("RedshiftClient", "GetReservedNodeExchangeConfigurationOptionsCommand")
-  .sc(GetReservedNodeExchangeConfigurationOptions)
+  .sc(GetReservedNodeExchangeConfigurationOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeInstanceProfilesMessage, DescribeInstanceProfilesResponse } from "../models/models_0";
-import { DescribeInstanceProfiles } from "../schemas/schemas_0";
+import { DescribeInstanceProfiles$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -147,7 +147,7 @@ export class DescribeInstanceProfilesCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeInstanceProfiles", {})
   .n("DatabaseMigrationServiceClient", "DescribeInstanceProfilesCommand")
-  .sc(DescribeInstanceProfiles)
+  .sc(DescribeInstanceProfiles$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   PutConfigurationSetArchivingOptionsRequest,
   PutConfigurationSetArchivingOptionsResponse,
 } from "../models/models_0";
-import { PutConfigurationSetArchivingOptions } from "../schemas/schemas_0";
+import { PutConfigurationSetArchivingOptions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -27,9 +27,7 @@ export interface PutConfigurationSetArchivingOptionsCommandInput extends PutConf
  *
  * The output of {@link PutConfigurationSetArchivingOptionsCommand}.
  */
-export interface PutConfigurationSetArchivingOptionsCommandOutput
-  extends PutConfigurationSetArchivingOptionsResponse,
-    __MetadataBearer {}
+export interface PutConfigurationSetArchivingOptionsCommandOutput extends PutConfigurationSetArchivingOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Associate the configuration set with a MailManager archive. When you send email using the
@@ -102,7 +100,7 @@ export class PutConfigurationSetArchivingOptionsCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutConfigurationSetArchivingOptions", {})
   .n("SESv2Client", "PutConfigurationSetArchivingOptionsCommand")
-  .sc(PutConfigurationSetArchivingOptions)
+  .sc(PutConfigurationSetArchivingOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

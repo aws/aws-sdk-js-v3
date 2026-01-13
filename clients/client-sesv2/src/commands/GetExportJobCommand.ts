@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetExportJobRequest, GetExportJobResponse } from "../models/models_0";
-import { GetExportJob } from "../schemas/schemas_0";
+import { GetExportJob$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -161,7 +161,7 @@ export class GetExportJobCommand extends $Command
   })
   .s("SimpleEmailService_v2", "GetExportJob", {})
   .n("SESv2Client", "GetExportJobCommand")
-  .sc(GetExportJob)
+  .sc(GetExportJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchEventsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutPermissionRequest } from "../models/models_0";
-import { PutPermission } from "../schemas/schemas_0";
+import { PutPermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class PutPermissionCommand extends $Command
   })
   .s("AWSEvents", "PutPermission", {})
   .n("CloudWatchEventsClient", "PutPermissionCommand")
-  .sc(PutPermission)
+  .sc(PutPermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DescribePipelineDefinitionForExecutionResponse,
 } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribePipelineDefinitionForExecution } from "../schemas/schemas_0";
+import { DescribePipelineDefinitionForExecution$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribePipelineDefinitionForExecutionCommand}.
  */
-export interface DescribePipelineDefinitionForExecutionCommandInput
-  extends DescribePipelineDefinitionForExecutionRequest {}
+export interface DescribePipelineDefinitionForExecutionCommandInput extends DescribePipelineDefinitionForExecutionRequest {}
 /**
  * @public
  *
  * The output of {@link DescribePipelineDefinitionForExecutionCommand}.
  */
-export interface DescribePipelineDefinitionForExecutionCommandOutput
-  extends DescribePipelineDefinitionForExecutionResponse,
-    __MetadataBearer {}
+export interface DescribePipelineDefinitionForExecutionCommandOutput extends DescribePipelineDefinitionForExecutionResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the details of an execution's pipeline definition.</p>
@@ -83,7 +80,7 @@ export class DescribePipelineDefinitionForExecutionCommand extends $Command
   })
   .s("SageMaker", "DescribePipelineDefinitionForExecution", {})
   .n("SageMakerClient", "DescribePipelineDefinitionForExecutionCommand")
-  .sc(DescribePipelineDefinitionForExecution)
+  .sc(DescribePipelineDefinitionForExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

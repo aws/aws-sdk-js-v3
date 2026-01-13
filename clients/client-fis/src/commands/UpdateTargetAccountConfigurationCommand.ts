@@ -9,7 +9,7 @@ import type {
   UpdateTargetAccountConfigurationRequest,
   UpdateTargetAccountConfigurationResponse,
 } from "../models/models_0";
-import { UpdateTargetAccountConfiguration } from "../schemas/schemas_0";
+import { UpdateTargetAccountConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateTargetAccountConfigurationCommandInput extends UpdateTarg
  *
  * The output of {@link UpdateTargetAccountConfigurationCommand}.
  */
-export interface UpdateTargetAccountConfigurationCommandOutput
-  extends UpdateTargetAccountConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateTargetAccountConfigurationCommandOutput extends UpdateTargetAccountConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the target account configuration for the specified experiment template.</p>
@@ -91,7 +89,7 @@ export class UpdateTargetAccountConfigurationCommand extends $Command
   })
   .s("FaultInjectionSimulator", "UpdateTargetAccountConfiguration", {})
   .n("FisClient", "UpdateTargetAccountConfigurationCommand")
-  .sc(UpdateTargetAccountConfiguration)
+  .sc(UpdateTargetAccountConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

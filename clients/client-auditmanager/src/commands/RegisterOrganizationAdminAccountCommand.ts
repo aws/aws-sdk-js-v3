@@ -9,7 +9,7 @@ import type {
   RegisterOrganizationAdminAccountRequest,
   RegisterOrganizationAdminAccountResponse,
 } from "../models/models_0";
-import { RegisterOrganizationAdminAccount } from "../schemas/schemas_0";
+import { RegisterOrganizationAdminAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface RegisterOrganizationAdminAccountCommandInput extends RegisterOr
  *
  * The output of {@link RegisterOrganizationAdminAccountCommand}.
  */
-export interface RegisterOrganizationAdminAccountCommandOutput
-  extends RegisterOrganizationAdminAccountResponse,
-    __MetadataBearer {}
+export interface RegisterOrganizationAdminAccountCommandOutput extends RegisterOrganizationAdminAccountResponse, __MetadataBearer {}
 
 /**
  * <p> Enables an Amazon Web Services account within the organization as the delegated
@@ -97,7 +95,7 @@ export class RegisterOrganizationAdminAccountCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "RegisterOrganizationAdminAccount", {})
   .n("AuditManagerClient", "RegisterOrganizationAdminAccountCommand")
-  .sc(RegisterOrganizationAdminAccount)
+  .sc(RegisterOrganizationAdminAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

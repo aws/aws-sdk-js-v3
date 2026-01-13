@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralBenefitsClient";
-import { CancelBenefitApplication } from "../schemas/schemas_0";
+import { CancelBenefitApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class CancelBenefitApplicationCommand extends $Command
   })
   .s("PartnerCentralBenefitsService", "CancelBenefitApplication", {})
   .n("PartnerCentralBenefitsClient", "CancelBenefitApplicationCommand")
-  .sc(CancelBenefitApplication)
+  .sc(CancelBenefitApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

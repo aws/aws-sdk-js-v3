@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeactivateContactChannelRequest, DeactivateContactChannelResult } from "../models/models_0";
-import { DeactivateContactChannel } from "../schemas/schemas_0";
+import { DeactivateContactChannel$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -88,7 +88,7 @@ export class DeactivateContactChannelCommand extends $Command
   })
   .s("SSMContacts", "DeactivateContactChannel", {})
   .n("SSMContactsClient", "DeactivateContactChannelCommand")
-  .sc(DeactivateContactChannel)
+  .sc(DeactivateContactChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

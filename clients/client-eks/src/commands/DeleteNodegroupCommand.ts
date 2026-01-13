@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteNodegroupRequest, DeleteNodegroupResponse } from "../models/models_0";
-import { DeleteNodegroup } from "../schemas/schemas_0";
+import { DeleteNodegroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -183,7 +183,7 @@ export class DeleteNodegroupCommand extends $Command
   })
   .s("AWSWesleyFrontend", "DeleteNodegroup", {})
   .n("EKSClient", "DeleteNodegroupCommand")
-  .sc(DeleteNodegroup)
+  .sc(DeleteNodegroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

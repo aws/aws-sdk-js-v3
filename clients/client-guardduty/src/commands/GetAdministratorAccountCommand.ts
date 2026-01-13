@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import type { GetAdministratorAccountRequest, GetAdministratorAccountResponse } from "../models/models_0";
-import { GetAdministratorAccount } from "../schemas/schemas_0";
+import { GetAdministratorAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class GetAdministratorAccountCommand extends $Command
   })
   .s("GuardDutyAPIService", "GetAdministratorAccount", {})
   .n("GuardDutyClient", "GetAdministratorAccountCommand")
-  .sc(GetAdministratorAccount)
+  .sc(GetAdministratorAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

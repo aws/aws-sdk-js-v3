@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTJobsDataPlaneClient";
 import type { StartNextPendingJobExecutionRequest, StartNextPendingJobExecutionResponse } from "../models/models_0";
-import { StartNextPendingJobExecution } from "../schemas/schemas_0";
+import { StartNextPendingJobExecution$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface StartNextPendingJobExecutionCommandInput extends StartNextPendi
  *
  * The output of {@link StartNextPendingJobExecutionCommand}.
  */
-export interface StartNextPendingJobExecutionCommandOutput
-  extends StartNextPendingJobExecutionResponse,
-    __MetadataBearer {}
+export interface StartNextPendingJobExecutionCommandOutput extends StartNextPendingJobExecutionResponse, __MetadataBearer {}
 
 /**
  * <p>Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution for a
@@ -114,7 +112,7 @@ export class StartNextPendingJobExecutionCommand extends $Command
   })
   .s("IotLaserThingJobManagerExternalService", "StartNextPendingJobExecution", {})
   .n("IoTJobsDataPlaneClient", "StartNextPendingJobExecutionCommand")
-  .sc(StartNextPendingJobExecution)
+  .sc(StartNextPendingJobExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

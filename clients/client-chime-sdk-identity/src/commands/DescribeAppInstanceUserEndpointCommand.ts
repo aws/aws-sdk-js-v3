@@ -13,7 +13,7 @@ import type {
   DescribeAppInstanceUserEndpointRequest,
   DescribeAppInstanceUserEndpointResponse,
 } from "../models/models_0";
-import { DescribeAppInstanceUserEndpoint } from "../schemas/schemas_0";
+import { DescribeAppInstanceUserEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DescribeAppInstanceUserEndpointCommandInput extends DescribeApp
  *
  * The output of {@link DescribeAppInstanceUserEndpointCommand}.
  */
-export interface DescribeAppInstanceUserEndpointCommandOutput
-  extends DescribeAppInstanceUserEndpointResponse,
-    __MetadataBearer {}
+export interface DescribeAppInstanceUserEndpointCommandOutput extends DescribeAppInstanceUserEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the full details of an <code>AppInstanceUserEndpoint</code>.</p>
@@ -118,7 +116,7 @@ export class DescribeAppInstanceUserEndpointCommand extends $Command
   })
   .s("ChimeIdentityService", "DescribeAppInstanceUserEndpoint", {})
   .n("ChimeSDKIdentityClient", "DescribeAppInstanceUserEndpointCommand")
-  .sc(DescribeAppInstanceUserEndpoint)
+  .sc(DescribeAppInstanceUserEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

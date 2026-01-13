@@ -8,7 +8,7 @@ import type {
   DeleteConnectionRecordingPreferencesRequest,
   DeleteConnectionRecordingPreferencesResponse,
 } from "../models/models_0";
-import { DeleteConnectionRecordingPreferences } from "../schemas/schemas_0";
+import { DeleteConnectionRecordingPreferences$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMGuiConnectClientResolvedConfig } from "../SSMGuiConnectClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DeleteConnectionRecordingPreferencesCommandInput extends Delete
  *
  * The output of {@link DeleteConnectionRecordingPreferencesCommand}.
  */
-export interface DeleteConnectionRecordingPreferencesCommandOutput
-  extends DeleteConnectionRecordingPreferencesResponse,
-    __MetadataBearer {}
+export interface DeleteConnectionRecordingPreferencesCommandOutput extends DeleteConnectionRecordingPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the preferences for recording RDP connections.</p>
@@ -112,7 +110,7 @@ export class DeleteConnectionRecordingPreferencesCommand extends $Command
   })
   .s("SSMGuiConnect", "DeleteConnectionRecordingPreferences", {})
   .n("SSMGuiConnectClient", "DeleteConnectionRecordingPreferencesCommand")
-  .sc(DeleteConnectionRecordingPreferences)
+  .sc(DeleteConnectionRecordingPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

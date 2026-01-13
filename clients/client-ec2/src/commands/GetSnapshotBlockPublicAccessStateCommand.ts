@@ -9,7 +9,7 @@ import type {
   GetSnapshotBlockPublicAccessStateRequest,
   GetSnapshotBlockPublicAccessStateResult,
 } from "../models/models_6";
-import { GetSnapshotBlockPublicAccessState } from "../schemas/schemas_0";
+import { GetSnapshotBlockPublicAccessState$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetSnapshotBlockPublicAccessStateCommandInput extends GetSnapsh
  *
  * The output of {@link GetSnapshotBlockPublicAccessStateCommand}.
  */
-export interface GetSnapshotBlockPublicAccessStateCommandOutput
-  extends GetSnapshotBlockPublicAccessStateResult,
-    __MetadataBearer {}
+export interface GetSnapshotBlockPublicAccessStateCommandOutput extends GetSnapshotBlockPublicAccessStateResult, __MetadataBearer {}
 
 /**
  * <p>Gets the current state of <i>block public access for snapshots</i> setting
@@ -82,7 +80,7 @@ export class GetSnapshotBlockPublicAccessStateCommand extends $Command
   })
   .s("AmazonEC2", "GetSnapshotBlockPublicAccessState", {})
   .n("EC2Client", "GetSnapshotBlockPublicAccessStateCommand")
-  .sc(GetSnapshotBlockPublicAccessState)
+  .sc(GetSnapshotBlockPublicAccessState$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

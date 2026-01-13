@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListDomainLayoutsRequest, ListDomainLayoutsResponse } from "../models/models_0";
-import { ListDomainLayouts } from "../schemas/schemas_0";
+import { ListDomainLayouts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class ListDomainLayoutsCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "ListDomainLayouts", {})
   .n("CustomerProfilesClient", "ListDomainLayoutsCommand")
-  .sc(ListDomainLayouts)
+  .sc(ListDomainLayouts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

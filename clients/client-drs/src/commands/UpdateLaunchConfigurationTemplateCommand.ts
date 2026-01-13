@@ -9,7 +9,7 @@ import type {
   UpdateLaunchConfigurationTemplateRequest,
   UpdateLaunchConfigurationTemplateResponse,
 } from "../models/models_0";
-import { UpdateLaunchConfigurationTemplate } from "../schemas/schemas_0";
+import { UpdateLaunchConfigurationTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateLaunchConfigurationTemplateCommandInput extends UpdateLau
  *
  * The output of {@link UpdateLaunchConfigurationTemplateCommand}.
  */
-export interface UpdateLaunchConfigurationTemplateCommandOutput
-  extends UpdateLaunchConfigurationTemplateResponse,
-    __MetadataBearer {}
+export interface UpdateLaunchConfigurationTemplateCommandOutput extends UpdateLaunchConfigurationTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing Launch Configuration Template by ID.</p>
@@ -122,7 +120,7 @@ export class UpdateLaunchConfigurationTemplateCommand extends $Command
   })
   .s("ElasticDisasterRecoveryService", "UpdateLaunchConfigurationTemplate", {})
   .n("DrsClient", "UpdateLaunchConfigurationTemplateCommand")
-  .sc(UpdateLaunchConfigurationTemplate)
+  .sc(UpdateLaunchConfigurationTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

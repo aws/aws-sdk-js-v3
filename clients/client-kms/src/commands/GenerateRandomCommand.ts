@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import type { GenerateRandomRequest, GenerateRandomResponse } from "../models/models_0";
-import { GenerateRandom } from "../schemas/schemas_0";
+import { GenerateRandom$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -168,7 +168,7 @@ export class GenerateRandomCommand extends $Command
   })
   .s("TrentService", "GenerateRandom", {})
   .n("KMSClient", "GenerateRandomCommand")
-  .sc(GenerateRandom)
+  .sc(GenerateRandom$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

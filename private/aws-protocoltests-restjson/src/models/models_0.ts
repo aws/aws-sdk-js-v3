@@ -220,7 +220,9 @@ export interface StructurePayloadEvent {
 /**
  * @public
  */
-export type PayloadUnion = PayloadUnion.UnionMemberMember | PayloadUnion.$UnknownMember;
+export type PayloadUnion =
+  | PayloadUnion.UnionMemberMember
+  | PayloadUnion.$UnknownMember;
 
 /**
  * @public
@@ -404,10 +406,8 @@ export namespace EventStream {
     if (value.stringPayload !== undefined) return visitor.stringPayload(value.stringPayload);
     if (value.structurePayload !== undefined) return visitor.structurePayload(value.structurePayload);
     if (value.unionPayload !== undefined) return visitor.unionPayload(value.unionPayload);
-    if (value.headersAndExplicitPayload !== undefined)
-      return visitor.headersAndExplicitPayload(value.headersAndExplicitPayload);
-    if (value.headersAndImplicitPayload !== undefined)
-      return visitor.headersAndImplicitPayload(value.headersAndImplicitPayload);
+    if (value.headersAndExplicitPayload !== undefined) return visitor.headersAndExplicitPayload(value.headersAndExplicitPayload);
+    if (value.headersAndImplicitPayload !== undefined) return visitor.headersAndImplicitPayload(value.headersAndImplicitPayload);
     if (value.error !== undefined) return visitor.error(value.error);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
@@ -418,46 +418,46 @@ export namespace EventStream {
 export const EventStreamFilterSensitiveLog = (obj: EventStream): any => {
   if (obj.headers !== undefined) {
     return {
-      headers: obj.headers,
+      headers: obj.headers
     };
   }
   if (obj.blobPayload !== undefined) {
     return {
-      blobPayload: obj.blobPayload,
+      blobPayload: obj.blobPayload
     };
   }
   if (obj.stringPayload !== undefined) {
     return {
-      stringPayload: obj.stringPayload,
+      stringPayload: obj.stringPayload
     };
   }
   if (obj.structurePayload !== undefined) {
     return {
-      structurePayload: obj.structurePayload,
+      structurePayload: obj.structurePayload
     };
   }
   if (obj.unionPayload !== undefined) {
     return {
-      unionPayload: obj.unionPayload,
+      unionPayload: obj.unionPayload
     };
   }
   if (obj.headersAndExplicitPayload !== undefined) {
     return {
-      headersAndExplicitPayload: obj.headersAndExplicitPayload,
+      headersAndExplicitPayload: obj.headersAndExplicitPayload
     };
   }
   if (obj.headersAndImplicitPayload !== undefined) {
     return {
-      headersAndImplicitPayload: obj.headersAndImplicitPayload,
+      headersAndImplicitPayload: obj.headersAndImplicitPayload
     };
   }
   if (obj.error !== undefined) {
     return {
-      error: obj.error,
+      error: obj.error
     };
   }
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
+}
 
 /**
  * @public
@@ -471,8 +471,10 @@ export interface DuplexStreamInput {
  */
 export const DuplexStreamInputFilterSensitiveLog = (obj: DuplexStreamInput): any => ({
   ...obj,
-  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
-});
+  ...(obj.stream && { stream:
+    'STREAMING_CONTENT'
+  }),
+})
 
 /**
  * @public
@@ -486,8 +488,10 @@ export interface DuplexStreamOutput {
  */
 export const DuplexStreamOutputFilterSensitiveLog = (obj: DuplexStreamOutput): any => ({
   ...obj,
-  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
-});
+  ...(obj.stream && { stream:
+    'STREAMING_CONTENT'
+  }),
+})
 
 /**
  * @public
@@ -499,12 +503,12 @@ export interface DuplexStreamWithDistinctStreamsInput {
 /**
  * @internal
  */
-export const DuplexStreamWithDistinctStreamsInputFilterSensitiveLog = (
-  obj: DuplexStreamWithDistinctStreamsInput
-): any => ({
+export const DuplexStreamWithDistinctStreamsInputFilterSensitiveLog = (obj: DuplexStreamWithDistinctStreamsInput): any => ({
   ...obj,
-  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
-});
+  ...(obj.stream && { stream:
+    'STREAMING_CONTENT'
+  }),
+})
 
 /**
  * @public
@@ -516,7 +520,9 @@ export interface SingletonEvent {
 /**
  * @public
  */
-export type SingletonEventStream = SingletonEventStream.SingletonMember | SingletonEventStream.$UnknownMember;
+export type SingletonEventStream =
+  | SingletonEventStream.SingletonMember
+  | SingletonEventStream.$UnknownMember;
 
 /**
  * @public
@@ -564,12 +570,12 @@ export interface DuplexStreamWithInitialMessagesInput {
 /**
  * @internal
  */
-export const DuplexStreamWithInitialMessagesInputFilterSensitiveLog = (
-  obj: DuplexStreamWithInitialMessagesInput
-): any => ({
+export const DuplexStreamWithInitialMessagesInputFilterSensitiveLog = (obj: DuplexStreamWithInitialMessagesInput): any => ({
   ...obj,
-  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
-});
+  ...(obj.stream && { stream:
+    'STREAMING_CONTENT'
+  }),
+})
 
 /**
  * @public
@@ -582,12 +588,12 @@ export interface DuplexStreamWithInitialMessagesOutput {
 /**
  * @internal
  */
-export const DuplexStreamWithInitialMessagesOutputFilterSensitiveLog = (
-  obj: DuplexStreamWithInitialMessagesOutput
-): any => ({
+export const DuplexStreamWithInitialMessagesOutputFilterSensitiveLog = (obj: DuplexStreamWithInitialMessagesOutput): any => ({
   ...obj,
-  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
-});
+  ...(obj.stream && { stream:
+    'STREAMING_CONTENT'
+  }),
+})
 
 /**
  * @public
@@ -684,7 +690,9 @@ export interface HttpPayloadWithStructureInputOutput {
 /**
  * @public
  */
-export type UnionPayload = UnionPayload.GreetingMember | UnionPayload.$UnknownMember;
+export type UnionPayload =
+  | UnionPayload.GreetingMember
+  | UnionPayload.$UnknownMember;
 
 /**
  * @public
@@ -872,8 +880,10 @@ export interface InputStreamInput {
  */
 export const InputStreamInputFilterSensitiveLog = (obj: InputStreamInput): any => ({
   ...obj,
-  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
-});
+  ...(obj.stream && { stream:
+    'STREAMING_CONTENT'
+  }),
+})
 
 /**
  * @public
@@ -888,8 +898,10 @@ export interface InputStreamWithInitialRequestInput {
  */
 export const InputStreamWithInitialRequestInputFilterSensitiveLog = (obj: InputStreamWithInitialRequestInput): any => ({
   ...obj,
-  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
-});
+  ...(obj.stream && { stream:
+    'STREAMING_CONTENT'
+  }),
+})
 
 /**
  * @public
@@ -1428,7 +1440,10 @@ export interface MalformedTimestampQueryHttpDateInput {
 /**
  * @public
  */
-export type SimpleUnion = SimpleUnion.IntMember | SimpleUnion.StringMember | SimpleUnion.$UnknownMember;
+export type SimpleUnion =
+  | SimpleUnion.IntMember
+  | SimpleUnion.StringMember
+  | SimpleUnion.$UnknownMember;
 
 /**
  * @public
@@ -1605,8 +1620,10 @@ export interface OutputStreamOutput {
  */
 export const OutputStreamOutputFilterSensitiveLog = (obj: OutputStreamOutput): any => ({
   ...obj,
-  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
-});
+  ...(obj.stream && { stream:
+    'STREAMING_CONTENT'
+  }),
+})
 
 /**
  * @public
@@ -1619,12 +1636,12 @@ export interface OutputStreamWithInitialResponseOutput {
 /**
  * @internal
  */
-export const OutputStreamWithInitialResponseOutputFilterSensitiveLog = (
-  obj: OutputStreamWithInitialResponseOutput
-): any => ({
+export const OutputStreamWithInitialResponseOutputFilterSensitiveLog = (obj: OutputStreamWithInitialResponseOutput): any => ({
   ...obj,
-  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
-});
+  ...(obj.stream && { stream:
+    'STREAMING_CONTENT'
+  }),
+})
 
 /**
  * @public
@@ -1641,7 +1658,9 @@ export interface Unit {}
 /**
  * @public
  */
-export type PlayerAction = PlayerAction.QuitMember | PlayerAction.$UnknownMember;
+export type PlayerAction =
+  | PlayerAction.QuitMember
+  | PlayerAction.$UnknownMember;
 
 /**
  * @public
@@ -1853,7 +1872,7 @@ export interface StreamingTraitsInputOutput {
  */
 export const StreamingTraitsInputOutputFilterSensitiveLog = (obj: StreamingTraitsInputOutput): any => ({
   ...obj,
-});
+})
 
 /**
  * @public
@@ -1868,7 +1887,7 @@ export interface StreamingTraitsRequireLengthInput {
  */
 export const StreamingTraitsRequireLengthInputFilterSensitiveLog = (obj: StreamingTraitsRequireLengthInput): any => ({
   ...obj,
-});
+})
 
 /**
  * @public
@@ -1881,11 +1900,9 @@ export interface StreamingTraitsWithMediaTypeInputOutput {
 /**
  * @internal
  */
-export const StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog = (
-  obj: StreamingTraitsWithMediaTypeInputOutput
-): any => ({
+export const StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog = (obj: StreamingTraitsWithMediaTypeInputOutput): any => ({
   ...obj,
-});
+})
 
 /**
  * @public

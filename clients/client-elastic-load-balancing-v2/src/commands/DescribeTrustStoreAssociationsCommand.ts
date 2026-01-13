@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeTrustStoreAssociationsInput, DescribeTrustStoreAssociationsOutput } from "../models/models_0";
-import { DescribeTrustStoreAssociations } from "../schemas/schemas_0";
+import { DescribeTrustStoreAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeTrustStoreAssociationsCommandInput extends DescribeTrus
  *
  * The output of {@link DescribeTrustStoreAssociationsCommand}.
  */
-export interface DescribeTrustStoreAssociationsCommandOutput
-  extends DescribeTrustStoreAssociationsOutput,
-    __MetadataBearer {}
+export interface DescribeTrustStoreAssociationsCommandOutput extends DescribeTrustStoreAssociationsOutput, __MetadataBearer {}
 
 /**
  * <p>Describes all resources associated with the specified trust store.</p>
@@ -89,7 +87,7 @@ export class DescribeTrustStoreAssociationsCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "DescribeTrustStoreAssociations", {})
   .n("ElasticLoadBalancingV2Client", "DescribeTrustStoreAssociationsCommand")
-  .sc(DescribeTrustStoreAssociations)
+  .sc(DescribeTrustStoreAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

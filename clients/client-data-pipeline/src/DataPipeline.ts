@@ -126,8 +126,14 @@ export interface DataPipeline {
   /**
    * @see {@link AddTagsCommand}
    */
-  addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
-  addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
+  addTags(
+    args: AddTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddTagsCommandOutput>;
+  addTags(
+    args: AddTagsCommandInput,
+    cb: (err: any, data?: AddTagsCommandOutput) => void
+  ): void;
   addTags(
     args: AddTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -141,7 +147,10 @@ export interface DataPipeline {
     args: CreatePipelineCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreatePipelineCommandOutput>;
-  createPipeline(args: CreatePipelineCommandInput, cb: (err: any, data?: CreatePipelineCommandOutput) => void): void;
+  createPipeline(
+    args: CreatePipelineCommandInput,
+    cb: (err: any, data?: CreatePipelineCommandOutput) => void
+  ): void;
   createPipeline(
     args: CreatePipelineCommandInput,
     options: __HttpHandlerOptions,
@@ -172,7 +181,10 @@ export interface DataPipeline {
     args: DeletePipelineCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeletePipelineCommandOutput>;
-  deletePipeline(args: DeletePipelineCommandInput, cb: (err: any, data?: DeletePipelineCommandOutput) => void): void;
+  deletePipeline(
+    args: DeletePipelineCommandInput,
+    cb: (err: any, data?: DeletePipelineCommandOutput) => void
+  ): void;
   deletePipeline(
     args: DeletePipelineCommandInput,
     options: __HttpHandlerOptions,
@@ -186,7 +198,10 @@ export interface DataPipeline {
     args: DescribeObjectsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeObjectsCommandOutput>;
-  describeObjects(args: DescribeObjectsCommandInput, cb: (err: any, data?: DescribeObjectsCommandOutput) => void): void;
+  describeObjects(
+    args: DescribeObjectsCommandInput,
+    cb: (err: any, data?: DescribeObjectsCommandOutput) => void
+  ): void;
   describeObjects(
     args: DescribeObjectsCommandInput,
     options: __HttpHandlerOptions,
@@ -248,8 +263,14 @@ export interface DataPipeline {
    * @see {@link ListPipelinesCommand}
    */
   listPipelines(): Promise<ListPipelinesCommandOutput>;
-  listPipelines(args: ListPipelinesCommandInput, options?: __HttpHandlerOptions): Promise<ListPipelinesCommandOutput>;
-  listPipelines(args: ListPipelinesCommandInput, cb: (err: any, data?: ListPipelinesCommandOutput) => void): void;
+  listPipelines(
+    args: ListPipelinesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPipelinesCommandOutput>;
+  listPipelines(
+    args: ListPipelinesCommandInput,
+    cb: (err: any, data?: ListPipelinesCommandOutput) => void
+  ): void;
   listPipelines(
     args: ListPipelinesCommandInput,
     options: __HttpHandlerOptions,
@@ -259,8 +280,14 @@ export interface DataPipeline {
   /**
    * @see {@link PollForTaskCommand}
    */
-  pollForTask(args: PollForTaskCommandInput, options?: __HttpHandlerOptions): Promise<PollForTaskCommandOutput>;
-  pollForTask(args: PollForTaskCommandInput, cb: (err: any, data?: PollForTaskCommandOutput) => void): void;
+  pollForTask(
+    args: PollForTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PollForTaskCommandOutput>;
+  pollForTask(
+    args: PollForTaskCommandInput,
+    cb: (err: any, data?: PollForTaskCommandOutput) => void
+  ): void;
   pollForTask(
     args: PollForTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -287,8 +314,14 @@ export interface DataPipeline {
   /**
    * @see {@link QueryObjectsCommand}
    */
-  queryObjects(args: QueryObjectsCommandInput, options?: __HttpHandlerOptions): Promise<QueryObjectsCommandOutput>;
-  queryObjects(args: QueryObjectsCommandInput, cb: (err: any, data?: QueryObjectsCommandOutput) => void): void;
+  queryObjects(
+    args: QueryObjectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<QueryObjectsCommandOutput>;
+  queryObjects(
+    args: QueryObjectsCommandInput,
+    cb: (err: any, data?: QueryObjectsCommandOutput) => void
+  ): void;
   queryObjects(
     args: QueryObjectsCommandInput,
     options: __HttpHandlerOptions,
@@ -298,8 +331,14 @@ export interface DataPipeline {
   /**
    * @see {@link RemoveTagsCommand}
    */
-  removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;
-  removeTags(args: RemoveTagsCommandInput, cb: (err: any, data?: RemoveTagsCommandOutput) => void): void;
+  removeTags(
+    args: RemoveTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveTagsCommandOutput>;
+  removeTags(
+    args: RemoveTagsCommandInput,
+    cb: (err: any, data?: RemoveTagsCommandOutput) => void
+  ): void;
   removeTags(
     args: RemoveTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -343,8 +382,14 @@ export interface DataPipeline {
   /**
    * @see {@link SetStatusCommand}
    */
-  setStatus(args: SetStatusCommandInput, options?: __HttpHandlerOptions): Promise<SetStatusCommandOutput>;
-  setStatus(args: SetStatusCommandInput, cb: (err: any, data?: SetStatusCommandOutput) => void): void;
+  setStatus(
+    args: SetStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetStatusCommandOutput>;
+  setStatus(
+    args: SetStatusCommandInput,
+    cb: (err: any, data?: SetStatusCommandOutput) => void
+  ): void;
   setStatus(
     args: SetStatusCommandInput,
     options: __HttpHandlerOptions,
@@ -354,8 +399,14 @@ export interface DataPipeline {
   /**
    * @see {@link SetTaskStatusCommand}
    */
-  setTaskStatus(args: SetTaskStatusCommandInput, options?: __HttpHandlerOptions): Promise<SetTaskStatusCommandOutput>;
-  setTaskStatus(args: SetTaskStatusCommandInput, cb: (err: any, data?: SetTaskStatusCommandOutput) => void): void;
+  setTaskStatus(
+    args: SetTaskStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetTaskStatusCommandOutput>;
+  setTaskStatus(
+    args: SetTaskStatusCommandInput,
+    cb: (err: any, data?: SetTaskStatusCommandOutput) => void
+  ): void;
   setTaskStatus(
     args: SetTaskStatusCommandInput,
     options: __HttpHandlerOptions,

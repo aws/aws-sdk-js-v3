@@ -7,12 +7,12 @@ import { RepostspaceClient } from "../RepostspaceClient";
 const checkState = async (client: RepostspaceClient, input: GetSpaceCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetSpaceCommand(input));
+    let result: any = await client.send(new GetSpaceCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "CREATED") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: RepostspaceClient, input: GetSpaceCommandInput
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "CREATE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -28,7 +28,7 @@ const checkState = async (client: RepostspaceClient, input: GetSpaceCommandInput
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "CREATING") {
         return { state: WaiterState.RETRY, reason };
       }

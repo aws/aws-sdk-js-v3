@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { AssociateResolverEndpointIpAddress } from "../schemas/schemas_0";
+import { AssociateResolverEndpointIpAddress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface AssociateResolverEndpointIpAddressCommandInput extends Associat
  *
  * The output of {@link AssociateResolverEndpointIpAddressCommand}.
  */
-export interface AssociateResolverEndpointIpAddressCommandOutput
-  extends AssociateResolverEndpointIpAddressResponse,
-    __MetadataBearer {}
+export interface AssociateResolverEndpointIpAddressCommandOutput extends AssociateResolverEndpointIpAddressResponse, __MetadataBearer {}
 
 /**
  * <p>Adds IP addresses to an inbound or an outbound Resolver endpoint. If you want to add more than one IP address,
@@ -136,7 +134,7 @@ export class AssociateResolverEndpointIpAddressCommand extends $Command
   })
   .s("Route53Resolver", "AssociateResolverEndpointIpAddress", {})
   .n("Route53ResolverClient", "AssociateResolverEndpointIpAddressCommand")
-  .sc(AssociateResolverEndpointIpAddress)
+  .sc(AssociateResolverEndpointIpAddress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -50,6 +50,7 @@ export type {
   BillingViewElement,
   BillingViewHealthStatus,
   BillingViewListElement,
+  CostCategoryValues,
   CreateBillingViewRequest,
   CreateBillingViewResponse,
   DeleteBillingViewRequest,

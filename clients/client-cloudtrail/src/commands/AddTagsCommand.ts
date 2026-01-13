@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AddTagsRequest, AddTagsResponse } from "../models/models_0";
-import { AddTags } from "../schemas/schemas_0";
+import { AddTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -171,7 +171,7 @@ export class AddTagsCommand extends $Command
   })
   .s("CloudTrail_20131101", "AddTags", {})
   .n("CloudTrailClient", "AddTagsCommand")
-  .sc(AddTags)
+  .sc(AddTags$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

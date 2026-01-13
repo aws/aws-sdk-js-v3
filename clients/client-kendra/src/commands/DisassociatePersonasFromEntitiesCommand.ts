@@ -9,7 +9,7 @@ import type {
   DisassociatePersonasFromEntitiesRequest,
   DisassociatePersonasFromEntitiesResponse,
 } from "../models/models_0";
-import { DisassociatePersonasFromEntities } from "../schemas/schemas_0";
+import { DisassociatePersonasFromEntities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DisassociatePersonasFromEntitiesCommandInput extends Disassocia
  *
  * The output of {@link DisassociatePersonasFromEntitiesCommand}.
  */
-export interface DisassociatePersonasFromEntitiesCommandOutput
-  extends DisassociatePersonasFromEntitiesResponse,
-    __MetadataBearer {}
+export interface DisassociatePersonasFromEntitiesCommandOutput extends DisassociatePersonasFromEntitiesResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the specific permissions of users or groups in your IAM Identity Center
@@ -111,7 +109,7 @@ export class DisassociatePersonasFromEntitiesCommand extends $Command
   })
   .s("AWSKendraFrontendService", "DisassociatePersonasFromEntities", {})
   .n("KendraClient", "DisassociatePersonasFromEntitiesCommand")
-  .sc(DisassociatePersonasFromEntities)
+  .sc(DisassociatePersonasFromEntities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

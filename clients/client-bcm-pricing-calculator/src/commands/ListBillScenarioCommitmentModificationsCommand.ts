@@ -13,7 +13,7 @@ import type {
   ListBillScenarioCommitmentModificationsRequest,
   ListBillScenarioCommitmentModificationsResponse,
 } from "../models/models_0";
-import { ListBillScenarioCommitmentModifications } from "../schemas/schemas_0";
+import { ListBillScenarioCommitmentModifications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListBillScenarioCommitmentModificationsCommand}.
  */
-export interface ListBillScenarioCommitmentModificationsCommandInput
-  extends ListBillScenarioCommitmentModificationsRequest {}
+export interface ListBillScenarioCommitmentModificationsCommandInput extends ListBillScenarioCommitmentModificationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListBillScenarioCommitmentModificationsCommand}.
  */
-export interface ListBillScenarioCommitmentModificationsCommandOutput
-  extends ListBillScenarioCommitmentModificationsResponse,
-    __MetadataBearer {}
+export interface ListBillScenarioCommitmentModificationsCommandOutput extends ListBillScenarioCommitmentModificationsResponse, __MetadataBearer {}
 
 /**
  * <p> Lists the commitment modifications associated with a bill scenario. </p>
@@ -126,7 +123,7 @@ export class ListBillScenarioCommitmentModificationsCommand extends $Command
   })
   .s("AWSBCMPricingCalculator", "ListBillScenarioCommitmentModifications", {})
   .n("BCMPricingCalculatorClient", "ListBillScenarioCommitmentModificationsCommand")
-  .sc(ListBillScenarioCommitmentModifications)
+  .sc(ListBillScenarioCommitmentModifications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

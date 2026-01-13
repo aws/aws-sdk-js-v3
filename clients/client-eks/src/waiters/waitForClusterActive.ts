@@ -7,12 +7,12 @@ import { EKSClient } from "../EKSClient";
 const checkState = async (client: EKSClient, input: DescribeClusterCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeClusterCommand(input));
+    let result: any = await client.send(new DescribeClusterCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.cluster.status;
-      };
+      }
       if (returnComparator() === "DELETING") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: EKSClient, input: DescribeClusterCommandInput)
     try {
       const returnComparator = () => {
         return result.cluster.status;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -28,7 +28,7 @@ const checkState = async (client: EKSClient, input: DescribeClusterCommandInput)
     try {
       const returnComparator = () => {
         return result.cluster.status;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }

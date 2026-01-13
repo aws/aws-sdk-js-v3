@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSubscriptionRequestDetailsInput, GetSubscriptionRequestDetailsOutput } from "../models/models_1";
-import { GetSubscriptionRequestDetails } from "../schemas/schemas_0";
+import { GetSubscriptionRequestDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetSubscriptionRequestDetailsCommandInput extends GetSubscripti
  *
  * The output of {@link GetSubscriptionRequestDetailsCommand}.
  */
-export interface GetSubscriptionRequestDetailsCommandOutput
-  extends GetSubscriptionRequestDetailsOutput,
-    __MetadataBearer {}
+export interface GetSubscriptionRequestDetailsCommandOutput extends GetSubscriptionRequestDetailsOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the details of the specified subscription request.</p>
@@ -194,7 +192,7 @@ export class GetSubscriptionRequestDetailsCommand extends $Command
   })
   .s("DataZone", "GetSubscriptionRequestDetails", {})
   .n("DataZoneClient", "GetSubscriptionRequestDetailsCommand")
-  .sc(GetSubscriptionRequestDetails)
+  .sc(GetSubscriptionRequestDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopDataSourceSyncJobRequest, StopDataSourceSyncJobResponse } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { StopDataSourceSyncJob } from "../schemas/schemas_0";
+import { StopDataSourceSyncJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class StopDataSourceSyncJobCommand extends $Command
   })
   .s("ExpertQ", "StopDataSourceSyncJob", {})
   .n("QBusinessClient", "StopDataSourceSyncJobCommand")
-  .sc(StopDataSourceSyncJob)
+  .sc(StopDataSourceSyncJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

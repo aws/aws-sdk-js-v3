@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListPendingMaintenanceActionsInput, ListPendingMaintenanceActionsOutput } from "../models/models_0";
-import { ListPendingMaintenanceActions } from "../schemas/schemas_0";
+import { ListPendingMaintenanceActions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListPendingMaintenanceActionsCommandInput extends ListPendingMa
  *
  * The output of {@link ListPendingMaintenanceActionsCommand}.
  */
-export interface ListPendingMaintenanceActionsCommandOutput
-  extends ListPendingMaintenanceActionsOutput,
-    __MetadataBearer {}
+export interface ListPendingMaintenanceActionsCommandOutput extends ListPendingMaintenanceActionsOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of all maintenance actions that are pending.</p>
@@ -103,7 +101,7 @@ export class ListPendingMaintenanceActionsCommand extends $Command
   })
   .s("ChimeraDbLionfishServiceLambda", "ListPendingMaintenanceActions", {})
   .n("DocDBElasticClient", "ListPendingMaintenanceActionsCommand")
-  .sc(ListPendingMaintenanceActions)
+  .sc(ListPendingMaintenanceActions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

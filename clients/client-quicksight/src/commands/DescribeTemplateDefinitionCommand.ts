@@ -4,9 +4,10 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DescribeTemplateDefinitionRequest, DescribeTemplateDefinitionResponse } from "../models/models_3";
+import type { DescribeTemplateDefinitionRequest } from "../models/models_3";
+import type { DescribeTemplateDefinitionResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeTemplateDefinition } from "../schemas/schemas_0";
+import { DescribeTemplateDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -5801,7 +5802,7 @@ export class DescribeTemplateDefinitionCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeTemplateDefinition", {})
   .n("QuickSightClient", "DescribeTemplateDefinitionCommand")
-  .sc(DescribeTemplateDefinition)
+  .sc(DescribeTemplateDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

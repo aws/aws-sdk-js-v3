@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeCostCategoryDefinitionRequest, DescribeCostCategoryDefinitionResponse } from "../models/models_0";
-import { DescribeCostCategoryDefinition } from "../schemas/schemas_0";
+import { DescribeCostCategoryDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeCostCategoryDefinitionCommandInput extends DescribeCost
  *
  * The output of {@link DescribeCostCategoryDefinitionCommand}.
  */
-export interface DescribeCostCategoryDefinitionCommandOutput
-  extends DescribeCostCategoryDefinitionResponse,
-    __MetadataBearer {}
+export interface DescribeCostCategoryDefinitionCommandOutput extends DescribeCostCategoryDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the name, Amazon Resource Name (ARN), rules, definition, and effective dates of a
@@ -194,7 +192,7 @@ export class DescribeCostCategoryDefinitionCommand extends $Command
   })
   .s("AWSInsightsIndexService", "DescribeCostCategoryDefinition", {})
   .n("CostExplorerClient", "DescribeCostCategoryDefinitionCommand")
-  .sc(DescribeCostCategoryDefinition)
+  .sc(DescribeCostCategoryDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

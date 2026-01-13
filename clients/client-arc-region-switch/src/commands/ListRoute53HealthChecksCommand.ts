@@ -10,7 +10,7 @@ import type {
 } from "../ARCRegionSwitchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListRoute53HealthChecksRequest, ListRoute53HealthChecksResponse } from "../models/models_0";
-import { ListRoute53HealthChecks } from "../schemas/schemas_0";
+import { ListRoute53HealthChecks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -55,6 +55,7 @@ export interface ListRoute53HealthChecksCommandOutput extends ListRoute53HealthC
  * //       hostedZoneId: "STRING_VALUE", // required
  * //       recordName: "STRING_VALUE", // required
  * //       healthCheckId: "STRING_VALUE",
+ * //       status: "healthy" || "unhealthy" || "unknown",
  * //       region: "STRING_VALUE", // required
  * //     },
  * //   ],
@@ -101,7 +102,7 @@ export class ListRoute53HealthChecksCommand extends $Command
   })
   .s("ArcRegionSwitch", "ListRoute53HealthChecks", {})
   .n("ARCRegionSwitchClient", "ListRoute53HealthChecksCommand")
-  .sc(ListRoute53HealthChecks)
+  .sc(ListRoute53HealthChecks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

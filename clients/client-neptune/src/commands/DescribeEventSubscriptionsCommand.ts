@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeEventSubscriptionsMessage, EventSubscriptionsMessage } from "../models/models_0";
 import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { DescribeEventSubscriptions } from "../schemas/schemas_0";
+import { DescribeEventSubscriptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class DescribeEventSubscriptionsCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeEventSubscriptions", {})
   .n("NeptuneClient", "DescribeEventSubscriptionsCommand")
-  .sc(DescribeEventSubscriptions)
+  .sc(DescribeEventSubscriptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

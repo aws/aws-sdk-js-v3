@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import type { CreateSubscriptionDefinitionRequest, CreateSubscriptionDefinitionResponse } from "../models/models_0";
-import { CreateSubscriptionDefinition } from "../schemas/schemas_0";
+import { CreateSubscriptionDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateSubscriptionDefinitionCommandInput extends CreateSubscrip
  *
  * The output of {@link CreateSubscriptionDefinitionCommand}.
  */
-export interface CreateSubscriptionDefinitionCommandOutput
-  extends CreateSubscriptionDefinitionResponse,
-    __MetadataBearer {}
+export interface CreateSubscriptionDefinitionCommandOutput extends CreateSubscriptionDefinitionResponse, __MetadataBearer {}
 
 /**
  * Creates a subscription definition. You may provide the initial version of the subscription definition now or use ''CreateSubscriptionDefinitionVersion'' at a later time.
@@ -98,7 +96,7 @@ export class CreateSubscriptionDefinitionCommand extends $Command
   })
   .s("Greengrass", "CreateSubscriptionDefinition", {})
   .n("GreengrassClient", "CreateSubscriptionDefinitionCommand")
-  .sc(CreateSubscriptionDefinition)
+  .sc(CreateSubscriptionDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

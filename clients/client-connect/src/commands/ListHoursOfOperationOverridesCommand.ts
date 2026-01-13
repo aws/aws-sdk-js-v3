@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListHoursOfOperationOverridesRequest, ListHoursOfOperationOverridesResponse } from "../models/models_2";
-import { ListHoursOfOperationOverrides } from "../schemas/schemas_0";
+import { ListHoursOfOperationOverrides$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListHoursOfOperationOverridesCommandInput extends ListHoursOfOp
  *
  * The output of {@link ListHoursOfOperationOverridesCommand}.
  */
-export interface ListHoursOfOperationOverridesCommandOutput
-  extends ListHoursOfOperationOverridesResponse,
-    __MetadataBearer {}
+export interface ListHoursOfOperationOverridesCommandOutput extends ListHoursOfOperationOverridesResponse, __MetadataBearer {}
 
 /**
  * <p>List the hours of operation overrides.</p>
@@ -119,7 +117,7 @@ export class ListHoursOfOperationOverridesCommand extends $Command
   })
   .s("AmazonConnectService", "ListHoursOfOperationOverrides", {})
   .n("ConnectClient", "ListHoursOfOperationOverridesCommand")
-  .sc(ListHoursOfOperationOverrides)
+  .sc(ListHoursOfOperationOverrides$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

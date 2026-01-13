@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateLocationObjectStorageRequest, CreateLocationObjectStorageResponse } from "../models/models_0";
-import { CreateLocationObjectStorage } from "../schemas/schemas_0";
+import { CreateLocationObjectStorage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateLocationObjectStorageCommandInput extends CreateLocationO
  *
  * The output of {@link CreateLocationObjectStorageCommand}.
  */
-export interface CreateLocationObjectStorageCommandOutput
-  extends CreateLocationObjectStorageResponse,
-    __MetadataBearer {}
+export interface CreateLocationObjectStorageCommandOutput extends CreateLocationObjectStorageResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a transfer <i>location</i> for an object storage system. DataSync can use this location as a source or destination for transferring data. You
@@ -109,7 +107,7 @@ export class CreateLocationObjectStorageCommand extends $Command
   })
   .s("FmrsService", "CreateLocationObjectStorage", {})
   .n("DataSyncClient", "CreateLocationObjectStorageCommand")
-  .sc(CreateLocationObjectStorage)
+  .sc(CreateLocationObjectStorage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

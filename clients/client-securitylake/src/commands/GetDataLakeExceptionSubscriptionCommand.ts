@@ -8,7 +8,7 @@ import type {
   GetDataLakeExceptionSubscriptionRequest,
   GetDataLakeExceptionSubscriptionResponse,
 } from "../models/models_0";
-import { GetDataLakeExceptionSubscription } from "../schemas/schemas_0";
+import { GetDataLakeExceptionSubscription$ } from "../schemas/schemas_0";
 import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -27,9 +27,7 @@ export interface GetDataLakeExceptionSubscriptionCommandInput extends GetDataLak
  *
  * The output of {@link GetDataLakeExceptionSubscriptionCommand}.
  */
-export interface GetDataLakeExceptionSubscriptionCommandOutput
-  extends GetDataLakeExceptionSubscriptionResponse,
-    __MetadataBearer {}
+export interface GetDataLakeExceptionSubscriptionCommandOutput extends GetDataLakeExceptionSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the protocol and endpoint that were provided when subscribing to Amazon SNS topics for exception notifications.</p>
@@ -103,7 +101,7 @@ export class GetDataLakeExceptionSubscriptionCommand extends $Command
   })
   .s("SecurityLake", "GetDataLakeExceptionSubscription", {})
   .n("SecurityLakeClient", "GetDataLakeExceptionSubscriptionCommand")
-  .sc(GetDataLakeExceptionSubscription)
+  .sc(GetDataLakeExceptionSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

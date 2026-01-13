@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteProjectProfileInput, DeleteProjectProfileOutput } from "../models/models_1";
-import { DeleteProjectProfile } from "../schemas/schemas_0";
+import { DeleteProjectProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteProjectProfileCommand extends $Command
   })
   .s("DataZone", "DeleteProjectProfile", {})
   .n("DataZoneClient", "DeleteProjectProfileCommand")
-  .sc(DeleteProjectProfile)
+  .sc(DeleteProjectProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

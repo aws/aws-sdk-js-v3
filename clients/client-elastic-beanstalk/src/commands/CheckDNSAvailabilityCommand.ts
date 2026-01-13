@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CheckDNSAvailabilityMessage, CheckDNSAvailabilityResultMessage } from "../models/models_0";
-import { CheckDNSAvailability } from "../schemas/schemas_0";
+import { CheckDNSAvailability$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class CheckDNSAvailabilityCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "CheckDNSAvailability", {})
   .n("ElasticBeanstalkClient", "CheckDNSAvailabilityCommand")
-  .sc(CheckDNSAvailability)
+  .sc(CheckDNSAvailability$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

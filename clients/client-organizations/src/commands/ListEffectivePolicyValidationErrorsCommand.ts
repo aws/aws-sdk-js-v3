@@ -9,7 +9,7 @@ import type {
   ListEffectivePolicyValidationErrorsResponse,
 } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { ListEffectivePolicyValidationErrors } from "../schemas/schemas_0";
+import { ListEffectivePolicyValidationErrors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListEffectivePolicyValidationErrorsCommandInput extends ListEff
  *
  * The output of {@link ListEffectivePolicyValidationErrorsCommand}.
  */
-export interface ListEffectivePolicyValidationErrorsCommandOutput
-  extends ListEffectivePolicyValidationErrorsResponse,
-    __MetadataBearer {}
+export interface ListEffectivePolicyValidationErrorsCommandOutput extends ListEffectivePolicyValidationErrorsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the validation errors on an <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html">effective
@@ -526,7 +524,7 @@ export class ListEffectivePolicyValidationErrorsCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "ListEffectivePolicyValidationErrors", {})
   .n("OrganizationsClient", "ListEffectivePolicyValidationErrorsCommand")
-  .sc(ListEffectivePolicyValidationErrors)
+  .sc(ListEffectivePolicyValidationErrors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

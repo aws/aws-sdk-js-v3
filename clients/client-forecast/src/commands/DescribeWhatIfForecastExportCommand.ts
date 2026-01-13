@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import type { DescribeWhatIfForecastExportRequest, DescribeWhatIfForecastExportResponse } from "../models/models_0";
-import { DescribeWhatIfForecastExport } from "../schemas/schemas_0";
+import { DescribeWhatIfForecastExport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeWhatIfForecastExportCommandInput extends DescribeWhatIf
  *
  * The output of {@link DescribeWhatIfForecastExportCommand}.
  */
-export interface DescribeWhatIfForecastExportCommandOutput
-  extends DescribeWhatIfForecastExportResponse,
-    __MetadataBearer {}
+export interface DescribeWhatIfForecastExportCommandOutput extends DescribeWhatIfForecastExportResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the what-if forecast export created using the <a>CreateWhatIfForecastExport</a> operation.</p>
@@ -122,7 +120,7 @@ export class DescribeWhatIfForecastExportCommand extends $Command
   })
   .s("AmazonForecast", "DescribeWhatIfForecastExport", {})
   .n("ForecastClient", "DescribeWhatIfForecastExportCommand")
-  .sc(DescribeWhatIfForecastExport)
+  .sc(DescribeWhatIfForecastExport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

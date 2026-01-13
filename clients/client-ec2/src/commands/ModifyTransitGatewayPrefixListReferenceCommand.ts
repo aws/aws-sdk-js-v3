@@ -9,7 +9,7 @@ import type {
   ModifyTransitGatewayPrefixListReferenceRequest,
   ModifyTransitGatewayPrefixListReferenceResult,
 } from "../models/models_6";
-import { ModifyTransitGatewayPrefixListReference } from "../schemas/schemas_0";
+import { ModifyTransitGatewayPrefixListReference$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ModifyTransitGatewayPrefixListReferenceCommand}.
  */
-export interface ModifyTransitGatewayPrefixListReferenceCommandInput
-  extends ModifyTransitGatewayPrefixListReferenceRequest {}
+export interface ModifyTransitGatewayPrefixListReferenceCommandInput extends ModifyTransitGatewayPrefixListReferenceRequest {}
 /**
  * @public
  *
  * The output of {@link ModifyTransitGatewayPrefixListReferenceCommand}.
  */
-export interface ModifyTransitGatewayPrefixListReferenceCommandOutput
-  extends ModifyTransitGatewayPrefixListReferenceResult,
-    __MetadataBearer {}
+export interface ModifyTransitGatewayPrefixListReferenceCommandOutput extends ModifyTransitGatewayPrefixListReferenceResult, __MetadataBearer {}
 
 /**
  * <p>Modifies a reference (route) to a prefix list in a specified transit gateway route table.</p>
@@ -94,7 +91,7 @@ export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command
   })
   .s("AmazonEC2", "ModifyTransitGatewayPrefixListReference", {})
   .n("EC2Client", "ModifyTransitGatewayPrefixListReferenceCommand")
-  .sc(ModifyTransitGatewayPrefixListReference)
+  .sc(ModifyTransitGatewayPrefixListReference$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

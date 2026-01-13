@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateUserSettingsRequest, UpdateUserSettingsResponse } from "../models/models_0";
-import { UpdateUserSettings } from "../schemas/schemas_0";
+import { UpdateUserSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -99,6 +99,7 @@ export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsRespo
  *     colorTheme: "Light" || "Dark",
  *     termsOfService: "STRING_VALUE",
  *   },
+ *   webAuthnAllowed: "STRING_VALUE",
  * };
  * const command = new UpdateUserSettingsCommand(input);
  * const response = await client.send(command);
@@ -175,6 +176,7 @@ export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsRespo
  * //       colorTheme: "Light" || "Dark", // required
  * //       termsOfService: "STRING_VALUE",
  * //     },
+ * //     webAuthnAllowed: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -221,7 +223,7 @@ export class UpdateUserSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "UpdateUserSettings", {})
   .n("WorkSpacesWebClient", "UpdateUserSettingsCommand")
-  .sc(UpdateUserSettings)
+  .sc(UpdateUserSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

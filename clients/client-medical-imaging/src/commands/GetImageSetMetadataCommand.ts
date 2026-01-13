@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MedicalImagingClient";
 import { type GetImageSetMetadataRequest, GetImageSetMetadataResponse } from "../models/models_0";
-import { GetImageSetMetadata } from "../schemas/schemas_0";
+import { GetImageSetMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetImageSetMetadataCommandInput extends GetImageSetMetadataRequ
  *
  * The output of {@link GetImageSetMetadataCommand}.
  */
-export interface GetImageSetMetadataCommandOutput
-  extends Omit<GetImageSetMetadataResponse, "imageSetMetadataBlob">,
-    __MetadataBearer {
+export interface GetImageSetMetadataCommandOutput extends Omit<GetImageSetMetadataResponse, "imageSetMetadataBlob">, __MetadataBearer {
   imageSetMetadataBlob: StreamingBlobPayloadOutputTypes;
 }
 
@@ -108,7 +106,7 @@ export class GetImageSetMetadataCommand extends $Command
   })
   .s("AHIGatewayService", "GetImageSetMetadata", {})
   .n("MedicalImagingClient", "GetImageSetMetadataCommand")
-  .sc(GetImageSetMetadata)
+  .sc(GetImageSetMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

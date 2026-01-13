@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchSchemasRequest, SearchSchemasResponse } from "../models/models_0";
-import { SearchSchemas } from "../schemas/schemas_0";
+import { SearchSchemas$ } from "../schemas/schemas_0";
 import type { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -100,7 +100,7 @@ export class SearchSchemasCommand extends $Command
   })
   .s("schemas", "SearchSchemas", {})
   .n("SchemasClient", "SearchSchemasCommand")
-  .sc(SearchSchemas)
+  .sc(SearchSchemas$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDBInstanceMessage, DeleteDBInstanceResult } from "../models/models_0";
 import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { DeleteDBInstance } from "../schemas/schemas_0";
+import { DeleteDBInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -240,7 +240,7 @@ export class DeleteDBInstanceCommand extends $Command
   })
   .s("AmazonRDSv19", "DeleteDBInstance", {})
   .n("NeptuneClient", "DeleteDBInstanceCommand")
-  .sc(DeleteDBInstance)
+  .sc(DeleteDBInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

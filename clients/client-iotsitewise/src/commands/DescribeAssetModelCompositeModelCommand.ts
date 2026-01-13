@@ -9,7 +9,7 @@ import type {
   DescribeAssetModelCompositeModelRequest,
   DescribeAssetModelCompositeModelResponse,
 } from "../models/models_0";
-import { DescribeAssetModelCompositeModel } from "../schemas/schemas_0";
+import { DescribeAssetModelCompositeModel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeAssetModelCompositeModelCommandInput extends DescribeAs
  *
  * The output of {@link DescribeAssetModelCompositeModelCommand}.
  */
-export interface DescribeAssetModelCompositeModelCommandOutput
-  extends DescribeAssetModelCompositeModelResponse,
-    __MetadataBearer {}
+export interface DescribeAssetModelCompositeModelCommandOutput extends DescribeAssetModelCompositeModelResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about an asset model composite model (also known as an asset model
@@ -217,7 +215,7 @@ export class DescribeAssetModelCompositeModelCommand extends $Command
   })
   .s("AWSIoTSiteWise", "DescribeAssetModelCompositeModel", {})
   .n("IoTSiteWiseClient", "DescribeAssetModelCompositeModelCommand")
-  .sc(DescribeAssetModelCompositeModel)
+  .sc(DescribeAssetModelCompositeModel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

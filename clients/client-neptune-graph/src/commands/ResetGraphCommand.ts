@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ResetGraphInput, ResetGraphOutput } from "../models/models_0";
 import type { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
-import { ResetGraph } from "../schemas/schemas_0";
+import { ResetGraph$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class ResetGraphCommand extends $Command
   })
   .s("AmazonNeptuneGraph", "ResetGraph", {})
   .n("NeptuneGraphClient", "ResetGraphCommand")
-  .sc(ResetGraph)
+  .sc(ResetGraph$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

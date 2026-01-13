@@ -9,7 +9,7 @@ import type {
   PutVoiceConnectorExternalSystemsConfigurationRequest,
   PutVoiceConnectorExternalSystemsConfigurationResponse,
 } from "../models/models_0";
-import { PutVoiceConnectorExternalSystemsConfiguration } from "../schemas/schemas_0";
+import { PutVoiceConnectorExternalSystemsConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutVoiceConnectorExternalSystemsConfigurationCommand}.
  */
-export interface PutVoiceConnectorExternalSystemsConfigurationCommandInput
-  extends PutVoiceConnectorExternalSystemsConfigurationRequest {}
+export interface PutVoiceConnectorExternalSystemsConfigurationCommandInput extends PutVoiceConnectorExternalSystemsConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link PutVoiceConnectorExternalSystemsConfigurationCommand}.
  */
-export interface PutVoiceConnectorExternalSystemsConfigurationCommandOutput
-  extends PutVoiceConnectorExternalSystemsConfigurationResponse,
-    __MetadataBearer {}
+export interface PutVoiceConnectorExternalSystemsConfigurationCommandOutput extends PutVoiceConnectorExternalSystemsConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Adds an external systems configuration to a Voice Connector.</p>
@@ -116,7 +113,7 @@ export class PutVoiceConnectorExternalSystemsConfigurationCommand extends $Comma
   })
   .s("ChimeSDKTelephonyService", "PutVoiceConnectorExternalSystemsConfiguration", {})
   .n("ChimeSDKVoiceClient", "PutVoiceConnectorExternalSystemsConfigurationCommand")
-  .sc(PutVoiceConnectorExternalSystemsConfiguration)
+  .sc(PutVoiceConnectorExternalSystemsConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

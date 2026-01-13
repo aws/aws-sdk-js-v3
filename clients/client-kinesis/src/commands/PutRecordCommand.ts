@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import type { PutRecordInput, PutRecordOutput } from "../models/models_0";
-import { PutRecord } from "../schemas/schemas_0";
+import { PutRecord$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -174,7 +174,7 @@ export class PutRecordCommand extends $Command
   })
   .s("Kinesis_20131202", "PutRecord", {})
   .n("KinesisClient", "PutRecordCommand")
-  .sc(PutRecord)
+  .sc(PutRecord$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

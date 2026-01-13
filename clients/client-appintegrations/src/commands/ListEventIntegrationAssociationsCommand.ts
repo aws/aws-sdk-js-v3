@@ -13,7 +13,7 @@ import type {
   ListEventIntegrationAssociationsRequest,
   ListEventIntegrationAssociationsResponse,
 } from "../models/models_0";
-import { ListEventIntegrationAssociations } from "../schemas/schemas_0";
+import { ListEventIntegrationAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ListEventIntegrationAssociationsCommandInput extends ListEventI
  *
  * The output of {@link ListEventIntegrationAssociationsCommand}.
  */
-export interface ListEventIntegrationAssociationsCommandOutput
-  extends ListEventIntegrationAssociationsResponse,
-    __MetadataBearer {}
+export interface ListEventIntegrationAssociationsCommandOutput extends ListEventIntegrationAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of event integration associations in the account. </p>
@@ -111,7 +109,7 @@ export class ListEventIntegrationAssociationsCommand extends $Command
   })
   .s("AmazonAppIntegrationService", "ListEventIntegrationAssociations", {})
   .n("AppIntegrationsClient", "ListEventIntegrationAssociationsCommand")
-  .sc(ListEventIntegrationAssociations)
+  .sc(ListEventIntegrationAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   ModifyReplicationGroupShardConfigurationMessage,
   ModifyReplicationGroupShardConfigurationResult,
 } from "../models/models_0";
-import { ModifyReplicationGroupShardConfiguration } from "../schemas/schemas_0";
+import { ModifyReplicationGroupShardConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ModifyReplicationGroupShardConfigurationCommand}.
  */
-export interface ModifyReplicationGroupShardConfigurationCommandInput
-  extends ModifyReplicationGroupShardConfigurationMessage {}
+export interface ModifyReplicationGroupShardConfigurationCommandInput extends ModifyReplicationGroupShardConfigurationMessage {}
 /**
  * @public
  *
  * The output of {@link ModifyReplicationGroupShardConfigurationCommand}.
  */
-export interface ModifyReplicationGroupShardConfigurationCommandOutput
-  extends ModifyReplicationGroupShardConfigurationResult,
-    __MetadataBearer {}
+export interface ModifyReplicationGroupShardConfigurationCommandOutput extends ModifyReplicationGroupShardConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Modifies a replication group's shards (node groups) by allowing you to add shards,
@@ -249,7 +246,7 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "ModifyReplicationGroupShardConfiguration", {})
   .n("ElastiCacheClient", "ModifyReplicationGroupShardConfigurationCommand")
-  .sc(ModifyReplicationGroupShardConfiguration)
+  .sc(ModifyReplicationGroupShardConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

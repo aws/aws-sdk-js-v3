@@ -133,8 +133,14 @@ export interface NetworkFlowMonitor {
   /**
    * @see {@link CreateMonitorCommand}
    */
-  createMonitor(args: CreateMonitorCommandInput, options?: __HttpHandlerOptions): Promise<CreateMonitorCommandOutput>;
-  createMonitor(args: CreateMonitorCommandInput, cb: (err: any, data?: CreateMonitorCommandOutput) => void): void;
+  createMonitor(
+    args: CreateMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMonitorCommandOutput>;
+  createMonitor(
+    args: CreateMonitorCommandInput,
+    cb: (err: any, data?: CreateMonitorCommandOutput) => void
+  ): void;
   createMonitor(
     args: CreateMonitorCommandInput,
     options: __HttpHandlerOptions,
@@ -144,8 +150,14 @@ export interface NetworkFlowMonitor {
   /**
    * @see {@link CreateScopeCommand}
    */
-  createScope(args: CreateScopeCommandInput, options?: __HttpHandlerOptions): Promise<CreateScopeCommandOutput>;
-  createScope(args: CreateScopeCommandInput, cb: (err: any, data?: CreateScopeCommandOutput) => void): void;
+  createScope(
+    args: CreateScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateScopeCommandOutput>;
+  createScope(
+    args: CreateScopeCommandInput,
+    cb: (err: any, data?: CreateScopeCommandOutput) => void
+  ): void;
   createScope(
     args: CreateScopeCommandInput,
     options: __HttpHandlerOptions,
@@ -155,8 +167,14 @@ export interface NetworkFlowMonitor {
   /**
    * @see {@link DeleteMonitorCommand}
    */
-  deleteMonitor(args: DeleteMonitorCommandInput, options?: __HttpHandlerOptions): Promise<DeleteMonitorCommandOutput>;
-  deleteMonitor(args: DeleteMonitorCommandInput, cb: (err: any, data?: DeleteMonitorCommandOutput) => void): void;
+  deleteMonitor(
+    args: DeleteMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMonitorCommandOutput>;
+  deleteMonitor(
+    args: DeleteMonitorCommandInput,
+    cb: (err: any, data?: DeleteMonitorCommandOutput) => void
+  ): void;
   deleteMonitor(
     args: DeleteMonitorCommandInput,
     options: __HttpHandlerOptions,
@@ -166,8 +184,14 @@ export interface NetworkFlowMonitor {
   /**
    * @see {@link DeleteScopeCommand}
    */
-  deleteScope(args: DeleteScopeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteScopeCommandOutput>;
-  deleteScope(args: DeleteScopeCommandInput, cb: (err: any, data?: DeleteScopeCommandOutput) => void): void;
+  deleteScope(
+    args: DeleteScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteScopeCommandOutput>;
+  deleteScope(
+    args: DeleteScopeCommandInput,
+    cb: (err: any, data?: DeleteScopeCommandOutput) => void
+  ): void;
   deleteScope(
     args: DeleteScopeCommandInput,
     options: __HttpHandlerOptions,
@@ -177,8 +201,14 @@ export interface NetworkFlowMonitor {
   /**
    * @see {@link GetMonitorCommand}
    */
-  getMonitor(args: GetMonitorCommandInput, options?: __HttpHandlerOptions): Promise<GetMonitorCommandOutput>;
-  getMonitor(args: GetMonitorCommandInput, cb: (err: any, data?: GetMonitorCommandOutput) => void): void;
+  getMonitor(
+    args: GetMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMonitorCommandOutput>;
+  getMonitor(
+    args: GetMonitorCommandInput,
+    cb: (err: any, data?: GetMonitorCommandOutput) => void
+  ): void;
   getMonitor(
     args: GetMonitorCommandInput,
     options: __HttpHandlerOptions,
@@ -290,8 +320,14 @@ export interface NetworkFlowMonitor {
   /**
    * @see {@link GetScopeCommand}
    */
-  getScope(args: GetScopeCommandInput, options?: __HttpHandlerOptions): Promise<GetScopeCommandOutput>;
-  getScope(args: GetScopeCommandInput, cb: (err: any, data?: GetScopeCommandOutput) => void): void;
+  getScope(
+    args: GetScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetScopeCommandOutput>;
+  getScope(
+    args: GetScopeCommandInput,
+    cb: (err: any, data?: GetScopeCommandOutput) => void
+  ): void;
   getScope(
     args: GetScopeCommandInput,
     options: __HttpHandlerOptions,
@@ -302,8 +338,14 @@ export interface NetworkFlowMonitor {
    * @see {@link ListMonitorsCommand}
    */
   listMonitors(): Promise<ListMonitorsCommandOutput>;
-  listMonitors(args: ListMonitorsCommandInput, options?: __HttpHandlerOptions): Promise<ListMonitorsCommandOutput>;
-  listMonitors(args: ListMonitorsCommandInput, cb: (err: any, data?: ListMonitorsCommandOutput) => void): void;
+  listMonitors(
+    args: ListMonitorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMonitorsCommandOutput>;
+  listMonitors(
+    args: ListMonitorsCommandInput,
+    cb: (err: any, data?: ListMonitorsCommandOutput) => void
+  ): void;
   listMonitors(
     args: ListMonitorsCommandInput,
     options: __HttpHandlerOptions,
@@ -314,8 +356,14 @@ export interface NetworkFlowMonitor {
    * @see {@link ListScopesCommand}
    */
   listScopes(): Promise<ListScopesCommandOutput>;
-  listScopes(args: ListScopesCommandInput, options?: __HttpHandlerOptions): Promise<ListScopesCommandOutput>;
-  listScopes(args: ListScopesCommandInput, cb: (err: any, data?: ListScopesCommandOutput) => void): void;
+  listScopes(
+    args: ListScopesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListScopesCommandOutput>;
+  listScopes(
+    args: ListScopesCommandInput,
+    cb: (err: any, data?: ListScopesCommandOutput) => void
+  ): void;
   listScopes(
     args: ListScopesCommandInput,
     options: __HttpHandlerOptions,
@@ -444,8 +492,14 @@ export interface NetworkFlowMonitor {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -455,8 +509,14 @@ export interface NetworkFlowMonitor {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -466,8 +526,14 @@ export interface NetworkFlowMonitor {
   /**
    * @see {@link UpdateMonitorCommand}
    */
-  updateMonitor(args: UpdateMonitorCommandInput, options?: __HttpHandlerOptions): Promise<UpdateMonitorCommandOutput>;
-  updateMonitor(args: UpdateMonitorCommandInput, cb: (err: any, data?: UpdateMonitorCommandOutput) => void): void;
+  updateMonitor(
+    args: UpdateMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMonitorCommandOutput>;
+  updateMonitor(
+    args: UpdateMonitorCommandInput,
+    cb: (err: any, data?: UpdateMonitorCommandOutput) => void
+  ): void;
   updateMonitor(
     args: UpdateMonitorCommandInput,
     options: __HttpHandlerOptions,
@@ -477,8 +543,14 @@ export interface NetworkFlowMonitor {
   /**
    * @see {@link UpdateScopeCommand}
    */
-  updateScope(args: UpdateScopeCommandInput, options?: __HttpHandlerOptions): Promise<UpdateScopeCommandOutput>;
-  updateScope(args: UpdateScopeCommandInput, cb: (err: any, data?: UpdateScopeCommandOutput) => void): void;
+  updateScope(
+    args: UpdateScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateScopeCommandOutput>;
+  updateScope(
+    args: UpdateScopeCommandInput,
+    cb: (err: any, data?: UpdateScopeCommandOutput) => void
+  ): void;
   updateScope(
     args: UpdateScopeCommandInput,
     options: __HttpHandlerOptions,

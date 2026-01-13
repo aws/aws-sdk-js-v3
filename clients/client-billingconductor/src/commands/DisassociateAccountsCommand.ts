@@ -10,7 +10,7 @@ import type {
 } from "../BillingconductorClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateAccountsInput, DisassociateAccountsOutput } from "../models/models_0";
-import { DisassociateAccounts } from "../schemas/schemas_0";
+import { DisassociateAccounts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DisassociateAccountsCommand extends $Command
   })
   .s("AWSBillingConductor", "DisassociateAccounts", {})
   .n("BillingconductorClient", "DisassociateAccountsCommand")
-  .sc(DisassociateAccounts)
+  .sc(DisassociateAccounts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

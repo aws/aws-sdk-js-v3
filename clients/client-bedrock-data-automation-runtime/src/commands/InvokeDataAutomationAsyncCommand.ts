@@ -10,7 +10,7 @@ import type {
 } from "../BedrockDataAutomationRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InvokeDataAutomationAsyncRequest, InvokeDataAutomationAsyncResponse } from "../models/models_0";
-import { InvokeDataAutomationAsync } from "../schemas/schemas_0";
+import { InvokeDataAutomationAsync$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -137,7 +137,7 @@ export class InvokeDataAutomationAsyncCommand extends $Command
   })
   .s("AmazonBedrockKeystoneRuntimeService", "InvokeDataAutomationAsync", {})
   .n("BedrockDataAutomationRuntimeClient", "InvokeDataAutomationAsyncCommand")
-  .sc(InvokeDataAutomationAsync)
+  .sc(InvokeDataAutomationAsync$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

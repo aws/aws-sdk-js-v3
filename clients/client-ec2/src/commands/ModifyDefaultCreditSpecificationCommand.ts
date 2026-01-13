@@ -9,7 +9,7 @@ import type {
   ModifyDefaultCreditSpecificationRequest,
   ModifyDefaultCreditSpecificationResult,
 } from "../models/models_6";
-import { ModifyDefaultCreditSpecification } from "../schemas/schemas_0";
+import { ModifyDefaultCreditSpecification$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ModifyDefaultCreditSpecificationCommandInput extends ModifyDefa
  *
  * The output of {@link ModifyDefaultCreditSpecificationCommand}.
  */
-export interface ModifyDefaultCreditSpecificationCommandOutput
-  extends ModifyDefaultCreditSpecificationResult,
-    __MetadataBearer {}
+export interface ModifyDefaultCreditSpecificationCommandOutput extends ModifyDefaultCreditSpecificationResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the default credit option for CPU usage of burstable performance instances.
@@ -96,7 +94,7 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command
   })
   .s("AmazonEC2", "ModifyDefaultCreditSpecification", {})
   .n("EC2Client", "ModifyDefaultCreditSpecificationCommand")
-  .sc(ModifyDefaultCreditSpecification)
+  .sc(ModifyDefaultCreditSpecification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

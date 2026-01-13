@@ -490,8 +490,14 @@ export interface Lambda {
   /**
    * @see {@link AddPermissionCommand}
    */
-  addPermission(args: AddPermissionCommandInput, options?: __HttpHandlerOptions): Promise<AddPermissionCommandOutput>;
-  addPermission(args: AddPermissionCommandInput, cb: (err: any, data?: AddPermissionCommandOutput) => void): void;
+  addPermission(
+    args: AddPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddPermissionCommandOutput>;
+  addPermission(
+    args: AddPermissionCommandInput,
+    cb: (err: any, data?: AddPermissionCommandOutput) => void
+  ): void;
   addPermission(
     args: AddPermissionCommandInput,
     options: __HttpHandlerOptions,
@@ -518,8 +524,14 @@ export interface Lambda {
   /**
    * @see {@link CreateAliasCommand}
    */
-  createAlias(args: CreateAliasCommandInput, options?: __HttpHandlerOptions): Promise<CreateAliasCommandOutput>;
-  createAlias(args: CreateAliasCommandInput, cb: (err: any, data?: CreateAliasCommandOutput) => void): void;
+  createAlias(
+    args: CreateAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAliasCommandOutput>;
+  createAlias(
+    args: CreateAliasCommandInput,
+    cb: (err: any, data?: CreateAliasCommandOutput) => void
+  ): void;
   createAlias(
     args: CreateAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -584,7 +596,10 @@ export interface Lambda {
     args: CreateFunctionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateFunctionCommandOutput>;
-  createFunction(args: CreateFunctionCommandInput, cb: (err: any, data?: CreateFunctionCommandOutput) => void): void;
+  createFunction(
+    args: CreateFunctionCommandInput,
+    cb: (err: any, data?: CreateFunctionCommandOutput) => void
+  ): void;
   createFunction(
     args: CreateFunctionCommandInput,
     options: __HttpHandlerOptions,
@@ -611,8 +626,14 @@ export interface Lambda {
   /**
    * @see {@link DeleteAliasCommand}
    */
-  deleteAlias(args: DeleteAliasCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAliasCommandOutput>;
-  deleteAlias(args: DeleteAliasCommandInput, cb: (err: any, data?: DeleteAliasCommandOutput) => void): void;
+  deleteAlias(
+    args: DeleteAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAliasCommandOutput>;
+  deleteAlias(
+    args: DeleteAliasCommandInput,
+    cb: (err: any, data?: DeleteAliasCommandOutput) => void
+  ): void;
   deleteAlias(
     args: DeleteAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -677,7 +698,10 @@ export interface Lambda {
     args: DeleteFunctionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteFunctionCommandOutput>;
-  deleteFunction(args: DeleteFunctionCommandInput, cb: (err: any, data?: DeleteFunctionCommandOutput) => void): void;
+  deleteFunction(
+    args: DeleteFunctionCommandInput,
+    cb: (err: any, data?: DeleteFunctionCommandOutput) => void
+  ): void;
   deleteFunction(
     args: DeleteFunctionCommandInput,
     options: __HttpHandlerOptions,
@@ -807,8 +831,14 @@ export interface Lambda {
   /**
    * @see {@link GetAliasCommand}
    */
-  getAlias(args: GetAliasCommandInput, options?: __HttpHandlerOptions): Promise<GetAliasCommandOutput>;
-  getAlias(args: GetAliasCommandInput, cb: (err: any, data?: GetAliasCommandOutput) => void): void;
+  getAlias(
+    args: GetAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAliasCommandOutput>;
+  getAlias(
+    args: GetAliasCommandInput,
+    cb: (err: any, data?: GetAliasCommandOutput) => void
+  ): void;
   getAlias(
     args: GetAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -920,8 +950,14 @@ export interface Lambda {
   /**
    * @see {@link GetFunctionCommand}
    */
-  getFunction(args: GetFunctionCommandInput, options?: __HttpHandlerOptions): Promise<GetFunctionCommandOutput>;
-  getFunction(args: GetFunctionCommandInput, cb: (err: any, data?: GetFunctionCommandOutput) => void): void;
+  getFunction(
+    args: GetFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFunctionCommandOutput>;
+  getFunction(
+    args: GetFunctionCommandInput,
+    cb: (err: any, data?: GetFunctionCommandOutput) => void
+  ): void;
   getFunction(
     args: GetFunctionCommandInput,
     options: __HttpHandlerOptions,
@@ -1054,7 +1090,10 @@ export interface Lambda {
     args: GetLayerVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetLayerVersionCommandOutput>;
-  getLayerVersion(args: GetLayerVersionCommandInput, cb: (err: any, data?: GetLayerVersionCommandOutput) => void): void;
+  getLayerVersion(
+    args: GetLayerVersionCommandInput,
+    cb: (err: any, data?: GetLayerVersionCommandOutput) => void
+  ): void;
   getLayerVersion(
     args: GetLayerVersionCommandInput,
     options: __HttpHandlerOptions,
@@ -1098,8 +1137,14 @@ export interface Lambda {
   /**
    * @see {@link GetPolicyCommand}
    */
-  getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
-  getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPolicyCommandOutput>;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    cb: (err: any, data?: GetPolicyCommandOutput) => void
+  ): void;
   getPolicy(
     args: GetPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -1143,8 +1188,14 @@ export interface Lambda {
   /**
    * @see {@link InvokeCommand}
    */
-  invoke(args: InvokeCommandInput, options?: __HttpHandlerOptions): Promise<InvokeCommandOutput>;
-  invoke(args: InvokeCommandInput, cb: (err: any, data?: InvokeCommandOutput) => void): void;
+  invoke(
+    args: InvokeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeCommandOutput>;
+  invoke(
+    args: InvokeCommandInput,
+    cb: (err: any, data?: InvokeCommandOutput) => void
+  ): void;
   invoke(
     args: InvokeCommandInput,
     options: __HttpHandlerOptions,
@@ -1154,8 +1205,14 @@ export interface Lambda {
   /**
    * @see {@link InvokeAsyncCommand}
    */
-  invokeAsync(args: InvokeAsyncCommandInput, options?: __HttpHandlerOptions): Promise<InvokeAsyncCommandOutput>;
-  invokeAsync(args: InvokeAsyncCommandInput, cb: (err: any, data?: InvokeAsyncCommandOutput) => void): void;
+  invokeAsync(
+    args: InvokeAsyncCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeAsyncCommandOutput>;
+  invokeAsync(
+    args: InvokeAsyncCommandInput,
+    cb: (err: any, data?: InvokeAsyncCommandOutput) => void
+  ): void;
   invokeAsync(
     args: InvokeAsyncCommandInput,
     options: __HttpHandlerOptions,
@@ -1182,8 +1239,14 @@ export interface Lambda {
   /**
    * @see {@link ListAliasesCommand}
    */
-  listAliases(args: ListAliasesCommandInput, options?: __HttpHandlerOptions): Promise<ListAliasesCommandOutput>;
-  listAliases(args: ListAliasesCommandInput, cb: (err: any, data?: ListAliasesCommandOutput) => void): void;
+  listAliases(
+    args: ListAliasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAliasesCommandOutput>;
+  listAliases(
+    args: ListAliasesCommandInput,
+    cb: (err: any, data?: ListAliasesCommandOutput) => void
+  ): void;
   listAliases(
     args: ListAliasesCommandInput,
     options: __HttpHandlerOptions,
@@ -1282,8 +1345,14 @@ export interface Lambda {
    * @see {@link ListFunctionsCommand}
    */
   listFunctions(): Promise<ListFunctionsCommandOutput>;
-  listFunctions(args: ListFunctionsCommandInput, options?: __HttpHandlerOptions): Promise<ListFunctionsCommandOutput>;
-  listFunctions(args: ListFunctionsCommandInput, cb: (err: any, data?: ListFunctionsCommandOutput) => void): void;
+  listFunctions(
+    args: ListFunctionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFunctionsCommandOutput>;
+  listFunctions(
+    args: ListFunctionsCommandInput,
+    cb: (err: any, data?: ListFunctionsCommandOutput) => void
+  ): void;
   listFunctions(
     args: ListFunctionsCommandInput,
     options: __HttpHandlerOptions,
@@ -1345,8 +1414,14 @@ export interface Lambda {
    * @see {@link ListLayersCommand}
    */
   listLayers(): Promise<ListLayersCommandOutput>;
-  listLayers(args: ListLayersCommandInput, options?: __HttpHandlerOptions): Promise<ListLayersCommandOutput>;
-  listLayers(args: ListLayersCommandInput, cb: (err: any, data?: ListLayersCommandOutput) => void): void;
+  listLayers(
+    args: ListLayersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLayersCommandOutput>;
+  listLayers(
+    args: ListLayersCommandInput,
+    cb: (err: any, data?: ListLayersCommandOutput) => void
+  ): void;
   listLayers(
     args: ListLayersCommandInput,
     options: __HttpHandlerOptions,
@@ -1390,8 +1465,14 @@ export interface Lambda {
   /**
    * @see {@link ListTagsCommand}
    */
-  listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
-  listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
+  listTags(
+    args: ListTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsCommandOutput>;
+  listTags(
+    args: ListTagsCommandInput,
+    cb: (err: any, data?: ListTagsCommandOutput) => void
+  ): void;
   listTags(
     args: ListTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -1439,7 +1520,10 @@ export interface Lambda {
     args: PublishVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PublishVersionCommandOutput>;
-  publishVersion(args: PublishVersionCommandInput, cb: (err: any, data?: PublishVersionCommandOutput) => void): void;
+  publishVersion(
+    args: PublishVersionCommandInput,
+    cb: (err: any, data?: PublishVersionCommandOutput) => void
+  ): void;
   publishVersion(
     args: PublishVersionCommandInput,
     options: __HttpHandlerOptions,
@@ -1670,8 +1754,14 @@ export interface Lambda {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1681,8 +1771,14 @@ export interface Lambda {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1692,8 +1788,14 @@ export interface Lambda {
   /**
    * @see {@link UpdateAliasCommand}
    */
-  updateAlias(args: UpdateAliasCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAliasCommandOutput>;
-  updateAlias(args: UpdateAliasCommandInput, cb: (err: any, data?: UpdateAliasCommandOutput) => void): void;
+  updateAlias(
+    args: UpdateAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAliasCommandOutput>;
+  updateAlias(
+    args: UpdateAliasCommandInput,
+    cb: (err: any, data?: UpdateAliasCommandOutput) => void
+  ): void;
   updateAlias(
     args: UpdateAliasCommandInput,
     options: __HttpHandlerOptions,

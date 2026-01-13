@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateExpressGatewayServiceRequest, UpdateExpressGatewayServiceResponse } from "../models/models_0";
-import { UpdateExpressGatewayService } from "../schemas/schemas_0";
+import { UpdateExpressGatewayService$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateExpressGatewayServiceCommandInput extends UpdateExpressGa
  *
  * The output of {@link UpdateExpressGatewayServiceCommand}.
  */
-export interface UpdateExpressGatewayServiceCommandOutput
-  extends UpdateExpressGatewayServiceResponse,
-    __MetadataBearer {}
+export interface UpdateExpressGatewayServiceCommandOutput extends UpdateExpressGatewayServiceResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing Express service configuration. Modifies container settings, resource
@@ -223,7 +221,7 @@ export class UpdateExpressGatewayServiceCommand extends $Command
   })
   .s("AmazonEC2ContainerServiceV20141113", "UpdateExpressGatewayService", {})
   .n("ECSClient", "UpdateExpressGatewayServiceCommand")
-  .sc(UpdateExpressGatewayService)
+  .sc(UpdateExpressGatewayService$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

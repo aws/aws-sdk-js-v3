@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeIpamPrefixListResolversRequest, DescribeIpamPrefixListResolversResult } from "../models/models_4";
-import { DescribeIpamPrefixListResolvers } from "../schemas/schemas_0";
+import { DescribeIpamPrefixListResolvers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeIpamPrefixListResolversCommandInput extends DescribeIpa
  *
  * The output of {@link DescribeIpamPrefixListResolversCommand}.
  */
-export interface DescribeIpamPrefixListResolversCommandOutput
-  extends DescribeIpamPrefixListResolversResult,
-    __MetadataBearer {}
+export interface DescribeIpamPrefixListResolversCommandOutput extends DescribeIpamPrefixListResolversResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more IPAM prefix list resolvers. Use this operation to view the configuration, status, and properties of your resolvers.</p>
@@ -108,7 +106,7 @@ export class DescribeIpamPrefixListResolversCommand extends $Command
   })
   .s("AmazonEC2", "DescribeIpamPrefixListResolvers", {})
   .n("EC2Client", "DescribeIpamPrefixListResolversCommand")
-  .sc(DescribeIpamPrefixListResolvers)
+  .sc(DescribeIpamPrefixListResolvers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

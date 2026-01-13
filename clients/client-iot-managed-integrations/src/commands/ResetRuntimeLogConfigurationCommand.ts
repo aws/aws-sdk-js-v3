@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { ResetRuntimeLogConfigurationRequest } from "../models/models_0";
-import { ResetRuntimeLogConfiguration } from "../schemas/schemas_0";
+import { ResetRuntimeLogConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class ResetRuntimeLogConfigurationCommand extends $Command
   })
   .s("IotManagedIntegrations", "ResetRuntimeLogConfiguration", {})
   .n("IoTManagedIntegrationsClient", "ResetRuntimeLogConfigurationCommand")
-  .sc(ResetRuntimeLogConfiguration)
+  .sc(ResetRuntimeLogConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

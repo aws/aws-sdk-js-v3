@@ -31,7 +31,9 @@ export interface MonetaryAmount {
  * <p> The summary of the rewards granted as a result of activities completed. </p>
  * @public
  */
-export type ActivityReward = ActivityReward.CreditMember | ActivityReward.$UnknownMember;
+export type ActivityReward =
+  | ActivityReward.CreditMember
+  | ActivityReward.$UnknownMember;
 
 /**
  * @public

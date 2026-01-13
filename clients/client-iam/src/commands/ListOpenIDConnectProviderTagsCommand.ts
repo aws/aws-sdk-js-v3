@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { ListOpenIDConnectProviderTagsRequest, ListOpenIDConnectProviderTagsResponse } from "../models/models_0";
-import { ListOpenIDConnectProviderTags } from "../schemas/schemas_0";
+import { ListOpenIDConnectProviderTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListOpenIDConnectProviderTagsCommandInput extends ListOpenIDCon
  *
  * The output of {@link ListOpenIDConnectProviderTagsCommand}.
  */
-export interface ListOpenIDConnectProviderTagsCommandOutput
-  extends ListOpenIDConnectProviderTagsResponse,
-    __MetadataBearer {}
+export interface ListOpenIDConnectProviderTagsCommandOutput extends ListOpenIDConnectProviderTagsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the tags that are attached to the specified OpenID Connect (OIDC)-compatible
@@ -100,7 +98,7 @@ export class ListOpenIDConnectProviderTagsCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "ListOpenIDConnectProviderTags", {})
   .n("IAMClient", "ListOpenIDConnectProviderTagsCommand")
-  .sc(ListOpenIDConnectProviderTags)
+  .sc(ListOpenIDConnectProviderTags$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

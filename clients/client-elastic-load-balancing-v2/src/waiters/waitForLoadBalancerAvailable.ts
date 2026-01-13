@@ -7,25 +7,22 @@ import {
 } from "../commands/DescribeLoadBalancersCommand";
 import { ElasticLoadBalancingV2Client } from "../ElasticLoadBalancingV2Client";
 
-const checkState = async (
-  client: ElasticLoadBalancingV2Client,
-  input: DescribeLoadBalancersCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: ElasticLoadBalancingV2Client, input: DescribeLoadBalancersCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeLoadBalancersCommand(input));
+    let result: any = await client.send(new DescribeLoadBalancersCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.LoadBalancers);
-        const projection_3 = flat_1.map((element_2: any) => {
+        let flat_1: any[] = [].concat(...result.LoadBalancers);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.State.Code;
         });
         return projection_3;
-      };
-      let allStringEq_5 = returnComparator().length > 0;
-      for (const element_4 of returnComparator()) {
-        allStringEq_5 = allStringEq_5 && element_4 == "active";
+      }
+      let allStringEq_5 = (returnComparator().length > 0);
+      for (let element_4 of returnComparator()) {
+        allStringEq_5 = allStringEq_5 && (element_4 == "active")
       }
       if (allStringEq_5) {
         return { state: WaiterState.SUCCESS, reason };
@@ -33,13 +30,13 @@ const checkState = async (
     } catch (e) {}
     try {
       const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.LoadBalancers);
-        const projection_3 = flat_1.map((element_2: any) => {
+        let flat_1: any[] = [].concat(...result.LoadBalancers);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.State.Code;
         });
         return projection_3;
-      };
-      for (const anyStringEq_4 of returnComparator()) {
+      }
+      for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "provisioning") {
           return { state: WaiterState.RETRY, reason };
         }

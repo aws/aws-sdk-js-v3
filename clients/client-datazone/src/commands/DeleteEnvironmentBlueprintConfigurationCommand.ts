@@ -9,7 +9,7 @@ import type {
   DeleteEnvironmentBlueprintConfigurationInput,
   DeleteEnvironmentBlueprintConfigurationOutput,
 } from "../models/models_1";
-import { DeleteEnvironmentBlueprintConfiguration } from "../schemas/schemas_0";
+import { DeleteEnvironmentBlueprintConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteEnvironmentBlueprintConfigurationCommand}.
  */
-export interface DeleteEnvironmentBlueprintConfigurationCommandInput
-  extends DeleteEnvironmentBlueprintConfigurationInput {}
+export interface DeleteEnvironmentBlueprintConfigurationCommandInput extends DeleteEnvironmentBlueprintConfigurationInput {}
 /**
  * @public
  *
  * The output of {@link DeleteEnvironmentBlueprintConfigurationCommand}.
  */
-export interface DeleteEnvironmentBlueprintConfigurationCommandOutput
-  extends DeleteEnvironmentBlueprintConfigurationOutput,
-    __MetadataBearer {}
+export interface DeleteEnvironmentBlueprintConfigurationCommandOutput extends DeleteEnvironmentBlueprintConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the blueprint configuration in Amazon DataZone.</p>
@@ -93,7 +90,7 @@ export class DeleteEnvironmentBlueprintConfigurationCommand extends $Command
   })
   .s("DataZone", "DeleteEnvironmentBlueprintConfiguration", {})
   .n("DataZoneClient", "DeleteEnvironmentBlueprintConfigurationCommand")
-  .sc(DeleteEnvironmentBlueprintConfiguration)
+  .sc(DeleteEnvironmentBlueprintConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

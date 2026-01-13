@@ -9,7 +9,7 @@ import type {
   CreateFunctionDefinitionVersionRequest,
   CreateFunctionDefinitionVersionResponse,
 } from "../models/models_0";
-import { CreateFunctionDefinitionVersion } from "../schemas/schemas_0";
+import { CreateFunctionDefinitionVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateFunctionDefinitionVersionCommandInput extends CreateFunct
  *
  * The output of {@link CreateFunctionDefinitionVersionCommand}.
  */
-export interface CreateFunctionDefinitionVersionCommandOutput
-  extends CreateFunctionDefinitionVersionResponse,
-    __MetadataBearer {}
+export interface CreateFunctionDefinitionVersionCommandOutput extends CreateFunctionDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Creates a version of a Lambda function definition that has already been defined.
@@ -128,7 +126,7 @@ export class CreateFunctionDefinitionVersionCommand extends $Command
   })
   .s("Greengrass", "CreateFunctionDefinitionVersion", {})
   .n("GreengrassClient", "CreateFunctionDefinitionVersionCommand")
-  .sc(CreateFunctionDefinitionVersion)
+  .sc(CreateFunctionDefinitionVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

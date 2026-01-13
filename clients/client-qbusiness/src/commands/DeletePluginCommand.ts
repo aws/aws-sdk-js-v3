@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeletePluginRequest, DeletePluginResponse } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { DeletePlugin } from "../schemas/schemas_0";
+import { DeletePlugin$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeletePluginCommand extends $Command
   })
   .s("ExpertQ", "DeletePlugin", {})
   .n("QBusinessClient", "DeletePluginCommand")
-  .sc(DeletePlugin)
+  .sc(DeletePlugin$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   CreateWorkspaceServiceAccountTokenRequest,
   CreateWorkspaceServiceAccountTokenResponse,
 } from "../models/models_0";
-import { CreateWorkspaceServiceAccountToken } from "../schemas/schemas_0";
+import { CreateWorkspaceServiceAccountToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateWorkspaceServiceAccountTokenCommandInput extends CreateWo
  *
  * The output of {@link CreateWorkspaceServiceAccountTokenCommand}.
  */
-export interface CreateWorkspaceServiceAccountTokenCommandOutput
-  extends CreateWorkspaceServiceAccountTokenResponse,
-    __MetadataBearer {}
+export interface CreateWorkspaceServiceAccountTokenCommandOutput extends CreateWorkspaceServiceAccountTokenResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a token that can be used to authenticate and authorize Grafana HTTP API
@@ -120,7 +118,7 @@ export class CreateWorkspaceServiceAccountTokenCommand extends $Command
   })
   .s("AWSGrafanaControlPlane", "CreateWorkspaceServiceAccountToken", {})
   .n("GrafanaClient", "CreateWorkspaceServiceAccountTokenCommand")
-  .sc(CreateWorkspaceServiceAccountToken)
+  .sc(CreateWorkspaceServiceAccountToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetBucketMetricsConfigurationOutput, GetBucketMetricsConfigurationRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketMetricsConfiguration } from "../schemas/schemas_0";
+import { GetBucketMetricsConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,9 +25,7 @@ export interface GetBucketMetricsConfigurationCommandInput extends GetBucketMetr
  *
  * The output of {@link GetBucketMetricsConfigurationCommand}.
  */
-export interface GetBucketMetricsConfigurationCommandOutput
-  extends GetBucketMetricsConfigurationOutput,
-    __MetadataBearer {}
+export interface GetBucketMetricsConfigurationCommandOutput extends GetBucketMetricsConfigurationOutput, __MetadataBearer {}
 
 /**
  * <note>
@@ -135,11 +133,14 @@ export class GetBucketMetricsConfigurationCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
+    ];
   })
   .s("AmazonS3", "GetBucketMetricsConfiguration", {})
   .n("S3Client", "GetBucketMetricsConfigurationCommand")
-  .sc(GetBucketMetricsConfiguration)
+  .sc(GetBucketMetricsConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

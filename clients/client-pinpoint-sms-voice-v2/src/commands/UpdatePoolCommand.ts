@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { UpdatePool } from "../schemas/schemas_0";
+import { UpdatePool$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class UpdatePoolCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "UpdatePool", {})
   .n("PinpointSMSVoiceV2Client", "UpdatePoolCommand")
-  .sc(UpdatePool)
+  .sc(UpdatePool$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

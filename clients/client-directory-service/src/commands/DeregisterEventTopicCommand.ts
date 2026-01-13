@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeregisterEventTopicRequest, DeregisterEventTopicResult } from "../models/models_0";
-import { DeregisterEventTopic } from "../schemas/schemas_0";
+import { DeregisterEventTopic$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class DeregisterEventTopicCommand extends $Command
   })
   .s("DirectoryService_20150416", "DeregisterEventTopic", {})
   .n("DirectoryServiceClient", "DeregisterEventTopicCommand")
-  .sc(DeregisterEventTopic)
+  .sc(DeregisterEventTopic$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

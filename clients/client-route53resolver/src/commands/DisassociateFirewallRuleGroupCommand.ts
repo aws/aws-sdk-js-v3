@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { DisassociateFirewallRuleGroup } from "../schemas/schemas_0";
+import { DisassociateFirewallRuleGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DisassociateFirewallRuleGroupCommandInput extends DisassociateF
  *
  * The output of {@link DisassociateFirewallRuleGroupCommand}.
  */
-export interface DisassociateFirewallRuleGroupCommandOutput
-  extends DisassociateFirewallRuleGroupResponse,
-    __MetadataBearer {}
+export interface DisassociateFirewallRuleGroupCommandOutput extends DisassociateFirewallRuleGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a <a>FirewallRuleGroup</a> from a VPC, to remove DNS filtering from the VPC. </p>
@@ -116,7 +114,7 @@ export class DisassociateFirewallRuleGroupCommand extends $Command
   })
   .s("Route53Resolver", "DisassociateFirewallRuleGroup", {})
   .n("Route53ResolverClient", "DisassociateFirewallRuleGroupCommand")
-  .sc(DisassociateFirewallRuleGroup)
+  .sc(DisassociateFirewallRuleGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import type { DescribeContainerGroupDefinitionInput, DescribeContainerGroupDefinitionOutput } from "../models/models_0";
-import { DescribeContainerGroupDefinition } from "../schemas/schemas_0";
+import { DescribeContainerGroupDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeContainerGroupDefinitionCommandInput extends DescribeCo
  *
  * The output of {@link DescribeContainerGroupDefinitionCommand}.
  */
-export interface DescribeContainerGroupDefinitionCommandOutput
-  extends DescribeContainerGroupDefinitionOutput,
-    __MetadataBearer {}
+export interface DescribeContainerGroupDefinitionCommandOutput extends DescribeContainerGroupDefinitionOutput, __MetadataBearer {}
 
 /**
  * <p>
@@ -217,7 +215,7 @@ export class DescribeContainerGroupDefinitionCommand extends $Command
   })
   .s("GameLift", "DescribeContainerGroupDefinition", {})
   .n("GameLiftClient", "DescribeContainerGroupDefinitionCommand")
-  .sc(DescribeContainerGroupDefinition)
+  .sc(DescribeContainerGroupDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

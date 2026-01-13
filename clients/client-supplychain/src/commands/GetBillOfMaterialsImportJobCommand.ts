@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetBillOfMaterialsImportJobRequest, GetBillOfMaterialsImportJobResponse } from "../models/models_0";
-import { GetBillOfMaterialsImportJob } from "../schemas/schemas_0";
+import { GetBillOfMaterialsImportJob$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
@@ -24,9 +24,7 @@ export interface GetBillOfMaterialsImportJobCommandInput extends GetBillOfMateri
  *
  * The output of {@link GetBillOfMaterialsImportJobCommand}.
  */
-export interface GetBillOfMaterialsImportJobCommandOutput
-  extends GetBillOfMaterialsImportJobResponse,
-    __MetadataBearer {}
+export interface GetBillOfMaterialsImportJobCommandOutput extends GetBillOfMaterialsImportJobResponse, __MetadataBearer {}
 
 /**
  * <p>Get status and details of a BillOfMaterialsImportJob.</p>
@@ -146,7 +144,7 @@ export class GetBillOfMaterialsImportJobCommand extends $Command
   })
   .s("GalaxyPublicAPIGateway", "GetBillOfMaterialsImportJob", {})
   .n("SupplyChainClient", "GetBillOfMaterialsImportJobCommand")
-  .sc(GetBillOfMaterialsImportJob)
+  .sc(GetBillOfMaterialsImportJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

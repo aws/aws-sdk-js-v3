@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisableProactiveEngagementRequest, DisableProactiveEngagementResponse } from "../models/models_0";
-import { DisableProactiveEngagement } from "../schemas/schemas_0";
+import { DisableProactiveEngagement$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -85,7 +85,7 @@ export class DisableProactiveEngagementCommand extends $Command
   })
   .s("AWSShield_20160616", "DisableProactiveEngagement", {})
   .n("ShieldClient", "DisableProactiveEngagementCommand")
-  .sc(DisableProactiveEngagement)
+  .sc(DisableProactiveEngagement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

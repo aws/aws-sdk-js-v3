@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTableMaintenanceJobStatusRequest, GetTableMaintenanceJobStatusResponse } from "../models/models_0";
 import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
-import { GetTableMaintenanceJobStatus } from "../schemas/schemas_0";
+import { GetTableMaintenanceJobStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetTableMaintenanceJobStatusCommandInput extends GetTableMainte
  *
  * The output of {@link GetTableMaintenanceJobStatusCommand}.
  */
-export interface GetTableMaintenanceJobStatusCommandOutput
-  extends GetTableMaintenanceJobStatusResponse,
-    __MetadataBearer {}
+export interface GetTableMaintenanceJobStatusCommandOutput extends GetTableMaintenanceJobStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the status of a maintenance job for a table. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-maintenance.html">S3 Tables maintenance</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableMaintenanceJobStatus</code> permission to use this operation. </p> </dd> </dl>
@@ -102,7 +100,7 @@ export class GetTableMaintenanceJobStatusCommand extends $Command
   })
   .s("S3TableBuckets", "GetTableMaintenanceJobStatus", {})
   .n("S3TablesClient", "GetTableMaintenanceJobStatusCommand")
-  .sc(GetTableMaintenanceJobStatus)
+  .sc(GetTableMaintenanceJobStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

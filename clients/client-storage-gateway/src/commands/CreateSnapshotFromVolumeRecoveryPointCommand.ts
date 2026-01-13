@@ -8,7 +8,7 @@ import type {
   CreateSnapshotFromVolumeRecoveryPointInput,
   CreateSnapshotFromVolumeRecoveryPointOutput,
 } from "../models/models_0";
-import { CreateSnapshotFromVolumeRecoveryPoint } from "../schemas/schemas_0";
+import { CreateSnapshotFromVolumeRecoveryPoint$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -31,9 +31,7 @@ export interface CreateSnapshotFromVolumeRecoveryPointCommandInput extends Creat
  *
  * The output of {@link CreateSnapshotFromVolumeRecoveryPointCommand}.
  */
-export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput
-  extends CreateSnapshotFromVolumeRecoveryPointOutput,
-    __MetadataBearer {}
+export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput extends CreateSnapshotFromVolumeRecoveryPointOutput, __MetadataBearer {}
 
 /**
  * <p>Initiates a snapshot of a gateway from a volume recovery point. This operation is only
@@ -138,7 +136,7 @@ export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command
   })
   .s("StorageGateway_20130630", "CreateSnapshotFromVolumeRecoveryPoint", {})
   .n("StorageGatewayClient", "CreateSnapshotFromVolumeRecoveryPointCommand")
-  .sc(CreateSnapshotFromVolumeRecoveryPoint)
+  .sc(CreateSnapshotFromVolumeRecoveryPoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

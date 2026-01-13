@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteListenerInput, DeleteListenerOutput } from "../models/models_0";
-import { DeleteListener } from "../schemas/schemas_0";
+import { DeleteListener$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DeleteListenerCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "DeleteListener", {})
   .n("ElasticLoadBalancingV2Client", "DeleteListenerCommand")
-  .sc(DeleteListener)
+  .sc(DeleteListener$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

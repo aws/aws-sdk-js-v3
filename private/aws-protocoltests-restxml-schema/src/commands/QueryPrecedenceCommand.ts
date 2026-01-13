@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { QueryPrecedence } from "../schemas/schemas_0";
+import { QueryPrecedence$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -78,7 +78,7 @@ export class QueryPrecedenceCommand extends $Command
   })
   .s("RestXml", "QueryPrecedence", {})
   .n("RestXmlProtocolClient", "QueryPrecedenceCommand")
-  .sc(QueryPrecedence)
+  .sc(QueryPrecedence$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMobileDeviceAccessOverrideRequest, GetMobileDeviceAccessOverrideResponse } from "../models/models_0";
-import { GetMobileDeviceAccessOverride } from "../schemas/schemas_0";
+import { GetMobileDeviceAccessOverride$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -24,9 +24,7 @@ export interface GetMobileDeviceAccessOverrideCommandInput extends GetMobileDevi
  *
  * The output of {@link GetMobileDeviceAccessOverrideCommand}.
  */
-export interface GetMobileDeviceAccessOverrideCommandOutput
-  extends GetMobileDeviceAccessOverrideResponse,
-    __MetadataBearer {}
+export interface GetMobileDeviceAccessOverrideCommandOutput extends GetMobileDeviceAccessOverrideResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the mobile device access override for the given WorkMail organization, user, and device.</p>
@@ -100,7 +98,7 @@ export class GetMobileDeviceAccessOverrideCommand extends $Command
   })
   .s("WorkMailService", "GetMobileDeviceAccessOverride", {})
   .n("WorkMailClient", "GetMobileDeviceAccessOverrideCommand")
-  .sc(GetMobileDeviceAccessOverride)
+  .sc(GetMobileDeviceAccessOverride$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerAutomationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateAccountsRequest, AssociateAccountsResponse } from "../models/models_0";
-import { AssociateAccounts } from "../schemas/schemas_0";
+import { AssociateAccounts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class AssociateAccountsCommand extends $Command
   })
   .s("ComputeOptimizerAutomationService", "AssociateAccounts", {})
   .n("ComputeOptimizerAutomationClient", "AssociateAccountsCommand")
-  .sc(AssociateAccounts)
+  .sc(AssociateAccounts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

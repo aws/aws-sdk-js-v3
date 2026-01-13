@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSlackChannelConfigurationsRequest, ListSlackChannelConfigurationsResult } from "../models/models_0";
-import { ListSlackChannelConfigurations } from "../schemas/schemas_0";
+import { ListSlackChannelConfigurations$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
@@ -24,9 +24,7 @@ export interface ListSlackChannelConfigurationsCommandInput extends ListSlackCha
  *
  * The output of {@link ListSlackChannelConfigurationsCommand}.
  */
-export interface ListSlackChannelConfigurationsCommandOutput
-  extends ListSlackChannelConfigurationsResult,
-    __MetadataBearer {}
+export interface ListSlackChannelConfigurationsCommandOutput extends ListSlackChannelConfigurationsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the Slack channel configurations for an Amazon Web Services account.</p>
@@ -93,7 +91,7 @@ export class ListSlackChannelConfigurationsCommand extends $Command
   })
   .s("SupportApp", "ListSlackChannelConfigurations", {})
   .n("SupportAppClient", "ListSlackChannelConfigurationsCommand")
-  .sc(ListSlackChannelConfigurations)
+  .sc(ListSlackChannelConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

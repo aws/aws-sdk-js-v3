@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAppInstanceBotRequest, DescribeAppInstanceBotResponse } from "../models/models_0";
-import { DescribeAppInstanceBot } from "../schemas/schemas_0";
+import { DescribeAppInstanceBot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class DescribeAppInstanceBotCommand extends $Command
   })
   .s("ChimeIdentityService", "DescribeAppInstanceBot", {})
   .n("ChimeSDKIdentityClient", "DescribeAppInstanceBotCommand")
-  .sc(DescribeAppInstanceBot)
+  .sc(DescribeAppInstanceBot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

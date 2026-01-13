@@ -9,7 +9,7 @@ import type {
   GetCollaborationPrivacyBudgetTemplateInput,
   GetCollaborationPrivacyBudgetTemplateOutput,
 } from "../models/models_0";
-import { GetCollaborationPrivacyBudgetTemplate } from "../schemas/schemas_0";
+import { GetCollaborationPrivacyBudgetTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetCollaborationPrivacyBudgetTemplateCommandInput extends GetCo
  *
  * The output of {@link GetCollaborationPrivacyBudgetTemplateCommand}.
  */
-export interface GetCollaborationPrivacyBudgetTemplateCommandOutput
-  extends GetCollaborationPrivacyBudgetTemplateOutput,
-    __MetadataBearer {}
+export interface GetCollaborationPrivacyBudgetTemplateCommandOutput extends GetCollaborationPrivacyBudgetTemplateOutput, __MetadataBearer {}
 
 /**
  * <p>Returns details about a specified privacy budget template.</p>
@@ -120,7 +118,7 @@ export class GetCollaborationPrivacyBudgetTemplateCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "GetCollaborationPrivacyBudgetTemplate", {})
   .n("CleanRoomsClient", "GetCollaborationPrivacyBudgetTemplateCommand")
-  .sc(GetCollaborationPrivacyBudgetTemplate)
+  .sc(GetCollaborationPrivacyBudgetTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

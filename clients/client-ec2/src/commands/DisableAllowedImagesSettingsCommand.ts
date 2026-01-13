@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisableAllowedImagesSettingsRequest, DisableAllowedImagesSettingsResult } from "../models/models_5";
-import { DisableAllowedImagesSettings } from "../schemas/schemas_0";
+import { DisableAllowedImagesSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DisableAllowedImagesSettingsCommandInput extends DisableAllowed
  *
  * The output of {@link DisableAllowedImagesSettingsCommand}.
  */
-export interface DisableAllowedImagesSettingsCommandOutput
-  extends DisableAllowedImagesSettingsResult,
-    __MetadataBearer {}
+export interface DisableAllowedImagesSettingsCommandOutput extends DisableAllowedImagesSettingsResult, __MetadataBearer {}
 
 /**
  * <p>Disables Allowed AMIs for your account in the specified Amazon Web Services Region. When set to
@@ -86,7 +84,7 @@ export class DisableAllowedImagesSettingsCommand extends $Command
   })
   .s("AmazonEC2", "DisableAllowedImagesSettings", {})
   .n("EC2Client", "DisableAllowedImagesSettingsCommand")
-  .sc(DisableAllowedImagesSettings)
+  .sc(DisableAllowedImagesSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

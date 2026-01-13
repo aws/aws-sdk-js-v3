@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisableImageBlockPublicAccessRequest, DisableImageBlockPublicAccessResult } from "../models/models_5";
-import { DisableImageBlockPublicAccess } from "../schemas/schemas_0";
+import { DisableImageBlockPublicAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DisableImageBlockPublicAccessCommandInput extends DisableImageB
  *
  * The output of {@link DisableImageBlockPublicAccessCommand}.
  */
-export interface DisableImageBlockPublicAccessCommandOutput
-  extends DisableImageBlockPublicAccessResult,
-    __MetadataBearer {}
+export interface DisableImageBlockPublicAccessCommandOutput extends DisableImageBlockPublicAccessResult, __MetadataBearer {}
 
 /**
  * <p>Disables <i>block public access for AMIs</i> at the account level in the
@@ -80,7 +78,7 @@ export class DisableImageBlockPublicAccessCommand extends $Command
   })
   .s("AmazonEC2", "DisableImageBlockPublicAccess", {})
   .n("EC2Client", "DisableImageBlockPublicAccessCommand")
-  .sc(DisableImageBlockPublicAccess)
+  .sc(DisableImageBlockPublicAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

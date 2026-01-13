@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { RejectAttachment } from "../schemas/schemas_0";
+import { RejectAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -147,7 +147,7 @@ export class RejectAttachmentCommand extends $Command
   })
   .s("NetworkManager", "RejectAttachment", {})
   .n("NetworkManagerClient", "RejectAttachmentCommand")
-  .sc(RejectAttachment)
+  .sc(RejectAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

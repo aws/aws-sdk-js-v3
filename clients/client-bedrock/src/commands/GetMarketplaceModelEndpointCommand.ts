@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMarketplaceModelEndpointRequest, GetMarketplaceModelEndpointResponse } from "../models/models_0";
-import { GetMarketplaceModelEndpoint } from "../schemas/schemas_0";
+import { GetMarketplaceModelEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetMarketplaceModelEndpointCommandInput extends GetMarketplaceM
  *
  * The output of {@link GetMarketplaceModelEndpointCommand}.
  */
-export interface GetMarketplaceModelEndpointCommandOutput
-  extends GetMarketplaceModelEndpointResponse,
-    __MetadataBearer {}
+export interface GetMarketplaceModelEndpointCommandOutput extends GetMarketplaceModelEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details about a specific endpoint for a model from Amazon Bedrock Marketplace.</p>
@@ -115,7 +113,7 @@ export class GetMarketplaceModelEndpointCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "GetMarketplaceModelEndpoint", {})
   .n("BedrockClient", "GetMarketplaceModelEndpointCommand")
-  .sc(GetMarketplaceModelEndpoint)
+  .sc(GetMarketplaceModelEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

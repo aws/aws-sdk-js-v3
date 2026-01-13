@@ -10,7 +10,7 @@ import type {
 } from "../ConnectCampaignsV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetConnectInstanceConfigRequest, GetConnectInstanceConfigResponse } from "../models/models_0";
-import { GetConnectInstanceConfig } from "../schemas/schemas_0";
+import { GetConnectInstanceConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetConnectInstanceConfigCommand extends $Command
   })
   .s("AmazonConnectCampaignServiceV2", "GetConnectInstanceConfig", {})
   .n("ConnectCampaignsV2Client", "GetConnectInstanceConfigCommand")
-  .sc(GetConnectInstanceConfig)
+  .sc(GetConnectInstanceConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

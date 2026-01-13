@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSpaceRequest, DeleteSpaceResponse } from "../models/models_0";
-import { DeleteSpace } from "../schemas/schemas_0";
+import { DeleteSpace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DeleteSpaceCommand extends $Command
   })
   .s("CodeCatalyst", "DeleteSpace", {})
   .n("CodeCatalystClient", "DeleteSpaceCommand")
-  .sc(DeleteSpace)
+  .sc(DeleteSpace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

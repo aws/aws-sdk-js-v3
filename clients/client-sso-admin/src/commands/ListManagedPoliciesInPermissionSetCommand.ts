@@ -8,7 +8,7 @@ import type {
   ListManagedPoliciesInPermissionSetRequest,
   ListManagedPoliciesInPermissionSetResponse,
 } from "../models/models_0";
-import { ListManagedPoliciesInPermissionSet } from "../schemas/schemas_0";
+import { ListManagedPoliciesInPermissionSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -27,9 +27,7 @@ export interface ListManagedPoliciesInPermissionSetCommandInput extends ListMana
  *
  * The output of {@link ListManagedPoliciesInPermissionSetCommand}.
  */
-export interface ListManagedPoliciesInPermissionSetCommandOutput
-  extends ListManagedPoliciesInPermissionSetResponse,
-    __MetadataBearer {}
+export interface ListManagedPoliciesInPermissionSetCommandOutput extends ListManagedPoliciesInPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the Amazon Web Services managed policy that is attached to a specified permission set.</p>
@@ -102,7 +100,7 @@ export class ListManagedPoliciesInPermissionSetCommand extends $Command
   })
   .s("SWBExternalService", "ListManagedPoliciesInPermissionSet", {})
   .n("SSOAdminClient", "ListManagedPoliciesInPermissionSetCommand")
-  .sc(ListManagedPoliciesInPermissionSet)
+  .sc(ListManagedPoliciesInPermissionSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

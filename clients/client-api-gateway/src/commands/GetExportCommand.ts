@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ExportResponse, GetExportRequest } from "../models/models_0";
-import { GetExport } from "../schemas/schemas_0";
+import { GetExport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class GetExportCommand extends $Command
   })
   .s("BackplaneControlService", "GetExport", {})
   .n("APIGatewayClient", "GetExportCommand")
-  .sc(GetExport)
+  .sc(GetExport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

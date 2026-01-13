@@ -9,7 +9,7 @@ import type {
   ListSensitivityInspectionTemplatesRequest,
   ListSensitivityInspectionTemplatesResponse,
 } from "../models/models_0";
-import { ListSensitivityInspectionTemplates } from "../schemas/schemas_0";
+import { ListSensitivityInspectionTemplates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListSensitivityInspectionTemplatesCommandInput extends ListSens
  *
  * The output of {@link ListSensitivityInspectionTemplatesCommand}.
  */
-export interface ListSensitivityInspectionTemplatesCommandOutput
-  extends ListSensitivityInspectionTemplatesResponse,
-    __MetadataBearer {}
+export interface ListSensitivityInspectionTemplatesCommandOutput extends ListSensitivityInspectionTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a subset of information about the sensitivity inspection template for an account.</p>
@@ -100,7 +98,7 @@ export class ListSensitivityInspectionTemplatesCommand extends $Command
   })
   .s("Macie2", "ListSensitivityInspectionTemplates", {})
   .n("Macie2Client", "ListSensitivityInspectionTemplatesCommand")
-  .sc(ListSensitivityInspectionTemplates)
+  .sc(ListSensitivityInspectionTemplates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

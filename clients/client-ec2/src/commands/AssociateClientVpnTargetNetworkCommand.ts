@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateClientVpnTargetNetworkRequest, AssociateClientVpnTargetNetworkResult } from "../models/models_0";
-import { AssociateClientVpnTargetNetwork } from "../schemas/schemas_0";
+import { AssociateClientVpnTargetNetwork$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface AssociateClientVpnTargetNetworkCommandInput extends AssociateCl
  *
  * The output of {@link AssociateClientVpnTargetNetworkCommand}.
  */
-export interface AssociateClientVpnTargetNetworkCommandOutput
-  extends AssociateClientVpnTargetNetworkResult,
-    __MetadataBearer {}
+export interface AssociateClientVpnTargetNetworkCommandOutput extends AssociateClientVpnTargetNetworkResult, __MetadataBearer {}
 
 /**
  * <p>Associates a target network with a Client VPN endpoint. A target network is a subnet in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint. You can associate only one subnet in each Availability Zone. We recommend that you associate at least two subnets to provide Availability Zone redundancy.</p>
@@ -83,7 +81,7 @@ export class AssociateClientVpnTargetNetworkCommand extends $Command
   })
   .s("AmazonEC2", "AssociateClientVpnTargetNetwork", {})
   .n("EC2Client", "AssociateClientVpnTargetNetworkCommand")
-  .sc(AssociateClientVpnTargetNetwork)
+  .sc(AssociateClientVpnTargetNetwork$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

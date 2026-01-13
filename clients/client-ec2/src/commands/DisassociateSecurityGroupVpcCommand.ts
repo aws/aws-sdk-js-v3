@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateSecurityGroupVpcRequest, DisassociateSecurityGroupVpcResult } from "../models/models_5";
-import { DisassociateSecurityGroupVpc } from "../schemas/schemas_0";
+import { DisassociateSecurityGroupVpc$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DisassociateSecurityGroupVpcCommandInput extends DisassociateSe
  *
  * The output of {@link DisassociateSecurityGroupVpcCommand}.
  */
-export interface DisassociateSecurityGroupVpcCommandOutput
-  extends DisassociateSecurityGroupVpcResult,
-    __MetadataBearer {}
+export interface DisassociateSecurityGroupVpcCommandOutput extends DisassociateSecurityGroupVpcResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates a security group from a VPC. You cannot disassociate the security group if any Elastic network interfaces in the associated VPC are still associated with the security group.
@@ -79,7 +77,7 @@ export class DisassociateSecurityGroupVpcCommand extends $Command
   })
   .s("AmazonEC2", "DisassociateSecurityGroupVpc", {})
   .n("EC2Client", "DisassociateSecurityGroupVpcCommand")
-  .sc(DisassociateSecurityGroupVpc)
+  .sc(DisassociateSecurityGroupVpc$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

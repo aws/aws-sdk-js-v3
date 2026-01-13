@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RejectAssignmentRequest, RejectAssignmentResponse } from "../models/models_0";
 import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { RejectAssignment } from "../schemas/schemas_0";
+import { RejectAssignment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class RejectAssignmentCommand extends $Command
   })
   .s("MTurkRequesterServiceV20170117", "RejectAssignment", {})
   .n("MTurkClient", "RejectAssignmentCommand")
-  .sc(RejectAssignment)
+  .sc(RejectAssignment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

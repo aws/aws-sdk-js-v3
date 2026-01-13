@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutVoiceConnectorTerminationRequest, PutVoiceConnectorTerminationResponse } from "../models/models_0";
-import { PutVoiceConnectorTermination } from "../schemas/schemas_0";
+import { PutVoiceConnectorTermination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface PutVoiceConnectorTerminationCommandInput extends PutVoiceConnec
  *
  * The output of {@link PutVoiceConnectorTerminationCommand}.
  */
-export interface PutVoiceConnectorTerminationCommandOutput
-  extends PutVoiceConnectorTerminationResponse,
-    __MetadataBearer {}
+export interface PutVoiceConnectorTerminationCommandOutput extends PutVoiceConnectorTerminationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a Voice Connector's termination settings.</p>
@@ -120,7 +118,7 @@ export class PutVoiceConnectorTerminationCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "PutVoiceConnectorTermination", {})
   .n("ChimeSDKVoiceClient", "PutVoiceConnectorTerminationCommand")
-  .sc(PutVoiceConnectorTermination)
+  .sc(PutVoiceConnectorTermination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

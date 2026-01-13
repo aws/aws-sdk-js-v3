@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeletePermissionPolicyRequest, DeletePermissionPolicyResponse } from "../models/models_0";
-import { DeletePermissionPolicy } from "../schemas/schemas_0";
+import { DeletePermissionPolicy$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -103,7 +103,7 @@ export class DeletePermissionPolicyCommand extends $Command
   })
   .s("AWSWAF_20190729", "DeletePermissionPolicy", {})
   .n("WAFV2Client", "DeletePermissionPolicyCommand")
-  .sc(DeletePermissionPolicy)
+  .sc(DeletePermissionPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

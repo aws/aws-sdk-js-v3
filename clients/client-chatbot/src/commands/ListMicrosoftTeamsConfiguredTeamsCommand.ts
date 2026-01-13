@@ -9,7 +9,7 @@ import type {
   ListMicrosoftTeamsConfiguredTeamsRequest,
   ListMicrosoftTeamsConfiguredTeamsResult,
 } from "../models/models_0";
-import { ListMicrosoftTeamsConfiguredTeams } from "../schemas/schemas_0";
+import { ListMicrosoftTeamsConfiguredTeams$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListMicrosoftTeamsConfiguredTeamsCommandInput extends ListMicro
  *
  * The output of {@link ListMicrosoftTeamsConfiguredTeamsCommand}.
  */
-export interface ListMicrosoftTeamsConfiguredTeamsCommandOutput
-  extends ListMicrosoftTeamsConfiguredTeamsResult,
-    __MetadataBearer {}
+export interface ListMicrosoftTeamsConfiguredTeamsCommandOutput extends ListMicrosoftTeamsConfiguredTeamsResult, __MetadataBearer {}
 
 /**
  * <p>Lists all authorized Microsoft Teams for an AWS Account</p>
@@ -97,7 +95,7 @@ export class ListMicrosoftTeamsConfiguredTeamsCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "ListMicrosoftTeamsConfiguredTeams", {})
   .n("ChatbotClient", "ListMicrosoftTeamsConfiguredTeamsCommand")
-  .sc(ListMicrosoftTeamsConfiguredTeams)
+  .sc(ListMicrosoftTeamsConfiguredTeams$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

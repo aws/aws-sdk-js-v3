@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { UpdateManagedThingRequest } from "../models/models_0";
-import { UpdateManagedThing } from "../schemas/schemas_0";
+import { UpdateManagedThing$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -45,6 +45,11 @@ export interface UpdateManagedThingCommandOutput extends __MetadataBearer {}
  *   Owner: "STRING_VALUE",
  *   CredentialLockerId: "STRING_VALUE",
  *   SerialNumber: "STRING_VALUE",
+ *   WiFiSimpleSetupConfiguration: { // WiFiSimpleSetupConfiguration
+ *     EnableAsProvisioner: true || false,
+ *     EnableAsProvisionee: true || false,
+ *     TimeoutInMinutes: Number("int"),
+ *   },
  *   Brand: "STRING_VALUE",
  *   Model: "STRING_VALUE",
  *   Name: "STRING_VALUE",
@@ -148,7 +153,7 @@ export class UpdateManagedThingCommand extends $Command
   })
   .s("IotManagedIntegrations", "UpdateManagedThing", {})
   .n("IoTManagedIntegrationsClient", "UpdateManagedThingCommand")
-  .sc(UpdateManagedThing)
+  .sc(UpdateManagedThing$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

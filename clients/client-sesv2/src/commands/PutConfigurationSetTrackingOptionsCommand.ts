@@ -8,7 +8,7 @@ import type {
   PutConfigurationSetTrackingOptionsRequest,
   PutConfigurationSetTrackingOptionsResponse,
 } from "../models/models_0";
-import { PutConfigurationSetTrackingOptions } from "../schemas/schemas_0";
+import { PutConfigurationSetTrackingOptions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -27,9 +27,7 @@ export interface PutConfigurationSetTrackingOptionsCommandInput extends PutConfi
  *
  * The output of {@link PutConfigurationSetTrackingOptionsCommand}.
  */
-export interface PutConfigurationSetTrackingOptionsCommandOutput
-  extends PutConfigurationSetTrackingOptionsResponse,
-    __MetadataBearer {}
+export interface PutConfigurationSetTrackingOptionsCommandOutput extends PutConfigurationSetTrackingOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Specify a custom domain to use for open and click tracking elements in email that you
@@ -88,7 +86,7 @@ export class PutConfigurationSetTrackingOptionsCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutConfigurationSetTrackingOptions", {})
   .n("SESv2Client", "PutConfigurationSetTrackingOptionsCommand")
-  .sc(PutConfigurationSetTrackingOptions)
+  .sc(PutConfigurationSetTrackingOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

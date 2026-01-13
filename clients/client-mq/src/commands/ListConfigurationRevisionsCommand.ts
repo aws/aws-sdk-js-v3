@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListConfigurationRevisionsRequest, ListConfigurationRevisionsResponse } from "../models/models_0";
 import type { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import { ListConfigurationRevisions } from "../schemas/schemas_0";
+import { ListConfigurationRevisions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class ListConfigurationRevisionsCommand extends $Command
   })
   .s("mq", "ListConfigurationRevisions", {})
   .n("MqClient", "ListConfigurationRevisionsCommand")
-  .sc(ListConfigurationRevisions)
+  .sc(ListConfigurationRevisions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

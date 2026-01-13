@@ -8,7 +8,7 @@ import type {
   DeleteResourceEndpointAssociationRequest,
   DeleteResourceEndpointAssociationResponse,
 } from "../models/models_0";
-import { DeleteResourceEndpointAssociation } from "../schemas/schemas_0";
+import { DeleteResourceEndpointAssociation$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DeleteResourceEndpointAssociationCommandInput extends DeleteRes
  *
  * The output of {@link DeleteResourceEndpointAssociationCommand}.
  */
-export interface DeleteResourceEndpointAssociationCommandOutput
-  extends DeleteResourceEndpointAssociationResponse,
-    __MetadataBearer {}
+export interface DeleteResourceEndpointAssociationCommandOutput extends DeleteResourceEndpointAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates the resource configuration from the resource VPC endpoint.</p>
@@ -97,7 +95,7 @@ export class DeleteResourceEndpointAssociationCommand extends $Command
   })
   .s("MercuryControlPlane", "DeleteResourceEndpointAssociation", {})
   .n("VPCLatticeClient", "DeleteResourceEndpointAssociationCommand")
-  .sc(DeleteResourceEndpointAssociation)
+  .sc(DeleteResourceEndpointAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

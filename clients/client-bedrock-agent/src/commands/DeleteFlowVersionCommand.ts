@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteFlowVersionRequest, DeleteFlowVersionResponse } from "../models/models_0";
-import { DeleteFlowVersion } from "../schemas/schemas_0";
+import { DeleteFlowVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteFlowVersionCommand extends $Command
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "DeleteFlowVersion", {})
   .n("BedrockAgentClient", "DeleteFlowVersionCommand")
-  .sc(DeleteFlowVersion)
+  .sc(DeleteFlowVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

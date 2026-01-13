@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import type { ProbeRequest, ProbeResponse } from "../models/models_0";
-import { Probe } from "../schemas/schemas_0";
+import { Probe$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -175,7 +175,7 @@ export class ProbeCommand extends $Command
   })
   .s("MediaConvert", "Probe", {})
   .n("MediaConvertClient", "ProbeCommand")
-  .sc(Probe)
+  .sc(Probe$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

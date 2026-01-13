@@ -9,7 +9,7 @@ import type {
   AssociateQualificationWithWorkerResponse,
 } from "../models/models_0";
 import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { AssociateQualificationWithWorker } from "../schemas/schemas_0";
+import { AssociateQualificationWithWorker$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface AssociateQualificationWithWorkerCommandInput extends AssociateQ
  *
  * The output of {@link AssociateQualificationWithWorkerCommand}.
  */
-export interface AssociateQualificationWithWorkerCommandOutput
-  extends AssociateQualificationWithWorkerResponse,
-    __MetadataBearer {}
+export interface AssociateQualificationWithWorkerCommandOutput extends AssociateQualificationWithWorkerResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -105,7 +103,7 @@ export class AssociateQualificationWithWorkerCommand extends $Command
   })
   .s("MTurkRequesterServiceV20170117", "AssociateQualificationWithWorker", {})
   .n("MTurkClient", "AssociateQualificationWithWorkerCommand")
-  .sc(AssociateQualificationWithWorker)
+  .sc(AssociateQualificationWithWorker$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

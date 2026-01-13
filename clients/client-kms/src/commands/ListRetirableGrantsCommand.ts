@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import type { ListGrantsResponse, ListRetirableGrantsRequest } from "../models/models_0";
-import { ListRetirableGrants } from "../schemas/schemas_0";
+import { ListRetirableGrants$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -172,7 +172,7 @@ export class ListRetirableGrantsCommand extends $Command
   })
   .s("TrentService", "ListRetirableGrants", {})
   .n("KMSClient", "ListRetirableGrantsCommand")
-  .sc(ListRetirableGrants)
+  .sc(ListRetirableGrants$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

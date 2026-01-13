@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMobileDeviceAccessEffectRequest, GetMobileDeviceAccessEffectResponse } from "../models/models_0";
-import { GetMobileDeviceAccessEffect } from "../schemas/schemas_0";
+import { GetMobileDeviceAccessEffect$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -24,9 +24,7 @@ export interface GetMobileDeviceAccessEffectCommandInput extends GetMobileDevice
  *
  * The output of {@link GetMobileDeviceAccessEffectCommand}.
  */
-export interface GetMobileDeviceAccessEffectCommandOutput
-  extends GetMobileDeviceAccessEffectResponse,
-    __MetadataBearer {}
+export interface GetMobileDeviceAccessEffectCommandOutput extends GetMobileDeviceAccessEffectResponse, __MetadataBearer {}
 
 /**
  * <p>Simulates the effect of the mobile device access rules for the given attributes of a sample access event. Use this method to test the effects of the current set of mobile device access
@@ -97,7 +95,7 @@ export class GetMobileDeviceAccessEffectCommand extends $Command
   })
   .s("WorkMailService", "GetMobileDeviceAccessEffect", {})
   .n("WorkMailClient", "GetMobileDeviceAccessEffectCommand")
-  .sc(GetMobileDeviceAccessEffect)
+  .sc(GetMobileDeviceAccessEffect$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

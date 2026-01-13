@@ -9,7 +9,7 @@ import type {
   GetBlockPublicAccessConfigurationInput,
   GetBlockPublicAccessConfigurationOutput,
 } from "../models/models_0";
-import { GetBlockPublicAccessConfiguration } from "../schemas/schemas_0";
+import { GetBlockPublicAccessConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetBlockPublicAccessConfigurationCommandInput extends GetBlockP
  *
  * The output of {@link GetBlockPublicAccessConfigurationCommand}.
  */
-export interface GetBlockPublicAccessConfigurationCommandOutput
-  extends GetBlockPublicAccessConfigurationOutput,
-    __MetadataBearer {}
+export interface GetBlockPublicAccessConfigurationCommandOutput extends GetBlockPublicAccessConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the Amazon EMR block public access configuration for your Amazon Web Services account in the current Region. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html">Configure Block
@@ -116,7 +114,7 @@ export class GetBlockPublicAccessConfigurationCommand extends $Command
   })
   .s("ElasticMapReduce", "GetBlockPublicAccessConfiguration", {})
   .n("EMRClient", "GetBlockPublicAccessConfigurationCommand")
-  .sc(GetBlockPublicAccessConfiguration)
+  .sc(GetBlockPublicAccessConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

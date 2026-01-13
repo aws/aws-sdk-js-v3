@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53GlobalResolverClient";
-import { DisableDNSView } from "../schemas/schemas_0";
+import { DisableDNSView$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class DisableDNSViewCommand extends $Command
   })
   .s("EC2DNSGlobalResolverCustomerAPI", "DisableDNSView", {})
   .n("Route53GlobalResolverClient", "DisableDNSViewCommand")
-  .sc(DisableDNSView)
+  .sc(DisableDNSView$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

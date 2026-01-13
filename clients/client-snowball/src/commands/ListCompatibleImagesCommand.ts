@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListCompatibleImagesRequest, ListCompatibleImagesResult } from "../models/models_0";
-import { ListCompatibleImages } from "../schemas/schemas_0";
+import { ListCompatibleImages$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -92,7 +92,7 @@ export class ListCompatibleImagesCommand extends $Command
   })
   .s("AWSIESnowballJobManagementService", "ListCompatibleImages", {})
   .n("SnowballClient", "ListCompatibleImagesCommand")
-  .sc(ListCompatibleImages)
+  .sc(ListCompatibleImages$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteMicrosoftTeamsUserIdentityRequest,
   DeleteMicrosoftTeamsUserIdentityResult,
 } from "../models/models_0";
-import { DeleteMicrosoftTeamsUserIdentity } from "../schemas/schemas_0";
+import { DeleteMicrosoftTeamsUserIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteMicrosoftTeamsUserIdentityCommandInput extends DeleteMicr
  *
  * The output of {@link DeleteMicrosoftTeamsUserIdentityCommand}.
  */
-export interface DeleteMicrosoftTeamsUserIdentityCommandOutput
-  extends DeleteMicrosoftTeamsUserIdentityResult,
-    __MetadataBearer {}
+export interface DeleteMicrosoftTeamsUserIdentityCommandOutput extends DeleteMicrosoftTeamsUserIdentityResult, __MetadataBearer {}
 
 /**
  * <p>Identifes a user level permission for a channel configuration.</p>
@@ -86,7 +84,7 @@ export class DeleteMicrosoftTeamsUserIdentityCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "DeleteMicrosoftTeamsUserIdentity", {})
   .n("ChatbotClient", "DeleteMicrosoftTeamsUserIdentityCommand")
-  .sc(DeleteMicrosoftTeamsUserIdentity)
+  .sc(DeleteMicrosoftTeamsUserIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

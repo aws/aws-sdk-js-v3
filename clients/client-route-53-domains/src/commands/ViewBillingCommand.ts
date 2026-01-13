@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { ViewBilling } from "../schemas/schemas_0";
+import { ViewBilling$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class ViewBillingCommand extends $Command
   })
   .s("Route53Domains_v20140515", "ViewBilling", {})
   .n("Route53DomainsClient", "ViewBillingCommand")
-  .sc(ViewBilling)
+  .sc(ViewBilling$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,5 +1,5 @@
 import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
-import { S3, UploadPartCommandOutput } from "@aws-sdk/client-s3";
+import { ChecksumAlgorithm, S3, UploadPartCommandOutput } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
 import type { HttpRequest, HttpResponse } from "@smithy/types";
@@ -102,11 +102,13 @@ describe("S3 checksums", () => {
         })
         .catch((e) => {
           expect(String(e)).toContain(
-            "InvalidChunkSizeError: Only the last chunk is allowed to have a size less than 8192 bytes"
+            "InvalidChunkSizeError: Only the last chunk is allowed to have a size less than 8192 bytes. " +
+              "Set [requestStreamBufferSize=number e.g. 65_536] in client constructor to instruct AWS SDK to buffer your input stream."
           );
         });
       expect.hasAssertions();
     });
+
     it("should assist user input streams by buffering to the minimum 8kb required by S3", async () => {
       await s3.putObject({
         Bucket,
@@ -123,6 +125,7 @@ describe("S3 checksums", () => {
       });
       expect((await get.Body?.transformToByteArray())?.byteLength).toEqual(24 * 1024);
     });
+
     it("should be able to write an object with a webstream body (using fetch handler without checksum)", async () => {
       const handler = s3_noChecksum.config.requestHandler;
       s3_noChecksum.config.requestHandler = new FetchHttpHandler();
@@ -139,6 +142,7 @@ describe("S3 checksums", () => {
       });
       expect((await get.Body?.transformToByteArray())?.byteLength).toEqual(24 * 1024);
     });
+
     it("@aws-sdk/lib-storage Upload should allow webstreams to be used", async () => {
       await new Upload({
         client: s3,
@@ -154,6 +158,7 @@ describe("S3 checksums", () => {
       });
       expect((await get.Body?.transformToByteArray())?.byteLength).toEqual(6 * 1024 * 1024);
     });
+
     it("should allow streams to be used in a manually orchestrated MPU", async () => {
       const cmpu = await s3.createMultipartUpload({
         Bucket,
@@ -250,5 +255,41 @@ describe("S3 checksums", () => {
       expect(checksumStreamContents).toEqual(expected);
       await expect(checksumStream.getReader().closed).resolves.toBe(undefined);
     });
+  });
+
+  describe("Checksum computation", () => {
+    it.each([
+      ["Hello world", ChecksumAlgorithm.CRC32, "i9aeUg=="],
+      ["Hello world", ChecksumAlgorithm.CRC32C, "crUfeA=="],
+      ["Hello world", ChecksumAlgorithm.CRC64NVME, "OOJZ0D8xKts="],
+      ["Hello world", ChecksumAlgorithm.SHA1, "e1AsOh9IyGCa4hLN+2Od7jlnP14="],
+      ["Hello world", ChecksumAlgorithm.SHA256, "ZOyIygCyaOW6GjVnihtTFtIS9PNmskdyMlNKiuyjfzw="],
+    ])(
+      "when body is '%s' with checksum algorithm '%s' the checksum is '%s'",
+      async (body, checksumAlgorithm, checksumValue) => {
+        const client = new S3();
+        client.middlewareStack.addRelativeTo(
+          (next: any) => async (args: any) => {
+            const request = args.request as HttpRequest;
+            expect(request.headers["x-amz-sdk-checksum-algorithm"]).toEqual(checksumAlgorithm);
+            expect(request.headers[`x-amz-checksum-${checksumAlgorithm.toLowerCase()}`]).toEqual(checksumValue);
+            return next(args);
+          },
+          {
+            relation: "after",
+            toMiddleware: "flexibleChecksumsMiddleware",
+          }
+        );
+
+        await client.putObject({
+          Bucket,
+          Key: Key + "-checksum-" + checksumAlgorithm,
+          Body: body,
+          ChecksumAlgorithm: checksumAlgorithm,
+        });
+
+        expect.assertions(2);
+      }
+    );
   });
 }, 60_000);

@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListCodeInterpreterSessionsRequest, ListCodeInterpreterSessionsResponse } from "../models/models_0";
-import { ListCodeInterpreterSessions } from "../schemas/schemas_0";
+import { ListCodeInterpreterSessions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListCodeInterpreterSessionsCommandInput extends ListCodeInterpr
  *
  * The output of {@link ListCodeInterpreterSessionsCommand}.
  */
-export interface ListCodeInterpreterSessionsCommandOutput
-  extends ListCodeInterpreterSessionsResponse,
-    __MetadataBearer {}
+export interface ListCodeInterpreterSessionsCommandOutput extends ListCodeInterpreterSessionsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of code interpreter sessions in Amazon Bedrock that match the specified criteria. This operation returns summary information about each session, including identifiers, status, and timestamps.</p> <p>You can filter the results by code interpreter identifier and session status. The operation supports pagination to handle large result sets efficiently.</p> <p>We recommend using pagination to ensure that the operation returns quickly and successfully when retrieving large numbers of sessions.</p> <p>The following operations are related to <code>ListCodeInterpreterSessions</code>:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartCodeInterpreterSession.html">StartCodeInterpreterSession</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetCodeInterpreterSession.html">GetCodeInterpreterSession</a> </p> </li> </ul>
@@ -107,7 +105,7 @@ export class ListCodeInterpreterSessionsCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "ListCodeInterpreterSessions", {})
   .n("BedrockAgentCoreClient", "ListCodeInterpreterSessionsCommand")
-  .sc(ListCodeInterpreterSessions)
+  .sc(ListCodeInterpreterSessions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

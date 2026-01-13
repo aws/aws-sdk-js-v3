@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdatePublicSharingSettingsRequest, UpdatePublicSharingSettingsResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdatePublicSharingSettings } from "../schemas/schemas_0";
+import { UpdatePublicSharingSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdatePublicSharingSettingsCommandInput extends UpdatePublicSha
  *
  * The output of {@link UpdatePublicSharingSettingsCommand}.
  */
-export interface UpdatePublicSharingSettingsCommandOutput
-  extends UpdatePublicSharingSettingsResponse,
-    __MetadataBearer {}
+export interface UpdatePublicSharingSettingsCommandOutput extends UpdatePublicSharingSettingsResponse, __MetadataBearer {}
 
 /**
  * <important>
@@ -130,7 +128,7 @@ export class UpdatePublicSharingSettingsCommand extends $Command
   })
   .s("QuickSight_20180401", "UpdatePublicSharingSettings", {})
   .n("QuickSightClient", "UpdatePublicSharingSettingsCommand")
-  .sc(UpdatePublicSharingSettings)
+  .sc(UpdatePublicSharingSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

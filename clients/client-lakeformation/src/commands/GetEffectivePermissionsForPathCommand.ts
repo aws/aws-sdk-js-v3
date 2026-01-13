@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import type { GetEffectivePermissionsForPathRequest, GetEffectivePermissionsForPathResponse } from "../models/models_0";
-import { GetEffectivePermissionsForPath } from "../schemas/schemas_0";
+import { GetEffectivePermissionsForPath$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetEffectivePermissionsForPathCommandInput extends GetEffective
  *
  * The output of {@link GetEffectivePermissionsForPathCommand}.
  */
-export interface GetEffectivePermissionsForPathCommandOutput
-  extends GetEffectivePermissionsForPathResponse,
-    __MetadataBearer {}
+export interface GetEffectivePermissionsForPathCommandOutput extends GetEffectivePermissionsForPathResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the Lake Formation permissions for a specified table or database resource located
@@ -176,7 +174,7 @@ export class GetEffectivePermissionsForPathCommand extends $Command
   })
   .s("AWSLakeFormation", "GetEffectivePermissionsForPath", {})
   .n("LakeFormationClient", "GetEffectivePermissionsForPathCommand")
-  .sc(GetEffectivePermissionsForPath)
+  .sc(GetEffectivePermissionsForPath$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

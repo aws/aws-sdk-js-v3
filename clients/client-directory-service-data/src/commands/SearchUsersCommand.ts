@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceDataClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchUsersRequest, SearchUsersResult } from "../models/models_0";
-import { SearchUsers } from "../schemas/schemas_0";
+import { SearchUsers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -176,7 +176,7 @@ export class SearchUsersCommand extends $Command
   })
   .s("DirectoryServiceData", "SearchUsers", {})
   .n("DirectoryServiceDataClient", "SearchUsersCommand")
-  .sc(SearchUsers)
+  .sc(SearchUsers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   ListTargetAccountConfigurationsRequest,
   ListTargetAccountConfigurationsResponse,
 } from "../models/models_0";
-import { ListTargetAccountConfigurations } from "../schemas/schemas_0";
+import { ListTargetAccountConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListTargetAccountConfigurationsCommandInput extends ListTargetA
  *
  * The output of {@link ListTargetAccountConfigurationsCommand}.
  */
-export interface ListTargetAccountConfigurationsCommandOutput
-  extends ListTargetAccountConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListTargetAccountConfigurationsCommandOutput extends ListTargetAccountConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the target account configurations of the specified experiment template.</p>
@@ -93,7 +91,7 @@ export class ListTargetAccountConfigurationsCommand extends $Command
   })
   .s("FaultInjectionSimulator", "ListTargetAccountConfigurations", {})
   .n("FisClient", "ListTargetAccountConfigurationsCommand")
-  .sc(ListTargetAccountConfigurations)
+  .sc(ListTargetAccountConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

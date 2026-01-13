@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribePublicIpv4PoolsRequest, DescribePublicIpv4PoolsResult } from "../models/models_4";
-import { DescribePublicIpv4Pools } from "../schemas/schemas_0";
+import { DescribePublicIpv4Pools$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class DescribePublicIpv4PoolsCommand extends $Command
   })
   .s("AmazonEC2", "DescribePublicIpv4Pools", {})
   .n("EC2Client", "DescribePublicIpv4PoolsCommand")
-  .sc(DescribePublicIpv4Pools)
+  .sc(DescribePublicIpv4Pools$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

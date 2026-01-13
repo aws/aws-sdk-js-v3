@@ -13,7 +13,7 @@ import type {
   AddApplicationCloudWatchLoggingOptionRequest,
   AddApplicationCloudWatchLoggingOptionResponse,
 } from "../models/models_0";
-import { AddApplicationCloudWatchLoggingOption } from "../schemas/schemas_0";
+import { AddApplicationCloudWatchLoggingOption$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link AddApplicationCloudWatchLoggingOptionCommand}.
  */
-export interface AddApplicationCloudWatchLoggingOptionCommandInput
-  extends AddApplicationCloudWatchLoggingOptionRequest {}
+export interface AddApplicationCloudWatchLoggingOptionCommandInput extends AddApplicationCloudWatchLoggingOptionRequest {}
 /**
  * @public
  *
  * The output of {@link AddApplicationCloudWatchLoggingOptionCommand}.
  */
-export interface AddApplicationCloudWatchLoggingOptionCommandOutput
-  extends AddApplicationCloudWatchLoggingOptionResponse,
-    __MetadataBearer {}
+export interface AddApplicationCloudWatchLoggingOptionCommandOutput extends AddApplicationCloudWatchLoggingOptionResponse, __MetadataBearer {}
 
 /**
  * <note>
@@ -107,7 +104,7 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command
   })
   .s("KinesisAnalytics_20150814", "AddApplicationCloudWatchLoggingOption", {})
   .n("KinesisAnalyticsClient", "AddApplicationCloudWatchLoggingOptionCommand")
-  .sc(AddApplicationCloudWatchLoggingOption)
+  .sc(AddApplicationCloudWatchLoggingOption$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

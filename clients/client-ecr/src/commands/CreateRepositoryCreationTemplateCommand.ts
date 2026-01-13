@@ -9,7 +9,7 @@ import type {
   CreateRepositoryCreationTemplateRequest,
   CreateRepositoryCreationTemplateResponse,
 } from "../models/models_0";
-import { CreateRepositoryCreationTemplate } from "../schemas/schemas_0";
+import { CreateRepositoryCreationTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateRepositoryCreationTemplateCommandInput extends CreateRepo
  *
  * The output of {@link CreateRepositoryCreationTemplateCommand}.
  */
-export interface CreateRepositoryCreationTemplateCommandOutput
-  extends CreateRepositoryCreationTemplateResponse,
-    __MetadataBearer {}
+export interface CreateRepositoryCreationTemplateCommandOutput extends CreateRepositoryCreationTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a repository creation template. This template is used to define the settings
@@ -68,7 +66,7 @@ export interface CreateRepositoryCreationTemplateCommandOutput
  *   repositoryPolicy: "STRING_VALUE",
  *   lifecyclePolicy: "STRING_VALUE",
  *   appliedFor: [ // RCTAppliedForList // required
- *     "REPLICATION" || "PULL_THROUGH_CACHE",
+ *     "REPLICATION" || "PULL_THROUGH_CACHE" || "CREATE_ON_PUSH",
  *   ],
  *   customRoleArn: "STRING_VALUE",
  * };
@@ -99,7 +97,7 @@ export interface CreateRepositoryCreationTemplateCommandOutput
  * //     repositoryPolicy: "STRING_VALUE",
  * //     lifecyclePolicy: "STRING_VALUE",
  * //     appliedFor: [ // RCTAppliedForList
- * //       "REPLICATION" || "PULL_THROUGH_CACHE",
+ * //       "REPLICATION" || "PULL_THROUGH_CACHE" || "CREATE_ON_PUSH",
  * //     ],
  * //     customRoleArn: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
@@ -154,7 +152,7 @@ export class CreateRepositoryCreationTemplateCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "CreateRepositoryCreationTemplate", {})
   .n("ECRClient", "CreateRepositoryCreationTemplateCommand")
-  .sc(CreateRepositoryCreationTemplate)
+  .sc(CreateRepositoryCreationTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

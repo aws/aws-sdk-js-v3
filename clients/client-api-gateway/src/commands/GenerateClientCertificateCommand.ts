@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ClientCertificate, GenerateClientCertificateRequest } from "../models/models_0";
-import { GenerateClientCertificate } from "../schemas/schemas_0";
+import { GenerateClientCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class GenerateClientCertificateCommand extends $Command
   })
   .s("BackplaneControlService", "GenerateClientCertificate", {})
   .n("APIGatewayClient", "GenerateClientCertificateCommand")
-  .sc(GenerateClientCertificate)
+  .sc(GenerateClientCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

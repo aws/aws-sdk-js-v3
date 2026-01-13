@@ -9,7 +9,7 @@ import type {
   ListManagedNotificationChannelAssociationsResponse,
 } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { ListManagedNotificationChannelAssociations } from "../schemas/schemas_0";
+import { ListManagedNotificationChannelAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListManagedNotificationChannelAssociationsCommand}.
  */
-export interface ListManagedNotificationChannelAssociationsCommandInput
-  extends ListManagedNotificationChannelAssociationsRequest {}
+export interface ListManagedNotificationChannelAssociationsCommandInput extends ListManagedNotificationChannelAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListManagedNotificationChannelAssociationsCommand}.
  */
-export interface ListManagedNotificationChannelAssociationsCommandOutput
-  extends ListManagedNotificationChannelAssociationsResponse,
-    __MetadataBearer {}
+export interface ListManagedNotificationChannelAssociationsCommandOutput extends ListManagedNotificationChannelAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of Account contacts and Channels associated with a <code>ManagedNotificationConfiguration</code>, in paginated format.</p>
@@ -103,7 +100,7 @@ export class ListManagedNotificationChannelAssociationsCommand extends $Command
   })
   .s("Notifications", "ListManagedNotificationChannelAssociations", {})
   .n("NotificationsClient", "ListManagedNotificationChannelAssociationsCommand")
-  .sc(ListManagedNotificationChannelAssociations)
+  .sc(ListManagedNotificationChannelAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

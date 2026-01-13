@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
 import type { PutMetricPolicyInput, PutMetricPolicyOutput } from "../models/models_0";
-import { PutMetricPolicy } from "../schemas/schemas_0";
+import { PutMetricPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class PutMetricPolicyCommand extends $Command
   })
   .s("MediaStore_20170901", "PutMetricPolicy", {})
   .n("MediaStoreClient", "PutMetricPolicyCommand")
-  .sc(PutMetricPolicy)
+  .sc(PutMetricPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

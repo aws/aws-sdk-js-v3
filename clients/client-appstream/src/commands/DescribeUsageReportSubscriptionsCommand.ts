@@ -9,7 +9,7 @@ import type {
   DescribeUsageReportSubscriptionsRequest,
   DescribeUsageReportSubscriptionsResult,
 } from "../models/models_0";
-import { DescribeUsageReportSubscriptions } from "../schemas/schemas_0";
+import { DescribeUsageReportSubscriptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeUsageReportSubscriptionsCommandInput extends DescribeUs
  *
  * The output of {@link DescribeUsageReportSubscriptionsCommand}.
  */
-export interface DescribeUsageReportSubscriptionsCommandOutput
-  extends DescribeUsageReportSubscriptionsResult,
-    __MetadataBearer {}
+export interface DescribeUsageReportSubscriptionsCommandOutput extends DescribeUsageReportSubscriptionsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes one or more usage report subscriptions.</p>
@@ -98,7 +96,7 @@ export class DescribeUsageReportSubscriptionsCommand extends $Command
   })
   .s("PhotonAdminProxyService", "DescribeUsageReportSubscriptions", {})
   .n("AppStreamClient", "DescribeUsageReportSubscriptionsCommand")
-  .sc(DescribeUsageReportSubscriptions)
+  .sc(DescribeUsageReportSubscriptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

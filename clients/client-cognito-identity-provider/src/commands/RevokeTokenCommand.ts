@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RevokeTokenRequest, RevokeTokenResponse } from "../models/models_0";
-import { RevokeToken } from "../schemas/schemas_0";
+import { RevokeToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class RevokeTokenCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "RevokeToken", {})
   .n("CognitoIdentityProviderClient", "RevokeTokenCommand")
-  .sc(RevokeToken)
+  .sc(RevokeToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

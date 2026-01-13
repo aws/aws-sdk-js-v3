@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { GetResolverConfig } from "../schemas/schemas_0";
+import { GetResolverConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class GetResolverConfigCommand extends $Command
   })
   .s("Route53Resolver", "GetResolverConfig", {})
   .n("Route53ResolverClient", "GetResolverConfigCommand")
-  .sc(GetResolverConfig)
+  .sc(GetResolverConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

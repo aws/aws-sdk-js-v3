@@ -9,7 +9,7 @@ import type {
   GetTransitGatewayRouteTablePropagationsRequest,
   GetTransitGatewayRouteTablePropagationsResult,
 } from "../models/models_6";
-import { GetTransitGatewayRouteTablePropagations } from "../schemas/schemas_0";
+import { GetTransitGatewayRouteTablePropagations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetTransitGatewayRouteTablePropagationsCommand}.
  */
-export interface GetTransitGatewayRouteTablePropagationsCommandInput
-  extends GetTransitGatewayRouteTablePropagationsRequest {}
+export interface GetTransitGatewayRouteTablePropagationsCommandInput extends GetTransitGatewayRouteTablePropagationsRequest {}
 /**
  * @public
  *
  * The output of {@link GetTransitGatewayRouteTablePropagationsCommand}.
  */
-export interface GetTransitGatewayRouteTablePropagationsCommandOutput
-  extends GetTransitGatewayRouteTablePropagationsResult,
-    __MetadataBearer {}
+export interface GetTransitGatewayRouteTablePropagationsCommandOutput extends GetTransitGatewayRouteTablePropagationsResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about the route table propagations for the specified transit gateway route table.</p>
@@ -99,7 +96,7 @@ export class GetTransitGatewayRouteTablePropagationsCommand extends $Command
   })
   .s("AmazonEC2", "GetTransitGatewayRouteTablePropagations", {})
   .n("EC2Client", "GetTransitGatewayRouteTablePropagationsCommand")
-  .sc(GetTransitGatewayRouteTablePropagations)
+  .sc(GetTransitGatewayRouteTablePropagations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteFrameworkInput } from "../models/models_0";
-import { DeleteFramework } from "../schemas/schemas_0";
+import { DeleteFramework$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteFrameworkCommand extends $Command
   })
   .s("CryoControllerUserManager", "DeleteFramework", {})
   .n("BackupClient", "DeleteFrameworkCommand")
-  .sc(DeleteFramework)
+  .sc(DeleteFramework$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

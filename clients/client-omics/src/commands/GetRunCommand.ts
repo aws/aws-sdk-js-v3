@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRunRequest, GetRunResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { GetRun } from "../schemas/schemas_0";
+import { GetRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -142,7 +142,7 @@ export class GetRunCommand extends $Command
   })
   .s("Omics", "GetRun", {})
   .n("OmicsClient", "GetRunCommand")
-  .sc(GetRun)
+  .sc(GetRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

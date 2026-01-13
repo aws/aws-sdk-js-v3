@@ -545,3 +545,43 @@ export interface ListReportsResponse {
    */
   nextToken?: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface ListReportVersionsRequest {
+  /**
+   * <p>Unique resource ID for the report resource.</p>
+   * @public
+   */
+  reportId: string | undefined;
+
+  /**
+   * <p>Maximum number of resources to return in the paginated response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token to request the next page of resources.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListReportVersionsResponse {
+  /**
+   * <p>List of report resources.</p>
+   * @public
+   */
+  reports: ReportSummary[] | undefined;
+
+  /**
+   * <p>Pagination token to request the next page of resources.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}

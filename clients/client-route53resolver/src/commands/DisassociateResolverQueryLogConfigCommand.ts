@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { DisassociateResolverQueryLogConfig } from "../schemas/schemas_0";
+import { DisassociateResolverQueryLogConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DisassociateResolverQueryLogConfigCommandInput extends Disassoc
  *
  * The output of {@link DisassociateResolverQueryLogConfigCommand}.
  */
-export interface DisassociateResolverQueryLogConfigCommandOutput
-  extends DisassociateResolverQueryLogConfigResponse,
-    __MetadataBearer {}
+export interface DisassociateResolverQueryLogConfigCommandOutput extends DisassociateResolverQueryLogConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a VPC from a query logging configuration.</p>
@@ -125,7 +123,7 @@ export class DisassociateResolverQueryLogConfigCommand extends $Command
   })
   .s("Route53Resolver", "DisassociateResolverQueryLogConfig", {})
   .n("Route53ResolverClient", "DisassociateResolverQueryLogConfigCommand")
-  .sc(DisassociateResolverQueryLogConfig)
+  .sc(DisassociateResolverQueryLogConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

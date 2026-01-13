@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import type { VerifyRequest, VerifyResponse } from "../models/models_0";
-import { Verify } from "../schemas/schemas_0";
+import { Verify$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -234,7 +234,7 @@ export class VerifyCommand extends $Command
   })
   .s("TrentService", "Verify", {})
   .n("KMSClient", "VerifyCommand")
-  .sc(Verify)
+  .sc(Verify$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

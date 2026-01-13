@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateFoundationModelAgreementRequest, CreateFoundationModelAgreementResponse } from "../models/models_1";
-import { CreateFoundationModelAgreement } from "../schemas/schemas_0";
+import { CreateFoundationModelAgreement$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateFoundationModelAgreementCommandInput extends CreateFounda
  *
  * The output of {@link CreateFoundationModelAgreementCommand}.
  */
-export interface CreateFoundationModelAgreementCommandOutput
-  extends CreateFoundationModelAgreementResponse,
-    __MetadataBearer {}
+export interface CreateFoundationModelAgreementCommandOutput extends CreateFoundationModelAgreementResponse, __MetadataBearer {}
 
 /**
  * <p>Request a model access agreement for the specified model.</p>
@@ -94,7 +92,7 @@ export class CreateFoundationModelAgreementCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "CreateFoundationModelAgreement", {})
   .n("BedrockClient", "CreateFoundationModelAgreementCommand")
-  .sc(CreateFoundationModelAgreement)
+  .sc(CreateFoundationModelAgreement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

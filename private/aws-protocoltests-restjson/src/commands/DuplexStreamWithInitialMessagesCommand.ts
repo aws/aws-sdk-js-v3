@@ -38,9 +38,7 @@ export interface DuplexStreamWithInitialMessagesCommandInput extends DuplexStrea
  *
  * The output of {@link DuplexStreamWithInitialMessagesCommand}.
  */
-export interface DuplexStreamWithInitialMessagesCommandOutput
-  extends DuplexStreamWithInitialMessagesOutput,
-    __MetadataBearer {}
+export interface DuplexStreamWithInitialMessagesCommandOutput extends DuplexStreamWithInitialMessagesOutput, __MetadataBearer {}
 
 /**
  * @public

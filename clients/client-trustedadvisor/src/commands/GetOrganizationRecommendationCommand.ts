@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetOrganizationRecommendationRequest, GetOrganizationRecommendationResponse } from "../models/models_0";
-import { GetOrganizationRecommendation } from "../schemas/schemas_0";
+import { GetOrganizationRecommendation$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -28,9 +28,7 @@ export interface GetOrganizationRecommendationCommandInput extends GetOrganizati
  *
  * The output of {@link GetOrganizationRecommendationCommand}.
  */
-export interface GetOrganizationRecommendationCommandOutput
-  extends GetOrganizationRecommendationResponse,
-    __MetadataBearer {}
+export interface GetOrganizationRecommendationCommandOutput extends GetOrganizationRecommendationResponse, __MetadataBearer {}
 
 /**
  * <p>Get a specific recommendation within an AWS Organizations organization. This API supports only prioritized
@@ -167,7 +165,7 @@ export class GetOrganizationRecommendationCommand extends $Command
   })
   .s("TrustedAdvisor", "GetOrganizationRecommendation", {})
   .n("TrustedAdvisorClient", "GetOrganizationRecommendationCommand")
-  .sc(GetOrganizationRecommendation)
+  .sc(GetOrganizationRecommendation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

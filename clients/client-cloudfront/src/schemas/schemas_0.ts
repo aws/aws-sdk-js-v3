@@ -1180,6281 +1180,4461 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
-import { CloudFrontServiceException as __CloudFrontServiceException } from "../models/CloudFrontServiceException";
+import { CloudFrontServiceException } from "../models/CloudFrontServiceException";
 import {
-  AccessDenied as __AccessDenied,
-  BatchTooLarge as __BatchTooLarge,
-  CachePolicyAlreadyExists as __CachePolicyAlreadyExists,
-  CachePolicyInUse as __CachePolicyInUse,
-  CannotChangeImmutablePublicKeyFields as __CannotChangeImmutablePublicKeyFields,
-  CannotDeleteEntityWhileInUse as __CannotDeleteEntityWhileInUse,
-  CannotUpdateEntityWhileInUse as __CannotUpdateEntityWhileInUse,
-  CloudFrontOriginAccessIdentityAlreadyExists as __CloudFrontOriginAccessIdentityAlreadyExists,
-  CloudFrontOriginAccessIdentityInUse as __CloudFrontOriginAccessIdentityInUse,
-  CNAMEAlreadyExists as __CNAMEAlreadyExists,
-  ContinuousDeploymentPolicyAlreadyExists as __ContinuousDeploymentPolicyAlreadyExists,
-  ContinuousDeploymentPolicyInUse as __ContinuousDeploymentPolicyInUse,
-  DistributionAlreadyExists as __DistributionAlreadyExists,
-  DistributionNotDisabled as __DistributionNotDisabled,
-  EntityAlreadyExists as __EntityAlreadyExists,
-  EntityLimitExceeded as __EntityLimitExceeded,
-  EntityNotFound as __EntityNotFound,
-  EntitySizeLimitExceeded as __EntitySizeLimitExceeded,
-  FieldLevelEncryptionConfigAlreadyExists as __FieldLevelEncryptionConfigAlreadyExists,
-  FieldLevelEncryptionConfigInUse as __FieldLevelEncryptionConfigInUse,
-  FieldLevelEncryptionProfileAlreadyExists as __FieldLevelEncryptionProfileAlreadyExists,
-  FieldLevelEncryptionProfileInUse as __FieldLevelEncryptionProfileInUse,
-  FieldLevelEncryptionProfileSizeExceeded as __FieldLevelEncryptionProfileSizeExceeded,
-  FunctionAlreadyExists as __FunctionAlreadyExists,
-  FunctionInUse as __FunctionInUse,
-  FunctionSizeLimitExceeded as __FunctionSizeLimitExceeded,
-  IllegalDelete as __IllegalDelete,
-  IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior as __IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior,
-  IllegalOriginAccessConfiguration as __IllegalOriginAccessConfiguration,
-  IllegalUpdate as __IllegalUpdate,
-  InconsistentQuantities as __InconsistentQuantities,
-  InvalidArgument as __InvalidArgument,
-  InvalidAssociation as __InvalidAssociation,
-  InvalidDefaultRootObject as __InvalidDefaultRootObject,
-  InvalidDomainNameForOriginAccessControl as __InvalidDomainNameForOriginAccessControl,
-  InvalidErrorCode as __InvalidErrorCode,
-  InvalidForwardCookies as __InvalidForwardCookies,
-  InvalidFunctionAssociation as __InvalidFunctionAssociation,
-  InvalidGeoRestrictionParameter as __InvalidGeoRestrictionParameter,
-  InvalidHeadersForS3Origin as __InvalidHeadersForS3Origin,
-  InvalidIfMatchVersion as __InvalidIfMatchVersion,
-  InvalidLambdaFunctionAssociation as __InvalidLambdaFunctionAssociation,
-  InvalidLocationCode as __InvalidLocationCode,
-  InvalidMinimumProtocolVersion as __InvalidMinimumProtocolVersion,
-  InvalidOrigin as __InvalidOrigin,
-  InvalidOriginAccessControl as __InvalidOriginAccessControl,
-  InvalidOriginAccessIdentity as __InvalidOriginAccessIdentity,
-  InvalidOriginKeepaliveTimeout as __InvalidOriginKeepaliveTimeout,
-  InvalidOriginReadTimeout as __InvalidOriginReadTimeout,
-  InvalidProtocolSettings as __InvalidProtocolSettings,
-  InvalidQueryStringParameters as __InvalidQueryStringParameters,
-  InvalidRelativePath as __InvalidRelativePath,
-  InvalidRequiredProtocol as __InvalidRequiredProtocol,
-  InvalidResponseCode as __InvalidResponseCode,
-  InvalidTagging as __InvalidTagging,
-  InvalidTTLOrder as __InvalidTTLOrder,
-  InvalidViewerCertificate as __InvalidViewerCertificate,
-  InvalidWebACLId as __InvalidWebACLId,
-  KeyGroupAlreadyExists as __KeyGroupAlreadyExists,
-  MissingBody as __MissingBody,
-  MonitoringSubscriptionAlreadyExists as __MonitoringSubscriptionAlreadyExists,
-  NoSuchCachePolicy as __NoSuchCachePolicy,
-  NoSuchCloudFrontOriginAccessIdentity as __NoSuchCloudFrontOriginAccessIdentity,
-  NoSuchContinuousDeploymentPolicy as __NoSuchContinuousDeploymentPolicy,
-  NoSuchDistribution as __NoSuchDistribution,
-  NoSuchFieldLevelEncryptionConfig as __NoSuchFieldLevelEncryptionConfig,
-  NoSuchFieldLevelEncryptionProfile as __NoSuchFieldLevelEncryptionProfile,
-  NoSuchFunctionExists as __NoSuchFunctionExists,
-  NoSuchInvalidation as __NoSuchInvalidation,
-  NoSuchMonitoringSubscription as __NoSuchMonitoringSubscription,
-  NoSuchOrigin as __NoSuchOrigin,
-  NoSuchOriginAccessControl as __NoSuchOriginAccessControl,
-  NoSuchOriginRequestPolicy as __NoSuchOriginRequestPolicy,
-  NoSuchPublicKey as __NoSuchPublicKey,
-  NoSuchRealtimeLogConfig as __NoSuchRealtimeLogConfig,
-  NoSuchResource as __NoSuchResource,
-  NoSuchResponseHeadersPolicy as __NoSuchResponseHeadersPolicy,
-  NoSuchStreamingDistribution as __NoSuchStreamingDistribution,
-  OriginAccessControlAlreadyExists as __OriginAccessControlAlreadyExists,
-  OriginAccessControlInUse as __OriginAccessControlInUse,
-  OriginRequestPolicyAlreadyExists as __OriginRequestPolicyAlreadyExists,
-  OriginRequestPolicyInUse as __OriginRequestPolicyInUse,
-  PreconditionFailed as __PreconditionFailed,
-  PublicKeyAlreadyExists as __PublicKeyAlreadyExists,
-  PublicKeyInUse as __PublicKeyInUse,
-  QueryArgProfileEmpty as __QueryArgProfileEmpty,
-  RealtimeLogConfigAlreadyExists as __RealtimeLogConfigAlreadyExists,
-  RealtimeLogConfigInUse as __RealtimeLogConfigInUse,
-  RealtimeLogConfigOwnerMismatch as __RealtimeLogConfigOwnerMismatch,
-  ResourceInUse as __ResourceInUse,
-  ResourceNotDisabled as __ResourceNotDisabled,
-  ResponseHeadersPolicyAlreadyExists as __ResponseHeadersPolicyAlreadyExists,
-  ResponseHeadersPolicyInUse as __ResponseHeadersPolicyInUse,
-  StagingDistributionInUse as __StagingDistributionInUse,
-  StreamingDistributionAlreadyExists as __StreamingDistributionAlreadyExists,
-  StreamingDistributionNotDisabled as __StreamingDistributionNotDisabled,
-  TestFunctionFailed as __TestFunctionFailed,
-  TooLongCSPInResponseHeadersPolicy as __TooLongCSPInResponseHeadersPolicy,
-  TooManyCacheBehaviors as __TooManyCacheBehaviors,
-  TooManyCachePolicies as __TooManyCachePolicies,
-  TooManyCertificates as __TooManyCertificates,
-  TooManyCloudFrontOriginAccessIdentities as __TooManyCloudFrontOriginAccessIdentities,
-  TooManyContinuousDeploymentPolicies as __TooManyContinuousDeploymentPolicies,
-  TooManyCookieNamesInWhiteList as __TooManyCookieNamesInWhiteList,
-  TooManyCookiesInCachePolicy as __TooManyCookiesInCachePolicy,
-  TooManyCookiesInOriginRequestPolicy as __TooManyCookiesInOriginRequestPolicy,
-  TooManyCustomHeadersInResponseHeadersPolicy as __TooManyCustomHeadersInResponseHeadersPolicy,
-  TooManyDistributionCNAMEs as __TooManyDistributionCNAMEs,
-  TooManyDistributions as __TooManyDistributions,
-  TooManyDistributionsAssociatedToCachePolicy as __TooManyDistributionsAssociatedToCachePolicy,
-  TooManyDistributionsAssociatedToFieldLevelEncryptionConfig as __TooManyDistributionsAssociatedToFieldLevelEncryptionConfig,
-  TooManyDistributionsAssociatedToKeyGroup as __TooManyDistributionsAssociatedToKeyGroup,
-  TooManyDistributionsAssociatedToOriginAccessControl as __TooManyDistributionsAssociatedToOriginAccessControl,
-  TooManyDistributionsAssociatedToOriginRequestPolicy as __TooManyDistributionsAssociatedToOriginRequestPolicy,
-  TooManyDistributionsAssociatedToResponseHeadersPolicy as __TooManyDistributionsAssociatedToResponseHeadersPolicy,
-  TooManyDistributionsWithFunctionAssociations as __TooManyDistributionsWithFunctionAssociations,
-  TooManyDistributionsWithLambdaAssociations as __TooManyDistributionsWithLambdaAssociations,
-  TooManyDistributionsWithSingleFunctionARN as __TooManyDistributionsWithSingleFunctionARN,
-  TooManyFieldLevelEncryptionConfigs as __TooManyFieldLevelEncryptionConfigs,
-  TooManyFieldLevelEncryptionContentTypeProfiles as __TooManyFieldLevelEncryptionContentTypeProfiles,
-  TooManyFieldLevelEncryptionEncryptionEntities as __TooManyFieldLevelEncryptionEncryptionEntities,
-  TooManyFieldLevelEncryptionFieldPatterns as __TooManyFieldLevelEncryptionFieldPatterns,
-  TooManyFieldLevelEncryptionProfiles as __TooManyFieldLevelEncryptionProfiles,
-  TooManyFieldLevelEncryptionQueryArgProfiles as __TooManyFieldLevelEncryptionQueryArgProfiles,
-  TooManyFunctionAssociations as __TooManyFunctionAssociations,
-  TooManyFunctions as __TooManyFunctions,
-  TooManyHeadersInCachePolicy as __TooManyHeadersInCachePolicy,
-  TooManyHeadersInForwardedValues as __TooManyHeadersInForwardedValues,
-  TooManyHeadersInOriginRequestPolicy as __TooManyHeadersInOriginRequestPolicy,
-  TooManyInvalidationsInProgress as __TooManyInvalidationsInProgress,
-  TooManyKeyGroups as __TooManyKeyGroups,
-  TooManyKeyGroupsAssociatedToDistribution as __TooManyKeyGroupsAssociatedToDistribution,
-  TooManyLambdaFunctionAssociations as __TooManyLambdaFunctionAssociations,
-  TooManyOriginAccessControls as __TooManyOriginAccessControls,
-  TooManyOriginCustomHeaders as __TooManyOriginCustomHeaders,
-  TooManyOriginGroupsPerDistribution as __TooManyOriginGroupsPerDistribution,
-  TooManyOriginRequestPolicies as __TooManyOriginRequestPolicies,
-  TooManyOrigins as __TooManyOrigins,
-  TooManyPublicKeys as __TooManyPublicKeys,
-  TooManyPublicKeysInKeyGroup as __TooManyPublicKeysInKeyGroup,
-  TooManyQueryStringParameters as __TooManyQueryStringParameters,
-  TooManyQueryStringsInCachePolicy as __TooManyQueryStringsInCachePolicy,
-  TooManyQueryStringsInOriginRequestPolicy as __TooManyQueryStringsInOriginRequestPolicy,
-  TooManyRealtimeLogConfigs as __TooManyRealtimeLogConfigs,
-  TooManyRemoveHeadersInResponseHeadersPolicy as __TooManyRemoveHeadersInResponseHeadersPolicy,
-  TooManyResponseHeadersPolicies as __TooManyResponseHeadersPolicies,
-  TooManyStreamingDistributionCNAMEs as __TooManyStreamingDistributionCNAMEs,
-  TooManyStreamingDistributions as __TooManyStreamingDistributions,
-  TooManyTrustedSigners as __TooManyTrustedSigners,
-  TrustedKeyGroupDoesNotExist as __TrustedKeyGroupDoesNotExist,
-  TrustedSignerDoesNotExist as __TrustedSignerDoesNotExist,
-  UnsupportedOperation as __UnsupportedOperation,
+  AccessDenied,
+  BatchTooLarge,
+  CachePolicyAlreadyExists,
+  CachePolicyInUse,
+  CannotChangeImmutablePublicKeyFields,
+  CannotDeleteEntityWhileInUse,
+  CannotUpdateEntityWhileInUse,
+  CloudFrontOriginAccessIdentityAlreadyExists,
+  CloudFrontOriginAccessIdentityInUse,
+  CNAMEAlreadyExists,
+  ContinuousDeploymentPolicyAlreadyExists,
+  ContinuousDeploymentPolicyInUse,
+  DistributionAlreadyExists,
+  DistributionNotDisabled,
+  EntityAlreadyExists,
+  EntityLimitExceeded,
+  EntityNotFound,
+  EntitySizeLimitExceeded,
+  FieldLevelEncryptionConfigAlreadyExists,
+  FieldLevelEncryptionConfigInUse,
+  FieldLevelEncryptionProfileAlreadyExists,
+  FieldLevelEncryptionProfileInUse,
+  FieldLevelEncryptionProfileSizeExceeded,
+  FunctionAlreadyExists,
+  FunctionInUse,
+  FunctionSizeLimitExceeded,
+  IllegalDelete,
+  IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior,
+  IllegalOriginAccessConfiguration,
+  IllegalUpdate,
+  InconsistentQuantities,
+  InvalidArgument,
+  InvalidAssociation,
+  InvalidDefaultRootObject,
+  InvalidDomainNameForOriginAccessControl,
+  InvalidErrorCode,
+  InvalidForwardCookies,
+  InvalidFunctionAssociation,
+  InvalidGeoRestrictionParameter,
+  InvalidHeadersForS3Origin,
+  InvalidIfMatchVersion,
+  InvalidLambdaFunctionAssociation,
+  InvalidLocationCode,
+  InvalidMinimumProtocolVersion,
+  InvalidOrigin,
+  InvalidOriginAccessControl,
+  InvalidOriginAccessIdentity,
+  InvalidOriginKeepaliveTimeout,
+  InvalidOriginReadTimeout,
+  InvalidProtocolSettings,
+  InvalidQueryStringParameters,
+  InvalidRelativePath,
+  InvalidRequiredProtocol,
+  InvalidResponseCode,
+  InvalidTagging,
+  InvalidTTLOrder,
+  InvalidViewerCertificate,
+  InvalidWebACLId,
+  KeyGroupAlreadyExists,
+  MissingBody,
+  MonitoringSubscriptionAlreadyExists,
+  NoSuchCachePolicy,
+  NoSuchCloudFrontOriginAccessIdentity,
+  NoSuchContinuousDeploymentPolicy,
+  NoSuchDistribution,
+  NoSuchFieldLevelEncryptionConfig,
+  NoSuchFieldLevelEncryptionProfile,
+  NoSuchFunctionExists,
+  NoSuchInvalidation,
+  NoSuchMonitoringSubscription,
+  NoSuchOrigin,
+  NoSuchOriginAccessControl,
+  NoSuchOriginRequestPolicy,
+  NoSuchPublicKey,
+  NoSuchRealtimeLogConfig,
+  NoSuchResource,
+  NoSuchResponseHeadersPolicy,
+  NoSuchStreamingDistribution,
+  OriginAccessControlAlreadyExists,
+  OriginAccessControlInUse,
+  OriginRequestPolicyAlreadyExists,
+  OriginRequestPolicyInUse,
+  PreconditionFailed,
+  PublicKeyAlreadyExists,
+  PublicKeyInUse,
+  QueryArgProfileEmpty,
+  RealtimeLogConfigAlreadyExists,
+  RealtimeLogConfigInUse,
+  RealtimeLogConfigOwnerMismatch,
+  ResourceInUse,
+  ResourceNotDisabled,
+  ResponseHeadersPolicyAlreadyExists,
+  ResponseHeadersPolicyInUse,
+  StagingDistributionInUse,
+  StreamingDistributionAlreadyExists,
+  StreamingDistributionNotDisabled,
+  TestFunctionFailed,
+  TooLongCSPInResponseHeadersPolicy,
+  TooManyCacheBehaviors,
+  TooManyCachePolicies,
+  TooManyCertificates,
+  TooManyCloudFrontOriginAccessIdentities,
+  TooManyContinuousDeploymentPolicies,
+  TooManyCookieNamesInWhiteList,
+  TooManyCookiesInCachePolicy,
+  TooManyCookiesInOriginRequestPolicy,
+  TooManyCustomHeadersInResponseHeadersPolicy,
+  TooManyDistributionCNAMEs,
+  TooManyDistributions,
+  TooManyDistributionsAssociatedToCachePolicy,
+  TooManyDistributionsAssociatedToFieldLevelEncryptionConfig,
+  TooManyDistributionsAssociatedToKeyGroup,
+  TooManyDistributionsAssociatedToOriginAccessControl,
+  TooManyDistributionsAssociatedToOriginRequestPolicy,
+  TooManyDistributionsAssociatedToResponseHeadersPolicy,
+  TooManyDistributionsWithFunctionAssociations,
+  TooManyDistributionsWithLambdaAssociations,
+  TooManyDistributionsWithSingleFunctionARN,
+  TooManyFieldLevelEncryptionConfigs,
+  TooManyFieldLevelEncryptionContentTypeProfiles,
+  TooManyFieldLevelEncryptionEncryptionEntities,
+  TooManyFieldLevelEncryptionFieldPatterns,
+  TooManyFieldLevelEncryptionProfiles,
+  TooManyFieldLevelEncryptionQueryArgProfiles,
+  TooManyFunctionAssociations,
+  TooManyFunctions,
+  TooManyHeadersInCachePolicy,
+  TooManyHeadersInForwardedValues,
+  TooManyHeadersInOriginRequestPolicy,
+  TooManyInvalidationsInProgress,
+  TooManyKeyGroups,
+  TooManyKeyGroupsAssociatedToDistribution,
+  TooManyLambdaFunctionAssociations,
+  TooManyOriginAccessControls,
+  TooManyOriginCustomHeaders,
+  TooManyOriginGroupsPerDistribution,
+  TooManyOriginRequestPolicies,
+  TooManyOrigins,
+  TooManyPublicKeys,
+  TooManyPublicKeysInKeyGroup,
+  TooManyQueryStringParameters,
+  TooManyQueryStringsInCachePolicy,
+  TooManyQueryStringsInOriginRequestPolicy,
+  TooManyRealtimeLogConfigs,
+  TooManyRemoveHeadersInResponseHeadersPolicy,
+  TooManyResponseHeadersPolicies,
+  TooManyStreamingDistributionCNAMEs,
+  TooManyStreamingDistributions,
+  TooManyTrustedSigners,
+  TrustedKeyGroupDoesNotExist,
+  TrustedSignerDoesNotExist,
+  UnsupportedOperation,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var CommentType: StaticSimpleSchema = [0, n0, _CT, 8, 0];
-export var FunctionBlob: StaticSimpleSchema = [0, n0, _FB, 8, 21];
-export var FunctionEventObject: StaticSimpleSchema = [0, n0, _FEO, 8, 21];
-export var sensitiveStringType: StaticSimpleSchema = [0, n0, _sST, 8, 0];
-export var AccessDenied: StaticErrorSchema = [-3, n0, _AD, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(AccessDenied, __AccessDenied);
-export var ActiveTrustedKeyGroups: StaticStructureSchema = [
-  3,
-  n0,
-  _ATKG,
+var CommentType: StaticSimpleSchema = [0, n0, _CT, 8, 0];
+var FunctionBlob: StaticSimpleSchema = [0, n0, _FB, 8, 21];
+var FunctionEventObject: StaticSimpleSchema = [0, n0, _FEO, 8, 21];
+var sensitiveStringType: StaticSimpleSchema = [0, n0, _sST, 8, 0];
+export var AccessDenied$: StaticErrorSchema = [-3, n0, _AD,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(AccessDenied$, AccessDenied);
+export var ActiveTrustedKeyGroups$: StaticStructureSchema = [3, n0, _ATKG,
   0,
   [_E, _Q, _I],
-  [2, 1, [() => KGKeyPairIdsList, 0]],
+  [2, 1, [() => KGKeyPairIdsList, 0]]
 ];
-export var ActiveTrustedSigners: StaticStructureSchema = [3, n0, _ATS, 0, [_E, _Q, _I], [2, 1, [() => SignerList, 0]]];
-export var Aliases: StaticStructureSchema = [3, n0, _A, 0, [_Q, _I], [1, [() => AliasList, 0]]];
-export var AliasICPRecordal: StaticStructureSchema = [3, n0, _AICPR, 0, [_CNAME, _ICPRS], [0, 0]];
-export var AllowedMethods: StaticStructureSchema = [
-  3,
-  n0,
-  _AM,
+export var ActiveTrustedSigners$: StaticStructureSchema = [3, n0, _ATS,
+  0,
+  [_E, _Q, _I],
+  [2, 1, [() => SignerList, 0]]
+];
+export var Aliases$: StaticStructureSchema = [3, n0, _A,
+  0,
+  [_Q, _I],
+  [1, [() => AliasList, 0]]
+];
+export var AliasICPRecordal$: StaticStructureSchema = [3, n0, _AICPR,
+  0,
+  [_CNAME, _ICPRS],
+  [0, 0]
+];
+export var AllowedMethods$: StaticStructureSchema = [3, n0, _AM,
   0,
   [_Q, _I, _CM],
-  [1, [() => MethodsList, 0], [() => CachedMethods, 0]],
+  [1, [() => MethodsList, 0], [() => CachedMethods$, 0]]
 ];
-export var AnycastIpList: StaticStructureSchema = [
-  3,
-  n0,
-  _AIL,
+export var AnycastIpList$: StaticStructureSchema = [3, n0, _AIL,
   0,
   [_Id, _N, _S, _Ar, _IAT, _IC, _AI, _ICp, _LMT],
-  [0, 0, 0, 0, 0, [() => IpamConfig, 0], [() => AnycastIps, 0], 1, 4],
+  [0, 0, 0, 0, 0, [() => IpamConfig$, 0], [() => AnycastIps, 0], 1, 4]
 ];
-export var AnycastIpListCollection: StaticStructureSchema = [
-  3,
-  n0,
-  _AILC,
+export var AnycastIpListCollection$: StaticStructureSchema = [3, n0, _AILC,
   0,
   [_I, _Ma, _NM, _MI, _IT, _Q],
-  [[() => AnycastIpListSummaries, 0], 0, 0, 1, 2, 1],
+  [[() => AnycastIpListSummaries, 0], 0, 0, 1, 2, 1]
 ];
-export var AnycastIpListSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _AILS,
+export var AnycastIpListSummary$: StaticStructureSchema = [3, n0, _AILS,
   0,
   [_Id, _N, _S, _Ar, _ICp, _LMT, _IAT, _ET, _IC],
-  [0, 0, 0, 0, 1, 4, 0, 0, [() => IpamConfig, 0]],
+  [0, 0, 0, 0, 1, 4, 0, 0, [() => IpamConfig$, 0]]
 ];
-export var AssociateAliasRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _AAR,
+export var AssociateAliasRequest$: StaticStructureSchema = [3, n0, _AAR,
   0,
   [_TDI, _Al],
-  [
-    [0, 1],
-    [0, { [_hQ]: _Al }],
-  ],
+  [[0, 1], [0, { [_hQ]: _Al }]]
 ];
-export var AssociateDistributionTenantWebACLRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _ADTWACLR,
+export var AssociateDistributionTenantWebACLRequest$: StaticStructureSchema = [3, n0, _ADTWACLR,
   0,
   [_Id, _WACLA, _IM],
-  [[0, 1], 0, [0, { [_hH]: _IM_ }]],
+  [[0, 1], 0, [0, { [_hH]: _IM_ }]]
 ];
-export var AssociateDistributionTenantWebACLResult: StaticStructureSchema = [
-  3,
-  n0,
-  _ADTWACLRs,
+export var AssociateDistributionTenantWebACLResult$: StaticStructureSchema = [3, n0, _ADTWACLRs,
   0,
   [_Id, _WACLA, _ET],
-  [0, 0, [0, { [_hH]: _ET }]],
+  [0, 0, [0, { [_hH]: _ET }]]
 ];
-export var AssociateDistributionWebACLRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _ADWACLR,
+export var AssociateDistributionWebACLRequest$: StaticStructureSchema = [3, n0, _ADWACLR,
   0,
   [_Id, _WACLA, _IM],
-  [[0, 1], 0, [0, { [_hH]: _IM_ }]],
+  [[0, 1], 0, [0, { [_hH]: _IM_ }]]
 ];
-export var AssociateDistributionWebACLResult: StaticStructureSchema = [
-  3,
-  n0,
-  _ADWACLRs,
+export var AssociateDistributionWebACLResult$: StaticStructureSchema = [3, n0, _ADWACLRs,
   0,
   [_Id, _WACLA, _ET],
-  [0, 0, [0, { [_hH]: _ET }]],
+  [0, 0, [0, { [_hH]: _ET }]]
 ];
-export var BatchTooLarge: StaticErrorSchema = [-3, n0, _BTL, { [_e]: _c, [_hE]: 413 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(BatchTooLarge, __BatchTooLarge);
-export var CaCertificatesBundleS3Location: StaticStructureSchema = [3, n0, _CCBSL, 0, [_B, _K, _R, _V], [0, 0, 0, 0]];
-export var CacheBehavior: StaticStructureSchema = [
-  3,
-  n0,
-  _CB,
+export var BatchTooLarge$: StaticErrorSchema = [-3, n0, _BTL,
+  { [_e]: _c, [_hE]: 413 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(BatchTooLarge$, BatchTooLarge);
+export var CaCertificatesBundleS3Location$: StaticStructureSchema = [3, n0, _CCBSL,
   0,
-  [
-    _PP,
-    _TOI,
-    _TS,
-    _TKG,
-    _VPP,
-    _AM,
-    _SS,
-    _C,
-    _LFA,
-    _FA,
-    _FLEI,
-    _RLCA,
-    _CPI,
-    _ORPI,
-    _RHPI,
-    _GC,
-    _FV,
-    _MTTL,
-    _DTTL,
-    _MTTLa,
-  ],
-  [
-    0,
-    0,
-    [() => TrustedSigners, 0],
-    [() => TrustedKeyGroups, 0],
-    0,
-    [() => AllowedMethods, 0],
-    2,
-    2,
-    [() => LambdaFunctionAssociations, 0],
-    [() => FunctionAssociations, 0],
-    0,
-    0,
-    0,
-    0,
-    0,
-    () => GrpcConfig,
-    [() => ForwardedValues, 0],
-    1,
-    1,
-    1,
-  ],
+  [_B, _K, _R, _V],
+  [0, 0, 0, 0]
 ];
-export var CacheBehaviors: StaticStructureSchema = [3, n0, _CBa, 0, [_Q, _I], [1, [() => CacheBehaviorList, 0]]];
-export var CachedMethods: StaticStructureSchema = [3, n0, _CM, 0, [_Q, _I], [1, [() => MethodsList, 0]]];
-export var CachePolicy: StaticStructureSchema = [
-  3,
-  n0,
-  _CP,
+export var CacheBehavior$: StaticStructureSchema = [3, n0, _CB,
+  0,
+  [_PP, _TOI, _TS, _TKG, _VPP, _AM, _SS, _C, _LFA, _FA, _FLEI, _RLCA, _CPI, _ORPI, _RHPI, _GC, _FV, _MTTL, _DTTL, _MTTLa],
+  [0, 0, [() => TrustedSigners$, 0], [() => TrustedKeyGroups$, 0], 0, [() => AllowedMethods$, 0], 2, 2, [() => LambdaFunctionAssociations$, 0], [() => FunctionAssociations$, 0], 0, 0, 0, 0, 0, () => GrpcConfig$, [() => ForwardedValues$, 0], 1, 1, 1]
+];
+export var CacheBehaviors$: StaticStructureSchema = [3, n0, _CBa,
+  0,
+  [_Q, _I],
+  [1, [() => CacheBehaviorList, 0]]
+];
+export var CachedMethods$: StaticStructureSchema = [3, n0, _CM,
+  0,
+  [_Q, _I],
+  [1, [() => MethodsList, 0]]
+];
+export var CachePolicy$: StaticStructureSchema = [3, n0, _CP,
   0,
   [_Id, _LMT, _CPC],
-  [0, 4, [() => CachePolicyConfig, 0]],
+  [0, 4, [() => CachePolicyConfig$, 0]]
 ];
-export var CachePolicyAlreadyExists: StaticErrorSchema = [-3, n0, _CPAE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(CachePolicyAlreadyExists, __CachePolicyAlreadyExists);
-export var CachePolicyConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _CPC,
+export var CachePolicyAlreadyExists$: StaticErrorSchema = [-3, n0, _CPAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(CachePolicyAlreadyExists$, CachePolicyAlreadyExists);
+export var CachePolicyConfig$: StaticStructureSchema = [3, n0, _CPC,
   0,
   [_Co, _N, _DTTL, _MTTLa, _MTTL, _PICKAFTO],
-  [0, 0, 1, 1, 1, [() => ParametersInCacheKeyAndForwardedToOrigin, 0]],
+  [0, 0, 1, 1, 1, [() => ParametersInCacheKeyAndForwardedToOrigin$, 0]]
 ];
-export var CachePolicyCookiesConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _CPCC,
+export var CachePolicyCookiesConfig$: StaticStructureSchema = [3, n0, _CPCC,
   0,
   [_CBo, _Coo],
-  [0, [() => CookieNames, 0]],
+  [0, [() => CookieNames$, 0]]
 ];
-export var CachePolicyHeadersConfig: StaticStructureSchema = [3, n0, _CPHC, 0, [_HB, _H], [0, [() => Headers, 0]]];
-export var CachePolicyInUse: StaticErrorSchema = [-3, n0, _CPIU, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(CachePolicyInUse, __CachePolicyInUse);
-export var CachePolicyList: StaticStructureSchema = [
-  3,
-  n0,
-  _CPL,
-  0,
-  [_NM, _MI, _Q, _I],
-  [0, 1, 1, [() => CachePolicySummaryList, 0]],
-];
-export var CachePolicyQueryStringsConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _CPQSC,
-  0,
-  [_QSB, _QS],
-  [0, [() => QueryStringNames, 0]],
-];
-export var CachePolicySummary: StaticStructureSchema = [3, n0, _CPS, 0, [_T, _CP], [0, [() => CachePolicy, 0]]];
-export var CannotChangeImmutablePublicKeyFields: StaticErrorSchema = [
-  -3,
-  n0,
-  _CCIPKF,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(CannotChangeImmutablePublicKeyFields, __CannotChangeImmutablePublicKeyFields);
-export var CannotDeleteEntityWhileInUse: StaticErrorSchema = [-3, n0, _CDEWIU, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(CannotDeleteEntityWhileInUse, __CannotDeleteEntityWhileInUse);
-export var CannotUpdateEntityWhileInUse: StaticErrorSchema = [-3, n0, _CUEWIU, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(CannotUpdateEntityWhileInUse, __CannotUpdateEntityWhileInUse);
-export var Certificate: StaticStructureSchema = [3, n0, _Ce, 0, [_Ar], [0]];
-export var CloudFrontOriginAccessIdentity: StaticStructureSchema = [
-  3,
-  n0,
-  _CFOAI,
-  0,
-  [_Id, _SCUI, _CFOAIC],
-  [0, 0, () => CloudFrontOriginAccessIdentityConfig],
-];
-export var CloudFrontOriginAccessIdentityAlreadyExists: StaticErrorSchema = [
-  -3,
-  n0,
-  _CFOAIAE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  CloudFrontOriginAccessIdentityAlreadyExists,
-  __CloudFrontOriginAccessIdentityAlreadyExists
-);
-export var CloudFrontOriginAccessIdentityConfig: StaticStructureSchema = [3, n0, _CFOAIC, 0, [_CR, _Co], [0, 0]];
-export var CloudFrontOriginAccessIdentityInUse: StaticErrorSchema = [
-  -3,
-  n0,
-  _CFOAIIU,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(CloudFrontOriginAccessIdentityInUse, __CloudFrontOriginAccessIdentityInUse);
-export var CloudFrontOriginAccessIdentityList: StaticStructureSchema = [
-  3,
-  n0,
-  _CFOAIL,
-  0,
-  [_Ma, _NM, _MI, _IT, _Q, _I],
-  [0, 0, 1, 2, 1, [() => CloudFrontOriginAccessIdentitySummaryList, 0]],
-];
-export var CloudFrontOriginAccessIdentitySummary: StaticStructureSchema = [
-  3,
-  n0,
-  _CFOAIS,
-  0,
-  [_Id, _SCUI, _Co],
-  [0, 0, 0],
-];
-export var CNAMEAlreadyExists: StaticErrorSchema = [-3, n0, _CNAMEAE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(CNAMEAlreadyExists, __CNAMEAlreadyExists);
-export var ConflictingAlias: StaticStructureSchema = [3, n0, _CA, 0, [_Al, _DI, _AIc], [0, 0, 0]];
-export var ConflictingAliasesList: StaticStructureSchema = [
-  3,
-  n0,
-  _CAL,
-  0,
-  [_NM, _MI, _Q, _I],
-  [0, 1, 1, [() => ConflictingAliases, 0]],
-];
-export var ConnectionFunctionAssociation: StaticStructureSchema = [3, n0, _CFA, 0, [_Id], [0]];
-export var ConnectionFunctionSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _CFS,
-  0,
-  [_N, _Id, _CFC, _CFAo, _S, _St, _CTr, _LMT],
-  [0, 0, [() => FunctionConfig, 0], 0, 0, 0, 4, 4],
-];
-export var ConnectionFunctionTestResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CFTR,
-  0,
-  [_CFS, _CU, _CFEL, _CFEM, _CFO],
-  [
-    [() => ConnectionFunctionSummary, 0],
-    0,
-    [() => FunctionExecutionLogList, 0],
-    [() => sensitiveStringType, 0],
-    [() => sensitiveStringType, 0],
-  ],
-];
-export var ConnectionGroup: StaticStructureSchema = [
-  3,
-  n0,
-  _CG,
-  0,
-  [_Id, _N, _Ar, _CTr, _LMT, _Ta, _IE, _RE, _AILI, _S, _E, _ID],
-  [0, 0, 0, 4, 4, [() => Tags, 0], 2, 0, 0, 0, 2, 2],
-];
-export var ConnectionGroupAssociationFilter: StaticStructureSchema = [3, n0, _CGAF, 0, [_AILI], [0]];
-export var ConnectionGroupSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _CGS,
-  0,
-  [_Id, _N, _Ar, _RE, _CTr, _LMT, _ET, _AILI, _E, _S, _ID],
-  [0, 0, 0, 0, 4, 4, 0, 0, 2, 0, 2],
-];
-export var ContentTypeProfile: StaticStructureSchema = [3, n0, _CTP, 0, [_F, _PI, _CTo], [0, 0, 0]];
-export var ContentTypeProfileConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _CTPC,
-  0,
-  [_FWCTIU, _CTPo],
-  [2, [() => ContentTypeProfiles, 0]],
-];
-export var ContentTypeProfiles: StaticStructureSchema = [
-  3,
-  n0,
-  _CTPo,
-  0,
-  [_Q, _I],
-  [1, [() => ContentTypeProfileList, 0]],
-];
-export var ContinuousDeploymentPolicy: StaticStructureSchema = [
-  3,
-  n0,
-  _CDP,
-  0,
-  [_Id, _LMT, _CDPC],
-  [0, 4, [() => ContinuousDeploymentPolicyConfig, 0]],
-];
-export var ContinuousDeploymentPolicyAlreadyExists: StaticErrorSchema = [
-  -3,
-  n0,
-  _CDPAE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(ContinuousDeploymentPolicyAlreadyExists, __ContinuousDeploymentPolicyAlreadyExists);
-export var ContinuousDeploymentPolicyConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _CDPC,
-  0,
-  [_SDDN, _E, _TC],
-  [[() => StagingDistributionDnsNames, 0], 2, () => TrafficConfig],
-];
-export var ContinuousDeploymentPolicyInUse: StaticErrorSchema = [-3, n0, _CDPIU, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ContinuousDeploymentPolicyInUse, __ContinuousDeploymentPolicyInUse);
-export var ContinuousDeploymentPolicyList: StaticStructureSchema = [
-  3,
-  n0,
-  _CDPL,
-  0,
-  [_NM, _MI, _Q, _I],
-  [0, 1, 1, [() => ContinuousDeploymentPolicySummaryList, 0]],
-];
-export var ContinuousDeploymentPolicySummary: StaticStructureSchema = [
-  3,
-  n0,
-  _CDPS,
-  0,
-  [_CDP],
-  [[() => ContinuousDeploymentPolicy, 0]],
-];
-export var ContinuousDeploymentSingleHeaderConfig: StaticStructureSchema = [3, n0, _CDSHC, 0, [_He, _Va], [0, 0]];
-export var ContinuousDeploymentSingleWeightConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _CDSWC,
-  0,
-  [_W, _SSC],
-  [1, () => SessionStickinessConfig],
-];
-export var CookieNames: StaticStructureSchema = [3, n0, _CN, 0, [_Q, _I], [1, [() => CookieNameList, 0]]];
-export var CookiePreference: StaticStructureSchema = [3, n0, _CPo, 0, [_Fo, _WN], [0, [() => CookieNames, 0]]];
-export var CopyDistributionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CDR,
-  0,
-  [_PDI, _Sta, _IM, _CR, _E],
-  [[0, 1], [2, { [_hH]: _Sta }], [0, { [_hH]: _IM_ }], 0, 2],
-];
-export var CopyDistributionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CDRo,
-  0,
-  [_D, _L, _ET],
-  [
-    [() => Distribution, 16],
-    [0, { [_hH]: _L }],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateAnycastIpListRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CAILR,
-  0,
-  [_N, _ICp, _Ta, _IAT, _ICC],
-  [0, 1, [() => Tags, 0], 0, [() => IpamCidrConfigList, 0]],
-];
-export var CreateAnycastIpListResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CAILRr,
-  0,
-  [_AIL, _ET],
-  [
-    [() => AnycastIpList, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateCachePolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CCPR,
-  0,
-  [_CPC],
-  [[() => CachePolicyConfig, { [_xN]: _CPC, [_hP]: 1 }]],
-];
-export var CreateCachePolicyResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CCPRr,
-  0,
-  [_CP, _L, _ET],
-  [
-    [() => CachePolicy, 16],
-    [0, { [_hH]: _L }],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateCloudFrontOriginAccessIdentityRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CCFOAIR,
-  0,
-  [_CFOAIC],
-  [[() => CloudFrontOriginAccessIdentityConfig, { [_xN]: _CFOAIC, [_hP]: 1 }]],
-];
-export var CreateCloudFrontOriginAccessIdentityResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CCFOAIRr,
-  0,
-  [_CFOAI, _L, _ET],
-  [
-    [() => CloudFrontOriginAccessIdentity, 16],
-    [0, { [_hH]: _L }],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateConnectionFunctionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CCFR,
-  0,
-  [_N, _CFC, _CFCo, _Ta],
-  [0, [() => FunctionConfig, 0], [() => FunctionBlob, 0], [() => Tags, 0]],
-];
-export var CreateConnectionFunctionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CCFRr,
-  0,
-  [_CFS, _L, _ET],
-  [
-    [() => ConnectionFunctionSummary, 16],
-    [0, { [_hH]: _L }],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateConnectionGroupRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CCGR,
-  0,
-  [_N, _IE, _Ta, _AILI, _E],
-  [0, 2, [() => Tags, 0], 0, 2],
-];
-export var CreateConnectionGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CCGRr,
-  0,
-  [_CG, _ET],
-  [
-    [() => ConnectionGroup, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateContinuousDeploymentPolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CCDPR,
-  0,
-  [_CDPC],
-  [[() => ContinuousDeploymentPolicyConfig, { [_xN]: _CDPC, [_hP]: 1 }]],
-];
-export var CreateContinuousDeploymentPolicyResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CCDPRr,
-  0,
-  [_CDP, _L, _ET],
-  [
-    [() => ContinuousDeploymentPolicy, 16],
-    [0, { [_hH]: _L }],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateDistributionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CDRr,
-  0,
-  [_DC],
-  [[() => DistributionConfig, { [_xN]: _DC, [_hP]: 1 }]],
-];
-export var CreateDistributionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CDRre,
-  0,
-  [_D, _L, _ET],
-  [
-    [() => Distribution, 16],
-    [0, { [_hH]: _L }],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateDistributionTenantRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CDTR,
-  0,
-  [_DI, _N, _Do, _Ta, _Cu, _P, _CGI, _MCR, _E],
-  [
-    0,
-    0,
-    () => DomainList,
-    [() => Tags, 0],
-    [() => Customizations, 0],
-    () => _Parameters,
-    0,
-    () => ManagedCertificateRequest,
-    2,
-  ],
-];
-export var CreateDistributionTenantResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CDTRr,
-  0,
-  [_DT, _ET],
-  [
-    [() => DistributionTenant, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateDistributionWithTagsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CDWTR,
-  0,
-  [_DCWT],
-  [[() => DistributionConfigWithTags, { [_xN]: _DCWT, [_hP]: 1 }]],
-];
-export var CreateDistributionWithTagsResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CDWTRr,
-  0,
-  [_D, _L, _ET],
-  [
-    [() => Distribution, 16],
-    [0, { [_hH]: _L }],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateFieldLevelEncryptionConfigRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CFLECR,
-  0,
-  [_FLEC],
-  [[() => FieldLevelEncryptionConfig, { [_xN]: _FLEC, [_hP]: 1 }]],
-];
-export var CreateFieldLevelEncryptionConfigResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CFLECRr,
-  0,
-  [_FLE, _L, _ET],
-  [
-    [() => FieldLevelEncryption, 16],
-    [0, { [_hH]: _L }],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateFieldLevelEncryptionProfileRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CFLEPR,
-  0,
-  [_FLEPC],
-  [[() => FieldLevelEncryptionProfileConfig, { [_xN]: _FLEPC, [_hP]: 1 }]],
-];
-export var CreateFieldLevelEncryptionProfileResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CFLEPRr,
-  0,
-  [_FLEP, _L, _ET],
-  [
-    [() => FieldLevelEncryptionProfile, 16],
-    [0, { [_hH]: _L }],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateFunctionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CFR,
-  0,
-  [_N, _FC, _FCu],
-  [0, [() => FunctionConfig, 0], [() => FunctionBlob, 0]],
-];
-export var CreateFunctionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CFRr,
-  0,
-  [_FS, _L, _ET],
-  [
-    [() => FunctionSummary, 16],
-    [0, { [_hH]: _L }],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateInvalidationForDistributionTenantRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CIFDTR,
-  0,
-  [_Id, _IB],
-  [
-    [0, 1],
-    [() => InvalidationBatch, { [_xN]: _IB, [_hP]: 1 }],
-  ],
-];
-export var CreateInvalidationForDistributionTenantResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CIFDTRr,
-  0,
-  [_L, _In],
-  [
-    [0, { [_hH]: _L }],
-    [() => Invalidation, 16],
-  ],
-];
-export var CreateInvalidationRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CIR,
-  0,
-  [_DI, _IB],
-  [
-    [0, 1],
-    [() => InvalidationBatch, { [_xN]: _IB, [_hP]: 1 }],
-  ],
-];
-export var CreateInvalidationResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CIRr,
-  0,
-  [_L, _In],
-  [
-    [0, { [_hH]: _L }],
-    [() => Invalidation, 16],
-  ],
-];
-export var CreateKeyGroupRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CKGR,
-  0,
-  [_KGC],
-  [[() => KeyGroupConfig, { [_xN]: _KGC, [_hP]: 1 }]],
-];
-export var CreateKeyGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CKGRr,
-  0,
-  [_KG, _L, _ET],
-  [
-    [() => KeyGroup, 16],
-    [0, { [_hH]: _L }],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateKeyValueStoreRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CKVSR,
-  0,
-  [_N, _Co, _IS],
-  [0, 0, () => ImportSource],
-];
-export var CreateKeyValueStoreResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CKVSRr,
-  0,
-  [_KVS, _ET, _L],
-  [
-    [() => KeyValueStore, 16],
-    [0, { [_hH]: _ET }],
-    [0, { [_hH]: _L }],
-  ],
-];
-export var CreateMonitoringSubscriptionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CMSR,
-  0,
-  [_DI, _MS],
-  [
-    [0, 1],
-    [() => MonitoringSubscription, { [_xN]: _MS, [_hP]: 1 }],
-  ],
-];
-export var CreateMonitoringSubscriptionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CMSRr,
-  0,
-  [_MS],
-  [[() => MonitoringSubscription, 16]],
-];
-export var CreateOriginAccessControlRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _COACR,
-  0,
-  [_OACC],
-  [[() => OriginAccessControlConfig, { [_xN]: _OACC, [_hP]: 1 }]],
-];
-export var CreateOriginAccessControlResult: StaticStructureSchema = [
-  3,
-  n0,
-  _COACRr,
-  0,
-  [_OAC, _L, _ET],
-  [
-    [() => OriginAccessControl, 16],
-    [0, { [_hH]: _L }],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateOriginRequestPolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CORPR,
-  0,
-  [_ORPC],
-  [[() => OriginRequestPolicyConfig, { [_xN]: _ORPC, [_hP]: 1 }]],
-];
-export var CreateOriginRequestPolicyResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CORPRr,
-  0,
-  [_ORP, _L, _ET],
-  [
-    [() => OriginRequestPolicy, 16],
-    [0, { [_hH]: _L }],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreatePublicKeyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CPKR,
-  0,
-  [_PKC],
-  [[() => PublicKeyConfig, { [_xN]: _PKC, [_hP]: 1 }]],
-];
-export var CreatePublicKeyResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CPKRr,
-  0,
-  [_PK, _L, _ET],
-  [
-    [() => PublicKey, 16],
-    [0, { [_hH]: _L }],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateRealtimeLogConfigRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CRLCR,
-  0,
-  [_EP, _Fi, _N, _SR],
-  [() => EndPointList, [() => FieldList, 0], 0, 1],
-];
-export var CreateRealtimeLogConfigResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CRLCRr,
-  0,
-  [_RLC],
-  [[() => RealtimeLogConfig, 0]],
-];
-export var CreateResponseHeadersPolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CRHPR,
-  0,
-  [_RHPC],
-  [[() => ResponseHeadersPolicyConfig, { [_xN]: _RHPC, [_hP]: 1 }]],
-];
-export var CreateResponseHeadersPolicyResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CRHPRr,
-  0,
-  [_RHP, _L, _ET],
-  [
-    [() => ResponseHeadersPolicy, 16],
-    [0, { [_hH]: _L }],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateStreamingDistributionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CSDR,
-  0,
-  [_SDC],
-  [[() => StreamingDistributionConfig, { [_xN]: _SDC, [_hP]: 1 }]],
-];
-export var CreateStreamingDistributionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CSDRr,
-  0,
-  [_SD, _L, _ET],
-  [
-    [() => StreamingDistribution, 16],
-    [0, { [_hH]: _L }],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateStreamingDistributionWithTagsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CSDWTR,
-  0,
-  [_SDCWT],
-  [[() => StreamingDistributionConfigWithTags, { [_xN]: _SDCWT, [_hP]: 1 }]],
-];
-export var CreateStreamingDistributionWithTagsResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CSDWTRr,
-  0,
-  [_SD, _L, _ET],
-  [
-    [() => StreamingDistribution, 16],
-    [0, { [_hH]: _L }],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateTrustStoreRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CTSR,
-  0,
-  [_N, _CCBS, _Ta],
-  [0, () => CaCertificatesBundleSource, [() => Tags, 0]],
-];
-export var CreateTrustStoreResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CTSRr,
-  0,
-  [_TSr, _ET],
-  [
-    [() => TrustStore, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CreateVpcOriginRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CVOR,
-  0,
-  [_VOEC, _Ta],
-  [
-    [() => VpcOriginEndpointConfig, 0],
-    [() => Tags, 0],
-  ],
-];
-export var CreateVpcOriginResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CVORr,
-  0,
-  [_VO, _L, _ET],
-  [
-    [() => VpcOrigin, 16],
-    [0, { [_hH]: _L }],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var CustomErrorResponse: StaticStructureSchema = [3, n0, _CER, 0, [_EC, _RPP, _RC, _ECMTTL], [1, 0, 0, 1]];
-export var CustomErrorResponses: StaticStructureSchema = [
-  3,
-  n0,
-  _CERu,
-  0,
-  [_Q, _I],
-  [1, [() => CustomErrorResponseList, 0]],
-];
-export var CustomHeaders: StaticStructureSchema = [3, n0, _CH, 0, [_Q, _I], [1, [() => OriginCustomHeadersList, 0]]];
-export var Customizations: StaticStructureSchema = [
-  3,
-  n0,
-  _Cu,
-  0,
-  [_WA, _Ce, _GR],
-  [() => WebAclCustomization, () => Certificate, [() => GeoRestrictionCustomization, 0]],
-];
-export var CustomOriginConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _COC,
-  0,
-  [_HTTPP, _HTTPSP, _OPP, _OSP, _ORT, _OKT, _IAT],
-  [1, 1, 0, [() => OriginSslProtocols, 0], 1, 1, 0],
-];
-export var DefaultCacheBehavior: StaticStructureSchema = [
-  3,
-  n0,
-  _DCB,
-  0,
-  [_TOI, _TS, _TKG, _VPP, _AM, _SS, _C, _LFA, _FA, _FLEI, _RLCA, _CPI, _ORPI, _RHPI, _GC, _FV, _MTTL, _DTTL, _MTTLa],
-  [
-    0,
-    [() => TrustedSigners, 0],
-    [() => TrustedKeyGroups, 0],
-    0,
-    [() => AllowedMethods, 0],
-    2,
-    2,
-    [() => LambdaFunctionAssociations, 0],
-    [() => FunctionAssociations, 0],
-    0,
-    0,
-    0,
-    0,
-    0,
-    () => GrpcConfig,
-    [() => ForwardedValues, 0],
-    1,
-    1,
-    1,
-  ],
-];
-export var DeleteAnycastIpListRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DAILR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeleteCachePolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DCPR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeleteCloudFrontOriginAccessIdentityRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DCFOAIR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeleteConnectionFunctionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DCFR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeleteConnectionGroupRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DCGR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeleteContinuousDeploymentPolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DCDPR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeleteDistributionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DDR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeleteDistributionTenantRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DDTR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeleteFieldLevelEncryptionConfigRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DFLECR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeleteFieldLevelEncryptionProfileRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DFLEPR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeleteFunctionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DFR,
-  0,
-  [_N, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeleteKeyGroupRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DKGR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeleteKeyValueStoreRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DKVSR,
-  0,
-  [_N, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeleteMonitoringSubscriptionRequest: StaticStructureSchema = [3, n0, _DMSR, 0, [_DI], [[0, 1]]];
-export var DeleteMonitoringSubscriptionResult: StaticStructureSchema = [3, n0, _DMSRe, 0, [], []];
-export var DeleteOriginAccessControlRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DOACR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeleteOriginRequestPolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DORPR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeletePublicKeyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DPKR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeleteRealtimeLogConfigRequest: StaticStructureSchema = [3, n0, _DRLCR, 0, [_N, _ARN], [0, 0]];
-export var DeleteResourcePolicyRequest: StaticStructureSchema = [3, n0, _DRPR, 0, [_RA], [0]];
-export var DeleteResponseHeadersPolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DRHPR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeleteStreamingDistributionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DSDR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeleteTrustStoreRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DTSR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeleteVpcOriginRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DVOR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DeleteVpcOriginResult: StaticStructureSchema = [
-  3,
-  n0,
-  _DVORe,
-  0,
-  [_VO, _ET],
-  [
-    [() => VpcOrigin, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var DescribeConnectionFunctionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DCFRe,
-  0,
-  [_Ide, _St],
-  [
-    [0, 1],
-    [0, { [_hQ]: _St }],
-  ],
-];
-export var DescribeConnectionFunctionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _DCFRes,
-  0,
-  [_CFS, _ET],
-  [
-    [() => ConnectionFunctionSummary, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var DescribeFunctionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DFRe,
-  0,
-  [_N, _St],
-  [
-    [0, 1],
-    [0, { [_hQ]: _St }],
-  ],
-];
-export var DescribeFunctionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _DFRes,
-  0,
-  [_FS, _ET],
-  [
-    [() => FunctionSummary, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var DescribeKeyValueStoreRequest: StaticStructureSchema = [3, n0, _DKVSRe, 0, [_N], [[0, 1]]];
-export var DescribeKeyValueStoreResult: StaticStructureSchema = [
-  3,
-  n0,
-  _DKVSRes,
-  0,
-  [_KVS, _ET],
-  [
-    [() => KeyValueStore, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var DisassociateDistributionTenantWebACLRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DDTWACLR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DisassociateDistributionTenantWebACLResult: StaticStructureSchema = [
-  3,
-  n0,
-  _DDTWACLRi,
-  0,
-  [_Id, _ET],
-  [0, [0, { [_hH]: _ET }]],
-];
-export var DisassociateDistributionWebACLRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DDWACLR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var DisassociateDistributionWebACLResult: StaticStructureSchema = [
-  3,
-  n0,
-  _DDWACLRi,
-  0,
-  [_Id, _ET],
-  [0, [0, { [_hH]: _ET }]],
-];
-export var Distribution: StaticStructureSchema = [
-  3,
-  n0,
-  _D,
-  0,
-  [_Id, _ARN, _S, _LMT, _IPIB, _DN, _ATS, _ATKG, _DC, _AICPRl],
-  [
-    0,
-    0,
-    0,
-    4,
-    1,
-    0,
-    [() => ActiveTrustedSigners, 0],
-    [() => ActiveTrustedKeyGroups, 0],
-    [() => DistributionConfig, 0],
-    [() => AliasICPRecordals, 0],
-  ],
-];
-export var DistributionAlreadyExists: StaticErrorSchema = [-3, n0, _DAE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(DistributionAlreadyExists, __DistributionAlreadyExists);
-export var DistributionConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _DC,
-  0,
-  [
-    _CR,
-    _A,
-    _DRO,
-    _O,
-    _OG,
-    _DCB,
-    _CBa,
-    _CERu,
-    _Co,
-    _Lo,
-    _PC,
-    _E,
-    _VC,
-    _Re,
-    _WACLI,
-    _HV,
-    _IIPVE,
-    _CDPI,
-    _Sta,
-    _AILI,
-    _TCe,
-    _CMo,
-    _VMC,
-    _CFA,
-  ],
-  [
-    0,
-    [() => Aliases, 0],
-    0,
-    [() => Origins, 0],
-    [() => OriginGroups, 0],
-    [() => DefaultCacheBehavior, 0],
-    [() => CacheBehaviors, 0],
-    [() => CustomErrorResponses, 0],
-    [() => CommentType, 0],
-    () => LoggingConfig,
-    0,
-    2,
-    () => ViewerCertificate,
-    [() => Restrictions, 0],
-    0,
-    0,
-    2,
-    0,
-    2,
-    0,
-    [() => TenantConfig, 0],
-    0,
-    () => ViewerMtlsConfig,
-    () => ConnectionFunctionAssociation,
-  ],
-];
-export var DistributionConfigWithTags: StaticStructureSchema = [
-  3,
-  n0,
-  _DCWT,
-  0,
-  [_DC, _Ta],
-  [
-    [() => DistributionConfig, 0],
-    [() => Tags, 0],
-  ],
-];
-export var DistributionIdList: StaticStructureSchema = [
-  3,
-  n0,
-  _DIL,
-  0,
-  [_Ma, _NM, _MI, _IT, _Q, _I],
-  [0, 0, 1, 2, 1, [() => DistributionIdListSummary, 0]],
-];
-export var DistributionIdOwner: StaticStructureSchema = [3, n0, _DIO, 0, [_DI, _OAI], [0, 0]];
-export var DistributionIdOwnerList: StaticStructureSchema = [
-  3,
-  n0,
-  _DIOL,
-  0,
-  [_Ma, _NM, _MI, _IT, _Q, _I],
-  [0, 0, 1, 2, 1, [() => DistributionIdOwnerItemList, 0]],
-];
-export var DistributionList: StaticStructureSchema = [
-  3,
-  n0,
-  _DL,
-  0,
-  [_Ma, _NM, _MI, _IT, _Q, _I],
-  [0, 0, 1, 2, 1, [() => DistributionSummaryList, 0]],
-];
-export var DistributionNotDisabled: StaticErrorSchema = [-3, n0, _DND, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(DistributionNotDisabled, __DistributionNotDisabled);
-export var DistributionResourceId: StaticStructureSchema = [3, n0, _DRI, 0, [_DI, _DTI], [0, 0]];
-export var DistributionSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _DS,
-  0,
-  [
-    _Id,
-    _ARN,
-    _ET,
-    _S,
-    _LMT,
-    _DN,
-    _A,
-    _O,
-    _OG,
-    _DCB,
-    _CBa,
-    _CERu,
-    _Co,
-    _PC,
-    _E,
-    _VC,
-    _Re,
-    _WACLI,
-    _HV,
-    _IIPVE,
-    _AICPRl,
-    _Sta,
-    _CMo,
-    _AILI,
-    _VMC,
-    _CFA,
-  ],
-  [
-    0,
-    0,
-    0,
-    0,
-    4,
-    0,
-    [() => Aliases, 0],
-    [() => Origins, 0],
-    [() => OriginGroups, 0],
-    [() => DefaultCacheBehavior, 0],
-    [() => CacheBehaviors, 0],
-    [() => CustomErrorResponses, 0],
-    [() => sensitiveStringType, 0],
-    0,
-    2,
-    () => ViewerCertificate,
-    [() => Restrictions, 0],
-    0,
-    0,
-    2,
-    [() => AliasICPRecordals, 0],
-    2,
-    0,
-    0,
-    () => ViewerMtlsConfig,
-    () => ConnectionFunctionAssociation,
-  ],
-];
-export var DistributionTenant: StaticStructureSchema = [
-  3,
-  n0,
-  _DT,
-  0,
-  [_Id, _DI, _N, _Ar, _Do, _Ta, _Cu, _P, _CGI, _CTr, _LMT, _E, _S],
-  [0, 0, 0, 0, () => DomainResultList, [() => Tags, 0], [() => Customizations, 0], () => _Parameters, 0, 4, 4, 2, 0],
-];
-export var DistributionTenantAssociationFilter: StaticStructureSchema = [3, n0, _DTAF, 0, [_DI, _CGI], [0, 0]];
-export var DistributionTenantSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _DTS,
-  0,
-  [_Id, _DI, _N, _Ar, _Do, _CGI, _Cu, _CTr, _LMT, _ET, _E, _S],
-  [0, 0, 0, 0, () => DomainResultList, 0, [() => Customizations, 0], 4, 4, 0, 2, 0],
-];
-export var DnsConfiguration: StaticStructureSchema = [3, n0, _DCn, 0, [_Dom, _S, _Rea], [0, 0, 0]];
-export var DomainConflict: StaticStructureSchema = [3, n0, _DCo, 0, [_Dom, _RT, _RI, _AIc], [0, 0, 0, 0]];
-export var DomainItem: StaticStructureSchema = [3, n0, _DIo, 0, [_Dom], [0]];
-export var DomainResult: StaticStructureSchema = [3, n0, _DR, 0, [_Dom, _S], [0, 0]];
-export var EncryptionEntities: StaticStructureSchema = [3, n0, _EE, 0, [_Q, _I], [1, [() => EncryptionEntityList, 0]]];
-export var EncryptionEntity: StaticStructureSchema = [
-  3,
-  n0,
-  _EEn,
-  0,
-  [_PKI, _PIr, _FP],
-  [0, 0, [() => FieldPatterns, 0]],
-];
-export var EndPoint: StaticStructureSchema = [3, n0, _EPn, 0, [_ST, _KSC], [0, () => KinesisStreamConfig]];
-export var EntityAlreadyExists: StaticErrorSchema = [-3, n0, _EAE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(EntityAlreadyExists, __EntityAlreadyExists);
-export var EntityLimitExceeded: StaticErrorSchema = [-3, n0, _ELE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(EntityLimitExceeded, __EntityLimitExceeded);
-export var EntityNotFound: StaticErrorSchema = [-3, n0, _ENF, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(EntityNotFound, __EntityNotFound);
-export var EntitySizeLimitExceeded: StaticErrorSchema = [-3, n0, _ESLE, { [_e]: _c, [_hE]: 413 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(EntitySizeLimitExceeded, __EntitySizeLimitExceeded);
-export var FieldLevelEncryption: StaticStructureSchema = [
-  3,
-  n0,
-  _FLE,
-  0,
-  [_Id, _LMT, _FLEC],
-  [0, 4, [() => FieldLevelEncryptionConfig, 0]],
-];
-export var FieldLevelEncryptionConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _FLEC,
-  0,
-  [_CR, _Co, _QAPC, _CTPC],
-  [0, 0, [() => QueryArgProfileConfig, 0], [() => ContentTypeProfileConfig, 0]],
-];
-export var FieldLevelEncryptionConfigAlreadyExists: StaticErrorSchema = [
-  -3,
-  n0,
-  _FLECAE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(FieldLevelEncryptionConfigAlreadyExists, __FieldLevelEncryptionConfigAlreadyExists);
-export var FieldLevelEncryptionConfigInUse: StaticErrorSchema = [-3, n0, _FLECIU, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(FieldLevelEncryptionConfigInUse, __FieldLevelEncryptionConfigInUse);
-export var FieldLevelEncryptionList: StaticStructureSchema = [
-  3,
-  n0,
-  _FLEL,
-  0,
-  [_NM, _MI, _Q, _I],
-  [0, 1, 1, [() => FieldLevelEncryptionSummaryList, 0]],
-];
-export var FieldLevelEncryptionProfile: StaticStructureSchema = [
-  3,
-  n0,
-  _FLEP,
-  0,
-  [_Id, _LMT, _FLEPC],
-  [0, 4, [() => FieldLevelEncryptionProfileConfig, 0]],
-];
-export var FieldLevelEncryptionProfileAlreadyExists: StaticErrorSchema = [
-  -3,
-  n0,
-  _FLEPAE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  FieldLevelEncryptionProfileAlreadyExists,
-  __FieldLevelEncryptionProfileAlreadyExists
-);
-export var FieldLevelEncryptionProfileConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _FLEPC,
-  0,
-  [_N, _CR, _Co, _EE],
-  [0, 0, 0, [() => EncryptionEntities, 0]],
-];
-export var FieldLevelEncryptionProfileInUse: StaticErrorSchema = [-3, n0, _FLEPIU, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(FieldLevelEncryptionProfileInUse, __FieldLevelEncryptionProfileInUse);
-export var FieldLevelEncryptionProfileList: StaticStructureSchema = [
-  3,
-  n0,
-  _FLEPL,
-  0,
-  [_NM, _MI, _Q, _I],
-  [0, 1, 1, [() => FieldLevelEncryptionProfileSummaryList, 0]],
-];
-export var FieldLevelEncryptionProfileSizeExceeded: StaticErrorSchema = [
-  -3,
-  n0,
-  _FLEPSE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(FieldLevelEncryptionProfileSizeExceeded, __FieldLevelEncryptionProfileSizeExceeded);
-export var FieldLevelEncryptionProfileSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _FLEPS,
-  0,
-  [_Id, _LMT, _N, _EE, _Co],
-  [0, 4, 0, [() => EncryptionEntities, 0], 0],
-];
-export var FieldLevelEncryptionSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _FLES,
-  0,
-  [_Id, _LMT, _Co, _QAPC, _CTPC],
-  [0, 4, 0, [() => QueryArgProfileConfig, 0], [() => ContentTypeProfileConfig, 0]],
-];
-export var FieldPatterns: StaticStructureSchema = [3, n0, _FP, 0, [_Q, _I], [1, [() => FieldPatternList, 0]]];
-export var ForwardedValues: StaticStructureSchema = [
-  3,
-  n0,
-  _FV,
-  0,
-  [_QSu, _Coo, _H, _QSCK],
-  [2, [() => CookiePreference, 0], [() => Headers, 0], [() => QueryStringCacheKeys, 0]],
-];
-export var FunctionAlreadyExists: StaticErrorSchema = [-3, n0, _FAE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(FunctionAlreadyExists, __FunctionAlreadyExists);
-export var FunctionAssociation: StaticStructureSchema = [3, n0, _FAu, 0, [_FARN, _ETv], [0, 0]];
-export var FunctionAssociations: StaticStructureSchema = [
-  3,
-  n0,
-  _FA,
-  0,
-  [_Q, _I],
-  [1, [() => FunctionAssociationList, 0]],
-];
-export var FunctionConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _FC,
-  0,
-  [_Co, _Ru, _KVSA],
-  [0, 0, [() => KeyValueStoreAssociations, 0]],
-];
-export var FunctionInUse: StaticErrorSchema = [-3, n0, _FIU, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(FunctionInUse, __FunctionInUse);
-export var FunctionList: StaticStructureSchema = [
-  3,
-  n0,
-  _FL,
-  0,
-  [_NM, _MI, _Q, _I],
-  [0, 1, 1, [() => FunctionSummaryList, 0]],
-];
-export var FunctionMetadata: StaticStructureSchema = [3, n0, _FM, 0, [_FARN, _St, _CTr, _LMT], [0, 0, 4, 4]];
-export var FunctionSizeLimitExceeded: StaticErrorSchema = [-3, n0, _FSLE, { [_e]: _c, [_hE]: 413 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(FunctionSizeLimitExceeded, __FunctionSizeLimitExceeded);
-export var FunctionSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _FS,
-  0,
-  [_N, _S, _FC, _FM],
-  [0, 0, [() => FunctionConfig, 0], () => FunctionMetadata],
-];
-export var GeoRestriction: StaticStructureSchema = [3, n0, _GRe, 0, [_RTe, _Q, _I], [0, 1, [() => LocationList, 0]]];
-export var GeoRestrictionCustomization: StaticStructureSchema = [
-  3,
-  n0,
-  _GRC,
-  0,
-  [_RTe, _Loc],
-  [0, [() => LocationList, 0]],
-];
-export var GetAnycastIpListRequest: StaticStructureSchema = [3, n0, _GAILR, 0, [_Id], [[0, 1]]];
-export var GetAnycastIpListResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GAILRe,
-  0,
-  [_AIL, _ET],
-  [
-    [() => AnycastIpList, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetCachePolicyConfigRequest: StaticStructureSchema = [3, n0, _GCPCR, 0, [_Id], [[0, 1]]];
-export var GetCachePolicyConfigResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GCPCRe,
-  0,
-  [_CPC, _ET],
-  [
-    [() => CachePolicyConfig, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetCachePolicyRequest: StaticStructureSchema = [3, n0, _GCPR, 0, [_Id], [[0, 1]]];
-export var GetCachePolicyResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GCPRe,
-  0,
-  [_CP, _ET],
-  [
-    [() => CachePolicy, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetCloudFrontOriginAccessIdentityConfigRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GCFOAICR,
-  0,
-  [_Id],
-  [[0, 1]],
-];
-export var GetCloudFrontOriginAccessIdentityConfigResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GCFOAICRe,
-  0,
-  [_CFOAIC, _ET],
-  [
-    [() => CloudFrontOriginAccessIdentityConfig, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetCloudFrontOriginAccessIdentityRequest: StaticStructureSchema = [3, n0, _GCFOAIR, 0, [_Id], [[0, 1]]];
-export var GetCloudFrontOriginAccessIdentityResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GCFOAIRe,
-  0,
-  [_CFOAI, _ET],
-  [
-    [() => CloudFrontOriginAccessIdentity, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetConnectionFunctionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GCFR,
-  0,
-  [_Ide, _St],
-  [
-    [0, 1],
-    [0, { [_hQ]: _St }],
-  ],
-];
-export var GetConnectionFunctionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GCFRe,
-  0,
-  [_CFCo, _ET, _CTo],
-  [
-    [() => FunctionBlob, 16],
-    [0, { [_hH]: _ET }],
-    [0, { [_hH]: _CT_ }],
-  ],
-];
-export var GetConnectionGroupByRoutingEndpointRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GCGBRER,
-  0,
-  [_RE],
-  [[0, { [_hQ]: _RE }]],
-];
-export var GetConnectionGroupByRoutingEndpointResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GCGBRERe,
-  0,
-  [_CG, _ET],
-  [
-    [() => ConnectionGroup, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetConnectionGroupRequest: StaticStructureSchema = [3, n0, _GCGR, 0, [_Ide], [[0, 1]]];
-export var GetConnectionGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GCGRe,
-  0,
-  [_CG, _ET],
-  [
-    [() => ConnectionGroup, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetContinuousDeploymentPolicyConfigRequest: StaticStructureSchema = [3, n0, _GCDPCR, 0, [_Id], [[0, 1]]];
-export var GetContinuousDeploymentPolicyConfigResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GCDPCRe,
-  0,
-  [_CDPC, _ET],
-  [
-    [() => ContinuousDeploymentPolicyConfig, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetContinuousDeploymentPolicyRequest: StaticStructureSchema = [3, n0, _GCDPR, 0, [_Id], [[0, 1]]];
-export var GetContinuousDeploymentPolicyResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GCDPRe,
-  0,
-  [_CDP, _ET],
-  [
-    [() => ContinuousDeploymentPolicy, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetDistributionConfigRequest: StaticStructureSchema = [3, n0, _GDCR, 0, [_Id], [[0, 1]]];
-export var GetDistributionConfigResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GDCRe,
-  0,
-  [_DC, _ET],
-  [
-    [() => DistributionConfig, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetDistributionRequest: StaticStructureSchema = [3, n0, _GDR, 0, [_Id], [[0, 1]]];
-export var GetDistributionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GDRe,
-  0,
-  [_D, _ET],
-  [
-    [() => Distribution, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetDistributionTenantByDomainRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GDTBDR,
-  0,
-  [_Dom],
-  [[0, { [_hQ]: _d }]],
-];
-export var GetDistributionTenantByDomainResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GDTBDRe,
-  0,
-  [_DT, _ET],
-  [
-    [() => DistributionTenant, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetDistributionTenantRequest: StaticStructureSchema = [3, n0, _GDTR, 0, [_Ide], [[0, 1]]];
-export var GetDistributionTenantResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GDTRe,
-  0,
-  [_DT, _ET],
-  [
-    [() => DistributionTenant, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetFieldLevelEncryptionConfigRequest: StaticStructureSchema = [3, n0, _GFLECR, 0, [_Id], [[0, 1]]];
-export var GetFieldLevelEncryptionConfigResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GFLECRe,
-  0,
-  [_FLEC, _ET],
-  [
-    [() => FieldLevelEncryptionConfig, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetFieldLevelEncryptionProfileConfigRequest: StaticStructureSchema = [3, n0, _GFLEPCR, 0, [_Id], [[0, 1]]];
-export var GetFieldLevelEncryptionProfileConfigResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GFLEPCRe,
-  0,
-  [_FLEPC, _ET],
-  [
-    [() => FieldLevelEncryptionProfileConfig, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetFieldLevelEncryptionProfileRequest: StaticStructureSchema = [3, n0, _GFLEPR, 0, [_Id], [[0, 1]]];
-export var GetFieldLevelEncryptionProfileResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GFLEPRe,
-  0,
-  [_FLEP, _ET],
-  [
-    [() => FieldLevelEncryptionProfile, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetFieldLevelEncryptionRequest: StaticStructureSchema = [3, n0, _GFLER, 0, [_Id], [[0, 1]]];
-export var GetFieldLevelEncryptionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GFLERe,
-  0,
-  [_FLE, _ET],
-  [
-    [() => FieldLevelEncryption, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetFunctionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GFR,
-  0,
-  [_N, _St],
-  [
-    [0, 1],
-    [0, { [_hQ]: _St }],
-  ],
-];
-export var GetFunctionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GFRe,
-  0,
-  [_FCu, _ET, _CTo],
-  [
-    [() => FunctionBlob, 16],
-    [0, { [_hH]: _ET }],
-    [0, { [_hH]: _CT_ }],
-  ],
-];
-export var GetInvalidationForDistributionTenantRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GIFDTR,
-  0,
-  [_DTI, _Id],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var GetInvalidationForDistributionTenantResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GIFDTRe,
-  0,
-  [_In],
-  [[() => Invalidation, 16]],
-];
-export var GetInvalidationRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GIR,
-  0,
-  [_DI, _Id],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var GetInvalidationResult: StaticStructureSchema = [3, n0, _GIRe, 0, [_In], [[() => Invalidation, 16]]];
-export var GetKeyGroupConfigRequest: StaticStructureSchema = [3, n0, _GKGCR, 0, [_Id], [[0, 1]]];
-export var GetKeyGroupConfigResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GKGCRe,
-  0,
-  [_KGC, _ET],
-  [
-    [() => KeyGroupConfig, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetKeyGroupRequest: StaticStructureSchema = [3, n0, _GKGR, 0, [_Id], [[0, 1]]];
-export var GetKeyGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GKGRe,
-  0,
-  [_KG, _ET],
-  [
-    [() => KeyGroup, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetManagedCertificateDetailsRequest: StaticStructureSchema = [3, n0, _GMCDR, 0, [_Ide], [[0, 1]]];
-export var GetManagedCertificateDetailsResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GMCDRe,
-  0,
-  [_MCD],
-  [[() => ManagedCertificateDetails, 16]],
-];
-export var GetMonitoringSubscriptionRequest: StaticStructureSchema = [3, n0, _GMSR, 0, [_DI], [[0, 1]]];
-export var GetMonitoringSubscriptionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GMSRe,
-  0,
-  [_MS],
-  [[() => MonitoringSubscription, 16]],
-];
-export var GetOriginAccessControlConfigRequest: StaticStructureSchema = [3, n0, _GOACCR, 0, [_Id], [[0, 1]]];
-export var GetOriginAccessControlConfigResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GOACCRe,
-  0,
-  [_OACC, _ET],
-  [
-    [() => OriginAccessControlConfig, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetOriginAccessControlRequest: StaticStructureSchema = [3, n0, _GOACR, 0, [_Id], [[0, 1]]];
-export var GetOriginAccessControlResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GOACRe,
-  0,
-  [_OAC, _ET],
-  [
-    [() => OriginAccessControl, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetOriginRequestPolicyConfigRequest: StaticStructureSchema = [3, n0, _GORPCR, 0, [_Id], [[0, 1]]];
-export var GetOriginRequestPolicyConfigResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GORPCRe,
-  0,
-  [_ORPC, _ET],
-  [
-    [() => OriginRequestPolicyConfig, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetOriginRequestPolicyRequest: StaticStructureSchema = [3, n0, _GORPR, 0, [_Id], [[0, 1]]];
-export var GetOriginRequestPolicyResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GORPRe,
-  0,
-  [_ORP, _ET],
-  [
-    [() => OriginRequestPolicy, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetPublicKeyConfigRequest: StaticStructureSchema = [3, n0, _GPKCR, 0, [_Id], [[0, 1]]];
-export var GetPublicKeyConfigResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GPKCRe,
-  0,
-  [_PKC, _ET],
-  [
-    [() => PublicKeyConfig, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetPublicKeyRequest: StaticStructureSchema = [3, n0, _GPKR, 0, [_Id], [[0, 1]]];
-export var GetPublicKeyResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GPKRe,
-  0,
-  [_PK, _ET],
-  [
-    [() => PublicKey, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetRealtimeLogConfigRequest: StaticStructureSchema = [3, n0, _GRLCR, 0, [_N, _ARN], [0, 0]];
-export var GetRealtimeLogConfigResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GRLCRe,
-  0,
-  [_RLC],
-  [[() => RealtimeLogConfig, 0]],
-];
-export var GetResourcePolicyRequest: StaticStructureSchema = [3, n0, _GRPR, 0, [_RA], [0]];
-export var GetResourcePolicyResult: StaticStructureSchema = [3, n0, _GRPRe, 0, [_RA, _PD], [0, 0]];
-export var GetResponseHeadersPolicyConfigRequest: StaticStructureSchema = [3, n0, _GRHPCR, 0, [_Id], [[0, 1]]];
-export var GetResponseHeadersPolicyConfigResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GRHPCRe,
-  0,
-  [_RHPC, _ET],
-  [
-    [() => ResponseHeadersPolicyConfig, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetResponseHeadersPolicyRequest: StaticStructureSchema = [3, n0, _GRHPR, 0, [_Id], [[0, 1]]];
-export var GetResponseHeadersPolicyResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GRHPRe,
-  0,
-  [_RHP, _ET],
-  [
-    [() => ResponseHeadersPolicy, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetStreamingDistributionConfigRequest: StaticStructureSchema = [3, n0, _GSDCR, 0, [_Id], [[0, 1]]];
-export var GetStreamingDistributionConfigResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GSDCRe,
-  0,
-  [_SDC, _ET],
-  [
-    [() => StreamingDistributionConfig, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetStreamingDistributionRequest: StaticStructureSchema = [3, n0, _GSDR, 0, [_Id], [[0, 1]]];
-export var GetStreamingDistributionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GSDRe,
-  0,
-  [_SD, _ET],
-  [
-    [() => StreamingDistribution, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetTrustStoreRequest: StaticStructureSchema = [3, n0, _GTSR, 0, [_Ide], [[0, 1]]];
-export var GetTrustStoreResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GTSRe,
-  0,
-  [_TSr, _ET],
-  [
-    [() => TrustStore, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GetVpcOriginRequest: StaticStructureSchema = [3, n0, _GVOR, 0, [_Id], [[0, 1]]];
-export var GetVpcOriginResult: StaticStructureSchema = [
-  3,
-  n0,
-  _GVORe,
-  0,
-  [_VO, _ET],
-  [
-    [() => VpcOrigin, 16],
-    [0, { [_hH]: _ET }],
-  ],
-];
-export var GrpcConfig: StaticStructureSchema = [3, n0, _GC, 0, [_E], [2]];
-export var Headers: StaticStructureSchema = [3, n0, _H, 0, [_Q, _I], [1, [() => HeaderList, 0]]];
-export var IllegalDelete: StaticErrorSchema = [-3, n0, _IDl, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(IllegalDelete, __IllegalDelete);
-export var IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFLECAWCB,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior,
-  __IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
-);
-export var IllegalOriginAccessConfiguration: StaticErrorSchema = [-3, n0, _IOAC, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(IllegalOriginAccessConfiguration, __IllegalOriginAccessConfiguration);
-export var IllegalUpdate: StaticErrorSchema = [-3, n0, _IU, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(IllegalUpdate, __IllegalUpdate);
-export var ImportSource: StaticStructureSchema = [3, n0, _IS, 0, [_STo, _SARN], [0, 0]];
-export var InconsistentQuantities: StaticErrorSchema = [-3, n0, _IQ, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InconsistentQuantities, __InconsistentQuantities);
-export var InvalidArgument: StaticErrorSchema = [-3, n0, _IA, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidArgument, __InvalidArgument);
-export var InvalidAssociation: StaticErrorSchema = [-3, n0, _IAn, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidAssociation, __InvalidAssociation);
-export var Invalidation: StaticStructureSchema = [
-  3,
-  n0,
-  _In,
-  0,
-  [_Id, _S, _CTre, _IB],
-  [0, 0, 4, [() => InvalidationBatch, 0]],
-];
-export var InvalidationBatch: StaticStructureSchema = [3, n0, _IB, 0, [_Pa, _CR], [[() => Paths, 0], 0]];
-export var InvalidationList: StaticStructureSchema = [
-  3,
-  n0,
-  _IL,
-  0,
-  [_Ma, _NM, _MI, _IT, _Q, _I],
-  [0, 0, 1, 2, 1, [() => InvalidationSummaryList, 0]],
-];
-export var InvalidationSummary: StaticStructureSchema = [3, n0, _ISn, 0, [_Id, _CTre, _S], [0, 4, 0]];
-export var InvalidDefaultRootObject: StaticErrorSchema = [-3, n0, _IDRO, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidDefaultRootObject, __InvalidDefaultRootObject);
-export var InvalidDomainNameForOriginAccessControl: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDNFOAC,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidDomainNameForOriginAccessControl, __InvalidDomainNameForOriginAccessControl);
-export var InvalidErrorCode: StaticErrorSchema = [-3, n0, _IEC, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidErrorCode, __InvalidErrorCode);
-export var InvalidForwardCookies: StaticErrorSchema = [-3, n0, _IFC, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidForwardCookies, __InvalidForwardCookies);
-export var InvalidFunctionAssociation: StaticErrorSchema = [-3, n0, _IFA, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidFunctionAssociation, __InvalidFunctionAssociation);
-export var InvalidGeoRestrictionParameter: StaticErrorSchema = [-3, n0, _IGRP, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidGeoRestrictionParameter, __InvalidGeoRestrictionParameter);
-export var InvalidHeadersForS3Origin: StaticErrorSchema = [-3, n0, _IHFSO, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidHeadersForS3Origin, __InvalidHeadersForS3Origin);
-export var InvalidIfMatchVersion: StaticErrorSchema = [-3, n0, _IIMV, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidIfMatchVersion, __InvalidIfMatchVersion);
-export var InvalidLambdaFunctionAssociation: StaticErrorSchema = [-3, n0, _ILFA, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidLambdaFunctionAssociation, __InvalidLambdaFunctionAssociation);
-export var InvalidLocationCode: StaticErrorSchema = [-3, n0, _ILC, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidLocationCode, __InvalidLocationCode);
-export var InvalidMinimumProtocolVersion: StaticErrorSchema = [-3, n0, _IMPV, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidMinimumProtocolVersion, __InvalidMinimumProtocolVersion);
-export var InvalidOrigin: StaticErrorSchema = [-3, n0, _IO, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidOrigin, __InvalidOrigin);
-export var InvalidOriginAccessControl: StaticErrorSchema = [-3, n0, _IOACn, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidOriginAccessControl, __InvalidOriginAccessControl);
-export var InvalidOriginAccessIdentity: StaticErrorSchema = [-3, n0, _IOAI, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidOriginAccessIdentity, __InvalidOriginAccessIdentity);
-export var InvalidOriginKeepaliveTimeout: StaticErrorSchema = [-3, n0, _IOKT, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidOriginKeepaliveTimeout, __InvalidOriginKeepaliveTimeout);
-export var InvalidOriginReadTimeout: StaticErrorSchema = [-3, n0, _IORT, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidOriginReadTimeout, __InvalidOriginReadTimeout);
-export var InvalidProtocolSettings: StaticErrorSchema = [-3, n0, _IPS, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidProtocolSettings, __InvalidProtocolSettings);
-export var InvalidQueryStringParameters: StaticErrorSchema = [-3, n0, _IQSP, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidQueryStringParameters, __InvalidQueryStringParameters);
-export var InvalidRelativePath: StaticErrorSchema = [-3, n0, _IRP, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidRelativePath, __InvalidRelativePath);
-export var InvalidRequiredProtocol: StaticErrorSchema = [-3, n0, _IRPn, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidRequiredProtocol, __InvalidRequiredProtocol);
-export var InvalidResponseCode: StaticErrorSchema = [-3, n0, _IRC, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidResponseCode, __InvalidResponseCode);
-export var InvalidTagging: StaticErrorSchema = [-3, n0, _ITn, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidTagging, __InvalidTagging);
-export var InvalidTTLOrder: StaticErrorSchema = [-3, n0, _ITTLO, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidTTLOrder, __InvalidTTLOrder);
-export var InvalidViewerCertificate: StaticErrorSchema = [-3, n0, _IVC, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidViewerCertificate, __InvalidViewerCertificate);
-export var InvalidWebACLId: StaticErrorSchema = [-3, n0, _IWACLI, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidWebACLId, __InvalidWebACLId);
-export var IpamCidrConfig: StaticStructureSchema = [3, n0, _ICCp, 0, [_Ci, _IPA, _AIn, _S], [0, 0, 0, 0]];
-export var IpamConfig: StaticStructureSchema = [3, n0, _IC, 0, [_Q, _ICC], [1, [() => IpamCidrConfigList, 0]]];
-export var KeyGroup: StaticStructureSchema = [3, n0, _KG, 0, [_Id, _LMT, _KGC], [0, 4, [() => KeyGroupConfig, 0]]];
-export var KeyGroupAlreadyExists: StaticErrorSchema = [-3, n0, _KGAE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(KeyGroupAlreadyExists, __KeyGroupAlreadyExists);
-export var KeyGroupConfig: StaticStructureSchema = [3, n0, _KGC, 0, [_N, _I, _Co], [0, [() => PublicKeyIdList, 0], 0]];
-export var KeyGroupList: StaticStructureSchema = [
-  3,
-  n0,
-  _KGL,
-  0,
-  [_NM, _MI, _Q, _I],
-  [0, 1, 1, [() => KeyGroupSummaryList, 0]],
-];
-export var KeyGroupSummary: StaticStructureSchema = [3, n0, _KGS, 0, [_KG], [[() => KeyGroup, 0]]];
-export var KeyPairIds: StaticStructureSchema = [3, n0, _KPI, 0, [_Q, _I], [1, [() => KeyPairIdList, 0]]];
-export var KeyValueStore: StaticStructureSchema = [3, n0, _KVS, 0, [_N, _Id, _Co, _ARN, _S, _LMT], [0, 0, 0, 0, 0, 4]];
-export var KeyValueStoreAssociation: StaticStructureSchema = [3, n0, _KVSAe, 0, [_KVSARN], [0]];
-export var KeyValueStoreAssociations: StaticStructureSchema = [
-  3,
-  n0,
-  _KVSA,
-  0,
-  [_Q, _I],
-  [1, [() => KeyValueStoreAssociationList, 0]],
-];
-export var KeyValueStoreList: StaticStructureSchema = [
-  3,
-  n0,
-  _KVSL,
-  0,
-  [_NM, _MI, _Q, _I],
-  [0, 1, 1, [() => KeyValueStoreSummaryList, 0]],
-];
-export var KGKeyPairIds: StaticStructureSchema = [3, n0, _KGKPI, 0, [_KGI, _KPI], [0, [() => KeyPairIds, 0]]];
-export var KinesisStreamConfig: StaticStructureSchema = [3, n0, _KSC, 0, [_RARN, _SARNt], [0, 0]];
-export var LambdaFunctionAssociation: StaticStructureSchema = [3, n0, _LFAa, 0, [_LFARN, _ETv, _IBn], [0, 0, 2]];
-export var LambdaFunctionAssociations: StaticStructureSchema = [
-  3,
-  n0,
-  _LFA,
-  0,
-  [_Q, _I],
-  [1, [() => LambdaFunctionAssociationList, 0]],
-];
-export var ListAnycastIpListsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LAILR,
-  0,
-  [_Ma, _MI],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-  ],
-];
-export var ListAnycastIpListsResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LAILRi,
-  0,
-  [_AILn],
-  [[() => AnycastIpListCollection, { [_xN]: _AILC, [_hP]: 1 }]],
-];
-export var ListCachePoliciesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LCPR,
-  0,
-  [_T, _Ma, _MI],
-  [
-    [0, { [_hQ]: _T }],
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-  ],
-];
-export var ListCachePoliciesResult: StaticStructureSchema = [3, n0, _LCPRi, 0, [_CPL], [[() => CachePolicyList, 16]]];
-export var ListCloudFrontOriginAccessIdentitiesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LCFOAIR,
-  0,
-  [_Ma, _MI],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-  ],
-];
-export var ListCloudFrontOriginAccessIdentitiesResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LCFOAIRi,
-  0,
-  [_CFOAIL],
-  [[() => CloudFrontOriginAccessIdentityList, 16]],
-];
-export var ListConflictingAliasesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LCAR,
-  0,
-  [_DI, _Al, _Ma, _MI],
-  [
-    [0, { [_hQ]: _DI }],
-    [0, { [_hQ]: _Al }],
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-  ],
-];
-export var ListConflictingAliasesResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LCARi,
-  0,
-  [_CAL],
-  [[() => ConflictingAliasesList, 16]],
-];
-export var ListConnectionFunctionsRequest: StaticStructureSchema = [3, n0, _LCFR, 0, [_Ma, _MI, _St], [0, 1, 0]];
-export var ListConnectionFunctionsResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LCFRi,
-  0,
-  [_NM, _CF],
-  [0, [() => ConnectionFunctionSummaryList, 0]],
-];
-export var ListConnectionGroupsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LCGR,
-  0,
-  [_AF, _Ma, _MI],
-  [() => ConnectionGroupAssociationFilter, 0, 1],
-];
-export var ListConnectionGroupsResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LCGRi,
-  0,
-  [_NM, _CGo],
-  [0, [() => ConnectionGroupSummaryList, 0]],
-];
-export var ListContinuousDeploymentPoliciesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LCDPR,
-  0,
-  [_Ma, _MI],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-  ],
-];
-export var ListContinuousDeploymentPoliciesResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LCDPRi,
-  0,
-  [_CDPL],
-  [[() => ContinuousDeploymentPolicyList, 16]],
-];
-export var ListDistributionsByAnycastIpListIdRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBAILIR,
-  0,
-  [_Ma, _MI, _AILI],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-    [0, 1],
-  ],
-];
-export var ListDistributionsByAnycastIpListIdResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBAILIRi,
-  0,
-  [_DL],
-  [[() => DistributionList, 16]],
-];
-export var ListDistributionsByCachePolicyIdRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBCPIR,
-  0,
-  [_Ma, _MI, _CPI],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-    [0, 1],
-  ],
-];
-export var ListDistributionsByCachePolicyIdResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBCPIRi,
-  0,
-  [_DIL],
-  [[() => DistributionIdList, 16]],
-];
-export var ListDistributionsByConnectionFunctionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBCFR,
-  0,
-  [_Ma, _MI, _CFI],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-    [0, { [_hQ]: _CFI }],
-  ],
-];
-export var ListDistributionsByConnectionFunctionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBCFRi,
-  0,
-  [_DL],
-  [[() => DistributionList, 16]],
-];
-export var ListDistributionsByConnectionModeRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBCMR,
-  0,
-  [_Ma, _MI, _CMo],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-    [0, 1],
-  ],
-];
-export var ListDistributionsByConnectionModeResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBCMRi,
-  0,
-  [_DL],
-  [[() => DistributionList, 16]],
-];
-export var ListDistributionsByKeyGroupRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBKGR,
-  0,
-  [_Ma, _MI, _KGI],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-    [0, 1],
-  ],
-];
-export var ListDistributionsByKeyGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBKGRi,
-  0,
-  [_DIL],
-  [[() => DistributionIdList, 16]],
-];
-export var ListDistributionsByOriginRequestPolicyIdRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBORPIR,
-  0,
-  [_Ma, _MI, _ORPI],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-    [0, 1],
-  ],
-];
-export var ListDistributionsByOriginRequestPolicyIdResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBORPIRi,
-  0,
-  [_DIL],
-  [[() => DistributionIdList, 16]],
-];
-export var ListDistributionsByOwnedResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBORR,
-  0,
-  [_RA, _Ma, _MI],
-  [
-    [0, 1],
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-  ],
-];
-export var ListDistributionsByOwnedResourceResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBORRi,
-  0,
-  [_DL],
-  [[() => DistributionIdOwnerList, 16]],
-];
-export var ListDistributionsByRealtimeLogConfigRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBRLCR,
-  0,
-  [_Ma, _MI, _RLCN, _RLCA],
-  [0, 1, 0, 0],
-];
-export var ListDistributionsByRealtimeLogConfigResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBRLCRi,
-  0,
-  [_DL],
-  [[() => DistributionList, 16]],
-];
-export var ListDistributionsByResponseHeadersPolicyIdRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBRHPIR,
-  0,
-  [_Ma, _MI, _RHPI],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-    [0, 1],
-  ],
-];
-export var ListDistributionsByResponseHeadersPolicyIdResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBRHPIRi,
-  0,
-  [_DIL],
-  [[() => DistributionIdList, 16]],
-];
-export var ListDistributionsByTrustStoreRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBTSR,
-  0,
-  [_TSI, _Ma, _MI],
-  [
-    [0, { [_hQ]: _TSI }],
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-  ],
-];
-export var ListDistributionsByTrustStoreResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBTSRi,
-  0,
-  [_DL],
-  [[() => DistributionList, 16]],
-];
-export var ListDistributionsByVpcOriginIdRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBVOIR,
-  0,
-  [_Ma, _MI, _VOI],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-    [0, 1],
-  ],
-];
-export var ListDistributionsByVpcOriginIdResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBVOIRi,
-  0,
-  [_DIL],
-  [[() => DistributionIdList, 16]],
-];
-export var ListDistributionsByWebACLIdRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBWACLIR,
-  0,
-  [_Ma, _MI, _WACLI],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-    [0, 1],
-  ],
-];
-export var ListDistributionsByWebACLIdResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LDBWACLIRi,
-  0,
-  [_DL],
-  [[() => DistributionList, 16]],
-];
-export var ListDistributionsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDR,
-  0,
-  [_Ma, _MI],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-  ],
-];
-export var ListDistributionsResult: StaticStructureSchema = [3, n0, _LDRi, 0, [_DL], [[() => DistributionList, 16]]];
-export var ListDistributionTenantsByCustomizationRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDTBCR,
-  0,
-  [_WACLA, _CAe, _Ma, _MI],
-  [0, 0, 0, 1],
-];
-export var ListDistributionTenantsByCustomizationResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LDTBCRi,
-  0,
-  [_NM, _DTL],
-  [0, [() => DistributionTenantList, 0]],
-];
-export var ListDistributionTenantsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDTR,
-  0,
-  [_AF, _Ma, _MI],
-  [() => DistributionTenantAssociationFilter, 0, 1],
-];
-export var ListDistributionTenantsResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LDTRi,
-  0,
-  [_NM, _DTL],
-  [0, [() => DistributionTenantList, 0]],
-];
-export var ListDomainConflictsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDCR,
-  0,
-  [_Dom, _DCVR, _MI, _Ma],
-  [0, () => DistributionResourceId, 1, 0],
-];
-export var ListDomainConflictsResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LDCRi,
-  0,
-  [_DCom, _NM],
-  [[() => DomainConflictsList, 0], 0],
-];
-export var ListFieldLevelEncryptionConfigsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LFLECR,
-  0,
-  [_Ma, _MI],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-  ],
-];
-export var ListFieldLevelEncryptionConfigsResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LFLECRi,
-  0,
-  [_FLEL],
-  [[() => FieldLevelEncryptionList, 16]],
-];
-export var ListFieldLevelEncryptionProfilesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LFLEPR,
-  0,
-  [_Ma, _MI],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-  ],
-];
-export var ListFieldLevelEncryptionProfilesResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LFLEPRi,
-  0,
-  [_FLEPL],
-  [[() => FieldLevelEncryptionProfileList, 16]],
-];
-export var ListFunctionsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LFR,
-  0,
-  [_Ma, _MI, _St],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-    [0, { [_hQ]: _St }],
-  ],
-];
-export var ListFunctionsResult: StaticStructureSchema = [3, n0, _LFRi, 0, [_FL], [[() => FunctionList, 16]]];
-export var ListInvalidationsForDistributionTenantRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LIFDTR,
-  0,
-  [_Id, _Ma, _MI],
-  [
-    [0, 1],
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-  ],
-];
-export var ListInvalidationsForDistributionTenantResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LIFDTRi,
-  0,
-  [_IL],
-  [[() => InvalidationList, 16]],
-];
-export var ListInvalidationsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LIR,
-  0,
-  [_DI, _Ma, _MI],
-  [
-    [0, 1],
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-  ],
-];
-export var ListInvalidationsResult: StaticStructureSchema = [3, n0, _LIRi, 0, [_IL], [[() => InvalidationList, 16]]];
-export var ListKeyGroupsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LKGR,
-  0,
-  [_Ma, _MI],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-  ],
-];
-export var ListKeyGroupsResult: StaticStructureSchema = [3, n0, _LKGRi, 0, [_KGL], [[() => KeyGroupList, 16]]];
-export var ListKeyValueStoresRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LKVSR,
-  0,
-  [_Ma, _MI, _S],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-    [0, { [_hQ]: _S }],
-  ],
-];
-export var ListKeyValueStoresResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LKVSRi,
-  0,
-  [_KVSL],
-  [[() => KeyValueStoreList, 16]],
-];
-export var ListOriginAccessControlsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LOACR,
-  0,
-  [_Ma, _MI],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-  ],
-];
-export var ListOriginAccessControlsResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LOACRi,
-  0,
-  [_OACL],
-  [[() => OriginAccessControlList, 16]],
-];
-export var ListOriginRequestPoliciesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LORPR,
-  0,
-  [_T, _Ma, _MI],
-  [
-    [0, { [_hQ]: _T }],
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-  ],
-];
-export var ListOriginRequestPoliciesResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LORPRi,
-  0,
-  [_ORPL],
-  [[() => OriginRequestPolicyList, 16]],
-];
-export var ListPublicKeysRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LPKR,
-  0,
-  [_Ma, _MI],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-  ],
-];
-export var ListPublicKeysResult: StaticStructureSchema = [3, n0, _LPKRi, 0, [_PKL], [[() => PublicKeyList, 16]]];
-export var ListRealtimeLogConfigsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LRLCR,
-  0,
-  [_MI, _Ma],
-  [
-    [1, { [_hQ]: _MI }],
-    [0, { [_hQ]: _Ma }],
-  ],
-];
-export var ListRealtimeLogConfigsResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LRLCRi,
-  0,
-  [_RLCe],
-  [[() => RealtimeLogConfigs, 16]],
-];
-export var ListResponseHeadersPoliciesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LRHPR,
-  0,
-  [_T, _Ma, _MI],
-  [
-    [0, { [_hQ]: _T }],
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-  ],
-];
-export var ListResponseHeadersPoliciesResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LRHPRi,
-  0,
-  [_RHPL],
-  [[() => ResponseHeadersPolicyList, 16]],
-];
-export var ListStreamingDistributionsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LSDR,
-  0,
-  [_Ma, _MI],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-  ],
-];
-export var ListStreamingDistributionsResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LSDRi,
-  0,
-  [_SDL],
-  [[() => StreamingDistributionList, 16]],
-];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_Res], [[0, { [_hQ]: _Res }]]];
-export var ListTagsForResourceResult: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [[() => Tags, 16]]];
-export var ListTrustStoresRequest: StaticStructureSchema = [3, n0, _LTSR, 0, [_Ma, _MI], [0, 1]];
-export var ListTrustStoresResult: StaticStructureSchema = [
-  3,
-  n0,
-  _LTSRi,
-  0,
-  [_NM, _TSL],
-  [0, [() => TrustStoreList, 0]],
-];
-export var ListVpcOriginsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LVOR,
-  0,
-  [_Ma, _MI],
-  [
-    [0, { [_hQ]: _Ma }],
-    [1, { [_hQ]: _MI }],
-  ],
-];
-export var ListVpcOriginsResult: StaticStructureSchema = [3, n0, _LVORi, 0, [_VOL], [[() => VpcOriginList, 16]]];
-export var LoggingConfig: StaticStructureSchema = [3, n0, _LC, 0, [_E, _ICn, _B, _Pr], [2, 2, 0, 0]];
-export var ManagedCertificateDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _MCD,
-  0,
-  [_CAe, _CS, _VTH, _VTD],
-  [0, 0, 0, () => ValidationTokenDetailList],
-];
-export var ManagedCertificateRequest: StaticStructureSchema = [3, n0, _MCR, 0, [_VTH, _PDN, _CTLP], [0, 0, 0]];
-export var MissingBody: StaticErrorSchema = [-3, n0, _MB, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(MissingBody, __MissingBody);
-export var MonitoringSubscription: StaticStructureSchema = [
-  3,
-  n0,
-  _MS,
-  0,
-  [_RMSC],
-  [() => RealtimeMetricsSubscriptionConfig],
-];
-export var MonitoringSubscriptionAlreadyExists: StaticErrorSchema = [
-  -3,
-  n0,
-  _MSAE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(MonitoringSubscriptionAlreadyExists, __MonitoringSubscriptionAlreadyExists);
-export var NoSuchCachePolicy: StaticErrorSchema = [-3, n0, _NSCP, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NoSuchCachePolicy, __NoSuchCachePolicy);
-export var NoSuchCloudFrontOriginAccessIdentity: StaticErrorSchema = [
-  -3,
-  n0,
-  _NSCFOAI,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(NoSuchCloudFrontOriginAccessIdentity, __NoSuchCloudFrontOriginAccessIdentity);
-export var NoSuchContinuousDeploymentPolicy: StaticErrorSchema = [-3, n0, _NSCDP, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NoSuchContinuousDeploymentPolicy, __NoSuchContinuousDeploymentPolicy);
-export var NoSuchDistribution: StaticErrorSchema = [-3, n0, _NSD, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NoSuchDistribution, __NoSuchDistribution);
-export var NoSuchFieldLevelEncryptionConfig: StaticErrorSchema = [-3, n0, _NSFLEC, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NoSuchFieldLevelEncryptionConfig, __NoSuchFieldLevelEncryptionConfig);
-export var NoSuchFieldLevelEncryptionProfile: StaticErrorSchema = [
-  -3,
-  n0,
-  _NSFLEP,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(NoSuchFieldLevelEncryptionProfile, __NoSuchFieldLevelEncryptionProfile);
-export var NoSuchFunctionExists: StaticErrorSchema = [-3, n0, _NSFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NoSuchFunctionExists, __NoSuchFunctionExists);
-export var NoSuchInvalidation: StaticErrorSchema = [-3, n0, _NSI, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NoSuchInvalidation, __NoSuchInvalidation);
-export var NoSuchMonitoringSubscription: StaticErrorSchema = [-3, n0, _NSMS, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NoSuchMonitoringSubscription, __NoSuchMonitoringSubscription);
-export var NoSuchOrigin: StaticErrorSchema = [-3, n0, _NSO, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NoSuchOrigin, __NoSuchOrigin);
-export var NoSuchOriginAccessControl: StaticErrorSchema = [-3, n0, _NSOAC, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NoSuchOriginAccessControl, __NoSuchOriginAccessControl);
-export var NoSuchOriginRequestPolicy: StaticErrorSchema = [-3, n0, _NSORP, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NoSuchOriginRequestPolicy, __NoSuchOriginRequestPolicy);
-export var NoSuchPublicKey: StaticErrorSchema = [-3, n0, _NSPK, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NoSuchPublicKey, __NoSuchPublicKey);
-export var NoSuchRealtimeLogConfig: StaticErrorSchema = [-3, n0, _NSRLC, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NoSuchRealtimeLogConfig, __NoSuchRealtimeLogConfig);
-export var NoSuchResource: StaticErrorSchema = [-3, n0, _NSR, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NoSuchResource, __NoSuchResource);
-export var NoSuchResponseHeadersPolicy: StaticErrorSchema = [-3, n0, _NSRHP, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NoSuchResponseHeadersPolicy, __NoSuchResponseHeadersPolicy);
-export var NoSuchStreamingDistribution: StaticErrorSchema = [-3, n0, _NSSD, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NoSuchStreamingDistribution, __NoSuchStreamingDistribution);
-export var Origin: StaticStructureSchema = [
-  3,
-  n0,
-  _Or,
-  0,
-  [_Id, _DN, _OP, _CH, _SOC, _COC, _VOC, _CAo, _CTon, _RCT, _OS, _OACI],
-  [
-    0,
-    0,
-    0,
-    [() => CustomHeaders, 0],
-    () => S3OriginConfig,
-    [() => CustomOriginConfig, 0],
-    () => VpcOriginConfig,
-    1,
-    1,
-    1,
-    () => OriginShield,
-    0,
-  ],
-];
-export var OriginAccessControl: StaticStructureSchema = [
-  3,
-  n0,
-  _OAC,
-  0,
-  [_Id, _OACC],
-  [0, () => OriginAccessControlConfig],
-];
-export var OriginAccessControlAlreadyExists: StaticErrorSchema = [-3, n0, _OACAE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(OriginAccessControlAlreadyExists, __OriginAccessControlAlreadyExists);
-export var OriginAccessControlConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _OACC,
-  0,
-  [_N, _De, _SP, _SB, _OACOT],
-  [0, 0, 0, 0, 0],
-];
-export var OriginAccessControlInUse: StaticErrorSchema = [-3, n0, _OACIU, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(OriginAccessControlInUse, __OriginAccessControlInUse);
-export var OriginAccessControlList: StaticStructureSchema = [
-  3,
-  n0,
-  _OACL,
-  0,
-  [_Ma, _NM, _MI, _IT, _Q, _I],
-  [0, 0, 1, 2, 1, [() => OriginAccessControlSummaryList, 0]],
-];
-export var OriginAccessControlSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _OACS,
-  0,
-  [_Id, _De, _N, _SP, _SB, _OACOT],
-  [0, 0, 0, 0, 0, 0],
-];
-export var OriginCustomHeader: StaticStructureSchema = [
-  3,
-  n0,
-  _OCH,
-  0,
-  [_HN, _HVe],
-  [0, [() => sensitiveStringType, 0]],
-];
-export var OriginGroup: StaticStructureSchema = [
-  3,
-  n0,
-  _OGr,
-  0,
-  [_Id, _FCa, _Me, _SC],
-  [0, [() => OriginGroupFailoverCriteria, 0], [() => OriginGroupMembers, 0], 0],
-];
-export var OriginGroupFailoverCriteria: StaticStructureSchema = [3, n0, _OGFC, 0, [_SCt], [[() => StatusCodes, 0]]];
-export var OriginGroupMember: StaticStructureSchema = [3, n0, _OGM, 0, [_OI], [0]];
-export var OriginGroupMembers: StaticStructureSchema = [
-  3,
-  n0,
-  _OGMr,
-  0,
-  [_Q, _I],
-  [1, [() => OriginGroupMemberList, 0]],
-];
-export var OriginGroups: StaticStructureSchema = [3, n0, _OG, 0, [_Q, _I], [1, [() => OriginGroupList, 0]]];
-export var OriginRequestPolicy: StaticStructureSchema = [
-  3,
-  n0,
-  _ORP,
-  0,
-  [_Id, _LMT, _ORPC],
-  [0, 4, [() => OriginRequestPolicyConfig, 0]],
-];
-export var OriginRequestPolicyAlreadyExists: StaticErrorSchema = [-3, n0, _ORPAE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(OriginRequestPolicyAlreadyExists, __OriginRequestPolicyAlreadyExists);
-export var OriginRequestPolicyConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _ORPC,
-  0,
-  [_Co, _N, _HC, _CC, _QSC],
-  [
-    0,
-    0,
-    [() => OriginRequestPolicyHeadersConfig, 0],
-    [() => OriginRequestPolicyCookiesConfig, 0],
-    [() => OriginRequestPolicyQueryStringsConfig, 0],
-  ],
-];
-export var OriginRequestPolicyCookiesConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _ORPCC,
-  0,
-  [_CBo, _Coo],
-  [0, [() => CookieNames, 0]],
-];
-export var OriginRequestPolicyHeadersConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _ORPHC,
+export var CachePolicyHeadersConfig$: StaticStructureSchema = [3, n0, _CPHC,
   0,
   [_HB, _H],
-  [0, [() => Headers, 0]],
+  [0, [() => Headers$, 0]]
 ];
-export var OriginRequestPolicyInUse: StaticErrorSchema = [-3, n0, _ORPIU, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(OriginRequestPolicyInUse, __OriginRequestPolicyInUse);
-export var OriginRequestPolicyList: StaticStructureSchema = [
-  3,
-  n0,
-  _ORPL,
-  0,
-  [_NM, _MI, _Q, _I],
-  [0, 1, 1, [() => OriginRequestPolicySummaryList, 0]],
-];
-export var OriginRequestPolicyQueryStringsConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _ORPQSC,
-  0,
-  [_QSB, _QS],
-  [0, [() => QueryStringNames, 0]],
-];
-export var OriginRequestPolicySummary: StaticStructureSchema = [
-  3,
-  n0,
-  _ORPS,
-  0,
-  [_T, _ORP],
-  [0, [() => OriginRequestPolicy, 0]],
-];
-export var Origins: StaticStructureSchema = [3, n0, _O, 0, [_Q, _I], [1, [() => OriginList, 0]]];
-export var OriginShield: StaticStructureSchema = [3, n0, _OS, 0, [_E, _OSR], [2, 0]];
-export var OriginSslProtocols: StaticStructureSchema = [3, n0, _OSP, 0, [_Q, _I], [1, [() => SslProtocolsList, 0]]];
-export var Parameter: StaticStructureSchema = [3, n0, _Par, 0, [_N, _Va], [0, 0]];
-export var ParameterDefinition: StaticStructureSchema = [
-  3,
-  n0,
-  _PDa,
-  0,
-  [_N, _Def],
-  [0, [() => ParameterDefinitionSchema, 0]],
-];
-export var ParameterDefinitionSchema: StaticStructureSchema = [3, n0, _PDS, 0, [_SSt], [[() => StringSchemaConfig, 0]]];
-export var ParametersInCacheKeyAndForwardedToOrigin: StaticStructureSchema = [
-  3,
-  n0,
-  _PICKAFTO,
-  0,
-  [_EAEG, _EAEB, _HC, _CC, _QSC],
-  [
-    2,
-    2,
-    [() => CachePolicyHeadersConfig, 0],
-    [() => CachePolicyCookiesConfig, 0],
-    [() => CachePolicyQueryStringsConfig, 0],
-  ],
-];
-export var Paths: StaticStructureSchema = [3, n0, _Pa, 0, [_Q, _I], [1, [() => PathList, 0]]];
-export var PreconditionFailed: StaticErrorSchema = [-3, n0, _PF, { [_e]: _c, [_hE]: 412 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(PreconditionFailed, __PreconditionFailed);
-export var PublicKey: StaticStructureSchema = [3, n0, _PK, 0, [_Id, _CTr, _PKC], [0, 4, () => PublicKeyConfig]];
-export var PublicKeyAlreadyExists: StaticErrorSchema = [-3, n0, _PKAE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(PublicKeyAlreadyExists, __PublicKeyAlreadyExists);
-export var PublicKeyConfig: StaticStructureSchema = [3, n0, _PKC, 0, [_CR, _N, _EK, _Co], [0, 0, 0, 0]];
-export var PublicKeyInUse: StaticErrorSchema = [-3, n0, _PKIU, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(PublicKeyInUse, __PublicKeyInUse);
-export var PublicKeyList: StaticStructureSchema = [
-  3,
-  n0,
-  _PKL,
-  0,
-  [_NM, _MI, _Q, _I],
-  [0, 1, 1, [() => PublicKeySummaryList, 0]],
-];
-export var PublicKeySummary: StaticStructureSchema = [3, n0, _PKS, 0, [_Id, _N, _CTr, _EK, _Co], [0, 0, 4, 0, 0]];
-export var PublishConnectionFunctionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _PCFR,
-  0,
-  [_Id, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var PublishConnectionFunctionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _PCFRu,
-  0,
-  [_CFS],
-  [[() => ConnectionFunctionSummary, 16]],
-];
-export var PublishFunctionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _PFR,
-  0,
-  [_N, _IM],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
-];
-export var PublishFunctionResult: StaticStructureSchema = [3, n0, _PFRu, 0, [_FS], [[() => FunctionSummary, 16]]];
-export var PutResourcePolicyRequest: StaticStructureSchema = [3, n0, _PRPR, 0, [_RA, _PD], [0, 0]];
-export var PutResourcePolicyResult: StaticStructureSchema = [3, n0, _PRPRu, 0, [_RA], [0]];
-export var QueryArgProfile: StaticStructureSchema = [3, n0, _QAP, 0, [_QA, _PI], [0, 0]];
-export var QueryArgProfileConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _QAPC,
-  0,
-  [_FWQAPIU, _QAPu],
-  [2, [() => QueryArgProfiles, 0]],
-];
-export var QueryArgProfileEmpty: StaticErrorSchema = [-3, n0, _QAPE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(QueryArgProfileEmpty, __QueryArgProfileEmpty);
-export var QueryArgProfiles: StaticStructureSchema = [3, n0, _QAPu, 0, [_Q, _I], [1, [() => QueryArgProfileList, 0]]];
-export var QueryStringCacheKeys: StaticStructureSchema = [
-  3,
-  n0,
-  _QSCK,
-  0,
-  [_Q, _I],
-  [1, [() => QueryStringCacheKeysList, 0]],
-];
-export var QueryStringNames: StaticStructureSchema = [3, n0, _QSN, 0, [_Q, _I], [1, [() => QueryStringNamesList, 0]]];
-export var RealtimeLogConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _RLC,
-  0,
-  [_ARN, _N, _SR, _EP, _Fi],
-  [0, 0, 1, () => EndPointList, [() => FieldList, 0]],
-];
-export var RealtimeLogConfigAlreadyExists: StaticErrorSchema = [-3, n0, _RLCAE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(RealtimeLogConfigAlreadyExists, __RealtimeLogConfigAlreadyExists);
-export var RealtimeLogConfigInUse: StaticErrorSchema = [-3, n0, _RLCIU, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(RealtimeLogConfigInUse, __RealtimeLogConfigInUse);
-export var RealtimeLogConfigOwnerMismatch: StaticErrorSchema = [-3, n0, _RLCOM, { [_e]: _c, [_hE]: 401 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(RealtimeLogConfigOwnerMismatch, __RealtimeLogConfigOwnerMismatch);
-export var RealtimeLogConfigs: StaticStructureSchema = [
-  3,
-  n0,
-  _RLCe,
-  0,
-  [_MI, _I, _IT, _Ma, _NM],
-  [1, [() => RealtimeLogConfigList, 0], 2, 0, 0],
-];
-export var RealtimeMetricsSubscriptionConfig: StaticStructureSchema = [3, n0, _RMSC, 0, [_RMSS], [0]];
-export var ResourceInUse: StaticErrorSchema = [-3, n0, _RIU, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceInUse, __ResourceInUse);
-export var ResourceNotDisabled: StaticErrorSchema = [-3, n0, _RND, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotDisabled, __ResourceNotDisabled);
-export var ResponseHeadersPolicy: StaticStructureSchema = [
-  3,
-  n0,
-  _RHP,
-  0,
-  [_Id, _LMT, _RHPC],
-  [0, 4, [() => ResponseHeadersPolicyConfig, 0]],
-];
-export var ResponseHeadersPolicyAccessControlAllowHeaders: StaticStructureSchema = [
-  3,
-  n0,
-  _RHPACAH,
-  0,
-  [_Q, _I],
-  [1, [() => AccessControlAllowHeadersList, 0]],
-];
-export var ResponseHeadersPolicyAccessControlAllowMethods: StaticStructureSchema = [
-  3,
-  n0,
-  _RHPACAM,
-  0,
-  [_Q, _I],
-  [1, [() => AccessControlAllowMethodsList, 0]],
-];
-export var ResponseHeadersPolicyAccessControlAllowOrigins: StaticStructureSchema = [
-  3,
-  n0,
-  _RHPACAO,
-  0,
-  [_Q, _I],
-  [1, [() => AccessControlAllowOriginsList, 0]],
-];
-export var ResponseHeadersPolicyAccessControlExposeHeaders: StaticStructureSchema = [
-  3,
-  n0,
-  _RHPACEH,
-  0,
-  [_Q, _I],
-  [1, [() => AccessControlExposeHeadersList, 0]],
-];
-export var ResponseHeadersPolicyAlreadyExists: StaticErrorSchema = [
-  -3,
-  n0,
-  _RHPAE,
+export var CachePolicyInUse$: StaticErrorSchema = [-3, n0, _CPIU,
   { [_e]: _c, [_hE]: 409 },
   [_M],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(ResponseHeadersPolicyAlreadyExists, __ResponseHeadersPolicyAlreadyExists);
-export var ResponseHeadersPolicyConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _RHPC,
-  0,
-  [_Co, _N, _CCo, _SHC, _STHC, _CHC, _RHC],
-  [
-    0,
-    0,
-    [() => ResponseHeadersPolicyCorsConfig, 0],
-    () => ResponseHeadersPolicySecurityHeadersConfig,
-    () => ResponseHeadersPolicyServerTimingHeadersConfig,
-    [() => ResponseHeadersPolicyCustomHeadersConfig, 0],
-    [() => ResponseHeadersPolicyRemoveHeadersConfig, 0],
-  ],
-];
-export var ResponseHeadersPolicyContentSecurityPolicy: StaticStructureSchema = [3, n0, _RHPCSP, 0, [_Ov, _CSP], [2, 0]];
-export var ResponseHeadersPolicyContentTypeOptions: StaticStructureSchema = [3, n0, _RHPCTO, 0, [_Ov], [2]];
-export var ResponseHeadersPolicyCorsConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _RHPCC,
-  0,
-  [_ACAO, _ACAH, _ACAM, _ACAC, _ACEH, _ACMAS, _OO],
-  [
-    [() => ResponseHeadersPolicyAccessControlAllowOrigins, 0],
-    [() => ResponseHeadersPolicyAccessControlAllowHeaders, 0],
-    [() => ResponseHeadersPolicyAccessControlAllowMethods, 0],
-    2,
-    [() => ResponseHeadersPolicyAccessControlExposeHeaders, 0],
-    1,
-    2,
-  ],
-];
-export var ResponseHeadersPolicyCustomHeader: StaticStructureSchema = [3, n0, _RHPCH, 0, [_He, _Va, _Ov], [0, 0, 2]];
-export var ResponseHeadersPolicyCustomHeadersConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _RHPCHC,
-  0,
-  [_Q, _I],
-  [1, [() => ResponseHeadersPolicyCustomHeaderList, 0]],
-];
-export var ResponseHeadersPolicyFrameOptions: StaticStructureSchema = [3, n0, _RHPFO, 0, [_Ov, _FO], [2, 0]];
-export var ResponseHeadersPolicyInUse: StaticErrorSchema = [-3, n0, _RHPIU, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResponseHeadersPolicyInUse, __ResponseHeadersPolicyInUse);
-export var ResponseHeadersPolicyList: StaticStructureSchema = [
-  3,
-  n0,
-  _RHPL,
+TypeRegistry.for(n0).registerError(CachePolicyInUse$, CachePolicyInUse);
+export var CachePolicyList$: StaticStructureSchema = [3, n0, _CPL,
   0,
   [_NM, _MI, _Q, _I],
-  [0, 1, 1, [() => ResponseHeadersPolicySummaryList, 0]],
+  [0, 1, 1, [() => CachePolicySummaryList, 0]]
 ];
-export var ResponseHeadersPolicyReferrerPolicy: StaticStructureSchema = [3, n0, _RHPRP, 0, [_Ov, _RP], [2, 0]];
-export var ResponseHeadersPolicyRemoveHeader: StaticStructureSchema = [3, n0, _RHPRH, 0, [_He], [0]];
-export var ResponseHeadersPolicyRemoveHeadersConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _RHPRHC,
+export var CachePolicyQueryStringsConfig$: StaticStructureSchema = [3, n0, _CPQSC,
   0,
-  [_Q, _I],
-  [1, [() => ResponseHeadersPolicyRemoveHeaderList, 0]],
+  [_QSB, _QS],
+  [0, [() => QueryStringNames$, 0]]
 ];
-export var ResponseHeadersPolicySecurityHeadersConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _RHPSHC,
+export var CachePolicySummary$: StaticStructureSchema = [3, n0, _CPS,
   0,
-  [_XSSP, _FOr, _RP, _CSP, _CTO, _STS],
-  [
-    () => ResponseHeadersPolicyXSSProtection,
-    () => ResponseHeadersPolicyFrameOptions,
-    () => ResponseHeadersPolicyReferrerPolicy,
-    () => ResponseHeadersPolicyContentSecurityPolicy,
-    () => ResponseHeadersPolicyContentTypeOptions,
-    () => ResponseHeadersPolicyStrictTransportSecurity,
-  ],
+  [_T, _CP],
+  [0, [() => CachePolicy$, 0]]
 ];
-export var ResponseHeadersPolicyServerTimingHeadersConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _RHPSTHC,
+export var CannotChangeImmutablePublicKeyFields$: StaticErrorSchema = [-3, n0, _CCIPKF,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(CannotChangeImmutablePublicKeyFields$, CannotChangeImmutablePublicKeyFields);
+export var CannotDeleteEntityWhileInUse$: StaticErrorSchema = [-3, n0, _CDEWIU,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(CannotDeleteEntityWhileInUse$, CannotDeleteEntityWhileInUse);
+export var CannotUpdateEntityWhileInUse$: StaticErrorSchema = [-3, n0, _CUEWIU,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(CannotUpdateEntityWhileInUse$, CannotUpdateEntityWhileInUse);
+export var Certificate$: StaticStructureSchema = [3, n0, _Ce,
   0,
-  [_E, _SR],
-  [2, 1],
+  [_Ar],
+  [0]
 ];
-export var ResponseHeadersPolicyStrictTransportSecurity: StaticStructureSchema = [
-  3,
-  n0,
-  _RHPSTS,
+export var CloudFrontOriginAccessIdentity$: StaticStructureSchema = [3, n0, _CFOAI,
   0,
-  [_Ov, _ISnc, _Pre, _ACMAS],
-  [2, 2, 2, 1],
+  [_Id, _SCUI, _CFOAIC],
+  [0, 0, () => CloudFrontOriginAccessIdentityConfig$]
 ];
-export var ResponseHeadersPolicySummary: StaticStructureSchema = [
-  3,
-  n0,
-  _RHPS,
+export var CloudFrontOriginAccessIdentityAlreadyExists$: StaticErrorSchema = [-3, n0, _CFOAIAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(CloudFrontOriginAccessIdentityAlreadyExists$, CloudFrontOriginAccessIdentityAlreadyExists);
+export var CloudFrontOriginAccessIdentityConfig$: StaticStructureSchema = [3, n0, _CFOAIC,
   0,
-  [_T, _RHP],
-  [0, [() => ResponseHeadersPolicy, 0]],
+  [_CR, _Co],
+  [0, 0]
 ];
-export var ResponseHeadersPolicyXSSProtection: StaticStructureSchema = [
-  3,
-  n0,
-  _RHPXSSP,
-  0,
-  [_Ov, _Pro, _MBo, _RU],
-  [2, 2, 2, 0],
+export var CloudFrontOriginAccessIdentityInUse$: StaticErrorSchema = [-3, n0, _CFOAIIU,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
 ];
-export var Restrictions: StaticStructureSchema = [3, n0, _Re, 0, [_GRe], [[() => GeoRestriction, 0]]];
-export var S3Origin: StaticStructureSchema = [3, n0, _SO, 0, [_DN, _OAIr], [0, 0]];
-export var S3OriginConfig: StaticStructureSchema = [3, n0, _SOC, 0, [_OAIr, _ORT], [0, 1]];
-export var SessionStickinessConfig: StaticStructureSchema = [3, n0, _SSC, 0, [_ITTL, _MTTLax], [1, 1]];
-export var Signer: StaticStructureSchema = [3, n0, _Si, 0, [_AAN, _KPI], [0, [() => KeyPairIds, 0]]];
-export var StagingDistributionDnsNames: StaticStructureSchema = [
-  3,
-  n0,
-  _SDDN,
-  0,
-  [_Q, _I],
-  [1, [() => StagingDistributionDnsNameList, 0]],
-];
-export var StagingDistributionInUse: StaticErrorSchema = [-3, n0, _SDIU, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(StagingDistributionInUse, __StagingDistributionInUse);
-export var StatusCodes: StaticStructureSchema = [3, n0, _SCt, 0, [_Q, _I], [1, [() => StatusCodeList, 0]]];
-export var StreamingDistribution: StaticStructureSchema = [
-  3,
-  n0,
-  _SD,
-  0,
-  [_Id, _ARN, _S, _LMT, _DN, _ATS, _SDC],
-  [0, 0, 0, 4, 0, [() => ActiveTrustedSigners, 0], [() => StreamingDistributionConfig, 0]],
-];
-export var StreamingDistributionAlreadyExists: StaticErrorSchema = [-3, n0, _SDAE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(StreamingDistributionAlreadyExists, __StreamingDistributionAlreadyExists);
-export var StreamingDistributionConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _SDC,
-  0,
-  [_CR, _SO, _A, _Co, _Lo, _TS, _PC, _E],
-  [0, () => S3Origin, [() => Aliases, 0], 0, () => StreamingLoggingConfig, [() => TrustedSigners, 0], 0, 2],
-];
-export var StreamingDistributionConfigWithTags: StaticStructureSchema = [
-  3,
-  n0,
-  _SDCWT,
-  0,
-  [_SDC, _Ta],
-  [
-    [() => StreamingDistributionConfig, 0],
-    [() => Tags, 0],
-  ],
-];
-export var StreamingDistributionList: StaticStructureSchema = [
-  3,
-  n0,
-  _SDL,
+TypeRegistry.for(n0).registerError(CloudFrontOriginAccessIdentityInUse$, CloudFrontOriginAccessIdentityInUse);
+export var CloudFrontOriginAccessIdentityList$: StaticStructureSchema = [3, n0, _CFOAIL,
   0,
   [_Ma, _NM, _MI, _IT, _Q, _I],
-  [0, 0, 1, 2, 1, [() => StreamingDistributionSummaryList, 0]],
+  [0, 0, 1, 2, 1, [() => CloudFrontOriginAccessIdentitySummaryList, 0]]
 ];
-export var StreamingDistributionNotDisabled: StaticErrorSchema = [-3, n0, _SDND, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(StreamingDistributionNotDisabled, __StreamingDistributionNotDisabled);
-export var StreamingDistributionSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _SDS,
+export var CloudFrontOriginAccessIdentitySummary$: StaticStructureSchema = [3, n0, _CFOAIS,
   0,
-  [_Id, _ARN, _S, _LMT, _DN, _SO, _A, _TS, _Co, _PC, _E],
-  [0, 0, 0, 4, 0, () => S3Origin, [() => Aliases, 0], [() => TrustedSigners, 0], 0, 0, 2],
+  [_Id, _SCUI, _Co],
+  [0, 0, 0]
 ];
-export var StreamingLoggingConfig: StaticStructureSchema = [3, n0, _SLC, 0, [_E, _B, _Pr], [2, 0, 0]];
-export var StringSchemaConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _SSCt,
+export var CNAMEAlreadyExists$: StaticErrorSchema = [-3, n0, _CNAMEAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(CNAMEAlreadyExists$, CNAMEAlreadyExists);
+export var ConflictingAlias$: StaticStructureSchema = [3, n0, _CA,
   0,
-  [_Co, _DV, _Req],
-  [[() => sensitiveStringType, 0], 0, 2],
+  [_Al, _DI, _AIc],
+  [0, 0, 0]
 ];
-export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _Va], [0, 0]];
-export var TagKeys: StaticStructureSchema = [3, n0, _TK, 0, [_I], [[() => TagKeyList, 0]]];
-export var TagResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _TRR,
+export var ConflictingAliasesList$: StaticStructureSchema = [3, n0, _CAL,
   0,
-  [_Res, _Ta],
-  [
-    [0, { [_hQ]: _Res }],
-    [() => Tags, { [_xN]: _Ta, [_hP]: 1 }],
-  ],
+  [_NM, _MI, _Q, _I],
+  [0, 1, 1, [() => ConflictingAliases, 0]]
 ];
-export var Tags: StaticStructureSchema = [3, n0, _Ta, 0, [_I], [[() => TagList, 0]]];
-export var TenantConfig: StaticStructureSchema = [3, n0, _TCe, 0, [_PDar], [[() => ParameterDefinitions, 0]]];
-export var TestConnectionFunctionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _TCFR,
+export var ConnectionFunctionAssociation$: StaticStructureSchema = [3, n0, _CFA,
   0,
-  [_Id, _IM, _St, _CO],
-  [[0, 1], [0, { [_hH]: _IM_ }], 0, [() => FunctionEventObject, 0]],
+  [_Id],
+  [0]
 ];
-export var TestConnectionFunctionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _TCFRe,
+export var ConnectionFunctionSummary$: StaticStructureSchema = [3, n0, _CFS,
   0,
-  [_CFTR],
-  [[() => ConnectionFunctionTestResult, 16]],
+  [_N, _Id, _CFC, _CFAo, _S, _St, _CTr, _LMT],
+  [0, 0, [() => FunctionConfig$, 0], 0, 0, 0, 4, 4]
 ];
-export var TestFunctionFailed: StaticErrorSchema = [-3, n0, _TFF, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TestFunctionFailed, __TestFunctionFailed);
-export var TestFunctionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _TFR,
+export var ConnectionFunctionTestResult$: StaticStructureSchema = [3, n0, _CFTR,
   0,
-  [_N, _IM, _St, _EO],
-  [[0, 1], [0, { [_hH]: _IM_ }], 0, [() => FunctionEventObject, 0]],
+  [_CFS, _CU, _CFEL, _CFEM, _CFO],
+  [[() => ConnectionFunctionSummary$, 0], 0, [() => FunctionExecutionLogList, 0], [() => sensitiveStringType, 0], [() => sensitiveStringType, 0]]
 ];
-export var TestFunctionResult: StaticStructureSchema = [3, n0, _TFRe, 0, [_TR], [[() => TestResult, 16]]];
-export var TestResult: StaticStructureSchema = [
-  3,
-  n0,
-  _TR,
+export var ConnectionGroup$: StaticStructureSchema = [3, n0, _CG,
   0,
-  [_FS, _CU, _FEL, _FEM, _FOu],
-  [
-    [() => FunctionSummary, 0],
-    0,
-    [() => FunctionExecutionLogList, 0],
-    [() => sensitiveStringType, 0],
-    [() => sensitiveStringType, 0],
-  ],
+  [_Id, _N, _Ar, _CTr, _LMT, _Ta, _IE, _RE, _AILI, _S, _E, _ID],
+  [0, 0, 0, 4, 4, [() => Tags$, 0], 2, 0, 0, 0, 2, 2]
 ];
-export var TooLongCSPInResponseHeadersPolicy: StaticErrorSchema = [
-  -3,
-  n0,
-  _TLCSPIRHP,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(TooLongCSPInResponseHeadersPolicy, __TooLongCSPInResponseHeadersPolicy);
-export var TooManyCacheBehaviors: StaticErrorSchema = [-3, n0, _TMCB, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyCacheBehaviors, __TooManyCacheBehaviors);
-export var TooManyCachePolicies: StaticErrorSchema = [-3, n0, _TMCP, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyCachePolicies, __TooManyCachePolicies);
-export var TooManyCertificates: StaticErrorSchema = [-3, n0, _TMC, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyCertificates, __TooManyCertificates);
-export var TooManyCloudFrontOriginAccessIdentities: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMCFOAI,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(TooManyCloudFrontOriginAccessIdentities, __TooManyCloudFrontOriginAccessIdentities);
-export var TooManyContinuousDeploymentPolicies: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMCDP,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(TooManyContinuousDeploymentPolicies, __TooManyContinuousDeploymentPolicies);
-export var TooManyCookieNamesInWhiteList: StaticErrorSchema = [-3, n0, _TMCNIWL, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyCookieNamesInWhiteList, __TooManyCookieNamesInWhiteList);
-export var TooManyCookiesInCachePolicy: StaticErrorSchema = [-3, n0, _TMCICP, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyCookiesInCachePolicy, __TooManyCookiesInCachePolicy);
-export var TooManyCookiesInOriginRequestPolicy: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMCIORP,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(TooManyCookiesInOriginRequestPolicy, __TooManyCookiesInOriginRequestPolicy);
-export var TooManyCustomHeadersInResponseHeadersPolicy: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMCHIRHP,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  TooManyCustomHeadersInResponseHeadersPolicy,
-  __TooManyCustomHeadersInResponseHeadersPolicy
-);
-export var TooManyDistributionCNAMEs: StaticErrorSchema = [-3, n0, _TMDCNAME, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyDistributionCNAMEs, __TooManyDistributionCNAMEs);
-export var TooManyDistributions: StaticErrorSchema = [-3, n0, _TMD, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyDistributions, __TooManyDistributions);
-export var TooManyDistributionsAssociatedToCachePolicy: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMDATCP,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  TooManyDistributionsAssociatedToCachePolicy,
-  __TooManyDistributionsAssociatedToCachePolicy
-);
-export var TooManyDistributionsAssociatedToFieldLevelEncryptionConfig: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMDATFLEC,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  TooManyDistributionsAssociatedToFieldLevelEncryptionConfig,
-  __TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
-);
-export var TooManyDistributionsAssociatedToKeyGroup: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMDATKG,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  TooManyDistributionsAssociatedToKeyGroup,
-  __TooManyDistributionsAssociatedToKeyGroup
-);
-export var TooManyDistributionsAssociatedToOriginAccessControl: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMDATOAC,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  TooManyDistributionsAssociatedToOriginAccessControl,
-  __TooManyDistributionsAssociatedToOriginAccessControl
-);
-export var TooManyDistributionsAssociatedToOriginRequestPolicy: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMDATORP,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  TooManyDistributionsAssociatedToOriginRequestPolicy,
-  __TooManyDistributionsAssociatedToOriginRequestPolicy
-);
-export var TooManyDistributionsAssociatedToResponseHeadersPolicy: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMDATRHP,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  TooManyDistributionsAssociatedToResponseHeadersPolicy,
-  __TooManyDistributionsAssociatedToResponseHeadersPolicy
-);
-export var TooManyDistributionsWithFunctionAssociations: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMDWFA,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  TooManyDistributionsWithFunctionAssociations,
-  __TooManyDistributionsWithFunctionAssociations
-);
-export var TooManyDistributionsWithLambdaAssociations: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMDWLA,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  TooManyDistributionsWithLambdaAssociations,
-  __TooManyDistributionsWithLambdaAssociations
-);
-export var TooManyDistributionsWithSingleFunctionARN: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMDWSFARN,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  TooManyDistributionsWithSingleFunctionARN,
-  __TooManyDistributionsWithSingleFunctionARN
-);
-export var TooManyFieldLevelEncryptionConfigs: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMFLEC,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(TooManyFieldLevelEncryptionConfigs, __TooManyFieldLevelEncryptionConfigs);
-export var TooManyFieldLevelEncryptionContentTypeProfiles: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMFLECTP,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  TooManyFieldLevelEncryptionContentTypeProfiles,
-  __TooManyFieldLevelEncryptionContentTypeProfiles
-);
-export var TooManyFieldLevelEncryptionEncryptionEntities: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMFLEEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  TooManyFieldLevelEncryptionEncryptionEntities,
-  __TooManyFieldLevelEncryptionEncryptionEntities
-);
-export var TooManyFieldLevelEncryptionFieldPatterns: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMFLEFP,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  TooManyFieldLevelEncryptionFieldPatterns,
-  __TooManyFieldLevelEncryptionFieldPatterns
-);
-export var TooManyFieldLevelEncryptionProfiles: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMFLEP,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(TooManyFieldLevelEncryptionProfiles, __TooManyFieldLevelEncryptionProfiles);
-export var TooManyFieldLevelEncryptionQueryArgProfiles: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMFLEQAP,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  TooManyFieldLevelEncryptionQueryArgProfiles,
-  __TooManyFieldLevelEncryptionQueryArgProfiles
-);
-export var TooManyFunctionAssociations: StaticErrorSchema = [-3, n0, _TMFA, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyFunctionAssociations, __TooManyFunctionAssociations);
-export var TooManyFunctions: StaticErrorSchema = [-3, n0, _TMF, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyFunctions, __TooManyFunctions);
-export var TooManyHeadersInCachePolicy: StaticErrorSchema = [-3, n0, _TMHICP, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyHeadersInCachePolicy, __TooManyHeadersInCachePolicy);
-export var TooManyHeadersInForwardedValues: StaticErrorSchema = [-3, n0, _TMHIFV, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyHeadersInForwardedValues, __TooManyHeadersInForwardedValues);
-export var TooManyHeadersInOriginRequestPolicy: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMHIORP,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(TooManyHeadersInOriginRequestPolicy, __TooManyHeadersInOriginRequestPolicy);
-export var TooManyInvalidationsInProgress: StaticErrorSchema = [-3, n0, _TMIIP, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyInvalidationsInProgress, __TooManyInvalidationsInProgress);
-export var TooManyKeyGroups: StaticErrorSchema = [-3, n0, _TMKG, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyKeyGroups, __TooManyKeyGroups);
-export var TooManyKeyGroupsAssociatedToDistribution: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMKGATD,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  TooManyKeyGroupsAssociatedToDistribution,
-  __TooManyKeyGroupsAssociatedToDistribution
-);
-export var TooManyLambdaFunctionAssociations: StaticErrorSchema = [-3, n0, _TMLFA, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyLambdaFunctionAssociations, __TooManyLambdaFunctionAssociations);
-export var TooManyOriginAccessControls: StaticErrorSchema = [-3, n0, _TMOAC, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyOriginAccessControls, __TooManyOriginAccessControls);
-export var TooManyOriginCustomHeaders: StaticErrorSchema = [-3, n0, _TMOCH, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyOriginCustomHeaders, __TooManyOriginCustomHeaders);
-export var TooManyOriginGroupsPerDistribution: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMOGPD,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(TooManyOriginGroupsPerDistribution, __TooManyOriginGroupsPerDistribution);
-export var TooManyOriginRequestPolicies: StaticErrorSchema = [-3, n0, _TMORP, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyOriginRequestPolicies, __TooManyOriginRequestPolicies);
-export var TooManyOrigins: StaticErrorSchema = [-3, n0, _TMO, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyOrigins, __TooManyOrigins);
-export var TooManyPublicKeys: StaticErrorSchema = [-3, n0, _TMPK, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyPublicKeys, __TooManyPublicKeys);
-export var TooManyPublicKeysInKeyGroup: StaticErrorSchema = [-3, n0, _TMPKIKG, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyPublicKeysInKeyGroup, __TooManyPublicKeysInKeyGroup);
-export var TooManyQueryStringParameters: StaticErrorSchema = [-3, n0, _TMQSP, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyQueryStringParameters, __TooManyQueryStringParameters);
-export var TooManyQueryStringsInCachePolicy: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMQSICP,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(TooManyQueryStringsInCachePolicy, __TooManyQueryStringsInCachePolicy);
-export var TooManyQueryStringsInOriginRequestPolicy: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMQSIORP,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  TooManyQueryStringsInOriginRequestPolicy,
-  __TooManyQueryStringsInOriginRequestPolicy
-);
-export var TooManyRealtimeLogConfigs: StaticErrorSchema = [-3, n0, _TMRLC, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyRealtimeLogConfigs, __TooManyRealtimeLogConfigs);
-export var TooManyRemoveHeadersInResponseHeadersPolicy: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRHIRHP,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  TooManyRemoveHeadersInResponseHeadersPolicy,
-  __TooManyRemoveHeadersInResponseHeadersPolicy
-);
-export var TooManyResponseHeadersPolicies: StaticErrorSchema = [-3, n0, _TMRHP, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyResponseHeadersPolicies, __TooManyResponseHeadersPolicies);
-export var TooManyStreamingDistributionCNAMEs: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMSDCNAME,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0],
-];
-TypeRegistry.for(n0).registerError(TooManyStreamingDistributionCNAMEs, __TooManyStreamingDistributionCNAMEs);
-export var TooManyStreamingDistributions: StaticErrorSchema = [-3, n0, _TMSD, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyStreamingDistributions, __TooManyStreamingDistributions);
-export var TooManyTrustedSigners: StaticErrorSchema = [-3, n0, _TMTS, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyTrustedSigners, __TooManyTrustedSigners);
-export var TrafficConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _TC,
+export var ConnectionGroupAssociationFilter$: StaticStructureSchema = [3, n0, _CGAF,
   0,
-  [_SWC, _SHCi, _T],
-  [() => ContinuousDeploymentSingleWeightConfig, () => ContinuousDeploymentSingleHeaderConfig, 0],
+  [_AILI],
+  [0]
 ];
-export var TrustedKeyGroupDoesNotExist: StaticErrorSchema = [-3, n0, _TKGDNE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TrustedKeyGroupDoesNotExist, __TrustedKeyGroupDoesNotExist);
-export var TrustedKeyGroups: StaticStructureSchema = [
-  3,
-  n0,
-  _TKG,
+export var ConnectionGroupSummary$: StaticStructureSchema = [3, n0, _CGS,
   0,
-  [_E, _Q, _I],
-  [2, 1, [() => TrustedKeyGroupIdList, 0]],
+  [_Id, _N, _Ar, _RE, _CTr, _LMT, _ET, _AILI, _E, _S, _ID],
+  [0, 0, 0, 0, 4, 4, 0, 0, 2, 0, 2]
 ];
-export var TrustedSignerDoesNotExist: StaticErrorSchema = [-3, n0, _TSDNE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TrustedSignerDoesNotExist, __TrustedSignerDoesNotExist);
-export var TrustedSigners: StaticStructureSchema = [
-  3,
-  n0,
-  _TS,
+export var ContentTypeProfile$: StaticStructureSchema = [3, n0, _CTP,
   0,
-  [_E, _Q, _I],
-  [2, 1, [() => AwsAccountNumberList, 0]],
+  [_F, _PI, _CTo],
+  [0, 0, 0]
 ];
-export var TrustStore: StaticStructureSchema = [
-  3,
-  n0,
-  _TSr,
+export var ContentTypeProfileConfig$: StaticStructureSchema = [3, n0, _CTPC,
   0,
-  [_Id, _Ar, _N, _S, _NOCC, _LMT, _Rea],
-  [0, 0, 0, 0, 1, 4, 0],
+  [_FWCTIU, _CTPo],
+  [2, [() => ContentTypeProfiles$, 0]]
 ];
-export var TrustStoreConfig: StaticStructureSchema = [3, n0, _TSC, 0, [_TSIr, _ATSCN, _ICE], [0, 2, 2]];
-export var TrustStoreSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _TSS,
+export var ContentTypeProfiles$: StaticStructureSchema = [3, n0, _CTPo,
   0,
-  [_Id, _Ar, _N, _S, _NOCC, _LMT, _Rea, _ET],
-  [0, 0, 0, 0, 1, 4, 0, 0],
+  [_Q, _I],
+  [1, [() => ContentTypeProfileList, 0]]
 ];
-export var UnsupportedOperation: StaticErrorSchema = [-3, n0, _UO, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(UnsupportedOperation, __UnsupportedOperation);
-export var UntagResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _URR,
+export var ContinuousDeploymentPolicy$: StaticStructureSchema = [3, n0, _CDP,
   0,
-  [_Res, _TK],
-  [
-    [0, { [_hQ]: _Res }],
-    [() => TagKeys, { [_xN]: _TK, [_hP]: 1 }],
-  ],
+  [_Id, _LMT, _CDPC],
+  [0, 4, [() => ContinuousDeploymentPolicyConfig$, 0]]
 ];
-export var UpdateAnycastIpListRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UAILR,
+export var ContinuousDeploymentPolicyAlreadyExists$: StaticErrorSchema = [-3, n0, _CDPAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ContinuousDeploymentPolicyAlreadyExists$, ContinuousDeploymentPolicyAlreadyExists);
+export var ContinuousDeploymentPolicyConfig$: StaticStructureSchema = [3, n0, _CDPC,
   0,
-  [_Id, _IAT, _IM],
-  [[0, 1], 0, [0, { [_hH]: _IM_ }]],
+  [_SDDN, _E, _TC],
+  [[() => StagingDistributionDnsNames$, 0], 2, () => TrafficConfig$]
 ];
-export var UpdateAnycastIpListResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UAILRp,
+export var ContinuousDeploymentPolicyInUse$: StaticErrorSchema = [-3, n0, _CDPIU,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ContinuousDeploymentPolicyInUse$, ContinuousDeploymentPolicyInUse);
+export var ContinuousDeploymentPolicyList$: StaticStructureSchema = [3, n0, _CDPL,
+  0,
+  [_NM, _MI, _Q, _I],
+  [0, 1, 1, [() => ContinuousDeploymentPolicySummaryList, 0]]
+];
+export var ContinuousDeploymentPolicySummary$: StaticStructureSchema = [3, n0, _CDPS,
+  0,
+  [_CDP],
+  [[() => ContinuousDeploymentPolicy$, 0]]
+];
+export var ContinuousDeploymentSingleHeaderConfig$: StaticStructureSchema = [3, n0, _CDSHC,
+  0,
+  [_He, _Va],
+  [0, 0]
+];
+export var ContinuousDeploymentSingleWeightConfig$: StaticStructureSchema = [3, n0, _CDSWC,
+  0,
+  [_W, _SSC],
+  [1, () => SessionStickinessConfig$]
+];
+export var CookieNames$: StaticStructureSchema = [3, n0, _CN,
+  0,
+  [_Q, _I],
+  [1, [() => CookieNameList, 0]]
+];
+export var CookiePreference$: StaticStructureSchema = [3, n0, _CPo,
+  0,
+  [_Fo, _WN],
+  [0, [() => CookieNames$, 0]]
+];
+export var CopyDistributionRequest$: StaticStructureSchema = [3, n0, _CDR,
+  0,
+  [_PDI, _Sta, _IM, _CR, _E],
+  [[0, 1], [2, { [_hH]: _Sta }], [0, { [_hH]: _IM_ }], 0, 2]
+];
+export var CopyDistributionResult$: StaticStructureSchema = [3, n0, _CDRo,
+  0,
+  [_D, _L, _ET],
+  [[() => Distribution$, 16], [0, { [_hH]: _L }], [0, { [_hH]: _ET }]]
+];
+export var CreateAnycastIpListRequest$: StaticStructureSchema = [3, n0, _CAILR,
+  0,
+  [_N, _ICp, _Ta, _IAT, _ICC],
+  [0, 1, [() => Tags$, 0], 0, [() => IpamCidrConfigList, 0]]
+];
+export var CreateAnycastIpListResult$: StaticStructureSchema = [3, n0, _CAILRr,
   0,
   [_AIL, _ET],
-  [
-    [() => AnycastIpList, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [[() => AnycastIpList$, 16], [0, { [_hH]: _ET }]]
 ];
-export var UpdateCachePolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UCPR,
+export var CreateCachePolicyRequest$: StaticStructureSchema = [3, n0, _CCPR,
   0,
-  [_CPC, _Id, _IM],
-  [
-    [() => CachePolicyConfig, { [_xN]: _CPC, [_hP]: 1 }],
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
+  [_CPC],
+  [[() => CachePolicyConfig$, { [_hP]: 1, [_xN]: _CPC }]]
 ];
-export var UpdateCachePolicyResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UCPRp,
+export var CreateCachePolicyResult$: StaticStructureSchema = [3, n0, _CCPRr,
   0,
-  [_CP, _ET],
-  [
-    [() => CachePolicy, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [_CP, _L, _ET],
+  [[() => CachePolicy$, 16], [0, { [_hH]: _L }], [0, { [_hH]: _ET }]]
 ];
-export var UpdateCloudFrontOriginAccessIdentityRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UCFOAIR,
+export var CreateCloudFrontOriginAccessIdentityRequest$: StaticStructureSchema = [3, n0, _CCFOAIR,
   0,
-  [_CFOAIC, _Id, _IM],
-  [
-    [() => CloudFrontOriginAccessIdentityConfig, { [_xN]: _CFOAIC, [_hP]: 1 }],
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
+  [_CFOAIC],
+  [[() => CloudFrontOriginAccessIdentityConfig$, { [_hP]: 1, [_xN]: _CFOAIC }]]
 ];
-export var UpdateCloudFrontOriginAccessIdentityResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UCFOAIRp,
+export var CreateCloudFrontOriginAccessIdentityResult$: StaticStructureSchema = [3, n0, _CCFOAIRr,
   0,
-  [_CFOAI, _ET],
-  [
-    [() => CloudFrontOriginAccessIdentity, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [_CFOAI, _L, _ET],
+  [[() => CloudFrontOriginAccessIdentity$, 16], [0, { [_hH]: _L }], [0, { [_hH]: _ET }]]
 ];
-export var UpdateConnectionFunctionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UCFR,
+export var CreateConnectionFunctionRequest$: StaticStructureSchema = [3, n0, _CCFR,
   0,
-  [_Id, _IM, _CFC, _CFCo],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-    [() => FunctionConfig, 0],
-    [() => FunctionBlob, 0],
-  ],
+  [_N, _CFC, _CFCo, _Ta],
+  [0, [() => FunctionConfig$, 0], [() => FunctionBlob, 0], [() => Tags$, 0]]
 ];
-export var UpdateConnectionFunctionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UCFRp,
+export var CreateConnectionFunctionResult$: StaticStructureSchema = [3, n0, _CCFRr,
   0,
-  [_CFS, _ET],
-  [
-    [() => ConnectionFunctionSummary, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [_CFS, _L, _ET],
+  [[() => ConnectionFunctionSummary$, 16], [0, { [_hH]: _L }], [0, { [_hH]: _ET }]]
 ];
-export var UpdateConnectionGroupRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UCGR,
+export var CreateConnectionGroupRequest$: StaticStructureSchema = [3, n0, _CCGR,
   0,
-  [_Id, _IE, _IM, _AILI, _E],
-  [[0, 1], 2, [0, { [_hH]: _IM_ }], 0, 2],
+  [_N, _IE, _Ta, _AILI, _E],
+  [0, 2, [() => Tags$, 0], 0, 2]
 ];
-export var UpdateConnectionGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UCGRp,
+export var CreateConnectionGroupResult$: StaticStructureSchema = [3, n0, _CCGRr,
   0,
   [_CG, _ET],
-  [
-    [() => ConnectionGroup, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [[() => ConnectionGroup$, 16], [0, { [_hH]: _ET }]]
 ];
-export var UpdateContinuousDeploymentPolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UCDPR,
+export var CreateContinuousDeploymentPolicyRequest$: StaticStructureSchema = [3, n0, _CCDPR,
   0,
-  [_CDPC, _Id, _IM],
-  [
-    [() => ContinuousDeploymentPolicyConfig, { [_xN]: _CDPC, [_hP]: 1 }],
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
+  [_CDPC],
+  [[() => ContinuousDeploymentPolicyConfig$, { [_hP]: 1, [_xN]: _CDPC }]]
 ];
-export var UpdateContinuousDeploymentPolicyResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UCDPRp,
+export var CreateContinuousDeploymentPolicyResult$: StaticStructureSchema = [3, n0, _CCDPRr,
   0,
-  [_CDP, _ET],
-  [
-    [() => ContinuousDeploymentPolicy, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [_CDP, _L, _ET],
+  [[() => ContinuousDeploymentPolicy$, 16], [0, { [_hH]: _L }], [0, { [_hH]: _ET }]]
 ];
-export var UpdateDistributionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UDR,
+export var CreateDistributionRequest$: StaticStructureSchema = [3, n0, _CDRr,
   0,
-  [_DC, _Id, _IM],
-  [
-    [() => DistributionConfig, { [_xN]: _DC, [_hP]: 1 }],
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
+  [_DC],
+  [[() => DistributionConfig$, { [_hP]: 1, [_xN]: _DC }]]
 ];
-export var UpdateDistributionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UDRp,
+export var CreateDistributionResult$: StaticStructureSchema = [3, n0, _CDRre,
   0,
-  [_D, _ET],
-  [
-    [() => Distribution, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [_D, _L, _ET],
+  [[() => Distribution$, 16], [0, { [_hH]: _L }], [0, { [_hH]: _ET }]]
 ];
-export var UpdateDistributionTenantRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UDTR,
+export var CreateDistributionTenantRequest$: StaticStructureSchema = [3, n0, _CDTR,
   0,
-  [_Id, _DI, _Do, _Cu, _P, _CGI, _IM, _MCR, _E],
-  [
-    [0, 1],
-    0,
-    () => DomainList,
-    [() => Customizations, 0],
-    () => _Parameters,
-    0,
-    [0, { [_hH]: _IM_ }],
-    () => ManagedCertificateRequest,
-    2,
-  ],
+  [_DI, _N, _Do, _Ta, _Cu, _P, _CGI, _MCR, _E],
+  [0, 0, () => DomainList, [() => Tags$, 0], [() => Customizations$, 0], () => _Parameters, 0, () => ManagedCertificateRequest$, 2]
 ];
-export var UpdateDistributionTenantResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UDTRp,
+export var CreateDistributionTenantResult$: StaticStructureSchema = [3, n0, _CDTRr,
   0,
   [_DT, _ET],
-  [
-    [() => DistributionTenant, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [[() => DistributionTenant$, 16], [0, { [_hH]: _ET }]]
 ];
-export var UpdateDistributionWithStagingConfigRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UDWSCR,
+export var CreateDistributionWithTagsRequest$: StaticStructureSchema = [3, n0, _CDWTR,
   0,
-  [_Id, _SDI, _IM],
-  [
-    [0, 1],
-    [0, { [_hQ]: _SDI }],
-    [0, { [_hH]: _IM_ }],
-  ],
+  [_DCWT],
+  [[() => DistributionConfigWithTags$, { [_hP]: 1, [_xN]: _DCWT }]]
 ];
-export var UpdateDistributionWithStagingConfigResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UDWSCRp,
+export var CreateDistributionWithTagsResult$: StaticStructureSchema = [3, n0, _CDWTRr,
   0,
-  [_D, _ET],
-  [
-    [() => Distribution, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [_D, _L, _ET],
+  [[() => Distribution$, 16], [0, { [_hH]: _L }], [0, { [_hH]: _ET }]]
 ];
-export var UpdateDomainAssociationRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UDAR,
+export var CreateFieldLevelEncryptionConfigRequest$: StaticStructureSchema = [3, n0, _CFLECR,
   0,
-  [_Dom, _TRa, _IM],
-  [0, () => DistributionResourceId, [0, { [_hH]: _IM_ }]],
+  [_FLEC],
+  [[() => FieldLevelEncryptionConfig$, { [_hP]: 1, [_xN]: _FLEC }]]
 ];
-export var UpdateDomainAssociationResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UDARp,
+export var CreateFieldLevelEncryptionConfigResult$: StaticStructureSchema = [3, n0, _CFLECRr,
   0,
-  [_Dom, _RI, _ET],
-  [0, 0, [0, { [_hH]: _ET }]],
+  [_FLE, _L, _ET],
+  [[() => FieldLevelEncryption$, 16], [0, { [_hH]: _L }], [0, { [_hH]: _ET }]]
 ];
-export var UpdateFieldLevelEncryptionConfigRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UFLECR,
+export var CreateFieldLevelEncryptionProfileRequest$: StaticStructureSchema = [3, n0, _CFLEPR,
   0,
-  [_FLEC, _Id, _IM],
-  [
-    [() => FieldLevelEncryptionConfig, { [_xN]: _FLEC, [_hP]: 1 }],
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
+  [_FLEPC],
+  [[() => FieldLevelEncryptionProfileConfig$, { [_hP]: 1, [_xN]: _FLEPC }]]
 ];
-export var UpdateFieldLevelEncryptionConfigResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UFLECRp,
+export var CreateFieldLevelEncryptionProfileResult$: StaticStructureSchema = [3, n0, _CFLEPRr,
   0,
-  [_FLE, _ET],
-  [
-    [() => FieldLevelEncryption, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [_FLEP, _L, _ET],
+  [[() => FieldLevelEncryptionProfile$, 16], [0, { [_hH]: _L }], [0, { [_hH]: _ET }]]
 ];
-export var UpdateFieldLevelEncryptionProfileRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UFLEPR,
+export var CreateFunctionRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_FLEPC, _Id, _IM],
-  [
-    [() => FieldLevelEncryptionProfileConfig, { [_xN]: _FLEPC, [_hP]: 1 }],
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
+  [_N, _FC, _FCu],
+  [0, [() => FunctionConfig$, 0], [() => FunctionBlob, 0]]
 ];
-export var UpdateFieldLevelEncryptionProfileResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UFLEPRp,
+export var CreateFunctionResult$: StaticStructureSchema = [3, n0, _CFRr,
   0,
-  [_FLEP, _ET],
-  [
-    [() => FieldLevelEncryptionProfile, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [_FS, _L, _ET],
+  [[() => FunctionSummary$, 16], [0, { [_hH]: _L }], [0, { [_hH]: _ET }]]
 ];
-export var UpdateFunctionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UFR,
+export var CreateInvalidationForDistributionTenantRequest$: StaticStructureSchema = [3, n0, _CIFDTR,
   0,
-  [_N, _IM, _FC, _FCu],
-  [
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-    [() => FunctionConfig, 0],
-    [() => FunctionBlob, 0],
-  ],
+  [_Id, _IB],
+  [[0, 1], [() => InvalidationBatch$, { [_hP]: 1, [_xN]: _IB }]]
 ];
-export var UpdateFunctionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UFRp,
+export var CreateInvalidationForDistributionTenantResult$: StaticStructureSchema = [3, n0, _CIFDTRr,
   0,
-  [_FS, _ET],
-  [
-    [() => FunctionSummary, 16],
-    [0, { [_hH]: _ETt }],
-  ],
+  [_L, _In],
+  [[0, { [_hH]: _L }], [() => Invalidation$, 16]]
 ];
-export var UpdateKeyGroupRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UKGR,
+export var CreateInvalidationRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
-  [_KGC, _Id, _IM],
-  [
-    [() => KeyGroupConfig, { [_xN]: _KGC, [_hP]: 1 }],
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
+  [_DI, _IB],
+  [[0, 1], [() => InvalidationBatch$, { [_hP]: 1, [_xN]: _IB }]]
 ];
-export var UpdateKeyGroupResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UKGRp,
+export var CreateInvalidationResult$: StaticStructureSchema = [3, n0, _CIRr,
   0,
-  [_KG, _ET],
-  [
-    [() => KeyGroup, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [_L, _In],
+  [[0, { [_hH]: _L }], [() => Invalidation$, 16]]
 ];
-export var UpdateKeyValueStoreRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UKVSR,
+export var CreateKeyGroupRequest$: StaticStructureSchema = [3, n0, _CKGR,
   0,
-  [_N, _Co, _IM],
-  [[0, 1], 0, [0, { [_hH]: _IM_ }]],
+  [_KGC],
+  [[() => KeyGroupConfig$, { [_hP]: 1, [_xN]: _KGC }]]
 ];
-export var UpdateKeyValueStoreResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UKVSRp,
+export var CreateKeyGroupResult$: StaticStructureSchema = [3, n0, _CKGRr,
   0,
-  [_KVS, _ET],
-  [
-    [() => KeyValueStore, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [_KG, _L, _ET],
+  [[() => KeyGroup$, 16], [0, { [_hH]: _L }], [0, { [_hH]: _ET }]]
 ];
-export var UpdateOriginAccessControlRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UOACR,
+export var CreateKeyValueStoreRequest$: StaticStructureSchema = [3, n0, _CKVSR,
   0,
-  [_OACC, _Id, _IM],
-  [
-    [() => OriginAccessControlConfig, { [_xN]: _OACC, [_hP]: 1 }],
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
+  [_N, _Co, _IS],
+  [0, 0, () => ImportSource$]
 ];
-export var UpdateOriginAccessControlResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UOACRp,
+export var CreateKeyValueStoreResult$: StaticStructureSchema = [3, n0, _CKVSRr,
   0,
-  [_OAC, _ET],
-  [
-    [() => OriginAccessControl, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [_KVS, _ET, _L],
+  [[() => KeyValueStore$, 16], [0, { [_hH]: _ET }], [0, { [_hH]: _L }]]
 ];
-export var UpdateOriginRequestPolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UORPR,
+export var CreateMonitoringSubscriptionRequest$: StaticStructureSchema = [3, n0, _CMSR,
   0,
-  [_ORPC, _Id, _IM],
-  [
-    [() => OriginRequestPolicyConfig, { [_xN]: _ORPC, [_hP]: 1 }],
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
+  [_DI, _MS],
+  [[0, 1], [() => MonitoringSubscription$, { [_hP]: 1, [_xN]: _MS }]]
 ];
-export var UpdateOriginRequestPolicyResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UORPRp,
+export var CreateMonitoringSubscriptionResult$: StaticStructureSchema = [3, n0, _CMSRr,
   0,
-  [_ORP, _ET],
-  [
-    [() => OriginRequestPolicy, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [_MS],
+  [[() => MonitoringSubscription$, 16]]
 ];
-export var UpdatePublicKeyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UPKR,
+export var CreateOriginAccessControlRequest$: StaticStructureSchema = [3, n0, _COACR,
   0,
-  [_PKC, _Id, _IM],
-  [
-    [() => PublicKeyConfig, { [_xN]: _PKC, [_hP]: 1 }],
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
+  [_OACC],
+  [[() => OriginAccessControlConfig$, { [_hP]: 1, [_xN]: _OACC }]]
 ];
-export var UpdatePublicKeyResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UPKRp,
+export var CreateOriginAccessControlResult$: StaticStructureSchema = [3, n0, _COACRr,
   0,
-  [_PK, _ET],
-  [
-    [() => PublicKey, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [_OAC, _L, _ET],
+  [[() => OriginAccessControl$, 16], [0, { [_hH]: _L }], [0, { [_hH]: _ET }]]
 ];
-export var UpdateRealtimeLogConfigRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _URLCR,
+export var CreateOriginRequestPolicyRequest$: StaticStructureSchema = [3, n0, _CORPR,
   0,
-  [_EP, _Fi, _N, _ARN, _SR],
-  [() => EndPointList, [() => FieldList, 0], 0, 0, 1],
+  [_ORPC],
+  [[() => OriginRequestPolicyConfig$, { [_hP]: 1, [_xN]: _ORPC }]]
 ];
-export var UpdateRealtimeLogConfigResult: StaticStructureSchema = [
-  3,
-  n0,
-  _URLCRp,
+export var CreateOriginRequestPolicyResult$: StaticStructureSchema = [3, n0, _CORPRr,
+  0,
+  [_ORP, _L, _ET],
+  [[() => OriginRequestPolicy$, 16], [0, { [_hH]: _L }], [0, { [_hH]: _ET }]]
+];
+export var CreatePublicKeyRequest$: StaticStructureSchema = [3, n0, _CPKR,
+  0,
+  [_PKC],
+  [[() => PublicKeyConfig$, { [_hP]: 1, [_xN]: _PKC }]]
+];
+export var CreatePublicKeyResult$: StaticStructureSchema = [3, n0, _CPKRr,
+  0,
+  [_PK, _L, _ET],
+  [[() => PublicKey$, 16], [0, { [_hH]: _L }], [0, { [_hH]: _ET }]]
+];
+export var CreateRealtimeLogConfigRequest$: StaticStructureSchema = [3, n0, _CRLCR,
+  0,
+  [_EP, _Fi, _N, _SR],
+  [() => EndPointList, [() => FieldList, 0], 0, 1]
+];
+export var CreateRealtimeLogConfigResult$: StaticStructureSchema = [3, n0, _CRLCRr,
   0,
   [_RLC],
-  [[() => RealtimeLogConfig, 0]],
+  [[() => RealtimeLogConfig$, 0]]
 ];
-export var UpdateResponseHeadersPolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _URHPR,
+export var CreateResponseHeadersPolicyRequest$: StaticStructureSchema = [3, n0, _CRHPR,
   0,
-  [_RHPC, _Id, _IM],
-  [
-    [() => ResponseHeadersPolicyConfig, { [_xN]: _RHPC, [_hP]: 1 }],
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
+  [_RHPC],
+  [[() => ResponseHeadersPolicyConfig$, { [_hP]: 1, [_xN]: _RHPC }]]
 ];
-export var UpdateResponseHeadersPolicyResult: StaticStructureSchema = [
-  3,
-  n0,
-  _URHPRp,
+export var CreateResponseHeadersPolicyResult$: StaticStructureSchema = [3, n0, _CRHPRr,
   0,
-  [_RHP, _ET],
-  [
-    [() => ResponseHeadersPolicy, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [_RHP, _L, _ET],
+  [[() => ResponseHeadersPolicy$, 16], [0, { [_hH]: _L }], [0, { [_hH]: _ET }]]
 ];
-export var UpdateStreamingDistributionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _USDR,
+export var CreateStreamingDistributionRequest$: StaticStructureSchema = [3, n0, _CSDR,
   0,
-  [_SDC, _Id, _IM],
-  [
-    [() => StreamingDistributionConfig, { [_xN]: _SDC, [_hP]: 1 }],
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
+  [_SDC],
+  [[() => StreamingDistributionConfig$, { [_hP]: 1, [_xN]: _SDC }]]
 ];
-export var UpdateStreamingDistributionResult: StaticStructureSchema = [
-  3,
-  n0,
-  _USDRp,
+export var CreateStreamingDistributionResult$: StaticStructureSchema = [3, n0, _CSDRr,
   0,
-  [_SD, _ET],
-  [
-    [() => StreamingDistribution, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [_SD, _L, _ET],
+  [[() => StreamingDistribution$, 16], [0, { [_hH]: _L }], [0, { [_hH]: _ET }]]
 ];
-export var UpdateTrustStoreRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UTSR,
+export var CreateStreamingDistributionWithTagsRequest$: StaticStructureSchema = [3, n0, _CSDWTR,
   0,
-  [_Id, _CCBS, _IM],
-  [
-    [0, 1],
-    [() => CaCertificatesBundleSource, 16],
-    [0, { [_hH]: _IM_ }],
-  ],
+  [_SDCWT],
+  [[() => StreamingDistributionConfigWithTags$, { [_hP]: 1, [_xN]: _SDCWT }]]
 ];
-export var UpdateTrustStoreResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UTSRp,
+export var CreateStreamingDistributionWithTagsResult$: StaticStructureSchema = [3, n0, _CSDWTRr,
+  0,
+  [_SD, _L, _ET],
+  [[() => StreamingDistribution$, 16], [0, { [_hH]: _L }], [0, { [_hH]: _ET }]]
+];
+export var CreateTrustStoreRequest$: StaticStructureSchema = [3, n0, _CTSR,
+  0,
+  [_N, _CCBS, _Ta],
+  [0, () => CaCertificatesBundleSource$, [() => Tags$, 0]]
+];
+export var CreateTrustStoreResult$: StaticStructureSchema = [3, n0, _CTSRr,
   0,
   [_TSr, _ET],
-  [
-    [() => TrustStore, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [[() => TrustStore$, 16], [0, { [_hH]: _ET }]]
 ];
-export var UpdateVpcOriginRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UVOR,
+export var CreateVpcOriginRequest$: StaticStructureSchema = [3, n0, _CVOR,
   0,
-  [_VOEC, _Id, _IM],
-  [
-    [() => VpcOriginEndpointConfig, { [_xN]: _VOEC, [_hP]: 1 }],
-    [0, 1],
-    [0, { [_hH]: _IM_ }],
-  ],
+  [_VOEC, _Ta],
+  [[() => VpcOriginEndpointConfig$, 0], [() => Tags$, 0]]
 ];
-export var UpdateVpcOriginResult: StaticStructureSchema = [
-  3,
-  n0,
-  _UVORp,
+export var CreateVpcOriginResult$: StaticStructureSchema = [3, n0, _CVORr,
+  0,
+  [_VO, _L, _ET],
+  [[() => VpcOrigin$, 16], [0, { [_hH]: _L }], [0, { [_hH]: _ET }]]
+];
+export var CustomErrorResponse$: StaticStructureSchema = [3, n0, _CER,
+  0,
+  [_EC, _RPP, _RC, _ECMTTL],
+  [1, 0, 0, 1]
+];
+export var CustomErrorResponses$: StaticStructureSchema = [3, n0, _CERu,
+  0,
+  [_Q, _I],
+  [1, [() => CustomErrorResponseList, 0]]
+];
+export var CustomHeaders$: StaticStructureSchema = [3, n0, _CH,
+  0,
+  [_Q, _I],
+  [1, [() => OriginCustomHeadersList, 0]]
+];
+export var Customizations$: StaticStructureSchema = [3, n0, _Cu,
+  0,
+  [_WA, _Ce, _GR],
+  [() => WebAclCustomization$, () => Certificate$, [() => GeoRestrictionCustomization$, 0]]
+];
+export var CustomOriginConfig$: StaticStructureSchema = [3, n0, _COC,
+  0,
+  [_HTTPP, _HTTPSP, _OPP, _OSP, _ORT, _OKT, _IAT],
+  [1, 1, 0, [() => OriginSslProtocols$, 0], 1, 1, 0]
+];
+export var DefaultCacheBehavior$: StaticStructureSchema = [3, n0, _DCB,
+  0,
+  [_TOI, _TS, _TKG, _VPP, _AM, _SS, _C, _LFA, _FA, _FLEI, _RLCA, _CPI, _ORPI, _RHPI, _GC, _FV, _MTTL, _DTTL, _MTTLa],
+  [0, [() => TrustedSigners$, 0], [() => TrustedKeyGroups$, 0], 0, [() => AllowedMethods$, 0], 2, 2, [() => LambdaFunctionAssociations$, 0], [() => FunctionAssociations$, 0], 0, 0, 0, 0, 0, () => GrpcConfig$, [() => ForwardedValues$, 0], 1, 1, 1]
+];
+export var DeleteAnycastIpListRequest$: StaticStructureSchema = [3, n0, _DAILR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeleteCachePolicyRequest$: StaticStructureSchema = [3, n0, _DCPR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeleteCloudFrontOriginAccessIdentityRequest$: StaticStructureSchema = [3, n0, _DCFOAIR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeleteConnectionFunctionRequest$: StaticStructureSchema = [3, n0, _DCFR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeleteConnectionGroupRequest$: StaticStructureSchema = [3, n0, _DCGR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeleteContinuousDeploymentPolicyRequest$: StaticStructureSchema = [3, n0, _DCDPR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeleteDistributionRequest$: StaticStructureSchema = [3, n0, _DDR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeleteDistributionTenantRequest$: StaticStructureSchema = [3, n0, _DDTR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeleteFieldLevelEncryptionConfigRequest$: StaticStructureSchema = [3, n0, _DFLECR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeleteFieldLevelEncryptionProfileRequest$: StaticStructureSchema = [3, n0, _DFLEPR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeleteFunctionRequest$: StaticStructureSchema = [3, n0, _DFR,
+  0,
+  [_N, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeleteKeyGroupRequest$: StaticStructureSchema = [3, n0, _DKGR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeleteKeyValueStoreRequest$: StaticStructureSchema = [3, n0, _DKVSR,
+  0,
+  [_N, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeleteMonitoringSubscriptionRequest$: StaticStructureSchema = [3, n0, _DMSR,
+  0,
+  [_DI],
+  [[0, 1]]
+];
+export var DeleteMonitoringSubscriptionResult$: StaticStructureSchema = [3, n0, _DMSRe,
+  0,
+  [],
+  []
+];
+export var DeleteOriginAccessControlRequest$: StaticStructureSchema = [3, n0, _DOACR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeleteOriginRequestPolicyRequest$: StaticStructureSchema = [3, n0, _DORPR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeletePublicKeyRequest$: StaticStructureSchema = [3, n0, _DPKR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeleteRealtimeLogConfigRequest$: StaticStructureSchema = [3, n0, _DRLCR,
+  0,
+  [_N, _ARN],
+  [0, 0]
+];
+export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
+  0,
+  [_RA],
+  [0]
+];
+export var DeleteResponseHeadersPolicyRequest$: StaticStructureSchema = [3, n0, _DRHPR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeleteStreamingDistributionRequest$: StaticStructureSchema = [3, n0, _DSDR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeleteTrustStoreRequest$: StaticStructureSchema = [3, n0, _DTSR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeleteVpcOriginRequest$: StaticStructureSchema = [3, n0, _DVOR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DeleteVpcOriginResult$: StaticStructureSchema = [3, n0, _DVORe,
   0,
   [_VO, _ET],
-  [
-    [() => VpcOrigin, 16],
-    [0, { [_hH]: _ET }],
-  ],
+  [[() => VpcOrigin$, 16], [0, { [_hH]: _ET }]]
 ];
-export var ValidationTokenDetail: StaticStructureSchema = [3, n0, _VTDa, 0, [_Dom, _RTed, _RF], [0, 0, 0]];
-export var VerifyDnsConfigurationRequest: StaticStructureSchema = [3, n0, _VDCR, 0, [_Dom, _Ide], [0, 0]];
-export var VerifyDnsConfigurationResult: StaticStructureSchema = [
-  3,
-  n0,
-  _VDCRe,
+export var DescribeConnectionFunctionRequest$: StaticStructureSchema = [3, n0, _DCFRe,
   0,
-  [_DCL],
-  [[() => DnsConfigurationList, 0]],
+  [_Ide, _St],
+  [[0, 1], [0, { [_hQ]: _St }]]
 ];
-export var ViewerCertificate: StaticStructureSchema = [
-  3,
-  n0,
-  _VC,
+export var DescribeConnectionFunctionResult$: StaticStructureSchema = [3, n0, _DCFRes,
   0,
-  [_CFDC, _IAMCI, _ACMCA, _SSLSM, _MPV, _Ce, _CSe],
-  [2, 0, 0, 0, 0, 0, 0],
+  [_CFS, _ET],
+  [[() => ConnectionFunctionSummary$, 16], [0, { [_hH]: _ET }]]
 ];
-export var ViewerMtlsConfig: StaticStructureSchema = [3, n0, _VMC, 0, [_Mo, _TSC], [0, () => TrustStoreConfig]];
-export var VpcOrigin: StaticStructureSchema = [
-  3,
-  n0,
-  _VO,
+export var DescribeFunctionRequest$: StaticStructureSchema = [3, n0, _DFRe,
   0,
-  [_Id, _Ar, _AIc, _S, _CTr, _LMT, _VOEC],
-  [0, 0, 0, 0, 4, 4, [() => VpcOriginEndpointConfig, 0]],
+  [_N, _St],
+  [[0, 1], [0, { [_hQ]: _St }]]
 ];
-export var VpcOriginConfig: StaticStructureSchema = [3, n0, _VOC, 0, [_VOI, _OAI, _ORT, _OKT], [0, 0, 1, 1]];
-export var VpcOriginEndpointConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _VOEC,
+export var DescribeFunctionResult$: StaticStructureSchema = [3, n0, _DFRes,
   0,
-  [_N, _Ar, _HTTPP, _HTTPSP, _OPP, _OSP],
-  [0, 0, 1, 1, 0, [() => OriginSslProtocols, 0]],
+  [_FS, _ET],
+  [[() => FunctionSummary$, 16], [0, { [_hH]: _ET }]]
 ];
-export var VpcOriginList: StaticStructureSchema = [
-  3,
-  n0,
-  _VOL,
+export var DescribeKeyValueStoreRequest$: StaticStructureSchema = [3, n0, _DKVSRe,
+  0,
+  [_N],
+  [[0, 1]]
+];
+export var DescribeKeyValueStoreResult$: StaticStructureSchema = [3, n0, _DKVSRes,
+  0,
+  [_KVS, _ET],
+  [[() => KeyValueStore$, 16], [0, { [_hH]: _ET }]]
+];
+export var DisassociateDistributionTenantWebACLRequest$: StaticStructureSchema = [3, n0, _DDTWACLR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DisassociateDistributionTenantWebACLResult$: StaticStructureSchema = [3, n0, _DDTWACLRi,
+  0,
+  [_Id, _ET],
+  [0, [0, { [_hH]: _ET }]]
+];
+export var DisassociateDistributionWebACLRequest$: StaticStructureSchema = [3, n0, _DDWACLR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var DisassociateDistributionWebACLResult$: StaticStructureSchema = [3, n0, _DDWACLRi,
+  0,
+  [_Id, _ET],
+  [0, [0, { [_hH]: _ET }]]
+];
+export var Distribution$: StaticStructureSchema = [3, n0, _D,
+  0,
+  [_Id, _ARN, _S, _LMT, _IPIB, _DN, _ATS, _ATKG, _DC, _AICPRl],
+  [0, 0, 0, 4, 1, 0, [() => ActiveTrustedSigners$, 0], [() => ActiveTrustedKeyGroups$, 0], [() => DistributionConfig$, 0], [() => AliasICPRecordals, 0]]
+];
+export var DistributionAlreadyExists$: StaticErrorSchema = [-3, n0, _DAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DistributionAlreadyExists$, DistributionAlreadyExists);
+export var DistributionConfig$: StaticStructureSchema = [3, n0, _DC,
+  0,
+  [_CR, _A, _DRO, _O, _OG, _DCB, _CBa, _CERu, _Co, _Lo, _PC, _E, _VC, _Re, _WACLI, _HV, _IIPVE, _CDPI, _Sta, _AILI, _TCe, _CMo, _VMC, _CFA],
+  [0, [() => Aliases$, 0], 0, [() => Origins$, 0], [() => OriginGroups$, 0], [() => DefaultCacheBehavior$, 0], [() => CacheBehaviors$, 0], [() => CustomErrorResponses$, 0], [() => CommentType, 0], () => LoggingConfig$, 0, 2, () => ViewerCertificate$, [() => Restrictions$, 0], 0, 0, 2, 0, 2, 0, [() => TenantConfig$, 0], 0, () => ViewerMtlsConfig$, () => ConnectionFunctionAssociation$]
+];
+export var DistributionConfigWithTags$: StaticStructureSchema = [3, n0, _DCWT,
+  0,
+  [_DC, _Ta],
+  [[() => DistributionConfig$, 0], [() => Tags$, 0]]
+];
+export var DistributionIdList$: StaticStructureSchema = [3, n0, _DIL,
   0,
   [_Ma, _NM, _MI, _IT, _Q, _I],
-  [0, 0, 1, 2, 1, [() => VpcOriginSummaryList, 0]],
+  [0, 0, 1, 2, 1, [() => DistributionIdListSummary, 0]]
 ];
-export var VpcOriginSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _VOS,
+export var DistributionIdOwner$: StaticStructureSchema = [3, n0, _DIO,
+  0,
+  [_DI, _OAI],
+  [0, 0]
+];
+export var DistributionIdOwnerList$: StaticStructureSchema = [3, n0, _DIOL,
+  0,
+  [_Ma, _NM, _MI, _IT, _Q, _I],
+  [0, 0, 1, 2, 1, [() => DistributionIdOwnerItemList, 0]]
+];
+export var DistributionList$: StaticStructureSchema = [3, n0, _DL,
+  0,
+  [_Ma, _NM, _MI, _IT, _Q, _I],
+  [0, 0, 1, 2, 1, [() => DistributionSummaryList, 0]]
+];
+export var DistributionNotDisabled$: StaticErrorSchema = [-3, n0, _DND,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DistributionNotDisabled$, DistributionNotDisabled);
+export var DistributionResourceId$: StaticStructureSchema = [3, n0, _DRI,
+  0,
+  [_DI, _DTI],
+  [0, 0]
+];
+export var DistributionSummary$: StaticStructureSchema = [3, n0, _DS,
+  0,
+  [_Id, _ARN, _ET, _S, _LMT, _DN, _A, _O, _OG, _DCB, _CBa, _CERu, _Co, _PC, _E, _VC, _Re, _WACLI, _HV, _IIPVE, _AICPRl, _Sta, _CMo, _AILI, _VMC, _CFA],
+  [0, 0, 0, 0, 4, 0, [() => Aliases$, 0], [() => Origins$, 0], [() => OriginGroups$, 0], [() => DefaultCacheBehavior$, 0], [() => CacheBehaviors$, 0], [() => CustomErrorResponses$, 0], [() => sensitiveStringType, 0], 0, 2, () => ViewerCertificate$, [() => Restrictions$, 0], 0, 0, 2, [() => AliasICPRecordals, 0], 2, 0, 0, () => ViewerMtlsConfig$, () => ConnectionFunctionAssociation$]
+];
+export var DistributionTenant$: StaticStructureSchema = [3, n0, _DT,
+  0,
+  [_Id, _DI, _N, _Ar, _Do, _Ta, _Cu, _P, _CGI, _CTr, _LMT, _E, _S],
+  [0, 0, 0, 0, () => DomainResultList, [() => Tags$, 0], [() => Customizations$, 0], () => _Parameters, 0, 4, 4, 2, 0]
+];
+export var DistributionTenantAssociationFilter$: StaticStructureSchema = [3, n0, _DTAF,
+  0,
+  [_DI, _CGI],
+  [0, 0]
+];
+export var DistributionTenantSummary$: StaticStructureSchema = [3, n0, _DTS,
+  0,
+  [_Id, _DI, _N, _Ar, _Do, _CGI, _Cu, _CTr, _LMT, _ET, _E, _S],
+  [0, 0, 0, 0, () => DomainResultList, 0, [() => Customizations$, 0], 4, 4, 0, 2, 0]
+];
+export var DnsConfiguration$: StaticStructureSchema = [3, n0, _DCn,
+  0,
+  [_Dom, _S, _Rea],
+  [0, 0, 0]
+];
+export var DomainConflict$: StaticStructureSchema = [3, n0, _DCo,
+  0,
+  [_Dom, _RT, _RI, _AIc],
+  [0, 0, 0, 0]
+];
+export var DomainItem$: StaticStructureSchema = [3, n0, _DIo,
+  0,
+  [_Dom],
+  [0]
+];
+export var DomainResult$: StaticStructureSchema = [3, n0, _DR,
+  0,
+  [_Dom, _S],
+  [0, 0]
+];
+export var EncryptionEntities$: StaticStructureSchema = [3, n0, _EE,
+  0,
+  [_Q, _I],
+  [1, [() => EncryptionEntityList, 0]]
+];
+export var EncryptionEntity$: StaticStructureSchema = [3, n0, _EEn,
+  0,
+  [_PKI, _PIr, _FP],
+  [0, 0, [() => FieldPatterns$, 0]]
+];
+export var EndPoint$: StaticStructureSchema = [3, n0, _EPn,
+  0,
+  [_ST, _KSC],
+  [0, () => KinesisStreamConfig$]
+];
+export var EntityAlreadyExists$: StaticErrorSchema = [-3, n0, _EAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(EntityAlreadyExists$, EntityAlreadyExists);
+export var EntityLimitExceeded$: StaticErrorSchema = [-3, n0, _ELE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(EntityLimitExceeded$, EntityLimitExceeded);
+export var EntityNotFound$: StaticErrorSchema = [-3, n0, _ENF,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(EntityNotFound$, EntityNotFound);
+export var EntitySizeLimitExceeded$: StaticErrorSchema = [-3, n0, _ESLE,
+  { [_e]: _c, [_hE]: 413 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(EntitySizeLimitExceeded$, EntitySizeLimitExceeded);
+export var FieldLevelEncryption$: StaticStructureSchema = [3, n0, _FLE,
+  0,
+  [_Id, _LMT, _FLEC],
+  [0, 4, [() => FieldLevelEncryptionConfig$, 0]]
+];
+export var FieldLevelEncryptionConfig$: StaticStructureSchema = [3, n0, _FLEC,
+  0,
+  [_CR, _Co, _QAPC, _CTPC],
+  [0, 0, [() => QueryArgProfileConfig$, 0], [() => ContentTypeProfileConfig$, 0]]
+];
+export var FieldLevelEncryptionConfigAlreadyExists$: StaticErrorSchema = [-3, n0, _FLECAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(FieldLevelEncryptionConfigAlreadyExists$, FieldLevelEncryptionConfigAlreadyExists);
+export var FieldLevelEncryptionConfigInUse$: StaticErrorSchema = [-3, n0, _FLECIU,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(FieldLevelEncryptionConfigInUse$, FieldLevelEncryptionConfigInUse);
+export var FieldLevelEncryptionList$: StaticStructureSchema = [3, n0, _FLEL,
+  0,
+  [_NM, _MI, _Q, _I],
+  [0, 1, 1, [() => FieldLevelEncryptionSummaryList, 0]]
+];
+export var FieldLevelEncryptionProfile$: StaticStructureSchema = [3, n0, _FLEP,
+  0,
+  [_Id, _LMT, _FLEPC],
+  [0, 4, [() => FieldLevelEncryptionProfileConfig$, 0]]
+];
+export var FieldLevelEncryptionProfileAlreadyExists$: StaticErrorSchema = [-3, n0, _FLEPAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(FieldLevelEncryptionProfileAlreadyExists$, FieldLevelEncryptionProfileAlreadyExists);
+export var FieldLevelEncryptionProfileConfig$: StaticStructureSchema = [3, n0, _FLEPC,
+  0,
+  [_N, _CR, _Co, _EE],
+  [0, 0, 0, [() => EncryptionEntities$, 0]]
+];
+export var FieldLevelEncryptionProfileInUse$: StaticErrorSchema = [-3, n0, _FLEPIU,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(FieldLevelEncryptionProfileInUse$, FieldLevelEncryptionProfileInUse);
+export var FieldLevelEncryptionProfileList$: StaticStructureSchema = [3, n0, _FLEPL,
+  0,
+  [_NM, _MI, _Q, _I],
+  [0, 1, 1, [() => FieldLevelEncryptionProfileSummaryList, 0]]
+];
+export var FieldLevelEncryptionProfileSizeExceeded$: StaticErrorSchema = [-3, n0, _FLEPSE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(FieldLevelEncryptionProfileSizeExceeded$, FieldLevelEncryptionProfileSizeExceeded);
+export var FieldLevelEncryptionProfileSummary$: StaticStructureSchema = [3, n0, _FLEPS,
+  0,
+  [_Id, _LMT, _N, _EE, _Co],
+  [0, 4, 0, [() => EncryptionEntities$, 0], 0]
+];
+export var FieldLevelEncryptionSummary$: StaticStructureSchema = [3, n0, _FLES,
+  0,
+  [_Id, _LMT, _Co, _QAPC, _CTPC],
+  [0, 4, 0, [() => QueryArgProfileConfig$, 0], [() => ContentTypeProfileConfig$, 0]]
+];
+export var FieldPatterns$: StaticStructureSchema = [3, n0, _FP,
+  0,
+  [_Q, _I],
+  [1, [() => FieldPatternList, 0]]
+];
+export var ForwardedValues$: StaticStructureSchema = [3, n0, _FV,
+  0,
+  [_QSu, _Coo, _H, _QSCK],
+  [2, [() => CookiePreference$, 0], [() => Headers$, 0], [() => QueryStringCacheKeys$, 0]]
+];
+export var FunctionAlreadyExists$: StaticErrorSchema = [-3, n0, _FAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(FunctionAlreadyExists$, FunctionAlreadyExists);
+export var FunctionAssociation$: StaticStructureSchema = [3, n0, _FAu,
+  0,
+  [_FARN, _ETv],
+  [0, 0]
+];
+export var FunctionAssociations$: StaticStructureSchema = [3, n0, _FA,
+  0,
+  [_Q, _I],
+  [1, [() => FunctionAssociationList, 0]]
+];
+export var FunctionConfig$: StaticStructureSchema = [3, n0, _FC,
+  0,
+  [_Co, _Ru, _KVSA],
+  [0, 0, [() => KeyValueStoreAssociations$, 0]]
+];
+export var FunctionInUse$: StaticErrorSchema = [-3, n0, _FIU,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(FunctionInUse$, FunctionInUse);
+export var FunctionList$: StaticStructureSchema = [3, n0, _FL,
+  0,
+  [_NM, _MI, _Q, _I],
+  [0, 1, 1, [() => FunctionSummaryList, 0]]
+];
+export var FunctionMetadata$: StaticStructureSchema = [3, n0, _FM,
+  0,
+  [_FARN, _St, _CTr, _LMT],
+  [0, 0, 4, 4]
+];
+export var FunctionSizeLimitExceeded$: StaticErrorSchema = [-3, n0, _FSLE,
+  { [_e]: _c, [_hE]: 413 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(FunctionSizeLimitExceeded$, FunctionSizeLimitExceeded);
+export var FunctionSummary$: StaticStructureSchema = [3, n0, _FS,
+  0,
+  [_N, _S, _FC, _FM],
+  [0, 0, [() => FunctionConfig$, 0], () => FunctionMetadata$]
+];
+export var GeoRestriction$: StaticStructureSchema = [3, n0, _GRe,
+  0,
+  [_RTe, _Q, _I],
+  [0, 1, [() => LocationList, 0]]
+];
+export var GeoRestrictionCustomization$: StaticStructureSchema = [3, n0, _GRC,
+  0,
+  [_RTe, _Loc],
+  [0, [() => LocationList, 0]]
+];
+export var GetAnycastIpListRequest$: StaticStructureSchema = [3, n0, _GAILR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetAnycastIpListResult$: StaticStructureSchema = [3, n0, _GAILRe,
+  0,
+  [_AIL, _ET],
+  [[() => AnycastIpList$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetCachePolicyConfigRequest$: StaticStructureSchema = [3, n0, _GCPCR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetCachePolicyConfigResult$: StaticStructureSchema = [3, n0, _GCPCRe,
+  0,
+  [_CPC, _ET],
+  [[() => CachePolicyConfig$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetCachePolicyRequest$: StaticStructureSchema = [3, n0, _GCPR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetCachePolicyResult$: StaticStructureSchema = [3, n0, _GCPRe,
+  0,
+  [_CP, _ET],
+  [[() => CachePolicy$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetCloudFrontOriginAccessIdentityConfigRequest$: StaticStructureSchema = [3, n0, _GCFOAICR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetCloudFrontOriginAccessIdentityConfigResult$: StaticStructureSchema = [3, n0, _GCFOAICRe,
+  0,
+  [_CFOAIC, _ET],
+  [[() => CloudFrontOriginAccessIdentityConfig$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetCloudFrontOriginAccessIdentityRequest$: StaticStructureSchema = [3, n0, _GCFOAIR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetCloudFrontOriginAccessIdentityResult$: StaticStructureSchema = [3, n0, _GCFOAIRe,
+  0,
+  [_CFOAI, _ET],
+  [[() => CloudFrontOriginAccessIdentity$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetConnectionFunctionRequest$: StaticStructureSchema = [3, n0, _GCFR,
+  0,
+  [_Ide, _St],
+  [[0, 1], [0, { [_hQ]: _St }]]
+];
+export var GetConnectionFunctionResult$: StaticStructureSchema = [3, n0, _GCFRe,
+  0,
+  [_CFCo, _ET, _CTo],
+  [[() => FunctionBlob, 16], [0, { [_hH]: _ET }], [0, { [_hH]: _CT_ }]]
+];
+export var GetConnectionGroupByRoutingEndpointRequest$: StaticStructureSchema = [3, n0, _GCGBRER,
+  0,
+  [_RE],
+  [[0, { [_hQ]: _RE }]]
+];
+export var GetConnectionGroupByRoutingEndpointResult$: StaticStructureSchema = [3, n0, _GCGBRERe,
+  0,
+  [_CG, _ET],
+  [[() => ConnectionGroup$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetConnectionGroupRequest$: StaticStructureSchema = [3, n0, _GCGR,
+  0,
+  [_Ide],
+  [[0, 1]]
+];
+export var GetConnectionGroupResult$: StaticStructureSchema = [3, n0, _GCGRe,
+  0,
+  [_CG, _ET],
+  [[() => ConnectionGroup$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetContinuousDeploymentPolicyConfigRequest$: StaticStructureSchema = [3, n0, _GCDPCR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetContinuousDeploymentPolicyConfigResult$: StaticStructureSchema = [3, n0, _GCDPCRe,
+  0,
+  [_CDPC, _ET],
+  [[() => ContinuousDeploymentPolicyConfig$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetContinuousDeploymentPolicyRequest$: StaticStructureSchema = [3, n0, _GCDPR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetContinuousDeploymentPolicyResult$: StaticStructureSchema = [3, n0, _GCDPRe,
+  0,
+  [_CDP, _ET],
+  [[() => ContinuousDeploymentPolicy$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetDistributionConfigRequest$: StaticStructureSchema = [3, n0, _GDCR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetDistributionConfigResult$: StaticStructureSchema = [3, n0, _GDCRe,
+  0,
+  [_DC, _ET],
+  [[() => DistributionConfig$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetDistributionRequest$: StaticStructureSchema = [3, n0, _GDR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetDistributionResult$: StaticStructureSchema = [3, n0, _GDRe,
+  0,
+  [_D, _ET],
+  [[() => Distribution$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetDistributionTenantByDomainRequest$: StaticStructureSchema = [3, n0, _GDTBDR,
+  0,
+  [_Dom],
+  [[0, { [_hQ]: _d }]]
+];
+export var GetDistributionTenantByDomainResult$: StaticStructureSchema = [3, n0, _GDTBDRe,
+  0,
+  [_DT, _ET],
+  [[() => DistributionTenant$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetDistributionTenantRequest$: StaticStructureSchema = [3, n0, _GDTR,
+  0,
+  [_Ide],
+  [[0, 1]]
+];
+export var GetDistributionTenantResult$: StaticStructureSchema = [3, n0, _GDTRe,
+  0,
+  [_DT, _ET],
+  [[() => DistributionTenant$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetFieldLevelEncryptionConfigRequest$: StaticStructureSchema = [3, n0, _GFLECR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetFieldLevelEncryptionConfigResult$: StaticStructureSchema = [3, n0, _GFLECRe,
+  0,
+  [_FLEC, _ET],
+  [[() => FieldLevelEncryptionConfig$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetFieldLevelEncryptionProfileConfigRequest$: StaticStructureSchema = [3, n0, _GFLEPCR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetFieldLevelEncryptionProfileConfigResult$: StaticStructureSchema = [3, n0, _GFLEPCRe,
+  0,
+  [_FLEPC, _ET],
+  [[() => FieldLevelEncryptionProfileConfig$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetFieldLevelEncryptionProfileRequest$: StaticStructureSchema = [3, n0, _GFLEPR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetFieldLevelEncryptionProfileResult$: StaticStructureSchema = [3, n0, _GFLEPRe,
+  0,
+  [_FLEP, _ET],
+  [[() => FieldLevelEncryptionProfile$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetFieldLevelEncryptionRequest$: StaticStructureSchema = [3, n0, _GFLER,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetFieldLevelEncryptionResult$: StaticStructureSchema = [3, n0, _GFLERe,
+  0,
+  [_FLE, _ET],
+  [[() => FieldLevelEncryption$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetFunctionRequest$: StaticStructureSchema = [3, n0, _GFR,
+  0,
+  [_N, _St],
+  [[0, 1], [0, { [_hQ]: _St }]]
+];
+export var GetFunctionResult$: StaticStructureSchema = [3, n0, _GFRe,
+  0,
+  [_FCu, _ET, _CTo],
+  [[() => FunctionBlob, 16], [0, { [_hH]: _ET }], [0, { [_hH]: _CT_ }]]
+];
+export var GetInvalidationForDistributionTenantRequest$: StaticStructureSchema = [3, n0, _GIFDTR,
+  0,
+  [_DTI, _Id],
+  [[0, 1], [0, 1]]
+];
+export var GetInvalidationForDistributionTenantResult$: StaticStructureSchema = [3, n0, _GIFDTRe,
+  0,
+  [_In],
+  [[() => Invalidation$, 16]]
+];
+export var GetInvalidationRequest$: StaticStructureSchema = [3, n0, _GIR,
+  0,
+  [_DI, _Id],
+  [[0, 1], [0, 1]]
+];
+export var GetInvalidationResult$: StaticStructureSchema = [3, n0, _GIRe,
+  0,
+  [_In],
+  [[() => Invalidation$, 16]]
+];
+export var GetKeyGroupConfigRequest$: StaticStructureSchema = [3, n0, _GKGCR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetKeyGroupConfigResult$: StaticStructureSchema = [3, n0, _GKGCRe,
+  0,
+  [_KGC, _ET],
+  [[() => KeyGroupConfig$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetKeyGroupRequest$: StaticStructureSchema = [3, n0, _GKGR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetKeyGroupResult$: StaticStructureSchema = [3, n0, _GKGRe,
+  0,
+  [_KG, _ET],
+  [[() => KeyGroup$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetManagedCertificateDetailsRequest$: StaticStructureSchema = [3, n0, _GMCDR,
+  0,
+  [_Ide],
+  [[0, 1]]
+];
+export var GetManagedCertificateDetailsResult$: StaticStructureSchema = [3, n0, _GMCDRe,
+  0,
+  [_MCD],
+  [[() => ManagedCertificateDetails$, 16]]
+];
+export var GetMonitoringSubscriptionRequest$: StaticStructureSchema = [3, n0, _GMSR,
+  0,
+  [_DI],
+  [[0, 1]]
+];
+export var GetMonitoringSubscriptionResult$: StaticStructureSchema = [3, n0, _GMSRe,
+  0,
+  [_MS],
+  [[() => MonitoringSubscription$, 16]]
+];
+export var GetOriginAccessControlConfigRequest$: StaticStructureSchema = [3, n0, _GOACCR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetOriginAccessControlConfigResult$: StaticStructureSchema = [3, n0, _GOACCRe,
+  0,
+  [_OACC, _ET],
+  [[() => OriginAccessControlConfig$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetOriginAccessControlRequest$: StaticStructureSchema = [3, n0, _GOACR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetOriginAccessControlResult$: StaticStructureSchema = [3, n0, _GOACRe,
+  0,
+  [_OAC, _ET],
+  [[() => OriginAccessControl$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetOriginRequestPolicyConfigRequest$: StaticStructureSchema = [3, n0, _GORPCR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetOriginRequestPolicyConfigResult$: StaticStructureSchema = [3, n0, _GORPCRe,
+  0,
+  [_ORPC, _ET],
+  [[() => OriginRequestPolicyConfig$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetOriginRequestPolicyRequest$: StaticStructureSchema = [3, n0, _GORPR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetOriginRequestPolicyResult$: StaticStructureSchema = [3, n0, _GORPRe,
+  0,
+  [_ORP, _ET],
+  [[() => OriginRequestPolicy$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetPublicKeyConfigRequest$: StaticStructureSchema = [3, n0, _GPKCR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetPublicKeyConfigResult$: StaticStructureSchema = [3, n0, _GPKCRe,
+  0,
+  [_PKC, _ET],
+  [[() => PublicKeyConfig$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetPublicKeyRequest$: StaticStructureSchema = [3, n0, _GPKR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetPublicKeyResult$: StaticStructureSchema = [3, n0, _GPKRe,
+  0,
+  [_PK, _ET],
+  [[() => PublicKey$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetRealtimeLogConfigRequest$: StaticStructureSchema = [3, n0, _GRLCR,
+  0,
+  [_N, _ARN],
+  [0, 0]
+];
+export var GetRealtimeLogConfigResult$: StaticStructureSchema = [3, n0, _GRLCRe,
+  0,
+  [_RLC],
+  [[() => RealtimeLogConfig$, 0]]
+];
+export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
+  0,
+  [_RA],
+  [0]
+];
+export var GetResourcePolicyResult$: StaticStructureSchema = [3, n0, _GRPRe,
+  0,
+  [_RA, _PD],
+  [0, 0]
+];
+export var GetResponseHeadersPolicyConfigRequest$: StaticStructureSchema = [3, n0, _GRHPCR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetResponseHeadersPolicyConfigResult$: StaticStructureSchema = [3, n0, _GRHPCRe,
+  0,
+  [_RHPC, _ET],
+  [[() => ResponseHeadersPolicyConfig$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetResponseHeadersPolicyRequest$: StaticStructureSchema = [3, n0, _GRHPR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetResponseHeadersPolicyResult$: StaticStructureSchema = [3, n0, _GRHPRe,
+  0,
+  [_RHP, _ET],
+  [[() => ResponseHeadersPolicy$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetStreamingDistributionConfigRequest$: StaticStructureSchema = [3, n0, _GSDCR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetStreamingDistributionConfigResult$: StaticStructureSchema = [3, n0, _GSDCRe,
+  0,
+  [_SDC, _ET],
+  [[() => StreamingDistributionConfig$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetStreamingDistributionRequest$: StaticStructureSchema = [3, n0, _GSDR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetStreamingDistributionResult$: StaticStructureSchema = [3, n0, _GSDRe,
+  0,
+  [_SD, _ET],
+  [[() => StreamingDistribution$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetTrustStoreRequest$: StaticStructureSchema = [3, n0, _GTSR,
+  0,
+  [_Ide],
+  [[0, 1]]
+];
+export var GetTrustStoreResult$: StaticStructureSchema = [3, n0, _GTSRe,
+  0,
+  [_TSr, _ET],
+  [[() => TrustStore$, 16], [0, { [_hH]: _ET }]]
+];
+export var GetVpcOriginRequest$: StaticStructureSchema = [3, n0, _GVOR,
+  0,
+  [_Id],
+  [[0, 1]]
+];
+export var GetVpcOriginResult$: StaticStructureSchema = [3, n0, _GVORe,
+  0,
+  [_VO, _ET],
+  [[() => VpcOrigin$, 16], [0, { [_hH]: _ET }]]
+];
+export var GrpcConfig$: StaticStructureSchema = [3, n0, _GC,
+  0,
+  [_E],
+  [2]
+];
+export var Headers$: StaticStructureSchema = [3, n0, _H,
+  0,
+  [_Q, _I],
+  [1, [() => HeaderList, 0]]
+];
+export var IllegalDelete$: StaticErrorSchema = [-3, n0, _IDl,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(IllegalDelete$, IllegalDelete);
+export var IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior$: StaticErrorSchema = [-3, n0, _IFLECAWCB,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior$, IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior);
+export var IllegalOriginAccessConfiguration$: StaticErrorSchema = [-3, n0, _IOAC,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(IllegalOriginAccessConfiguration$, IllegalOriginAccessConfiguration);
+export var IllegalUpdate$: StaticErrorSchema = [-3, n0, _IU,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(IllegalUpdate$, IllegalUpdate);
+export var ImportSource$: StaticStructureSchema = [3, n0, _IS,
+  0,
+  [_STo, _SARN],
+  [0, 0]
+];
+export var InconsistentQuantities$: StaticErrorSchema = [-3, n0, _IQ,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InconsistentQuantities$, InconsistentQuantities);
+export var InvalidArgument$: StaticErrorSchema = [-3, n0, _IA,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidArgument$, InvalidArgument);
+export var InvalidAssociation$: StaticErrorSchema = [-3, n0, _IAn,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidAssociation$, InvalidAssociation);
+export var Invalidation$: StaticStructureSchema = [3, n0, _In,
+  0,
+  [_Id, _S, _CTre, _IB],
+  [0, 0, 4, [() => InvalidationBatch$, 0]]
+];
+export var InvalidationBatch$: StaticStructureSchema = [3, n0, _IB,
+  0,
+  [_Pa, _CR],
+  [[() => Paths$, 0], 0]
+];
+export var InvalidationList$: StaticStructureSchema = [3, n0, _IL,
+  0,
+  [_Ma, _NM, _MI, _IT, _Q, _I],
+  [0, 0, 1, 2, 1, [() => InvalidationSummaryList, 0]]
+];
+export var InvalidationSummary$: StaticStructureSchema = [3, n0, _ISn,
+  0,
+  [_Id, _CTre, _S],
+  [0, 4, 0]
+];
+export var InvalidDefaultRootObject$: StaticErrorSchema = [-3, n0, _IDRO,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidDefaultRootObject$, InvalidDefaultRootObject);
+export var InvalidDomainNameForOriginAccessControl$: StaticErrorSchema = [-3, n0, _IDNFOAC,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidDomainNameForOriginAccessControl$, InvalidDomainNameForOriginAccessControl);
+export var InvalidErrorCode$: StaticErrorSchema = [-3, n0, _IEC,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidErrorCode$, InvalidErrorCode);
+export var InvalidForwardCookies$: StaticErrorSchema = [-3, n0, _IFC,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidForwardCookies$, InvalidForwardCookies);
+export var InvalidFunctionAssociation$: StaticErrorSchema = [-3, n0, _IFA,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidFunctionAssociation$, InvalidFunctionAssociation);
+export var InvalidGeoRestrictionParameter$: StaticErrorSchema = [-3, n0, _IGRP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidGeoRestrictionParameter$, InvalidGeoRestrictionParameter);
+export var InvalidHeadersForS3Origin$: StaticErrorSchema = [-3, n0, _IHFSO,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidHeadersForS3Origin$, InvalidHeadersForS3Origin);
+export var InvalidIfMatchVersion$: StaticErrorSchema = [-3, n0, _IIMV,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidIfMatchVersion$, InvalidIfMatchVersion);
+export var InvalidLambdaFunctionAssociation$: StaticErrorSchema = [-3, n0, _ILFA,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidLambdaFunctionAssociation$, InvalidLambdaFunctionAssociation);
+export var InvalidLocationCode$: StaticErrorSchema = [-3, n0, _ILC,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidLocationCode$, InvalidLocationCode);
+export var InvalidMinimumProtocolVersion$: StaticErrorSchema = [-3, n0, _IMPV,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidMinimumProtocolVersion$, InvalidMinimumProtocolVersion);
+export var InvalidOrigin$: StaticErrorSchema = [-3, n0, _IO,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidOrigin$, InvalidOrigin);
+export var InvalidOriginAccessControl$: StaticErrorSchema = [-3, n0, _IOACn,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidOriginAccessControl$, InvalidOriginAccessControl);
+export var InvalidOriginAccessIdentity$: StaticErrorSchema = [-3, n0, _IOAI,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidOriginAccessIdentity$, InvalidOriginAccessIdentity);
+export var InvalidOriginKeepaliveTimeout$: StaticErrorSchema = [-3, n0, _IOKT,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidOriginKeepaliveTimeout$, InvalidOriginKeepaliveTimeout);
+export var InvalidOriginReadTimeout$: StaticErrorSchema = [-3, n0, _IORT,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidOriginReadTimeout$, InvalidOriginReadTimeout);
+export var InvalidProtocolSettings$: StaticErrorSchema = [-3, n0, _IPS,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidProtocolSettings$, InvalidProtocolSettings);
+export var InvalidQueryStringParameters$: StaticErrorSchema = [-3, n0, _IQSP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidQueryStringParameters$, InvalidQueryStringParameters);
+export var InvalidRelativePath$: StaticErrorSchema = [-3, n0, _IRP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidRelativePath$, InvalidRelativePath);
+export var InvalidRequiredProtocol$: StaticErrorSchema = [-3, n0, _IRPn,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidRequiredProtocol$, InvalidRequiredProtocol);
+export var InvalidResponseCode$: StaticErrorSchema = [-3, n0, _IRC,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidResponseCode$, InvalidResponseCode);
+export var InvalidTagging$: StaticErrorSchema = [-3, n0, _ITn,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidTagging$, InvalidTagging);
+export var InvalidTTLOrder$: StaticErrorSchema = [-3, n0, _ITTLO,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidTTLOrder$, InvalidTTLOrder);
+export var InvalidViewerCertificate$: StaticErrorSchema = [-3, n0, _IVC,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidViewerCertificate$, InvalidViewerCertificate);
+export var InvalidWebACLId$: StaticErrorSchema = [-3, n0, _IWACLI,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidWebACLId$, InvalidWebACLId);
+export var IpamCidrConfig$: StaticStructureSchema = [3, n0, _ICCp,
+  0,
+  [_Ci, _IPA, _AIn, _S],
+  [0, 0, 0, 0]
+];
+export var IpamConfig$: StaticStructureSchema = [3, n0, _IC,
+  0,
+  [_Q, _ICC],
+  [1, [() => IpamCidrConfigList, 0]]
+];
+export var KeyGroup$: StaticStructureSchema = [3, n0, _KG,
+  0,
+  [_Id, _LMT, _KGC],
+  [0, 4, [() => KeyGroupConfig$, 0]]
+];
+export var KeyGroupAlreadyExists$: StaticErrorSchema = [-3, n0, _KGAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(KeyGroupAlreadyExists$, KeyGroupAlreadyExists);
+export var KeyGroupConfig$: StaticStructureSchema = [3, n0, _KGC,
+  0,
+  [_N, _I, _Co],
+  [0, [() => PublicKeyIdList, 0], 0]
+];
+export var KeyGroupList$: StaticStructureSchema = [3, n0, _KGL,
+  0,
+  [_NM, _MI, _Q, _I],
+  [0, 1, 1, [() => KeyGroupSummaryList, 0]]
+];
+export var KeyGroupSummary$: StaticStructureSchema = [3, n0, _KGS,
+  0,
+  [_KG],
+  [[() => KeyGroup$, 0]]
+];
+export var KeyPairIds$: StaticStructureSchema = [3, n0, _KPI,
+  0,
+  [_Q, _I],
+  [1, [() => KeyPairIdList, 0]]
+];
+export var KeyValueStore$: StaticStructureSchema = [3, n0, _KVS,
+  0,
+  [_N, _Id, _Co, _ARN, _S, _LMT],
+  [0, 0, 0, 0, 0, 4]
+];
+export var KeyValueStoreAssociation$: StaticStructureSchema = [3, n0, _KVSAe,
+  0,
+  [_KVSARN],
+  [0]
+];
+export var KeyValueStoreAssociations$: StaticStructureSchema = [3, n0, _KVSA,
+  0,
+  [_Q, _I],
+  [1, [() => KeyValueStoreAssociationList, 0]]
+];
+export var KeyValueStoreList$: StaticStructureSchema = [3, n0, _KVSL,
+  0,
+  [_NM, _MI, _Q, _I],
+  [0, 1, 1, [() => KeyValueStoreSummaryList, 0]]
+];
+export var KGKeyPairIds$: StaticStructureSchema = [3, n0, _KGKPI,
+  0,
+  [_KGI, _KPI],
+  [0, [() => KeyPairIds$, 0]]
+];
+export var KinesisStreamConfig$: StaticStructureSchema = [3, n0, _KSC,
+  0,
+  [_RARN, _SARNt],
+  [0, 0]
+];
+export var LambdaFunctionAssociation$: StaticStructureSchema = [3, n0, _LFAa,
+  0,
+  [_LFARN, _ETv, _IBn],
+  [0, 0, 2]
+];
+export var LambdaFunctionAssociations$: StaticStructureSchema = [3, n0, _LFA,
+  0,
+  [_Q, _I],
+  [1, [() => LambdaFunctionAssociationList, 0]]
+];
+export var ListAnycastIpListsRequest$: StaticStructureSchema = [3, n0, _LAILR,
+  0,
+  [_Ma, _MI],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
+];
+export var ListAnycastIpListsResult$: StaticStructureSchema = [3, n0, _LAILRi,
+  0,
+  [_AILn],
+  [[() => AnycastIpListCollection$, { [_hP]: 1, [_xN]: _AILC }]]
+];
+export var ListCachePoliciesRequest$: StaticStructureSchema = [3, n0, _LCPR,
+  0,
+  [_T, _Ma, _MI],
+  [[0, { [_hQ]: _T }], [0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
+];
+export var ListCachePoliciesResult$: StaticStructureSchema = [3, n0, _LCPRi,
+  0,
+  [_CPL],
+  [[() => CachePolicyList$, 16]]
+];
+export var ListCloudFrontOriginAccessIdentitiesRequest$: StaticStructureSchema = [3, n0, _LCFOAIR,
+  0,
+  [_Ma, _MI],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
+];
+export var ListCloudFrontOriginAccessIdentitiesResult$: StaticStructureSchema = [3, n0, _LCFOAIRi,
+  0,
+  [_CFOAIL],
+  [[() => CloudFrontOriginAccessIdentityList$, 16]]
+];
+export var ListConflictingAliasesRequest$: StaticStructureSchema = [3, n0, _LCAR,
+  0,
+  [_DI, _Al, _Ma, _MI],
+  [[0, { [_hQ]: _DI }], [0, { [_hQ]: _Al }], [0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
+];
+export var ListConflictingAliasesResult$: StaticStructureSchema = [3, n0, _LCARi,
+  0,
+  [_CAL],
+  [[() => ConflictingAliasesList$, 16]]
+];
+export var ListConnectionFunctionsRequest$: StaticStructureSchema = [3, n0, _LCFR,
+  0,
+  [_Ma, _MI, _St],
+  [0, 1, 0]
+];
+export var ListConnectionFunctionsResult$: StaticStructureSchema = [3, n0, _LCFRi,
+  0,
+  [_NM, _CF],
+  [0, [() => ConnectionFunctionSummaryList, 0]]
+];
+export var ListConnectionGroupsRequest$: StaticStructureSchema = [3, n0, _LCGR,
+  0,
+  [_AF, _Ma, _MI],
+  [() => ConnectionGroupAssociationFilter$, 0, 1]
+];
+export var ListConnectionGroupsResult$: StaticStructureSchema = [3, n0, _LCGRi,
+  0,
+  [_NM, _CGo],
+  [0, [() => ConnectionGroupSummaryList, 0]]
+];
+export var ListContinuousDeploymentPoliciesRequest$: StaticStructureSchema = [3, n0, _LCDPR,
+  0,
+  [_Ma, _MI],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
+];
+export var ListContinuousDeploymentPoliciesResult$: StaticStructureSchema = [3, n0, _LCDPRi,
+  0,
+  [_CDPL],
+  [[() => ContinuousDeploymentPolicyList$, 16]]
+];
+export var ListDistributionsByAnycastIpListIdRequest$: StaticStructureSchema = [3, n0, _LDBAILIR,
+  0,
+  [_Ma, _MI, _AILI],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }], [0, 1]]
+];
+export var ListDistributionsByAnycastIpListIdResult$: StaticStructureSchema = [3, n0, _LDBAILIRi,
+  0,
+  [_DL],
+  [[() => DistributionList$, 16]]
+];
+export var ListDistributionsByCachePolicyIdRequest$: StaticStructureSchema = [3, n0, _LDBCPIR,
+  0,
+  [_Ma, _MI, _CPI],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }], [0, 1]]
+];
+export var ListDistributionsByCachePolicyIdResult$: StaticStructureSchema = [3, n0, _LDBCPIRi,
+  0,
+  [_DIL],
+  [[() => DistributionIdList$, 16]]
+];
+export var ListDistributionsByConnectionFunctionRequest$: StaticStructureSchema = [3, n0, _LDBCFR,
+  0,
+  [_Ma, _MI, _CFI],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }], [0, { [_hQ]: _CFI }]]
+];
+export var ListDistributionsByConnectionFunctionResult$: StaticStructureSchema = [3, n0, _LDBCFRi,
+  0,
+  [_DL],
+  [[() => DistributionList$, 16]]
+];
+export var ListDistributionsByConnectionModeRequest$: StaticStructureSchema = [3, n0, _LDBCMR,
+  0,
+  [_Ma, _MI, _CMo],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }], [0, 1]]
+];
+export var ListDistributionsByConnectionModeResult$: StaticStructureSchema = [3, n0, _LDBCMRi,
+  0,
+  [_DL],
+  [[() => DistributionList$, 16]]
+];
+export var ListDistributionsByKeyGroupRequest$: StaticStructureSchema = [3, n0, _LDBKGR,
+  0,
+  [_Ma, _MI, _KGI],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }], [0, 1]]
+];
+export var ListDistributionsByKeyGroupResult$: StaticStructureSchema = [3, n0, _LDBKGRi,
+  0,
+  [_DIL],
+  [[() => DistributionIdList$, 16]]
+];
+export var ListDistributionsByOriginRequestPolicyIdRequest$: StaticStructureSchema = [3, n0, _LDBORPIR,
+  0,
+  [_Ma, _MI, _ORPI],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }], [0, 1]]
+];
+export var ListDistributionsByOriginRequestPolicyIdResult$: StaticStructureSchema = [3, n0, _LDBORPIRi,
+  0,
+  [_DIL],
+  [[() => DistributionIdList$, 16]]
+];
+export var ListDistributionsByOwnedResourceRequest$: StaticStructureSchema = [3, n0, _LDBORR,
+  0,
+  [_RA, _Ma, _MI],
+  [[0, 1], [0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
+];
+export var ListDistributionsByOwnedResourceResult$: StaticStructureSchema = [3, n0, _LDBORRi,
+  0,
+  [_DL],
+  [[() => DistributionIdOwnerList$, 16]]
+];
+export var ListDistributionsByRealtimeLogConfigRequest$: StaticStructureSchema = [3, n0, _LDBRLCR,
+  0,
+  [_Ma, _MI, _RLCN, _RLCA],
+  [0, 1, 0, 0]
+];
+export var ListDistributionsByRealtimeLogConfigResult$: StaticStructureSchema = [3, n0, _LDBRLCRi,
+  0,
+  [_DL],
+  [[() => DistributionList$, 16]]
+];
+export var ListDistributionsByResponseHeadersPolicyIdRequest$: StaticStructureSchema = [3, n0, _LDBRHPIR,
+  0,
+  [_Ma, _MI, _RHPI],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }], [0, 1]]
+];
+export var ListDistributionsByResponseHeadersPolicyIdResult$: StaticStructureSchema = [3, n0, _LDBRHPIRi,
+  0,
+  [_DIL],
+  [[() => DistributionIdList$, 16]]
+];
+export var ListDistributionsByTrustStoreRequest$: StaticStructureSchema = [3, n0, _LDBTSR,
+  0,
+  [_TSI, _Ma, _MI],
+  [[0, { [_hQ]: _TSI }], [0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
+];
+export var ListDistributionsByTrustStoreResult$: StaticStructureSchema = [3, n0, _LDBTSRi,
+  0,
+  [_DL],
+  [[() => DistributionList$, 16]]
+];
+export var ListDistributionsByVpcOriginIdRequest$: StaticStructureSchema = [3, n0, _LDBVOIR,
+  0,
+  [_Ma, _MI, _VOI],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }], [0, 1]]
+];
+export var ListDistributionsByVpcOriginIdResult$: StaticStructureSchema = [3, n0, _LDBVOIRi,
+  0,
+  [_DIL],
+  [[() => DistributionIdList$, 16]]
+];
+export var ListDistributionsByWebACLIdRequest$: StaticStructureSchema = [3, n0, _LDBWACLIR,
+  0,
+  [_Ma, _MI, _WACLI],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }], [0, 1]]
+];
+export var ListDistributionsByWebACLIdResult$: StaticStructureSchema = [3, n0, _LDBWACLIRi,
+  0,
+  [_DL],
+  [[() => DistributionList$, 16]]
+];
+export var ListDistributionsRequest$: StaticStructureSchema = [3, n0, _LDR,
+  0,
+  [_Ma, _MI],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
+];
+export var ListDistributionsResult$: StaticStructureSchema = [3, n0, _LDRi,
+  0,
+  [_DL],
+  [[() => DistributionList$, 16]]
+];
+export var ListDistributionTenantsByCustomizationRequest$: StaticStructureSchema = [3, n0, _LDTBCR,
+  0,
+  [_WACLA, _CAe, _Ma, _MI],
+  [0, 0, 0, 1]
+];
+export var ListDistributionTenantsByCustomizationResult$: StaticStructureSchema = [3, n0, _LDTBCRi,
+  0,
+  [_NM, _DTL],
+  [0, [() => DistributionTenantList, 0]]
+];
+export var ListDistributionTenantsRequest$: StaticStructureSchema = [3, n0, _LDTR,
+  0,
+  [_AF, _Ma, _MI],
+  [() => DistributionTenantAssociationFilter$, 0, 1]
+];
+export var ListDistributionTenantsResult$: StaticStructureSchema = [3, n0, _LDTRi,
+  0,
+  [_NM, _DTL],
+  [0, [() => DistributionTenantList, 0]]
+];
+export var ListDomainConflictsRequest$: StaticStructureSchema = [3, n0, _LDCR,
+  0,
+  [_Dom, _DCVR, _MI, _Ma],
+  [0, () => DistributionResourceId$, 1, 0]
+];
+export var ListDomainConflictsResult$: StaticStructureSchema = [3, n0, _LDCRi,
+  0,
+  [_DCom, _NM],
+  [[() => DomainConflictsList, 0], 0]
+];
+export var ListFieldLevelEncryptionConfigsRequest$: StaticStructureSchema = [3, n0, _LFLECR,
+  0,
+  [_Ma, _MI],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
+];
+export var ListFieldLevelEncryptionConfigsResult$: StaticStructureSchema = [3, n0, _LFLECRi,
+  0,
+  [_FLEL],
+  [[() => FieldLevelEncryptionList$, 16]]
+];
+export var ListFieldLevelEncryptionProfilesRequest$: StaticStructureSchema = [3, n0, _LFLEPR,
+  0,
+  [_Ma, _MI],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
+];
+export var ListFieldLevelEncryptionProfilesResult$: StaticStructureSchema = [3, n0, _LFLEPRi,
+  0,
+  [_FLEPL],
+  [[() => FieldLevelEncryptionProfileList$, 16]]
+];
+export var ListFunctionsRequest$: StaticStructureSchema = [3, n0, _LFR,
+  0,
+  [_Ma, _MI, _St],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }], [0, { [_hQ]: _St }]]
+];
+export var ListFunctionsResult$: StaticStructureSchema = [3, n0, _LFRi,
+  0,
+  [_FL],
+  [[() => FunctionList$, 16]]
+];
+export var ListInvalidationsForDistributionTenantRequest$: StaticStructureSchema = [3, n0, _LIFDTR,
+  0,
+  [_Id, _Ma, _MI],
+  [[0, 1], [0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
+];
+export var ListInvalidationsForDistributionTenantResult$: StaticStructureSchema = [3, n0, _LIFDTRi,
+  0,
+  [_IL],
+  [[() => InvalidationList$, 16]]
+];
+export var ListInvalidationsRequest$: StaticStructureSchema = [3, n0, _LIR,
+  0,
+  [_DI, _Ma, _MI],
+  [[0, 1], [0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
+];
+export var ListInvalidationsResult$: StaticStructureSchema = [3, n0, _LIRi,
+  0,
+  [_IL],
+  [[() => InvalidationList$, 16]]
+];
+export var ListKeyGroupsRequest$: StaticStructureSchema = [3, n0, _LKGR,
+  0,
+  [_Ma, _MI],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
+];
+export var ListKeyGroupsResult$: StaticStructureSchema = [3, n0, _LKGRi,
+  0,
+  [_KGL],
+  [[() => KeyGroupList$, 16]]
+];
+export var ListKeyValueStoresRequest$: StaticStructureSchema = [3, n0, _LKVSR,
+  0,
+  [_Ma, _MI, _S],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }], [0, { [_hQ]: _S }]]
+];
+export var ListKeyValueStoresResult$: StaticStructureSchema = [3, n0, _LKVSRi,
+  0,
+  [_KVSL],
+  [[() => KeyValueStoreList$, 16]]
+];
+export var ListOriginAccessControlsRequest$: StaticStructureSchema = [3, n0, _LOACR,
+  0,
+  [_Ma, _MI],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
+];
+export var ListOriginAccessControlsResult$: StaticStructureSchema = [3, n0, _LOACRi,
+  0,
+  [_OACL],
+  [[() => OriginAccessControlList$, 16]]
+];
+export var ListOriginRequestPoliciesRequest$: StaticStructureSchema = [3, n0, _LORPR,
+  0,
+  [_T, _Ma, _MI],
+  [[0, { [_hQ]: _T }], [0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
+];
+export var ListOriginRequestPoliciesResult$: StaticStructureSchema = [3, n0, _LORPRi,
+  0,
+  [_ORPL],
+  [[() => OriginRequestPolicyList$, 16]]
+];
+export var ListPublicKeysRequest$: StaticStructureSchema = [3, n0, _LPKR,
+  0,
+  [_Ma, _MI],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
+];
+export var ListPublicKeysResult$: StaticStructureSchema = [3, n0, _LPKRi,
+  0,
+  [_PKL],
+  [[() => PublicKeyList$, 16]]
+];
+export var ListRealtimeLogConfigsRequest$: StaticStructureSchema = [3, n0, _LRLCR,
+  0,
+  [_MI, _Ma],
+  [[1, { [_hQ]: _MI }], [0, { [_hQ]: _Ma }]]
+];
+export var ListRealtimeLogConfigsResult$: StaticStructureSchema = [3, n0, _LRLCRi,
+  0,
+  [_RLCe],
+  [[() => RealtimeLogConfigs$, 16]]
+];
+export var ListResponseHeadersPoliciesRequest$: StaticStructureSchema = [3, n0, _LRHPR,
+  0,
+  [_T, _Ma, _MI],
+  [[0, { [_hQ]: _T }], [0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
+];
+export var ListResponseHeadersPoliciesResult$: StaticStructureSchema = [3, n0, _LRHPRi,
+  0,
+  [_RHPL],
+  [[() => ResponseHeadersPolicyList$, 16]]
+];
+export var ListStreamingDistributionsRequest$: StaticStructureSchema = [3, n0, _LSDR,
+  0,
+  [_Ma, _MI],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
+];
+export var ListStreamingDistributionsResult$: StaticStructureSchema = [3, n0, _LSDRi,
+  0,
+  [_SDL],
+  [[() => StreamingDistributionList$, 16]]
+];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
+  0,
+  [_Res],
+  [[0, { [_hQ]: _Res }]]
+];
+export var ListTagsForResourceResult$: StaticStructureSchema = [3, n0, _LTFRRi,
+  0,
+  [_Ta],
+  [[() => Tags$, 16]]
+];
+export var ListTrustStoresRequest$: StaticStructureSchema = [3, n0, _LTSR,
+  0,
+  [_Ma, _MI],
+  [0, 1]
+];
+export var ListTrustStoresResult$: StaticStructureSchema = [3, n0, _LTSRi,
+  0,
+  [_NM, _TSL],
+  [0, [() => TrustStoreList, 0]]
+];
+export var ListVpcOriginsRequest$: StaticStructureSchema = [3, n0, _LVOR,
+  0,
+  [_Ma, _MI],
+  [[0, { [_hQ]: _Ma }], [1, { [_hQ]: _MI }]]
+];
+export var ListVpcOriginsResult$: StaticStructureSchema = [3, n0, _LVORi,
+  0,
+  [_VOL],
+  [[() => VpcOriginList$, 16]]
+];
+export var LoggingConfig$: StaticStructureSchema = [3, n0, _LC,
+  0,
+  [_E, _ICn, _B, _Pr],
+  [2, 2, 0, 0]
+];
+export var ManagedCertificateDetails$: StaticStructureSchema = [3, n0, _MCD,
+  0,
+  [_CAe, _CS, _VTH, _VTD],
+  [0, 0, 0, () => ValidationTokenDetailList]
+];
+export var ManagedCertificateRequest$: StaticStructureSchema = [3, n0, _MCR,
+  0,
+  [_VTH, _PDN, _CTLP],
+  [0, 0, 0]
+];
+export var MissingBody$: StaticErrorSchema = [-3, n0, _MB,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(MissingBody$, MissingBody);
+export var MonitoringSubscription$: StaticStructureSchema = [3, n0, _MS,
+  0,
+  [_RMSC],
+  [() => RealtimeMetricsSubscriptionConfig$]
+];
+export var MonitoringSubscriptionAlreadyExists$: StaticErrorSchema = [-3, n0, _MSAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(MonitoringSubscriptionAlreadyExists$, MonitoringSubscriptionAlreadyExists);
+export var NoSuchCachePolicy$: StaticErrorSchema = [-3, n0, _NSCP,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NoSuchCachePolicy$, NoSuchCachePolicy);
+export var NoSuchCloudFrontOriginAccessIdentity$: StaticErrorSchema = [-3, n0, _NSCFOAI,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NoSuchCloudFrontOriginAccessIdentity$, NoSuchCloudFrontOriginAccessIdentity);
+export var NoSuchContinuousDeploymentPolicy$: StaticErrorSchema = [-3, n0, _NSCDP,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NoSuchContinuousDeploymentPolicy$, NoSuchContinuousDeploymentPolicy);
+export var NoSuchDistribution$: StaticErrorSchema = [-3, n0, _NSD,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NoSuchDistribution$, NoSuchDistribution);
+export var NoSuchFieldLevelEncryptionConfig$: StaticErrorSchema = [-3, n0, _NSFLEC,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NoSuchFieldLevelEncryptionConfig$, NoSuchFieldLevelEncryptionConfig);
+export var NoSuchFieldLevelEncryptionProfile$: StaticErrorSchema = [-3, n0, _NSFLEP,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NoSuchFieldLevelEncryptionProfile$, NoSuchFieldLevelEncryptionProfile);
+export var NoSuchFunctionExists$: StaticErrorSchema = [-3, n0, _NSFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NoSuchFunctionExists$, NoSuchFunctionExists);
+export var NoSuchInvalidation$: StaticErrorSchema = [-3, n0, _NSI,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NoSuchInvalidation$, NoSuchInvalidation);
+export var NoSuchMonitoringSubscription$: StaticErrorSchema = [-3, n0, _NSMS,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NoSuchMonitoringSubscription$, NoSuchMonitoringSubscription);
+export var NoSuchOrigin$: StaticErrorSchema = [-3, n0, _NSO,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NoSuchOrigin$, NoSuchOrigin);
+export var NoSuchOriginAccessControl$: StaticErrorSchema = [-3, n0, _NSOAC,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NoSuchOriginAccessControl$, NoSuchOriginAccessControl);
+export var NoSuchOriginRequestPolicy$: StaticErrorSchema = [-3, n0, _NSORP,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NoSuchOriginRequestPolicy$, NoSuchOriginRequestPolicy);
+export var NoSuchPublicKey$: StaticErrorSchema = [-3, n0, _NSPK,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NoSuchPublicKey$, NoSuchPublicKey);
+export var NoSuchRealtimeLogConfig$: StaticErrorSchema = [-3, n0, _NSRLC,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NoSuchRealtimeLogConfig$, NoSuchRealtimeLogConfig);
+export var NoSuchResource$: StaticErrorSchema = [-3, n0, _NSR,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NoSuchResource$, NoSuchResource);
+export var NoSuchResponseHeadersPolicy$: StaticErrorSchema = [-3, n0, _NSRHP,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NoSuchResponseHeadersPolicy$, NoSuchResponseHeadersPolicy);
+export var NoSuchStreamingDistribution$: StaticErrorSchema = [-3, n0, _NSSD,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NoSuchStreamingDistribution$, NoSuchStreamingDistribution);
+export var Origin$: StaticStructureSchema = [3, n0, _Or,
+  0,
+  [_Id, _DN, _OP, _CH, _SOC, _COC, _VOC, _CAo, _CTon, _RCT, _OS, _OACI],
+  [0, 0, 0, [() => CustomHeaders$, 0], () => S3OriginConfig$, [() => CustomOriginConfig$, 0], () => VpcOriginConfig$, 1, 1, 1, () => OriginShield$, 0]
+];
+export var OriginAccessControl$: StaticStructureSchema = [3, n0, _OAC,
+  0,
+  [_Id, _OACC],
+  [0, () => OriginAccessControlConfig$]
+];
+export var OriginAccessControlAlreadyExists$: StaticErrorSchema = [-3, n0, _OACAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(OriginAccessControlAlreadyExists$, OriginAccessControlAlreadyExists);
+export var OriginAccessControlConfig$: StaticStructureSchema = [3, n0, _OACC,
+  0,
+  [_N, _De, _SP, _SB, _OACOT],
+  [0, 0, 0, 0, 0]
+];
+export var OriginAccessControlInUse$: StaticErrorSchema = [-3, n0, _OACIU,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(OriginAccessControlInUse$, OriginAccessControlInUse);
+export var OriginAccessControlList$: StaticStructureSchema = [3, n0, _OACL,
+  0,
+  [_Ma, _NM, _MI, _IT, _Q, _I],
+  [0, 0, 1, 2, 1, [() => OriginAccessControlSummaryList, 0]]
+];
+export var OriginAccessControlSummary$: StaticStructureSchema = [3, n0, _OACS,
+  0,
+  [_Id, _De, _N, _SP, _SB, _OACOT],
+  [0, 0, 0, 0, 0, 0]
+];
+export var OriginCustomHeader$: StaticStructureSchema = [3, n0, _OCH,
+  0,
+  [_HN, _HVe],
+  [0, [() => sensitiveStringType, 0]]
+];
+export var OriginGroup$: StaticStructureSchema = [3, n0, _OGr,
+  0,
+  [_Id, _FCa, _Me, _SC],
+  [0, [() => OriginGroupFailoverCriteria$, 0], [() => OriginGroupMembers$, 0], 0]
+];
+export var OriginGroupFailoverCriteria$: StaticStructureSchema = [3, n0, _OGFC,
+  0,
+  [_SCt],
+  [[() => StatusCodes$, 0]]
+];
+export var OriginGroupMember$: StaticStructureSchema = [3, n0, _OGM,
+  0,
+  [_OI],
+  [0]
+];
+export var OriginGroupMembers$: StaticStructureSchema = [3, n0, _OGMr,
+  0,
+  [_Q, _I],
+  [1, [() => OriginGroupMemberList, 0]]
+];
+export var OriginGroups$: StaticStructureSchema = [3, n0, _OG,
+  0,
+  [_Q, _I],
+  [1, [() => OriginGroupList, 0]]
+];
+export var OriginRequestPolicy$: StaticStructureSchema = [3, n0, _ORP,
+  0,
+  [_Id, _LMT, _ORPC],
+  [0, 4, [() => OriginRequestPolicyConfig$, 0]]
+];
+export var OriginRequestPolicyAlreadyExists$: StaticErrorSchema = [-3, n0, _ORPAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(OriginRequestPolicyAlreadyExists$, OriginRequestPolicyAlreadyExists);
+export var OriginRequestPolicyConfig$: StaticStructureSchema = [3, n0, _ORPC,
+  0,
+  [_Co, _N, _HC, _CC, _QSC],
+  [0, 0, [() => OriginRequestPolicyHeadersConfig$, 0], [() => OriginRequestPolicyCookiesConfig$, 0], [() => OriginRequestPolicyQueryStringsConfig$, 0]]
+];
+export var OriginRequestPolicyCookiesConfig$: StaticStructureSchema = [3, n0, _ORPCC,
+  0,
+  [_CBo, _Coo],
+  [0, [() => CookieNames$, 0]]
+];
+export var OriginRequestPolicyHeadersConfig$: StaticStructureSchema = [3, n0, _ORPHC,
+  0,
+  [_HB, _H],
+  [0, [() => Headers$, 0]]
+];
+export var OriginRequestPolicyInUse$: StaticErrorSchema = [-3, n0, _ORPIU,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(OriginRequestPolicyInUse$, OriginRequestPolicyInUse);
+export var OriginRequestPolicyList$: StaticStructureSchema = [3, n0, _ORPL,
+  0,
+  [_NM, _MI, _Q, _I],
+  [0, 1, 1, [() => OriginRequestPolicySummaryList, 0]]
+];
+export var OriginRequestPolicyQueryStringsConfig$: StaticStructureSchema = [3, n0, _ORPQSC,
+  0,
+  [_QSB, _QS],
+  [0, [() => QueryStringNames$, 0]]
+];
+export var OriginRequestPolicySummary$: StaticStructureSchema = [3, n0, _ORPS,
+  0,
+  [_T, _ORP],
+  [0, [() => OriginRequestPolicy$, 0]]
+];
+export var Origins$: StaticStructureSchema = [3, n0, _O,
+  0,
+  [_Q, _I],
+  [1, [() => OriginList, 0]]
+];
+export var OriginShield$: StaticStructureSchema = [3, n0, _OS,
+  0,
+  [_E, _OSR],
+  [2, 0]
+];
+export var OriginSslProtocols$: StaticStructureSchema = [3, n0, _OSP,
+  0,
+  [_Q, _I],
+  [1, [() => SslProtocolsList, 0]]
+];
+export var Parameter$: StaticStructureSchema = [3, n0, _Par,
+  0,
+  [_N, _Va],
+  [0, 0]
+];
+export var ParameterDefinition$: StaticStructureSchema = [3, n0, _PDa,
+  0,
+  [_N, _Def],
+  [0, [() => ParameterDefinitionSchema$, 0]]
+];
+export var ParameterDefinitionSchema$: StaticStructureSchema = [3, n0, _PDS,
+  0,
+  [_SSt],
+  [[() => StringSchemaConfig$, 0]]
+];
+export var ParametersInCacheKeyAndForwardedToOrigin$: StaticStructureSchema = [3, n0, _PICKAFTO,
+  0,
+  [_EAEG, _EAEB, _HC, _CC, _QSC],
+  [2, 2, [() => CachePolicyHeadersConfig$, 0], [() => CachePolicyCookiesConfig$, 0], [() => CachePolicyQueryStringsConfig$, 0]]
+];
+export var Paths$: StaticStructureSchema = [3, n0, _Pa,
+  0,
+  [_Q, _I],
+  [1, [() => PathList, 0]]
+];
+export var PreconditionFailed$: StaticErrorSchema = [-3, n0, _PF,
+  { [_e]: _c, [_hE]: 412 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(PreconditionFailed$, PreconditionFailed);
+export var PublicKey$: StaticStructureSchema = [3, n0, _PK,
+  0,
+  [_Id, _CTr, _PKC],
+  [0, 4, () => PublicKeyConfig$]
+];
+export var PublicKeyAlreadyExists$: StaticErrorSchema = [-3, n0, _PKAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(PublicKeyAlreadyExists$, PublicKeyAlreadyExists);
+export var PublicKeyConfig$: StaticStructureSchema = [3, n0, _PKC,
+  0,
+  [_CR, _N, _EK, _Co],
+  [0, 0, 0, 0]
+];
+export var PublicKeyInUse$: StaticErrorSchema = [-3, n0, _PKIU,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(PublicKeyInUse$, PublicKeyInUse);
+export var PublicKeyList$: StaticStructureSchema = [3, n0, _PKL,
+  0,
+  [_NM, _MI, _Q, _I],
+  [0, 1, 1, [() => PublicKeySummaryList, 0]]
+];
+export var PublicKeySummary$: StaticStructureSchema = [3, n0, _PKS,
+  0,
+  [_Id, _N, _CTr, _EK, _Co],
+  [0, 0, 4, 0, 0]
+];
+export var PublishConnectionFunctionRequest$: StaticStructureSchema = [3, n0, _PCFR,
+  0,
+  [_Id, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var PublishConnectionFunctionResult$: StaticStructureSchema = [3, n0, _PCFRu,
+  0,
+  [_CFS],
+  [[() => ConnectionFunctionSummary$, 16]]
+];
+export var PublishFunctionRequest$: StaticStructureSchema = [3, n0, _PFR,
+  0,
+  [_N, _IM],
+  [[0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var PublishFunctionResult$: StaticStructureSchema = [3, n0, _PFRu,
+  0,
+  [_FS],
+  [[() => FunctionSummary$, 16]]
+];
+export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
+  0,
+  [_RA, _PD],
+  [0, 0]
+];
+export var PutResourcePolicyResult$: StaticStructureSchema = [3, n0, _PRPRu,
+  0,
+  [_RA],
+  [0]
+];
+export var QueryArgProfile$: StaticStructureSchema = [3, n0, _QAP,
+  0,
+  [_QA, _PI],
+  [0, 0]
+];
+export var QueryArgProfileConfig$: StaticStructureSchema = [3, n0, _QAPC,
+  0,
+  [_FWQAPIU, _QAPu],
+  [2, [() => QueryArgProfiles$, 0]]
+];
+export var QueryArgProfileEmpty$: StaticErrorSchema = [-3, n0, _QAPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(QueryArgProfileEmpty$, QueryArgProfileEmpty);
+export var QueryArgProfiles$: StaticStructureSchema = [3, n0, _QAPu,
+  0,
+  [_Q, _I],
+  [1, [() => QueryArgProfileList, 0]]
+];
+export var QueryStringCacheKeys$: StaticStructureSchema = [3, n0, _QSCK,
+  0,
+  [_Q, _I],
+  [1, [() => QueryStringCacheKeysList, 0]]
+];
+export var QueryStringNames$: StaticStructureSchema = [3, n0, _QSN,
+  0,
+  [_Q, _I],
+  [1, [() => QueryStringNamesList, 0]]
+];
+export var RealtimeLogConfig$: StaticStructureSchema = [3, n0, _RLC,
+  0,
+  [_ARN, _N, _SR, _EP, _Fi],
+  [0, 0, 1, () => EndPointList, [() => FieldList, 0]]
+];
+export var RealtimeLogConfigAlreadyExists$: StaticErrorSchema = [-3, n0, _RLCAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(RealtimeLogConfigAlreadyExists$, RealtimeLogConfigAlreadyExists);
+export var RealtimeLogConfigInUse$: StaticErrorSchema = [-3, n0, _RLCIU,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(RealtimeLogConfigInUse$, RealtimeLogConfigInUse);
+export var RealtimeLogConfigOwnerMismatch$: StaticErrorSchema = [-3, n0, _RLCOM,
+  { [_e]: _c, [_hE]: 401 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(RealtimeLogConfigOwnerMismatch$, RealtimeLogConfigOwnerMismatch);
+export var RealtimeLogConfigs$: StaticStructureSchema = [3, n0, _RLCe,
+  0,
+  [_MI, _I, _IT, _Ma, _NM],
+  [1, [() => RealtimeLogConfigList, 0], 2, 0, 0]
+];
+export var RealtimeMetricsSubscriptionConfig$: StaticStructureSchema = [3, n0, _RMSC,
+  0,
+  [_RMSS],
+  [0]
+];
+export var ResourceInUse$: StaticErrorSchema = [-3, n0, _RIU,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ResourceInUse$, ResourceInUse);
+export var ResourceNotDisabled$: StaticErrorSchema = [-3, n0, _RND,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ResourceNotDisabled$, ResourceNotDisabled);
+export var ResponseHeadersPolicy$: StaticStructureSchema = [3, n0, _RHP,
+  0,
+  [_Id, _LMT, _RHPC],
+  [0, 4, [() => ResponseHeadersPolicyConfig$, 0]]
+];
+export var ResponseHeadersPolicyAccessControlAllowHeaders$: StaticStructureSchema = [3, n0, _RHPACAH,
+  0,
+  [_Q, _I],
+  [1, [() => AccessControlAllowHeadersList, 0]]
+];
+export var ResponseHeadersPolicyAccessControlAllowMethods$: StaticStructureSchema = [3, n0, _RHPACAM,
+  0,
+  [_Q, _I],
+  [1, [() => AccessControlAllowMethodsList, 0]]
+];
+export var ResponseHeadersPolicyAccessControlAllowOrigins$: StaticStructureSchema = [3, n0, _RHPACAO,
+  0,
+  [_Q, _I],
+  [1, [() => AccessControlAllowOriginsList, 0]]
+];
+export var ResponseHeadersPolicyAccessControlExposeHeaders$: StaticStructureSchema = [3, n0, _RHPACEH,
+  0,
+  [_Q, _I],
+  [1, [() => AccessControlExposeHeadersList, 0]]
+];
+export var ResponseHeadersPolicyAlreadyExists$: StaticErrorSchema = [-3, n0, _RHPAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ResponseHeadersPolicyAlreadyExists$, ResponseHeadersPolicyAlreadyExists);
+export var ResponseHeadersPolicyConfig$: StaticStructureSchema = [3, n0, _RHPC,
+  0,
+  [_Co, _N, _CCo, _SHC, _STHC, _CHC, _RHC],
+  [0, 0, [() => ResponseHeadersPolicyCorsConfig$, 0], () => ResponseHeadersPolicySecurityHeadersConfig$, () => ResponseHeadersPolicyServerTimingHeadersConfig$, [() => ResponseHeadersPolicyCustomHeadersConfig$, 0], [() => ResponseHeadersPolicyRemoveHeadersConfig$, 0]]
+];
+export var ResponseHeadersPolicyContentSecurityPolicy$: StaticStructureSchema = [3, n0, _RHPCSP,
+  0,
+  [_Ov, _CSP],
+  [2, 0]
+];
+export var ResponseHeadersPolicyContentTypeOptions$: StaticStructureSchema = [3, n0, _RHPCTO,
+  0,
+  [_Ov],
+  [2]
+];
+export var ResponseHeadersPolicyCorsConfig$: StaticStructureSchema = [3, n0, _RHPCC,
+  0,
+  [_ACAO, _ACAH, _ACAM, _ACAC, _ACEH, _ACMAS, _OO],
+  [[() => ResponseHeadersPolicyAccessControlAllowOrigins$, 0], [() => ResponseHeadersPolicyAccessControlAllowHeaders$, 0], [() => ResponseHeadersPolicyAccessControlAllowMethods$, 0], 2, [() => ResponseHeadersPolicyAccessControlExposeHeaders$, 0], 1, 2]
+];
+export var ResponseHeadersPolicyCustomHeader$: StaticStructureSchema = [3, n0, _RHPCH,
+  0,
+  [_He, _Va, _Ov],
+  [0, 0, 2]
+];
+export var ResponseHeadersPolicyCustomHeadersConfig$: StaticStructureSchema = [3, n0, _RHPCHC,
+  0,
+  [_Q, _I],
+  [1, [() => ResponseHeadersPolicyCustomHeaderList, 0]]
+];
+export var ResponseHeadersPolicyFrameOptions$: StaticStructureSchema = [3, n0, _RHPFO,
+  0,
+  [_Ov, _FO],
+  [2, 0]
+];
+export var ResponseHeadersPolicyInUse$: StaticErrorSchema = [-3, n0, _RHPIU,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ResponseHeadersPolicyInUse$, ResponseHeadersPolicyInUse);
+export var ResponseHeadersPolicyList$: StaticStructureSchema = [3, n0, _RHPL,
+  0,
+  [_NM, _MI, _Q, _I],
+  [0, 1, 1, [() => ResponseHeadersPolicySummaryList, 0]]
+];
+export var ResponseHeadersPolicyReferrerPolicy$: StaticStructureSchema = [3, n0, _RHPRP,
+  0,
+  [_Ov, _RP],
+  [2, 0]
+];
+export var ResponseHeadersPolicyRemoveHeader$: StaticStructureSchema = [3, n0, _RHPRH,
+  0,
+  [_He],
+  [0]
+];
+export var ResponseHeadersPolicyRemoveHeadersConfig$: StaticStructureSchema = [3, n0, _RHPRHC,
+  0,
+  [_Q, _I],
+  [1, [() => ResponseHeadersPolicyRemoveHeaderList, 0]]
+];
+export var ResponseHeadersPolicySecurityHeadersConfig$: StaticStructureSchema = [3, n0, _RHPSHC,
+  0,
+  [_XSSP, _FOr, _RP, _CSP, _CTO, _STS],
+  [() => ResponseHeadersPolicyXSSProtection$, () => ResponseHeadersPolicyFrameOptions$, () => ResponseHeadersPolicyReferrerPolicy$, () => ResponseHeadersPolicyContentSecurityPolicy$, () => ResponseHeadersPolicyContentTypeOptions$, () => ResponseHeadersPolicyStrictTransportSecurity$]
+];
+export var ResponseHeadersPolicyServerTimingHeadersConfig$: StaticStructureSchema = [3, n0, _RHPSTHC,
+  0,
+  [_E, _SR],
+  [2, 1]
+];
+export var ResponseHeadersPolicyStrictTransportSecurity$: StaticStructureSchema = [3, n0, _RHPSTS,
+  0,
+  [_Ov, _ISnc, _Pre, _ACMAS],
+  [2, 2, 2, 1]
+];
+export var ResponseHeadersPolicySummary$: StaticStructureSchema = [3, n0, _RHPS,
+  0,
+  [_T, _RHP],
+  [0, [() => ResponseHeadersPolicy$, 0]]
+];
+export var ResponseHeadersPolicyXSSProtection$: StaticStructureSchema = [3, n0, _RHPXSSP,
+  0,
+  [_Ov, _Pro, _MBo, _RU],
+  [2, 2, 2, 0]
+];
+export var Restrictions$: StaticStructureSchema = [3, n0, _Re,
+  0,
+  [_GRe],
+  [[() => GeoRestriction$, 0]]
+];
+export var S3Origin$: StaticStructureSchema = [3, n0, _SO,
+  0,
+  [_DN, _OAIr],
+  [0, 0]
+];
+export var S3OriginConfig$: StaticStructureSchema = [3, n0, _SOC,
+  0,
+  [_OAIr, _ORT],
+  [0, 1]
+];
+export var SessionStickinessConfig$: StaticStructureSchema = [3, n0, _SSC,
+  0,
+  [_ITTL, _MTTLax],
+  [1, 1]
+];
+export var Signer$: StaticStructureSchema = [3, n0, _Si,
+  0,
+  [_AAN, _KPI],
+  [0, [() => KeyPairIds$, 0]]
+];
+export var StagingDistributionDnsNames$: StaticStructureSchema = [3, n0, _SDDN,
+  0,
+  [_Q, _I],
+  [1, [() => StagingDistributionDnsNameList, 0]]
+];
+export var StagingDistributionInUse$: StaticErrorSchema = [-3, n0, _SDIU,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(StagingDistributionInUse$, StagingDistributionInUse);
+export var StatusCodes$: StaticStructureSchema = [3, n0, _SCt,
+  0,
+  [_Q, _I],
+  [1, [() => StatusCodeList, 0]]
+];
+export var StreamingDistribution$: StaticStructureSchema = [3, n0, _SD,
+  0,
+  [_Id, _ARN, _S, _LMT, _DN, _ATS, _SDC],
+  [0, 0, 0, 4, 0, [() => ActiveTrustedSigners$, 0], [() => StreamingDistributionConfig$, 0]]
+];
+export var StreamingDistributionAlreadyExists$: StaticErrorSchema = [-3, n0, _SDAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(StreamingDistributionAlreadyExists$, StreamingDistributionAlreadyExists);
+export var StreamingDistributionConfig$: StaticStructureSchema = [3, n0, _SDC,
+  0,
+  [_CR, _SO, _A, _Co, _Lo, _TS, _PC, _E],
+  [0, () => S3Origin$, [() => Aliases$, 0], 0, () => StreamingLoggingConfig$, [() => TrustedSigners$, 0], 0, 2]
+];
+export var StreamingDistributionConfigWithTags$: StaticStructureSchema = [3, n0, _SDCWT,
+  0,
+  [_SDC, _Ta],
+  [[() => StreamingDistributionConfig$, 0], [() => Tags$, 0]]
+];
+export var StreamingDistributionList$: StaticStructureSchema = [3, n0, _SDL,
+  0,
+  [_Ma, _NM, _MI, _IT, _Q, _I],
+  [0, 0, 1, 2, 1, [() => StreamingDistributionSummaryList, 0]]
+];
+export var StreamingDistributionNotDisabled$: StaticErrorSchema = [-3, n0, _SDND,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(StreamingDistributionNotDisabled$, StreamingDistributionNotDisabled);
+export var StreamingDistributionSummary$: StaticStructureSchema = [3, n0, _SDS,
+  0,
+  [_Id, _ARN, _S, _LMT, _DN, _SO, _A, _TS, _Co, _PC, _E],
+  [0, 0, 0, 4, 0, () => S3Origin$, [() => Aliases$, 0], [() => TrustedSigners$, 0], 0, 0, 2]
+];
+export var StreamingLoggingConfig$: StaticStructureSchema = [3, n0, _SLC,
+  0,
+  [_E, _B, _Pr],
+  [2, 0, 0]
+];
+export var StringSchemaConfig$: StaticStructureSchema = [3, n0, _SSCt,
+  0,
+  [_Co, _DV, _Req],
+  [[() => sensitiveStringType, 0], 0, 2]
+];
+export var Tag$: StaticStructureSchema = [3, n0, _Tag,
+  0,
+  [_K, _Va],
+  [0, 0]
+];
+export var TagKeys$: StaticStructureSchema = [3, n0, _TK,
+  0,
+  [_I],
+  [[() => TagKeyList, 0]]
+];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
+  0,
+  [_Res, _Ta],
+  [[0, { [_hQ]: _Res }], [() => Tags$, { [_hP]: 1, [_xN]: _Ta }]]
+];
+export var Tags$: StaticStructureSchema = [3, n0, _Ta,
+  0,
+  [_I],
+  [[() => TagList, 0]]
+];
+export var TenantConfig$: StaticStructureSchema = [3, n0, _TCe,
+  0,
+  [_PDar],
+  [[() => ParameterDefinitions, 0]]
+];
+export var TestConnectionFunctionRequest$: StaticStructureSchema = [3, n0, _TCFR,
+  0,
+  [_Id, _IM, _St, _CO],
+  [[0, 1], [0, { [_hH]: _IM_ }], 0, [() => FunctionEventObject, 0]]
+];
+export var TestConnectionFunctionResult$: StaticStructureSchema = [3, n0, _TCFRe,
+  0,
+  [_CFTR],
+  [[() => ConnectionFunctionTestResult$, 16]]
+];
+export var TestFunctionFailed$: StaticErrorSchema = [-3, n0, _TFF,
+  { [_e]: _s, [_hE]: 500 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TestFunctionFailed$, TestFunctionFailed);
+export var TestFunctionRequest$: StaticStructureSchema = [3, n0, _TFR,
+  0,
+  [_N, _IM, _St, _EO],
+  [[0, 1], [0, { [_hH]: _IM_ }], 0, [() => FunctionEventObject, 0]]
+];
+export var TestFunctionResult$: StaticStructureSchema = [3, n0, _TFRe,
+  0,
+  [_TR],
+  [[() => TestResult$, 16]]
+];
+export var TestResult$: StaticStructureSchema = [3, n0, _TR,
+  0,
+  [_FS, _CU, _FEL, _FEM, _FOu],
+  [[() => FunctionSummary$, 0], 0, [() => FunctionExecutionLogList, 0], [() => sensitiveStringType, 0], [() => sensitiveStringType, 0]]
+];
+export var TooLongCSPInResponseHeadersPolicy$: StaticErrorSchema = [-3, n0, _TLCSPIRHP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooLongCSPInResponseHeadersPolicy$, TooLongCSPInResponseHeadersPolicy);
+export var TooManyCacheBehaviors$: StaticErrorSchema = [-3, n0, _TMCB,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyCacheBehaviors$, TooManyCacheBehaviors);
+export var TooManyCachePolicies$: StaticErrorSchema = [-3, n0, _TMCP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyCachePolicies$, TooManyCachePolicies);
+export var TooManyCertificates$: StaticErrorSchema = [-3, n0, _TMC,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyCertificates$, TooManyCertificates);
+export var TooManyCloudFrontOriginAccessIdentities$: StaticErrorSchema = [-3, n0, _TMCFOAI,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyCloudFrontOriginAccessIdentities$, TooManyCloudFrontOriginAccessIdentities);
+export var TooManyContinuousDeploymentPolicies$: StaticErrorSchema = [-3, n0, _TMCDP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyContinuousDeploymentPolicies$, TooManyContinuousDeploymentPolicies);
+export var TooManyCookieNamesInWhiteList$: StaticErrorSchema = [-3, n0, _TMCNIWL,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyCookieNamesInWhiteList$, TooManyCookieNamesInWhiteList);
+export var TooManyCookiesInCachePolicy$: StaticErrorSchema = [-3, n0, _TMCICP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyCookiesInCachePolicy$, TooManyCookiesInCachePolicy);
+export var TooManyCookiesInOriginRequestPolicy$: StaticErrorSchema = [-3, n0, _TMCIORP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyCookiesInOriginRequestPolicy$, TooManyCookiesInOriginRequestPolicy);
+export var TooManyCustomHeadersInResponseHeadersPolicy$: StaticErrorSchema = [-3, n0, _TMCHIRHP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyCustomHeadersInResponseHeadersPolicy$, TooManyCustomHeadersInResponseHeadersPolicy);
+export var TooManyDistributionCNAMEs$: StaticErrorSchema = [-3, n0, _TMDCNAME,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyDistributionCNAMEs$, TooManyDistributionCNAMEs);
+export var TooManyDistributions$: StaticErrorSchema = [-3, n0, _TMD,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyDistributions$, TooManyDistributions);
+export var TooManyDistributionsAssociatedToCachePolicy$: StaticErrorSchema = [-3, n0, _TMDATCP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyDistributionsAssociatedToCachePolicy$, TooManyDistributionsAssociatedToCachePolicy);
+export var TooManyDistributionsAssociatedToFieldLevelEncryptionConfig$: StaticErrorSchema = [-3, n0, _TMDATFLEC,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyDistributionsAssociatedToFieldLevelEncryptionConfig$, TooManyDistributionsAssociatedToFieldLevelEncryptionConfig);
+export var TooManyDistributionsAssociatedToKeyGroup$: StaticErrorSchema = [-3, n0, _TMDATKG,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyDistributionsAssociatedToKeyGroup$, TooManyDistributionsAssociatedToKeyGroup);
+export var TooManyDistributionsAssociatedToOriginAccessControl$: StaticErrorSchema = [-3, n0, _TMDATOAC,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyDistributionsAssociatedToOriginAccessControl$, TooManyDistributionsAssociatedToOriginAccessControl);
+export var TooManyDistributionsAssociatedToOriginRequestPolicy$: StaticErrorSchema = [-3, n0, _TMDATORP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyDistributionsAssociatedToOriginRequestPolicy$, TooManyDistributionsAssociatedToOriginRequestPolicy);
+export var TooManyDistributionsAssociatedToResponseHeadersPolicy$: StaticErrorSchema = [-3, n0, _TMDATRHP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyDistributionsAssociatedToResponseHeadersPolicy$, TooManyDistributionsAssociatedToResponseHeadersPolicy);
+export var TooManyDistributionsWithFunctionAssociations$: StaticErrorSchema = [-3, n0, _TMDWFA,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyDistributionsWithFunctionAssociations$, TooManyDistributionsWithFunctionAssociations);
+export var TooManyDistributionsWithLambdaAssociations$: StaticErrorSchema = [-3, n0, _TMDWLA,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyDistributionsWithLambdaAssociations$, TooManyDistributionsWithLambdaAssociations);
+export var TooManyDistributionsWithSingleFunctionARN$: StaticErrorSchema = [-3, n0, _TMDWSFARN,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyDistributionsWithSingleFunctionARN$, TooManyDistributionsWithSingleFunctionARN);
+export var TooManyFieldLevelEncryptionConfigs$: StaticErrorSchema = [-3, n0, _TMFLEC,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyFieldLevelEncryptionConfigs$, TooManyFieldLevelEncryptionConfigs);
+export var TooManyFieldLevelEncryptionContentTypeProfiles$: StaticErrorSchema = [-3, n0, _TMFLECTP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyFieldLevelEncryptionContentTypeProfiles$, TooManyFieldLevelEncryptionContentTypeProfiles);
+export var TooManyFieldLevelEncryptionEncryptionEntities$: StaticErrorSchema = [-3, n0, _TMFLEEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyFieldLevelEncryptionEncryptionEntities$, TooManyFieldLevelEncryptionEncryptionEntities);
+export var TooManyFieldLevelEncryptionFieldPatterns$: StaticErrorSchema = [-3, n0, _TMFLEFP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyFieldLevelEncryptionFieldPatterns$, TooManyFieldLevelEncryptionFieldPatterns);
+export var TooManyFieldLevelEncryptionProfiles$: StaticErrorSchema = [-3, n0, _TMFLEP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyFieldLevelEncryptionProfiles$, TooManyFieldLevelEncryptionProfiles);
+export var TooManyFieldLevelEncryptionQueryArgProfiles$: StaticErrorSchema = [-3, n0, _TMFLEQAP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyFieldLevelEncryptionQueryArgProfiles$, TooManyFieldLevelEncryptionQueryArgProfiles);
+export var TooManyFunctionAssociations$: StaticErrorSchema = [-3, n0, _TMFA,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyFunctionAssociations$, TooManyFunctionAssociations);
+export var TooManyFunctions$: StaticErrorSchema = [-3, n0, _TMF,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyFunctions$, TooManyFunctions);
+export var TooManyHeadersInCachePolicy$: StaticErrorSchema = [-3, n0, _TMHICP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyHeadersInCachePolicy$, TooManyHeadersInCachePolicy);
+export var TooManyHeadersInForwardedValues$: StaticErrorSchema = [-3, n0, _TMHIFV,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyHeadersInForwardedValues$, TooManyHeadersInForwardedValues);
+export var TooManyHeadersInOriginRequestPolicy$: StaticErrorSchema = [-3, n0, _TMHIORP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyHeadersInOriginRequestPolicy$, TooManyHeadersInOriginRequestPolicy);
+export var TooManyInvalidationsInProgress$: StaticErrorSchema = [-3, n0, _TMIIP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyInvalidationsInProgress$, TooManyInvalidationsInProgress);
+export var TooManyKeyGroups$: StaticErrorSchema = [-3, n0, _TMKG,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyKeyGroups$, TooManyKeyGroups);
+export var TooManyKeyGroupsAssociatedToDistribution$: StaticErrorSchema = [-3, n0, _TMKGATD,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyKeyGroupsAssociatedToDistribution$, TooManyKeyGroupsAssociatedToDistribution);
+export var TooManyLambdaFunctionAssociations$: StaticErrorSchema = [-3, n0, _TMLFA,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyLambdaFunctionAssociations$, TooManyLambdaFunctionAssociations);
+export var TooManyOriginAccessControls$: StaticErrorSchema = [-3, n0, _TMOAC,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyOriginAccessControls$, TooManyOriginAccessControls);
+export var TooManyOriginCustomHeaders$: StaticErrorSchema = [-3, n0, _TMOCH,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyOriginCustomHeaders$, TooManyOriginCustomHeaders);
+export var TooManyOriginGroupsPerDistribution$: StaticErrorSchema = [-3, n0, _TMOGPD,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyOriginGroupsPerDistribution$, TooManyOriginGroupsPerDistribution);
+export var TooManyOriginRequestPolicies$: StaticErrorSchema = [-3, n0, _TMORP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyOriginRequestPolicies$, TooManyOriginRequestPolicies);
+export var TooManyOrigins$: StaticErrorSchema = [-3, n0, _TMO,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyOrigins$, TooManyOrigins);
+export var TooManyPublicKeys$: StaticErrorSchema = [-3, n0, _TMPK,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyPublicKeys$, TooManyPublicKeys);
+export var TooManyPublicKeysInKeyGroup$: StaticErrorSchema = [-3, n0, _TMPKIKG,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyPublicKeysInKeyGroup$, TooManyPublicKeysInKeyGroup);
+export var TooManyQueryStringParameters$: StaticErrorSchema = [-3, n0, _TMQSP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyQueryStringParameters$, TooManyQueryStringParameters);
+export var TooManyQueryStringsInCachePolicy$: StaticErrorSchema = [-3, n0, _TMQSICP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyQueryStringsInCachePolicy$, TooManyQueryStringsInCachePolicy);
+export var TooManyQueryStringsInOriginRequestPolicy$: StaticErrorSchema = [-3, n0, _TMQSIORP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyQueryStringsInOriginRequestPolicy$, TooManyQueryStringsInOriginRequestPolicy);
+export var TooManyRealtimeLogConfigs$: StaticErrorSchema = [-3, n0, _TMRLC,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyRealtimeLogConfigs$, TooManyRealtimeLogConfigs);
+export var TooManyRemoveHeadersInResponseHeadersPolicy$: StaticErrorSchema = [-3, n0, _TMRHIRHP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyRemoveHeadersInResponseHeadersPolicy$, TooManyRemoveHeadersInResponseHeadersPolicy);
+export var TooManyResponseHeadersPolicies$: StaticErrorSchema = [-3, n0, _TMRHP,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyResponseHeadersPolicies$, TooManyResponseHeadersPolicies);
+export var TooManyStreamingDistributionCNAMEs$: StaticErrorSchema = [-3, n0, _TMSDCNAME,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyStreamingDistributionCNAMEs$, TooManyStreamingDistributionCNAMEs);
+export var TooManyStreamingDistributions$: StaticErrorSchema = [-3, n0, _TMSD,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyStreamingDistributions$, TooManyStreamingDistributions);
+export var TooManyTrustedSigners$: StaticErrorSchema = [-3, n0, _TMTS,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyTrustedSigners$, TooManyTrustedSigners);
+export var TrafficConfig$: StaticStructureSchema = [3, n0, _TC,
+  0,
+  [_SWC, _SHCi, _T],
+  [() => ContinuousDeploymentSingleWeightConfig$, () => ContinuousDeploymentSingleHeaderConfig$, 0]
+];
+export var TrustedKeyGroupDoesNotExist$: StaticErrorSchema = [-3, n0, _TKGDNE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TrustedKeyGroupDoesNotExist$, TrustedKeyGroupDoesNotExist);
+export var TrustedKeyGroups$: StaticStructureSchema = [3, n0, _TKG,
+  0,
+  [_E, _Q, _I],
+  [2, 1, [() => TrustedKeyGroupIdList, 0]]
+];
+export var TrustedSignerDoesNotExist$: StaticErrorSchema = [-3, n0, _TSDNE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TrustedSignerDoesNotExist$, TrustedSignerDoesNotExist);
+export var TrustedSigners$: StaticStructureSchema = [3, n0, _TS,
+  0,
+  [_E, _Q, _I],
+  [2, 1, [() => AwsAccountNumberList, 0]]
+];
+export var TrustStore$: StaticStructureSchema = [3, n0, _TSr,
+  0,
+  [_Id, _Ar, _N, _S, _NOCC, _LMT, _Rea],
+  [0, 0, 0, 0, 1, 4, 0]
+];
+export var TrustStoreConfig$: StaticStructureSchema = [3, n0, _TSC,
+  0,
+  [_TSIr, _ATSCN, _ICE],
+  [0, 2, 2]
+];
+export var TrustStoreSummary$: StaticStructureSchema = [3, n0, _TSS,
+  0,
+  [_Id, _Ar, _N, _S, _NOCC, _LMT, _Rea, _ET],
+  [0, 0, 0, 0, 1, 4, 0, 0]
+];
+export var UnsupportedOperation$: StaticErrorSchema = [-3, n0, _UO,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(UnsupportedOperation$, UnsupportedOperation);
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
+  0,
+  [_Res, _TK],
+  [[0, { [_hQ]: _Res }], [() => TagKeys$, { [_hP]: 1, [_xN]: _TK }]]
+];
+export var UpdateAnycastIpListRequest$: StaticStructureSchema = [3, n0, _UAILR,
+  0,
+  [_Id, _IAT, _IM],
+  [[0, 1], 0, [0, { [_hH]: _IM_ }]]
+];
+export var UpdateAnycastIpListResult$: StaticStructureSchema = [3, n0, _UAILRp,
+  0,
+  [_AIL, _ET],
+  [[() => AnycastIpList$, 16], [0, { [_hH]: _ET }]]
+];
+export var UpdateCachePolicyRequest$: StaticStructureSchema = [3, n0, _UCPR,
+  0,
+  [_CPC, _Id, _IM],
+  [[() => CachePolicyConfig$, { [_hP]: 1, [_xN]: _CPC }], [0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var UpdateCachePolicyResult$: StaticStructureSchema = [3, n0, _UCPRp,
+  0,
+  [_CP, _ET],
+  [[() => CachePolicy$, 16], [0, { [_hH]: _ET }]]
+];
+export var UpdateCloudFrontOriginAccessIdentityRequest$: StaticStructureSchema = [3, n0, _UCFOAIR,
+  0,
+  [_CFOAIC, _Id, _IM],
+  [[() => CloudFrontOriginAccessIdentityConfig$, { [_hP]: 1, [_xN]: _CFOAIC }], [0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var UpdateCloudFrontOriginAccessIdentityResult$: StaticStructureSchema = [3, n0, _UCFOAIRp,
+  0,
+  [_CFOAI, _ET],
+  [[() => CloudFrontOriginAccessIdentity$, 16], [0, { [_hH]: _ET }]]
+];
+export var UpdateConnectionFunctionRequest$: StaticStructureSchema = [3, n0, _UCFR,
+  0,
+  [_Id, _IM, _CFC, _CFCo],
+  [[0, 1], [0, { [_hH]: _IM_ }], [() => FunctionConfig$, 0], [() => FunctionBlob, 0]]
+];
+export var UpdateConnectionFunctionResult$: StaticStructureSchema = [3, n0, _UCFRp,
+  0,
+  [_CFS, _ET],
+  [[() => ConnectionFunctionSummary$, 16], [0, { [_hH]: _ET }]]
+];
+export var UpdateConnectionGroupRequest$: StaticStructureSchema = [3, n0, _UCGR,
+  0,
+  [_Id, _IE, _IM, _AILI, _E],
+  [[0, 1], 2, [0, { [_hH]: _IM_ }], 0, 2]
+];
+export var UpdateConnectionGroupResult$: StaticStructureSchema = [3, n0, _UCGRp,
+  0,
+  [_CG, _ET],
+  [[() => ConnectionGroup$, 16], [0, { [_hH]: _ET }]]
+];
+export var UpdateContinuousDeploymentPolicyRequest$: StaticStructureSchema = [3, n0, _UCDPR,
+  0,
+  [_CDPC, _Id, _IM],
+  [[() => ContinuousDeploymentPolicyConfig$, { [_hP]: 1, [_xN]: _CDPC }], [0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var UpdateContinuousDeploymentPolicyResult$: StaticStructureSchema = [3, n0, _UCDPRp,
+  0,
+  [_CDP, _ET],
+  [[() => ContinuousDeploymentPolicy$, 16], [0, { [_hH]: _ET }]]
+];
+export var UpdateDistributionRequest$: StaticStructureSchema = [3, n0, _UDR,
+  0,
+  [_DC, _Id, _IM],
+  [[() => DistributionConfig$, { [_hP]: 1, [_xN]: _DC }], [0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var UpdateDistributionResult$: StaticStructureSchema = [3, n0, _UDRp,
+  0,
+  [_D, _ET],
+  [[() => Distribution$, 16], [0, { [_hH]: _ET }]]
+];
+export var UpdateDistributionTenantRequest$: StaticStructureSchema = [3, n0, _UDTR,
+  0,
+  [_Id, _DI, _Do, _Cu, _P, _CGI, _IM, _MCR, _E],
+  [[0, 1], 0, () => DomainList, [() => Customizations$, 0], () => _Parameters, 0, [0, { [_hH]: _IM_ }], () => ManagedCertificateRequest$, 2]
+];
+export var UpdateDistributionTenantResult$: StaticStructureSchema = [3, n0, _UDTRp,
+  0,
+  [_DT, _ET],
+  [[() => DistributionTenant$, 16], [0, { [_hH]: _ET }]]
+];
+export var UpdateDistributionWithStagingConfigRequest$: StaticStructureSchema = [3, n0, _UDWSCR,
+  0,
+  [_Id, _SDI, _IM],
+  [[0, 1], [0, { [_hQ]: _SDI }], [0, { [_hH]: _IM_ }]]
+];
+export var UpdateDistributionWithStagingConfigResult$: StaticStructureSchema = [3, n0, _UDWSCRp,
+  0,
+  [_D, _ET],
+  [[() => Distribution$, 16], [0, { [_hH]: _ET }]]
+];
+export var UpdateDomainAssociationRequest$: StaticStructureSchema = [3, n0, _UDAR,
+  0,
+  [_Dom, _TRa, _IM],
+  [0, () => DistributionResourceId$, [0, { [_hH]: _IM_ }]]
+];
+export var UpdateDomainAssociationResult$: StaticStructureSchema = [3, n0, _UDARp,
+  0,
+  [_Dom, _RI, _ET],
+  [0, 0, [0, { [_hH]: _ET }]]
+];
+export var UpdateFieldLevelEncryptionConfigRequest$: StaticStructureSchema = [3, n0, _UFLECR,
+  0,
+  [_FLEC, _Id, _IM],
+  [[() => FieldLevelEncryptionConfig$, { [_hP]: 1, [_xN]: _FLEC }], [0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var UpdateFieldLevelEncryptionConfigResult$: StaticStructureSchema = [3, n0, _UFLECRp,
+  0,
+  [_FLE, _ET],
+  [[() => FieldLevelEncryption$, 16], [0, { [_hH]: _ET }]]
+];
+export var UpdateFieldLevelEncryptionProfileRequest$: StaticStructureSchema = [3, n0, _UFLEPR,
+  0,
+  [_FLEPC, _Id, _IM],
+  [[() => FieldLevelEncryptionProfileConfig$, { [_hP]: 1, [_xN]: _FLEPC }], [0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var UpdateFieldLevelEncryptionProfileResult$: StaticStructureSchema = [3, n0, _UFLEPRp,
+  0,
+  [_FLEP, _ET],
+  [[() => FieldLevelEncryptionProfile$, 16], [0, { [_hH]: _ET }]]
+];
+export var UpdateFunctionRequest$: StaticStructureSchema = [3, n0, _UFR,
+  0,
+  [_N, _IM, _FC, _FCu],
+  [[0, 1], [0, { [_hH]: _IM_ }], [() => FunctionConfig$, 0], [() => FunctionBlob, 0]]
+];
+export var UpdateFunctionResult$: StaticStructureSchema = [3, n0, _UFRp,
+  0,
+  [_FS, _ET],
+  [[() => FunctionSummary$, 16], [0, { [_hH]: _ETt }]]
+];
+export var UpdateKeyGroupRequest$: StaticStructureSchema = [3, n0, _UKGR,
+  0,
+  [_KGC, _Id, _IM],
+  [[() => KeyGroupConfig$, { [_hP]: 1, [_xN]: _KGC }], [0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var UpdateKeyGroupResult$: StaticStructureSchema = [3, n0, _UKGRp,
+  0,
+  [_KG, _ET],
+  [[() => KeyGroup$, 16], [0, { [_hH]: _ET }]]
+];
+export var UpdateKeyValueStoreRequest$: StaticStructureSchema = [3, n0, _UKVSR,
+  0,
+  [_N, _Co, _IM],
+  [[0, 1], 0, [0, { [_hH]: _IM_ }]]
+];
+export var UpdateKeyValueStoreResult$: StaticStructureSchema = [3, n0, _UKVSRp,
+  0,
+  [_KVS, _ET],
+  [[() => KeyValueStore$, 16], [0, { [_hH]: _ET }]]
+];
+export var UpdateOriginAccessControlRequest$: StaticStructureSchema = [3, n0, _UOACR,
+  0,
+  [_OACC, _Id, _IM],
+  [[() => OriginAccessControlConfig$, { [_hP]: 1, [_xN]: _OACC }], [0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var UpdateOriginAccessControlResult$: StaticStructureSchema = [3, n0, _UOACRp,
+  0,
+  [_OAC, _ET],
+  [[() => OriginAccessControl$, 16], [0, { [_hH]: _ET }]]
+];
+export var UpdateOriginRequestPolicyRequest$: StaticStructureSchema = [3, n0, _UORPR,
+  0,
+  [_ORPC, _Id, _IM],
+  [[() => OriginRequestPolicyConfig$, { [_hP]: 1, [_xN]: _ORPC }], [0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var UpdateOriginRequestPolicyResult$: StaticStructureSchema = [3, n0, _UORPRp,
+  0,
+  [_ORP, _ET],
+  [[() => OriginRequestPolicy$, 16], [0, { [_hH]: _ET }]]
+];
+export var UpdatePublicKeyRequest$: StaticStructureSchema = [3, n0, _UPKR,
+  0,
+  [_PKC, _Id, _IM],
+  [[() => PublicKeyConfig$, { [_hP]: 1, [_xN]: _PKC }], [0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var UpdatePublicKeyResult$: StaticStructureSchema = [3, n0, _UPKRp,
+  0,
+  [_PK, _ET],
+  [[() => PublicKey$, 16], [0, { [_hH]: _ET }]]
+];
+export var UpdateRealtimeLogConfigRequest$: StaticStructureSchema = [3, n0, _URLCR,
+  0,
+  [_EP, _Fi, _N, _ARN, _SR],
+  [() => EndPointList, [() => FieldList, 0], 0, 0, 1]
+];
+export var UpdateRealtimeLogConfigResult$: StaticStructureSchema = [3, n0, _URLCRp,
+  0,
+  [_RLC],
+  [[() => RealtimeLogConfig$, 0]]
+];
+export var UpdateResponseHeadersPolicyRequest$: StaticStructureSchema = [3, n0, _URHPR,
+  0,
+  [_RHPC, _Id, _IM],
+  [[() => ResponseHeadersPolicyConfig$, { [_hP]: 1, [_xN]: _RHPC }], [0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var UpdateResponseHeadersPolicyResult$: StaticStructureSchema = [3, n0, _URHPRp,
+  0,
+  [_RHP, _ET],
+  [[() => ResponseHeadersPolicy$, 16], [0, { [_hH]: _ET }]]
+];
+export var UpdateStreamingDistributionRequest$: StaticStructureSchema = [3, n0, _USDR,
+  0,
+  [_SDC, _Id, _IM],
+  [[() => StreamingDistributionConfig$, { [_hP]: 1, [_xN]: _SDC }], [0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var UpdateStreamingDistributionResult$: StaticStructureSchema = [3, n0, _USDRp,
+  0,
+  [_SD, _ET],
+  [[() => StreamingDistribution$, 16], [0, { [_hH]: _ET }]]
+];
+export var UpdateTrustStoreRequest$: StaticStructureSchema = [3, n0, _UTSR,
+  0,
+  [_Id, _CCBS, _IM],
+  [[0, 1], [() => CaCertificatesBundleSource$, 16], [0, { [_hH]: _IM_ }]]
+];
+export var UpdateTrustStoreResult$: StaticStructureSchema = [3, n0, _UTSRp,
+  0,
+  [_TSr, _ET],
+  [[() => TrustStore$, 16], [0, { [_hH]: _ET }]]
+];
+export var UpdateVpcOriginRequest$: StaticStructureSchema = [3, n0, _UVOR,
+  0,
+  [_VOEC, _Id, _IM],
+  [[() => VpcOriginEndpointConfig$, { [_hP]: 1, [_xN]: _VOEC }], [0, 1], [0, { [_hH]: _IM_ }]]
+];
+export var UpdateVpcOriginResult$: StaticStructureSchema = [3, n0, _UVORp,
+  0,
+  [_VO, _ET],
+  [[() => VpcOrigin$, 16], [0, { [_hH]: _ET }]]
+];
+export var ValidationTokenDetail$: StaticStructureSchema = [3, n0, _VTDa,
+  0,
+  [_Dom, _RTed, _RF],
+  [0, 0, 0]
+];
+export var VerifyDnsConfigurationRequest$: StaticStructureSchema = [3, n0, _VDCR,
+  0,
+  [_Dom, _Ide],
+  [0, 0]
+];
+export var VerifyDnsConfigurationResult$: StaticStructureSchema = [3, n0, _VDCRe,
+  0,
+  [_DCL],
+  [[() => DnsConfigurationList, 0]]
+];
+export var ViewerCertificate$: StaticStructureSchema = [3, n0, _VC,
+  0,
+  [_CFDC, _IAMCI, _ACMCA, _SSLSM, _MPV, _Ce, _CSe],
+  [2, 0, 0, 0, 0, 0, 0]
+];
+export var ViewerMtlsConfig$: StaticStructureSchema = [3, n0, _VMC,
+  0,
+  [_Mo, _TSC],
+  [0, () => TrustStoreConfig$]
+];
+export var VpcOrigin$: StaticStructureSchema = [3, n0, _VO,
+  0,
+  [_Id, _Ar, _AIc, _S, _CTr, _LMT, _VOEC],
+  [0, 0, 0, 0, 4, 4, [() => VpcOriginEndpointConfig$, 0]]
+];
+export var VpcOriginConfig$: StaticStructureSchema = [3, n0, _VOC,
+  0,
+  [_VOI, _OAI, _ORT, _OKT],
+  [0, 0, 1, 1]
+];
+export var VpcOriginEndpointConfig$: StaticStructureSchema = [3, n0, _VOEC,
+  0,
+  [_N, _Ar, _HTTPP, _HTTPSP, _OPP, _OSP],
+  [0, 0, 1, 1, 0, [() => OriginSslProtocols$, 0]]
+];
+export var VpcOriginList$: StaticStructureSchema = [3, n0, _VOL,
+  0,
+  [_Ma, _NM, _MI, _IT, _Q, _I],
+  [0, 0, 1, 2, 1, [() => VpcOriginSummaryList, 0]]
+];
+export var VpcOriginSummary$: StaticStructureSchema = [3, n0, _VOS,
   0,
   [_Id, _N, _S, _CTr, _LMT, _Ar, _AIc, _OEA],
-  [0, 0, 0, 4, 4, 0, 0, 0],
+  [0, 0, 0, 4, 4, 0, 0, 0]
 ];
-export var WebAclCustomization: StaticStructureSchema = [3, n0, _WAC, 0, [_Ac, _Ar], [0, 0]];
-export var __Unit = "unit" as const;
-export var CloudFrontServiceException: StaticErrorSchema = [-3, _sm, "CloudFrontServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CloudFrontServiceException, __CloudFrontServiceException);
-export var AccessControlAllowHeadersList: StaticListSchema = [1, n0, _ACAHL, 0, [0, { [_xN]: _He }]];
-export var AccessControlAllowMethodsList: StaticListSchema = [1, n0, _ACAML, 0, [0, { [_xN]: _Met }]];
-export var AccessControlAllowOriginsList: StaticListSchema = [1, n0, _ACAOL, 0, [0, { [_xN]: _Or }]];
-export var AccessControlExposeHeadersList: StaticListSchema = [1, n0, _ACEHL, 0, [0, { [_xN]: _He }]];
-export var AliasICPRecordals: StaticListSchema = [1, n0, _AICPRl, 0, [() => AliasICPRecordal, { [_xN]: _AICPR }]];
-export var AliasList: StaticListSchema = [1, n0, _AL, 0, [0, { [_xN]: _CNAME }]];
-export var AnycastIpListSummaries: StaticListSchema = [
-  1,
-  n0,
-  _AILSn,
+export var WebAclCustomization$: StaticStructureSchema = [3, n0, _WAC,
   0,
-  [() => AnycastIpListSummary, { [_xN]: _AILS }],
+  [_Ac, _Ar],
+  [0, 0]
 ];
-export var AnycastIps: StaticListSchema = [1, n0, _AI, 0, [0, { [_xN]: _AIn }]];
-export var AwsAccountNumberList: StaticListSchema = [1, n0, _AANL, 0, [0, { [_xN]: _AAN }]];
-export var CacheBehaviorList: StaticListSchema = [1, n0, _CBL, 0, [() => CacheBehavior, { [_xN]: _CB }]];
-export var CachePolicySummaryList: StaticListSchema = [1, n0, _CPSL, 0, [() => CachePolicySummary, { [_xN]: _CPS }]];
-export var CloudFrontOriginAccessIdentitySummaryList: StaticListSchema = [
-  1,
-  n0,
-  _CFOAISL,
-  0,
-  [() => CloudFrontOriginAccessIdentitySummary, { [_xN]: _CFOAIS }],
+var __Unit = "unit" as const;
+export var CloudFrontServiceException$: StaticErrorSchema = [-3, _sm, "CloudFrontServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(CloudFrontServiceException$, CloudFrontServiceException);
+var AccessControlAllowHeadersList: StaticListSchema = [1, n0, _ACAHL,
+  0, [0,
+    { [_xN]: _He }]
 ];
-export var ConflictingAliases: StaticListSchema = [1, n0, _CAon, 0, [() => ConflictingAlias, { [_xN]: _CA }]];
-export var ConnectionFunctionSummaryList: StaticListSchema = [
-  1,
-  n0,
-  _CFSL,
-  0,
-  [() => ConnectionFunctionSummary, { [_xN]: _CFS }],
+var AccessControlAllowMethodsList: StaticListSchema = [1, n0, _ACAML,
+  0, [0,
+    { [_xN]: _Met }]
 ];
-export var ConnectionGroupSummaryList: StaticListSchema = [
-  1,
-  n0,
-  _CGSL,
-  0,
-  [() => ConnectionGroupSummary, { [_xN]: _CGS }],
+var AccessControlAllowOriginsList: StaticListSchema = [1, n0, _ACAOL,
+  0, [0,
+    { [_xN]: _Or }]
 ];
-export var ContentTypeProfileList: StaticListSchema = [1, n0, _CTPL, 0, [() => ContentTypeProfile, { [_xN]: _CTP }]];
-export var ContinuousDeploymentPolicySummaryList: StaticListSchema = [
-  1,
-  n0,
-  _CDPSL,
-  0,
-  [() => ContinuousDeploymentPolicySummary, { [_xN]: _CDPS }],
+var AccessControlExposeHeadersList: StaticListSchema = [1, n0, _ACEHL,
+  0, [0,
+    { [_xN]: _He }]
 ];
-export var CookieNameList: StaticListSchema = [1, n0, _CNL, 0, [0, { [_xN]: _N }]];
-export var CustomErrorResponseList: StaticListSchema = [1, n0, _CERL, 0, [() => CustomErrorResponse, { [_xN]: _CER }]];
-export var DistributionIdListSummary: StaticListSchema = [1, n0, _DILS, 0, [0, { [_xN]: _DI }]];
-export var DistributionIdOwnerItemList: StaticListSchema = [
-  1,
-  n0,
-  _DIOIL,
-  0,
-  [() => DistributionIdOwner, { [_xN]: _DIO }],
+var AliasICPRecordals: StaticListSchema = [1, n0, _AICPRl,
+  0, [() => AliasICPRecordal$,
+    { [_xN]: _AICPR }]
 ];
-export var DistributionSummaryList: StaticListSchema = [1, n0, _DSL, 0, [() => DistributionSummary, { [_xN]: _DS }]];
-export var DistributionTenantList: StaticListSchema = [
-  1,
-  n0,
-  _DTL,
-  0,
-  [() => DistributionTenantSummary, { [_xN]: _DTS }],
+var AliasList: StaticListSchema = [1, n0, _AL,
+  0, [0,
+    { [_xN]: _CNAME }]
 ];
-export var DnsConfigurationList: StaticListSchema = [1, n0, _DCL, 0, [() => DnsConfiguration, { [_xN]: _DCn }]];
-export var DomainConflictsList: StaticListSchema = [1, n0, _DCLo, 0, [() => DomainConflict, { [_xN]: _DCom }]];
-export var DomainList: StaticListSchema = [1, n0, _DLo, 0, () => DomainItem];
-export var DomainResultList: StaticListSchema = [1, n0, _DRL, 0, () => DomainResult];
-export var EncryptionEntityList: StaticListSchema = [1, n0, _EEL, 0, [() => EncryptionEntity, { [_xN]: _EEn }]];
-export var EndPointList: StaticListSchema = [1, n0, _EPL, 0, () => EndPoint];
-export var FieldLevelEncryptionProfileSummaryList: StaticListSchema = [
-  1,
-  n0,
-  _FLEPSL,
-  0,
-  [() => FieldLevelEncryptionProfileSummary, { [_xN]: _FLEPS }],
+var AnycastIpListSummaries: StaticListSchema = [1, n0, _AILSn,
+  0, [() => AnycastIpListSummary$,
+    { [_xN]: _AILS }]
 ];
-export var FieldLevelEncryptionSummaryList: StaticListSchema = [
-  1,
-  n0,
-  _FLESL,
-  0,
-  [() => FieldLevelEncryptionSummary, { [_xN]: _FLES }],
+var AnycastIps: StaticListSchema = [1, n0, _AI,
+  0, [0,
+    { [_xN]: _AIn }]
 ];
-export var FieldList: StaticListSchema = [1, n0, _FLi, 0, [0, { [_xN]: _Fie }]];
-export var FieldPatternList: StaticListSchema = [1, n0, _FPL, 0, [0, { [_xN]: _FPi }]];
-export var FunctionAssociationList: StaticListSchema = [1, n0, _FAL, 0, [() => FunctionAssociation, { [_xN]: _FAu }]];
-export var FunctionExecutionLogList: StaticListSchema = [1, n0, _FELL, 8, 0];
-export var FunctionSummaryList: StaticListSchema = [1, n0, _FSL, 0, [() => FunctionSummary, { [_xN]: _FS }]];
-export var HeaderList: StaticListSchema = [1, n0, _HL, 0, [0, { [_xN]: _N }]];
-export var InvalidationSummaryList: StaticListSchema = [1, n0, _ISL, 0, [() => InvalidationSummary, { [_xN]: _ISn }]];
-export var IpamCidrConfigList: StaticListSchema = [1, n0, _ICCL, 0, [() => IpamCidrConfig, { [_xN]: _ICCp }]];
-export var KeyGroupSummaryList: StaticListSchema = [1, n0, _KGSL, 0, [() => KeyGroupSummary, { [_xN]: _KGS }]];
-export var KeyPairIdList: StaticListSchema = [1, n0, _KPIL, 0, [0, { [_xN]: _KPIe }]];
-export var KeyValueStoreAssociationList: StaticListSchema = [
-  1,
-  n0,
-  _KVSAL,
-  0,
-  [() => KeyValueStoreAssociation, { [_xN]: _KVSAe }],
+var AwsAccountNumberList: StaticListSchema = [1, n0, _AANL,
+  0, [0,
+    { [_xN]: _AAN }]
 ];
-export var KeyValueStoreSummaryList: StaticListSchema = [1, n0, _KVSSL, 0, [() => KeyValueStore, { [_xN]: _KVS }]];
-export var KGKeyPairIdsList: StaticListSchema = [1, n0, _KGKPIL, 0, [() => KGKeyPairIds, { [_xN]: _KG }]];
-export var LambdaFunctionAssociationList: StaticListSchema = [
-  1,
-  n0,
-  _LFAL,
-  0,
-  [() => LambdaFunctionAssociation, { [_xN]: _LFAa }],
+var CacheBehaviorList: StaticListSchema = [1, n0, _CBL,
+  0, [() => CacheBehavior$,
+    { [_xN]: _CB }]
 ];
-export var LocationList: StaticListSchema = [1, n0, _LL, 0, [0, { [_xN]: _L }]];
-export var MethodsList: StaticListSchema = [1, n0, _ML, 0, [0, { [_xN]: _Met }]];
-export var OriginAccessControlSummaryList: StaticListSchema = [
-  1,
-  n0,
-  _OACSL,
-  0,
-  [() => OriginAccessControlSummary, { [_xN]: _OACS }],
+var CachePolicySummaryList: StaticListSchema = [1, n0, _CPSL,
+  0, [() => CachePolicySummary$,
+    { [_xN]: _CPS }]
 ];
-export var OriginCustomHeadersList: StaticListSchema = [1, n0, _OCHL, 0, [() => OriginCustomHeader, { [_xN]: _OCH }]];
-export var OriginGroupList: StaticListSchema = [1, n0, _OGL, 0, [() => OriginGroup, { [_xN]: _OGr }]];
-export var OriginGroupMemberList: StaticListSchema = [1, n0, _OGML, 0, [() => OriginGroupMember, { [_xN]: _OGM }]];
-export var OriginList: StaticListSchema = [1, n0, _OL, 0, [() => Origin, { [_xN]: _Or }]];
-export var OriginRequestPolicySummaryList: StaticListSchema = [
-  1,
-  n0,
-  _ORPSL,
-  0,
-  [() => OriginRequestPolicySummary, { [_xN]: _ORPS }],
+var CloudFrontOriginAccessIdentitySummaryList: StaticListSchema = [1, n0, _CFOAISL,
+  0, [() => CloudFrontOriginAccessIdentitySummary$,
+    { [_xN]: _CFOAIS }]
 ];
-export var ParameterDefinitions: StaticListSchema = [1, n0, _PDar, 0, [() => ParameterDefinition, 0]];
-export var _Parameters: StaticListSchema = [1, n0, _P, 0, () => Parameter];
-export var PathList: StaticListSchema = [1, n0, _PL, 0, [0, { [_xN]: _Pat }]];
-export var PublicKeyIdList: StaticListSchema = [1, n0, _PKIL, 0, [0, { [_xN]: _PK }]];
-export var PublicKeySummaryList: StaticListSchema = [1, n0, _PKSL, 0, [() => PublicKeySummary, { [_xN]: _PKS }]];
-export var QueryArgProfileList: StaticListSchema = [1, n0, _QAPL, 0, [() => QueryArgProfile, { [_xN]: _QAP }]];
-export var QueryStringCacheKeysList: StaticListSchema = [1, n0, _QSCKL, 0, [0, { [_xN]: _N }]];
-export var QueryStringNamesList: StaticListSchema = [1, n0, _QSNL, 0, [0, { [_xN]: _N }]];
-export var RealtimeLogConfigList: StaticListSchema = [1, n0, _RLCL, 0, [() => RealtimeLogConfig, 0]];
-export var ResponseHeadersPolicyCustomHeaderList: StaticListSchema = [
-  1,
-  n0,
-  _RHPCHL,
-  0,
-  [() => ResponseHeadersPolicyCustomHeader, { [_xN]: _RHPCH }],
+var ConflictingAliases: StaticListSchema = [1, n0, _CAon,
+  0, [() => ConflictingAlias$,
+    { [_xN]: _CA }]
 ];
-export var ResponseHeadersPolicyRemoveHeaderList: StaticListSchema = [
-  1,
-  n0,
-  _RHPRHL,
-  0,
-  [() => ResponseHeadersPolicyRemoveHeader, { [_xN]: _RHPRH }],
+var ConnectionFunctionSummaryList: StaticListSchema = [1, n0, _CFSL,
+  0, [() => ConnectionFunctionSummary$,
+    { [_xN]: _CFS }]
 ];
-export var ResponseHeadersPolicySummaryList: StaticListSchema = [
-  1,
-  n0,
-  _RHPSL,
-  0,
-  [() => ResponseHeadersPolicySummary, { [_xN]: _RHPS }],
+var ConnectionGroupSummaryList: StaticListSchema = [1, n0, _CGSL,
+  0, [() => ConnectionGroupSummary$,
+    { [_xN]: _CGS }]
 ];
-export var SignerList: StaticListSchema = [1, n0, _SL, 0, [() => Signer, { [_xN]: _Si }]];
-export var SslProtocolsList: StaticListSchema = [1, n0, _SPL, 0, [0, { [_xN]: _SPs }]];
-export var StagingDistributionDnsNameList: StaticListSchema = [1, n0, _SDDNL, 0, [0, { [_xN]: _DNn }]];
-export var StatusCodeList: StaticListSchema = [1, n0, _SCL, 0, [1, { [_xN]: _SCta }]];
-export var StreamingDistributionSummaryList: StaticListSchema = [
-  1,
-  n0,
-  _SDSL,
-  0,
-  [() => StreamingDistributionSummary, { [_xN]: _SDS }],
+var ContentTypeProfileList: StaticListSchema = [1, n0, _CTPL,
+  0, [() => ContentTypeProfile$,
+    { [_xN]: _CTP }]
 ];
-export var TagKeyList: StaticListSchema = [1, n0, _TKL, 0, [0, { [_xN]: _K }]];
-export var TagList: StaticListSchema = [1, n0, _TL, 0, [() => Tag, { [_xN]: _Tag }]];
-export var TrustedKeyGroupIdList: StaticListSchema = [1, n0, _TKGIL, 0, [0, { [_xN]: _KG }]];
-export var TrustStoreList: StaticListSchema = [1, n0, _TSL, 0, [() => TrustStoreSummary, { [_xN]: _TSS }]];
-export var ValidationTokenDetailList: StaticListSchema = [1, n0, _VTDL, 0, () => ValidationTokenDetail];
-export var VpcOriginSummaryList: StaticListSchema = [1, n0, _VOSL, 0, [() => VpcOriginSummary, { [_xN]: _VOS }]];
-export var CaCertificatesBundleSource: StaticStructureSchema = [
-  3,
-  n0,
-  _CCBS,
+var ContinuousDeploymentPolicySummaryList: StaticListSchema = [1, n0, _CDPSL,
+  0, [() => ContinuousDeploymentPolicySummary$,
+    { [_xN]: _CDPS }]
+];
+var CookieNameList: StaticListSchema = [1, n0, _CNL,
+  0, [0,
+    { [_xN]: _N }]
+];
+var CustomErrorResponseList: StaticListSchema = [1, n0, _CERL,
+  0, [() => CustomErrorResponse$,
+    { [_xN]: _CER }]
+];
+var DistributionIdListSummary: StaticListSchema = [1, n0, _DILS,
+  0, [0,
+    { [_xN]: _DI }]
+];
+var DistributionIdOwnerItemList: StaticListSchema = [1, n0, _DIOIL,
+  0, [() => DistributionIdOwner$,
+    { [_xN]: _DIO }]
+];
+var DistributionSummaryList: StaticListSchema = [1, n0, _DSL,
+  0, [() => DistributionSummary$,
+    { [_xN]: _DS }]
+];
+var DistributionTenantList: StaticListSchema = [1, n0, _DTL,
+  0, [() => DistributionTenantSummary$,
+    { [_xN]: _DTS }]
+];
+var DnsConfigurationList: StaticListSchema = [1, n0, _DCL,
+  0, [() => DnsConfiguration$,
+    { [_xN]: _DCn }]
+];
+var DomainConflictsList: StaticListSchema = [1, n0, _DCLo,
+  0, [() => DomainConflict$,
+    { [_xN]: _DCom }]
+];
+var DomainList: StaticListSchema = [1, n0, _DLo,
+  0, () => DomainItem$
+];
+var DomainResultList: StaticListSchema = [1, n0, _DRL,
+  0, () => DomainResult$
+];
+var EncryptionEntityList: StaticListSchema = [1, n0, _EEL,
+  0, [() => EncryptionEntity$,
+    { [_xN]: _EEn }]
+];
+var EndPointList: StaticListSchema = [1, n0, _EPL,
+  0, () => EndPoint$
+];
+var FieldLevelEncryptionProfileSummaryList: StaticListSchema = [1, n0, _FLEPSL,
+  0, [() => FieldLevelEncryptionProfileSummary$,
+    { [_xN]: _FLEPS }]
+];
+var FieldLevelEncryptionSummaryList: StaticListSchema = [1, n0, _FLESL,
+  0, [() => FieldLevelEncryptionSummary$,
+    { [_xN]: _FLES }]
+];
+var FieldList: StaticListSchema = [1, n0, _FLi,
+  0, [0,
+    { [_xN]: _Fie }]
+];
+var FieldPatternList: StaticListSchema = [1, n0, _FPL,
+  0, [0,
+    { [_xN]: _FPi }]
+];
+var FunctionAssociationList: StaticListSchema = [1, n0, _FAL,
+  0, [() => FunctionAssociation$,
+    { [_xN]: _FAu }]
+];
+var FunctionExecutionLogList: StaticListSchema = [1, n0, _FELL,
+  8, 0
+];
+var FunctionSummaryList: StaticListSchema = [1, n0, _FSL,
+  0, [() => FunctionSummary$,
+    { [_xN]: _FS }]
+];
+var HeaderList: StaticListSchema = [1, n0, _HL,
+  0, [0,
+    { [_xN]: _N }]
+];
+var InvalidationSummaryList: StaticListSchema = [1, n0, _ISL,
+  0, [() => InvalidationSummary$,
+    { [_xN]: _ISn }]
+];
+var IpamCidrConfigList: StaticListSchema = [1, n0, _ICCL,
+  0, [() => IpamCidrConfig$,
+    { [_xN]: _ICCp }]
+];
+var KeyGroupSummaryList: StaticListSchema = [1, n0, _KGSL,
+  0, [() => KeyGroupSummary$,
+    { [_xN]: _KGS }]
+];
+var KeyPairIdList: StaticListSchema = [1, n0, _KPIL,
+  0, [0,
+    { [_xN]: _KPIe }]
+];
+var KeyValueStoreAssociationList: StaticListSchema = [1, n0, _KVSAL,
+  0, [() => KeyValueStoreAssociation$,
+    { [_xN]: _KVSAe }]
+];
+var KeyValueStoreSummaryList: StaticListSchema = [1, n0, _KVSSL,
+  0, [() => KeyValueStore$,
+    { [_xN]: _KVS }]
+];
+var KGKeyPairIdsList: StaticListSchema = [1, n0, _KGKPIL,
+  0, [() => KGKeyPairIds$,
+    { [_xN]: _KG }]
+];
+var LambdaFunctionAssociationList: StaticListSchema = [1, n0, _LFAL,
+  0, [() => LambdaFunctionAssociation$,
+    { [_xN]: _LFAa }]
+];
+var LocationList: StaticListSchema = [1, n0, _LL,
+  0, [0,
+    { [_xN]: _L }]
+];
+var MethodsList: StaticListSchema = [1, n0, _ML,
+  0, [0,
+    { [_xN]: _Met }]
+];
+var OriginAccessControlSummaryList: StaticListSchema = [1, n0, _OACSL,
+  0, [() => OriginAccessControlSummary$,
+    { [_xN]: _OACS }]
+];
+var OriginCustomHeadersList: StaticListSchema = [1, n0, _OCHL,
+  0, [() => OriginCustomHeader$,
+    { [_xN]: _OCH }]
+];
+var OriginGroupList: StaticListSchema = [1, n0, _OGL,
+  0, [() => OriginGroup$,
+    { [_xN]: _OGr }]
+];
+var OriginGroupMemberList: StaticListSchema = [1, n0, _OGML,
+  0, [() => OriginGroupMember$,
+    { [_xN]: _OGM }]
+];
+var OriginList: StaticListSchema = [1, n0, _OL,
+  0, [() => Origin$,
+    { [_xN]: _Or }]
+];
+var OriginRequestPolicySummaryList: StaticListSchema = [1, n0, _ORPSL,
+  0, [() => OriginRequestPolicySummary$,
+    { [_xN]: _ORPS }]
+];
+var ParameterDefinitions: StaticListSchema = [1, n0, _PDar,
+  0, [() => ParameterDefinition$,
+    0]
+];
+var _Parameters: StaticListSchema = [1, n0, _P,
+  0, () => Parameter$
+];
+var PathList: StaticListSchema = [1, n0, _PL,
+  0, [0,
+    { [_xN]: _Pat }]
+];
+var PublicKeyIdList: StaticListSchema = [1, n0, _PKIL,
+  0, [0,
+    { [_xN]: _PK }]
+];
+var PublicKeySummaryList: StaticListSchema = [1, n0, _PKSL,
+  0, [() => PublicKeySummary$,
+    { [_xN]: _PKS }]
+];
+var QueryArgProfileList: StaticListSchema = [1, n0, _QAPL,
+  0, [() => QueryArgProfile$,
+    { [_xN]: _QAP }]
+];
+var QueryStringCacheKeysList: StaticListSchema = [1, n0, _QSCKL,
+  0, [0,
+    { [_xN]: _N }]
+];
+var QueryStringNamesList: StaticListSchema = [1, n0, _QSNL,
+  0, [0,
+    { [_xN]: _N }]
+];
+var RealtimeLogConfigList: StaticListSchema = [1, n0, _RLCL,
+  0, [() => RealtimeLogConfig$,
+    0]
+];
+var ResponseHeadersPolicyCustomHeaderList: StaticListSchema = [1, n0, _RHPCHL,
+  0, [() => ResponseHeadersPolicyCustomHeader$,
+    { [_xN]: _RHPCH }]
+];
+var ResponseHeadersPolicyRemoveHeaderList: StaticListSchema = [1, n0, _RHPRHL,
+  0, [() => ResponseHeadersPolicyRemoveHeader$,
+    { [_xN]: _RHPRH }]
+];
+var ResponseHeadersPolicySummaryList: StaticListSchema = [1, n0, _RHPSL,
+  0, [() => ResponseHeadersPolicySummary$,
+    { [_xN]: _RHPS }]
+];
+var SignerList: StaticListSchema = [1, n0, _SL,
+  0, [() => Signer$,
+    { [_xN]: _Si }]
+];
+var SslProtocolsList: StaticListSchema = [1, n0, _SPL,
+  0, [0,
+    { [_xN]: _SPs }]
+];
+var StagingDistributionDnsNameList: StaticListSchema = [1, n0, _SDDNL,
+  0, [0,
+    { [_xN]: _DNn }]
+];
+var StatusCodeList: StaticListSchema = [1, n0, _SCL,
+  0, [1,
+    { [_xN]: _SCta }]
+];
+var StreamingDistributionSummaryList: StaticListSchema = [1, n0, _SDSL,
+  0, [() => StreamingDistributionSummary$,
+    { [_xN]: _SDS }]
+];
+var TagKeyList: StaticListSchema = [1, n0, _TKL,
+  0, [0,
+    { [_xN]: _K }]
+];
+var TagList: StaticListSchema = [1, n0, _TL,
+  0, [() => Tag$,
+    { [_xN]: _Tag }]
+];
+var TrustedKeyGroupIdList: StaticListSchema = [1, n0, _TKGIL,
+  0, [0,
+    { [_xN]: _KG }]
+];
+var TrustStoreList: StaticListSchema = [1, n0, _TSL,
+  0, [() => TrustStoreSummary$,
+    { [_xN]: _TSS }]
+];
+var ValidationTokenDetailList: StaticListSchema = [1, n0, _VTDL,
+  0, () => ValidationTokenDetail$
+];
+var VpcOriginSummaryList: StaticListSchema = [1, n0, _VOSL,
+  0, [() => VpcOriginSummary$,
+    { [_xN]: _VOS }]
+];
+export var CaCertificatesBundleSource$: StaticUnionSchema = [4, n0, _CCBS,
   0,
   [_CCBSL],
-  [() => CaCertificatesBundleS3Location],
-];
-export var AssociateAlias: StaticOperationSchema = [
-  9,
-  n0,
-  _AA,
-  { [_h]: ["PUT", "/2020-05-31/distribution/{TargetDistributionId}/associate-alias", 200] },
-  () => AssociateAliasRequest,
-  () => __Unit,
-];
-export var AssociateDistributionTenantWebACL: StaticOperationSchema = [
-  9,
-  n0,
-  _ADTWACL,
-  { [_h]: ["PUT", "/2020-05-31/distribution-tenant/{Id}/associate-web-acl", 200] },
-  () => AssociateDistributionTenantWebACLRequest,
-  () => AssociateDistributionTenantWebACLResult,
-];
-export var AssociateDistributionWebACL: StaticOperationSchema = [
-  9,
-  n0,
-  _ADWACL,
-  { [_h]: ["PUT", "/2020-05-31/distribution/{Id}/associate-web-acl", 200] },
-  () => AssociateDistributionWebACLRequest,
-  () => AssociateDistributionWebACLResult,
-];
-export var CopyDistribution: StaticOperationSchema = [
-  9,
-  n0,
-  _CD,
-  { [_h]: ["POST", "/2020-05-31/distribution/{PrimaryDistributionId}/copy", 201] },
-  () => CopyDistributionRequest,
-  () => CopyDistributionResult,
-];
-export var CreateAnycastIpList: StaticOperationSchema = [
-  9,
-  n0,
-  _CAIL,
-  { [_h]: ["POST", "/2020-05-31/anycast-ip-list", 202] },
-  () => CreateAnycastIpListRequest,
-  () => CreateAnycastIpListResult,
-];
-export var CreateCachePolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _CCP,
-  { [_h]: ["POST", "/2020-05-31/cache-policy", 201] },
-  () => CreateCachePolicyRequest,
-  () => CreateCachePolicyResult,
-];
-export var CreateCloudFrontOriginAccessIdentity: StaticOperationSchema = [
-  9,
-  n0,
-  _CCFOAI,
-  { [_h]: ["POST", "/2020-05-31/origin-access-identity/cloudfront", 201] },
-  () => CreateCloudFrontOriginAccessIdentityRequest,
-  () => CreateCloudFrontOriginAccessIdentityResult,
-];
-export var CreateConnectionFunction: StaticOperationSchema = [
-  9,
-  n0,
-  _CCF,
-  { [_h]: ["POST", "/2020-05-31/connection-function", 201] },
-  () => CreateConnectionFunctionRequest,
-  () => CreateConnectionFunctionResult,
-];
-export var CreateConnectionGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _CCG,
-  { [_h]: ["POST", "/2020-05-31/connection-group", 201] },
-  () => CreateConnectionGroupRequest,
-  () => CreateConnectionGroupResult,
-];
-export var CreateContinuousDeploymentPolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _CCDP,
-  { [_h]: ["POST", "/2020-05-31/continuous-deployment-policy", 201] },
-  () => CreateContinuousDeploymentPolicyRequest,
-  () => CreateContinuousDeploymentPolicyResult,
-];
-export var CreateDistribution: StaticOperationSchema = [
-  9,
-  n0,
-  _CDr,
-  { [_h]: ["POST", "/2020-05-31/distribution", 201] },
-  () => CreateDistributionRequest,
-  () => CreateDistributionResult,
-];
-export var CreateDistributionTenant: StaticOperationSchema = [
-  9,
-  n0,
-  _CDT,
-  { [_h]: ["POST", "/2020-05-31/distribution-tenant", 201] },
-  () => CreateDistributionTenantRequest,
-  () => CreateDistributionTenantResult,
-];
-export var CreateDistributionWithTags: StaticOperationSchema = [
-  9,
-  n0,
-  _CDWT,
-  { [_h]: ["POST", "/2020-05-31/distribution?WithTags", 201] },
-  () => CreateDistributionWithTagsRequest,
-  () => CreateDistributionWithTagsResult,
-];
-export var CreateFieldLevelEncryptionConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _CFLEC,
-  { [_h]: ["POST", "/2020-05-31/field-level-encryption", 201] },
-  () => CreateFieldLevelEncryptionConfigRequest,
-  () => CreateFieldLevelEncryptionConfigResult,
-];
-export var CreateFieldLevelEncryptionProfile: StaticOperationSchema = [
-  9,
-  n0,
-  _CFLEP,
-  { [_h]: ["POST", "/2020-05-31/field-level-encryption-profile", 201] },
-  () => CreateFieldLevelEncryptionProfileRequest,
-  () => CreateFieldLevelEncryptionProfileResult,
-];
-export var CreateFunction: StaticOperationSchema = [
-  9,
-  n0,
-  _CFr,
-  { [_h]: ["POST", "/2020-05-31/function", 201] },
-  () => CreateFunctionRequest,
-  () => CreateFunctionResult,
-];
-export var CreateInvalidation: StaticOperationSchema = [
-  9,
-  n0,
-  _CI,
-  { [_h]: ["POST", "/2020-05-31/distribution/{DistributionId}/invalidation", 201] },
-  () => CreateInvalidationRequest,
-  () => CreateInvalidationResult,
-];
-export var CreateInvalidationForDistributionTenant: StaticOperationSchema = [
-  9,
-  n0,
-  _CIFDT,
-  { [_h]: ["POST", "/2020-05-31/distribution-tenant/{Id}/invalidation", 201] },
-  () => CreateInvalidationForDistributionTenantRequest,
-  () => CreateInvalidationForDistributionTenantResult,
-];
-export var CreateKeyGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _CKG,
-  { [_h]: ["POST", "/2020-05-31/key-group", 201] },
-  () => CreateKeyGroupRequest,
-  () => CreateKeyGroupResult,
-];
-export var CreateKeyValueStore: StaticOperationSchema = [
-  9,
-  n0,
-  _CKVS,
-  { [_h]: ["POST", "/2020-05-31/key-value-store", 201] },
-  () => CreateKeyValueStoreRequest,
-  () => CreateKeyValueStoreResult,
-];
-export var CreateMonitoringSubscription: StaticOperationSchema = [
-  9,
-  n0,
-  _CMS,
-  { [_h]: ["POST", "/2020-05-31/distributions/{DistributionId}/monitoring-subscription", 200] },
-  () => CreateMonitoringSubscriptionRequest,
-  () => CreateMonitoringSubscriptionResult,
-];
-export var CreateOriginAccessControl: StaticOperationSchema = [
-  9,
-  n0,
-  _COAC,
-  { [_h]: ["POST", "/2020-05-31/origin-access-control", 201] },
-  () => CreateOriginAccessControlRequest,
-  () => CreateOriginAccessControlResult,
-];
-export var CreateOriginRequestPolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _CORP,
-  { [_h]: ["POST", "/2020-05-31/origin-request-policy", 201] },
-  () => CreateOriginRequestPolicyRequest,
-  () => CreateOriginRequestPolicyResult,
-];
-export var CreatePublicKey: StaticOperationSchema = [
-  9,
-  n0,
-  _CPK,
-  { [_h]: ["POST", "/2020-05-31/public-key", 201] },
-  () => CreatePublicKeyRequest,
-  () => CreatePublicKeyResult,
-];
-export var CreateRealtimeLogConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _CRLC,
-  { [_h]: ["POST", "/2020-05-31/realtime-log-config", 201] },
-  () => CreateRealtimeLogConfigRequest,
-  () => CreateRealtimeLogConfigResult,
-];
-export var CreateResponseHeadersPolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _CRHP,
-  { [_h]: ["POST", "/2020-05-31/response-headers-policy", 201] },
-  () => CreateResponseHeadersPolicyRequest,
-  () => CreateResponseHeadersPolicyResult,
-];
-export var CreateStreamingDistribution: StaticOperationSchema = [
-  9,
-  n0,
-  _CSD,
-  { [_h]: ["POST", "/2020-05-31/streaming-distribution", 201] },
-  () => CreateStreamingDistributionRequest,
-  () => CreateStreamingDistributionResult,
-];
-export var CreateStreamingDistributionWithTags: StaticOperationSchema = [
-  9,
-  n0,
-  _CSDWT,
-  { [_h]: ["POST", "/2020-05-31/streaming-distribution?WithTags", 201] },
-  () => CreateStreamingDistributionWithTagsRequest,
-  () => CreateStreamingDistributionWithTagsResult,
-];
-export var CreateTrustStore: StaticOperationSchema = [
-  9,
-  n0,
-  _CTS,
-  { [_h]: ["POST", "/2020-05-31/trust-store", 201] },
-  () => CreateTrustStoreRequest,
-  () => CreateTrustStoreResult,
-];
-export var CreateVpcOrigin: StaticOperationSchema = [
-  9,
-  n0,
-  _CVO,
-  { [_h]: ["POST", "/2020-05-31/vpc-origin", 202] },
-  () => CreateVpcOriginRequest,
-  () => CreateVpcOriginResult,
-];
-export var DeleteAnycastIpList: StaticOperationSchema = [
-  9,
-  n0,
-  _DAIL,
-  { [_h]: ["DELETE", "/2020-05-31/anycast-ip-list/{Id}", 204] },
-  () => DeleteAnycastIpListRequest,
-  () => __Unit,
-];
-export var DeleteCachePolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _DCP,
-  { [_h]: ["DELETE", "/2020-05-31/cache-policy/{Id}", 204] },
-  () => DeleteCachePolicyRequest,
-  () => __Unit,
-];
-export var DeleteCloudFrontOriginAccessIdentity: StaticOperationSchema = [
-  9,
-  n0,
-  _DCFOAI,
-  { [_h]: ["DELETE", "/2020-05-31/origin-access-identity/cloudfront/{Id}", 204] },
-  () => DeleteCloudFrontOriginAccessIdentityRequest,
-  () => __Unit,
-];
-export var DeleteConnectionFunction: StaticOperationSchema = [
-  9,
-  n0,
-  _DCF,
-  { [_h]: ["DELETE", "/2020-05-31/connection-function/{Id}", 204] },
-  () => DeleteConnectionFunctionRequest,
-  () => __Unit,
-];
-export var DeleteConnectionGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _DCG,
-  { [_h]: ["DELETE", "/2020-05-31/connection-group/{Id}", 204] },
-  () => DeleteConnectionGroupRequest,
-  () => __Unit,
-];
-export var DeleteContinuousDeploymentPolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _DCDP,
-  { [_h]: ["DELETE", "/2020-05-31/continuous-deployment-policy/{Id}", 204] },
-  () => DeleteContinuousDeploymentPolicyRequest,
-  () => __Unit,
-];
-export var DeleteDistribution: StaticOperationSchema = [
-  9,
-  n0,
-  _DD,
-  { [_h]: ["DELETE", "/2020-05-31/distribution/{Id}", 204] },
-  () => DeleteDistributionRequest,
-  () => __Unit,
-];
-export var DeleteDistributionTenant: StaticOperationSchema = [
-  9,
-  n0,
-  _DDT,
-  { [_h]: ["DELETE", "/2020-05-31/distribution-tenant/{Id}", 204] },
-  () => DeleteDistributionTenantRequest,
-  () => __Unit,
-];
-export var DeleteFieldLevelEncryptionConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _DFLEC,
-  { [_h]: ["DELETE", "/2020-05-31/field-level-encryption/{Id}", 204] },
-  () => DeleteFieldLevelEncryptionConfigRequest,
-  () => __Unit,
-];
-export var DeleteFieldLevelEncryptionProfile: StaticOperationSchema = [
-  9,
-  n0,
-  _DFLEP,
-  { [_h]: ["DELETE", "/2020-05-31/field-level-encryption-profile/{Id}", 204] },
-  () => DeleteFieldLevelEncryptionProfileRequest,
-  () => __Unit,
-];
-export var DeleteFunction: StaticOperationSchema = [
-  9,
-  n0,
-  _DF,
-  { [_h]: ["DELETE", "/2020-05-31/function/{Name}", 204] },
-  () => DeleteFunctionRequest,
-  () => __Unit,
-];
-export var DeleteKeyGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _DKG,
-  { [_h]: ["DELETE", "/2020-05-31/key-group/{Id}", 204] },
-  () => DeleteKeyGroupRequest,
-  () => __Unit,
-];
-export var DeleteKeyValueStore: StaticOperationSchema = [
-  9,
-  n0,
-  _DKVS,
-  { [_h]: ["DELETE", "/2020-05-31/key-value-store/{Name}", 204] },
-  () => DeleteKeyValueStoreRequest,
-  () => __Unit,
-];
-export var DeleteMonitoringSubscription: StaticOperationSchema = [
-  9,
-  n0,
-  _DMS,
-  { [_h]: ["DELETE", "/2020-05-31/distributions/{DistributionId}/monitoring-subscription", 200] },
-  () => DeleteMonitoringSubscriptionRequest,
-  () => DeleteMonitoringSubscriptionResult,
-];
-export var DeleteOriginAccessControl: StaticOperationSchema = [
-  9,
-  n0,
-  _DOAC,
-  { [_h]: ["DELETE", "/2020-05-31/origin-access-control/{Id}", 204] },
-  () => DeleteOriginAccessControlRequest,
-  () => __Unit,
-];
-export var DeleteOriginRequestPolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _DORP,
-  { [_h]: ["DELETE", "/2020-05-31/origin-request-policy/{Id}", 204] },
-  () => DeleteOriginRequestPolicyRequest,
-  () => __Unit,
-];
-export var DeletePublicKey: StaticOperationSchema = [
-  9,
-  n0,
-  _DPK,
-  { [_h]: ["DELETE", "/2020-05-31/public-key/{Id}", 204] },
-  () => DeletePublicKeyRequest,
-  () => __Unit,
-];
-export var DeleteRealtimeLogConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _DRLC,
-  { [_h]: ["POST", "/2020-05-31/delete-realtime-log-config", 204] },
-  () => DeleteRealtimeLogConfigRequest,
-  () => __Unit,
-];
-export var DeleteResourcePolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _DRP,
-  { [_h]: ["POST", "/2020-05-31/delete-resource-policy", 200] },
-  () => DeleteResourcePolicyRequest,
-  () => __Unit,
-];
-export var DeleteResponseHeadersPolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _DRHP,
-  { [_h]: ["DELETE", "/2020-05-31/response-headers-policy/{Id}", 204] },
-  () => DeleteResponseHeadersPolicyRequest,
-  () => __Unit,
-];
-export var DeleteStreamingDistribution: StaticOperationSchema = [
-  9,
-  n0,
-  _DSD,
-  { [_h]: ["DELETE", "/2020-05-31/streaming-distribution/{Id}", 204] },
-  () => DeleteStreamingDistributionRequest,
-  () => __Unit,
-];
-export var DeleteTrustStore: StaticOperationSchema = [
-  9,
-  n0,
-  _DTSe,
-  { [_h]: ["DELETE", "/2020-05-31/trust-store/{Id}", 204] },
-  () => DeleteTrustStoreRequest,
-  () => __Unit,
-];
-export var DeleteVpcOrigin: StaticOperationSchema = [
-  9,
-  n0,
-  _DVO,
-  { [_h]: ["DELETE", "/2020-05-31/vpc-origin/{Id}", 202] },
-  () => DeleteVpcOriginRequest,
-  () => DeleteVpcOriginResult,
-];
-export var DescribeConnectionFunction: StaticOperationSchema = [
-  9,
-  n0,
-  _DCFe,
-  { [_h]: ["GET", "/2020-05-31/connection-function/{Identifier}/describe", 200] },
-  () => DescribeConnectionFunctionRequest,
-  () => DescribeConnectionFunctionResult,
-];
-export var DescribeFunction: StaticOperationSchema = [
-  9,
-  n0,
-  _DFe,
-  { [_h]: ["GET", "/2020-05-31/function/{Name}/describe", 200] },
-  () => DescribeFunctionRequest,
-  () => DescribeFunctionResult,
-];
-export var DescribeKeyValueStore: StaticOperationSchema = [
-  9,
-  n0,
-  _DKVSe,
-  { [_h]: ["GET", "/2020-05-31/key-value-store/{Name}", 200] },
-  () => DescribeKeyValueStoreRequest,
-  () => DescribeKeyValueStoreResult,
-];
-export var DisassociateDistributionTenantWebACL: StaticOperationSchema = [
-  9,
-  n0,
-  _DDTWACL,
-  { [_h]: ["PUT", "/2020-05-31/distribution-tenant/{Id}/disassociate-web-acl", 200] },
-  () => DisassociateDistributionTenantWebACLRequest,
-  () => DisassociateDistributionTenantWebACLResult,
-];
-export var DisassociateDistributionWebACL: StaticOperationSchema = [
-  9,
-  n0,
-  _DDWACL,
-  { [_h]: ["PUT", "/2020-05-31/distribution/{Id}/disassociate-web-acl", 200] },
-  () => DisassociateDistributionWebACLRequest,
-  () => DisassociateDistributionWebACLResult,
-];
-export var GetAnycastIpList: StaticOperationSchema = [
-  9,
-  n0,
-  _GAIL,
-  { [_h]: ["GET", "/2020-05-31/anycast-ip-list/{Id}", 200] },
-  () => GetAnycastIpListRequest,
-  () => GetAnycastIpListResult,
-];
-export var GetCachePolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _GCP,
-  { [_h]: ["GET", "/2020-05-31/cache-policy/{Id}", 200] },
-  () => GetCachePolicyRequest,
-  () => GetCachePolicyResult,
-];
-export var GetCachePolicyConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _GCPC,
-  { [_h]: ["GET", "/2020-05-31/cache-policy/{Id}/config", 200] },
-  () => GetCachePolicyConfigRequest,
-  () => GetCachePolicyConfigResult,
-];
-export var GetCloudFrontOriginAccessIdentity: StaticOperationSchema = [
-  9,
-  n0,
-  _GCFOAI,
-  { [_h]: ["GET", "/2020-05-31/origin-access-identity/cloudfront/{Id}", 200] },
-  () => GetCloudFrontOriginAccessIdentityRequest,
-  () => GetCloudFrontOriginAccessIdentityResult,
-];
-export var GetCloudFrontOriginAccessIdentityConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _GCFOAIC,
-  { [_h]: ["GET", "/2020-05-31/origin-access-identity/cloudfront/{Id}/config", 200] },
-  () => GetCloudFrontOriginAccessIdentityConfigRequest,
-  () => GetCloudFrontOriginAccessIdentityConfigResult,
-];
-export var GetConnectionFunction: StaticOperationSchema = [
-  9,
-  n0,
-  _GCF,
-  { [_h]: ["GET", "/2020-05-31/connection-function/{Identifier}", 200] },
-  () => GetConnectionFunctionRequest,
-  () => GetConnectionFunctionResult,
-];
-export var GetConnectionGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _GCG,
-  { [_h]: ["GET", "/2020-05-31/connection-group/{Identifier}", 200] },
-  () => GetConnectionGroupRequest,
-  () => GetConnectionGroupResult,
-];
-export var GetConnectionGroupByRoutingEndpoint: StaticOperationSchema = [
-  9,
-  n0,
-  _GCGBRE,
-  { [_h]: ["GET", "/2020-05-31/connection-group", 200] },
-  () => GetConnectionGroupByRoutingEndpointRequest,
-  () => GetConnectionGroupByRoutingEndpointResult,
-];
-export var GetContinuousDeploymentPolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _GCDP,
-  { [_h]: ["GET", "/2020-05-31/continuous-deployment-policy/{Id}", 200] },
-  () => GetContinuousDeploymentPolicyRequest,
-  () => GetContinuousDeploymentPolicyResult,
-];
-export var GetContinuousDeploymentPolicyConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _GCDPC,
-  { [_h]: ["GET", "/2020-05-31/continuous-deployment-policy/{Id}/config", 200] },
-  () => GetContinuousDeploymentPolicyConfigRequest,
-  () => GetContinuousDeploymentPolicyConfigResult,
-];
-export var GetDistribution: StaticOperationSchema = [
-  9,
-  n0,
-  _GD,
-  { [_h]: ["GET", "/2020-05-31/distribution/{Id}", 200] },
-  () => GetDistributionRequest,
-  () => GetDistributionResult,
-];
-export var GetDistributionConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _GDC,
-  { [_h]: ["GET", "/2020-05-31/distribution/{Id}/config", 200] },
-  () => GetDistributionConfigRequest,
-  () => GetDistributionConfigResult,
-];
-export var GetDistributionTenant: StaticOperationSchema = [
-  9,
-  n0,
-  _GDT,
-  { [_h]: ["GET", "/2020-05-31/distribution-tenant/{Identifier}", 200] },
-  () => GetDistributionTenantRequest,
-  () => GetDistributionTenantResult,
-];
-export var GetDistributionTenantByDomain: StaticOperationSchema = [
-  9,
-  n0,
-  _GDTBD,
-  { [_h]: ["GET", "/2020-05-31/distribution-tenant", 200] },
-  () => GetDistributionTenantByDomainRequest,
-  () => GetDistributionTenantByDomainResult,
-];
-export var GetFieldLevelEncryption: StaticOperationSchema = [
-  9,
-  n0,
-  _GFLE,
-  { [_h]: ["GET", "/2020-05-31/field-level-encryption/{Id}", 200] },
-  () => GetFieldLevelEncryptionRequest,
-  () => GetFieldLevelEncryptionResult,
-];
-export var GetFieldLevelEncryptionConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _GFLEC,
-  { [_h]: ["GET", "/2020-05-31/field-level-encryption/{Id}/config", 200] },
-  () => GetFieldLevelEncryptionConfigRequest,
-  () => GetFieldLevelEncryptionConfigResult,
-];
-export var GetFieldLevelEncryptionProfile: StaticOperationSchema = [
-  9,
-  n0,
-  _GFLEP,
-  { [_h]: ["GET", "/2020-05-31/field-level-encryption-profile/{Id}", 200] },
-  () => GetFieldLevelEncryptionProfileRequest,
-  () => GetFieldLevelEncryptionProfileResult,
-];
-export var GetFieldLevelEncryptionProfileConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _GFLEPC,
-  { [_h]: ["GET", "/2020-05-31/field-level-encryption-profile/{Id}/config", 200] },
-  () => GetFieldLevelEncryptionProfileConfigRequest,
-  () => GetFieldLevelEncryptionProfileConfigResult,
-];
-export var GetFunction: StaticOperationSchema = [
-  9,
-  n0,
-  _GF,
-  { [_h]: ["GET", "/2020-05-31/function/{Name}", 200] },
-  () => GetFunctionRequest,
-  () => GetFunctionResult,
-];
-export var GetInvalidation: StaticOperationSchema = [
-  9,
-  n0,
-  _GI,
-  { [_h]: ["GET", "/2020-05-31/distribution/{DistributionId}/invalidation/{Id}", 200] },
-  () => GetInvalidationRequest,
-  () => GetInvalidationResult,
-];
-export var GetInvalidationForDistributionTenant: StaticOperationSchema = [
-  9,
-  n0,
-  _GIFDT,
-  { [_h]: ["GET", "/2020-05-31/distribution-tenant/{DistributionTenantId}/invalidation/{Id}", 200] },
-  () => GetInvalidationForDistributionTenantRequest,
-  () => GetInvalidationForDistributionTenantResult,
-];
-export var GetKeyGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _GKG,
-  { [_h]: ["GET", "/2020-05-31/key-group/{Id}", 200] },
-  () => GetKeyGroupRequest,
-  () => GetKeyGroupResult,
-];
-export var GetKeyGroupConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _GKGC,
-  { [_h]: ["GET", "/2020-05-31/key-group/{Id}/config", 200] },
-  () => GetKeyGroupConfigRequest,
-  () => GetKeyGroupConfigResult,
-];
-export var GetManagedCertificateDetails: StaticOperationSchema = [
-  9,
-  n0,
-  _GMCD,
-  { [_h]: ["GET", "/2020-05-31/managed-certificate/{Identifier}", 200] },
-  () => GetManagedCertificateDetailsRequest,
-  () => GetManagedCertificateDetailsResult,
-];
-export var GetMonitoringSubscription: StaticOperationSchema = [
-  9,
-  n0,
-  _GMS,
-  { [_h]: ["GET", "/2020-05-31/distributions/{DistributionId}/monitoring-subscription", 200] },
-  () => GetMonitoringSubscriptionRequest,
-  () => GetMonitoringSubscriptionResult,
-];
-export var GetOriginAccessControl: StaticOperationSchema = [
-  9,
-  n0,
-  _GOAC,
-  { [_h]: ["GET", "/2020-05-31/origin-access-control/{Id}", 200] },
-  () => GetOriginAccessControlRequest,
-  () => GetOriginAccessControlResult,
-];
-export var GetOriginAccessControlConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _GOACC,
-  { [_h]: ["GET", "/2020-05-31/origin-access-control/{Id}/config", 200] },
-  () => GetOriginAccessControlConfigRequest,
-  () => GetOriginAccessControlConfigResult,
-];
-export var GetOriginRequestPolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _GORP,
-  { [_h]: ["GET", "/2020-05-31/origin-request-policy/{Id}", 200] },
-  () => GetOriginRequestPolicyRequest,
-  () => GetOriginRequestPolicyResult,
-];
-export var GetOriginRequestPolicyConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _GORPC,
-  { [_h]: ["GET", "/2020-05-31/origin-request-policy/{Id}/config", 200] },
-  () => GetOriginRequestPolicyConfigRequest,
-  () => GetOriginRequestPolicyConfigResult,
-];
-export var GetPublicKey: StaticOperationSchema = [
-  9,
-  n0,
-  _GPK,
-  { [_h]: ["GET", "/2020-05-31/public-key/{Id}", 200] },
-  () => GetPublicKeyRequest,
-  () => GetPublicKeyResult,
-];
-export var GetPublicKeyConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _GPKC,
-  { [_h]: ["GET", "/2020-05-31/public-key/{Id}/config", 200] },
-  () => GetPublicKeyConfigRequest,
-  () => GetPublicKeyConfigResult,
-];
-export var GetRealtimeLogConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _GRLC,
-  { [_h]: ["POST", "/2020-05-31/get-realtime-log-config", 200] },
-  () => GetRealtimeLogConfigRequest,
-  () => GetRealtimeLogConfigResult,
-];
-export var GetResourcePolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _GRP,
-  { [_h]: ["POST", "/2020-05-31/get-resource-policy", 200] },
-  () => GetResourcePolicyRequest,
-  () => GetResourcePolicyResult,
-];
-export var GetResponseHeadersPolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _GRHP,
-  { [_h]: ["GET", "/2020-05-31/response-headers-policy/{Id}", 200] },
-  () => GetResponseHeadersPolicyRequest,
-  () => GetResponseHeadersPolicyResult,
-];
-export var GetResponseHeadersPolicyConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _GRHPC,
-  { [_h]: ["GET", "/2020-05-31/response-headers-policy/{Id}/config", 200] },
-  () => GetResponseHeadersPolicyConfigRequest,
-  () => GetResponseHeadersPolicyConfigResult,
-];
-export var GetStreamingDistribution: StaticOperationSchema = [
-  9,
-  n0,
-  _GSD,
-  { [_h]: ["GET", "/2020-05-31/streaming-distribution/{Id}", 200] },
-  () => GetStreamingDistributionRequest,
-  () => GetStreamingDistributionResult,
-];
-export var GetStreamingDistributionConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _GSDC,
-  { [_h]: ["GET", "/2020-05-31/streaming-distribution/{Id}/config", 200] },
-  () => GetStreamingDistributionConfigRequest,
-  () => GetStreamingDistributionConfigResult,
-];
-export var GetTrustStore: StaticOperationSchema = [
-  9,
-  n0,
-  _GTS,
-  { [_h]: ["GET", "/2020-05-31/trust-store/{Identifier}", 200] },
-  () => GetTrustStoreRequest,
-  () => GetTrustStoreResult,
-];
-export var GetVpcOrigin: StaticOperationSchema = [
-  9,
-  n0,
-  _GVO,
-  { [_h]: ["GET", "/2020-05-31/vpc-origin/{Id}", 200] },
-  () => GetVpcOriginRequest,
-  () => GetVpcOriginResult,
-];
-export var ListAnycastIpLists: StaticOperationSchema = [
-  9,
-  n0,
-  _LAIL,
-  { [_h]: ["GET", "/2020-05-31/anycast-ip-list", 200] },
-  () => ListAnycastIpListsRequest,
-  () => ListAnycastIpListsResult,
-];
-export var ListCachePolicies: StaticOperationSchema = [
-  9,
-  n0,
-  _LCP,
-  { [_h]: ["GET", "/2020-05-31/cache-policy", 200] },
-  () => ListCachePoliciesRequest,
-  () => ListCachePoliciesResult,
-];
-export var ListCloudFrontOriginAccessIdentities: StaticOperationSchema = [
-  9,
-  n0,
-  _LCFOAI,
-  { [_h]: ["GET", "/2020-05-31/origin-access-identity/cloudfront", 200] },
-  () => ListCloudFrontOriginAccessIdentitiesRequest,
-  () => ListCloudFrontOriginAccessIdentitiesResult,
-];
-export var ListConflictingAliases: StaticOperationSchema = [
-  9,
-  n0,
-  _LCA,
-  { [_h]: ["GET", "/2020-05-31/conflicting-alias", 200] },
-  () => ListConflictingAliasesRequest,
-  () => ListConflictingAliasesResult,
-];
-export var ListConnectionFunctions: StaticOperationSchema = [
-  9,
-  n0,
-  _LCF,
-  { [_h]: ["POST", "/2020-05-31/connection-functions", 200] },
-  () => ListConnectionFunctionsRequest,
-  () => ListConnectionFunctionsResult,
-];
-export var ListConnectionGroups: StaticOperationSchema = [
-  9,
-  n0,
-  _LCG,
-  { [_h]: ["POST", "/2020-05-31/connection-groups", 200] },
-  () => ListConnectionGroupsRequest,
-  () => ListConnectionGroupsResult,
-];
-export var ListContinuousDeploymentPolicies: StaticOperationSchema = [
-  9,
-  n0,
-  _LCDP,
-  { [_h]: ["GET", "/2020-05-31/continuous-deployment-policy", 200] },
-  () => ListContinuousDeploymentPoliciesRequest,
-  () => ListContinuousDeploymentPoliciesResult,
-];
-export var ListDistributions: StaticOperationSchema = [
-  9,
-  n0,
-  _LD,
-  { [_h]: ["GET", "/2020-05-31/distribution", 200] },
-  () => ListDistributionsRequest,
-  () => ListDistributionsResult,
-];
-export var ListDistributionsByAnycastIpListId: StaticOperationSchema = [
-  9,
-  n0,
-  _LDBAILI,
-  { [_h]: ["GET", "/2020-05-31/distributionsByAnycastIpListId/{AnycastIpListId}", 200] },
-  () => ListDistributionsByAnycastIpListIdRequest,
-  () => ListDistributionsByAnycastIpListIdResult,
-];
-export var ListDistributionsByCachePolicyId: StaticOperationSchema = [
-  9,
-  n0,
-  _LDBCPI,
-  { [_h]: ["GET", "/2020-05-31/distributionsByCachePolicyId/{CachePolicyId}", 200] },
-  () => ListDistributionsByCachePolicyIdRequest,
-  () => ListDistributionsByCachePolicyIdResult,
-];
-export var ListDistributionsByConnectionFunction: StaticOperationSchema = [
-  9,
-  n0,
-  _LDBCF,
-  { [_h]: ["GET", "/2020-05-31/distributionsByConnectionFunction", 200] },
-  () => ListDistributionsByConnectionFunctionRequest,
-  () => ListDistributionsByConnectionFunctionResult,
-];
-export var ListDistributionsByConnectionMode: StaticOperationSchema = [
-  9,
-  n0,
-  _LDBCM,
-  { [_h]: ["GET", "/2020-05-31/distributionsByConnectionMode/{ConnectionMode}", 200] },
-  () => ListDistributionsByConnectionModeRequest,
-  () => ListDistributionsByConnectionModeResult,
-];
-export var ListDistributionsByKeyGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _LDBKG,
-  { [_h]: ["GET", "/2020-05-31/distributionsByKeyGroupId/{KeyGroupId}", 200] },
-  () => ListDistributionsByKeyGroupRequest,
-  () => ListDistributionsByKeyGroupResult,
-];
-export var ListDistributionsByOriginRequestPolicyId: StaticOperationSchema = [
-  9,
-  n0,
-  _LDBORPI,
-  { [_h]: ["GET", "/2020-05-31/distributionsByOriginRequestPolicyId/{OriginRequestPolicyId}", 200] },
-  () => ListDistributionsByOriginRequestPolicyIdRequest,
-  () => ListDistributionsByOriginRequestPolicyIdResult,
-];
-export var ListDistributionsByOwnedResource: StaticOperationSchema = [
-  9,
-  n0,
-  _LDBOR,
-  { [_h]: ["GET", "/2020-05-31/distributionsByOwnedResource/{ResourceArn}", 200] },
-  () => ListDistributionsByOwnedResourceRequest,
-  () => ListDistributionsByOwnedResourceResult,
-];
-export var ListDistributionsByRealtimeLogConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _LDBRLC,
-  { [_h]: ["POST", "/2020-05-31/distributionsByRealtimeLogConfig", 200] },
-  () => ListDistributionsByRealtimeLogConfigRequest,
-  () => ListDistributionsByRealtimeLogConfigResult,
-];
-export var ListDistributionsByResponseHeadersPolicyId: StaticOperationSchema = [
-  9,
-  n0,
-  _LDBRHPI,
-  { [_h]: ["GET", "/2020-05-31/distributionsByResponseHeadersPolicyId/{ResponseHeadersPolicyId}", 200] },
-  () => ListDistributionsByResponseHeadersPolicyIdRequest,
-  () => ListDistributionsByResponseHeadersPolicyIdResult,
-];
-export var ListDistributionsByTrustStore: StaticOperationSchema = [
-  9,
-  n0,
-  _LDBTS,
-  { [_h]: ["GET", "/2020-05-31/distributionsByTrustStore", 200] },
-  () => ListDistributionsByTrustStoreRequest,
-  () => ListDistributionsByTrustStoreResult,
-];
-export var ListDistributionsByVpcOriginId: StaticOperationSchema = [
-  9,
-  n0,
-  _LDBVOI,
-  { [_h]: ["GET", "/2020-05-31/distributionsByVpcOriginId/{VpcOriginId}", 200] },
-  () => ListDistributionsByVpcOriginIdRequest,
-  () => ListDistributionsByVpcOriginIdResult,
-];
-export var ListDistributionsByWebACLId: StaticOperationSchema = [
-  9,
-  n0,
-  _LDBWACLI,
-  { [_h]: ["GET", "/2020-05-31/distributionsByWebACLId/{WebACLId}", 200] },
-  () => ListDistributionsByWebACLIdRequest,
-  () => ListDistributionsByWebACLIdResult,
-];
-export var ListDistributionTenants: StaticOperationSchema = [
-  9,
-  n0,
-  _LDT,
-  { [_h]: ["POST", "/2020-05-31/distribution-tenants", 200] },
-  () => ListDistributionTenantsRequest,
-  () => ListDistributionTenantsResult,
-];
-export var ListDistributionTenantsByCustomization: StaticOperationSchema = [
-  9,
-  n0,
-  _LDTBC,
-  { [_h]: ["POST", "/2020-05-31/distribution-tenants-by-customization", 200] },
-  () => ListDistributionTenantsByCustomizationRequest,
-  () => ListDistributionTenantsByCustomizationResult,
-];
-export var ListDomainConflicts: StaticOperationSchema = [
-  9,
-  n0,
-  _LDC,
-  { [_h]: ["POST", "/2020-05-31/domain-conflicts", 200] },
-  () => ListDomainConflictsRequest,
-  () => ListDomainConflictsResult,
-];
-export var ListFieldLevelEncryptionConfigs: StaticOperationSchema = [
-  9,
-  n0,
-  _LFLEC,
-  { [_h]: ["GET", "/2020-05-31/field-level-encryption", 200] },
-  () => ListFieldLevelEncryptionConfigsRequest,
-  () => ListFieldLevelEncryptionConfigsResult,
-];
-export var ListFieldLevelEncryptionProfiles: StaticOperationSchema = [
-  9,
-  n0,
-  _LFLEP,
-  { [_h]: ["GET", "/2020-05-31/field-level-encryption-profile", 200] },
-  () => ListFieldLevelEncryptionProfilesRequest,
-  () => ListFieldLevelEncryptionProfilesResult,
-];
-export var ListFunctions: StaticOperationSchema = [
-  9,
-  n0,
-  _LF,
-  { [_h]: ["GET", "/2020-05-31/function", 200] },
-  () => ListFunctionsRequest,
-  () => ListFunctionsResult,
-];
-export var ListInvalidations: StaticOperationSchema = [
-  9,
-  n0,
-  _LI,
-  { [_h]: ["GET", "/2020-05-31/distribution/{DistributionId}/invalidation", 200] },
-  () => ListInvalidationsRequest,
-  () => ListInvalidationsResult,
-];
-export var ListInvalidationsForDistributionTenant: StaticOperationSchema = [
-  9,
-  n0,
-  _LIFDT,
-  { [_h]: ["GET", "/2020-05-31/distribution-tenant/{Id}/invalidation", 200] },
-  () => ListInvalidationsForDistributionTenantRequest,
-  () => ListInvalidationsForDistributionTenantResult,
-];
-export var ListKeyGroups: StaticOperationSchema = [
-  9,
-  n0,
-  _LKG,
-  { [_h]: ["GET", "/2020-05-31/key-group", 200] },
-  () => ListKeyGroupsRequest,
-  () => ListKeyGroupsResult,
-];
-export var ListKeyValueStores: StaticOperationSchema = [
-  9,
-  n0,
-  _LKVS,
-  { [_h]: ["GET", "/2020-05-31/key-value-store", 200] },
-  () => ListKeyValueStoresRequest,
-  () => ListKeyValueStoresResult,
-];
-export var ListOriginAccessControls: StaticOperationSchema = [
-  9,
-  n0,
-  _LOAC,
-  { [_h]: ["GET", "/2020-05-31/origin-access-control", 200] },
-  () => ListOriginAccessControlsRequest,
-  () => ListOriginAccessControlsResult,
-];
-export var ListOriginRequestPolicies: StaticOperationSchema = [
-  9,
-  n0,
-  _LORP,
-  { [_h]: ["GET", "/2020-05-31/origin-request-policy", 200] },
-  () => ListOriginRequestPoliciesRequest,
-  () => ListOriginRequestPoliciesResult,
-];
-export var ListPublicKeys: StaticOperationSchema = [
-  9,
-  n0,
-  _LPK,
-  { [_h]: ["GET", "/2020-05-31/public-key", 200] },
-  () => ListPublicKeysRequest,
-  () => ListPublicKeysResult,
-];
-export var ListRealtimeLogConfigs: StaticOperationSchema = [
-  9,
-  n0,
-  _LRLC,
-  { [_h]: ["GET", "/2020-05-31/realtime-log-config", 200] },
-  () => ListRealtimeLogConfigsRequest,
-  () => ListRealtimeLogConfigsResult,
-];
-export var ListResponseHeadersPolicies: StaticOperationSchema = [
-  9,
-  n0,
-  _LRHP,
-  { [_h]: ["GET", "/2020-05-31/response-headers-policy", 200] },
-  () => ListResponseHeadersPoliciesRequest,
-  () => ListResponseHeadersPoliciesResult,
-];
-export var ListStreamingDistributions: StaticOperationSchema = [
-  9,
-  n0,
-  _LSD,
-  { [_h]: ["GET", "/2020-05-31/streaming-distribution", 200] },
-  () => ListStreamingDistributionsRequest,
-  () => ListStreamingDistributionsResult,
-];
-export var ListTagsForResource: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  { [_h]: ["GET", "/2020-05-31/tagging", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResult,
-];
-export var ListTrustStores: StaticOperationSchema = [
-  9,
-  n0,
-  _LTS,
-  { [_h]: ["POST", "/2020-05-31/trust-stores", 200] },
-  () => ListTrustStoresRequest,
-  () => ListTrustStoresResult,
-];
-export var ListVpcOrigins: StaticOperationSchema = [
-  9,
-  n0,
-  _LVO,
-  { [_h]: ["GET", "/2020-05-31/vpc-origin", 200] },
-  () => ListVpcOriginsRequest,
-  () => ListVpcOriginsResult,
-];
-export var PublishConnectionFunction: StaticOperationSchema = [
-  9,
-  n0,
-  _PCF,
-  { [_h]: ["POST", "/2020-05-31/connection-function/{Id}/publish", 200] },
-  () => PublishConnectionFunctionRequest,
-  () => PublishConnectionFunctionResult,
-];
-export var PublishFunction: StaticOperationSchema = [
-  9,
-  n0,
-  _PFu,
-  { [_h]: ["POST", "/2020-05-31/function/{Name}/publish", 200] },
-  () => PublishFunctionRequest,
-  () => PublishFunctionResult,
-];
-export var PutResourcePolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _PRP,
-  { [_h]: ["POST", "/2020-05-31/put-resource-policy", 200] },
-  () => PutResourcePolicyRequest,
-  () => PutResourcePolicyResult,
-];
-export var TagResource: StaticOperationSchema = [
-  9,
-  n0,
-  _TRag,
-  { [_h]: ["POST", "/2020-05-31/tagging?Operation=Tag", 204] },
-  () => TagResourceRequest,
-  () => __Unit,
-];
-export var TestConnectionFunction: StaticOperationSchema = [
-  9,
-  n0,
-  _TCF,
-  { [_h]: ["POST", "/2020-05-31/connection-function/{Id}/test", 200] },
-  () => TestConnectionFunctionRequest,
-  () => TestConnectionFunctionResult,
-];
-export var TestFunction: StaticOperationSchema = [
-  9,
-  n0,
-  _TF,
-  { [_h]: ["POST", "/2020-05-31/function/{Name}/test", 200] },
-  () => TestFunctionRequest,
-  () => TestFunctionResult,
-];
-export var UntagResource: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  { [_h]: ["POST", "/2020-05-31/tagging?Operation=Untag", 204] },
-  () => UntagResourceRequest,
-  () => __Unit,
-];
-export var UpdateAnycastIpList: StaticOperationSchema = [
-  9,
-  n0,
-  _UAIL,
-  { [_h]: ["PUT", "/2020-05-31/anycast-ip-list/{Id}", 200] },
-  () => UpdateAnycastIpListRequest,
-  () => UpdateAnycastIpListResult,
-];
-export var UpdateCachePolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _UCP,
-  { [_h]: ["PUT", "/2020-05-31/cache-policy/{Id}", 200] },
-  () => UpdateCachePolicyRequest,
-  () => UpdateCachePolicyResult,
-];
-export var UpdateCloudFrontOriginAccessIdentity: StaticOperationSchema = [
-  9,
-  n0,
-  _UCFOAI,
-  { [_h]: ["PUT", "/2020-05-31/origin-access-identity/cloudfront/{Id}/config", 200] },
-  () => UpdateCloudFrontOriginAccessIdentityRequest,
-  () => UpdateCloudFrontOriginAccessIdentityResult,
-];
-export var UpdateConnectionFunction: StaticOperationSchema = [
-  9,
-  n0,
-  _UCF,
-  { [_h]: ["PUT", "/2020-05-31/connection-function/{Id}", 200] },
-  () => UpdateConnectionFunctionRequest,
-  () => UpdateConnectionFunctionResult,
-];
-export var UpdateConnectionGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _UCG,
-  { [_h]: ["PUT", "/2020-05-31/connection-group/{Id}", 200] },
-  () => UpdateConnectionGroupRequest,
-  () => UpdateConnectionGroupResult,
-];
-export var UpdateContinuousDeploymentPolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _UCDP,
-  { [_h]: ["PUT", "/2020-05-31/continuous-deployment-policy/{Id}", 200] },
-  () => UpdateContinuousDeploymentPolicyRequest,
-  () => UpdateContinuousDeploymentPolicyResult,
-];
-export var UpdateDistribution: StaticOperationSchema = [
-  9,
-  n0,
-  _UD,
-  { [_h]: ["PUT", "/2020-05-31/distribution/{Id}/config", 200] },
-  () => UpdateDistributionRequest,
-  () => UpdateDistributionResult,
-];
-export var UpdateDistributionTenant: StaticOperationSchema = [
-  9,
-  n0,
-  _UDT,
-  { [_h]: ["PUT", "/2020-05-31/distribution-tenant/{Id}", 200] },
-  () => UpdateDistributionTenantRequest,
-  () => UpdateDistributionTenantResult,
-];
-export var UpdateDistributionWithStagingConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _UDWSC,
-  { [_h]: ["PUT", "/2020-05-31/distribution/{Id}/promote-staging-config", 200] },
-  () => UpdateDistributionWithStagingConfigRequest,
-  () => UpdateDistributionWithStagingConfigResult,
-];
-export var UpdateDomainAssociation: StaticOperationSchema = [
-  9,
-  n0,
-  _UDA,
-  { [_h]: ["POST", "/2020-05-31/domain-association", 200] },
-  () => UpdateDomainAssociationRequest,
-  () => UpdateDomainAssociationResult,
-];
-export var UpdateFieldLevelEncryptionConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _UFLEC,
-  { [_h]: ["PUT", "/2020-05-31/field-level-encryption/{Id}/config", 200] },
-  () => UpdateFieldLevelEncryptionConfigRequest,
-  () => UpdateFieldLevelEncryptionConfigResult,
-];
-export var UpdateFieldLevelEncryptionProfile: StaticOperationSchema = [
-  9,
-  n0,
-  _UFLEP,
-  { [_h]: ["PUT", "/2020-05-31/field-level-encryption-profile/{Id}/config", 200] },
-  () => UpdateFieldLevelEncryptionProfileRequest,
-  () => UpdateFieldLevelEncryptionProfileResult,
-];
-export var UpdateFunction: StaticOperationSchema = [
-  9,
-  n0,
-  _UF,
-  { [_h]: ["PUT", "/2020-05-31/function/{Name}", 200] },
-  () => UpdateFunctionRequest,
-  () => UpdateFunctionResult,
-];
-export var UpdateKeyGroup: StaticOperationSchema = [
-  9,
-  n0,
-  _UKG,
-  { [_h]: ["PUT", "/2020-05-31/key-group/{Id}", 200] },
-  () => UpdateKeyGroupRequest,
-  () => UpdateKeyGroupResult,
-];
-export var UpdateKeyValueStore: StaticOperationSchema = [
-  9,
-  n0,
-  _UKVS,
-  { [_h]: ["PUT", "/2020-05-31/key-value-store/{Name}", 200] },
-  () => UpdateKeyValueStoreRequest,
-  () => UpdateKeyValueStoreResult,
-];
-export var UpdateOriginAccessControl: StaticOperationSchema = [
-  9,
-  n0,
-  _UOAC,
-  { [_h]: ["PUT", "/2020-05-31/origin-access-control/{Id}/config", 200] },
-  () => UpdateOriginAccessControlRequest,
-  () => UpdateOriginAccessControlResult,
-];
-export var UpdateOriginRequestPolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _UORP,
-  { [_h]: ["PUT", "/2020-05-31/origin-request-policy/{Id}", 200] },
-  () => UpdateOriginRequestPolicyRequest,
-  () => UpdateOriginRequestPolicyResult,
-];
-export var UpdatePublicKey: StaticOperationSchema = [
-  9,
-  n0,
-  _UPK,
-  { [_h]: ["PUT", "/2020-05-31/public-key/{Id}/config", 200] },
-  () => UpdatePublicKeyRequest,
-  () => UpdatePublicKeyResult,
-];
-export var UpdateRealtimeLogConfig: StaticOperationSchema = [
-  9,
-  n0,
-  _URLC,
-  { [_h]: ["PUT", "/2020-05-31/realtime-log-config", 200] },
-  () => UpdateRealtimeLogConfigRequest,
-  () => UpdateRealtimeLogConfigResult,
-];
-export var UpdateResponseHeadersPolicy: StaticOperationSchema = [
-  9,
-  n0,
-  _URHP,
-  { [_h]: ["PUT", "/2020-05-31/response-headers-policy/{Id}", 200] },
-  () => UpdateResponseHeadersPolicyRequest,
-  () => UpdateResponseHeadersPolicyResult,
-];
-export var UpdateStreamingDistribution: StaticOperationSchema = [
-  9,
-  n0,
-  _USD,
-  { [_h]: ["PUT", "/2020-05-31/streaming-distribution/{Id}/config", 200] },
-  () => UpdateStreamingDistributionRequest,
-  () => UpdateStreamingDistributionResult,
-];
-export var UpdateTrustStore: StaticOperationSchema = [
-  9,
-  n0,
-  _UTS,
-  { [_h]: ["PUT", "/2020-05-31/trust-store/{Id}", 200] },
-  () => UpdateTrustStoreRequest,
-  () => UpdateTrustStoreResult,
-];
-export var UpdateVpcOrigin: StaticOperationSchema = [
-  9,
-  n0,
-  _UVO,
-  { [_h]: ["PUT", "/2020-05-31/vpc-origin/{Id}", 202] },
-  () => UpdateVpcOriginRequest,
-  () => UpdateVpcOriginResult,
-];
-export var VerifyDnsConfiguration: StaticOperationSchema = [
-  9,
-  n0,
-  _VDC,
-  { [_h]: ["POST", "/2020-05-31/verify-dns-configuration", 200] },
-  () => VerifyDnsConfigurationRequest,
-  () => VerifyDnsConfigurationResult,
+  [() => CaCertificatesBundleS3Location$]
+];
+export var AssociateAlias$: StaticOperationSchema = [9, n0, _AA,
+  { [_h]: ["PUT", "/2020-05-31/distribution/{TargetDistributionId}/associate-alias", 200] }, () => AssociateAliasRequest$, () => __Unit
+];
+export var AssociateDistributionTenantWebACL$: StaticOperationSchema = [9, n0, _ADTWACL,
+  { [_h]: ["PUT", "/2020-05-31/distribution-tenant/{Id}/associate-web-acl", 200] }, () => AssociateDistributionTenantWebACLRequest$, () => AssociateDistributionTenantWebACLResult$
+];
+export var AssociateDistributionWebACL$: StaticOperationSchema = [9, n0, _ADWACL,
+  { [_h]: ["PUT", "/2020-05-31/distribution/{Id}/associate-web-acl", 200] }, () => AssociateDistributionWebACLRequest$, () => AssociateDistributionWebACLResult$
+];
+export var CopyDistribution$: StaticOperationSchema = [9, n0, _CD,
+  { [_h]: ["POST", "/2020-05-31/distribution/{PrimaryDistributionId}/copy", 201] }, () => CopyDistributionRequest$, () => CopyDistributionResult$
+];
+export var CreateAnycastIpList$: StaticOperationSchema = [9, n0, _CAIL,
+  { [_h]: ["POST", "/2020-05-31/anycast-ip-list", 202] }, () => CreateAnycastIpListRequest$, () => CreateAnycastIpListResult$
+];
+export var CreateCachePolicy$: StaticOperationSchema = [9, n0, _CCP,
+  { [_h]: ["POST", "/2020-05-31/cache-policy", 201] }, () => CreateCachePolicyRequest$, () => CreateCachePolicyResult$
+];
+export var CreateCloudFrontOriginAccessIdentity$: StaticOperationSchema = [9, n0, _CCFOAI,
+  { [_h]: ["POST", "/2020-05-31/origin-access-identity/cloudfront", 201] }, () => CreateCloudFrontOriginAccessIdentityRequest$, () => CreateCloudFrontOriginAccessIdentityResult$
+];
+export var CreateConnectionFunction$: StaticOperationSchema = [9, n0, _CCF,
+  { [_h]: ["POST", "/2020-05-31/connection-function", 201] }, () => CreateConnectionFunctionRequest$, () => CreateConnectionFunctionResult$
+];
+export var CreateConnectionGroup$: StaticOperationSchema = [9, n0, _CCG,
+  { [_h]: ["POST", "/2020-05-31/connection-group", 201] }, () => CreateConnectionGroupRequest$, () => CreateConnectionGroupResult$
+];
+export var CreateContinuousDeploymentPolicy$: StaticOperationSchema = [9, n0, _CCDP,
+  { [_h]: ["POST", "/2020-05-31/continuous-deployment-policy", 201] }, () => CreateContinuousDeploymentPolicyRequest$, () => CreateContinuousDeploymentPolicyResult$
+];
+export var CreateDistribution$: StaticOperationSchema = [9, n0, _CDr,
+  { [_h]: ["POST", "/2020-05-31/distribution", 201] }, () => CreateDistributionRequest$, () => CreateDistributionResult$
+];
+export var CreateDistributionTenant$: StaticOperationSchema = [9, n0, _CDT,
+  { [_h]: ["POST", "/2020-05-31/distribution-tenant", 201] }, () => CreateDistributionTenantRequest$, () => CreateDistributionTenantResult$
+];
+export var CreateDistributionWithTags$: StaticOperationSchema = [9, n0, _CDWT,
+  { [_h]: ["POST", "/2020-05-31/distribution?WithTags", 201] }, () => CreateDistributionWithTagsRequest$, () => CreateDistributionWithTagsResult$
+];
+export var CreateFieldLevelEncryptionConfig$: StaticOperationSchema = [9, n0, _CFLEC,
+  { [_h]: ["POST", "/2020-05-31/field-level-encryption", 201] }, () => CreateFieldLevelEncryptionConfigRequest$, () => CreateFieldLevelEncryptionConfigResult$
+];
+export var CreateFieldLevelEncryptionProfile$: StaticOperationSchema = [9, n0, _CFLEP,
+  { [_h]: ["POST", "/2020-05-31/field-level-encryption-profile", 201] }, () => CreateFieldLevelEncryptionProfileRequest$, () => CreateFieldLevelEncryptionProfileResult$
+];
+export var CreateFunction$: StaticOperationSchema = [9, n0, _CFr,
+  { [_h]: ["POST", "/2020-05-31/function", 201] }, () => CreateFunctionRequest$, () => CreateFunctionResult$
+];
+export var CreateInvalidation$: StaticOperationSchema = [9, n0, _CI,
+  { [_h]: ["POST", "/2020-05-31/distribution/{DistributionId}/invalidation", 201] }, () => CreateInvalidationRequest$, () => CreateInvalidationResult$
+];
+export var CreateInvalidationForDistributionTenant$: StaticOperationSchema = [9, n0, _CIFDT,
+  { [_h]: ["POST", "/2020-05-31/distribution-tenant/{Id}/invalidation", 201] }, () => CreateInvalidationForDistributionTenantRequest$, () => CreateInvalidationForDistributionTenantResult$
+];
+export var CreateKeyGroup$: StaticOperationSchema = [9, n0, _CKG,
+  { [_h]: ["POST", "/2020-05-31/key-group", 201] }, () => CreateKeyGroupRequest$, () => CreateKeyGroupResult$
+];
+export var CreateKeyValueStore$: StaticOperationSchema = [9, n0, _CKVS,
+  { [_h]: ["POST", "/2020-05-31/key-value-store", 201] }, () => CreateKeyValueStoreRequest$, () => CreateKeyValueStoreResult$
+];
+export var CreateMonitoringSubscription$: StaticOperationSchema = [9, n0, _CMS,
+  { [_h]: ["POST", "/2020-05-31/distributions/{DistributionId}/monitoring-subscription", 200] }, () => CreateMonitoringSubscriptionRequest$, () => CreateMonitoringSubscriptionResult$
+];
+export var CreateOriginAccessControl$: StaticOperationSchema = [9, n0, _COAC,
+  { [_h]: ["POST", "/2020-05-31/origin-access-control", 201] }, () => CreateOriginAccessControlRequest$, () => CreateOriginAccessControlResult$
+];
+export var CreateOriginRequestPolicy$: StaticOperationSchema = [9, n0, _CORP,
+  { [_h]: ["POST", "/2020-05-31/origin-request-policy", 201] }, () => CreateOriginRequestPolicyRequest$, () => CreateOriginRequestPolicyResult$
+];
+export var CreatePublicKey$: StaticOperationSchema = [9, n0, _CPK,
+  { [_h]: ["POST", "/2020-05-31/public-key", 201] }, () => CreatePublicKeyRequest$, () => CreatePublicKeyResult$
+];
+export var CreateRealtimeLogConfig$: StaticOperationSchema = [9, n0, _CRLC,
+  { [_h]: ["POST", "/2020-05-31/realtime-log-config", 201] }, () => CreateRealtimeLogConfigRequest$, () => CreateRealtimeLogConfigResult$
+];
+export var CreateResponseHeadersPolicy$: StaticOperationSchema = [9, n0, _CRHP,
+  { [_h]: ["POST", "/2020-05-31/response-headers-policy", 201] }, () => CreateResponseHeadersPolicyRequest$, () => CreateResponseHeadersPolicyResult$
+];
+export var CreateStreamingDistribution$: StaticOperationSchema = [9, n0, _CSD,
+  { [_h]: ["POST", "/2020-05-31/streaming-distribution", 201] }, () => CreateStreamingDistributionRequest$, () => CreateStreamingDistributionResult$
+];
+export var CreateStreamingDistributionWithTags$: StaticOperationSchema = [9, n0, _CSDWT,
+  { [_h]: ["POST", "/2020-05-31/streaming-distribution?WithTags", 201] }, () => CreateStreamingDistributionWithTagsRequest$, () => CreateStreamingDistributionWithTagsResult$
+];
+export var CreateTrustStore$: StaticOperationSchema = [9, n0, _CTS,
+  { [_h]: ["POST", "/2020-05-31/trust-store", 201] }, () => CreateTrustStoreRequest$, () => CreateTrustStoreResult$
+];
+export var CreateVpcOrigin$: StaticOperationSchema = [9, n0, _CVO,
+  { [_h]: ["POST", "/2020-05-31/vpc-origin", 202] }, () => CreateVpcOriginRequest$, () => CreateVpcOriginResult$
+];
+export var DeleteAnycastIpList$: StaticOperationSchema = [9, n0, _DAIL,
+  { [_h]: ["DELETE", "/2020-05-31/anycast-ip-list/{Id}", 204] }, () => DeleteAnycastIpListRequest$, () => __Unit
+];
+export var DeleteCachePolicy$: StaticOperationSchema = [9, n0, _DCP,
+  { [_h]: ["DELETE", "/2020-05-31/cache-policy/{Id}", 204] }, () => DeleteCachePolicyRequest$, () => __Unit
+];
+export var DeleteCloudFrontOriginAccessIdentity$: StaticOperationSchema = [9, n0, _DCFOAI,
+  { [_h]: ["DELETE", "/2020-05-31/origin-access-identity/cloudfront/{Id}", 204] }, () => DeleteCloudFrontOriginAccessIdentityRequest$, () => __Unit
+];
+export var DeleteConnectionFunction$: StaticOperationSchema = [9, n0, _DCF,
+  { [_h]: ["DELETE", "/2020-05-31/connection-function/{Id}", 204] }, () => DeleteConnectionFunctionRequest$, () => __Unit
+];
+export var DeleteConnectionGroup$: StaticOperationSchema = [9, n0, _DCG,
+  { [_h]: ["DELETE", "/2020-05-31/connection-group/{Id}", 204] }, () => DeleteConnectionGroupRequest$, () => __Unit
+];
+export var DeleteContinuousDeploymentPolicy$: StaticOperationSchema = [9, n0, _DCDP,
+  { [_h]: ["DELETE", "/2020-05-31/continuous-deployment-policy/{Id}", 204] }, () => DeleteContinuousDeploymentPolicyRequest$, () => __Unit
+];
+export var DeleteDistribution$: StaticOperationSchema = [9, n0, _DD,
+  { [_h]: ["DELETE", "/2020-05-31/distribution/{Id}", 204] }, () => DeleteDistributionRequest$, () => __Unit
+];
+export var DeleteDistributionTenant$: StaticOperationSchema = [9, n0, _DDT,
+  { [_h]: ["DELETE", "/2020-05-31/distribution-tenant/{Id}", 204] }, () => DeleteDistributionTenantRequest$, () => __Unit
+];
+export var DeleteFieldLevelEncryptionConfig$: StaticOperationSchema = [9, n0, _DFLEC,
+  { [_h]: ["DELETE", "/2020-05-31/field-level-encryption/{Id}", 204] }, () => DeleteFieldLevelEncryptionConfigRequest$, () => __Unit
+];
+export var DeleteFieldLevelEncryptionProfile$: StaticOperationSchema = [9, n0, _DFLEP,
+  { [_h]: ["DELETE", "/2020-05-31/field-level-encryption-profile/{Id}", 204] }, () => DeleteFieldLevelEncryptionProfileRequest$, () => __Unit
+];
+export var DeleteFunction$: StaticOperationSchema = [9, n0, _DF,
+  { [_h]: ["DELETE", "/2020-05-31/function/{Name}", 204] }, () => DeleteFunctionRequest$, () => __Unit
+];
+export var DeleteKeyGroup$: StaticOperationSchema = [9, n0, _DKG,
+  { [_h]: ["DELETE", "/2020-05-31/key-group/{Id}", 204] }, () => DeleteKeyGroupRequest$, () => __Unit
+];
+export var DeleteKeyValueStore$: StaticOperationSchema = [9, n0, _DKVS,
+  { [_h]: ["DELETE", "/2020-05-31/key-value-store/{Name}", 204] }, () => DeleteKeyValueStoreRequest$, () => __Unit
+];
+export var DeleteMonitoringSubscription$: StaticOperationSchema = [9, n0, _DMS,
+  { [_h]: ["DELETE", "/2020-05-31/distributions/{DistributionId}/monitoring-subscription", 200] }, () => DeleteMonitoringSubscriptionRequest$, () => DeleteMonitoringSubscriptionResult$
+];
+export var DeleteOriginAccessControl$: StaticOperationSchema = [9, n0, _DOAC,
+  { [_h]: ["DELETE", "/2020-05-31/origin-access-control/{Id}", 204] }, () => DeleteOriginAccessControlRequest$, () => __Unit
+];
+export var DeleteOriginRequestPolicy$: StaticOperationSchema = [9, n0, _DORP,
+  { [_h]: ["DELETE", "/2020-05-31/origin-request-policy/{Id}", 204] }, () => DeleteOriginRequestPolicyRequest$, () => __Unit
+];
+export var DeletePublicKey$: StaticOperationSchema = [9, n0, _DPK,
+  { [_h]: ["DELETE", "/2020-05-31/public-key/{Id}", 204] }, () => DeletePublicKeyRequest$, () => __Unit
+];
+export var DeleteRealtimeLogConfig$: StaticOperationSchema = [9, n0, _DRLC,
+  { [_h]: ["POST", "/2020-05-31/delete-realtime-log-config", 204] }, () => DeleteRealtimeLogConfigRequest$, () => __Unit
+];
+export var DeleteResourcePolicy$: StaticOperationSchema = [9, n0, _DRP,
+  { [_h]: ["POST", "/2020-05-31/delete-resource-policy", 200] }, () => DeleteResourcePolicyRequest$, () => __Unit
+];
+export var DeleteResponseHeadersPolicy$: StaticOperationSchema = [9, n0, _DRHP,
+  { [_h]: ["DELETE", "/2020-05-31/response-headers-policy/{Id}", 204] }, () => DeleteResponseHeadersPolicyRequest$, () => __Unit
+];
+export var DeleteStreamingDistribution$: StaticOperationSchema = [9, n0, _DSD,
+  { [_h]: ["DELETE", "/2020-05-31/streaming-distribution/{Id}", 204] }, () => DeleteStreamingDistributionRequest$, () => __Unit
+];
+export var DeleteTrustStore$: StaticOperationSchema = [9, n0, _DTSe,
+  { [_h]: ["DELETE", "/2020-05-31/trust-store/{Id}", 204] }, () => DeleteTrustStoreRequest$, () => __Unit
+];
+export var DeleteVpcOrigin$: StaticOperationSchema = [9, n0, _DVO,
+  { [_h]: ["DELETE", "/2020-05-31/vpc-origin/{Id}", 202] }, () => DeleteVpcOriginRequest$, () => DeleteVpcOriginResult$
+];
+export var DescribeConnectionFunction$: StaticOperationSchema = [9, n0, _DCFe,
+  { [_h]: ["GET", "/2020-05-31/connection-function/{Identifier}/describe", 200] }, () => DescribeConnectionFunctionRequest$, () => DescribeConnectionFunctionResult$
+];
+export var DescribeFunction$: StaticOperationSchema = [9, n0, _DFe,
+  { [_h]: ["GET", "/2020-05-31/function/{Name}/describe", 200] }, () => DescribeFunctionRequest$, () => DescribeFunctionResult$
+];
+export var DescribeKeyValueStore$: StaticOperationSchema = [9, n0, _DKVSe,
+  { [_h]: ["GET", "/2020-05-31/key-value-store/{Name}", 200] }, () => DescribeKeyValueStoreRequest$, () => DescribeKeyValueStoreResult$
+];
+export var DisassociateDistributionTenantWebACL$: StaticOperationSchema = [9, n0, _DDTWACL,
+  { [_h]: ["PUT", "/2020-05-31/distribution-tenant/{Id}/disassociate-web-acl", 200] }, () => DisassociateDistributionTenantWebACLRequest$, () => DisassociateDistributionTenantWebACLResult$
+];
+export var DisassociateDistributionWebACL$: StaticOperationSchema = [9, n0, _DDWACL,
+  { [_h]: ["PUT", "/2020-05-31/distribution/{Id}/disassociate-web-acl", 200] }, () => DisassociateDistributionWebACLRequest$, () => DisassociateDistributionWebACLResult$
+];
+export var GetAnycastIpList$: StaticOperationSchema = [9, n0, _GAIL,
+  { [_h]: ["GET", "/2020-05-31/anycast-ip-list/{Id}", 200] }, () => GetAnycastIpListRequest$, () => GetAnycastIpListResult$
+];
+export var GetCachePolicy$: StaticOperationSchema = [9, n0, _GCP,
+  { [_h]: ["GET", "/2020-05-31/cache-policy/{Id}", 200] }, () => GetCachePolicyRequest$, () => GetCachePolicyResult$
+];
+export var GetCachePolicyConfig$: StaticOperationSchema = [9, n0, _GCPC,
+  { [_h]: ["GET", "/2020-05-31/cache-policy/{Id}/config", 200] }, () => GetCachePolicyConfigRequest$, () => GetCachePolicyConfigResult$
+];
+export var GetCloudFrontOriginAccessIdentity$: StaticOperationSchema = [9, n0, _GCFOAI,
+  { [_h]: ["GET", "/2020-05-31/origin-access-identity/cloudfront/{Id}", 200] }, () => GetCloudFrontOriginAccessIdentityRequest$, () => GetCloudFrontOriginAccessIdentityResult$
+];
+export var GetCloudFrontOriginAccessIdentityConfig$: StaticOperationSchema = [9, n0, _GCFOAIC,
+  { [_h]: ["GET", "/2020-05-31/origin-access-identity/cloudfront/{Id}/config", 200] }, () => GetCloudFrontOriginAccessIdentityConfigRequest$, () => GetCloudFrontOriginAccessIdentityConfigResult$
+];
+export var GetConnectionFunction$: StaticOperationSchema = [9, n0, _GCF,
+  { [_h]: ["GET", "/2020-05-31/connection-function/{Identifier}", 200] }, () => GetConnectionFunctionRequest$, () => GetConnectionFunctionResult$
+];
+export var GetConnectionGroup$: StaticOperationSchema = [9, n0, _GCG,
+  { [_h]: ["GET", "/2020-05-31/connection-group/{Identifier}", 200] }, () => GetConnectionGroupRequest$, () => GetConnectionGroupResult$
+];
+export var GetConnectionGroupByRoutingEndpoint$: StaticOperationSchema = [9, n0, _GCGBRE,
+  { [_h]: ["GET", "/2020-05-31/connection-group", 200] }, () => GetConnectionGroupByRoutingEndpointRequest$, () => GetConnectionGroupByRoutingEndpointResult$
+];
+export var GetContinuousDeploymentPolicy$: StaticOperationSchema = [9, n0, _GCDP,
+  { [_h]: ["GET", "/2020-05-31/continuous-deployment-policy/{Id}", 200] }, () => GetContinuousDeploymentPolicyRequest$, () => GetContinuousDeploymentPolicyResult$
+];
+export var GetContinuousDeploymentPolicyConfig$: StaticOperationSchema = [9, n0, _GCDPC,
+  { [_h]: ["GET", "/2020-05-31/continuous-deployment-policy/{Id}/config", 200] }, () => GetContinuousDeploymentPolicyConfigRequest$, () => GetContinuousDeploymentPolicyConfigResult$
+];
+export var GetDistribution$: StaticOperationSchema = [9, n0, _GD,
+  { [_h]: ["GET", "/2020-05-31/distribution/{Id}", 200] }, () => GetDistributionRequest$, () => GetDistributionResult$
+];
+export var GetDistributionConfig$: StaticOperationSchema = [9, n0, _GDC,
+  { [_h]: ["GET", "/2020-05-31/distribution/{Id}/config", 200] }, () => GetDistributionConfigRequest$, () => GetDistributionConfigResult$
+];
+export var GetDistributionTenant$: StaticOperationSchema = [9, n0, _GDT,
+  { [_h]: ["GET", "/2020-05-31/distribution-tenant/{Identifier}", 200] }, () => GetDistributionTenantRequest$, () => GetDistributionTenantResult$
+];
+export var GetDistributionTenantByDomain$: StaticOperationSchema = [9, n0, _GDTBD,
+  { [_h]: ["GET", "/2020-05-31/distribution-tenant", 200] }, () => GetDistributionTenantByDomainRequest$, () => GetDistributionTenantByDomainResult$
+];
+export var GetFieldLevelEncryption$: StaticOperationSchema = [9, n0, _GFLE,
+  { [_h]: ["GET", "/2020-05-31/field-level-encryption/{Id}", 200] }, () => GetFieldLevelEncryptionRequest$, () => GetFieldLevelEncryptionResult$
+];
+export var GetFieldLevelEncryptionConfig$: StaticOperationSchema = [9, n0, _GFLEC,
+  { [_h]: ["GET", "/2020-05-31/field-level-encryption/{Id}/config", 200] }, () => GetFieldLevelEncryptionConfigRequest$, () => GetFieldLevelEncryptionConfigResult$
+];
+export var GetFieldLevelEncryptionProfile$: StaticOperationSchema = [9, n0, _GFLEP,
+  { [_h]: ["GET", "/2020-05-31/field-level-encryption-profile/{Id}", 200] }, () => GetFieldLevelEncryptionProfileRequest$, () => GetFieldLevelEncryptionProfileResult$
+];
+export var GetFieldLevelEncryptionProfileConfig$: StaticOperationSchema = [9, n0, _GFLEPC,
+  { [_h]: ["GET", "/2020-05-31/field-level-encryption-profile/{Id}/config", 200] }, () => GetFieldLevelEncryptionProfileConfigRequest$, () => GetFieldLevelEncryptionProfileConfigResult$
+];
+export var GetFunction$: StaticOperationSchema = [9, n0, _GF,
+  { [_h]: ["GET", "/2020-05-31/function/{Name}", 200] }, () => GetFunctionRequest$, () => GetFunctionResult$
+];
+export var GetInvalidation$: StaticOperationSchema = [9, n0, _GI,
+  { [_h]: ["GET", "/2020-05-31/distribution/{DistributionId}/invalidation/{Id}", 200] }, () => GetInvalidationRequest$, () => GetInvalidationResult$
+];
+export var GetInvalidationForDistributionTenant$: StaticOperationSchema = [9, n0, _GIFDT,
+  { [_h]: ["GET", "/2020-05-31/distribution-tenant/{DistributionTenantId}/invalidation/{Id}", 200] }, () => GetInvalidationForDistributionTenantRequest$, () => GetInvalidationForDistributionTenantResult$
+];
+export var GetKeyGroup$: StaticOperationSchema = [9, n0, _GKG,
+  { [_h]: ["GET", "/2020-05-31/key-group/{Id}", 200] }, () => GetKeyGroupRequest$, () => GetKeyGroupResult$
+];
+export var GetKeyGroupConfig$: StaticOperationSchema = [9, n0, _GKGC,
+  { [_h]: ["GET", "/2020-05-31/key-group/{Id}/config", 200] }, () => GetKeyGroupConfigRequest$, () => GetKeyGroupConfigResult$
+];
+export var GetManagedCertificateDetails$: StaticOperationSchema = [9, n0, _GMCD,
+  { [_h]: ["GET", "/2020-05-31/managed-certificate/{Identifier}", 200] }, () => GetManagedCertificateDetailsRequest$, () => GetManagedCertificateDetailsResult$
+];
+export var GetMonitoringSubscription$: StaticOperationSchema = [9, n0, _GMS,
+  { [_h]: ["GET", "/2020-05-31/distributions/{DistributionId}/monitoring-subscription", 200] }, () => GetMonitoringSubscriptionRequest$, () => GetMonitoringSubscriptionResult$
+];
+export var GetOriginAccessControl$: StaticOperationSchema = [9, n0, _GOAC,
+  { [_h]: ["GET", "/2020-05-31/origin-access-control/{Id}", 200] }, () => GetOriginAccessControlRequest$, () => GetOriginAccessControlResult$
+];
+export var GetOriginAccessControlConfig$: StaticOperationSchema = [9, n0, _GOACC,
+  { [_h]: ["GET", "/2020-05-31/origin-access-control/{Id}/config", 200] }, () => GetOriginAccessControlConfigRequest$, () => GetOriginAccessControlConfigResult$
+];
+export var GetOriginRequestPolicy$: StaticOperationSchema = [9, n0, _GORP,
+  { [_h]: ["GET", "/2020-05-31/origin-request-policy/{Id}", 200] }, () => GetOriginRequestPolicyRequest$, () => GetOriginRequestPolicyResult$
+];
+export var GetOriginRequestPolicyConfig$: StaticOperationSchema = [9, n0, _GORPC,
+  { [_h]: ["GET", "/2020-05-31/origin-request-policy/{Id}/config", 200] }, () => GetOriginRequestPolicyConfigRequest$, () => GetOriginRequestPolicyConfigResult$
+];
+export var GetPublicKey$: StaticOperationSchema = [9, n0, _GPK,
+  { [_h]: ["GET", "/2020-05-31/public-key/{Id}", 200] }, () => GetPublicKeyRequest$, () => GetPublicKeyResult$
+];
+export var GetPublicKeyConfig$: StaticOperationSchema = [9, n0, _GPKC,
+  { [_h]: ["GET", "/2020-05-31/public-key/{Id}/config", 200] }, () => GetPublicKeyConfigRequest$, () => GetPublicKeyConfigResult$
+];
+export var GetRealtimeLogConfig$: StaticOperationSchema = [9, n0, _GRLC,
+  { [_h]: ["POST", "/2020-05-31/get-realtime-log-config", 200] }, () => GetRealtimeLogConfigRequest$, () => GetRealtimeLogConfigResult$
+];
+export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
+  { [_h]: ["POST", "/2020-05-31/get-resource-policy", 200] }, () => GetResourcePolicyRequest$, () => GetResourcePolicyResult$
+];
+export var GetResponseHeadersPolicy$: StaticOperationSchema = [9, n0, _GRHP,
+  { [_h]: ["GET", "/2020-05-31/response-headers-policy/{Id}", 200] }, () => GetResponseHeadersPolicyRequest$, () => GetResponseHeadersPolicyResult$
+];
+export var GetResponseHeadersPolicyConfig$: StaticOperationSchema = [9, n0, _GRHPC,
+  { [_h]: ["GET", "/2020-05-31/response-headers-policy/{Id}/config", 200] }, () => GetResponseHeadersPolicyConfigRequest$, () => GetResponseHeadersPolicyConfigResult$
+];
+export var GetStreamingDistribution$: StaticOperationSchema = [9, n0, _GSD,
+  { [_h]: ["GET", "/2020-05-31/streaming-distribution/{Id}", 200] }, () => GetStreamingDistributionRequest$, () => GetStreamingDistributionResult$
+];
+export var GetStreamingDistributionConfig$: StaticOperationSchema = [9, n0, _GSDC,
+  { [_h]: ["GET", "/2020-05-31/streaming-distribution/{Id}/config", 200] }, () => GetStreamingDistributionConfigRequest$, () => GetStreamingDistributionConfigResult$
+];
+export var GetTrustStore$: StaticOperationSchema = [9, n0, _GTS,
+  { [_h]: ["GET", "/2020-05-31/trust-store/{Identifier}", 200] }, () => GetTrustStoreRequest$, () => GetTrustStoreResult$
+];
+export var GetVpcOrigin$: StaticOperationSchema = [9, n0, _GVO,
+  { [_h]: ["GET", "/2020-05-31/vpc-origin/{Id}", 200] }, () => GetVpcOriginRequest$, () => GetVpcOriginResult$
+];
+export var ListAnycastIpLists$: StaticOperationSchema = [9, n0, _LAIL,
+  { [_h]: ["GET", "/2020-05-31/anycast-ip-list", 200] }, () => ListAnycastIpListsRequest$, () => ListAnycastIpListsResult$
+];
+export var ListCachePolicies$: StaticOperationSchema = [9, n0, _LCP,
+  { [_h]: ["GET", "/2020-05-31/cache-policy", 200] }, () => ListCachePoliciesRequest$, () => ListCachePoliciesResult$
+];
+export var ListCloudFrontOriginAccessIdentities$: StaticOperationSchema = [9, n0, _LCFOAI,
+  { [_h]: ["GET", "/2020-05-31/origin-access-identity/cloudfront", 200] }, () => ListCloudFrontOriginAccessIdentitiesRequest$, () => ListCloudFrontOriginAccessIdentitiesResult$
+];
+export var ListConflictingAliases$: StaticOperationSchema = [9, n0, _LCA,
+  { [_h]: ["GET", "/2020-05-31/conflicting-alias", 200] }, () => ListConflictingAliasesRequest$, () => ListConflictingAliasesResult$
+];
+export var ListConnectionFunctions$: StaticOperationSchema = [9, n0, _LCF,
+  { [_h]: ["POST", "/2020-05-31/connection-functions", 200] }, () => ListConnectionFunctionsRequest$, () => ListConnectionFunctionsResult$
+];
+export var ListConnectionGroups$: StaticOperationSchema = [9, n0, _LCG,
+  { [_h]: ["POST", "/2020-05-31/connection-groups", 200] }, () => ListConnectionGroupsRequest$, () => ListConnectionGroupsResult$
+];
+export var ListContinuousDeploymentPolicies$: StaticOperationSchema = [9, n0, _LCDP,
+  { [_h]: ["GET", "/2020-05-31/continuous-deployment-policy", 200] }, () => ListContinuousDeploymentPoliciesRequest$, () => ListContinuousDeploymentPoliciesResult$
+];
+export var ListDistributions$: StaticOperationSchema = [9, n0, _LD,
+  { [_h]: ["GET", "/2020-05-31/distribution", 200] }, () => ListDistributionsRequest$, () => ListDistributionsResult$
+];
+export var ListDistributionsByAnycastIpListId$: StaticOperationSchema = [9, n0, _LDBAILI,
+  { [_h]: ["GET", "/2020-05-31/distributionsByAnycastIpListId/{AnycastIpListId}", 200] }, () => ListDistributionsByAnycastIpListIdRequest$, () => ListDistributionsByAnycastIpListIdResult$
+];
+export var ListDistributionsByCachePolicyId$: StaticOperationSchema = [9, n0, _LDBCPI,
+  { [_h]: ["GET", "/2020-05-31/distributionsByCachePolicyId/{CachePolicyId}", 200] }, () => ListDistributionsByCachePolicyIdRequest$, () => ListDistributionsByCachePolicyIdResult$
+];
+export var ListDistributionsByConnectionFunction$: StaticOperationSchema = [9, n0, _LDBCF,
+  { [_h]: ["GET", "/2020-05-31/distributionsByConnectionFunction", 200] }, () => ListDistributionsByConnectionFunctionRequest$, () => ListDistributionsByConnectionFunctionResult$
+];
+export var ListDistributionsByConnectionMode$: StaticOperationSchema = [9, n0, _LDBCM,
+  { [_h]: ["GET", "/2020-05-31/distributionsByConnectionMode/{ConnectionMode}", 200] }, () => ListDistributionsByConnectionModeRequest$, () => ListDistributionsByConnectionModeResult$
+];
+export var ListDistributionsByKeyGroup$: StaticOperationSchema = [9, n0, _LDBKG,
+  { [_h]: ["GET", "/2020-05-31/distributionsByKeyGroupId/{KeyGroupId}", 200] }, () => ListDistributionsByKeyGroupRequest$, () => ListDistributionsByKeyGroupResult$
+];
+export var ListDistributionsByOriginRequestPolicyId$: StaticOperationSchema = [9, n0, _LDBORPI,
+  { [_h]: ["GET", "/2020-05-31/distributionsByOriginRequestPolicyId/{OriginRequestPolicyId}", 200] }, () => ListDistributionsByOriginRequestPolicyIdRequest$, () => ListDistributionsByOriginRequestPolicyIdResult$
+];
+export var ListDistributionsByOwnedResource$: StaticOperationSchema = [9, n0, _LDBOR,
+  { [_h]: ["GET", "/2020-05-31/distributionsByOwnedResource/{ResourceArn}", 200] }, () => ListDistributionsByOwnedResourceRequest$, () => ListDistributionsByOwnedResourceResult$
+];
+export var ListDistributionsByRealtimeLogConfig$: StaticOperationSchema = [9, n0, _LDBRLC,
+  { [_h]: ["POST", "/2020-05-31/distributionsByRealtimeLogConfig", 200] }, () => ListDistributionsByRealtimeLogConfigRequest$, () => ListDistributionsByRealtimeLogConfigResult$
+];
+export var ListDistributionsByResponseHeadersPolicyId$: StaticOperationSchema = [9, n0, _LDBRHPI,
+  { [_h]: ["GET", "/2020-05-31/distributionsByResponseHeadersPolicyId/{ResponseHeadersPolicyId}", 200] }, () => ListDistributionsByResponseHeadersPolicyIdRequest$, () => ListDistributionsByResponseHeadersPolicyIdResult$
+];
+export var ListDistributionsByTrustStore$: StaticOperationSchema = [9, n0, _LDBTS,
+  { [_h]: ["GET", "/2020-05-31/distributionsByTrustStore", 200] }, () => ListDistributionsByTrustStoreRequest$, () => ListDistributionsByTrustStoreResult$
+];
+export var ListDistributionsByVpcOriginId$: StaticOperationSchema = [9, n0, _LDBVOI,
+  { [_h]: ["GET", "/2020-05-31/distributionsByVpcOriginId/{VpcOriginId}", 200] }, () => ListDistributionsByVpcOriginIdRequest$, () => ListDistributionsByVpcOriginIdResult$
+];
+export var ListDistributionsByWebACLId$: StaticOperationSchema = [9, n0, _LDBWACLI,
+  { [_h]: ["GET", "/2020-05-31/distributionsByWebACLId/{WebACLId}", 200] }, () => ListDistributionsByWebACLIdRequest$, () => ListDistributionsByWebACLIdResult$
+];
+export var ListDistributionTenants$: StaticOperationSchema = [9, n0, _LDT,
+  { [_h]: ["POST", "/2020-05-31/distribution-tenants", 200] }, () => ListDistributionTenantsRequest$, () => ListDistributionTenantsResult$
+];
+export var ListDistributionTenantsByCustomization$: StaticOperationSchema = [9, n0, _LDTBC,
+  { [_h]: ["POST", "/2020-05-31/distribution-tenants-by-customization", 200] }, () => ListDistributionTenantsByCustomizationRequest$, () => ListDistributionTenantsByCustomizationResult$
+];
+export var ListDomainConflicts$: StaticOperationSchema = [9, n0, _LDC,
+  { [_h]: ["POST", "/2020-05-31/domain-conflicts", 200] }, () => ListDomainConflictsRequest$, () => ListDomainConflictsResult$
+];
+export var ListFieldLevelEncryptionConfigs$: StaticOperationSchema = [9, n0, _LFLEC,
+  { [_h]: ["GET", "/2020-05-31/field-level-encryption", 200] }, () => ListFieldLevelEncryptionConfigsRequest$, () => ListFieldLevelEncryptionConfigsResult$
+];
+export var ListFieldLevelEncryptionProfiles$: StaticOperationSchema = [9, n0, _LFLEP,
+  { [_h]: ["GET", "/2020-05-31/field-level-encryption-profile", 200] }, () => ListFieldLevelEncryptionProfilesRequest$, () => ListFieldLevelEncryptionProfilesResult$
+];
+export var ListFunctions$: StaticOperationSchema = [9, n0, _LF,
+  { [_h]: ["GET", "/2020-05-31/function", 200] }, () => ListFunctionsRequest$, () => ListFunctionsResult$
+];
+export var ListInvalidations$: StaticOperationSchema = [9, n0, _LI,
+  { [_h]: ["GET", "/2020-05-31/distribution/{DistributionId}/invalidation", 200] }, () => ListInvalidationsRequest$, () => ListInvalidationsResult$
+];
+export var ListInvalidationsForDistributionTenant$: StaticOperationSchema = [9, n0, _LIFDT,
+  { [_h]: ["GET", "/2020-05-31/distribution-tenant/{Id}/invalidation", 200] }, () => ListInvalidationsForDistributionTenantRequest$, () => ListInvalidationsForDistributionTenantResult$
+];
+export var ListKeyGroups$: StaticOperationSchema = [9, n0, _LKG,
+  { [_h]: ["GET", "/2020-05-31/key-group", 200] }, () => ListKeyGroupsRequest$, () => ListKeyGroupsResult$
+];
+export var ListKeyValueStores$: StaticOperationSchema = [9, n0, _LKVS,
+  { [_h]: ["GET", "/2020-05-31/key-value-store", 200] }, () => ListKeyValueStoresRequest$, () => ListKeyValueStoresResult$
+];
+export var ListOriginAccessControls$: StaticOperationSchema = [9, n0, _LOAC,
+  { [_h]: ["GET", "/2020-05-31/origin-access-control", 200] }, () => ListOriginAccessControlsRequest$, () => ListOriginAccessControlsResult$
+];
+export var ListOriginRequestPolicies$: StaticOperationSchema = [9, n0, _LORP,
+  { [_h]: ["GET", "/2020-05-31/origin-request-policy", 200] }, () => ListOriginRequestPoliciesRequest$, () => ListOriginRequestPoliciesResult$
+];
+export var ListPublicKeys$: StaticOperationSchema = [9, n0, _LPK,
+  { [_h]: ["GET", "/2020-05-31/public-key", 200] }, () => ListPublicKeysRequest$, () => ListPublicKeysResult$
+];
+export var ListRealtimeLogConfigs$: StaticOperationSchema = [9, n0, _LRLC,
+  { [_h]: ["GET", "/2020-05-31/realtime-log-config", 200] }, () => ListRealtimeLogConfigsRequest$, () => ListRealtimeLogConfigsResult$
+];
+export var ListResponseHeadersPolicies$: StaticOperationSchema = [9, n0, _LRHP,
+  { [_h]: ["GET", "/2020-05-31/response-headers-policy", 200] }, () => ListResponseHeadersPoliciesRequest$, () => ListResponseHeadersPoliciesResult$
+];
+export var ListStreamingDistributions$: StaticOperationSchema = [9, n0, _LSD,
+  { [_h]: ["GET", "/2020-05-31/streaming-distribution", 200] }, () => ListStreamingDistributionsRequest$, () => ListStreamingDistributionsResult$
+];
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  { [_h]: ["GET", "/2020-05-31/tagging", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResult$
+];
+export var ListTrustStores$: StaticOperationSchema = [9, n0, _LTS,
+  { [_h]: ["POST", "/2020-05-31/trust-stores", 200] }, () => ListTrustStoresRequest$, () => ListTrustStoresResult$
+];
+export var ListVpcOrigins$: StaticOperationSchema = [9, n0, _LVO,
+  { [_h]: ["GET", "/2020-05-31/vpc-origin", 200] }, () => ListVpcOriginsRequest$, () => ListVpcOriginsResult$
+];
+export var PublishConnectionFunction$: StaticOperationSchema = [9, n0, _PCF,
+  { [_h]: ["POST", "/2020-05-31/connection-function/{Id}/publish", 200] }, () => PublishConnectionFunctionRequest$, () => PublishConnectionFunctionResult$
+];
+export var PublishFunction$: StaticOperationSchema = [9, n0, _PFu,
+  { [_h]: ["POST", "/2020-05-31/function/{Name}/publish", 200] }, () => PublishFunctionRequest$, () => PublishFunctionResult$
+];
+export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRP,
+  { [_h]: ["POST", "/2020-05-31/put-resource-policy", 200] }, () => PutResourcePolicyRequest$, () => PutResourcePolicyResult$
+];
+export var TagResource$: StaticOperationSchema = [9, n0, _TRag,
+  { [_h]: ["POST", "/2020-05-31/tagging?Operation=Tag", 204] }, () => TagResourceRequest$, () => __Unit
+];
+export var TestConnectionFunction$: StaticOperationSchema = [9, n0, _TCF,
+  { [_h]: ["POST", "/2020-05-31/connection-function/{Id}/test", 200] }, () => TestConnectionFunctionRequest$, () => TestConnectionFunctionResult$
+];
+export var TestFunction$: StaticOperationSchema = [9, n0, _TF,
+  { [_h]: ["POST", "/2020-05-31/function/{Name}/test", 200] }, () => TestFunctionRequest$, () => TestFunctionResult$
+];
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  { [_h]: ["POST", "/2020-05-31/tagging?Operation=Untag", 204] }, () => UntagResourceRequest$, () => __Unit
+];
+export var UpdateAnycastIpList$: StaticOperationSchema = [9, n0, _UAIL,
+  { [_h]: ["PUT", "/2020-05-31/anycast-ip-list/{Id}", 200] }, () => UpdateAnycastIpListRequest$, () => UpdateAnycastIpListResult$
+];
+export var UpdateCachePolicy$: StaticOperationSchema = [9, n0, _UCP,
+  { [_h]: ["PUT", "/2020-05-31/cache-policy/{Id}", 200] }, () => UpdateCachePolicyRequest$, () => UpdateCachePolicyResult$
+];
+export var UpdateCloudFrontOriginAccessIdentity$: StaticOperationSchema = [9, n0, _UCFOAI,
+  { [_h]: ["PUT", "/2020-05-31/origin-access-identity/cloudfront/{Id}/config", 200] }, () => UpdateCloudFrontOriginAccessIdentityRequest$, () => UpdateCloudFrontOriginAccessIdentityResult$
+];
+export var UpdateConnectionFunction$: StaticOperationSchema = [9, n0, _UCF,
+  { [_h]: ["PUT", "/2020-05-31/connection-function/{Id}", 200] }, () => UpdateConnectionFunctionRequest$, () => UpdateConnectionFunctionResult$
+];
+export var UpdateConnectionGroup$: StaticOperationSchema = [9, n0, _UCG,
+  { [_h]: ["PUT", "/2020-05-31/connection-group/{Id}", 200] }, () => UpdateConnectionGroupRequest$, () => UpdateConnectionGroupResult$
+];
+export var UpdateContinuousDeploymentPolicy$: StaticOperationSchema = [9, n0, _UCDP,
+  { [_h]: ["PUT", "/2020-05-31/continuous-deployment-policy/{Id}", 200] }, () => UpdateContinuousDeploymentPolicyRequest$, () => UpdateContinuousDeploymentPolicyResult$
+];
+export var UpdateDistribution$: StaticOperationSchema = [9, n0, _UD,
+  { [_h]: ["PUT", "/2020-05-31/distribution/{Id}/config", 200] }, () => UpdateDistributionRequest$, () => UpdateDistributionResult$
+];
+export var UpdateDistributionTenant$: StaticOperationSchema = [9, n0, _UDT,
+  { [_h]: ["PUT", "/2020-05-31/distribution-tenant/{Id}", 200] }, () => UpdateDistributionTenantRequest$, () => UpdateDistributionTenantResult$
+];
+export var UpdateDistributionWithStagingConfig$: StaticOperationSchema = [9, n0, _UDWSC,
+  { [_h]: ["PUT", "/2020-05-31/distribution/{Id}/promote-staging-config", 200] }, () => UpdateDistributionWithStagingConfigRequest$, () => UpdateDistributionWithStagingConfigResult$
+];
+export var UpdateDomainAssociation$: StaticOperationSchema = [9, n0, _UDA,
+  { [_h]: ["POST", "/2020-05-31/domain-association", 200] }, () => UpdateDomainAssociationRequest$, () => UpdateDomainAssociationResult$
+];
+export var UpdateFieldLevelEncryptionConfig$: StaticOperationSchema = [9, n0, _UFLEC,
+  { [_h]: ["PUT", "/2020-05-31/field-level-encryption/{Id}/config", 200] }, () => UpdateFieldLevelEncryptionConfigRequest$, () => UpdateFieldLevelEncryptionConfigResult$
+];
+export var UpdateFieldLevelEncryptionProfile$: StaticOperationSchema = [9, n0, _UFLEP,
+  { [_h]: ["PUT", "/2020-05-31/field-level-encryption-profile/{Id}/config", 200] }, () => UpdateFieldLevelEncryptionProfileRequest$, () => UpdateFieldLevelEncryptionProfileResult$
+];
+export var UpdateFunction$: StaticOperationSchema = [9, n0, _UF,
+  { [_h]: ["PUT", "/2020-05-31/function/{Name}", 200] }, () => UpdateFunctionRequest$, () => UpdateFunctionResult$
+];
+export var UpdateKeyGroup$: StaticOperationSchema = [9, n0, _UKG,
+  { [_h]: ["PUT", "/2020-05-31/key-group/{Id}", 200] }, () => UpdateKeyGroupRequest$, () => UpdateKeyGroupResult$
+];
+export var UpdateKeyValueStore$: StaticOperationSchema = [9, n0, _UKVS,
+  { [_h]: ["PUT", "/2020-05-31/key-value-store/{Name}", 200] }, () => UpdateKeyValueStoreRequest$, () => UpdateKeyValueStoreResult$
+];
+export var UpdateOriginAccessControl$: StaticOperationSchema = [9, n0, _UOAC,
+  { [_h]: ["PUT", "/2020-05-31/origin-access-control/{Id}/config", 200] }, () => UpdateOriginAccessControlRequest$, () => UpdateOriginAccessControlResult$
+];
+export var UpdateOriginRequestPolicy$: StaticOperationSchema = [9, n0, _UORP,
+  { [_h]: ["PUT", "/2020-05-31/origin-request-policy/{Id}", 200] }, () => UpdateOriginRequestPolicyRequest$, () => UpdateOriginRequestPolicyResult$
+];
+export var UpdatePublicKey$: StaticOperationSchema = [9, n0, _UPK,
+  { [_h]: ["PUT", "/2020-05-31/public-key/{Id}/config", 200] }, () => UpdatePublicKeyRequest$, () => UpdatePublicKeyResult$
+];
+export var UpdateRealtimeLogConfig$: StaticOperationSchema = [9, n0, _URLC,
+  { [_h]: ["PUT", "/2020-05-31/realtime-log-config", 200] }, () => UpdateRealtimeLogConfigRequest$, () => UpdateRealtimeLogConfigResult$
+];
+export var UpdateResponseHeadersPolicy$: StaticOperationSchema = [9, n0, _URHP,
+  { [_h]: ["PUT", "/2020-05-31/response-headers-policy/{Id}", 200] }, () => UpdateResponseHeadersPolicyRequest$, () => UpdateResponseHeadersPolicyResult$
+];
+export var UpdateStreamingDistribution$: StaticOperationSchema = [9, n0, _USD,
+  { [_h]: ["PUT", "/2020-05-31/streaming-distribution/{Id}/config", 200] }, () => UpdateStreamingDistributionRequest$, () => UpdateStreamingDistributionResult$
+];
+export var UpdateTrustStore$: StaticOperationSchema = [9, n0, _UTS,
+  { [_h]: ["PUT", "/2020-05-31/trust-store/{Id}", 200] }, () => UpdateTrustStoreRequest$, () => UpdateTrustStoreResult$
+];
+export var UpdateVpcOrigin$: StaticOperationSchema = [9, n0, _UVO,
+  { [_h]: ["PUT", "/2020-05-31/vpc-origin/{Id}", 202] }, () => UpdateVpcOriginRequest$, () => UpdateVpcOriginResult$
+];
+export var VerifyDnsConfiguration$: StaticOperationSchema = [9, n0, _VDC,
+  { [_h]: ["POST", "/2020-05-31/verify-dns-configuration", 200] }, () => VerifyDnsConfigurationRequest$, () => VerifyDnsConfigurationResult$
 ];

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import type { GetFunctionRecursionConfigRequest, GetFunctionRecursionConfigResponse } from "../models/models_0";
-import { GetFunctionRecursionConfig } from "../schemas/schemas_0";
+import { GetFunctionRecursionConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class GetFunctionRecursionConfigCommand extends $Command
   })
   .s("AWSGirApiService", "GetFunctionRecursionConfig", {})
   .n("LambdaClient", "GetFunctionRecursionConfigCommand")
-  .sc(GetFunctionRecursionConfig)
+  .sc(GetFunctionRecursionConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

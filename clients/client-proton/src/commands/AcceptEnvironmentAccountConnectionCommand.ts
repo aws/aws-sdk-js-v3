@@ -9,7 +9,7 @@ import type {
   AcceptEnvironmentAccountConnectionOutput,
 } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { AcceptEnvironmentAccountConnection } from "../schemas/schemas_0";
+import { AcceptEnvironmentAccountConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface AcceptEnvironmentAccountConnectionCommandInput extends AcceptEn
  *
  * The output of {@link AcceptEnvironmentAccountConnectionCommand}.
  */
-export interface AcceptEnvironmentAccountConnectionCommandOutput
-  extends AcceptEnvironmentAccountConnectionOutput,
-    __MetadataBearer {}
+export interface AcceptEnvironmentAccountConnectionCommandOutput extends AcceptEnvironmentAccountConnectionOutput, __MetadataBearer {}
 
 /**
  * <p>In a management account, an environment account connection request is accepted. When the environment account connection request is accepted, Proton
@@ -113,7 +111,7 @@ export class AcceptEnvironmentAccountConnectionCommand extends $Command
   })
   .s("AwsProton20200720", "AcceptEnvironmentAccountConnection", {})
   .n("ProtonClient", "AcceptEnvironmentAccountConnectionCommand")
-  .sc(AcceptEnvironmentAccountConnection)
+  .sc(AcceptEnvironmentAccountConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

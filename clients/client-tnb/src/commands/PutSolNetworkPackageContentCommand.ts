@@ -5,7 +5,7 @@ import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type PutSolNetworkPackageContentOutput, PutSolNetworkPackageContentInput } from "../models/models_0";
-import { PutSolNetworkPackageContent } from "../schemas/schemas_0";
+import { PutSolNetworkPackageContent$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -154,7 +154,7 @@ export class PutSolNetworkPackageContentCommand extends $Command
   })
   .s("TNB", "PutSolNetworkPackageContent", {})
   .n("TnbClient", "PutSolNetworkPackageContentCommand")
-  .sc(PutSolNetworkPackageContent)
+  .sc(PutSolNetworkPackageContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

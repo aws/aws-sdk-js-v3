@@ -17,7 +17,6 @@ import {
   TrustStoreStatus,
   ValidationTokenHost,
 } from "./enums";
-
 import {
   type Aliases,
   type AnycastIpList,

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PcaConnectorAdClient";
-import { CreateDirectoryRegistration } from "../schemas/schemas_0";
+import { CreateDirectoryRegistration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface CreateDirectoryRegistrationCommandInput extends CreateDirectory
  *
  * The output of {@link CreateDirectoryRegistrationCommand}.
  */
-export interface CreateDirectoryRegistrationCommandOutput
-  extends CreateDirectoryRegistrationResponse,
-    __MetadataBearer {}
+export interface CreateDirectoryRegistrationCommandOutput extends CreateDirectoryRegistrationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a directory registration that authorizes communication between Amazon Web Services Private CA and an
@@ -110,7 +108,7 @@ export class CreateDirectoryRegistrationCommand extends $Command
   })
   .s("PcaConnectorAd", "CreateDirectoryRegistration", {})
   .n("PcaConnectorAdClient", "CreateDirectoryRegistrationCommand")
-  .sc(CreateDirectoryRegistration)
+  .sc(CreateDirectoryRegistration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

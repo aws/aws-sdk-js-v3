@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import type { RemoveAttributesFromFindingsRequest, RemoveAttributesFromFindingsResponse } from "../models/models_0";
-import { RemoveAttributesFromFindings } from "../schemas/schemas_0";
+import { RemoveAttributesFromFindings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface RemoveAttributesFromFindingsCommandInput extends RemoveAttribut
  *
  * The output of {@link RemoveAttributesFromFindingsCommand}.
  */
-export interface RemoveAttributesFromFindingsCommandOutput
-  extends RemoveAttributesFromFindingsResponse,
-    __MetadataBearer {}
+export interface RemoveAttributesFromFindingsCommandOutput extends RemoveAttributesFromFindingsResponse, __MetadataBearer {}
 
 /**
  * <p>Removes entire attributes (key and value pairs) from the findings that are specified
@@ -123,7 +121,7 @@ export class RemoveAttributesFromFindingsCommand extends $Command
   })
   .s("InspectorService", "RemoveAttributesFromFindings", {})
   .n("InspectorClient", "RemoveAttributesFromFindingsCommand")
-  .sc(RemoveAttributesFromFindings)
+  .sc(RemoveAttributesFromFindings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

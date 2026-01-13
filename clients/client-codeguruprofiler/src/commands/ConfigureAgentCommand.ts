@@ -10,7 +10,7 @@ import type {
 } from "../CodeGuruProfilerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ConfigureAgentRequest, ConfigureAgentResponse } from "../models/models_0";
-import { ConfigureAgent } from "../schemas/schemas_0";
+import { ConfigureAgent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class ConfigureAgentCommand extends $Command
   })
   .s("CodeGuruProfiler", "ConfigureAgent", {})
   .n("CodeGuruProfilerClient", "ConfigureAgentCommand")
-  .sc(ConfigureAgent)
+  .sc(ConfigureAgent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

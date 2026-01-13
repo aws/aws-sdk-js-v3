@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMergeCommitInput, GetMergeCommitOutput } from "../models/models_0";
-import { GetMergeCommit } from "../schemas/schemas_0";
+import { GetMergeCommit$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class GetMergeCommitCommand extends $Command
   })
   .s("CodeCommit_20150413", "GetMergeCommit", {})
   .n("CodeCommitClient", "GetMergeCommitCommand")
-  .sc(GetMergeCommit)
+  .sc(GetMergeCommit$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

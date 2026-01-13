@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InviteMembersRequest, InviteMembersResponse } from "../models/models_2";
-import { InviteMembers } from "../schemas/schemas_0";
+import { InviteMembers$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -126,7 +126,7 @@ export class InviteMembersCommand extends $Command
   })
   .s("SecurityHubAPIService", "InviteMembers", {})
   .n("SecurityHubClient", "InviteMembersCommand")
-  .sc(InviteMembers)
+  .sc(InviteMembers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

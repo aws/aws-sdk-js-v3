@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateResourceConfigurationRequest, CreateResourceConfigurationResponse } from "../models/models_0";
-import { CreateResourceConfiguration } from "../schemas/schemas_0";
+import { CreateResourceConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -24,9 +24,7 @@ export interface CreateResourceConfigurationCommandInput extends CreateResourceC
  *
  * The output of {@link CreateResourceConfigurationCommand}.
  */
-export interface CreateResourceConfigurationCommandOutput
-  extends CreateResourceConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateResourceConfigurationCommandOutput extends CreateResourceConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a resource configuration. A resource configuration defines a specific resource. You can associate a resource configuration with a service network or a VPC endpoint.</p>
@@ -152,7 +150,7 @@ export class CreateResourceConfigurationCommand extends $Command
   })
   .s("MercuryControlPlane", "CreateResourceConfiguration", {})
   .n("VPCLatticeClient", "CreateResourceConfigurationCommand")
-  .sc(CreateResourceConfiguration)
+  .sc(CreateResourceConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

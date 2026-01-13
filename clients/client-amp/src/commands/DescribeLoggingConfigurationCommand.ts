@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeLoggingConfigurationRequest, DescribeLoggingConfigurationResponse } from "../models/models_0";
-import { DescribeLoggingConfiguration } from "../schemas/schemas_0";
+import { DescribeLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeLoggingConfigurationCommandInput extends DescribeLoggin
  *
  * The output of {@link DescribeLoggingConfigurationCommand}.
  */
-export interface DescribeLoggingConfigurationCommandOutput
-  extends DescribeLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeLoggingConfigurationCommandOutput extends DescribeLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns complete information about the current rules and alerting logging configuration of the workspace.</p> <note> <p>These logging configurations are only for rules and alerting logs.</p> </note>
@@ -96,7 +94,7 @@ export class DescribeLoggingConfigurationCommand extends $Command
   })
   .s("AmazonPrometheusService", "DescribeLoggingConfiguration", {})
   .n("AmpClient", "DescribeLoggingConfigurationCommand")
-  .sc(DescribeLoggingConfiguration)
+  .sc(DescribeLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

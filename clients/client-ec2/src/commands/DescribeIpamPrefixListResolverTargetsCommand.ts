@@ -9,7 +9,7 @@ import type {
   DescribeIpamPrefixListResolverTargetsRequest,
   DescribeIpamPrefixListResolverTargetsResult,
 } from "../models/models_4";
-import { DescribeIpamPrefixListResolverTargets } from "../schemas/schemas_0";
+import { DescribeIpamPrefixListResolverTargets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeIpamPrefixListResolverTargetsCommand}.
  */
-export interface DescribeIpamPrefixListResolverTargetsCommandInput
-  extends DescribeIpamPrefixListResolverTargetsRequest {}
+export interface DescribeIpamPrefixListResolverTargetsCommandInput extends DescribeIpamPrefixListResolverTargetsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeIpamPrefixListResolverTargetsCommand}.
  */
-export interface DescribeIpamPrefixListResolverTargetsCommandOutput
-  extends DescribeIpamPrefixListResolverTargetsResult,
-    __MetadataBearer {}
+export interface DescribeIpamPrefixListResolverTargetsCommandOutput extends DescribeIpamPrefixListResolverTargetsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more IPAM prefix list resolver Targets. Use this operation to view the configuration and status of resolver targets.</p>
@@ -114,7 +111,7 @@ export class DescribeIpamPrefixListResolverTargetsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeIpamPrefixListResolverTargets", {})
   .n("EC2Client", "DescribeIpamPrefixListResolverTargetsCommand")
-  .sc(DescribeIpamPrefixListResolverTargets)
+  .sc(DescribeIpamPrefixListResolverTargets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

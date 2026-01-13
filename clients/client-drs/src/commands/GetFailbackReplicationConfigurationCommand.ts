@@ -9,7 +9,7 @@ import type {
   GetFailbackReplicationConfigurationRequest,
   GetFailbackReplicationConfigurationResponse,
 } from "../models/models_0";
-import { GetFailbackReplicationConfiguration } from "../schemas/schemas_0";
+import { GetFailbackReplicationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetFailbackReplicationConfigurationCommandInput extends GetFail
  *
  * The output of {@link GetFailbackReplicationConfigurationCommand}.
  */
-export interface GetFailbackReplicationConfigurationCommandOutput
-  extends GetFailbackReplicationConfigurationResponse,
-    __MetadataBearer {}
+export interface GetFailbackReplicationConfigurationCommandOutput extends GetFailbackReplicationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all Failback ReplicationConfigurations, filtered by Recovery Instance ID.</p>
@@ -93,7 +91,7 @@ export class GetFailbackReplicationConfigurationCommand extends $Command
   })
   .s("ElasticDisasterRecoveryService", "GetFailbackReplicationConfiguration", {})
   .n("DrsClient", "GetFailbackReplicationConfigurationCommand")
-  .sc(GetFailbackReplicationConfiguration)
+  .sc(GetFailbackReplicationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAvailableMeteredProductsRequest, ListAvailableMeteredProductsResponse } from "../models/models_1";
-import { ListAvailableMeteredProducts } from "../schemas/schemas_0";
+import { ListAvailableMeteredProducts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListAvailableMeteredProductsCommandInput extends ListAvailableM
  *
  * The output of {@link ListAvailableMeteredProductsCommand}.
  */
-export interface ListAvailableMeteredProductsCommandOutput
-  extends ListAvailableMeteredProductsResponse,
-    __MetadataBearer {}
+export interface ListAvailableMeteredProductsCommandOutput extends ListAvailableMeteredProductsResponse, __MetadataBearer {}
 
 /**
  * <p>A list of the available metered products.</p>
@@ -90,7 +88,7 @@ export class ListAvailableMeteredProductsCommand extends $Command
   })
   .s("Deadline", "ListAvailableMeteredProducts", {})
   .n("DeadlineClient", "ListAvailableMeteredProductsCommand")
-  .sc(ListAvailableMeteredProducts)
+  .sc(ListAvailableMeteredProducts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

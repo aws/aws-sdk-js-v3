@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { RestoreObjectOutput } from "../models/models_0";
 import type { RestoreObjectRequest } from "../models/models_1";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { RestoreObject } from "../schemas/schemas_0";
+import { RestoreObject$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -384,7 +384,7 @@ export class RestoreObjectCommand extends $Command
     return [
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
+        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
         requestChecksumRequired: false,
       }),
       getThrow200ExceptionsPlugin(config),
@@ -392,7 +392,7 @@ export class RestoreObjectCommand extends $Command
   })
   .s("AmazonS3", "RestoreObject", {})
   .n("S3Client", "RestoreObjectCommand")
-  .sc(RestoreObject)
+  .sc(RestoreObject$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

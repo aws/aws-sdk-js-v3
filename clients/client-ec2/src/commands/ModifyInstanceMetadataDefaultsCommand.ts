@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyInstanceMetadataDefaultsRequest, ModifyInstanceMetadataDefaultsResult } from "../models/models_6";
-import { ModifyInstanceMetadataDefaults } from "../schemas/schemas_0";
+import { ModifyInstanceMetadataDefaults$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ModifyInstanceMetadataDefaultsCommandInput extends ModifyInstan
  *
  * The output of {@link ModifyInstanceMetadataDefaultsCommand}.
  */
-export interface ModifyInstanceMetadataDefaultsCommandOutput
-  extends ModifyInstanceMetadataDefaultsResult,
-    __MetadataBearer {}
+export interface ModifyInstanceMetadataDefaultsCommandOutput extends ModifyInstanceMetadataDefaultsResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the default instance metadata service (IMDS) settings at the account level in
@@ -87,7 +85,7 @@ export class ModifyInstanceMetadataDefaultsCommand extends $Command
   })
   .s("AmazonEC2", "ModifyInstanceMetadataDefaults", {})
   .n("EC2Client", "ModifyInstanceMetadataDefaultsCommand")
-  .sc(ModifyInstanceMetadataDefaults)
+  .sc(ModifyInstanceMetadataDefaults$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

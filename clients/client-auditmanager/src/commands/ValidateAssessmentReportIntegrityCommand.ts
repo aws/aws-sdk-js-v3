@@ -9,7 +9,7 @@ import type {
   ValidateAssessmentReportIntegrityRequest,
   ValidateAssessmentReportIntegrityResponse,
 } from "../models/models_0";
-import { ValidateAssessmentReportIntegrity } from "../schemas/schemas_0";
+import { ValidateAssessmentReportIntegrity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ValidateAssessmentReportIntegrityCommandInput extends ValidateA
  *
  * The output of {@link ValidateAssessmentReportIntegrityCommand}.
  */
-export interface ValidateAssessmentReportIntegrityCommandOutput
-  extends ValidateAssessmentReportIntegrityResponse,
-    __MetadataBearer {}
+export interface ValidateAssessmentReportIntegrityCommandOutput extends ValidateAssessmentReportIntegrityResponse, __MetadataBearer {}
 
 /**
  * <p> Validates the integrity of an assessment report in Audit Manager. </p>
@@ -98,7 +96,7 @@ export class ValidateAssessmentReportIntegrityCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "ValidateAssessmentReportIntegrity", {})
   .n("AuditManagerClient", "ValidateAssessmentReportIntegrityCommand")
-  .sc(ValidateAssessmentReportIntegrity)
+  .sc(ValidateAssessmentReportIntegrity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

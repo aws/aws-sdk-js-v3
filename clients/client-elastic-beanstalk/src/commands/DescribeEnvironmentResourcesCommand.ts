@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeEnvironmentResourcesMessage, EnvironmentResourceDescriptionsMessage } from "../models/models_0";
-import { DescribeEnvironmentResources } from "../schemas/schemas_0";
+import { DescribeEnvironmentResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeEnvironmentResourcesCommandInput extends DescribeEnviro
  *
  * The output of {@link DescribeEnvironmentResourcesCommand}.
  */
-export interface DescribeEnvironmentResourcesCommandOutput
-  extends EnvironmentResourceDescriptionsMessage,
-    __MetadataBearer {}
+export interface DescribeEnvironmentResourcesCommandOutput extends EnvironmentResourceDescriptionsMessage, __MetadataBearer {}
 
 /**
  * <p>Returns AWS resources for this environment.</p>
@@ -161,7 +159,7 @@ export class DescribeEnvironmentResourcesCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "DescribeEnvironmentResources", {})
   .n("ElasticBeanstalkClient", "DescribeEnvironmentResourcesCommand")
-  .sc(DescribeEnvironmentResources)
+  .sc(DescribeEnvironmentResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

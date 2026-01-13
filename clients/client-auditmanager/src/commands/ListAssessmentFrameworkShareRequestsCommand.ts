@@ -9,7 +9,7 @@ import type {
   ListAssessmentFrameworkShareRequestsRequest,
   ListAssessmentFrameworkShareRequestsResponse,
 } from "../models/models_0";
-import { ListAssessmentFrameworkShareRequests } from "../schemas/schemas_0";
+import { ListAssessmentFrameworkShareRequests$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListAssessmentFrameworkShareRequestsCommandInput extends ListAs
  *
  * The output of {@link ListAssessmentFrameworkShareRequestsCommand}.
  */
-export interface ListAssessmentFrameworkShareRequestsCommandOutput
-  extends ListAssessmentFrameworkShareRequestsResponse,
-    __MetadataBearer {}
+export interface ListAssessmentFrameworkShareRequestsCommandOutput extends ListAssessmentFrameworkShareRequestsResponse, __MetadataBearer {}
 
 /**
  * <p> Returns a list of sent or received share requests for custom frameworks in Audit Manager. </p>
@@ -110,7 +108,7 @@ export class ListAssessmentFrameworkShareRequestsCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "ListAssessmentFrameworkShareRequests", {})
   .n("AuditManagerClient", "ListAssessmentFrameworkShareRequestsCommand")
-  .sc(ListAssessmentFrameworkShareRequests)
+  .sc(ListAssessmentFrameworkShareRequests$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

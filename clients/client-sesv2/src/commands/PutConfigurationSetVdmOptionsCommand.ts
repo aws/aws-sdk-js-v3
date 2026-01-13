@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutConfigurationSetVdmOptionsRequest, PutConfigurationSetVdmOptionsResponse } from "../models/models_0";
-import { PutConfigurationSetVdmOptions } from "../schemas/schemas_0";
+import { PutConfigurationSetVdmOptions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -24,9 +24,7 @@ export interface PutConfigurationSetVdmOptionsCommandInput extends PutConfigurat
  *
  * The output of {@link PutConfigurationSetVdmOptionsCommand}.
  */
-export interface PutConfigurationSetVdmOptionsCommandOutput
-  extends PutConfigurationSetVdmOptionsResponse,
-    __MetadataBearer {}
+export interface PutConfigurationSetVdmOptionsCommandOutput extends PutConfigurationSetVdmOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Specify VDM preferences for email that you send using the configuration set.</p>
@@ -91,7 +89,7 @@ export class PutConfigurationSetVdmOptionsCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutConfigurationSetVdmOptions", {})
   .n("SESv2Client", "PutConfigurationSetVdmOptionsCommand")
-  .sc(PutConfigurationSetVdmOptions)
+  .sc(PutConfigurationSetVdmOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import type { CreateWorkspaceRequest, CreateWorkspaceResponse } from "../models/models_0";
-import { CreateWorkspace } from "../schemas/schemas_0";
+import { CreateWorkspace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class CreateWorkspaceCommand extends $Command
   })
   .s("AWSIoTTwinMaker", "CreateWorkspace", {})
   .n("IoTTwinMakerClient", "CreateWorkspaceCommand")
-  .sc(CreateWorkspace)
+  .sc(CreateWorkspace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

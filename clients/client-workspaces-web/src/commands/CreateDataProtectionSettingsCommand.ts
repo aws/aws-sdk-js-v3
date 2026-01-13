@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDataProtectionSettingsRequest, CreateDataProtectionSettingsResponse } from "../models/models_0";
-import { CreateDataProtectionSettings } from "../schemas/schemas_0";
+import { CreateDataProtectionSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -24,9 +24,7 @@ export interface CreateDataProtectionSettingsCommandInput extends CreateDataProt
  *
  * The output of {@link CreateDataProtectionSettingsCommand}.
  */
-export interface CreateDataProtectionSettingsCommandOutput
-  extends CreateDataProtectionSettingsResponse,
-    __MetadataBearer {}
+export interface CreateDataProtectionSettingsCommandOutput extends CreateDataProtectionSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a data protection settings resource that can be associated with a web portal.</p>
@@ -139,7 +137,7 @@ export class CreateDataProtectionSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "CreateDataProtectionSettings", {})
   .n("WorkSpacesWebClient", "CreateDataProtectionSettingsCommand")
-  .sc(CreateDataProtectionSettings)
+  .sc(CreateDataProtectionSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

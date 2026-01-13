@@ -9,7 +9,7 @@ import type {
   ListProvisionedConcurrencyConfigsRequest,
   ListProvisionedConcurrencyConfigsResponse,
 } from "../models/models_0";
-import { ListProvisionedConcurrencyConfigs } from "../schemas/schemas_0";
+import { ListProvisionedConcurrencyConfigs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListProvisionedConcurrencyConfigsCommandInput extends ListProvi
  *
  * The output of {@link ListProvisionedConcurrencyConfigsCommand}.
  */
-export interface ListProvisionedConcurrencyConfigsCommandOutput
-  extends ListProvisionedConcurrencyConfigsResponse,
-    __MetadataBearer {}
+export interface ListProvisionedConcurrencyConfigsCommandOutput extends ListProvisionedConcurrencyConfigsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of provisioned concurrency configurations for a function.</p>
@@ -135,7 +133,7 @@ export class ListProvisionedConcurrencyConfigsCommand extends $Command
   })
   .s("AWSGirApiService", "ListProvisionedConcurrencyConfigs", {})
   .n("LambdaClient", "ListProvisionedConcurrencyConfigsCommand")
-  .sc(ListProvisionedConcurrencyConfigs)
+  .sc(ListProvisionedConcurrencyConfigs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -28,10 +28,8 @@ Guide</a>
 </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-ram
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-ram`
 - `yarn add @aws-sdk/client-ram`
 - `pnpm add @aws-sdk/client-ram`
@@ -67,9 +65,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new RAMClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListPermissionsCommand(params);
 ```
 
@@ -228,7 +224,6 @@ AcceptResourceShareInvitation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/AcceptResourceShareInvitationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/AcceptResourceShareInvitationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/AcceptResourceShareInvitationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -236,7 +231,6 @@ AssociateResourceShare
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/AssociateResourceShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/AssociateResourceShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/AssociateResourceShareCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -244,7 +238,6 @@ AssociateResourceSharePermission
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/AssociateResourceSharePermissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/AssociateResourceSharePermissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/AssociateResourceSharePermissionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -252,7 +245,6 @@ CreatePermission
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/CreatePermissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/CreatePermissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/CreatePermissionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -260,7 +252,6 @@ CreatePermissionVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/CreatePermissionVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/CreatePermissionVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/CreatePermissionVersionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -268,7 +259,6 @@ CreateResourceShare
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/CreateResourceShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/CreateResourceShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/CreateResourceShareCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -276,7 +266,6 @@ DeletePermission
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/DeletePermissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/DeletePermissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/DeletePermissionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -284,7 +273,6 @@ DeletePermissionVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/DeletePermissionVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/DeletePermissionVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/DeletePermissionVersionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -292,7 +280,6 @@ DeleteResourceShare
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/DeleteResourceShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/DeleteResourceShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/DeleteResourceShareCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -300,7 +287,6 @@ DisassociateResourceShare
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/DisassociateResourceShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/DisassociateResourceShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/DisassociateResourceShareCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -308,7 +294,6 @@ DisassociateResourceSharePermission
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/DisassociateResourceSharePermissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/DisassociateResourceSharePermissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/DisassociateResourceSharePermissionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -316,7 +301,6 @@ EnableSharingWithAwsOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/EnableSharingWithAwsOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/EnableSharingWithAwsOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/EnableSharingWithAwsOrganizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -324,7 +308,6 @@ GetPermission
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/GetPermissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/GetPermissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/GetPermissionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -332,7 +315,6 @@ GetResourcePolicies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/GetResourcePoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/GetResourcePoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/GetResourcePoliciesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -340,7 +322,6 @@ GetResourceShareAssociations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/GetResourceShareAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/GetResourceShareAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/GetResourceShareAssociationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -348,7 +329,6 @@ GetResourceShareInvitations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/GetResourceShareInvitationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/GetResourceShareInvitationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/GetResourceShareInvitationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -356,7 +336,6 @@ GetResourceShares
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/GetResourceSharesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/GetResourceSharesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/GetResourceSharesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -364,7 +343,6 @@ ListPendingInvitationResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/ListPendingInvitationResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListPendingInvitationResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListPendingInvitationResourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -372,7 +350,6 @@ ListPermissionAssociations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/ListPermissionAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListPermissionAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListPermissionAssociationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -380,7 +357,6 @@ ListPermissions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/ListPermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListPermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListPermissionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -388,7 +364,6 @@ ListPermissionVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/ListPermissionVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListPermissionVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListPermissionVersionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -396,7 +371,6 @@ ListPrincipals
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/ListPrincipalsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListPrincipalsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListPrincipalsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -404,7 +378,6 @@ ListReplacePermissionAssociationsWork
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/ListReplacePermissionAssociationsWorkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListReplacePermissionAssociationsWorkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListReplacePermissionAssociationsWorkCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -412,7 +385,6 @@ ListResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/ListResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListResourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -420,7 +392,6 @@ ListResourceSharePermissions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/ListResourceSharePermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListResourceSharePermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListResourceSharePermissionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -428,7 +399,6 @@ ListResourceTypes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/ListResourceTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListResourceTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListResourceTypesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -436,7 +406,6 @@ PromotePermissionCreatedFromPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/PromotePermissionCreatedFromPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/PromotePermissionCreatedFromPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/PromotePermissionCreatedFromPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -444,7 +413,6 @@ PromoteResourceShareCreatedFromPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/PromoteResourceShareCreatedFromPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/PromoteResourceShareCreatedFromPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/PromoteResourceShareCreatedFromPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -452,7 +420,6 @@ RejectResourceShareInvitation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/RejectResourceShareInvitationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/RejectResourceShareInvitationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/RejectResourceShareInvitationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -460,7 +427,6 @@ ReplacePermissionAssociations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/ReplacePermissionAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ReplacePermissionAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ReplacePermissionAssociationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -468,7 +434,6 @@ SetDefaultPermissionVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/SetDefaultPermissionVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/SetDefaultPermissionVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/SetDefaultPermissionVersionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -476,7 +441,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -484,7 +448,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -492,5 +455,4 @@ UpdateResourceShare
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/UpdateResourceShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/UpdateResourceShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/UpdateResourceShareCommandOutput/)
-
 </details>

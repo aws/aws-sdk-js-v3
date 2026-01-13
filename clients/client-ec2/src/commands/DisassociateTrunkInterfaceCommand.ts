@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateTrunkInterfaceRequest, DisassociateTrunkInterfaceResult } from "../models/models_5";
-import { DisassociateTrunkInterface } from "../schemas/schemas_0";
+import { DisassociateTrunkInterface$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -76,7 +76,7 @@ export class DisassociateTrunkInterfaceCommand extends $Command
   })
   .s("AmazonEC2", "DisassociateTrunkInterface", {})
   .n("EC2Client", "DisassociateTrunkInterfaceCommand")
-  .sc(DisassociateTrunkInterface)
+  .sc(DisassociateTrunkInterface$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

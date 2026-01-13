@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { UpdateVpcAttachment } from "../schemas/schemas_0";
+import { UpdateVpcAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -170,7 +170,7 @@ export class UpdateVpcAttachmentCommand extends $Command
   })
   .s("NetworkManager", "UpdateVpcAttachment", {})
   .n("NetworkManagerClient", "UpdateVpcAttachmentCommand")
-  .sc(UpdateVpcAttachment)
+  .sc(UpdateVpcAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

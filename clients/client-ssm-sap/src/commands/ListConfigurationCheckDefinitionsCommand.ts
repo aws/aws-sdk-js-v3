@@ -8,7 +8,7 @@ import type {
   ListConfigurationCheckDefinitionsInput,
   ListConfigurationCheckDefinitionsOutput,
 } from "../models/models_0";
-import { ListConfigurationCheckDefinitions } from "../schemas/schemas_0";
+import { ListConfigurationCheckDefinitions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -27,9 +27,7 @@ export interface ListConfigurationCheckDefinitionsCommandInput extends ListConfi
  *
  * The output of {@link ListConfigurationCheckDefinitionsCommand}.
  */
-export interface ListConfigurationCheckDefinitionsCommandOutput
-  extends ListConfigurationCheckDefinitionsOutput,
-    __MetadataBearer {}
+export interface ListConfigurationCheckDefinitionsCommandOutput extends ListConfigurationCheckDefinitionsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all configuration check types supported by AWS Systems Manager for SAP.</p>
@@ -95,7 +93,7 @@ export class ListConfigurationCheckDefinitionsCommand extends $Command
   })
   .s("SsmSap", "ListConfigurationCheckDefinitions", {})
   .n("SsmSapClient", "ListConfigurationCheckDefinitionsCommand")
-  .sc(ListConfigurationCheckDefinitions)
+  .sc(ListConfigurationCheckDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

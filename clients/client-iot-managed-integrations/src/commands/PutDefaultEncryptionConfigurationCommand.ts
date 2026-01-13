@@ -13,7 +13,7 @@ import type {
   PutDefaultEncryptionConfigurationRequest,
   PutDefaultEncryptionConfigurationResponse,
 } from "../models/models_0";
-import { PutDefaultEncryptionConfiguration } from "../schemas/schemas_0";
+import { PutDefaultEncryptionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface PutDefaultEncryptionConfigurationCommandInput extends PutDefaul
  *
  * The output of {@link PutDefaultEncryptionConfigurationCommand}.
  */
-export interface PutDefaultEncryptionConfigurationCommandOutput
-  extends PutDefaultEncryptionConfigurationResponse,
-    __MetadataBearer {}
+export interface PutDefaultEncryptionConfigurationCommandOutput extends PutDefaultEncryptionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the default encryption configuration for the Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a> in the AWS IoT SiteWise User Guide.</p>
@@ -112,7 +110,7 @@ export class PutDefaultEncryptionConfigurationCommand extends $Command
   })
   .s("IotManagedIntegrations", "PutDefaultEncryptionConfiguration", {})
   .n("IoTManagedIntegrationsClient", "PutDefaultEncryptionConfigurationCommand")
-  .sc(PutDefaultEncryptionConfiguration)
+  .sc(PutDefaultEncryptionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

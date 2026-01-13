@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTaskTemplateRequest, DeleteTaskTemplateResponse } from "../models/models_1";
-import { DeleteTaskTemplate } from "../schemas/schemas_0";
+import { DeleteTaskTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteTaskTemplateCommand extends $Command
   })
   .s("AmazonConnectService", "DeleteTaskTemplate", {})
   .n("ConnectClient", "DeleteTaskTemplateCommand")
-  .sc(DeleteTaskTemplate)
+  .sc(DeleteTaskTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

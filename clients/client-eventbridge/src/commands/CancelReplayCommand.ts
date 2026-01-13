@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import type { CancelReplayRequest, CancelReplayResponse } from "../models/models_0";
-import { CancelReplay } from "../schemas/schemas_0";
+import { CancelReplay$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class CancelReplayCommand extends $Command
   })
   .s("AWSEvents", "CancelReplay", {})
   .n("EventBridgeClient", "CancelReplayCommand")
-  .sc(CancelReplay)
+  .sc(CancelReplay$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTrustRequest, DeleteTrustResult } from "../models/models_0";
-import { DeleteTrust } from "../schemas/schemas_0";
+import { DeleteTrust$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DeleteTrustCommand extends $Command
   })
   .s("DirectoryService_20150416", "DeleteTrust", {})
   .n("DirectoryServiceClient", "DeleteTrustCommand")
-  .sc(DeleteTrust)
+  .sc(DeleteTrust$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

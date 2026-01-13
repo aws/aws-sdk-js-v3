@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateChimeWebhookConfigurationRequest, UpdateChimeWebhookConfigurationResult } from "../models/models_0";
-import { UpdateChimeWebhookConfiguration } from "../schemas/schemas_0";
+import { UpdateChimeWebhookConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateChimeWebhookConfigurationCommandInput extends UpdateChime
  *
  * The output of {@link UpdateChimeWebhookConfigurationCommand}.
  */
-export interface UpdateChimeWebhookConfigurationCommandOutput
-  extends UpdateChimeWebhookConfigurationResult,
-    __MetadataBearer {}
+export interface UpdateChimeWebhookConfigurationCommandOutput extends UpdateChimeWebhookConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Updates a Amazon Chime webhook configuration.</p>
@@ -111,7 +109,7 @@ export class UpdateChimeWebhookConfigurationCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "UpdateChimeWebhookConfiguration", {})
   .n("ChatbotClient", "UpdateChimeWebhookConfigurationCommand")
-  .sc(UpdateChimeWebhookConfiguration)
+  .sc(UpdateChimeWebhookConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

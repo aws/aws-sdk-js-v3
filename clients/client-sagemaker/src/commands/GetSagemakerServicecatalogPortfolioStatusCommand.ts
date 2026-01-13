@@ -9,7 +9,7 @@ import type {
   GetSagemakerServicecatalogPortfolioStatusOutput,
 } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { GetSagemakerServicecatalogPortfolioStatus } from "../schemas/schemas_0";
+import { GetSagemakerServicecatalogPortfolioStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetSagemakerServicecatalogPortfolioStatusCommand}.
  */
-export interface GetSagemakerServicecatalogPortfolioStatusCommandInput
-  extends GetSagemakerServicecatalogPortfolioStatusInput {}
+export interface GetSagemakerServicecatalogPortfolioStatusCommandInput extends GetSagemakerServicecatalogPortfolioStatusInput {}
 /**
  * @public
  *
  * The output of {@link GetSagemakerServicecatalogPortfolioStatusCommand}.
  */
-export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
-  extends GetSagemakerServicecatalogPortfolioStatusOutput,
-    __MetadataBearer {}
+export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput extends GetSagemakerServicecatalogPortfolioStatusOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.</p>
@@ -77,7 +74,7 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command
   })
   .s("SageMaker", "GetSagemakerServicecatalogPortfolioStatus", {})
   .n("SageMakerClient", "GetSagemakerServicecatalogPortfolioStatusCommand")
-  .sc(GetSagemakerServicecatalogPortfolioStatus)
+  .sc(GetSagemakerServicecatalogPortfolioStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeDomainChangeProgressRequest, DescribeDomainChangeProgressResponse } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { DescribeDomainChangeProgress } from "../schemas/schemas_0";
+import { DescribeDomainChangeProgress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeDomainChangeProgressCommandInput extends DescribeDomain
  *
  * The output of {@link DescribeDomainChangeProgressCommand}.
  */
-export interface DescribeDomainChangeProgressCommandOutput
-  extends DescribeDomainChangeProgressResponse,
-    __MetadataBearer {}
+export interface DescribeDomainChangeProgressCommandOutput extends DescribeDomainChangeProgressResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the current blue/green deployment happening on an Amazon
@@ -111,7 +109,7 @@ export class DescribeDomainChangeProgressCommand extends $Command
   })
   .s("AmazonOpenSearchService", "DescribeDomainChangeProgress", {})
   .n("OpenSearchClient", "DescribeDomainChangeProgressCommand")
-  .sc(DescribeDomainChangeProgress)
+  .sc(DescribeDomainChangeProgress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

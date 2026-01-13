@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateHybridADRequest, CreateHybridADResult } from "../models/models_0";
-import { CreateHybridAD } from "../schemas/schemas_0";
+import { CreateHybridAD$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class CreateHybridADCommand extends $Command
   })
   .s("DirectoryService_20150416", "CreateHybridAD", {})
   .n("DirectoryServiceClient", "CreateHybridADCommand")
-  .sc(CreateHybridAD)
+  .sc(CreateHybridAD$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

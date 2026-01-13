@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteLexiconInput, DeleteLexiconOutput } from "../models/models_0";
 import type { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import { DeleteLexicon } from "../schemas/schemas_0";
+import { DeleteLexicon$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DeleteLexiconCommand extends $Command
   })
   .s("Parrot_v1", "DeleteLexicon", {})
   .n("PollyClient", "DeleteLexiconCommand")
-  .sc(DeleteLexicon)
+  .sc(DeleteLexicon$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

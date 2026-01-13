@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListConflictingAliasesRequest, ListConflictingAliasesResult } from "../models/models_1";
-import { ListConflictingAliases } from "../schemas/schemas_0";
+import { ListConflictingAliases$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class ListConflictingAliasesCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "ListConflictingAliases", {})
   .n("CloudFrontClient", "ListConflictingAliasesCommand")
-  .sc(ListConflictingAliases)
+  .sc(ListConflictingAliases$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

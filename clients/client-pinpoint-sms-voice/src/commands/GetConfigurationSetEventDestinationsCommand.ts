@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceClient";
-import { GetConfigurationSetEventDestinations } from "../schemas/schemas_0";
+import { GetConfigurationSetEventDestinations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetConfigurationSetEventDestinationsCommandInput extends GetCon
  *
  * The output of {@link GetConfigurationSetEventDestinationsCommand}.
  */
-export interface GetConfigurationSetEventDestinationsCommandOutput
-  extends GetConfigurationSetEventDestinationsResponse,
-    __MetadataBearer {}
+export interface GetConfigurationSetEventDestinationsCommandOutput extends GetConfigurationSetEventDestinationsResponse, __MetadataBearer {}
 
 /**
  * Obtain information about an event destination, including the types of events it reports, the Amazon Resource Name (ARN) of the destination, and the name of the event destination.
@@ -113,7 +111,7 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command
   })
   .s("PinpointSMSVoice", "GetConfigurationSetEventDestinations", {})
   .n("PinpointSMSVoiceClient", "GetConfigurationSetEventDestinationsCommand")
-  .sc(GetConfigurationSetEventDestinations)
+  .sc(GetConfigurationSetEventDestinations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

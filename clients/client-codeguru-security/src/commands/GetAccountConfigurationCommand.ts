@@ -10,7 +10,7 @@ import type {
 } from "../CodeGuruSecurityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAccountConfigurationRequest, GetAccountConfigurationResponse } from "../models/models_0";
-import { GetAccountConfiguration } from "../schemas/schemas_0";
+import { GetAccountConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class GetAccountConfigurationCommand extends $Command
   })
   .s("AwsCodeGuruSecurity", "GetAccountConfiguration", {})
   .n("CodeGuruSecurityClient", "GetAccountConfigurationCommand")
-  .sc(GetAccountConfiguration)
+  .sc(GetAccountConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

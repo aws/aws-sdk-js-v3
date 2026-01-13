@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchDeleteScheduledActionAnswer, BatchDeleteScheduledActionType } from "../models/models_0";
-import { BatchDeleteScheduledAction } from "../schemas/schemas_0";
+import { BatchDeleteScheduledAction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class BatchDeleteScheduledActionCommand extends $Command
   })
   .s("AutoScaling_2011_01_01", "BatchDeleteScheduledAction", {})
   .n("AutoScalingClient", "BatchDeleteScheduledActionCommand")
-  .sc(BatchDeleteScheduledAction)
+  .sc(BatchDeleteScheduledAction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

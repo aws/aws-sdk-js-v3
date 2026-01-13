@@ -10,7 +10,7 @@ import type {
 } from "../AutoScalingPlansClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeScalingPlanResourcesRequest, DescribeScalingPlanResourcesResponse } from "../models/models_0";
-import { DescribeScalingPlanResources } from "../schemas/schemas_0";
+import { DescribeScalingPlanResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeScalingPlanResourcesCommandInput extends DescribeScalin
  *
  * The output of {@link DescribeScalingPlanResourcesCommand}.
  */
-export interface DescribeScalingPlanResourcesCommandOutput
-  extends DescribeScalingPlanResourcesResponse,
-    __MetadataBearer {}
+export interface DescribeScalingPlanResourcesCommandOutput extends DescribeScalingPlanResourcesResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the scalable resources in the specified scaling plan.</p>
@@ -135,7 +133,7 @@ export class DescribeScalingPlanResourcesCommand extends $Command
   })
   .s("AnyScaleScalingPlannerFrontendService", "DescribeScalingPlanResources", {})
   .n("AutoScalingPlansClient", "DescribeScalingPlanResourcesCommand")
-  .sc(DescribeScalingPlanResources)
+  .sc(DescribeScalingPlanResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

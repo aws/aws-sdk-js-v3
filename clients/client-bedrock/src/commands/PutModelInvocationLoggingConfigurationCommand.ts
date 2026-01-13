@@ -9,7 +9,7 @@ import type {
   PutModelInvocationLoggingConfigurationRequest,
   PutModelInvocationLoggingConfigurationResponse,
 } from "../models/models_1";
-import { PutModelInvocationLoggingConfiguration } from "../schemas/schemas_0";
+import { PutModelInvocationLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutModelInvocationLoggingConfigurationCommand}.
  */
-export interface PutModelInvocationLoggingConfigurationCommandInput
-  extends PutModelInvocationLoggingConfigurationRequest {}
+export interface PutModelInvocationLoggingConfigurationCommandInput extends PutModelInvocationLoggingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link PutModelInvocationLoggingConfigurationCommand}.
  */
-export interface PutModelInvocationLoggingConfigurationCommandOutput
-  extends PutModelInvocationLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface PutModelInvocationLoggingConfigurationCommandOutput extends PutModelInvocationLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Set the configuration values for model invocation logging.</p>
@@ -107,7 +104,7 @@ export class PutModelInvocationLoggingConfigurationCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "PutModelInvocationLoggingConfiguration", {})
   .n("BedrockClient", "PutModelInvocationLoggingConfigurationCommand")
-  .sc(PutModelInvocationLoggingConfiguration)
+  .sc(PutModelInvocationLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

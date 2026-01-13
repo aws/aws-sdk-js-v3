@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMeetingsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateMeetingWithAttendeesRequest, CreateMeetingWithAttendeesResponse } from "../models/models_0";
-import { CreateMeetingWithAttendees } from "../schemas/schemas_0";
+import { CreateMeetingWithAttendees$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -217,7 +217,7 @@ export class CreateMeetingWithAttendeesCommand extends $Command
   })
   .s("ChimeMeetingsSDKService", "CreateMeetingWithAttendees", {})
   .n("ChimeSDKMeetingsClient", "CreateMeetingWithAttendeesCommand")
-  .sc(CreateMeetingWithAttendees)
+  .sc(CreateMeetingWithAttendees$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

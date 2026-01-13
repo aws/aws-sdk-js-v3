@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteServiceRequest, DeleteServiceResponse } from "../models/models_0";
-import { DeleteService } from "../schemas/schemas_0";
+import { DeleteService$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -94,7 +94,7 @@ export class DeleteServiceCommand extends $Command
   })
   .s("MercuryControlPlane", "DeleteService", {})
   .n("VPCLatticeClient", "DeleteServiceCommand")
-  .sc(DeleteService)
+  .sc(DeleteService$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

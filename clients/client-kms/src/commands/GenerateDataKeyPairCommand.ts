@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import type { GenerateDataKeyPairRequest, GenerateDataKeyPairResponse } from "../models/models_0";
-import { GenerateDataKeyPair } from "../schemas/schemas_0";
+import { GenerateDataKeyPair$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -267,7 +267,7 @@ export class GenerateDataKeyPairCommand extends $Command
   })
   .s("TrentService", "GenerateDataKeyPair", {})
   .n("KMSClient", "GenerateDataKeyPairCommand")
-  .sc(GenerateDataKeyPair)
+  .sc(GenerateDataKeyPair$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

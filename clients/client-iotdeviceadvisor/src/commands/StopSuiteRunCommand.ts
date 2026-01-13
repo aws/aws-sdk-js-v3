@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IotDeviceAdvisorClient";
 import type { StopSuiteRunRequest, StopSuiteRunResponse } from "../models/models_0";
-import { StopSuiteRun } from "../schemas/schemas_0";
+import { StopSuiteRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class StopSuiteRunCommand extends $Command
   })
   .s("IotSenateService", "StopSuiteRun", {})
   .n("IotDeviceAdvisorClient", "StopSuiteRunCommand")
-  .sc(StopSuiteRun)
+  .sc(StopSuiteRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

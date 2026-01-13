@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralAccountClient";
-import { GetVerification } from "../schemas/schemas_0";
+import { GetVerification$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class GetVerificationCommand extends $Command
   })
   .s("PartnerCentralAccount", "GetVerification", {})
   .n("PartnerCentralAccountClient", "GetVerificationCommand")
-  .sc(GetVerification)
+  .sc(GetVerification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

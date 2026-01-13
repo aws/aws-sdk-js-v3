@@ -9,7 +9,7 @@ import type {
   StartDataQualityRulesetEvaluationRunRequest,
   StartDataQualityRulesetEvaluationRunResponse,
 } from "../models/models_2";
-import { StartDataQualityRulesetEvaluationRun } from "../schemas/schemas_0";
+import { StartDataQualityRulesetEvaluationRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface StartDataQualityRulesetEvaluationRunCommandInput extends StartD
  *
  * The output of {@link StartDataQualityRulesetEvaluationRunCommand}.
  */
-export interface StartDataQualityRulesetEvaluationRunCommandOutput
-  extends StartDataQualityRulesetEvaluationRunResponse,
-    __MetadataBearer {}
+export interface StartDataQualityRulesetEvaluationRunCommandOutput extends StartDataQualityRulesetEvaluationRunResponse, __MetadataBearer {}
 
 /**
  * <p>Once you have a ruleset definition (either recommended or your own), you call this operation to evaluate the ruleset against a data source (Glue table). The evaluation computes results which you can retrieve with the <code>GetDataQualityResult</code> API.</p>
@@ -148,7 +146,7 @@ export class StartDataQualityRulesetEvaluationRunCommand extends $Command
   })
   .s("AWSGlue", "StartDataQualityRulesetEvaluationRun", {})
   .n("GlueClient", "StartDataQualityRulesetEvaluationRunCommand")
-  .sc(StartDataQualityRulesetEvaluationRun)
+  .sc(StartDataQualityRulesetEvaluationRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

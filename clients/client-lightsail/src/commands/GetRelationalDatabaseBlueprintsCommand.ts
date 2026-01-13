@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetRelationalDatabaseBlueprintsRequest, GetRelationalDatabaseBlueprintsResult } from "../models/models_1";
-import { GetRelationalDatabaseBlueprints } from "../schemas/schemas_0";
+import { GetRelationalDatabaseBlueprints$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetRelationalDatabaseBlueprintsCommandInput extends GetRelation
  *
  * The output of {@link GetRelationalDatabaseBlueprintsCommand}.
  */
-export interface GetRelationalDatabaseBlueprintsCommandOutput
-  extends GetRelationalDatabaseBlueprintsResult,
-    __MetadataBearer {}
+export interface GetRelationalDatabaseBlueprintsCommandOutput extends GetRelationalDatabaseBlueprintsResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of available database blueprints in Amazon Lightsail. A blueprint describes
@@ -122,7 +120,7 @@ export class GetRelationalDatabaseBlueprintsCommand extends $Command
   })
   .s("Lightsail_20161128", "GetRelationalDatabaseBlueprints", {})
   .n("LightsailClient", "GetRelationalDatabaseBlueprintsCommand")
-  .sc(GetRelationalDatabaseBlueprints)
+  .sc(GetRelationalDatabaseBlueprints$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

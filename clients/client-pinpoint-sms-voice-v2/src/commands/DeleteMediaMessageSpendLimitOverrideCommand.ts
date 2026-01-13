@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DeleteMediaMessageSpendLimitOverride } from "../schemas/schemas_0";
+import { DeleteMediaMessageSpendLimitOverride$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DeleteMediaMessageSpendLimitOverrideCommandInput extends Delete
  *
  * The output of {@link DeleteMediaMessageSpendLimitOverrideCommand}.
  */
-export interface DeleteMediaMessageSpendLimitOverrideCommandOutput
-  extends DeleteMediaMessageSpendLimitOverrideResult,
-    __MetadataBearer {}
+export interface DeleteMediaMessageSpendLimitOverrideCommandOutput extends DeleteMediaMessageSpendLimitOverrideResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an account-level monthly spending limit override for sending multimedia messages (MMS). Deleting a spend limit override will set the <code>EnforcedLimit</code> to equal the <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more information on spend limits (quotas) see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html">Quotas for Server Migration Service</a> in the <i>Server Migration Service User Guide</i>.</p>
@@ -92,7 +90,7 @@ export class DeleteMediaMessageSpendLimitOverrideCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DeleteMediaMessageSpendLimitOverride", {})
   .n("PinpointSMSVoiceV2Client", "DeleteMediaMessageSpendLimitOverrideCommand")
-  .sc(DeleteMediaMessageSpendLimitOverride)
+  .sc(DeleteMediaMessageSpendLimitOverride$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

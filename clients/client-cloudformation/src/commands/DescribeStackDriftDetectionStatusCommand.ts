@@ -13,7 +13,7 @@ import type {
   DescribeStackDriftDetectionStatusInput,
   DescribeStackDriftDetectionStatusOutput,
 } from "../models/models_0";
-import { DescribeStackDriftDetectionStatus } from "../schemas/schemas_0";
+import { DescribeStackDriftDetectionStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DescribeStackDriftDetectionStatusCommandInput extends DescribeS
  *
  * The output of {@link DescribeStackDriftDetectionStatusCommand}.
  */
-export interface DescribeStackDriftDetectionStatusCommandOutput
-  extends DescribeStackDriftDetectionStatusOutput,
-    __MetadataBearer {}
+export interface DescribeStackDriftDetectionStatusCommandOutput extends DescribeStackDriftDetectionStatusOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about a stack drift detection operation. A stack drift detection
@@ -99,7 +97,7 @@ export class DescribeStackDriftDetectionStatusCommand extends $Command
   })
   .s("CloudFormation", "DescribeStackDriftDetectionStatus", {})
   .n("CloudFormationClient", "DescribeStackDriftDetectionStatusCommand")
-  .sc(DescribeStackDriftDetectionStatus)
+  .sc(DescribeStackDriftDetectionStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

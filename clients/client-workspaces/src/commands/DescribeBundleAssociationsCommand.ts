@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeBundleAssociationsRequest, DescribeBundleAssociationsResult } from "../models/models_0";
-import { DescribeBundleAssociations } from "../schemas/schemas_0";
+import { DescribeBundleAssociations$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -54,7 +54,7 @@ export interface DescribeBundleAssociationsCommandOutput extends DescribeBundleA
  * //       LastUpdatedTime: new Date("TIMESTAMP"),
  * //       State: "PENDING_INSTALL" || "PENDING_INSTALL_DEPLOYMENT" || "PENDING_UNINSTALL" || "PENDING_UNINSTALL_DEPLOYMENT" || "INSTALLING" || "UNINSTALLING" || "ERROR" || "COMPLETED" || "REMOVED",
  * //       StateReason: { // AssociationStateReason
- * //         ErrorCode: "ValidationError.InsufficientDiskSpace" || "ValidationError.InsufficientMemory" || "ValidationError.UnsupportedOperatingSystem" || "DeploymentError.InternalServerError" || "DeploymentError.WorkspaceUnreachable",
+ * //         ErrorCode: "ValidationError.InsufficientDiskSpace" || "ValidationError.InsufficientMemory" || "ValidationError.UnsupportedOperatingSystem" || "DeploymentError.InternalServerError" || "DeploymentError.WorkspaceUnreachable" || "ValidationError.ApplicationOldVersionExists",
  * //         ErrorMessage: "STRING_VALUE",
  * //       },
  * //     },
@@ -101,7 +101,7 @@ export class DescribeBundleAssociationsCommand extends $Command
   })
   .s("WorkspacesService", "DescribeBundleAssociations", {})
   .n("WorkSpacesClient", "DescribeBundleAssociationsCommand")
-  .sc(DescribeBundleAssociations)
+  .sc(DescribeBundleAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

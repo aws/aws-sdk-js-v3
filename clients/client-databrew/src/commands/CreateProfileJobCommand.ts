@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateProfileJobRequest, CreateProfileJobResponse } from "../models/models_0";
-import { CreateProfileJob } from "../schemas/schemas_0";
+import { CreateProfileJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -170,7 +170,7 @@ export class CreateProfileJobCommand extends $Command
   })
   .s("AWSGlueDataBrew", "CreateProfileJob", {})
   .n("DataBrewClient", "CreateProfileJobCommand")
-  .sc(CreateProfileJob)
+  .sc(CreateProfileJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

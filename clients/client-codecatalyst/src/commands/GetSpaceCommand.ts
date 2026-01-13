@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSpaceRequest, GetSpaceResponse } from "../models/models_0";
-import { GetSpace } from "../schemas/schemas_0";
+import { GetSpace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class GetSpaceCommand extends $Command
   })
   .s("CodeCatalyst", "GetSpace", {})
   .n("CodeCatalystClient", "GetSpaceCommand")
-  .sc(GetSpace)
+  .sc(GetSpace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

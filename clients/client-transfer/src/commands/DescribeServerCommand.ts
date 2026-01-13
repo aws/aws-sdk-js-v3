@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeServerRequest, DescribeServerResponse } from "../models/models_0";
-import { DescribeServer } from "../schemas/schemas_0";
+import { DescribeServer$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -160,7 +160,7 @@ export class DescribeServerCommand extends $Command
   })
   .s("TransferService", "DescribeServer", {})
   .n("TransferClient", "DescribeServerCommand")
-  .sc(DescribeServer)
+  .sc(DescribeServer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

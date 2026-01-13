@@ -4,5 +4,6 @@ export * from "./GetReportCommand";
 export * from "./GetReportMetadataCommand";
 export * from "./GetTermForReportCommand";
 export * from "./ListCustomerAgreementsCommand";
+export * from "./ListReportVersionsCommand";
 export * from "./ListReportsCommand";
 export * from "./PutAccountSettingsCommand";

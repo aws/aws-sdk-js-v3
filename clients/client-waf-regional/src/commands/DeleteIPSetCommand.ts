@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteIPSetRequest, DeleteIPSetResponse } from "../models/models_0";
-import { DeleteIPSet } from "../schemas/schemas_0";
+import { DeleteIPSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -154,7 +154,7 @@ export class DeleteIPSetCommand extends $Command
   })
   .s("AWSWAF_Regional_20161128", "DeleteIPSet", {})
   .n("WAFRegionalClient", "DeleteIPSetCommand")
-  .sc(DeleteIPSet)
+  .sc(DeleteIPSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeDeliveryChannelStatusRequest, DescribeDeliveryChannelStatusResponse } from "../models/models_0";
-import { DescribeDeliveryChannelStatus } from "../schemas/schemas_0";
+import { DescribeDeliveryChannelStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeDeliveryChannelStatusCommandInput extends DescribeDeliv
  *
  * The output of {@link DescribeDeliveryChannelStatusCommand}.
  */
-export interface DescribeDeliveryChannelStatusCommandOutput
-  extends DescribeDeliveryChannelStatusResponse,
-    __MetadataBearer {}
+export interface DescribeDeliveryChannelStatusCommandOutput extends DescribeDeliveryChannelStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the current status of the specified delivery channel.
@@ -114,7 +112,7 @@ export class DescribeDeliveryChannelStatusCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeDeliveryChannelStatus", {})
   .n("ConfigServiceClient", "DescribeDeliveryChannelStatusCommand")
-  .sc(DescribeDeliveryChannelStatus)
+  .sc(DescribeDeliveryChannelStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

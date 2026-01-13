@@ -8,7 +8,7 @@ import { OutputFormat } from "./enums";
  */
 export interface ScanSbomRequest {
   /**
-   * <p>The JSON file for the SBOM you want to scan. The SBOM must be in CycloneDX 1.5 format.</p>
+   * <p>The JSON file for the SBOM you want to scan. The SBOM must be in CycloneDX 1.5 format. This format limits you to passing 2000 components before throwing a <code>ValidException</code> error.</p>
    * @public
    */
   sbom: __DocumentType | undefined;
@@ -32,22 +32,18 @@ export interface ScanSbomResponse {
 }
 
 /**
- * <p>The request has failed validation due to missing required fields or having invalid inputs.
- *    </p>
+ * <p>The request has failed validation due to missing required fields or having invalid inputs. </p>
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the validation exception.
-   *
-   *   </p>
+   * <p>The name of the validation exception. </p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The validation exception message.
-   *   </p>
+   * <p>The validation exception message. </p>
    * @public
    */
   message: string | undefined;

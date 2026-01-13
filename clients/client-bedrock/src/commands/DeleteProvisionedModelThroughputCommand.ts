@@ -9,7 +9,7 @@ import type {
   DeleteProvisionedModelThroughputRequest,
   DeleteProvisionedModelThroughputResponse,
 } from "../models/models_1";
-import { DeleteProvisionedModelThroughput } from "../schemas/schemas_0";
+import { DeleteProvisionedModelThroughput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteProvisionedModelThroughputCommandInput extends DeleteProv
  *
  * The output of {@link DeleteProvisionedModelThroughputCommand}.
  */
-export interface DeleteProvisionedModelThroughputCommandOutput
-  extends DeleteProvisionedModelThroughputResponse,
-    __MetadataBearer {}
+export interface DeleteProvisionedModelThroughputCommandOutput extends DeleteProvisionedModelThroughputResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a Provisioned Throughput. You can't delete a Provisioned Throughput before the commitment term is over. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
@@ -94,7 +92,7 @@ export class DeleteProvisionedModelThroughputCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "DeleteProvisionedModelThroughput", {})
   .n("BedrockClient", "DeleteProvisionedModelThroughputCommand")
-  .sc(DeleteProvisionedModelThroughput)
+  .sc(DeleteProvisionedModelThroughput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

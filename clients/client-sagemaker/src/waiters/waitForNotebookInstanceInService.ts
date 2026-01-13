@@ -7,18 +7,15 @@ import {
 } from "../commands/DescribeNotebookInstanceCommand";
 import { SageMakerClient } from "../SageMakerClient";
 
-const checkState = async (
-  client: SageMakerClient,
-  input: DescribeNotebookInstanceCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: SageMakerClient, input: DescribeNotebookInstanceCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeNotebookInstanceCommand(input));
+    let result: any = await client.send(new DescribeNotebookInstanceCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.NotebookInstanceStatus;
-      };
+      }
       if (returnComparator() === "InService") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -26,7 +23,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.NotebookInstanceStatus;
-      };
+      }
       if (returnComparator() === "Failed") {
         return { state: WaiterState.FAILURE, reason };
       }

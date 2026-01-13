@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import type { DisassociateFromMasterAccountRequest, DisassociateFromMasterAccountResponse } from "../models/models_0";
-import { DisassociateFromMasterAccount } from "../schemas/schemas_0";
+import { DisassociateFromMasterAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DisassociateFromMasterAccountCommandInput extends DisassociateF
  *
  * The output of {@link DisassociateFromMasterAccountCommand}.
  */
-export interface DisassociateFromMasterAccountCommandOutput
-  extends DisassociateFromMasterAccountResponse,
-    __MetadataBearer {}
+export interface DisassociateFromMasterAccountCommandOutput extends DisassociateFromMasterAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates the current GuardDuty member account from its administrator account.</p>
@@ -87,7 +85,7 @@ export class DisassociateFromMasterAccountCommand extends $Command
   })
   .s("GuardDutyAPIService", "DisassociateFromMasterAccount", {})
   .n("GuardDutyClient", "DisassociateFromMasterAccountCommand")
-  .sc(DisassociateFromMasterAccount)
+  .sc(DisassociateFromMasterAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

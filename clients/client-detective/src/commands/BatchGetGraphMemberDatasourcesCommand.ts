@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchGetGraphMemberDatasourcesRequest, BatchGetGraphMemberDatasourcesResponse } from "../models/models_0";
-import { BatchGetGraphMemberDatasources } from "../schemas/schemas_0";
+import { BatchGetGraphMemberDatasources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface BatchGetGraphMemberDatasourcesCommandInput extends BatchGetGrap
  *
  * The output of {@link BatchGetGraphMemberDatasourcesCommand}.
  */
-export interface BatchGetGraphMemberDatasourcesCommandOutput
-  extends BatchGetGraphMemberDatasourcesResponse,
-    __MetadataBearer {}
+export interface BatchGetGraphMemberDatasourcesCommandOutput extends BatchGetGraphMemberDatasourcesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets data source package information for the behavior graph.</p>
@@ -109,7 +107,7 @@ export class BatchGetGraphMemberDatasourcesCommand extends $Command
   })
   .s("AmazonDetective", "BatchGetGraphMemberDatasources", {})
   .n("DetectiveClient", "BatchGetGraphMemberDatasourcesCommand")
-  .sc(BatchGetGraphMemberDatasources)
+  .sc(BatchGetGraphMemberDatasources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

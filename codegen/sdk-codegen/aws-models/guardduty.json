@@ -8195,8 +8195,10 @@
         "AccountIds": {
           "target": "com.amazonaws.guardduty#AccountIds",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>A list of account identifiers of the GuardDuty member account.</p>",
-            "smithy.api#jsonName": "accountIds"
+            "smithy.api#jsonName": "accountIds",
+            "smithy.api#required": {}
           }
         }
       },
@@ -15293,6 +15295,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the database instance involved in the\n      finding.</p>",
             "smithy.api#jsonName": "dbInstanceArn"
+          }
+        },
+        "DbiResourceId": {
+          "target": "com.amazonaws.guardduty#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique ID of the database resource involved in the activity that prompted GuardDuty\n      to generate the finding.</p>",
+            "smithy.api#jsonName": "dbiResourceId"
           }
         },
         "Tags": {

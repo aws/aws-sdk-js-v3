@@ -9,7 +9,7 @@ import type {
   ListIAMPolicyAssignmentsForUserResponse,
 } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { ListIAMPolicyAssignmentsForUser } from "../schemas/schemas_0";
+import { ListIAMPolicyAssignmentsForUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListIAMPolicyAssignmentsForUserCommandInput extends ListIAMPoli
  *
  * The output of {@link ListIAMPolicyAssignmentsForUserCommand}.
  */
-export interface ListIAMPolicyAssignmentsForUserCommandOutput
-  extends ListIAMPolicyAssignmentsForUserResponse,
-    __MetadataBearer {}
+export interface ListIAMPolicyAssignmentsForUserCommandOutput extends ListIAMPolicyAssignmentsForUserResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all of
@@ -121,7 +119,7 @@ export class ListIAMPolicyAssignmentsForUserCommand extends $Command
   })
   .s("QuickSight_20180401", "ListIAMPolicyAssignmentsForUser", {})
   .n("QuickSightClient", "ListIAMPolicyAssignmentsForUserCommand")
-  .sc(ListIAMPolicyAssignmentsForUser)
+  .sc(ListIAMPolicyAssignmentsForUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

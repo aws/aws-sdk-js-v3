@@ -8,7 +8,7 @@ import type {
   DescribeConnectionAliasPermissionsRequest,
   DescribeConnectionAliasPermissionsResult,
 } from "../models/models_0";
-import { DescribeConnectionAliasPermissions } from "../schemas/schemas_0";
+import { DescribeConnectionAliasPermissions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DescribeConnectionAliasPermissionsCommandInput extends Describe
  *
  * The output of {@link DescribeConnectionAliasPermissionsCommand}.
  */
-export interface DescribeConnectionAliasPermissionsCommandOutput
-  extends DescribeConnectionAliasPermissionsResult,
-    __MetadataBearer {}
+export interface DescribeConnectionAliasPermissionsCommandOutput extends DescribeConnectionAliasPermissionsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the permissions that the owner of a connection alias has granted to another
@@ -102,7 +100,7 @@ export class DescribeConnectionAliasPermissionsCommand extends $Command
   })
   .s("WorkspacesService", "DescribeConnectionAliasPermissions", {})
   .n("WorkSpacesClient", "DescribeConnectionAliasPermissionsCommand")
-  .sc(DescribeConnectionAliasPermissions)
+  .sc(DescribeConnectionAliasPermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

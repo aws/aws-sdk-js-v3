@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetApplicationRequest, GetApplicationResponse } from "../models/models_0";
-import { GetApplication } from "../schemas/schemas_0";
+import { GetApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,6 +140,12 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //         remoteWriteUrl: "STRING_VALUE",
  * //       },
  * //     },
+ * //     diskEncryptionConfiguration: { // DiskEncryptionConfiguration
+ * //       encryptionContext: { // EncryptionContext
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       encryptionKeyArn: "STRING_VALUE",
+ * //     },
  * //     interactiveConfiguration: { // InteractiveConfiguration
  * //       studioEnabled: true || false,
  * //       livyEndpointEnabled: true || false,
@@ -152,6 +158,9 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //       identityCenterInstanceArn: "STRING_VALUE",
  * //       identityCenterApplicationArn: "STRING_VALUE",
  * //       userBackgroundSessionsEnabled: true || false,
+ * //     },
+ * //     jobLevelCostAllocationConfiguration: { // JobLevelCostAllocationConfiguration
+ * //       enabled: true || false,
  * //     },
  * //   },
  * // };
@@ -193,7 +202,7 @@ export class GetApplicationCommand extends $Command
   })
   .s("AwsToledoWebService", "GetApplication", {})
   .n("EMRServerlessClient", "GetApplicationCommand")
-  .sc(GetApplication)
+  .sc(GetApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

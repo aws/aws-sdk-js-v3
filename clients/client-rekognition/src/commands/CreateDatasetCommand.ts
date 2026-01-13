@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDatasetRequest, CreateDatasetResponse } from "../models/models_0";
 import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { CreateDataset } from "../schemas/schemas_0";
+import { CreateDataset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -165,7 +165,7 @@ export class CreateDatasetCommand extends $Command
   })
   .s("RekognitionService", "CreateDataset", {})
   .n("RekognitionClient", "CreateDatasetCommand")
-  .sc(CreateDataset)
+  .sc(CreateDataset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

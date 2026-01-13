@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSendQuotaResponse } from "../models/models_0";
-import { GetSendQuota } from "../schemas/schemas_0";
+import { GetSendQuota$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -89,7 +89,7 @@ export class GetSendQuotaCommand extends $Command
   })
   .s("SimpleEmailService", "GetSendQuota", {})
   .n("SESClient", "GetSendQuotaCommand")
-  .sc(GetSendQuota)
+  .sc(GetSendQuota$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -175,7 +175,10 @@ export interface CodeGuruProfiler {
     args: ConfigureAgentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ConfigureAgentCommandOutput>;
-  configureAgent(args: ConfigureAgentCommandInput, cb: (err: any, data?: ConfigureAgentCommandOutput) => void): void;
+  configureAgent(
+    args: ConfigureAgentCommandInput,
+    cb: (err: any, data?: ConfigureAgentCommandOutput) => void
+  ): void;
   configureAgent(
     args: ConfigureAgentCommandInput,
     options: __HttpHandlerOptions,
@@ -271,8 +274,14 @@ export interface CodeGuruProfiler {
   /**
    * @see {@link GetPolicyCommand}
    */
-  getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
-  getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPolicyCommandOutput>;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    cb: (err: any, data?: GetPolicyCommandOutput) => void
+  ): void;
   getPolicy(
     args: GetPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -282,8 +291,14 @@ export interface CodeGuruProfiler {
   /**
    * @see {@link GetProfileCommand}
    */
-  getProfile(args: GetProfileCommandInput, options?: __HttpHandlerOptions): Promise<GetProfileCommandOutput>;
-  getProfile(args: GetProfileCommandInput, cb: (err: any, data?: GetProfileCommandOutput) => void): void;
+  getProfile(
+    args: GetProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProfileCommandOutput>;
+  getProfile(
+    args: GetProfileCommandInput,
+    cb: (err: any, data?: GetProfileCommandOutput) => void
+  ): void;
   getProfile(
     args: GetProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -396,8 +411,14 @@ export interface CodeGuruProfiler {
   /**
    * @see {@link PutPermissionCommand}
    */
-  putPermission(args: PutPermissionCommandInput, options?: __HttpHandlerOptions): Promise<PutPermissionCommandOutput>;
-  putPermission(args: PutPermissionCommandInput, cb: (err: any, data?: PutPermissionCommandOutput) => void): void;
+  putPermission(
+    args: PutPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutPermissionCommandOutput>;
+  putPermission(
+    args: PutPermissionCommandInput,
+    cb: (err: any, data?: PutPermissionCommandOutput) => void
+  ): void;
   putPermission(
     args: PutPermissionCommandInput,
     options: __HttpHandlerOptions,
@@ -445,7 +466,10 @@ export interface CodeGuruProfiler {
     args: SubmitFeedbackCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SubmitFeedbackCommandOutput>;
-  submitFeedback(args: SubmitFeedbackCommandInput, cb: (err: any, data?: SubmitFeedbackCommandOutput) => void): void;
+  submitFeedback(
+    args: SubmitFeedbackCommandInput,
+    cb: (err: any, data?: SubmitFeedbackCommandOutput) => void
+  ): void;
   submitFeedback(
     args: SubmitFeedbackCommandInput,
     options: __HttpHandlerOptions,
@@ -455,8 +479,14 @@ export interface CodeGuruProfiler {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -466,8 +496,14 @@ export interface CodeGuruProfiler {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

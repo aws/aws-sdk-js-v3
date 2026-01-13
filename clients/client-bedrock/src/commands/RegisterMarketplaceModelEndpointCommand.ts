@@ -9,7 +9,7 @@ import type {
   RegisterMarketplaceModelEndpointRequest,
   RegisterMarketplaceModelEndpointResponse,
 } from "../models/models_0";
-import { RegisterMarketplaceModelEndpoint } from "../schemas/schemas_0";
+import { RegisterMarketplaceModelEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface RegisterMarketplaceModelEndpointCommandInput extends RegisterMa
  *
  * The output of {@link RegisterMarketplaceModelEndpointCommand}.
  */
-export interface RegisterMarketplaceModelEndpointCommandOutput
-  extends RegisterMarketplaceModelEndpointResponse,
-    __MetadataBearer {}
+export interface RegisterMarketplaceModelEndpointCommandOutput extends RegisterMarketplaceModelEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Registers an existing Amazon SageMaker endpoint with Amazon Bedrock Marketplace, allowing it to be used with Amazon Bedrock APIs.</p>
@@ -122,7 +120,7 @@ export class RegisterMarketplaceModelEndpointCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "RegisterMarketplaceModelEndpoint", {})
   .n("BedrockClient", "RegisterMarketplaceModelEndpointCommand")
-  .sc(RegisterMarketplaceModelEndpoint)
+  .sc(RegisterMarketplaceModelEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

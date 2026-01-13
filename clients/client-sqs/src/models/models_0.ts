@@ -1805,9 +1805,7 @@ export interface SendMessageRequest {
    *          </important>
    * @public
    */
-  MessageSystemAttributes?:
-    | Partial<Record<MessageSystemAttributeNameForSends, MessageSystemAttributeValue>>
-    | undefined;
+  MessageSystemAttributes?: Partial<Record<MessageSystemAttributeNameForSends, MessageSystemAttributeValue>> | undefined;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
@@ -2024,9 +2022,7 @@ export interface SendMessageBatchRequestEntry {
    *          </important>
    * @public
    */
-  MessageSystemAttributes?:
-    | Partial<Record<MessageSystemAttributeNameForSends, MessageSystemAttributeValue>>
-    | undefined;
+  MessageSystemAttributes?: Partial<Record<MessageSystemAttributeNameForSends, MessageSystemAttributeValue>> | undefined;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>

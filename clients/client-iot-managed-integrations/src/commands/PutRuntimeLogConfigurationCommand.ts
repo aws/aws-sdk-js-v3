@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { PutRuntimeLogConfigurationRequest } from "../models/models_0";
-import { PutRuntimeLogConfiguration } from "../schemas/schemas_0";
+import { PutRuntimeLogConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,7 +31,7 @@ export interface PutRuntimeLogConfigurationCommandInput extends PutRuntimeLogCon
 export interface PutRuntimeLogConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Set the runtime log configuration for a specific managed thing or for all managed things as a group.</p>
+ * <p>Set the runtime log configuration for a specific managed thing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,7 +100,7 @@ export class PutRuntimeLogConfigurationCommand extends $Command
   })
   .s("IotManagedIntegrations", "PutRuntimeLogConfiguration", {})
   .n("IoTManagedIntegrationsClient", "PutRuntimeLogConfigurationCommand")
-  .sc(PutRuntimeLogConfiguration)
+  .sc(PutRuntimeLogConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

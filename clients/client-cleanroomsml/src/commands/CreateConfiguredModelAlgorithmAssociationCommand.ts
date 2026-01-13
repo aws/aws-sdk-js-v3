@@ -9,7 +9,7 @@ import type {
   CreateConfiguredModelAlgorithmAssociationRequest,
   CreateConfiguredModelAlgorithmAssociationResponse,
 } from "../models/models_0";
-import { CreateConfiguredModelAlgorithmAssociation } from "../schemas/schemas_0";
+import { CreateConfiguredModelAlgorithmAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateConfiguredModelAlgorithmAssociationCommand}.
  */
-export interface CreateConfiguredModelAlgorithmAssociationCommandInput
-  extends CreateConfiguredModelAlgorithmAssociationRequest {}
+export interface CreateConfiguredModelAlgorithmAssociationCommandInput extends CreateConfiguredModelAlgorithmAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateConfiguredModelAlgorithmAssociationCommand}.
  */
-export interface CreateConfiguredModelAlgorithmAssociationCommandOutput
-  extends CreateConfiguredModelAlgorithmAssociationResponse,
-    __MetadataBearer {}
+export interface CreateConfiguredModelAlgorithmAssociationCommandOutput extends CreateConfiguredModelAlgorithmAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a configured model algorithm to a collaboration for use by any member of the collaboration.</p>
@@ -169,7 +166,7 @@ export class CreateConfiguredModelAlgorithmAssociationCommand extends $Command
   })
   .s("AWSStarkControlService", "CreateConfiguredModelAlgorithmAssociation", {})
   .n("CleanRoomsMLClient", "CreateConfiguredModelAlgorithmAssociationCommand")
-  .sc(CreateConfiguredModelAlgorithmAssociation)
+  .sc(CreateConfiguredModelAlgorithmAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

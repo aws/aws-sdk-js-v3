@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeSubscriptionFiltersRequest, DescribeSubscriptionFiltersResponse } from "../models/models_0";
-import { DescribeSubscriptionFilters } from "../schemas/schemas_0";
+import { DescribeSubscriptionFilters$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeSubscriptionFiltersCommandInput extends DescribeSubscri
  *
  * The output of {@link DescribeSubscriptionFiltersCommand}.
  */
-export interface DescribeSubscriptionFiltersCommandOutput
-  extends DescribeSubscriptionFiltersResponse,
-    __MetadataBearer {}
+export interface DescribeSubscriptionFiltersCommandOutput extends DescribeSubscriptionFiltersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the subscription filters for the specified log group. You can list all the
@@ -109,7 +107,7 @@ export class DescribeSubscriptionFiltersCommand extends $Command
   })
   .s("Logs_20140328", "DescribeSubscriptionFilters", {})
   .n("CloudWatchLogsClient", "DescribeSubscriptionFiltersCommand")
-  .sc(DescribeSubscriptionFilters)
+  .sc(DescribeSubscriptionFilters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

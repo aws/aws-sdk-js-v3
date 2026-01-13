@@ -7,7 +7,7 @@ import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutput
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetFlowVersionRequest } from "../models/models_0";
 import type { GetFlowVersionResponse } from "../models/models_1";
-import { GetFlowVersion } from "../schemas/schemas_0";
+import { GetFlowVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -539,7 +539,7 @@ export class GetFlowVersionCommand extends $Command
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "GetFlowVersion", {})
   .n("BedrockAgentClient", "GetFlowVersionCommand")
-  .sc(GetFlowVersion)
+  .sc(GetFlowVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

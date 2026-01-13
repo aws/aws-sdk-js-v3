@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InitiateDocumentVersionUploadRequest, InitiateDocumentVersionUploadResponse } from "../models/models_0";
-import { InitiateDocumentVersionUpload } from "../schemas/schemas_0";
+import { InitiateDocumentVersionUpload$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -24,9 +24,7 @@ export interface InitiateDocumentVersionUploadCommandInput extends InitiateDocum
  *
  * The output of {@link InitiateDocumentVersionUploadCommand}.
  */
-export interface InitiateDocumentVersionUploadCommandOutput
-  extends InitiateDocumentVersionUploadResponse,
-    __MetadataBearer {}
+export interface InitiateDocumentVersionUploadCommandOutput extends InitiateDocumentVersionUploadResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new document object and version object.</p>
@@ -167,7 +165,7 @@ export class InitiateDocumentVersionUploadCommand extends $Command
   })
   .s("AWSGorillaBoyService", "InitiateDocumentVersionUpload", {})
   .n("WorkDocsClient", "InitiateDocumentVersionUploadCommand")
-  .sc(InitiateDocumentVersionUpload)
+  .sc(InitiateDocumentVersionUpload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

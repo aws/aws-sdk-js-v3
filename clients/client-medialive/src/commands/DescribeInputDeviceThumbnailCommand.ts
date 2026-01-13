@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputType
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { type DescribeInputDeviceThumbnailRequest, DescribeInputDeviceThumbnailResponse } from "../models/models_1";
-import { DescribeInputDeviceThumbnail } from "../schemas/schemas_0";
+import { DescribeInputDeviceThumbnail$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeInputDeviceThumbnailCommandInput extends DescribeInputD
  *
  * The output of {@link DescribeInputDeviceThumbnailCommand}.
  */
-export interface DescribeInputDeviceThumbnailCommandOutput
-  extends Omit<DescribeInputDeviceThumbnailResponse, "Body">,
-    __MetadataBearer {
+export interface DescribeInputDeviceThumbnailCommandOutput extends Omit<DescribeInputDeviceThumbnailResponse, "Body">, __MetadataBearer {
   Body?: StreamingBlobPayloadOutputTypes;
 }
 
@@ -108,7 +106,7 @@ export class DescribeInputDeviceThumbnailCommand extends $Command
   })
   .s("MediaLive", "DescribeInputDeviceThumbnail", {})
   .n("MediaLiveClient", "DescribeInputDeviceThumbnailCommand")
-  .sc(DescribeInputDeviceThumbnail)
+  .sc(DescribeInputDeviceThumbnail$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

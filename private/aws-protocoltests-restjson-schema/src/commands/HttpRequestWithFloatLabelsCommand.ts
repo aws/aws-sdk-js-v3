@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { HttpRequestWithFloatLabels } from "../schemas/schemas_0";
+import { HttpRequestWithFloatLabels$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -76,7 +76,7 @@ export class HttpRequestWithFloatLabelsCommand extends $Command
   })
   .s("RestJson", "HttpRequestWithFloatLabels", {})
   .n("RestJsonProtocolClient", "HttpRequestWithFloatLabelsCommand")
-  .sc(HttpRequestWithFloatLabels)
+  .sc(HttpRequestWithFloatLabels$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

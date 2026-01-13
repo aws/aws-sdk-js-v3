@@ -7,12 +7,12 @@ import { MediaLiveClient } from "../MediaLiveClient";
 const checkState = async (client: MediaLiveClient, input: DescribeInputCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeInputCommand(input));
+    let result: any = await client.send(new DescribeInputCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "ATTACHED") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeInputCommandIn
     try {
       const returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "DETACHED") {
         return { state: WaiterState.RETRY, reason };
       }

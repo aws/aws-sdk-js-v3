@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GameLiftStreamsClient";
 import type { ExportStreamSessionFilesInput, ExportStreamSessionFilesOutput } from "../models/models_0";
-import { ExportStreamSessionFiles } from "../schemas/schemas_0";
+import { ExportStreamSessionFiles$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class ExportStreamSessionFilesCommand extends $Command
   })
   .s("GameLiftStreams", "ExportStreamSessionFiles", {})
   .n("GameLiftStreamsClient", "ExportStreamSessionFilesCommand")
-  .sc(ExportStreamSessionFiles)
+  .sc(ExportStreamSessionFiles$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

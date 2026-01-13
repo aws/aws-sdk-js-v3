@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import type { CreateTestSetDiscrepancyReportRequest, CreateTestSetDiscrepancyReportResponse } from "../models/models_0";
-import { CreateTestSetDiscrepancyReport } from "../schemas/schemas_0";
+import { CreateTestSetDiscrepancyReport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateTestSetDiscrepancyReportCommandInput extends CreateTestSe
  *
  * The output of {@link CreateTestSetDiscrepancyReportCommand}.
  */
-export interface CreateTestSetDiscrepancyReportCommandOutput
-  extends CreateTestSetDiscrepancyReportResponse,
-    __MetadataBearer {}
+export interface CreateTestSetDiscrepancyReportCommandOutput extends CreateTestSetDiscrepancyReportResponse, __MetadataBearer {}
 
 /**
  * <p>Create a report that describes the differences between the bot and the test set.</p>
@@ -115,7 +113,7 @@ export class CreateTestSetDiscrepancyReportCommand extends $Command
   })
   .s("LexModelBuildingServiceV2", "CreateTestSetDiscrepancyReport", {})
   .n("LexModelsV2Client", "CreateTestSetDiscrepancyReportCommand")
-  .sc(CreateTestSetDiscrepancyReport)
+  .sc(CreateTestSetDiscrepancyReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

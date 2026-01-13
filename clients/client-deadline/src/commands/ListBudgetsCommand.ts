@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListBudgetsRequest, ListBudgetsResponse } from "../models/models_0";
-import { ListBudgets } from "../schemas/schemas_0";
+import { ListBudgets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class ListBudgetsCommand extends $Command
   })
   .s("Deadline", "ListBudgets", {})
   .n("DeadlineClient", "ListBudgetsCommand")
-  .sc(ListBudgets)
+  .sc(ListBudgets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

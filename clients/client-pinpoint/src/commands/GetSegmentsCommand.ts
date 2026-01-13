@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSegmentsRequest, GetSegmentsResponse } from "../models/models_1";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetSegments } from "../schemas/schemas_0";
+import { GetSegments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -253,7 +253,7 @@ export class GetSegmentsCommand extends $Command
   })
   .s("Pinpoint", "GetSegments", {})
   .n("PinpointClient", "GetSegmentsCommand")
-  .sc(GetSegments)
+  .sc(GetSegments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

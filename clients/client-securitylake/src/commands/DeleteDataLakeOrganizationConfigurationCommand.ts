@@ -8,7 +8,7 @@ import type {
   DeleteDataLakeOrganizationConfigurationRequest,
   DeleteDataLakeOrganizationConfigurationResponse,
 } from "../models/models_0";
-import { DeleteDataLakeOrganizationConfiguration } from "../schemas/schemas_0";
+import { DeleteDataLakeOrganizationConfiguration$ } from "../schemas/schemas_0";
 import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteDataLakeOrganizationConfigurationCommand}.
  */
-export interface DeleteDataLakeOrganizationConfigurationCommandInput
-  extends DeleteDataLakeOrganizationConfigurationRequest {}
+export interface DeleteDataLakeOrganizationConfigurationCommandInput extends DeleteDataLakeOrganizationConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteDataLakeOrganizationConfigurationCommand}.
  */
-export interface DeleteDataLakeOrganizationConfigurationCommandOutput
-  extends DeleteDataLakeOrganizationConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteDataLakeOrganizationConfigurationCommandOutput extends DeleteDataLakeOrganizationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Turns off automatic enablement of Amazon Security Lake for member accounts that are added to an organization in Organizations. Only the delegated
@@ -114,7 +111,7 @@ export class DeleteDataLakeOrganizationConfigurationCommand extends $Command
   })
   .s("SecurityLake", "DeleteDataLakeOrganizationConfiguration", {})
   .n("SecurityLakeClient", "DeleteDataLakeOrganizationConfigurationCommand")
-  .sc(DeleteDataLakeOrganizationConfiguration)
+  .sc(DeleteDataLakeOrganizationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

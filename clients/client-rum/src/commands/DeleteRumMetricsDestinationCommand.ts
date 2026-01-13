@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRumMetricsDestinationRequest, DeleteRumMetricsDestinationResponse } from "../models/models_0";
 import type { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
-import { DeleteRumMetricsDestination } from "../schemas/schemas_0";
+import { DeleteRumMetricsDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteRumMetricsDestinationCommandInput extends DeleteRumMetric
  *
  * The output of {@link DeleteRumMetricsDestinationCommand}.
  */
-export interface DeleteRumMetricsDestinationCommandOutput
-  extends DeleteRumMetricsDestinationResponse,
-    __MetadataBearer {}
+export interface DeleteRumMetricsDestinationCommandOutput extends DeleteRumMetricsDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a destination for CloudWatch RUM extended metrics, so that the specified app monitor stops sending extended metrics to that destination.</p>
@@ -93,7 +91,7 @@ export class DeleteRumMetricsDestinationCommand extends $Command
   })
   .s("RUM", "DeleteRumMetricsDestination", {})
   .n("RUMClient", "DeleteRumMetricsDestinationCommand")
-  .sc(DeleteRumMetricsDestination)
+  .sc(DeleteRumMetricsDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

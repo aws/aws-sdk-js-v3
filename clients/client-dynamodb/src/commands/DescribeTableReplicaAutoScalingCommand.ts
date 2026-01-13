@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeTableReplicaAutoScalingInput, DescribeTableReplicaAutoScalingOutput } from "../models/models_0";
-import { DescribeTableReplicaAutoScaling } from "../schemas/schemas_0";
+import { DescribeTableReplicaAutoScaling$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeTableReplicaAutoScalingCommandInput extends DescribeTab
  *
  * The output of {@link DescribeTableReplicaAutoScalingCommand}.
  */
-export interface DescribeTableReplicaAutoScalingCommandOutput
-  extends DescribeTableReplicaAutoScalingOutput,
-    __MetadataBearer {}
+export interface DescribeTableReplicaAutoScalingCommandOutput extends DescribeTableReplicaAutoScalingOutput, __MetadataBearer {}
 
 /**
  * <p>Describes auto scaling settings across replicas of the global table at once.</p>
@@ -168,7 +166,7 @@ export class DescribeTableReplicaAutoScalingCommand extends $Command
   })
   .s("DynamoDB_20120810", "DescribeTableReplicaAutoScaling", {})
   .n("DynamoDBClient", "DescribeTableReplicaAutoScalingCommand")
-  .sc(DescribeTableReplicaAutoScaling)
+  .sc(DescribeTableReplicaAutoScaling$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   PutPermissionsBoundaryToPermissionSetRequest,
   PutPermissionsBoundaryToPermissionSetResponse,
 } from "../models/models_0";
-import { PutPermissionsBoundaryToPermissionSet } from "../schemas/schemas_0";
+import { PutPermissionsBoundaryToPermissionSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutPermissionsBoundaryToPermissionSetCommand}.
  */
-export interface PutPermissionsBoundaryToPermissionSetCommandInput
-  extends PutPermissionsBoundaryToPermissionSetRequest {}
+export interface PutPermissionsBoundaryToPermissionSetCommandInput extends PutPermissionsBoundaryToPermissionSetRequest {}
 /**
  * @public
  *
  * The output of {@link PutPermissionsBoundaryToPermissionSetCommand}.
  */
-export interface PutPermissionsBoundaryToPermissionSetCommandOutput
-  extends PutPermissionsBoundaryToPermissionSetResponse,
-    __MetadataBearer {}
+export interface PutPermissionsBoundaryToPermissionSetCommandOutput extends PutPermissionsBoundaryToPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Attaches an Amazon Web Services managed or customer managed policy to the specified <a>PermissionSet</a> as a permissions boundary.</p>
@@ -103,7 +100,7 @@ export class PutPermissionsBoundaryToPermissionSetCommand extends $Command
   })
   .s("SWBExternalService", "PutPermissionsBoundaryToPermissionSet", {})
   .n("SSOAdminClient", "PutPermissionsBoundaryToPermissionSetCommand")
-  .sc(PutPermissionsBoundaryToPermissionSet)
+  .sc(PutPermissionsBoundaryToPermissionSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -565,7 +565,10 @@ export interface SES {
     args: CreateTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateTemplateCommandOutput>;
-  createTemplate(args: CreateTemplateCommandInput, cb: (err: any, data?: CreateTemplateCommandOutput) => void): void;
+  createTemplate(
+    args: CreateTemplateCommandInput,
+    cb: (err: any, data?: CreateTemplateCommandOutput) => void
+  ): void;
   createTemplate(
     args: CreateTemplateCommandInput,
     options: __HttpHandlerOptions,
@@ -647,7 +650,10 @@ export interface SES {
     args: DeleteIdentityCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteIdentityCommandOutput>;
-  deleteIdentity(args: DeleteIdentityCommandInput, cb: (err: any, data?: DeleteIdentityCommandOutput) => void): void;
+  deleteIdentity(
+    args: DeleteIdentityCommandInput,
+    cb: (err: any, data?: DeleteIdentityCommandOutput) => void
+  ): void;
   deleteIdentity(
     args: DeleteIdentityCommandInput,
     options: __HttpHandlerOptions,
@@ -729,7 +735,10 @@ export interface SES {
     args: DeleteTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteTemplateCommandOutput>;
-  deleteTemplate(args: DeleteTemplateCommandInput, cb: (err: any, data?: DeleteTemplateCommandOutput) => void): void;
+  deleteTemplate(
+    args: DeleteTemplateCommandInput,
+    cb: (err: any, data?: DeleteTemplateCommandOutput) => void
+  ): void;
   deleteTemplate(
     args: DeleteTemplateCommandInput,
     options: __HttpHandlerOptions,
@@ -946,8 +955,14 @@ export interface SES {
    * @see {@link GetSendQuotaCommand}
    */
   getSendQuota(): Promise<GetSendQuotaCommandOutput>;
-  getSendQuota(args: GetSendQuotaCommandInput, options?: __HttpHandlerOptions): Promise<GetSendQuotaCommandOutput>;
-  getSendQuota(args: GetSendQuotaCommandInput, cb: (err: any, data?: GetSendQuotaCommandOutput) => void): void;
+  getSendQuota(
+    args: GetSendQuotaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSendQuotaCommandOutput>;
+  getSendQuota(
+    args: GetSendQuotaCommandInput,
+    cb: (err: any, data?: GetSendQuotaCommandOutput) => void
+  ): void;
   getSendQuota(
     args: GetSendQuotaCommandInput,
     options: __HttpHandlerOptions,
@@ -975,8 +990,14 @@ export interface SES {
   /**
    * @see {@link GetTemplateCommand}
    */
-  getTemplate(args: GetTemplateCommandInput, options?: __HttpHandlerOptions): Promise<GetTemplateCommandOutput>;
-  getTemplate(args: GetTemplateCommandInput, cb: (err: any, data?: GetTemplateCommandOutput) => void): void;
+  getTemplate(
+    args: GetTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTemplateCommandOutput>;
+  getTemplate(
+    args: GetTemplateCommandInput,
+    cb: (err: any, data?: GetTemplateCommandOutput) => void
+  ): void;
   getTemplate(
     args: GetTemplateCommandInput,
     options: __HttpHandlerOptions,
@@ -1027,7 +1048,10 @@ export interface SES {
     args: ListIdentitiesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListIdentitiesCommandOutput>;
-  listIdentities(args: ListIdentitiesCommandInput, cb: (err: any, data?: ListIdentitiesCommandOutput) => void): void;
+  listIdentities(
+    args: ListIdentitiesCommandInput,
+    cb: (err: any, data?: ListIdentitiesCommandOutput) => void
+  ): void;
   listIdentities(
     args: ListIdentitiesCommandInput,
     options: __HttpHandlerOptions,
@@ -1091,8 +1115,14 @@ export interface SES {
    * @see {@link ListTemplatesCommand}
    */
   listTemplates(): Promise<ListTemplatesCommandOutput>;
-  listTemplates(args: ListTemplatesCommandInput, options?: __HttpHandlerOptions): Promise<ListTemplatesCommandOutput>;
-  listTemplates(args: ListTemplatesCommandInput, cb: (err: any, data?: ListTemplatesCommandOutput) => void): void;
+  listTemplates(
+    args: ListTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTemplatesCommandOutput>;
+  listTemplates(
+    args: ListTemplatesCommandInput,
+    cb: (err: any, data?: ListTemplatesCommandOutput) => void
+  ): void;
   listTemplates(
     args: ListTemplatesCommandInput,
     options: __HttpHandlerOptions,
@@ -1171,8 +1201,14 @@ export interface SES {
   /**
    * @see {@link SendBounceCommand}
    */
-  sendBounce(args: SendBounceCommandInput, options?: __HttpHandlerOptions): Promise<SendBounceCommandOutput>;
-  sendBounce(args: SendBounceCommandInput, cb: (err: any, data?: SendBounceCommandOutput) => void): void;
+  sendBounce(
+    args: SendBounceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendBounceCommandOutput>;
+  sendBounce(
+    args: SendBounceCommandInput,
+    cb: (err: any, data?: SendBounceCommandOutput) => void
+  ): void;
   sendBounce(
     args: SendBounceCommandInput,
     options: __HttpHandlerOptions,
@@ -1216,8 +1252,14 @@ export interface SES {
   /**
    * @see {@link SendEmailCommand}
    */
-  sendEmail(args: SendEmailCommandInput, options?: __HttpHandlerOptions): Promise<SendEmailCommandOutput>;
-  sendEmail(args: SendEmailCommandInput, cb: (err: any, data?: SendEmailCommandOutput) => void): void;
+  sendEmail(
+    args: SendEmailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendEmailCommandOutput>;
+  sendEmail(
+    args: SendEmailCommandInput,
+    cb: (err: any, data?: SendEmailCommandOutput) => void
+  ): void;
   sendEmail(
     args: SendEmailCommandInput,
     options: __HttpHandlerOptions,
@@ -1227,8 +1269,14 @@ export interface SES {
   /**
    * @see {@link SendRawEmailCommand}
    */
-  sendRawEmail(args: SendRawEmailCommandInput, options?: __HttpHandlerOptions): Promise<SendRawEmailCommandOutput>;
-  sendRawEmail(args: SendRawEmailCommandInput, cb: (err: any, data?: SendRawEmailCommandOutput) => void): void;
+  sendRawEmail(
+    args: SendRawEmailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendRawEmailCommandOutput>;
+  sendRawEmail(
+    args: SendRawEmailCommandInput,
+    cb: (err: any, data?: SendRawEmailCommandOutput) => void
+  ): void;
   sendRawEmail(
     args: SendRawEmailCommandInput,
     options: __HttpHandlerOptions,
@@ -1516,7 +1564,10 @@ export interface SES {
     args: UpdateTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateTemplateCommandOutput>;
-  updateTemplate(args: UpdateTemplateCommandInput, cb: (err: any, data?: UpdateTemplateCommandOutput) => void): void;
+  updateTemplate(
+    args: UpdateTemplateCommandInput,
+    cb: (err: any, data?: UpdateTemplateCommandOutput) => void
+  ): void;
   updateTemplate(
     args: UpdateTemplateCommandInput,
     options: __HttpHandlerOptions,

@@ -9,7 +9,7 @@ import type {
   GetGlueIdentityCenterConfigurationRequest,
   GetGlueIdentityCenterConfigurationResponse,
 } from "../models/models_1";
-import { GetGlueIdentityCenterConfiguration } from "../schemas/schemas_0";
+import { GetGlueIdentityCenterConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetGlueIdentityCenterConfigurationCommandInput extends GetGlueI
  *
  * The output of {@link GetGlueIdentityCenterConfigurationCommand}.
  */
-export interface GetGlueIdentityCenterConfigurationCommandOutput
-  extends GetGlueIdentityCenterConfigurationResponse,
-    __MetadataBearer {}
+export interface GetGlueIdentityCenterConfigurationCommandOutput extends GetGlueIdentityCenterConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the current Glue Identity Center configuration details, including the associated Identity Center instance and
@@ -100,7 +98,7 @@ export class GetGlueIdentityCenterConfigurationCommand extends $Command
   })
   .s("AWSGlue", "GetGlueIdentityCenterConfiguration", {})
   .n("GlueClient", "GetGlueIdentityCenterConfigurationCommand")
-  .sc(GetGlueIdentityCenterConfiguration)
+  .sc(GetGlueIdentityCenterConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

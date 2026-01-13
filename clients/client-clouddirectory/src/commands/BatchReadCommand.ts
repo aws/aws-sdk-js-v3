@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchReadRequest, BatchReadResponse } from "../models/models_0";
-import { BatchRead } from "../schemas/schemas_0";
+import { BatchRead$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -517,7 +517,7 @@ export class BatchReadCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "BatchRead", {})
   .n("CloudDirectoryClient", "BatchReadCommand")
-  .sc(BatchRead)
+  .sc(BatchRead$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

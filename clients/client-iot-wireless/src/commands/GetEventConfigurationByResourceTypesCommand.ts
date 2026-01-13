@@ -9,7 +9,7 @@ import type {
   GetEventConfigurationByResourceTypesRequest,
   GetEventConfigurationByResourceTypesResponse,
 } from "../models/models_0";
-import { GetEventConfigurationByResourceTypes } from "../schemas/schemas_0";
+import { GetEventConfigurationByResourceTypes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetEventConfigurationByResourceTypesCommandInput extends GetEve
  *
  * The output of {@link GetEventConfigurationByResourceTypesCommand}.
  */
-export interface GetEventConfigurationByResourceTypesCommandOutput
-  extends GetEventConfigurationByResourceTypesResponse,
-    __MetadataBearer {}
+export interface GetEventConfigurationByResourceTypesCommandOutput extends GetEventConfigurationByResourceTypesResponse, __MetadataBearer {}
 
 /**
  * <p>Get the event configuration based on resource types.</p>
@@ -109,7 +107,7 @@ export class GetEventConfigurationByResourceTypesCommand extends $Command
   })
   .s("iotwireless", "GetEventConfigurationByResourceTypes", {})
   .n("IoTWirelessClient", "GetEventConfigurationByResourceTypesCommand")
-  .sc(GetEventConfigurationByResourceTypes)
+  .sc(GetEventConfigurationByResourceTypes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

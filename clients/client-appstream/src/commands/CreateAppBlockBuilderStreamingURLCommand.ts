@@ -9,7 +9,7 @@ import type {
   CreateAppBlockBuilderStreamingURLRequest,
   CreateAppBlockBuilderStreamingURLResult,
 } from "../models/models_0";
-import { CreateAppBlockBuilderStreamingURL } from "../schemas/schemas_0";
+import { CreateAppBlockBuilderStreamingURL$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateAppBlockBuilderStreamingURLCommandInput extends CreateApp
  *
  * The output of {@link CreateAppBlockBuilderStreamingURLCommand}.
  */
-export interface CreateAppBlockBuilderStreamingURLCommandOutput
-  extends CreateAppBlockBuilderStreamingURLResult,
-    __MetadataBearer {}
+export interface CreateAppBlockBuilderStreamingURLCommandOutput extends CreateAppBlockBuilderStreamingURLResult, __MetadataBearer {}
 
 /**
  * <p>Creates a URL to start a create app block builder streaming session.</p>
@@ -86,7 +84,7 @@ export class CreateAppBlockBuilderStreamingURLCommand extends $Command
   })
   .s("PhotonAdminProxyService", "CreateAppBlockBuilderStreamingURL", {})
   .n("AppStreamClient", "CreateAppBlockBuilderStreamingURLCommand")
-  .sc(CreateAppBlockBuilderStreamingURL)
+  .sc(CreateAppBlockBuilderStreamingURL$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

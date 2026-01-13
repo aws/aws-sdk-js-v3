@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateHostedConfigurationVersionRequest, HostedConfigurationVersion } from "../models/models_0";
-import { CreateHostedConfigurationVersion } from "../schemas/schemas_0";
+import { CreateHostedConfigurationVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -17,10 +17,7 @@ export { $Command };
 /**
  * @public
  */
-export type CreateHostedConfigurationVersionCommandInputType = Omit<
-  CreateHostedConfigurationVersionRequest,
-  "Content"
-> & {
+export type CreateHostedConfigurationVersionCommandInputType = Omit<CreateHostedConfigurationVersionRequest, "Content"> & {
   Content: BlobPayloadInputTypes;
 };
 
@@ -29,8 +26,7 @@ export type CreateHostedConfigurationVersionCommandInputType = Omit<
  *
  * The input for {@link CreateHostedConfigurationVersionCommand}.
  */
-export interface CreateHostedConfigurationVersionCommandInput
-  extends CreateHostedConfigurationVersionCommandInputType {}
+export interface CreateHostedConfigurationVersionCommandInput extends CreateHostedConfigurationVersionCommandInputType {}
 /**
  * @public
  */
@@ -43,9 +39,7 @@ export type CreateHostedConfigurationVersionCommandOutputType = Omit<HostedConfi
  *
  * The output of {@link CreateHostedConfigurationVersionCommand}.
  */
-export interface CreateHostedConfigurationVersionCommandOutput
-  extends CreateHostedConfigurationVersionCommandOutputType,
-    __MetadataBearer {}
+export interface CreateHostedConfigurationVersionCommandOutput extends CreateHostedConfigurationVersionCommandOutputType, __MetadataBearer {}
 
 /**
  * <p>Creates a new configuration in the AppConfig hosted configuration store. If
@@ -159,7 +153,7 @@ export class CreateHostedConfigurationVersionCommand extends $Command
   })
   .s("AmazonAppConfig", "CreateHostedConfigurationVersion", {})
   .n("AppConfigClient", "CreateHostedConfigurationVersionCommand")
-  .sc(CreateHostedConfigurationVersion)
+  .sc(CreateHostedConfigurationVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

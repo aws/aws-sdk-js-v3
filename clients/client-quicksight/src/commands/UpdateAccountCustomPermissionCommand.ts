@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateAccountCustomPermissionRequest, UpdateAccountCustomPermissionResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateAccountCustomPermission } from "../schemas/schemas_0";
+import { UpdateAccountCustomPermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateAccountCustomPermissionCommandInput extends UpdateAccount
  *
  * The output of {@link UpdateAccountCustomPermissionCommand}.
  */
-export interface UpdateAccountCustomPermissionCommandOutput
-  extends UpdateAccountCustomPermissionResponse,
-    __MetadataBearer {}
+export interface UpdateAccountCustomPermissionCommandOutput extends UpdateAccountCustomPermissionResponse, __MetadataBearer {}
 
 /**
  * <p>Applies a custom permissions profile to an account.</p>
@@ -95,7 +93,7 @@ export class UpdateAccountCustomPermissionCommand extends $Command
   })
   .s("QuickSight_20180401", "UpdateAccountCustomPermission", {})
   .n("QuickSightClient", "UpdateAccountCustomPermissionCommand")
-  .sc(UpdateAccountCustomPermission)
+  .sc(UpdateAccountCustomPermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

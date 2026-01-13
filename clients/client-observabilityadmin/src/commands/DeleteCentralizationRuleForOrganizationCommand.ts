@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { DeleteCentralizationRuleForOrganization } from "../schemas/schemas_0";
+import { DeleteCentralizationRuleForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -22,8 +22,7 @@ export { $Command };
  *
  * The input for {@link DeleteCentralizationRuleForOrganizationCommand}.
  */
-export interface DeleteCentralizationRuleForOrganizationCommandInput
-  extends DeleteCentralizationRuleForOrganizationInput {}
+export interface DeleteCentralizationRuleForOrganizationCommandInput extends DeleteCentralizationRuleForOrganizationInput {}
 /**
  * @public
  *
@@ -91,7 +90,7 @@ export class DeleteCentralizationRuleForOrganizationCommand extends $Command
   })
   .s("ObservabilityAdmin", "DeleteCentralizationRuleForOrganization", {})
   .n("ObservabilityAdminClient", "DeleteCentralizationRuleForOrganizationCommand")
-  .sc(DeleteCentralizationRuleForOrganization)
+  .sc(DeleteCentralizationRuleForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

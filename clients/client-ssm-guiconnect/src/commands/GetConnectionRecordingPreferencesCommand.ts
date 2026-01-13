@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetConnectionRecordingPreferencesResponse } from "../models/models_0";
-import { GetConnectionRecordingPreferences } from "../schemas/schemas_0";
+import { GetConnectionRecordingPreferences$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMGuiConnectClientResolvedConfig } from "../SSMGuiConnectClient";
 
 /**
@@ -24,9 +24,7 @@ export interface GetConnectionRecordingPreferencesCommandInput {}
  *
  * The output of {@link GetConnectionRecordingPreferencesCommand}.
  */
-export interface GetConnectionRecordingPreferencesCommandOutput
-  extends GetConnectionRecordingPreferencesResponse,
-    __MetadataBearer {}
+export interface GetConnectionRecordingPreferencesCommandOutput extends GetConnectionRecordingPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the preferences specified for recording RDP connections in the requesting Amazon Web Services account and Amazon Web Services Region.</p>
@@ -129,7 +127,7 @@ export class GetConnectionRecordingPreferencesCommand extends $Command
   })
   .s("SSMGuiConnect", "GetConnectionRecordingPreferences", {})
   .n("SSMGuiConnectClient", "GetConnectionRecordingPreferencesCommand")
-  .sc(GetConnectionRecordingPreferences)
+  .sc(GetConnectionRecordingPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

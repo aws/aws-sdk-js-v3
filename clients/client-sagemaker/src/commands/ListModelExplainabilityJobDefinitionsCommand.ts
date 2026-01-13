@@ -9,7 +9,7 @@ import type {
   ListModelExplainabilityJobDefinitionsResponse,
 } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListModelExplainabilityJobDefinitions } from "../schemas/schemas_0";
+import { ListModelExplainabilityJobDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListModelExplainabilityJobDefinitionsCommand}.
  */
-export interface ListModelExplainabilityJobDefinitionsCommandInput
-  extends ListModelExplainabilityJobDefinitionsRequest {}
+export interface ListModelExplainabilityJobDefinitionsCommandInput extends ListModelExplainabilityJobDefinitionsRequest {}
 /**
  * @public
  *
  * The output of {@link ListModelExplainabilityJobDefinitionsCommand}.
  */
-export interface ListModelExplainabilityJobDefinitionsCommandOutput
-  extends ListModelExplainabilityJobDefinitionsResponse,
-    __MetadataBearer {}
+export interface ListModelExplainabilityJobDefinitionsCommandOutput extends ListModelExplainabilityJobDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists model explainability job definitions that satisfy various filters.</p>
@@ -94,7 +91,7 @@ export class ListModelExplainabilityJobDefinitionsCommand extends $Command
   })
   .s("SageMaker", "ListModelExplainabilityJobDefinitions", {})
   .n("SageMakerClient", "ListModelExplainabilityJobDefinitionsCommand")
-  .sc(ListModelExplainabilityJobDefinitions)
+  .sc(ListModelExplainabilityJobDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

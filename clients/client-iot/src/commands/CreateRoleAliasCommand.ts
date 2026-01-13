@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { CreateRoleAliasRequest, CreateRoleAliasResponse } from "../models/models_0";
-import { CreateRoleAlias } from "../schemas/schemas_0";
+import { CreateRoleAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class CreateRoleAliasCommand extends $Command
   })
   .s("AWSIotService", "CreateRoleAlias", {})
   .n("IoTClient", "CreateRoleAliasCommand")
-  .sc(CreateRoleAlias)
+  .sc(CreateRoleAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

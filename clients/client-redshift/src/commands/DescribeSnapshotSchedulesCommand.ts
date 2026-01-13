@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeSnapshotSchedulesMessage, DescribeSnapshotSchedulesOutputMessage } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeSnapshotSchedules } from "../schemas/schemas_0";
+import { DescribeSnapshotSchedules$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeSnapshotSchedulesCommandInput extends DescribeSnapshotS
  *
  * The output of {@link DescribeSnapshotSchedulesCommand}.
  */
-export interface DescribeSnapshotSchedulesCommandOutput
-  extends DescribeSnapshotSchedulesOutputMessage,
-    __MetadataBearer {}
+export interface DescribeSnapshotSchedulesCommandOutput extends DescribeSnapshotSchedulesOutputMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of snapshot schedules. </p>
@@ -109,7 +107,7 @@ export class DescribeSnapshotSchedulesCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DescribeSnapshotSchedules", {})
   .n("RedshiftClient", "DescribeSnapshotSchedulesCommand")
-  .sc(DescribeSnapshotSchedules)
+  .sc(DescribeSnapshotSchedules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

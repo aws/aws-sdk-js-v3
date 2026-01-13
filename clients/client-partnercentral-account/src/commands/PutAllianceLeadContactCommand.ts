@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralAccountClient";
-import { PutAllianceLeadContact } from "../schemas/schemas_0";
+import { PutAllianceLeadContact$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class PutAllianceLeadContactCommand extends $Command
   })
   .s("PartnerCentralAccount", "PutAllianceLeadContact", {})
   .n("PartnerCentralAccountClient", "PutAllianceLeadContactCommand")
-  .sc(PutAllianceLeadContact)
+  .sc(PutAllianceLeadContact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

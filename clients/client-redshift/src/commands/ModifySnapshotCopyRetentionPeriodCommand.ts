@@ -9,7 +9,7 @@ import type {
   ModifySnapshotCopyRetentionPeriodResult,
 } from "../models/models_1";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { ModifySnapshotCopyRetentionPeriod } from "../schemas/schemas_0";
+import { ModifySnapshotCopyRetentionPeriod$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ModifySnapshotCopyRetentionPeriodCommandInput extends ModifySna
  *
  * The output of {@link ModifySnapshotCopyRetentionPeriodCommand}.
  */
-export interface ModifySnapshotCopyRetentionPeriodCommandOutput
-  extends ModifySnapshotCopyRetentionPeriodResult,
-    __MetadataBearer {}
+export interface ModifySnapshotCopyRetentionPeriodCommandOutput extends ModifySnapshotCopyRetentionPeriodResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the number of days to retain snapshots in the destination Amazon Web Services Region after
@@ -294,7 +292,7 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "ModifySnapshotCopyRetentionPeriod", {})
   .n("RedshiftClient", "ModifySnapshotCopyRetentionPeriodCommand")
-  .sc(ModifySnapshotCopyRetentionPeriod)
+  .sc(ModifySnapshotCopyRetentionPeriod$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

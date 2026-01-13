@@ -9,7 +9,7 @@ import type {
   AssociateAwsAccountWithPartnerAccountRequest,
   AssociateAwsAccountWithPartnerAccountResponse,
 } from "../models/models_0";
-import { AssociateAwsAccountWithPartnerAccount } from "../schemas/schemas_0";
+import { AssociateAwsAccountWithPartnerAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AssociateAwsAccountWithPartnerAccountCommand}.
  */
-export interface AssociateAwsAccountWithPartnerAccountCommandInput
-  extends AssociateAwsAccountWithPartnerAccountRequest {}
+export interface AssociateAwsAccountWithPartnerAccountCommandInput extends AssociateAwsAccountWithPartnerAccountRequest {}
 /**
  * @public
  *
  * The output of {@link AssociateAwsAccountWithPartnerAccountCommand}.
  */
-export interface AssociateAwsAccountWithPartnerAccountCommandOutput
-  extends AssociateAwsAccountWithPartnerAccountResponse,
-    __MetadataBearer {}
+export interface AssociateAwsAccountWithPartnerAccountCommandOutput extends AssociateAwsAccountWithPartnerAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a partner account with your AWS account.</p>
@@ -111,7 +108,7 @@ export class AssociateAwsAccountWithPartnerAccountCommand extends $Command
   })
   .s("iotwireless", "AssociateAwsAccountWithPartnerAccount", {})
   .n("IoTWirelessClient", "AssociateAwsAccountWithPartnerAccountCommand")
-  .sc(AssociateAwsAccountWithPartnerAccount)
+  .sc(AssociateAwsAccountWithPartnerAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

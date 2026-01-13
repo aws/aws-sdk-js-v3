@@ -10,7 +10,7 @@ import type {
 } from "../CostOptimizationHubClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListEnrollmentStatusesRequest, ListEnrollmentStatusesResponse } from "../models/models_0";
-import { ListEnrollmentStatuses } from "../schemas/schemas_0";
+import { ListEnrollmentStatuses$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class ListEnrollmentStatusesCommand extends $Command
   })
   .s("CostOptimizationHubService", "ListEnrollmentStatuses", {})
   .n("CostOptimizationHubClient", "ListEnrollmentStatusesCommand")
-  .sc(ListEnrollmentStatuses)
+  .sc(ListEnrollmentStatuses$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

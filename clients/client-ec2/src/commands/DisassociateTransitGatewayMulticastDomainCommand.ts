@@ -9,7 +9,7 @@ import type {
   DisassociateTransitGatewayMulticastDomainRequest,
   DisassociateTransitGatewayMulticastDomainResult,
 } from "../models/models_5";
-import { DisassociateTransitGatewayMulticastDomain } from "../schemas/schemas_0";
+import { DisassociateTransitGatewayMulticastDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateTransitGatewayMulticastDomainCommand}.
  */
-export interface DisassociateTransitGatewayMulticastDomainCommandInput
-  extends DisassociateTransitGatewayMulticastDomainRequest {}
+export interface DisassociateTransitGatewayMulticastDomainCommandInput extends DisassociateTransitGatewayMulticastDomainRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateTransitGatewayMulticastDomainCommand}.
  */
-export interface DisassociateTransitGatewayMulticastDomainCommandOutput
-  extends DisassociateTransitGatewayMulticastDomainResult,
-    __MetadataBearer {}
+export interface DisassociateTransitGatewayMulticastDomainCommandOutput extends DisassociateTransitGatewayMulticastDomainResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified subnets from the transit gateway multicast domain. </p>
@@ -96,7 +93,7 @@ export class DisassociateTransitGatewayMulticastDomainCommand extends $Command
   })
   .s("AmazonEC2", "DisassociateTransitGatewayMulticastDomain", {})
   .n("EC2Client", "DisassociateTransitGatewayMulticastDomainCommand")
-  .sc(DisassociateTransitGatewayMulticastDomain)
+  .sc(DisassociateTransitGatewayMulticastDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

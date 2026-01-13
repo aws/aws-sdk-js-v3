@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { Route53RecoveryControlConfigServiceException as __BaseException } from "./Route53RecoveryControlConfigServiceException";
+import {
+  Route53RecoveryControlConfigServiceException as __BaseException,
+} from "./Route53RecoveryControlConfigServiceException";
 
 /**
  * <p>403 response - You do not have sufficient access to perform this action.</p>

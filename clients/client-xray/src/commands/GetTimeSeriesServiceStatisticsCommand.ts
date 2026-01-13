@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTimeSeriesServiceStatisticsRequest, GetTimeSeriesServiceStatisticsResult } from "../models/models_0";
-import { GetTimeSeriesServiceStatistics } from "../schemas/schemas_0";
+import { GetTimeSeriesServiceStatistics$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -24,9 +24,7 @@ export interface GetTimeSeriesServiceStatisticsCommandInput extends GetTimeSerie
  *
  * The output of {@link GetTimeSeriesServiceStatisticsCommand}.
  */
-export interface GetTimeSeriesServiceStatisticsCommandOutput
-  extends GetTimeSeriesServiceStatisticsResult,
-    __MetadataBearer {}
+export interface GetTimeSeriesServiceStatisticsCommandOutput extends GetTimeSeriesServiceStatisticsResult, __MetadataBearer {}
 
 /**
  * <p>Get an aggregation of service statistics defined by a specific time
@@ -133,7 +131,7 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command
   })
   .s("AWSXRay", "GetTimeSeriesServiceStatistics", {})
   .n("XRayClient", "GetTimeSeriesServiceStatisticsCommand")
-  .sc(GetTimeSeriesServiceStatistics)
+  .sc(GetTimeSeriesServiceStatistics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
 import type { CreateDatasetRequest, CreateDatasetResponse } from "../models/models_0";
-import { CreateDataset } from "../schemas/schemas_0";
+import { CreateDataset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -191,7 +191,7 @@ export class CreateDatasetCommand extends $Command
   })
   .s("AWSIoTAnalytics", "CreateDataset", {})
   .n("IoTAnalyticsClient", "CreateDatasetCommand")
-  .sc(CreateDataset)
+  .sc(CreateDataset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

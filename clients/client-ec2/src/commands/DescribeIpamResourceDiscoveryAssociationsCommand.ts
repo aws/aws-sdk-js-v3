@@ -9,7 +9,7 @@ import type {
   DescribeIpamResourceDiscoveryAssociationsRequest,
   DescribeIpamResourceDiscoveryAssociationsResult,
 } from "../models/models_4";
-import { DescribeIpamResourceDiscoveryAssociations } from "../schemas/schemas_0";
+import { DescribeIpamResourceDiscoveryAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeIpamResourceDiscoveryAssociationsCommand}.
  */
-export interface DescribeIpamResourceDiscoveryAssociationsCommandInput
-  extends DescribeIpamResourceDiscoveryAssociationsRequest {}
+export interface DescribeIpamResourceDiscoveryAssociationsCommandInput extends DescribeIpamResourceDiscoveryAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeIpamResourceDiscoveryAssociationsCommand}.
  */
-export interface DescribeIpamResourceDiscoveryAssociationsCommandOutput
-  extends DescribeIpamResourceDiscoveryAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeIpamResourceDiscoveryAssociationsCommandOutput extends DescribeIpamResourceDiscoveryAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes resource discovery association with an Amazon VPC IPAM. An associated resource discovery is a resource discovery that has been associated with an IPAM..</p>
@@ -112,7 +109,7 @@ export class DescribeIpamResourceDiscoveryAssociationsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeIpamResourceDiscoveryAssociations", {})
   .n("EC2Client", "DescribeIpamResourceDiscoveryAssociationsCommand")
-  .sc(DescribeIpamResourceDiscoveryAssociations)
+  .sc(DescribeIpamResourceDiscoveryAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

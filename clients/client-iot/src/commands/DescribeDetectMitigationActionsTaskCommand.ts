@@ -9,7 +9,7 @@ import type {
   DescribeDetectMitigationActionsTaskRequest,
   DescribeDetectMitigationActionsTaskResponse,
 } from "../models/models_1";
-import { DescribeDetectMitigationActionsTask } from "../schemas/schemas_0";
+import { DescribeDetectMitigationActionsTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeDetectMitigationActionsTaskCommandInput extends Describ
  *
  * The output of {@link DescribeDetectMitigationActionsTaskCommand}.
  */
-export interface DescribeDetectMitigationActionsTaskCommandOutput
-  extends DescribeDetectMitigationActionsTaskResponse,
-    __MetadataBearer {}
+export interface DescribeDetectMitigationActionsTaskCommandOutput extends DescribeDetectMitigationActionsTaskResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -147,7 +145,7 @@ export class DescribeDetectMitigationActionsTaskCommand extends $Command
   })
   .s("AWSIotService", "DescribeDetectMitigationActionsTask", {})
   .n("IoTClient", "DescribeDetectMitigationActionsTaskCommand")
-  .sc(DescribeDetectMitigationActionsTask)
+  .sc(DescribeDetectMitigationActionsTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

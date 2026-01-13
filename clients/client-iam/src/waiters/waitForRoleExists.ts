@@ -7,7 +7,7 @@ import { IAMClient } from "../IAMClient";
 const checkState = async (client: IAMClient, input: GetRoleCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetRoleCommand(input));
+    let result: any = await client.send(new GetRoleCommand(input));
     reason = result;
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {

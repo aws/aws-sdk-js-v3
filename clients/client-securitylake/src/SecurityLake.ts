@@ -231,7 +231,10 @@ export interface SecurityLake {
     args: CreateDataLakeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDataLakeCommandOutput>;
-  createDataLake(args: CreateDataLakeCommandInput, cb: (err: any, data?: CreateDataLakeCommandOutput) => void): void;
+  createDataLake(
+    args: CreateDataLakeCommandInput,
+    cb: (err: any, data?: CreateDataLakeCommandOutput) => void
+  ): void;
   createDataLake(
     args: CreateDataLakeCommandInput,
     options: __HttpHandlerOptions,
@@ -348,7 +351,10 @@ export interface SecurityLake {
     args: DeleteDataLakeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDataLakeCommandOutput>;
-  deleteDataLake(args: DeleteDataLakeCommandInput, cb: (err: any, data?: DeleteDataLakeCommandOutput) => void): void;
+  deleteDataLake(
+    args: DeleteDataLakeCommandInput,
+    cb: (err: any, data?: DeleteDataLakeCommandOutput) => void
+  ): void;
   deleteDataLake(
     args: DeleteDataLakeCommandInput,
     options: __HttpHandlerOptions,
@@ -500,8 +506,14 @@ export interface SecurityLake {
   /**
    * @see {@link GetSubscriberCommand}
    */
-  getSubscriber(args: GetSubscriberCommandInput, options?: __HttpHandlerOptions): Promise<GetSubscriberCommandOutput>;
-  getSubscriber(args: GetSubscriberCommandInput, cb: (err: any, data?: GetSubscriberCommandOutput) => void): void;
+  getSubscriber(
+    args: GetSubscriberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSubscriberCommandOutput>;
+  getSubscriber(
+    args: GetSubscriberCommandInput,
+    cb: (err: any, data?: GetSubscriberCommandOutput) => void
+  ): void;
   getSubscriber(
     args: GetSubscriberCommandInput,
     options: __HttpHandlerOptions,
@@ -530,8 +542,14 @@ export interface SecurityLake {
    * @see {@link ListDataLakesCommand}
    */
   listDataLakes(): Promise<ListDataLakesCommandOutput>;
-  listDataLakes(args: ListDataLakesCommandInput, options?: __HttpHandlerOptions): Promise<ListDataLakesCommandOutput>;
-  listDataLakes(args: ListDataLakesCommandInput, cb: (err: any, data?: ListDataLakesCommandOutput) => void): void;
+  listDataLakes(
+    args: ListDataLakesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataLakesCommandOutput>;
+  listDataLakes(
+    args: ListDataLakesCommandInput,
+    cb: (err: any, data?: ListDataLakesCommandOutput) => void
+  ): void;
   listDataLakes(
     args: ListDataLakesCommandInput,
     options: __HttpHandlerOptions,
@@ -546,7 +564,10 @@ export interface SecurityLake {
     args: ListLogSourcesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListLogSourcesCommandOutput>;
-  listLogSources(args: ListLogSourcesCommandInput, cb: (err: any, data?: ListLogSourcesCommandOutput) => void): void;
+  listLogSources(
+    args: ListLogSourcesCommandInput,
+    cb: (err: any, data?: ListLogSourcesCommandOutput) => void
+  ): void;
   listLogSources(
     args: ListLogSourcesCommandInput,
     options: __HttpHandlerOptions,
@@ -561,7 +582,10 @@ export interface SecurityLake {
     args: ListSubscribersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListSubscribersCommandOutput>;
-  listSubscribers(args: ListSubscribersCommandInput, cb: (err: any, data?: ListSubscribersCommandOutput) => void): void;
+  listSubscribers(
+    args: ListSubscribersCommandInput,
+    cb: (err: any, data?: ListSubscribersCommandOutput) => void
+  ): void;
   listSubscribers(
     args: ListSubscribersCommandInput,
     options: __HttpHandlerOptions,
@@ -605,8 +629,14 @@ export interface SecurityLake {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -616,8 +646,14 @@ export interface SecurityLake {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -631,7 +667,10 @@ export interface SecurityLake {
     args: UpdateDataLakeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateDataLakeCommandOutput>;
-  updateDataLake(args: UpdateDataLakeCommandInput, cb: (err: any, data?: UpdateDataLakeCommandOutput) => void): void;
+  updateDataLake(
+    args: UpdateDataLakeCommandInput,
+    cb: (err: any, data?: UpdateDataLakeCommandOutput) => void
+  ): void;
   updateDataLake(
     args: UpdateDataLakeCommandInput,
     options: __HttpHandlerOptions,

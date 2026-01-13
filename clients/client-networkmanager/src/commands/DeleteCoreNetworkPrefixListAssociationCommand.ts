@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { DeleteCoreNetworkPrefixListAssociation } from "../schemas/schemas_0";
+import { DeleteCoreNetworkPrefixListAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DeleteCoreNetworkPrefixListAssociationCommand}.
  */
-export interface DeleteCoreNetworkPrefixListAssociationCommandInput
-  extends DeleteCoreNetworkPrefixListAssociationRequest {}
+export interface DeleteCoreNetworkPrefixListAssociationCommandInput extends DeleteCoreNetworkPrefixListAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteCoreNetworkPrefixListAssociationCommand}.
  */
-export interface DeleteCoreNetworkPrefixListAssociationCommandOutput
-  extends DeleteCoreNetworkPrefixListAssociationResponse,
-    __MetadataBearer {}
+export interface DeleteCoreNetworkPrefixListAssociationCommandOutput extends DeleteCoreNetworkPrefixListAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an association between a core network and a prefix list.</p>
@@ -107,7 +104,7 @@ export class DeleteCoreNetworkPrefixListAssociationCommand extends $Command
   })
   .s("NetworkManager", "DeleteCoreNetworkPrefixListAssociation", {})
   .n("NetworkManagerClient", "DeleteCoreNetworkPrefixListAssociationCommand")
-  .sc(DeleteCoreNetworkPrefixListAssociation)
+  .sc(DeleteCoreNetworkPrefixListAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

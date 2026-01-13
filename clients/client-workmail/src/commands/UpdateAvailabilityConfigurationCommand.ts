@@ -8,7 +8,7 @@ import type {
   UpdateAvailabilityConfigurationRequest,
   UpdateAvailabilityConfigurationResponse,
 } from "../models/models_0";
-import { UpdateAvailabilityConfiguration } from "../schemas/schemas_0";
+import { UpdateAvailabilityConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -27,9 +27,7 @@ export interface UpdateAvailabilityConfigurationCommandInput extends UpdateAvail
  *
  * The output of {@link UpdateAvailabilityConfigurationCommand}.
  */
-export interface UpdateAvailabilityConfigurationCommandOutput
-  extends UpdateAvailabilityConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateAvailabilityConfigurationCommandOutput extends UpdateAvailabilityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing <code>AvailabilityConfiguration</code> for the given WorkMail
@@ -100,7 +98,7 @@ export class UpdateAvailabilityConfigurationCommand extends $Command
   })
   .s("WorkMailService", "UpdateAvailabilityConfiguration", {})
   .n("WorkMailClient", "UpdateAvailabilityConfigurationCommand")
-  .sc(UpdateAvailabilityConfiguration)
+  .sc(UpdateAvailabilityConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

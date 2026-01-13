@@ -9,7 +9,7 @@ import type {
   UpdateCloudFrontOriginAccessIdentityRequest,
   UpdateCloudFrontOriginAccessIdentityResult,
 } from "../models/models_1";
-import { UpdateCloudFrontOriginAccessIdentity } from "../schemas/schemas_0";
+import { UpdateCloudFrontOriginAccessIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandInput extends Update
  *
  * The output of {@link UpdateCloudFrontOriginAccessIdentityCommand}.
  */
-export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
-  extends UpdateCloudFrontOriginAccessIdentityResult,
-    __MetadataBearer {}
+export interface UpdateCloudFrontOriginAccessIdentityCommandOutput extends UpdateCloudFrontOriginAccessIdentityResult, __MetadataBearer {}
 
 /**
  * <p>Update an origin access identity.</p>
@@ -115,7 +113,7 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "UpdateCloudFrontOriginAccessIdentity", {})
   .n("CloudFrontClient", "UpdateCloudFrontOriginAccessIdentityCommand")
-  .sc(UpdateCloudFrontOriginAccessIdentity)
+  .sc(UpdateCloudFrontOriginAccessIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

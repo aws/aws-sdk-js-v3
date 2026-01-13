@@ -8,7 +8,7 @@ import type {
   DisassociateTagOptionFromResourceInput,
   DisassociateTagOptionFromResourceOutput,
 } from "../models/models_0";
-import { DisassociateTagOptionFromResource } from "../schemas/schemas_0";
+import { DisassociateTagOptionFromResource$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -31,9 +31,7 @@ export interface DisassociateTagOptionFromResourceCommandInput extends Disassoci
  *
  * The output of {@link DisassociateTagOptionFromResourceCommand}.
  */
-export interface DisassociateTagOptionFromResourceCommandOutput
-  extends DisassociateTagOptionFromResourceOutput,
-    __MetadataBearer {}
+export interface DisassociateTagOptionFromResourceCommandOutput extends DisassociateTagOptionFromResourceOutput, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified TagOption from the specified resource.</p>
@@ -89,7 +87,7 @@ export class DisassociateTagOptionFromResourceCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "DisassociateTagOptionFromResource", {})
   .n("ServiceCatalogClient", "DisassociateTagOptionFromResourceCommand")
-  .sc(DisassociateTagOptionFromResource)
+  .sc(DisassociateTagOptionFromResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

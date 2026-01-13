@@ -9,7 +9,7 @@ import type {
   GetTableMaintenanceConfigurationResponse,
 } from "../models/models_0";
 import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
-import { GetTableMaintenanceConfiguration } from "../schemas/schemas_0";
+import { GetTableMaintenanceConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetTableMaintenanceConfigurationCommandInput extends GetTableMa
  *
  * The output of {@link GetTableMaintenanceConfigurationCommand}.
  */
-export interface GetTableMaintenanceConfigurationCommandOutput
-  extends GetTableMaintenanceConfigurationResponse,
-    __MetadataBearer {}
+export interface GetTableMaintenanceConfigurationCommandOutput extends GetTableMaintenanceConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets details about the maintenance configuration of a table. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-maintenance.html">S3 Tables maintenance</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <ul> <li> <p>You must have the <code>s3tables:GetTableMaintenanceConfiguration</code> permission to use this operation. </p> </li> <li> <p>You must have the <code>s3tables:GetTableData</code> permission to use set the compaction strategy to <code>sort</code> or <code>zorder</code>.</p> </li> </ul> </dd> </dl>
@@ -113,7 +111,7 @@ export class GetTableMaintenanceConfigurationCommand extends $Command
   })
   .s("S3TableBuckets", "GetTableMaintenanceConfiguration", {})
   .n("S3TablesClient", "GetTableMaintenanceConfigurationCommand")
-  .sc(GetTableMaintenanceConfiguration)
+  .sc(GetTableMaintenanceConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

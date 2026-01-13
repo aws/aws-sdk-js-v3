@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { ListEngagementResourceAssociations } from "../schemas/schemas_0";
+import { ListEngagementResourceAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ListEngagementResourceAssociationsCommandInput extends ListEnga
  *
  * The output of {@link ListEngagementResourceAssociationsCommand}.
  */
-export interface ListEngagementResourceAssociationsCommandOutput
-  extends ListEngagementResourceAssociationsResponse,
-    __MetadataBearer {}
+export interface ListEngagementResourceAssociationsCommandOutput extends ListEngagementResourceAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the associations between resources and engagements where the caller is a member and has at least one snapshot in the engagement.</p>
@@ -112,7 +110,7 @@ export class ListEngagementResourceAssociationsCommand extends $Command
   })
   .s("AWSPartnerCentralSelling", "ListEngagementResourceAssociations", {})
   .n("PartnerCentralSellingClient", "ListEngagementResourceAssociationsCommand")
-  .sc(ListEngagementResourceAssociations)
+  .sc(ListEngagementResourceAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -386,7 +386,10 @@ export interface M2 {
     args: GetApplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetApplicationCommandOutput>;
-  getApplication(args: GetApplicationCommandInput, cb: (err: any, data?: GetApplicationCommandOutput) => void): void;
+  getApplication(
+    args: GetApplicationCommandInput,
+    cb: (err: any, data?: GetApplicationCommandOutput) => void
+  ): void;
   getApplication(
     args: GetApplicationCommandInput,
     options: __HttpHandlerOptions,
@@ -481,8 +484,14 @@ export interface M2 {
   /**
    * @see {@link GetDeploymentCommand}
    */
-  getDeployment(args: GetDeploymentCommandInput, options?: __HttpHandlerOptions): Promise<GetDeploymentCommandOutput>;
-  getDeployment(args: GetDeploymentCommandInput, cb: (err: any, data?: GetDeploymentCommandOutput) => void): void;
+  getDeployment(
+    args: GetDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeploymentCommandOutput>;
+  getDeployment(
+    args: GetDeploymentCommandInput,
+    cb: (err: any, data?: GetDeploymentCommandOutput) => void
+  ): void;
   getDeployment(
     args: GetDeploymentCommandInput,
     options: __HttpHandlerOptions,
@@ -496,7 +505,10 @@ export interface M2 {
     args: GetEnvironmentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEnvironmentCommandOutput>;
-  getEnvironment(args: GetEnvironmentCommandInput, cb: (err: any, data?: GetEnvironmentCommandOutput) => void): void;
+  getEnvironment(
+    args: GetEnvironmentCommandInput,
+    cb: (err: any, data?: GetEnvironmentCommandOutput) => void
+  ): void;
   getEnvironment(
     args: GetEnvironmentCommandInput,
     options: __HttpHandlerOptions,
@@ -644,8 +656,14 @@ export interface M2 {
   /**
    * @see {@link ListDataSetsCommand}
    */
-  listDataSets(args: ListDataSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDataSetsCommandOutput>;
-  listDataSets(args: ListDataSetsCommandInput, cb: (err: any, data?: ListDataSetsCommandOutput) => void): void;
+  listDataSets(
+    args: ListDataSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataSetsCommandOutput>;
+  listDataSets(
+    args: ListDataSetsCommandInput,
+    cb: (err: any, data?: ListDataSetsCommandOutput) => void
+  ): void;
   listDataSets(
     args: ListDataSetsCommandInput,
     options: __HttpHandlerOptions,
@@ -659,7 +677,10 @@ export interface M2 {
     args: ListDeploymentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDeploymentsCommandOutput>;
-  listDeployments(args: ListDeploymentsCommandInput, cb: (err: any, data?: ListDeploymentsCommandOutput) => void): void;
+  listDeployments(
+    args: ListDeploymentsCommandInput,
+    cb: (err: any, data?: ListDeploymentsCommandOutput) => void
+  ): void;
   listDeployments(
     args: ListDeploymentsCommandInput,
     options: __HttpHandlerOptions,
@@ -739,8 +760,14 @@ export interface M2 {
   /**
    * @see {@link StartBatchJobCommand}
    */
-  startBatchJob(args: StartBatchJobCommandInput, options?: __HttpHandlerOptions): Promise<StartBatchJobCommandOutput>;
-  startBatchJob(args: StartBatchJobCommandInput, cb: (err: any, data?: StartBatchJobCommandOutput) => void): void;
+  startBatchJob(
+    args: StartBatchJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartBatchJobCommandOutput>;
+  startBatchJob(
+    args: StartBatchJobCommandInput,
+    cb: (err: any, data?: StartBatchJobCommandOutput) => void
+  ): void;
   startBatchJob(
     args: StartBatchJobCommandInput,
     options: __HttpHandlerOptions,
@@ -754,7 +781,10 @@ export interface M2 {
     args: StopApplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopApplicationCommandOutput>;
-  stopApplication(args: StopApplicationCommandInput, cb: (err: any, data?: StopApplicationCommandOutput) => void): void;
+  stopApplication(
+    args: StopApplicationCommandInput,
+    cb: (err: any, data?: StopApplicationCommandOutput) => void
+  ): void;
   stopApplication(
     args: StopApplicationCommandInput,
     options: __HttpHandlerOptions,
@@ -764,8 +794,14 @@ export interface M2 {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -775,8 +811,14 @@ export interface M2 {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

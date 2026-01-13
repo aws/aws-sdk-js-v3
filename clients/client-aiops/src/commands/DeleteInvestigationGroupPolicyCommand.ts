@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AIOpsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AIOpsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteInvestigationGroupPolicyOutput, DeleteInvestigationGroupPolicyRequest } from "../models/models_0";
-import { DeleteInvestigationGroupPolicy } from "../schemas/schemas_0";
+import { DeleteInvestigationGroupPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteInvestigationGroupPolicyCommandInput extends DeleteInvest
  *
  * The output of {@link DeleteInvestigationGroupPolicyCommand}.
  */
-export interface DeleteInvestigationGroupPolicyCommandOutput
-  extends DeleteInvestigationGroupPolicyOutput,
-    __MetadataBearer {}
+export interface DeleteInvestigationGroupPolicyCommandOutput extends DeleteInvestigationGroupPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Removes the IAM resource policy from being associated with the investigation group that you specify.</p>
@@ -94,7 +92,7 @@ export class DeleteInvestigationGroupPolicyCommand extends $Command
   })
   .s("AIOps", "DeleteInvestigationGroupPolicy", {})
   .n("AIOpsClient", "DeleteInvestigationGroupPolicyCommand")
-  .sc(DeleteInvestigationGroupPolicy)
+  .sc(DeleteInvestigationGroupPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

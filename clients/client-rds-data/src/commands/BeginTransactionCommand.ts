@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BeginTransactionRequest, BeginTransactionResponse } from "../models/models_0";
 import type { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
-import { BeginTransaction } from "../schemas/schemas_0";
+import { BeginTransaction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -143,7 +143,7 @@ export class BeginTransactionCommand extends $Command
   })
   .s("RdsDataService", "BeginTransaction", {})
   .n("RDSDataClient", "BeginTransactionCommand")
-  .sc(BeginTransaction)
+  .sc(BeginTransaction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

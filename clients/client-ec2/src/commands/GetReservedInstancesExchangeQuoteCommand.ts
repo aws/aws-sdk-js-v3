@@ -9,7 +9,7 @@ import type {
   GetReservedInstancesExchangeQuoteRequest,
   GetReservedInstancesExchangeQuoteResult,
 } from "../models/models_6";
-import { GetReservedInstancesExchangeQuote } from "../schemas/schemas_0";
+import { GetReservedInstancesExchangeQuote$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetReservedInstancesExchangeQuoteCommandInput extends GetReserv
  *
  * The output of {@link GetReservedInstancesExchangeQuoteCommand}.
  */
-export interface GetReservedInstancesExchangeQuoteCommandOutput
-  extends GetReservedInstancesExchangeQuoteResult,
-    __MetadataBearer {}
+export interface GetReservedInstancesExchangeQuoteCommandOutput extends GetReservedInstancesExchangeQuoteResult, __MetadataBearer {}
 
 /**
  * <p>Returns a quote and exchange information for exchanging one or more specified Convertible
@@ -126,7 +124,7 @@ export class GetReservedInstancesExchangeQuoteCommand extends $Command
   })
   .s("AmazonEC2", "GetReservedInstancesExchangeQuote", {})
   .n("EC2Client", "GetReservedInstancesExchangeQuoteCommand")
-  .sc(GetReservedInstancesExchangeQuote)
+  .sc(GetReservedInstancesExchangeQuote$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -369,6 +369,9 @@
           "target": "com.amazonaws.arcregionswitch#ListRoute53HealthChecks"
         },
         {
+          "target": "com.amazonaws.arcregionswitch#ListRoute53HealthChecksInRegion"
+        },
+        {
           "target": "com.amazonaws.arcregionswitch#StartPlanExecution"
         },
         {
@@ -426,24 +429,24 @@
               "required": true,
               "default": false,
               "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
-              "type": "Boolean"
+              "type": "boolean"
             },
             "Endpoint": {
               "builtIn": "SDK::Endpoint",
               "required": false,
               "documentation": "Override the endpoint used to send this request",
-              "type": "String"
+              "type": "string"
             },
             "Region": {
               "builtIn": "AWS::Region",
               "required": false,
               "documentation": "The AWS region used to dispatch the request.",
-              "type": "String"
+              "type": "string"
             },
             "UseControlPlaneEndpoint": {
               "required": false,
               "documentation": "Whether the operation is a control plane operation. Control plane operations are routed to a centralized endpoint in the partition leader.",
-              "type": "Boolean"
+              "type": "boolean"
             }
           },
           "rules": [
@@ -1284,7 +1287,7 @@
     "com.amazonaws.arcregionswitch#AsgArn": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "^arn:aws:autoscaling:[a-z0-9-]+:\\d{12}:autoScalingGroup:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}:autoScalingGroupName/[\\S\\s]{1,255}$"
+        "smithy.api#pattern": "^arn:aws[a-zA-Z-]*:autoscaling:[a-z0-9-]+:\\d{12}:autoScalingGroup:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}:autoScalingGroupName/[\\S\\s]{1,255}$"
       }
     },
     "com.amazonaws.arcregionswitch#AsgList": {
@@ -1481,6 +1484,12 @@
             "smithy.api#documentation": "<p>The triggers associated with a Region switch plan.</p>"
           }
         },
+        "reportConfiguration": {
+          "target": "com.amazonaws.arcregionswitch#ReportConfiguration",
+          "traits": {
+            "aws.cloudformation#cfnMutability": "full"
+          }
+        },
         "name": {
           "target": "com.amazonaws.arcregionswitch#PlanName",
           "traits": {
@@ -1631,6 +1640,124 @@
       "members": {},
       "traits": {
         "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.arcregionswitch#DocumentDbClusterArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^arn:aws[a-zA-Z-]*:rds:[a-z0-9-]+:\\d{12}:cluster:[a-zA-Z0-9][a-zA-Z0-9-_]{0,99}$"
+      }
+    },
+    "com.amazonaws.arcregionswitch#DocumentDbClusterArns": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.arcregionswitch#DocumentDbClusterArn"
+      }
+    },
+    "com.amazonaws.arcregionswitch#DocumentDbConfiguration": {
+      "type": "structure",
+      "members": {
+        "timeoutMinutes": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#default": 60,
+            "smithy.api#documentation": "<p>The timeout value specified for the configuration.</p>",
+            "smithy.api#range": {
+              "min": 1
+            }
+          }
+        },
+        "crossAccountRole": {
+          "target": "com.amazonaws.arcregionswitch#IamRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The cross account role for the configuration.</p>"
+          }
+        },
+        "externalId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The external ID (secret key) for the configuration.</p>"
+          }
+        },
+        "behavior": {
+          "target": "com.amazonaws.arcregionswitch#DocumentDbDefaultBehavior",
+          "traits": {
+            "smithy.api#default": "switchoverOnly",
+            "smithy.api#documentation": "<p>The behavior for a global cluster, that is, only allow switchover or also allow failover.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ungraceful": {
+          "target": "com.amazonaws.arcregionswitch#DocumentDbUngraceful",
+          "traits": {
+            "smithy.api#documentation": "<p>The settings for ungraceful execution.</p>"
+          }
+        },
+        "globalClusterIdentifier": {
+          "target": "com.amazonaws.arcregionswitch#DocumentDbGlobalClusterIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The global cluster identifier for a DocumentDB global cluster.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "databaseClusterArns": {
+          "target": "com.amazonaws.arcregionswitch#DocumentDbClusterArns",
+          "traits": {
+            "smithy.api#documentation": "<p>The database cluster Amazon Resource Names (ARNs) for a DocumentDB global cluster.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration for Amazon DocumentDB global clusters used in a Region switch plan.</p>"
+      }
+    },
+    "com.amazonaws.arcregionswitch#DocumentDbDefaultBehavior": {
+      "type": "enum",
+      "members": {
+        "SWITCHOVER_ONLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "switchoverOnly"
+          }
+        },
+        "FAILOVER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "failover"
+          }
+        }
+      }
+    },
+    "com.amazonaws.arcregionswitch#DocumentDbGlobalClusterIdentifier": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[A-Za-z][0-9A-Za-z-:._]*$"
+      }
+    },
+    "com.amazonaws.arcregionswitch#DocumentDbUngraceful": {
+      "type": "structure",
+      "members": {
+        "ungraceful": {
+          "target": "com.amazonaws.arcregionswitch#DocumentDbUngracefulBehavior",
+          "traits": {
+            "smithy.api#documentation": "<p>The settings for ungraceful execution.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration for handling failures when performing operations on DocumentDB global clusters.</p>"
+      }
+    },
+    "com.amazonaws.arcregionswitch#DocumentDbUngracefulBehavior": {
+      "type": "enum",
+      "members": {
+        "FAILOVER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "failover"
+          }
+        }
       }
     },
     "com.amazonaws.arcregionswitch#Duration": {
@@ -1785,13 +1912,13 @@
     "com.amazonaws.arcregionswitch#EcsClusterArn": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "^arn:aws:ecs:[a-z0-9-]+:\\d{12}:cluster/[a-zA-Z0-9_-]{1,255}$"
+        "smithy.api#pattern": "^arn:aws[a-zA-Z-]*:ecs:[a-z0-9-]+:\\d{12}:cluster/[a-zA-Z0-9_-]{1,255}$"
       }
     },
     "com.amazonaws.arcregionswitch#EcsServiceArn": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "^arn:aws:ecs:[a-z0-9-]+:\\d{12}:service/[a-zA-Z0-9_-]+/[a-zA-Z0-9_-]{1,255}$"
+        "smithy.api#pattern": "^arn:aws[a-zA-Z-]*:ecs:[a-z0-9-]+:\\d{12}:service/[a-zA-Z0-9_-]+/[a-zA-Z0-9_-]{1,255}$"
       }
     },
     "com.amazonaws.arcregionswitch#EcsUngraceful": {
@@ -2080,6 +2207,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Route 53 health check configuration.</p>"
           }
+        },
+        "documentDbConfig": {
+          "target": "com.amazonaws.arcregionswitch#DocumentDbConfiguration"
         }
       },
       "traits": {
@@ -2147,6 +2277,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "Route53HealthCheck"
+          }
+        },
+        "DOCUMENTDB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DocumentDb"
           }
         }
       }
@@ -2380,6 +2516,12 @@
           "traits": {
             "smithy.api#enumValue": "stepPendingApplicationHealthMonitor"
           }
+        },
+        "PLAN_EVALUATION_WARNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "planEvaluationWarning"
+          }
         }
       }
     },
@@ -2471,6 +2613,81 @@
           "traits": {
             "smithy.api#enumValue": "completedMonitoringApplicationHealth"
           }
+        }
+      }
+    },
+    "com.amazonaws.arcregionswitch#FailedReportErrorCode": {
+      "type": "enum",
+      "members": {
+        "INSUFFICIENT_PERMISSIONS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "insufficientPermissions"
+          }
+        },
+        "INVALID_RESOURCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "invalidResource"
+          }
+        },
+        "CONFIGURATION_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "configurationError"
+          }
+        }
+      }
+    },
+    "com.amazonaws.arcregionswitch#FailedReportOutput": {
+      "type": "structure",
+      "members": {
+        "errorCode": {
+          "target": "com.amazonaws.arcregionswitch#FailedReportErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code for the failed report generation.</p>"
+          }
+        },
+        "errorMessage": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message for the failed report generation.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about a report generation that failed.</p>"
+      }
+    },
+    "com.amazonaws.arcregionswitch#GeneratedReport": {
+      "type": "structure",
+      "members": {
+        "reportGenerationTime": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when the report was generated.</p>"
+          }
+        },
+        "reportOutput": {
+          "target": "com.amazonaws.arcregionswitch#ReportOutput",
+          "traits": {
+            "smithy.api#documentation": "<p>The output location or cause of a failure in report generation.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about a generated execution report.</p>"
+      }
+    },
+    "com.amazonaws.arcregionswitch#GeneratedReportDetails": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.arcregionswitch#GeneratedReport"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1
         }
       }
     },
@@ -2861,6 +3078,12 @@
           "target": "com.amazonaws.arcregionswitch#Duration",
           "traits": {
             "smithy.api#documentation": "<p>The actual recovery time that Region switch calculates for a plan execution. Actual recovery time includes the time for the plan to run added to the time elapsed until the application health alarms that you've specified are healthy again.</p>"
+          }
+        },
+        "generatedReportDetails": {
+          "target": "com.amazonaws.arcregionswitch#GeneratedReportDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the location of a generated report, or the cause of its failure.</p>"
           }
         },
         "nextToken": {
@@ -3644,6 +3867,135 @@
         }
       }
     },
+    "com.amazonaws.arcregionswitch#ListRoute53HealthChecksInRegion": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.arcregionswitch#ListRoute53HealthChecksInRegionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.arcregionswitch#ListRoute53HealthChecksInRegionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.arcregionswitch#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.arcregionswitch#IllegalArgumentException"
+        },
+        {
+          "target": "com.amazonaws.arcregionswitch#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.arcregionswitch#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "aws.iam#iamAction": {
+          "documentation": "Grants permission to list Route 53 health checks created by ARC region switch for a plan in a specific AWS Region using the Region switch Regional data plane"
+        },
+        "smithy.api#documentation": "<p>List the Amazon Route 53 health checks in a specific Amazon Web Services Region.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "Example ListRoute53HealthChecksInRegion",
+            "input": {
+              "arn": "arn:aws:arc-region-switch::123456789012:plan/example:000000",
+              "hostedZoneId": "Z0123456789ABCDEFGHI",
+              "recordName": "my.record.name",
+              "maxResults": 10,
+              "nextToken": "eyJNYXJrZXIiOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQiOiAxfQ"
+            },
+            "output": {
+              "healthChecks": [
+                {
+                  "hostedZoneId": "Z0123456789ABCDEFGHI",
+                  "recordName": "my.record.name",
+                  "healthCheckId": "01234567-8901-abcd-efgh-ijklmnop0123",
+                  "status": "healthy",
+                  "region": "us-west-2"
+                },
+                {
+                  "hostedZoneId": "Z0123456789ABCDEFGHI",
+                  "recordName": "my.record.name",
+                  "healthCheckId": "zyxwvuts-rqpo-9876-5432-10nmlkji0123",
+                  "status": "healthy",
+                  "region": "us-east-1"
+                }
+              ]
+            }
+          }
+        ],
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults",
+          "items": "healthChecks"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.arcregionswitch#ListRoute53HealthChecksInRegionRequest": {
+      "type": "structure",
+      "members": {
+        "arn": {
+          "target": "com.amazonaws.arcregionswitch#PlanArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Arc Region Switch Plan.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "hostedZoneId": {
+          "target": "com.amazonaws.arcregionswitch#Route53HostedZoneId",
+          "traits": {
+            "smithy.api#documentation": "<p>The hosted zone ID for the health checks.</p>"
+          }
+        },
+        "recordName": {
+          "target": "com.amazonaws.arcregionswitch#Route53RecordName",
+          "traits": {
+            "smithy.api#documentation": "<p>The record name for the health checks.</p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.arcregionswitch#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of objects that you want to return with this call.</p>",
+            "smithy.api#range": {
+              "min": 1,
+              "max": 100
+            }
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.arcregionswitch#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.arcregionswitch#ListRoute53HealthChecksInRegionResponse": {
+      "type": "structure",
+      "members": {
+        "healthChecks": {
+          "target": "com.amazonaws.arcregionswitch#Route53HealthCheckList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of the health checks requested.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.arcregionswitch#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.arcregionswitch#ListRoute53HealthChecksRequest": {
       "type": "structure",
       "members": {
@@ -3875,6 +4227,13 @@
           "traits": {
             "aws.cloudformation#cfnMutability": "full",
             "smithy.api#documentation": "<p>The triggers for a plan.</p>"
+          }
+        },
+        "reportConfiguration": {
+          "target": "com.amazonaws.arcregionswitch#ReportConfiguration",
+          "traits": {
+            "aws.cloudformation#cfnMutability": "full",
+            "smithy.api#documentation": "<p>The report configuration for a plan.</p>"
           }
         },
         "name": {
@@ -4109,6 +4468,66 @@
         "target": "com.amazonaws.arcregionswitch#KubernetesScalingResource"
       }
     },
+    "com.amazonaws.arcregionswitch#ReportConfiguration": {
+      "type": "structure",
+      "members": {
+        "reportOutput": {
+          "target": "com.amazonaws.arcregionswitch#ReportOutputList",
+          "traits": {
+            "smithy.api#documentation": "<p>The output configuration for the report.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration for automatic report generation for plan executions. When configured, Region switch automatically generates a report after each plan execution that includes execution events, plan configuration, and CloudWatch alarm states.</p>"
+      }
+    },
+    "com.amazonaws.arcregionswitch#ReportOutput": {
+      "type": "union",
+      "members": {
+        "s3ReportOutput": {
+          "target": "com.amazonaws.arcregionswitch#S3ReportOutput",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about a report delivered to Amazon S3.</p>"
+          }
+        },
+        "failedReportOutput": {
+          "target": "com.amazonaws.arcregionswitch#FailedReportOutput",
+          "traits": {
+            "smithy.api#documentation": "<p>The details about a failed report generation.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The output location or cause of a failure in report generation.</p>"
+      }
+    },
+    "com.amazonaws.arcregionswitch#ReportOutputConfiguration": {
+      "type": "union",
+      "members": {
+        "s3Configuration": {
+          "target": "com.amazonaws.arcregionswitch#S3ReportOutputConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Configuration for delivering reports to an Amazon S3 bucket.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration for report output destinations used in a Region switch plan.</p>"
+      }
+    },
+    "com.amazonaws.arcregionswitch#ReportOutputList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.arcregionswitch#ReportOutputConfiguration"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1
+        }
+      }
+    },
     "com.amazonaws.arcregionswitch#ResourceArn": {
       "type": "string"
     },
@@ -4231,6 +4650,12 @@
             "smithy.api#documentation": "<p>The Amazon Route 53 health check ID.</p>"
           }
         },
+        "status": {
+          "target": "com.amazonaws.arcregionswitch#Route53HealthCheckStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Route 53 health check status.</p>"
+          }
+        },
         "region": {
           "target": "com.amazonaws.arcregionswitch#Region",
           "traits": {
@@ -4308,6 +4733,29 @@
         "target": "com.amazonaws.arcregionswitch#Route53HealthCheck"
       }
     },
+    "com.amazonaws.arcregionswitch#Route53HealthCheckStatus": {
+      "type": "enum",
+      "members": {
+        "HEALTHY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "healthy"
+          }
+        },
+        "UNHEALTHY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "unhealthy"
+          }
+        },
+        "UNKNOWN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "unknown"
+          }
+        }
+      }
+    },
     "com.amazonaws.arcregionswitch#Route53HostedZoneId": {
       "type": "string",
       "traits": {
@@ -4379,6 +4827,45 @@
             "smithy.api#enumValue": "Off"
           }
         }
+      }
+    },
+    "com.amazonaws.arcregionswitch#S3ReportOutput": {
+      "type": "structure",
+      "members": {
+        "s3ObjectKey": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The S3 object key where the generated report is stored.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about a report delivered to Amazon S3.</p>"
+      }
+    },
+    "com.amazonaws.arcregionswitch#S3ReportOutputConfiguration": {
+      "type": "structure",
+      "members": {
+        "bucketPath": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The S3 bucket name and optional prefix where reports are stored. Format: bucket-name or bucket-name/prefix.</p>",
+            "smithy.api#length": {
+              "min": 3,
+              "max": 512
+            },
+            "smithy.api#pattern": "^(?:s3://)?[a-z0-9][a-z0-9-]{1,61}[a-z0-9](?:/[^/ ][^/]*)*/?$"
+          }
+        },
+        "bucketOwner": {
+          "target": "com.amazonaws.arcregionswitch#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services account ID that owns the S3 bucket. Required to ensure the bucket is still owned by the same expected owner at generation time.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration for delivering generated reports to an Amazon S3 bucket.</p>"
       }
     },
     "com.amazonaws.arcregionswitch#Service": {
@@ -5188,6 +5675,13 @@
           "traits": {
             "aws.cloudformation#cfnMutability": "full",
             "smithy.api#documentation": "<p>The updated conditions that can automatically trigger the execution of the plan.</p>"
+          }
+        },
+        "reportConfiguration": {
+          "target": "com.amazonaws.arcregionswitch#ReportConfiguration",
+          "traits": {
+            "aws.cloudformation#cfnMutability": "full",
+            "smithy.api#documentation": "<p>The updated report configuration for the plan.</p>"
           }
         }
       },

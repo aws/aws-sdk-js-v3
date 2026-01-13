@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateGatewayTargetRequest, UpdateGatewayTargetResponse } from "../models/models_1";
-import { UpdateGatewayTarget } from "../schemas/schemas_0";
+import { UpdateGatewayTarget$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -149,6 +149,17 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  *       },
  *     },
  *   ],
+ *   metadataConfiguration: { // MetadataConfiguration
+ *     allowedRequestHeaders: [ // AllowedRequestHeaders
+ *       "STRING_VALUE",
+ *     ],
+ *     allowedQueryParameters: [ // AllowedQueryParameters
+ *       "STRING_VALUE",
+ *     ],
+ *     allowedResponseHeaders: [ // AllowedResponseHeaders
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new UpdateGatewayTargetCommand(input);
  * const response = await client.send(command);
@@ -268,6 +279,17 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  * //     },
  * //   ],
  * //   lastSynchronizedAt: new Date("TIMESTAMP"),
+ * //   metadataConfiguration: { // MetadataConfiguration
+ * //     allowedRequestHeaders: [ // AllowedRequestHeaders
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     allowedQueryParameters: [ // AllowedQueryParameters
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     allowedResponseHeaders: [ // AllowedResponseHeaders
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * // };
  *
  * ```
@@ -319,7 +341,7 @@ export class UpdateGatewayTargetCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "UpdateGatewayTarget", {})
   .n("BedrockAgentCoreControlClient", "UpdateGatewayTargetCommand")
-  .sc(UpdateGatewayTarget)
+  .sc(UpdateGatewayTarget$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

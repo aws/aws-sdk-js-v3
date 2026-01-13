@@ -9,7 +9,7 @@ import type {
   DescribeTransitGatewayVpcAttachmentsRequest,
   DescribeTransitGatewayVpcAttachmentsResult,
 } from "../models/models_4";
-import { DescribeTransitGatewayVpcAttachments } from "../schemas/schemas_0";
+import { DescribeTransitGatewayVpcAttachments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeTransitGatewayVpcAttachmentsCommandInput extends Descri
  *
  * The output of {@link DescribeTransitGatewayVpcAttachmentsCommand}.
  */
-export interface DescribeTransitGatewayVpcAttachmentsCommandOutput
-  extends DescribeTransitGatewayVpcAttachmentsResult,
-    __MetadataBearer {}
+export interface DescribeTransitGatewayVpcAttachmentsCommandOutput extends DescribeTransitGatewayVpcAttachmentsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more VPC attachments. By default, all VPC attachments are described.
@@ -117,7 +115,7 @@ export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeTransitGatewayVpcAttachments", {})
   .n("EC2Client", "DescribeTransitGatewayVpcAttachmentsCommand")
-  .sc(DescribeTransitGatewayVpcAttachments)
+  .sc(DescribeTransitGatewayVpcAttachments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -7,7 +7,6 @@
 AWS SDK for JavaScript DocDBElastic Client for Node.js, Browser and React Native.
 
 <fullname>Amazon DocumentDB elastic clusters</fullname>
-
 <p>Amazon DocumentDB elastic-clusters support workloads with millions of reads/writes per second and petabytes of storage capacity.
 Amazon DocumentDB elastic clusters also simplify how developers interact with Amazon DocumentDB elastic-clusters by eliminating the need to choose, manage or upgrade instances.</p>
 <p>Amazon DocumentDB elastic-clusters were created to:</p>
@@ -24,10 +23,8 @@ Amazon DocumentDB elastic clusters also simplify how developers interact with Am
 </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-docdb-elastic
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-docdb-elastic`
 - `yarn add @aws-sdk/client-docdb-elastic`
 - `pnpm add @aws-sdk/client-docdb-elastic`
@@ -63,9 +60,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new DocDBElasticClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListClustersCommand(params);
 ```
 
@@ -224,7 +219,6 @@ ApplyPendingMaintenanceAction
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/ApplyPendingMaintenanceActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/ApplyPendingMaintenanceActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/ApplyPendingMaintenanceActionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -232,7 +226,6 @@ CopyClusterSnapshot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/CopyClusterSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/CopyClusterSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/CopyClusterSnapshotCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -240,7 +233,6 @@ CreateCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/CreateClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/CreateClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/CreateClusterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -248,7 +240,6 @@ CreateClusterSnapshot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/CreateClusterSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/CreateClusterSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/CreateClusterSnapshotCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -256,7 +247,6 @@ DeleteCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/DeleteClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/DeleteClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/DeleteClusterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -264,7 +254,6 @@ DeleteClusterSnapshot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/DeleteClusterSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/DeleteClusterSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/DeleteClusterSnapshotCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -272,7 +261,6 @@ GetCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/GetClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/GetClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/GetClusterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -280,7 +268,6 @@ GetClusterSnapshot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/GetClusterSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/GetClusterSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/GetClusterSnapshotCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -288,7 +275,6 @@ GetPendingMaintenanceAction
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/GetPendingMaintenanceActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/GetPendingMaintenanceActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/GetPendingMaintenanceActionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -296,7 +282,6 @@ ListClusters
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/ListClustersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/ListClustersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/ListClustersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -304,7 +289,6 @@ ListClusterSnapshots
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/ListClusterSnapshotsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/ListClusterSnapshotsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/ListClusterSnapshotsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -312,7 +296,6 @@ ListPendingMaintenanceActions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/ListPendingMaintenanceActionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/ListPendingMaintenanceActionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/ListPendingMaintenanceActionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -320,7 +303,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -328,7 +310,6 @@ RestoreClusterFromSnapshot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/RestoreClusterFromSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/RestoreClusterFromSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/RestoreClusterFromSnapshotCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -336,7 +317,6 @@ StartCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/StartClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/StartClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/StartClusterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -344,7 +324,6 @@ StopCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/StopClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/StopClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/StopClusterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -352,7 +331,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -360,7 +338,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -368,5 +345,4 @@ UpdateCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/UpdateClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/UpdateClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/UpdateClusterCommandOutput/)
-
 </details>

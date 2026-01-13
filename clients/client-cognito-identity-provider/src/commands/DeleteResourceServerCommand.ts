@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteResourceServerRequest } from "../models/models_0";
-import { DeleteResourceServer } from "../schemas/schemas_0";
+import { DeleteResourceServer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class DeleteResourceServerCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "DeleteResourceServer", {})
   .n("CognitoIdentityProviderClient", "DeleteResourceServerCommand")
-  .sc(DeleteResourceServer)
+  .sc(DeleteResourceServer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

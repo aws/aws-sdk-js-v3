@@ -9,7 +9,7 @@ import type {
   SendDurableExecutionCallbackFailureRequest,
   SendDurableExecutionCallbackFailureResponse,
 } from "../models/models_0";
-import { SendDurableExecutionCallbackFailure } from "../schemas/schemas_0";
+import { SendDurableExecutionCallbackFailure$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface SendDurableExecutionCallbackFailureCommandInput extends SendDur
  *
  * The output of {@link SendDurableExecutionCallbackFailureCommand}.
  */
-export interface SendDurableExecutionCallbackFailureCommandOutput
-  extends SendDurableExecutionCallbackFailureResponse,
-    __MetadataBearer {}
+export interface SendDurableExecutionCallbackFailureCommandOutput extends SendDurableExecutionCallbackFailureResponse, __MetadataBearer {}
 
 /**
  * <p>Sends a failure response for a callback operation in a durable execution. Use this API when an external system cannot complete a callback operation successfully.</p>
@@ -96,7 +94,7 @@ export class SendDurableExecutionCallbackFailureCommand extends $Command
   })
   .s("AWSGirApiService", "SendDurableExecutionCallbackFailure", {})
   .n("LambdaClient", "SendDurableExecutionCallbackFailureCommand")
-  .sc(SendDurableExecutionCallbackFailure)
+  .sc(SendDurableExecutionCallbackFailure$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

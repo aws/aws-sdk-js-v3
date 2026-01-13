@@ -9,7 +9,7 @@ import type {
   ListObservabilityConfigurationsRequest,
   ListObservabilityConfigurationsResponse,
 } from "../models/models_0";
-import { ListObservabilityConfigurations } from "../schemas/schemas_0";
+import { ListObservabilityConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListObservabilityConfigurationsCommandInput extends ListObserva
  *
  * The output of {@link ListObservabilityConfigurationsCommand}.
  */
-export interface ListObservabilityConfigurationsCommandOutput
-  extends ListObservabilityConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListObservabilityConfigurationsCommandOutput extends ListObservabilityConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of active App Runner observability configurations in your Amazon Web Services account. You can query the revisions for a specific
@@ -98,7 +96,7 @@ export class ListObservabilityConfigurationsCommand extends $Command
   })
   .s("AppRunner", "ListObservabilityConfigurations", {})
   .n("AppRunnerClient", "ListObservabilityConfigurationsCommand")
-  .sc(ListObservabilityConfigurations)
+  .sc(ListObservabilityConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

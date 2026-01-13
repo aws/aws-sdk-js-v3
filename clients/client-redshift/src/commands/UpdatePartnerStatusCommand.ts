@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { PartnerIntegrationOutputMessage } from "../models/models_0";
 import type { UpdatePartnerStatusInputMessage } from "../models/models_1";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { UpdatePartnerStatus } from "../schemas/schemas_0";
+import { UpdatePartnerStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class UpdatePartnerStatusCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "UpdatePartnerStatus", {})
   .n("RedshiftClient", "UpdatePartnerStatusCommand")
-  .sc(UpdatePartnerStatus)
+  .sc(UpdatePartnerStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import type { GetComponentVersionArtifactRequest, GetComponentVersionArtifactResponse } from "../models/models_0";
-import { GetComponentVersionArtifact } from "../schemas/schemas_0";
+import { GetComponentVersionArtifact$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetComponentVersionArtifactCommandInput extends GetComponentVer
  *
  * The output of {@link GetComponentVersionArtifactCommand}.
  */
-export interface GetComponentVersionArtifactCommandOutput
-  extends GetComponentVersionArtifactResponse,
-    __MetadataBearer {}
+export interface GetComponentVersionArtifactCommandOutput extends GetComponentVersionArtifactResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the pre-signed URL to download a public or a Lambda component artifact. Core devices
@@ -97,7 +95,7 @@ export class GetComponentVersionArtifactCommand extends $Command
   })
   .s("GreengrassV2", "GetComponentVersionArtifact", {})
   .n("GreengrassV2Client", "GetComponentVersionArtifactCommand")
-  .sc(GetComponentVersionArtifact)
+  .sc(GetComponentVersionArtifact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

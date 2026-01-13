@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LookoutEquipmentClient";
 import type { DescribeDataIngestionJobRequest, DescribeDataIngestionJobResponse } from "../models/models_0";
-import { DescribeDataIngestionJob } from "../schemas/schemas_0";
+import { DescribeDataIngestionJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -148,7 +148,7 @@ export class DescribeDataIngestionJobCommand extends $Command
   })
   .s("AWSLookoutEquipmentFrontendService", "DescribeDataIngestionJob", {})
   .n("LookoutEquipmentClient", "DescribeDataIngestionJobCommand")
-  .sc(DescribeDataIngestionJob)
+  .sc(DescribeDataIngestionJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

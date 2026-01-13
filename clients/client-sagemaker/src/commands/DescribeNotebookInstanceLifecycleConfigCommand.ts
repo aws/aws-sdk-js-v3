@@ -9,7 +9,7 @@ import type {
   DescribeNotebookInstanceLifecycleConfigOutput,
 } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribeNotebookInstanceLifecycleConfig } from "../schemas/schemas_0";
+import { DescribeNotebookInstanceLifecycleConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeNotebookInstanceLifecycleConfigCommand}.
  */
-export interface DescribeNotebookInstanceLifecycleConfigCommandInput
-  extends DescribeNotebookInstanceLifecycleConfigInput {}
+export interface DescribeNotebookInstanceLifecycleConfigCommandInput extends DescribeNotebookInstanceLifecycleConfigInput {}
 /**
  * @public
  *
  * The output of {@link DescribeNotebookInstanceLifecycleConfigCommand}.
  */
-export interface DescribeNotebookInstanceLifecycleConfigCommandOutput
-  extends DescribeNotebookInstanceLifecycleConfigOutput,
-    __MetadataBearer {}
+export interface DescribeNotebookInstanceLifecycleConfigCommandOutput extends DescribeNotebookInstanceLifecycleConfigOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a description of a notebook instance lifecycle configuration.</p> <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional) Customize a Notebook Instance</a>.</p>
@@ -92,7 +89,7 @@ export class DescribeNotebookInstanceLifecycleConfigCommand extends $Command
   })
   .s("SageMaker", "DescribeNotebookInstanceLifecycleConfig", {})
   .n("SageMakerClient", "DescribeNotebookInstanceLifecycleConfigCommand")
-  .sc(DescribeNotebookInstanceLifecycleConfig)
+  .sc(DescribeNotebookInstanceLifecycleConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

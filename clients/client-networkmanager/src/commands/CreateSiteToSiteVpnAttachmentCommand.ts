@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { CreateSiteToSiteVpnAttachment } from "../schemas/schemas_0";
+import { CreateSiteToSiteVpnAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface CreateSiteToSiteVpnAttachmentCommandInput extends CreateSiteToS
  *
  * The output of {@link CreateSiteToSiteVpnAttachmentCommand}.
  */
-export interface CreateSiteToSiteVpnAttachmentCommandOutput
-  extends CreateSiteToSiteVpnAttachmentResponse,
-    __MetadataBearer {}
+export interface CreateSiteToSiteVpnAttachmentCommandOutput extends CreateSiteToSiteVpnAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Web Services site-to-site VPN attachment on an edge location of a core network.</p>
@@ -161,7 +159,7 @@ export class CreateSiteToSiteVpnAttachmentCommand extends $Command
   })
   .s("NetworkManager", "CreateSiteToSiteVpnAttachment", {})
   .n("NetworkManagerClient", "CreateSiteToSiteVpnAttachmentCommand")
-  .sc(CreateSiteToSiteVpnAttachment)
+  .sc(CreateSiteToSiteVpnAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

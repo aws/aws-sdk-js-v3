@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetFlowLogsIntegrationTemplateRequest, GetFlowLogsIntegrationTemplateResult } from "../models/models_5";
-import { GetFlowLogsIntegrationTemplate } from "../schemas/schemas_0";
+import { GetFlowLogsIntegrationTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetFlowLogsIntegrationTemplateCommandInput extends GetFlowLogsI
  *
  * The output of {@link GetFlowLogsIntegrationTemplateCommand}.
  */
-export interface GetFlowLogsIntegrationTemplateCommandOutput
-  extends GetFlowLogsIntegrationTemplateResult,
-    __MetadataBearer {}
+export interface GetFlowLogsIntegrationTemplateCommandOutput extends GetFlowLogsIntegrationTemplateResult, __MetadataBearer {}
 
 /**
  * <p>Generates a CloudFormation template that streamlines and automates the integration of VPC flow logs
@@ -109,7 +107,7 @@ export class GetFlowLogsIntegrationTemplateCommand extends $Command
   })
   .s("AmazonEC2", "GetFlowLogsIntegrationTemplate", {})
   .n("EC2Client", "GetFlowLogsIntegrationTemplateCommand")
-  .sc(GetFlowLogsIntegrationTemplate)
+  .sc(GetFlowLogsIntegrationTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

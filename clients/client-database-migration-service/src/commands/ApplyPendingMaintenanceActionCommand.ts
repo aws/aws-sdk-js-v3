@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ApplyPendingMaintenanceActionMessage, ApplyPendingMaintenanceActionResponse } from "../models/models_0";
-import { ApplyPendingMaintenanceAction } from "../schemas/schemas_0";
+import { ApplyPendingMaintenanceAction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ApplyPendingMaintenanceActionCommandInput extends ApplyPendingM
  *
  * The output of {@link ApplyPendingMaintenanceActionCommand}.
  */
-export interface ApplyPendingMaintenanceActionCommandOutput
-  extends ApplyPendingMaintenanceActionResponse,
-    __MetadataBearer {}
+export interface ApplyPendingMaintenanceActionCommandOutput extends ApplyPendingMaintenanceActionResponse, __MetadataBearer {}
 
 /**
  * <p>Applies a pending maintenance action to a resource (for example, to a replication
@@ -97,7 +95,7 @@ export class ApplyPendingMaintenanceActionCommand extends $Command
   })
   .s("AmazonDMSv20160101", "ApplyPendingMaintenanceAction", {})
   .n("DatabaseMigrationServiceClient", "ApplyPendingMaintenanceActionCommand")
-  .sc(ApplyPendingMaintenanceAction)
+  .sc(ApplyPendingMaintenanceAction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

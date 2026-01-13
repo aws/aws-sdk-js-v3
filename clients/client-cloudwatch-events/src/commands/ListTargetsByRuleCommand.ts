@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchEventsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListTargetsByRuleRequest, ListTargetsByRuleResponse } from "../models/models_0";
-import { ListTargetsByRule } from "../schemas/schemas_0";
+import { ListTargetsByRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -208,7 +208,7 @@ export class ListTargetsByRuleCommand extends $Command
   })
   .s("AWSEvents", "ListTargetsByRule", {})
   .n("CloudWatchEventsClient", "ListTargetsByRuleCommand")
-  .sc(ListTargetsByRule)
+  .sc(ListTargetsByRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

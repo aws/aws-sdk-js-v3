@@ -9,7 +9,7 @@ import type {
   DescribeConfigurationRecorderStatusRequest,
   DescribeConfigurationRecorderStatusResponse,
 } from "../models/models_0";
-import { DescribeConfigurationRecorderStatus } from "../schemas/schemas_0";
+import { DescribeConfigurationRecorderStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeConfigurationRecorderStatusCommandInput extends Describ
  *
  * The output of {@link DescribeConfigurationRecorderStatusCommand}.
  */
-export interface DescribeConfigurationRecorderStatusCommandOutput
-  extends DescribeConfigurationRecorderStatusResponse,
-    __MetadataBearer {}
+export interface DescribeConfigurationRecorderStatusCommandOutput extends DescribeConfigurationRecorderStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the current status of the configuration
@@ -142,7 +140,7 @@ export class DescribeConfigurationRecorderStatusCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeConfigurationRecorderStatus", {})
   .n("ConfigServiceClient", "DescribeConfigurationRecorderStatusCommand")
-  .sc(DescribeConfigurationRecorderStatus)
+  .sc(DescribeConfigurationRecorderStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

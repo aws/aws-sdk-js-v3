@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAccountAssignmentRequest, DeleteAccountAssignmentResponse } from "../models/models_0";
-import { DeleteAccountAssignment } from "../schemas/schemas_0";
+import { DeleteAccountAssignment$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -106,7 +106,7 @@ export class DeleteAccountAssignmentCommand extends $Command
   })
   .s("SWBExternalService", "DeleteAccountAssignment", {})
   .n("SSOAdminClient", "DeleteAccountAssignmentCommand")
-  .sc(DeleteAccountAssignment)
+  .sc(DeleteAccountAssignment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

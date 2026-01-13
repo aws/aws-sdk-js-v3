@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationSignalsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListGroupingAttributeDefinitionsInput, ListGroupingAttributeDefinitionsOutput } from "../models/models_0";
-import { ListGroupingAttributeDefinitions } from "../schemas/schemas_0";
+import { ListGroupingAttributeDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListGroupingAttributeDefinitionsCommandInput extends ListGroupi
  *
  * The output of {@link ListGroupingAttributeDefinitionsCommand}.
  */
-export interface ListGroupingAttributeDefinitionsCommandOutput
-  extends ListGroupingAttributeDefinitionsOutput,
-    __MetadataBearer {}
+export interface ListGroupingAttributeDefinitionsCommandOutput extends ListGroupingAttributeDefinitionsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the current grouping configuration for this account, including all custom grouping attribute definitions that have been configured. These definitions determine how services are logically grouped based on telemetry attributes, Amazon Web Services tags, or predefined mappings.</p>
@@ -100,7 +98,7 @@ export class ListGroupingAttributeDefinitionsCommand extends $Command
   })
   .s("ApplicationSignals", "ListGroupingAttributeDefinitions", {})
   .n("ApplicationSignalsClient", "ListGroupingAttributeDefinitionsCommand")
-  .sc(ListGroupingAttributeDefinitions)
+  .sc(ListGroupingAttributeDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

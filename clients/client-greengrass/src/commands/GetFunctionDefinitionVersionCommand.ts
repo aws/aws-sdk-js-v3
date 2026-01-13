@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import type { GetFunctionDefinitionVersionRequest, GetFunctionDefinitionVersionResponse } from "../models/models_0";
-import { GetFunctionDefinitionVersion } from "../schemas/schemas_0";
+import { GetFunctionDefinitionVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetFunctionDefinitionVersionCommandInput extends GetFunctionDef
  *
  * The output of {@link GetFunctionDefinitionVersionCommand}.
  */
-export interface GetFunctionDefinitionVersionCommandOutput
-  extends GetFunctionDefinitionVersionResponse,
-    __MetadataBearer {}
+export interface GetFunctionDefinitionVersionCommandOutput extends GetFunctionDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Retrieves information about a Lambda function definition version, including which Lambda functions are included in the version and their configurations.
@@ -129,7 +127,7 @@ export class GetFunctionDefinitionVersionCommand extends $Command
   })
   .s("Greengrass", "GetFunctionDefinitionVersion", {})
   .n("GreengrassClient", "GetFunctionDefinitionVersionCommand")
-  .sc(GetFunctionDefinitionVersion)
+  .sc(GetFunctionDefinitionVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

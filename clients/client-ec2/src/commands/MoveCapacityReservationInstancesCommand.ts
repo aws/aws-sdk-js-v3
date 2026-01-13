@@ -9,7 +9,7 @@ import type {
   MoveCapacityReservationInstancesRequest,
   MoveCapacityReservationInstancesResult,
 } from "../models/models_7";
-import { MoveCapacityReservationInstances } from "../schemas/schemas_0";
+import { MoveCapacityReservationInstances$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface MoveCapacityReservationInstancesCommandInput extends MoveCapaci
  *
  * The output of {@link MoveCapacityReservationInstancesCommand}.
  */
-export interface MoveCapacityReservationInstancesCommandOutput
-  extends MoveCapacityReservationInstancesResult,
-    __MetadataBearer {}
+export interface MoveCapacityReservationInstancesCommandOutput extends MoveCapacityReservationInstancesResult, __MetadataBearer {}
 
 /**
  * <p>Move available capacity from a source Capacity Reservation to a destination Capacity
@@ -215,7 +213,7 @@ export class MoveCapacityReservationInstancesCommand extends $Command
   })
   .s("AmazonEC2", "MoveCapacityReservationInstances", {})
   .n("EC2Client", "MoveCapacityReservationInstancesCommand")
-  .sc(MoveCapacityReservationInstances)
+  .sc(MoveCapacityReservationInstances$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

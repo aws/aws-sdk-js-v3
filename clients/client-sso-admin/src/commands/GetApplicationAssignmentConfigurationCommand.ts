@@ -8,7 +8,7 @@ import type {
   GetApplicationAssignmentConfigurationRequest,
   GetApplicationAssignmentConfigurationResponse,
 } from "../models/models_0";
-import { GetApplicationAssignmentConfiguration } from "../schemas/schemas_0";
+import { GetApplicationAssignmentConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetApplicationAssignmentConfigurationCommand}.
  */
-export interface GetApplicationAssignmentConfigurationCommandInput
-  extends GetApplicationAssignmentConfigurationRequest {}
+export interface GetApplicationAssignmentConfigurationCommandInput extends GetApplicationAssignmentConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link GetApplicationAssignmentConfigurationCommand}.
  */
-export interface GetApplicationAssignmentConfigurationCommandOutput
-  extends GetApplicationAssignmentConfigurationResponse,
-    __MetadataBearer {}
+export interface GetApplicationAssignmentConfigurationCommandOutput extends GetApplicationAssignmentConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the configuration of <a>PutApplicationAssignmentConfiguration</a>.</p>
@@ -94,7 +91,7 @@ export class GetApplicationAssignmentConfigurationCommand extends $Command
   })
   .s("SWBExternalService", "GetApplicationAssignmentConfiguration", {})
   .n("SSOAdminClient", "GetApplicationAssignmentConfigurationCommand")
-  .sc(GetApplicationAssignmentConfiguration)
+  .sc(GetApplicationAssignmentConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

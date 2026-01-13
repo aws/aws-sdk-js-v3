@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53GlobalResolverClient";
-import { DeleteDNSView } from "../schemas/schemas_0";
+import { DeleteDNSView$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class DeleteDNSViewCommand extends $Command
   })
   .s("EC2DNSGlobalResolverCustomerAPI", "DeleteDNSView", {})
   .n("Route53GlobalResolverClient", "DeleteDNSViewCommand")
-  .sc(DeleteDNSView)
+  .sc(DeleteDNSView$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

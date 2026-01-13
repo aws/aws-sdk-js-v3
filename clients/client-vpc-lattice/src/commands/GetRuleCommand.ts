@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRuleRequest, GetRuleResponse } from "../models/models_0";
-import { GetRule } from "../schemas/schemas_0";
+import { GetRule$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -132,7 +132,7 @@ export class GetRuleCommand extends $Command
   })
   .s("MercuryControlPlane", "GetRule", {})
   .n("VPCLatticeClient", "GetRuleCommand")
-  .sc(GetRule)
+  .sc(GetRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

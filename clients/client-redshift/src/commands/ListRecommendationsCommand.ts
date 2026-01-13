@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListRecommendationsMessage, ListRecommendationsResult } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { ListRecommendations } from "../schemas/schemas_0";
+import { ListRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class ListRecommendationsCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "ListRecommendations", {})
   .n("RedshiftClient", "ListRecommendationsCommand")
-  .sc(ListRecommendations)
+  .sc(ListRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

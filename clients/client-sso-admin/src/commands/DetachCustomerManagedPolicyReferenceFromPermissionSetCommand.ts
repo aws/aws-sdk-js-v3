@@ -8,7 +8,7 @@ import type {
   DetachCustomerManagedPolicyReferenceFromPermissionSetRequest,
   DetachCustomerManagedPolicyReferenceFromPermissionSetResponse,
 } from "../models/models_0";
-import { DetachCustomerManagedPolicyReferenceFromPermissionSet } from "../schemas/schemas_0";
+import { DetachCustomerManagedPolicyReferenceFromPermissionSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommand}.
  */
-export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput
-  extends DetachCustomerManagedPolicyReferenceFromPermissionSetRequest {}
+export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput extends DetachCustomerManagedPolicyReferenceFromPermissionSetRequest {}
 /**
  * @public
  *
  * The output of {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommand}.
  */
-export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput
-  extends DetachCustomerManagedPolicyReferenceFromPermissionSetResponse,
-    __MetadataBearer {}
+export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput extends DetachCustomerManagedPolicyReferenceFromPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Detaches the specified customer managed policy from the specified <a>PermissionSet</a>.</p>
@@ -100,7 +97,7 @@ export class DetachCustomerManagedPolicyReferenceFromPermissionSetCommand extend
   })
   .s("SWBExternalService", "DetachCustomerManagedPolicyReferenceFromPermissionSet", {})
   .n("SSOAdminClient", "DetachCustomerManagedPolicyReferenceFromPermissionSetCommand")
-  .sc(DetachCustomerManagedPolicyReferenceFromPermissionSet)
+  .sc(DetachCustomerManagedPolicyReferenceFromPermissionSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

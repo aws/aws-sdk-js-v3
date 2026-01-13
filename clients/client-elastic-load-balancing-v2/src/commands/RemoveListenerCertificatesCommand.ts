@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveListenerCertificatesInput, RemoveListenerCertificatesOutput } from "../models/models_0";
-import { RemoveListenerCertificates } from "../schemas/schemas_0";
+import { RemoveListenerCertificates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class RemoveListenerCertificatesCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "RemoveListenerCertificates", {})
   .n("ElasticLoadBalancingV2Client", "RemoveListenerCertificatesCommand")
-  .sc(RemoveListenerCertificates)
+  .sc(RemoveListenerCertificates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

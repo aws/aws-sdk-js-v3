@@ -9,7 +9,7 @@ import type {
   CreateQuerySuggestionsBlockListRequest,
   CreateQuerySuggestionsBlockListResponse,
 } from "../models/models_0";
-import { CreateQuerySuggestionsBlockList } from "../schemas/schemas_0";
+import { CreateQuerySuggestionsBlockList$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateQuerySuggestionsBlockListCommandInput extends CreateQuery
  *
  * The output of {@link CreateQuerySuggestionsBlockListCommand}.
  */
-export interface CreateQuerySuggestionsBlockListCommandOutput
-  extends CreateQuerySuggestionsBlockListResponse,
-    __MetadataBearer {}
+export interface CreateQuerySuggestionsBlockListCommandOutput extends CreateQuerySuggestionsBlockListResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a block list to exlcude certain queries from suggestions.</p>
@@ -136,7 +134,7 @@ export class CreateQuerySuggestionsBlockListCommand extends $Command
   })
   .s("AWSKendraFrontendService", "CreateQuerySuggestionsBlockList", {})
   .n("KendraClient", "CreateQuerySuggestionsBlockListCommand")
-  .sc(CreateQuerySuggestionsBlockList)
+  .sc(CreateQuerySuggestionsBlockList$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

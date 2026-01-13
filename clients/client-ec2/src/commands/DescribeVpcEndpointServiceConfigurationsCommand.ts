@@ -9,7 +9,7 @@ import type {
   DescribeVpcEndpointServiceConfigurationsRequest,
   DescribeVpcEndpointServiceConfigurationsResult,
 } from "../models/models_5";
-import { DescribeVpcEndpointServiceConfigurations } from "../schemas/schemas_0";
+import { DescribeVpcEndpointServiceConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeVpcEndpointServiceConfigurationsCommand}.
  */
-export interface DescribeVpcEndpointServiceConfigurationsCommandInput
-  extends DescribeVpcEndpointServiceConfigurationsRequest {}
+export interface DescribeVpcEndpointServiceConfigurationsCommandInput extends DescribeVpcEndpointServiceConfigurationsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeVpcEndpointServiceConfigurationsCommand}.
  */
-export interface DescribeVpcEndpointServiceConfigurationsCommandOutput
-  extends DescribeVpcEndpointServiceConfigurationsResult,
-    __MetadataBearer {}
+export interface DescribeVpcEndpointServiceConfigurationsCommandOutput extends DescribeVpcEndpointServiceConfigurationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the VPC endpoint service configurations in your account (your services).</p>
@@ -145,7 +142,7 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeVpcEndpointServiceConfigurations", {})
   .n("EC2Client", "DescribeVpcEndpointServiceConfigurationsCommand")
-  .sc(DescribeVpcEndpointServiceConfigurations)
+  .sc(DescribeVpcEndpointServiceConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

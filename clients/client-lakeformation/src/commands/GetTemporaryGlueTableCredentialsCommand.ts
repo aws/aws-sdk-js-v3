@@ -9,7 +9,7 @@ import type {
   GetTemporaryGlueTableCredentialsRequest,
   GetTemporaryGlueTableCredentialsResponse,
 } from "../models/models_0";
-import { GetTemporaryGlueTableCredentials } from "../schemas/schemas_0";
+import { GetTemporaryGlueTableCredentials$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetTemporaryGlueTableCredentialsCommandInput extends GetTempora
  *
  * The output of {@link GetTemporaryGlueTableCredentialsCommand}.
  */
-export interface GetTemporaryGlueTableCredentialsCommandOutput
-  extends GetTemporaryGlueTableCredentialsResponse,
-    __MetadataBearer {}
+export interface GetTemporaryGlueTableCredentialsCommandOutput extends GetTemporaryGlueTableCredentialsResponse, __MetadataBearer {}
 
 /**
  * <p>Allows a caller in a secure environment to assume a role with permission to access Amazon S3. In order to vend such credentials, Lake Formation assumes the role associated with a registered location, for example an Amazon S3 bucket, with a scope down policy which restricts the access to a single prefix.</p>
@@ -123,7 +121,7 @@ export class GetTemporaryGlueTableCredentialsCommand extends $Command
   })
   .s("AWSLakeFormation", "GetTemporaryGlueTableCredentials", {})
   .n("LakeFormationClient", "GetTemporaryGlueTableCredentialsCommand")
-  .sc(GetTemporaryGlueTableCredentials)
+  .sc(GetTemporaryGlueTableCredentials$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetDistributionLatestCacheResetRequest, GetDistributionLatestCacheResetResult } from "../models/models_0";
-import { GetDistributionLatestCacheReset } from "../schemas/schemas_0";
+import { GetDistributionLatestCacheReset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetDistributionLatestCacheResetCommandInput extends GetDistribu
  *
  * The output of {@link GetDistributionLatestCacheResetCommand}.
  */
-export interface GetDistributionLatestCacheResetCommandOutput
-  extends GetDistributionLatestCacheResetResult,
-    __MetadataBearer {}
+export interface GetDistributionLatestCacheResetCommandOutput extends GetDistributionLatestCacheResetResult, __MetadataBearer {}
 
 /**
  * <p>Returns the timestamp and status of the last cache reset of a specific Amazon Lightsail
@@ -103,7 +101,7 @@ export class GetDistributionLatestCacheResetCommand extends $Command
   })
   .s("Lightsail_20161128", "GetDistributionLatestCacheReset", {})
   .n("LightsailClient", "GetDistributionLatestCacheResetCommand")
-  .sc(GetDistributionLatestCacheReset)
+  .sc(GetDistributionLatestCacheReset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

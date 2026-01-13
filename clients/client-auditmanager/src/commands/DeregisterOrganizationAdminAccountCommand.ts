@@ -9,7 +9,7 @@ import type {
   DeregisterOrganizationAdminAccountRequest,
   DeregisterOrganizationAdminAccountResponse,
 } from "../models/models_0";
-import { DeregisterOrganizationAdminAccount } from "../schemas/schemas_0";
+import { DeregisterOrganizationAdminAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeregisterOrganizationAdminAccountCommandInput extends Deregist
  *
  * The output of {@link DeregisterOrganizationAdminAccountCommand}.
  */
-export interface DeregisterOrganizationAdminAccountCommandOutput
-  extends DeregisterOrganizationAdminAccountResponse,
-    __MetadataBearer {}
+export interface DeregisterOrganizationAdminAccountCommandOutput extends DeregisterOrganizationAdminAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the specified Amazon Web Services account as a delegated administrator for
@@ -149,7 +147,7 @@ export class DeregisterOrganizationAdminAccountCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "DeregisterOrganizationAdminAccount", {})
   .n("AuditManagerClient", "DeregisterOrganizationAdminAccountCommand")
-  .sc(DeregisterOrganizationAdminAccount)
+  .sc(DeregisterOrganizationAdminAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

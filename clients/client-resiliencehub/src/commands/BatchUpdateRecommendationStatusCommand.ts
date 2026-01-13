@@ -9,7 +9,7 @@ import type {
   BatchUpdateRecommendationStatusResponse,
 } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { BatchUpdateRecommendationStatus } from "../schemas/schemas_0";
+import { BatchUpdateRecommendationStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface BatchUpdateRecommendationStatusCommandInput extends BatchUpdate
  *
  * The output of {@link BatchUpdateRecommendationStatusCommand}.
  */
-export interface BatchUpdateRecommendationStatusCommandOutput
-  extends BatchUpdateRecommendationStatusResponse,
-    __MetadataBearer {}
+export interface BatchUpdateRecommendationStatusCommandOutput extends BatchUpdateRecommendationStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Enables you to include or exclude one or more operational recommendations.</p>
@@ -130,7 +128,7 @@ export class BatchUpdateRecommendationStatusCommand extends $Command
   })
   .s("AwsResilienceHub", "BatchUpdateRecommendationStatus", {})
   .n("ResiliencehubClient", "BatchUpdateRecommendationStatusCommand")
-  .sc(BatchUpdateRecommendationStatus)
+  .sc(BatchUpdateRecommendationStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

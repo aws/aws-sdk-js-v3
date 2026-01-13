@@ -11,7 +11,7 @@ import type {
   ServiceOutputTypes,
 } from "../MachineLearningClient";
 import type { PredictInput, PredictOutput } from "../models/models_0";
-import { Predict } from "../schemas/schemas_0";
+import { Predict$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,11 +105,14 @@ export class PredictCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getPredictEndpointPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getPredictEndpointPlugin(config),
+    ];
   })
   .s("AmazonML_20141212", "Predict", {})
   .n("MachineLearningClient", "PredictCommand")
-  .sc(Predict)
+  .sc(Predict$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

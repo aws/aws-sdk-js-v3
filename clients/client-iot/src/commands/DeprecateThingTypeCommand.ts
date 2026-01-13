@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { DeprecateThingTypeRequest, DeprecateThingTypeResponse } from "../models/models_0";
-import { DeprecateThingType } from "../schemas/schemas_0";
+import { DeprecateThingType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DeprecateThingTypeCommand extends $Command
   })
   .s("AWSIotService", "DeprecateThingType", {})
   .n("IoTClient", "DeprecateThingTypeCommand")
-  .sc(DeprecateThingType)
+  .sc(DeprecateThingType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

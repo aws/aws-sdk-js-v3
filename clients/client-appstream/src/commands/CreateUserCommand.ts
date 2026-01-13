@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateUserRequest, CreateUserResult } from "../models/models_0";
-import { CreateUser } from "../schemas/schemas_0";
+import { CreateUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class CreateUserCommand extends $Command
   })
   .s("PhotonAdminProxyService", "CreateUser", {})
   .n("AppStreamClient", "CreateUserCommand")
-  .sc(CreateUser)
+  .sc(CreateUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

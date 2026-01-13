@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MonitorContactRequest, MonitorContactResponse } from "../models/models_2";
-import { MonitorContact } from "../schemas/schemas_0";
+import { MonitorContact$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class MonitorContactCommand extends $Command
   })
   .s("AmazonConnectService", "MonitorContact", {})
   .n("ConnectClient", "MonitorContactCommand")
-  .sc(MonitorContact)
+  .sc(MonitorContact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

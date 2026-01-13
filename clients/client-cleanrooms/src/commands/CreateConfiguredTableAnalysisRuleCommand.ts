@@ -9,7 +9,7 @@ import type {
   CreateConfiguredTableAnalysisRuleInput,
   CreateConfiguredTableAnalysisRuleOutput,
 } from "../models/models_0";
-import { CreateConfiguredTableAnalysisRule } from "../schemas/schemas_0";
+import { CreateConfiguredTableAnalysisRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateConfiguredTableAnalysisRuleCommandInput extends CreateCon
  *
  * The output of {@link CreateConfiguredTableAnalysisRuleCommand}.
  */
-export interface CreateConfiguredTableAnalysisRuleCommandOutput
-  extends CreateConfiguredTableAnalysisRuleOutput,
-    __MetadataBearer {}
+export interface CreateConfiguredTableAnalysisRuleCommandOutput extends CreateConfiguredTableAnalysisRuleOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new analysis rule for a configured table. Currently, only one analysis rule can be created for a given configured table.</p>
@@ -238,7 +236,7 @@ export class CreateConfiguredTableAnalysisRuleCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "CreateConfiguredTableAnalysisRule", {})
   .n("CleanRoomsClient", "CreateConfiguredTableAnalysisRuleCommand")
-  .sc(CreateConfiguredTableAnalysisRule)
+  .sc(CreateConfiguredTableAnalysisRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

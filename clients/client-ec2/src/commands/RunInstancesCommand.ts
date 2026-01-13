@@ -7,7 +7,7 @@ import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Reservation } from "../models/models_4";
 import type { RunInstancesRequest } from "../models/models_7";
-import { RunInstances } from "../schemas/schemas_0";
+import { RunInstances$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -623,7 +623,7 @@ export class RunInstancesCommand extends $Command
   })
   .s("AmazonEC2", "RunInstances", {})
   .n("EC2Client", "RunInstancesCommand")
-  .sc(RunInstances)
+  .sc(RunInstances$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

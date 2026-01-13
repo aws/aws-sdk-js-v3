@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteLoggingConfigurationRequest, DeleteLoggingConfigurationResponse } from "../models/models_0";
-import { DeleteLoggingConfiguration } from "../schemas/schemas_0";
+import { DeleteLoggingConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -112,7 +112,7 @@ export class DeleteLoggingConfigurationCommand extends $Command
   })
   .s("AWSWAF_20190729", "DeleteLoggingConfiguration", {})
   .n("WAFV2Client", "DeleteLoggingConfigurationCommand")
-  .sc(DeleteLoggingConfiguration)
+  .sc(DeleteLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

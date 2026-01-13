@@ -8,7 +8,7 @@ import type {
   PutEmailMonitoringConfigurationRequest,
   PutEmailMonitoringConfigurationResponse,
 } from "../models/models_0";
-import { PutEmailMonitoringConfiguration } from "../schemas/schemas_0";
+import { PutEmailMonitoringConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -27,9 +27,7 @@ export interface PutEmailMonitoringConfigurationCommandInput extends PutEmailMon
  *
  * The output of {@link PutEmailMonitoringConfigurationCommand}.
  */
-export interface PutEmailMonitoringConfigurationCommandOutput
-  extends PutEmailMonitoringConfigurationResponse,
-    __MetadataBearer {}
+export interface PutEmailMonitoringConfigurationCommandOutput extends PutEmailMonitoringConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates the email monitoring configuration for a specified organization.</p>
@@ -92,7 +90,7 @@ export class PutEmailMonitoringConfigurationCommand extends $Command
   })
   .s("WorkMailService", "PutEmailMonitoringConfiguration", {})
   .n("WorkMailClient", "PutEmailMonitoringConfigurationCommand")
-  .sc(PutEmailMonitoringConfiguration)
+  .sc(PutEmailMonitoringConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetOnClusterAppUIPresignedURLInput, GetOnClusterAppUIPresignedURLOutput } from "../models/models_0";
-import { GetOnClusterAppUIPresignedURL } from "../schemas/schemas_0";
+import { GetOnClusterAppUIPresignedURL$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetOnClusterAppUIPresignedURLCommandInput extends GetOnClusterA
  *
  * The output of {@link GetOnClusterAppUIPresignedURLCommand}.
  */
-export interface GetOnClusterAppUIPresignedURLCommandOutput
-  extends GetOnClusterAppUIPresignedURLOutput,
-    __MetadataBearer {}
+export interface GetOnClusterAppUIPresignedURLCommandOutput extends GetOnClusterAppUIPresignedURLOutput, __MetadataBearer {}
 
 /**
  * <p>The presigned URL properties for the cluster's application user interface.</p>
@@ -87,7 +85,7 @@ export class GetOnClusterAppUIPresignedURLCommand extends $Command
   })
   .s("ElasticMapReduce", "GetOnClusterAppUIPresignedURL", {})
   .n("EMRClient", "GetOnClusterAppUIPresignedURLCommand")
-  .sc(GetOnClusterAppUIPresignedURL)
+  .sc(GetOnClusterAppUIPresignedURL$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutDataProtectionPolicyInput } from "../models/models_0";
-import { PutDataProtectionPolicy } from "../schemas/schemas_0";
+import { PutDataProtectionPolicy$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -90,7 +90,7 @@ export class PutDataProtectionPolicyCommand extends $Command
   })
   .s("AmazonSimpleNotificationService", "PutDataProtectionPolicy", {})
   .n("SNSClient", "PutDataProtectionPolicyCommand")
-  .sc(PutDataProtectionPolicy)
+  .sc(PutDataProtectionPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

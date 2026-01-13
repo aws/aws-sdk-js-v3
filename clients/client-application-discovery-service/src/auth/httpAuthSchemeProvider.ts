@@ -49,17 +49,13 @@ export const defaultApplicationDiscoveryServiceHttpAuthSchemeParametersProvider 
 ): Promise<ApplicationDiscoveryServiceHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: ApplicationDiscoveryServiceHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: ApplicationDiscoveryServiceHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,16 +83,15 @@ export interface ApplicationDiscoveryServiceHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultApplicationDiscoveryServiceHttpAuthSchemeProvider: ApplicationDiscoveryServiceHttpAuthSchemeProvider =
-  (authParameters) => {
-    const options: HttpAuthOption[] = [];
-    switch (authParameters.operation) {
-      default: {
-        options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
-      }
+export const defaultApplicationDiscoveryServiceHttpAuthSchemeProvider: ApplicationDiscoveryServiceHttpAuthSchemeProvider = (authParameters) => {
+  const options: HttpAuthOption[] = [];
+  switch (authParameters.operation) {
+    default: {
+      options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
     }
-    return options;
-  };
+  }
+  return options;
+};
 
 /**
  * @public

@@ -9,7 +9,7 @@ import type {
   DeleteServiceLinkedConfigurationRecorderRequest,
   DeleteServiceLinkedConfigurationRecorderResponse,
 } from "../models/models_0";
-import { DeleteServiceLinkedConfigurationRecorder } from "../schemas/schemas_0";
+import { DeleteServiceLinkedConfigurationRecorder$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteServiceLinkedConfigurationRecorderCommand}.
  */
-export interface DeleteServiceLinkedConfigurationRecorderCommandInput
-  extends DeleteServiceLinkedConfigurationRecorderRequest {}
+export interface DeleteServiceLinkedConfigurationRecorderCommandInput extends DeleteServiceLinkedConfigurationRecorderRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteServiceLinkedConfigurationRecorderCommand}.
  */
-export interface DeleteServiceLinkedConfigurationRecorderCommandOutput
-  extends DeleteServiceLinkedConfigurationRecorderResponse,
-    __MetadataBearer {}
+export interface DeleteServiceLinkedConfigurationRecorderCommandOutput extends DeleteServiceLinkedConfigurationRecorderResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing service-linked configuration recorder.</p>
@@ -146,7 +143,7 @@ export class DeleteServiceLinkedConfigurationRecorderCommand extends $Command
   })
   .s("StarlingDoveService", "DeleteServiceLinkedConfigurationRecorder", {})
   .n("ConfigServiceClient", "DeleteServiceLinkedConfigurationRecorderCommand")
-  .sc(DeleteServiceLinkedConfigurationRecorder)
+  .sc(DeleteServiceLinkedConfigurationRecorder$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

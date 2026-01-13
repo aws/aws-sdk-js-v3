@@ -7,18 +7,15 @@ import {
   GetInvalidationForDistributionTenantCommandInput,
 } from "../commands/GetInvalidationForDistributionTenantCommand";
 
-const checkState = async (
-  client: CloudFrontClient,
-  input: GetInvalidationForDistributionTenantCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: CloudFrontClient, input: GetInvalidationForDistributionTenantCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetInvalidationForDistributionTenantCommand(input));
+    let result: any = await client.send(new GetInvalidationForDistributionTenantCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.Invalidation.Status;
-      };
+      }
       if (returnComparator() === "Completed") {
         return { state: WaiterState.SUCCESS, reason };
       }

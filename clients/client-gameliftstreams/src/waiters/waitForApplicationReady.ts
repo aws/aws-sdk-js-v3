@@ -7,12 +7,12 @@ import { GameLiftStreamsClient } from "../GameLiftStreamsClient";
 const checkState = async (client: GameLiftStreamsClient, input: GetApplicationCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetApplicationCommand(input));
+    let result: any = await client.send(new GetApplicationCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "READY") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: GameLiftStreamsClient, input: GetApplicationCo
     try {
       const returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "ERROR") {
         return { state: WaiterState.FAILURE, reason };
       }

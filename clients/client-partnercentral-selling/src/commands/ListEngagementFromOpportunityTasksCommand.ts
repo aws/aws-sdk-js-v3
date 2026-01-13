@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { ListEngagementFromOpportunityTasks } from "../schemas/schemas_0";
+import { ListEngagementFromOpportunityTasks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ListEngagementFromOpportunityTasksCommandInput extends ListEnga
  *
  * The output of {@link ListEngagementFromOpportunityTasksCommand}.
  */
-export interface ListEngagementFromOpportunityTasksCommandOutput
-  extends ListEngagementFromOpportunityTasksResponse,
-    __MetadataBearer {}
+export interface ListEngagementFromOpportunityTasksCommandOutput extends ListEngagementFromOpportunityTasksResponse, __MetadataBearer {}
 
 /**
  * <p> Lists all in-progress, completed, or failed <code>EngagementFromOpportunity</code> tasks that were initiated by the caller's account. </p>
@@ -129,7 +127,7 @@ export class ListEngagementFromOpportunityTasksCommand extends $Command
   })
   .s("AWSPartnerCentralSelling", "ListEngagementFromOpportunityTasks", {})
   .n("PartnerCentralSellingClient", "ListEngagementFromOpportunityTasksCommand")
-  .sc(ListEngagementFromOpportunityTasks)
+  .sc(ListEngagementFromOpportunityTasks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

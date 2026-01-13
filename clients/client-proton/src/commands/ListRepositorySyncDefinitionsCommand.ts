@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListRepositorySyncDefinitionsInput, ListRepositorySyncDefinitionsOutput } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { ListRepositorySyncDefinitions } from "../schemas/schemas_0";
+import { ListRepositorySyncDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListRepositorySyncDefinitionsCommandInput extends ListRepositor
  *
  * The output of {@link ListRepositorySyncDefinitionsCommand}.
  */
-export interface ListRepositorySyncDefinitionsCommandOutput
-  extends ListRepositorySyncDefinitionsOutput,
-    __MetadataBearer {}
+export interface ListRepositorySyncDefinitionsCommandOutput extends ListRepositorySyncDefinitionsOutput, __MetadataBearer {}
 
 /**
  * <p>List repository sync definitions with detail data.</p>
@@ -100,7 +98,7 @@ export class ListRepositorySyncDefinitionsCommand extends $Command
   })
   .s("AwsProton20200720", "ListRepositorySyncDefinitions", {})
   .n("ProtonClient", "ListRepositorySyncDefinitionsCommand")
-  .sc(ListRepositorySyncDefinitions)
+  .sc(ListRepositorySyncDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

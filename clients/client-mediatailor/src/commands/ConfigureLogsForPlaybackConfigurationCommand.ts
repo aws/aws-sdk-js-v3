@@ -9,7 +9,7 @@ import type {
   ConfigureLogsForPlaybackConfigurationRequest,
   ConfigureLogsForPlaybackConfigurationResponse,
 } from "../models/models_0";
-import { ConfigureLogsForPlaybackConfiguration } from "../schemas/schemas_0";
+import { ConfigureLogsForPlaybackConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ConfigureLogsForPlaybackConfigurationCommand}.
  */
-export interface ConfigureLogsForPlaybackConfigurationCommandInput
-  extends ConfigureLogsForPlaybackConfigurationRequest {}
+export interface ConfigureLogsForPlaybackConfigurationCommandInput extends ConfigureLogsForPlaybackConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link ConfigureLogsForPlaybackConfigurationCommand}.
  */
-export interface ConfigureLogsForPlaybackConfigurationCommandOutput
-  extends ConfigureLogsForPlaybackConfigurationResponse,
-    __MetadataBearer {}
+export interface ConfigureLogsForPlaybackConfigurationCommandOutput extends ConfigureLogsForPlaybackConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Defines where AWS Elemental MediaTailor sends logs for the playback configuration.</p>
@@ -113,7 +110,7 @@ export class ConfigureLogsForPlaybackConfigurationCommand extends $Command
   })
   .s("MediaTailor", "ConfigureLogsForPlaybackConfiguration", {})
   .n("MediaTailorClient", "ConfigureLogsForPlaybackConfigurationCommand")
-  .sc(ConfigureLogsForPlaybackConfiguration)
+  .sc(ConfigureLogsForPlaybackConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

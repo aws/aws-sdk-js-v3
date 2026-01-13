@@ -9,7 +9,7 @@ import type {
   ListEnvironmentAccountConnectionsOutput,
 } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { ListEnvironmentAccountConnections } from "../schemas/schemas_0";
+import { ListEnvironmentAccountConnections$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListEnvironmentAccountConnectionsCommandInput extends ListEnvir
  *
  * The output of {@link ListEnvironmentAccountConnectionsCommand}.
  */
-export interface ListEnvironmentAccountConnectionsCommandOutput
-  extends ListEnvironmentAccountConnectionsOutput,
-    __MetadataBearer {}
+export interface ListEnvironmentAccountConnectionsCommandOutput extends ListEnvironmentAccountConnectionsOutput, __MetadataBearer {}
 
 /**
  * <p>View a list of environment account connections.</p>
@@ -114,7 +112,7 @@ export class ListEnvironmentAccountConnectionsCommand extends $Command
   })
   .s("AwsProton20200720", "ListEnvironmentAccountConnections", {})
   .n("ProtonClient", "ListEnvironmentAccountConnectionsCommand")
-  .sc(ListEnvironmentAccountConnections)
+  .sc(ListEnvironmentAccountConnections$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

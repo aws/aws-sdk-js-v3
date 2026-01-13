@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDashboardPermissionsRequest, UpdateDashboardPermissionsResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateDashboardPermissions } from "../schemas/schemas_0";
+import { UpdateDashboardPermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -151,7 +151,7 @@ export class UpdateDashboardPermissionsCommand extends $Command
   })
   .s("QuickSight_20180401", "UpdateDashboardPermissions", {})
   .n("QuickSightClient", "UpdateDashboardPermissionsCommand")
-  .sc(UpdateDashboardPermissions)
+  .sc(UpdateDashboardPermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

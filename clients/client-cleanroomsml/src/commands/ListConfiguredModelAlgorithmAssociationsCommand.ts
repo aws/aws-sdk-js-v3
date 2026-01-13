@@ -9,7 +9,7 @@ import type {
   ListConfiguredModelAlgorithmAssociationsRequest,
   ListConfiguredModelAlgorithmAssociationsResponse,
 } from "../models/models_0";
-import { ListConfiguredModelAlgorithmAssociations } from "../schemas/schemas_0";
+import { ListConfiguredModelAlgorithmAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListConfiguredModelAlgorithmAssociationsCommand}.
  */
-export interface ListConfiguredModelAlgorithmAssociationsCommandInput
-  extends ListConfiguredModelAlgorithmAssociationsRequest {}
+export interface ListConfiguredModelAlgorithmAssociationsCommandInput extends ListConfiguredModelAlgorithmAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListConfiguredModelAlgorithmAssociationsCommand}.
  */
-export interface ListConfiguredModelAlgorithmAssociationsCommandOutput
-  extends ListConfiguredModelAlgorithmAssociationsResponse,
-    __MetadataBearer {}
+export interface ListConfiguredModelAlgorithmAssociationsCommandOutput extends ListConfiguredModelAlgorithmAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of configured model algorithm associations.</p>
@@ -102,7 +99,7 @@ export class ListConfiguredModelAlgorithmAssociationsCommand extends $Command
   })
   .s("AWSStarkControlService", "ListConfiguredModelAlgorithmAssociations", {})
   .n("CleanRoomsMLClient", "ListConfiguredModelAlgorithmAssociationsCommand")
-  .sc(ListConfiguredModelAlgorithmAssociations)
+  .sc(ListConfiguredModelAlgorithmAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

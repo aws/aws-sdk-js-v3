@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateIpGroupsRequest, DisassociateIpGroupsResult } from "../models/models_0";
-import { DisassociateIpGroups } from "../schemas/schemas_0";
+import { DisassociateIpGroups$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -89,7 +89,7 @@ export class DisassociateIpGroupsCommand extends $Command
   })
   .s("WorkspacesService", "DisassociateIpGroups", {})
   .n("WorkSpacesClient", "DisassociateIpGroupsCommand")
-  .sc(DisassociateIpGroups)
+  .sc(DisassociateIpGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

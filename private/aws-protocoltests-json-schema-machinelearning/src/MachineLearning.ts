@@ -13,8 +13,14 @@ export interface MachineLearning {
   /**
    * @see {@link PredictCommand}
    */
-  predict(args: PredictCommandInput, options?: __HttpHandlerOptions): Promise<PredictCommandOutput>;
-  predict(args: PredictCommandInput, cb: (err: any, data?: PredictCommandOutput) => void): void;
+  predict(
+    args: PredictCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PredictCommandOutput>;
+  predict(
+    args: PredictCommandInput,
+    cb: (err: any, data?: PredictCommandOutput) => void
+  ): void;
   predict(
     args: PredictCommandInput,
     options: __HttpHandlerOptions,

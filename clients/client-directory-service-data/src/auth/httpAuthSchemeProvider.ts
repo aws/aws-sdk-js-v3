@@ -49,17 +49,13 @@ export const defaultDirectoryServiceDataHttpAuthSchemeParametersProvider = async
 ): Promise<DirectoryServiceDataHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: DirectoryServiceDataHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: DirectoryServiceDataHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface DirectoryServiceDataHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultDirectoryServiceDataHttpAuthSchemeProvider: DirectoryServiceDataHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultDirectoryServiceDataHttpAuthSchemeProvider: DirectoryServiceDataHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

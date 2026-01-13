@@ -9,7 +9,7 @@ import type {
   AcceptCapacityReservationBillingOwnershipRequest,
   AcceptCapacityReservationBillingOwnershipResult,
 } from "../models/models_0";
-import { AcceptCapacityReservationBillingOwnership } from "../schemas/schemas_0";
+import { AcceptCapacityReservationBillingOwnership$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AcceptCapacityReservationBillingOwnershipCommand}.
  */
-export interface AcceptCapacityReservationBillingOwnershipCommandInput
-  extends AcceptCapacityReservationBillingOwnershipRequest {}
+export interface AcceptCapacityReservationBillingOwnershipCommandInput extends AcceptCapacityReservationBillingOwnershipRequest {}
 /**
  * @public
  *
  * The output of {@link AcceptCapacityReservationBillingOwnershipCommand}.
  */
-export interface AcceptCapacityReservationBillingOwnershipCommandOutput
-  extends AcceptCapacityReservationBillingOwnershipResult,
-    __MetadataBearer {}
+export interface AcceptCapacityReservationBillingOwnershipCommandOutput extends AcceptCapacityReservationBillingOwnershipResult, __MetadataBearer {}
 
 /**
  * <p>Accepts a request to assign billing of the available capacity of a shared Capacity
@@ -82,7 +79,7 @@ export class AcceptCapacityReservationBillingOwnershipCommand extends $Command
   })
   .s("AmazonEC2", "AcceptCapacityReservationBillingOwnership", {})
   .n("EC2Client", "AcceptCapacityReservationBillingOwnershipCommand")
-  .sc(AcceptCapacityReservationBillingOwnership)
+  .sc(AcceptCapacityReservationBillingOwnership$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

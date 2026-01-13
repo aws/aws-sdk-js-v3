@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDataQualityJobDefinitionRequest, CreateDataQualityJobDefinitionResponse } from "../models/models_1";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateDataQualityJobDefinition } from "../schemas/schemas_0";
+import { CreateDataQualityJobDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateDataQualityJobDefinitionCommandInput extends CreateDataQu
  *
  * The output of {@link CreateDataQualityJobDefinitionCommand}.
  */
-export interface CreateDataQualityJobDefinitionCommandOutput
-  extends CreateDataQualityJobDefinitionResponse,
-    __MetadataBearer {}
+export interface CreateDataQualityJobDefinitionCommandOutput extends CreateDataQualityJobDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a definition for a job that monitors data quality and drift. For information about model monitor, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Amazon SageMaker AI Model Monitor</a>.</p>
@@ -183,7 +181,7 @@ export class CreateDataQualityJobDefinitionCommand extends $Command
   })
   .s("SageMaker", "CreateDataQualityJobDefinition", {})
   .n("SageMakerClient", "CreateDataQualityJobDefinitionCommand")
-  .sc(CreateDataQualityJobDefinition)
+  .sc(CreateDataQualityJobDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

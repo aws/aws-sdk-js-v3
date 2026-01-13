@@ -8,7 +8,7 @@ import type {
   StartConfigurationPolicyAssociationRequest,
   StartConfigurationPolicyAssociationResponse,
 } from "../models/models_3";
-import { StartConfigurationPolicyAssociation } from "../schemas/schemas_0";
+import { StartConfigurationPolicyAssociation$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -27,9 +27,7 @@ export interface StartConfigurationPolicyAssociationCommandInput extends StartCo
  *
  * The output of {@link StartConfigurationPolicyAssociationCommand}.
  */
-export interface StartConfigurationPolicyAssociationCommandOutput
-  extends StartConfigurationPolicyAssociationResponse,
-    __MetadataBearer {}
+export interface StartConfigurationPolicyAssociationCommandOutput extends StartConfigurationPolicyAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -137,7 +135,7 @@ export class StartConfigurationPolicyAssociationCommand extends $Command
   })
   .s("SecurityHubAPIService", "StartConfigurationPolicyAssociation", {})
   .n("SecurityHubClient", "StartConfigurationPolicyAssociationCommand")
-  .sc(StartConfigurationPolicyAssociation)
+  .sc(StartConfigurationPolicyAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

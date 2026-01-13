@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeBrandPublishedVersionRequest, DescribeBrandPublishedVersionResponse } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeBrandPublishedVersion } from "../schemas/schemas_0";
+import { DescribeBrandPublishedVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeBrandPublishedVersionCommandInput extends DescribeBrand
  *
  * The output of {@link DescribeBrandPublishedVersionCommand}.
  */
-export interface DescribeBrandPublishedVersionCommandOutput
-  extends DescribeBrandPublishedVersionResponse,
-    __MetadataBearer {}
+export interface DescribeBrandPublishedVersionCommandOutput extends DescribeBrandPublishedVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the published version of the brand.</p>
@@ -213,7 +211,7 @@ export class DescribeBrandPublishedVersionCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeBrandPublishedVersion", {})
   .n("QuickSightClient", "DescribeBrandPublishedVersionCommand")
-  .sc(DescribeBrandPublishedVersion)
+  .sc(DescribeBrandPublishedVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

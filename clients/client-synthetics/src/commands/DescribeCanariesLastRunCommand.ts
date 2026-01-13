@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeCanariesLastRunRequest, DescribeCanariesLastRunResponse } from "../models/models_0";
-import { DescribeCanariesLastRun } from "../schemas/schemas_0";
+import { DescribeCanariesLastRun$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
@@ -119,7 +119,7 @@ export class DescribeCanariesLastRunCommand extends $Command
   })
   .s("Synthetics", "DescribeCanariesLastRun", {})
   .n("SyntheticsClient", "DescribeCanariesLastRunCommand")
-  .sc(DescribeCanariesLastRun)
+  .sc(DescribeCanariesLastRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

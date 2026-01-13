@@ -21,10 +21,4 @@ export const paginateListProtectConfigurationRuleSetNumberOverrides: (
   PinpointSMSVoiceV2PaginationConfiguration,
   ListProtectConfigurationRuleSetNumberOverridesCommandInput,
   ListProtectConfigurationRuleSetNumberOverridesCommandOutput
->(
-  PinpointSMSVoiceV2Client,
-  ListProtectConfigurationRuleSetNumberOverridesCommand,
-  "NextToken",
-  "NextToken",
-  "MaxResults"
-);
+>(PinpointSMSVoiceV2Client, ListProtectConfigurationRuleSetNumberOverridesCommand, "NextToken", "NextToken", "MaxResults");

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRouteServerRoutingDatabaseRequest, GetRouteServerRoutingDatabaseResult } from "../models/models_6";
-import { GetRouteServerRoutingDatabase } from "../schemas/schemas_0";
+import { GetRouteServerRoutingDatabase$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetRouteServerRoutingDatabaseCommandInput extends GetRouteServe
  *
  * The output of {@link GetRouteServerRoutingDatabaseCommand}.
  */
-export interface GetRouteServerRoutingDatabaseCommandOutput
-  extends GetRouteServerRoutingDatabaseResult,
-    __MetadataBearer {}
+export interface GetRouteServerRoutingDatabaseCommandOutput extends GetRouteServerRoutingDatabaseResult, __MetadataBearer {}
 
 /**
  * <p>Gets the routing database for the specified route server. The <a href="https://en.wikipedia.org/wiki/Routing_table">Routing Information Base (RIB)</a> serves as a database that stores all the routing information and network topology data collected by a router or routing system, such as routes learned from BGP peers. The RIB is constantly updated as new routing information is received or existing routes change. This ensures that the route server always has the most current view of the network topology and can make optimal routing decisions.</p>
@@ -122,7 +120,7 @@ export class GetRouteServerRoutingDatabaseCommand extends $Command
   })
   .s("AmazonEC2", "GetRouteServerRoutingDatabase", {})
   .n("EC2Client", "GetRouteServerRoutingDatabaseCommand")
-  .sc(GetRouteServerRoutingDatabase)
+  .sc(GetRouteServerRoutingDatabase$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateServiceRequest, CreateServiceResponse } from "../models/models_0";
-import { CreateService } from "../schemas/schemas_0";
+import { CreateService$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -977,7 +977,7 @@ export class CreateServiceCommand extends $Command
   })
   .s("AmazonEC2ContainerServiceV20141113", "CreateService", {})
   .n("ECSClient", "CreateServiceCommand")
-  .sc(CreateService)
+  .sc(CreateService$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

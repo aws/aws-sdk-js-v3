@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeMlflowTrackingServerRequest, DescribeMlflowTrackingServerResponse } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribeMlflowTrackingServer } from "../schemas/schemas_0";
+import { DescribeMlflowTrackingServer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeMlflowTrackingServerCommandInput extends DescribeMlflow
  *
  * The output of {@link DescribeMlflowTrackingServerCommand}.
  */
-export interface DescribeMlflowTrackingServerCommandOutput
-  extends DescribeMlflowTrackingServerResponse,
-    __MetadataBearer {}
+export interface DescribeMlflowTrackingServerCommandOutput extends DescribeMlflowTrackingServerResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about an MLflow Tracking Server.</p>
@@ -111,7 +109,7 @@ export class DescribeMlflowTrackingServerCommand extends $Command
   })
   .s("SageMaker", "DescribeMlflowTrackingServer", {})
   .n("SageMakerClient", "DescribeMlflowTrackingServerCommand")
-  .sc(DescribeMlflowTrackingServer)
+  .sc(DescribeMlflowTrackingServer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

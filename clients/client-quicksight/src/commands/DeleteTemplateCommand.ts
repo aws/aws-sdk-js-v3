@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTemplateRequest, DeleteTemplateResponse } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DeleteTemplate } from "../schemas/schemas_0";
+import { DeleteTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class DeleteTemplateCommand extends $Command
   })
   .s("QuickSight_20180401", "DeleteTemplate", {})
   .n("QuickSightClient", "DeleteTemplateCommand")
-  .sc(DeleteTemplate)
+  .sc(DeleteTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

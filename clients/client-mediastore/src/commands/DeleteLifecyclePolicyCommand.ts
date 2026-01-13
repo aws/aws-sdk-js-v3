@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
 import type { DeleteLifecyclePolicyInput, DeleteLifecyclePolicyOutput } from "../models/models_0";
-import { DeleteLifecyclePolicy } from "../schemas/schemas_0";
+import { DeleteLifecyclePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DeleteLifecyclePolicyCommand extends $Command
   })
   .s("MediaStore_20170901", "DeleteLifecyclePolicy", {})
   .n("MediaStoreClient", "DeleteLifecyclePolicyCommand")
-  .sc(DeleteLifecyclePolicy)
+  .sc(DeleteLifecyclePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

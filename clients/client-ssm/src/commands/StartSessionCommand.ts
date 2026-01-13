@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartSessionRequest, StartSessionResponse } from "../models/models_1";
-import { StartSession } from "../schemas/schemas_0";
+import { StartSession$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -104,7 +104,7 @@ export class StartSessionCommand extends $Command
   })
   .s("AmazonSSM", "StartSession", {})
   .n("SSMClient", "StartSessionCommand")
-  .sc(StartSession)
+  .sc(StartSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

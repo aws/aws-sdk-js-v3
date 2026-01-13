@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { DBShardGroup } from "../models/models_0";
 import type { ModifyDBShardGroupMessage } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { ModifyDBShardGroup } from "../schemas/schemas_0";
+import { ModifyDBShardGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class ModifyDBShardGroupCommand extends $Command
   })
   .s("AmazonRDSv19", "ModifyDBShardGroup", {})
   .n("RDSClient", "ModifyDBShardGroupCommand")
-  .sc(ModifyDBShardGroup)
+  .sc(ModifyDBShardGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

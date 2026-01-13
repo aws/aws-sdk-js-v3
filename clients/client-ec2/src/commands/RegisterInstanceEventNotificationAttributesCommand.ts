@@ -9,7 +9,7 @@ import type {
   RegisterInstanceEventNotificationAttributesRequest,
   RegisterInstanceEventNotificationAttributesResult,
 } from "../models/models_7";
-import { RegisterInstanceEventNotificationAttributes } from "../schemas/schemas_0";
+import { RegisterInstanceEventNotificationAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link RegisterInstanceEventNotificationAttributesCommand}.
  */
-export interface RegisterInstanceEventNotificationAttributesCommandInput
-  extends RegisterInstanceEventNotificationAttributesRequest {}
+export interface RegisterInstanceEventNotificationAttributesCommandInput extends RegisterInstanceEventNotificationAttributesRequest {}
 /**
  * @public
  *
  * The output of {@link RegisterInstanceEventNotificationAttributesCommand}.
  */
-export interface RegisterInstanceEventNotificationAttributesCommandOutput
-  extends RegisterInstanceEventNotificationAttributesResult,
-    __MetadataBearer {}
+export interface RegisterInstanceEventNotificationAttributesCommandOutput extends RegisterInstanceEventNotificationAttributesResult, __MetadataBearer {}
 
 /**
  * <p>Registers a set of tag keys to include in scheduled event notifications for your
@@ -93,7 +90,7 @@ export class RegisterInstanceEventNotificationAttributesCommand extends $Command
   })
   .s("AmazonEC2", "RegisterInstanceEventNotificationAttributes", {})
   .n("EC2Client", "RegisterInstanceEventNotificationAttributesCommand")
-  .sc(RegisterInstanceEventNotificationAttributes)
+  .sc(RegisterInstanceEventNotificationAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

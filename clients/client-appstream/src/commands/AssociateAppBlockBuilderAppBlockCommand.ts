@@ -9,7 +9,7 @@ import type {
   AssociateAppBlockBuilderAppBlockRequest,
   AssociateAppBlockBuilderAppBlockResult,
 } from "../models/models_0";
-import { AssociateAppBlockBuilderAppBlock } from "../schemas/schemas_0";
+import { AssociateAppBlockBuilderAppBlock$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface AssociateAppBlockBuilderAppBlockCommandInput extends AssociateA
  *
  * The output of {@link AssociateAppBlockBuilderAppBlockCommand}.
  */
-export interface AssociateAppBlockBuilderAppBlockCommandOutput
-  extends AssociateAppBlockBuilderAppBlockResult,
-    __MetadataBearer {}
+export interface AssociateAppBlockBuilderAppBlockCommandOutput extends AssociateAppBlockBuilderAppBlockResult, __MetadataBearer {}
 
 /**
  * <p>Associates the specified app block builder with the specified app block.</p>
@@ -97,7 +95,7 @@ export class AssociateAppBlockBuilderAppBlockCommand extends $Command
   })
   .s("PhotonAdminProxyService", "AssociateAppBlockBuilderAppBlock", {})
   .n("AppStreamClient", "AssociateAppBlockBuilderAppBlockCommand")
-  .sc(AssociateAppBlockBuilderAppBlock)
+  .sc(AssociateAppBlockBuilderAppBlock$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

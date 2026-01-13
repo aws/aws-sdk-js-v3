@@ -9,7 +9,7 @@ import type {
   ListIntegrationResourcePropertiesRequest,
   ListIntegrationResourcePropertiesResponse,
 } from "../models/models_2";
-import { ListIntegrationResourceProperties } from "../schemas/schemas_0";
+import { ListIntegrationResourceProperties$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListIntegrationResourcePropertiesCommandInput extends ListInteg
  *
  * The output of {@link ListIntegrationResourcePropertiesCommand}.
  */
-export interface ListIntegrationResourcePropertiesCommandOutput
-  extends ListIntegrationResourcePropertiesResponse,
-    __MetadataBearer {}
+export interface ListIntegrationResourcePropertiesCommandOutput extends ListIntegrationResourcePropertiesResponse, __MetadataBearer {}
 
 /**
  * <p>List integration resource properties for a single customer. It supports the filters, maxRecords and markers.</p>
@@ -123,7 +121,7 @@ export class ListIntegrationResourcePropertiesCommand extends $Command
   })
   .s("AWSGlue", "ListIntegrationResourceProperties", {})
   .n("GlueClient", "ListIntegrationResourcePropertiesCommand")
-  .sc(ListIntegrationResourceProperties)
+  .sc(ListIntegrationResourceProperties$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

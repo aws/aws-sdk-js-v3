@@ -9,7 +9,7 @@ import type {
   CreateLocalGatewayVirtualInterfaceRequest,
   CreateLocalGatewayVirtualInterfaceResult,
 } from "../models/models_1";
-import { CreateLocalGatewayVirtualInterface } from "../schemas/schemas_0";
+import { CreateLocalGatewayVirtualInterface$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateLocalGatewayVirtualInterfaceCommandInput extends CreateLo
  *
  * The output of {@link CreateLocalGatewayVirtualInterfaceCommand}.
  */
-export interface CreateLocalGatewayVirtualInterfaceCommandOutput
-  extends CreateLocalGatewayVirtualInterfaceResult,
-    __MetadataBearer {}
+export interface CreateLocalGatewayVirtualInterfaceCommandOutput extends CreateLocalGatewayVirtualInterfaceResult, __MetadataBearer {}
 
 /**
  * <p>Create a virtual interface for a local gateway. </p>
@@ -116,7 +114,7 @@ export class CreateLocalGatewayVirtualInterfaceCommand extends $Command
   })
   .s("AmazonEC2", "CreateLocalGatewayVirtualInterface", {})
   .n("EC2Client", "CreateLocalGatewayVirtualInterfaceCommand")
-  .sc(CreateLocalGatewayVirtualInterface)
+  .sc(CreateLocalGatewayVirtualInterface$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

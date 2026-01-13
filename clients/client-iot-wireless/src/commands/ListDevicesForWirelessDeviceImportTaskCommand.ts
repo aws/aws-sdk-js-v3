@@ -9,7 +9,7 @@ import type {
   ListDevicesForWirelessDeviceImportTaskRequest,
   ListDevicesForWirelessDeviceImportTaskResponse,
 } from "../models/models_0";
-import { ListDevicesForWirelessDeviceImportTask } from "../schemas/schemas_0";
+import { ListDevicesForWirelessDeviceImportTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListDevicesForWirelessDeviceImportTaskCommand}.
  */
-export interface ListDevicesForWirelessDeviceImportTaskCommandInput
-  extends ListDevicesForWirelessDeviceImportTaskRequest {}
+export interface ListDevicesForWirelessDeviceImportTaskCommandInput extends ListDevicesForWirelessDeviceImportTaskRequest {}
 /**
  * @public
  *
  * The output of {@link ListDevicesForWirelessDeviceImportTaskCommand}.
  */
-export interface ListDevicesForWirelessDeviceImportTaskCommandOutput
-  extends ListDevicesForWirelessDeviceImportTaskResponse,
-    __MetadataBearer {}
+export interface ListDevicesForWirelessDeviceImportTaskCommandOutput extends ListDevicesForWirelessDeviceImportTaskResponse, __MetadataBearer {}
 
 /**
  * <p>List the Sidewalk devices in an import task and their onboarding status.</p>
@@ -117,7 +114,7 @@ export class ListDevicesForWirelessDeviceImportTaskCommand extends $Command
   })
   .s("iotwireless", "ListDevicesForWirelessDeviceImportTask", {})
   .n("IoTWirelessClient", "ListDevicesForWirelessDeviceImportTaskCommand")
-  .sc(ListDevicesForWirelessDeviceImportTask)
+  .sc(ListDevicesForWirelessDeviceImportTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

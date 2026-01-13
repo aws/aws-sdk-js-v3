@@ -10,7 +10,7 @@ import type {
 } from "../CloudFrontKeyValueStoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutKeyRequest, PutKeyResponse } from "../models/models_0";
-import { PutKey } from "../schemas/schemas_0";
+import { PutKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class PutKeyCommand extends $Command
   })
   .s("CloudFrontKeyValueStore", "PutKey", {})
   .n("CloudFrontKeyValueStoreClient", "PutKeyCommand")
-  .sc(PutKey)
+  .sc(PutKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

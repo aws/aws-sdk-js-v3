@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetStreamingDistributionConfigRequest, GetStreamingDistributionConfigResult } from "../models/models_1";
-import { GetStreamingDistributionConfig } from "../schemas/schemas_0";
+import { GetStreamingDistributionConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetStreamingDistributionConfigCommandInput extends GetStreaming
  *
  * The output of {@link GetStreamingDistributionConfigCommand}.
  */
-export interface GetStreamingDistributionConfigCommandOutput
-  extends GetStreamingDistributionConfigResult,
-    __MetadataBearer {}
+export interface GetStreamingDistributionConfigCommandOutput extends GetStreamingDistributionConfigResult, __MetadataBearer {}
 
 /**
  * <p>Get the configuration information about a streaming distribution.</p>
@@ -109,7 +107,7 @@ export class GetStreamingDistributionConfigCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "GetStreamingDistributionConfig", {})
   .n("CloudFrontClient", "GetStreamingDistributionConfigCommand")
-  .sc(GetStreamingDistributionConfig)
+  .sc(GetStreamingDistributionConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

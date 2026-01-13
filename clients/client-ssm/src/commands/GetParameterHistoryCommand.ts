@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetParameterHistoryRequest, GetParameterHistoryResult } from "../models/models_0";
-import { GetParameterHistory } from "../schemas/schemas_0";
+import { GetParameterHistory$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -127,7 +127,7 @@ export class GetParameterHistoryCommand extends $Command
   })
   .s("AmazonSSM", "GetParameterHistory", {})
   .n("SSMClient", "GetParameterHistoryCommand")
-  .sc(GetParameterHistory)
+  .sc(GetParameterHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

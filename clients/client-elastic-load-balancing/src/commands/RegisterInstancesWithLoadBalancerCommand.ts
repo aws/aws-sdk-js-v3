@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegisterEndPointsInput, RegisterEndPointsOutput } from "../models/models_0";
-import { RegisterInstancesWithLoadBalancer } from "../schemas/schemas_0";
+import { RegisterInstancesWithLoadBalancer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class RegisterInstancesWithLoadBalancerCommand extends $Command
   })
   .s("ElasticLoadBalancing_v7", "RegisterInstancesWithLoadBalancer", {})
   .n("ElasticLoadBalancingClient", "RegisterInstancesWithLoadBalancerCommand")
-  .sc(RegisterInstancesWithLoadBalancer)
+  .sc(RegisterInstancesWithLoadBalancer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

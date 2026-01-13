@@ -8,7 +8,7 @@ import type {
   SetIdentityHeadersInNotificationsEnabledRequest,
   SetIdentityHeadersInNotificationsEnabledResponse,
 } from "../models/models_0";
-import { SetIdentityHeadersInNotificationsEnabled } from "../schemas/schemas_0";
+import { SetIdentityHeadersInNotificationsEnabled$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link SetIdentityHeadersInNotificationsEnabledCommand}.
  */
-export interface SetIdentityHeadersInNotificationsEnabledCommandInput
-  extends SetIdentityHeadersInNotificationsEnabledRequest {}
+export interface SetIdentityHeadersInNotificationsEnabledCommandInput extends SetIdentityHeadersInNotificationsEnabledRequest {}
 /**
  * @public
  *
  * The output of {@link SetIdentityHeadersInNotificationsEnabledCommand}.
  */
-export interface SetIdentityHeadersInNotificationsEnabledCommandOutput
-  extends SetIdentityHeadersInNotificationsEnabledResponse,
-    __MetadataBearer {}
+export interface SetIdentityHeadersInNotificationsEnabledCommandOutput extends SetIdentityHeadersInNotificationsEnabledResponse, __MetadataBearer {}
 
 /**
  * <p>Given an identity (an email address or a domain), sets whether Amazon SES includes the
@@ -99,7 +96,7 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command
   })
   .s("SimpleEmailService", "SetIdentityHeadersInNotificationsEnabled", {})
   .n("SESClient", "SetIdentityHeadersInNotificationsEnabledCommand")
-  .sc(SetIdentityHeadersInNotificationsEnabled)
+  .sc(SetIdentityHeadersInNotificationsEnabled$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

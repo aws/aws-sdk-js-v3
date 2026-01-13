@@ -13,7 +13,7 @@ import type {
   DescribeChannelModeratedByAppInstanceUserRequest,
   DescribeChannelModeratedByAppInstanceUserResponse,
 } from "../models/models_0";
-import { DescribeChannelModeratedByAppInstanceUser } from "../schemas/schemas_0";
+import { DescribeChannelModeratedByAppInstanceUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeChannelModeratedByAppInstanceUserCommand}.
  */
-export interface DescribeChannelModeratedByAppInstanceUserCommandInput
-  extends DescribeChannelModeratedByAppInstanceUserRequest {}
+export interface DescribeChannelModeratedByAppInstanceUserCommandInput extends DescribeChannelModeratedByAppInstanceUserRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeChannelModeratedByAppInstanceUserCommand}.
  */
-export interface DescribeChannelModeratedByAppInstanceUserCommandOutput
-  extends DescribeChannelModeratedByAppInstanceUserResponse,
-    __MetadataBearer {}
+export interface DescribeChannelModeratedByAppInstanceUserCommandOutput extends DescribeChannelModeratedByAppInstanceUserResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the full details of a channel moderated by the specified
@@ -118,7 +115,7 @@ export class DescribeChannelModeratedByAppInstanceUserCommand extends $Command
   })
   .s("ChimeMessagingService", "DescribeChannelModeratedByAppInstanceUser", {})
   .n("ChimeSDKMessagingClient", "DescribeChannelModeratedByAppInstanceUserCommand")
-  .sc(DescribeChannelModeratedByAppInstanceUser)
+  .sc(DescribeChannelModeratedByAppInstanceUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

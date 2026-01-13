@@ -26,6 +26,7 @@ import {
   OtaStatus,
   OtaTaskExecutionStatus,
   OtaType,
+  ProtocolType,
   ProvisioningStatus,
   ProvisioningType,
   RetryCriteriaFailureType,
@@ -1340,6 +1341,30 @@ export interface CreateEventLogConfigurationResponse {
 }
 
 /**
+ * <p>The Wi-Fi Simple Setup configuration for the managed thing, which defines provisioning capabilities and timeout settings.</p>
+ * @public
+ */
+export interface WiFiSimpleSetupConfiguration {
+  /**
+   * <p>Indicates whether the device can act as a provisioner in Wi-Fi Simple Setup, allowing it to configure other devices.</p>
+   * @public
+   */
+  EnableAsProvisioner?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the device can act as a provisionee in Wi-Fi Simple Setup, allowing it to be configured by other devices.</p>
+   * @public
+   */
+  EnableAsProvisionee?: boolean | undefined;
+
+  /**
+   * <p>The timeout duration in minutes for Wi-Fi Simple Setup. Valid range is 5 to 15 minutes.</p>
+   * @public
+   */
+  TimeoutInMinutes?: number | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateManagedThingRequest {
@@ -1372,6 +1397,12 @@ export interface CreateManagedThingRequest {
    * @public
    */
   AuthenticationMaterialType: AuthMaterialType | undefined;
+
+  /**
+   * <p>The Wi-Fi Simple Setup configuration for the managed thing, which defines provisioning capabilities and timeout settings.</p>
+   * @public
+   */
+  WiFiSimpleSetupConfiguration?: WiFiSimpleSetupConfiguration | undefined;
 
   /**
    * <p>The serial number of the device.</p>
@@ -2809,6 +2840,18 @@ export interface StartDeviceDiscoveryRequest {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The protocol type for capability rediscovery (ZWAVE, ZIGBEE, or CUSTOM).</p> <note> <p>This parameter is only available when the discovery type is CONTROLLER_CAPABILITY_REDISCOVERY.</p> </note>
+   * @public
+   */
+  Protocol?: ProtocolType | undefined;
+
+  /**
+   * <p>The unique id of the end device for capability rediscovery.</p> <note> <p>This parameter is only available when the discovery type is CONTROLLER_CAPABILITY_REDISCOVERY.</p> </note>
+   * @public
+   */
+  EndDeviceIdentifier?: string | undefined;
 }
 
 /**
@@ -3067,7 +3110,7 @@ export interface GetManagedThingResponse {
   Role?: Role | undefined;
 
   /**
-   * <p>The provisioning status of the device in the provisioning workflow for onboarding to IoT managed integrations.</p>
+   * <p>The provisioning status of the device in the provisioning workflow for onboarding to IoT managed integrations. For more information, see <a href="https://docs.aws.amazon.com/iot-mi/latest/devguide/device-provisioning.html">Device Provisioning</a>.</p>
    * @public
    */
   ProvisioningStatus?: ProvisioningStatus | undefined;
@@ -3187,6 +3230,12 @@ export interface GetManagedThingResponse {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Wi-Fi Simple Setup configuration for the managed thing, which defines provisioning capabilities and timeout settings.</p>
+   * @public
+   */
+  WiFiSimpleSetupConfiguration?: WiFiSimpleSetupConfiguration | undefined;
 }
 
 /**
@@ -4156,7 +4205,7 @@ export interface ListManagedThingsRequest {
   SerialNumberFilter?: string | undefined;
 
   /**
-   * <p>Filter on the status of the device.</p>
+   * <p>Filter on the status of the device. For more information, see <a href="https://docs.aws.amazon.com/iot-mi/latest/devguide/device-provisioning.html">Device Provisioning</a>.</p>
    * @public
    */
   ProvisioningStatusFilter?: ProvisioningStatus | undefined;
@@ -4260,7 +4309,7 @@ export interface ManagedThingSummary {
   ParentControllerId?: string | undefined;
 
   /**
-   * <p>The provisioning status of the device in the provisioning workflow for onboarding to IoT managed integrations.</p>
+   * <p>The provisioning status of the device in the provisioning workflow for onboarding to IoT managed integrations. For more information, see <a href="https://docs.aws.amazon.com/iot-mi/latest/devguide/device-provisioning.html">Device Provisioning</a>.</p>
    * @public
    */
   ProvisioningStatus?: ProvisioningStatus | undefined;
@@ -4416,6 +4465,12 @@ export interface UpdateManagedThingRequest {
    * @public
    */
   SerialNumber?: string | undefined;
+
+  /**
+   * <p>The Wi-Fi Simple Setup configuration for the managed thing, which defines provisioning capabilities and timeout settings.</p>
+   * @public
+   */
+  WiFiSimpleSetupConfiguration?: WiFiSimpleSetupConfiguration | undefined;
 
   /**
    * <p>The brand of the device.</p>

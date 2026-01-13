@@ -8,7 +8,7 @@ import type {
   ListServiceNetworkVpcEndpointAssociationsRequest,
   ListServiceNetworkVpcEndpointAssociationsResponse,
 } from "../models/models_0";
-import { ListServiceNetworkVpcEndpointAssociations } from "../schemas/schemas_0";
+import { ListServiceNetworkVpcEndpointAssociations$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListServiceNetworkVpcEndpointAssociationsCommand}.
  */
-export interface ListServiceNetworkVpcEndpointAssociationsCommandInput
-  extends ListServiceNetworkVpcEndpointAssociationsRequest {}
+export interface ListServiceNetworkVpcEndpointAssociationsCommandInput extends ListServiceNetworkVpcEndpointAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListServiceNetworkVpcEndpointAssociationsCommand}.
  */
-export interface ListServiceNetworkVpcEndpointAssociationsCommandOutput
-  extends ListServiceNetworkVpcEndpointAssociationsResponse,
-    __MetadataBearer {}
+export interface ListServiceNetworkVpcEndpointAssociationsCommandOutput extends ListServiceNetworkVpcEndpointAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the associations between a service network and a VPC endpoint.</p>
@@ -104,7 +101,7 @@ export class ListServiceNetworkVpcEndpointAssociationsCommand extends $Command
   })
   .s("MercuryControlPlane", "ListServiceNetworkVpcEndpointAssociations", {})
   .n("VPCLatticeClient", "ListServiceNetworkVpcEndpointAssociationsCommand")
-  .sc(ListServiceNetworkVpcEndpointAssociations)
+  .sc(ListServiceNetworkVpcEndpointAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

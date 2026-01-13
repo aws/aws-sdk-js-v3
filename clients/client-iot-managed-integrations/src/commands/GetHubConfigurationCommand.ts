@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { GetHubConfigurationRequest, GetHubConfigurationResponse } from "../models/models_0";
-import { GetHubConfiguration } from "../schemas/schemas_0";
+import { GetHubConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class GetHubConfigurationCommand extends $Command
   })
   .s("IotManagedIntegrations", "GetHubConfiguration", {})
   .n("IoTManagedIntegrationsClient", "GetHubConfigurationCommand")
-  .sc(GetHubConfiguration)
+  .sc(GetHubConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import type { GetGroupCertificateAuthorityRequest, GetGroupCertificateAuthorityResponse } from "../models/models_0";
-import { GetGroupCertificateAuthority } from "../schemas/schemas_0";
+import { GetGroupCertificateAuthority$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetGroupCertificateAuthorityCommandInput extends GetGroupCertif
  *
  * The output of {@link GetGroupCertificateAuthorityCommand}.
  */
-export interface GetGroupCertificateAuthorityCommandOutput
-  extends GetGroupCertificateAuthorityResponse,
-    __MetadataBearer {}
+export interface GetGroupCertificateAuthorityCommandOutput extends GetGroupCertificateAuthorityResponse, __MetadataBearer {}
 
 /**
  * Retreives the CA associated with a group. Returns the public key of the CA.
@@ -84,7 +82,7 @@ export class GetGroupCertificateAuthorityCommand extends $Command
   })
   .s("Greengrass", "GetGroupCertificateAuthority", {})
   .n("GreengrassClient", "GetGroupCertificateAuthorityCommand")
-  .sc(GetGroupCertificateAuthority)
+  .sc(GetGroupCertificateAuthority$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

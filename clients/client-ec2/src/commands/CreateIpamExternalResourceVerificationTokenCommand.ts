@@ -9,7 +9,7 @@ import type {
   CreateIpamExternalResourceVerificationTokenRequest,
   CreateIpamExternalResourceVerificationTokenResult,
 } from "../models/models_1";
-import { CreateIpamExternalResourceVerificationToken } from "../schemas/schemas_0";
+import { CreateIpamExternalResourceVerificationToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateIpamExternalResourceVerificationTokenCommand}.
  */
-export interface CreateIpamExternalResourceVerificationTokenCommandInput
-  extends CreateIpamExternalResourceVerificationTokenRequest {}
+export interface CreateIpamExternalResourceVerificationTokenCommandInput extends CreateIpamExternalResourceVerificationTokenRequest {}
 /**
  * @public
  *
  * The output of {@link CreateIpamExternalResourceVerificationTokenCommand}.
  */
-export interface CreateIpamExternalResourceVerificationTokenCommandOutput
-  extends CreateIpamExternalResourceVerificationTokenResult,
-    __MetadataBearer {}
+export interface CreateIpamExternalResourceVerificationTokenCommandOutput extends CreateIpamExternalResourceVerificationTokenResult, __MetadataBearer {}
 
 /**
  * <p>Create a verification token.</p>
@@ -111,7 +108,7 @@ export class CreateIpamExternalResourceVerificationTokenCommand extends $Command
   })
   .s("AmazonEC2", "CreateIpamExternalResourceVerificationToken", {})
   .n("EC2Client", "CreateIpamExternalResourceVerificationTokenCommand")
-  .sc(CreateIpamExternalResourceVerificationToken)
+  .sc(CreateIpamExternalResourceVerificationToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

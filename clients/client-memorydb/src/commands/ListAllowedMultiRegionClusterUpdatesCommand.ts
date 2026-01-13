@@ -9,7 +9,7 @@ import type {
   ListAllowedMultiRegionClusterUpdatesRequest,
   ListAllowedMultiRegionClusterUpdatesResponse,
 } from "../models/models_0";
-import { ListAllowedMultiRegionClusterUpdates } from "../schemas/schemas_0";
+import { ListAllowedMultiRegionClusterUpdates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListAllowedMultiRegionClusterUpdatesCommandInput extends ListAl
  *
  * The output of {@link ListAllowedMultiRegionClusterUpdatesCommand}.
  */
-export interface ListAllowedMultiRegionClusterUpdatesCommandOutput
-  extends ListAllowedMultiRegionClusterUpdatesResponse,
-    __MetadataBearer {}
+export interface ListAllowedMultiRegionClusterUpdatesCommandOutput extends ListAllowedMultiRegionClusterUpdatesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the allowed updates for a multi-Region cluster.</p>
@@ -92,7 +90,7 @@ export class ListAllowedMultiRegionClusterUpdatesCommand extends $Command
   })
   .s("AmazonMemoryDB", "ListAllowedMultiRegionClusterUpdates", {})
   .n("MemoryDBClient", "ListAllowedMultiRegionClusterUpdatesCommand")
-  .sc(ListAllowedMultiRegionClusterUpdates)
+  .sc(ListAllowedMultiRegionClusterUpdates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

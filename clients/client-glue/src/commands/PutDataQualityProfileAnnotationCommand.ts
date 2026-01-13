@@ -9,7 +9,7 @@ import type {
   PutDataQualityProfileAnnotationRequest,
   PutDataQualityProfileAnnotationResponse,
 } from "../models/models_2";
-import { PutDataQualityProfileAnnotation } from "../schemas/schemas_0";
+import { PutDataQualityProfileAnnotation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface PutDataQualityProfileAnnotationCommandInput extends PutDataQual
  *
  * The output of {@link PutDataQualityProfileAnnotationCommand}.
  */
-export interface PutDataQualityProfileAnnotationCommandOutput
-  extends PutDataQualityProfileAnnotationResponse,
-    __MetadataBearer {}
+export interface PutDataQualityProfileAnnotationCommandOutput extends PutDataQualityProfileAnnotationResponse, __MetadataBearer {}
 
 /**
  * <p>Annotate all datapoints for a Profile.</p>
@@ -86,7 +84,7 @@ export class PutDataQualityProfileAnnotationCommand extends $Command
   })
   .s("AWSGlue", "PutDataQualityProfileAnnotation", {})
   .n("GlueClient", "PutDataQualityProfileAnnotationCommand")
-  .sc(PutDataQualityProfileAnnotation)
+  .sc(PutDataQualityProfileAnnotation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { DeleteVpcEndpointAssociation } from "../schemas/schemas_0";
+import { DeleteVpcEndpointAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DeleteVpcEndpointAssociationCommandInput extends DeleteVpcEndpo
  *
  * The output of {@link DeleteVpcEndpointAssociationCommand}.
  */
-export interface DeleteVpcEndpointAssociationCommandOutput
-  extends DeleteVpcEndpointAssociationResponse,
-    __MetadataBearer {}
+export interface DeleteVpcEndpointAssociationCommandOutput extends DeleteVpcEndpointAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified <a>VpcEndpointAssociation</a>.</p>
@@ -144,7 +142,7 @@ export class DeleteVpcEndpointAssociationCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "DeleteVpcEndpointAssociation", {})
   .n("NetworkFirewallClient", "DeleteVpcEndpointAssociationCommand")
-  .sc(DeleteVpcEndpointAssociation)
+  .sc(DeleteVpcEndpointAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDataGrantRequest } from "../models/models_0";
-import { DeleteDataGrant } from "../schemas/schemas_0";
+import { DeleteDataGrant$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class DeleteDataGrantCommand extends $Command
   })
   .s("DataExchange", "DeleteDataGrant", {})
   .n("DataExchangeClient", "DeleteDataGrantCommand")
-  .sc(DeleteDataGrant)
+  .sc(DeleteDataGrant$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

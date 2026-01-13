@@ -9,7 +9,7 @@ import type {
   PurchaseReservedInstancesOfferingRequest,
   PurchaseReservedInstancesOfferingResult,
 } from "../models/models_7";
-import { PurchaseReservedInstancesOffering } from "../schemas/schemas_0";
+import { PurchaseReservedInstancesOffering$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface PurchaseReservedInstancesOfferingCommandInput extends PurchaseR
  *
  * The output of {@link PurchaseReservedInstancesOfferingCommand}.
  */
-export interface PurchaseReservedInstancesOfferingCommandOutput
-  extends PurchaseReservedInstancesOfferingResult,
-    __MetadataBearer {}
+export interface PurchaseReservedInstancesOfferingCommandOutput extends PurchaseReservedInstancesOfferingResult, __MetadataBearer {}
 
 /**
  * <p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay
@@ -94,7 +92,7 @@ export class PurchaseReservedInstancesOfferingCommand extends $Command
   })
   .s("AmazonEC2", "PurchaseReservedInstancesOffering", {})
   .n("EC2Client", "PurchaseReservedInstancesOfferingCommand")
-  .sc(PurchaseReservedInstancesOffering)
+  .sc(PurchaseReservedInstancesOffering$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

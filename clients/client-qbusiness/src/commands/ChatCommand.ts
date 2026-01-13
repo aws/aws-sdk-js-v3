@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { ChatOutput } from "../models/models_0";
 import type { ChatInput } from "../models/models_1";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { Chat } from "../schemas/schemas_0";
+import { Chat$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -324,7 +324,10 @@ export class ChatCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getEventStreamPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getEventStreamPlugin(config),
+    ];
   })
   .s("ExpertQ", "Chat", {
     /**
@@ -336,7 +339,7 @@ export class ChatCommand extends $Command
     },
   })
   .n("QBusinessClient", "ChatCommand")
-  .sc(Chat)
+  .sc(Chat$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

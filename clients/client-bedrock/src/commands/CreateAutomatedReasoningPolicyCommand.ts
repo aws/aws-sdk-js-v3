@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateAutomatedReasoningPolicyRequest, CreateAutomatedReasoningPolicyResponse } from "../models/models_0";
-import { CreateAutomatedReasoningPolicy } from "../schemas/schemas_0";
+import { CreateAutomatedReasoningPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateAutomatedReasoningPolicyCommandInput extends CreateAutoma
  *
  * The output of {@link CreateAutomatedReasoningPolicyCommand}.
  */
-export interface CreateAutomatedReasoningPolicyCommandOutput
-  extends CreateAutomatedReasoningPolicyResponse,
-    __MetadataBearer {}
+export interface CreateAutomatedReasoningPolicyCommandOutput extends CreateAutomatedReasoningPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Automated Reasoning policy for Amazon Bedrock Guardrails. Automated Reasoning policies use mathematical techniques to detect hallucinations, suggest corrections, and highlight unstated assumptions in the responses of your GenAI application.</p> <p>To create a policy, you upload a source document that describes the rules that you're encoding. Automated Reasoning extracts important concepts from the source document that will become variables in the policy and infers policy rules.</p>
@@ -143,7 +141,7 @@ export class CreateAutomatedReasoningPolicyCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "CreateAutomatedReasoningPolicy", {})
   .n("BedrockClient", "CreateAutomatedReasoningPolicyCommand")
-  .sc(CreateAutomatedReasoningPolicy)
+  .sc(CreateAutomatedReasoningPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

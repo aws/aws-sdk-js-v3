@@ -13,7 +13,7 @@ import type {
   DescribeReservedElasticsearchInstanceOfferingsRequest,
   DescribeReservedElasticsearchInstanceOfferingsResponse,
 } from "../models/models_0";
-import { DescribeReservedElasticsearchInstanceOfferings } from "../schemas/schemas_0";
+import { DescribeReservedElasticsearchInstanceOfferings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeReservedElasticsearchInstanceOfferingsCommand}.
  */
-export interface DescribeReservedElasticsearchInstanceOfferingsCommandInput
-  extends DescribeReservedElasticsearchInstanceOfferingsRequest {}
+export interface DescribeReservedElasticsearchInstanceOfferingsCommandInput extends DescribeReservedElasticsearchInstanceOfferingsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeReservedElasticsearchInstanceOfferingsCommand}.
  */
-export interface DescribeReservedElasticsearchInstanceOfferingsCommandOutput
-  extends DescribeReservedElasticsearchInstanceOfferingsResponse,
-    __MetadataBearer {}
+export interface DescribeReservedElasticsearchInstanceOfferingsCommandOutput extends DescribeReservedElasticsearchInstanceOfferingsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists available reserved Elasticsearch instance offerings.</p>
@@ -114,7 +111,7 @@ export class DescribeReservedElasticsearchInstanceOfferingsCommand extends $Comm
   })
   .s("AmazonElasticsearchService2015", "DescribeReservedElasticsearchInstanceOfferings", {})
   .n("ElasticsearchServiceClient", "DescribeReservedElasticsearchInstanceOfferingsCommand")
-  .sc(DescribeReservedElasticsearchInstanceOfferings)
+  .sc(DescribeReservedElasticsearchInstanceOfferings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

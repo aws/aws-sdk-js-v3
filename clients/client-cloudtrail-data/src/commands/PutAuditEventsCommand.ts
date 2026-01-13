@@ -10,7 +10,7 @@ import type {
 } from "../CloudTrailDataClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutAuditEventsRequest, PutAuditEventsResponse } from "../models/models_0";
-import { PutAuditEvents } from "../schemas/schemas_0";
+import { PutAuditEvents$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class PutAuditEventsCommand extends $Command
   })
   .s("CloudTrailDataService", "PutAuditEvents", {})
   .n("CloudTrailDataClient", "PutAuditEventsCommand")
-  .sc(PutAuditEvents)
+  .sc(PutAuditEvents$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

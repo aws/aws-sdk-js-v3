@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import type { CreateDataflowEndpointGroupV2Request, CreateDataflowEndpointGroupV2Response } from "../models/models_0";
-import { CreateDataflowEndpointGroupV2 } from "../schemas/schemas_0";
+import { CreateDataflowEndpointGroupV2$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateDataflowEndpointGroupV2CommandInput extends CreateDataflo
  *
  * The output of {@link CreateDataflowEndpointGroupV2Command}.
  */
-export interface CreateDataflowEndpointGroupV2CommandOutput
-  extends CreateDataflowEndpointGroupV2Response,
-    __MetadataBearer {}
+export interface CreateDataflowEndpointGroupV2CommandOutput extends CreateDataflowEndpointGroupV2Response, __MetadataBearer {}
 
 /**
  * <p>Creates a <code>DataflowEndpointGroupV2</code> containing the specified list of <code>DataflowEndpoint</code> objects.</p> <p>The <code>name</code> field in each endpoint is used in your mission profile <code>DataflowEndpointConfig</code> to specify which endpoints to use during a contact.</p> <p>When a contact uses multiple <code>DataflowEndpointConfig</code> objects, each <code>Config</code> must match a <code>DataflowEndpoint</code> in the same group.</p>
@@ -143,7 +141,7 @@ export class CreateDataflowEndpointGroupV2Command extends $Command
   })
   .s("GroundStation", "CreateDataflowEndpointGroupV2", {})
   .n("GroundStationClient", "CreateDataflowEndpointGroupV2Command")
-  .sc(CreateDataflowEndpointGroupV2)
+  .sc(CreateDataflowEndpointGroupV2$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

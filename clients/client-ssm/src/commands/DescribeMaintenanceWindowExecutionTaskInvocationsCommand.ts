@@ -8,7 +8,7 @@ import type {
   DescribeMaintenanceWindowExecutionTaskInvocationsRequest,
   DescribeMaintenanceWindowExecutionTaskInvocationsResult,
 } from "../models/models_0";
-import { DescribeMaintenanceWindowExecutionTaskInvocations } from "../schemas/schemas_0";
+import { DescribeMaintenanceWindowExecutionTaskInvocations$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeMaintenanceWindowExecutionTaskInvocationsCommand}.
  */
-export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput
-  extends DescribeMaintenanceWindowExecutionTaskInvocationsRequest {}
+export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput extends DescribeMaintenanceWindowExecutionTaskInvocationsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeMaintenanceWindowExecutionTaskInvocationsCommand}.
  */
-export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
-  extends DescribeMaintenanceWindowExecutionTaskInvocationsResult,
-    __MetadataBearer {}
+export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput extends DescribeMaintenanceWindowExecutionTaskInvocationsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the individual task executions (one per target) for a particular task run as part
@@ -116,7 +113,7 @@ export class DescribeMaintenanceWindowExecutionTaskInvocationsCommand extends $C
   })
   .s("AmazonSSM", "DescribeMaintenanceWindowExecutionTaskInvocations", {})
   .n("SSMClient", "DescribeMaintenanceWindowExecutionTaskInvocationsCommand")
-  .sc(DescribeMaintenanceWindowExecutionTaskInvocations)
+  .sc(DescribeMaintenanceWindowExecutionTaskInvocations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

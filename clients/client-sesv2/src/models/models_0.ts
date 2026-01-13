@@ -15,6 +15,7 @@ import {
   DkimSigningAttributesOrigin,
   DkimSigningKeyLength,
   DkimStatus,
+  EmailAddressInsightsConfidenceVerdict,
   EngagementEventType,
   EventType,
   ExportSourceType,
@@ -43,6 +44,7 @@ import {
   SendingStatus,
   Status,
   SubscriptionStatus,
+  SuppressionConfidenceVerdictThreshold,
   SuppressionListImportAction,
   SuppressionListReason,
   TlsPolicy,
@@ -1190,6 +1192,51 @@ export interface SendingOptions {
 }
 
 /**
+ * <p>Contains the confidence threshold settings for Auto Validation.</p>
+ * @public
+ */
+export interface SuppressionConfidenceThreshold {
+  /**
+   * <p>The confidence level threshold for suppression decisions.</p>
+   * @public
+   */
+  ConfidenceVerdictThreshold: SuppressionConfidenceVerdictThreshold | undefined;
+}
+
+/**
+ * <p>Contains Auto Validation settings, allowing you to suppress sending to specific destination(s)
+ *             if they do not meet required threshold. For details on Auto Validation, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/email-validation.html">Auto Validation</a>.</p>
+ * @public
+ */
+export interface SuppressionConditionThreshold {
+  /**
+   * <p>Indicates whether Auto Validation is enabled for suppression. Set to <code>ENABLED</code>
+   *             to enable the Auto Validation feature, or set to <code>DISABLED</code> to disable
+   *             it.</p>
+   * @public
+   */
+  ConditionThresholdEnabled: FeatureStatus | undefined;
+
+  /**
+   * <p>The overall confidence threshold used to determine suppression decisions.</p>
+   * @public
+   */
+  OverallConfidenceThreshold?: SuppressionConfidenceThreshold | undefined;
+}
+
+/**
+ * <p>Contains validation options for email address suppression.</p>
+ * @public
+ */
+export interface SuppressionValidationOptions {
+  /**
+   * <p>Specifies the condition threshold settings for suppression validation.</p>
+   * @public
+   */
+  ConditionThreshold: SuppressionConditionThreshold | undefined;
+}
+
+/**
  * <p>An object that contains information about the suppression list preferences for your
  *             account.</p>
  * @public
@@ -1216,6 +1263,12 @@ export interface SuppressionOptions {
    * @public
    */
   SuppressedReasons?: SuppressionListReason[] | undefined;
+
+  /**
+   * <p>Contains validation options for email address suppression.</p>
+   * @public
+   */
+  ValidationOptions?: SuppressionValidationOptions | undefined;
 }
 
 /**
@@ -1741,6 +1794,13 @@ export interface CreateCustomVerificationEmailTemplateRequest {
    * @public
    */
   TemplateContent: string | undefined;
+
+  /**
+   * <p>An array of objects that define the tags (keys and values) to associate with the
+   *             custom verification email template.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The URL that the recipient of the verification email is sent to if his or her address
@@ -2661,6 +2721,12 @@ export interface CreateEmailTemplateRequest {
    * @public
    */
   TemplateContent: EmailTemplateContent | undefined;
+
+  /**
+   * <p>An array of objects that define the tags (keys and values) to associate with the email template.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -4009,6 +4075,60 @@ export interface DomainDeliverabilityTrackingOption {
 }
 
 /**
+ * <p>Contains the overall validation verdict for an email address.</p>
+ * @public
+ */
+export interface EmailAddressInsightsVerdict {
+  /**
+   * <p>The confidence level of the validation verdict.</p>
+   * @public
+   */
+  ConfidenceVerdict?: EmailAddressInsightsConfidenceVerdict | undefined;
+}
+
+/**
+ * <p>Contains individual validation checks performed on an email address.</p>
+ * @public
+ */
+export interface EmailAddressInsightsMailboxEvaluations {
+  /**
+   * <p>Checks that the email address follows proper RFC standards and contains valid characters in the correct format.</p>
+   * @public
+   */
+  HasValidSyntax?: EmailAddressInsightsVerdict | undefined;
+
+  /**
+   * <p>Checks that the domain exists, has valid DNS records, and is conﬁgured to receive email.</p>
+   * @public
+   */
+  HasValidDnsRecords?: EmailAddressInsightsVerdict | undefined;
+
+  /**
+   * <p>Checks that the mailbox exists and can receive messages without actually sending an email.</p>
+   * @public
+   */
+  MailboxExists?: EmailAddressInsightsVerdict | undefined;
+
+  /**
+   * <p>Identiﬁes role-based addresses (such as admin@, support@, or info@) that may have lower engagement rates.</p>
+   * @public
+   */
+  IsRoleAddress?: EmailAddressInsightsVerdict | undefined;
+
+  /**
+   * <p>Checks disposable or temporary email addresses that could negatively impact your sender reputation.</p>
+   * @public
+   */
+  IsDisposable?: EmailAddressInsightsVerdict | undefined;
+
+  /**
+   * <p>Checks if the input appears to be random text.</p>
+   * @public
+   */
+  IsRandomInput?: EmailAddressInsightsVerdict | undefined;
+}
+
+/**
  * <p>
  *             Contains a <code>Bounce</code> object if the event type is <code>BOUNCE</code>.
  *             Contains a <code>Complaint</code> object if the event type is <code>COMPLAINT</code>.
@@ -4384,6 +4504,18 @@ export interface SendQuota {
 }
 
 /**
+ * <p>Structure containing validation attributes used for suppressing sending to specific destination on account level.</p>
+ * @public
+ */
+export interface SuppressionValidationAttributes {
+  /**
+   * <p>Specifies the condition threshold settings for account-level suppression.</p>
+   * @public
+   */
+  ConditionThreshold: SuppressionConditionThreshold | undefined;
+}
+
+/**
  * <p>An object that contains information about the email address suppression preferences
  *             for your account in the current Amazon Web Services Region.</p>
  * @public
@@ -4410,6 +4542,12 @@ export interface SuppressionAttributes {
    * @public
    */
   SuppressedReasons?: SuppressionListReason[] | undefined;
+
+  /**
+   * <p>Structure containing validation attributes used for suppressing sending to specific destination on account level.</p>
+   * @public
+   */
+  ValidationAttributes?: SuppressionValidationAttributes | undefined;
 }
 
 /**
@@ -4863,6 +5001,13 @@ export interface GetCustomVerificationEmailTemplateResponse {
   TemplateContent?: string | undefined;
 
   /**
+   * <p>An array of objects that define the tags (keys and values) that are associated with
+   *             the custom verification email template.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
    * <p>The URL that the recipient of the verification email is sent to if his or her address
    *             is successfully verified.</p>
    * @public
@@ -5253,6 +5398,48 @@ export interface GetDomainStatisticsReportResponse {
 }
 
 /**
+ * <p>A request to return validation insights about an email address.</p>
+ * @public
+ */
+export interface GetEmailAddressInsightsRequest {
+  /**
+   * <p>The email address to analyze for validation insights.</p>
+   * @public
+   */
+  EmailAddress: string | undefined;
+}
+
+/**
+ * <p>Contains detailed validation information about an email address.</p>
+ * @public
+ */
+export interface MailboxValidation {
+  /**
+   * <p>Overall validity assessment with a conﬁdence verdict.</p>
+   * @public
+   */
+  IsValid?: EmailAddressInsightsVerdict | undefined;
+
+  /**
+   * <p>Specific validation checks performed on the email address.</p>
+   * @public
+   */
+  Evaluations?: EmailAddressInsightsMailboxEvaluations | undefined;
+}
+
+/**
+ * <p>Validation insights about an email address.</p>
+ * @public
+ */
+export interface GetEmailAddressInsightsResponse {
+  /**
+   * <p>Detailed validation results for the email address.</p>
+   * @public
+   */
+  MailboxValidation?: MailboxValidation | undefined;
+}
+
+/**
  * <p>A request to return details about an email identity.</p>
  * @public
  */
@@ -5600,6 +5787,13 @@ export interface GetEmailTemplateResponse {
    * @public
    */
   TemplateContent: EmailTemplateContent | undefined;
+
+  /**
+   * <p>An array of objects that define the tags (keys and values) that are associated with
+   *             the email template.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -7626,11 +7820,17 @@ export interface PutAccountSuppressionAttributesRequest {
    * @public
    */
   SuppressedReasons?: SuppressionListReason[] | undefined;
+
+  /**
+   * <p>An object that contains additional suppression attributes for your account.</p>
+   * @public
+   */
+  ValidationAttributes?: SuppressionValidationAttributes | undefined;
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
+ *         fails.</p>
  * @public
  */
 export interface PutAccountSuppressionAttributesResponse {}
@@ -7810,6 +8010,12 @@ export interface PutConfigurationSetSuppressionOptionsRequest {
    * @public
    */
   SuppressedReasons?: SuppressionListReason[] | undefined;
+
+  /**
+   * <p>An object that contains information about the email address suppression preferences for the configuration set in the current Amazon Web Services Region.</p>
+   * @public
+   */
+  ValidationOptions?: SuppressionValidationOptions | undefined;
 }
 
 /**
@@ -8207,356 +8413,3 @@ export interface PutEmailIdentityFeedbackAttributesRequest {
  * @public
  */
 export interface PutEmailIdentityFeedbackAttributesResponse {}
-
-/**
- * <p>A request to configure the custom MAIL FROM domain for a verified identity.</p>
- * @public
- */
-export interface PutEmailIdentityMailFromAttributesRequest {
-  /**
-   * <p>The verified email identity.</p>
-   * @public
-   */
-  EmailIdentity: string | undefined;
-
-  /**
-   * <p> The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM
-   *             domain must meet the following criteria:</p>
-   *          <ul>
-   *             <li>
-   *                <p>It has to be a subdomain of the verified identity.</p>
-   *             </li>
-   *             <li>
-   *                <p>It can't be used to receive email.</p>
-   *             </li>
-   *             <li>
-   *                <p>It can't be used in a "From" address if the MAIL FROM domain is a destination
-   *                     for feedback forwarding emails.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  MailFromDomain?: string | undefined;
-
-  /**
-   * <p>The action to take if the required MX record isn't found when you send an email. When
-   *             you set this value to <code>UseDefaultValue</code>, the mail is sent using
-   *                 <i>amazonses.com</i> as the MAIL FROM domain. When you set this value
-   *             to <code>RejectMessage</code>, the Amazon SES API v2 returns a
-   *                 <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the
-   *             email.</p>
-   *          <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
-   *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
-   *             states.</p>
-   * @public
-   */
-  BehaviorOnMxFailure?: BehaviorOnMxFailure | undefined;
-}
-
-/**
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- * @public
- */
-export interface PutEmailIdentityMailFromAttributesResponse {}
-
-/**
- * <p>A request to add an email destination to the suppression list for your account.</p>
- * @public
- */
-export interface PutSuppressedDestinationRequest {
-  /**
-   * <p>The email address that should be added to the suppression list for your
-   *             account.</p>
-   * @public
-   */
-  EmailAddress: string | undefined;
-
-  /**
-   * <p>The factors that should cause the email address to be added to the suppression list
-   *             for your account.</p>
-   * @public
-   */
-  Reason: SuppressionListReason | undefined;
-}
-
-/**
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- * @public
- */
-export interface PutSuppressedDestinationResponse {}
-
-/**
- * <p>Represents a request to send email messages to multiple destinations using Amazon SES. For
- *             more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
- *                 Guide</a>.</p>
- * @public
- */
-export interface SendBulkEmailRequest {
-  /**
-   * <p>The email address to use as the "From" address for the email. The address that you
-   *             specify has to be verified.</p>
-   * @public
-   */
-  FromEmailAddress?: string | undefined;
-
-  /**
-   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
-   *             that is associated with the sending authorization policy that permits you to use the
-   *             email address specified in the <code>FromEmailAddress</code> parameter.</p>
-   *          <p>For example, if the owner of example.com (which has ARN
-   *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
-   *             authorizes you to use sender@example.com, then you would specify the
-   *                 <code>FromEmailAddressIdentityArn</code> to be
-   *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
-   *                 <code>FromEmailAddress</code> to be sender@example.com.</p>
-   *          <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
-   *                 Guide</a>.</p>
-   * @public
-   */
-  FromEmailAddressIdentityArn?: string | undefined;
-
-  /**
-   * <p>The "Reply-to" email addresses for the message. When the recipient replies to the
-   *             message, each Reply-to address receives the reply.</p>
-   * @public
-   */
-  ReplyToAddresses?: string[] | undefined;
-
-  /**
-   * <p>The address that you want bounce and complaint notifications to be sent to.</p>
-   * @public
-   */
-  FeedbackForwardingEmailAddress?: string | undefined;
-
-  /**
-   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
-   *             that is associated with the sending authorization policy that permits you to use the
-   *             email address specified in the <code>FeedbackForwardingEmailAddress</code>
-   *             parameter.</p>
-   *          <p>For example, if the owner of example.com (which has ARN
-   *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
-   *             authorizes you to use feedback@example.com, then you would specify the
-   *                 <code>FeedbackForwardingEmailAddressIdentityArn</code> to be
-   *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
-   *                 <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p>
-   *          <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
-   *                 Guide</a>.</p>
-   * @public
-   */
-  FeedbackForwardingEmailAddressIdentityArn?: string | undefined;
-
-  /**
-   * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
-   *             using the <code>SendEmail</code> operation. Tags correspond to characteristics of the
-   *             email that you define, so that you can publish email sending events.</p>
-   * @public
-   */
-  DefaultEmailTags?: MessageTag[] | undefined;
-
-  /**
-   * <p>An object that contains the body of the message. You can specify a template
-   *             message.</p>
-   * @public
-   */
-  DefaultContent: BulkEmailContent | undefined;
-
-  /**
-   * <p>The list of bulk email entry objects.</p>
-   * @public
-   */
-  BulkEmailEntries: BulkEmailEntry[] | undefined;
-
-  /**
-   * <p>The name of the configuration set to use when sending the email.</p>
-   * @public
-   */
-  ConfigurationSetName?: string | undefined;
-
-  /**
-   * <p>The ID of the multi-region endpoint (global-endpoint).</p>
-   * @public
-   */
-  EndpointId?: string | undefined;
-
-  /**
-   * <p>The name of the tenant through which this bulk email will be sent.</p>
-   *          <note>
-   *             <p>
-   *                 The email sending operation will only succeed if all referenced resources
-   *                 (identities, configuration sets, and templates) are associated with this tenant.
-   *             </p>
-   *          </note>
-   * @public
-   */
-  TenantName?: string | undefined;
-}
-
-/**
- * <p>The following data is returned in JSON format by the service.</p>
- * @public
- */
-export interface SendBulkEmailResponse {
-  /**
-   * <p>One object per intended recipient. Check each response object and retry any messages
-   *             with a failure status.</p>
-   * @public
-   */
-  BulkEmailEntryResults: BulkEmailEntryResult[] | undefined;
-}
-
-/**
- * <p>Represents a request to send a custom verification email to a specified
- *             recipient.</p>
- * @public
- */
-export interface SendCustomVerificationEmailRequest {
-  /**
-   * <p>The email address to verify.</p>
-   * @public
-   */
-  EmailAddress: string | undefined;
-
-  /**
-   * <p>The name of the custom verification email template to use when sending the
-   *             verification email.</p>
-   * @public
-   */
-  TemplateName: string | undefined;
-
-  /**
-   * <p>Name of a configuration set to use when sending the verification email.</p>
-   * @public
-   */
-  ConfigurationSetName?: string | undefined;
-}
-
-/**
- * <p>The following element is returned by the service.</p>
- * @public
- */
-export interface SendCustomVerificationEmailResponse {
-  /**
-   * <p>The unique message identifier returned from the
-   *                 <code>SendCustomVerificationEmail</code> operation.</p>
-   * @public
-   */
-  MessageId?: string | undefined;
-}
-
-/**
- * <p>Represents a request to send a single formatted email using Amazon SES. For more
- *             information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-formatted.html">Amazon SES Developer
- *                 Guide</a>.</p>
- * @public
- */
-export interface SendEmailRequest {
-  /**
-   * <p>The email address to use as the "From" address for the email. The address that you
-   *             specify has to be verified.
-   *             </p>
-   * @public
-   */
-  FromEmailAddress?: string | undefined;
-
-  /**
-   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
-   *             that is associated with the sending authorization policy that permits you to use the
-   *             email address specified in the <code>FromEmailAddress</code> parameter.</p>
-   *          <p>For example, if the owner of example.com (which has ARN
-   *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
-   *             authorizes you to use sender@example.com, then you would specify the
-   *                 <code>FromEmailAddressIdentityArn</code> to be
-   *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
-   *                 <code>FromEmailAddress</code> to be sender@example.com.</p>
-   *          <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
-   *                 Guide</a>.</p>
-   *          <p>For Raw emails, the <code>FromEmailAddressIdentityArn</code> value overrides the
-   *             X-SES-SOURCE-ARN and X-SES-FROM-ARN headers specified in raw email message
-   *             content.</p>
-   * @public
-   */
-  FromEmailAddressIdentityArn?: string | undefined;
-
-  /**
-   * <p>An object that contains the recipients of the email message.</p>
-   * @public
-   */
-  Destination?: Destination | undefined;
-
-  /**
-   * <p>The "Reply-to" email addresses for the message. When the recipient replies to the
-   *             message, each Reply-to address receives the reply.</p>
-   * @public
-   */
-  ReplyToAddresses?: string[] | undefined;
-
-  /**
-   * <p>The address that you want bounce and complaint notifications to be sent to.</p>
-   * @public
-   */
-  FeedbackForwardingEmailAddress?: string | undefined;
-
-  /**
-   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
-   *             that is associated with the sending authorization policy that permits you to use the
-   *             email address specified in the <code>FeedbackForwardingEmailAddress</code>
-   *             parameter.</p>
-   *          <p>For example, if the owner of example.com (which has ARN
-   *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
-   *             authorizes you to use feedback@example.com, then you would specify the
-   *                 <code>FeedbackForwardingEmailAddressIdentityArn</code> to be
-   *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
-   *                 <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p>
-   *          <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
-   *                 Guide</a>.</p>
-   * @public
-   */
-  FeedbackForwardingEmailAddressIdentityArn?: string | undefined;
-
-  /**
-   * <p>An object that contains the body of the message. You can send either a Simple message,
-   *             Raw message, or a Templated message.</p>
-   * @public
-   */
-  Content: EmailContent | undefined;
-
-  /**
-   * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
-   *             using the <code>SendEmail</code> operation. Tags correspond to characteristics of the
-   *             email that you define, so that you can publish email sending events. </p>
-   * @public
-   */
-  EmailTags?: MessageTag[] | undefined;
-
-  /**
-   * <p>The name of the configuration set to use when sending the email.</p>
-   * @public
-   */
-  ConfigurationSetName?: string | undefined;
-
-  /**
-   * <p>The ID of the multi-region endpoint (global-endpoint).</p>
-   * @public
-   */
-  EndpointId?: string | undefined;
-
-  /**
-   * <p>The name of the tenant through which this email will be sent.</p>
-   *          <note>
-   *             <p>The email sending operation will only succeed if all referenced resources
-   *                 (identities, configuration sets, and templates) are associated with this tenant.
-   *             </p>
-   *          </note>
-   * @public
-   */
-  TenantName?: string | undefined;
-
-  /**
-   * <p>An object used to specify a list or topic to which an email belongs, which will be
-   *             used when a contact chooses to unsubscribe.</p>
-   * @public
-   */
-  ListManagementOptions?: ListManagementOptions | undefined;
-}

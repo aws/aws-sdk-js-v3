@@ -2204,6 +2204,12 @@ export interface RDSInstanceDetails {
    * @public
    */
   SizeFlexEligible?: boolean | undefined;
+
+  /**
+   * <p>Determines whether the recommendation is for a reservation for RDS Custom.</p>
+   * @public
+   */
+  DeploymentModel?: string | undefined;
 }
 
 /**

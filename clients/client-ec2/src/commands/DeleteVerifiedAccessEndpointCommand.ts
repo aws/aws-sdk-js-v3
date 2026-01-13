@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteVerifiedAccessEndpointRequest, DeleteVerifiedAccessEndpointResult } from "../models/models_3";
-import { DeleteVerifiedAccessEndpoint } from "../schemas/schemas_0";
+import { DeleteVerifiedAccessEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteVerifiedAccessEndpointCommandInput extends DeleteVerified
  *
  * The output of {@link DeleteVerifiedAccessEndpointCommand}.
  */
-export interface DeleteVerifiedAccessEndpointCommandOutput
-  extends DeleteVerifiedAccessEndpointResult,
-    __MetadataBearer {}
+export interface DeleteVerifiedAccessEndpointCommandOutput extends DeleteVerifiedAccessEndpointResult, __MetadataBearer {}
 
 /**
  * <p>Delete an Amazon Web Services Verified Access endpoint.</p>
@@ -157,7 +155,7 @@ export class DeleteVerifiedAccessEndpointCommand extends $Command
   })
   .s("AmazonEC2", "DeleteVerifiedAccessEndpoint", {})
   .n("EC2Client", "DeleteVerifiedAccessEndpointCommand")
-  .sc(DeleteVerifiedAccessEndpoint)
+  .sc(DeleteVerifiedAccessEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { MalformedAcceptWithGenericString } from "../schemas/schemas_0";
+import { MalformedAcceptWithGenericString$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface MalformedAcceptWithGenericStringCommandInput {}
  *
  * The output of {@link MalformedAcceptWithGenericStringCommand}.
  */
-export interface MalformedAcceptWithGenericStringCommandOutput
-  extends MalformedAcceptWithGenericStringOutput,
-    __MetadataBearer {}
+export interface MalformedAcceptWithGenericStringCommandOutput extends MalformedAcceptWithGenericStringOutput, __MetadataBearer {}
 
 /**
  * @public
@@ -77,7 +75,7 @@ export class MalformedAcceptWithGenericStringCommand extends $Command
   })
   .s("RestJson", "MalformedAcceptWithGenericString", {})
   .n("RestJsonProtocolClient", "MalformedAcceptWithGenericStringCommand")
-  .sc(MalformedAcceptWithGenericString)
+  .sc(MalformedAcceptWithGenericString$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

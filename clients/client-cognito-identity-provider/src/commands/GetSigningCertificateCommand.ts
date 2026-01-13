@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSigningCertificateRequest, GetSigningCertificateResponse } from "../models/models_0";
-import { GetSigningCertificate } from "../schemas/schemas_0";
+import { GetSigningCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetSigningCertificateCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "GetSigningCertificate", {})
   .n("CognitoIdentityProviderClient", "GetSigningCertificateCommand")
-  .sc(GetSigningCertificate)
+  .sc(GetSigningCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

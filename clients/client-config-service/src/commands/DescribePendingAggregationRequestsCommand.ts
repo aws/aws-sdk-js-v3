@@ -9,7 +9,7 @@ import type {
   DescribePendingAggregationRequestsRequest,
   DescribePendingAggregationRequestsResponse,
 } from "../models/models_0";
-import { DescribePendingAggregationRequests } from "../schemas/schemas_0";
+import { DescribePendingAggregationRequests$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribePendingAggregationRequestsCommandInput extends Describe
  *
  * The output of {@link DescribePendingAggregationRequestsCommand}.
  */
-export interface DescribePendingAggregationRequestsCommandOutput
-  extends DescribePendingAggregationRequestsResponse,
-    __MetadataBearer {}
+export interface DescribePendingAggregationRequestsCommandOutput extends DescribePendingAggregationRequestsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of all pending aggregation requests.</p>
@@ -97,7 +95,7 @@ export class DescribePendingAggregationRequestsCommand extends $Command
   })
   .s("StarlingDoveService", "DescribePendingAggregationRequests", {})
   .n("ConfigServiceClient", "DescribePendingAggregationRequestsCommand")
-  .sc(DescribePendingAggregationRequests)
+  .sc(DescribePendingAggregationRequests$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

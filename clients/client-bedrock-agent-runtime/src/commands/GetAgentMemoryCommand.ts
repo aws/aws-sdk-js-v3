@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAgentMemoryRequest, GetAgentMemoryResponse } from "../models/models_0";
-import { GetAgentMemory } from "../schemas/schemas_0";
+import { GetAgentMemory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class GetAgentMemoryCommand extends $Command
   })
   .s("AmazonBedrockAgentRunTimeService", "GetAgentMemory", {})
   .n("BedrockAgentRuntimeClient", "GetAgentMemoryCommand")
-  .sc(GetAgentMemory)
+  .sc(GetAgentMemory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

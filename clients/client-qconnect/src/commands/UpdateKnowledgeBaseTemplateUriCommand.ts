@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateKnowledgeBaseTemplateUriRequest, UpdateKnowledgeBaseTemplateUriResponse } from "../models/models_1";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { UpdateKnowledgeBaseTemplateUri } from "../schemas/schemas_0";
+import { UpdateKnowledgeBaseTemplateUri$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateKnowledgeBaseTemplateUriCommandInput extends UpdateKnowle
  *
  * The output of {@link UpdateKnowledgeBaseTemplateUriCommand}.
  */
-export interface UpdateKnowledgeBaseTemplateUriCommandOutput
-  extends UpdateKnowledgeBaseTemplateUriResponse,
-    __MetadataBearer {}
+export interface UpdateKnowledgeBaseTemplateUriCommandOutput extends UpdateKnowledgeBaseTemplateUriResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the template URI of a knowledge base. This is only supported for knowledge bases of type EXTERNAL. Include a single variable in <code>$\{variable\}</code> format; this interpolated by Amazon Q in Connect using ingested content. For example, if you ingest a Salesforce article, it has an <code>Id</code> value, and you can set the template URI to <code>https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*$\{Id\}*\/view</code>. </p>
@@ -166,7 +164,7 @@ export class UpdateKnowledgeBaseTemplateUriCommand extends $Command
   })
   .s("WisdomService", "UpdateKnowledgeBaseTemplateUri", {})
   .n("QConnectClient", "UpdateKnowledgeBaseTemplateUriCommand")
-  .sc(UpdateKnowledgeBaseTemplateUri)
+  .sc(UpdateKnowledgeBaseTemplateUri$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

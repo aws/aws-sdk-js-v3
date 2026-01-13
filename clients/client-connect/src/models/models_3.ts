@@ -35,7 +35,6 @@ import {
   ViewType,
   Visibility,
 } from "./enums";
-
 import {
   type AdditionalEmailRecipients,
   type AgentConfig,
@@ -81,7 +80,6 @@ import {
   TaskTemplateField,
   UserProficiency,
 } from "./models_0";
-
 import {
   type AttributeCondition,
   type ChatMetrics,
@@ -93,6 +91,7 @@ import {
   type Evaluation,
   type EvaluationAnswerData,
   type Expiry,
+  type GlobalResiliencyMetadata,
   type QualityMetrics,
   type QueueInfo,
   type SignInConfig,
@@ -104,7 +103,6 @@ import {
   NextContactEntry,
   RecordingInfo,
 } from "./models_1";
-
 import {
   type BooleanCondition,
   type ChatMessage,
@@ -126,6 +124,8 @@ import {
   type InboundEmailContent,
   type ListCondition,
   type NumberCondition,
+  type OutboundAdditionalRecipients,
+  type OutboundEmailContent,
   type ParticipantConfiguration,
   type ParticipantDetails,
   type PersistentChat,
@@ -142,6 +142,56 @@ import {
   type WorkspaceSearchFilter,
   EmailAttachment,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface StartOutboundEmailContactRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The email address associated with the Amazon Connect instance.</p>
+   * @public
+   */
+  FromEmailAddress?: EmailAddressInfo | undefined;
+
+  /**
+   * <p>The email address of the customer.</p>
+   * @public
+   */
+  DestinationEmailAddress: EmailAddressInfo | undefined;
+
+  /**
+   * <p>The additional recipients address of email in CC.</p>
+   * @public
+   */
+  AdditionalRecipients?: OutboundAdditionalRecipients | undefined;
+
+  /**
+   * <p>The email message body to be sent to the newly created email.</p>
+   * @public
+   */
+  EmailMessage: OutboundEmailContent | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
 
 /**
  * @public
@@ -734,7 +784,9 @@ export interface EvaluationAnswerInput {
  * <p>Represents the entity that performed the action on the evaluation.</p>
  * @public
  */
-export type EvaluatorUserUnion = EvaluatorUserUnion.ConnectUserArnMember | EvaluatorUserUnion.$UnknownMember;
+export type EvaluatorUserUnion =
+  | EvaluatorUserUnion.ConnectUserArnMember
+  | EvaluatorUserUnion.$UnknownMember;
 
 /**
  * @public
@@ -5349,8 +5401,6 @@ export interface StartChatContactRequest {
 
   /**
    * <p>A list of participant types to automatically disconnect when the end customer ends the chat session, allowing them to continue through disconnect flows such as surveys or feedback forms.</p>
-   *          <p>Valid value: <code>AGENT</code>.</p>
-   *          <p>With the <code>DisconnectOnCustomerExit</code> parameter, you can configure automatic agent disconnection when end customers end the chat, ensuring that disconnect flows are triggered consistently regardless of which participant disconnects first.</p>
    * @public
    */
   DisconnectOnCustomerExit?: DisconnectOnCustomerExitParticipantType[] | undefined;
@@ -5501,8 +5551,8 @@ export interface StartOutboundChatContactRequest {
    *                <p>Attribute keys can include only alphanumeric, <code>-</code>, and <code>_</code>.</p>
    *             </li>
    *             <li>
-   *                <p>This field can be used to show channel subtype, such as <code>connect:Guide</code> and
-   *       <code>connect:SMS</code>.</p>
+   *                <p>This field can be used to show channel subtype, such as <code>connect:SMS</code> and
+   *       <code>connect:WhatsApp</code>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5613,7 +5663,7 @@ export interface StartOutboundChatContactRequest {
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided,
-   *    the AWS SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with
+   *    the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with
    *     idempotent APIs</a>. The token is valid for 7 days after creation. If a contact is already started, the contact
    *    ID is returned.</p>
    * @public
@@ -6665,6 +6715,12 @@ export interface Contact {
    * @public
    */
   NextContacts?: NextContactEntry[] | undefined;
+
+  /**
+   * <p>Information about the global resiliency configuration for the contact, including traffic distribution details.</p>
+   * @public
+   */
+  GlobalResiliencyMetadata?: GlobalResiliencyMetadata | undefined;
 }
 
 /**
@@ -6760,6 +6816,12 @@ export interface ContactSearchSummary {
    * @public
    */
   RoutingCriteria?: RoutingCriteria | undefined;
+
+  /**
+   * <p>Additional routing information for contacts created in ACGR instances.</p>
+   * @public
+   */
+  GlobalResiliencyMetadata?: GlobalResiliencyMetadata | undefined;
 }
 
 /**

@@ -9,7 +9,7 @@ import type {
   DescribeStreamStorageConfigurationInput,
   DescribeStreamStorageConfigurationOutput,
 } from "../models/models_0";
-import { DescribeStreamStorageConfiguration } from "../schemas/schemas_0";
+import { DescribeStreamStorageConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeStreamStorageConfigurationCommandInput extends Describe
  *
  * The output of {@link DescribeStreamStorageConfigurationCommand}.
  */
-export interface DescribeStreamStorageConfigurationCommandOutput
-  extends DescribeStreamStorageConfigurationOutput,
-    __MetadataBearer {}
+export interface DescribeStreamStorageConfigurationCommandOutput extends DescribeStreamStorageConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the current storage configuration for the specified Kinesis video stream.</p>
@@ -98,7 +96,7 @@ export class DescribeStreamStorageConfigurationCommand extends $Command
   })
   .s("KinesisVideo_20170930", "DescribeStreamStorageConfiguration", {})
   .n("KinesisVideoClient", "DescribeStreamStorageConfigurationCommand")
-  .sc(DescribeStreamStorageConfiguration)
+  .sc(DescribeStreamStorageConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

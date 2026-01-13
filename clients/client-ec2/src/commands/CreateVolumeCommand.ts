@@ -7,7 +7,7 @@ import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Volume } from "../models/models_0";
 import type { CreateVolumeRequest } from "../models/models_2";
-import { CreateVolume } from "../schemas/schemas_0";
+import { CreateVolume$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -202,7 +202,7 @@ export class CreateVolumeCommand extends $Command
   })
   .s("AmazonEC2", "CreateVolume", {})
   .n("EC2Client", "CreateVolumeCommand")
-  .sc(CreateVolume)
+  .sc(CreateVolume$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

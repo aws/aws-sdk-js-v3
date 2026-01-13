@@ -7,18 +7,15 @@ import {
   DescribeRepositoryAssociationCommandInput,
 } from "../commands/DescribeRepositoryAssociationCommand";
 
-const checkState = async (
-  client: CodeGuruReviewerClient,
-  input: DescribeRepositoryAssociationCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: CodeGuruReviewerClient, input: DescribeRepositoryAssociationCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeRepositoryAssociationCommand(input));
+    let result: any = await client.send(new DescribeRepositoryAssociationCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.RepositoryAssociation.State;
-      };
+      }
       if (returnComparator() === "Associated") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -26,7 +23,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.RepositoryAssociation.State;
-      };
+      }
       if (returnComparator() === "Failed") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -34,7 +31,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.RepositoryAssociation.State;
-      };
+      }
       if (returnComparator() === "Associating") {
         return { state: WaiterState.RETRY, reason };
       }

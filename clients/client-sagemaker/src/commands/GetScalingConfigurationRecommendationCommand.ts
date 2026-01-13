@@ -9,7 +9,7 @@ import type {
   GetScalingConfigurationRecommendationResponse,
 } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { GetScalingConfigurationRecommendation } from "../schemas/schemas_0";
+import { GetScalingConfigurationRecommendation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetScalingConfigurationRecommendationCommand}.
  */
-export interface GetScalingConfigurationRecommendationCommandInput
-  extends GetScalingConfigurationRecommendationRequest {}
+export interface GetScalingConfigurationRecommendationCommandInput extends GetScalingConfigurationRecommendationRequest {}
 /**
  * @public
  *
  * The output of {@link GetScalingConfigurationRecommendationCommand}.
  */
-export interface GetScalingConfigurationRecommendationCommandOutput
-  extends GetScalingConfigurationRecommendationResponse,
-    __MetadataBearer {}
+export interface GetScalingConfigurationRecommendationCommandOutput extends GetScalingConfigurationRecommendationResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an Amazon SageMaker Inference Recommender autoscaling recommendation job. Returns recommendations for autoscaling policies that you can apply to your SageMaker endpoint.</p>
@@ -123,7 +120,7 @@ export class GetScalingConfigurationRecommendationCommand extends $Command
   })
   .s("SageMaker", "GetScalingConfigurationRecommendation", {})
   .n("SageMakerClient", "GetScalingConfigurationRecommendationCommand")
-  .sc(GetScalingConfigurationRecommendation)
+  .sc(GetScalingConfigurationRecommendation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

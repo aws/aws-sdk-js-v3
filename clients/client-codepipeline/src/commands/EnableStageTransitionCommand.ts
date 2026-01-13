@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableStageTransitionInput } from "../models/models_0";
-import { EnableStageTransition } from "../schemas/schemas_0";
+import { EnableStageTransition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class EnableStageTransitionCommand extends $Command
   })
   .s("CodePipeline_20150709", "EnableStageTransition", {})
   .n("CodePipelineClient", "EnableStageTransitionCommand")
-  .sc(EnableStageTransition)
+  .sc(EnableStageTransition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

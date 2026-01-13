@@ -9,7 +9,7 @@ import type {
   DisassociateAwsAccountFromPartnerAccountRequest,
   DisassociateAwsAccountFromPartnerAccountResponse,
 } from "../models/models_0";
-import { DisassociateAwsAccountFromPartnerAccount } from "../schemas/schemas_0";
+import { DisassociateAwsAccountFromPartnerAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateAwsAccountFromPartnerAccountCommand}.
  */
-export interface DisassociateAwsAccountFromPartnerAccountCommandInput
-  extends DisassociateAwsAccountFromPartnerAccountRequest {}
+export interface DisassociateAwsAccountFromPartnerAccountCommandInput extends DisassociateAwsAccountFromPartnerAccountRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateAwsAccountFromPartnerAccountCommand}.
  */
-export interface DisassociateAwsAccountFromPartnerAccountCommandOutput
-  extends DisassociateAwsAccountFromPartnerAccountResponse,
-    __MetadataBearer {}
+export interface DisassociateAwsAccountFromPartnerAccountCommandOutput extends DisassociateAwsAccountFromPartnerAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates your AWS account from a partner account. If
@@ -92,7 +89,7 @@ export class DisassociateAwsAccountFromPartnerAccountCommand extends $Command
   })
   .s("iotwireless", "DisassociateAwsAccountFromPartnerAccount", {})
   .n("IoTWirelessClient", "DisassociateAwsAccountFromPartnerAccountCommand")
-  .sc(DisassociateAwsAccountFromPartnerAccount)
+  .sc(DisassociateAwsAccountFromPartnerAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   ListOrganizationRecommendationResourcesRequest,
   ListOrganizationRecommendationResourcesResponse,
 } from "../models/models_0";
-import { ListOrganizationRecommendationResources } from "../schemas/schemas_0";
+import { ListOrganizationRecommendationResources$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListOrganizationRecommendationResourcesCommand}.
  */
-export interface ListOrganizationRecommendationResourcesCommandInput
-  extends ListOrganizationRecommendationResourcesRequest {}
+export interface ListOrganizationRecommendationResourcesCommandInput extends ListOrganizationRecommendationResourcesRequest {}
 /**
  * @public
  *
  * The output of {@link ListOrganizationRecommendationResourcesCommand}.
  */
-export interface ListOrganizationRecommendationResourcesCommandOutput
-  extends ListOrganizationRecommendationResourcesResponse,
-    __MetadataBearer {}
+export interface ListOrganizationRecommendationResourcesCommandOutput extends ListOrganizationRecommendationResourcesResponse, __MetadataBearer {}
 
 /**
  * <p>List Resources of a Recommendation within an Organization. This API only supports prioritized
@@ -199,7 +196,7 @@ export class ListOrganizationRecommendationResourcesCommand extends $Command
   })
   .s("TrustedAdvisor", "ListOrganizationRecommendationResources", {})
   .n("TrustedAdvisorClient", "ListOrganizationRecommendationResourcesCommand")
-  .sc(ListOrganizationRecommendationResources)
+  .sc(ListOrganizationRecommendationResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

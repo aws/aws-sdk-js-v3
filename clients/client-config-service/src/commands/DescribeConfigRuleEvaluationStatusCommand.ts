@@ -9,7 +9,7 @@ import type {
   DescribeConfigRuleEvaluationStatusRequest,
   DescribeConfigRuleEvaluationStatusResponse,
 } from "../models/models_0";
-import { DescribeConfigRuleEvaluationStatus } from "../schemas/schemas_0";
+import { DescribeConfigRuleEvaluationStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeConfigRuleEvaluationStatusCommandInput extends Describe
  *
  * The output of {@link DescribeConfigRuleEvaluationStatusCommand}.
  */
-export interface DescribeConfigRuleEvaluationStatusCommandOutput
-  extends DescribeConfigRuleEvaluationStatusResponse,
-    __MetadataBearer {}
+export interface DescribeConfigRuleEvaluationStatusCommandOutput extends DescribeConfigRuleEvaluationStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Returns status information for each of your Config managed rules. The status includes information such as the last time Config invoked the rule, the last time Config failed to invoke
@@ -114,7 +112,7 @@ export class DescribeConfigRuleEvaluationStatusCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeConfigRuleEvaluationStatus", {})
   .n("ConfigServiceClient", "DescribeConfigRuleEvaluationStatusCommand")
-  .sc(DescribeConfigRuleEvaluationStatus)
+  .sc(DescribeConfigRuleEvaluationStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

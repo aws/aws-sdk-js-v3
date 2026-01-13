@@ -10,7 +10,7 @@ import type {
 } from "../CostOptimizationHubClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListRecommendationSummariesRequest, ListRecommendationSummariesResponse } from "../models/models_0";
-import { ListRecommendationSummaries } from "../schemas/schemas_0";
+import { ListRecommendationSummaries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListRecommendationSummariesCommandInput extends ListRecommendat
  *
  * The output of {@link ListRecommendationSummariesCommand}.
  */
-export interface ListRecommendationSummariesCommandOutput
-  extends ListRecommendationSummariesResponse,
-    __MetadataBearer {}
+export interface ListRecommendationSummariesCommandOutput extends ListRecommendationSummariesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a concise representation of savings estimates for resources. Also returns de-duped savings across different types of recommendations.</p> <note> <p>The following filters are not supported for this API: <code>recommendationIds</code>, <code>resourceArns</code>, and <code>resourceIds</code>.</p> </note>
@@ -143,7 +141,7 @@ export class ListRecommendationSummariesCommand extends $Command
   })
   .s("CostOptimizationHubService", "ListRecommendationSummaries", {})
   .n("CostOptimizationHubClient", "ListRecommendationSummariesCommand")
-  .sc(ListRecommendationSummaries)
+  .sc(ListRecommendationSummaries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

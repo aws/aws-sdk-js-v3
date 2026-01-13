@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import type { CopySnapshotAndUpdateVolumeRequest, CopySnapshotAndUpdateVolumeResponse } from "../models/models_0";
-import { CopySnapshotAndUpdateVolume } from "../schemas/schemas_0";
+import { CopySnapshotAndUpdateVolume$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CopySnapshotAndUpdateVolumeCommandInput extends CopySnapshotAnd
  *
  * The output of {@link CopySnapshotAndUpdateVolumeCommand}.
  */
-export interface CopySnapshotAndUpdateVolumeCommandOutput
-  extends CopySnapshotAndUpdateVolumeResponse,
-    __MetadataBearer {}
+export interface CopySnapshotAndUpdateVolumeCommandOutput extends CopySnapshotAndUpdateVolumeResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing volume by using a snapshot from another Amazon FSx for OpenZFS file system. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/on-demand-replication.html">on-demand data replication</a> in the Amazon FSx for OpenZFS User
@@ -726,7 +724,7 @@ export class CopySnapshotAndUpdateVolumeCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "CopySnapshotAndUpdateVolume", {})
   .n("FSxClient", "CopySnapshotAndUpdateVolumeCommand")
-  .sc(CopySnapshotAndUpdateVolume)
+  .sc(CopySnapshotAndUpdateVolume$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

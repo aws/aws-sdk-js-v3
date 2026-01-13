@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveFacetFromObjectRequest, RemoveFacetFromObjectResponse } from "../models/models_0";
-import { RemoveFacetFromObject } from "../schemas/schemas_0";
+import { RemoveFacetFromObject$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class RemoveFacetFromObjectCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "RemoveFacetFromObject", {})
   .n("CloudDirectoryClient", "RemoveFacetFromObjectCommand")
-  .sc(RemoveFacetFromObject)
+  .sc(RemoveFacetFromObject$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

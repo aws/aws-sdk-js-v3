@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchProfilesRequest, SearchProfilesResponse } from "../models/models_0";
-import { SearchProfiles } from "../schemas/schemas_0";
+import { SearchProfiles$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -213,7 +213,7 @@ export class SearchProfilesCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "SearchProfiles", {})
   .n("CustomerProfilesClient", "SearchProfilesCommand")
-  .sc(SearchProfiles)
+  .sc(SearchProfiles$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

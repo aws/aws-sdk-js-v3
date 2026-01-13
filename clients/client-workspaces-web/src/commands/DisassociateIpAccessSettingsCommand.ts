@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateIpAccessSettingsRequest, DisassociateIpAccessSettingsResponse } from "../models/models_0";
-import { DisassociateIpAccessSettings } from "../schemas/schemas_0";
+import { DisassociateIpAccessSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DisassociateIpAccessSettingsCommandInput extends DisassociateIp
  *
  * The output of {@link DisassociateIpAccessSettingsCommand}.
  */
-export interface DisassociateIpAccessSettingsCommandOutput
-  extends DisassociateIpAccessSettingsResponse,
-    __MetadataBearer {}
+export interface DisassociateIpAccessSettingsCommandOutput extends DisassociateIpAccessSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates IP access settings from a web portal.</p>
@@ -91,7 +89,7 @@ export class DisassociateIpAccessSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "DisassociateIpAccessSettings", {})
   .n("WorkSpacesWebClient", "DisassociateIpAccessSettingsCommand")
-  .sc(DisassociateIpAccessSettings)
+  .sc(DisassociateIpAccessSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GeoPlacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoPlacesClient";
 import type { GeocodeRequest, GeocodeResponse } from "../models/models_0";
-import { Geocode } from "../schemas/schemas_0";
+import { Geocode$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,7 +27,7 @@ export interface GeocodeCommandInput extends GeocodeRequest {}
 export interface GeocodeCommandOutput extends GeocodeResponse, __MetadataBearer {}
 
 /**
- * <p> <code>Geocode</code> converts a textual address or place into geographic coordinates. You can obtain geographic coordinates, address component, and other related information. It supports flexible queries, including free-form text or structured queries with components like street names, postal codes, and regions. The Geocode API can also provide additional features such as time zone information and the inclusion of political views.</p>
+ * <p> <code>Geocode</code> converts a textual address or place into geographic coordinates. You can obtain geographic coordinates, address component, and other related information. It supports flexible queries, including free-form text or structured queries with components like street names, postal codes, and regions. The Geocode API can also provide additional features such as time zone information and the inclusion of political views.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/geocode.html">Geocode</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -119,6 +119,7 @@ export interface GeocodeCommandOutput extends GeocodeResponse, __MetadataBearer 
  * //         SecondaryAddressComponents: [ // SecondaryAddressComponentList
  * //           { // SecondaryAddressComponent
  * //             Number: "STRING_VALUE", // required
+ * //             Designator: "STRING_VALUE",
  * //           },
  * //         ],
  * //       },
@@ -305,6 +306,7 @@ export interface GeocodeCommandOutput extends GeocodeResponse, __MetadataBearer 
  * //             SecondaryAddressComponents: [
  * //               {
  * //                 Number: "STRING_VALUE", // required
+ * //                 Designator: "STRING_VALUE",
  * //               },
  * //             ],
  * //           },
@@ -385,7 +387,7 @@ export class GeocodeCommand extends $Command
   })
   .s("PlacesService", "Geocode", {})
   .n("GeoPlacesClient", "GeocodeCommand")
-  .sc(Geocode)
+  .sc(Geocode$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -34,7 +34,7 @@ import {
  */
 export interface AccessPoint {
   /**
-   * <p>The position, in longitude and latitude.</p>
+   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
    * @public
    */
   Position?: number[] | undefined;
@@ -140,6 +140,12 @@ export interface SecondaryAddressComponent {
    * @public
    */
   Number: string | undefined;
+
+  /**
+   * <p>The designator of the secondary address component.</p> <p>Example: <code>Apt</code>.</p>
+   * @public
+   */
+  Designator?: string | undefined;
 }
 
 /**
@@ -310,7 +316,7 @@ export interface Address {
   Building?: string | undefined;
 
   /**
-   * <p>Components that correspond to secondary identifiers on an Address. Secondary address components include information such as Suite or Unit Number, Building, or Floor.</p>
+   * <p>Components that correspond to secondary identifiers on an Address. Secondary address components include information such as Suite or Unit Number, Building, or Floor.</p> <note> <p>Coverage for <code>Address.SecondaryAddressComponents</code> is available in the following countries:</p> <p>AUS, CAN, NZL, USA, PRI</p> </note>
    * @public
    */
   SecondaryAddressComponents?: SecondaryAddressComponent[] | undefined;
@@ -406,7 +412,7 @@ export interface AddressComponentMatchScores {
   Building?: number | undefined;
 
   /**
-   * <p>Match scores for the secondary address components in the result.</p>
+   * <p>Match scores for the secondary address components in the result.</p> <note> <p>Coverage for this functionality is available in the following countries: AUS, AUT, BRA, CAN, ESP, FRA, GBR, IDN, IND, NZL, TUR, TWN, USA.</p> </note>
    * @public
    */
   SecondaryAddressComponents?: SecondaryAddressComponentMatchScore[] | undefined;
@@ -502,7 +508,7 @@ export interface AddressComponentPhonemes {
  */
 export interface FilterCircle {
   /**
-   * <p>The center position, in longitude and latitude, of the <code>FilterCircle</code>.</p>
+   * <p>The center position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
    * @public
    */
   Center: number[] | undefined;
@@ -555,13 +561,13 @@ export interface AutocompleteRequest {
   QueryText: string | undefined;
 
   /**
-   * <p>An optional limit for the number of results returned in a single call. </p>
+   * <p>An optional limit for the number of results returned in a single call.</p> <p>Default value: 5</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The position in longitude and latitude that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in <code>[lng, lat]</code> and in the WSG84 format.</p> <note> <p>The fields <code>BiasPosition</code>, <code>FilterBoundingBox</code>, and <code>FilterCircle</code> are mutually exclusive.</p> </note>
+   * <p>The position in longitude and latitude that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in <code>[lng, lat]</code> and in the WGS 84 format.</p> <note> <p>The fields <code>BiasPosition</code>, <code>FilterBoundingBox</code>, and <code>FilterCircle</code> are mutually exclusive.</p> </note>
    * @public
    */
   BiasPosition?: number[] | undefined;
@@ -1075,7 +1081,7 @@ export interface GeocodeQueryComponents {
  */
 export interface GeocodeRequest {
   /**
-   * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p> <note> <p>The fields <code>QueryText</code>, and <code>QueryID</code> are mutually exclusive.</p> </note>
+   * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p>
    * @public
    */
   QueryText?: string | undefined;
@@ -1087,13 +1093,13 @@ export interface GeocodeRequest {
   QueryComponents?: GeocodeQueryComponents | undefined;
 
   /**
-   * <p>An optional limit for the number of results returned in a single call.</p>
+   * <p>An optional limit for the number of results returned in a single call.</p> <p>Default value: 20</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in <code>[lng, lat]</code> and in the WSG84 format.</p> <note> <p>The fields <code>BiasPosition</code>, <code>FilterBoundingBox</code>, and <code>FilterCircle</code> are mutually exclusive.</p> </note>
+   * <p>The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in <code>[lng, lat]</code> and in the WGS 84 format.</p>
    * @public
    */
   BiasPosition?: number[] | undefined;
@@ -1159,7 +1165,7 @@ export interface Intersection {
   Address?: Address | undefined;
 
   /**
-   * <p>The position, in longitude and latitude.</p>
+   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
    * @public
    */
   Position?: number[] | undefined;
@@ -1183,7 +1189,7 @@ export interface Intersection {
   MapView?: number[] | undefined;
 
   /**
-   * <p>Position of the access point represented by longitude and latitude.</p>
+   * <p>Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
@@ -1219,13 +1225,13 @@ export interface RelatedPlace {
   Address?: Address | undefined;
 
   /**
-   * <p>The position, in longitude and latitude.</p>
+   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
    * @public
    */
   Position?: number[] | undefined;
 
   /**
-   * <p>Position of the access point represented by longitude and latitude.</p>
+   * <p>Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
@@ -1393,7 +1399,7 @@ export interface GeocodeParsedQueryAddressComponents {
   Building?: ParsedQueryComponent[] | undefined;
 
   /**
-   * <p>Parsed secondary address components from the provided query text.</p>
+   * <p>Parsed secondary address components from the provided query text.</p> <note> <p>Coverage for <code>ParsedQuery.Address.SecondaryAddressComponents</code> is available in the following countries:</p> <p>AUS, AUT, BRA, CAN, ESP, FRA, GBR, HKG, IDN, IND, NZL, TUR, TWN, USA</p> </note>
    * @public
    */
   SecondaryAddressComponents?: ParsedQuerySecondaryAddressComponent[] | undefined;
@@ -1543,7 +1549,7 @@ export interface GeocodeResultItem {
   PostalCodeDetails?: PostalCodeDetails[] | undefined;
 
   /**
-   * <p>The position in longitude and latitude.</p>
+   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
    * @public
    */
   Position?: number[] | undefined;
@@ -1573,7 +1579,7 @@ export interface GeocodeResultItem {
   FoodTypes?: FoodType[] | undefined;
 
   /**
-   * <p>Position of the access point represented by longitude and latitude.</p>
+   * <p>Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
@@ -1615,7 +1621,7 @@ export interface GeocodeResultItem {
   MainAddress?: RelatedPlace | undefined;
 
   /**
-   * <p>All secondary addresses that are associated with a main address. A secondary address is one that includes secondary designators, such as a Suite or Unit Number, Building, or Floor information.</p>
+   * <p>All secondary addresses that are associated with a main address. A secondary address is one that includes secondary designators, such as a Suite or Unit Number, Building, or Floor information.</p> <note> <p>Coverage for this functionality is available in the following countries: AUS, CAN, NZL, USA, PRI.</p> </note>
    * @public
    */
   SecondaryAddresses?: RelatedPlace[] | undefined;
@@ -1626,7 +1632,7 @@ export interface GeocodeResultItem {
  */
 export interface GeocodeResponse {
   /**
-   * <p>The pricing bucket for which the query is charged at.</p> <p>For more information on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
+   * <p>The pricing bucket for which the query is charged at, or the maximum pricing bucket when the query is charged per item within the query.</p> <p>For more information on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
    * @public
    */
   PricingBucket: string | undefined;
@@ -1798,7 +1804,7 @@ export interface GetPlaceResponse {
   PostalCodeDetails?: PostalCodeDetails[] | undefined;
 
   /**
-   * <p>The position, in longitude and latitude.</p>
+   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
    * @public
    */
   Position?: number[] | undefined;
@@ -1840,7 +1846,7 @@ export interface GetPlaceResponse {
   OpeningHours?: OpeningHours[] | undefined;
 
   /**
-   * <p>Position of the access point in <code>(lng,lat)</code>.</p>
+   * <p>Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
@@ -1876,7 +1882,7 @@ export interface GetPlaceResponse {
   MainAddress?: RelatedPlace | undefined;
 
   /**
-   * <p>All secondary addresses that are associated with a main address. A secondary address is one that includes secondary designators, such as a Suite or Unit Number, Building, or Floor information.</p>
+   * <p>All secondary addresses that are associated with a main address. A secondary address is one that includes secondary designators, such as a Suite or Unit Number, Building, or Floor information.</p> <note> <p>Coverage for this functionality is available in the following countries: AUS, CAN, NZL, USA, PRI.</p> </note>
    * @public
    */
   SecondaryAddresses?: RelatedPlace[] | undefined;
@@ -1899,7 +1905,7 @@ export interface ReverseGeocodeFilter {
  */
 export interface ReverseGeocodeRequest {
   /**
-   * <p>The position, in <code>[lng, lat]</code> for which you are querying nearby results for. Results closer to the position will be ranked higher then results further away from the position</p>
+   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude] for which you are querying nearby results for. Results closer to the position will be ranked higher then results further away from the position</p>
    * @public
    */
   QueryPosition: number[] | undefined;
@@ -1911,7 +1917,7 @@ export interface ReverseGeocodeRequest {
   QueryRadius?: number | undefined;
 
   /**
-   * <p>An optional limit for the number of results returned in a single call.</p>
+   * <p>An optional limit for the number of results returned in a single call.</p> <p>Default value: 1</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -1951,6 +1957,12 @@ export interface ReverseGeocodeRequest {
    * @public
    */
   Key?: string | undefined;
+
+  /**
+   * <p>The heading in degrees from true north in a navigation context. The heading is measured as the angle clockwise from the North direction.</p> <p>Example: North is <code>0</code> degrees, East is <code>90</code> degrees, South is <code>180</code> degrees, and West is <code>270</code> degrees.</p>
+   * @public
+   */
+  Heading?: number | undefined;
 }
 
 /**
@@ -1995,7 +2007,7 @@ export interface ReverseGeocodeResultItem {
   PostalCodeDetails?: PostalCodeDetails[] | undefined;
 
   /**
-   * <p>The position in longitude and latitude.</p>
+   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
    * @public
    */
   Position?: number[] | undefined;
@@ -2025,7 +2037,7 @@ export interface ReverseGeocodeResultItem {
   FoodTypes?: FoodType[] | undefined;
 
   /**
-   * <p>Position of the access point represented by longitude and latitude.</p>
+   * <p>Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
@@ -2125,7 +2137,7 @@ export interface SearchNearbyFilter {
  */
 export interface SearchNearbyRequest {
   /**
-   * <p>The position, in <code>[lng, lat]</code> for which you are querying nearby results for. Results closer to the position will be ranked higher then results further away from the position</p>
+   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude] for which you are querying nearby results for. Results closer to the position will be ranked higher then results further away from the position</p>
    * @public
    */
   QueryPosition: number[] | undefined;
@@ -2137,7 +2149,7 @@ export interface SearchNearbyRequest {
   QueryRadius?: number | undefined;
 
   /**
-   * <p>An optional limit for the number of results returned in a single call.</p>
+   * <p>An optional limit for the number of results returned in a single call.</p> <p>Default value: 20</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -2221,7 +2233,7 @@ export interface SearchNearbyResultItem {
   AddressNumberCorrected?: boolean | undefined;
 
   /**
-   * <p>The position in longitude and latitude.</p>
+   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
    * @public
    */
   Position?: number[] | undefined;
@@ -2269,7 +2281,7 @@ export interface SearchNearbyResultItem {
   OpeningHours?: OpeningHours[] | undefined;
 
   /**
-   * <p>Position of the access point represent by longitude and latitude.</p>
+   * <p>Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
@@ -2351,25 +2363,25 @@ export interface SearchTextFilter {
  */
 export interface SearchTextRequest {
   /**
-   * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p> <note> <p>The fields <code>QueryText</code>, and <code>QueryID</code> are mutually exclusive.</p> </note>
+   * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p> <note> <p>Exactly one of the following fields must be set: <code>QueryText</code> or <code>QueryId</code>.</p> </note>
    * @public
    */
   QueryText?: string | undefined;
 
   /**
-   * <p>The query Id returned by the suggest API. If passed in the request, the SearchText API will preform a SearchText query with the improved query terms for the original query made to the suggest API.</p> <note> <p>The fields <code>QueryText</code>, and <code>QueryID</code> are mutually exclusive.</p> </note>
+   * <p>The query Id returned by the suggest API. If passed in the request, the SearchText API will preform a SearchText query with the improved query terms for the original query made to the suggest API.</p> <note> <p>Exactly one of the following fields must be set: <code>QueryText</code> or <code>QueryId</code>.</p> </note>
    * @public
    */
   QueryId?: string | undefined;
 
   /**
-   * <p>An optional limit for the number of results returned in a single call.</p>
+   * <p>An optional limit for the number of results returned in a single call.</p> <p>Default value: 20</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in <code>[lng, lat]</code> and in the WSG84 format.</p> <note> <p>The fields <code>BiasPosition</code>, <code>FilterBoundingBox</code>, and <code>FilterCircle</code> are mutually exclusive.</p> </note>
+   * <p>The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in <code>[lng, lat]</code> and in the WGS 84 format.</p> <note> <p>Exactly one of the following fields must be set: <code>BiasPosition</code>, <code>Filter.BoundingBox</code>, or <code>Filter.Circle</code>.</p> </note>
    * @public
    */
   BiasPosition?: number[] | undefined;
@@ -2453,7 +2465,7 @@ export interface SearchTextResultItem {
   AddressNumberCorrected?: boolean | undefined;
 
   /**
-   * <p>The position, in longitude and latitude.</p>
+   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
    * @public
    */
   Position?: number[] | undefined;
@@ -2501,7 +2513,7 @@ export interface SearchTextResultItem {
   OpeningHours?: OpeningHours[] | undefined;
 
   /**
-   * <p>Position of the access point represent by longitude and latitude.</p>
+   * <p>Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
@@ -2583,13 +2595,13 @@ export interface SuggestFilter {
  */
 export interface SuggestRequest {
   /**
-   * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p> <note> <p>The fields <code>QueryText</code>, and <code>QueryID</code> are mutually exclusive.</p> </note>
+   * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p> <note> <p>The fields <code>QueryText</code> and <code>QueryID</code> are mutually exclusive.</p> </note>
    * @public
    */
   QueryText: string | undefined;
 
   /**
-   * <p>An optional limit for the number of results returned in a single call.</p>
+   * <p>An optional limit for the number of results returned in a single call.</p> <p>Default value: 20</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -2601,7 +2613,7 @@ export interface SuggestRequest {
   MaxQueryRefinements?: number | undefined;
 
   /**
-   * <p>The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in <code>[lng, lat]</code> and in the WSG84 format.</p> <note> <p>The fields <code>BiasPosition</code>, <code>FilterBoundingBox</code>, and <code>FilterCircle</code> are mutually exclusive.</p> </note>
+   * <p>The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in <code>[lng, lat]</code> and in the WGS 84 format.</p> <note> <p>The fields <code>BiasPosition</code>, <code>FilterBoundingBox</code>, and <code>FilterCircle</code> are mutually exclusive.</p> </note>
    * @public
    */
   BiasPosition?: number[] | undefined;
@@ -2727,7 +2739,7 @@ export interface SuggestPlaceResult {
   Address?: Address | undefined;
 
   /**
-   * <p>The position, in longitude and latitude.</p>
+   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
    * @public
    */
   Position?: number[] | undefined;
@@ -2763,7 +2775,7 @@ export interface SuggestPlaceResult {
   BusinessChains?: BusinessChain[] | undefined;
 
   /**
-   * <p>Position of the access point represent by longitude and latitude.</p>
+   * <p>Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
@@ -2799,7 +2811,7 @@ export interface SuggestPlaceResult {
  */
 export interface SuggestQueryResult {
   /**
-   * <p>QueryId can be used to complete a follow up query through the SearchText API. The QueryId retains context from the original Suggest request such as filters, political view and language. See the SearchText API documentation for more details <a href="https://docs.aws.amazon.com/latest/APIReference/API_geoplaces_SearchText.html">SearchText API docs</a>.</p> <note> <p>The fields <code>QueryText</code>, and <code>QueryID</code> are mutually exclusive.</p> </note>
+   * <p>QueryId can be used to complete a follow up query through the SearchText API. The QueryId retains context from the original Suggest request such as filters, political view and language. See the SearchText API documentation for more details <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_SearchText.html">SearchText API docs</a>.</p> <note> <p>The fields <code>QueryText</code>, and <code>QueryID</code> are mutually exclusive.</p> </note>
    * @public
    */
   QueryId?: string | undefined;

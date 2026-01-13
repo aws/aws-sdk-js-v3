@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RevokeCacheSecurityGroupIngressMessage, RevokeCacheSecurityGroupIngressResult } from "../models/models_0";
-import { RevokeCacheSecurityGroupIngress } from "../schemas/schemas_0";
+import { RevokeCacheSecurityGroupIngress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface RevokeCacheSecurityGroupIngressCommandInput extends RevokeCache
  *
  * The output of {@link RevokeCacheSecurityGroupIngressCommand}.
  */
-export interface RevokeCacheSecurityGroupIngressCommandOutput
-  extends RevokeCacheSecurityGroupIngressResult,
-    __MetadataBearer {}
+export interface RevokeCacheSecurityGroupIngressCommandOutput extends RevokeCacheSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
  * <p>Revokes ingress from a cache security group. Use this operation to disallow access
@@ -122,7 +120,7 @@ export class RevokeCacheSecurityGroupIngressCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "RevokeCacheSecurityGroupIngress", {})
   .n("ElastiCacheClient", "RevokeCacheSecurityGroupIngressCommand")
-  .sc(RevokeCacheSecurityGroupIngress)
+  .sc(RevokeCacheSecurityGroupIngress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

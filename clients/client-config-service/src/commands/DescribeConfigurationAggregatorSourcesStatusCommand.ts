@@ -9,7 +9,7 @@ import type {
   DescribeConfigurationAggregatorSourcesStatusRequest,
   DescribeConfigurationAggregatorSourcesStatusResponse,
 } from "../models/models_0";
-import { DescribeConfigurationAggregatorSourcesStatus } from "../schemas/schemas_0";
+import { DescribeConfigurationAggregatorSourcesStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeConfigurationAggregatorSourcesStatusCommand}.
  */
-export interface DescribeConfigurationAggregatorSourcesStatusCommandInput
-  extends DescribeConfigurationAggregatorSourcesStatusRequest {}
+export interface DescribeConfigurationAggregatorSourcesStatusCommandInput extends DescribeConfigurationAggregatorSourcesStatusRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeConfigurationAggregatorSourcesStatusCommand}.
  */
-export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
-  extends DescribeConfigurationAggregatorSourcesStatusResponse,
-    __MetadataBearer {}
+export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput extends DescribeConfigurationAggregatorSourcesStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Returns status information for sources within an aggregator.
@@ -111,7 +108,7 @@ export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Comman
   })
   .s("StarlingDoveService", "DescribeConfigurationAggregatorSourcesStatus", {})
   .n("ConfigServiceClient", "DescribeConfigurationAggregatorSourcesStatusCommand")
-  .sc(DescribeConfigurationAggregatorSourcesStatus)
+  .sc(DescribeConfigurationAggregatorSourcesStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

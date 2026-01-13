@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteEventStreamRequest, DeleteEventStreamResponse } from "../models/models_0";
-import { DeleteEventStream } from "../schemas/schemas_0";
+import { DeleteEventStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteEventStreamCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "DeleteEventStream", {})
   .n("CustomerProfilesClient", "DeleteEventStreamCommand")
-  .sc(DeleteEventStream)
+  .sc(DeleteEventStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

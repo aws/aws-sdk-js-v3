@@ -9,7 +9,7 @@ import type {
   CreateIntegrationResourcePropertyRequest,
   CreateIntegrationResourcePropertyResponse,
 } from "../models/models_1";
-import { CreateIntegrationResourceProperty } from "../schemas/schemas_0";
+import { CreateIntegrationResourceProperty$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateIntegrationResourcePropertyCommandInput extends CreateInt
  *
  * The output of {@link CreateIntegrationResourcePropertyCommand}.
  */
-export interface CreateIntegrationResourcePropertyCommandOutput
-  extends CreateIntegrationResourcePropertyResponse,
-    __MetadataBearer {}
+export interface CreateIntegrationResourcePropertyCommandOutput extends CreateIntegrationResourcePropertyResponse, __MetadataBearer {}
 
 /**
  * <p>This API can be used for setting up the <code>ResourceProperty</code> of the Glue connection (for the source) or Glue database ARN (for the target). These properties can include the role to access the connection or database. To set both source and target properties the same API needs to be invoked with the Glue connection ARN as <code>ResourceArn</code> with <code>SourceProcessingProperties</code> and the Glue database ARN as <code>ResourceArn</code> with <code>TargetProcessingProperties</code> respectively.</p>
@@ -127,7 +125,7 @@ export class CreateIntegrationResourcePropertyCommand extends $Command
   })
   .s("AWSGlue", "CreateIntegrationResourceProperty", {})
   .n("GlueClient", "CreateIntegrationResourcePropertyCommand")
-  .sc(CreateIntegrationResourceProperty)
+  .sc(CreateIntegrationResourceProperty$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

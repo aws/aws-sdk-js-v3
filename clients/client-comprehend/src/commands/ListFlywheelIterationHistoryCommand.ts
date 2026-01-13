@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListFlywheelIterationHistoryRequest, ListFlywheelIterationHistoryResponse } from "../models/models_0";
-import { ListFlywheelIterationHistory } from "../schemas/schemas_0";
+import { ListFlywheelIterationHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListFlywheelIterationHistoryCommandInput extends ListFlywheelIt
  *
  * The output of {@link ListFlywheelIterationHistoryCommand}.
  */
-export interface ListFlywheelIterationHistoryCommandOutput
-  extends ListFlywheelIterationHistoryResponse,
-    __MetadataBearer {}
+export interface ListFlywheelIterationHistoryCommandOutput extends ListFlywheelIterationHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>Information about the history of a flywheel iteration.
@@ -124,7 +122,7 @@ export class ListFlywheelIterationHistoryCommand extends $Command
   })
   .s("Comprehend_20171127", "ListFlywheelIterationHistory", {})
   .n("ComprehendClient", "ListFlywheelIterationHistoryCommand")
-  .sc(ListFlywheelIterationHistory)
+  .sc(ListFlywheelIterationHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

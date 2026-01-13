@@ -13,7 +13,7 @@ import type {
   StartReplicationTaskAssessmentRunMessage,
   StartReplicationTaskAssessmentRunResponse,
 } from "../models/models_1";
-import { StartReplicationTaskAssessmentRun } from "../schemas/schemas_0";
+import { StartReplicationTaskAssessmentRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface StartReplicationTaskAssessmentRunCommandInput extends StartRepl
  *
  * The output of {@link StartReplicationTaskAssessmentRunCommand}.
  */
-export interface StartReplicationTaskAssessmentRunCommandOutput
-  extends StartReplicationTaskAssessmentRunResponse,
-    __MetadataBearer {}
+export interface StartReplicationTaskAssessmentRunCommandOutput extends StartReplicationTaskAssessmentRunResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a new premigration assessment run for one or more individual assessments of a
@@ -170,7 +168,7 @@ export class StartReplicationTaskAssessmentRunCommand extends $Command
   })
   .s("AmazonDMSv20160101", "StartReplicationTaskAssessmentRun", {})
   .n("DatabaseMigrationServiceClient", "StartReplicationTaskAssessmentRunCommand")
-  .sc(StartReplicationTaskAssessmentRun)
+  .sc(StartReplicationTaskAssessmentRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

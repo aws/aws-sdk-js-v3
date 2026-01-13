@@ -13,7 +13,7 @@ import type {
   ListDataIntegrationAssociationsRequest,
   ListDataIntegrationAssociationsResponse,
 } from "../models/models_0";
-import { ListDataIntegrationAssociations } from "../schemas/schemas_0";
+import { ListDataIntegrationAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ListDataIntegrationAssociationsCommandInput extends ListDataInt
  *
  * The output of {@link ListDataIntegrationAssociationsCommand}.
  */
-export interface ListDataIntegrationAssociationsCommandOutput
-  extends ListDataIntegrationAssociationsResponse,
-    __MetadataBearer {}
+export interface ListDataIntegrationAssociationsCommandOutput extends ListDataIntegrationAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of DataIntegration associations in the account.</p>
@@ -128,7 +126,7 @@ export class ListDataIntegrationAssociationsCommand extends $Command
   })
   .s("AmazonAppIntegrationService", "ListDataIntegrationAssociations", {})
   .n("AppIntegrationsClient", "ListDataIntegrationAssociationsCommand")
-  .sc(ListDataIntegrationAssociations)
+  .sc(ListDataIntegrationAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

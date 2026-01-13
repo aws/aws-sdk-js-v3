@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListCollaborationTrainedModelsRequest, ListCollaborationTrainedModelsResponse } from "../models/models_0";
-import { ListCollaborationTrainedModels } from "../schemas/schemas_0";
+import { ListCollaborationTrainedModels$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListCollaborationTrainedModelsCommandInput extends ListCollabor
  *
  * The output of {@link ListCollaborationTrainedModelsCommand}.
  */
-export interface ListCollaborationTrainedModelsCommandOutput
-  extends ListCollaborationTrainedModelsResponse,
-    __MetadataBearer {}
+export interface ListCollaborationTrainedModelsCommandOutput extends ListCollaborationTrainedModelsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the trained models in a collaboration.</p>
@@ -108,7 +106,7 @@ export class ListCollaborationTrainedModelsCommand extends $Command
   })
   .s("AWSStarkControlService", "ListCollaborationTrainedModels", {})
   .n("CleanRoomsMLClient", "ListCollaborationTrainedModelsCommand")
-  .sc(ListCollaborationTrainedModels)
+  .sc(ListCollaborationTrainedModels$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

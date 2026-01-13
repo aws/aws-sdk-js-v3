@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteClientBrandingRequest, DeleteClientBrandingResult } from "../models/models_0";
-import { DeleteClientBranding } from "../schemas/schemas_0";
+import { DeleteClientBranding$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -88,7 +88,7 @@ export class DeleteClientBrandingCommand extends $Command
   })
   .s("WorkspacesService", "DeleteClientBranding", {})
   .n("WorkSpacesClient", "DeleteClientBrandingCommand")
-  .sc(DeleteClientBranding)
+  .sc(DeleteClientBranding$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeSoftwareAssociationsRequest, DescribeSoftwareAssociationsResult } from "../models/models_0";
-import { DescribeSoftwareAssociations } from "../schemas/schemas_0";
+import { DescribeSoftwareAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeSoftwareAssociationsCommandInput extends DescribeSoftwa
  *
  * The output of {@link DescribeSoftwareAssociationsCommand}.
  */
-export interface DescribeSoftwareAssociationsCommandOutput
-  extends DescribeSoftwareAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeSoftwareAssociationsCommandOutput extends DescribeSoftwareAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves license included application associations for a specified resource.</p>
@@ -96,7 +94,7 @@ export class DescribeSoftwareAssociationsCommand extends $Command
   })
   .s("PhotonAdminProxyService", "DescribeSoftwareAssociations", {})
   .n("AppStreamClient", "DescribeSoftwareAssociationsCommand")
-  .sc(DescribeSoftwareAssociations)
+  .sc(DescribeSoftwareAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

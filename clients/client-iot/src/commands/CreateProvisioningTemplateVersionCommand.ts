@@ -9,7 +9,7 @@ import type {
   CreateProvisioningTemplateVersionRequest,
   CreateProvisioningTemplateVersionResponse,
 } from "../models/models_0";
-import { CreateProvisioningTemplateVersion } from "../schemas/schemas_0";
+import { CreateProvisioningTemplateVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateProvisioningTemplateVersionCommandInput extends CreatePro
  *
  * The output of {@link CreateProvisioningTemplateVersionCommand}.
  */
-export interface CreateProvisioningTemplateVersionCommandOutput
-  extends CreateProvisioningTemplateVersionResponse,
-    __MetadataBearer {}
+export interface CreateProvisioningTemplateVersionCommandOutput extends CreateProvisioningTemplateVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new version of a provisioning template.</p>
@@ -106,7 +104,7 @@ export class CreateProvisioningTemplateVersionCommand extends $Command
   })
   .s("AWSIotService", "CreateProvisioningTemplateVersion", {})
   .n("IoTClient", "CreateProvisioningTemplateVersionCommand")
-  .sc(CreateProvisioningTemplateVersion)
+  .sc(CreateProvisioningTemplateVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

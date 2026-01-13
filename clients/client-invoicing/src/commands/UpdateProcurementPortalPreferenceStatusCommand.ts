@@ -9,7 +9,7 @@ import type {
   UpdateProcurementPortalPreferenceStatusRequest,
   UpdateProcurementPortalPreferenceStatusResponse,
 } from "../models/models_0";
-import { UpdateProcurementPortalPreferenceStatus } from "../schemas/schemas_0";
+import { UpdateProcurementPortalPreferenceStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateProcurementPortalPreferenceStatusCommand}.
  */
-export interface UpdateProcurementPortalPreferenceStatusCommandInput
-  extends UpdateProcurementPortalPreferenceStatusRequest {}
+export interface UpdateProcurementPortalPreferenceStatusCommandInput extends UpdateProcurementPortalPreferenceStatusRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateProcurementPortalPreferenceStatusCommand}.
  */
-export interface UpdateProcurementPortalPreferenceStatusCommandOutput
-  extends UpdateProcurementPortalPreferenceStatusResponse,
-    __MetadataBearer {}
+export interface UpdateProcurementPortalPreferenceStatusCommandOutput extends UpdateProcurementPortalPreferenceStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the status of a procurement portal preference, including the activation state of e-invoice delivery and purchase order retrieval features.</p>
@@ -123,7 +120,7 @@ export class UpdateProcurementPortalPreferenceStatusCommand extends $Command
   })
   .s("Invoicing", "UpdateProcurementPortalPreferenceStatus", {})
   .n("InvoicingClient", "UpdateProcurementPortalPreferenceStatusCommand")
-  .sc(UpdateProcurementPortalPreferenceStatus)
+  .sc(UpdateProcurementPortalPreferenceStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

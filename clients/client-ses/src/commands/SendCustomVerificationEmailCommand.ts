@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SendCustomVerificationEmailRequest, SendCustomVerificationEmailResponse } from "../models/models_0";
-import { SendCustomVerificationEmail } from "../schemas/schemas_0";
+import { SendCustomVerificationEmail$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -24,9 +24,7 @@ export interface SendCustomVerificationEmailCommandInput extends SendCustomVerif
  *
  * The output of {@link SendCustomVerificationEmailCommand}.
  */
-export interface SendCustomVerificationEmailCommandOutput
-  extends SendCustomVerificationEmailResponse,
-    __MetadataBearer {}
+export interface SendCustomVerificationEmailCommandOutput extends SendCustomVerificationEmailResponse, __MetadataBearer {}
 
 /**
  * <p>Adds an email address to the list of identities for your Amazon SES account in the current
@@ -103,7 +101,7 @@ export class SendCustomVerificationEmailCommand extends $Command
   })
   .s("SimpleEmailService", "SendCustomVerificationEmail", {})
   .n("SESClient", "SendCustomVerificationEmailCommand")
-  .sc(SendCustomVerificationEmail)
+  .sc(SendCustomVerificationEmail$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

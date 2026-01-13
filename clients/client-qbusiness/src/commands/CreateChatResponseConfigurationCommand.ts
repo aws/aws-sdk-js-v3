@@ -9,7 +9,7 @@ import type {
   CreateChatResponseConfigurationResponse,
 } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { CreateChatResponseConfiguration } from "../schemas/schemas_0";
+import { CreateChatResponseConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateChatResponseConfigurationCommandInput extends CreateChatR
  *
  * The output of {@link CreateChatResponseConfigurationCommand}.
  */
-export interface CreateChatResponseConfigurationCommandOutput
-  extends CreateChatResponseConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateChatResponseConfigurationCommandOutput extends CreateChatResponseConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new chat response configuration for an Amazon Q Business application. This operation establishes a set of parameters that define how the system generates and formats responses to user queries in chat interactions.</p>
@@ -122,7 +120,7 @@ export class CreateChatResponseConfigurationCommand extends $Command
   })
   .s("ExpertQ", "CreateChatResponseConfiguration", {})
   .n("QBusinessClient", "CreateChatResponseConfigurationCommand")
-  .sc(CreateChatResponseConfiguration)
+  .sc(CreateChatResponseConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

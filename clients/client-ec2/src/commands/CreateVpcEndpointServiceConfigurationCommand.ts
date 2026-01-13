@@ -9,7 +9,7 @@ import type {
   CreateVpcEndpointServiceConfigurationRequest,
   CreateVpcEndpointServiceConfigurationResult,
 } from "../models/models_2";
-import { CreateVpcEndpointServiceConfiguration } from "../schemas/schemas_0";
+import { CreateVpcEndpointServiceConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateVpcEndpointServiceConfigurationCommand}.
  */
-export interface CreateVpcEndpointServiceConfigurationCommandInput
-  extends CreateVpcEndpointServiceConfigurationRequest {}
+export interface CreateVpcEndpointServiceConfigurationCommandInput extends CreateVpcEndpointServiceConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateVpcEndpointServiceConfigurationCommand}.
  */
-export interface CreateVpcEndpointServiceConfigurationCommandOutput
-  extends CreateVpcEndpointServiceConfigurationResult,
-    __MetadataBearer {}
+export interface CreateVpcEndpointServiceConfigurationCommandOutput extends CreateVpcEndpointServiceConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,
@@ -172,7 +169,7 @@ export class CreateVpcEndpointServiceConfigurationCommand extends $Command
   })
   .s("AmazonEC2", "CreateVpcEndpointServiceConfiguration", {})
   .n("EC2Client", "CreateVpcEndpointServiceConfigurationCommand")
-  .sc(CreateVpcEndpointServiceConfiguration)
+  .sc(CreateVpcEndpointServiceConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

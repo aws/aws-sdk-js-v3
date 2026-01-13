@@ -9,7 +9,7 @@ import type {
   DisableAwsNetworkPerformanceMetricSubscriptionRequest,
   DisableAwsNetworkPerformanceMetricSubscriptionResult,
 } from "../models/models_5";
-import { DisableAwsNetworkPerformanceMetricSubscription } from "../schemas/schemas_0";
+import { DisableAwsNetworkPerformanceMetricSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisableAwsNetworkPerformanceMetricSubscriptionCommand}.
  */
-export interface DisableAwsNetworkPerformanceMetricSubscriptionCommandInput
-  extends DisableAwsNetworkPerformanceMetricSubscriptionRequest {}
+export interface DisableAwsNetworkPerformanceMetricSubscriptionCommandInput extends DisableAwsNetworkPerformanceMetricSubscriptionRequest {}
 /**
  * @public
  *
  * The output of {@link DisableAwsNetworkPerformanceMetricSubscriptionCommand}.
  */
-export interface DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput
-  extends DisableAwsNetworkPerformanceMetricSubscriptionResult,
-    __MetadataBearer {}
+export interface DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput extends DisableAwsNetworkPerformanceMetricSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Disables Infrastructure Performance metric subscriptions.</p>
@@ -83,7 +80,7 @@ export class DisableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comm
   })
   .s("AmazonEC2", "DisableAwsNetworkPerformanceMetricSubscription", {})
   .n("EC2Client", "DisableAwsNetworkPerformanceMetricSubscriptionCommand")
-  .sc(DisableAwsNetworkPerformanceMetricSubscription)
+  .sc(DisableAwsNetworkPerformanceMetricSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

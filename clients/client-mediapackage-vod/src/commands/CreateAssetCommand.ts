@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageVodClient";
 import type { CreateAssetRequest, CreateAssetResponse } from "../models/models_0";
-import { CreateAsset } from "../schemas/schemas_0";
+import { CreateAsset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class CreateAssetCommand extends $Command
   })
   .s("MediaPackageVod", "CreateAsset", {})
   .n("MediaPackageVodClient", "CreateAssetCommand")
-  .sc(CreateAsset)
+  .sc(CreateAsset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import type { DescribePublishingDestinationRequest, DescribePublishingDestinationResponse } from "../models/models_0";
-import { DescribePublishingDestination } from "../schemas/schemas_0";
+import { DescribePublishingDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribePublishingDestinationCommandInput extends DescribePubli
  *
  * The output of {@link DescribePublishingDestinationCommand}.
  */
-export interface DescribePublishingDestinationCommandOutput
-  extends DescribePublishingDestinationResponse,
-    __MetadataBearer {}
+export interface DescribePublishingDestinationCommandOutput extends DescribePublishingDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the publishing destination specified by the provided
@@ -93,7 +91,7 @@ export class DescribePublishingDestinationCommand extends $Command
   })
   .s("GuardDutyAPIService", "DescribePublishingDestination", {})
   .n("GuardDutyClient", "DescribePublishingDestinationCommand")
-  .sc(DescribePublishingDestination)
+  .sc(DescribePublishingDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

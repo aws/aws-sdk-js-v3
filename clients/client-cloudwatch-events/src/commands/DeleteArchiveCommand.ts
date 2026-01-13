@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchEventsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteArchiveRequest, DeleteArchiveResponse } from "../models/models_0";
-import { DeleteArchive } from "../schemas/schemas_0";
+import { DeleteArchive$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DeleteArchiveCommand extends $Command
   })
   .s("AWSEvents", "DeleteArchive", {})
   .n("CloudWatchEventsClient", "DeleteArchiveCommand")
-  .sc(DeleteArchive)
+  .sc(DeleteArchive$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient";
-import { GetTagValues } from "../schemas/schemas_0";
+import { GetTagValues$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class GetTagValuesCommand extends $Command
   })
   .s("ResourceGroupsTaggingAPI_20170126", "GetTagValues", {})
   .n("ResourceGroupsTaggingAPIClient", "GetTagValuesCommand")
-  .sc(GetTagValues)
+  .sc(GetTagValues$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

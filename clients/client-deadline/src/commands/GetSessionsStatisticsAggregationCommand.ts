@@ -9,7 +9,7 @@ import type {
   GetSessionsStatisticsAggregationRequest,
   GetSessionsStatisticsAggregationResponse,
 } from "../models/models_0";
-import { GetSessionsStatisticsAggregation } from "../schemas/schemas_0";
+import { GetSessionsStatisticsAggregation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetSessionsStatisticsAggregationCommandInput extends GetSession
  *
  * The output of {@link GetSessionsStatisticsAggregationCommand}.
  */
-export interface GetSessionsStatisticsAggregationCommandOutput
-  extends GetSessionsStatisticsAggregationResponse,
-    __MetadataBearer {}
+export interface GetSessionsStatisticsAggregationCommandOutput extends GetSessionsStatisticsAggregationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a set of statistics for queues or farms. Before you can call the
@@ -129,7 +127,7 @@ export class GetSessionsStatisticsAggregationCommand extends $Command
   })
   .s("Deadline", "GetSessionsStatisticsAggregation", {})
   .n("DeadlineClient", "GetSessionsStatisticsAggregationCommand")
-  .sc(GetSessionsStatisticsAggregation)
+  .sc(GetSessionsStatisticsAggregation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

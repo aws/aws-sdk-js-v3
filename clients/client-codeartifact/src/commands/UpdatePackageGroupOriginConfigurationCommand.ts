@@ -9,7 +9,7 @@ import type {
   UpdatePackageGroupOriginConfigurationRequest,
   UpdatePackageGroupOriginConfigurationResult,
 } from "../models/models_0";
-import { UpdatePackageGroupOriginConfiguration } from "../schemas/schemas_0";
+import { UpdatePackageGroupOriginConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdatePackageGroupOriginConfigurationCommand}.
  */
-export interface UpdatePackageGroupOriginConfigurationCommandInput
-  extends UpdatePackageGroupOriginConfigurationRequest {}
+export interface UpdatePackageGroupOriginConfigurationCommandInput extends UpdatePackageGroupOriginConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdatePackageGroupOriginConfigurationCommand}.
  */
-export interface UpdatePackageGroupOriginConfigurationCommandOutput
-  extends UpdatePackageGroupOriginConfigurationResult,
-    __MetadataBearer {}
+export interface UpdatePackageGroupOriginConfigurationCommandOutput extends UpdatePackageGroupOriginConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Updates the package origin configuration for a package group.</p>
@@ -161,7 +158,7 @@ export class UpdatePackageGroupOriginConfigurationCommand extends $Command
   })
   .s("CodeArtifactControlPlaneService", "UpdatePackageGroupOriginConfiguration", {})
   .n("CodeartifactClient", "UpdatePackageGroupOriginConfigurationCommand")
-  .sc(UpdatePackageGroupOriginConfiguration)
+  .sc(UpdatePackageGroupOriginConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

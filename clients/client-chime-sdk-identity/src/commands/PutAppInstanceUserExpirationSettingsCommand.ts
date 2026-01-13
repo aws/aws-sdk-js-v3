@@ -13,7 +13,7 @@ import type {
   PutAppInstanceUserExpirationSettingsRequest,
   PutAppInstanceUserExpirationSettingsResponse,
 } from "../models/models_0";
-import { PutAppInstanceUserExpirationSettings } from "../schemas/schemas_0";
+import { PutAppInstanceUserExpirationSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface PutAppInstanceUserExpirationSettingsCommandInput extends PutApp
  *
  * The output of {@link PutAppInstanceUserExpirationSettingsCommand}.
  */
-export interface PutAppInstanceUserExpirationSettingsCommandOutput
-  extends PutAppInstanceUserExpirationSettingsResponse,
-    __MetadataBearer {}
+export interface PutAppInstanceUserExpirationSettingsCommandOutput extends PutAppInstanceUserExpirationSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the number of days before the <code>AppInstanceUser</code> is automatically deleted.</p>
@@ -118,7 +116,7 @@ export class PutAppInstanceUserExpirationSettingsCommand extends $Command
   })
   .s("ChimeIdentityService", "PutAppInstanceUserExpirationSettings", {})
   .n("ChimeSDKIdentityClient", "PutAppInstanceUserExpirationSettingsCommand")
-  .sc(PutAppInstanceUserExpirationSettings)
+  .sc(PutAppInstanceUserExpirationSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

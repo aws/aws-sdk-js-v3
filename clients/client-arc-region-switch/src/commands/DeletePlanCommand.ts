@@ -10,7 +10,7 @@ import type {
 } from "../ARCRegionSwitchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeletePlanRequest, DeletePlanResponse } from "../models/models_0";
-import { DeletePlan } from "../schemas/schemas_0";
+import { DeletePlan$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DeletePlanCommand extends $Command
   })
   .s("ArcRegionSwitch", "DeletePlan", {})
   .n("ARCRegionSwitchClient", "DeletePlanCommand")
-  .sc(DeletePlan)
+  .sc(DeletePlan$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

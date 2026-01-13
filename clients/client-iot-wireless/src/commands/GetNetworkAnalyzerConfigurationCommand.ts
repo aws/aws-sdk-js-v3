@@ -9,7 +9,7 @@ import type {
   GetNetworkAnalyzerConfigurationRequest,
   GetNetworkAnalyzerConfigurationResponse,
 } from "../models/models_0";
-import { GetNetworkAnalyzerConfiguration } from "../schemas/schemas_0";
+import { GetNetworkAnalyzerConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetNetworkAnalyzerConfigurationCommandInput extends GetNetworkA
  *
  * The output of {@link GetNetworkAnalyzerConfigurationCommand}.
  */
-export interface GetNetworkAnalyzerConfigurationCommandOutput
-  extends GetNetworkAnalyzerConfigurationResponse,
-    __MetadataBearer {}
+export interface GetNetworkAnalyzerConfigurationCommandOutput extends GetNetworkAnalyzerConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Get network analyzer configuration.</p>
@@ -109,7 +107,7 @@ export class GetNetworkAnalyzerConfigurationCommand extends $Command
   })
   .s("iotwireless", "GetNetworkAnalyzerConfiguration", {})
   .n("IoTWirelessClient", "GetNetworkAnalyzerConfigurationCommand")
-  .sc(GetNetworkAnalyzerConfiguration)
+  .sc(GetNetworkAnalyzerConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

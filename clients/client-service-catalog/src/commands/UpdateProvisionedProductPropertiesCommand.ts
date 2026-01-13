@@ -8,7 +8,7 @@ import type {
   UpdateProvisionedProductPropertiesInput,
   UpdateProvisionedProductPropertiesOutput,
 } from "../models/models_0";
-import { UpdateProvisionedProductProperties } from "../schemas/schemas_0";
+import { UpdateProvisionedProductProperties$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -31,9 +31,7 @@ export interface UpdateProvisionedProductPropertiesCommandInput extends UpdatePr
  *
  * The output of {@link UpdateProvisionedProductPropertiesCommand}.
  */
-export interface UpdateProvisionedProductPropertiesCommandOutput
-  extends UpdateProvisionedProductPropertiesOutput,
-    __MetadataBearer {}
+export interface UpdateProvisionedProductPropertiesCommandOutput extends UpdateProvisionedProductPropertiesOutput, __MetadataBearer {}
 
 /**
  * <p>Requests updates to the properties of the specified provisioned product.</p>
@@ -102,7 +100,7 @@ export class UpdateProvisionedProductPropertiesCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "UpdateProvisionedProductProperties", {})
   .n("ServiceCatalogClient", "UpdateProvisionedProductPropertiesCommand")
-  .sc(UpdateProvisionedProductProperties)
+  .sc(UpdateProvisionedProductProperties$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

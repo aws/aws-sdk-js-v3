@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRestApiRequest } from "../models/models_0";
-import { DeleteRestApi } from "../schemas/schemas_0";
+import { DeleteRestApi$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class DeleteRestApiCommand extends $Command
   })
   .s("BackplaneControlService", "DeleteRestApi", {})
   .n("APIGatewayClient", "DeleteRestApiCommand")
-  .sc(DeleteRestApi)
+  .sc(DeleteRestApi$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

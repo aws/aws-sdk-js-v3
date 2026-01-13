@@ -17,10 +17,8 @@ AppFabric resources, see the <a href="https://docs.aws.amazon.com/cli/latest/ref
 Reference</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-appfabric
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-appfabric`
 - `yarn add @aws-sdk/client-appfabric`
 - `pnpm add @aws-sdk/client-appfabric`
@@ -56,9 +54,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new AppFabricClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListAppBundlesCommand(params);
 ```
 
@@ -217,7 +213,6 @@ BatchGetUserAccessTasks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/BatchGetUserAccessTasksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/BatchGetUserAccessTasksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/BatchGetUserAccessTasksCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +220,6 @@ ConnectAppAuthorization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/ConnectAppAuthorizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/ConnectAppAuthorizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/ConnectAppAuthorizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +227,6 @@ CreateAppAuthorization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/CreateAppAuthorizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/CreateAppAuthorizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/CreateAppAuthorizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +234,6 @@ CreateAppBundle
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/CreateAppBundleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/CreateAppBundleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/CreateAppBundleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +241,6 @@ CreateIngestion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/CreateIngestionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/CreateIngestionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/CreateIngestionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +248,6 @@ CreateIngestionDestination
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/CreateIngestionDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/CreateIngestionDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/CreateIngestionDestinationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +255,6 @@ DeleteAppAuthorization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/DeleteAppAuthorizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/DeleteAppAuthorizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/DeleteAppAuthorizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +262,6 @@ DeleteAppBundle
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/DeleteAppBundleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/DeleteAppBundleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/DeleteAppBundleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +269,6 @@ DeleteIngestion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/DeleteIngestionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/DeleteIngestionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/DeleteIngestionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +276,6 @@ DeleteIngestionDestination
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/DeleteIngestionDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/DeleteIngestionDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/DeleteIngestionDestinationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,7 +283,6 @@ GetAppAuthorization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/GetAppAuthorizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/GetAppAuthorizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/GetAppAuthorizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -305,7 +290,6 @@ GetAppBundle
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/GetAppBundleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/GetAppBundleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/GetAppBundleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -313,7 +297,6 @@ GetIngestion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/GetIngestionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/GetIngestionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/GetIngestionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -321,7 +304,6 @@ GetIngestionDestination
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/GetIngestionDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/GetIngestionDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/GetIngestionDestinationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -329,7 +311,6 @@ ListAppAuthorizations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/ListAppAuthorizationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/ListAppAuthorizationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/ListAppAuthorizationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -337,7 +318,6 @@ ListAppBundles
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/ListAppBundlesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/ListAppBundlesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/ListAppBundlesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -345,7 +325,6 @@ ListIngestionDestinations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/ListIngestionDestinationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/ListIngestionDestinationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/ListIngestionDestinationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -353,7 +332,6 @@ ListIngestions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/ListIngestionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/ListIngestionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/ListIngestionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -361,7 +339,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -369,7 +346,6 @@ StartIngestion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/StartIngestionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/StartIngestionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/StartIngestionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -377,7 +353,6 @@ StartUserAccessTasks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/StartUserAccessTasksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/StartUserAccessTasksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/StartUserAccessTasksCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -385,7 +360,6 @@ StopIngestion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/StopIngestionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/StopIngestionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/StopIngestionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -393,7 +367,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -401,7 +374,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -409,7 +381,6 @@ UpdateAppAuthorization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/UpdateAppAuthorizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/UpdateAppAuthorizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/UpdateAppAuthorizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -417,5 +388,4 @@ UpdateIngestionDestination
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appfabric/command/UpdateIngestionDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/UpdateIngestionDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appfabric/Interface/UpdateIngestionDestinationCommandOutput/)
-
 </details>

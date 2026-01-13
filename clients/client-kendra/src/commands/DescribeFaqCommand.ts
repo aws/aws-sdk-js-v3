@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import type { DescribeFaqRequest, DescribeFaqResponse } from "../models/models_0";
-import { DescribeFaq } from "../schemas/schemas_0";
+import { DescribeFaq$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class DescribeFaqCommand extends $Command
   })
   .s("AWSKendraFrontendService", "DescribeFaq", {})
   .n("KendraClient", "DescribeFaqCommand")
-  .sc(DescribeFaq)
+  .sc(DescribeFaq$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

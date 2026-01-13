@@ -9,7 +9,7 @@ import type {
   RegisterComputeNodeGroupInstanceResponse,
 } from "../models/models_0";
 import type { PCSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PCSClient";
-import { RegisterComputeNodeGroupInstance } from "../schemas/schemas_0";
+import { RegisterComputeNodeGroupInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface RegisterComputeNodeGroupInstanceCommandInput extends RegisterCo
  *
  * The output of {@link RegisterComputeNodeGroupInstanceCommand}.
  */
-export interface RegisterComputeNodeGroupInstanceCommandOutput
-  extends RegisterComputeNodeGroupInstanceResponse,
-    __MetadataBearer {}
+export interface RegisterComputeNodeGroupInstanceCommandOutput extends RegisterComputeNodeGroupInstanceResponse, __MetadataBearer {}
 
 /**
  * <important> <p>This API action isn't intended for you to use.</p> </important> <p>PCS uses this API action to register the compute nodes it launches in your account.</p>
@@ -95,7 +93,7 @@ export class RegisterComputeNodeGroupInstanceCommand extends $Command
   })
   .s("AWSParallelComputingService", "RegisterComputeNodeGroupInstance", {})
   .n("PCSClient", "RegisterComputeNodeGroupInstanceCommand")
-  .sc(RegisterComputeNodeGroupInstance)
+  .sc(RegisterComputeNodeGroupInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

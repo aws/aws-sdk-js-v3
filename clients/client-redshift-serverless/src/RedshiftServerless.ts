@@ -440,7 +440,10 @@ export interface RedshiftServerless {
     args: CreateNamespaceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateNamespaceCommandOutput>;
-  createNamespace(args: CreateNamespaceCommandInput, cb: (err: any, data?: CreateNamespaceCommandOutput) => void): void;
+  createNamespace(
+    args: CreateNamespaceCommandInput,
+    cb: (err: any, data?: CreateNamespaceCommandOutput) => void
+  ): void;
   createNamespace(
     args: CreateNamespaceCommandInput,
     options: __HttpHandlerOptions,
@@ -488,7 +491,10 @@ export interface RedshiftServerless {
     args: CreateSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateSnapshotCommandOutput>;
-  createSnapshot(args: CreateSnapshotCommandInput, cb: (err: any, data?: CreateSnapshotCommandOutput) => void): void;
+  createSnapshot(
+    args: CreateSnapshotCommandInput,
+    cb: (err: any, data?: CreateSnapshotCommandOutput) => void
+  ): void;
   createSnapshot(
     args: CreateSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -536,7 +542,10 @@ export interface RedshiftServerless {
     args: CreateWorkgroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateWorkgroupCommandOutput>;
-  createWorkgroup(args: CreateWorkgroupCommandInput, cb: (err: any, data?: CreateWorkgroupCommandOutput) => void): void;
+  createWorkgroup(
+    args: CreateWorkgroupCommandInput,
+    cb: (err: any, data?: CreateWorkgroupCommandOutput) => void
+  ): void;
   createWorkgroup(
     args: CreateWorkgroupCommandInput,
     options: __HttpHandlerOptions,
@@ -584,7 +593,10 @@ export interface RedshiftServerless {
     args: DeleteNamespaceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteNamespaceCommandOutput>;
-  deleteNamespace(args: DeleteNamespaceCommandInput, cb: (err: any, data?: DeleteNamespaceCommandOutput) => void): void;
+  deleteNamespace(
+    args: DeleteNamespaceCommandInput,
+    cb: (err: any, data?: DeleteNamespaceCommandOutput) => void
+  ): void;
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
     options: __HttpHandlerOptions,
@@ -632,7 +644,10 @@ export interface RedshiftServerless {
     args: DeleteSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteSnapshotCommandOutput>;
-  deleteSnapshot(args: DeleteSnapshotCommandInput, cb: (err: any, data?: DeleteSnapshotCommandOutput) => void): void;
+  deleteSnapshot(
+    args: DeleteSnapshotCommandInput,
+    cb: (err: any, data?: DeleteSnapshotCommandOutput) => void
+  ): void;
   deleteSnapshot(
     args: DeleteSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -680,7 +695,10 @@ export interface RedshiftServerless {
     args: DeleteWorkgroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteWorkgroupCommandOutput>;
-  deleteWorkgroup(args: DeleteWorkgroupCommandInput, cb: (err: any, data?: DeleteWorkgroupCommandOutput) => void): void;
+  deleteWorkgroup(
+    args: DeleteWorkgroupCommandInput,
+    cb: (err: any, data?: DeleteWorkgroupCommandOutput) => void
+  ): void;
   deleteWorkgroup(
     args: DeleteWorkgroupCommandInput,
     options: __HttpHandlerOptions,
@@ -695,7 +713,10 @@ export interface RedshiftServerless {
     args: GetCredentialsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCredentialsCommandOutput>;
-  getCredentials(args: GetCredentialsCommandInput, cb: (err: any, data?: GetCredentialsCommandOutput) => void): void;
+  getCredentials(
+    args: GetCredentialsCommandInput,
+    cb: (err: any, data?: GetCredentialsCommandOutput) => void
+  ): void;
   getCredentials(
     args: GetCredentialsCommandInput,
     options: __HttpHandlerOptions,
@@ -756,8 +777,14 @@ export interface RedshiftServerless {
   /**
    * @see {@link GetNamespaceCommand}
    */
-  getNamespace(args: GetNamespaceCommandInput, options?: __HttpHandlerOptions): Promise<GetNamespaceCommandOutput>;
-  getNamespace(args: GetNamespaceCommandInput, cb: (err: any, data?: GetNamespaceCommandOutput) => void): void;
+  getNamespace(
+    args: GetNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNamespaceCommandOutput>;
+  getNamespace(
+    args: GetNamespaceCommandInput,
+    cb: (err: any, data?: GetNamespaceCommandOutput) => void
+  ): void;
   getNamespace(
     args: GetNamespaceCommandInput,
     options: __HttpHandlerOptions,
@@ -788,7 +815,10 @@ export interface RedshiftServerless {
     args: GetReservationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetReservationCommandOutput>;
-  getReservation(args: GetReservationCommandInput, cb: (err: any, data?: GetReservationCommandOutput) => void): void;
+  getReservation(
+    args: GetReservationCommandInput,
+    cb: (err: any, data?: GetReservationCommandOutput) => void
+  ): void;
   getReservation(
     args: GetReservationCommandInput,
     options: __HttpHandlerOptions,
@@ -850,8 +880,14 @@ export interface RedshiftServerless {
    * @see {@link GetSnapshotCommand}
    */
   getSnapshot(): Promise<GetSnapshotCommandOutput>;
-  getSnapshot(args: GetSnapshotCommandInput, options?: __HttpHandlerOptions): Promise<GetSnapshotCommandOutput>;
-  getSnapshot(args: GetSnapshotCommandInput, cb: (err: any, data?: GetSnapshotCommandOutput) => void): void;
+  getSnapshot(
+    args: GetSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSnapshotCommandOutput>;
+  getSnapshot(
+    args: GetSnapshotCommandInput,
+    cb: (err: any, data?: GetSnapshotCommandOutput) => void
+  ): void;
   getSnapshot(
     args: GetSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -878,8 +914,14 @@ export interface RedshiftServerless {
   /**
    * @see {@link GetTrackCommand}
    */
-  getTrack(args: GetTrackCommandInput, options?: __HttpHandlerOptions): Promise<GetTrackCommandOutput>;
-  getTrack(args: GetTrackCommandInput, cb: (err: any, data?: GetTrackCommandOutput) => void): void;
+  getTrack(
+    args: GetTrackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTrackCommandOutput>;
+  getTrack(
+    args: GetTrackCommandInput,
+    cb: (err: any, data?: GetTrackCommandOutput) => void
+  ): void;
   getTrack(
     args: GetTrackCommandInput,
     options: __HttpHandlerOptions,
@@ -889,8 +931,14 @@ export interface RedshiftServerless {
   /**
    * @see {@link GetUsageLimitCommand}
    */
-  getUsageLimit(args: GetUsageLimitCommandInput, options?: __HttpHandlerOptions): Promise<GetUsageLimitCommandOutput>;
-  getUsageLimit(args: GetUsageLimitCommandInput, cb: (err: any, data?: GetUsageLimitCommandOutput) => void): void;
+  getUsageLimit(
+    args: GetUsageLimitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUsageLimitCommandOutput>;
+  getUsageLimit(
+    args: GetUsageLimitCommandInput,
+    cb: (err: any, data?: GetUsageLimitCommandOutput) => void
+  ): void;
   getUsageLimit(
     args: GetUsageLimitCommandInput,
     options: __HttpHandlerOptions,
@@ -900,8 +948,14 @@ export interface RedshiftServerless {
   /**
    * @see {@link GetWorkgroupCommand}
    */
-  getWorkgroup(args: GetWorkgroupCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkgroupCommandOutput>;
-  getWorkgroup(args: GetWorkgroupCommandInput, cb: (err: any, data?: GetWorkgroupCommandOutput) => void): void;
+  getWorkgroup(
+    args: GetWorkgroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorkgroupCommandOutput>;
+  getWorkgroup(
+    args: GetWorkgroupCommandInput,
+    cb: (err: any, data?: GetWorkgroupCommandOutput) => void
+  ): void;
   getWorkgroup(
     args: GetWorkgroupCommandInput,
     options: __HttpHandlerOptions,
@@ -970,7 +1024,10 @@ export interface RedshiftServerless {
     args: ListNamespacesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListNamespacesCommandOutput>;
-  listNamespaces(args: ListNamespacesCommandInput, cb: (err: any, data?: ListNamespacesCommandOutput) => void): void;
+  listNamespaces(
+    args: ListNamespacesCommandInput,
+    cb: (err: any, data?: ListNamespacesCommandOutput) => void
+  ): void;
   listNamespaces(
     args: ListNamespacesCommandInput,
     options: __HttpHandlerOptions,
@@ -1071,8 +1128,14 @@ export interface RedshiftServerless {
    * @see {@link ListSnapshotsCommand}
    */
   listSnapshots(): Promise<ListSnapshotsCommandOutput>;
-  listSnapshots(args: ListSnapshotsCommandInput, options?: __HttpHandlerOptions): Promise<ListSnapshotsCommandOutput>;
-  listSnapshots(args: ListSnapshotsCommandInput, cb: (err: any, data?: ListSnapshotsCommandOutput) => void): void;
+  listSnapshots(
+    args: ListSnapshotsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSnapshotsCommandOutput>;
+  listSnapshots(
+    args: ListSnapshotsCommandInput,
+    cb: (err: any, data?: ListSnapshotsCommandOutput) => void
+  ): void;
   listSnapshots(
     args: ListSnapshotsCommandInput,
     options: __HttpHandlerOptions,
@@ -1118,8 +1181,14 @@ export interface RedshiftServerless {
    * @see {@link ListTracksCommand}
    */
   listTracks(): Promise<ListTracksCommandOutput>;
-  listTracks(args: ListTracksCommandInput, options?: __HttpHandlerOptions): Promise<ListTracksCommandOutput>;
-  listTracks(args: ListTracksCommandInput, cb: (err: any, data?: ListTracksCommandOutput) => void): void;
+  listTracks(
+    args: ListTracksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTracksCommandOutput>;
+  listTracks(
+    args: ListTracksCommandInput,
+    cb: (err: any, data?: ListTracksCommandOutput) => void
+  ): void;
   listTracks(
     args: ListTracksCommandInput,
     options: __HttpHandlerOptions,
@@ -1134,7 +1203,10 @@ export interface RedshiftServerless {
     args: ListUsageLimitsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListUsageLimitsCommandOutput>;
-  listUsageLimits(args: ListUsageLimitsCommandInput, cb: (err: any, data?: ListUsageLimitsCommandOutput) => void): void;
+  listUsageLimits(
+    args: ListUsageLimitsCommandInput,
+    cb: (err: any, data?: ListUsageLimitsCommandOutput) => void
+  ): void;
   listUsageLimits(
     args: ListUsageLimitsCommandInput,
     options: __HttpHandlerOptions,
@@ -1149,7 +1221,10 @@ export interface RedshiftServerless {
     args: ListWorkgroupsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListWorkgroupsCommandOutput>;
-  listWorkgroups(args: ListWorkgroupsCommandInput, cb: (err: any, data?: ListWorkgroupsCommandOutput) => void): void;
+  listWorkgroups(
+    args: ListWorkgroupsCommandInput,
+    cb: (err: any, data?: ListWorkgroupsCommandOutput) => void
+  ): void;
   listWorkgroups(
     args: ListWorkgroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -1244,8 +1319,14 @@ export interface RedshiftServerless {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1255,8 +1336,14 @@ export interface RedshiftServerless {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1321,7 +1408,10 @@ export interface RedshiftServerless {
     args: UpdateNamespaceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateNamespaceCommandOutput>;
-  updateNamespace(args: UpdateNamespaceCommandInput, cb: (err: any, data?: UpdateNamespaceCommandOutput) => void): void;
+  updateNamespace(
+    args: UpdateNamespaceCommandInput,
+    cb: (err: any, data?: UpdateNamespaceCommandOutput) => void
+  ): void;
   updateNamespace(
     args: UpdateNamespaceCommandInput,
     options: __HttpHandlerOptions,
@@ -1352,7 +1442,10 @@ export interface RedshiftServerless {
     args: UpdateSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateSnapshotCommandOutput>;
-  updateSnapshot(args: UpdateSnapshotCommandInput, cb: (err: any, data?: UpdateSnapshotCommandOutput) => void): void;
+  updateSnapshot(
+    args: UpdateSnapshotCommandInput,
+    cb: (err: any, data?: UpdateSnapshotCommandOutput) => void
+  ): void;
   updateSnapshot(
     args: UpdateSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -1400,7 +1493,10 @@ export interface RedshiftServerless {
     args: UpdateWorkgroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateWorkgroupCommandOutput>;
-  updateWorkgroup(args: UpdateWorkgroupCommandInput, cb: (err: any, data?: UpdateWorkgroupCommandOutput) => void): void;
+  updateWorkgroup(
+    args: UpdateWorkgroupCommandInput,
+    cb: (err: any, data?: UpdateWorkgroupCommandOutput) => void
+  ): void;
   updateWorkgroup(
     args: UpdateWorkgroupCommandInput,
     options: __HttpHandlerOptions,

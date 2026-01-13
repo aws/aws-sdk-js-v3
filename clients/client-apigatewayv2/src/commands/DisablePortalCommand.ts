@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisablePortalRequest } from "../models/models_0";
-import { DisablePortal } from "../schemas/schemas_0";
+import { DisablePortal$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DisablePortalCommand extends $Command
   })
   .s("ApiGatewayV2", "DisablePortal", {})
   .n("ApiGatewayV2Client", "DisablePortalCommand")
-  .sc(DisablePortal)
+  .sc(DisablePortal$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

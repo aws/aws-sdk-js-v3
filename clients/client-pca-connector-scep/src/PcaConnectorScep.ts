@@ -83,7 +83,10 @@ export interface PcaConnectorScep {
     args: CreateChallengeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateChallengeCommandOutput>;
-  createChallenge(args: CreateChallengeCommandInput, cb: (err: any, data?: CreateChallengeCommandOutput) => void): void;
+  createChallenge(
+    args: CreateChallengeCommandInput,
+    cb: (err: any, data?: CreateChallengeCommandOutput) => void
+  ): void;
   createChallenge(
     args: CreateChallengeCommandInput,
     options: __HttpHandlerOptions,
@@ -97,7 +100,10 @@ export interface PcaConnectorScep {
     args: CreateConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateConnectorCommandOutput>;
-  createConnector(args: CreateConnectorCommandInput, cb: (err: any, data?: CreateConnectorCommandOutput) => void): void;
+  createConnector(
+    args: CreateConnectorCommandInput,
+    cb: (err: any, data?: CreateConnectorCommandOutput) => void
+  ): void;
   createConnector(
     args: CreateConnectorCommandInput,
     options: __HttpHandlerOptions,
@@ -111,7 +117,10 @@ export interface PcaConnectorScep {
     args: DeleteChallengeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteChallengeCommandOutput>;
-  deleteChallenge(args: DeleteChallengeCommandInput, cb: (err: any, data?: DeleteChallengeCommandOutput) => void): void;
+  deleteChallenge(
+    args: DeleteChallengeCommandInput,
+    cb: (err: any, data?: DeleteChallengeCommandOutput) => void
+  ): void;
   deleteChallenge(
     args: DeleteChallengeCommandInput,
     options: __HttpHandlerOptions,
@@ -125,7 +134,10 @@ export interface PcaConnectorScep {
     args: DeleteConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteConnectorCommandOutput>;
-  deleteConnector(args: DeleteConnectorCommandInput, cb: (err: any, data?: DeleteConnectorCommandOutput) => void): void;
+  deleteConnector(
+    args: DeleteConnectorCommandInput,
+    cb: (err: any, data?: DeleteConnectorCommandOutput) => void
+  ): void;
   deleteConnector(
     args: DeleteConnectorCommandInput,
     options: __HttpHandlerOptions,
@@ -169,8 +181,14 @@ export interface PcaConnectorScep {
   /**
    * @see {@link GetConnectorCommand}
    */
-  getConnector(args: GetConnectorCommandInput, options?: __HttpHandlerOptions): Promise<GetConnectorCommandOutput>;
-  getConnector(args: GetConnectorCommandInput, cb: (err: any, data?: GetConnectorCommandOutput) => void): void;
+  getConnector(
+    args: GetConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectorCommandOutput>;
+  getConnector(
+    args: GetConnectorCommandInput,
+    cb: (err: any, data?: GetConnectorCommandOutput) => void
+  ): void;
   getConnector(
     args: GetConnectorCommandInput,
     options: __HttpHandlerOptions,
@@ -202,7 +220,10 @@ export interface PcaConnectorScep {
     args: ListConnectorsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListConnectorsCommandOutput>;
-  listConnectors(args: ListConnectorsCommandInput, cb: (err: any, data?: ListConnectorsCommandOutput) => void): void;
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    cb: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): void;
   listConnectors(
     args: ListConnectorsCommandInput,
     options: __HttpHandlerOptions,
@@ -229,8 +250,14 @@ export interface PcaConnectorScep {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -240,8 +267,14 @@ export interface PcaConnectorScep {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

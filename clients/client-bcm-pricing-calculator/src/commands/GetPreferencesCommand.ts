@@ -10,7 +10,7 @@ import type {
 } from "../BCMPricingCalculatorClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPreferencesRequest, GetPreferencesResponse } from "../models/models_0";
-import { GetPreferences } from "../schemas/schemas_0";
+import { GetPreferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class GetPreferencesCommand extends $Command
   })
   .s("AWSBCMPricingCalculator", "GetPreferences", {})
   .n("BCMPricingCalculatorClient", "GetPreferencesCommand")
-  .sc(GetPreferences)
+  .sc(GetPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

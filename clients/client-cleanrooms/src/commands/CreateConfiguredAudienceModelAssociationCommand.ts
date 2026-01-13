@@ -9,7 +9,7 @@ import type {
   CreateConfiguredAudienceModelAssociationInput,
   CreateConfiguredAudienceModelAssociationOutput,
 } from "../models/models_0";
-import { CreateConfiguredAudienceModelAssociation } from "../schemas/schemas_0";
+import { CreateConfiguredAudienceModelAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateConfiguredAudienceModelAssociationCommand}.
  */
-export interface CreateConfiguredAudienceModelAssociationCommandInput
-  extends CreateConfiguredAudienceModelAssociationInput {}
+export interface CreateConfiguredAudienceModelAssociationCommandInput extends CreateConfiguredAudienceModelAssociationInput {}
 /**
  * @public
  *
  * The output of {@link CreateConfiguredAudienceModelAssociationCommand}.
  */
-export interface CreateConfiguredAudienceModelAssociationCommandOutput
-  extends CreateConfiguredAudienceModelAssociationOutput,
-    __MetadataBearer {}
+export interface CreateConfiguredAudienceModelAssociationCommandOutput extends CreateConfiguredAudienceModelAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Provides the details necessary to create a configured audience model association.</p>
@@ -120,7 +117,7 @@ export class CreateConfiguredAudienceModelAssociationCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "CreateConfiguredAudienceModelAssociation", {})
   .n("CleanRoomsClient", "CreateConfiguredAudienceModelAssociationCommand")
-  .sc(CreateConfiguredAudienceModelAssociation)
+  .sc(CreateConfiguredAudienceModelAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

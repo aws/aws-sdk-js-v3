@@ -206,8 +206,14 @@ export interface DevOpsGuru {
   /**
    * @see {@link DeleteInsightCommand}
    */
-  deleteInsight(args: DeleteInsightCommandInput, options?: __HttpHandlerOptions): Promise<DeleteInsightCommandOutput>;
-  deleteInsight(args: DeleteInsightCommandInput, cb: (err: any, data?: DeleteInsightCommandOutput) => void): void;
+  deleteInsight(
+    args: DeleteInsightCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteInsightCommandOutput>;
+  deleteInsight(
+    args: DeleteInsightCommandInput,
+    cb: (err: any, data?: DeleteInsightCommandOutput) => void
+  ): void;
   deleteInsight(
     args: DeleteInsightCommandInput,
     options: __HttpHandlerOptions,
@@ -256,7 +262,10 @@ export interface DevOpsGuru {
     args: DescribeAnomalyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeAnomalyCommandOutput>;
-  describeAnomaly(args: DescribeAnomalyCommandInput, cb: (err: any, data?: DescribeAnomalyCommandOutput) => void): void;
+  describeAnomaly(
+    args: DescribeAnomalyCommandInput,
+    cb: (err: any, data?: DescribeAnomalyCommandOutput) => void
+  ): void;
   describeAnomaly(
     args: DescribeAnomalyCommandInput,
     options: __HttpHandlerOptions,
@@ -306,7 +315,10 @@ export interface DevOpsGuru {
     args: DescribeInsightCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeInsightCommandOutput>;
-  describeInsight(args: DescribeInsightCommandInput, cb: (err: any, data?: DescribeInsightCommandOutput) => void): void;
+  describeInsight(
+    args: DescribeInsightCommandInput,
+    cb: (err: any, data?: DescribeInsightCommandOutput) => void
+  ): void;
   describeInsight(
     args: DescribeInsightCommandInput,
     options: __HttpHandlerOptions,
@@ -472,8 +484,14 @@ export interface DevOpsGuru {
   /**
    * @see {@link ListEventsCommand}
    */
-  listEvents(args: ListEventsCommandInput, options?: __HttpHandlerOptions): Promise<ListEventsCommandOutput>;
-  listEvents(args: ListEventsCommandInput, cb: (err: any, data?: ListEventsCommandOutput) => void): void;
+  listEvents(
+    args: ListEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEventsCommandOutput>;
+  listEvents(
+    args: ListEventsCommandInput,
+    cb: (err: any, data?: ListEventsCommandOutput) => void
+  ): void;
   listEvents(
     args: ListEventsCommandInput,
     options: __HttpHandlerOptions,
@@ -483,8 +501,14 @@ export interface DevOpsGuru {
   /**
    * @see {@link ListInsightsCommand}
    */
-  listInsights(args: ListInsightsCommandInput, options?: __HttpHandlerOptions): Promise<ListInsightsCommandOutput>;
-  listInsights(args: ListInsightsCommandInput, cb: (err: any, data?: ListInsightsCommandOutput) => void): void;
+  listInsights(
+    args: ListInsightsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInsightsCommandOutput>;
+  listInsights(
+    args: ListInsightsCommandInput,
+    cb: (err: any, data?: ListInsightsCommandOutput) => void
+  ): void;
   listInsights(
     args: ListInsightsCommandInput,
     options: __HttpHandlerOptions,
@@ -565,8 +589,14 @@ export interface DevOpsGuru {
    * @see {@link PutFeedbackCommand}
    */
   putFeedback(): Promise<PutFeedbackCommandOutput>;
-  putFeedback(args: PutFeedbackCommandInput, options?: __HttpHandlerOptions): Promise<PutFeedbackCommandOutput>;
-  putFeedback(args: PutFeedbackCommandInput, cb: (err: any, data?: PutFeedbackCommandOutput) => void): void;
+  putFeedback(
+    args: PutFeedbackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutFeedbackCommandOutput>;
+  putFeedback(
+    args: PutFeedbackCommandInput,
+    cb: (err: any, data?: PutFeedbackCommandOutput) => void
+  ): void;
   putFeedback(
     args: PutFeedbackCommandInput,
     options: __HttpHandlerOptions,
@@ -597,7 +627,10 @@ export interface DevOpsGuru {
     args: SearchInsightsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SearchInsightsCommandOutput>;
-  searchInsights(args: SearchInsightsCommandInput, cb: (err: any, data?: SearchInsightsCommandOutput) => void): void;
+  searchInsights(
+    args: SearchInsightsCommandInput,
+    cb: (err: any, data?: SearchInsightsCommandOutput) => void
+  ): void;
   searchInsights(
     args: SearchInsightsCommandInput,
     options: __HttpHandlerOptions,

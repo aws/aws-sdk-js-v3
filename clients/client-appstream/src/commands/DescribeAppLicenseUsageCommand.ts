@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAppLicenseUsageRequest, DescribeAppLicenseUsageResult } from "../models/models_0";
-import { DescribeAppLicenseUsage } from "../schemas/schemas_0";
+import { DescribeAppLicenseUsage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DescribeAppLicenseUsageCommand extends $Command
   })
   .s("PhotonAdminProxyService", "DescribeAppLicenseUsage", {})
   .n("AppStreamClient", "DescribeAppLicenseUsageCommand")
-  .sc(DescribeAppLicenseUsage)
+  .sc(DescribeAppLicenseUsage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

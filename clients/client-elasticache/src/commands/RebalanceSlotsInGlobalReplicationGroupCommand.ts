@@ -9,7 +9,7 @@ import type {
   RebalanceSlotsInGlobalReplicationGroupMessage,
   RebalanceSlotsInGlobalReplicationGroupResult,
 } from "../models/models_0";
-import { RebalanceSlotsInGlobalReplicationGroup } from "../schemas/schemas_0";
+import { RebalanceSlotsInGlobalReplicationGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link RebalanceSlotsInGlobalReplicationGroupCommand}.
  */
-export interface RebalanceSlotsInGlobalReplicationGroupCommandInput
-  extends RebalanceSlotsInGlobalReplicationGroupMessage {}
+export interface RebalanceSlotsInGlobalReplicationGroupCommandInput extends RebalanceSlotsInGlobalReplicationGroupMessage {}
 /**
  * @public
  *
  * The output of {@link RebalanceSlotsInGlobalReplicationGroupCommand}.
  */
-export interface RebalanceSlotsInGlobalReplicationGroupCommandOutput
-  extends RebalanceSlotsInGlobalReplicationGroupResult,
-    __MetadataBearer {}
+export interface RebalanceSlotsInGlobalReplicationGroupCommandOutput extends RebalanceSlotsInGlobalReplicationGroupResult, __MetadataBearer {}
 
 /**
  * <p>Redistribute slots to ensure uniform distribution across existing shards in the
@@ -117,7 +114,7 @@ export class RebalanceSlotsInGlobalReplicationGroupCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "RebalanceSlotsInGlobalReplicationGroup", {})
   .n("ElastiCacheClient", "RebalanceSlotsInGlobalReplicationGroupCommand")
-  .sc(RebalanceSlotsInGlobalReplicationGroup)
+  .sc(RebalanceSlotsInGlobalReplicationGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

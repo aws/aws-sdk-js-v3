@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
 import type { CreateTypeRequest, CreateTypeResponse } from "../models/models_0";
-import { CreateType } from "../schemas/schemas_0";
+import { CreateType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class CreateTypeCommand extends $Command
   })
   .s("KeyspacesService", "CreateType", {})
   .n("KeyspacesClient", "CreateTypeCommand")
-  .sc(CreateType)
+  .sc(CreateType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateVolumeRequest, DisassociateVolumeResponse } from "../models/models_0";
-import { DisassociateVolume } from "../schemas/schemas_0";
+import { DisassociateVolume$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -96,7 +96,7 @@ export class DisassociateVolumeCommand extends $Command
   })
   .s("EUCMIFrontendAPIService", "DisassociateVolume", {})
   .n("WorkspacesInstancesClient", "DisassociateVolumeCommand")
-  .sc(DisassociateVolume)
+  .sc(DisassociateVolume$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

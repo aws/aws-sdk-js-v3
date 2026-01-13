@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import type { GetRouterInputSourceMetadataRequest, GetRouterInputSourceMetadataResponse } from "../models/models_0";
-import { GetRouterInputSourceMetadata } from "../schemas/schemas_0";
+import { GetRouterInputSourceMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetRouterInputSourceMetadataCommandInput extends GetRouterInput
  *
  * The output of {@link GetRouterInputSourceMetadataCommand}.
  */
-export interface GetRouterInputSourceMetadataCommandOutput
-  extends GetRouterInputSourceMetadataResponse,
-    __MetadataBearer {}
+export interface GetRouterInputSourceMetadataCommandOutput extends GetRouterInputSourceMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves detailed metadata information about a specific router input source, including stream details and connection state.</p>
@@ -130,7 +128,7 @@ export class GetRouterInputSourceMetadataCommand extends $Command
   })
   .s("MediaConnect", "GetRouterInputSourceMetadata", {})
   .n("MediaConnectClient", "GetRouterInputSourceMetadataCommand")
-  .sc(GetRouterInputSourceMetadata)
+  .sc(GetRouterInputSourceMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

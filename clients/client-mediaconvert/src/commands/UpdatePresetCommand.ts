@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import type { UpdatePresetRequest, UpdatePresetResponse } from "../models/models_0";
-import { UpdatePreset } from "../schemas/schemas_0";
+import { UpdatePreset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -593,6 +593,8 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *           InterlaceMode: "PROGRESSIVE" || "TOP_FIELD" || "BOTTOM_FIELD" || "FOLLOW_TOP_FIELD" || "FOLLOW_BOTTOM_FIELD",
  *           MaxBitrate: Number("int"),
  *           MinIInterval: Number("int"),
+ *           MvOverPictureBoundaries: "ENABLED" || "DISABLED",
+ *           MvTemporalPredictor: "ENABLED" || "DISABLED",
  *           NumberBFramesBetweenReferenceFrames: Number("int"),
  *           NumberReferenceFrames: Number("int"),
  *           ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
@@ -617,7 +619,11 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *           Telecine: "NONE" || "SOFT" || "HARD",
  *           TemporalAdaptiveQuantization: "DISABLED" || "ENABLED",
  *           TemporalIds: "DISABLED" || "ENABLED",
+ *           TileHeight: Number("int"),
+ *           TilePadding: "NONE" || "PADDED",
+ *           TileWidth: Number("int"),
  *           Tiles: "DISABLED" || "ENABLED",
+ *           TreeBlockSize: "AUTO" || "TREE_SIZE_32X32",
  *           UnregisteredSeiTimecode: "DISABLED" || "ENABLED",
  *           WriteMp4PackagingType: "HVC1" || "HEV1",
  *         },
@@ -1464,6 +1470,8 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //             InterlaceMode: "PROGRESSIVE" || "TOP_FIELD" || "BOTTOM_FIELD" || "FOLLOW_TOP_FIELD" || "FOLLOW_BOTTOM_FIELD",
  * //             MaxBitrate: Number("int"),
  * //             MinIInterval: Number("int"),
+ * //             MvOverPictureBoundaries: "ENABLED" || "DISABLED",
+ * //             MvTemporalPredictor: "ENABLED" || "DISABLED",
  * //             NumberBFramesBetweenReferenceFrames: Number("int"),
  * //             NumberReferenceFrames: Number("int"),
  * //             ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
@@ -1488,7 +1496,11 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //             Telecine: "NONE" || "SOFT" || "HARD",
  * //             TemporalAdaptiveQuantization: "DISABLED" || "ENABLED",
  * //             TemporalIds: "DISABLED" || "ENABLED",
+ * //             TileHeight: Number("int"),
+ * //             TilePadding: "NONE" || "PADDED",
+ * //             TileWidth: Number("int"),
  * //             Tiles: "DISABLED" || "ENABLED",
+ * //             TreeBlockSize: "AUTO" || "TREE_SIZE_32X32",
  * //             UnregisteredSeiTimecode: "DISABLED" || "ENABLED",
  * //             WriteMp4PackagingType: "HVC1" || "HEV1",
  * //           },
@@ -1824,7 +1836,7 @@ export class UpdatePresetCommand extends $Command
   })
   .s("MediaConvert", "UpdatePreset", {})
   .n("MediaConvertClient", "UpdatePresetCommand")
-  .sc(UpdatePreset)
+  .sc(UpdatePreset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

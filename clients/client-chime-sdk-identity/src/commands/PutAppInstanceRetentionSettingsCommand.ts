@@ -13,7 +13,7 @@ import type {
   PutAppInstanceRetentionSettingsRequest,
   PutAppInstanceRetentionSettingsResponse,
 } from "../models/models_0";
-import { PutAppInstanceRetentionSettings } from "../schemas/schemas_0";
+import { PutAppInstanceRetentionSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface PutAppInstanceRetentionSettingsCommandInput extends PutAppInsta
  *
  * The output of {@link PutAppInstanceRetentionSettingsCommand}.
  */
-export interface PutAppInstanceRetentionSettingsCommandOutput
-  extends PutAppInstanceRetentionSettingsResponse,
-    __MetadataBearer {}
+export interface PutAppInstanceRetentionSettingsCommandOutput extends PutAppInstanceRetentionSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the amount of time in days that a given <code>AppInstance</code> retains
@@ -111,7 +109,7 @@ export class PutAppInstanceRetentionSettingsCommand extends $Command
   })
   .s("ChimeIdentityService", "PutAppInstanceRetentionSettings", {})
   .n("ChimeSDKIdentityClient", "PutAppInstanceRetentionSettingsCommand")
-  .sc(PutAppInstanceRetentionSettings)
+  .sc(PutAppInstanceRetentionSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

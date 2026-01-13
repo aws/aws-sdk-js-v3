@@ -3948,9 +3948,7 @@ export interface ResourceViolation {
    * <p>The violation details for a third-party firewall that has the Firewall Manager managed route table that was associated with the third-party firewall has been deleted.</p>
    * @public
    */
-  ThirdPartyFirewallMissingExpectedRouteTableViolation?:
-    | ThirdPartyFirewallMissingExpectedRouteTableViolation
-    | undefined;
+  ThirdPartyFirewallMissingExpectedRouteTableViolation?: ThirdPartyFirewallMissingExpectedRouteTableViolation | undefined;
 
   /**
    * <p>The violation details for a third-party firewall's VPC endpoint subnet that was deleted.</p>

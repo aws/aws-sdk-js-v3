@@ -9,7 +9,7 @@ import type {
   DeleteLocalGatewayRouteTableVpcAssociationRequest,
   DeleteLocalGatewayRouteTableVpcAssociationResult,
 } from "../models/models_2";
-import { DeleteLocalGatewayRouteTableVpcAssociation } from "../schemas/schemas_0";
+import { DeleteLocalGatewayRouteTableVpcAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteLocalGatewayRouteTableVpcAssociationCommand}.
  */
-export interface DeleteLocalGatewayRouteTableVpcAssociationCommandInput
-  extends DeleteLocalGatewayRouteTableVpcAssociationRequest {}
+export interface DeleteLocalGatewayRouteTableVpcAssociationCommandInput extends DeleteLocalGatewayRouteTableVpcAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteLocalGatewayRouteTableVpcAssociationCommand}.
  */
-export interface DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
-  extends DeleteLocalGatewayRouteTableVpcAssociationResult,
-    __MetadataBearer {}
+export interface DeleteLocalGatewayRouteTableVpcAssociationCommandOutput extends DeleteLocalGatewayRouteTableVpcAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified association between a VPC and local gateway route table.</p>
@@ -94,7 +91,7 @@ export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command
   })
   .s("AmazonEC2", "DeleteLocalGatewayRouteTableVpcAssociation", {})
   .n("EC2Client", "DeleteLocalGatewayRouteTableVpcAssociationCommand")
-  .sc(DeleteLocalGatewayRouteTableVpcAssociation)
+  .sc(DeleteLocalGatewayRouteTableVpcAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

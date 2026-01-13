@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MedicalImagingClient";
 import type { CreateDatastoreRequest, CreateDatastoreResponse } from "../models/models_0";
-import { CreateDatastore } from "../schemas/schemas_0";
+import { CreateDatastore$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class CreateDatastoreCommand extends $Command
   })
   .s("AHIGatewayService", "CreateDatastore", {})
   .n("MedicalImagingClient", "CreateDatastoreCommand")
-  .sc(CreateDatastore)
+  .sc(CreateDatastore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

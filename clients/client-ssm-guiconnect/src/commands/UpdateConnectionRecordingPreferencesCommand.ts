@@ -8,7 +8,7 @@ import type {
   UpdateConnectionRecordingPreferencesRequest,
   UpdateConnectionRecordingPreferencesResponse,
 } from "../models/models_0";
-import { UpdateConnectionRecordingPreferences } from "../schemas/schemas_0";
+import { UpdateConnectionRecordingPreferences$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMGuiConnectClientResolvedConfig } from "../SSMGuiConnectClient";
 
 /**
@@ -27,9 +27,7 @@ export interface UpdateConnectionRecordingPreferencesCommandInput extends Update
  *
  * The output of {@link UpdateConnectionRecordingPreferencesCommand}.
  */
-export interface UpdateConnectionRecordingPreferencesCommandOutput
-  extends UpdateConnectionRecordingPreferencesResponse,
-    __MetadataBearer {}
+export interface UpdateConnectionRecordingPreferencesCommandOutput extends UpdateConnectionRecordingPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the preferences for recording RDP connections.</p>
@@ -157,7 +155,7 @@ export class UpdateConnectionRecordingPreferencesCommand extends $Command
   })
   .s("SSMGuiConnect", "UpdateConnectionRecordingPreferences", {})
   .n("SSMGuiConnectClient", "UpdateConnectionRecordingPreferencesCommand")
-  .sc(UpdateConnectionRecordingPreferences)
+  .sc(UpdateConnectionRecordingPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

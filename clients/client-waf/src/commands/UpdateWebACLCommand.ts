@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateWebACLRequest, UpdateWebACLResponse } from "../models/models_0";
-import { UpdateWebACL } from "../schemas/schemas_0";
+import { UpdateWebACL$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -66,7 +66,7 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *                the <code>WebACL</code>, if any. </p>
  *             </li>
  *          </ul>
- *
+ * 		
  * 		       <p>To create and configure a <code>WebACL</code>, perform the following steps:</p>
  * 		       <ol>
  *             <li>
@@ -105,7 +105,7 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *                </p>
  *             </li>
  *          </ol>
- *          <p>Be aware that if you try to add a RATE_BASED rule to a web ACL without setting the rule type when first creating the rule, the  <a>UpdateWebACL</a> request will fail because the request tries to add a REGULAR rule (the default rule type) with the specified ID, which does not exist. 		</p>
+ *          <p>Be aware that if you try to add a RATE_BASED rule to a web ACL without setting the rule type when first creating the rule, the  <a>UpdateWebACL</a> request will fail because the request tries to add a REGULAR rule (the default rule type) with the specified ID, which does not exist. 		</p>			
  * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -320,7 +320,7 @@ export class UpdateWebACLCommand extends $Command
   })
   .s("AWSWAF_20150824", "UpdateWebACL", {})
   .n("WAFClient", "UpdateWebACLCommand")
-  .sc(UpdateWebACL)
+  .sc(UpdateWebACL$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

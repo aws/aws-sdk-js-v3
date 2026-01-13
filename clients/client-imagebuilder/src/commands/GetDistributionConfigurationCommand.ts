@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import type { GetDistributionConfigurationRequest, GetDistributionConfigurationResponse } from "../models/models_0";
-import { GetDistributionConfiguration } from "../schemas/schemas_0";
+import { GetDistributionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetDistributionConfigurationCommandInput extends GetDistributio
  *
  * The output of {@link GetDistributionConfigurationCommand}.
  */
-export interface GetDistributionConfigurationCommandOutput
-  extends GetDistributionConfigurationResponse,
-    __MetadataBearer {}
+export interface GetDistributionConfigurationCommandOutput extends GetDistributionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a distribution configuration.</p>
@@ -185,7 +183,7 @@ export class GetDistributionConfigurationCommand extends $Command
   })
   .s("imagebuilder", "GetDistributionConfiguration", {})
   .n("ImagebuilderClient", "GetDistributionConfigurationCommand")
-  .sc(GetDistributionConfiguration)
+  .sc(GetDistributionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

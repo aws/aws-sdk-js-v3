@@ -48,20 +48,17 @@ import {
   type BodyLengthCalculator as __BodyLengthCalculator,
   type CheckOptionalClientConfig as __CheckOptionalClientConfig,
   type ChecksumConstructor as __ChecksumConstructor,
-  type ClientProtocol,
   type Decoder as __Decoder,
   type Encoder as __Encoder,
   type HashConstructor as __HashConstructor,
   type HttpHandlerOptions as __HttpHandlerOptions,
-  type HttpRequest,
-  type HttpResponse,
   type Logger as __Logger,
   type StreamCollector as __StreamCollector,
   type UrlParser as __UrlParser,
   AwsCredentialIdentityProvider,
   EndpointV2 as __EndpointV2,
-  Provider as __Provider,
   Provider,
+  Provider as __Provider,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -311,16 +308,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   extensions?: RuntimeExtension[];
 
   /**
-   * The protocol controlling the message type (e.g. HTTP) and format (e.g. JSON)
-   * may be overridden. A default will always be set by the client.
-   * Available options depend on the service's supported protocols and will not be validated by
-   * the client.
-   * @alpha
-   *
-   */
-  protocol?: ClientProtocol<HttpRequest, HttpResponse>;
-
-  /**
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
@@ -330,6 +317,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * @internal
    */
   endpointDiscoveryEnabledProvider?: __Provider<boolean | undefined>;
+
 }
 
 /**
@@ -411,9 +399,7 @@ export class TimestreamWriteClient extends __Client<
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
-    const _config_8 = resolveEndpointDiscoveryConfig(_config_7, {
-      endpointDiscoveryCommandCtor: DescribeEndpointsCommand,
-    });
+    const _config_8 = resolveEndpointDiscoveryConfig(_config_7, { endpointDiscoveryCommandCtor: DescribeEndpointsCommand });
     const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
     this.config = _config_9;
     this.middlewareStack.use(getSchemaSerdePlugin(this.config));

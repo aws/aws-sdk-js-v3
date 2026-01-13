@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeBlueGreenDeploymentsRequest, DescribeBlueGreenDeploymentsResponse } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DescribeBlueGreenDeployments } from "../schemas/schemas_0";
+import { DescribeBlueGreenDeployments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeBlueGreenDeploymentsCommandInput extends DescribeBlueGr
  *
  * The output of {@link DescribeBlueGreenDeploymentsCommand}.
  */
-export interface DescribeBlueGreenDeploymentsCommandOutput
-  extends DescribeBlueGreenDeploymentsResponse,
-    __MetadataBearer {}
+export interface DescribeBlueGreenDeploymentsCommandOutput extends DescribeBlueGreenDeploymentsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes one or more blue/green deployments.</p>
@@ -125,7 +123,7 @@ export class DescribeBlueGreenDeploymentsCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeBlueGreenDeployments", {})
   .n("RDSClient", "DescribeBlueGreenDeploymentsCommand")
-  .sc(DescribeBlueGreenDeployments)
+  .sc(DescribeBlueGreenDeployments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

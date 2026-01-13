@@ -9,7 +9,7 @@ import type {
   GetIpamDiscoveredPublicAddressesRequest,
   GetIpamDiscoveredPublicAddressesResult,
 } from "../models/models_6";
-import { GetIpamDiscoveredPublicAddresses } from "../schemas/schemas_0";
+import { GetIpamDiscoveredPublicAddresses$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetIpamDiscoveredPublicAddressesCommandInput extends GetIpamDis
  *
  * The output of {@link GetIpamDiscoveredPublicAddressesCommand}.
  */
-export interface GetIpamDiscoveredPublicAddressesCommandOutput
-  extends GetIpamDiscoveredPublicAddressesResult,
-    __MetadataBearer {}
+export interface GetIpamDiscoveredPublicAddressesCommandOutput extends GetIpamDiscoveredPublicAddressesResult, __MetadataBearer {}
 
 /**
  * <p>Gets the public IP addresses that have been discovered by IPAM.</p>
@@ -126,7 +124,7 @@ export class GetIpamDiscoveredPublicAddressesCommand extends $Command
   })
   .s("AmazonEC2", "GetIpamDiscoveredPublicAddresses", {})
   .n("EC2Client", "GetIpamDiscoveredPublicAddressesCommand")
-  .sc(GetIpamDiscoveredPublicAddresses)
+  .sc(GetIpamDiscoveredPublicAddresses$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

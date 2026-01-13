@@ -9,7 +9,7 @@ import type {
   ListWirelessGatewayTaskDefinitionsRequest,
   ListWirelessGatewayTaskDefinitionsResponse,
 } from "../models/models_0";
-import { ListWirelessGatewayTaskDefinitions } from "../schemas/schemas_0";
+import { ListWirelessGatewayTaskDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListWirelessGatewayTaskDefinitionsCommandInput extends ListWire
  *
  * The output of {@link ListWirelessGatewayTaskDefinitionsCommand}.
  */
-export interface ListWirelessGatewayTaskDefinitionsCommandOutput
-  extends ListWirelessGatewayTaskDefinitionsResponse,
-    __MetadataBearer {}
+export interface ListWirelessGatewayTaskDefinitionsCommandOutput extends ListWirelessGatewayTaskDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>List the wireless gateway tasks definitions registered to your AWS account.</p>
@@ -110,7 +108,7 @@ export class ListWirelessGatewayTaskDefinitionsCommand extends $Command
   })
   .s("iotwireless", "ListWirelessGatewayTaskDefinitions", {})
   .n("IoTWirelessClient", "ListWirelessGatewayTaskDefinitionsCommand")
-  .sc(ListWirelessGatewayTaskDefinitions)
+  .sc(ListWirelessGatewayTaskDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

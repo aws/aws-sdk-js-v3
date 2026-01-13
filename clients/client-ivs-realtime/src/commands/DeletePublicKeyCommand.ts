@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
 import type { DeletePublicKeyRequest, DeletePublicKeyResponse } from "../models/models_0";
-import { DeletePublicKey } from "../schemas/schemas_0";
+import { DeletePublicKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeletePublicKeyCommand extends $Command
   })
   .s("AmazonInteractiveVideoServiceRealTime", "DeletePublicKey", {})
   .n("IVSRealTimeClient", "DeletePublicKeyCommand")
-  .sc(DeletePublicKey)
+  .sc(DeletePublicKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

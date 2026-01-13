@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { UpdateTLSInspectionConfiguration } from "../schemas/schemas_0";
+import { UpdateTLSInspectionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface UpdateTLSInspectionConfigurationCommandInput extends UpdateTLSI
  *
  * The output of {@link UpdateTLSInspectionConfigurationCommand}.
  */
-export interface UpdateTLSInspectionConfigurationCommandOutput
-  extends UpdateTLSInspectionConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateTLSInspectionConfigurationCommandOutput extends UpdateTLSInspectionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the TLS inspection configuration settings for the specified TLS inspection configuration. You use a TLS inspection configuration by
@@ -201,7 +199,7 @@ export class UpdateTLSInspectionConfigurationCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "UpdateTLSInspectionConfiguration", {})
   .n("NetworkFirewallClient", "UpdateTLSInspectionConfigurationCommand")
-  .sc(UpdateTLSInspectionConfiguration)
+  .sc(UpdateTLSInspectionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

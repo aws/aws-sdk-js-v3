@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelRotateSecretRequest, CancelRotateSecretResponse } from "../models/models_0";
-import { CancelRotateSecret } from "../schemas/schemas_0";
+import { CancelRotateSecret$ } from "../schemas/schemas_0";
 import type {
   SecretsManagerClientResolvedConfig,
   ServiceInputTypes,
@@ -138,7 +138,7 @@ export class CancelRotateSecretCommand extends $Command
   })
   .s("secretsmanager", "CancelRotateSecret", {})
   .n("SecretsManagerClient", "CancelRotateSecretCommand")
-  .sc(CancelRotateSecret)
+  .sc(CancelRotateSecret$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

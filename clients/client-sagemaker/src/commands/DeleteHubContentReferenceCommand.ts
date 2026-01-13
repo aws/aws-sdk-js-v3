@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteHubContentReferenceRequest } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DeleteHubContentReference } from "../schemas/schemas_0";
+import { DeleteHubContentReference$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -76,7 +76,7 @@ export class DeleteHubContentReferenceCommand extends $Command
   })
   .s("SageMaker", "DeleteHubContentReference", {})
   .n("SageMakerClient", "DeleteHubContentReferenceCommand")
-  .sc(DeleteHubContentReference)
+  .sc(DeleteHubContentReference$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -393,8 +393,14 @@ export interface ECS {
    * @see {@link CreateClusterCommand}
    */
   createCluster(): Promise<CreateClusterCommandOutput>;
-  createCluster(args: CreateClusterCommandInput, options?: __HttpHandlerOptions): Promise<CreateClusterCommandOutput>;
-  createCluster(args: CreateClusterCommandInput, cb: (err: any, data?: CreateClusterCommandOutput) => void): void;
+  createCluster(
+    args: CreateClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateClusterCommandOutput>;
+  createCluster(
+    args: CreateClusterCommandInput,
+    cb: (err: any, data?: CreateClusterCommandOutput) => void
+  ): void;
   createCluster(
     args: CreateClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -421,8 +427,14 @@ export interface ECS {
   /**
    * @see {@link CreateServiceCommand}
    */
-  createService(args: CreateServiceCommandInput, options?: __HttpHandlerOptions): Promise<CreateServiceCommandOutput>;
-  createService(args: CreateServiceCommandInput, cb: (err: any, data?: CreateServiceCommandOutput) => void): void;
+  createService(
+    args: CreateServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateServiceCommandOutput>;
+  createService(
+    args: CreateServiceCommandInput,
+    cb: (err: any, data?: CreateServiceCommandOutput) => void
+  ): void;
   createService(
     args: CreateServiceCommandInput,
     options: __HttpHandlerOptions,
@@ -432,8 +444,14 @@ export interface ECS {
   /**
    * @see {@link CreateTaskSetCommand}
    */
-  createTaskSet(args: CreateTaskSetCommandInput, options?: __HttpHandlerOptions): Promise<CreateTaskSetCommandOutput>;
-  createTaskSet(args: CreateTaskSetCommandInput, cb: (err: any, data?: CreateTaskSetCommandOutput) => void): void;
+  createTaskSet(
+    args: CreateTaskSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTaskSetCommandOutput>;
+  createTaskSet(
+    args: CreateTaskSetCommandInput,
+    cb: (err: any, data?: CreateTaskSetCommandOutput) => void
+  ): void;
   createTaskSet(
     args: CreateTaskSetCommandInput,
     options: __HttpHandlerOptions,
@@ -494,8 +512,14 @@ export interface ECS {
   /**
    * @see {@link DeleteClusterCommand}
    */
-  deleteCluster(args: DeleteClusterCommandInput, options?: __HttpHandlerOptions): Promise<DeleteClusterCommandOutput>;
-  deleteCluster(args: DeleteClusterCommandInput, cb: (err: any, data?: DeleteClusterCommandOutput) => void): void;
+  deleteCluster(
+    args: DeleteClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteClusterCommandOutput>;
+  deleteCluster(
+    args: DeleteClusterCommandInput,
+    cb: (err: any, data?: DeleteClusterCommandOutput) => void
+  ): void;
   deleteCluster(
     args: DeleteClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -522,8 +546,14 @@ export interface ECS {
   /**
    * @see {@link DeleteServiceCommand}
    */
-  deleteService(args: DeleteServiceCommandInput, options?: __HttpHandlerOptions): Promise<DeleteServiceCommandOutput>;
-  deleteService(args: DeleteServiceCommandInput, cb: (err: any, data?: DeleteServiceCommandOutput) => void): void;
+  deleteService(
+    args: DeleteServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteServiceCommandOutput>;
+  deleteService(
+    args: DeleteServiceCommandInput,
+    cb: (err: any, data?: DeleteServiceCommandOutput) => void
+  ): void;
   deleteService(
     args: DeleteServiceCommandInput,
     options: __HttpHandlerOptions,
@@ -550,8 +580,14 @@ export interface ECS {
   /**
    * @see {@link DeleteTaskSetCommand}
    */
-  deleteTaskSet(args: DeleteTaskSetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTaskSetCommandOutput>;
-  deleteTaskSet(args: DeleteTaskSetCommandInput, cb: (err: any, data?: DeleteTaskSetCommandOutput) => void): void;
+  deleteTaskSet(
+    args: DeleteTaskSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTaskSetCommandOutput>;
+  deleteTaskSet(
+    args: DeleteTaskSetCommandInput,
+    cb: (err: any, data?: DeleteTaskSetCommandOutput) => void
+  ): void;
   deleteTaskSet(
     args: DeleteTaskSetCommandInput,
     options: __HttpHandlerOptions,
@@ -733,8 +769,14 @@ export interface ECS {
   /**
    * @see {@link DescribeTasksCommand}
    */
-  describeTasks(args: DescribeTasksCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTasksCommandOutput>;
-  describeTasks(args: DescribeTasksCommandInput, cb: (err: any, data?: DescribeTasksCommandOutput) => void): void;
+  describeTasks(
+    args: DescribeTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTasksCommandOutput>;
+  describeTasks(
+    args: DescribeTasksCommandInput,
+    cb: (err: any, data?: DescribeTasksCommandOutput) => void
+  ): void;
   describeTasks(
     args: DescribeTasksCommandInput,
     options: __HttpHandlerOptions,
@@ -783,7 +825,10 @@ export interface ECS {
     args: ExecuteCommandCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ExecuteCommandCommandOutput>;
-  executeCommand(args: ExecuteCommandCommandInput, cb: (err: any, data?: ExecuteCommandCommandOutput) => void): void;
+  executeCommand(
+    args: ExecuteCommandCommandInput,
+    cb: (err: any, data?: ExecuteCommandCommandOutput) => void
+  ): void;
   executeCommand(
     args: ExecuteCommandCommandInput,
     options: __HttpHandlerOptions,
@@ -832,7 +877,10 @@ export interface ECS {
     args: ListAttributesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAttributesCommandOutput>;
-  listAttributes(args: ListAttributesCommandInput, cb: (err: any, data?: ListAttributesCommandOutput) => void): void;
+  listAttributes(
+    args: ListAttributesCommandInput,
+    cb: (err: any, data?: ListAttributesCommandOutput) => void
+  ): void;
   listAttributes(
     args: ListAttributesCommandInput,
     options: __HttpHandlerOptions,
@@ -843,8 +891,14 @@ export interface ECS {
    * @see {@link ListClustersCommand}
    */
   listClusters(): Promise<ListClustersCommandOutput>;
-  listClusters(args: ListClustersCommandInput, options?: __HttpHandlerOptions): Promise<ListClustersCommandOutput>;
-  listClusters(args: ListClustersCommandInput, cb: (err: any, data?: ListClustersCommandOutput) => void): void;
+  listClusters(
+    args: ListClustersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListClustersCommandOutput>;
+  listClusters(
+    args: ListClustersCommandInput,
+    cb: (err: any, data?: ListClustersCommandOutput) => void
+  ): void;
   listClusters(
     args: ListClustersCommandInput,
     options: __HttpHandlerOptions,
@@ -890,8 +944,14 @@ export interface ECS {
    * @see {@link ListServicesCommand}
    */
   listServices(): Promise<ListServicesCommandOutput>;
-  listServices(args: ListServicesCommandInput, options?: __HttpHandlerOptions): Promise<ListServicesCommandOutput>;
-  listServices(args: ListServicesCommandInput, cb: (err: any, data?: ListServicesCommandOutput) => void): void;
+  listServices(
+    args: ListServicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServicesCommandOutput>;
+  listServices(
+    args: ListServicesCommandInput,
+    cb: (err: any, data?: ListServicesCommandOutput) => void
+  ): void;
   listServices(
     args: ListServicesCommandInput,
     options: __HttpHandlerOptions,
@@ -972,8 +1032,14 @@ export interface ECS {
    * @see {@link ListTasksCommand}
    */
   listTasks(): Promise<ListTasksCommandOutput>;
-  listTasks(args: ListTasksCommandInput, options?: __HttpHandlerOptions): Promise<ListTasksCommandOutput>;
-  listTasks(args: ListTasksCommandInput, cb: (err: any, data?: ListTasksCommandOutput) => void): void;
+  listTasks(
+    args: ListTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTasksCommandOutput>;
+  listTasks(
+    args: ListTasksCommandInput,
+    cb: (err: any, data?: ListTasksCommandOutput) => void
+  ): void;
   listTasks(
     args: ListTasksCommandInput,
     options: __HttpHandlerOptions,
@@ -1017,8 +1083,14 @@ export interface ECS {
   /**
    * @see {@link PutAttributesCommand}
    */
-  putAttributes(args: PutAttributesCommandInput, options?: __HttpHandlerOptions): Promise<PutAttributesCommandOutput>;
-  putAttributes(args: PutAttributesCommandInput, cb: (err: any, data?: PutAttributesCommandOutput) => void): void;
+  putAttributes(
+    args: PutAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAttributesCommandOutput>;
+  putAttributes(
+    args: PutAttributesCommandInput,
+    cb: (err: any, data?: PutAttributesCommandOutput) => void
+  ): void;
   putAttributes(
     args: PutAttributesCommandInput,
     options: __HttpHandlerOptions,
@@ -1080,8 +1152,14 @@ export interface ECS {
   /**
    * @see {@link RunTaskCommand}
    */
-  runTask(args: RunTaskCommandInput, options?: __HttpHandlerOptions): Promise<RunTaskCommandOutput>;
-  runTask(args: RunTaskCommandInput, cb: (err: any, data?: RunTaskCommandOutput) => void): void;
+  runTask(
+    args: RunTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RunTaskCommandOutput>;
+  runTask(
+    args: RunTaskCommandInput,
+    cb: (err: any, data?: RunTaskCommandOutput) => void
+  ): void;
   runTask(
     args: RunTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -1091,8 +1169,14 @@ export interface ECS {
   /**
    * @see {@link StartTaskCommand}
    */
-  startTask(args: StartTaskCommandInput, options?: __HttpHandlerOptions): Promise<StartTaskCommandOutput>;
-  startTask(args: StartTaskCommandInput, cb: (err: any, data?: StartTaskCommandOutput) => void): void;
+  startTask(
+    args: StartTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartTaskCommandOutput>;
+  startTask(
+    args: StartTaskCommandInput,
+    cb: (err: any, data?: StartTaskCommandOutput) => void
+  ): void;
   startTask(
     args: StartTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -1119,8 +1203,14 @@ export interface ECS {
   /**
    * @see {@link StopTaskCommand}
    */
-  stopTask(args: StopTaskCommandInput, options?: __HttpHandlerOptions): Promise<StopTaskCommandOutput>;
-  stopTask(args: StopTaskCommandInput, cb: (err: any, data?: StopTaskCommandOutput) => void): void;
+  stopTask(
+    args: StopTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopTaskCommandOutput>;
+  stopTask(
+    args: StopTaskCommandInput,
+    cb: (err: any, data?: StopTaskCommandOutput) => void
+  ): void;
   stopTask(
     args: StopTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -1183,8 +1273,14 @@ export interface ECS {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1194,8 +1290,14 @@ export interface ECS {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1222,8 +1324,14 @@ export interface ECS {
   /**
    * @see {@link UpdateClusterCommand}
    */
-  updateCluster(args: UpdateClusterCommandInput, options?: __HttpHandlerOptions): Promise<UpdateClusterCommandOutput>;
-  updateCluster(args: UpdateClusterCommandInput, cb: (err: any, data?: UpdateClusterCommandOutput) => void): void;
+  updateCluster(
+    args: UpdateClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateClusterCommandOutput>;
+  updateCluster(
+    args: UpdateClusterCommandInput,
+    cb: (err: any, data?: UpdateClusterCommandOutput) => void
+  ): void;
   updateCluster(
     args: UpdateClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -1301,8 +1409,14 @@ export interface ECS {
   /**
    * @see {@link UpdateServiceCommand}
    */
-  updateService(args: UpdateServiceCommandInput, options?: __HttpHandlerOptions): Promise<UpdateServiceCommandOutput>;
-  updateService(args: UpdateServiceCommandInput, cb: (err: any, data?: UpdateServiceCommandOutput) => void): void;
+  updateService(
+    args: UpdateServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateServiceCommandOutput>;
+  updateService(
+    args: UpdateServiceCommandInput,
+    cb: (err: any, data?: UpdateServiceCommandOutput) => void
+  ): void;
   updateService(
     args: UpdateServiceCommandInput,
     options: __HttpHandlerOptions,
@@ -1346,8 +1460,14 @@ export interface ECS {
   /**
    * @see {@link UpdateTaskSetCommand}
    */
-  updateTaskSet(args: UpdateTaskSetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTaskSetCommandOutput>;
-  updateTaskSet(args: UpdateTaskSetCommandInput, cb: (err: any, data?: UpdateTaskSetCommandOutput) => void): void;
+  updateTaskSet(
+    args: UpdateTaskSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTaskSetCommandOutput>;
+  updateTaskSet(
+    args: UpdateTaskSetCommandInput,
+    cb: (err: any, data?: UpdateTaskSetCommandOutput) => void
+  ): void;
   updateTaskSet(
     args: UpdateTaskSetCommandInput,
     options: __HttpHandlerOptions,

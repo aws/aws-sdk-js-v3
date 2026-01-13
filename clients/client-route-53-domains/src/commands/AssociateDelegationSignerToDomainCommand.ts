@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { AssociateDelegationSignerToDomain } from "../schemas/schemas_0";
+import { AssociateDelegationSignerToDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface AssociateDelegationSignerToDomainCommandInput extends Associate
  *
  * The output of {@link AssociateDelegationSignerToDomainCommand}.
  */
-export interface AssociateDelegationSignerToDomainCommandOutput
-  extends AssociateDelegationSignerToDomainResponse,
-    __MetadataBearer {}
+export interface AssociateDelegationSignerToDomainCommandOutput extends AssociateDelegationSignerToDomainResponse, __MetadataBearer {}
 
 /**
  * <p> Creates a delegation signer (DS) record in the registry zone for this domain
@@ -118,7 +116,7 @@ export class AssociateDelegationSignerToDomainCommand extends $Command
   })
   .s("Route53Domains_v20140515", "AssociateDelegationSignerToDomain", {})
   .n("Route53DomainsClient", "AssociateDelegationSignerToDomainCommand")
-  .sc(AssociateDelegationSignerToDomain)
+  .sc(AssociateDelegationSignerToDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

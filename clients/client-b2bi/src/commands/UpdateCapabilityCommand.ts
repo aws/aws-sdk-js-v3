@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateCapabilityRequest, UpdateCapabilityResponse } from "../models/models_0";
-import { UpdateCapability } from "../schemas/schemas_0";
+import { UpdateCapability$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -223,7 +223,7 @@ export class UpdateCapabilityCommand extends $Command
   })
   .s("B2BI", "UpdateCapability", {})
   .n("B2biClient", "UpdateCapabilityCommand")
-  .sc(UpdateCapability)
+  .sc(UpdateCapability$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

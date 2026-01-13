@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeApplicationAssignmentRequest, DescribeApplicationAssignmentResponse } from "../models/models_0";
-import { DescribeApplicationAssignment } from "../schemas/schemas_0";
+import { DescribeApplicationAssignment$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DescribeApplicationAssignmentCommandInput extends DescribeAppli
  *
  * The output of {@link DescribeApplicationAssignmentCommand}.
  */
-export interface DescribeApplicationAssignmentCommandOutput
-  extends DescribeApplicationAssignmentResponse,
-    __MetadataBearer {}
+export interface DescribeApplicationAssignmentCommandOutput extends DescribeApplicationAssignmentResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a direct assignment of a user or group to an application. If the user doesn’t have a direct assignment to the application, the user may still have access to the application through a group. Therefore, don’t use this API to test access to an application for a user. Instead use <a>ListApplicationAssignmentsForPrincipal</a>.</p>
@@ -94,7 +92,7 @@ export class DescribeApplicationAssignmentCommand extends $Command
   })
   .s("SWBExternalService", "DescribeApplicationAssignment", {})
   .n("SSOAdminClient", "DescribeApplicationAssignmentCommand")
-  .sc(DescribeApplicationAssignment)
+  .sc(DescribeApplicationAssignment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { UpdateCentralizationRuleForOrganization } from "../schemas/schemas_0";
+import { UpdateCentralizationRuleForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link UpdateCentralizationRuleForOrganizationCommand}.
  */
-export interface UpdateCentralizationRuleForOrganizationCommandInput
-  extends UpdateCentralizationRuleForOrganizationInput {}
+export interface UpdateCentralizationRuleForOrganizationCommandInput extends UpdateCentralizationRuleForOrganizationInput {}
 /**
  * @public
  *
  * The output of {@link UpdateCentralizationRuleForOrganizationCommand}.
  */
-export interface UpdateCentralizationRuleForOrganizationCommandOutput
-  extends UpdateCentralizationRuleForOrganizationOutput,
-    __MetadataBearer {}
+export interface UpdateCentralizationRuleForOrganizationCommandOutput extends UpdateCentralizationRuleForOrganizationOutput, __MetadataBearer {}
 
 /**
  * <p>Updates an existing centralization rule that applies across an Amazon Web Services Organization. This operation can only be called by the organization's management account or a delegated administrator account.</p>
@@ -128,7 +125,7 @@ export class UpdateCentralizationRuleForOrganizationCommand extends $Command
   })
   .s("ObservabilityAdmin", "UpdateCentralizationRuleForOrganization", {})
   .n("ObservabilityAdminClient", "UpdateCentralizationRuleForOrganizationCommand")
-  .sc(UpdateCentralizationRuleForOrganization)
+  .sc(UpdateCentralizationRuleForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

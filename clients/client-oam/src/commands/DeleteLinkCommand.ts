@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteLinkInput, DeleteLinkOutput } from "../models/models_0";
 import type { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import { DeleteLink } from "../schemas/schemas_0";
+import { DeleteLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class DeleteLinkCommand extends $Command
   })
   .s("oamservice", "DeleteLink", {})
   .n("OAMClient", "DeleteLinkCommand")
-  .sc(DeleteLink)
+  .sc(DeleteLink$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

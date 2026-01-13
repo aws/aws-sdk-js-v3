@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { DeleteInstanceSnapshotRequest, DeleteInstanceSnapshotResult } from "../models/models_0";
-import { DeleteInstanceSnapshot } from "../schemas/schemas_0";
+import { DeleteInstanceSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class DeleteInstanceSnapshotCommand extends $Command
   })
   .s("Lightsail_20161128", "DeleteInstanceSnapshot", {})
   .n("LightsailClient", "DeleteInstanceSnapshotCommand")
-  .sc(DeleteInstanceSnapshot)
+  .sc(DeleteInstanceSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

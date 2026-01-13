@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TagQueueRequest } from "../models/models_0";
-import { TagQueue } from "../schemas/schemas_0";
+import { TagQueue$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -125,7 +125,7 @@ export class TagQueueCommand extends $Command
   })
   .s("AmazonSQS", "TagQueue", {})
   .n("SQSClient", "TagQueueCommand")
-  .sc(TagQueue)
+  .sc(TagQueue$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

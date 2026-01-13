@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DetachVolumeInput, DetachVolumeOutput } from "../models/models_0";
-import { DetachVolume } from "../schemas/schemas_0";
+import { DetachVolume$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -90,7 +90,7 @@ export class DetachVolumeCommand extends $Command
   })
   .s("StorageGateway_20130630", "DetachVolume", {})
   .n("StorageGatewayClient", "DetachVolumeCommand")
-  .sc(DetachVolume)
+  .sc(DetachVolume$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

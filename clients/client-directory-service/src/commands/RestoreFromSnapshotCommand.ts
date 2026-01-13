@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RestoreFromSnapshotRequest, RestoreFromSnapshotResult } from "../models/models_0";
-import { RestoreFromSnapshot } from "../schemas/schemas_0";
+import { RestoreFromSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class RestoreFromSnapshotCommand extends $Command
   })
   .s("DirectoryService_20150416", "RestoreFromSnapshot", {})
   .n("DirectoryServiceClient", "RestoreFromSnapshotCommand")
-  .sc(RestoreFromSnapshot)
+  .sc(RestoreFromSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

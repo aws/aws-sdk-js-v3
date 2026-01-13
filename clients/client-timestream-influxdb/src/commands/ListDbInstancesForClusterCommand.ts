@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListDbInstancesForClusterInput, ListDbInstancesForClusterOutput } from "../models/models_0";
-import { ListDbInstancesForCluster } from "../schemas/schemas_0";
+import { ListDbInstancesForCluster$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -53,7 +53,7 @@ export interface ListDbInstancesForClusterCommandOutput extends ListDbInstancesF
  * //       id: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
  * //       arn: "STRING_VALUE", // required
- * //       status: "CREATING" || "AVAILABLE" || "DELETING" || "MODIFYING" || "UPDATING" || "DELETED" || "FAILED" || "UPDATING_DEPLOYMENT_TYPE" || "UPDATING_INSTANCE_TYPE" || "MAINTENANCE",
+ * //       status: "CREATING" || "AVAILABLE" || "DELETING" || "MODIFYING" || "UPDATING" || "DELETED" || "FAILED" || "UPDATING_DEPLOYMENT_TYPE" || "UPDATING_INSTANCE_TYPE" || "MAINTENANCE" || "REBOOTING" || "REBOOT_FAILED",
  * //       endpoint: "STRING_VALUE",
  * //       port: Number("int"),
  * //       networkType: "IPV4" || "DUAL",
@@ -113,7 +113,7 @@ export class ListDbInstancesForClusterCommand extends $Command
   })
   .s("AmazonTimestreamInfluxDB", "ListDbInstancesForCluster", {})
   .n("TimestreamInfluxDBClient", "ListDbInstancesForClusterCommand")
-  .sc(ListDbInstancesForCluster)
+  .sc(ListDbInstancesForCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

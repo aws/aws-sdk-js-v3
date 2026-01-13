@@ -10,7 +10,7 @@ import type {
 } from "../ComprehendMedicalClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeSNOMEDCTInferenceJobRequest, DescribeSNOMEDCTInferenceJobResponse } from "../models/models_0";
-import { DescribeSNOMEDCTInferenceJob } from "../schemas/schemas_0";
+import { DescribeSNOMEDCTInferenceJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeSNOMEDCTInferenceJobCommandInput extends DescribeSNOMED
  *
  * The output of {@link DescribeSNOMEDCTInferenceJobCommand}.
  */
-export interface DescribeSNOMEDCTInferenceJobCommandOutput
-  extends DescribeSNOMEDCTInferenceJobResponse,
-    __MetadataBearer {}
+export interface DescribeSNOMEDCTInferenceJobCommandOutput extends DescribeSNOMEDCTInferenceJobResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -118,7 +116,7 @@ export class DescribeSNOMEDCTInferenceJobCommand extends $Command
   })
   .s("ComprehendMedical_20181030", "DescribeSNOMEDCTInferenceJob", {})
   .n("ComprehendMedicalClient", "DescribeSNOMEDCTInferenceJobCommand")
-  .sc(DescribeSNOMEDCTInferenceJob)
+  .sc(DescribeSNOMEDCTInferenceJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

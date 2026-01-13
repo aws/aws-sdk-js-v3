@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateRepositoryEncryptionKeyInput, UpdateRepositoryEncryptionKeyOutput } from "../models/models_0";
-import { UpdateRepositoryEncryptionKey } from "../schemas/schemas_0";
+import { UpdateRepositoryEncryptionKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateRepositoryEncryptionKeyCommandInput extends UpdateReposit
  *
  * The output of {@link UpdateRepositoryEncryptionKeyCommand}.
  */
-export interface UpdateRepositoryEncryptionKeyCommandOutput
-  extends UpdateRepositoryEncryptionKeyOutput,
-    __MetadataBearer {}
+export interface UpdateRepositoryEncryptionKeyCommandOutput extends UpdateRepositoryEncryptionKeyOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the Key Management Service encryption key used to encrypt and decrypt a CodeCommit repository.</p>
@@ -117,7 +115,7 @@ export class UpdateRepositoryEncryptionKeyCommand extends $Command
   })
   .s("CodeCommit_20150413", "UpdateRepositoryEncryptionKey", {})
   .n("CodeCommitClient", "UpdateRepositoryEncryptionKeyCommand")
-  .sc(UpdateRepositoryEncryptionKey)
+  .sc(UpdateRepositoryEncryptionKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

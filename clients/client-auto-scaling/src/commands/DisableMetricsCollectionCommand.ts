@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisableMetricsCollectionQuery } from "../models/models_0";
-import { DisableMetricsCollection } from "../schemas/schemas_0";
+import { DisableMetricsCollection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DisableMetricsCollectionCommand extends $Command
   })
   .s("AutoScaling_2011_01_01", "DisableMetricsCollection", {})
   .n("AutoScalingClient", "DisableMetricsCollectionCommand")
-  .sc(DisableMetricsCollection)
+  .sc(DisableMetricsCollection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DescribeEventDetailsForOrganizationRequest,
   DescribeEventDetailsForOrganizationResponse,
 } from "../models/models_0";
-import { DescribeEventDetailsForOrganization } from "../schemas/schemas_0";
+import { DescribeEventDetailsForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeEventDetailsForOrganizationCommandInput extends Describ
  *
  * The output of {@link DescribeEventDetailsForOrganizationCommand}.
  */
-export interface DescribeEventDetailsForOrganizationCommandOutput
-  extends DescribeEventDetailsForOrganizationResponse,
-    __MetadataBearer {}
+export interface DescribeEventDetailsForOrganizationCommandOutput extends DescribeEventDetailsForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns detailed information about one or more specified events for one or more
@@ -153,7 +151,7 @@ export class DescribeEventDetailsForOrganizationCommand extends $Command
   })
   .s("AWSHealth_20160804", "DescribeEventDetailsForOrganization", {})
   .n("HealthClient", "DescribeEventDetailsForOrganizationCommand")
-  .sc(DescribeEventDetailsForOrganization)
+  .sc(DescribeEventDetailsForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

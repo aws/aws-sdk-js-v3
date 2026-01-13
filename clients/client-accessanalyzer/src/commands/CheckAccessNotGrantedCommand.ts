@@ -10,7 +10,7 @@ import type {
 } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CheckAccessNotGrantedRequest, CheckAccessNotGrantedResponse } from "../models/models_0";
-import { CheckAccessNotGranted } from "../schemas/schemas_0";
+import { CheckAccessNotGranted$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -193,7 +193,7 @@ export class CheckAccessNotGrantedCommand extends $Command
   })
   .s("AccessAnalyzer", "CheckAccessNotGranted", {})
   .n("AccessAnalyzerClient", "CheckAccessNotGrantedCommand")
-  .sc(CheckAccessNotGranted)
+  .sc(CheckAccessNotGranted$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

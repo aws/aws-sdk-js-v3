@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateEgressOnlyInternetGatewayRequest, CreateEgressOnlyInternetGatewayResult } from "../models/models_1";
-import { CreateEgressOnlyInternetGateway } from "../schemas/schemas_0";
+import { CreateEgressOnlyInternetGateway$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateEgressOnlyInternetGatewayCommandInput extends CreateEgres
  *
  * The output of {@link CreateEgressOnlyInternetGatewayCommand}.
  */
-export interface CreateEgressOnlyInternetGatewayCommandOutput
-  extends CreateEgressOnlyInternetGatewayResult,
-    __MetadataBearer {}
+export interface CreateEgressOnlyInternetGatewayCommandOutput extends CreateEgressOnlyInternetGatewayResult, __MetadataBearer {}
 
 /**
  * <p>[IPv6 only] Creates an egress-only internet gateway for your VPC. An egress-only
@@ -106,7 +104,7 @@ export class CreateEgressOnlyInternetGatewayCommand extends $Command
   })
   .s("AmazonEC2", "CreateEgressOnlyInternetGateway", {})
   .n("EC2Client", "CreateEgressOnlyInternetGatewayCommand")
-  .sc(CreateEgressOnlyInternetGateway)
+  .sc(CreateEgressOnlyInternetGateway$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

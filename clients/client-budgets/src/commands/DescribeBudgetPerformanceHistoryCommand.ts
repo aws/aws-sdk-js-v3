@@ -9,7 +9,7 @@ import type {
   DescribeBudgetPerformanceHistoryRequest,
   DescribeBudgetPerformanceHistoryResponse,
 } from "../models/models_0";
-import { DescribeBudgetPerformanceHistory } from "../schemas/schemas_0";
+import { DescribeBudgetPerformanceHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeBudgetPerformanceHistoryCommandInput extends DescribeBu
  *
  * The output of {@link DescribeBudgetPerformanceHistoryCommand}.
  */
-export interface DescribeBudgetPerformanceHistoryCommandOutput
-  extends DescribeBudgetPerformanceHistoryResponse,
-    __MetadataBearer {}
+export interface DescribeBudgetPerformanceHistoryCommandOutput extends DescribeBudgetPerformanceHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the history for <code>DAILY</code>, <code>MONTHLY</code>, and <code>QUARTERLY</code> budgets. Budget history isn't available for <code>ANNUAL</code> budgets.</p>
@@ -152,7 +150,7 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command
   })
   .s("AWSBudgetServiceGateway", "DescribeBudgetPerformanceHistory", {})
   .n("BudgetsClient", "DescribeBudgetPerformanceHistoryCommand")
-  .sc(DescribeBudgetPerformanceHistory)
+  .sc(DescribeBudgetPerformanceHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

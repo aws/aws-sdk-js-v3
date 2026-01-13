@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { ListCustomDomainAssociations } from "../schemas/schemas_0";
+import { ListCustomDomainAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListCustomDomainAssociationsCommandInput extends ListCustomDoma
  *
  * The output of {@link ListCustomDomainAssociationsCommand}.
  */
-export interface ListCustomDomainAssociationsCommandOutput
-  extends ListCustomDomainAssociationsResponse,
-    __MetadataBearer {}
+export interface ListCustomDomainAssociationsCommandOutput extends ListCustomDomainAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p> Lists custom domain associations for Amazon Redshift Serverless.</p>
@@ -105,7 +103,7 @@ export class ListCustomDomainAssociationsCommand extends $Command
   })
   .s("RedshiftServerless", "ListCustomDomainAssociations", {})
   .n("RedshiftServerlessClient", "ListCustomDomainAssociationsCommand")
-  .sc(ListCustomDomainAssociations)
+  .sc(ListCustomDomainAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

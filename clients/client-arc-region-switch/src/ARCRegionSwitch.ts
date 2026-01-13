@@ -53,6 +53,11 @@ import {
   ListRoute53HealthChecksCommandOutput,
 } from "./commands/ListRoute53HealthChecksCommand";
 import {
+  ListRoute53HealthChecksInRegionCommand,
+  ListRoute53HealthChecksInRegionCommandInput,
+  ListRoute53HealthChecksInRegionCommandOutput,
+} from "./commands/ListRoute53HealthChecksInRegionCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -94,6 +99,7 @@ const commands = {
   ListPlansCommand,
   ListPlansInRegionCommand,
   ListRoute53HealthChecksCommand,
+  ListRoute53HealthChecksInRegionCommand,
   ListTagsForResourceCommand,
   StartPlanExecutionCommand,
   TagResourceCommand,
@@ -141,8 +147,14 @@ export interface ARCRegionSwitch {
   /**
    * @see {@link CreatePlanCommand}
    */
-  createPlan(args: CreatePlanCommandInput, options?: __HttpHandlerOptions): Promise<CreatePlanCommandOutput>;
-  createPlan(args: CreatePlanCommandInput, cb: (err: any, data?: CreatePlanCommandOutput) => void): void;
+  createPlan(
+    args: CreatePlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePlanCommandOutput>;
+  createPlan(
+    args: CreatePlanCommandInput,
+    cb: (err: any, data?: CreatePlanCommandOutput) => void
+  ): void;
   createPlan(
     args: CreatePlanCommandInput,
     options: __HttpHandlerOptions,
@@ -152,8 +164,14 @@ export interface ARCRegionSwitch {
   /**
    * @see {@link DeletePlanCommand}
    */
-  deletePlan(args: DeletePlanCommandInput, options?: __HttpHandlerOptions): Promise<DeletePlanCommandOutput>;
-  deletePlan(args: DeletePlanCommandInput, cb: (err: any, data?: DeletePlanCommandOutput) => void): void;
+  deletePlan(
+    args: DeletePlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePlanCommandOutput>;
+  deletePlan(
+    args: DeletePlanCommandInput,
+    cb: (err: any, data?: DeletePlanCommandOutput) => void
+  ): void;
   deletePlan(
     args: DeletePlanCommandInput,
     options: __HttpHandlerOptions,
@@ -163,8 +181,14 @@ export interface ARCRegionSwitch {
   /**
    * @see {@link GetPlanCommand}
    */
-  getPlan(args: GetPlanCommandInput, options?: __HttpHandlerOptions): Promise<GetPlanCommandOutput>;
-  getPlan(args: GetPlanCommandInput, cb: (err: any, data?: GetPlanCommandOutput) => void): void;
+  getPlan(
+    args: GetPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPlanCommandOutput>;
+  getPlan(
+    args: GetPlanCommandInput,
+    cb: (err: any, data?: GetPlanCommandOutput) => void
+  ): void;
   getPlan(
     args: GetPlanCommandInput,
     options: __HttpHandlerOptions,
@@ -212,7 +236,10 @@ export interface ARCRegionSwitch {
     args: GetPlanInRegionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPlanInRegionCommandOutput>;
-  getPlanInRegion(args: GetPlanInRegionCommandInput, cb: (err: any, data?: GetPlanInRegionCommandOutput) => void): void;
+  getPlanInRegion(
+    args: GetPlanInRegionCommandInput,
+    cb: (err: any, data?: GetPlanInRegionCommandOutput) => void
+  ): void;
   getPlanInRegion(
     args: GetPlanInRegionCommandInput,
     options: __HttpHandlerOptions,
@@ -257,8 +284,14 @@ export interface ARCRegionSwitch {
    * @see {@link ListPlansCommand}
    */
   listPlans(): Promise<ListPlansCommandOutput>;
-  listPlans(args: ListPlansCommandInput, options?: __HttpHandlerOptions): Promise<ListPlansCommandOutput>;
-  listPlans(args: ListPlansCommandInput, cb: (err: any, data?: ListPlansCommandOutput) => void): void;
+  listPlans(
+    args: ListPlansCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPlansCommandOutput>;
+  listPlans(
+    args: ListPlansCommandInput,
+    cb: (err: any, data?: ListPlansCommandOutput) => void
+  ): void;
   listPlans(
     args: ListPlansCommandInput,
     options: __HttpHandlerOptions,
@@ -301,6 +334,23 @@ export interface ARCRegionSwitch {
   ): void;
 
   /**
+   * @see {@link ListRoute53HealthChecksInRegionCommand}
+   */
+  listRoute53HealthChecksInRegion(
+    args: ListRoute53HealthChecksInRegionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRoute53HealthChecksInRegionCommandOutput>;
+  listRoute53HealthChecksInRegion(
+    args: ListRoute53HealthChecksInRegionCommandInput,
+    cb: (err: any, data?: ListRoute53HealthChecksInRegionCommandOutput) => void
+  ): void;
+  listRoute53HealthChecksInRegion(
+    args: ListRoute53HealthChecksInRegionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRoute53HealthChecksInRegionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -337,8 +387,14 @@ export interface ARCRegionSwitch {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -348,8 +404,14 @@ export interface ARCRegionSwitch {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -359,8 +421,14 @@ export interface ARCRegionSwitch {
   /**
    * @see {@link UpdatePlanCommand}
    */
-  updatePlan(args: UpdatePlanCommandInput, options?: __HttpHandlerOptions): Promise<UpdatePlanCommandOutput>;
-  updatePlan(args: UpdatePlanCommandInput, cb: (err: any, data?: UpdatePlanCommandOutput) => void): void;
+  updatePlan(
+    args: UpdatePlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePlanCommandOutput>;
+  updatePlan(
+    args: UpdatePlanCommandInput,
+    cb: (err: any, data?: UpdatePlanCommandOutput) => void
+  ): void;
   updatePlan(
     args: UpdatePlanCommandInput,
     options: __HttpHandlerOptions,

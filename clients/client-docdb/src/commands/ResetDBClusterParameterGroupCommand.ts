@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DBClusterParameterGroupNameMessage, ResetDBClusterParameterGroupMessage } from "../models/models_0";
-import { ResetDBClusterParameterGroup } from "../schemas/schemas_0";
+import { ResetDBClusterParameterGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ResetDBClusterParameterGroupCommandInput extends ResetDBCluster
  *
  * The output of {@link ResetDBClusterParameterGroupCommand}.
  */
-export interface ResetDBClusterParameterGroupCommandOutput
-  extends DBClusterParameterGroupNameMessage,
-    __MetadataBearer {}
+export interface ResetDBClusterParameterGroupCommandOutput extends DBClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**
  * <p> Modifies the parameters of a cluster parameter group to the default value. To
@@ -104,7 +102,7 @@ export class ResetDBClusterParameterGroupCommand extends $Command
   })
   .s("AmazonRDSv19", "ResetDBClusterParameterGroup", {})
   .n("DocDBClient", "ResetDBClusterParameterGroupCommand")
-  .sc(ResetDBClusterParameterGroup)
+  .sc(ResetDBClusterParameterGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

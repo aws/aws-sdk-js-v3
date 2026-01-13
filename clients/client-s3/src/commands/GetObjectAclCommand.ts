@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetObjectAclOutput, GetObjectAclRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetObjectAcl } from "../schemas/schemas_0";
+import { GetObjectAcl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -192,11 +192,14 @@ export class GetObjectAclCommand extends $Command
     Key: { type: "contextParams", name: "Key" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
+    ];
   })
   .s("AmazonS3", "GetObjectAcl", {})
   .n("S3Client", "GetObjectAclCommand")
-  .sc(GetObjectAcl)
+  .sc(GetObjectAcl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

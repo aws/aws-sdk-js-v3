@@ -9,7 +9,7 @@ import type {
   UpdateConfiguredTableAnalysisRuleInput,
   UpdateConfiguredTableAnalysisRuleOutput,
 } from "../models/models_0";
-import { UpdateConfiguredTableAnalysisRule } from "../schemas/schemas_0";
+import { UpdateConfiguredTableAnalysisRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateConfiguredTableAnalysisRuleCommandInput extends UpdateCon
  *
  * The output of {@link UpdateConfiguredTableAnalysisRuleCommand}.
  */
-export interface UpdateConfiguredTableAnalysisRuleCommandOutput
-  extends UpdateConfiguredTableAnalysisRuleOutput,
-    __MetadataBearer {}
+export interface UpdateConfiguredTableAnalysisRuleCommandOutput extends UpdateConfiguredTableAnalysisRuleOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a configured table analysis rule.</p>
@@ -235,7 +233,7 @@ export class UpdateConfiguredTableAnalysisRuleCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "UpdateConfiguredTableAnalysisRule", {})
   .n("CleanRoomsClient", "UpdateConfiguredTableAnalysisRuleCommand")
-  .sc(UpdateConfiguredTableAnalysisRule)
+  .sc(UpdateConfiguredTableAnalysisRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

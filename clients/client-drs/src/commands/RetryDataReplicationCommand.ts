@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RetryDataReplicationRequest, SourceServer } from "../models/models_0";
-import { RetryDataReplication } from "../schemas/schemas_0";
+import { RetryDataReplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -195,7 +195,7 @@ export class RetryDataReplicationCommand extends $Command
   })
   .s("ElasticDisasterRecoveryService", "RetryDataReplication", {})
   .n("DrsClient", "RetryDataReplicationCommand")
-  .sc(RetryDataReplication)
+  .sc(RetryDataReplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

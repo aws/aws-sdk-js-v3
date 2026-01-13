@@ -79,7 +79,6 @@ import {
   VerifiedAccessLogDeliveryStatusCode,
   VirtualizationType,
 } from "./enums";
-
 import {
   type IamInstanceProfile,
   type IamInstanceProfileSpecification,
@@ -101,7 +100,6 @@ import {
   TrunkInterfaceAssociation,
   UserIdGroupPair,
 } from "./models_0";
-
 import {
   type AttributeValue,
   type ConnectionTrackingSpecificationRequest,
@@ -149,7 +147,6 @@ import {
   RouteTable,
   Snapshot,
 } from "./models_1";
-
 import {
   type SpotDatafeedSubscription,
   TrafficMirrorFilter,
@@ -167,7 +164,6 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
 } from "./models_2";
-
 import {
   type AttributeBooleanValue,
   type CapacityReservationSpecificationResponse,
@@ -4421,9 +4417,7 @@ export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
    * <p>Information about the associations.</p>
    * @public
    */
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociations?:
-    | LocalGatewayRouteTableVirtualInterfaceGroupAssociation[]
-    | undefined;
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociations?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -10253,9 +10247,11 @@ export interface InstanceNetworkInterfaceSpecification {
  */
 export interface SpotPlacement {
   /**
-   * <p>The Availability Zone.</p>
+   * <p>The Availability Zone. For example, <code>us-east-2a</code>.</p>
    *          <p>[Spot Fleet only] To specify multiple Availability Zones, separate them using commas;
-   *             for example, "us-west-2a, us-west-2b".</p>
+   *             for example, "<code>us-east-2a</code>, <code>us-east-2b</code>".</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be
+   *             specified in the request, but not both.</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
@@ -10273,6 +10269,16 @@ export interface SpotPlacement {
    * @public
    */
   Tenancy?: Tenancy | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone. For example, <code>use2-az1</code>.</p>
+   *          <p>[Spot Fleet only] To specify multiple Availability Zones, separate them using commas;
+   *             for example, "<code>use2-az1</code>, <code>use2-bz1</code>".</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be
+   *             specified in the request, but not both.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 }
 
 /**
@@ -10486,7 +10492,10 @@ export interface LaunchTemplateOverrides {
   SubnetId?: string | undefined;
 
   /**
-   * <p>The Availability Zone in which to launch the instances.</p>
+   * <p>The Availability Zone in which to launch the instances. For example,
+   *             <code>us-east-2a</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be
+   *          specified in the request, but not both.</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
@@ -10539,6 +10548,15 @@ export interface LaunchTemplateOverrides {
    * @public
    */
   InstanceRequirements?: InstanceRequirements | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone in which to launch the instances. For example,
+   *             <code>use2-az1</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be
+   *          specified in the request, but not both.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 }
 
 /**

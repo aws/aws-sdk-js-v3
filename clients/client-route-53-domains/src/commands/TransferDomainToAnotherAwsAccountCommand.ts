@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { TransferDomainToAnotherAwsAccount } from "../schemas/schemas_0";
+import { TransferDomainToAnotherAwsAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface TransferDomainToAnotherAwsAccountCommandInput extends TransferD
  *
  * The output of {@link TransferDomainToAnotherAwsAccountCommand}.
  */
-export interface TransferDomainToAnotherAwsAccountCommandOutput
-  extends TransferDomainToAnotherAwsAccountResponse,
-    __MetadataBearer {}
+export interface TransferDomainToAnotherAwsAccountCommandOutput extends TransferDomainToAnotherAwsAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Transfers a domain from the current Amazon Web Services account to another Amazon Web Services account. Note the following:</p>
@@ -124,7 +122,7 @@ export class TransferDomainToAnotherAwsAccountCommand extends $Command
   })
   .s("Route53Domains_v20140515", "TransferDomainToAnotherAwsAccount", {})
   .n("Route53DomainsClient", "TransferDomainToAnotherAwsAccountCommand")
-  .sc(TransferDomainToAnotherAwsAccount)
+  .sc(TransferDomainToAnotherAwsAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

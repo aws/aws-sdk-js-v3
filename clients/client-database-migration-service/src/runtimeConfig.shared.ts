@@ -26,18 +26,19 @@ export const getRuntimeConfig = (config: DatabaseMigrationServiceClientConfig) =
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.databasemigrationservice",
-        serviceTarget: "AmazonDMSv20160101",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.databasemigrationservice",
+      xmlNamespace: "http://dms.amazonaws.com/doc/2016-01-01/",
+      version: "2016-01-01",
+      serviceTarget: "AmazonDMSv20160101",
+    },
     serviceId: config?.serviceId ?? "Database Migration Service",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PcaConnectorScepClient";
-import { ListChallengeMetadata } from "../schemas/schemas_0";
+import { ListChallengeMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class ListChallengeMetadataCommand extends $Command
   })
   .s("PcaConnectorScep", "ListChallengeMetadata", {})
   .n("PcaConnectorScepClient", "ListChallengeMetadataCommand")
-  .sc(ListChallengeMetadata)
+  .sc(ListChallengeMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

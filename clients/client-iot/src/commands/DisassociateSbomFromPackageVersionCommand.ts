@@ -9,7 +9,7 @@ import type {
   DisassociateSbomFromPackageVersionRequest,
   DisassociateSbomFromPackageVersionResponse,
 } from "../models/models_1";
-import { DisassociateSbomFromPackageVersion } from "../schemas/schemas_0";
+import { DisassociateSbomFromPackageVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DisassociateSbomFromPackageVersionCommandInput extends Disassoc
  *
  * The output of {@link DisassociateSbomFromPackageVersionCommand}.
  */
-export interface DisassociateSbomFromPackageVersionCommandOutput
-  extends DisassociateSbomFromPackageVersionResponse,
-    __MetadataBearer {}
+export interface DisassociateSbomFromPackageVersionCommandOutput extends DisassociateSbomFromPackageVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates the selected software bill of materials (SBOM) from a specific software package version.</p>
@@ -95,7 +93,7 @@ export class DisassociateSbomFromPackageVersionCommand extends $Command
   })
   .s("AWSIotService", "DisassociateSbomFromPackageVersion", {})
   .n("IoTClient", "DisassociateSbomFromPackageVersionCommand")
-  .sc(DisassociateSbomFromPackageVersion)
+  .sc(DisassociateSbomFromPackageVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

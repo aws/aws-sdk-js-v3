@@ -8,7 +8,7 @@ import type {
   CreateWhatsAppMessageTemplateMediaInput,
   CreateWhatsAppMessageTemplateMediaOutput,
 } from "../models/models_0";
-import { CreateWhatsAppMessageTemplateMedia } from "../schemas/schemas_0";
+import { CreateWhatsAppMessageTemplateMedia$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -31,9 +31,7 @@ export interface CreateWhatsAppMessageTemplateMediaCommandInput extends CreateWh
  *
  * The output of {@link CreateWhatsAppMessageTemplateMediaCommand}.
  */
-export interface CreateWhatsAppMessageTemplateMediaCommandOutput
-  extends CreateWhatsAppMessageTemplateMediaOutput,
-    __MetadataBearer {}
+export interface CreateWhatsAppMessageTemplateMediaCommandOutput extends CreateWhatsAppMessageTemplateMediaOutput, __MetadataBearer {}
 
 /**
  * <p>Uploads media for use in a WhatsApp message template.</p>
@@ -108,7 +106,7 @@ export class CreateWhatsAppMessageTemplateMediaCommand extends $Command
   })
   .s("SocialMessaging", "CreateWhatsAppMessageTemplateMedia", {})
   .n("SocialMessagingClient", "CreateWhatsAppMessageTemplateMediaCommand")
-  .sc(CreateWhatsAppMessageTemplateMedia)
+  .sc(CreateWhatsAppMessageTemplateMedia$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

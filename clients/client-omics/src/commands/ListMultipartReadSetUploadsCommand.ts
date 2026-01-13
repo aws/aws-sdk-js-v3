@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListMultipartReadSetUploadsRequest, ListMultipartReadSetUploadsResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { ListMultipartReadSetUploads } from "../schemas/schemas_0";
+import { ListMultipartReadSetUploads$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListMultipartReadSetUploadsCommandInput extends ListMultipartRe
  *
  * The output of {@link ListMultipartReadSetUploadsCommand}.
  */
-export interface ListMultipartReadSetUploadsCommandOutput
-  extends ListMultipartReadSetUploadsResponse,
-    __MetadataBearer {}
+export interface ListMultipartReadSetUploadsCommandOutput extends ListMultipartReadSetUploadsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists in-progress multipart read set uploads for a sequence store and returns it in a JSON formatted output. Multipart read set uploads are initiated by the <code>CreateMultipartReadSetUploads</code> API operation. This operation returns a response with no body when the upload is complete. </p>
@@ -118,7 +116,7 @@ export class ListMultipartReadSetUploadsCommand extends $Command
   })
   .s("Omics", "ListMultipartReadSetUploads", {})
   .n("OmicsClient", "ListMultipartReadSetUploadsCommand")
-  .sc(ListMultipartReadSetUploads)
+  .sc(ListMultipartReadSetUploads$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

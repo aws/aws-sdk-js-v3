@@ -7,12 +7,12 @@ import { GetInvalidationCommand, GetInvalidationCommandInput } from "../commands
 const checkState = async (client: CloudFrontClient, input: GetInvalidationCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetInvalidationCommand(input));
+    let result: any = await client.send(new GetInvalidationCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.Invalidation.Status;
-      };
+      }
       if (returnComparator() === "Completed") {
         return { state: WaiterState.SUCCESS, reason };
       }

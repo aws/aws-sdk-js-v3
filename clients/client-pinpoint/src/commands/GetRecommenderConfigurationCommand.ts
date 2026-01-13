@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRecommenderConfigurationRequest, GetRecommenderConfigurationResponse } from "../models/models_1";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetRecommenderConfiguration } from "../schemas/schemas_0";
+import { GetRecommenderConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetRecommenderConfigurationCommandInput extends GetRecommenderC
  *
  * The output of {@link GetRecommenderConfigurationCommand}.
  */
-export interface GetRecommenderConfigurationCommandOutput
-  extends GetRecommenderConfigurationResponse,
-    __MetadataBearer {}
+export interface GetRecommenderConfigurationCommandOutput extends GetRecommenderConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about an Amazon Pinpoint configuration for a recommender model.</p>
@@ -111,7 +109,7 @@ export class GetRecommenderConfigurationCommand extends $Command
   })
   .s("Pinpoint", "GetRecommenderConfiguration", {})
   .n("PinpointClient", "GetRecommenderConfigurationCommand")
-  .sc(GetRecommenderConfiguration)
+  .sc(GetRecommenderConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

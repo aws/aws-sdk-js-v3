@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateFleetAdvisorCollectorRequest, CreateFleetAdvisorCollectorResponse } from "../models/models_0";
-import { CreateFleetAdvisorCollector } from "../schemas/schemas_0";
+import { CreateFleetAdvisorCollector$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface CreateFleetAdvisorCollectorCommandInput extends CreateFleetAdvi
  *
  * The output of {@link CreateFleetAdvisorCollectorCommand}.
  */
-export interface CreateFleetAdvisorCollectorCommandOutput
-  extends CreateFleetAdvisorCollectorResponse,
-    __MetadataBearer {}
+export interface CreateFleetAdvisorCollectorCommandOutput extends CreateFleetAdvisorCollectorResponse, __MetadataBearer {}
 
 /**
  * <important>
@@ -108,7 +106,7 @@ export class CreateFleetAdvisorCollectorCommand extends $Command
   })
   .s("AmazonDMSv20160101", "CreateFleetAdvisorCollector", {})
   .n("DatabaseMigrationServiceClient", "CreateFleetAdvisorCollectorCommand")
-  .sc(CreateFleetAdvisorCollector)
+  .sc(CreateFleetAdvisorCollector$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

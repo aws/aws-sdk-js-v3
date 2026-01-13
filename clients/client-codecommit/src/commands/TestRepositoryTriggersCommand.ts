@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TestRepositoryTriggersInput, TestRepositoryTriggersOutput } from "../models/models_0";
-import { TestRepositoryTriggers } from "../schemas/schemas_0";
+import { TestRepositoryTriggers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -168,7 +168,7 @@ export class TestRepositoryTriggersCommand extends $Command
   })
   .s("CodeCommit_20150413", "TestRepositoryTriggers", {})
   .n("CodeCommitClient", "TestRepositoryTriggersCommand")
-  .sc(TestRepositoryTriggers)
+  .sc(TestRepositoryTriggers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
 import type { CreateChatTokenRequest, CreateChatTokenResponse } from "../models/models_0";
-import { CreateChatToken } from "../schemas/schemas_0";
+import { CreateChatToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class CreateChatTokenCommand extends $Command
   })
   .s("AmazonInteractiveVideoServiceChat", "CreateChatToken", {})
   .n("IvschatClient", "CreateChatTokenCommand")
-  .sc(CreateChatToken)
+  .sc(CreateChatToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAccessLogSettingsRequest } from "../models/models_0";
-import { DeleteAccessLogSettings } from "../schemas/schemas_0";
+import { DeleteAccessLogSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -78,7 +78,7 @@ export class DeleteAccessLogSettingsCommand extends $Command
   })
   .s("ApiGatewayV2", "DeleteAccessLogSettings", {})
   .n("ApiGatewayV2Client", "DeleteAccessLogSettingsCommand")
-  .sc(DeleteAccessLogSettings)
+  .sc(DeleteAccessLogSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

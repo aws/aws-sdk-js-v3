@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteMobileDeviceAccessRuleRequest, DeleteMobileDeviceAccessRuleResponse } from "../models/models_0";
-import { DeleteMobileDeviceAccessRule } from "../schemas/schemas_0";
+import { DeleteMobileDeviceAccessRule$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DeleteMobileDeviceAccessRuleCommandInput extends DeleteMobileDe
  *
  * The output of {@link DeleteMobileDeviceAccessRuleCommand}.
  */
-export interface DeleteMobileDeviceAccessRuleCommandOutput
-  extends DeleteMobileDeviceAccessRuleResponse,
-    __MetadataBearer {}
+export interface DeleteMobileDeviceAccessRuleCommandOutput extends DeleteMobileDeviceAccessRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a mobile device access rule for the specified WorkMail organization.</p>
@@ -88,7 +86,7 @@ export class DeleteMobileDeviceAccessRuleCommand extends $Command
   })
   .s("WorkMailService", "DeleteMobileDeviceAccessRule", {})
   .n("WorkMailClient", "DeleteMobileDeviceAccessRuleCommand")
-  .sc(DeleteMobileDeviceAccessRule)
+  .sc(DeleteMobileDeviceAccessRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

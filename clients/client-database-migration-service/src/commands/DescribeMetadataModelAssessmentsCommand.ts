@@ -13,7 +13,7 @@ import type {
   DescribeMetadataModelAssessmentsMessage,
   DescribeMetadataModelAssessmentsResponse,
 } from "../models/models_0";
-import { DescribeMetadataModelAssessments } from "../schemas/schemas_0";
+import { DescribeMetadataModelAssessments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DescribeMetadataModelAssessmentsCommandInput extends DescribeMe
  *
  * The output of {@link DescribeMetadataModelAssessmentsCommand}.
  */
-export interface DescribeMetadataModelAssessmentsCommandOutput
-  extends DescribeMetadataModelAssessmentsResponse,
-    __MetadataBearer {}
+export interface DescribeMetadataModelAssessmentsCommandOutput extends DescribeMetadataModelAssessmentsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of metadata model assessments for your account in the current
@@ -154,7 +152,7 @@ export class DescribeMetadataModelAssessmentsCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeMetadataModelAssessments", {})
   .n("DatabaseMigrationServiceClient", "DescribeMetadataModelAssessmentsCommand")
-  .sc(DescribeMetadataModelAssessments)
+  .sc(DescribeMetadataModelAssessments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

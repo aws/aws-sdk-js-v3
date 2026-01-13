@@ -9,7 +9,7 @@ import type {
   DeregisterInstanceEventNotificationAttributesRequest,
   DeregisterInstanceEventNotificationAttributesResult,
 } from "../models/models_3";
-import { DeregisterInstanceEventNotificationAttributes } from "../schemas/schemas_0";
+import { DeregisterInstanceEventNotificationAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeregisterInstanceEventNotificationAttributesCommand}.
  */
-export interface DeregisterInstanceEventNotificationAttributesCommandInput
-  extends DeregisterInstanceEventNotificationAttributesRequest {}
+export interface DeregisterInstanceEventNotificationAttributesCommandInput extends DeregisterInstanceEventNotificationAttributesRequest {}
 /**
  * @public
  *
  * The output of {@link DeregisterInstanceEventNotificationAttributesCommand}.
  */
-export interface DeregisterInstanceEventNotificationAttributesCommandOutput
-  extends DeregisterInstanceEventNotificationAttributesResult,
-    __MetadataBearer {}
+export interface DeregisterInstanceEventNotificationAttributesCommandOutput extends DeregisterInstanceEventNotificationAttributesResult, __MetadataBearer {}
 
 /**
  * <p>Deregisters tag keys to prevent tags that have the specified tag keys from being
@@ -91,7 +88,7 @@ export class DeregisterInstanceEventNotificationAttributesCommand extends $Comma
   })
   .s("AmazonEC2", "DeregisterInstanceEventNotificationAttributes", {})
   .n("EC2Client", "DeregisterInstanceEventNotificationAttributesCommand")
-  .sc(DeregisterInstanceEventNotificationAttributes)
+  .sc(DeregisterInstanceEventNotificationAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

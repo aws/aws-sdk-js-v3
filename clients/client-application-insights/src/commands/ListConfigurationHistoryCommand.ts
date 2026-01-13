@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationInsightsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListConfigurationHistoryRequest, ListConfigurationHistoryResponse } from "../models/models_0";
-import { ListConfigurationHistory } from "../schemas/schemas_0";
+import { ListConfigurationHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class ListConfigurationHistoryCommand extends $Command
   })
   .s("EC2WindowsBarleyService", "ListConfigurationHistory", {})
   .n("ApplicationInsightsClient", "ListConfigurationHistoryCommand")
-  .sc(ListConfigurationHistory)
+  .sc(ListConfigurationHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

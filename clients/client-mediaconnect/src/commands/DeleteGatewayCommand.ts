@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import type { DeleteGatewayRequest, DeleteGatewayResponse } from "../models/models_0";
-import { DeleteGateway } from "../schemas/schemas_0";
+import { DeleteGateway$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteGatewayCommand extends $Command
   })
   .s("MediaConnect", "DeleteGateway", {})
   .n("MediaConnectClient", "DeleteGatewayCommand")
-  .sc(DeleteGateway)
+  .sc(DeleteGateway$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

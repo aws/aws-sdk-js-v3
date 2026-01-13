@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import type { DeletePublishingDestinationRequest, DeletePublishingDestinationResponse } from "../models/models_0";
-import { DeletePublishingDestination } from "../schemas/schemas_0";
+import { DeletePublishingDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeletePublishingDestinationCommandInput extends DeletePublishin
  *
  * The output of {@link DeletePublishingDestinationCommand}.
  */
-export interface DeletePublishingDestinationCommandOutput
-  extends DeletePublishingDestinationResponse,
-    __MetadataBearer {}
+export interface DeletePublishingDestinationCommandOutput extends DeletePublishingDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the publishing definition with the specified <code>destinationId</code>.</p>
@@ -80,7 +78,7 @@ export class DeletePublishingDestinationCommand extends $Command
   })
   .s("GuardDutyAPIService", "DeletePublishingDestination", {})
   .n("GuardDutyClient", "DeletePublishingDestinationCommand")
-  .sc(DeletePublishingDestination)
+  .sc(DeletePublishingDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

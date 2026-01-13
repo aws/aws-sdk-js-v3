@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartProtectedQueryInput, StartProtectedQueryOutput } from "../models/models_1";
-import { StartProtectedQuery } from "../schemas/schemas_0";
+import { StartProtectedQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -233,7 +233,7 @@ export class StartProtectedQueryCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "StartProtectedQuery", {})
   .n("CleanRoomsClient", "StartProtectedQueryCommand")
-  .sc(StartProtectedQuery)
+  .sc(StartProtectedQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

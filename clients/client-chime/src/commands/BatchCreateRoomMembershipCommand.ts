@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchCreateRoomMembershipRequest, BatchCreateRoomMembershipResponse } from "../models/models_0";
-import { BatchCreateRoomMembership } from "../schemas/schemas_0";
+import { BatchCreateRoomMembership$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class BatchCreateRoomMembershipCommand extends $Command
   })
   .s("UCBuzzConsoleService", "BatchCreateRoomMembership", {})
   .n("ChimeClient", "BatchCreateRoomMembershipCommand")
-  .sc(BatchCreateRoomMembership)
+  .sc(BatchCreateRoomMembership$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

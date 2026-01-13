@@ -175,8 +175,14 @@ export interface Route53RecoveryReadiness {
   /**
    * @see {@link CreateCellCommand}
    */
-  createCell(args: CreateCellCommandInput, options?: __HttpHandlerOptions): Promise<CreateCellCommandOutput>;
-  createCell(args: CreateCellCommandInput, cb: (err: any, data?: CreateCellCommandOutput) => void): void;
+  createCell(
+    args: CreateCellCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCellCommandOutput>;
+  createCell(
+    args: CreateCellCommandInput,
+    cb: (err: any, data?: CreateCellCommandOutput) => void
+  ): void;
   createCell(
     args: CreateCellCommandInput,
     options: __HttpHandlerOptions,
@@ -254,8 +260,14 @@ export interface Route53RecoveryReadiness {
   /**
    * @see {@link DeleteCellCommand}
    */
-  deleteCell(args: DeleteCellCommandInput, options?: __HttpHandlerOptions): Promise<DeleteCellCommandOutput>;
-  deleteCell(args: DeleteCellCommandInput, cb: (err: any, data?: DeleteCellCommandOutput) => void): void;
+  deleteCell(
+    args: DeleteCellCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCellCommandOutput>;
+  deleteCell(
+    args: DeleteCellCommandInput,
+    cb: (err: any, data?: DeleteCellCommandOutput) => void
+  ): void;
   deleteCell(
     args: DeleteCellCommandInput,
     options: __HttpHandlerOptions,
@@ -350,8 +362,14 @@ export interface Route53RecoveryReadiness {
   /**
    * @see {@link GetCellCommand}
    */
-  getCell(args: GetCellCommandInput, options?: __HttpHandlerOptions): Promise<GetCellCommandOutput>;
-  getCell(args: GetCellCommandInput, cb: (err: any, data?: GetCellCommandOutput) => void): void;
+  getCell(
+    args: GetCellCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCellCommandOutput>;
+  getCell(
+    args: GetCellCommandInput,
+    cb: (err: any, data?: GetCellCommandOutput) => void
+  ): void;
   getCell(
     args: GetCellCommandInput,
     options: __HttpHandlerOptions,
@@ -467,7 +485,10 @@ export interface Route53RecoveryReadiness {
     args: GetResourceSetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetResourceSetCommandOutput>;
-  getResourceSet(args: GetResourceSetCommandInput, cb: (err: any, data?: GetResourceSetCommandOutput) => void): void;
+  getResourceSet(
+    args: GetResourceSetCommandInput,
+    cb: (err: any, data?: GetResourceSetCommandOutput) => void
+  ): void;
   getResourceSet(
     args: GetResourceSetCommandInput,
     options: __HttpHandlerOptions,
@@ -478,8 +499,14 @@ export interface Route53RecoveryReadiness {
    * @see {@link ListCellsCommand}
    */
   listCells(): Promise<ListCellsCommandOutput>;
-  listCells(args: ListCellsCommandInput, options?: __HttpHandlerOptions): Promise<ListCellsCommandOutput>;
-  listCells(args: ListCellsCommandInput, cb: (err: any, data?: ListCellsCommandOutput) => void): void;
+  listCells(
+    args: ListCellsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCellsCommandOutput>;
+  listCells(
+    args: ListCellsCommandInput,
+    cb: (err: any, data?: ListCellsCommandOutput) => void
+  ): void;
   listCells(
     args: ListCellsCommandInput,
     options: __HttpHandlerOptions,
@@ -562,8 +589,14 @@ export interface Route53RecoveryReadiness {
    * @see {@link ListRulesCommand}
    */
   listRules(): Promise<ListRulesCommandOutput>;
-  listRules(args: ListRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListRulesCommandOutput>;
-  listRules(args: ListRulesCommandInput, cb: (err: any, data?: ListRulesCommandOutput) => void): void;
+  listRules(
+    args: ListRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRulesCommandOutput>;
+  listRules(
+    args: ListRulesCommandInput,
+    cb: (err: any, data?: ListRulesCommandOutput) => void
+  ): void;
   listRules(
     args: ListRulesCommandInput,
     options: __HttpHandlerOptions,
@@ -590,8 +623,14 @@ export interface Route53RecoveryReadiness {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -601,8 +640,14 @@ export interface Route53RecoveryReadiness {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -612,8 +657,14 @@ export interface Route53RecoveryReadiness {
   /**
    * @see {@link UpdateCellCommand}
    */
-  updateCell(args: UpdateCellCommandInput, options?: __HttpHandlerOptions): Promise<UpdateCellCommandOutput>;
-  updateCell(args: UpdateCellCommandInput, cb: (err: any, data?: UpdateCellCommandOutput) => void): void;
+  updateCell(
+    args: UpdateCellCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCellCommandOutput>;
+  updateCell(
+    args: UpdateCellCommandInput,
+    cb: (err: any, data?: UpdateCellCommandOutput) => void
+  ): void;
   updateCell(
     args: UpdateCellCommandInput,
     options: __HttpHandlerOptions,

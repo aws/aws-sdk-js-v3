@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableSsoRequest, EnableSsoResult } from "../models/models_0";
-import { EnableSso } from "../schemas/schemas_0";
+import { EnableSso$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class EnableSsoCommand extends $Command
   })
   .s("DirectoryService_20150416", "EnableSso", {})
   .n("DirectoryServiceClient", "EnableSsoCommand")
-  .sc(EnableSso)
+  .sc(EnableSso$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

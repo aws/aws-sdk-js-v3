@@ -8,7 +8,7 @@ import type {
   DeleteCustomVerificationEmailTemplateRequest,
   DeleteCustomVerificationEmailTemplateResponse,
 } from "../models/models_0";
-import { DeleteCustomVerificationEmailTemplate } from "../schemas/schemas_0";
+import { DeleteCustomVerificationEmailTemplate$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteCustomVerificationEmailTemplateCommand}.
  */
-export interface DeleteCustomVerificationEmailTemplateCommandInput
-  extends DeleteCustomVerificationEmailTemplateRequest {}
+export interface DeleteCustomVerificationEmailTemplateCommandInput extends DeleteCustomVerificationEmailTemplateRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteCustomVerificationEmailTemplateCommand}.
  */
-export interface DeleteCustomVerificationEmailTemplateCommandOutput
-  extends DeleteCustomVerificationEmailTemplateResponse,
-    __MetadataBearer {}
+export interface DeleteCustomVerificationEmailTemplateCommandOutput extends DeleteCustomVerificationEmailTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing custom verification email template.</p>
@@ -90,7 +87,7 @@ export class DeleteCustomVerificationEmailTemplateCommand extends $Command
   })
   .s("SimpleEmailService_v2", "DeleteCustomVerificationEmailTemplate", {})
   .n("SESv2Client", "DeleteCustomVerificationEmailTemplateCommand")
-  .sc(DeleteCustomVerificationEmailTemplate)
+  .sc(DeleteCustomVerificationEmailTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

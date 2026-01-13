@@ -9,7 +9,7 @@ import type {
   DescribeDashboardSnapshotJobResultResponse,
 } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeDashboardSnapshotJobResult } from "../schemas/schemas_0";
+import { DescribeDashboardSnapshotJobResult$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeDashboardSnapshotJobResultCommandInput extends Describe
  *
  * The output of {@link DescribeDashboardSnapshotJobResultCommand}.
  */
-export interface DescribeDashboardSnapshotJobResultCommandOutput
-  extends DescribeDashboardSnapshotJobResultResponse,
-    __MetadataBearer {}
+export interface DescribeDashboardSnapshotJobResultCommandOutput extends DescribeDashboardSnapshotJobResultResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the result of an existing snapshot job that has finished running.</p>
@@ -249,7 +247,7 @@ export class DescribeDashboardSnapshotJobResultCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeDashboardSnapshotJobResult", {})
   .n("QuickSightClient", "DescribeDashboardSnapshotJobResultCommand")
-  .sc(DescribeDashboardSnapshotJobResult)
+  .sc(DescribeDashboardSnapshotJobResult$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

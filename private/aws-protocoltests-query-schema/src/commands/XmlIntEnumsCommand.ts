@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { XmlIntEnumsOutput } from "../models/models_0";
 import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { XmlIntEnums } from "../schemas/schemas_0";
+import { XmlIntEnums$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class XmlIntEnumsCommand extends $Command
   })
   .s("AwsQuery", "XmlIntEnums", {})
   .n("QueryProtocolClient", "XmlIntEnumsCommand")
-  .sc(XmlIntEnums)
+  .sc(XmlIntEnums$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

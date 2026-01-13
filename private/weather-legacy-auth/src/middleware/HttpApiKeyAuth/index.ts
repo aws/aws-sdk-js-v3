@@ -54,7 +54,7 @@ export interface HttpApiKeyAuthResolvedConfig {
 // or resolveFunction are set, then all of inputConfig, resolvedConfig, and
 // resolveFunction must be set."
 export function resolveHttpApiKeyAuthConfig<T>(
-  input: T & ApiKeyPreviouslyResolved & HttpApiKeyAuthInputConfig
+  input: T & ApiKeyPreviouslyResolved & HttpApiKeyAuthInputConfig,
 ): T & HttpApiKeyAuthResolvedConfig {
   return {
     ...input,
@@ -78,7 +78,7 @@ export function resolveHttpApiKeyAuthConfig<T>(
 export const httpApiKeyAuthMiddleware =
   <Input extends object, Output extends object>(
     pluginConfig: HttpApiKeyAuthResolvedConfig,
-    middlewareConfig: HttpApiKeyAuthMiddlewareConfig
+    middlewareConfig: HttpApiKeyAuthMiddlewareConfig,
   ): BuildMiddleware<Input, Output> =>
   (next) =>
   async (args) => {
@@ -125,12 +125,12 @@ export const httpApiKeyAuthMiddlewareOptions: RelativeMiddlewareOptions = {
 
 export const getHttpApiKeyAuthPlugin = (
   pluginConfig: HttpApiKeyAuthResolvedConfig,
-  middlewareConfig: HttpApiKeyAuthMiddlewareConfig
+  middlewareConfig: HttpApiKeyAuthMiddlewareConfig,
 ): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.addRelativeTo(
       httpApiKeyAuthMiddleware(pluginConfig, middlewareConfig),
-      httpApiKeyAuthMiddlewareOptions
+      httpApiKeyAuthMiddlewareOptions,
     );
   },
 });

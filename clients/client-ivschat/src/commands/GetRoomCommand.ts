@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
 import type { GetRoomRequest, GetRoomResponse } from "../models/models_0";
-import { GetRoom } from "../schemas/schemas_0";
+import { GetRoom$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class GetRoomCommand extends $Command
   })
   .s("AmazonInteractiveVideoServiceChat", "GetRoom", {})
   .n("IvschatClient", "GetRoomCommand")
-  .sc(GetRoom)
+  .sc(GetRoom$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

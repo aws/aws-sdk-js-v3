@@ -9,7 +9,7 @@ import type {
   DescribeAffectedAccountsForOrganizationRequest,
   DescribeAffectedAccountsForOrganizationResponse,
 } from "../models/models_0";
-import { DescribeAffectedAccountsForOrganization } from "../schemas/schemas_0";
+import { DescribeAffectedAccountsForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeAffectedAccountsForOrganizationCommand}.
  */
-export interface DescribeAffectedAccountsForOrganizationCommandInput
-  extends DescribeAffectedAccountsForOrganizationRequest {}
+export interface DescribeAffectedAccountsForOrganizationCommandInput extends DescribeAffectedAccountsForOrganizationRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeAffectedAccountsForOrganizationCommand}.
  */
-export interface DescribeAffectedAccountsForOrganizationCommandOutput
-  extends DescribeAffectedAccountsForOrganizationResponse,
-    __MetadataBearer {}
+export interface DescribeAffectedAccountsForOrganizationCommandOutput extends DescribeAffectedAccountsForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of accounts in the organization from Organizations that are affected by the
@@ -96,7 +93,7 @@ export class DescribeAffectedAccountsForOrganizationCommand extends $Command
   })
   .s("AWSHealth_20160804", "DescribeAffectedAccountsForOrganization", {})
   .n("HealthClient", "DescribeAffectedAccountsForOrganizationCommand")
-  .sc(DescribeAffectedAccountsForOrganization)
+  .sc(DescribeAffectedAccountsForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

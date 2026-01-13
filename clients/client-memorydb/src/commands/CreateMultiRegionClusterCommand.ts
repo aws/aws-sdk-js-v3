@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import type { CreateMultiRegionClusterRequest, CreateMultiRegionClusterResponse } from "../models/models_0";
-import { CreateMultiRegionCluster } from "../schemas/schemas_0";
+import { CreateMultiRegionCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class CreateMultiRegionClusterCommand extends $Command
   })
   .s("AmazonMemoryDB", "CreateMultiRegionCluster", {})
   .n("MemoryDBClient", "CreateMultiRegionClusterCommand")
-  .sc(CreateMultiRegionCluster)
+  .sc(CreateMultiRegionCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

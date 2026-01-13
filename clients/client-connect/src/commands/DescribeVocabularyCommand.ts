@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeVocabularyRequest, DescribeVocabularyResponse } from "../models/models_1";
-import { DescribeVocabulary } from "../schemas/schemas_0";
+import { DescribeVocabulary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DescribeVocabularyCommand extends $Command
   })
   .s("AmazonConnectService", "DescribeVocabulary", {})
   .n("ConnectClient", "DescribeVocabularyCommand")
-  .sc(DescribeVocabulary)
+  .sc(DescribeVocabulary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

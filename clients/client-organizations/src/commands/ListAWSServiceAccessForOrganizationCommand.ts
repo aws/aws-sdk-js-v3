@@ -9,7 +9,7 @@ import type {
   ListAWSServiceAccessForOrganizationResponse,
 } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { ListAWSServiceAccessForOrganization } from "../schemas/schemas_0";
+import { ListAWSServiceAccessForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListAWSServiceAccessForOrganizationCommandInput extends ListAWS
  *
  * The output of {@link ListAWSServiceAccessForOrganizationCommand}.
  */
-export interface ListAWSServiceAccessForOrganizationCommandOutput
-  extends ListAWSServiceAccessForOrganizationResponse,
-    __MetadataBearer {}
+export interface ListAWSServiceAccessForOrganizationCommandOutput extends ListAWSServiceAccessForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the Amazon Web Services services that you enabled to integrate with your
@@ -509,7 +507,7 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "ListAWSServiceAccessForOrganization", {})
   .n("OrganizationsClient", "ListAWSServiceAccessForOrganizationCommand")
-  .sc(ListAWSServiceAccessForOrganization)
+  .sc(ListAWSServiceAccessForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRightsizingRecommendationRequest, GetRightsizingRecommendationResponse } from "../models/models_0";
-import { GetRightsizingRecommendation } from "../schemas/schemas_0";
+import { GetRightsizingRecommendation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetRightsizingRecommendationCommandInput extends GetRightsizing
  *
  * The output of {@link GetRightsizingRecommendationCommand}.
  */
-export interface GetRightsizingRecommendationCommandOutput
-  extends GetRightsizingRecommendationResponse,
-    __MetadataBearer {}
+export interface GetRightsizingRecommendationCommandOutput extends GetRightsizingRecommendationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates recommendations that help you save cost by identifying idle and underutilized
@@ -297,7 +295,7 @@ export class GetRightsizingRecommendationCommand extends $Command
   })
   .s("AWSInsightsIndexService", "GetRightsizingRecommendation", {})
   .n("CostExplorerClient", "GetRightsizingRecommendationCommand")
-  .sc(GetRightsizingRecommendation)
+  .sc(GetRightsizingRecommendation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

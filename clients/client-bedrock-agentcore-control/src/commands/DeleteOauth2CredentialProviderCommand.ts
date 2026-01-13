@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteOauth2CredentialProviderRequest, DeleteOauth2CredentialProviderResponse } from "../models/models_0";
-import { DeleteOauth2CredentialProvider } from "../schemas/schemas_0";
+import { DeleteOauth2CredentialProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DeleteOauth2CredentialProviderCommandInput extends DeleteOauth2
  *
  * The output of {@link DeleteOauth2CredentialProviderCommand}.
  */
-export interface DeleteOauth2CredentialProviderCommandOutput
-  extends DeleteOauth2CredentialProviderResponse,
-    __MetadataBearer {}
+export interface DeleteOauth2CredentialProviderCommandOutput extends DeleteOauth2CredentialProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an OAuth2 credential provider.</p>
@@ -95,7 +93,7 @@ export class DeleteOauth2CredentialProviderCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "DeleteOauth2CredentialProvider", {})
   .n("BedrockAgentCoreControlClient", "DeleteOauth2CredentialProviderCommand")
-  .sc(DeleteOauth2CredentialProvider)
+  .sc(DeleteOauth2CredentialProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateInstanceEventWindowRequest, DisassociateInstanceEventWindowResult } from "../models/models_5";
-import { DisassociateInstanceEventWindow } from "../schemas/schemas_0";
+import { DisassociateInstanceEventWindow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DisassociateInstanceEventWindowCommandInput extends Disassociat
  *
  * The output of {@link DisassociateInstanceEventWindowCommand}.
  */
-export interface DisassociateInstanceEventWindowCommandOutput
-  extends DisassociateInstanceEventWindowResult,
-    __MetadataBearer {}
+export interface DisassociateInstanceEventWindowCommandOutput extends DisassociateInstanceEventWindowResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates one or more targets from an event window.</p>
@@ -125,7 +123,7 @@ export class DisassociateInstanceEventWindowCommand extends $Command
   })
   .s("AmazonEC2", "DisassociateInstanceEventWindow", {})
   .n("EC2Client", "DisassociateInstanceEventWindowCommand")
-  .sc(DisassociateInstanceEventWindow)
+  .sc(DisassociateInstanceEventWindow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerAutomationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAutomationRuleRequest, GetAutomationRuleResponse } from "../models/models_0";
-import { GetAutomationRule } from "../schemas/schemas_0";
+import { GetAutomationRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -198,7 +198,7 @@ export class GetAutomationRuleCommand extends $Command
   })
   .s("ComputeOptimizerAutomationService", "GetAutomationRule", {})
   .n("ComputeOptimizerAutomationClient", "GetAutomationRuleCommand")
-  .sc(GetAutomationRule)
+  .sc(GetAutomationRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

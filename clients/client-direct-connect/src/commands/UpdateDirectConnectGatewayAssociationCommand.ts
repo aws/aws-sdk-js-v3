@@ -9,7 +9,7 @@ import type {
   UpdateDirectConnectGatewayAssociationRequest,
   UpdateDirectConnectGatewayAssociationResult,
 } from "../models/models_0";
-import { UpdateDirectConnectGatewayAssociation } from "../schemas/schemas_0";
+import { UpdateDirectConnectGatewayAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateDirectConnectGatewayAssociationCommand}.
  */
-export interface UpdateDirectConnectGatewayAssociationCommandInput
-  extends UpdateDirectConnectGatewayAssociationRequest {}
+export interface UpdateDirectConnectGatewayAssociationCommandInput extends UpdateDirectConnectGatewayAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateDirectConnectGatewayAssociationCommand}.
  */
-export interface UpdateDirectConnectGatewayAssociationCommandOutput
-  extends UpdateDirectConnectGatewayAssociationResult,
-    __MetadataBearer {}
+export interface UpdateDirectConnectGatewayAssociationCommandOutput extends UpdateDirectConnectGatewayAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Updates the specified attributes of the Direct Connect gateway association.</p>
@@ -121,7 +118,7 @@ export class UpdateDirectConnectGatewayAssociationCommand extends $Command
   })
   .s("OvertureService", "UpdateDirectConnectGatewayAssociation", {})
   .n("DirectConnectClient", "UpdateDirectConnectGatewayAssociationCommand")
-  .sc(UpdateDirectConnectGatewayAssociation)
+  .sc(UpdateDirectConnectGatewayAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

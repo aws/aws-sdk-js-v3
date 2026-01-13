@@ -297,8 +297,14 @@ export interface AppRunner {
   /**
    * @see {@link CreateServiceCommand}
    */
-  createService(args: CreateServiceCommandInput, options?: __HttpHandlerOptions): Promise<CreateServiceCommandOutput>;
-  createService(args: CreateServiceCommandInput, cb: (err: any, data?: CreateServiceCommandOutput) => void): void;
+  createService(
+    args: CreateServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateServiceCommandOutput>;
+  createService(
+    args: CreateServiceCommandInput,
+    cb: (err: any, data?: CreateServiceCommandOutput) => void
+  ): void;
   createService(
     args: CreateServiceCommandInput,
     options: __HttpHandlerOptions,
@@ -393,8 +399,14 @@ export interface AppRunner {
   /**
    * @see {@link DeleteServiceCommand}
    */
-  deleteService(args: DeleteServiceCommandInput, options?: __HttpHandlerOptions): Promise<DeleteServiceCommandOutput>;
-  deleteService(args: DeleteServiceCommandInput, cb: (err: any, data?: DeleteServiceCommandOutput) => void): void;
+  deleteService(
+    args: DeleteServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteServiceCommandOutput>;
+  deleteService(
+    args: DeleteServiceCommandInput,
+    cb: (err: any, data?: DeleteServiceCommandOutput) => void
+  ): void;
   deleteService(
     args: DeleteServiceCommandInput,
     options: __HttpHandlerOptions,
@@ -493,7 +505,10 @@ export interface AppRunner {
     args: DescribeServiceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeServiceCommandOutput>;
-  describeService(args: DescribeServiceCommandInput, cb: (err: any, data?: DescribeServiceCommandOutput) => void): void;
+  describeService(
+    args: DescribeServiceCommandInput,
+    cb: (err: any, data?: DescribeServiceCommandOutput) => void
+  ): void;
   describeService(
     args: DescribeServiceCommandInput,
     options: __HttpHandlerOptions,
@@ -577,7 +592,10 @@ export interface AppRunner {
     args: ListConnectionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListConnectionsCommandOutput>;
-  listConnections(args: ListConnectionsCommandInput, cb: (err: any, data?: ListConnectionsCommandOutput) => void): void;
+  listConnections(
+    args: ListConnectionsCommandInput,
+    cb: (err: any, data?: ListConnectionsCommandOutput) => void
+  ): void;
   listConnections(
     args: ListConnectionsCommandInput,
     options: __HttpHandlerOptions,
@@ -609,7 +627,10 @@ export interface AppRunner {
     args: ListOperationsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListOperationsCommandOutput>;
-  listOperations(args: ListOperationsCommandInput, cb: (err: any, data?: ListOperationsCommandOutput) => void): void;
+  listOperations(
+    args: ListOperationsCommandInput,
+    cb: (err: any, data?: ListOperationsCommandOutput) => void
+  ): void;
   listOperations(
     args: ListOperationsCommandInput,
     options: __HttpHandlerOptions,
@@ -620,8 +641,14 @@ export interface AppRunner {
    * @see {@link ListServicesCommand}
    */
   listServices(): Promise<ListServicesCommandOutput>;
-  listServices(args: ListServicesCommandInput, options?: __HttpHandlerOptions): Promise<ListServicesCommandOutput>;
-  listServices(args: ListServicesCommandInput, cb: (err: any, data?: ListServicesCommandOutput) => void): void;
+  listServices(
+    args: ListServicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServicesCommandOutput>;
+  listServices(
+    args: ListServicesCommandInput,
+    cb: (err: any, data?: ListServicesCommandOutput) => void
+  ): void;
   listServices(
     args: ListServicesCommandInput,
     options: __HttpHandlerOptions,
@@ -701,8 +728,14 @@ export interface AppRunner {
   /**
    * @see {@link PauseServiceCommand}
    */
-  pauseService(args: PauseServiceCommandInput, options?: __HttpHandlerOptions): Promise<PauseServiceCommandOutput>;
-  pauseService(args: PauseServiceCommandInput, cb: (err: any, data?: PauseServiceCommandOutput) => void): void;
+  pauseService(
+    args: PauseServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PauseServiceCommandOutput>;
+  pauseService(
+    args: PauseServiceCommandInput,
+    cb: (err: any, data?: PauseServiceCommandOutput) => void
+  ): void;
   pauseService(
     args: PauseServiceCommandInput,
     options: __HttpHandlerOptions,
@@ -712,8 +745,14 @@ export interface AppRunner {
   /**
    * @see {@link ResumeServiceCommand}
    */
-  resumeService(args: ResumeServiceCommandInput, options?: __HttpHandlerOptions): Promise<ResumeServiceCommandOutput>;
-  resumeService(args: ResumeServiceCommandInput, cb: (err: any, data?: ResumeServiceCommandOutput) => void): void;
+  resumeService(
+    args: ResumeServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResumeServiceCommandOutput>;
+  resumeService(
+    args: ResumeServiceCommandInput,
+    cb: (err: any, data?: ResumeServiceCommandOutput) => void
+  ): void;
   resumeService(
     args: ResumeServiceCommandInput,
     options: __HttpHandlerOptions,
@@ -727,7 +766,10 @@ export interface AppRunner {
     args: StartDeploymentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartDeploymentCommandOutput>;
-  startDeployment(args: StartDeploymentCommandInput, cb: (err: any, data?: StartDeploymentCommandOutput) => void): void;
+  startDeployment(
+    args: StartDeploymentCommandInput,
+    cb: (err: any, data?: StartDeploymentCommandOutput) => void
+  ): void;
   startDeployment(
     args: StartDeploymentCommandInput,
     options: __HttpHandlerOptions,
@@ -737,8 +779,14 @@ export interface AppRunner {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -748,8 +796,14 @@ export interface AppRunner {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -776,8 +830,14 @@ export interface AppRunner {
   /**
    * @see {@link UpdateServiceCommand}
    */
-  updateService(args: UpdateServiceCommandInput, options?: __HttpHandlerOptions): Promise<UpdateServiceCommandOutput>;
-  updateService(args: UpdateServiceCommandInput, cb: (err: any, data?: UpdateServiceCommandOutput) => void): void;
+  updateService(
+    args: UpdateServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateServiceCommandOutput>;
+  updateService(
+    args: UpdateServiceCommandInput,
+    cb: (err: any, data?: UpdateServiceCommandOutput) => void
+  ): void;
   updateService(
     args: UpdateServiceCommandInput,
     options: __HttpHandlerOptions,

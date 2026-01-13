@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteGatewayResponseRequest } from "../models/models_0";
-import { DeleteGatewayResponse } from "../schemas/schemas_0";
+import { DeleteGatewayResponse$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteGatewayResponseCommand extends $Command
   })
   .s("BackplaneControlService", "DeleteGatewayResponse", {})
   .n("APIGatewayClient", "DeleteGatewayResponseCommand")
-  .sc(DeleteGatewayResponse)
+  .sc(DeleteGatewayResponse$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

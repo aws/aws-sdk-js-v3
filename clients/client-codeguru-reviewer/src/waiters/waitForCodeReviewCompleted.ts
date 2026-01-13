@@ -4,18 +4,15 @@ import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, Waite
 import { CodeGuruReviewerClient } from "../CodeGuruReviewerClient";
 import { DescribeCodeReviewCommand, DescribeCodeReviewCommandInput } from "../commands/DescribeCodeReviewCommand";
 
-const checkState = async (
-  client: CodeGuruReviewerClient,
-  input: DescribeCodeReviewCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: CodeGuruReviewerClient, input: DescribeCodeReviewCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeCodeReviewCommand(input));
+    let result: any = await client.send(new DescribeCodeReviewCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.CodeReview.State;
-      };
+      }
       if (returnComparator() === "Completed") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -23,7 +20,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.CodeReview.State;
-      };
+      }
       if (returnComparator() === "Failed") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -31,7 +28,7 @@ const checkState = async (
     try {
       const returnComparator = () => {
         return result.CodeReview.State;
-      };
+      }
       if (returnComparator() === "Pending") {
         return { state: WaiterState.RETRY, reason };
       }

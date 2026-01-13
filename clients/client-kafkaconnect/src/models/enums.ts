@@ -113,6 +113,19 @@ export type KafkaClusterEncryptionInTransitType =
  * @public
  * @enum
  */
+export const NetworkType = {
+  DUAL: "DUAL",
+  IPV4: "IPV4",
+} as const;
+/**
+ * @public
+ */
+export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
+
+/**
+ * @public
+ * @enum
+ */
 export const CustomPluginState = {
   ACTIVE: "ACTIVE",
   CREATE_FAILED: "CREATE_FAILED",

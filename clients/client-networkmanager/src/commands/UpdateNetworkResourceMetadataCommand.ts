@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { UpdateNetworkResourceMetadata } from "../schemas/schemas_0";
+import { UpdateNetworkResourceMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface UpdateNetworkResourceMetadataCommandInput extends UpdateNetwork
  *
  * The output of {@link UpdateNetworkResourceMetadataCommand}.
  */
-export interface UpdateNetworkResourceMetadataCommandOutput
-  extends UpdateNetworkResourceMetadataResponse,
-    __MetadataBearer {}
+export interface UpdateNetworkResourceMetadataCommandOutput extends UpdateNetworkResourceMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the resource metadata for the specified global network.</p>
@@ -105,7 +103,7 @@ export class UpdateNetworkResourceMetadataCommand extends $Command
   })
   .s("NetworkManager", "UpdateNetworkResourceMetadata", {})
   .n("NetworkManagerClient", "UpdateNetworkResourceMetadataCommand")
-  .sc(UpdateNetworkResourceMetadata)
+  .sc(UpdateNetworkResourceMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

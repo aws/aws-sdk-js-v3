@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SubscribeToDatasetRequest, SubscribeToDatasetResponse } from "../models/models_0";
-import { SubscribeToDataset } from "../schemas/schemas_0";
+import { SubscribeToDataset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class SubscribeToDatasetCommand extends $Command
   })
   .s("AWSCognitoSyncService", "SubscribeToDataset", {})
   .n("CognitoSyncClient", "SubscribeToDatasetCommand")
-  .sc(SubscribeToDataset)
+  .sc(SubscribeToDataset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

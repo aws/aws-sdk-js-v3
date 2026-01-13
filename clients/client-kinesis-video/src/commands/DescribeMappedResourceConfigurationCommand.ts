@@ -9,7 +9,7 @@ import type {
   DescribeMappedResourceConfigurationInput,
   DescribeMappedResourceConfigurationOutput,
 } from "../models/models_0";
-import { DescribeMappedResourceConfiguration } from "../schemas/schemas_0";
+import { DescribeMappedResourceConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeMappedResourceConfigurationCommandInput extends Describ
  *
  * The output of {@link DescribeMappedResourceConfigurationCommand}.
  */
-export interface DescribeMappedResourceConfigurationCommandOutput
-  extends DescribeMappedResourceConfigurationOutput,
-    __MetadataBearer {}
+export interface DescribeMappedResourceConfigurationCommandOutput extends DescribeMappedResourceConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the most current information about the stream. The <code>streamName</code>
@@ -101,7 +99,7 @@ export class DescribeMappedResourceConfigurationCommand extends $Command
   })
   .s("KinesisVideo_20170930", "DescribeMappedResourceConfiguration", {})
   .n("KinesisVideoClient", "DescribeMappedResourceConfigurationCommand")
-  .sc(DescribeMappedResourceConfiguration)
+  .sc(DescribeMappedResourceConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

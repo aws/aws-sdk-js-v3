@@ -209,7 +209,10 @@ export interface ARCZonalShift {
     args: ListAutoshiftsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAutoshiftsCommandOutput>;
-  listAutoshifts(args: ListAutoshiftsCommandInput, cb: (err: any, data?: ListAutoshiftsCommandOutput) => void): void;
+  listAutoshifts(
+    args: ListAutoshiftsCommandInput,
+    cb: (err: any, data?: ListAutoshiftsCommandOutput) => void
+  ): void;
   listAutoshifts(
     args: ListAutoshiftsCommandInput,
     options: __HttpHandlerOptions,
@@ -242,7 +245,10 @@ export interface ARCZonalShift {
     args: ListZonalShiftsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListZonalShiftsCommandOutput>;
-  listZonalShifts(args: ListZonalShiftsCommandInput, cb: (err: any, data?: ListZonalShiftsCommandOutput) => void): void;
+  listZonalShifts(
+    args: ListZonalShiftsCommandInput,
+    cb: (err: any, data?: ListZonalShiftsCommandOutput) => void
+  ): void;
   listZonalShifts(
     args: ListZonalShiftsCommandInput,
     options: __HttpHandlerOptions,
@@ -273,7 +279,10 @@ export interface ARCZonalShift {
     args: StartZonalShiftCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartZonalShiftCommandOutput>;
-  startZonalShift(args: StartZonalShiftCommandInput, cb: (err: any, data?: StartZonalShiftCommandOutput) => void): void;
+  startZonalShift(
+    args: StartZonalShiftCommandInput,
+    cb: (err: any, data?: StartZonalShiftCommandOutput) => void
+  ): void;
   startZonalShift(
     args: StartZonalShiftCommandInput,
     options: __HttpHandlerOptions,

@@ -9,7 +9,7 @@ import type {
   GetGraphqlApiEnvironmentVariablesRequest,
   GetGraphqlApiEnvironmentVariablesResponse,
 } from "../models/models_0";
-import { GetGraphqlApiEnvironmentVariables } from "../schemas/schemas_0";
+import { GetGraphqlApiEnvironmentVariables$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetGraphqlApiEnvironmentVariablesCommandInput extends GetGraphq
  *
  * The output of {@link GetGraphqlApiEnvironmentVariablesCommand}.
  */
-export interface GetGraphqlApiEnvironmentVariablesCommandOutput
-  extends GetGraphqlApiEnvironmentVariablesResponse,
-    __MetadataBearer {}
+export interface GetGraphqlApiEnvironmentVariablesCommandOutput extends GetGraphqlApiEnvironmentVariablesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the list of environmental variable key-value pairs associated with an API by
@@ -98,7 +96,7 @@ export class GetGraphqlApiEnvironmentVariablesCommand extends $Command
   })
   .s("AWSDeepdishControlPlaneService", "GetGraphqlApiEnvironmentVariables", {})
   .n("AppSyncClient", "GetGraphqlApiEnvironmentVariablesCommand")
-  .sc(GetGraphqlApiEnvironmentVariables)
+  .sc(GetGraphqlApiEnvironmentVariables$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

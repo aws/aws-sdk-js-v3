@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import type { DeleteMatchmakingConfigurationInput, DeleteMatchmakingConfigurationOutput } from "../models/models_0";
-import { DeleteMatchmakingConfiguration } from "../schemas/schemas_0";
+import { DeleteMatchmakingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteMatchmakingConfigurationCommandInput extends DeleteMatchm
  *
  * The output of {@link DeleteMatchmakingConfigurationCommand}.
  */
-export interface DeleteMatchmakingConfigurationCommandOutput
-  extends DeleteMatchmakingConfigurationOutput,
-    __MetadataBearer {}
+export interface DeleteMatchmakingConfigurationCommandOutput extends DeleteMatchmakingConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>
@@ -96,7 +94,7 @@ export class DeleteMatchmakingConfigurationCommand extends $Command
   })
   .s("GameLift", "DeleteMatchmakingConfiguration", {})
   .n("GameLiftClient", "DeleteMatchmakingConfigurationCommand")
-  .sc(DeleteMatchmakingConfiguration)
+  .sc(DeleteMatchmakingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

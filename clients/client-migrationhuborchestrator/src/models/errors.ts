@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { MigrationHubOrchestratorServiceException as __BaseException } from "./MigrationHubOrchestratorServiceException";
+import {
+  MigrationHubOrchestratorServiceException as __BaseException,
+} from "./MigrationHubOrchestratorServiceException";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>

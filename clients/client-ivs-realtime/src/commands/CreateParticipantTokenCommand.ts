@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
 import type { CreateParticipantTokenRequest, CreateParticipantTokenResponse } from "../models/models_0";
-import { CreateParticipantToken } from "../schemas/schemas_0";
+import { CreateParticipantToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class CreateParticipantTokenCommand extends $Command
   })
   .s("AmazonInteractiveVideoServiceRealTime", "CreateParticipantToken", {})
   .n("IVSRealTimeClient", "CreateParticipantTokenCommand")
-  .sc(CreateParticipantToken)
+  .sc(CreateParticipantToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

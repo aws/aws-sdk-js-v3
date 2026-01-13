@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListApiKeyCredentialProvidersRequest, ListApiKeyCredentialProvidersResponse } from "../models/models_0";
-import { ListApiKeyCredentialProviders } from "../schemas/schemas_0";
+import { ListApiKeyCredentialProviders$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListApiKeyCredentialProvidersCommandInput extends ListApiKeyCre
  *
  * The output of {@link ListApiKeyCredentialProvidersCommand}.
  */
-export interface ListApiKeyCredentialProvidersCommandOutput
-  extends ListApiKeyCredentialProvidersResponse,
-    __MetadataBearer {}
+export interface ListApiKeyCredentialProvidersCommandOutput extends ListApiKeyCredentialProvidersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all API key credential providers in your account.</p>
@@ -106,7 +104,7 @@ export class ListApiKeyCredentialProvidersCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "ListApiKeyCredentialProviders", {})
   .n("BedrockAgentCoreControlClient", "ListApiKeyCredentialProvidersCommand")
-  .sc(ListApiKeyCredentialProviders)
+  .sc(ListApiKeyCredentialProviders$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

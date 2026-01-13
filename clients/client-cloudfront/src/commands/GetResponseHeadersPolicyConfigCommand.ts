@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetResponseHeadersPolicyConfigRequest, GetResponseHeadersPolicyConfigResult } from "../models/models_1";
-import { GetResponseHeadersPolicyConfig } from "../schemas/schemas_0";
+import { GetResponseHeadersPolicyConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetResponseHeadersPolicyConfigCommandInput extends GetResponseH
  *
  * The output of {@link GetResponseHeadersPolicyConfigCommand}.
  */
-export interface GetResponseHeadersPolicyConfigCommandOutput
-  extends GetResponseHeadersPolicyConfigResult,
-    __MetadataBearer {}
+export interface GetResponseHeadersPolicyConfigCommandOutput extends GetResponseHeadersPolicyConfigResult, __MetadataBearer {}
 
 /**
  * <p>Gets a response headers policy configuration.</p> <p>To get a response headers policy configuration, you must provide the policy's identifier. If the response headers policy is attached to a distribution's cache behavior, you can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the response headers policy is not attached to a cache behavior, you can get the identifier using <code>ListResponseHeadersPolicies</code>.</p>
@@ -165,7 +163,7 @@ export class GetResponseHeadersPolicyConfigCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "GetResponseHeadersPolicyConfig", {})
   .n("CloudFrontClient", "GetResponseHeadersPolicyConfigCommand")
-  .sc(GetResponseHeadersPolicyConfig)
+  .sc(GetResponseHeadersPolicyConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

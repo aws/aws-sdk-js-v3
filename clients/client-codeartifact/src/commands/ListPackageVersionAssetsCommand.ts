@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListPackageVersionAssetsRequest, ListPackageVersionAssetsResult } from "../models/models_0";
-import { ListPackageVersionAssets } from "../schemas/schemas_0";
+import { ListPackageVersionAssets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class ListPackageVersionAssetsCommand extends $Command
   })
   .s("CodeArtifactControlPlaneService", "ListPackageVersionAssets", {})
   .n("CodeartifactClient", "ListPackageVersionAssetsCommand")
-  .sc(ListPackageVersionAssets)
+  .sc(ListPackageVersionAssets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAutonomousVirtualMachinesInput, ListAutonomousVirtualMachinesOutput } from "../models/models_0";
 import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { ListAutonomousVirtualMachines } from "../schemas/schemas_0";
+import { ListAutonomousVirtualMachines$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListAutonomousVirtualMachinesCommandInput extends ListAutonomou
  *
  * The output of {@link ListAutonomousVirtualMachinesCommand}.
  */
-export interface ListAutonomousVirtualMachinesCommandOutput
-  extends ListAutonomousVirtualMachinesOutput,
-    __MetadataBearer {}
+export interface ListAutonomousVirtualMachinesCommandOutput extends ListAutonomousVirtualMachinesOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all Autonomous VMs in an Autonomous VM cluster.</p>
@@ -109,7 +107,7 @@ export class ListAutonomousVirtualMachinesCommand extends $Command
   })
   .s("Odb", "ListAutonomousVirtualMachines", {})
   .n("OdbClient", "ListAutonomousVirtualMachinesCommand")
-  .sc(ListAutonomousVirtualMachines)
+  .sc(ListAutonomousVirtualMachines$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

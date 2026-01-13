@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { PolicyStatus, PolicyValidationMode, SchemaType, TargetStatus } from "./enums";
-
 import {
   type KmsConfiguration,
+  type MetadataConfiguration,
   type PolicyDefinition,
   ApiGatewayTargetConfiguration,
   ApiSchemaConfiguration,
@@ -10,6 +10,35 @@ import {
   McpServerTargetConfiguration,
   S3Configuration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListPoliciesRequest {
+  /**
+   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicies.html">ListPolicies</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of policies to return in a single response. If not specified, the default is 10 policies per page, with a maximum of 100 per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The identifier of the policy engine whose policies to retrieve.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>Optional filter to list policies that apply to a specific resource scope or resource type. This helps narrow down policy results to those relevant for particular Amazon Web Services resources, agent tools, or operational contexts within the policy engine ecosystem.</p>
+   * @public
+   */
+  targetResourceScope?: string | undefined;
+}
 
 /**
  * <p>Represents a complete policy resource within the AgentCore Policy system. Policies are ARN-able resources that contain Cedar policy statements and associated metadata for controlling agent behavior and access decisions. Each policy belongs to a policy engine and defines fine-grained authorization rules that are evaluated in real-time as agents interact with tools through Gateway. Policies use the Cedar policy language to specify who (principals based on OAuth claims like username, role, or scope) can perform what actions (tool calls) on which resources (Gateways), with optional conditions for attribute-based access control. Multiple policies can apply to a single request, with Cedar's forbid-wins semantics ensuring that security restrictions are never accidentally overridden.</p>
@@ -588,7 +617,10 @@ export interface ToolDefinition {
  * <p>A tool schema for a gateway target. This structure defines the schema for a tool that the target exposes through the Model Context Protocol.</p>
  * @public
  */
-export type ToolSchema = ToolSchema.InlinePayloadMember | ToolSchema.S3Member | ToolSchema.$UnknownMember;
+export type ToolSchema =
+  | ToolSchema.InlinePayloadMember
+  | ToolSchema.S3Member
+  | ToolSchema.$UnknownMember;
 
 /**
  * @public
@@ -763,7 +795,9 @@ export namespace McpTargetConfiguration {
  * <p>The configuration for a gateway target. This structure defines how the gateway connects to and interacts with the target endpoint.</p>
  * @public
  */
-export type TargetConfiguration = TargetConfiguration.McpMember | TargetConfiguration.$UnknownMember;
+export type TargetConfiguration =
+  | TargetConfiguration.McpMember
+  | TargetConfiguration.$UnknownMember;
 
 /**
  * @public
@@ -835,6 +869,12 @@ export interface CreateGatewayTargetRequest {
    * @public
    */
   credentialProviderConfigurations?: CredentialProviderConfiguration[] | undefined;
+
+  /**
+   * <p>Optional configuration for HTTP header and query parameter propagation to and from the gateway target.</p>
+   * @public
+   */
+  metadataConfiguration?: MetadataConfiguration | undefined;
 }
 
 /**
@@ -906,6 +946,12 @@ export interface CreateGatewayTargetResponse {
    * @public
    */
   lastSynchronizedAt?: Date | undefined;
+
+  /**
+   * <p>The metadata configuration that was applied to the created gateway target.</p>
+   * @public
+   */
+  metadataConfiguration?: MetadataConfiguration | undefined;
 }
 
 /**
@@ -978,6 +1024,12 @@ export interface GatewayTarget {
    * @public
    */
   lastSynchronizedAt?: Date | undefined;
+
+  /**
+   * <p>The metadata configuration for HTTP header and query parameter propagation to and from this gateway target.</p>
+   * @public
+   */
+  metadataConfiguration?: MetadataConfiguration | undefined;
 }
 
 /**
@@ -1049,6 +1101,12 @@ export interface GetGatewayTargetResponse {
    * @public
    */
   lastSynchronizedAt?: Date | undefined;
+
+  /**
+   * <p>The metadata configuration for HTTP header and query parameter propagation for the retrieved gateway target.</p>
+   * @public
+   */
+  metadataConfiguration?: MetadataConfiguration | undefined;
 }
 
 /**
@@ -1090,6 +1148,12 @@ export interface UpdateGatewayTargetRequest {
    * @public
    */
   credentialProviderConfigurations?: CredentialProviderConfiguration[] | undefined;
+
+  /**
+   * <p>Configuration for HTTP header and query parameter propagation to the gateway target.</p>
+   * @public
+   */
+  metadataConfiguration?: MetadataConfiguration | undefined;
 }
 
 /**
@@ -1161,6 +1225,12 @@ export interface UpdateGatewayTargetResponse {
    * @public
    */
   lastSynchronizedAt?: Date | undefined;
+
+  /**
+   * <p>The metadata configuration that was applied to the gateway target.</p>
+   * @public
+   */
+  metadataConfiguration?: MetadataConfiguration | undefined;
 }
 
 /**

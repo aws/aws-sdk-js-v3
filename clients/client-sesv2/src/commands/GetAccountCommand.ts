@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAccountRequest, GetAccountResponse } from "../models/models_0";
-import { GetAccount } from "../schemas/schemas_0";
+import { GetAccount$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -54,6 +54,14 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * //     SuppressedReasons: [ // SuppressionListReasons
  * //       "BOUNCE" || "COMPLAINT",
  * //     ],
+ * //     ValidationAttributes: { // SuppressionValidationAttributes
+ * //       ConditionThreshold: { // SuppressionConditionThreshold
+ * //         ConditionThresholdEnabled: "ENABLED" || "DISABLED", // required
+ * //         OverallConfidenceThreshold: { // SuppressionConfidenceThreshold
+ * //           ConfidenceVerdictThreshold: "MEDIUM" || "HIGH" || "MANAGED", // required
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * //   Details: { // AccountDetails
  * //     MailType: "MARKETING" || "TRANSACTIONAL",
@@ -113,7 +121,7 @@ export class GetAccountCommand extends $Command
   })
   .s("SimpleEmailService_v2", "GetAccount", {})
   .n("SESv2Client", "GetAccountCommand")
-  .sc(GetAccount)
+  .sc(GetAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

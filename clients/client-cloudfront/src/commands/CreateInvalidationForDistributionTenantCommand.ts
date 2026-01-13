@@ -9,7 +9,7 @@ import type {
   CreateInvalidationForDistributionTenantRequest,
   CreateInvalidationForDistributionTenantResult,
 } from "../models/models_0";
-import { CreateInvalidationForDistributionTenant } from "../schemas/schemas_0";
+import { CreateInvalidationForDistributionTenant$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateInvalidationForDistributionTenantCommand}.
  */
-export interface CreateInvalidationForDistributionTenantCommandInput
-  extends CreateInvalidationForDistributionTenantRequest {}
+export interface CreateInvalidationForDistributionTenantCommandInput extends CreateInvalidationForDistributionTenantRequest {}
 /**
  * @public
  *
  * The output of {@link CreateInvalidationForDistributionTenantCommand}.
  */
-export interface CreateInvalidationForDistributionTenantCommandOutput
-  extends CreateInvalidationForDistributionTenantResult,
-    __MetadataBearer {}
+export interface CreateInvalidationForDistributionTenantCommandOutput extends CreateInvalidationForDistributionTenantResult, __MetadataBearer {}
 
 /**
  * <p>Creates an invalidation for a distribution tenant. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html">Invalidating files</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
@@ -123,7 +120,7 @@ export class CreateInvalidationForDistributionTenantCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "CreateInvalidationForDistributionTenant", {})
   .n("CloudFrontClient", "CreateInvalidationForDistributionTenantCommand")
-  .sc(CreateInvalidationForDistributionTenant)
+  .sc(CreateInvalidationForDistributionTenant$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

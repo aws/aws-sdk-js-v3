@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { AssociateProtectConfiguration } from "../schemas/schemas_0";
+import { AssociateProtectConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface AssociateProtectConfigurationCommandInput extends AssociateProt
  *
  * The output of {@link AssociateProtectConfigurationCommand}.
  */
-export interface AssociateProtectConfigurationCommandOutput
-  extends AssociateProtectConfigurationResult,
-    __MetadataBearer {}
+export interface AssociateProtectConfigurationCommandOutput extends AssociateProtectConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Associate a protect configuration with a configuration set. This replaces the configuration sets current protect configuration. A configuration set can only be associated with one protect configuration at a time. A protect configuration can be associated with multiple configuration sets.</p>
@@ -101,7 +99,7 @@ export class AssociateProtectConfigurationCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "AssociateProtectConfiguration", {})
   .n("PinpointSMSVoiceV2Client", "AssociateProtectConfigurationCommand")
-  .sc(AssociateProtectConfiguration)
+  .sc(AssociateProtectConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

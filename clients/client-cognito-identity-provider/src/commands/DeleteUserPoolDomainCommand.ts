@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteUserPoolDomainRequest, DeleteUserPoolDomainResponse } from "../models/models_0";
-import { DeleteUserPoolDomain } from "../schemas/schemas_0";
+import { DeleteUserPoolDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DeleteUserPoolDomainCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "DeleteUserPoolDomain", {})
   .n("CognitoIdentityProviderClient", "DeleteUserPoolDomainCommand")
-  .sc(DeleteUserPoolDomain)
+  .sc(DeleteUserPoolDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

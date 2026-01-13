@@ -547,7 +547,10 @@ export interface SSOAdmin {
     args: CreateInstanceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateInstanceCommandOutput>;
-  createInstance(args: CreateInstanceCommandInput, cb: (err: any, data?: CreateInstanceCommandOutput) => void): void;
+  createInstance(
+    args: CreateInstanceCommandInput,
+    cb: (err: any, data?: CreateInstanceCommandOutput) => void
+  ): void;
   createInstance(
     args: CreateInstanceCommandInput,
     options: __HttpHandlerOptions,
@@ -731,7 +734,10 @@ export interface SSOAdmin {
     args: DeleteInstanceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteInstanceCommandOutput>;
-  deleteInstance(args: DeleteInstanceCommandInput, cb: (err: any, data?: DeleteInstanceCommandOutput) => void): void;
+  deleteInstance(
+    args: DeleteInstanceCommandInput,
+    cb: (err: any, data?: DeleteInstanceCommandOutput) => void
+  ): void;
   deleteInstance(
     args: DeleteInstanceCommandInput,
     options: __HttpHandlerOptions,
@@ -1355,8 +1361,14 @@ export interface SSOAdmin {
    * @see {@link ListInstancesCommand}
    */
   listInstances(): Promise<ListInstancesCommandOutput>;
-  listInstances(args: ListInstancesCommandInput, options?: __HttpHandlerOptions): Promise<ListInstancesCommandOutput>;
-  listInstances(args: ListInstancesCommandInput, cb: (err: any, data?: ListInstancesCommandOutput) => void): void;
+  listInstances(
+    args: ListInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInstancesCommandOutput>;
+  listInstances(
+    args: ListInstancesCommandInput,
+    cb: (err: any, data?: ListInstancesCommandOutput) => void
+  ): void;
   listInstances(
     args: ListInstancesCommandInput,
     options: __HttpHandlerOptions,
@@ -1604,8 +1616,14 @@ export interface SSOAdmin {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1615,8 +1633,14 @@ export interface SSOAdmin {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1647,7 +1671,10 @@ export interface SSOAdmin {
     args: UpdateInstanceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateInstanceCommandOutput>;
-  updateInstance(args: UpdateInstanceCommandInput, cb: (err: any, data?: UpdateInstanceCommandOutput) => void): void;
+  updateInstance(
+    args: UpdateInstanceCommandInput,
+    cb: (err: any, data?: UpdateInstanceCommandOutput) => void
+  ): void;
   updateInstance(
     args: UpdateInstanceCommandInput,
     options: __HttpHandlerOptions,

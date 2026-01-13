@@ -9,7 +9,7 @@ import type {
   DisableNotificationsAccessForOrganizationResponse,
 } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { DisableNotificationsAccessForOrganization } from "../schemas/schemas_0";
+import { DisableNotificationsAccessForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisableNotificationsAccessForOrganizationCommand}.
  */
-export interface DisableNotificationsAccessForOrganizationCommandInput
-  extends DisableNotificationsAccessForOrganizationRequest {}
+export interface DisableNotificationsAccessForOrganizationCommandInput extends DisableNotificationsAccessForOrganizationRequest {}
 /**
  * @public
  *
  * The output of {@link DisableNotificationsAccessForOrganizationCommand}.
  */
-export interface DisableNotificationsAccessForOrganizationCommandOutput
-  extends DisableNotificationsAccessForOrganizationResponse,
-    __MetadataBearer {}
+export interface DisableNotificationsAccessForOrganizationCommandOutput extends DisableNotificationsAccessForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Disables service trust between User Notifications and Amazon Web Services Organizations.</p>
@@ -96,7 +93,7 @@ export class DisableNotificationsAccessForOrganizationCommand extends $Command
   })
   .s("Notifications", "DisableNotificationsAccessForOrganization", {})
   .n("NotificationsClient", "DisableNotificationsAccessForOrganizationCommand")
-  .sc(DisableNotificationsAccessForOrganization)
+  .sc(DisableNotificationsAccessForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

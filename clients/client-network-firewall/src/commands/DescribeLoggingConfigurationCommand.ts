@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { DescribeLoggingConfiguration } from "../schemas/schemas_0";
+import { DescribeLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeLoggingConfigurationCommandInput extends DescribeLoggin
  *
  * The output of {@link DescribeLoggingConfigurationCommand}.
  */
-export interface DescribeLoggingConfigurationCommandOutput
-  extends DescribeLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeLoggingConfigurationCommandOutput extends DescribeLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the logging configuration for the specified firewall. </p>
@@ -118,7 +116,7 @@ export class DescribeLoggingConfigurationCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "DescribeLoggingConfiguration", {})
   .n("NetworkFirewallClient", "DescribeLoggingConfigurationCommand")
-  .sc(DescribeLoggingConfiguration)
+  .sc(DescribeLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

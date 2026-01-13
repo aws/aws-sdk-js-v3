@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListPrincipalsRequest, ListPrincipalsResponse } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { ListPrincipals } from "../schemas/schemas_0";
+import { ListPrincipals$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class ListPrincipalsCommand extends $Command
   })
   .s("AmazonResourceSharing", "ListPrincipals", {})
   .n("RAMClient", "ListPrincipalsCommand")
-  .sc(ListPrincipals)
+  .sc(ListPrincipals$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

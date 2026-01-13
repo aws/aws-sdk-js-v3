@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GameLiftStreamsClient";
 import type { StartStreamSessionInput, StartStreamSessionOutput } from "../models/models_0";
-import { StartStreamSession } from "../schemas/schemas_0";
+import { StartStreamSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -59,6 +59,9 @@ export interface StartStreamSessionCommandOutput extends StartStreamSessionOutpu
  *   AdditionalEnvironmentVariables: { // EnvironmentVariables
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   PerformanceStatsConfiguration: { // PerformanceStatsConfiguration
+ *     SharedWithClient: true || false,
+ *   },
  * };
  * const command = new StartStreamSessionCommand(input);
  * const response = await client.send(command);
@@ -80,6 +83,9 @@ export interface StartStreamSessionCommandOutput extends StartStreamSessionOutpu
  * //   ],
  * //   AdditionalEnvironmentVariables: { // EnvironmentVariables
  * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   PerformanceStatsConfiguration: { // PerformanceStatsConfiguration
+ * //     SharedWithClient: true || false,
  * //   },
  * //   LogFileLocationUri: "STRING_VALUE",
  * //   WebSdkProtocolUrl: "STRING_VALUE",
@@ -139,7 +145,7 @@ export class StartStreamSessionCommand extends $Command
   })
   .s("GameLiftStreams", "StartStreamSession", {})
   .n("GameLiftStreamsClient", "StartStreamSessionCommand")
-  .sc(StartStreamSession)
+  .sc(StartStreamSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

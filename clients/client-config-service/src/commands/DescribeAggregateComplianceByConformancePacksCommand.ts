@@ -9,7 +9,7 @@ import type {
   DescribeAggregateComplianceByConformancePacksRequest,
   DescribeAggregateComplianceByConformancePacksResponse,
 } from "../models/models_0";
-import { DescribeAggregateComplianceByConformancePacks } from "../schemas/schemas_0";
+import { DescribeAggregateComplianceByConformancePacks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeAggregateComplianceByConformancePacksCommand}.
  */
-export interface DescribeAggregateComplianceByConformancePacksCommandInput
-  extends DescribeAggregateComplianceByConformancePacksRequest {}
+export interface DescribeAggregateComplianceByConformancePacksCommandInput extends DescribeAggregateComplianceByConformancePacksRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeAggregateComplianceByConformancePacksCommand}.
  */
-export interface DescribeAggregateComplianceByConformancePacksCommandOutput
-  extends DescribeAggregateComplianceByConformancePacksResponse,
-    __MetadataBearer {}
+export interface DescribeAggregateComplianceByConformancePacksCommandOutput extends DescribeAggregateComplianceByConformancePacksResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the existing and deleted conformance packs and their associated compliance status with the count of compliant and noncompliant Config rules within each
@@ -151,7 +148,7 @@ export class DescribeAggregateComplianceByConformancePacksCommand extends $Comma
   })
   .s("StarlingDoveService", "DescribeAggregateComplianceByConformancePacks", {})
   .n("ConfigServiceClient", "DescribeAggregateComplianceByConformancePacksCommand")
-  .sc(DescribeAggregateComplianceByConformancePacks)
+  .sc(DescribeAggregateComplianceByConformancePacks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

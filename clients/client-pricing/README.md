@@ -37,10 +37,8 @@ Amazon Web Services Price List API</a> in the <i>Billing User
 Guide</i>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-pricing
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-pricing`
 - `yarn add @aws-sdk/client-pricing`
 - `pnpm add @aws-sdk/client-pricing`
@@ -76,9 +74,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new PricingClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListPriceListsCommand(params);
 ```
 
@@ -237,7 +233,6 @@ DescribeServices
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pricing/command/DescribeServicesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/DescribeServicesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/DescribeServicesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -245,7 +240,6 @@ GetAttributeValues
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pricing/command/GetAttributeValuesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/GetAttributeValuesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/GetAttributeValuesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -253,7 +247,6 @@ GetPriceListFileUrl
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pricing/command/GetPriceListFileUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/GetPriceListFileUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/GetPriceListFileUrlCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -261,7 +254,6 @@ GetProducts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pricing/command/GetProductsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/GetProductsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/GetProductsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -269,5 +261,4 @@ ListPriceLists
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pricing/command/ListPriceListsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/ListPriceListsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/ListPriceListsCommandOutput/)
-
 </details>

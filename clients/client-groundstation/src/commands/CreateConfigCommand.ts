@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import type { ConfigIdResponse, CreateConfigRequest } from "../models/models_0";
-import { CreateConfig } from "../schemas/schemas_0";
+import { CreateConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -154,7 +154,7 @@ export class CreateConfigCommand extends $Command
   })
   .s("GroundStation", "CreateConfig", {})
   .n("GroundStationClient", "CreateConfigCommand")
-  .sc(CreateConfig)
+  .sc(CreateConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

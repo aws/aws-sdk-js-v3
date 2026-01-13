@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartDataSourceIntrospectionRequest, StartDataSourceIntrospectionResponse } from "../models/models_0";
-import { StartDataSourceIntrospection } from "../schemas/schemas_0";
+import { StartDataSourceIntrospection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface StartDataSourceIntrospectionCommandInput extends StartDataSourc
  *
  * The output of {@link StartDataSourceIntrospectionCommand}.
  */
-export interface StartDataSourceIntrospectionCommandOutput
-  extends StartDataSourceIntrospectionResponse,
-    __MetadataBearer {}
+export interface StartDataSourceIntrospectionCommandOutput extends StartDataSourceIntrospectionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new introspection. Returns the <code>introspectionId</code> of the new
@@ -96,7 +94,7 @@ export class StartDataSourceIntrospectionCommand extends $Command
   })
   .s("AWSDeepdishControlPlaneService", "StartDataSourceIntrospection", {})
   .n("AppSyncClient", "StartDataSourceIntrospectionCommand")
-  .sc(StartDataSourceIntrospection)
+  .sc(StartDataSourceIntrospection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

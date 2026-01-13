@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCalculationExecutionStatusRequest, GetCalculationExecutionStatusResponse } from "../models/models_0";
-import { GetCalculationExecutionStatus } from "../schemas/schemas_0";
+import { GetCalculationExecutionStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetCalculationExecutionStatusCommandInput extends GetCalculatio
  *
  * The output of {@link GetCalculationExecutionStatusCommand}.
  */
-export interface GetCalculationExecutionStatusCommandOutput
-  extends GetCalculationExecutionStatusResponse,
-    __MetadataBearer {}
+export interface GetCalculationExecutionStatusCommandOutput extends GetCalculationExecutionStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the status of a current calculation.</p>
@@ -95,7 +93,7 @@ export class GetCalculationExecutionStatusCommand extends $Command
   })
   .s("AmazonAthena", "GetCalculationExecutionStatus", {})
   .n("AthenaClient", "GetCalculationExecutionStatusCommand")
-  .sc(GetCalculationExecutionStatus)
+  .sc(GetCalculationExecutionStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

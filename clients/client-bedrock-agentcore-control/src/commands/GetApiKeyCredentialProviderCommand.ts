@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetApiKeyCredentialProviderRequest, GetApiKeyCredentialProviderResponse } from "../models/models_0";
-import { GetApiKeyCredentialProvider } from "../schemas/schemas_0";
+import { GetApiKeyCredentialProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetApiKeyCredentialProviderCommandInput extends GetApiKeyCreden
  *
  * The output of {@link GetApiKeyCredentialProviderCommand}.
  */
-export interface GetApiKeyCredentialProviderCommandOutput
-  extends GetApiKeyCredentialProviderResponse,
-    __MetadataBearer {}
+export interface GetApiKeyCredentialProviderCommandOutput extends GetApiKeyCredentialProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about an API key credential provider.</p>
@@ -106,7 +104,7 @@ export class GetApiKeyCredentialProviderCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "GetApiKeyCredentialProvider", {})
   .n("BedrockAgentCoreControlClient", "GetApiKeyCredentialProviderCommand")
-  .sc(GetApiKeyCredentialProvider)
+  .sc(GetApiKeyCredentialProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

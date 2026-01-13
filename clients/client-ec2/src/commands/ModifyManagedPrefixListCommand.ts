@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyManagedPrefixListRequest, ModifyManagedPrefixListResult } from "../models/models_6";
-import { ModifyManagedPrefixList } from "../schemas/schemas_0";
+import { ModifyManagedPrefixList$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class ModifyManagedPrefixListCommand extends $Command
   })
   .s("AmazonEC2", "ModifyManagedPrefixList", {})
   .n("EC2Client", "ModifyManagedPrefixListCommand")
-  .sc(ModifyManagedPrefixList)
+  .sc(ModifyManagedPrefixList$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

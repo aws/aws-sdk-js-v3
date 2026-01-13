@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateAutoScalingGroupType } from "../models/models_0";
-import { UpdateAutoScalingGroup } from "../schemas/schemas_0";
+import { UpdateAutoScalingGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -303,7 +303,7 @@ export class UpdateAutoScalingGroupCommand extends $Command
   })
   .s("AutoScaling_2011_01_01", "UpdateAutoScalingGroup", {})
   .n("AutoScalingClient", "UpdateAutoScalingGroupCommand")
-  .sc(UpdateAutoScalingGroup)
+  .sc(UpdateAutoScalingGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

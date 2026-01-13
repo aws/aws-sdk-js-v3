@@ -13,7 +13,7 @@ import type {
   CreateCalculatedAttributeDefinitionRequest,
   CreateCalculatedAttributeDefinitionResponse,
 } from "../models/models_0";
-import { CreateCalculatedAttributeDefinition } from "../schemas/schemas_0";
+import { CreateCalculatedAttributeDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface CreateCalculatedAttributeDefinitionCommandInput extends CreateC
  *
  * The output of {@link CreateCalculatedAttributeDefinitionCommand}.
  */
-export interface CreateCalculatedAttributeDefinitionCommandOutput
-  extends CreateCalculatedAttributeDefinitionResponse,
-    __MetadataBearer {}
+export interface CreateCalculatedAttributeDefinitionCommandOutput extends CreateCalculatedAttributeDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new calculated attribute definition. After creation, new object data ingested
@@ -214,7 +212,7 @@ export class CreateCalculatedAttributeDefinitionCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "CreateCalculatedAttributeDefinition", {})
   .n("CustomerProfilesClient", "CreateCalculatedAttributeDefinitionCommand")
-  .sc(CreateCalculatedAttributeDefinition)
+  .sc(CreateCalculatedAttributeDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

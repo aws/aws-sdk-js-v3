@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { RestartChannelPipelinesRequest, RestartChannelPipelinesResponse } from "../models/models_1";
-import { RestartChannelPipelines } from "../schemas/schemas_0";
+import { RestartChannelPipelines$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -58,6 +58,8 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //           ChannelId: "STRING_VALUE",
  * //           ChannelGroup: "STRING_VALUE",
  * //           ChannelName: "STRING_VALUE",
+ * //           ChannelEndpointId: "STRING_VALUE",
+ * //           MediaPackageRegionName: "STRING_VALUE",
  * //         },
  * //       ],
  * //       MultiplexSettings: { // MultiplexProgramChannelDestinationSettings
@@ -358,7 +360,9 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //           CustomEpoch: "STRING_VALUE",
  * //           JamSyncTime: "STRING_VALUE",
  * //         },
- * //         PipelineLockingSettings: {},
+ * //         PipelineLockingSettings: { // PipelineLockingSettings
+ * //           PipelineLockingMethod: "SOURCE_TIMECODE" || "VIDEO_ALIGNMENT",
+ * //         },
  * //       },
  * //     },
  * //     MotionGraphicsConfiguration: { // MotionGraphicsConfiguration
@@ -510,6 +514,13 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //               TimedMetadataId3Frame: "NONE" || "PRIV" || "TDRL",
  * //               TimedMetadataId3Period: Number("int"),
  * //               TimedMetadataPassthrough: "DISABLED" || "ENABLED",
+ * //               AdditionalDestinations: [ // __listOfMediaPackageAdditionalDestinations
+ * //                 { // MediaPackageAdditionalDestinations
+ * //                   Destination: {
+ * //                     DestinationRefId: "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //               ],
  * //             },
  * //           },
  * //           MsSmoothGroupSettings: { // MsSmoothGroupSettings
@@ -517,9 +528,7 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //             AudioOnlyTimecodeControl: "PASSTHROUGH" || "USE_CONFIGURED_CLOCK",
  * //             CertificateMode: "SELF_SIGNED" || "VERIFY_AUTHENTICITY",
  * //             ConnectionRetryInterval: Number("int"),
- * //             Destination: {
- * //               DestinationRefId: "STRING_VALUE",
- * //             },
+ * //             Destination: "<OutputLocationRef>", // required
  * //             EventId: "STRING_VALUE",
  * //             EventIdMode: "NO_EVENT_ID" || "USE_CONFIGURED" || "USE_TIMESTAMP",
  * //             EventStopBehavior: "NONE" || "SEND_EOS",
@@ -1316,6 +1325,16 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //     ExpirationDate: new Date("TIMESTAMP"),
  * //     Version: "STRING_VALUE",
  * //   },
+ * //   LinkedChannelSettings: { // DescribeLinkedChannelSettings
+ * //     FollowerChannelSettings: { // DescribeFollowerChannelSettings
+ * //       LinkedChannelType: "FOLLOWING_CHANNEL" || "PRIMARY_CHANNEL",
+ * //       PrimaryChannelArn: "STRING_VALUE",
+ * //     },
+ * //     PrimaryChannelSettings: { // DescribePrimaryChannelSettings
+ * //       FollowingChannelArns: "<__listOf__string>",
+ * //       LinkedChannelType: "FOLLOWING_CHANNEL" || "PRIMARY_CHANNEL",
+ * //     },
+ * //   },
  * // };
  *
  * ```
@@ -1370,7 +1389,7 @@ export class RestartChannelPipelinesCommand extends $Command
   })
   .s("MediaLive", "RestartChannelPipelines", {})
   .n("MediaLiveClient", "RestartChannelPipelinesCommand")
-  .sc(RestartChannelPipelines)
+  .sc(RestartChannelPipelines$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

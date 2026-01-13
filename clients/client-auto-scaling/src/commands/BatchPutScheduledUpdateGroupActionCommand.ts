@@ -9,7 +9,7 @@ import type {
   BatchPutScheduledUpdateGroupActionAnswer,
   BatchPutScheduledUpdateGroupActionType,
 } from "../models/models_0";
-import { BatchPutScheduledUpdateGroupAction } from "../schemas/schemas_0";
+import { BatchPutScheduledUpdateGroupAction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface BatchPutScheduledUpdateGroupActionCommandInput extends BatchPut
  *
  * The output of {@link BatchPutScheduledUpdateGroupActionCommand}.
  */
-export interface BatchPutScheduledUpdateGroupActionCommandOutput
-  extends BatchPutScheduledUpdateGroupActionAnswer,
-    __MetadataBearer {}
+export interface BatchPutScheduledUpdateGroupActionCommandOutput extends BatchPutScheduledUpdateGroupActionAnswer, __MetadataBearer {}
 
 /**
  * <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group.</p>
@@ -109,7 +107,7 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command
   })
   .s("AutoScaling_2011_01_01", "BatchPutScheduledUpdateGroupAction", {})
   .n("AutoScalingClient", "BatchPutScheduledUpdateGroupActionCommand")
-  .sc(BatchPutScheduledUpdateGroupAction)
+  .sc(BatchPutScheduledUpdateGroupAction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

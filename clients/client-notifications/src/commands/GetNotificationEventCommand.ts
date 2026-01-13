@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetNotificationEventRequest, GetNotificationEventResponse } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { GetNotificationEvent } from "../schemas/schemas_0";
+import { GetNotificationEvent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -191,7 +191,7 @@ export class GetNotificationEventCommand extends $Command
   })
   .s("Notifications", "GetNotificationEvent", {})
   .n("NotificationsClient", "GetNotificationEventCommand")
-  .sc(GetNotificationEvent)
+  .sc(GetNotificationEvent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

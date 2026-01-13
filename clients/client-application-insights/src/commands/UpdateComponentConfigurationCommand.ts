@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationInsightsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateComponentConfigurationRequest, UpdateComponentConfigurationResponse } from "../models/models_0";
-import { UpdateComponentConfiguration } from "../schemas/schemas_0";
+import { UpdateComponentConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface UpdateComponentConfigurationCommandInput extends UpdateComponen
  *
  * The output of {@link UpdateComponentConfigurationCommand}.
  */
-export interface UpdateComponentConfigurationCommandOutput
-  extends UpdateComponentConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateComponentConfigurationCommandOutput extends UpdateComponentConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the monitoring configurations for the component. The configuration input
@@ -96,7 +94,7 @@ export class UpdateComponentConfigurationCommand extends $Command
   })
   .s("EC2WindowsBarleyService", "UpdateComponentConfiguration", {})
   .n("ApplicationInsightsClient", "UpdateComponentConfigurationCommand")
-  .sc(UpdateComponentConfiguration)
+  .sc(UpdateComponentConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

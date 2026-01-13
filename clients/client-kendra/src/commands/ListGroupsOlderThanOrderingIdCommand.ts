@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import type { ListGroupsOlderThanOrderingIdRequest, ListGroupsOlderThanOrderingIdResponse } from "../models/models_0";
-import { ListGroupsOlderThanOrderingId } from "../schemas/schemas_0";
+import { ListGroupsOlderThanOrderingId$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListGroupsOlderThanOrderingIdCommandInput extends ListGroupsOld
  *
  * The output of {@link ListGroupsOlderThanOrderingIdCommand}.
  */
-export interface ListGroupsOlderThanOrderingIdCommandOutput
-  extends ListGroupsOlderThanOrderingIdResponse,
-    __MetadataBearer {}
+export interface ListGroupsOlderThanOrderingIdCommandOutput extends ListGroupsOlderThanOrderingIdResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a list of groups that are mapped to users before a given ordering or
@@ -112,7 +110,7 @@ export class ListGroupsOlderThanOrderingIdCommand extends $Command
   })
   .s("AWSKendraFrontendService", "ListGroupsOlderThanOrderingId", {})
   .n("KendraClient", "ListGroupsOlderThanOrderingIdCommand")
-  .sc(ListGroupsOlderThanOrderingId)
+  .sc(ListGroupsOlderThanOrderingId$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

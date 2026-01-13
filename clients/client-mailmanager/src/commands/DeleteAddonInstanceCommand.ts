@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
 import type { DeleteAddonInstanceRequest, DeleteAddonInstanceResponse } from "../models/models_0";
-import { DeleteAddonInstance } from "../schemas/schemas_0";
+import { DeleteAddonInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class DeleteAddonInstanceCommand extends $Command
   })
   .s("MailManagerSvc", "DeleteAddonInstance", {})
   .n("MailManagerClient", "DeleteAddonInstanceCommand")
-  .sc(DeleteAddonInstance)
+  .sc(DeleteAddonInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

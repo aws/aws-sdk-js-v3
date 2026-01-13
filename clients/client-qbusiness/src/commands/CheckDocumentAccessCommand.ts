@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CheckDocumentAccessRequest, CheckDocumentAccessResponse } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { CheckDocumentAccess } from "../schemas/schemas_0";
+import { CheckDocumentAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class CheckDocumentAccessCommand extends $Command
   })
   .s("ExpertQ", "CheckDocumentAccess", {})
   .n("QBusinessClient", "CheckDocumentAccessCommand")
-  .sc(CheckDocumentAccess)
+  .sc(CheckDocumentAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

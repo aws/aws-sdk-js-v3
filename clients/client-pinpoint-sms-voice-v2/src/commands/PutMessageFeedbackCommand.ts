@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { PutMessageFeedback } from "../schemas/schemas_0";
+import { PutMessageFeedback$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class PutMessageFeedbackCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "PutMessageFeedback", {})
   .n("PinpointSMSVoiceV2Client", "PutMessageFeedbackCommand")
-  .sc(PutMessageFeedback)
+  .sc(PutMessageFeedback$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

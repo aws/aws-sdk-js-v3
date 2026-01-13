@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeRoutingProfileRequest, DescribeRoutingProfileResponse } from "../models/models_1";
-import { DescribeRoutingProfile } from "../schemas/schemas_0";
+import { DescribeRoutingProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class DescribeRoutingProfileCommand extends $Command
   })
   .s("AmazonConnectService", "DescribeRoutingProfile", {})
   .n("ConnectClient", "DescribeRoutingProfileCommand")
-  .sc(DescribeRoutingProfile)
+  .sc(DescribeRoutingProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

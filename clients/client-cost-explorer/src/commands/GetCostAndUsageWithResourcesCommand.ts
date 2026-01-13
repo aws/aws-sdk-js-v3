@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCostAndUsageWithResourcesRequest, GetCostAndUsageWithResourcesResponse } from "../models/models_0";
-import { GetCostAndUsageWithResources } from "../schemas/schemas_0";
+import { GetCostAndUsageWithResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetCostAndUsageWithResourcesCommandInput extends GetCostAndUsag
  *
  * The output of {@link GetCostAndUsageWithResourcesCommand}.
  */
-export interface GetCostAndUsageWithResourcesCommandOutput
-  extends GetCostAndUsageWithResourcesResponse,
-    __MetadataBearer {}
+export interface GetCostAndUsageWithResourcesCommandOutput extends GetCostAndUsageWithResourcesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves cost and usage metrics with resources for your account. You can specify which
@@ -236,7 +234,7 @@ export class GetCostAndUsageWithResourcesCommand extends $Command
   })
   .s("AWSInsightsIndexService", "GetCostAndUsageWithResources", {})
   .n("CostExplorerClient", "GetCostAndUsageWithResourcesCommand")
-  .sc(GetCostAndUsageWithResources)
+  .sc(GetCostAndUsageWithResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

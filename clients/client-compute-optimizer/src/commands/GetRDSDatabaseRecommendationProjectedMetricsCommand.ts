@@ -13,7 +13,7 @@ import type {
   GetRDSDatabaseRecommendationProjectedMetricsRequest,
   GetRDSDatabaseRecommendationProjectedMetricsResponse,
 } from "../models/models_0";
-import { GetRDSDatabaseRecommendationProjectedMetrics } from "../schemas/schemas_0";
+import { GetRDSDatabaseRecommendationProjectedMetrics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link GetRDSDatabaseRecommendationProjectedMetricsCommand}.
  */
-export interface GetRDSDatabaseRecommendationProjectedMetricsCommandInput
-  extends GetRDSDatabaseRecommendationProjectedMetricsRequest {}
+export interface GetRDSDatabaseRecommendationProjectedMetricsCommandInput extends GetRDSDatabaseRecommendationProjectedMetricsRequest {}
 /**
  * @public
  *
  * The output of {@link GetRDSDatabaseRecommendationProjectedMetricsCommand}.
  */
-export interface GetRDSDatabaseRecommendationProjectedMetricsCommandOutput
-  extends GetRDSDatabaseRecommendationProjectedMetricsResponse,
-    __MetadataBearer {}
+export interface GetRDSDatabaseRecommendationProjectedMetricsCommandOutput extends GetRDSDatabaseRecommendationProjectedMetricsResponse, __MetadataBearer {}
 
 /**
  * <p>
@@ -135,7 +132,7 @@ export class GetRDSDatabaseRecommendationProjectedMetricsCommand extends $Comman
   })
   .s("ComputeOptimizerService", "GetRDSDatabaseRecommendationProjectedMetrics", {})
   .n("ComputeOptimizerClient", "GetRDSDatabaseRecommendationProjectedMetricsCommand")
-  .sc(GetRDSDatabaseRecommendationProjectedMetrics)
+  .sc(GetRDSDatabaseRecommendationProjectedMetrics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

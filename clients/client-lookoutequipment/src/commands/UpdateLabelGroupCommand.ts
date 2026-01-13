@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LookoutEquipmentClient";
 import type { UpdateLabelGroupRequest } from "../models/models_0";
-import { UpdateLabelGroup } from "../schemas/schemas_0";
+import { UpdateLabelGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class UpdateLabelGroupCommand extends $Command
   })
   .s("AWSLookoutEquipmentFrontendService", "UpdateLabelGroup", {})
   .n("LookoutEquipmentClient", "UpdateLabelGroupCommand")
-  .sc(UpdateLabelGroup)
+  .sc(UpdateLabelGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

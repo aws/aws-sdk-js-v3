@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { DeleteTLSInspectionConfiguration } from "../schemas/schemas_0";
+import { DeleteTLSInspectionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DeleteTLSInspectionConfigurationCommandInput extends DeleteTLSI
  *
  * The output of {@link DeleteTLSInspectionConfigurationCommand}.
  */
-export interface DeleteTLSInspectionConfigurationCommandOutput
-  extends DeleteTLSInspectionConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteTLSInspectionConfigurationCommandOutput extends DeleteTLSInspectionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified <a>TLSInspectionConfiguration</a>.</p>
@@ -145,7 +143,7 @@ export class DeleteTLSInspectionConfigurationCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "DeleteTLSInspectionConfiguration", {})
   .n("NetworkFirewallClient", "DeleteTLSInspectionConfigurationCommand")
-  .sc(DeleteTLSInspectionConfiguration)
+  .sc(DeleteTLSInspectionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

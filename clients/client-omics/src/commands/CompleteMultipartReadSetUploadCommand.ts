@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CompleteMultipartReadSetUploadRequest, CompleteMultipartReadSetUploadResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { CompleteMultipartReadSetUpload } from "../schemas/schemas_0";
+import { CompleteMultipartReadSetUpload$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CompleteMultipartReadSetUploadCommandInput extends CompleteMult
  *
  * The output of {@link CompleteMultipartReadSetUploadCommand}.
  */
-export interface CompleteMultipartReadSetUploadCommandOutput
-  extends CompleteMultipartReadSetUploadResponse,
-    __MetadataBearer {}
+export interface CompleteMultipartReadSetUploadCommandOutput extends CompleteMultipartReadSetUploadResponse, __MetadataBearer {}
 
 /**
  * <p>Completes a multipart read set upload into a sequence store after you have initiated the upload process with <code>CreateMultipartReadSetUpload</code> and uploaded all read set parts using <code>UploadReadSetPart</code>. You must specify the parts you uploaded using the parts parameter. If the operation is successful, it returns the read set ID(s) of the uploaded read set(s).</p> <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html">Direct upload to a sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
@@ -107,7 +105,7 @@ export class CompleteMultipartReadSetUploadCommand extends $Command
   })
   .s("Omics", "CompleteMultipartReadSetUpload", {})
   .n("OmicsClient", "CompleteMultipartReadSetUploadCommand")
-  .sc(CompleteMultipartReadSetUpload)
+  .sc(CompleteMultipartReadSetUpload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -61,74 +61,100 @@ const n0 = "com.amazonaws.sagemakeredge";
 import { TypeRegistry } from "@smithy/core/schema";
 import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
-import { InternalServiceException as __InternalServiceException } from "../models/errors";
-import { SagemakerEdgeServiceException as __SagemakerEdgeServiceException } from "../models/SagemakerEdgeServiceException";
+import { InternalServiceException } from "../models/errors";
+import { SagemakerEdgeServiceException } from "../models/SagemakerEdgeServiceException";
 
 /* eslint no-var: 0 */
-export var Checksum: StaticStructureSchema = [3, n0, _C, 0, [_T, _S], [0, 0]];
-export var Definition: StaticStructureSchema = [3, n0, _D, 0, [_MH, _SU, _C, _St], [0, 0, () => Checksum, 0]];
-export var DeploymentModel: StaticStructureSchema = [
-  3,
-  n0,
-  _DM,
+export var Checksum$: StaticStructureSchema = [3, n0, _C,
+  0,
+  [_T, _S],
+  [0, 0]
+];
+export var Definition$: StaticStructureSchema = [3, n0, _D,
+  0,
+  [_MH, _SU, _C, _St],
+  [0, 0, () => Checksum$, 0]
+];
+export var DeploymentModel$: StaticStructureSchema = [3, n0, _DM,
   0,
   [_MH, _MN, _MV, _DS, _St, _Sta, _SR, _RFR],
-  [0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0]
 ];
-export var DeploymentResult: StaticStructureSchema = [
-  3,
-  n0,
-  _DR,
+export var DeploymentResult$: StaticStructureSchema = [3, n0, _DR,
   0,
   [_DN, _DSe, _DSM, _DST, _DET, _DMe],
-  [0, 0, 0, 4, 4, () => DeploymentModels],
+  [0, 0, 0, 4, 4, () => DeploymentModels]
 ];
-export var EdgeDeployment: StaticStructureSchema = [3, n0, _ED, 0, [_DN, _T, _FHP, _De], [0, 0, 0, () => Definitions]];
-export var EdgeMetric: StaticStructureSchema = [3, n0, _EM, 0, [_Di, _MNe, _V, _Ti], [0, 0, 1, 4]];
-export var GetDeploymentsRequest: StaticStructureSchema = [3, n0, _GDR, 0, [_DNe, _DFN], [0, 0]];
-export var GetDeploymentsResult: StaticStructureSchema = [3, n0, _GDRe, 0, [_Dep], [() => EdgeDeployments]];
-export var GetDeviceRegistrationRequest: StaticStructureSchema = [3, n0, _GDRR, 0, [_DNe, _DFN], [0, 0]];
-export var GetDeviceRegistrationResult: StaticStructureSchema = [3, n0, _GDRRe, 0, [_DRe, _CTTL], [0, 0]];
-export var InternalServiceException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalServiceException, __InternalServiceException);
-export var Model: StaticStructureSchema = [3, n0, _Mo, 0, [_MN, _MV, _LST, _LI, _MM], [0, 0, 4, 4, () => EdgeMetrics]];
-export var SendHeartbeatRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _SHR,
+export var EdgeDeployment$: StaticStructureSchema = [3, n0, _ED,
+  0,
+  [_DN, _T, _FHP, _De],
+  [0, 0, 0, () => Definitions]
+];
+export var EdgeMetric$: StaticStructureSchema = [3, n0, _EM,
+  0,
+  [_Di, _MNe, _V, _Ti],
+  [0, 0, 1, 4]
+];
+export var GetDeploymentsRequest$: StaticStructureSchema = [3, n0, _GDR,
+  0,
+  [_DNe, _DFN],
+  [0, 0]
+];
+export var GetDeploymentsResult$: StaticStructureSchema = [3, n0, _GDRe,
+  0,
+  [_Dep],
+  [() => EdgeDeployments]
+];
+export var GetDeviceRegistrationRequest$: StaticStructureSchema = [3, n0, _GDRR,
+  0,
+  [_DNe, _DFN],
+  [0, 0]
+];
+export var GetDeviceRegistrationResult$: StaticStructureSchema = [3, n0, _GDRRe,
+  0,
+  [_DRe, _CTTL],
+  [0, 0]
+];
+export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceException);
+export var Model$: StaticStructureSchema = [3, n0, _Mo,
+  0,
+  [_MN, _MV, _LST, _LI, _MM],
+  [0, 0, 4, 4, () => EdgeMetrics]
+];
+export var SendHeartbeatRequest$: StaticStructureSchema = [3, n0, _SHR,
   0,
   [_AM, _Mod, _AV, _DNe, _DFN, _DR],
-  [() => EdgeMetrics, () => Models, 0, 0, 0, () => DeploymentResult],
+  [() => EdgeMetrics, () => Models, 0, 0, 0, () => DeploymentResult$]
 ];
-export var __Unit = "unit" as const;
-export var SagemakerEdgeServiceException: StaticErrorSchema = [-3, _s, "SagemakerEdgeServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(SagemakerEdgeServiceException, __SagemakerEdgeServiceException);
-export var Definitions: StaticListSchema = [1, n0, _De, 0, () => Definition];
-export var DeploymentModels: StaticListSchema = [1, n0, _DMe, 0, () => DeploymentModel];
-export var EdgeDeployments: StaticListSchema = [1, n0, _EDd, 0, () => EdgeDeployment];
-export var EdgeMetrics: StaticListSchema = [1, n0, _EMd, 0, () => EdgeMetric];
-export var Models: StaticListSchema = [1, n0, _Mod, 0, () => Model];
-export var GetDeployments: StaticOperationSchema = [
-  9,
-  n0,
-  _GD,
-  { [_h]: ["POST", "/GetDeployments", 200] },
-  () => GetDeploymentsRequest,
-  () => GetDeploymentsResult,
+var __Unit = "unit" as const;
+export var SagemakerEdgeServiceException$: StaticErrorSchema = [-3, _s, "SagemakerEdgeServiceException", 0, [], []];
+TypeRegistry.for(_s).registerError(SagemakerEdgeServiceException$, SagemakerEdgeServiceException);
+var Definitions: StaticListSchema = [1, n0, _De,
+  0, () => Definition$
 ];
-export var GetDeviceRegistration: StaticOperationSchema = [
-  9,
-  n0,
-  _GDRet,
-  { [_h]: ["POST", "/GetDeviceRegistration", 200] },
-  () => GetDeviceRegistrationRequest,
-  () => GetDeviceRegistrationResult,
+var DeploymentModels: StaticListSchema = [1, n0, _DMe,
+  0, () => DeploymentModel$
 ];
-export var SendHeartbeat: StaticOperationSchema = [
-  9,
-  n0,
-  _SH,
-  { [_h]: ["POST", "/SendHeartbeat", 200] },
-  () => SendHeartbeatRequest,
-  () => __Unit,
+var EdgeDeployments: StaticListSchema = [1, n0, _EDd,
+  0, () => EdgeDeployment$
+];
+var EdgeMetrics: StaticListSchema = [1, n0, _EMd,
+  0, () => EdgeMetric$
+];
+var Models: StaticListSchema = [1, n0, _Mod,
+  0, () => Model$
+];
+export var GetDeployments$: StaticOperationSchema = [9, n0, _GD,
+  { [_h]: ["POST", "/GetDeployments", 200] }, () => GetDeploymentsRequest$, () => GetDeploymentsResult$
+];
+export var GetDeviceRegistration$: StaticOperationSchema = [9, n0, _GDRet,
+  { [_h]: ["POST", "/GetDeviceRegistration", 200] }, () => GetDeviceRegistrationRequest$, () => GetDeviceRegistrationResult$
+];
+export var SendHeartbeat$: StaticOperationSchema = [9, n0, _SH,
+  { [_h]: ["POST", "/SendHeartbeat", 200] }, () => SendHeartbeatRequest$, () => __Unit
 ];

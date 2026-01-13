@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CopyWorkspaceImageRequest, CopyWorkspaceImageResult } from "../models/models_0";
-import { CopyWorkspaceImage } from "../schemas/schemas_0";
+import { CopyWorkspaceImage$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -31,7 +31,7 @@ export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResul
  *          information about copying images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html"> Copy a Custom WorkSpaces
  *             Image</a>.</p>
  *          <p>In the China (Ningxia) Region, you can copy images only within the same Region.</p>
- *          <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web ServicesSupport.</p>
+ *          <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web Services Support.</p>
  *          <important>
  *             <p>Before copying a shared image, be sure to verify that it has been shared from the
  *             correct Amazon Web Services account. To determine if an image has been shared and to see
@@ -112,7 +112,7 @@ export class CopyWorkspaceImageCommand extends $Command
   })
   .s("WorkspacesService", "CopyWorkspaceImage", {})
   .n("WorkSpacesClient", "CopyWorkspaceImageCommand")
-  .sc(CopyWorkspaceImage)
+  .sc(CopyWorkspaceImage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

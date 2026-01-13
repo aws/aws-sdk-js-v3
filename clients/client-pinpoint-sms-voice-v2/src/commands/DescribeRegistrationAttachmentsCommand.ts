@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DescribeRegistrationAttachments } from "../schemas/schemas_0";
+import { DescribeRegistrationAttachments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DescribeRegistrationAttachmentsCommandInput extends DescribeReg
  *
  * The output of {@link DescribeRegistrationAttachmentsCommand}.
  */
-export interface DescribeRegistrationAttachmentsCommandOutput
-  extends DescribeRegistrationAttachmentsResult,
-    __MetadataBearer {}
+export interface DescribeRegistrationAttachmentsCommandOutput extends DescribeRegistrationAttachmentsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified registration attachments or all registration attachments associated with your Amazon Web Services account.</p>
@@ -115,7 +113,7 @@ export class DescribeRegistrationAttachmentsCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DescribeRegistrationAttachments", {})
   .n("PinpointSMSVoiceV2Client", "DescribeRegistrationAttachmentsCommand")
-  .sc(DescribeRegistrationAttachments)
+  .sc(DescribeRegistrationAttachments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

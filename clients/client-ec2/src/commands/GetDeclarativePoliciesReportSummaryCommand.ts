@@ -9,7 +9,7 @@ import type {
   GetDeclarativePoliciesReportSummaryRequest,
   GetDeclarativePoliciesReportSummaryResult,
 } from "../models/models_5";
-import { GetDeclarativePoliciesReportSummary } from "../schemas/schemas_0";
+import { GetDeclarativePoliciesReportSummary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetDeclarativePoliciesReportSummaryCommandInput extends GetDecl
  *
  * The output of {@link GetDeclarativePoliciesReportSummaryCommand}.
  */
-export interface GetDeclarativePoliciesReportSummaryCommandOutput
-  extends GetDeclarativePoliciesReportSummaryResult,
-    __MetadataBearer {}
+export interface GetDeclarativePoliciesReportSummaryCommandOutput extends GetDeclarativePoliciesReportSummaryResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a summary of the account status report.</p>
@@ -109,7 +107,7 @@ export class GetDeclarativePoliciesReportSummaryCommand extends $Command
   })
   .s("AmazonEC2", "GetDeclarativePoliciesReportSummary", {})
   .n("EC2Client", "GetDeclarativePoliciesReportSummaryCommand")
-  .sc(GetDeclarativePoliciesReportSummary)
+  .sc(GetDeclarativePoliciesReportSummary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

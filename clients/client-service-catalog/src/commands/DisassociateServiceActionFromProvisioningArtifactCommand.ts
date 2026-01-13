@@ -8,7 +8,7 @@ import type {
   DisassociateServiceActionFromProvisioningArtifactInput,
   DisassociateServiceActionFromProvisioningArtifactOutput,
 } from "../models/models_0";
-import { DisassociateServiceActionFromProvisioningArtifact } from "../schemas/schemas_0";
+import { DisassociateServiceActionFromProvisioningArtifact$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DisassociateServiceActionFromProvisioningArtifactCommand}.
  */
-export interface DisassociateServiceActionFromProvisioningArtifactCommandInput
-  extends DisassociateServiceActionFromProvisioningArtifactInput {}
+export interface DisassociateServiceActionFromProvisioningArtifactCommandInput extends DisassociateServiceActionFromProvisioningArtifactInput {}
 /**
  * @public
  *
  * The output of {@link DisassociateServiceActionFromProvisioningArtifactCommand}.
  */
-export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput
-  extends DisassociateServiceActionFromProvisioningArtifactOutput,
-    __MetadataBearer {}
+export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput extends DisassociateServiceActionFromProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified self-service action association from the specified provisioning artifact.</p>
@@ -91,7 +88,7 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
   })
   .s("AWS242ServiceCatalogService", "DisassociateServiceActionFromProvisioningArtifact", {})
   .n("ServiceCatalogClient", "DisassociateServiceActionFromProvisioningArtifactCommand")
-  .sc(DisassociateServiceActionFromProvisioningArtifact)
+  .sc(DisassociateServiceActionFromProvisioningArtifact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

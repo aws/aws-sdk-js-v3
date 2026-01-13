@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateWorkerBlockRequest, CreateWorkerBlockResponse } from "../models/models_0";
 import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { CreateWorkerBlock } from "../schemas/schemas_0";
+import { CreateWorkerBlock$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -78,7 +78,7 @@ export class CreateWorkerBlockCommand extends $Command
   })
   .s("MTurkRequesterServiceV20170117", "CreateWorkerBlock", {})
   .n("MTurkClient", "CreateWorkerBlockCommand")
-  .sc(CreateWorkerBlock)
+  .sc(CreateWorkerBlock$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

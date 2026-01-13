@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteResponderGatewayRequest, DeleteResponderGatewayResponse } from "../models/models_0";
 import type { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
-import { DeleteResponderGateway } from "../schemas/schemas_0";
+import { DeleteResponderGateway$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class DeleteResponderGatewayCommand extends $Command
   })
   .s("RTBFabric", "DeleteResponderGateway", {})
   .n("RTBFabricClient", "DeleteResponderGatewayCommand")
-  .sc(DeleteResponderGateway)
+  .sc(DeleteResponderGateway$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

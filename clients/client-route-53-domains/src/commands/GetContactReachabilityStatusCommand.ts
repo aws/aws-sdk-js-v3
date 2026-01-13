@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { GetContactReachabilityStatus } from "../schemas/schemas_0";
+import { GetContactReachabilityStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetContactReachabilityStatusCommandInput extends GetContactReac
  *
  * The output of {@link GetContactReachabilityStatusCommand}.
  */
-export interface GetContactReachabilityStatusCommandOutput
-  extends GetContactReachabilityStatusResponse,
-    __MetadataBearer {}
+export interface GetContactReachabilityStatusCommandOutput extends GetContactReachabilityStatusResponse, __MetadataBearer {}
 
 /**
  * <p>For operations that require confirmation that the email address for the registrant
@@ -97,7 +95,7 @@ export class GetContactReachabilityStatusCommand extends $Command
   })
   .s("Route53Domains_v20140515", "GetContactReachabilityStatus", {})
   .n("Route53DomainsClient", "GetContactReachabilityStatusCommand")
-  .sc(GetContactReachabilityStatus)
+  .sc(GetContactReachabilityStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

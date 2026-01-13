@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeConfigurationRevisionRequest, DescribeConfigurationRevisionResponse } from "../models/models_0";
 import type { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import { DescribeConfigurationRevision } from "../schemas/schemas_0";
+import { DescribeConfigurationRevision$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeConfigurationRevisionCommandInput extends DescribeConfi
  *
  * The output of {@link DescribeConfigurationRevisionCommand}.
  */
-export interface DescribeConfigurationRevisionCommandOutput
-  extends DescribeConfigurationRevisionResponse,
-    __MetadataBearer {}
+export interface DescribeConfigurationRevisionCommandOutput extends DescribeConfigurationRevisionResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the specified configuration revision for the specified configuration.</p>
@@ -91,7 +89,7 @@ export class DescribeConfigurationRevisionCommand extends $Command
   })
   .s("mq", "DescribeConfigurationRevision", {})
   .n("MqClient", "DescribeConfigurationRevisionCommand")
-  .sc(DescribeConfigurationRevision)
+  .sc(DescribeConfigurationRevision$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

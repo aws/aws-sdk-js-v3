@@ -843,7 +843,9 @@ export interface RedshiftConnect {
  * <p>A union structure representing different Redshift integration scopes.</p>
  * @public
  */
-export type RedshiftScopeUnion = RedshiftScopeUnion.RedshiftConnectMember | RedshiftScopeUnion.$UnknownMember;
+export type RedshiftScopeUnion =
+  | RedshiftScopeUnion.RedshiftConnectMember
+  | RedshiftScopeUnion.$UnknownMember;
 
 /**
  * @public
@@ -880,7 +882,9 @@ export namespace RedshiftScopeUnion {
  * <p>A union structure representing different service integration types.</p>
  * @public
  */
-export type ServiceIntegrationUnion = ServiceIntegrationUnion.RedshiftMember | ServiceIntegrationUnion.$UnknownMember;
+export type ServiceIntegrationUnion =
+  | ServiceIntegrationUnion.RedshiftMember
+  | ServiceIntegrationUnion.$UnknownMember;
 
 /**
  * @public

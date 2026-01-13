@@ -9,7 +9,7 @@ import type {
   DeleteDataRepositoryAssociationRequest,
   DeleteDataRepositoryAssociationResponse,
 } from "../models/models_0";
-import { DeleteDataRepositoryAssociation } from "../schemas/schemas_0";
+import { DeleteDataRepositoryAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DeleteDataRepositoryAssociationCommandInput extends DeleteDataR
  *
  * The output of {@link DeleteDataRepositoryAssociationCommand}.
  */
-export interface DeleteDataRepositoryAssociationCommandOutput
-  extends DeleteDataRepositoryAssociationResponse,
-    __MetadataBearer {}
+export interface DeleteDataRepositoryAssociationCommandOutput extends DeleteDataRepositoryAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a data repository association on an Amazon FSx for Lustre
@@ -106,7 +104,7 @@ export class DeleteDataRepositoryAssociationCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "DeleteDataRepositoryAssociation", {})
   .n("FSxClient", "DeleteDataRepositoryAssociationCommand")
-  .sc(DeleteDataRepositoryAssociation)
+  .sc(DeleteDataRepositoryAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

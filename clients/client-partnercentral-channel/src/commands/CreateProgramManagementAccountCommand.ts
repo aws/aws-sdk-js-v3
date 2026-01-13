@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralChannelClient";
-import { CreateProgramManagementAccount } from "../schemas/schemas_0";
+import { CreateProgramManagementAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface CreateProgramManagementAccountCommandInput extends CreateProgra
  *
  * The output of {@link CreateProgramManagementAccountCommand}.
  */
-export interface CreateProgramManagementAccountCommandOutput
-  extends CreateProgramManagementAccountResponse,
-    __MetadataBearer {}
+export interface CreateProgramManagementAccountCommandOutput extends CreateProgramManagementAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new program management account for managing partner relationships.</p>
@@ -135,7 +133,7 @@ export class CreateProgramManagementAccountCommand extends $Command
   })
   .s("PartnerCentralChannel", "CreateProgramManagementAccount", {})
   .n("PartnerCentralChannelClient", "CreateProgramManagementAccountCommand")
-  .sc(CreateProgramManagementAccount)
+  .sc(CreateProgramManagementAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

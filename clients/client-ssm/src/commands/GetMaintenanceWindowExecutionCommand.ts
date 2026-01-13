@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMaintenanceWindowExecutionRequest, GetMaintenanceWindowExecutionResult } from "../models/models_0";
-import { GetMaintenanceWindowExecution } from "../schemas/schemas_0";
+import { GetMaintenanceWindowExecution$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -24,9 +24,7 @@ export interface GetMaintenanceWindowExecutionCommandInput extends GetMaintenanc
  *
  * The output of {@link GetMaintenanceWindowExecutionCommand}.
  */
-export interface GetMaintenanceWindowExecutionCommandOutput
-  extends GetMaintenanceWindowExecutionResult,
-    __MetadataBearer {}
+export interface GetMaintenanceWindowExecutionCommandOutput extends GetMaintenanceWindowExecutionResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves details about a specific a maintenance window execution.</p>
@@ -91,7 +89,7 @@ export class GetMaintenanceWindowExecutionCommand extends $Command
   })
   .s("AmazonSSM", "GetMaintenanceWindowExecution", {})
   .n("SSMClient", "GetMaintenanceWindowExecutionCommand")
-  .sc(GetMaintenanceWindowExecution)
+  .sc(GetMaintenanceWindowExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

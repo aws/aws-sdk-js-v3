@@ -13,7 +13,7 @@ import type {
   BatchDeleteBillScenarioUsageModificationRequest,
   BatchDeleteBillScenarioUsageModificationResponse,
 } from "../models/models_0";
-import { BatchDeleteBillScenarioUsageModification } from "../schemas/schemas_0";
+import { BatchDeleteBillScenarioUsageModification$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link BatchDeleteBillScenarioUsageModificationCommand}.
  */
-export interface BatchDeleteBillScenarioUsageModificationCommandInput
-  extends BatchDeleteBillScenarioUsageModificationRequest {}
+export interface BatchDeleteBillScenarioUsageModificationCommandInput extends BatchDeleteBillScenarioUsageModificationRequest {}
 /**
  * @public
  *
  * The output of {@link BatchDeleteBillScenarioUsageModificationCommand}.
  */
-export interface BatchDeleteBillScenarioUsageModificationCommandOutput
-  extends BatchDeleteBillScenarioUsageModificationResponse,
-    __MetadataBearer {}
+export interface BatchDeleteBillScenarioUsageModificationCommandOutput extends BatchDeleteBillScenarioUsageModificationResponse, __MetadataBearer {}
 
 /**
  * <p> Delete usage that you have created in a Bill Scenario. You can only delete usage that you had added and cannot model deletion (or removal) of a existing usage. If you want model removal of an existing usage, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchUpdateBillScenarioUsageModification.html"> BatchUpdateBillScenarioUsageModification</a>. </p> <note> <p>The <code>BatchDeleteBillScenarioUsageModification</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals, include the permission <code>bcm-pricing-calculator:DeleteBillScenarioUsageModification</code> in your policies.</p> </note>
@@ -116,7 +113,7 @@ export class BatchDeleteBillScenarioUsageModificationCommand extends $Command
   })
   .s("AWSBCMPricingCalculator", "BatchDeleteBillScenarioUsageModification", {})
   .n("BCMPricingCalculatorClient", "BatchDeleteBillScenarioUsageModificationCommand")
-  .sc(BatchDeleteBillScenarioUsageModification)
+  .sc(BatchDeleteBillScenarioUsageModification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

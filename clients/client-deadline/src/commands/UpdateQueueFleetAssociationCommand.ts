@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateQueueFleetAssociationRequest, UpdateQueueFleetAssociationResponse } from "../models/models_1";
-import { UpdateQueueFleetAssociation } from "../schemas/schemas_0";
+import { UpdateQueueFleetAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface UpdateQueueFleetAssociationCommandInput extends UpdateQueueFlee
  *
  * The output of {@link UpdateQueueFleetAssociationCommand}.
  */
-export interface UpdateQueueFleetAssociationCommandOutput
-  extends UpdateQueueFleetAssociationResponse,
-    __MetadataBearer {}
+export interface UpdateQueueFleetAssociationCommandOutput extends UpdateQueueFleetAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a queue-fleet association.</p>
@@ -92,7 +90,7 @@ export class UpdateQueueFleetAssociationCommand extends $Command
   })
   .s("Deadline", "UpdateQueueFleetAssociation", {})
   .n("DeadlineClient", "UpdateQueueFleetAssociationCommand")
-  .sc(UpdateQueueFleetAssociation)
+  .sc(UpdateQueueFleetAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

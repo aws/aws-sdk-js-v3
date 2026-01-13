@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateLinkInput, CreateLinkOutput } from "../models/models_0";
 import type { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import { CreateLink } from "../schemas/schemas_0";
+import { CreateLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class CreateLinkCommand extends $Command
   })
   .s("oamservice", "CreateLink", {})
   .n("OAMClient", "CreateLinkCommand")
-  .sc(CreateLink)
+  .sc(CreateLink$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

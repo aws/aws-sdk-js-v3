@@ -49,7 +49,6 @@ import {
   SignalType,
   StopType,
 } from "./enums";
-
 import {
   type AlarmConfiguration,
   type AssociationDescription,
@@ -2620,7 +2619,9 @@ export interface InstanceInfo {
  * <p>Information about a managed node's type.</p>
  * @public
  */
-export type NodeType = NodeType.InstanceMember | NodeType.$UnknownMember;
+export type NodeType =
+  | NodeType.InstanceMember
+  | NodeType.$UnknownMember;
 
 /**
  * @public
@@ -5153,7 +5154,9 @@ export interface AutomationExecutionInputs {
  * <p>Information about the inputs for an execution preview.</p>
  * @public
  */
-export type ExecutionInputs = ExecutionInputs.AutomationMember | ExecutionInputs.$UnknownMember;
+export type ExecutionInputs =
+  | ExecutionInputs.AutomationMember
+  | ExecutionInputs.$UnknownMember;
 
 /**
  * @public

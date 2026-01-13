@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BillingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSourceViewsForBillingViewRequest, ListSourceViewsForBillingViewResponse } from "../models/models_0";
-import { ListSourceViewsForBillingView } from "../schemas/schemas_0";
+import { ListSourceViewsForBillingView$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListSourceViewsForBillingViewCommandInput extends ListSourceVie
  *
  * The output of {@link ListSourceViewsForBillingViewCommand}.
  */
-export interface ListSourceViewsForBillingViewCommandOutput
-  extends ListSourceViewsForBillingViewResponse,
-    __MetadataBearer {}
+export interface ListSourceViewsForBillingViewCommandOutput extends ListSourceViewsForBillingViewResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the source views (managed Amazon Web Services billing views) associated with the billing view. </p>
@@ -112,7 +110,7 @@ export class ListSourceViewsForBillingViewCommand extends $Command
   })
   .s("AWSBilling", "ListSourceViewsForBillingView", {})
   .n("BillingClient", "ListSourceViewsForBillingViewCommand")
-  .sc(ListSourceViewsForBillingView)
+  .sc(ListSourceViewsForBillingView$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

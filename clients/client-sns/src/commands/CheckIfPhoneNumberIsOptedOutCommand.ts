@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CheckIfPhoneNumberIsOptedOutInput, CheckIfPhoneNumberIsOptedOutResponse } from "../models/models_0";
-import { CheckIfPhoneNumberIsOptedOut } from "../schemas/schemas_0";
+import { CheckIfPhoneNumberIsOptedOut$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -24,9 +24,7 @@ export interface CheckIfPhoneNumberIsOptedOutCommandInput extends CheckIfPhoneNu
  *
  * The output of {@link CheckIfPhoneNumberIsOptedOutCommand}.
  */
-export interface CheckIfPhoneNumberIsOptedOutCommandOutput
-  extends CheckIfPhoneNumberIsOptedOutResponse,
-    __MetadataBearer {}
+export interface CheckIfPhoneNumberIsOptedOutCommandOutput extends CheckIfPhoneNumberIsOptedOutResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts a phone number and indicates whether the phone holder has opted out of
@@ -92,7 +90,7 @@ export class CheckIfPhoneNumberIsOptedOutCommand extends $Command
   })
   .s("AmazonSimpleNotificationService", "CheckIfPhoneNumberIsOptedOut", {})
   .n("SNSClient", "CheckIfPhoneNumberIsOptedOutCommand")
-  .sc(CheckIfPhoneNumberIsOptedOut)
+  .sc(CheckIfPhoneNumberIsOptedOut$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

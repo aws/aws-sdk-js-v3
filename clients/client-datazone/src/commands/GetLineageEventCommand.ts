@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type GetLineageEventInput, GetLineageEventOutput } from "../models/models_1";
-import { GetLineageEvent } from "../schemas/schemas_0";
+import { GetLineageEvent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class GetLineageEventCommand extends $Command
   })
   .s("DataZone", "GetLineageEvent", {})
   .n("DataZoneClient", "GetLineageEventCommand")
-  .sc(GetLineageEvent)
+  .sc(GetLineageEvent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

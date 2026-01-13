@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAppImageConfigRequest } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DeleteAppImageConfig } from "../schemas/schemas_0";
+import { DeleteAppImageConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -74,7 +74,7 @@ export class DeleteAppImageConfigCommand extends $Command
   })
   .s("SageMaker", "DeleteAppImageConfig", {})
   .n("SageMakerClient", "DeleteAppImageConfigCommand")
-  .sc(DeleteAppImageConfig)
+  .sc(DeleteAppImageConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

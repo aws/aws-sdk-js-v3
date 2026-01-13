@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetOutpostBillingInformationInput, GetOutpostBillingInformationOutput } from "../models/models_0";
 import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import { GetOutpostBillingInformation } from "../schemas/schemas_0";
+import { GetOutpostBillingInformation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetOutpostBillingInformationCommandInput extends GetOutpostBill
  *
  * The output of {@link GetOutpostBillingInformationCommand}.
  */
-export interface GetOutpostBillingInformationCommandOutput
-  extends GetOutpostBillingInformationOutput,
-    __MetadataBearer {}
+export interface GetOutpostBillingInformationCommandOutput extends GetOutpostBillingInformationOutput, __MetadataBearer {}
 
 /**
  * <p>Gets current and historical billing information about the specified Outpost.</p>
@@ -101,7 +99,7 @@ export class GetOutpostBillingInformationCommand extends $Command
   })
   .s("OutpostsOlafService", "GetOutpostBillingInformation", {})
   .n("OutpostsClient", "GetOutpostBillingInformationCommand")
-  .sc(GetOutpostBillingInformation)
+  .sc(GetOutpostBillingInformation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

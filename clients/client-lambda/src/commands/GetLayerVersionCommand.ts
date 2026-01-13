@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import type { GetLayerVersionRequest, GetLayerVersionResponse } from "../models/models_0";
-import { GetLayerVersion } from "../schemas/schemas_0";
+import { GetLayerVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -134,7 +134,7 @@ export class GetLayerVersionCommand extends $Command
   })
   .s("AWSGirApiService", "GetLayerVersion", {})
   .n("LambdaClient", "GetLayerVersionCommand")
-  .sc(GetLayerVersion)
+  .sc(GetLayerVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

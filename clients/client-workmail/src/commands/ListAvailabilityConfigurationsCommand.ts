@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAvailabilityConfigurationsRequest, ListAvailabilityConfigurationsResponse } from "../models/models_0";
-import { ListAvailabilityConfigurations } from "../schemas/schemas_0";
+import { ListAvailabilityConfigurations$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -24,9 +24,7 @@ export interface ListAvailabilityConfigurationsCommandInput extends ListAvailabi
  *
  * The output of {@link ListAvailabilityConfigurationsCommand}.
  */
-export interface ListAvailabilityConfigurationsCommandOutput
-  extends ListAvailabilityConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListAvailabilityConfigurationsCommandOutput extends ListAvailabilityConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>List all the <code>AvailabilityConfiguration</code>'s for the given WorkMail organization.</p>
@@ -103,7 +101,7 @@ export class ListAvailabilityConfigurationsCommand extends $Command
   })
   .s("WorkMailService", "ListAvailabilityConfigurations", {})
   .n("WorkMailClient", "ListAvailabilityConfigurationsCommand")
-  .sc(ListAvailabilityConfigurations)
+  .sc(ListAvailabilityConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

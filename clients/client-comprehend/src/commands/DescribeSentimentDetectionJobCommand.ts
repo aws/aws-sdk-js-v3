@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeSentimentDetectionJobRequest, DescribeSentimentDetectionJobResponse } from "../models/models_0";
-import { DescribeSentimentDetectionJob } from "../schemas/schemas_0";
+import { DescribeSentimentDetectionJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeSentimentDetectionJobCommandInput extends DescribeSenti
  *
  * The output of {@link DescribeSentimentDetectionJobCommand}.
  */
-export interface DescribeSentimentDetectionJobCommandOutput
-  extends DescribeSentimentDetectionJobResponse,
-    __MetadataBearer {}
+export interface DescribeSentimentDetectionJobCommandOutput extends DescribeSentimentDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a sentiment detection job. Use this operation to get
@@ -122,7 +120,7 @@ export class DescribeSentimentDetectionJobCommand extends $Command
   })
   .s("Comprehend_20171127", "DescribeSentimentDetectionJob", {})
   .n("ComprehendClient", "DescribeSentimentDetectionJobCommand")
-  .sc(DescribeSentimentDetectionJob)
+  .sc(DescribeSentimentDetectionJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

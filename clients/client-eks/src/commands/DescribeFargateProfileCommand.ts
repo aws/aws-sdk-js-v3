@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeFargateProfileRequest, DescribeFargateProfileResponse } from "../models/models_0";
-import { DescribeFargateProfile } from "../schemas/schemas_0";
+import { DescribeFargateProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class DescribeFargateProfileCommand extends $Command
   })
   .s("AWSWesleyFrontend", "DescribeFargateProfile", {})
   .n("EKSClient", "DescribeFargateProfileCommand")
-  .sc(DescribeFargateProfile)
+  .sc(DescribeFargateProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

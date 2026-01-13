@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type GetConnectionFunctionRequest, GetConnectionFunctionResult } from "../models/models_0";
-import { GetConnectionFunction } from "../schemas/schemas_0";
+import { GetConnectionFunction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class GetConnectionFunctionCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "GetConnectionFunction", {})
   .n("CloudFrontClient", "GetConnectionFunctionCommand")
-  .sc(GetConnectionFunction)
+  .sc(GetConnectionFunction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

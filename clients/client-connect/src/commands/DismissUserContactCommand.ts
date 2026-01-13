@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DismissUserContactRequest, DismissUserContactResponse } from "../models/models_1";
-import { DismissUserContact } from "../schemas/schemas_0";
+import { DismissUserContact$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DismissUserContactCommand extends $Command
   })
   .s("AmazonConnectService", "DismissUserContact", {})
   .n("ConnectClient", "DismissUserContactCommand")
-  .sc(DismissUserContact)
+  .sc(DismissUserContact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

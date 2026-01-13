@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListTimelineEventsInput, ListTimelineEventsOutput } from "../models/models_0";
-import { ListTimelineEvents } from "../schemas/schemas_0";
+import { ListTimelineEvents$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -123,7 +123,7 @@ export class ListTimelineEventsCommand extends $Command
   })
   .s("SSMIncidents", "ListTimelineEvents", {})
   .n("SSMIncidentsClient", "ListTimelineEventsCommand")
-  .sc(ListTimelineEvents)
+  .sc(ListTimelineEvents$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

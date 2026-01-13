@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPublicAccessBlockOutput, GetPublicAccessBlockRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetPublicAccessBlock } from "../schemas/schemas_0";
+import { GetPublicAccessBlock$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,11 +125,14 @@ export class GetPublicAccessBlockCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
+    ];
   })
   .s("AmazonS3", "GetPublicAccessBlock", {})
   .n("S3Client", "GetPublicAccessBlockCommand")
-  .sc(GetPublicAccessBlock)
+  .sc(GetPublicAccessBlock$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

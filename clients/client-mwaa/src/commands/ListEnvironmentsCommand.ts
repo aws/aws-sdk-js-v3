@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListEnvironmentsInput, ListEnvironmentsOutput } from "../models/models_0";
 import type { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
-import { ListEnvironments } from "../schemas/schemas_0";
+import { ListEnvironments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class ListEnvironmentsCommand extends $Command
   })
   .s("AmazonMWAA", "ListEnvironments", {})
   .n("MWAAClient", "ListEnvironmentsCommand")
-  .sc(ListEnvironments)
+  .sc(ListEnvironments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

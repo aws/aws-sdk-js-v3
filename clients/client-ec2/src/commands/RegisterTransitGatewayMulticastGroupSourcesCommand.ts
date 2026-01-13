@@ -9,7 +9,7 @@ import type {
   RegisterTransitGatewayMulticastGroupSourcesRequest,
   RegisterTransitGatewayMulticastGroupSourcesResult,
 } from "../models/models_7";
-import { RegisterTransitGatewayMulticastGroupSources } from "../schemas/schemas_0";
+import { RegisterTransitGatewayMulticastGroupSources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link RegisterTransitGatewayMulticastGroupSourcesCommand}.
  */
-export interface RegisterTransitGatewayMulticastGroupSourcesCommandInput
-  extends RegisterTransitGatewayMulticastGroupSourcesRequest {}
+export interface RegisterTransitGatewayMulticastGroupSourcesCommandInput extends RegisterTransitGatewayMulticastGroupSourcesRequest {}
 /**
  * @public
  *
  * The output of {@link RegisterTransitGatewayMulticastGroupSourcesCommand}.
  */
-export interface RegisterTransitGatewayMulticastGroupSourcesCommandOutput
-  extends RegisterTransitGatewayMulticastGroupSourcesResult,
-    __MetadataBearer {}
+export interface RegisterTransitGatewayMulticastGroupSourcesCommandOutput extends RegisterTransitGatewayMulticastGroupSourcesResult, __MetadataBearer {}
 
 /**
  * <p>Registers sources (network interfaces) with the specified  transit gateway multicast group.</p>
@@ -95,7 +92,7 @@ export class RegisterTransitGatewayMulticastGroupSourcesCommand extends $Command
   })
   .s("AmazonEC2", "RegisterTransitGatewayMulticastGroupSources", {})
   .n("EC2Client", "RegisterTransitGatewayMulticastGroupSourcesCommand")
-  .sc(RegisterTransitGatewayMulticastGroupSources)
+  .sc(RegisterTransitGatewayMulticastGroupSources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

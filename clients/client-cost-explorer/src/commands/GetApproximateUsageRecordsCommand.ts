@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetApproximateUsageRecordsRequest, GetApproximateUsageRecordsResponse } from "../models/models_0";
-import { GetApproximateUsageRecords } from "../schemas/schemas_0";
+import { GetApproximateUsageRecords$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class GetApproximateUsageRecordsCommand extends $Command
   })
   .s("AWSInsightsIndexService", "GetApproximateUsageRecords", {})
   .n("CostExplorerClient", "GetApproximateUsageRecordsCommand")
-  .sc(GetApproximateUsageRecords)
+  .sc(GetApproximateUsageRecords$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

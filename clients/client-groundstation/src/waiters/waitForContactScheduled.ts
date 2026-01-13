@@ -7,12 +7,12 @@ import { GroundStationClient } from "../GroundStationClient";
 const checkState = async (client: GroundStationClient, input: DescribeContactCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeContactCommand(input));
+    let result: any = await client.send(new DescribeContactCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.contactStatus;
-      };
+      }
       if (returnComparator() === "FAILED_TO_SCHEDULE") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: GroundStationClient, input: DescribeContactCom
     try {
       const returnComparator = () => {
         return result.contactStatus;
-      };
+      }
       if (returnComparator() === "SCHEDULED") {
         return { state: WaiterState.SUCCESS, reason };
       }

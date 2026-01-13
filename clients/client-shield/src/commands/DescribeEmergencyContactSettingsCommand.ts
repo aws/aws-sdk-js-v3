@@ -8,7 +8,7 @@ import type {
   DescribeEmergencyContactSettingsRequest,
   DescribeEmergencyContactSettingsResponse,
 } from "../models/models_0";
-import { DescribeEmergencyContactSettings } from "../schemas/schemas_0";
+import { DescribeEmergencyContactSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DescribeEmergencyContactSettingsCommandInput extends DescribeEm
  *
  * The output of {@link DescribeEmergencyContactSettingsCommand}.
  */
-export interface DescribeEmergencyContactSettingsCommandOutput
-  extends DescribeEmergencyContactSettingsResponse,
-    __MetadataBearer {}
+export interface DescribeEmergencyContactSettingsCommandOutput extends DescribeEmergencyContactSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>
@@ -88,7 +86,7 @@ export class DescribeEmergencyContactSettingsCommand extends $Command
   })
   .s("AWSShield_20160616", "DescribeEmergencyContactSettings", {})
   .n("ShieldClient", "DescribeEmergencyContactSettingsCommand")
-  .sc(DescribeEmergencyContactSettings)
+  .sc(DescribeEmergencyContactSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

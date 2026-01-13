@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PublishTypeInput, PublishTypeOutput } from "../models/models_0";
-import { PublishType } from "../schemas/schemas_0";
+import { PublishType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class PublishTypeCommand extends $Command
   })
   .s("CloudFormation", "PublishType", {})
   .n("CloudFormationClient", "PublishTypeCommand")
-  .sc(PublishType)
+  .sc(PublishType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

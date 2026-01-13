@@ -9,7 +9,7 @@ import type {
   GetCollaborationConfiguredModelAlgorithmAssociationRequest,
   GetCollaborationConfiguredModelAlgorithmAssociationResponse,
 } from "../models/models_0";
-import { GetCollaborationConfiguredModelAlgorithmAssociation } from "../schemas/schemas_0";
+import { GetCollaborationConfiguredModelAlgorithmAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetCollaborationConfiguredModelAlgorithmAssociationCommand}.
  */
-export interface GetCollaborationConfiguredModelAlgorithmAssociationCommandInput
-  extends GetCollaborationConfiguredModelAlgorithmAssociationRequest {}
+export interface GetCollaborationConfiguredModelAlgorithmAssociationCommandInput extends GetCollaborationConfiguredModelAlgorithmAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link GetCollaborationConfiguredModelAlgorithmAssociationCommand}.
  */
-export interface GetCollaborationConfiguredModelAlgorithmAssociationCommandOutput
-  extends GetCollaborationConfiguredModelAlgorithmAssociationResponse,
-    __MetadataBearer {}
+export interface GetCollaborationConfiguredModelAlgorithmAssociationCommandOutput extends GetCollaborationConfiguredModelAlgorithmAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the configured model algorithm association in a collaboration.</p>
@@ -166,7 +163,7 @@ export class GetCollaborationConfiguredModelAlgorithmAssociationCommand extends 
   })
   .s("AWSStarkControlService", "GetCollaborationConfiguredModelAlgorithmAssociation", {})
   .n("CleanRoomsMLClient", "GetCollaborationConfiguredModelAlgorithmAssociationCommand")
-  .sc(GetCollaborationConfiguredModelAlgorithmAssociation)
+  .sc(GetCollaborationConfiguredModelAlgorithmAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

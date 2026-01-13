@@ -7,12 +7,12 @@ import { SSMClient } from "../SSMClient";
 const checkState = async (client: SSMClient, input: GetCommandInvocationCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetCommandInvocationCommand(input));
+    let result: any = await client.send(new GetCommandInvocationCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "Pending") {
         return { state: WaiterState.RETRY, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: SSMClient, input: GetCommandInvocationCommandI
     try {
       const returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "InProgress") {
         return { state: WaiterState.RETRY, reason };
       }
@@ -28,7 +28,7 @@ const checkState = async (client: SSMClient, input: GetCommandInvocationCommandI
     try {
       const returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "Delayed") {
         return { state: WaiterState.RETRY, reason };
       }
@@ -36,7 +36,7 @@ const checkState = async (client: SSMClient, input: GetCommandInvocationCommandI
     try {
       const returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "Success") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -44,7 +44,7 @@ const checkState = async (client: SSMClient, input: GetCommandInvocationCommandI
     try {
       const returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "Cancelled") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -52,7 +52,7 @@ const checkState = async (client: SSMClient, input: GetCommandInvocationCommandI
     try {
       const returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "TimedOut") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -60,7 +60,7 @@ const checkState = async (client: SSMClient, input: GetCommandInvocationCommandI
     try {
       const returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "Failed") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -68,7 +68,7 @@ const checkState = async (client: SSMClient, input: GetCommandInvocationCommandI
     try {
       const returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "Cancelling") {
         return { state: WaiterState.FAILURE, reason };
       }

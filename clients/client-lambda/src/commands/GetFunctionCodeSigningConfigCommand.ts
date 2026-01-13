@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import type { GetFunctionCodeSigningConfigRequest, GetFunctionCodeSigningConfigResponse } from "../models/models_0";
-import { GetFunctionCodeSigningConfig } from "../schemas/schemas_0";
+import { GetFunctionCodeSigningConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetFunctionCodeSigningConfigCommandInput extends GetFunctionCod
  *
  * The output of {@link GetFunctionCodeSigningConfigCommand}.
  */
-export interface GetFunctionCodeSigningConfigCommandOutput
-  extends GetFunctionCodeSigningConfigResponse,
-    __MetadataBearer {}
+export interface GetFunctionCodeSigningConfigCommandOutput extends GetFunctionCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the code signing configuration for the specified function.</p>
@@ -88,7 +86,7 @@ export class GetFunctionCodeSigningConfigCommand extends $Command
   })
   .s("AWSGirApiService", "GetFunctionCodeSigningConfig", {})
   .n("LambdaClient", "GetFunctionCodeSigningConfigCommand")
-  .sc(GetFunctionCodeSigningConfig)
+  .sc(GetFunctionCodeSigningConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

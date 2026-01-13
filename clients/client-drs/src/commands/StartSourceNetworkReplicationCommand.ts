@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartSourceNetworkReplicationRequest, StartSourceNetworkReplicationResponse } from "../models/models_0";
-import { StartSourceNetworkReplication } from "../schemas/schemas_0";
+import { StartSourceNetworkReplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface StartSourceNetworkReplicationCommandInput extends StartSourceNe
  *
  * The output of {@link StartSourceNetworkReplicationCommand}.
  */
-export interface StartSourceNetworkReplicationCommandOutput
-  extends StartSourceNetworkReplicationResponse,
-    __MetadataBearer {}
+export interface StartSourceNetworkReplicationCommandOutput extends StartSourceNetworkReplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Starts replication for a Source Network. This action would make the Source Network protected.</p>
@@ -108,7 +106,7 @@ export class StartSourceNetworkReplicationCommand extends $Command
   })
   .s("ElasticDisasterRecoveryService", "StartSourceNetworkReplication", {})
   .n("DrsClient", "StartSourceNetworkReplicationCommand")
-  .sc(StartSourceNetworkReplication)
+  .sc(StartSourceNetworkReplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

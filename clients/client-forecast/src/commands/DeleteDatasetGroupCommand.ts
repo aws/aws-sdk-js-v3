@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import type { DeleteDatasetGroupRequest } from "../models/models_0";
-import { DeleteDatasetGroup } from "../schemas/schemas_0";
+import { DeleteDatasetGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DeleteDatasetGroupCommand extends $Command
   })
   .s("AmazonForecast", "DeleteDatasetGroup", {})
   .n("ForecastClient", "DeleteDatasetGroupCommand")
-  .sc(DeleteDatasetGroup)
+  .sc(DeleteDatasetGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

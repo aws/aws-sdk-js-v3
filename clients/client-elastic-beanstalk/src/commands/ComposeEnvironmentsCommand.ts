@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ComposeEnvironmentsMessage, EnvironmentDescriptionsMessage } from "../models/models_0";
-import { ComposeEnvironments } from "../schemas/schemas_0";
+import { ComposeEnvironments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,7 +138,7 @@ export class ComposeEnvironmentsCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "ComposeEnvironments", {})
   .n("ElasticBeanstalkClient", "ComposeEnvironmentsCommand")
-  .sc(ComposeEnvironments)
+  .sc(ComposeEnvironments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   AssociateMulticastGroupWithFuotaTaskRequest,
   AssociateMulticastGroupWithFuotaTaskResponse,
 } from "../models/models_0";
-import { AssociateMulticastGroupWithFuotaTask } from "../schemas/schemas_0";
+import { AssociateMulticastGroupWithFuotaTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface AssociateMulticastGroupWithFuotaTaskCommandInput extends Associ
  *
  * The output of {@link AssociateMulticastGroupWithFuotaTaskCommand}.
  */
-export interface AssociateMulticastGroupWithFuotaTaskCommandOutput
-  extends AssociateMulticastGroupWithFuotaTaskResponse,
-    __MetadataBearer {}
+export interface AssociateMulticastGroupWithFuotaTaskCommandOutput extends AssociateMulticastGroupWithFuotaTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Associate a multicast group with a FUOTA task.</p>
@@ -95,7 +93,7 @@ export class AssociateMulticastGroupWithFuotaTaskCommand extends $Command
   })
   .s("iotwireless", "AssociateMulticastGroupWithFuotaTask", {})
   .n("IoTWirelessClient", "AssociateMulticastGroupWithFuotaTaskCommand")
-  .sc(AssociateMulticastGroupWithFuotaTask)
+  .sc(AssociateMulticastGroupWithFuotaTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSnapshotRequest, DeleteSnapshotResult } from "../models/models_0";
-import { DeleteSnapshot } from "../schemas/schemas_0";
+import { DeleteSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DeleteSnapshotCommand extends $Command
   })
   .s("DirectoryService_20150416", "DeleteSnapshot", {})
   .n("DirectoryServiceClient", "DeleteSnapshotCommand")
-  .sc(DeleteSnapshot)
+  .sc(DeleteSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

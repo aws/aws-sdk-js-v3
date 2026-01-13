@@ -9,7 +9,7 @@ import type {
   UpdateRelationalDatabaseParametersRequest,
   UpdateRelationalDatabaseParametersResult,
 } from "../models/models_1";
-import { UpdateRelationalDatabaseParameters } from "../schemas/schemas_0";
+import { UpdateRelationalDatabaseParameters$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateRelationalDatabaseParametersCommandInput extends UpdateRe
  *
  * The output of {@link UpdateRelationalDatabaseParametersCommand}.
  */
-export interface UpdateRelationalDatabaseParametersCommandOutput
-  extends UpdateRelationalDatabaseParametersResult,
-    __MetadataBearer {}
+export interface UpdateRelationalDatabaseParametersCommandOutput extends UpdateRelationalDatabaseParametersResult, __MetadataBearer {}
 
 /**
  * <p>Allows the update of one or more parameters of a database in Amazon Lightsail.</p>
@@ -151,7 +149,7 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command
   })
   .s("Lightsail_20161128", "UpdateRelationalDatabaseParameters", {})
   .n("LightsailClient", "UpdateRelationalDatabaseParametersCommand")
-  .sc(UpdateRelationalDatabaseParameters)
+  .sc(UpdateRelationalDatabaseParameters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

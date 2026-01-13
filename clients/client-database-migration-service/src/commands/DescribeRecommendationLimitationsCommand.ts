@@ -13,7 +13,7 @@ import type {
   DescribeRecommendationLimitationsRequest,
   DescribeRecommendationLimitationsResponse,
 } from "../models/models_0";
-import { DescribeRecommendationLimitations } from "../schemas/schemas_0";
+import { DescribeRecommendationLimitations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DescribeRecommendationLimitationsCommandInput extends DescribeR
  *
  * The output of {@link DescribeRecommendationLimitationsCommand}.
  */
-export interface DescribeRecommendationLimitationsCommandOutput
-  extends DescribeRecommendationLimitationsResponse,
-    __MetadataBearer {}
+export interface DescribeRecommendationLimitationsCommandOutput extends DescribeRecommendationLimitationsResponse, __MetadataBearer {}
 
 /**
  * <important>
@@ -114,7 +112,7 @@ export class DescribeRecommendationLimitationsCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeRecommendationLimitations", {})
   .n("DatabaseMigrationServiceClient", "DescribeRecommendationLimitationsCommand")
-  .sc(DescribeRecommendationLimitations)
+  .sc(DescribeRecommendationLimitations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

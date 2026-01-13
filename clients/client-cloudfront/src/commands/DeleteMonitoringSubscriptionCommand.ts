@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteMonitoringSubscriptionRequest, DeleteMonitoringSubscriptionResult } from "../models/models_0";
-import { DeleteMonitoringSubscription } from "../schemas/schemas_0";
+import { DeleteMonitoringSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteMonitoringSubscriptionCommandInput extends DeleteMonitori
  *
  * The output of {@link DeleteMonitoringSubscriptionCommand}.
  */
-export interface DeleteMonitoringSubscriptionCommandOutput
-  extends DeleteMonitoringSubscriptionResult,
-    __MetadataBearer {}
+export interface DeleteMonitoringSubscriptionCommandOutput extends DeleteMonitoringSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Disables additional CloudWatch metrics for the specified CloudFront distribution.</p>
@@ -85,7 +83,7 @@ export class DeleteMonitoringSubscriptionCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "DeleteMonitoringSubscription", {})
   .n("CloudFrontClient", "DeleteMonitoringSubscriptionCommand")
-  .sc(DeleteMonitoringSubscription)
+  .sc(DeleteMonitoringSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

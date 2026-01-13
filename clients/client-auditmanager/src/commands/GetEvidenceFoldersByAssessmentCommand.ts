@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetEvidenceFoldersByAssessmentRequest, GetEvidenceFoldersByAssessmentResponse } from "../models/models_0";
-import { GetEvidenceFoldersByAssessment } from "../schemas/schemas_0";
+import { GetEvidenceFoldersByAssessment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetEvidenceFoldersByAssessmentCommandInput extends GetEvidenceF
  *
  * The output of {@link GetEvidenceFoldersByAssessmentCommand}.
  */
-export interface GetEvidenceFoldersByAssessmentCommandOutput
-  extends GetEvidenceFoldersByAssessmentResponse,
-    __MetadataBearer {}
+export interface GetEvidenceFoldersByAssessmentCommandOutput extends GetEvidenceFoldersByAssessmentResponse, __MetadataBearer {}
 
 /**
  * <p> Gets the evidence folders from a specified assessment in Audit Manager. </p>
@@ -113,7 +111,7 @@ export class GetEvidenceFoldersByAssessmentCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "GetEvidenceFoldersByAssessment", {})
   .n("AuditManagerClient", "GetEvidenceFoldersByAssessmentCommand")
-  .sc(GetEvidenceFoldersByAssessment)
+  .sc(GetEvidenceFoldersByAssessment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

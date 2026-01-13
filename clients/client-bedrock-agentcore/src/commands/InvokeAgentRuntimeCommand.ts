@@ -14,7 +14,7 @@ import type {
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { InvokeAgentRuntimeRequest, InvokeAgentRuntimeResponse } from "../models/models_0";
-import { InvokeAgentRuntime } from "../schemas/schemas_0";
+import { InvokeAgentRuntime$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -39,9 +39,7 @@ export interface InvokeAgentRuntimeCommandInput extends InvokeAgentRuntimeComman
  *
  * The output of {@link InvokeAgentRuntimeCommand}.
  */
-export interface InvokeAgentRuntimeCommandOutput
-  extends Omit<InvokeAgentRuntimeResponse, "response">,
-    __MetadataBearer {
+export interface InvokeAgentRuntimeCommandOutput extends Omit<InvokeAgentRuntimeResponse, "response">, __MetadataBearer {
   response?: StreamingBlobPayloadOutputTypes;
 }
 
@@ -140,7 +138,7 @@ export class InvokeAgentRuntimeCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "InvokeAgentRuntime", {})
   .n("BedrockAgentCoreClient", "InvokeAgentRuntimeCommand")
-  .sc(InvokeAgentRuntime)
+  .sc(InvokeAgentRuntime$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

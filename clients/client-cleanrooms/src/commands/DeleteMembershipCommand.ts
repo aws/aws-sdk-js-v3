@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteMembershipInput, DeleteMembershipOutput } from "../models/models_0";
-import { DeleteMembership } from "../schemas/schemas_0";
+import { DeleteMembership$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeleteMembershipCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "DeleteMembership", {})
   .n("CleanRoomsClient", "DeleteMembershipCommand")
-  .sc(DeleteMembership)
+  .sc(DeleteMembership$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

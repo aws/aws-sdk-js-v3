@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetQueueLimitAssociationRequest, GetQueueLimitAssociationResponse } from "../models/models_0";
-import { GetQueueLimitAssociation } from "../schemas/schemas_0";
+import { GetQueueLimitAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetQueueLimitAssociationCommand extends $Command
   })
   .s("Deadline", "GetQueueLimitAssociation", {})
   .n("DeadlineClient", "GetQueueLimitAssociationCommand")
-  .sc(GetQueueLimitAssociation)
+  .sc(GetQueueLimitAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

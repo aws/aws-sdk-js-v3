@@ -9,7 +9,7 @@ import type {
   GetDetectorModelAnalysisResultsRequest,
   GetDetectorModelAnalysisResultsResponse,
 } from "../models/models_0";
-import { GetDetectorModelAnalysisResults } from "../schemas/schemas_0";
+import { GetDetectorModelAnalysisResults$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetDetectorModelAnalysisResultsCommandInput extends GetDetector
  *
  * The output of {@link GetDetectorModelAnalysisResultsCommand}.
  */
-export interface GetDetectorModelAnalysisResultsCommandOutput
-  extends GetDetectorModelAnalysisResultsResponse,
-    __MetadataBearer {}
+export interface GetDetectorModelAnalysisResultsCommandOutput extends GetDetectorModelAnalysisResultsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves one or more analysis results of the detector model.</p>
@@ -110,7 +108,7 @@ export class GetDetectorModelAnalysisResultsCommand extends $Command
   })
   .s("IotColumboService", "GetDetectorModelAnalysisResults", {})
   .n("IoTEventsClient", "GetDetectorModelAnalysisResultsCommand")
-  .sc(GetDetectorModelAnalysisResults)
+  .sc(GetDetectorModelAnalysisResults$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

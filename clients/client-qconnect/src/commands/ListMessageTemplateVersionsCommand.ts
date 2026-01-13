@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListMessageTemplateVersionsRequest, ListMessageTemplateVersionsResponse } from "../models/models_1";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { ListMessageTemplateVersions } from "../schemas/schemas_0";
+import { ListMessageTemplateVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListMessageTemplateVersionsCommandInput extends ListMessageTemp
  *
  * The output of {@link ListMessageTemplateVersionsCommand}.
  */
-export interface ListMessageTemplateVersionsCommandOutput
-  extends ListMessageTemplateVersionsResponse,
-    __MetadataBearer {}
+export interface ListMessageTemplateVersionsCommandOutput extends ListMessageTemplateVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the available versions for the specified Amazon Q in Connect message template.</p>
@@ -103,7 +101,7 @@ export class ListMessageTemplateVersionsCommand extends $Command
   })
   .s("WisdomService", "ListMessageTemplateVersions", {})
   .n("QConnectClient", "ListMessageTemplateVersionsCommand")
-  .sc(ListMessageTemplateVersions)
+  .sc(ListMessageTemplateVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

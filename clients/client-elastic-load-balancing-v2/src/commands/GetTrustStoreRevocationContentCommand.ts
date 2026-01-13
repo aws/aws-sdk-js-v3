@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTrustStoreRevocationContentInput, GetTrustStoreRevocationContentOutput } from "../models/models_0";
-import { GetTrustStoreRevocationContent } from "../schemas/schemas_0";
+import { GetTrustStoreRevocationContent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetTrustStoreRevocationContentCommandInput extends GetTrustStor
  *
  * The output of {@link GetTrustStoreRevocationContentCommand}.
  */
-export interface GetTrustStoreRevocationContentCommandOutput
-  extends GetTrustStoreRevocationContentOutput,
-    __MetadataBearer {}
+export interface GetTrustStoreRevocationContentCommandOutput extends GetTrustStoreRevocationContentOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified revocation file.</p>
@@ -88,7 +86,7 @@ export class GetTrustStoreRevocationContentCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "GetTrustStoreRevocationContent", {})
   .n("ElasticLoadBalancingV2Client", "GetTrustStoreRevocationContentCommand")
-  .sc(GetTrustStoreRevocationContent)
+  .sc(GetTrustStoreRevocationContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

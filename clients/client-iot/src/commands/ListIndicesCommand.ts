@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { ListIndicesRequest, ListIndicesResponse } from "../models/models_1";
-import { ListIndices } from "../schemas/schemas_0";
+import { ListIndices$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class ListIndicesCommand extends $Command
   })
   .s("AWSIotService", "ListIndices", {})
   .n("IoTClient", "ListIndicesCommand")
-  .sc(ListIndices)
+  .sc(ListIndices$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

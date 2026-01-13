@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteEmailIdentityRequest, DeleteEmailIdentityResponse } from "../models/models_0";
-import { DeleteEmailIdentity } from "../schemas/schemas_0";
+import { DeleteEmailIdentity$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -84,7 +84,7 @@ export class DeleteEmailIdentityCommand extends $Command
   })
   .s("SimpleEmailService_v2", "DeleteEmailIdentity", {})
   .n("SESv2Client", "DeleteEmailIdentityCommand")
-  .sc(DeleteEmailIdentity)
+  .sc(DeleteEmailIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

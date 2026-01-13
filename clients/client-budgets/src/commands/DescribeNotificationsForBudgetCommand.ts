@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeNotificationsForBudgetRequest, DescribeNotificationsForBudgetResponse } from "../models/models_0";
-import { DescribeNotificationsForBudget } from "../schemas/schemas_0";
+import { DescribeNotificationsForBudget$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeNotificationsForBudgetCommandInput extends DescribeNoti
  *
  * The output of {@link DescribeNotificationsForBudgetCommand}.
  */
-export interface DescribeNotificationsForBudgetCommandOutput
-  extends DescribeNotificationsForBudgetResponse,
-    __MetadataBearer {}
+export interface DescribeNotificationsForBudgetCommandOutput extends DescribeNotificationsForBudgetResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the notifications that are associated with a budget.</p>
@@ -109,7 +107,7 @@ export class DescribeNotificationsForBudgetCommand extends $Command
   })
   .s("AWSBudgetServiceGateway", "DescribeNotificationsForBudget", {})
   .n("BudgetsClient", "DescribeNotificationsForBudgetCommand")
-  .sc(DescribeNotificationsForBudget)
+  .sc(DescribeNotificationsForBudget$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

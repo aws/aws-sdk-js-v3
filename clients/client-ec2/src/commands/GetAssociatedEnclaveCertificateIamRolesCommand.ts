@@ -9,7 +9,7 @@ import type {
   GetAssociatedEnclaveCertificateIamRolesRequest,
   GetAssociatedEnclaveCertificateIamRolesResult,
 } from "../models/models_5";
-import { GetAssociatedEnclaveCertificateIamRoles } from "../schemas/schemas_0";
+import { GetAssociatedEnclaveCertificateIamRoles$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetAssociatedEnclaveCertificateIamRolesCommand}.
  */
-export interface GetAssociatedEnclaveCertificateIamRolesCommandInput
-  extends GetAssociatedEnclaveCertificateIamRolesRequest {}
+export interface GetAssociatedEnclaveCertificateIamRolesCommandInput extends GetAssociatedEnclaveCertificateIamRolesRequest {}
 /**
  * @public
  *
  * The output of {@link GetAssociatedEnclaveCertificateIamRolesCommand}.
  */
-export interface GetAssociatedEnclaveCertificateIamRolesCommandOutput
-  extends GetAssociatedEnclaveCertificateIamRolesResult,
-    __MetadataBearer {}
+export interface GetAssociatedEnclaveCertificateIamRolesCommandOutput extends GetAssociatedEnclaveCertificateIamRolesResult, __MetadataBearer {}
 
 /**
  * <p>Returns the IAM roles that are associated with the specified ACM (ACM) certificate.
@@ -90,7 +87,7 @@ export class GetAssociatedEnclaveCertificateIamRolesCommand extends $Command
   })
   .s("AmazonEC2", "GetAssociatedEnclaveCertificateIamRoles", {})
   .n("EC2Client", "GetAssociatedEnclaveCertificateIamRolesCommand")
-  .sc(GetAssociatedEnclaveCertificateIamRoles)
+  .sc(GetAssociatedEnclaveCertificateIamRoles$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

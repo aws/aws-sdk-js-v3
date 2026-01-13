@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UnmonitorInstancesRequest, UnmonitorInstancesResult } from "../models/models_7";
-import { UnmonitorInstances } from "../schemas/schemas_0";
+import { UnmonitorInstances$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class UnmonitorInstancesCommand extends $Command
   })
   .s("AmazonEC2", "UnmonitorInstances", {})
   .n("EC2Client", "UnmonitorInstancesCommand")
-  .sc(UnmonitorInstances)
+  .sc(UnmonitorInstances$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

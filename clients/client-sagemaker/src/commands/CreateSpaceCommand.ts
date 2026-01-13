@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateSpaceRequest, CreateSpaceResponse } from "../models/models_1";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateSpace } from "../schemas/schemas_0";
+import { CreateSpace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -185,7 +185,7 @@ export class CreateSpaceCommand extends $Command
   })
   .s("SageMaker", "CreateSpace", {})
   .n("SageMakerClient", "CreateSpaceCommand")
-  .sc(CreateSpace)
+  .sc(CreateSpace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

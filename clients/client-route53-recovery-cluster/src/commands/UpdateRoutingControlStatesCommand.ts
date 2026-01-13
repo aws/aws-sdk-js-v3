@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryClusterClient";
-import { UpdateRoutingControlStates } from "../schemas/schemas_0";
+import { UpdateRoutingControlStates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class UpdateRoutingControlStatesCommand extends $Command
   })
   .s("ToggleCustomerAPI", "UpdateRoutingControlStates", {})
   .n("Route53RecoveryClusterClient", "UpdateRoutingControlStatesCommand")
-  .sc(UpdateRoutingControlStates)
+  .sc(UpdateRoutingControlStates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

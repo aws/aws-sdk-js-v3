@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteHypervisorInput, DeleteHypervisorOutput } from "../models/models_0";
-import { DeleteHypervisor } from "../schemas/schemas_0";
+import { DeleteHypervisor$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DeleteHypervisorCommand extends $Command
   })
   .s("BackupOnPremises_v20210101", "DeleteHypervisor", {})
   .n("BackupGatewayClient", "DeleteHypervisorCommand")
-  .sc(DeleteHypervisor)
+  .sc(DeleteHypervisor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

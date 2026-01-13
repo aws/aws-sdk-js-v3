@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetConsoleOutputRequest, GetConsoleOutputResult } from "../models/models_5";
-import { GetConsoleOutput } from "../schemas/schemas_0";
+import { GetConsoleOutput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class GetConsoleOutputCommand extends $Command
   })
   .s("AmazonEC2", "GetConsoleOutput", {})
   .n("EC2Client", "GetConsoleOutputCommand")
-  .sc(GetConsoleOutput)
+  .sc(GetConsoleOutput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

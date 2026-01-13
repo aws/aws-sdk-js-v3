@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ResolveAppVersionResourcesRequest, ResolveAppVersionResourcesResponse } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { ResolveAppVersionResources } from "../schemas/schemas_0";
+import { ResolveAppVersionResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class ResolveAppVersionResourcesCommand extends $Command
   })
   .s("AwsResilienceHub", "ResolveAppVersionResources", {})
   .n("ResiliencehubClient", "ResolveAppVersionResourcesCommand")
-  .sc(ResolveAppVersionResources)
+  .sc(ResolveAppVersionResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

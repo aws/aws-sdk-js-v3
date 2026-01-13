@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAssessmentRequest, DeleteAssessmentResponse } from "../models/models_0";
-import { DeleteAssessment } from "../schemas/schemas_0";
+import { DeleteAssessment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DeleteAssessmentCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "DeleteAssessment", {})
   .n("AuditManagerClient", "DeleteAssessmentCommand")
-  .sc(DeleteAssessment)
+  .sc(DeleteAssessment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

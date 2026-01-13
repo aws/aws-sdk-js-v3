@@ -13,7 +13,7 @@ import type {
   ListLicenseManagerReportGeneratorsRequest,
   ListLicenseManagerReportGeneratorsResponse,
 } from "../models/models_0";
-import { ListLicenseManagerReportGenerators } from "../schemas/schemas_0";
+import { ListLicenseManagerReportGenerators$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface ListLicenseManagerReportGeneratorsCommandInput extends ListLice
  *
  * The output of {@link ListLicenseManagerReportGeneratorsCommand}.
  */
-export interface ListLicenseManagerReportGeneratorsCommandOutput
-  extends ListLicenseManagerReportGeneratorsResponse,
-    __MetadataBearer {}
+export interface ListLicenseManagerReportGeneratorsCommandOutput extends ListLicenseManagerReportGeneratorsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the report generators for your account.</p>
@@ -155,7 +153,7 @@ export class ListLicenseManagerReportGeneratorsCommand extends $Command
   })
   .s("AWSLicenseManager", "ListLicenseManagerReportGenerators", {})
   .n("LicenseManagerClient", "ListLicenseManagerReportGeneratorsCommand")
-  .sc(ListLicenseManagerReportGenerators)
+  .sc(ListLicenseManagerReportGenerators$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

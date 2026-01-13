@@ -13,7 +13,7 @@ import type {
   UpdateSubscriptionsToEventBridgeMessage,
   UpdateSubscriptionsToEventBridgeResponse,
 } from "../models/models_1";
-import { UpdateSubscriptionsToEventBridge } from "../schemas/schemas_0";
+import { UpdateSubscriptionsToEventBridge$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface UpdateSubscriptionsToEventBridgeCommandInput extends UpdateSubs
  *
  * The output of {@link UpdateSubscriptionsToEventBridgeCommand}.
  */
-export interface UpdateSubscriptionsToEventBridgeCommandOutput
-  extends UpdateSubscriptionsToEventBridgeResponse,
-    __MetadataBearer {}
+export interface UpdateSubscriptionsToEventBridgeCommandOutput extends UpdateSubscriptionsToEventBridgeResponse, __MetadataBearer {}
 
 /**
  * <p>Migrates 10 active and enabled Amazon SNS subscriptions at a time and converts them to
@@ -99,7 +97,7 @@ export class UpdateSubscriptionsToEventBridgeCommand extends $Command
   })
   .s("AmazonDMSv20160101", "UpdateSubscriptionsToEventBridge", {})
   .n("DatabaseMigrationServiceClient", "UpdateSubscriptionsToEventBridgeCommand")
-  .sc(UpdateSubscriptionsToEventBridge)
+  .sc(UpdateSubscriptionsToEventBridge$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

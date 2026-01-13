@@ -9,7 +9,7 @@ import type {
   DescribeObservabilityConfigurationRequest,
   DescribeObservabilityConfigurationResponse,
 } from "../models/models_0";
-import { DescribeObservabilityConfiguration } from "../schemas/schemas_0";
+import { DescribeObservabilityConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeObservabilityConfigurationCommandInput extends Describe
  *
  * The output of {@link DescribeObservabilityConfigurationCommand}.
  */
-export interface DescribeObservabilityConfigurationCommandOutput
-  extends DescribeObservabilityConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeObservabilityConfigurationCommandOutput extends DescribeObservabilityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Return a full description of an App Runner observability configuration resource.</p>
@@ -98,7 +96,7 @@ export class DescribeObservabilityConfigurationCommand extends $Command
   })
   .s("AppRunner", "DescribeObservabilityConfiguration", {})
   .n("AppRunnerClient", "DescribeObservabilityConfigurationCommand")
-  .sc(DescribeObservabilityConfiguration)
+  .sc(DescribeObservabilityConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

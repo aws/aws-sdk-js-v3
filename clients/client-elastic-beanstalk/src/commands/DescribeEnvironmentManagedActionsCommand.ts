@@ -13,7 +13,7 @@ import type {
   DescribeEnvironmentManagedActionsRequest,
   DescribeEnvironmentManagedActionsResult,
 } from "../models/models_0";
-import { DescribeEnvironmentManagedActions } from "../schemas/schemas_0";
+import { DescribeEnvironmentManagedActions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface DescribeEnvironmentManagedActionsCommandInput extends DescribeE
  *
  * The output of {@link DescribeEnvironmentManagedActionsCommand}.
  */
-export interface DescribeEnvironmentManagedActionsCommandOutput
-  extends DescribeEnvironmentManagedActionsResult,
-    __MetadataBearer {}
+export interface DescribeEnvironmentManagedActionsCommandOutput extends DescribeEnvironmentManagedActionsResult, __MetadataBearer {}
 
 /**
  * <p>Lists an environment's upcoming and in-progress managed actions.</p>
@@ -95,7 +93,7 @@ export class DescribeEnvironmentManagedActionsCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "DescribeEnvironmentManagedActions", {})
   .n("ElasticBeanstalkClient", "DescribeEnvironmentManagedActionsCommand")
-  .sc(DescribeEnvironmentManagedActions)
+  .sc(DescribeEnvironmentManagedActions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

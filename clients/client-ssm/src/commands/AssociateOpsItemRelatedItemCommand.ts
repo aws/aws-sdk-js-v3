@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateOpsItemRelatedItemRequest, AssociateOpsItemRelatedItemResponse } from "../models/models_0";
-import { AssociateOpsItemRelatedItem } from "../schemas/schemas_0";
+import { AssociateOpsItemRelatedItem$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -24,9 +24,7 @@ export interface AssociateOpsItemRelatedItemCommandInput extends AssociateOpsIte
  *
  * The output of {@link AssociateOpsItemRelatedItemCommand}.
  */
-export interface AssociateOpsItemRelatedItemCommandOutput
-  extends AssociateOpsItemRelatedItemResponse,
-    __MetadataBearer {}
+export interface AssociateOpsItemRelatedItemCommandOutput extends AssociateOpsItemRelatedItemResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a related item to a Systems Manager OpsCenter OpsItem. For example, you can associate an
@@ -99,7 +97,7 @@ export class AssociateOpsItemRelatedItemCommand extends $Command
   })
   .s("AmazonSSM", "AssociateOpsItemRelatedItem", {})
   .n("SSMClient", "AssociateOpsItemRelatedItemCommand")
-  .sc(AssociateOpsItemRelatedItem)
+  .sc(AssociateOpsItemRelatedItem$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

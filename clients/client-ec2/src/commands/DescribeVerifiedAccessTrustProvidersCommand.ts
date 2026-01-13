@@ -9,7 +9,7 @@ import type {
   DescribeVerifiedAccessTrustProvidersRequest,
   DescribeVerifiedAccessTrustProvidersResult,
 } from "../models/models_5";
-import { DescribeVerifiedAccessTrustProviders } from "../schemas/schemas_0";
+import { DescribeVerifiedAccessTrustProviders$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeVerifiedAccessTrustProvidersCommandInput extends Descri
  *
  * The output of {@link DescribeVerifiedAccessTrustProvidersCommand}.
  */
-export interface DescribeVerifiedAccessTrustProvidersCommandOutput
-  extends DescribeVerifiedAccessTrustProvidersResult,
-    __MetadataBearer {}
+export interface DescribeVerifiedAccessTrustProvidersCommandOutput extends DescribeVerifiedAccessTrustProvidersResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified Amazon Web Services Verified Access trust providers.</p>
@@ -135,7 +133,7 @@ export class DescribeVerifiedAccessTrustProvidersCommand extends $Command
   })
   .s("AmazonEC2", "DescribeVerifiedAccessTrustProviders", {})
   .n("EC2Client", "DescribeVerifiedAccessTrustProvidersCommand")
-  .sc(DescribeVerifiedAccessTrustProviders)
+  .sc(DescribeVerifiedAccessTrustProviders$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

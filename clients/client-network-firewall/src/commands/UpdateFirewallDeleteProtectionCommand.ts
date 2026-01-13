@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { UpdateFirewallDeleteProtection } from "../schemas/schemas_0";
+import { UpdateFirewallDeleteProtection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface UpdateFirewallDeleteProtectionCommandInput extends UpdateFirewa
  *
  * The output of {@link UpdateFirewallDeleteProtectionCommand}.
  */
-export interface UpdateFirewallDeleteProtectionCommandOutput
-  extends UpdateFirewallDeleteProtectionResponse,
-    __MetadataBearer {}
+export interface UpdateFirewallDeleteProtectionCommandOutput extends UpdateFirewallDeleteProtectionResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the flag, <code>DeleteProtection</code>, which indicates whether it is possible
@@ -120,7 +118,7 @@ export class UpdateFirewallDeleteProtectionCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "UpdateFirewallDeleteProtection", {})
   .n("NetworkFirewallClient", "UpdateFirewallDeleteProtectionCommand")
-  .sc(UpdateFirewallDeleteProtection)
+  .sc(UpdateFirewallDeleteProtection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

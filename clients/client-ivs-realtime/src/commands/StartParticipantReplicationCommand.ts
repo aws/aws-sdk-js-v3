@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
 import type { StartParticipantReplicationRequest, StartParticipantReplicationResponse } from "../models/models_0";
-import { StartParticipantReplication } from "../schemas/schemas_0";
+import { StartParticipantReplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface StartParticipantReplicationCommandInput extends StartParticipan
  *
  * The output of {@link StartParticipantReplicationCommand}.
  */
-export interface StartParticipantReplicationCommandOutput
-  extends StartParticipantReplicationResponse,
-    __MetadataBearer {}
+export interface StartParticipantReplicationCommandOutput extends StartParticipantReplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Starts replicating a publishing participant from a source stage to a destination stage.</p>
@@ -108,7 +106,7 @@ export class StartParticipantReplicationCommand extends $Command
   })
   .s("AmazonInteractiveVideoServiceRealTime", "StartParticipantReplication", {})
   .n("IVSRealTimeClient", "StartParticipantReplicationCommand")
-  .sc(StartParticipantReplication)
+  .sc(StartParticipantReplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

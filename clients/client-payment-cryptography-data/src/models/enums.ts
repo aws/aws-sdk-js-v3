@@ -16,6 +16,26 @@ export type MajorKeyDerivationMode = (typeof MajorKeyDerivationMode)[keyof typeo
  * @public
  * @enum
  */
+export const SymmetricKeyAlgorithm = {
+  AES_128: "AES_128",
+  AES_192: "AES_192",
+  AES_256: "AES_256",
+  HMAC_SHA224: "HMAC_SHA224",
+  HMAC_SHA256: "HMAC_SHA256",
+  HMAC_SHA384: "HMAC_SHA384",
+  HMAC_SHA512: "HMAC_SHA512",
+  TDES_2KEY: "TDES_2KEY",
+  TDES_3KEY: "TDES_3KEY",
+} as const;
+/**
+ * @public
+ */
+export type SymmetricKeyAlgorithm = (typeof SymmetricKeyAlgorithm)[keyof typeof SymmetricKeyAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
 export const PaddingType = {
   OAEP_SHA1: "OAEP_SHA1",
   OAEP_SHA256: "OAEP_SHA256",
@@ -134,26 +154,6 @@ export type KeyCheckValueAlgorithm = (typeof KeyCheckValueAlgorithm)[keyof typeo
  * @public
  * @enum
  */
-export const SymmetricKeyAlgorithm = {
-  AES_128: "AES_128",
-  AES_192: "AES_192",
-  AES_256: "AES_256",
-  HMAC_SHA224: "HMAC_SHA224",
-  HMAC_SHA256: "HMAC_SHA256",
-  HMAC_SHA384: "HMAC_SHA384",
-  HMAC_SHA512: "HMAC_SHA512",
-  TDES_2KEY: "TDES_2KEY",
-  TDES_3KEY: "TDES_3KEY",
-} as const;
-/**
- * @public
- */
-export type SymmetricKeyAlgorithm = (typeof SymmetricKeyAlgorithm)[keyof typeof SymmetricKeyAlgorithm];
-
-/**
- * @public
- * @enum
- */
 export const KeyDerivationFunction = {
   ANSI_X963: "ANSI_X963",
   NIST_SP800: "NIST_SP800",
@@ -207,7 +207,21 @@ export type PinBlockPaddingType = (typeof PinBlockPaddingType)[keyof typeof PinB
  * @public
  * @enum
  */
+export const RandomKeySendVariantMask = {
+  VARIANT_MASK_82: "VARIANT_MASK_82",
+  VARIANT_MASK_82C0: "VARIANT_MASK_82C0",
+} as const;
+/**
+ * @public
+ */
+export type RandomKeySendVariantMask = (typeof RandomKeySendVariantMask)[keyof typeof RandomKeySendVariantMask];
+
+/**
+ * @public
+ * @enum
+ */
 export const MacAlgorithm = {
+  AS2805_4_1: "AS2805_4_1",
   CMAC: "CMAC",
   HMAC: "HMAC",
   HMAC_SHA224: "HMAC_SHA224",

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTThingsGraphClient";
 import type { ListFlowExecutionMessagesRequest, ListFlowExecutionMessagesResponse } from "../models/models_0";
-import { ListFlowExecutionMessages } from "../schemas/schemas_0";
+import { ListFlowExecutionMessages$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class ListFlowExecutionMessagesCommand extends $Command
   })
   .s("IotThingsGraphFrontEndService", "ListFlowExecutionMessages", {})
   .n("IoTThingsGraphClient", "ListFlowExecutionMessagesCommand")
-  .sc(ListFlowExecutionMessages)
+  .sc(ListFlowExecutionMessages$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

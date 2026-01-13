@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import { ListCollections } from "../schemas/schemas_0";
+import { ListCollections$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class ListCollectionsCommand extends $Command
   })
   .s("OpenSearchServerless", "ListCollections", {})
   .n("OpenSearchServerlessClient", "ListCollectionsCommand")
-  .sc(ListCollections)
+  .sc(ListCollections$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

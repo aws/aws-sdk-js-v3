@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteOnlineEvaluationConfigRequest, DeleteOnlineEvaluationConfigResponse } from "../models/models_0";
-import { DeleteOnlineEvaluationConfig } from "../schemas/schemas_0";
+import { DeleteOnlineEvaluationConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DeleteOnlineEvaluationConfigCommandInput extends DeleteOnlineEv
  *
  * The output of {@link DeleteOnlineEvaluationConfigCommand}.
  */
-export interface DeleteOnlineEvaluationConfigCommandOutput
-  extends DeleteOnlineEvaluationConfigResponse,
-    __MetadataBearer {}
+export interface DeleteOnlineEvaluationConfigCommandOutput extends DeleteOnlineEvaluationConfigResponse, __MetadataBearer {}
 
 /**
  * <p> Deletes an online evaluation configuration and stops any ongoing evaluation processes associated with it. </p>
@@ -99,7 +97,7 @@ export class DeleteOnlineEvaluationConfigCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "DeleteOnlineEvaluationConfig", {})
   .n("BedrockAgentCoreControlClient", "DeleteOnlineEvaluationConfigCommand")
-  .sc(DeleteOnlineEvaluationConfig)
+  .sc(DeleteOnlineEvaluationConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

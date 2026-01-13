@@ -9,8 +9,8 @@ import {
   OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
-  ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
+  ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
   SmithyFrameworkException as __SmithyFrameworkException,
@@ -30,60 +30,46 @@ import {
 } from "../../protocols/Aws_restJson1";
 import { RestJsonService } from "../RestJsonService";
 
-export type DocumentTypeAsPayload<Context> = __Operation<
-  DocumentTypeAsPayloadServerInput,
-  DocumentTypeAsPayloadServerOutput,
-  Context
->;
+export type DocumentTypeAsPayload<Context> = __Operation<DocumentTypeAsPayloadServerInput, DocumentTypeAsPayloadServerOutput, Context>
 
 export interface DocumentTypeAsPayloadServerInput extends DocumentTypeAsPayloadInputOutput {}
 export namespace DocumentTypeAsPayloadServerInput {
   /**
    * @internal
    */
-  export const validate: (
-    obj: Parameters<typeof DocumentTypeAsPayloadInputOutput.validate>[0]
-  ) => __ValidationFailure[] = DocumentTypeAsPayloadInputOutput.validate;
+  export const validate: (obj: Parameters<typeof DocumentTypeAsPayloadInputOutput.validate>[0]) => __ValidationFailure[] = DocumentTypeAsPayloadInputOutput.validate;
 }
 export interface DocumentTypeAsPayloadServerOutput extends DocumentTypeAsPayloadInputOutput {}
 
 export type DocumentTypeAsPayloadErrors = never;
 
-export class DocumentTypeAsPayloadSerializer
-  implements __OperationSerializer<RestJsonService<any>, "DocumentTypeAsPayload", DocumentTypeAsPayloadErrors>
-{
+export class DocumentTypeAsPayloadSerializer implements __OperationSerializer<RestJsonService<any>, "DocumentTypeAsPayload", DocumentTypeAsPayloadErrors> {
   serialize = serializeDocumentTypeAsPayloadResponse;
   deserialize = deserializeDocumentTypeAsPayloadRequest;
 
   isOperationError(error: any): error is DocumentTypeAsPayloadErrors {
     return false;
-  }
+  };
 
   serializeError(error: DocumentTypeAsPayloadErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     throw error;
   }
+
 }
 
-export const getDocumentTypeAsPayloadHandler = <Context>(
-  operation: __Operation<DocumentTypeAsPayloadServerInput, DocumentTypeAsPayloadServerOutput, Context>,
-  customizer: __ValidationCustomizer<"DocumentTypeAsPayload">
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getDocumentTypeAsPayloadHandler = <Context>(operation: __Operation<DocumentTypeAsPayloadServerInput, DocumentTypeAsPayloadServerOutput, Context>, customizer: __ValidationCustomizer<"DocumentTypeAsPayload">): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJson", "DocumentTypeAsPayload">([
     new httpbinding.UriSpec<"RestJson", "DocumentTypeAsPayload">(
-      "PUT",
-      [{ type: "path_literal", value: "DocumentTypeAsPayload" }],
-      [],
-      { service: "RestJson", operation: "DocumentTypeAsPayload" }
-    ),
+      'PUT',
+      [
+        { type: 'path_literal', value: "DocumentTypeAsPayload" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "DocumentTypeAsPayload" }),
   ]);
-  return new DocumentTypeAsPayloadHandler(
-    operation,
-    mux,
-    new DocumentTypeAsPayloadSerializer(),
-    serializeFrameworkException,
-    customizer
-  );
-};
+  return new DocumentTypeAsPayloadHandler(operation, mux, new DocumentTypeAsPayloadSerializer(), serializeFrameworkException, customizer);
+}
 
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -92,7 +78,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -107,45 +93,37 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
 export class DocumentTypeAsPayloadHandler<Context> implements __ServiceHandler<Context> {
   private readonly operation: __Operation<DocumentTypeAsPayloadServerInput, DocumentTypeAsPayloadServerOutput, Context>;
   private readonly mux: __Mux<"RestJson", "DocumentTypeAsPayload">;
-  private readonly serializer: __OperationSerializer<
-    RestJsonService<Context>,
-    "DocumentTypeAsPayload",
-    DocumentTypeAsPayloadErrors
-  >;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializer: __OperationSerializer<RestJsonService<Context>, "DocumentTypeAsPayload", DocumentTypeAsPayloadErrors>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<"DocumentTypeAsPayload">;
   /**
    * Construct a DocumentTypeAsPayload handler.
@@ -172,20 +150,9 @@ export class DocumentTypeAsPayloadHandler<Context> implements __ServiceHandler<C
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
     const target = this.mux.match(request);
     if (target === undefined) {
-      console.log(
-        "Received a request that did not match aws.protocoltests.restjson#RestJson.DocumentTypeAsPayload. This indicates a misconfiguration."
-      );
+      console.log('Received a request that did not match aws.protocoltests.restjson#RestJson.DocumentTypeAsPayload. This indicates a misconfiguration.');
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
-    return handle(
-      request,
-      context,
-      "DocumentTypeAsPayload",
-      this.serializer,
-      this.operation,
-      this.serializeFrameworkException,
-      DocumentTypeAsPayloadServerInput.validate,
-      this.validationCustomizer
-    );
+    return handle(request, context, "DocumentTypeAsPayload", this.serializer, this.operation, this.serializeFrameworkException, DocumentTypeAsPayloadServerInput.validate, this.validationCustomizer);
   }
 }

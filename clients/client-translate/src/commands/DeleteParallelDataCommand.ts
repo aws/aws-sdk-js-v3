@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteParallelDataRequest, DeleteParallelDataResponse } from "../models/models_0";
-import { DeleteParallelData } from "../schemas/schemas_0";
+import { DeleteParallelData$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
@@ -90,7 +90,7 @@ export class DeleteParallelDataCommand extends $Command
   })
   .s("AWSShineFrontendService_20170701", "DeleteParallelData", {})
   .n("TranslateClient", "DeleteParallelDataCommand")
-  .sc(DeleteParallelData)
+  .sc(DeleteParallelData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   ListChannelMembershipsForAppInstanceUserRequest,
   ListChannelMembershipsForAppInstanceUserResponse,
 } from "../models/models_0";
-import { ListChannelMembershipsForAppInstanceUser } from "../schemas/schemas_0";
+import { ListChannelMembershipsForAppInstanceUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListChannelMembershipsForAppInstanceUserCommand}.
  */
-export interface ListChannelMembershipsForAppInstanceUserCommandInput
-  extends ListChannelMembershipsForAppInstanceUserRequest {}
+export interface ListChannelMembershipsForAppInstanceUserCommandInput extends ListChannelMembershipsForAppInstanceUserRequest {}
 /**
  * @public
  *
  * The output of {@link ListChannelMembershipsForAppInstanceUserCommand}.
  */
-export interface ListChannelMembershipsForAppInstanceUserCommandOutput
-  extends ListChannelMembershipsForAppInstanceUserResponse,
-    __MetadataBearer {}
+export interface ListChannelMembershipsForAppInstanceUserCommandOutput extends ListChannelMembershipsForAppInstanceUserResponse, __MetadataBearer {}
 
 /**
  * <p> Lists all channels that an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> is a part of.
@@ -127,7 +124,7 @@ export class ListChannelMembershipsForAppInstanceUserCommand extends $Command
   })
   .s("ChimeMessagingService", "ListChannelMembershipsForAppInstanceUser", {})
   .n("ChimeSDKMessagingClient", "ListChannelMembershipsForAppInstanceUserCommand")
-  .sc(ListChannelMembershipsForAppInstanceUser)
+  .sc(ListChannelMembershipsForAppInstanceUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

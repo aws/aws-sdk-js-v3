@@ -9,7 +9,7 @@ import type {
   AssociatePhoneNumbersWithVoiceConnectorGroupRequest,
   AssociatePhoneNumbersWithVoiceConnectorGroupResponse,
 } from "../models/models_0";
-import { AssociatePhoneNumbersWithVoiceConnectorGroup } from "../schemas/schemas_0";
+import { AssociatePhoneNumbersWithVoiceConnectorGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AssociatePhoneNumbersWithVoiceConnectorGroupCommand}.
  */
-export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput
-  extends AssociatePhoneNumbersWithVoiceConnectorGroupRequest {}
+export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput extends AssociatePhoneNumbersWithVoiceConnectorGroupRequest {}
 /**
  * @public
  *
  * The output of {@link AssociatePhoneNumbersWithVoiceConnectorGroupCommand}.
  */
-export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
-  extends AssociatePhoneNumbersWithVoiceConnectorGroupResponse,
-    __MetadataBearer {}
+export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput extends AssociatePhoneNumbersWithVoiceConnectorGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Associates phone numbers with the specified Amazon Chime SDK Voice Connector group.</p>
@@ -113,7 +110,7 @@ export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Comman
   })
   .s("ChimeSDKTelephonyService", "AssociatePhoneNumbersWithVoiceConnectorGroup", {})
   .n("ChimeSDKVoiceClient", "AssociatePhoneNumbersWithVoiceConnectorGroupCommand")
-  .sc(AssociatePhoneNumbersWithVoiceConnectorGroup)
+  .sc(AssociatePhoneNumbersWithVoiceConnectorGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

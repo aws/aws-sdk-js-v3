@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { ListSbomValidationResultsRequest, ListSbomValidationResultsResponse } from "../models/models_1";
-import { ListSbomValidationResults } from "../schemas/schemas_0";
+import { ListSbomValidationResults$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class ListSbomValidationResultsCommand extends $Command
   })
   .s("AWSIotService", "ListSbomValidationResults", {})
   .n("IoTClient", "ListSbomValidationResultsCommand")
-  .sc(ListSbomValidationResults)
+  .sc(ListSbomValidationResults$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

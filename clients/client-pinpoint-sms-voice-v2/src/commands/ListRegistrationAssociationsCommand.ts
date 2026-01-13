@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { ListRegistrationAssociations } from "../schemas/schemas_0";
+import { ListRegistrationAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListRegistrationAssociationsCommandInput extends ListRegistrati
  *
  * The output of {@link ListRegistrationAssociationsCommand}.
  */
-export interface ListRegistrationAssociationsCommandOutput
-  extends ListRegistrationAssociationsResult,
-    __MetadataBearer {}
+export interface ListRegistrationAssociationsCommandOutput extends ListRegistrationAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieve all of the origination identities that are associated with a registration.</p>
@@ -116,7 +114,7 @@ export class ListRegistrationAssociationsCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "ListRegistrationAssociations", {})
   .n("PinpointSMSVoiceV2Client", "ListRegistrationAssociationsCommand")
-  .sc(ListRegistrationAssociations)
+  .sc(ListRegistrationAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerAutomationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateEnrollmentConfigurationRequest, UpdateEnrollmentConfigurationResponse } from "../models/models_0";
-import { UpdateEnrollmentConfiguration } from "../schemas/schemas_0";
+import { UpdateEnrollmentConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface UpdateEnrollmentConfigurationCommandInput extends UpdateEnrollm
  *
  * The output of {@link UpdateEnrollmentConfigurationCommand}.
  */
-export interface UpdateEnrollmentConfigurationCommandOutput
-  extends UpdateEnrollmentConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateEnrollmentConfigurationCommandOutput extends UpdateEnrollmentConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates your account’s Compute Optimizer Automation enrollment configuration. </p>
@@ -115,7 +113,7 @@ export class UpdateEnrollmentConfigurationCommand extends $Command
   })
   .s("ComputeOptimizerAutomationService", "UpdateEnrollmentConfiguration", {})
   .n("ComputeOptimizerAutomationClient", "UpdateEnrollmentConfigurationCommand")
-  .sc(UpdateEnrollmentConfiguration)
+  .sc(UpdateEnrollmentConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

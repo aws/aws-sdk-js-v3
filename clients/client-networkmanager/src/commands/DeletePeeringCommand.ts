@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { DeletePeering } from "../schemas/schemas_0";
+import { DeletePeering$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class DeletePeeringCommand extends $Command
   })
   .s("NetworkManager", "DeletePeering", {})
   .n("NetworkManagerClient", "DeletePeeringCommand")
-  .sc(DeletePeering)
+  .sc(DeletePeering$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

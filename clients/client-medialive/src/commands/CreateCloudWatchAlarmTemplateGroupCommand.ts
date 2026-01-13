@@ -9,7 +9,7 @@ import type {
   CreateCloudWatchAlarmTemplateGroupRequest,
   CreateCloudWatchAlarmTemplateGroupResponse,
 } from "../models/models_1";
-import { CreateCloudWatchAlarmTemplateGroup } from "../schemas/schemas_0";
+import { CreateCloudWatchAlarmTemplateGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreateCloudWatchAlarmTemplateGroupCommandInput extends CreateCl
  *
  * The output of {@link CreateCloudWatchAlarmTemplateGroupCommand}.
  */
-export interface CreateCloudWatchAlarmTemplateGroupCommandOutput
-  extends CreateCloudWatchAlarmTemplateGroupResponse,
-    __MetadataBearer {}
+export interface CreateCloudWatchAlarmTemplateGroupCommandOutput extends CreateCloudWatchAlarmTemplateGroupResponse, __MetadataBearer {}
 
 /**
  * Creates a cloudwatch alarm template group to group your cloudwatch alarm templates and to attach to signal maps for dynamically creating alarms.
@@ -109,7 +107,7 @@ export class CreateCloudWatchAlarmTemplateGroupCommand extends $Command
   })
   .s("MediaLive", "CreateCloudWatchAlarmTemplateGroup", {})
   .n("MediaLiveClient", "CreateCloudWatchAlarmTemplateGroupCommand")
-  .sc(CreateCloudWatchAlarmTemplateGroup)
+  .sc(CreateCloudWatchAlarmTemplateGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

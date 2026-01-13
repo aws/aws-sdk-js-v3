@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import type { ListMigrationTasksRequest, ListMigrationTasksResult } from "../models/models_0";
-import { ListMigrationTasks } from "../schemas/schemas_0";
+import { ListMigrationTasks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class ListMigrationTasksCommand extends $Command
   })
   .s("AWSMigrationHub", "ListMigrationTasks", {})
   .n("MigrationHubClient", "ListMigrationTasksCommand")
-  .sc(ListMigrationTasks)
+  .sc(ListMigrationTasks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

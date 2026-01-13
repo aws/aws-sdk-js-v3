@@ -8,7 +8,7 @@ import type {
   DeregisterTaskFromMaintenanceWindowRequest,
   DeregisterTaskFromMaintenanceWindowResult,
 } from "../models/models_0";
-import { DeregisterTaskFromMaintenanceWindow } from "../schemas/schemas_0";
+import { DeregisterTaskFromMaintenanceWindow$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DeregisterTaskFromMaintenanceWindowCommandInput extends Deregis
  *
  * The output of {@link DeregisterTaskFromMaintenanceWindowCommand}.
  */
-export interface DeregisterTaskFromMaintenanceWindowCommandOutput
-  extends DeregisterTaskFromMaintenanceWindowResult,
-    __MetadataBearer {}
+export interface DeregisterTaskFromMaintenanceWindowCommandOutput extends DeregisterTaskFromMaintenanceWindowResult, __MetadataBearer {}
 
 /**
  * <p>Removes a task from a maintenance window.</p>
@@ -89,7 +87,7 @@ export class DeregisterTaskFromMaintenanceWindowCommand extends $Command
   })
   .s("AmazonSSM", "DeregisterTaskFromMaintenanceWindow", {})
   .n("SSMClient", "DeregisterTaskFromMaintenanceWindowCommand")
-  .sc(DeregisterTaskFromMaintenanceWindow)
+  .sc(DeregisterTaskFromMaintenanceWindow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

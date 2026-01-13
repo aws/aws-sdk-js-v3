@@ -13,7 +13,7 @@ import type {
   SetLoadBalancerPoliciesOfListenerInput,
   SetLoadBalancerPoliciesOfListenerOutput,
 } from "../models/models_0";
-import { SetLoadBalancerPoliciesOfListener } from "../schemas/schemas_0";
+import { SetLoadBalancerPoliciesOfListener$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface SetLoadBalancerPoliciesOfListenerCommandInput extends SetLoadBa
  *
  * The output of {@link SetLoadBalancerPoliciesOfListenerCommand}.
  */
-export interface SetLoadBalancerPoliciesOfListenerCommandOutput
-  extends SetLoadBalancerPoliciesOfListenerOutput,
-    __MetadataBearer {}
+export interface SetLoadBalancerPoliciesOfListenerCommandOutput extends SetLoadBalancerPoliciesOfListenerOutput, __MetadataBearer {}
 
 /**
  * <p>Replaces the current set of policies for the specified load balancer port with the specified set of policies.</p>
@@ -119,7 +117,7 @@ export class SetLoadBalancerPoliciesOfListenerCommand extends $Command
   })
   .s("ElasticLoadBalancing_v7", "SetLoadBalancerPoliciesOfListener", {})
   .n("ElasticLoadBalancingClient", "SetLoadBalancerPoliciesOfListenerCommand")
-  .sc(SetLoadBalancerPoliciesOfListener)
+  .sc(SetLoadBalancerPoliciesOfListener$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

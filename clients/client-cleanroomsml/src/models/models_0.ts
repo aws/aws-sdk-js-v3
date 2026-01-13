@@ -350,6 +350,45 @@ export interface AudienceQualityMetrics {
 }
 
 /**
+ * <p>The configuration properties for the worker compute environment. These properties allow you to customize the compute settings for your Clean Rooms workloads.</p>
+ * @public
+ */
+export type WorkerComputeConfigurationProperties =
+  | WorkerComputeConfigurationProperties.SparkMember
+  | WorkerComputeConfigurationProperties.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace WorkerComputeConfigurationProperties {
+  /**
+   * <p>The Spark configuration properties for SQL workloads. This map contains key-value pairs that configure Apache Spark settings to optimize performance for your data processing jobs. You can specify up to 50 Spark properties, with each key being 1-200 characters and each value being 0-500 characters. These properties allow you to adjust compute capacity for large datasets and complex workloads.</p>
+   * @public
+   */
+  export interface SparkMember {
+    spark: Record<string, string>;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    spark?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    spark: (value: Record<string, string>) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Configuration information about the compute workers that perform the transform job.</p>
  * @public
  */
@@ -365,13 +404,21 @@ export interface WorkerComputeConfiguration {
    * @public
    */
   number?: number | undefined;
+
+  /**
+   * <p>The configuration properties for the worker compute environment. These properties allow you to customize the compute settings for your Clean Rooms workloads.</p>
+   * @public
+   */
+  properties?: WorkerComputeConfigurationProperties | undefined;
 }
 
 /**
  * <p>Provides configuration information for the instances that will perform the compute work.</p>
  * @public
  */
-export type ComputeConfiguration = ComputeConfiguration.WorkerMember | ComputeConfiguration.$UnknownMember;
+export type ComputeConfiguration =
+  | ComputeConfiguration.WorkerMember
+  | ComputeConfiguration.$UnknownMember;
 
 /**
  * @public
@@ -2325,9 +2372,7 @@ export interface ListCollaborationConfiguredModelAlgorithmAssociationsResponse {
    * <p>The configured model algorithm associations that belong to this collaboration.</p>
    * @public
    */
-  collaborationConfiguredModelAlgorithmAssociations:
-    | CollaborationConfiguredModelAlgorithmAssociationSummary[]
-    | undefined;
+  collaborationConfiguredModelAlgorithmAssociations: CollaborationConfiguredModelAlgorithmAssociationSummary[] | undefined;
 }
 
 /**
@@ -3225,7 +3270,9 @@ export interface GetCollaborationMLInputChannelRequest {
  * <p>The privacy budget information that controls access to Clean Rooms ML input channels.</p>
  * @public
  */
-export type PrivacyBudgets = PrivacyBudgets.AccessBudgetsMember | PrivacyBudgets.$UnknownMember;
+export type PrivacyBudgets =
+  | PrivacyBudgets.AccessBudgetsMember
+  | PrivacyBudgets.$UnknownMember;
 
 /**
  * @public
@@ -3357,7 +3404,7 @@ export interface MLSyntheticDataParameters {
    * <p>Classification details for data columns that specify how each column should be treated during synthetic data generation.</p>
    * @public
    */
-  columnClassification: ColumnClassificationDetails | undefined;
+  columnClassification?: ColumnClassificationDetails | undefined;
 }
 
 /**
@@ -3832,7 +3879,7 @@ export interface ResourceConfig {
   instanceType: _InstanceType | undefined;
 
   /**
-   * <p>The maximum size of the instance that is used to train the model.</p>
+   * <p>The volume size of the instance that is used to train the model. Please see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-volumes.html">EC2 volume limit</a> for volume size limitations on different instance types.</p>
    * @public
    */
   volumeSizeInGB: number | undefined;

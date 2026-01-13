@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteGlobalReplicationGroupMessage, DeleteGlobalReplicationGroupResult } from "../models/models_0";
-import { DeleteGlobalReplicationGroup } from "../schemas/schemas_0";
+import { DeleteGlobalReplicationGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteGlobalReplicationGroupCommandInput extends DeleteGlobalRe
  *
  * The output of {@link DeleteGlobalReplicationGroupCommand}.
  */
-export interface DeleteGlobalReplicationGroupCommandOutput
-  extends DeleteGlobalReplicationGroupResult,
-    __MetadataBearer {}
+export interface DeleteGlobalReplicationGroupCommandOutput extends DeleteGlobalReplicationGroupResult, __MetadataBearer {}
 
 /**
  * <p>Deleting a Global datastore is a two-step process: </p>
@@ -132,7 +130,7 @@ export class DeleteGlobalReplicationGroupCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "DeleteGlobalReplicationGroup", {})
   .n("ElastiCacheClient", "DeleteGlobalReplicationGroupCommand")
-  .sc(DeleteGlobalReplicationGroup)
+  .sc(DeleteGlobalReplicationGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

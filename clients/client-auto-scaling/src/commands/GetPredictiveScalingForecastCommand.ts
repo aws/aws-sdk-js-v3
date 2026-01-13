@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPredictiveScalingForecastAnswer, GetPredictiveScalingForecastType } from "../models/models_0";
-import { GetPredictiveScalingForecast } from "../schemas/schemas_0";
+import { GetPredictiveScalingForecast$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface GetPredictiveScalingForecastCommandInput extends GetPredictiveS
  *
  * The output of {@link GetPredictiveScalingForecastCommand}.
  */
-export interface GetPredictiveScalingForecastCommandOutput
-  extends GetPredictiveScalingForecastAnswer,
-    __MetadataBearer {}
+export interface GetPredictiveScalingForecastCommandOutput extends GetPredictiveScalingForecastAnswer, __MetadataBearer {}
 
 /**
  * <p>Retrieves the forecast data for a predictive scaling policy.</p>
@@ -195,7 +193,7 @@ export class GetPredictiveScalingForecastCommand extends $Command
   })
   .s("AutoScaling_2011_01_01", "GetPredictiveScalingForecast", {})
   .n("AutoScalingClient", "GetPredictiveScalingForecastCommand")
-  .sc(GetPredictiveScalingForecast)
+  .sc(GetPredictiveScalingForecast$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CompleteLifecycleActionAnswer, CompleteLifecycleActionType } from "../models/models_0";
-import { CompleteLifecycleAction } from "../schemas/schemas_0";
+import { CompleteLifecycleAction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class CompleteLifecycleActionCommand extends $Command
   })
   .s("AutoScaling_2011_01_01", "CompleteLifecycleAction", {})
   .n("AutoScalingClient", "CompleteLifecycleActionCommand")
-  .sc(CompleteLifecycleAction)
+  .sc(CompleteLifecycleAction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

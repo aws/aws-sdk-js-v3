@@ -13,7 +13,7 @@ import type {
   UpdateApplicationMaintenanceConfigurationRequest,
   UpdateApplicationMaintenanceConfigurationResponse,
 } from "../models/models_0";
-import { UpdateApplicationMaintenanceConfiguration } from "../schemas/schemas_0";
+import { UpdateApplicationMaintenanceConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link UpdateApplicationMaintenanceConfigurationCommand}.
  */
-export interface UpdateApplicationMaintenanceConfigurationCommandInput
-  extends UpdateApplicationMaintenanceConfigurationRequest {}
+export interface UpdateApplicationMaintenanceConfigurationCommandInput extends UpdateApplicationMaintenanceConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateApplicationMaintenanceConfigurationCommand}.
  */
-export interface UpdateApplicationMaintenanceConfigurationCommandOutput
-  extends UpdateApplicationMaintenanceConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateApplicationMaintenanceConfigurationCommandOutput extends UpdateApplicationMaintenanceConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the maintenance configuration of the Managed Service for Apache Flink application. </p>
@@ -123,7 +120,7 @@ export class UpdateApplicationMaintenanceConfigurationCommand extends $Command
   })
   .s("KinesisAnalytics_20180523", "UpdateApplicationMaintenanceConfiguration", {})
   .n("KinesisAnalyticsV2Client", "UpdateApplicationMaintenanceConfigurationCommand")
-  .sc(UpdateApplicationMaintenanceConfiguration)
+  .sc(UpdateApplicationMaintenanceConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

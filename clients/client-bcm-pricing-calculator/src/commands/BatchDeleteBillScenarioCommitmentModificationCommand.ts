@@ -13,7 +13,7 @@ import type {
   BatchDeleteBillScenarioCommitmentModificationRequest,
   BatchDeleteBillScenarioCommitmentModificationResponse,
 } from "../models/models_0";
-import { BatchDeleteBillScenarioCommitmentModification } from "../schemas/schemas_0";
+import { BatchDeleteBillScenarioCommitmentModification$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link BatchDeleteBillScenarioCommitmentModificationCommand}.
  */
-export interface BatchDeleteBillScenarioCommitmentModificationCommandInput
-  extends BatchDeleteBillScenarioCommitmentModificationRequest {}
+export interface BatchDeleteBillScenarioCommitmentModificationCommandInput extends BatchDeleteBillScenarioCommitmentModificationRequest {}
 /**
  * @public
  *
  * The output of {@link BatchDeleteBillScenarioCommitmentModificationCommand}.
  */
-export interface BatchDeleteBillScenarioCommitmentModificationCommandOutput
-  extends BatchDeleteBillScenarioCommitmentModificationResponse,
-    __MetadataBearer {}
+export interface BatchDeleteBillScenarioCommitmentModificationCommandOutput extends BatchDeleteBillScenarioCommitmentModificationResponse, __MetadataBearer {}
 
 /**
  * <p> Delete commitment that you have created in a Bill Scenario. You can only delete a commitment that you had added and cannot model deletion (or removal) of a existing commitment. If you want model deletion of an existing commitment, see the negate <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BillScenarioCommitmentModificationAction.html"> BillScenarioCommitmentModificationAction</a> of <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchCreateBillScenarioUsageModification.html"> BatchCreateBillScenarioCommitmentModification</a> operation. </p> <note> <p>The <code>BatchDeleteBillScenarioCommitmentModification</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals, include the permission <code>bcm-pricing-calculator:DeleteBillScenarioCommitmentModification</code> in your policies.</p> </note>
@@ -113,7 +110,7 @@ export class BatchDeleteBillScenarioCommitmentModificationCommand extends $Comma
   })
   .s("AWSBCMPricingCalculator", "BatchDeleteBillScenarioCommitmentModification", {})
   .n("BCMPricingCalculatorClient", "BatchDeleteBillScenarioCommitmentModificationCommand")
-  .sc(BatchDeleteBillScenarioCommitmentModification)
+  .sc(BatchDeleteBillScenarioCommitmentModification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

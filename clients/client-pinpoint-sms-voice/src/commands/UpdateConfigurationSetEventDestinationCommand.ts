@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceClient";
-import { UpdateConfigurationSetEventDestination } from "../schemas/schemas_0";
+import { UpdateConfigurationSetEventDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link UpdateConfigurationSetEventDestinationCommand}.
  */
-export interface UpdateConfigurationSetEventDestinationCommandInput
-  extends UpdateConfigurationSetEventDestinationRequest {}
+export interface UpdateConfigurationSetEventDestinationCommandInput extends UpdateConfigurationSetEventDestinationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateConfigurationSetEventDestinationCommand}.
  */
-export interface UpdateConfigurationSetEventDestinationCommandOutput
-  extends UpdateConfigurationSetEventDestinationResponse,
-    __MetadataBearer {}
+export interface UpdateConfigurationSetEventDestinationCommandOutput extends UpdateConfigurationSetEventDestinationResponse, __MetadataBearer {}
 
 /**
  * Update an event destination in a configuration set. An event destination is a location that you publish information about your voice calls to. For example, you can log an event to an Amazon CloudWatch destination when a call fails.
@@ -111,7 +108,7 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command
   })
   .s("PinpointSMSVoice", "UpdateConfigurationSetEventDestination", {})
   .n("PinpointSMSVoiceClient", "UpdateConfigurationSetEventDestinationCommand")
-  .sc(UpdateConfigurationSetEventDestination)
+  .sc(UpdateConfigurationSetEventDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DescribeOrganizationConfigurationRequest,
   DescribeOrganizationConfigurationResponse,
 } from "../models/models_0";
-import { DescribeOrganizationConfiguration } from "../schemas/schemas_0";
+import { DescribeOrganizationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeOrganizationConfigurationCommandInput extends DescribeO
  *
  * The output of {@link DescribeOrganizationConfigurationCommand}.
  */
-export interface DescribeOrganizationConfigurationCommandOutput
-  extends DescribeOrganizationConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeOrganizationConfigurationCommandOutput extends DescribeOrganizationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the configuration for the organization behavior graph.
@@ -95,7 +93,7 @@ export class DescribeOrganizationConfigurationCommand extends $Command
   })
   .s("AmazonDetective", "DescribeOrganizationConfiguration", {})
   .n("DetectiveClient", "DescribeOrganizationConfigurationCommand")
-  .sc(DescribeOrganizationConfiguration)
+  .sc(DescribeOrganizationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

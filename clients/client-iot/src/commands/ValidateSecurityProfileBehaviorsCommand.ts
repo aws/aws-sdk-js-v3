@@ -9,7 +9,7 @@ import type {
   ValidateSecurityProfileBehaviorsRequest,
   ValidateSecurityProfileBehaviorsResponse,
 } from "../models/models_2";
-import { ValidateSecurityProfileBehaviors } from "../schemas/schemas_0";
+import { ValidateSecurityProfileBehaviors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ValidateSecurityProfileBehaviorsCommandInput extends ValidateSe
  *
  * The output of {@link ValidateSecurityProfileBehaviorsCommand}.
  */
-export interface ValidateSecurityProfileBehaviorsCommandOutput
-  extends ValidateSecurityProfileBehaviorsResponse,
-    __MetadataBearer {}
+export interface ValidateSecurityProfileBehaviorsCommandOutput extends ValidateSecurityProfileBehaviorsResponse, __MetadataBearer {}
 
 /**
  * <p>Validates a Device Defender security profile behaviors specification.</p>
@@ -132,7 +130,7 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command
   })
   .s("AWSIotService", "ValidateSecurityProfileBehaviors", {})
   .n("IoTClient", "ValidateSecurityProfileBehaviorsCommand")
-  .sc(ValidateSecurityProfileBehaviors)
+  .sc(ValidateSecurityProfileBehaviors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
 import type { DeleteLicenseServerEndpointRequest, DeleteLicenseServerEndpointResponse } from "../models/models_0";
-import { DeleteLicenseServerEndpoint } from "../schemas/schemas_0";
+import { DeleteLicenseServerEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DeleteLicenseServerEndpointCommandInput extends DeleteLicenseSe
  *
  * The output of {@link DeleteLicenseServerEndpointCommand}.
  */
-export interface DeleteLicenseServerEndpointCommandOutput
-  extends DeleteLicenseServerEndpointResponse,
-    __MetadataBearer {}
+export interface DeleteLicenseServerEndpointCommandOutput extends DeleteLicenseServerEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a <code>LicenseServerEndpoint</code> resource.</p>
@@ -120,7 +118,7 @@ export class DeleteLicenseServerEndpointCommand extends $Command
   })
   .s("LicenseManagerUserSubscriptions", "DeleteLicenseServerEndpoint", {})
   .n("LicenseManagerUserSubscriptionsClient", "DeleteLicenseServerEndpointCommand")
-  .sc(DeleteLicenseServerEndpoint)
+  .sc(DeleteLicenseServerEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

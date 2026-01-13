@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMetricDataRequest, GetMetricDataResponse } from "../models/models_1";
-import { GetMetricData } from "../schemas/schemas_0";
+import { GetMetricData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -64,9 +64,15 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  *     AgentStatuses: [ // AgentStatuses
  *       "STRING_VALUE",
  *     ],
+ *     Subtypes: [ // Subtypes
+ *       "STRING_VALUE",
+ *     ],
+ *     ValidationTestTypes: [ // ValidationTestTypes
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   Groupings: [ // Groupings
- *     "QUEUE" || "CHANNEL" || "ROUTING_PROFILE" || "ROUTING_STEP_EXPRESSION" || "AGENT_STATUS",
+ *     "QUEUE" || "CHANNEL" || "ROUTING_PROFILE" || "ROUTING_STEP_EXPRESSION" || "AGENT_STATUS" || "SUBTYPE" || "VALIDATION_TEST_TYPE",
  *   ],
  *   HistoricalMetrics: [ // HistoricalMetrics // required
  *     { // HistoricalMetric
@@ -103,6 +109,8 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  * //           Arn: "STRING_VALUE",
  * //           Id: "STRING_VALUE",
  * //         },
+ * //         Subtype: "STRING_VALUE",
+ * //         ValidationTestType: "STRING_VALUE",
  * //       },
  * //       Collections: [ // HistoricalMetricDataCollections
  * //         { // HistoricalMetricData
@@ -165,7 +173,7 @@ export class GetMetricDataCommand extends $Command
   })
   .s("AmazonConnectService", "GetMetricData", {})
   .n("ConnectClient", "GetMetricDataCommand")
-  .sc(GetMetricData)
+  .sc(GetMetricData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

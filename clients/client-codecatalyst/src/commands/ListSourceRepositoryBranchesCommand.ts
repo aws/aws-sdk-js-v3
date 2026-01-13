@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSourceRepositoryBranchesRequest, ListSourceRepositoryBranchesResponse } from "../models/models_0";
-import { ListSourceRepositoryBranches } from "../schemas/schemas_0";
+import { ListSourceRepositoryBranches$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListSourceRepositoryBranchesCommandInput extends ListSourceRepo
  *
  * The output of {@link ListSourceRepositoryBranchesCommand}.
  */
-export interface ListSourceRepositoryBranchesCommandOutput
-  extends ListSourceRepositoryBranchesResponse,
-    __MetadataBearer {}
+export interface ListSourceRepositoryBranchesCommandOutput extends ListSourceRepositoryBranchesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of branches in a specified source repository.</p>
@@ -107,7 +105,7 @@ export class ListSourceRepositoryBranchesCommand extends $Command
   })
   .s("CodeCatalyst", "ListSourceRepositoryBranches", {})
   .n("CodeCatalystClient", "ListSourceRepositoryBranchesCommand")
-  .sc(ListSourceRepositoryBranches)
+  .sc(ListSourceRepositoryBranches$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

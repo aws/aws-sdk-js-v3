@@ -9,7 +9,7 @@ import type {
   GetFindingsPublicationConfigurationRequest,
   GetFindingsPublicationConfigurationResponse,
 } from "../models/models_0";
-import { GetFindingsPublicationConfiguration } from "../schemas/schemas_0";
+import { GetFindingsPublicationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetFindingsPublicationConfigurationCommandInput extends GetFind
  *
  * The output of {@link GetFindingsPublicationConfigurationCommand}.
  */
-export interface GetFindingsPublicationConfigurationCommandOutput
-  extends GetFindingsPublicationConfigurationResponse,
-    __MetadataBearer {}
+export interface GetFindingsPublicationConfigurationCommandOutput extends GetFindingsPublicationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the configuration settings for publishing findings to Security Hub.</p>
@@ -100,7 +98,7 @@ export class GetFindingsPublicationConfigurationCommand extends $Command
   })
   .s("Macie2", "GetFindingsPublicationConfiguration", {})
   .n("Macie2Client", "GetFindingsPublicationConfigurationCommand")
-  .sc(GetFindingsPublicationConfiguration)
+  .sc(GetFindingsPublicationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

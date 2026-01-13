@@ -7,12 +7,12 @@ import { OmicsClient } from "../OmicsClient";
 const checkState = async (client: OmicsClient, input: GetRunTaskCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetRunTaskCommand(input));
+    let result: any = await client.send(new GetRunTaskCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "COMPLETED") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: OmicsClient, input: GetRunTaskCommandInput): P
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "PENDING") {
         return { state: WaiterState.RETRY, reason };
       }
@@ -28,7 +28,7 @@ const checkState = async (client: OmicsClient, input: GetRunTaskCommandInput): P
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "STARTING") {
         return { state: WaiterState.RETRY, reason };
       }
@@ -36,7 +36,7 @@ const checkState = async (client: OmicsClient, input: GetRunTaskCommandInput): P
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "RUNNING") {
         return { state: WaiterState.RETRY, reason };
       }
@@ -44,7 +44,7 @@ const checkState = async (client: OmicsClient, input: GetRunTaskCommandInput): P
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "STOPPING") {
         return { state: WaiterState.RETRY, reason };
       }
@@ -52,7 +52,7 @@ const checkState = async (client: OmicsClient, input: GetRunTaskCommandInput): P
     try {
       const returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

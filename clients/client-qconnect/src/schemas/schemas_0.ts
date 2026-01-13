@@ -1127,4164 +1127,2628 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  DependencyFailedException as __DependencyFailedException,
-  PreconditionFailedException as __PreconditionFailedException,
-  RequestTimeoutException as __RequestTimeoutException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  TooManyTagsException as __TooManyTagsException,
-  UnauthorizedException as __UnauthorizedException,
-  UnprocessableContentException as __UnprocessableContentException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  DependencyFailedException,
+  PreconditionFailedException,
+  RequestTimeoutException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  TooManyTagsException,
+  UnauthorizedException,
+  UnprocessableContentException,
+  ValidationException,
 } from "../models/errors";
-import { QConnectServiceException as __QConnectServiceException } from "../models/QConnectServiceException";
+import { QConnectServiceException } from "../models/QConnectServiceException";
 
 /* eslint no-var: 0 */
-export var AIGuardrailBlockedMessaging: StaticSimpleSchema = [0, n0, _AIGBM, 8, 0];
-export var AIGuardrailDescription: StaticSimpleSchema = [0, n0, _AIGD, 8, 0];
-export var AttachmentFileName: StaticSimpleSchema = [0, n0, _AFN, 8, 0];
-export var Channel: StaticSimpleSchema = [0, n0, _C, 8, 0];
-export var EmailHeaderValue: StaticSimpleSchema = [0, n0, _EHV, 8, 0];
-export var GroupingCriteria: StaticSimpleSchema = [0, n0, _GC, 8, 0];
-export var GroupingValue: StaticSimpleSchema = [0, n0, _GV, 8, 0];
-export var GuardrailContentFilterType: StaticSimpleSchema = [0, n0, _GCFT, 8, 0];
-export var GuardrailContextualGroundingFilterThreshold: StaticSimpleSchema = [0, n0, _GCGFT, 8, 1];
-export var GuardrailContextualGroundingFilterType: StaticSimpleSchema = [0, n0, _GCGFTu, 8, 0];
-export var GuardrailFilterStrength: StaticSimpleSchema = [0, n0, _GFS, 8, 0];
-export var GuardrailManagedWordsType: StaticSimpleSchema = [0, n0, _GMWT, 8, 0];
-export var GuardrailPiiEntityType: StaticSimpleSchema = [0, n0, _GPET, 8, 0];
-export var GuardrailRegexDescription: StaticSimpleSchema = [0, n0, _GRD, 8, 0];
-export var GuardrailRegexName: StaticSimpleSchema = [0, n0, _GRN, 8, 0];
-export var GuardrailRegexPattern: StaticSimpleSchema = [0, n0, _GRP, 8, 0];
-export var GuardrailSensitiveInformationAction: StaticSimpleSchema = [0, n0, _GSIA, 8, 0];
-export var GuardrailTopicDefinition: StaticSimpleSchema = [0, n0, _GTD, 8, 0];
-export var GuardrailTopicExample: StaticSimpleSchema = [0, n0, _GTE, 8, 0];
-export var GuardrailTopicName: StaticSimpleSchema = [0, n0, _GTN, 8, 0];
-export var GuardrailTopicType: StaticSimpleSchema = [0, n0, _GTT, 8, 0];
-export var GuardrailWordText: StaticSimpleSchema = [0, n0, _GWT, 8, 0];
-export var MaxTokensToSample: StaticSimpleSchema = [0, n0, _MTTS, 8, 1];
-export var MessageTemplateAttributeValue: StaticSimpleSchema = [0, n0, _MTAV, 8, 0];
-export var NonEmptySensitiveString: StaticSimpleSchema = [0, n0, _NESS, 8, 0];
-export var NonEmptyUnlimitedString: StaticSimpleSchema = [0, n0, _NEUS, 8, 0];
-export var Probability: StaticSimpleSchema = [0, n0, _P, 8, 1];
-export var QueryText: StaticSimpleSchema = [0, n0, _QT, 8, 0];
-export var QuickResponseContent: StaticSimpleSchema = [0, n0, _QRC, 8, 0];
-export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
-export var TextAIPrompt: StaticSimpleSchema = [0, n0, _TAIP, 8, 0];
-export var TopK: StaticSimpleSchema = [0, n0, _TK, 8, 1];
-export var Url: StaticSimpleSchema = [0, n0, _U, 8, 0];
-export var UrlFilterPattern: StaticSimpleSchema = [0, n0, _UFP, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var ActivateMessageTemplateRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _AMTR,
+var AIGuardrailBlockedMessaging: StaticSimpleSchema = [0, n0, _AIGBM, 8, 0];
+var AIGuardrailDescription: StaticSimpleSchema = [0, n0, _AIGD, 8, 0];
+var AttachmentFileName: StaticSimpleSchema = [0, n0, _AFN, 8, 0];
+var Channel: StaticSimpleSchema = [0, n0, _C, 8, 0];
+var EmailHeaderValue: StaticSimpleSchema = [0, n0, _EHV, 8, 0];
+var GroupingCriteria: StaticSimpleSchema = [0, n0, _GC, 8, 0];
+var GroupingValue: StaticSimpleSchema = [0, n0, _GV, 8, 0];
+var GuardrailContentFilterType: StaticSimpleSchema = [0, n0, _GCFT, 8, 0];
+var GuardrailContextualGroundingFilterThreshold: StaticSimpleSchema = [0, n0, _GCGFT, 8, 1];
+var GuardrailContextualGroundingFilterType: StaticSimpleSchema = [0, n0, _GCGFTu, 8, 0];
+var GuardrailFilterStrength: StaticSimpleSchema = [0, n0, _GFS, 8, 0];
+var GuardrailManagedWordsType: StaticSimpleSchema = [0, n0, _GMWT, 8, 0];
+var GuardrailPiiEntityType: StaticSimpleSchema = [0, n0, _GPET, 8, 0];
+var GuardrailRegexDescription: StaticSimpleSchema = [0, n0, _GRD, 8, 0];
+var GuardrailRegexName: StaticSimpleSchema = [0, n0, _GRN, 8, 0];
+var GuardrailRegexPattern: StaticSimpleSchema = [0, n0, _GRP, 8, 0];
+var GuardrailSensitiveInformationAction: StaticSimpleSchema = [0, n0, _GSIA, 8, 0];
+var GuardrailTopicDefinition: StaticSimpleSchema = [0, n0, _GTD, 8, 0];
+var GuardrailTopicExample: StaticSimpleSchema = [0, n0, _GTE, 8, 0];
+var GuardrailTopicName: StaticSimpleSchema = [0, n0, _GTN, 8, 0];
+var GuardrailTopicType: StaticSimpleSchema = [0, n0, _GTT, 8, 0];
+var GuardrailWordText: StaticSimpleSchema = [0, n0, _GWT, 8, 0];
+var MaxTokensToSample: StaticSimpleSchema = [0, n0, _MTTS, 8, 1];
+var MessageTemplateAttributeValue: StaticSimpleSchema = [0, n0, _MTAV, 8, 0];
+var NonEmptySensitiveString: StaticSimpleSchema = [0, n0, _NESS, 8, 0];
+var NonEmptyUnlimitedString: StaticSimpleSchema = [0, n0, _NEUS, 8, 0];
+var Probability: StaticSimpleSchema = [0, n0, _P, 8, 1];
+var QueryText: StaticSimpleSchema = [0, n0, _QT, 8, 0];
+var QuickResponseContent: StaticSimpleSchema = [0, n0, _QRC, 8, 0];
+var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+var TextAIPrompt: StaticSimpleSchema = [0, n0, _TAIP, 8, 0];
+var TopK: StaticSimpleSchema = [0, n0, _TK, 8, 1];
+var Url: StaticSimpleSchema = [0, n0, _U, 8, 0];
+var UrlFilterPattern: StaticSimpleSchema = [0, n0, _UFP, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var ActivateMessageTemplateRequest$: StaticStructureSchema = [3, n0, _AMTR,
   0,
   [_kBI, _mTI, _vN],
-  [[0, 1], [0, 1], 1],
+  [[0, 1], [0, 1], 1]
 ];
-export var ActivateMessageTemplateResponse: StaticStructureSchema = [3, n0, _AMTRc, 0, [_mTA, _mTI, _vN], [0, 0, 1]];
-export var AgentAttributes: StaticStructureSchema = [
-  3,
-  n0,
-  _AA,
+export var ActivateMessageTemplateResponse$: StaticStructureSchema = [3, n0, _AMTRc,
+  0,
+  [_mTA, _mTI, _vN],
+  [0, 0, 1]
+];
+export var AgentAttributes$: StaticStructureSchema = [3, n0, _AA,
   0,
   [_fN, _lN],
-  [
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-  ],
+  [[() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0]]
 ];
-export var AIAgentConfigurationData: StaticStructureSchema = [3, n0, _AIACD, 0, [_aAI], [0]];
-export var AIAgentData: StaticStructureSchema = [
-  3,
-  n0,
-  _AIAD,
+export var AIAgentConfigurationData$: StaticStructureSchema = [3, n0, _AIACD,
+  0,
+  [_aAI],
+  [0]
+];
+export var AIAgentData$: StaticStructureSchema = [3, n0, _AIAD,
   0,
   [_aI, _aA, _aAI, _aAA, _n, _t, _co, _mT, _d, _vS, _ta, _o, _s],
-  [0, 0, 0, 0, 0, 0, [() => AIAgentConfiguration, 0], 4, 0, 0, 128 | 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, [() => AIAgentConfiguration$, 0], 4, 0, 0, 128 | 0, 0, 0]
 ];
-export var AIAgentSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _AIAS,
+export var AIAgentSummary$: StaticStructureSchema = [3, n0, _AIAS,
   0,
   [_n, _aI, _aA, _aAI, _t, _aAA, _mT, _vS, _co, _o, _d, _s, _ta],
-  [0, 0, 0, 0, 0, 0, 4, 0, [() => AIAgentConfiguration, 0], 0, 0, 0, 128 | 0],
+  [0, 0, 0, 0, 0, 0, 4, 0, [() => AIAgentConfiguration$, 0], 0, 0, 0, 128 | 0]
 ];
-export var AIAgentVersionSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _AIAVS,
+export var AIAgentVersionSummary$: StaticStructureSchema = [3, n0, _AIAVS,
   0,
   [_aAS, _vN],
-  [[() => AIAgentSummary, 0], 1],
+  [[() => AIAgentSummary$, 0], 1]
 ];
-export var AIGuardrailAssessment: StaticStructureSchema = [3, n0, _AIGA, 0, [_b], [2]];
-export var AIGuardrailContentPolicyConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _AIGCPC,
+export var AIGuardrailAssessment$: StaticStructureSchema = [3, n0, _AIGA,
+  0,
+  [_b],
+  [2]
+];
+export var AIGuardrailContentPolicyConfig$: StaticStructureSchema = [3, n0, _AIGCPC,
   0,
   [_fC],
-  [[() => GuardrailContentFiltersConfig, 0]],
+  [[() => GuardrailContentFiltersConfig, 0]]
 ];
-export var AIGuardrailContextualGroundingPolicyConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _AIGCGPC,
+export var AIGuardrailContextualGroundingPolicyConfig$: StaticStructureSchema = [3, n0, _AIGCGPC,
   0,
   [_fC],
-  [[() => GuardrailContextualGroundingFiltersConfig, 0]],
+  [[() => GuardrailContextualGroundingFiltersConfig, 0]]
 ];
-export var AIGuardrailData: StaticStructureSchema = [
-  3,
-  n0,
-  _AIGDu,
+export var AIGuardrailData$: StaticStructureSchema = [3, n0, _AIGDu,
   0,
   [_aI, _aA, _aGA, _aGI, _n, _vS, _bIM, _bOM, _d, _tPC, _cPC, _wPC, _sIPC, _cGPC, _ta, _s, _mT],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    [() => AIGuardrailBlockedMessaging, 0],
-    [() => AIGuardrailBlockedMessaging, 0],
-    [() => AIGuardrailDescription, 0],
-    [() => AIGuardrailTopicPolicyConfig, 0],
-    [() => AIGuardrailContentPolicyConfig, 0],
-    [() => AIGuardrailWordPolicyConfig, 0],
-    [() => AIGuardrailSensitiveInformationPolicyConfig, 0],
-    [() => AIGuardrailContextualGroundingPolicyConfig, 0],
-    128 | 0,
-    0,
-    4,
-  ],
+  [0, 0, 0, 0, 0, 0, [() => AIGuardrailBlockedMessaging, 0], [() => AIGuardrailBlockedMessaging, 0], [() => AIGuardrailDescription, 0], [() => AIGuardrailTopicPolicyConfig$, 0], [() => AIGuardrailContentPolicyConfig$, 0], [() => AIGuardrailWordPolicyConfig$, 0], [() => AIGuardrailSensitiveInformationPolicyConfig$, 0], [() => AIGuardrailContextualGroundingPolicyConfig$, 0], 128 | 0, 0, 4]
 ];
-export var AIGuardrailSensitiveInformationPolicyConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _AIGSIPC,
+export var AIGuardrailSensitiveInformationPolicyConfig$: StaticStructureSchema = [3, n0, _AIGSIPC,
   0,
   [_pEC, _rC],
-  [
-    [() => GuardrailPiiEntitiesConfig, 0],
-    [() => GuardrailRegexesConfig, 0],
-  ],
+  [[() => GuardrailPiiEntitiesConfig, 0], [() => GuardrailRegexesConfig, 0]]
 ];
-export var AIGuardrailSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _AIGS,
+export var AIGuardrailSummary$: StaticStructureSchema = [3, n0, _AIGS,
   0,
   [_n, _aI, _aA, _aGI, _aGA, _mT, _vS, _d, _s, _ta],
-  [0, 0, 0, 0, 0, 4, 0, [() => AIGuardrailDescription, 0], 0, 128 | 0],
+  [0, 0, 0, 0, 0, 4, 0, [() => AIGuardrailDescription, 0], 0, 128 | 0]
 ];
-export var AIGuardrailTopicPolicyConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _AIGTPC,
+export var AIGuardrailTopicPolicyConfig$: StaticStructureSchema = [3, n0, _AIGTPC,
   0,
   [_tC],
-  [[() => GuardrailTopicsConfig, 0]],
+  [[() => GuardrailTopicsConfig, 0]]
 ];
-export var AIGuardrailVersionSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _AIGVS,
+export var AIGuardrailVersionSummary$: StaticStructureSchema = [3, n0, _AIGVS,
   0,
   [_aGS, _vN],
-  [[() => AIGuardrailSummary, 0], 1],
+  [[() => AIGuardrailSummary$, 0], 1]
 ];
-export var AIGuardrailWordPolicyConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _AIGWPC,
+export var AIGuardrailWordPolicyConfig$: StaticStructureSchema = [3, n0, _AIGWPC,
   0,
   [_wC, _mWLC],
-  [
-    [() => GuardrailWordsConfig, 0],
-    [() => GuardrailManagedWordListsConfig, 0],
-  ],
+  [[() => GuardrailWordsConfig, 0], [() => GuardrailManagedWordListsConfig, 0]]
 ];
-export var AIPromptData: StaticStructureSchema = [
-  3,
-  n0,
-  _AIPD,
+export var AIPromptData$: StaticStructureSchema = [3, n0, _AIPD,
   0,
   [_aI, _aA, _aPI, _aPA, _n, _t, _tT, _mI, _aF, _tCe, _iC, _mT, _d, _vS, _ta, _o, _s],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    [() => AIPromptTemplateConfiguration, 0],
-    [() => AIPromptInferenceConfiguration, 0],
-    4,
-    0,
-    0,
-    128 | 0,
-    0,
-    0,
-  ],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, [() => AIPromptTemplateConfiguration$, 0], [() => AIPromptInferenceConfiguration$, 0], 4, 0, 0, 128 | 0, 0, 0]
 ];
-export var AIPromptSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _AIPS,
+export var AIPromptSummary$: StaticStructureSchema = [3, n0, _AIPS,
   0,
   [_n, _aI, _aA, _aPI, _t, _aPA, _mT, _tT, _mI, _aF, _vS, _o, _d, _s, _ta],
-  [0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 128 | 0],
+  [0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 128 | 0]
 ];
-export var AIPromptVersionSummary: StaticStructureSchema = [3, n0, _AIPVS, 0, [_aPS, _vN], [() => AIPromptSummary, 1]];
-export var AmazonConnectGuideAssociationData: StaticStructureSchema = [3, n0, _ACGAD, 0, [_fI], [0]];
-export var Annotation: StaticStructureSchema = [3, n0, _A, 0, [_ti, _dH], [0, 2]];
-export var AnswerRecommendationAIAgentConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _ARAIAC,
+export var AIPromptVersionSummary$: StaticStructureSchema = [3, n0, _AIPVS,
+  0,
+  [_aPS, _vN],
+  [() => AIPromptSummary$, 1]
+];
+export var AmazonConnectGuideAssociationData$: StaticStructureSchema = [3, n0, _ACGAD,
+  0,
+  [_fI],
+  [0]
+];
+export var Annotation$: StaticStructureSchema = [3, n0, _A,
+  0,
+  [_ti, _dH],
+  [0, 2]
+];
+export var AnswerRecommendationAIAgentConfiguration$: StaticStructureSchema = [3, n0, _ARAIAC,
   0,
   [_iLGAIPI, _qRAIPI, _aGAIPI, _aGAIGI, _aC, _l, _sM],
-  [0, 0, 0, 0, () => AssociationConfigurationList, 0, [() => SuggestedMessagesList, 0]],
+  [0, 0, 0, 0, () => AssociationConfigurationList, 0, [() => SuggestedMessagesList, 0]]
 ];
-export var AppIntegrationsConfiguration: StaticStructureSchema = [3, n0, _AIC, 0, [_aIA, _oF], [0, 64 | 0]];
-export var AssistantAssociationData: StaticStructureSchema = [
-  3,
-  n0,
-  _AAD,
+export var AppIntegrationsConfiguration$: StaticStructureSchema = [3, n0, _AIC,
+  0,
+  [_aIA, _oF],
+  [0, 64 | 0]
+];
+export var AssistantAssociationData$: StaticStructureSchema = [3, n0, _AAD,
   0,
   [_aAIs, _aAAs, _aI, _aA, _aT, _aD, _ta],
-  [0, 0, 0, 0, 0, () => AssistantAssociationOutputData, 128 | 0],
+  [0, 0, 0, 0, 0, () => AssistantAssociationOutputData$, 128 | 0]
 ];
-export var AssistantAssociationSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _AAS,
+export var AssistantAssociationSummary$: StaticStructureSchema = [3, n0, _AAS,
   0,
   [_aAIs, _aAAs, _aI, _aA, _aT, _aD, _ta],
-  [0, 0, 0, 0, 0, () => AssistantAssociationOutputData, 128 | 0],
+  [0, 0, 0, 0, 0, () => AssistantAssociationOutputData$, 128 | 0]
 ];
-export var AssistantCapabilityConfiguration: StaticStructureSchema = [3, n0, _ACC, 0, [_t], [0]];
-export var AssistantData: StaticStructureSchema = [
-  3,
-  n0,
-  _AD,
-  0,
-  [_aI, _aA, _n, _t, _s, _d, _ta, _sSEC, _iCn, _cC, _aAC, _oCL],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    128 | 0,
-    () => ServerSideEncryptionConfiguration,
-    () => AssistantIntegrationConfiguration,
-    () => AssistantCapabilityConfiguration,
-    () => AIAgentConfigurationMap,
-    () => OrchestratorConfigurationList,
-  ],
-];
-export var AssistantIntegrationConfiguration: StaticStructureSchema = [3, n0, _AICs, 0, [_tIA], [0]];
-export var AssistantSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _AS,
-  0,
-  [_aI, _aA, _n, _t, _s, _d, _ta, _sSEC, _iCn, _cC, _aAC, _oCL],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    128 | 0,
-    () => ServerSideEncryptionConfiguration,
-    () => AssistantIntegrationConfiguration,
-    () => AssistantCapabilityConfiguration,
-    () => AIAgentConfigurationMap,
-    () => OrchestratorConfigurationList,
-  ],
-];
-export var AssociationConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _AC,
-  0,
-  [_aIs, _aT, _aCD],
-  [0, 0, () => AssociationConfigurationData],
-];
-export var BedrockFoundationModelConfigurationForParsing: StaticStructureSchema = [
-  3,
-  n0,
-  _BFMCFP,
-  0,
-  [_mA, _pP],
-  [0, () => ParsingPrompt],
-];
-export var CaseSummarizationAIAgentConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _CSAIAC,
-  0,
-  [_cSAIPI, _cSAIGI, _l],
-  [0, 0, 0],
-];
-export var CaseSummarizationChunkDataDetails: StaticStructureSchema = [3, n0, _CSCDD, 0, [_com, _nCT], [0, 0]];
-export var CaseSummarizationInputData: StaticStructureSchema = [3, n0, _CSID, 0, [_cA], [0]];
-export var ChunkingConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _CC,
-  0,
-  [_cS, _fSCC, _hCC, _sCC],
-  [
-    0,
-    () => FixedSizeChunkingConfiguration,
-    () => HierarchicalChunkingConfiguration,
-    () => SemanticChunkingConfiguration,
-  ],
-];
-export var Citation: StaticStructureSchema = [
-  3,
-  n0,
-  _Ci,
-  0,
-  [_cI, _ti, _kBI, _cSi, _sURL, _rT],
-  [0, [() => SensitiveString, 0], 0, () => CitationSpan, [() => SensitiveString, 0], 0],
-];
-export var CitationSpan: StaticStructureSchema = [3, n0, _CS, 0, [_bOI, _eOE], [1, 1]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var ConnectConfiguration: StaticStructureSchema = [3, n0, _CCo, 0, [_iI], [0]];
-export var ContentAssociationData: StaticStructureSchema = [
-  3,
-  n0,
-  _CAD,
-  0,
-  [_kBI, _kBA, _cI, _cAo, _cAI, _cAA, _aT, _aD, _ta],
-  [0, 0, 0, 0, 0, 0, 0, () => ContentAssociationContents, 128 | 0],
-];
-export var ContentAssociationSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _CAS,
-  0,
-  [_kBI, _kBA, _cI, _cAo, _cAI, _cAA, _aT, _aD, _ta],
-  [0, 0, 0, 0, 0, 0, 0, () => ContentAssociationContents, 128 | 0],
-];
-export var ContentData: StaticStructureSchema = [
-  3,
-  n0,
-  _CD,
-  0,
-  [_cAo, _cI, _kBA, _kBI, _n, _rI, _ti, _cT, _s, _me, _ta, _lOU, _u, _uE],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 128 | 0, 0, [() => Url, 0], 7],
-];
-export var ContentDataDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _CDD,
-  0,
-  [_tD, _rD],
-  [[() => TextData, 0], () => RankingData],
-];
-export var ContentReference: StaticStructureSchema = [
-  3,
-  n0,
-  _CR,
-  0,
-  [_kBA, _kBI, _cAo, _cI, _sURL, _rT],
-  [0, 0, 0, 0, 0, 0],
-];
-export var ContentSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _CSo,
-  0,
-  [_cAo, _cI, _kBA, _kBI, _n, _rI, _ti, _cT, _s, _me, _ta],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 128 | 0],
-];
-export var ConversationContext: StaticStructureSchema = [
-  3,
-  n0,
-  _CCon,
-  0,
-  [_sSCH],
-  [[() => SelfServiceConversationHistoryList, 0]],
-];
-export var ConversationState: StaticStructureSchema = [3, n0, _CSon, 0, [_s, _r], [0, 0]];
-export var CreateAIAgentRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CAIAR,
-  0,
-  [_cTl, _aI, _n, _t, _co, _vS, _ta, _d],
-  [[0, 4], [0, 1], 0, 0, [() => AIAgentConfiguration, 0], 0, 128 | 0, 0],
-];
-export var CreateAIAgentResponse: StaticStructureSchema = [3, n0, _CAIARr, 0, [_aAi], [[() => AIAgentData, 0]]];
-export var CreateAIAgentVersionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CAIAVR,
-  0,
-  [_aI, _aAI, _mT, _cTl],
-  [[0, 1], [0, 1], 4, [0, 4]],
-];
-export var CreateAIAgentVersionResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CAIAVRr,
-  0,
-  [_aAi, _vN],
-  [[() => AIAgentData, 0], 1],
-];
-export var CreateAIGuardrailRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CAIGR,
-  0,
-  [_cTl, _aI, _n, _bIM, _bOM, _vS, _d, _tPC, _cPC, _wPC, _sIPC, _cGPC, _ta],
-  [
-    [0, 4],
-    [0, 1],
-    0,
-    [() => AIGuardrailBlockedMessaging, 0],
-    [() => AIGuardrailBlockedMessaging, 0],
-    0,
-    [() => AIGuardrailDescription, 0],
-    [() => AIGuardrailTopicPolicyConfig, 0],
-    [() => AIGuardrailContentPolicyConfig, 0],
-    [() => AIGuardrailWordPolicyConfig, 0],
-    [() => AIGuardrailSensitiveInformationPolicyConfig, 0],
-    [() => AIGuardrailContextualGroundingPolicyConfig, 0],
-    128 | 0,
-  ],
-];
-export var CreateAIGuardrailResponse: StaticStructureSchema = [3, n0, _CAIGRr, 0, [_aG], [[() => AIGuardrailData, 0]]];
-export var CreateAIGuardrailVersionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CAIGVR,
-  0,
-  [_aI, _aGI, _mT, _cTl],
-  [[0, 1], [0, 1], 4, [0, 4]],
-];
-export var CreateAIGuardrailVersionResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CAIGVRr,
-  0,
-  [_aG, _vN],
-  [[() => AIGuardrailData, 0], 1],
-];
-export var CreateAIPromptRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CAIPR,
-  0,
-  [_cTl, _aI, _n, _t, _tCe, _vS, _tT, _mI, _aF, _ta, _d, _iC],
-  [
-    [0, 4],
-    [0, 1],
-    0,
-    0,
-    [() => AIPromptTemplateConfiguration, 0],
-    0,
-    0,
-    0,
-    0,
-    128 | 0,
-    0,
-    [() => AIPromptInferenceConfiguration, 0],
-  ],
-];
-export var CreateAIPromptResponse: StaticStructureSchema = [3, n0, _CAIPRr, 0, [_aP], [[() => AIPromptData, 0]]];
-export var CreateAIPromptVersionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CAIPVR,
-  0,
-  [_aI, _aPI, _mT, _cTl],
-  [[0, 1], [0, 1], 4, [0, 4]],
-];
-export var CreateAIPromptVersionResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CAIPVRr,
-  0,
-  [_aP, _vN],
-  [[() => AIPromptData, 0], 1],
-];
-export var CreateAssistantAssociationRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CAAR,
-  0,
-  [_aI, _aT, _a, _cTl, _ta],
-  [[0, 1], 0, () => AssistantAssociationInputData, [0, 4], 128 | 0],
-];
-export var CreateAssistantAssociationResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CAARr,
-  0,
-  [_aAs],
-  [() => AssistantAssociationData],
-];
-export var CreateAssistantRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CAR,
-  0,
-  [_cTl, _n, _t, _d, _ta, _sSEC],
-  [[0, 4], 0, 0, 0, 128 | 0, () => ServerSideEncryptionConfiguration],
-];
-export var CreateAssistantResponse: StaticStructureSchema = [3, n0, _CARr, 0, [_as], [() => AssistantData]];
-export var CreateContentAssociationRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CCAR,
-  0,
-  [_cTl, _kBI, _cI, _aT, _a, _ta],
-  [[0, 4], [0, 1], [0, 1], 0, () => ContentAssociationContents, 128 | 0],
-];
-export var CreateContentAssociationResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CCARr,
-  0,
-  [_cAon],
-  [() => ContentAssociationData],
-];
-export var CreateContentRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CCR,
-  0,
-  [_kBI, _n, _ti, _oLOU, _me, _uI, _cTl, _ta],
-  [[0, 1], 0, 0, 0, 128 | 0, 0, [0, 4], 128 | 0],
-];
-export var CreateContentResponse: StaticStructureSchema = [3, n0, _CCRr, 0, [_con], [[() => ContentData, 0]]];
-export var CreateKnowledgeBaseRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CKBR,
-  0,
-  [_cTl, _n, _kBT, _sC, _rCe, _vIC, _sSEC, _d, _ta],
-  [
-    [0, 4],
-    0,
-    0,
-    [() => SourceConfiguration, 0],
-    () => RenderingConfiguration,
-    () => VectorIngestionConfiguration,
-    () => ServerSideEncryptionConfiguration,
-    0,
-    128 | 0,
-  ],
-];
-export var CreateKnowledgeBaseResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CKBRr,
-  0,
-  [_kB],
-  [[() => KnowledgeBaseData, 0]],
-];
-export var CreateMessageTemplateAttachmentRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CMTAR,
-  0,
-  [_kBI, _mTI, _cD, _n, _bo, _cTl],
-  [[0, 1], [0, 1], 0, [() => AttachmentFileName, 0], [() => NonEmptyUnlimitedString, 0], 0],
-];
-export var CreateMessageTemplateAttachmentResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CMTARr,
-  0,
-  [_at],
-  [[() => MessageTemplateAttachment, 0]],
-];
-export var CreateMessageTemplateRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CMTR,
-  0,
-  [_kBI, _n, _con, _d, _cSh, _la, _sC, _dA, _gC, _cTl, _ta],
-  [
-    [0, 1],
-    0,
-    [() => MessageTemplateContentProvider, 0],
-    0,
-    0,
-    0,
-    () => MessageTemplateSourceConfiguration,
-    [() => MessageTemplateAttributes, 0],
-    [() => GroupingConfiguration, 0],
-    [0, 4],
-    128 | 0,
-  ],
-];
-export var CreateMessageTemplateResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CMTRr,
-  0,
-  [_mTe],
-  [[() => MessageTemplateData, 0]],
-];
-export var CreateMessageTemplateVersionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CMTVR,
-  0,
-  [_kBI, _mTI, _mTCS],
-  [[0, 1], [0, 1], 0],
-];
-export var CreateMessageTemplateVersionResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CMTVRr,
-  0,
-  [_mTe],
-  [[() => ExtendedMessageTemplateData, 0]],
-];
-export var CreateQuickResponseRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CQRR,
-  0,
-  [_kBI, _n, _con, _cT, _gC, _d, _sK, _iA, _ch, _la, _cTl, _ta],
-  [
-    [0, 1],
-    0,
-    [() => QuickResponseDataProvider, 0],
-    0,
-    [() => GroupingConfiguration, 0],
-    0,
-    0,
-    2,
-    [() => Channels, 0],
-    0,
-    [0, 4],
-    128 | 0,
-  ],
-];
-export var CreateQuickResponseResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _CQRRr,
-  0,
-  [_qR],
-  [[() => QuickResponseData, 0]],
-];
-export var CreateSessionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CSR,
-  0,
-  [_cTl, _aI, _n, _d, _ta, _tF, _aAC, _cAont, _oCL, _rOCL],
-  [
-    [0, 4],
-    [0, 1],
-    0,
-    0,
-    128 | 0,
-    () => TagFilter,
-    () => AIAgentConfigurationMap,
-    0,
-    () => OrchestratorConfigurationList,
-    2,
-  ],
-];
-export var CreateSessionResponse: StaticStructureSchema = [3, n0, _CSRr, 0, [_se], [() => SessionData]];
-export var CustomerProfileAttributes: StaticStructureSchema = [
-  3,
-  n0,
-  _CPA,
-  0,
-  [
-    _pI,
-    _pARN,
-    _fN,
-    _mN,
-    _lN,
-    _aN,
-    _eA,
-    _pN,
-    _aId,
-    _pT,
-    _bN,
-    _bD,
-    _g,
-    _mPN,
-    _hPN,
-    _bPN,
-    _bEA,
-    _ad,
-    _add,
-    _addr,
-    _addre,
-    _ci,
-    _cou,
-    _coun,
-    _pC,
-    _p,
-    _st,
-    _sA,
-    _sAh,
-    _sAhi,
-    _sAhip,
-    _sCh,
-    _sChi,
-    _sChip,
-    _sPC,
-    _sP,
-    _sS,
-    _mAa,
-    _mAai,
-    _mAail,
-    _mAaili,
-    _mC,
-    _mCa,
-    _mCai,
-    _mPC,
-    _mP,
-    _mS,
-    _bA,
-    _bAi,
-    _bAil,
-    _bAill,
-    _bC,
-    _bCi,
-    _bCil,
-    _bPC,
-    _bP,
-    _bS,
-    _cu,
-  ],
-  [
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => MessageTemplateAttributeValue, 0],
-    [() => CustomAttributes, 0],
-  ],
-];
-export var DataSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _DS,
-  0,
-  [_re, _de],
-  [() => DataReference, [() => DataDetails, 0]],
-];
-export var DeactivateMessageTemplateRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DMTR,
-  0,
-  [_kBI, _mTI, _vN],
-  [[0, 1], [0, 1], 1],
-];
-export var DeactivateMessageTemplateResponse: StaticStructureSchema = [3, n0, _DMTRe, 0, [_mTA, _mTI, _vN], [0, 0, 1]];
-export var DeleteAIAgentRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DAIAR,
-  0,
-  [_aI, _aAI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var DeleteAIAgentResponse: StaticStructureSchema = [3, n0, _DAIARe, 0, [], []];
-export var DeleteAIAgentVersionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DAIAVR,
-  0,
-  [_aI, _aAI, _vN],
-  [
-    [0, 1],
-    [0, 1],
-    [1, 1],
-  ],
-];
-export var DeleteAIAgentVersionResponse: StaticStructureSchema = [3, n0, _DAIAVRe, 0, [], []];
-export var DeleteAIGuardrailRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DAIGR,
-  0,
-  [_aI, _aGI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var DeleteAIGuardrailResponse: StaticStructureSchema = [3, n0, _DAIGRe, 0, [], []];
-export var DeleteAIGuardrailVersionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DAIGVR,
-  0,
-  [_aI, _aGI, _vN],
-  [
-    [0, 1],
-    [0, 1],
-    [1, 1],
-  ],
-];
-export var DeleteAIGuardrailVersionResponse: StaticStructureSchema = [3, n0, _DAIGVRe, 0, [], []];
-export var DeleteAIPromptRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DAIPR,
-  0,
-  [_aI, _aPI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var DeleteAIPromptResponse: StaticStructureSchema = [3, n0, _DAIPRe, 0, [], []];
-export var DeleteAIPromptVersionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DAIPVR,
-  0,
-  [_aI, _aPI, _vN],
-  [
-    [0, 1],
-    [0, 1],
-    [1, 1],
-  ],
-];
-export var DeleteAIPromptVersionResponse: StaticStructureSchema = [3, n0, _DAIPVRe, 0, [], []];
-export var DeleteAssistantAssociationRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DAAR,
-  0,
-  [_aAIs, _aI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var DeleteAssistantAssociationResponse: StaticStructureSchema = [3, n0, _DAARe, 0, [], []];
-export var DeleteAssistantRequest: StaticStructureSchema = [3, n0, _DAR, 0, [_aI], [[0, 1]]];
-export var DeleteAssistantResponse: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
-export var DeleteContentAssociationRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DCAR,
-  0,
-  [_kBI, _cI, _cAI],
-  [
-    [0, 1],
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var DeleteContentAssociationResponse: StaticStructureSchema = [3, n0, _DCARe, 0, [], []];
-export var DeleteContentRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DCR,
-  0,
-  [_kBI, _cI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var DeleteContentResponse: StaticStructureSchema = [3, n0, _DCRe, 0, [], []];
-export var DeleteImportJobRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DIJR,
-  0,
-  [_kBI, _iJI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var DeleteImportJobResponse: StaticStructureSchema = [3, n0, _DIJRe, 0, [], []];
-export var DeleteKnowledgeBaseRequest: StaticStructureSchema = [3, n0, _DKBR, 0, [_kBI], [[0, 1]]];
-export var DeleteKnowledgeBaseResponse: StaticStructureSchema = [3, n0, _DKBRe, 0, [], []];
-export var DeleteMessageTemplateAttachmentRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DMTAR,
-  0,
-  [_kBI, _mTI, _aIt],
-  [
-    [0, 1],
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var DeleteMessageTemplateAttachmentResponse: StaticStructureSchema = [3, n0, _DMTARe, 0, [], []];
-export var DeleteMessageTemplateRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DMTRel,
-  0,
-  [_kBI, _mTI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var DeleteMessageTemplateResponse: StaticStructureSchema = [3, n0, _DMTRele, 0, [], []];
-export var DeleteQuickResponseRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DQRR,
-  0,
-  [_kBI, _qRI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var DeleteQuickResponseResponse: StaticStructureSchema = [3, n0, _DQRRe, 0, [], []];
-export var DependencyFailedException: StaticErrorSchema = [-3, n0, _DFE, { [_e]: _c, [_hE]: 424 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(DependencyFailedException, __DependencyFailedException);
-export var Document: StaticStructureSchema = [
-  3,
-  n0,
-  _D,
-  0,
-  [_cR, _ti, _ex],
-  [() => ContentReference, [() => DocumentText, 0], [() => DocumentText, 0]],
-];
-export var DocumentText: StaticStructureSchema = [
-  3,
-  n0,
-  _DT,
-  0,
-  [_te, _h],
-  [[() => SensitiveString, 0], () => Highlights],
-];
-export var EmailGenerativeAnswerAIAgentConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _EGAAIAC,
-  0,
-  [_eGAAIPI, _eQRAIPI, _l, _aC],
-  [0, 0, 0, () => AssociationConfigurationList],
-];
-export var EmailGenerativeAnswerChunkDataDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _EGACDD,
-  0,
-  [_com, _ref, _nCT],
-  [[() => NonEmptySensitiveString, 0], [() => DataSummaryList, 0], 0],
-];
-export var EmailHeader: StaticStructureSchema = [3, n0, _EH, 0, [_n, _v], [0, [() => EmailHeaderValue, 0]]];
-export var EmailMessageTemplateContent: StaticStructureSchema = [
-  3,
-  n0,
-  _EMTC,
-  0,
-  [_su, _bo, _he],
-  [
-    [() => NonEmptyUnlimitedString, 0],
-    [() => EmailMessageTemplateContentBody, 0],
-    [() => EmailHeaders, 0],
-  ],
-];
-export var EmailMessageTemplateContentBody: StaticStructureSchema = [
-  3,
-  n0,
-  _EMTCB,
-  0,
-  [_pTl, _ht],
-  [
-    [() => MessageTemplateBodyContentProvider, 0],
-    [() => MessageTemplateBodyContentProvider, 0],
-  ],
-];
-export var EmailOverviewAIAgentConfiguration: StaticStructureSchema = [3, n0, _EOAIAC, 0, [_eOAIPI, _l], [0, 0]];
-export var EmailOverviewChunkDataDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _EOCDD,
-  0,
-  [_com, _nCT],
-  [[() => NonEmptySensitiveString, 0], 0],
-];
-export var EmailResponseAIAgentConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _ERAIAC,
-  0,
-  [_eRAIPI, _eQRAIPI, _l, _aC],
-  [0, 0, 0, () => AssociationConfigurationList],
-];
-export var EmailResponseChunkDataDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _ERCDD,
-  0,
-  [_com, _nCT],
-  [[() => NonEmptySensitiveString, 0], 0],
-];
-export var ExtendedMessageTemplateData: StaticStructureSchema = [
-  3,
-  n0,
-  _EMTD,
-  0,
-  [
-    _mTA,
-    _mTI,
-    _kBA,
-    _kBI,
-    _n,
-    _cha,
-    _cSh,
-    _cTr,
-    _lMT,
-    _lMB,
-    _con,
-    _d,
-    _la,
-    _sCS,
-    _gC,
-    _dA,
-    _aTt,
-    _att,
-    _iA,
-    _vN,
-    _mTCS,
-    _ta,
-  ],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    [() => Channel, 0],
-    0,
-    5,
-    5,
-    0,
-    [() => MessageTemplateContentProvider, 0],
-    0,
-    0,
-    [() => MessageTemplateSourceConfigurationSummary, 0],
-    [() => GroupingConfiguration, 0],
-    [() => MessageTemplateAttributes, 0],
-    64 | 0,
-    [() => MessageTemplateAttachmentList, 0],
-    2,
-    1,
-    0,
-    128 | 0,
-  ],
-];
-export var ExternalBedrockKnowledgeBaseConfig: StaticStructureSchema = [3, n0, _EBKBC, 0, [_bKBA, _aRA], [0, 0]];
-export var ExternalSourceConfiguration: StaticStructureSchema = [3, n0, _ESC, 0, [_so, _co], [0, () => Configuration]];
-export var Filter: StaticStructureSchema = [3, n0, _F, 0, [_f, _op, _v], [0, 0, 0]];
-export var FilterAttribute: StaticStructureSchema = [3, n0, _FA, 0, [_k, _v], [0, 15]];
-export var FixedSizeChunkingConfiguration: StaticStructureSchema = [3, n0, _FSCC, 0, [_mTa, _oP], [1, 1]];
-export var GenerativeChunkDataDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _GCDD,
-  0,
-  [_com, _ref, _nCT],
-  [[() => SensitiveString, 0], [() => DataSummaryList, 0], 0],
-];
-export var GenerativeContentFeedbackData: StaticStructureSchema = [3, n0, _GCFD, 0, [_rel], [0]];
-export var GenerativeDataDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _GDD,
-  0,
-  [_com, _ref, _rD],
-  [[() => SensitiveString, 0], [() => DataSummaryList, 0], () => RankingData],
-];
-export var GenerativeReference: StaticStructureSchema = [3, n0, _GR, 0, [_mI, _gI], [0, 0]];
-export var GetAIAgentRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GAIAR,
-  0,
-  [_aI, _aAI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var GetAIAgentResponse: StaticStructureSchema = [3, n0, _GAIARe, 0, [_aAi, _vN], [[() => AIAgentData, 0], 1]];
-export var GetAIGuardrailRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GAIGR,
-  0,
-  [_aI, _aGI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var GetAIGuardrailResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GAIGRe,
-  0,
-  [_aG, _vN],
-  [[() => AIGuardrailData, 0], 1],
-];
-export var GetAIPromptRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GAIPR,
-  0,
-  [_aI, _aPI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var GetAIPromptResponse: StaticStructureSchema = [3, n0, _GAIPRe, 0, [_aP, _vN], [[() => AIPromptData, 0], 1]];
-export var GetAssistantAssociationRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GAAR,
-  0,
-  [_aAIs, _aI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var GetAssistantAssociationResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GAARe,
-  0,
-  [_aAs],
-  [() => AssistantAssociationData],
-];
-export var GetAssistantRequest: StaticStructureSchema = [3, n0, _GAR, 0, [_aI], [[0, 1]]];
-export var GetAssistantResponse: StaticStructureSchema = [3, n0, _GARe, 0, [_as], [() => AssistantData]];
-export var GetContentAssociationRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GCAR,
-  0,
-  [_kBI, _cI, _cAI],
-  [
-    [0, 1],
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var GetContentAssociationResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GCARe,
-  0,
-  [_cAon],
-  [() => ContentAssociationData],
-];
-export var GetContentRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GCR,
-  0,
-  [_cI, _kBI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var GetContentResponse: StaticStructureSchema = [3, n0, _GCRe, 0, [_con], [[() => ContentData, 0]]];
-export var GetContentSummaryRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GCSR,
-  0,
-  [_cI, _kBI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var GetContentSummaryResponse: StaticStructureSchema = [3, n0, _GCSRe, 0, [_cSo], [() => ContentSummary]];
-export var GetImportJobRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GIJR,
-  0,
-  [_iJI, _kBI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var GetImportJobResponse: StaticStructureSchema = [3, n0, _GIJRe, 0, [_iJ], [[() => ImportJobData, 0]]];
-export var GetKnowledgeBaseRequest: StaticStructureSchema = [3, n0, _GKBR, 0, [_kBI], [[0, 1]]];
-export var GetKnowledgeBaseResponse: StaticStructureSchema = [3, n0, _GKBRe, 0, [_kB], [[() => KnowledgeBaseData, 0]]];
-export var GetMessageTemplateRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GMTR,
-  0,
-  [_mTI, _kBI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var GetMessageTemplateResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GMTRe,
-  0,
-  [_mTe],
-  [[() => ExtendedMessageTemplateData, 0]],
-];
-export var GetNextMessageRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GNMR,
-  0,
-  [_aI, _sI, _nMT],
-  [
-    [0, 1],
-    [0, 1],
-    [0, { [_hQ]: _nMT }],
-  ],
-];
-export var GetNextMessageResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GNMRe,
-  0,
-  [_t, _res, _rMI, _cSon, _nMT, _cSD, _cRT],
-  [0, [() => MessageOutput, 0], 0, () => ConversationState, 0, [() => RuntimeSessionDataList, 0], 2],
-];
-export var GetQuickResponseRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GQRR,
-  0,
-  [_qRI, _kBI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var GetQuickResponseResponse: StaticStructureSchema = [3, n0, _GQRRe, 0, [_qR], [[() => QuickResponseData, 0]]];
-export var GetRecommendationsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GRR,
-  0,
-  [_aI, _sI, _mR, _wTS, _nCT, _rTe],
-  [
-    [0, 1],
-    [0, 1],
-    [1, { [_hQ]: _mR }],
-    [1, { [_hQ]: _wTS }],
-    [0, { [_hQ]: _nCT }],
-    [0, { [_hQ]: _rTe }],
-  ],
-];
-export var GetRecommendationsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _GRRe,
-  0,
-  [_rec, _tr],
-  [
-    [() => RecommendationList, 0],
-    [() => RecommendationTriggerList, 0],
-  ],
-];
-export var GetSessionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GSR,
-  0,
-  [_aI, _sI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var GetSessionResponse: StaticStructureSchema = [3, n0, _GSRe, 0, [_se], [() => SessionData]];
-export var GroupingConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _GCr,
-  0,
-  [_cr, _va],
-  [
-    [() => GroupingCriteria, 0],
-    [() => GroupingValues, 0],
-  ],
-];
-export var GuardrailContentFilterConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _GCFC,
-  0,
-  [_t, _iS, _oS],
-  [
-    [() => GuardrailContentFilterType, 0],
-    [() => GuardrailFilterStrength, 0],
-    [() => GuardrailFilterStrength, 0],
-  ],
-];
-export var GuardrailContextualGroundingFilterConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _GCGFC,
-  0,
-  [_t, _th],
-  [
-    [() => GuardrailContextualGroundingFilterType, 0],
-    [() => GuardrailContextualGroundingFilterThreshold, 0],
-  ],
-];
-export var GuardrailManagedWordsConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _GMWC,
+export var AssistantCapabilityConfiguration$: StaticStructureSchema = [3, n0, _ACC,
   0,
   [_t],
-  [[() => GuardrailManagedWordsType, 0]],
+  [0]
 ];
-export var GuardrailPiiEntityConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _GPEC,
+export var AssistantData$: StaticStructureSchema = [3, n0, _AD,
   0,
-  [_t, _ac],
-  [
-    [() => GuardrailPiiEntityType, 0],
-    [() => GuardrailSensitiveInformationAction, 0],
-  ],
+  [_aI, _aA, _n, _t, _s, _d, _ta, _sSEC, _iCn, _cC, _aAC, _oCL],
+  [0, 0, 0, 0, 0, 0, 128 | 0, () => ServerSideEncryptionConfiguration$, () => AssistantIntegrationConfiguration$, () => AssistantCapabilityConfiguration$, () => AIAgentConfigurationMap, () => OrchestratorConfigurationList]
 ];
-export var GuardrailRegexConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _GRC,
+export var AssistantIntegrationConfiguration$: StaticStructureSchema = [3, n0, _AICs,
   0,
-  [_n, _d, _pa, _ac],
-  [
-    [() => GuardrailRegexName, 0],
-    [() => GuardrailRegexDescription, 0],
-    [() => GuardrailRegexPattern, 0],
-    [() => GuardrailSensitiveInformationAction, 0],
-  ],
+  [_tIA],
+  [0]
 ];
-export var GuardrailTopicConfig: StaticStructureSchema = [
-  3,
-  n0,
-  _GTC,
+export var AssistantSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_n, _def, _exa, _t],
-  [
-    [() => GuardrailTopicName, 0],
-    [() => GuardrailTopicDefinition, 0],
-    [() => GuardrailTopicExamples, 0],
-    [() => GuardrailTopicType, 0],
-  ],
+  [_aI, _aA, _n, _t, _s, _d, _ta, _sSEC, _iCn, _cC, _aAC, _oCL],
+  [0, 0, 0, 0, 0, 0, 128 | 0, () => ServerSideEncryptionConfiguration$, () => AssistantIntegrationConfiguration$, () => AssistantCapabilityConfiguration$, () => AIAgentConfigurationMap, () => OrchestratorConfigurationList]
 ];
-export var GuardrailWordConfig: StaticStructureSchema = [3, n0, _GWC, 0, [_te], [[() => GuardrailWordText, 0]]];
-export var HierarchicalChunkingConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _HCC,
+export var AssociationConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
-  [_lC, _oT],
-  [() => HierarchicalChunkingLevelConfigurations, 1],
+  [_aIs, _aT, _aCD],
+  [0, 0, () => AssociationConfigurationData$]
 ];
-export var HierarchicalChunkingLevelConfiguration: StaticStructureSchema = [3, n0, _HCLC, 0, [_mTa], [1]];
-export var Highlight: StaticStructureSchema = [3, n0, _H, 0, [_bOI, _eOE], [1, 1]];
-export var ImportJobData: StaticStructureSchema = [
-  3,
-  n0,
-  _IJD,
+export var BedrockFoundationModelConfigurationForParsing$: StaticStructureSchema = [3, n0, _BFMCFP,
   0,
-  [_iJI, _kBI, _uI, _kBA, _iJT, _s, _u, _fRR, _uE, _cTr, _lMT, _me, _eSC],
-  [0, 0, 0, 0, 0, 0, [() => Url, 0], [() => Url, 0], 7, 7, 7, 128 | 0, () => ExternalSourceConfiguration],
+  [_mA, _pP],
+  [0, () => ParsingPrompt$]
 ];
-export var ImportJobSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _IJS,
+export var CaseSummarizationAIAgentConfiguration$: StaticStructureSchema = [3, n0, _CSAIAC,
   0,
-  [_iJI, _kBI, _uI, _kBA, _iJT, _s, _cTr, _lMT, _me, _eSC],
-  [0, 0, 0, 0, 0, 0, 7, 7, 128 | 0, () => ExternalSourceConfiguration],
+  [_cSAIPI, _cSAIGI, _l],
+  [0, 0, 0]
 ];
-export var IntentDetectedDataDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _IDDD,
-  0,
-  [_i, _iIn, _rL],
-  [[() => SensitiveString, 0], 0, 0],
-];
-export var IntentInputData: StaticStructureSchema = [3, n0, _IID, 0, [_iIn], [0]];
-export var KnowledgeBaseAssociationConfigurationData: StaticStructureSchema = [
-  3,
-  n0,
-  _KBACD,
-  0,
-  [_cTF, _mR, _oKBST],
-  [() => TagFilter, 1, 0],
-];
-export var KnowledgeBaseAssociationData: StaticStructureSchema = [3, n0, _KBAD, 0, [_kBI, _kBA], [0, 0]];
-export var KnowledgeBaseData: StaticStructureSchema = [
-  3,
-  n0,
-  _KBD,
-  0,
-  [_kBI, _kBA, _n, _kBT, _s, _lCMT, _vIC, _sC, _rCe, _sSEC, _d, _ta, _iSn, _iFR],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    7,
-    () => VectorIngestionConfiguration,
-    [() => SourceConfiguration, 0],
-    () => RenderingConfiguration,
-    () => ServerSideEncryptionConfiguration,
-    0,
-    128 | 0,
-    0,
-    64 | 0,
-  ],
-];
-export var KnowledgeBaseSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _KBS,
-  0,
-  [_kBI, _kBA, _n, _kBT, _s, _sC, _vIC, _rCe, _sSEC, _d, _ta],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    [() => SourceConfiguration, 0],
-    () => VectorIngestionConfiguration,
-    () => RenderingConfiguration,
-    () => ServerSideEncryptionConfiguration,
-    0,
-    128 | 0,
-  ],
-];
-export var ListAIAgentsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LAIAR,
-  0,
-  [_aI, _nT, _mR, _o],
-  [
-    [0, 1],
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _o }],
-  ],
-];
-export var ListAIAgentsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LAIARi,
-  0,
-  [_aASi, _nT],
-  [[() => AIAgentSummaryList, 0], 0],
-];
-export var ListAIAgentVersionsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LAIAVR,
-  0,
-  [_aI, _aAI, _nT, _mR, _o],
-  [
-    [0, 1],
-    [0, 1],
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _o }],
-  ],
-];
-export var ListAIAgentVersionsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LAIAVRi,
-  0,
-  [_aAVS, _nT],
-  [[() => AIAgentVersionSummariesList, 0], 0],
-];
-export var ListAIGuardrailsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LAIGR,
-  0,
-  [_aI, _nT, _mR],
-  [
-    [0, 1],
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-  ],
-];
-export var ListAIGuardrailsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LAIGRi,
-  0,
-  [_aGSi, _nT],
-  [[() => AIGuardrailSummariesList, 0], 0],
-];
-export var ListAIGuardrailVersionsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LAIGVR,
-  0,
-  [_aI, _aGI, _nT, _mR],
-  [
-    [0, 1],
-    [0, 1],
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-  ],
-];
-export var ListAIGuardrailVersionsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LAIGVRi,
-  0,
-  [_aGVS, _nT],
-  [[() => AIGuardrailVersionSummariesList, 0], 0],
-];
-export var ListAIPromptsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LAIPR,
-  0,
-  [_aI, _nT, _mR, _o],
-  [
-    [0, 1],
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _o }],
-  ],
-];
-export var ListAIPromptsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LAIPRi,
-  0,
-  [_aPSi, _nT],
-  [() => AIPromptSummaryList, 0],
-];
-export var ListAIPromptVersionsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LAIPVR,
-  0,
-  [_aI, _aPI, _nT, _mR, _o],
-  [
-    [0, 1],
-    [0, 1],
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _o }],
-  ],
-];
-export var ListAIPromptVersionsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LAIPVRi,
-  0,
-  [_aPVS, _nT],
-  [() => AIPromptVersionSummariesList, 0],
-];
-export var ListAssistantAssociationsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LAAR,
-  0,
-  [_nT, _mR, _aI],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-    [0, 1],
-  ],
-];
-export var ListAssistantAssociationsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LAARi,
-  0,
-  [_aASs, _nT],
-  [() => AssistantAssociationSummaryList, 0],
-];
-export var ListAssistantsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LAR,
-  0,
-  [_nT, _mR],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-  ],
-];
-export var ListAssistantsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_aS, _nT], [() => AssistantList, 0]];
-export var ListContentAssociationsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LCAR,
-  0,
-  [_nT, _mR, _kBI, _cI],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-    [0, 1],
-    [0, 1],
-  ],
-];
-export var ListContentAssociationsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LCARi,
-  0,
-  [_cAS, _nT],
-  [() => ContentAssociationSummaryList, 0],
-];
-export var ListContentsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LCR,
-  0,
-  [_nT, _mR, _kBI],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-    [0, 1],
-  ],
-];
-export var ListContentsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LCRi,
-  0,
-  [_cSont, _nT],
-  [() => ContentSummaryList, 0],
-];
-export var ListImportJobsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LIJR,
-  0,
-  [_nT, _mR, _kBI],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-    [0, 1],
-  ],
-];
-export var ListImportJobsResponse: StaticStructureSchema = [3, n0, _LIJRi, 0, [_iJS, _nT], [() => ImportJobList, 0]];
-export var ListKnowledgeBasesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LKBR,
-  0,
-  [_nT, _mR],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-  ],
-];
-export var ListKnowledgeBasesResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LKBRi,
-  0,
-  [_kBS, _nT],
-  [[() => KnowledgeBaseList, 0], 0],
-];
-export var ListMessagesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LMR,
-  0,
-  [_aI, _sI, _nT, _mR, _fi],
-  [
-    [0, 1],
-    [0, 1],
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _fi }],
-  ],
-];
-export var ListMessagesResponse: StaticStructureSchema = [3, n0, _LMRi, 0, [_mes, _nT], [[() => MessageList, 0], 0]];
-export var ListMessageTemplatesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LMTR,
-  0,
-  [_nT, _mR, _kBI],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-    [0, 1],
-  ],
-];
-export var ListMessageTemplatesResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LMTRi,
-  0,
-  [_mTS, _nT],
-  [[() => MessageTemplateSummaryList, 0], 0],
-];
-export var ListMessageTemplateVersionsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LMTVR,
-  0,
-  [_kBI, _mTI, _nT, _mR],
-  [
-    [0, 1],
-    [0, 1],
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-  ],
-];
-export var ListMessageTemplateVersionsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LMTVRi,
-  0,
-  [_mTVS, _nT],
-  [[() => MessageTemplateVersionSummaryList, 0], 0],
-];
-export var ListQuickResponsesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LQRR,
-  0,
-  [_nT, _mR, _kBI],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-    [0, 1],
-  ],
-];
-export var ListQuickResponsesResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LQRRi,
-  0,
-  [_qRS, _nT],
-  [[() => QuickResponseSummaryList, 0], 0],
-];
-export var ListSpansRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LSR,
-  0,
-  [_aI, _sI, _nT, _mR],
-  [
-    [0, 1],
-    [0, 1],
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-  ],
-];
-export var ListSpansResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_sp, _nT], [[() => SpanList, 0], 0]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [128 | 0]];
-export var ManualSearchAIAgentConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _MSAIAC,
-  0,
-  [_aGAIPI, _aGAIGI, _aC, _l],
-  [0, 0, () => AssociationConfigurationList, 0],
-];
-export var MessageConfiguration: StaticStructureSchema = [3, n0, _MC, 0, [_gFM, _gCM], [2, 2]];
-export var MessageInput: StaticStructureSchema = [3, n0, _MI, 0, [_v], [[() => MessageData, 0]]];
-export var MessageOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _MO,
-  0,
-  [_v, _mIe, _par, _tim],
-  [[() => MessageData, 0], 0, 0, 4],
-];
-export var MessageTemplateAttachment: StaticStructureSchema = [
-  3,
-  n0,
-  _MTA,
-  0,
-  [_cD, _n, _uT, _u, _uE, _aIt],
-  [0, [() => AttachmentFileName, 0], 5, [() => Url, 0], 5, 0],
-];
-export var MessageTemplateAttributes: StaticStructureSchema = [
-  3,
-  n0,
-  _MTAe,
-  0,
-  [_sAy, _aAg, _cPA, _cAu],
-  [
-    [() => SystemAttributes, 0],
-    [() => AgentAttributes, 0],
-    [() => CustomerProfileAttributes, 0],
-    [() => CustomAttributes, 0],
-  ],
-];
-export var MessageTemplateData: StaticStructureSchema = [
-  3,
-  n0,
-  _MTD,
-  0,
-  [_mTA, _mTI, _kBA, _kBI, _n, _cha, _cSh, _cTr, _lMT, _lMB, _con, _d, _la, _sCS, _gC, _dA, _aTt, _mTCS, _ta],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    [() => Channel, 0],
-    0,
-    5,
-    5,
-    0,
-    [() => MessageTemplateContentProvider, 0],
-    0,
-    0,
-    [() => MessageTemplateSourceConfigurationSummary, 0],
-    [() => GroupingConfiguration, 0],
-    [() => MessageTemplateAttributes, 0],
-    64 | 0,
-    0,
-    128 | 0,
-  ],
-];
-export var MessageTemplateFilterField: StaticStructureSchema = [
-  3,
-  n0,
-  _MTFF,
-  0,
-  [_n, _va, _op, _iNE],
-  [0, 64 | 0, 0, 2],
-];
-export var MessageTemplateOrderField: StaticStructureSchema = [3, n0, _MTOF, 0, [_n, _or], [0, 0]];
-export var MessageTemplateQueryField: StaticStructureSchema = [
-  3,
-  n0,
-  _MTQF,
-  0,
-  [_n, _va, _op, _aFl, _pr],
-  [0, 64 | 0, 0, 2, 0],
-];
-export var MessageTemplateSearchExpression: StaticStructureSchema = [
-  3,
-  n0,
-  _MTSE,
-  0,
-  [_q, _fil, _oOF],
-  [() => MessageTemplateQueryFieldList, () => MessageTemplateFilterFieldList, () => MessageTemplateOrderField],
-];
-export var MessageTemplateSearchResultData: StaticStructureSchema = [
-  3,
-  n0,
-  _MTSRD,
-  0,
-  [_mTA, _mTI, _kBA, _kBI, _n, _cha, _cSh, _cTr, _lMT, _lMB, _iA, _vN, _d, _sCS, _gC, _la, _ta],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    [() => Channel, 0],
-    0,
-    5,
-    5,
-    0,
-    2,
-    1,
-    0,
-    [() => MessageTemplateSourceConfigurationSummary, 0],
-    [() => GroupingConfiguration, 0],
-    0,
-    128 | 0,
-  ],
-];
-export var MessageTemplateSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _MTS,
-  0,
-  [_mTA, _mTI, _kBA, _kBI, _n, _cha, _cSh, _cTr, _lMT, _lMB, _sC, _aVN, _d, _ta],
-  [0, 0, 0, 0, 0, [() => Channel, 0], 0, 5, 5, 0, () => MessageTemplateSourceConfiguration, 1, 0, 128 | 0],
-];
-export var MessageTemplateVersionSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _MTVS,
-  0,
-  [_mTA, _mTI, _kBA, _kBI, _n, _cha, _cSh, _iA, _vN],
-  [0, 0, 0, 0, 0, [() => Channel, 0], 0, 2, 1],
-];
-export var NotesChunkDataDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _NCDD,
+export var CaseSummarizationChunkDataDetails$: StaticStructureSchema = [3, n0, _CSCDD,
   0,
   [_com, _nCT],
-  [[() => NonEmptySensitiveString, 0], 0],
-];
-export var NotesDataDetails: StaticStructureSchema = [3, n0, _NDD, 0, [_com], [[() => NonEmptySensitiveString, 0]]];
-export var NoteTakingAIAgentConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _NTAIAC,
-  0,
-  [_nTAIPI, _nTAIGI, _l],
-  [0, 0, 0],
-];
-export var NotifyRecommendationsReceivedError: StaticStructureSchema = [3, n0, _NRRE, 0, [_rIe, _m], [0, 0]];
-export var NotifyRecommendationsReceivedRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _NRRR,
-  0,
-  [_aI, _sI, _rIec],
-  [[0, 1], [0, 1], 64 | 0],
-];
-export var NotifyRecommendationsReceivedResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _NRRRo,
-  0,
-  [_rIec, _er],
-  [64 | 0, () => NotifyRecommendationsReceivedErrorList],
-];
-export var OrchestrationAIAgentConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _OAIAC,
-  0,
-  [_oAIPI, _oAIGI, _tCo, _cIA, _l],
-  [0, 0, [() => ToolConfigurationList, 0], 0, 0],
-];
-export var OrchestratorConfigurationEntry: StaticStructureSchema = [3, n0, _OCE, 0, [_aAI, _oUC], [0, 0]];
-export var ParsingConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _PC,
-  0,
-  [_pS, _bFMC],
-  [0, () => BedrockFoundationModelConfigurationForParsing],
-];
-export var ParsingPrompt: StaticStructureSchema = [3, n0, _PP, 0, [_pPT], [0]];
-export var PreconditionFailedException: StaticErrorSchema = [-3, n0, _PFE, { [_e]: _c, [_hE]: 412 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(PreconditionFailedException, __PreconditionFailedException);
-export var PushADMMessageTemplateContent: StaticStructureSchema = [
-  3,
-  n0,
-  _PADMMTC,
-  0,
-  [_ti, _bo, _ac, _sou, _u, _iU, _iIU, _sIIU, _rCa],
-  [
-    [() => NonEmptyUnlimitedString, 0],
-    [() => MessageTemplateBodyContentProvider, 0],
-    0,
-    [() => NonEmptyUnlimitedString, 0],
-    [() => NonEmptyUnlimitedString, 0],
-    [() => NonEmptyUnlimitedString, 0],
-    [() => NonEmptyUnlimitedString, 0],
-    [() => NonEmptyUnlimitedString, 0],
-    [() => MessageTemplateBodyContentProvider, 0],
-  ],
-];
-export var PushAPNSMessageTemplateContent: StaticStructureSchema = [
-  3,
-  n0,
-  _PAPNSMTC,
-  0,
-  [_ti, _bo, _ac, _sou, _u, _mU, _rCa],
-  [
-    [() => NonEmptyUnlimitedString, 0],
-    [() => MessageTemplateBodyContentProvider, 0],
-    0,
-    [() => NonEmptyUnlimitedString, 0],
-    [() => NonEmptyUnlimitedString, 0],
-    [() => NonEmptyUnlimitedString, 0],
-    [() => MessageTemplateBodyContentProvider, 0],
-  ],
-];
-export var PushBaiduMessageTemplateContent: StaticStructureSchema = [
-  3,
-  n0,
-  _PBMTC,
-  0,
-  [_ti, _bo, _ac, _sou, _u, _iU, _iIU, _sIIU, _rCa],
-  [
-    [() => NonEmptyUnlimitedString, 0],
-    [() => MessageTemplateBodyContentProvider, 0],
-    0,
-    [() => NonEmptyUnlimitedString, 0],
-    [() => NonEmptyUnlimitedString, 0],
-    [() => NonEmptyUnlimitedString, 0],
-    [() => NonEmptyUnlimitedString, 0],
-    [() => NonEmptyUnlimitedString, 0],
-    [() => MessageTemplateBodyContentProvider, 0],
-  ],
-];
-export var PushFCMMessageTemplateContent: StaticStructureSchema = [
-  3,
-  n0,
-  _PFCMMTC,
-  0,
-  [_ti, _bo, _ac, _sou, _u, _iU, _iIU, _sIIU, _rCa],
-  [
-    [() => NonEmptyUnlimitedString, 0],
-    [() => MessageTemplateBodyContentProvider, 0],
-    0,
-    [() => NonEmptyUnlimitedString, 0],
-    [() => NonEmptyUnlimitedString, 0],
-    [() => NonEmptyUnlimitedString, 0],
-    [() => NonEmptyUnlimitedString, 0],
-    [() => NonEmptyUnlimitedString, 0],
-    [() => MessageTemplateBodyContentProvider, 0],
-  ],
-];
-export var PushMessageTemplateContent: StaticStructureSchema = [
-  3,
-  n0,
-  _PMTC,
-  0,
-  [_adm, _ap, _fc, _ba],
-  [
-    [() => PushADMMessageTemplateContent, 0],
-    [() => PushAPNSMessageTemplateContent, 0],
-    [() => PushFCMMessageTemplateContent, 0],
-    [() => PushBaiduMessageTemplateContent, 0],
-  ],
-];
-export var PutFeedbackRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _PFR,
-  0,
-  [_aI, _tI, _tTa, _cF],
-  [[0, 1], 0, 0, () => ContentFeedbackData],
-];
-export var PutFeedbackResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _PFRu,
-  0,
-  [_aI, _aA, _tI, _tTa, _cF],
-  [0, 0, 0, 0, () => ContentFeedbackData],
-];
-export var QueryAssistantRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _QAR,
-  0,
-  [_aI, _qT, _nT, _mR, _sI, _qC, _qID, _oKBST],
-  [[0, 1], [() => QueryText, 0], 0, 1, 0, () => QueryConditionExpression, [() => QueryInputData, 0], 0],
-];
-export var QueryAssistantResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _QARu,
-  0,
-  [_resu, _nT],
-  [[() => QueryResultsList, 0], 0],
-];
-export var QueryConditionItem: StaticStructureSchema = [3, n0, _QCI, 0, [_f, _comp, _v], [0, 0, 0]];
-export var QueryRecommendationTriggerData: StaticStructureSchema = [3, n0, _QRTD, 0, [_te], [[() => QueryText, 0]]];
-export var QueryTextInputData: StaticStructureSchema = [3, n0, _QTID, 0, [_te], [[() => QueryText, 0]]];
-export var QuickResponseContents: StaticStructureSchema = [
-  3,
-  n0,
-  _QRCu,
-  0,
-  [_pTl, _ma],
-  [
-    [() => QuickResponseContentProvider, 0],
-    [() => QuickResponseContentProvider, 0],
-  ],
-];
-export var QuickResponseData: StaticStructureSchema = [
-  3,
-  n0,
-  _QRD,
-  0,
-  [_qRA, _qRI, _kBA, _kBI, _n, _cT, _s, _cTr, _lMT, _cont, _d, _gC, _sK, _lMB, _iA, _ch, _la, _ta],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    7,
-    7,
-    [() => QuickResponseContents, 0],
-    0,
-    [() => GroupingConfiguration, 0],
-    0,
-    0,
-    2,
-    [() => Channels, 0],
-    0,
-    128 | 0,
-  ],
-];
-export var QuickResponseFilterField: StaticStructureSchema = [3, n0, _QRFF, 0, [_n, _va, _op, _iNE], [0, 64 | 0, 0, 2]];
-export var QuickResponseOrderField: StaticStructureSchema = [3, n0, _QROF, 0, [_n, _or], [0, 0]];
-export var QuickResponseQueryField: StaticStructureSchema = [
-  3,
-  n0,
-  _QRQF,
-  0,
-  [_n, _va, _op, _aFl, _pr],
-  [0, 64 | 0, 0, 2, 0],
-];
-export var QuickResponseSearchExpression: StaticStructureSchema = [
-  3,
-  n0,
-  _QRSE,
-  0,
-  [_q, _fil, _oOF],
-  [() => QuickResponseQueryFieldList, () => QuickResponseFilterFieldList, () => QuickResponseOrderField],
-];
-export var QuickResponseSearchResultData: StaticStructureSchema = [
-  3,
-  n0,
-  _QRSRD,
-  0,
-  [_qRA, _qRI, _kBA, _kBI, _n, _cT, _s, _cont, _cTr, _lMT, _iA, _d, _gC, _sK, _lMB, _ch, _la, _aNI, _aItt, _ta],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    [() => QuickResponseContents, 0],
-    7,
-    7,
-    2,
-    0,
-    [() => GroupingConfiguration, 0],
-    0,
-    0,
-    [() => Channels, 0],
-    0,
-    [() => ContactAttributeKeys, 0],
-    [() => ContactAttributeKeys, 0],
-    128 | 0,
-  ],
-];
-export var QuickResponseSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _QRS,
-  0,
-  [_qRA, _qRI, _kBA, _kBI, _n, _cT, _s, _cTr, _lMT, _d, _lMB, _iA, _ch, _ta],
-  [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0, 2, [() => Channels, 0], 128 | 0],
-];
-export var RankingData: StaticStructureSchema = [3, n0, _RD, 0, [_rS, _rL], [1, 0]];
-export var RecommendationData: StaticStructureSchema = [
-  3,
-  n0,
-  _RDe,
-  0,
-  [_rIe, _do, _rS, _rL, _t, _da],
-  [0, [() => Document, 0], 1, 0, 0, [() => DataSummary, 0]],
-];
-export var RecommendationTrigger: StaticStructureSchema = [
-  3,
-  n0,
-  _RT,
-  0,
-  [_id, _t, _so, _da, _rIec],
-  [0, 0, 0, [() => RecommendationTriggerData, 0], 64 | 0],
-];
-export var RemoveAssistantAIAgentRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _RAAIAR,
-  0,
-  [_aI, _aAT, _oUC],
-  [
-    [0, 1],
-    [0, { [_hQ]: _aAT }],
-    [0, { [_hQ]: _oUC }],
-  ],
-];
-export var RemoveAssistantAIAgentResponse: StaticStructureSchema = [3, n0, _RAAIARe, 0, [], []];
-export var RemoveKnowledgeBaseTemplateUriRequest: StaticStructureSchema = [3, n0, _RKBTUR, 0, [_kBI], [[0, 1]]];
-export var RemoveKnowledgeBaseTemplateUriResponse: StaticStructureSchema = [3, n0, _RKBTURe, 0, [], []];
-export var RenderingConfiguration: StaticStructureSchema = [3, n0, _RC, 0, [_tU], [0]];
-export var RenderMessageTemplateRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _RMTR,
-  0,
-  [_kBI, _mTI, _attr],
-  [
-    [0, 1],
-    [0, 1],
-    [() => MessageTemplateAttributes, 0],
-  ],
-];
-export var RenderMessageTemplateResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _RMTRe,
-  0,
-  [_con, _sCS, _aNI, _att],
-  [
-    [() => MessageTemplateContentProvider, 0],
-    [() => MessageTemplateSourceConfigurationSummary, 0],
-    [() => MessageTemplateAttributeKeyList, 0],
-    [() => MessageTemplateAttachmentList, 0],
-  ],
-];
-export var RequestTimeoutException: StaticErrorSchema = [-3, n0, _RTE, { [_e]: _c, [_hE]: 408 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(RequestTimeoutException, __RequestTimeoutException);
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m, _rN], [0, 0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ResultData: StaticStructureSchema = [
-  3,
-  n0,
-  _RDes,
-  0,
-  [_rIes, _do, _rS, _da, _t],
-  [0, [() => Document, 0], 1, [() => DataSummary, 0], 0],
-];
-export var RetrievalConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _RCe,
-  0,
-  [_kS, _fi, _nOR, _oKBST],
-  [() => KnowledgeSource, () => RetrievalFilterConfiguration, 1, 0],
-];
-export var RetrieveRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _RR,
-  0,
-  [_aI, _rCet, _rQ],
-  [[0, 1], () => RetrievalConfiguration, [() => NonEmptySensitiveString, 0]],
-];
-export var RetrieveResponse: StaticStructureSchema = [3, n0, _RRe, 0, [_resu], [[() => RetrieveResultList, 0]]];
-export var RetrieveResult: StaticStructureSchema = [
-  3,
-  n0,
-  _RRet,
-  0,
-  [_aIs, _sIo, _rT, _cTo],
-  [0, [() => SensitiveString, 0], 0, [() => SensitiveString, 0]],
-];
-export var RuntimeSessionData: StaticStructureSchema = [
-  3,
-  n0,
-  _RSD,
-  0,
-  [_k, _v],
-  [
-    [() => NonEmptySensitiveString, 0],
-    [() => RuntimeSessionDataValue, 0],
-  ],
-];
-export var SearchContentRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _SCR,
-  0,
-  [_nT, _mR, _kBI, _sE],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1], () => SearchExpression],
-];
-export var SearchContentResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _SCRe,
-  0,
-  [_cSont, _nT],
-  [() => ContentSummaryList, 0],
-];
-export var SearchExpression: StaticStructureSchema = [3, n0, _SE, 0, [_fil], [() => FilterList]];
-export var SearchMessageTemplatesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _SMTR,
-  0,
-  [_kBI, _sE, _nT, _mR],
-  [[0, 1], () => MessageTemplateSearchExpression, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]],
-];
-export var SearchMessageTemplatesResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _SMTRe,
-  0,
-  [_resu, _nT],
-  [[() => MessageTemplateSearchResultsList, 0], 0],
-];
-export var SearchQuickResponsesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _SQRR,
-  0,
-  [_kBI, _sE, _nT, _mR, _attr],
-  [[0, 1], () => QuickResponseSearchExpression, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [() => ContactAttributes, 0]],
-];
-export var SearchQuickResponsesResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _SQRRe,
-  0,
-  [_resu, _nT],
-  [[() => QuickResponseSearchResultsList, 0], 0],
-];
-export var SearchSessionsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _SSR,
-  0,
-  [_nT, _mR, _aI, _sE],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1], () => SearchExpression],
-];
-export var SearchSessionsResponse: StaticStructureSchema = [3, n0, _SSRe, 0, [_sSe, _nT], [() => SessionSummaries, 0]];
-export var SeedUrl: StaticStructureSchema = [3, n0, _SU, 0, [_u], [0]];
-export var SelfServiceAIAgentConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _SSAIAC,
-  0,
-  [_sSPPAIPI, _sSAGAIPI, _sSAIGI, _aC],
-  [0, 0, 0, () => AssociationConfigurationList],
-];
-export var SelfServiceConversationHistory: StaticStructureSchema = [
-  3,
-  n0,
-  _SSCH,
-  0,
-  [_tN, _iT, _bR, _tim],
-  [1, [() => SensitiveString, 0], [() => SensitiveString, 0], 4],
-];
-export var SemanticChunkingConfiguration: StaticStructureSchema = [3, n0, _SCC, 0, [_mTa, _bSu, _bPT], [1, 1, 1]];
-export var SendMessageRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _SMR,
-  0,
-  [_aI, _sI, _t, _m, _aAI, _cCo, _co, _cTl, _oUC, _me],
-  [
-    [0, 1],
-    [0, 1],
-    0,
-    [() => MessageInput, 0],
-    0,
-    [() => ConversationContext, 0],
-    () => MessageConfiguration,
-    [0, 4],
-    0,
-    128 | 0,
-  ],
-];
-export var SendMessageResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _SMRe,
-  0,
-  [_rMI, _co, _nMT],
-  [0, () => MessageConfiguration, 0],
-];
-export var ServerSideEncryptionConfiguration: StaticStructureSchema = [3, n0, _SSEC, 0, [_kKI], [0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var SessionData: StaticStructureSchema = [
-  3,
-  n0,
-  _SD,
-  0,
-  [_sAe, _sI, _n, _d, _ta, _iCn, _tF, _aAC, _o, _oCL],
-  [
-    0,
-    0,
-    0,
-    0,
-    128 | 0,
-    () => SessionIntegrationConfiguration,
-    () => TagFilter,
-    () => AIAgentConfigurationMap,
-    0,
-    () => OrchestratorConfigurationList,
-  ],
-];
-export var SessionIntegrationConfiguration: StaticStructureSchema = [3, n0, _SIC, 0, [_tIA], [0]];
-export var SessionSummary: StaticStructureSchema = [3, n0, _SSe, 0, [_sI, _sAe, _aI, _aA], [0, 0, 0, 0]];
-export var SMSMessageTemplateContent: StaticStructureSchema = [
-  3,
-  n0,
-  _SMSMTC,
-  0,
-  [_bo],
-  [[() => SMSMessageTemplateContentBody, 0]],
-];
-export var SMSMessageTemplateContentBody: StaticStructureSchema = [
-  3,
-  n0,
-  _SMSMTCB,
-  0,
-  [_pTl],
-  [[() => MessageTemplateBodyContentProvider, 0]],
-];
-export var SourceContentDataDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _SCDD,
-  0,
-  [_id, _t, _tD, _rD, _cSi],
-  [0, 0, [() => TextData, 0], () => RankingData, () => CitationSpan],
-];
-export var Span: StaticStructureSchema = [
-  3,
-  n0,
-  _S,
-  0,
-  [_sIp, _aI, _sI, _pSI, _sN, _sT, _sTt, _eT, _s, _rIeq, _attr],
-  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0, [() => SpanAttributes, 0]],
-];
-export var SpanAttributes: StaticStructureSchema = [
-  3,
-  n0,
-  _SA,
-  0,
-  [
-    _oN,
-    _pNr,
-    _eTr,
-    _aIg,
-    _iAn,
-    _cIo,
-    _iCI,
-    _sNe,
-    _aAA,
-    _aAT,
-    _aAN,
-    _aAI,
-    _aAV,
-    _aAIi,
-    _aAOUC,
-    _rM,
-    _rMT,
-    _tem,
-    _tP,
-    _rMe,
-    _rFR,
-    _uIT,
-    _uOT,
-    _uTT,
-    _cRIT,
-    _cWIT,
-    _iM,
-    _oM,
-    _sIy,
-    _pA,
-    _pIr,
-    _pTr,
-    _pNro,
-    _pV,
-  ],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    0,
-    64 | 0,
-    1,
-    1,
-    1,
-    1,
-    1,
-    [() => SpanMessageList, 0],
-    [() => SpanMessageList, 0],
-    [() => SpanMessageValueList, 0],
-    0,
-    0,
-    0,
-    0,
-    1,
-  ],
-];
-export var SpanCitation: StaticStructureSchema = [
-  3,
-  n0,
-  _SC,
-  0,
-  [_cI, _ti, _kBI, _kBA],
-  [0, [() => SensitiveString, 0], 0, 0],
-];
-export var SpanMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _SM,
-  0,
-  [_mIe, _par, _tim, _va],
-  [0, 0, 4, [() => SpanMessageValueList, 0]],
-];
-export var SpanTextValue: StaticStructureSchema = [
-  3,
-  n0,
-  _STV,
-  0,
-  [_v, _cit, _aGAi],
-  [[() => NonEmptySensitiveString, 0], [() => SpanCitationList, 0], () => AIGuardrailAssessment],
-];
-export var SpanToolResultValue: StaticStructureSchema = [
-  3,
-  n0,
-  _STRV,
-  0,
-  [_tUI, _va, _e],
-  [0, [() => SpanMessageValueList, 0], 0],
-];
-export var SpanToolUseValue: StaticStructureSchema = [3, n0, _STUV, 0, [_tUI, _n, _ar], [0, 0, 15]];
-export var StartContentUploadRequest: StaticStructureSchema = [3, n0, _SCUR, 0, [_kBI, _cT, _pUTTL], [[0, 1], 0, 1]];
-export var StartContentUploadResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _SCURt,
-  0,
-  [_uI, _u, _uE, _hTI],
-  [0, [() => Url, 0], 7, 128 | 0],
-];
-export var StartImportJobRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _SIJR,
-  0,
-  [_kBI, _iJT, _uI, _cTl, _me, _eSC],
-  [[0, 1], 0, 0, [0, 4], 128 | 0, () => ExternalSourceConfiguration],
-];
-export var StartImportJobResponse: StaticStructureSchema = [3, n0, _SIJRt, 0, [_iJ], [[() => ImportJobData, 0]]];
-export var SuggestedMessageDataDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _SMDD,
-  0,
-  [_mTes],
-  [[() => NonEmptySensitiveString, 0]],
-];
-export var SuggestedMessageReference: StaticStructureSchema = [3, n0, _SMRu, 0, [_aAI, _aAA], [0, 0]];
-export var SystemAttributes: StaticStructureSchema = [
-  3,
-  n0,
-  _SAy,
-  0,
-  [_n, _cE, _sEy],
-  [
-    [() => MessageTemplateAttributeValue, 0],
-    [() => SystemEndpointAttributes, 0],
-    [() => SystemEndpointAttributes, 0],
-  ],
-];
-export var SystemEndpointAttributes: StaticStructureSchema = [
-  3,
-  n0,
-  _SEA,
-  0,
-  [_addres],
-  [[() => MessageTemplateAttributeValue, 0]],
-];
-export var TagCondition: StaticStructureSchema = [3, n0, _TC, 0, [_k, _v], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TextAIPromptInferenceConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _TAIPIC,
-  0,
-  [_tem, _tP, _tK, _mTTS],
-  [
-    [() => Probability, 0],
-    [() => Probability, 0],
-    [() => TopK, 0],
-    [() => MaxTokensToSample, 0],
-  ],
-];
-export var TextData: StaticStructureSchema = [
-  3,
-  n0,
-  _TD,
-  0,
-  [_ti, _ex],
-  [
-    [() => DocumentText, 0],
-    [() => DocumentText, 0],
-  ],
-];
-export var TextFullAIPromptEditTemplateConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _TFAIPETC,
-  0,
-  [_te],
-  [[() => TextAIPrompt, 0]],
-];
-export var TextMessage: StaticStructureSchema = [
-  3,
-  n0,
-  _TM,
-  0,
-  [_v, _cit, _aGAi],
-  [[() => SensitiveString, 0], [() => Citations, 0], () => AIGuardrailAssessment],
-];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var ToolConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _TCo,
-  0,
-  [_tNo, _tTo, _ti, _tIo, _d, _in, _oIV, _oFu, _iSnp, _oSu, _an, _uIC],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    () => ToolInstruction,
-    [() => ToolOverrideInputValueList, 0],
-    () => ToolOutputFilterList,
-    15,
-    15,
-    () => Annotation,
-    () => UserInteractionConfiguration,
-  ],
-];
-export var ToolInstruction: StaticStructureSchema = [3, n0, _TI, 0, [_in, _exa], [0, 64 | 0]];
-export var ToolOutputConfiguration: StaticStructureSchema = [3, n0, _TOC, 0, [_oVNO, _sDN], [0, 0]];
-export var ToolOutputFilter: StaticStructureSchema = [3, n0, _TOF, 0, [_jP, _oC], [0, () => ToolOutputConfiguration]];
-export var ToolOverrideConstantInputValue: StaticStructureSchema = [
-  3,
-  n0,
-  _TOCIV,
-  0,
-  [_t, _v],
-  [0, [() => NonEmptySensitiveString, 0]],
-];
-export var ToolOverrideInputValue: StaticStructureSchema = [
-  3,
-  n0,
-  _TOIV,
-  0,
-  [_jP, _v],
-  [0, [() => ToolOverrideInputValueConfiguration, 0]],
-];
-export var ToolUseResultData: StaticStructureSchema = [3, n0, _TURD, 0, [_tUI, _tNo, _tR, _iSnp], [0, 0, 15, 15]];
-export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_m, _rN], [0, 0]];
-TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-export var UnprocessableContentException: StaticErrorSchema = [-3, n0, _UCE, { [_e]: _c, [_hE]: 422 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UnprocessableContentException, __UnprocessableContentException);
-export var UntagResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _URR,
-  0,
-  [_rA, _tKa],
-  [
-    [0, 1],
-    [64 | 0, { [_hQ]: _tKa }],
-  ],
-];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateAIAgentRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UAIAR,
-  0,
-  [_cTl, _aI, _aAI, _vS, _co, _d],
-  [[0, 4], [0, 1], [0, 1], 0, [() => AIAgentConfiguration, 0], 0],
-];
-export var UpdateAIAgentResponse: StaticStructureSchema = [3, n0, _UAIARp, 0, [_aAi], [[() => AIAgentData, 0]]];
-export var UpdateAIGuardrailRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UAIGR,
-  0,
-  [_cTl, _aI, _aGI, _vS, _bIM, _bOM, _d, _tPC, _cPC, _wPC, _sIPC, _cGPC],
-  [
-    [0, 4],
-    [0, 1],
-    [0, 1],
-    0,
-    [() => AIGuardrailBlockedMessaging, 0],
-    [() => AIGuardrailBlockedMessaging, 0],
-    [() => AIGuardrailDescription, 0],
-    [() => AIGuardrailTopicPolicyConfig, 0],
-    [() => AIGuardrailContentPolicyConfig, 0],
-    [() => AIGuardrailWordPolicyConfig, 0],
-    [() => AIGuardrailSensitiveInformationPolicyConfig, 0],
-    [() => AIGuardrailContextualGroundingPolicyConfig, 0],
-  ],
-];
-export var UpdateAIGuardrailResponse: StaticStructureSchema = [3, n0, _UAIGRp, 0, [_aG], [[() => AIGuardrailData, 0]]];
-export var UpdateAIPromptRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UAIPR,
-  0,
-  [_cTl, _aI, _aPI, _vS, _tCe, _d, _mI, _iC],
-  [
-    [0, 4],
-    [0, 1],
-    [0, 1],
-    0,
-    [() => AIPromptTemplateConfiguration, 0],
-    0,
-    0,
-    [() => AIPromptInferenceConfiguration, 0],
-  ],
-];
-export var UpdateAIPromptResponse: StaticStructureSchema = [3, n0, _UAIPRp, 0, [_aP], [[() => AIPromptData, 0]]];
-export var UpdateAssistantAIAgentRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UAAIAR,
-  0,
-  [_aI, _aAT, _co, _oCL],
-  [[0, 1], 0, () => AIAgentConfigurationData, () => OrchestratorConfigurationList],
-];
-export var UpdateAssistantAIAgentResponse: StaticStructureSchema = [3, n0, _UAAIARp, 0, [_as], [() => AssistantData]];
-export var UpdateContentRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UCR,
-  0,
-  [_kBI, _cI, _rI, _ti, _oLOU, _rOLOU, _me, _uI],
-  [[0, 1], [0, 1], 0, 0, 0, 2, 128 | 0, 0],
-];
-export var UpdateContentResponse: StaticStructureSchema = [3, n0, _UCRp, 0, [_con], [[() => ContentData, 0]]];
-export var UpdateKnowledgeBaseTemplateUriRequest: StaticStructureSchema = [3, n0, _UKBTUR, 0, [_kBI, _tU], [[0, 1], 0]];
-export var UpdateKnowledgeBaseTemplateUriResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _UKBTURp,
+  [0, 0]
+];
+export var CaseSummarizationInputData$: StaticStructureSchema = [3, n0, _CSID,
+  0,
+  [_cA],
+  [0]
+];
+export var ChunkingConfiguration$: StaticStructureSchema = [3, n0, _CC,
+  0,
+  [_cS, _fSCC, _hCC, _sCC],
+  [0, () => FixedSizeChunkingConfiguration$, () => HierarchicalChunkingConfiguration$, () => SemanticChunkingConfiguration$]
+];
+export var Citation$: StaticStructureSchema = [3, n0, _Ci,
+  0,
+  [_cI, _ti, _kBI, _cSi, _sURL, _rT],
+  [0, [() => SensitiveString, 0], 0, () => CitationSpan$, [() => SensitiveString, 0], 0]
+];
+export var CitationSpan$: StaticStructureSchema = [3, n0, _CS,
+  0,
+  [_bOI, _eOE],
+  [1, 1]
+];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var ConnectConfiguration$: StaticStructureSchema = [3, n0, _CCo,
+  0,
+  [_iI],
+  [0]
+];
+export var ContentAssociationData$: StaticStructureSchema = [3, n0, _CAD,
+  0,
+  [_kBI, _kBA, _cI, _cAo, _cAI, _cAA, _aT, _aD, _ta],
+  [0, 0, 0, 0, 0, 0, 0, () => ContentAssociationContents$, 128 | 0]
+];
+export var ContentAssociationSummary$: StaticStructureSchema = [3, n0, _CAS,
+  0,
+  [_kBI, _kBA, _cI, _cAo, _cAI, _cAA, _aT, _aD, _ta],
+  [0, 0, 0, 0, 0, 0, 0, () => ContentAssociationContents$, 128 | 0]
+];
+export var ContentData$: StaticStructureSchema = [3, n0, _CD,
+  0,
+  [_cAo, _cI, _kBA, _kBI, _n, _rI, _ti, _cT, _s, _me, _ta, _lOU, _u, _uE],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 128 | 0, 0, [() => Url, 0], 7]
+];
+export var ContentDataDetails$: StaticStructureSchema = [3, n0, _CDD,
+  0,
+  [_tD, _rD],
+  [[() => TextData$, 0], () => RankingData$]
+];
+export var ContentReference$: StaticStructureSchema = [3, n0, _CR,
+  0,
+  [_kBA, _kBI, _cAo, _cI, _sURL, _rT],
+  [0, 0, 0, 0, 0, 0]
+];
+export var ContentSummary$: StaticStructureSchema = [3, n0, _CSo,
+  0,
+  [_cAo, _cI, _kBA, _kBI, _n, _rI, _ti, _cT, _s, _me, _ta],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 128 | 0]
+];
+export var ConversationContext$: StaticStructureSchema = [3, n0, _CCon,
+  0,
+  [_sSCH],
+  [[() => SelfServiceConversationHistoryList, 0]]
+];
+export var ConversationState$: StaticStructureSchema = [3, n0, _CSon,
+  0,
+  [_s, _r],
+  [0, 0]
+];
+export var CreateAIAgentRequest$: StaticStructureSchema = [3, n0, _CAIAR,
+  0,
+  [_cTl, _aI, _n, _t, _co, _vS, _ta, _d],
+  [[0, 4], [0, 1], 0, 0, [() => AIAgentConfiguration$, 0], 0, 128 | 0, 0]
+];
+export var CreateAIAgentResponse$: StaticStructureSchema = [3, n0, _CAIARr,
+  0,
+  [_aAi],
+  [[() => AIAgentData$, 0]]
+];
+export var CreateAIAgentVersionRequest$: StaticStructureSchema = [3, n0, _CAIAVR,
+  0,
+  [_aI, _aAI, _mT, _cTl],
+  [[0, 1], [0, 1], 4, [0, 4]]
+];
+export var CreateAIAgentVersionResponse$: StaticStructureSchema = [3, n0, _CAIAVRr,
+  0,
+  [_aAi, _vN],
+  [[() => AIAgentData$, 0], 1]
+];
+export var CreateAIGuardrailRequest$: StaticStructureSchema = [3, n0, _CAIGR,
+  0,
+  [_cTl, _aI, _n, _bIM, _bOM, _vS, _d, _tPC, _cPC, _wPC, _sIPC, _cGPC, _ta],
+  [[0, 4], [0, 1], 0, [() => AIGuardrailBlockedMessaging, 0], [() => AIGuardrailBlockedMessaging, 0], 0, [() => AIGuardrailDescription, 0], [() => AIGuardrailTopicPolicyConfig$, 0], [() => AIGuardrailContentPolicyConfig$, 0], [() => AIGuardrailWordPolicyConfig$, 0], [() => AIGuardrailSensitiveInformationPolicyConfig$, 0], [() => AIGuardrailContextualGroundingPolicyConfig$, 0], 128 | 0]
+];
+export var CreateAIGuardrailResponse$: StaticStructureSchema = [3, n0, _CAIGRr,
+  0,
+  [_aG],
+  [[() => AIGuardrailData$, 0]]
+];
+export var CreateAIGuardrailVersionRequest$: StaticStructureSchema = [3, n0, _CAIGVR,
+  0,
+  [_aI, _aGI, _mT, _cTl],
+  [[0, 1], [0, 1], 4, [0, 4]]
+];
+export var CreateAIGuardrailVersionResponse$: StaticStructureSchema = [3, n0, _CAIGVRr,
+  0,
+  [_aG, _vN],
+  [[() => AIGuardrailData$, 0], 1]
+];
+export var CreateAIPromptRequest$: StaticStructureSchema = [3, n0, _CAIPR,
+  0,
+  [_cTl, _aI, _n, _t, _tCe, _vS, _tT, _mI, _aF, _ta, _d, _iC],
+  [[0, 4], [0, 1], 0, 0, [() => AIPromptTemplateConfiguration$, 0], 0, 0, 0, 0, 128 | 0, 0, [() => AIPromptInferenceConfiguration$, 0]]
+];
+export var CreateAIPromptResponse$: StaticStructureSchema = [3, n0, _CAIPRr,
+  0,
+  [_aP],
+  [[() => AIPromptData$, 0]]
+];
+export var CreateAIPromptVersionRequest$: StaticStructureSchema = [3, n0, _CAIPVR,
+  0,
+  [_aI, _aPI, _mT, _cTl],
+  [[0, 1], [0, 1], 4, [0, 4]]
+];
+export var CreateAIPromptVersionResponse$: StaticStructureSchema = [3, n0, _CAIPVRr,
+  0,
+  [_aP, _vN],
+  [[() => AIPromptData$, 0], 1]
+];
+export var CreateAssistantAssociationRequest$: StaticStructureSchema = [3, n0, _CAAR,
+  0,
+  [_aI, _aT, _a, _cTl, _ta],
+  [[0, 1], 0, () => AssistantAssociationInputData$, [0, 4], 128 | 0]
+];
+export var CreateAssistantAssociationResponse$: StaticStructureSchema = [3, n0, _CAARr,
+  0,
+  [_aAs],
+  [() => AssistantAssociationData$]
+];
+export var CreateAssistantRequest$: StaticStructureSchema = [3, n0, _CAR,
+  0,
+  [_cTl, _n, _t, _d, _ta, _sSEC],
+  [[0, 4], 0, 0, 0, 128 | 0, () => ServerSideEncryptionConfiguration$]
+];
+export var CreateAssistantResponse$: StaticStructureSchema = [3, n0, _CARr,
+  0,
+  [_as],
+  [() => AssistantData$]
+];
+export var CreateContentAssociationRequest$: StaticStructureSchema = [3, n0, _CCAR,
+  0,
+  [_cTl, _kBI, _cI, _aT, _a, _ta],
+  [[0, 4], [0, 1], [0, 1], 0, () => ContentAssociationContents$, 128 | 0]
+];
+export var CreateContentAssociationResponse$: StaticStructureSchema = [3, n0, _CCARr,
+  0,
+  [_cAon],
+  [() => ContentAssociationData$]
+];
+export var CreateContentRequest$: StaticStructureSchema = [3, n0, _CCR,
+  0,
+  [_kBI, _n, _ti, _oLOU, _me, _uI, _cTl, _ta],
+  [[0, 1], 0, 0, 0, 128 | 0, 0, [0, 4], 128 | 0]
+];
+export var CreateContentResponse$: StaticStructureSchema = [3, n0, _CCRr,
+  0,
+  [_con],
+  [[() => ContentData$, 0]]
+];
+export var CreateKnowledgeBaseRequest$: StaticStructureSchema = [3, n0, _CKBR,
+  0,
+  [_cTl, _n, _kBT, _sC, _rCe, _vIC, _sSEC, _d, _ta],
+  [[0, 4], 0, 0, [() => SourceConfiguration$, 0], () => RenderingConfiguration$, () => VectorIngestionConfiguration$, () => ServerSideEncryptionConfiguration$, 0, 128 | 0]
+];
+export var CreateKnowledgeBaseResponse$: StaticStructureSchema = [3, n0, _CKBRr,
   0,
   [_kB],
-  [[() => KnowledgeBaseData, 0]],
+  [[() => KnowledgeBaseData$, 0]]
 ];
-export var UpdateMessageTemplateMetadataRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UMTMR,
+export var CreateMessageTemplateAttachmentRequest$: StaticStructureSchema = [3, n0, _CMTAR,
   0,
-  [_kBI, _mTI, _n, _d, _gC],
-  [[0, 1], [0, 1], 0, 0, [() => GroupingConfiguration, 0]],
+  [_kBI, _mTI, _cD, _n, _bo, _cTl],
+  [[0, 1], [0, 1], 0, [() => AttachmentFileName, 0], [() => NonEmptyUnlimitedString, 0], 0]
 ];
-export var UpdateMessageTemplateMetadataResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _UMTMRp,
+export var CreateMessageTemplateAttachmentResponse$: StaticStructureSchema = [3, n0, _CMTARr,
   0,
-  [_mTe],
-  [[() => MessageTemplateData, 0]],
+  [_at],
+  [[() => MessageTemplateAttachment$, 0]]
 ];
-export var UpdateMessageTemplateRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UMTR,
+export var CreateMessageTemplateRequest$: StaticStructureSchema = [3, n0, _CMTR,
   0,
-  [_kBI, _mTI, _con, _la, _sC, _dA],
-  [
-    [0, 1],
-    [0, 1],
-    [() => MessageTemplateContentProvider, 0],
-    0,
-    () => MessageTemplateSourceConfiguration,
-    [() => MessageTemplateAttributes, 0],
-  ],
+  [_kBI, _n, _con, _d, _cSh, _la, _sC, _dA, _gC, _cTl, _ta],
+  [[0, 1], 0, [() => MessageTemplateContentProvider$, 0], 0, 0, 0, () => MessageTemplateSourceConfiguration$, [() => MessageTemplateAttributes$, 0], [() => GroupingConfiguration$, 0], [0, 4], 128 | 0]
 ];
-export var UpdateMessageTemplateResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _UMTRp,
+export var CreateMessageTemplateResponse$: StaticStructureSchema = [3, n0, _CMTRr,
   0,
   [_mTe],
-  [[() => MessageTemplateData, 0]],
+  [[() => MessageTemplateData$, 0]]
 ];
-export var UpdateQuickResponseRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _UQRR,
+export var CreateMessageTemplateVersionRequest$: StaticStructureSchema = [3, n0, _CMTVR,
   0,
-  [_kBI, _qRI, _n, _con, _cT, _gC, _rGC, _d, _rDe, _sK, _rSK, _iA, _ch, _la],
-  [
-    [0, 1],
-    [0, 1],
-    0,
-    [() => QuickResponseDataProvider, 0],
-    0,
-    [() => GroupingConfiguration, 0],
-    2,
-    0,
-    2,
-    0,
-    2,
-    2,
-    [() => Channels, 0],
-    0,
-  ],
+  [_kBI, _mTI, _mTCS],
+  [[0, 1], [0, 1], 0]
 ];
-export var UpdateQuickResponseResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _UQRRp,
+export var CreateMessageTemplateVersionResponse$: StaticStructureSchema = [3, n0, _CMTVRr,
+  0,
+  [_mTe],
+  [[() => ExtendedMessageTemplateData$, 0]]
+];
+export var CreateQuickResponseRequest$: StaticStructureSchema = [3, n0, _CQRR,
+  0,
+  [_kBI, _n, _con, _cT, _gC, _d, _sK, _iA, _ch, _la, _cTl, _ta],
+  [[0, 1], 0, [() => QuickResponseDataProvider$, 0], 0, [() => GroupingConfiguration$, 0], 0, 0, 2, [() => Channels, 0], 0, [0, 4], 128 | 0]
+];
+export var CreateQuickResponseResponse$: StaticStructureSchema = [3, n0, _CQRRr,
   0,
   [_qR],
-  [[() => QuickResponseData, 0]],
+  [[() => QuickResponseData$, 0]]
 ];
-export var UpdateSessionDataRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _USDR,
+export var CreateSessionRequest$: StaticStructureSchema = [3, n0, _CSR,
+  0,
+  [_cTl, _aI, _n, _d, _ta, _tF, _aAC, _cAont, _oCL, _rOCL],
+  [[0, 4], [0, 1], 0, 0, 128 | 0, () => TagFilter$, () => AIAgentConfigurationMap, 0, () => OrchestratorConfigurationList, 2]
+];
+export var CreateSessionResponse$: StaticStructureSchema = [3, n0, _CSRr,
+  0,
+  [_se],
+  [() => SessionData$]
+];
+export var CustomerProfileAttributes$: StaticStructureSchema = [3, n0, _CPA,
+  0,
+  [_pI, _pARN, _fN, _mN, _lN, _aN, _eA, _pN, _aId, _pT, _bN, _bD, _g, _mPN, _hPN, _bPN, _bEA, _ad, _add, _addr, _addre, _ci, _cou, _coun, _pC, _p, _st, _sA, _sAh, _sAhi, _sAhip, _sCh, _sChi, _sChip, _sPC, _sP, _sS, _mAa, _mAai, _mAail, _mAaili, _mC, _mCa, _mCai, _mPC, _mP, _mS, _bA, _bAi, _bAil, _bAill, _bC, _bCi, _bCil, _bPC, _bP, _bS, _cu],
+  [[() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => MessageTemplateAttributeValue, 0], [() => CustomAttributes, 0]]
+];
+export var DataSummary$: StaticStructureSchema = [3, n0, _DS,
+  0,
+  [_re, _de],
+  [() => DataReference$, [() => DataDetails$, 0]]
+];
+export var DeactivateMessageTemplateRequest$: StaticStructureSchema = [3, n0, _DMTR,
+  0,
+  [_kBI, _mTI, _vN],
+  [[0, 1], [0, 1], 1]
+];
+export var DeactivateMessageTemplateResponse$: StaticStructureSchema = [3, n0, _DMTRe,
+  0,
+  [_mTA, _mTI, _vN],
+  [0, 0, 1]
+];
+export var DeleteAIAgentRequest$: StaticStructureSchema = [3, n0, _DAIAR,
+  0,
+  [_aI, _aAI],
+  [[0, 1], [0, 1]]
+];
+export var DeleteAIAgentResponse$: StaticStructureSchema = [3, n0, _DAIARe,
+  0,
+  [],
+  []
+];
+export var DeleteAIAgentVersionRequest$: StaticStructureSchema = [3, n0, _DAIAVR,
+  0,
+  [_aI, _aAI, _vN],
+  [[0, 1], [0, 1], [1, 1]]
+];
+export var DeleteAIAgentVersionResponse$: StaticStructureSchema = [3, n0, _DAIAVRe,
+  0,
+  [],
+  []
+];
+export var DeleteAIGuardrailRequest$: StaticStructureSchema = [3, n0, _DAIGR,
+  0,
+  [_aI, _aGI],
+  [[0, 1], [0, 1]]
+];
+export var DeleteAIGuardrailResponse$: StaticStructureSchema = [3, n0, _DAIGRe,
+  0,
+  [],
+  []
+];
+export var DeleteAIGuardrailVersionRequest$: StaticStructureSchema = [3, n0, _DAIGVR,
+  0,
+  [_aI, _aGI, _vN],
+  [[0, 1], [0, 1], [1, 1]]
+];
+export var DeleteAIGuardrailVersionResponse$: StaticStructureSchema = [3, n0, _DAIGVRe,
+  0,
+  [],
+  []
+];
+export var DeleteAIPromptRequest$: StaticStructureSchema = [3, n0, _DAIPR,
+  0,
+  [_aI, _aPI],
+  [[0, 1], [0, 1]]
+];
+export var DeleteAIPromptResponse$: StaticStructureSchema = [3, n0, _DAIPRe,
+  0,
+  [],
+  []
+];
+export var DeleteAIPromptVersionRequest$: StaticStructureSchema = [3, n0, _DAIPVR,
+  0,
+  [_aI, _aPI, _vN],
+  [[0, 1], [0, 1], [1, 1]]
+];
+export var DeleteAIPromptVersionResponse$: StaticStructureSchema = [3, n0, _DAIPVRe,
+  0,
+  [],
+  []
+];
+export var DeleteAssistantAssociationRequest$: StaticStructureSchema = [3, n0, _DAAR,
+  0,
+  [_aAIs, _aI],
+  [[0, 1], [0, 1]]
+];
+export var DeleteAssistantAssociationResponse$: StaticStructureSchema = [3, n0, _DAARe,
+  0,
+  [],
+  []
+];
+export var DeleteAssistantRequest$: StaticStructureSchema = [3, n0, _DAR,
+  0,
+  [_aI],
+  [[0, 1]]
+];
+export var DeleteAssistantResponse$: StaticStructureSchema = [3, n0, _DARe,
+  0,
+  [],
+  []
+];
+export var DeleteContentAssociationRequest$: StaticStructureSchema = [3, n0, _DCAR,
+  0,
+  [_kBI, _cI, _cAI],
+  [[0, 1], [0, 1], [0, 1]]
+];
+export var DeleteContentAssociationResponse$: StaticStructureSchema = [3, n0, _DCARe,
+  0,
+  [],
+  []
+];
+export var DeleteContentRequest$: StaticStructureSchema = [3, n0, _DCR,
+  0,
+  [_kBI, _cI],
+  [[0, 1], [0, 1]]
+];
+export var DeleteContentResponse$: StaticStructureSchema = [3, n0, _DCRe,
+  0,
+  [],
+  []
+];
+export var DeleteImportJobRequest$: StaticStructureSchema = [3, n0, _DIJR,
+  0,
+  [_kBI, _iJI],
+  [[0, 1], [0, 1]]
+];
+export var DeleteImportJobResponse$: StaticStructureSchema = [3, n0, _DIJRe,
+  0,
+  [],
+  []
+];
+export var DeleteKnowledgeBaseRequest$: StaticStructureSchema = [3, n0, _DKBR,
+  0,
+  [_kBI],
+  [[0, 1]]
+];
+export var DeleteKnowledgeBaseResponse$: StaticStructureSchema = [3, n0, _DKBRe,
+  0,
+  [],
+  []
+];
+export var DeleteMessageTemplateAttachmentRequest$: StaticStructureSchema = [3, n0, _DMTAR,
+  0,
+  [_kBI, _mTI, _aIt],
+  [[0, 1], [0, 1], [0, 1]]
+];
+export var DeleteMessageTemplateAttachmentResponse$: StaticStructureSchema = [3, n0, _DMTARe,
+  0,
+  [],
+  []
+];
+export var DeleteMessageTemplateRequest$: StaticStructureSchema = [3, n0, _DMTRel,
+  0,
+  [_kBI, _mTI],
+  [[0, 1], [0, 1]]
+];
+export var DeleteMessageTemplateResponse$: StaticStructureSchema = [3, n0, _DMTRele,
+  0,
+  [],
+  []
+];
+export var DeleteQuickResponseRequest$: StaticStructureSchema = [3, n0, _DQRR,
+  0,
+  [_kBI, _qRI],
+  [[0, 1], [0, 1]]
+];
+export var DeleteQuickResponseResponse$: StaticStructureSchema = [3, n0, _DQRRe,
+  0,
+  [],
+  []
+];
+export var DependencyFailedException$: StaticErrorSchema = [-3, n0, _DFE,
+  { [_e]: _c, [_hE]: 424 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DependencyFailedException$, DependencyFailedException);
+export var Document$: StaticStructureSchema = [3, n0, _D,
+  0,
+  [_cR, _ti, _ex],
+  [() => ContentReference$, [() => DocumentText$, 0], [() => DocumentText$, 0]]
+];
+export var DocumentText$: StaticStructureSchema = [3, n0, _DT,
+  0,
+  [_te, _h],
+  [[() => SensitiveString, 0], () => Highlights]
+];
+export var EmailGenerativeAnswerAIAgentConfiguration$: StaticStructureSchema = [3, n0, _EGAAIAC,
+  0,
+  [_eGAAIPI, _eQRAIPI, _l, _aC],
+  [0, 0, 0, () => AssociationConfigurationList]
+];
+export var EmailGenerativeAnswerChunkDataDetails$: StaticStructureSchema = [3, n0, _EGACDD,
+  0,
+  [_com, _ref, _nCT],
+  [[() => NonEmptySensitiveString, 0], [() => DataSummaryList, 0], 0]
+];
+export var EmailHeader$: StaticStructureSchema = [3, n0, _EH,
+  0,
+  [_n, _v],
+  [0, [() => EmailHeaderValue, 0]]
+];
+export var EmailMessageTemplateContent$: StaticStructureSchema = [3, n0, _EMTC,
+  0,
+  [_su, _bo, _he],
+  [[() => NonEmptyUnlimitedString, 0], [() => EmailMessageTemplateContentBody$, 0], [() => EmailHeaders, 0]]
+];
+export var EmailMessageTemplateContentBody$: StaticStructureSchema = [3, n0, _EMTCB,
+  0,
+  [_pTl, _ht],
+  [[() => MessageTemplateBodyContentProvider$, 0], [() => MessageTemplateBodyContentProvider$, 0]]
+];
+export var EmailOverviewAIAgentConfiguration$: StaticStructureSchema = [3, n0, _EOAIAC,
+  0,
+  [_eOAIPI, _l],
+  [0, 0]
+];
+export var EmailOverviewChunkDataDetails$: StaticStructureSchema = [3, n0, _EOCDD,
+  0,
+  [_com, _nCT],
+  [[() => NonEmptySensitiveString, 0], 0]
+];
+export var EmailResponseAIAgentConfiguration$: StaticStructureSchema = [3, n0, _ERAIAC,
+  0,
+  [_eRAIPI, _eQRAIPI, _l, _aC],
+  [0, 0, 0, () => AssociationConfigurationList]
+];
+export var EmailResponseChunkDataDetails$: StaticStructureSchema = [3, n0, _ERCDD,
+  0,
+  [_com, _nCT],
+  [[() => NonEmptySensitiveString, 0], 0]
+];
+export var ExtendedMessageTemplateData$: StaticStructureSchema = [3, n0, _EMTD,
+  0,
+  [_mTA, _mTI, _kBA, _kBI, _n, _cha, _cSh, _cTr, _lMT, _lMB, _con, _d, _la, _sCS, _gC, _dA, _aTt, _att, _iA, _vN, _mTCS, _ta],
+  [0, 0, 0, 0, 0, [() => Channel, 0], 0, 5, 5, 0, [() => MessageTemplateContentProvider$, 0], 0, 0, [() => MessageTemplateSourceConfigurationSummary$, 0], [() => GroupingConfiguration$, 0], [() => MessageTemplateAttributes$, 0], 64 | 0, [() => MessageTemplateAttachmentList, 0], 2, 1, 0, 128 | 0]
+];
+export var ExternalBedrockKnowledgeBaseConfig$: StaticStructureSchema = [3, n0, _EBKBC,
+  0,
+  [_bKBA, _aRA],
+  [0, 0]
+];
+export var ExternalSourceConfiguration$: StaticStructureSchema = [3, n0, _ESC,
+  0,
+  [_so, _co],
+  [0, () => Configuration$]
+];
+export var Filter$: StaticStructureSchema = [3, n0, _F,
+  0,
+  [_f, _op, _v],
+  [0, 0, 0]
+];
+export var FilterAttribute$: StaticStructureSchema = [3, n0, _FA,
+  0,
+  [_k, _v],
+  [0, 15]
+];
+export var FixedSizeChunkingConfiguration$: StaticStructureSchema = [3, n0, _FSCC,
+  0,
+  [_mTa, _oP],
+  [1, 1]
+];
+export var GenerativeChunkDataDetails$: StaticStructureSchema = [3, n0, _GCDD,
+  0,
+  [_com, _ref, _nCT],
+  [[() => SensitiveString, 0], [() => DataSummaryList, 0], 0]
+];
+export var GenerativeContentFeedbackData$: StaticStructureSchema = [3, n0, _GCFD,
+  0,
+  [_rel],
+  [0]
+];
+export var GenerativeDataDetails$: StaticStructureSchema = [3, n0, _GDD,
+  0,
+  [_com, _ref, _rD],
+  [[() => SensitiveString, 0], [() => DataSummaryList, 0], () => RankingData$]
+];
+export var GenerativeReference$: StaticStructureSchema = [3, n0, _GR,
+  0,
+  [_mI, _gI],
+  [0, 0]
+];
+export var GetAIAgentRequest$: StaticStructureSchema = [3, n0, _GAIAR,
+  0,
+  [_aI, _aAI],
+  [[0, 1], [0, 1]]
+];
+export var GetAIAgentResponse$: StaticStructureSchema = [3, n0, _GAIARe,
+  0,
+  [_aAi, _vN],
+  [[() => AIAgentData$, 0], 1]
+];
+export var GetAIGuardrailRequest$: StaticStructureSchema = [3, n0, _GAIGR,
+  0,
+  [_aI, _aGI],
+  [[0, 1], [0, 1]]
+];
+export var GetAIGuardrailResponse$: StaticStructureSchema = [3, n0, _GAIGRe,
+  0,
+  [_aG, _vN],
+  [[() => AIGuardrailData$, 0], 1]
+];
+export var GetAIPromptRequest$: StaticStructureSchema = [3, n0, _GAIPR,
+  0,
+  [_aI, _aPI],
+  [[0, 1], [0, 1]]
+];
+export var GetAIPromptResponse$: StaticStructureSchema = [3, n0, _GAIPRe,
+  0,
+  [_aP, _vN],
+  [[() => AIPromptData$, 0], 1]
+];
+export var GetAssistantAssociationRequest$: StaticStructureSchema = [3, n0, _GAAR,
+  0,
+  [_aAIs, _aI],
+  [[0, 1], [0, 1]]
+];
+export var GetAssistantAssociationResponse$: StaticStructureSchema = [3, n0, _GAARe,
+  0,
+  [_aAs],
+  [() => AssistantAssociationData$]
+];
+export var GetAssistantRequest$: StaticStructureSchema = [3, n0, _GAR,
+  0,
+  [_aI],
+  [[0, 1]]
+];
+export var GetAssistantResponse$: StaticStructureSchema = [3, n0, _GARe,
+  0,
+  [_as],
+  [() => AssistantData$]
+];
+export var GetContentAssociationRequest$: StaticStructureSchema = [3, n0, _GCAR,
+  0,
+  [_kBI, _cI, _cAI],
+  [[0, 1], [0, 1], [0, 1]]
+];
+export var GetContentAssociationResponse$: StaticStructureSchema = [3, n0, _GCARe,
+  0,
+  [_cAon],
+  [() => ContentAssociationData$]
+];
+export var GetContentRequest$: StaticStructureSchema = [3, n0, _GCR,
+  0,
+  [_cI, _kBI],
+  [[0, 1], [0, 1]]
+];
+export var GetContentResponse$: StaticStructureSchema = [3, n0, _GCRe,
+  0,
+  [_con],
+  [[() => ContentData$, 0]]
+];
+export var GetContentSummaryRequest$: StaticStructureSchema = [3, n0, _GCSR,
+  0,
+  [_cI, _kBI],
+  [[0, 1], [0, 1]]
+];
+export var GetContentSummaryResponse$: StaticStructureSchema = [3, n0, _GCSRe,
+  0,
+  [_cSo],
+  [() => ContentSummary$]
+];
+export var GetImportJobRequest$: StaticStructureSchema = [3, n0, _GIJR,
+  0,
+  [_iJI, _kBI],
+  [[0, 1], [0, 1]]
+];
+export var GetImportJobResponse$: StaticStructureSchema = [3, n0, _GIJRe,
+  0,
+  [_iJ],
+  [[() => ImportJobData$, 0]]
+];
+export var GetKnowledgeBaseRequest$: StaticStructureSchema = [3, n0, _GKBR,
+  0,
+  [_kBI],
+  [[0, 1]]
+];
+export var GetKnowledgeBaseResponse$: StaticStructureSchema = [3, n0, _GKBRe,
+  0,
+  [_kB],
+  [[() => KnowledgeBaseData$, 0]]
+];
+export var GetMessageTemplateRequest$: StaticStructureSchema = [3, n0, _GMTR,
+  0,
+  [_mTI, _kBI],
+  [[0, 1], [0, 1]]
+];
+export var GetMessageTemplateResponse$: StaticStructureSchema = [3, n0, _GMTRe,
+  0,
+  [_mTe],
+  [[() => ExtendedMessageTemplateData$, 0]]
+];
+export var GetNextMessageRequest$: StaticStructureSchema = [3, n0, _GNMR,
+  0,
+  [_aI, _sI, _nMT],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nMT }]]
+];
+export var GetNextMessageResponse$: StaticStructureSchema = [3, n0, _GNMRe,
+  0,
+  [_t, _res, _rMI, _cSon, _nMT, _cSD, _cRT],
+  [0, [() => MessageOutput$, 0], 0, () => ConversationState$, 0, [() => RuntimeSessionDataList, 0], 2]
+];
+export var GetQuickResponseRequest$: StaticStructureSchema = [3, n0, _GQRR,
+  0,
+  [_qRI, _kBI],
+  [[0, 1], [0, 1]]
+];
+export var GetQuickResponseResponse$: StaticStructureSchema = [3, n0, _GQRRe,
+  0,
+  [_qR],
+  [[() => QuickResponseData$, 0]]
+];
+export var GetRecommendationsRequest$: StaticStructureSchema = [3, n0, _GRR,
+  0,
+  [_aI, _sI, _mR, _wTS, _nCT, _rTe],
+  [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [1, { [_hQ]: _wTS }], [0, { [_hQ]: _nCT }], [0, { [_hQ]: _rTe }]]
+];
+export var GetRecommendationsResponse$: StaticStructureSchema = [3, n0, _GRRe,
+  0,
+  [_rec, _tr],
+  [[() => RecommendationList, 0], [() => RecommendationTriggerList, 0]]
+];
+export var GetSessionRequest$: StaticStructureSchema = [3, n0, _GSR,
+  0,
+  [_aI, _sI],
+  [[0, 1], [0, 1]]
+];
+export var GetSessionResponse$: StaticStructureSchema = [3, n0, _GSRe,
+  0,
+  [_se],
+  [() => SessionData$]
+];
+export var GroupingConfiguration$: StaticStructureSchema = [3, n0, _GCr,
+  0,
+  [_cr, _va],
+  [[() => GroupingCriteria, 0], [() => GroupingValues, 0]]
+];
+export var GuardrailContentFilterConfig$: StaticStructureSchema = [3, n0, _GCFC,
+  0,
+  [_t, _iS, _oS],
+  [[() => GuardrailContentFilterType, 0], [() => GuardrailFilterStrength, 0], [() => GuardrailFilterStrength, 0]]
+];
+export var GuardrailContextualGroundingFilterConfig$: StaticStructureSchema = [3, n0, _GCGFC,
+  0,
+  [_t, _th],
+  [[() => GuardrailContextualGroundingFilterType, 0], [() => GuardrailContextualGroundingFilterThreshold, 0]]
+];
+export var GuardrailManagedWordsConfig$: StaticStructureSchema = [3, n0, _GMWC,
+  0,
+  [_t],
+  [[() => GuardrailManagedWordsType, 0]]
+];
+export var GuardrailPiiEntityConfig$: StaticStructureSchema = [3, n0, _GPEC,
+  0,
+  [_t, _ac],
+  [[() => GuardrailPiiEntityType, 0], [() => GuardrailSensitiveInformationAction, 0]]
+];
+export var GuardrailRegexConfig$: StaticStructureSchema = [3, n0, _GRC,
+  0,
+  [_n, _d, _pa, _ac],
+  [[() => GuardrailRegexName, 0], [() => GuardrailRegexDescription, 0], [() => GuardrailRegexPattern, 0], [() => GuardrailSensitiveInformationAction, 0]]
+];
+export var GuardrailTopicConfig$: StaticStructureSchema = [3, n0, _GTC,
+  0,
+  [_n, _def, _exa, _t],
+  [[() => GuardrailTopicName, 0], [() => GuardrailTopicDefinition, 0], [() => GuardrailTopicExamples, 0], [() => GuardrailTopicType, 0]]
+];
+export var GuardrailWordConfig$: StaticStructureSchema = [3, n0, _GWC,
+  0,
+  [_te],
+  [[() => GuardrailWordText, 0]]
+];
+export var HierarchicalChunkingConfiguration$: StaticStructureSchema = [3, n0, _HCC,
+  0,
+  [_lC, _oT],
+  [() => HierarchicalChunkingLevelConfigurations, 1]
+];
+export var HierarchicalChunkingLevelConfiguration$: StaticStructureSchema = [3, n0, _HCLC,
+  0,
+  [_mTa],
+  [1]
+];
+export var Highlight$: StaticStructureSchema = [3, n0, _H,
+  0,
+  [_bOI, _eOE],
+  [1, 1]
+];
+export var ImportJobData$: StaticStructureSchema = [3, n0, _IJD,
+  0,
+  [_iJI, _kBI, _uI, _kBA, _iJT, _s, _u, _fRR, _uE, _cTr, _lMT, _me, _eSC],
+  [0, 0, 0, 0, 0, 0, [() => Url, 0], [() => Url, 0], 7, 7, 7, 128 | 0, () => ExternalSourceConfiguration$]
+];
+export var ImportJobSummary$: StaticStructureSchema = [3, n0, _IJS,
+  0,
+  [_iJI, _kBI, _uI, _kBA, _iJT, _s, _cTr, _lMT, _me, _eSC],
+  [0, 0, 0, 0, 0, 0, 7, 7, 128 | 0, () => ExternalSourceConfiguration$]
+];
+export var IntentDetectedDataDetails$: StaticStructureSchema = [3, n0, _IDDD,
+  0,
+  [_i, _iIn, _rL],
+  [[() => SensitiveString, 0], 0, 0]
+];
+export var IntentInputData$: StaticStructureSchema = [3, n0, _IID,
+  0,
+  [_iIn],
+  [0]
+];
+export var KnowledgeBaseAssociationConfigurationData$: StaticStructureSchema = [3, n0, _KBACD,
+  0,
+  [_cTF, _mR, _oKBST],
+  [() => TagFilter$, 1, 0]
+];
+export var KnowledgeBaseAssociationData$: StaticStructureSchema = [3, n0, _KBAD,
+  0,
+  [_kBI, _kBA],
+  [0, 0]
+];
+export var KnowledgeBaseData$: StaticStructureSchema = [3, n0, _KBD,
+  0,
+  [_kBI, _kBA, _n, _kBT, _s, _lCMT, _vIC, _sC, _rCe, _sSEC, _d, _ta, _iSn, _iFR],
+  [0, 0, 0, 0, 0, 7, () => VectorIngestionConfiguration$, [() => SourceConfiguration$, 0], () => RenderingConfiguration$, () => ServerSideEncryptionConfiguration$, 0, 128 | 0, 0, 64 | 0]
+];
+export var KnowledgeBaseSummary$: StaticStructureSchema = [3, n0, _KBS,
+  0,
+  [_kBI, _kBA, _n, _kBT, _s, _sC, _vIC, _rCe, _sSEC, _d, _ta],
+  [0, 0, 0, 0, 0, [() => SourceConfiguration$, 0], () => VectorIngestionConfiguration$, () => RenderingConfiguration$, () => ServerSideEncryptionConfiguration$, 0, 128 | 0]
+];
+export var ListAIAgentsRequest$: StaticStructureSchema = [3, n0, _LAIAR,
+  0,
+  [_aI, _nT, _mR, _o],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _o }]]
+];
+export var ListAIAgentsResponse$: StaticStructureSchema = [3, n0, _LAIARi,
+  0,
+  [_aASi, _nT],
+  [[() => AIAgentSummaryList, 0], 0]
+];
+export var ListAIAgentVersionsRequest$: StaticStructureSchema = [3, n0, _LAIAVR,
+  0,
+  [_aI, _aAI, _nT, _mR, _o],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _o }]]
+];
+export var ListAIAgentVersionsResponse$: StaticStructureSchema = [3, n0, _LAIAVRi,
+  0,
+  [_aAVS, _nT],
+  [[() => AIAgentVersionSummariesList, 0], 0]
+];
+export var ListAIGuardrailsRequest$: StaticStructureSchema = [3, n0, _LAIGR,
+  0,
+  [_aI, _nT, _mR],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+];
+export var ListAIGuardrailsResponse$: StaticStructureSchema = [3, n0, _LAIGRi,
+  0,
+  [_aGSi, _nT],
+  [[() => AIGuardrailSummariesList, 0], 0]
+];
+export var ListAIGuardrailVersionsRequest$: StaticStructureSchema = [3, n0, _LAIGVR,
+  0,
+  [_aI, _aGI, _nT, _mR],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+];
+export var ListAIGuardrailVersionsResponse$: StaticStructureSchema = [3, n0, _LAIGVRi,
+  0,
+  [_aGVS, _nT],
+  [[() => AIGuardrailVersionSummariesList, 0], 0]
+];
+export var ListAIPromptsRequest$: StaticStructureSchema = [3, n0, _LAIPR,
+  0,
+  [_aI, _nT, _mR, _o],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _o }]]
+];
+export var ListAIPromptsResponse$: StaticStructureSchema = [3, n0, _LAIPRi,
+  0,
+  [_aPSi, _nT],
+  [() => AIPromptSummaryList, 0]
+];
+export var ListAIPromptVersionsRequest$: StaticStructureSchema = [3, n0, _LAIPVR,
+  0,
+  [_aI, _aPI, _nT, _mR, _o],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _o }]]
+];
+export var ListAIPromptVersionsResponse$: StaticStructureSchema = [3, n0, _LAIPVRi,
+  0,
+  [_aPVS, _nT],
+  [() => AIPromptVersionSummariesList, 0]
+];
+export var ListAssistantAssociationsRequest$: StaticStructureSchema = [3, n0, _LAAR,
+  0,
+  [_nT, _mR, _aI],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1]]
+];
+export var ListAssistantAssociationsResponse$: StaticStructureSchema = [3, n0, _LAARi,
+  0,
+  [_aASs, _nT],
+  [() => AssistantAssociationSummaryList, 0]
+];
+export var ListAssistantsRequest$: StaticStructureSchema = [3, n0, _LAR,
+  0,
+  [_nT, _mR],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+];
+export var ListAssistantsResponse$: StaticStructureSchema = [3, n0, _LARi,
+  0,
+  [_aS, _nT],
+  [() => AssistantList, 0]
+];
+export var ListContentAssociationsRequest$: StaticStructureSchema = [3, n0, _LCAR,
+  0,
+  [_nT, _mR, _kBI, _cI],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1], [0, 1]]
+];
+export var ListContentAssociationsResponse$: StaticStructureSchema = [3, n0, _LCARi,
+  0,
+  [_cAS, _nT],
+  [() => ContentAssociationSummaryList, 0]
+];
+export var ListContentsRequest$: StaticStructureSchema = [3, n0, _LCR,
+  0,
+  [_nT, _mR, _kBI],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1]]
+];
+export var ListContentsResponse$: StaticStructureSchema = [3, n0, _LCRi,
+  0,
+  [_cSont, _nT],
+  [() => ContentSummaryList, 0]
+];
+export var ListImportJobsRequest$: StaticStructureSchema = [3, n0, _LIJR,
+  0,
+  [_nT, _mR, _kBI],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1]]
+];
+export var ListImportJobsResponse$: StaticStructureSchema = [3, n0, _LIJRi,
+  0,
+  [_iJS, _nT],
+  [() => ImportJobList, 0]
+];
+export var ListKnowledgeBasesRequest$: StaticStructureSchema = [3, n0, _LKBR,
+  0,
+  [_nT, _mR],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+];
+export var ListKnowledgeBasesResponse$: StaticStructureSchema = [3, n0, _LKBRi,
+  0,
+  [_kBS, _nT],
+  [[() => KnowledgeBaseList, 0], 0]
+];
+export var ListMessagesRequest$: StaticStructureSchema = [3, n0, _LMR,
+  0,
+  [_aI, _sI, _nT, _mR, _fi],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _fi }]]
+];
+export var ListMessagesResponse$: StaticStructureSchema = [3, n0, _LMRi,
+  0,
+  [_mes, _nT],
+  [[() => MessageList, 0], 0]
+];
+export var ListMessageTemplatesRequest$: StaticStructureSchema = [3, n0, _LMTR,
+  0,
+  [_nT, _mR, _kBI],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1]]
+];
+export var ListMessageTemplatesResponse$: StaticStructureSchema = [3, n0, _LMTRi,
+  0,
+  [_mTS, _nT],
+  [[() => MessageTemplateSummaryList, 0], 0]
+];
+export var ListMessageTemplateVersionsRequest$: StaticStructureSchema = [3, n0, _LMTVR,
+  0,
+  [_kBI, _mTI, _nT, _mR],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+];
+export var ListMessageTemplateVersionsResponse$: StaticStructureSchema = [3, n0, _LMTVRi,
+  0,
+  [_mTVS, _nT],
+  [[() => MessageTemplateVersionSummaryList, 0], 0]
+];
+export var ListQuickResponsesRequest$: StaticStructureSchema = [3, n0, _LQRR,
+  0,
+  [_nT, _mR, _kBI],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1]]
+];
+export var ListQuickResponsesResponse$: StaticStructureSchema = [3, n0, _LQRRi,
+  0,
+  [_qRS, _nT],
+  [[() => QuickResponseSummaryList, 0], 0]
+];
+export var ListSpansRequest$: StaticStructureSchema = [3, n0, _LSR,
+  0,
+  [_aI, _sI, _nT, _mR],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+];
+export var ListSpansResponse$: StaticStructureSchema = [3, n0, _LSRi,
+  0,
+  [_sp, _nT],
+  [[() => SpanList, 0], 0]
+];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
+  0,
+  [_rA],
+  [[0, 1]]
+];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
+  0,
+  [_ta],
+  [128 | 0]
+];
+export var ManualSearchAIAgentConfiguration$: StaticStructureSchema = [3, n0, _MSAIAC,
+  0,
+  [_aGAIPI, _aGAIGI, _aC, _l],
+  [0, 0, () => AssociationConfigurationList, 0]
+];
+export var MessageConfiguration$: StaticStructureSchema = [3, n0, _MC,
+  0,
+  [_gFM, _gCM],
+  [2, 2]
+];
+export var MessageInput$: StaticStructureSchema = [3, n0, _MI,
+  0,
+  [_v],
+  [[() => MessageData$, 0]]
+];
+export var MessageOutput$: StaticStructureSchema = [3, n0, _MO,
+  0,
+  [_v, _mIe, _par, _tim],
+  [[() => MessageData$, 0], 0, 0, 4]
+];
+export var MessageTemplateAttachment$: StaticStructureSchema = [3, n0, _MTA,
+  0,
+  [_cD, _n, _uT, _u, _uE, _aIt],
+  [0, [() => AttachmentFileName, 0], 5, [() => Url, 0], 5, 0]
+];
+export var MessageTemplateAttributes$: StaticStructureSchema = [3, n0, _MTAe,
+  0,
+  [_sAy, _aAg, _cPA, _cAu],
+  [[() => SystemAttributes$, 0], [() => AgentAttributes$, 0], [() => CustomerProfileAttributes$, 0], [() => CustomAttributes, 0]]
+];
+export var MessageTemplateData$: StaticStructureSchema = [3, n0, _MTD,
+  0,
+  [_mTA, _mTI, _kBA, _kBI, _n, _cha, _cSh, _cTr, _lMT, _lMB, _con, _d, _la, _sCS, _gC, _dA, _aTt, _mTCS, _ta],
+  [0, 0, 0, 0, 0, [() => Channel, 0], 0, 5, 5, 0, [() => MessageTemplateContentProvider$, 0], 0, 0, [() => MessageTemplateSourceConfigurationSummary$, 0], [() => GroupingConfiguration$, 0], [() => MessageTemplateAttributes$, 0], 64 | 0, 0, 128 | 0]
+];
+export var MessageTemplateFilterField$: StaticStructureSchema = [3, n0, _MTFF,
+  0,
+  [_n, _va, _op, _iNE],
+  [0, 64 | 0, 0, 2]
+];
+export var MessageTemplateOrderField$: StaticStructureSchema = [3, n0, _MTOF,
+  0,
+  [_n, _or],
+  [0, 0]
+];
+export var MessageTemplateQueryField$: StaticStructureSchema = [3, n0, _MTQF,
+  0,
+  [_n, _va, _op, _aFl, _pr],
+  [0, 64 | 0, 0, 2, 0]
+];
+export var MessageTemplateSearchExpression$: StaticStructureSchema = [3, n0, _MTSE,
+  0,
+  [_q, _fil, _oOF],
+  [() => MessageTemplateQueryFieldList, () => MessageTemplateFilterFieldList, () => MessageTemplateOrderField$]
+];
+export var MessageTemplateSearchResultData$: StaticStructureSchema = [3, n0, _MTSRD,
+  0,
+  [_mTA, _mTI, _kBA, _kBI, _n, _cha, _cSh, _cTr, _lMT, _lMB, _iA, _vN, _d, _sCS, _gC, _la, _ta],
+  [0, 0, 0, 0, 0, [() => Channel, 0], 0, 5, 5, 0, 2, 1, 0, [() => MessageTemplateSourceConfigurationSummary$, 0], [() => GroupingConfiguration$, 0], 0, 128 | 0]
+];
+export var MessageTemplateSummary$: StaticStructureSchema = [3, n0, _MTS,
+  0,
+  [_mTA, _mTI, _kBA, _kBI, _n, _cha, _cSh, _cTr, _lMT, _lMB, _sC, _aVN, _d, _ta],
+  [0, 0, 0, 0, 0, [() => Channel, 0], 0, 5, 5, 0, () => MessageTemplateSourceConfiguration$, 1, 0, 128 | 0]
+];
+export var MessageTemplateVersionSummary$: StaticStructureSchema = [3, n0, _MTVS,
+  0,
+  [_mTA, _mTI, _kBA, _kBI, _n, _cha, _cSh, _iA, _vN],
+  [0, 0, 0, 0, 0, [() => Channel, 0], 0, 2, 1]
+];
+export var NotesChunkDataDetails$: StaticStructureSchema = [3, n0, _NCDD,
+  0,
+  [_com, _nCT],
+  [[() => NonEmptySensitiveString, 0], 0]
+];
+export var NotesDataDetails$: StaticStructureSchema = [3, n0, _NDD,
+  0,
+  [_com],
+  [[() => NonEmptySensitiveString, 0]]
+];
+export var NoteTakingAIAgentConfiguration$: StaticStructureSchema = [3, n0, _NTAIAC,
+  0,
+  [_nTAIPI, _nTAIGI, _l],
+  [0, 0, 0]
+];
+export var NotifyRecommendationsReceivedError$: StaticStructureSchema = [3, n0, _NRRE,
+  0,
+  [_rIe, _m],
+  [0, 0]
+];
+export var NotifyRecommendationsReceivedRequest$: StaticStructureSchema = [3, n0, _NRRR,
+  0,
+  [_aI, _sI, _rIec],
+  [[0, 1], [0, 1], 64 | 0]
+];
+export var NotifyRecommendationsReceivedResponse$: StaticStructureSchema = [3, n0, _NRRRo,
+  0,
+  [_rIec, _er],
+  [64 | 0, () => NotifyRecommendationsReceivedErrorList]
+];
+export var OrchestrationAIAgentConfiguration$: StaticStructureSchema = [3, n0, _OAIAC,
+  0,
+  [_oAIPI, _oAIGI, _tCo, _cIA, _l],
+  [0, 0, [() => ToolConfigurationList, 0], 0, 0]
+];
+export var OrchestratorConfigurationEntry$: StaticStructureSchema = [3, n0, _OCE,
+  0,
+  [_aAI, _oUC],
+  [0, 0]
+];
+export var ParsingConfiguration$: StaticStructureSchema = [3, n0, _PC,
+  0,
+  [_pS, _bFMC],
+  [0, () => BedrockFoundationModelConfigurationForParsing$]
+];
+export var ParsingPrompt$: StaticStructureSchema = [3, n0, _PP,
+  0,
+  [_pPT],
+  [0]
+];
+export var PreconditionFailedException$: StaticErrorSchema = [-3, n0, _PFE,
+  { [_e]: _c, [_hE]: 412 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(PreconditionFailedException$, PreconditionFailedException);
+export var PushADMMessageTemplateContent$: StaticStructureSchema = [3, n0, _PADMMTC,
+  0,
+  [_ti, _bo, _ac, _sou, _u, _iU, _iIU, _sIIU, _rCa],
+  [[() => NonEmptyUnlimitedString, 0], [() => MessageTemplateBodyContentProvider$, 0], 0, [() => NonEmptyUnlimitedString, 0], [() => NonEmptyUnlimitedString, 0], [() => NonEmptyUnlimitedString, 0], [() => NonEmptyUnlimitedString, 0], [() => NonEmptyUnlimitedString, 0], [() => MessageTemplateBodyContentProvider$, 0]]
+];
+export var PushAPNSMessageTemplateContent$: StaticStructureSchema = [3, n0, _PAPNSMTC,
+  0,
+  [_ti, _bo, _ac, _sou, _u, _mU, _rCa],
+  [[() => NonEmptyUnlimitedString, 0], [() => MessageTemplateBodyContentProvider$, 0], 0, [() => NonEmptyUnlimitedString, 0], [() => NonEmptyUnlimitedString, 0], [() => NonEmptyUnlimitedString, 0], [() => MessageTemplateBodyContentProvider$, 0]]
+];
+export var PushBaiduMessageTemplateContent$: StaticStructureSchema = [3, n0, _PBMTC,
+  0,
+  [_ti, _bo, _ac, _sou, _u, _iU, _iIU, _sIIU, _rCa],
+  [[() => NonEmptyUnlimitedString, 0], [() => MessageTemplateBodyContentProvider$, 0], 0, [() => NonEmptyUnlimitedString, 0], [() => NonEmptyUnlimitedString, 0], [() => NonEmptyUnlimitedString, 0], [() => NonEmptyUnlimitedString, 0], [() => NonEmptyUnlimitedString, 0], [() => MessageTemplateBodyContentProvider$, 0]]
+];
+export var PushFCMMessageTemplateContent$: StaticStructureSchema = [3, n0, _PFCMMTC,
+  0,
+  [_ti, _bo, _ac, _sou, _u, _iU, _iIU, _sIIU, _rCa],
+  [[() => NonEmptyUnlimitedString, 0], [() => MessageTemplateBodyContentProvider$, 0], 0, [() => NonEmptyUnlimitedString, 0], [() => NonEmptyUnlimitedString, 0], [() => NonEmptyUnlimitedString, 0], [() => NonEmptyUnlimitedString, 0], [() => NonEmptyUnlimitedString, 0], [() => MessageTemplateBodyContentProvider$, 0]]
+];
+export var PushMessageTemplateContent$: StaticStructureSchema = [3, n0, _PMTC,
+  0,
+  [_adm, _ap, _fc, _ba],
+  [[() => PushADMMessageTemplateContent$, 0], [() => PushAPNSMessageTemplateContent$, 0], [() => PushFCMMessageTemplateContent$, 0], [() => PushBaiduMessageTemplateContent$, 0]]
+];
+export var PutFeedbackRequest$: StaticStructureSchema = [3, n0, _PFR,
+  0,
+  [_aI, _tI, _tTa, _cF],
+  [[0, 1], 0, 0, () => ContentFeedbackData$]
+];
+export var PutFeedbackResponse$: StaticStructureSchema = [3, n0, _PFRu,
+  0,
+  [_aI, _aA, _tI, _tTa, _cF],
+  [0, 0, 0, 0, () => ContentFeedbackData$]
+];
+export var QueryAssistantRequest$: StaticStructureSchema = [3, n0, _QAR,
+  0,
+  [_aI, _qT, _nT, _mR, _sI, _qC, _qID, _oKBST],
+  [[0, 1], [() => QueryText, 0], 0, 1, 0, () => QueryConditionExpression, [() => QueryInputData$, 0], 0]
+];
+export var QueryAssistantResponse$: StaticStructureSchema = [3, n0, _QARu,
+  0,
+  [_resu, _nT],
+  [[() => QueryResultsList, 0], 0]
+];
+export var QueryConditionItem$: StaticStructureSchema = [3, n0, _QCI,
+  0,
+  [_f, _comp, _v],
+  [0, 0, 0]
+];
+export var QueryRecommendationTriggerData$: StaticStructureSchema = [3, n0, _QRTD,
+  0,
+  [_te],
+  [[() => QueryText, 0]]
+];
+export var QueryTextInputData$: StaticStructureSchema = [3, n0, _QTID,
+  0,
+  [_te],
+  [[() => QueryText, 0]]
+];
+export var QuickResponseContents$: StaticStructureSchema = [3, n0, _QRCu,
+  0,
+  [_pTl, _ma],
+  [[() => QuickResponseContentProvider$, 0], [() => QuickResponseContentProvider$, 0]]
+];
+export var QuickResponseData$: StaticStructureSchema = [3, n0, _QRD,
+  0,
+  [_qRA, _qRI, _kBA, _kBI, _n, _cT, _s, _cTr, _lMT, _cont, _d, _gC, _sK, _lMB, _iA, _ch, _la, _ta],
+  [0, 0, 0, 0, 0, 0, 0, 7, 7, [() => QuickResponseContents$, 0], 0, [() => GroupingConfiguration$, 0], 0, 0, 2, [() => Channels, 0], 0, 128 | 0]
+];
+export var QuickResponseFilterField$: StaticStructureSchema = [3, n0, _QRFF,
+  0,
+  [_n, _va, _op, _iNE],
+  [0, 64 | 0, 0, 2]
+];
+export var QuickResponseOrderField$: StaticStructureSchema = [3, n0, _QROF,
+  0,
+  [_n, _or],
+  [0, 0]
+];
+export var QuickResponseQueryField$: StaticStructureSchema = [3, n0, _QRQF,
+  0,
+  [_n, _va, _op, _aFl, _pr],
+  [0, 64 | 0, 0, 2, 0]
+];
+export var QuickResponseSearchExpression$: StaticStructureSchema = [3, n0, _QRSE,
+  0,
+  [_q, _fil, _oOF],
+  [() => QuickResponseQueryFieldList, () => QuickResponseFilterFieldList, () => QuickResponseOrderField$]
+];
+export var QuickResponseSearchResultData$: StaticStructureSchema = [3, n0, _QRSRD,
+  0,
+  [_qRA, _qRI, _kBA, _kBI, _n, _cT, _s, _cont, _cTr, _lMT, _iA, _d, _gC, _sK, _lMB, _ch, _la, _aNI, _aItt, _ta],
+  [0, 0, 0, 0, 0, 0, 0, [() => QuickResponseContents$, 0], 7, 7, 2, 0, [() => GroupingConfiguration$, 0], 0, 0, [() => Channels, 0], 0, [() => ContactAttributeKeys, 0], [() => ContactAttributeKeys, 0], 128 | 0]
+];
+export var QuickResponseSummary$: StaticStructureSchema = [3, n0, _QRS,
+  0,
+  [_qRA, _qRI, _kBA, _kBI, _n, _cT, _s, _cTr, _lMT, _d, _lMB, _iA, _ch, _ta],
+  [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0, 2, [() => Channels, 0], 128 | 0]
+];
+export var RankingData$: StaticStructureSchema = [3, n0, _RD,
+  0,
+  [_rS, _rL],
+  [1, 0]
+];
+export var RecommendationData$: StaticStructureSchema = [3, n0, _RDe,
+  0,
+  [_rIe, _do, _rS, _rL, _t, _da],
+  [0, [() => Document$, 0], 1, 0, 0, [() => DataSummary$, 0]]
+];
+export var RecommendationTrigger$: StaticStructureSchema = [3, n0, _RT,
+  0,
+  [_id, _t, _so, _da, _rIec],
+  [0, 0, 0, [() => RecommendationTriggerData$, 0], 64 | 0]
+];
+export var RemoveAssistantAIAgentRequest$: StaticStructureSchema = [3, n0, _RAAIAR,
+  0,
+  [_aI, _aAT, _oUC],
+  [[0, 1], [0, { [_hQ]: _aAT }], [0, { [_hQ]: _oUC }]]
+];
+export var RemoveAssistantAIAgentResponse$: StaticStructureSchema = [3, n0, _RAAIARe,
+  0,
+  [],
+  []
+];
+export var RemoveKnowledgeBaseTemplateUriRequest$: StaticStructureSchema = [3, n0, _RKBTUR,
+  0,
+  [_kBI],
+  [[0, 1]]
+];
+export var RemoveKnowledgeBaseTemplateUriResponse$: StaticStructureSchema = [3, n0, _RKBTURe,
+  0,
+  [],
+  []
+];
+export var RenderingConfiguration$: StaticStructureSchema = [3, n0, _RC,
+  0,
+  [_tU],
+  [0]
+];
+export var RenderMessageTemplateRequest$: StaticStructureSchema = [3, n0, _RMTR,
+  0,
+  [_kBI, _mTI, _attr],
+  [[0, 1], [0, 1], [() => MessageTemplateAttributes$, 0]]
+];
+export var RenderMessageTemplateResponse$: StaticStructureSchema = [3, n0, _RMTRe,
+  0,
+  [_con, _sCS, _aNI, _att],
+  [[() => MessageTemplateContentProvider$, 0], [() => MessageTemplateSourceConfigurationSummary$, 0], [() => MessageTemplateAttributeKeyList, 0], [() => MessageTemplateAttachmentList, 0]]
+];
+export var RequestTimeoutException$: StaticErrorSchema = [-3, n0, _RTE,
+  { [_e]: _c, [_hE]: 408 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(RequestTimeoutException$, RequestTimeoutException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rN],
+  [0, 0]
+];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResultData$: StaticStructureSchema = [3, n0, _RDes,
+  0,
+  [_rIes, _do, _rS, _da, _t],
+  [0, [() => Document$, 0], 1, [() => DataSummary$, 0], 0]
+];
+export var RetrievalConfiguration$: StaticStructureSchema = [3, n0, _RCe,
+  0,
+  [_kS, _fi, _nOR, _oKBST],
+  [() => KnowledgeSource$, () => RetrievalFilterConfiguration$, 1, 0]
+];
+export var RetrieveRequest$: StaticStructureSchema = [3, n0, _RR,
+  0,
+  [_aI, _rCet, _rQ],
+  [[0, 1], () => RetrievalConfiguration$, [() => NonEmptySensitiveString, 0]]
+];
+export var RetrieveResponse$: StaticStructureSchema = [3, n0, _RRe,
+  0,
+  [_resu],
+  [[() => RetrieveResultList, 0]]
+];
+export var RetrieveResult$: StaticStructureSchema = [3, n0, _RRet,
+  0,
+  [_aIs, _sIo, _rT, _cTo],
+  [0, [() => SensitiveString, 0], 0, [() => SensitiveString, 0]]
+];
+export var RuntimeSessionData$: StaticStructureSchema = [3, n0, _RSD,
+  0,
+  [_k, _v],
+  [[() => NonEmptySensitiveString, 0], [() => RuntimeSessionDataValue$, 0]]
+];
+export var SearchContentRequest$: StaticStructureSchema = [3, n0, _SCR,
+  0,
+  [_nT, _mR, _kBI, _sE],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1], () => SearchExpression$]
+];
+export var SearchContentResponse$: StaticStructureSchema = [3, n0, _SCRe,
+  0,
+  [_cSont, _nT],
+  [() => ContentSummaryList, 0]
+];
+export var SearchExpression$: StaticStructureSchema = [3, n0, _SE,
+  0,
+  [_fil],
+  [() => FilterList]
+];
+export var SearchMessageTemplatesRequest$: StaticStructureSchema = [3, n0, _SMTR,
+  0,
+  [_kBI, _sE, _nT, _mR],
+  [[0, 1], () => MessageTemplateSearchExpression$, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+];
+export var SearchMessageTemplatesResponse$: StaticStructureSchema = [3, n0, _SMTRe,
+  0,
+  [_resu, _nT],
+  [[() => MessageTemplateSearchResultsList, 0], 0]
+];
+export var SearchQuickResponsesRequest$: StaticStructureSchema = [3, n0, _SQRR,
+  0,
+  [_kBI, _sE, _nT, _mR, _attr],
+  [[0, 1], () => QuickResponseSearchExpression$, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [() => ContactAttributes, 0]]
+];
+export var SearchQuickResponsesResponse$: StaticStructureSchema = [3, n0, _SQRRe,
+  0,
+  [_resu, _nT],
+  [[() => QuickResponseSearchResultsList, 0], 0]
+];
+export var SearchSessionsRequest$: StaticStructureSchema = [3, n0, _SSR,
+  0,
+  [_nT, _mR, _aI, _sE],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1], () => SearchExpression$]
+];
+export var SearchSessionsResponse$: StaticStructureSchema = [3, n0, _SSRe,
+  0,
+  [_sSe, _nT],
+  [() => SessionSummaries, 0]
+];
+export var SeedUrl$: StaticStructureSchema = [3, n0, _SU,
+  0,
+  [_u],
+  [0]
+];
+export var SelfServiceAIAgentConfiguration$: StaticStructureSchema = [3, n0, _SSAIAC,
+  0,
+  [_sSPPAIPI, _sSAGAIPI, _sSAIGI, _aC],
+  [0, 0, 0, () => AssociationConfigurationList]
+];
+export var SelfServiceConversationHistory$: StaticStructureSchema = [3, n0, _SSCH,
+  0,
+  [_tN, _iT, _bR, _tim],
+  [1, [() => SensitiveString, 0], [() => SensitiveString, 0], 4]
+];
+export var SemanticChunkingConfiguration$: StaticStructureSchema = [3, n0, _SCC,
+  0,
+  [_mTa, _bSu, _bPT],
+  [1, 1, 1]
+];
+export var SendMessageRequest$: StaticStructureSchema = [3, n0, _SMR,
+  0,
+  [_aI, _sI, _t, _m, _aAI, _cCo, _co, _cTl, _oUC, _me],
+  [[0, 1], [0, 1], 0, [() => MessageInput$, 0], 0, [() => ConversationContext$, 0], () => MessageConfiguration$, [0, 4], 0, 128 | 0]
+];
+export var SendMessageResponse$: StaticStructureSchema = [3, n0, _SMRe,
+  0,
+  [_rMI, _co, _nMT],
+  [0, () => MessageConfiguration$, 0]
+];
+export var ServerSideEncryptionConfiguration$: StaticStructureSchema = [3, n0, _SSEC,
+  0,
+  [_kKI],
+  [0]
+];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SessionData$: StaticStructureSchema = [3, n0, _SD,
+  0,
+  [_sAe, _sI, _n, _d, _ta, _iCn, _tF, _aAC, _o, _oCL],
+  [0, 0, 0, 0, 128 | 0, () => SessionIntegrationConfiguration$, () => TagFilter$, () => AIAgentConfigurationMap, 0, () => OrchestratorConfigurationList]
+];
+export var SessionIntegrationConfiguration$: StaticStructureSchema = [3, n0, _SIC,
+  0,
+  [_tIA],
+  [0]
+];
+export var SessionSummary$: StaticStructureSchema = [3, n0, _SSe,
+  0,
+  [_sI, _sAe, _aI, _aA],
+  [0, 0, 0, 0]
+];
+export var SMSMessageTemplateContent$: StaticStructureSchema = [3, n0, _SMSMTC,
+  0,
+  [_bo],
+  [[() => SMSMessageTemplateContentBody$, 0]]
+];
+export var SMSMessageTemplateContentBody$: StaticStructureSchema = [3, n0, _SMSMTCB,
+  0,
+  [_pTl],
+  [[() => MessageTemplateBodyContentProvider$, 0]]
+];
+export var SourceContentDataDetails$: StaticStructureSchema = [3, n0, _SCDD,
+  0,
+  [_id, _t, _tD, _rD, _cSi],
+  [0, 0, [() => TextData$, 0], () => RankingData$, () => CitationSpan$]
+];
+export var Span$: StaticStructureSchema = [3, n0, _S,
+  0,
+  [_sIp, _aI, _sI, _pSI, _sN, _sT, _sTt, _eT, _s, _rIeq, _attr],
+  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0, [() => SpanAttributes$, 0]]
+];
+export var SpanAttributes$: StaticStructureSchema = [3, n0, _SA,
+  0,
+  [_oN, _pNr, _eTr, _aIg, _iAn, _cIo, _iCI, _sNe, _aAA, _aAT, _aAN, _aAI, _aAV, _aAIi, _aAOUC, _rM, _rMT, _tem, _tP, _rMe, _rFR, _uIT, _uOT, _uTT, _cRIT, _cWIT, _iM, _oM, _sIy, _pA, _pIr, _pTr, _pNro, _pV],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 64 | 0, 1, 1, 1, 1, 1, [() => SpanMessageList, 0], [() => SpanMessageList, 0], [() => SpanMessageValueList, 0], 0, 0, 0, 0, 1]
+];
+export var SpanCitation$: StaticStructureSchema = [3, n0, _SC,
+  0,
+  [_cI, _ti, _kBI, _kBA],
+  [0, [() => SensitiveString, 0], 0, 0]
+];
+export var SpanMessage$: StaticStructureSchema = [3, n0, _SM,
+  0,
+  [_mIe, _par, _tim, _va],
+  [0, 0, 4, [() => SpanMessageValueList, 0]]
+];
+export var SpanTextValue$: StaticStructureSchema = [3, n0, _STV,
+  0,
+  [_v, _cit, _aGAi],
+  [[() => NonEmptySensitiveString, 0], [() => SpanCitationList, 0], () => AIGuardrailAssessment$]
+];
+export var SpanToolResultValue$: StaticStructureSchema = [3, n0, _STRV,
+  0,
+  [_tUI, _va, _e],
+  [0, [() => SpanMessageValueList, 0], 0]
+];
+export var SpanToolUseValue$: StaticStructureSchema = [3, n0, _STUV,
+  0,
+  [_tUI, _n, _ar],
+  [0, 0, 15]
+];
+export var StartContentUploadRequest$: StaticStructureSchema = [3, n0, _SCUR,
+  0,
+  [_kBI, _cT, _pUTTL],
+  [[0, 1], 0, 1]
+];
+export var StartContentUploadResponse$: StaticStructureSchema = [3, n0, _SCURt,
+  0,
+  [_uI, _u, _uE, _hTI],
+  [0, [() => Url, 0], 7, 128 | 0]
+];
+export var StartImportJobRequest$: StaticStructureSchema = [3, n0, _SIJR,
+  0,
+  [_kBI, _iJT, _uI, _cTl, _me, _eSC],
+  [[0, 1], 0, 0, [0, 4], 128 | 0, () => ExternalSourceConfiguration$]
+];
+export var StartImportJobResponse$: StaticStructureSchema = [3, n0, _SIJRt,
+  0,
+  [_iJ],
+  [[() => ImportJobData$, 0]]
+];
+export var SuggestedMessageDataDetails$: StaticStructureSchema = [3, n0, _SMDD,
+  0,
+  [_mTes],
+  [[() => NonEmptySensitiveString, 0]]
+];
+export var SuggestedMessageReference$: StaticStructureSchema = [3, n0, _SMRu,
+  0,
+  [_aAI, _aAA],
+  [0, 0]
+];
+export var SystemAttributes$: StaticStructureSchema = [3, n0, _SAy,
+  0,
+  [_n, _cE, _sEy],
+  [[() => MessageTemplateAttributeValue, 0], [() => SystemEndpointAttributes$, 0], [() => SystemEndpointAttributes$, 0]]
+];
+export var SystemEndpointAttributes$: StaticStructureSchema = [3, n0, _SEA,
+  0,
+  [_addres],
+  [[() => MessageTemplateAttributeValue, 0]]
+];
+export var TagCondition$: StaticStructureSchema = [3, n0, _TC,
+  0,
+  [_k, _v],
+  [0, 0]
+];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
+  0,
+  [_rA, _ta],
+  [[0, 1], 128 | 0]
+];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
+  0,
+  [],
+  []
+];
+export var TextAIPromptInferenceConfiguration$: StaticStructureSchema = [3, n0, _TAIPIC,
+  0,
+  [_tem, _tP, _tK, _mTTS],
+  [[() => Probability, 0], [() => Probability, 0], [() => TopK, 0], [() => MaxTokensToSample, 0]]
+];
+export var TextData$: StaticStructureSchema = [3, n0, _TD,
+  0,
+  [_ti, _ex],
+  [[() => DocumentText$, 0], [() => DocumentText$, 0]]
+];
+export var TextFullAIPromptEditTemplateConfiguration$: StaticStructureSchema = [3, n0, _TFAIPETC,
+  0,
+  [_te],
+  [[() => TextAIPrompt, 0]]
+];
+export var TextMessage$: StaticStructureSchema = [3, n0, _TM,
+  0,
+  [_v, _cit, _aGAi],
+  [[() => SensitiveString, 0], [() => Citations, 0], () => AIGuardrailAssessment$]
+];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var ToolConfiguration$: StaticStructureSchema = [3, n0, _TCo,
+  0,
+  [_tNo, _tTo, _ti, _tIo, _d, _in, _oIV, _oFu, _iSnp, _oSu, _an, _uIC],
+  [0, 0, 0, 0, 0, () => ToolInstruction$, [() => ToolOverrideInputValueList, 0], () => ToolOutputFilterList, 15, 15, () => Annotation$, () => UserInteractionConfiguration$]
+];
+export var ToolInstruction$: StaticStructureSchema = [3, n0, _TI,
+  0,
+  [_in, _exa],
+  [0, 64 | 0]
+];
+export var ToolOutputConfiguration$: StaticStructureSchema = [3, n0, _TOC,
+  0,
+  [_oVNO, _sDN],
+  [0, 0]
+];
+export var ToolOutputFilter$: StaticStructureSchema = [3, n0, _TOF,
+  0,
+  [_jP, _oC],
+  [0, () => ToolOutputConfiguration$]
+];
+export var ToolOverrideConstantInputValue$: StaticStructureSchema = [3, n0, _TOCIV,
+  0,
+  [_t, _v],
+  [0, [() => NonEmptySensitiveString, 0]]
+];
+export var ToolOverrideInputValue$: StaticStructureSchema = [3, n0, _TOIV,
+  0,
+  [_jP, _v],
+  [0, [() => ToolOverrideInputValueConfiguration$, 0]]
+];
+export var ToolUseResultData$: StaticStructureSchema = [3, n0, _TURD,
+  0,
+  [_tUI, _tNo, _tR, _iSnp],
+  [0, 0, 15, 15]
+];
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _rN],
+  [0, 0]
+];
+TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
+export var UnprocessableContentException$: StaticErrorSchema = [-3, n0, _UCE,
+  { [_e]: _c, [_hE]: 422 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(UnprocessableContentException$, UnprocessableContentException);
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
+  0,
+  [_rA, _tKa],
+  [[0, 1], [64 | 0, { [_hQ]: _tKa }]]
+];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
+  0,
+  [],
+  []
+];
+export var UpdateAIAgentRequest$: StaticStructureSchema = [3, n0, _UAIAR,
+  0,
+  [_cTl, _aI, _aAI, _vS, _co, _d],
+  [[0, 4], [0, 1], [0, 1], 0, [() => AIAgentConfiguration$, 0], 0]
+];
+export var UpdateAIAgentResponse$: StaticStructureSchema = [3, n0, _UAIARp,
+  0,
+  [_aAi],
+  [[() => AIAgentData$, 0]]
+];
+export var UpdateAIGuardrailRequest$: StaticStructureSchema = [3, n0, _UAIGR,
+  0,
+  [_cTl, _aI, _aGI, _vS, _bIM, _bOM, _d, _tPC, _cPC, _wPC, _sIPC, _cGPC],
+  [[0, 4], [0, 1], [0, 1], 0, [() => AIGuardrailBlockedMessaging, 0], [() => AIGuardrailBlockedMessaging, 0], [() => AIGuardrailDescription, 0], [() => AIGuardrailTopicPolicyConfig$, 0], [() => AIGuardrailContentPolicyConfig$, 0], [() => AIGuardrailWordPolicyConfig$, 0], [() => AIGuardrailSensitiveInformationPolicyConfig$, 0], [() => AIGuardrailContextualGroundingPolicyConfig$, 0]]
+];
+export var UpdateAIGuardrailResponse$: StaticStructureSchema = [3, n0, _UAIGRp,
+  0,
+  [_aG],
+  [[() => AIGuardrailData$, 0]]
+];
+export var UpdateAIPromptRequest$: StaticStructureSchema = [3, n0, _UAIPR,
+  0,
+  [_cTl, _aI, _aPI, _vS, _tCe, _d, _mI, _iC],
+  [[0, 4], [0, 1], [0, 1], 0, [() => AIPromptTemplateConfiguration$, 0], 0, 0, [() => AIPromptInferenceConfiguration$, 0]]
+];
+export var UpdateAIPromptResponse$: StaticStructureSchema = [3, n0, _UAIPRp,
+  0,
+  [_aP],
+  [[() => AIPromptData$, 0]]
+];
+export var UpdateAssistantAIAgentRequest$: StaticStructureSchema = [3, n0, _UAAIAR,
+  0,
+  [_aI, _aAT, _co, _oCL],
+  [[0, 1], 0, () => AIAgentConfigurationData$, () => OrchestratorConfigurationList]
+];
+export var UpdateAssistantAIAgentResponse$: StaticStructureSchema = [3, n0, _UAAIARp,
+  0,
+  [_as],
+  [() => AssistantData$]
+];
+export var UpdateContentRequest$: StaticStructureSchema = [3, n0, _UCR,
+  0,
+  [_kBI, _cI, _rI, _ti, _oLOU, _rOLOU, _me, _uI],
+  [[0, 1], [0, 1], 0, 0, 0, 2, 128 | 0, 0]
+];
+export var UpdateContentResponse$: StaticStructureSchema = [3, n0, _UCRp,
+  0,
+  [_con],
+  [[() => ContentData$, 0]]
+];
+export var UpdateKnowledgeBaseTemplateUriRequest$: StaticStructureSchema = [3, n0, _UKBTUR,
+  0,
+  [_kBI, _tU],
+  [[0, 1], 0]
+];
+export var UpdateKnowledgeBaseTemplateUriResponse$: StaticStructureSchema = [3, n0, _UKBTURp,
+  0,
+  [_kB],
+  [[() => KnowledgeBaseData$, 0]]
+];
+export var UpdateMessageTemplateMetadataRequest$: StaticStructureSchema = [3, n0, _UMTMR,
+  0,
+  [_kBI, _mTI, _n, _d, _gC],
+  [[0, 1], [0, 1], 0, 0, [() => GroupingConfiguration$, 0]]
+];
+export var UpdateMessageTemplateMetadataResponse$: StaticStructureSchema = [3, n0, _UMTMRp,
+  0,
+  [_mTe],
+  [[() => MessageTemplateData$, 0]]
+];
+export var UpdateMessageTemplateRequest$: StaticStructureSchema = [3, n0, _UMTR,
+  0,
+  [_kBI, _mTI, _con, _la, _sC, _dA],
+  [[0, 1], [0, 1], [() => MessageTemplateContentProvider$, 0], 0, () => MessageTemplateSourceConfiguration$, [() => MessageTemplateAttributes$, 0]]
+];
+export var UpdateMessageTemplateResponse$: StaticStructureSchema = [3, n0, _UMTRp,
+  0,
+  [_mTe],
+  [[() => MessageTemplateData$, 0]]
+];
+export var UpdateQuickResponseRequest$: StaticStructureSchema = [3, n0, _UQRR,
+  0,
+  [_kBI, _qRI, _n, _con, _cT, _gC, _rGC, _d, _rDe, _sK, _rSK, _iA, _ch, _la],
+  [[0, 1], [0, 1], 0, [() => QuickResponseDataProvider$, 0], 0, [() => GroupingConfiguration$, 0], 2, 0, 2, 0, 2, 2, [() => Channels, 0], 0]
+];
+export var UpdateQuickResponseResponse$: StaticStructureSchema = [3, n0, _UQRRp,
+  0,
+  [_qR],
+  [[() => QuickResponseData$, 0]]
+];
+export var UpdateSessionDataRequest$: StaticStructureSchema = [3, n0, _USDR,
   0,
   [_aI, _sI, _na, _da],
-  [[0, 1], [0, 1], 0, [() => RuntimeSessionDataList, 0]],
+  [[0, 1], [0, 1], 0, [() => RuntimeSessionDataList, 0]]
 ];
-export var UpdateSessionDataResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _USDRp,
+export var UpdateSessionDataResponse$: StaticStructureSchema = [3, n0, _USDRp,
   0,
   [_sAe, _sI, _na, _da],
-  [0, 0, 0, [() => RuntimeSessionDataList, 0]],
+  [0, 0, 0, [() => RuntimeSessionDataList, 0]]
 ];
-export var UpdateSessionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _USR,
+export var UpdateSessionRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
   [_aI, _sI, _d, _tF, _aAC, _oCL, _rOCL],
-  [[0, 1], [0, 1], 0, () => TagFilter, () => AIAgentConfigurationMap, () => OrchestratorConfigurationList, 2],
+  [[0, 1], [0, 1], 0, () => TagFilter$, () => AIAgentConfigurationMap, () => OrchestratorConfigurationList, 2]
 ];
-export var UpdateSessionResponse: StaticStructureSchema = [3, n0, _USRp, 0, [_se], [() => SessionData]];
-export var UrlConfiguration: StaticStructureSchema = [3, n0, _UC, 0, [_sU], [() => SeedUrls]];
-export var UserInteractionConfiguration: StaticStructureSchema = [3, n0, _UIC, 0, [_iUCR], [2]];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var VectorIngestionConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _VIC,
+export var UpdateSessionResponse$: StaticStructureSchema = [3, n0, _USRp,
+  0,
+  [_se],
+  [() => SessionData$]
+];
+export var UrlConfiguration$: StaticStructureSchema = [3, n0, _UC,
+  0,
+  [_sU],
+  [() => SeedUrls]
+];
+export var UserInteractionConfiguration$: StaticStructureSchema = [3, n0, _UIC,
+  0,
+  [_iUCR],
+  [2]
+];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var VectorIngestionConfiguration$: StaticStructureSchema = [3, n0, _VIC,
   0,
   [_cCh, _pCa],
-  [() => ChunkingConfiguration, () => ParsingConfiguration],
+  [() => ChunkingConfiguration$, () => ParsingConfiguration$]
 ];
-export var WebCrawlerConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _WCC,
+export var WebCrawlerConfiguration$: StaticStructureSchema = [3, n0, _WCC,
   0,
   [_uC, _cL, _iF, _eF, _sc],
-  [() => UrlConfiguration, () => WebCrawlerLimits, [() => UrlFilterList, 0], [() => UrlFilterList, 0], 0],
+  [() => UrlConfiguration$, () => WebCrawlerLimits$, [() => UrlFilterList, 0], [() => UrlFilterList, 0], 0]
 ];
-export var WebCrawlerLimits: StaticStructureSchema = [3, n0, _WCL, 0, [_rLa], [1]];
-export var WhatsAppMessageTemplateContent: StaticStructureSchema = [3, n0, _WAMTC, 0, [_da], [0]];
-export var WhatsAppMessageTemplateSourceConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _WAMTSC,
+export var WebCrawlerLimits$: StaticStructureSchema = [3, n0, _WCL,
+  0,
+  [_rLa],
+  [1]
+];
+export var WhatsAppMessageTemplateContent$: StaticStructureSchema = [3, n0, _WAMTC,
+  0,
+  [_da],
+  [0]
+];
+export var WhatsAppMessageTemplateSourceConfiguration$: StaticStructureSchema = [3, n0, _WAMTSC,
   0,
   [_bAI, _tIe, _compo],
-  [0, 0, 64 | 0],
+  [0, 0, 64 | 0]
 ];
-export var WhatsAppMessageTemplateSourceConfigurationSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _WAMTSCS,
+export var WhatsAppMessageTemplateSourceConfigurationSummary$: StaticStructureSchema = [3, n0, _WAMTSCS,
   0,
   [_bAI, _tIe, _n, _la, _compo, _s, _sR],
-  [0, 0, 0, 0, 64 | 0, 0, [() => NonEmptyUnlimitedString, 0]],
+  [0, 0, 0, 0, 64 | 0, 0, [() => NonEmptyUnlimitedString, 0]]
 ];
-export var QConnectServiceException: StaticErrorSchema = [-3, _sm, "QConnectServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(QConnectServiceException, __QConnectServiceException);
-export var AIAgentSummaryList: StaticListSchema = [1, n0, _AIASL, 0, [() => AIAgentSummary, 0]];
-export var AIAgentVersionSummariesList: StaticListSchema = [1, n0, _AIAVSL, 0, [() => AIAgentVersionSummary, 0]];
-export var AIGuardrailSummariesList: StaticListSchema = [1, n0, _AIGSL, 0, [() => AIGuardrailSummary, 0]];
-export var AIGuardrailVersionSummariesList: StaticListSchema = [
-  1,
-  n0,
-  _AIGVSL,
-  0,
-  [() => AIGuardrailVersionSummary, 0],
+export var QConnectServiceException$: StaticErrorSchema = [-3, _sm, "QConnectServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(QConnectServiceException$, QConnectServiceException);
+var AIAgentSummaryList: StaticListSchema = [1, n0, _AIASL,
+  0, [() => AIAgentSummary$,
+    0]
 ];
-export var AIPromptSummaryList: StaticListSchema = [1, n0, _AIPSL, 0, () => AIPromptSummary];
-export var AIPromptVersionSummariesList: StaticListSchema = [1, n0, _AIPVSL, 0, () => AIPromptVersionSummary];
-export var AndConditions: StaticListSchema = [1, n0, _ACn, 0, () => TagCondition];
-export var AssistantAssociationIdList = 64 | 0;
-export var AssistantAssociationSummaryList: StaticListSchema = [1, n0, _AASL, 0, () => AssistantAssociationSummary];
-export var AssistantList: StaticListSchema = [1, n0, _AL, 0, () => AssistantSummary];
-export var AssociationConfigurationList: StaticListSchema = [1, n0, _ACL, 0, () => AssociationConfiguration];
-export var Channels: StaticListSchema = [1, n0, _Ch, 0, [() => Channel, 0]];
-export var Citations: StaticListSchema = [1, n0, _Cit, 0, [() => Citation, 0]];
-export var ContactAttributeKeys: StaticListSchema = [1, n0, _CAK, 8, 0];
-export var ContentAssociationSummaryList: StaticListSchema = [1, n0, _CASL, 0, () => ContentAssociationSummary];
-export var ContentSummaryList: StaticListSchema = [1, n0, _CSL, 0, () => ContentSummary];
-export var DataSummaryList: StaticListSchema = [1, n0, _DSL, 0, [() => DataSummary, 0]];
-export var EmailHeaders: StaticListSchema = [1, n0, _EHm, 0, [() => EmailHeader, 0]];
-export var FailureReason = 64 | 0;
-export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
-export var GroupingValues: StaticListSchema = [1, n0, _GVr, 0, [() => GroupingValue, 0]];
-export var GuardrailContentFiltersConfig: StaticListSchema = [
-  1,
-  n0,
-  _GCFCu,
-  0,
-  [() => GuardrailContentFilterConfig, 0],
+var AIAgentVersionSummariesList: StaticListSchema = [1, n0, _AIAVSL,
+  0, [() => AIAgentVersionSummary$,
+    0]
 ];
-export var GuardrailContextualGroundingFiltersConfig: StaticListSchema = [
-  1,
-  n0,
-  _GCGFCu,
-  0,
-  [() => GuardrailContextualGroundingFilterConfig, 0],
+var AIGuardrailSummariesList: StaticListSchema = [1, n0, _AIGSL,
+  0, [() => AIGuardrailSummary$,
+    0]
 ];
-export var GuardrailManagedWordListsConfig: StaticListSchema = [
-  1,
-  n0,
-  _GMWLC,
-  0,
-  [() => GuardrailManagedWordsConfig, 0],
+var AIGuardrailVersionSummariesList: StaticListSchema = [1, n0, _AIGVSL,
+  0, [() => AIGuardrailVersionSummary$,
+    0]
 ];
-export var GuardrailPiiEntitiesConfig: StaticListSchema = [1, n0, _GPECu, 0, [() => GuardrailPiiEntityConfig, 0]];
-export var GuardrailRegexesConfig: StaticListSchema = [1, n0, _GRCu, 0, [() => GuardrailRegexConfig, 0]];
-export var GuardrailTopicExamples: StaticListSchema = [1, n0, _GTEu, 0, [() => GuardrailTopicExample, 0]];
-export var GuardrailTopicsConfig: StaticListSchema = [1, n0, _GTCu, 0, [() => GuardrailTopicConfig, 0]];
-export var GuardrailWordsConfig: StaticListSchema = [1, n0, _GWCu, 0, [() => GuardrailWordConfig, 0]];
-export var HierarchicalChunkingLevelConfigurations: StaticListSchema = [
-  1,
-  n0,
-  _HCLCi,
-  0,
-  () => HierarchicalChunkingLevelConfiguration,
+var AIPromptSummaryList: StaticListSchema = [1, n0, _AIPSL,
+  0, () => AIPromptSummary$
 ];
-export var Highlights: StaticListSchema = [1, n0, _Hi, 0, () => Highlight];
-export var ImportJobList: StaticListSchema = [1, n0, _IJL, 0, () => ImportJobSummary];
-export var KnowledgeBaseList: StaticListSchema = [1, n0, _KBL, 0, [() => KnowledgeBaseSummary, 0]];
-export var MessageList: StaticListSchema = [1, n0, _ML, 0, [() => MessageOutput, 0]];
-export var MessageTemplateAttachmentList: StaticListSchema = [1, n0, _MTAL, 0, [() => MessageTemplateAttachment, 0]];
-export var MessageTemplateAttributeKeyList: StaticListSchema = [1, n0, _MTAKL, 8, 0];
-export var MessageTemplateAttributeTypeList = 64 | 0;
-export var MessageTemplateFilterFieldList: StaticListSchema = [1, n0, _MTFFL, 0, () => MessageTemplateFilterField];
-export var MessageTemplateFilterValueList = 64 | 0;
-export var MessageTemplateQueryFieldList: StaticListSchema = [1, n0, _MTQFL, 0, () => MessageTemplateQueryField];
-export var MessageTemplateQueryValueList = 64 | 0;
-export var MessageTemplateSearchResultsList: StaticListSchema = [
-  1,
-  n0,
-  _MTSRL,
-  0,
-  [() => MessageTemplateSearchResultData, 0],
+var AIPromptVersionSummariesList: StaticListSchema = [1, n0, _AIPVSL,
+  0, () => AIPromptVersionSummary$
 ];
-export var MessageTemplateSummaryList: StaticListSchema = [1, n0, _MTSL, 0, [() => MessageTemplateSummary, 0]];
-export var MessageTemplateVersionSummaryList: StaticListSchema = [
-  1,
-  n0,
-  _MTVSL,
-  0,
-  [() => MessageTemplateVersionSummary, 0],
+var AndConditions: StaticListSchema = [1, n0, _ACn,
+  0, () => TagCondition$
 ];
-export var NotifyRecommendationsReceivedErrorList: StaticListSchema = [
-  1,
-  n0,
-  _NRREL,
-  0,
-  () => NotifyRecommendationsReceivedError,
+var AssistantAssociationIdList = 64 | 0;
+var AssistantAssociationSummaryList: StaticListSchema = [1, n0, _AASL,
+  0, () => AssistantAssociationSummary$
 ];
-export var ObjectFieldsList = 64 | 0;
-export var OrchestratorConfigurationList: StaticListSchema = [1, n0, _OCL, 0, () => OrchestratorConfigurationEntry];
-export var OrConditions: StaticListSchema = [1, n0, _OC, 0, () => OrCondition];
-export var QueryConditionExpression: StaticListSchema = [1, n0, _QCE, 0, () => QueryCondition];
-export var QueryResultsList: StaticListSchema = [1, n0, _QRL, 0, [() => ResultData, 0]];
-export var QuickResponseFilterFieldList: StaticListSchema = [1, n0, _QRFFL, 0, () => QuickResponseFilterField];
-export var QuickResponseFilterValueList = 64 | 0;
-export var QuickResponseQueryFieldList: StaticListSchema = [1, n0, _QRQFL, 0, () => QuickResponseQueryField];
-export var QuickResponseQueryValueList = 64 | 0;
-export var QuickResponseSearchResultsList: StaticListSchema = [
-  1,
-  n0,
-  _QRSRL,
-  0,
-  [() => QuickResponseSearchResultData, 0],
+var AssistantList: StaticListSchema = [1, n0, _AL,
+  0, () => AssistantSummary$
 ];
-export var QuickResponseSummaryList: StaticListSchema = [1, n0, _QRSL, 0, [() => QuickResponseSummary, 0]];
-export var RecommendationIdList = 64 | 0;
-export var RecommendationList: StaticListSchema = [1, n0, _RL, 0, [() => RecommendationData, 0]];
-export var RecommendationTriggerList: StaticListSchema = [1, n0, _RTL, 0, [() => RecommendationTrigger, 0]];
-export var RetrievalFilterList: StaticListSchema = [1, n0, _RFL, 0, () => RetrievalFilterConfiguration];
-export var RetrieveResultList: StaticListSchema = [1, n0, _RRL, 0, [() => RetrieveResult, 0]];
-export var RuntimeSessionDataList: StaticListSchema = [1, n0, _RSDL, 0, [() => RuntimeSessionData, 0]];
-export var SeedUrls: StaticListSchema = [1, n0, _SUe, 0, () => SeedUrl];
-export var SelfServiceConversationHistoryList: StaticListSchema = [
-  1,
-  n0,
-  _SSCHL,
-  0,
-  [() => SelfServiceConversationHistory, 0],
+var AssociationConfigurationList: StaticListSchema = [1, n0, _ACL,
+  0, () => AssociationConfiguration$
 ];
-export var SessionSummaries: StaticListSchema = [1, n0, _SSes, 0, () => SessionSummary];
-export var SpanCitationList: StaticListSchema = [1, n0, _SCL, 0, [() => SpanCitation, 0]];
-export var SpanFinishReasonList = 64 | 0;
-export var SpanList: StaticListSchema = [1, n0, _SL, 0, [() => Span, 0]];
-export var SpanMessageList: StaticListSchema = [1, n0, _SML, 0, [() => SpanMessage, 0]];
-export var SpanMessageValueList: StaticListSchema = [1, n0, _SMVL, 0, [() => SpanMessageValue, 0]];
-export var SuggestedMessagesList: StaticListSchema = [1, n0, _SMLu, 0, [() => NonEmptySensitiveString, 0]];
-export var TagKeyList = 64 | 0;
-export var ToolConfigurationList: StaticListSchema = [1, n0, _TCL, 0, [() => ToolConfiguration, 0]];
-export var ToolExampleList = 64 | 0;
-export var ToolOutputFilterList: StaticListSchema = [1, n0, _TOFL, 0, () => ToolOutputFilter];
-export var ToolOverrideInputValueList: StaticListSchema = [1, n0, _TOIVL, 0, [() => ToolOverrideInputValue, 0]];
-export var UrlFilterList: StaticListSchema = [1, n0, _UFL, 8, [() => UrlFilterPattern, 0]];
-export var WhatsAppMessageTemplateComponents = 64 | 0;
-export var AIAgentConfigurationMap: StaticMapSchema = [2, n0, _AIACM, 0, 0, () => AIAgentConfigurationData];
-export var ContactAttributes: StaticMapSchema = [2, n0, _CA, 8, 0, 0];
-export var ContentMetadata = 128 | 0;
-export var CustomAttributes: StaticMapSchema = [2, n0, _CAu, 8, [0, 0], [() => MessageTemplateAttributeValue, 0]];
-export var Headers = 128 | 0;
-export var MessageMetadata = 128 | 0;
-export var Tags = 128 | 0;
-export var AIAgentConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _AIAC,
+var Channels: StaticListSchema = [1, n0, _Ch,
+  0, [() => Channel,
+    0]
+];
+var Citations: StaticListSchema = [1, n0, _Cit,
+  0, [() => Citation$,
+    0]
+];
+var ContactAttributeKeys: StaticListSchema = [1, n0, _CAK,
+  8, 0
+];
+var ContentAssociationSummaryList: StaticListSchema = [1, n0, _CASL,
+  0, () => ContentAssociationSummary$
+];
+var ContentSummaryList: StaticListSchema = [1, n0, _CSL,
+  0, () => ContentSummary$
+];
+var DataSummaryList: StaticListSchema = [1, n0, _DSL,
+  0, [() => DataSummary$,
+    0]
+];
+var EmailHeaders: StaticListSchema = [1, n0, _EHm,
+  0, [() => EmailHeader$,
+    0]
+];
+var FailureReason = 64 | 0;
+var FilterList: StaticListSchema = [1, n0, _FL,
+  0, () => Filter$
+];
+var GroupingValues: StaticListSchema = [1, n0, _GVr,
+  0, [() => GroupingValue,
+    0]
+];
+var GuardrailContentFiltersConfig: StaticListSchema = [1, n0, _GCFCu,
+  0, [() => GuardrailContentFilterConfig$,
+    0]
+];
+var GuardrailContextualGroundingFiltersConfig: StaticListSchema = [1, n0, _GCGFCu,
+  0, [() => GuardrailContextualGroundingFilterConfig$,
+    0]
+];
+var GuardrailManagedWordListsConfig: StaticListSchema = [1, n0, _GMWLC,
+  0, [() => GuardrailManagedWordsConfig$,
+    0]
+];
+var GuardrailPiiEntitiesConfig: StaticListSchema = [1, n0, _GPECu,
+  0, [() => GuardrailPiiEntityConfig$,
+    0]
+];
+var GuardrailRegexesConfig: StaticListSchema = [1, n0, _GRCu,
+  0, [() => GuardrailRegexConfig$,
+    0]
+];
+var GuardrailTopicExamples: StaticListSchema = [1, n0, _GTEu,
+  0, [() => GuardrailTopicExample,
+    0]
+];
+var GuardrailTopicsConfig: StaticListSchema = [1, n0, _GTCu,
+  0, [() => GuardrailTopicConfig$,
+    0]
+];
+var GuardrailWordsConfig: StaticListSchema = [1, n0, _GWCu,
+  0, [() => GuardrailWordConfig$,
+    0]
+];
+var HierarchicalChunkingLevelConfigurations: StaticListSchema = [1, n0, _HCLCi,
+  0, () => HierarchicalChunkingLevelConfiguration$
+];
+var Highlights: StaticListSchema = [1, n0, _Hi,
+  0, () => Highlight$
+];
+var ImportJobList: StaticListSchema = [1, n0, _IJL,
+  0, () => ImportJobSummary$
+];
+var KnowledgeBaseList: StaticListSchema = [1, n0, _KBL,
+  0, [() => KnowledgeBaseSummary$,
+    0]
+];
+var MessageList: StaticListSchema = [1, n0, _ML,
+  0, [() => MessageOutput$,
+    0]
+];
+var MessageTemplateAttachmentList: StaticListSchema = [1, n0, _MTAL,
+  0, [() => MessageTemplateAttachment$,
+    0]
+];
+var MessageTemplateAttributeKeyList: StaticListSchema = [1, n0, _MTAKL,
+  8, 0
+];
+var MessageTemplateAttributeTypeList = 64 | 0;
+var MessageTemplateFilterFieldList: StaticListSchema = [1, n0, _MTFFL,
+  0, () => MessageTemplateFilterField$
+];
+var MessageTemplateFilterValueList = 64 | 0;
+var MessageTemplateQueryFieldList: StaticListSchema = [1, n0, _MTQFL,
+  0, () => MessageTemplateQueryField$
+];
+var MessageTemplateQueryValueList = 64 | 0;
+var MessageTemplateSearchResultsList: StaticListSchema = [1, n0, _MTSRL,
+  0, [() => MessageTemplateSearchResultData$,
+    0]
+];
+var MessageTemplateSummaryList: StaticListSchema = [1, n0, _MTSL,
+  0, [() => MessageTemplateSummary$,
+    0]
+];
+var MessageTemplateVersionSummaryList: StaticListSchema = [1, n0, _MTVSL,
+  0, [() => MessageTemplateVersionSummary$,
+    0]
+];
+var NotifyRecommendationsReceivedErrorList: StaticListSchema = [1, n0, _NRREL,
+  0, () => NotifyRecommendationsReceivedError$
+];
+var ObjectFieldsList = 64 | 0;
+var OrchestratorConfigurationList: StaticListSchema = [1, n0, _OCL,
+  0, () => OrchestratorConfigurationEntry$
+];
+var OrConditions: StaticListSchema = [1, n0, _OC,
+  0, () => OrCondition$
+];
+var QueryConditionExpression: StaticListSchema = [1, n0, _QCE,
+  0, () => QueryCondition$
+];
+var QueryResultsList: StaticListSchema = [1, n0, _QRL,
+  0, [() => ResultData$,
+    0]
+];
+var QuickResponseFilterFieldList: StaticListSchema = [1, n0, _QRFFL,
+  0, () => QuickResponseFilterField$
+];
+var QuickResponseFilterValueList = 64 | 0;
+var QuickResponseQueryFieldList: StaticListSchema = [1, n0, _QRQFL,
+  0, () => QuickResponseQueryField$
+];
+var QuickResponseQueryValueList = 64 | 0;
+var QuickResponseSearchResultsList: StaticListSchema = [1, n0, _QRSRL,
+  0, [() => QuickResponseSearchResultData$,
+    0]
+];
+var QuickResponseSummaryList: StaticListSchema = [1, n0, _QRSL,
+  0, [() => QuickResponseSummary$,
+    0]
+];
+var RecommendationIdList = 64 | 0;
+var RecommendationList: StaticListSchema = [1, n0, _RL,
+  0, [() => RecommendationData$,
+    0]
+];
+var RecommendationTriggerList: StaticListSchema = [1, n0, _RTL,
+  0, [() => RecommendationTrigger$,
+    0]
+];
+var RetrievalFilterList: StaticListSchema = [1, n0, _RFL,
+  0, () => RetrievalFilterConfiguration$
+];
+var RetrieveResultList: StaticListSchema = [1, n0, _RRL,
+  0, [() => RetrieveResult$,
+    0]
+];
+var RuntimeSessionDataList: StaticListSchema = [1, n0, _RSDL,
+  0, [() => RuntimeSessionData$,
+    0]
+];
+var SeedUrls: StaticListSchema = [1, n0, _SUe,
+  0, () => SeedUrl$
+];
+var SelfServiceConversationHistoryList: StaticListSchema = [1, n0, _SSCHL,
+  0, [() => SelfServiceConversationHistory$,
+    0]
+];
+var SessionSummaries: StaticListSchema = [1, n0, _SSes,
+  0, () => SessionSummary$
+];
+var SpanCitationList: StaticListSchema = [1, n0, _SCL,
+  0, [() => SpanCitation$,
+    0]
+];
+var SpanFinishReasonList = 64 | 0;
+var SpanList: StaticListSchema = [1, n0, _SL,
+  0, [() => Span$,
+    0]
+];
+var SpanMessageList: StaticListSchema = [1, n0, _SML,
+  0, [() => SpanMessage$,
+    0]
+];
+var SpanMessageValueList: StaticListSchema = [1, n0, _SMVL,
+  0, [() => SpanMessageValue$,
+    0]
+];
+var SuggestedMessagesList: StaticListSchema = [1, n0, _SMLu,
+  0, [() => NonEmptySensitiveString,
+    0]
+];
+var TagKeyList = 64 | 0;
+var ToolConfigurationList: StaticListSchema = [1, n0, _TCL,
+  0, [() => ToolConfiguration$,
+    0]
+];
+var ToolExampleList = 64 | 0;
+var ToolOutputFilterList: StaticListSchema = [1, n0, _TOFL,
+  0, () => ToolOutputFilter$
+];
+var ToolOverrideInputValueList: StaticListSchema = [1, n0, _TOIVL,
+  0, [() => ToolOverrideInputValue$,
+    0]
+];
+var UrlFilterList: StaticListSchema = [1, n0, _UFL,
+  8, [() => UrlFilterPattern,
+    0]
+];
+var WhatsAppMessageTemplateComponents = 64 | 0;
+var AIAgentConfigurationMap: StaticMapSchema = [2, n0, _AIACM,
+  0, 0, () => AIAgentConfigurationData$
+];
+var ContactAttributes: StaticMapSchema = [2, n0, _CA,
+  8, 0, 0
+];
+var ContentMetadata = 128 | 0;
+var CustomAttributes: StaticMapSchema = [2, n0, _CAu,
+  8, [0,
+    0]
+  , [() => MessageTemplateAttributeValue,
+    0]
+];
+var Headers = 128 | 0;
+var MessageMetadata = 128 | 0;
+var Tags = 128 | 0;
+export var AIAgentConfiguration$: StaticUnionSchema = [4, n0, _AIAC,
   0,
   [_mSAIAC, _aRAIAC, _sSAIAC, _eRAIAC, _eOAIAC, _eGAAIAC, _oAIAC, _nTAIAC, _cSAIAC],
-  [
-    () => ManualSearchAIAgentConfiguration,
-    [() => AnswerRecommendationAIAgentConfiguration, 0],
-    () => SelfServiceAIAgentConfiguration,
-    () => EmailResponseAIAgentConfiguration,
-    () => EmailOverviewAIAgentConfiguration,
-    () => EmailGenerativeAnswerAIAgentConfiguration,
-    [() => OrchestrationAIAgentConfiguration, 0],
-    () => NoteTakingAIAgentConfiguration,
-    () => CaseSummarizationAIAgentConfiguration,
-  ],
+  [() => ManualSearchAIAgentConfiguration$, [() => AnswerRecommendationAIAgentConfiguration$, 0], () => SelfServiceAIAgentConfiguration$, () => EmailResponseAIAgentConfiguration$, () => EmailOverviewAIAgentConfiguration$, () => EmailGenerativeAnswerAIAgentConfiguration$, [() => OrchestrationAIAgentConfiguration$, 0], () => NoteTakingAIAgentConfiguration$, () => CaseSummarizationAIAgentConfiguration$]
 ];
-export var AIPromptInferenceConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _AIPIC,
+export var AIPromptInferenceConfiguration$: StaticUnionSchema = [4, n0, _AIPIC,
   0,
   [_tAIPIC],
-  [[() => TextAIPromptInferenceConfiguration, 0]],
+  [[() => TextAIPromptInferenceConfiguration$, 0]]
 ];
-export var AIPromptTemplateConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _AIPTC,
+export var AIPromptTemplateConfiguration$: StaticUnionSchema = [4, n0, _AIPTC,
   0,
   [_tFAIPETC],
-  [[() => TextFullAIPromptEditTemplateConfiguration, 0]],
+  [[() => TextFullAIPromptEditTemplateConfiguration$, 0]]
 ];
-export var AssistantAssociationInputData: StaticStructureSchema = [
-  3,
-  n0,
-  _AAID,
+export var AssistantAssociationInputData$: StaticUnionSchema = [4, n0, _AAID,
   0,
   [_kBI, _eBKBC],
-  [0, () => ExternalBedrockKnowledgeBaseConfig],
+  [0, () => ExternalBedrockKnowledgeBaseConfig$]
 ];
-export var AssistantAssociationOutputData: StaticStructureSchema = [
-  3,
-  n0,
-  _AAOD,
+export var AssistantAssociationOutputData$: StaticUnionSchema = [4, n0, _AAOD,
   0,
   [_kBAn, _eBKBC],
-  [() => KnowledgeBaseAssociationData, () => ExternalBedrockKnowledgeBaseConfig],
+  [() => KnowledgeBaseAssociationData$, () => ExternalBedrockKnowledgeBaseConfig$]
 ];
-export var AssociationConfigurationData: StaticStructureSchema = [
-  3,
-  n0,
-  _ACD,
+export var AssociationConfigurationData$: StaticUnionSchema = [4, n0, _ACD,
   0,
   [_kBACD],
-  [() => KnowledgeBaseAssociationConfigurationData],
+  [() => KnowledgeBaseAssociationConfigurationData$]
 ];
-export var Configuration: StaticStructureSchema = [3, n0, _Co, 0, [_cCon], [() => ConnectConfiguration]];
-export var ContentAssociationContents: StaticStructureSchema = [
-  3,
-  n0,
-  _CAC,
+export var Configuration$: StaticUnionSchema = [4, n0, _Co,
+  0,
+  [_cCon],
+  [() => ConnectConfiguration$]
+];
+export var ContentAssociationContents$: StaticUnionSchema = [4, n0, _CAC,
   0,
   [_aCGA],
-  [() => AmazonConnectGuideAssociationData],
+  [() => AmazonConnectGuideAssociationData$]
 ];
-export var ContentFeedbackData: StaticStructureSchema = [
-  3,
-  n0,
-  _CFD,
+export var ContentFeedbackData$: StaticUnionSchema = [4, n0, _CFD,
   0,
   [_gCFD],
-  [() => GenerativeContentFeedbackData],
+  [() => GenerativeContentFeedbackData$]
 ];
-export var DataDetails: StaticStructureSchema = [
-  3,
-  n0,
-  _DD,
+export var DataDetails$: StaticUnionSchema = [4, n0, _DD,
   0,
   [_cDo, _gD, _iDD, _sCD, _gCD, _eRCD, _eOCD, _eGACD, _cSCD, _sMD, _nD, _nCD],
-  [
-    [() => ContentDataDetails, 0],
-    [() => GenerativeDataDetails, 0],
-    [() => IntentDetectedDataDetails, 0],
-    [() => SourceContentDataDetails, 0],
-    [() => GenerativeChunkDataDetails, 0],
-    [() => EmailResponseChunkDataDetails, 0],
-    [() => EmailOverviewChunkDataDetails, 0],
-    [() => EmailGenerativeAnswerChunkDataDetails, 0],
-    () => CaseSummarizationChunkDataDetails,
-    [() => SuggestedMessageDataDetails, 0],
-    [() => NotesDataDetails, 0],
-    [() => NotesChunkDataDetails, 0],
-  ],
+  [[() => ContentDataDetails$, 0], [() => GenerativeDataDetails$, 0], [() => IntentDetectedDataDetails$, 0], [() => SourceContentDataDetails$, 0], [() => GenerativeChunkDataDetails$, 0], [() => EmailResponseChunkDataDetails$, 0], [() => EmailOverviewChunkDataDetails$, 0], [() => EmailGenerativeAnswerChunkDataDetails$, 0], () => CaseSummarizationChunkDataDetails$, [() => SuggestedMessageDataDetails$, 0], [() => NotesDataDetails$, 0], [() => NotesChunkDataDetails$, 0]]
 ];
-export var DataReference: StaticStructureSchema = [
-  3,
-  n0,
-  _DR,
+export var DataReference$: StaticUnionSchema = [4, n0, _DR,
   0,
   [_cR, _gR, _sMR],
-  [() => ContentReference, () => GenerativeReference, () => SuggestedMessageReference],
+  [() => ContentReference$, () => GenerativeReference$, () => SuggestedMessageReference$]
 ];
-export var KnowledgeSource: StaticStructureSchema = [3, n0, _KS, 0, [_aAIss], [64 | 0]];
-export var ManagedSourceConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _MSC,
+export var KnowledgeSource$: StaticUnionSchema = [4, n0, _KS,
+  0,
+  [_aAIss],
+  [64 | 0]
+];
+export var ManagedSourceConfiguration$: StaticUnionSchema = [4, n0, _MSC,
   0,
   [_wCC],
-  [[() => WebCrawlerConfiguration, 0]],
+  [[() => WebCrawlerConfiguration$, 0]]
 ];
-export var MessageData: StaticStructureSchema = [
-  3,
-  n0,
-  _MD,
+export var MessageData$: StaticUnionSchema = [4, n0, _MD,
   0,
   [_te, _tUR],
-  [[() => TextMessage, 0], () => ToolUseResultData],
+  [[() => TextMessage$, 0], () => ToolUseResultData$]
 ];
-export var MessageTemplateBodyContentProvider: StaticStructureSchema = [
-  3,
-  n0,
-  _MTBCP,
+export var MessageTemplateBodyContentProvider$: StaticUnionSchema = [4, n0, _MTBCP,
   0,
   [_con],
-  [[() => NonEmptyUnlimitedString, 0]],
+  [[() => NonEmptyUnlimitedString, 0]]
 ];
-export var MessageTemplateContentProvider: StaticStructureSchema = [
-  3,
-  n0,
-  _MTCP,
+export var MessageTemplateContentProvider$: StaticUnionSchema = [4, n0, _MTCP,
   0,
   [_em, _sms, _wA, _pu],
-  [
-    [() => EmailMessageTemplateContent, 0],
-    [() => SMSMessageTemplateContent, 0],
-    () => WhatsAppMessageTemplateContent,
-    [() => PushMessageTemplateContent, 0],
-  ],
+  [[() => EmailMessageTemplateContent$, 0], [() => SMSMessageTemplateContent$, 0], () => WhatsAppMessageTemplateContent$, [() => PushMessageTemplateContent$, 0]]
 ];
-export var MessageTemplateSourceConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _MTSC,
+export var MessageTemplateSourceConfiguration$: StaticUnionSchema = [4, n0, _MTSC,
   0,
   [_wA],
-  [() => WhatsAppMessageTemplateSourceConfiguration],
+  [() => WhatsAppMessageTemplateSourceConfiguration$]
 ];
-export var MessageTemplateSourceConfigurationSummary: StaticStructureSchema = [
-  3,
-  n0,
-  _MTSCS,
+export var MessageTemplateSourceConfigurationSummary$: StaticUnionSchema = [4, n0, _MTSCS,
   0,
   [_wA],
-  [[() => WhatsAppMessageTemplateSourceConfigurationSummary, 0]],
+  [[() => WhatsAppMessageTemplateSourceConfigurationSummary$, 0]]
 ];
-export var OrCondition: StaticStructureSchema = [
-  3,
-  n0,
-  _OCr,
+export var OrCondition$: StaticUnionSchema = [4, n0, _OCr,
   0,
   [_aCn, _tCa],
-  [() => AndConditions, () => TagCondition],
+  [() => AndConditions, () => TagCondition$]
 ];
-export var QueryCondition: StaticStructureSchema = [3, n0, _QC, 0, [_si], [() => QueryConditionItem]];
-export var QueryInputData: StaticStructureSchema = [
-  3,
-  n0,
-  _QID,
+export var QueryCondition$: StaticUnionSchema = [4, n0, _QC,
+  0,
+  [_si],
+  [() => QueryConditionItem$]
+];
+export var QueryInputData$: StaticUnionSchema = [4, n0, _QID,
   0,
   [_qTID, _iID, _cSID],
-  [[() => QueryTextInputData, 0], () => IntentInputData, () => CaseSummarizationInputData],
+  [[() => QueryTextInputData$, 0], () => IntentInputData$, () => CaseSummarizationInputData$]
 ];
-export var QuickResponseContentProvider: StaticStructureSchema = [
-  3,
-  n0,
-  _QRCP,
+export var QuickResponseContentProvider$: StaticUnionSchema = [4, n0, _QRCP,
   0,
   [_con],
-  [[() => QuickResponseContent, 0]],
+  [[() => QuickResponseContent, 0]]
 ];
-export var QuickResponseDataProvider: StaticStructureSchema = [
-  3,
-  n0,
-  _QRDP,
+export var QuickResponseDataProvider$: StaticUnionSchema = [4, n0, _QRDP,
   0,
   [_con],
-  [[() => QuickResponseContent, 0]],
+  [[() => QuickResponseContent, 0]]
 ];
-export var RecommendationTriggerData: StaticStructureSchema = [
-  3,
-  n0,
-  _RTD,
+export var RecommendationTriggerData$: StaticUnionSchema = [4, n0, _RTD,
   0,
   [_qu],
-  [[() => QueryRecommendationTriggerData, 0]],
+  [[() => QueryRecommendationTriggerData$, 0]]
 ];
-export var RetrievalFilterConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _RFC,
+export var RetrievalFilterConfiguration$: StaticUnionSchema = [4, n0, _RFC,
   0,
   [_aAn, _eq, _gT, _gTOE, _in_, _lT, _lTOE, _lCi, _nE, _nI, _oA, _sW, _sCt],
-  [
-    () => RetrievalFilterList,
-    () => FilterAttribute,
-    () => FilterAttribute,
-    () => FilterAttribute,
-    () => FilterAttribute,
-    () => FilterAttribute,
-    () => FilterAttribute,
-    () => FilterAttribute,
-    () => FilterAttribute,
-    () => FilterAttribute,
-    () => RetrievalFilterList,
-    () => FilterAttribute,
-    () => FilterAttribute,
-  ],
+  [() => RetrievalFilterList, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => RetrievalFilterList, () => FilterAttribute$, () => FilterAttribute$]
 ];
-export var RuntimeSessionDataValue: StaticStructureSchema = [
-  3,
-  n0,
-  _RSDV,
+export var RuntimeSessionDataValue$: StaticUnionSchema = [4, n0, _RSDV,
   0,
   [_sV],
-  [[() => NonEmptySensitiveString, 0]],
+  [[() => NonEmptySensitiveString, 0]]
 ];
-export var SourceConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _SCo,
+export var SourceConfiguration$: StaticUnionSchema = [4, n0, _SCo,
   0,
   [_aIp, _mSC],
-  [() => AppIntegrationsConfiguration, [() => ManagedSourceConfiguration, 0]],
+  [() => AppIntegrationsConfiguration$, [() => ManagedSourceConfiguration$, 0]]
 ];
-export var SpanMessageValue: StaticStructureSchema = [
-  3,
-  n0,
-  _SMV,
+export var SpanMessageValue$: StaticUnionSchema = [4, n0, _SMV,
   0,
   [_te, _tUo, _tR],
-  [[() => SpanTextValue, 0], () => SpanToolUseValue, [() => SpanToolResultValue, 0]],
+  [[() => SpanTextValue$, 0], () => SpanToolUseValue$, [() => SpanToolResultValue$, 0]]
 ];
-export var TagFilter: StaticStructureSchema = [
-  3,
-  n0,
-  _TF,
+export var TagFilter$: StaticUnionSchema = [4, n0, _TF,
   0,
   [_tCa, _aCn, _oCr],
-  [() => TagCondition, () => AndConditions, () => OrConditions],
+  [() => TagCondition$, () => AndConditions, () => OrConditions]
 ];
-export var ToolOverrideInputValueConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _TOIVC,
+export var ToolOverrideInputValueConfiguration$: StaticUnionSchema = [4, n0, _TOIVC,
   0,
   [_cons],
-  [[() => ToolOverrideConstantInputValue, 0]],
-];
-export var ActivateMessageTemplate: StaticOperationSchema = [
-  9,
-  n0,
-  _AMT,
-  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/activate", 200] },
-  () => ActivateMessageTemplateRequest,
-  () => ActivateMessageTemplateResponse,
-];
-export var CreateAIAgent: StaticOperationSchema = [
-  9,
-  n0,
-  _CAIA,
-  { [_htt]: ["POST", "/assistants/{assistantId}/aiagents", 200] },
-  () => CreateAIAgentRequest,
-  () => CreateAIAgentResponse,
-];
-export var CreateAIAgentVersion: StaticOperationSchema = [
-  9,
-  n0,
-  _CAIAV,
-  { [_htt]: ["POST", "/assistants/{assistantId}/aiagents/{aiAgentId}/versions", 200] },
-  () => CreateAIAgentVersionRequest,
-  () => CreateAIAgentVersionResponse,
-];
-export var CreateAIGuardrail: StaticOperationSchema = [
-  9,
-  n0,
-  _CAIG,
-  { [_htt]: ["POST", "/assistants/{assistantId}/aiguardrails", 200] },
-  () => CreateAIGuardrailRequest,
-  () => CreateAIGuardrailResponse,
-];
-export var CreateAIGuardrailVersion: StaticOperationSchema = [
-  9,
-  n0,
-  _CAIGV,
-  { [_htt]: ["POST", "/assistants/{assistantId}/aiguardrails/{aiGuardrailId}/versions", 200] },
-  () => CreateAIGuardrailVersionRequest,
-  () => CreateAIGuardrailVersionResponse,
-];
-export var CreateAIPrompt: StaticOperationSchema = [
-  9,
-  n0,
-  _CAIP,
-  { [_htt]: ["POST", "/assistants/{assistantId}/aiprompts", 200] },
-  () => CreateAIPromptRequest,
-  () => CreateAIPromptResponse,
-];
-export var CreateAIPromptVersion: StaticOperationSchema = [
-  9,
-  n0,
-  _CAIPV,
-  { [_htt]: ["POST", "/assistants/{assistantId}/aiprompts/{aiPromptId}/versions", 200] },
-  () => CreateAIPromptVersionRequest,
-  () => CreateAIPromptVersionResponse,
-];
-export var CreateAssistant: StaticOperationSchema = [
-  9,
-  n0,
-  _CAr,
-  { [_htt]: ["POST", "/assistants", 200] },
-  () => CreateAssistantRequest,
-  () => CreateAssistantResponse,
-];
-export var CreateAssistantAssociation: StaticOperationSchema = [
-  9,
-  n0,
-  _CAA,
-  { [_htt]: ["POST", "/assistants/{assistantId}/associations", 200] },
-  () => CreateAssistantAssociationRequest,
-  () => CreateAssistantAssociationResponse,
-];
-export var CreateContent: StaticOperationSchema = [
-  9,
-  n0,
-  _CCr,
-  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/contents", 200] },
-  () => CreateContentRequest,
-  () => CreateContentResponse,
-];
-export var CreateContentAssociation: StaticOperationSchema = [
-  9,
-  n0,
-  _CCA,
-  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/associations", 200] },
-  () => CreateContentAssociationRequest,
-  () => CreateContentAssociationResponse,
-];
-export var CreateKnowledgeBase: StaticOperationSchema = [
-  9,
-  n0,
-  _CKB,
-  { [_htt]: ["POST", "/knowledgeBases", 200] },
-  () => CreateKnowledgeBaseRequest,
-  () => CreateKnowledgeBaseResponse,
-];
-export var CreateMessageTemplate: StaticOperationSchema = [
-  9,
-  n0,
-  _CMT,
-  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/messageTemplates", 200] },
-  () => CreateMessageTemplateRequest,
-  () => CreateMessageTemplateResponse,
-];
-export var CreateMessageTemplateAttachment: StaticOperationSchema = [
-  9,
-  n0,
-  _CMTA,
-  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/attachments", 200] },
-  () => CreateMessageTemplateAttachmentRequest,
-  () => CreateMessageTemplateAttachmentResponse,
-];
-export var CreateMessageTemplateVersion: StaticOperationSchema = [
-  9,
-  n0,
-  _CMTV,
-  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/versions", 200] },
-  () => CreateMessageTemplateVersionRequest,
-  () => CreateMessageTemplateVersionResponse,
-];
-export var CreateQuickResponse: StaticOperationSchema = [
-  9,
-  n0,
-  _CQR,
-  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/quickResponses", 200] },
-  () => CreateQuickResponseRequest,
-  () => CreateQuickResponseResponse,
-];
-export var CreateSession: StaticOperationSchema = [
-  9,
-  n0,
-  _CSr,
-  { [_htt]: ["POST", "/assistants/{assistantId}/sessions", 200] },
-  () => CreateSessionRequest,
-  () => CreateSessionResponse,
-];
-export var DeactivateMessageTemplate: StaticOperationSchema = [
-  9,
-  n0,
-  _DMT,
-  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/deactivate", 200] },
-  () => DeactivateMessageTemplateRequest,
-  () => DeactivateMessageTemplateResponse,
-];
-export var DeleteAIAgent: StaticOperationSchema = [
-  9,
-  n0,
-  _DAIA,
-  { [_htt]: ["DELETE", "/assistants/{assistantId}/aiagents/{aiAgentId}", 204] },
-  () => DeleteAIAgentRequest,
-  () => DeleteAIAgentResponse,
-];
-export var DeleteAIAgentVersion: StaticOperationSchema = [
-  9,
-  n0,
-  _DAIAV,
-  { [_htt]: ["DELETE", "/assistants/{assistantId}/aiagents/{aiAgentId}/versions/{versionNumber}", 204] },
-  () => DeleteAIAgentVersionRequest,
-  () => DeleteAIAgentVersionResponse,
-];
-export var DeleteAIGuardrail: StaticOperationSchema = [
-  9,
-  n0,
-  _DAIG,
-  { [_htt]: ["DELETE", "/assistants/{assistantId}/aiguardrails/{aiGuardrailId}", 202] },
-  () => DeleteAIGuardrailRequest,
-  () => DeleteAIGuardrailResponse,
-];
-export var DeleteAIGuardrailVersion: StaticOperationSchema = [
-  9,
-  n0,
-  _DAIGV,
-  { [_htt]: ["DELETE", "/assistants/{assistantId}/aiguardrails/{aiGuardrailId}/versions/{versionNumber}", 202] },
-  () => DeleteAIGuardrailVersionRequest,
-  () => DeleteAIGuardrailVersionResponse,
-];
-export var DeleteAIPrompt: StaticOperationSchema = [
-  9,
-  n0,
-  _DAIP,
-  { [_htt]: ["DELETE", "/assistants/{assistantId}/aiprompts/{aiPromptId}", 204] },
-  () => DeleteAIPromptRequest,
-  () => DeleteAIPromptResponse,
-];
-export var DeleteAIPromptVersion: StaticOperationSchema = [
-  9,
-  n0,
-  _DAIPV,
-  { [_htt]: ["DELETE", "/assistants/{assistantId}/aiprompts/{aiPromptId}/versions/{versionNumber}", 204] },
-  () => DeleteAIPromptVersionRequest,
-  () => DeleteAIPromptVersionResponse,
-];
-export var DeleteAssistant: StaticOperationSchema = [
-  9,
-  n0,
-  _DA,
-  { [_htt]: ["DELETE", "/assistants/{assistantId}", 204] },
-  () => DeleteAssistantRequest,
-  () => DeleteAssistantResponse,
-];
-export var DeleteAssistantAssociation: StaticOperationSchema = [
-  9,
-  n0,
-  _DAA,
-  { [_htt]: ["DELETE", "/assistants/{assistantId}/associations/{assistantAssociationId}", 204] },
-  () => DeleteAssistantAssociationRequest,
-  () => DeleteAssistantAssociationResponse,
-];
-export var DeleteContent: StaticOperationSchema = [
-  9,
-  n0,
-  _DC,
-  { [_htt]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}", 204] },
-  () => DeleteContentRequest,
-  () => DeleteContentResponse,
-];
-export var DeleteContentAssociation: StaticOperationSchema = [
-  9,
-  n0,
-  _DCA,
-  {
-    [_htt]: [
-      "DELETE",
-      "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/associations/{contentAssociationId}",
-      204,
-    ],
-  },
-  () => DeleteContentAssociationRequest,
-  () => DeleteContentAssociationResponse,
-];
-export var DeleteImportJob: StaticOperationSchema = [
-  9,
-  n0,
-  _DIJ,
-  { [_htt]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/importJobs/{importJobId}", 204] },
-  () => DeleteImportJobRequest,
-  () => DeleteImportJobResponse,
-];
-export var DeleteKnowledgeBase: StaticOperationSchema = [
-  9,
-  n0,
-  _DKB,
-  { [_htt]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}", 204] },
-  () => DeleteKnowledgeBaseRequest,
-  () => DeleteKnowledgeBaseResponse,
-];
-export var DeleteMessageTemplate: StaticOperationSchema = [
-  9,
-  n0,
-  _DMTe,
-  { [_htt]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}", 204] },
-  () => DeleteMessageTemplateRequest,
-  () => DeleteMessageTemplateResponse,
-];
-export var DeleteMessageTemplateAttachment: StaticOperationSchema = [
-  9,
-  n0,
-  _DMTA,
-  {
-    [_htt]: [
-      "DELETE",
-      "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/attachments/{attachmentId}",
-      204,
-    ],
-  },
-  () => DeleteMessageTemplateAttachmentRequest,
-  () => DeleteMessageTemplateAttachmentResponse,
-];
-export var DeleteQuickResponse: StaticOperationSchema = [
-  9,
-  n0,
-  _DQR,
-  { [_htt]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}", 204] },
-  () => DeleteQuickResponseRequest,
-  () => DeleteQuickResponseResponse,
-];
-export var GetAIAgent: StaticOperationSchema = [
-  9,
-  n0,
-  _GAIA,
-  { [_htt]: ["GET", "/assistants/{assistantId}/aiagents/{aiAgentId}", 200] },
-  () => GetAIAgentRequest,
-  () => GetAIAgentResponse,
-];
-export var GetAIGuardrail: StaticOperationSchema = [
-  9,
-  n0,
-  _GAIG,
-  { [_htt]: ["GET", "/assistants/{assistantId}/aiguardrails/{aiGuardrailId}", 200] },
-  () => GetAIGuardrailRequest,
-  () => GetAIGuardrailResponse,
-];
-export var GetAIPrompt: StaticOperationSchema = [
-  9,
-  n0,
-  _GAIP,
-  { [_htt]: ["GET", "/assistants/{assistantId}/aiprompts/{aiPromptId}", 200] },
-  () => GetAIPromptRequest,
-  () => GetAIPromptResponse,
-];
-export var GetAssistant: StaticOperationSchema = [
-  9,
-  n0,
-  _GA,
-  { [_htt]: ["GET", "/assistants/{assistantId}", 200] },
-  () => GetAssistantRequest,
-  () => GetAssistantResponse,
-];
-export var GetAssistantAssociation: StaticOperationSchema = [
-  9,
-  n0,
-  _GAA,
-  { [_htt]: ["GET", "/assistants/{assistantId}/associations/{assistantAssociationId}", 200] },
-  () => GetAssistantAssociationRequest,
-  () => GetAssistantAssociationResponse,
-];
-export var GetContent: StaticOperationSchema = [
-  9,
-  n0,
-  _GCe,
-  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}", 200] },
-  () => GetContentRequest,
-  () => GetContentResponse,
-];
-export var GetContentAssociation: StaticOperationSchema = [
-  9,
-  n0,
-  _GCA,
-  {
-    [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/associations/{contentAssociationId}", 200],
-  },
-  () => GetContentAssociationRequest,
-  () => GetContentAssociationResponse,
-];
-export var GetContentSummary: StaticOperationSchema = [
-  9,
-  n0,
-  _GCS,
-  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/summary", 200] },
-  () => GetContentSummaryRequest,
-  () => GetContentSummaryResponse,
-];
-export var GetImportJob: StaticOperationSchema = [
-  9,
-  n0,
-  _GIJ,
-  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/importJobs/{importJobId}", 200] },
-  () => GetImportJobRequest,
-  () => GetImportJobResponse,
-];
-export var GetKnowledgeBase: StaticOperationSchema = [
-  9,
-  n0,
-  _GKB,
-  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}", 200] },
-  () => GetKnowledgeBaseRequest,
-  () => GetKnowledgeBaseResponse,
-];
-export var GetMessageTemplate: StaticOperationSchema = [
-  9,
-  n0,
-  _GMT,
-  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}", 200] },
-  () => GetMessageTemplateRequest,
-  () => GetMessageTemplateResponse,
-];
-export var GetNextMessage: StaticOperationSchema = [
-  9,
-  n0,
-  _GNM,
-  { [_htt]: ["GET", "/assistants/{assistantId}/sessions/{sessionId}/messages/next", 200] },
-  () => GetNextMessageRequest,
-  () => GetNextMessageResponse,
-];
-export var GetQuickResponse: StaticOperationSchema = [
-  9,
-  n0,
-  _GQR,
-  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}", 200] },
-  () => GetQuickResponseRequest,
-  () => GetQuickResponseResponse,
-];
-export var GetRecommendations: StaticOperationSchema = [
-  9,
-  n0,
-  _GRe,
-  { [_htt]: ["GET", "/assistants/{assistantId}/sessions/{sessionId}/recommendations", 200] },
-  () => GetRecommendationsRequest,
-  () => GetRecommendationsResponse,
-];
-export var GetSession: StaticOperationSchema = [
-  9,
-  n0,
-  _GS,
-  { [_htt]: ["GET", "/assistants/{assistantId}/sessions/{sessionId}", 200] },
-  () => GetSessionRequest,
-  () => GetSessionResponse,
-];
-export var ListAIAgents: StaticOperationSchema = [
-  9,
-  n0,
-  _LAIA,
-  { [_htt]: ["GET", "/assistants/{assistantId}/aiagents", 200] },
-  () => ListAIAgentsRequest,
-  () => ListAIAgentsResponse,
-];
-export var ListAIAgentVersions: StaticOperationSchema = [
-  9,
-  n0,
-  _LAIAV,
-  { [_htt]: ["GET", "/assistants/{assistantId}/aiagents/{aiAgentId}/versions", 200] },
-  () => ListAIAgentVersionsRequest,
-  () => ListAIAgentVersionsResponse,
-];
-export var ListAIGuardrails: StaticOperationSchema = [
-  9,
-  n0,
-  _LAIG,
-  { [_htt]: ["GET", "/assistants/{assistantId}/aiguardrails", 200] },
-  () => ListAIGuardrailsRequest,
-  () => ListAIGuardrailsResponse,
-];
-export var ListAIGuardrailVersions: StaticOperationSchema = [
-  9,
-  n0,
-  _LAIGV,
-  { [_htt]: ["GET", "/assistants/{assistantId}/aiguardrails/{aiGuardrailId}/versions", 200] },
-  () => ListAIGuardrailVersionsRequest,
-  () => ListAIGuardrailVersionsResponse,
-];
-export var ListAIPrompts: StaticOperationSchema = [
-  9,
-  n0,
-  _LAIP,
-  { [_htt]: ["GET", "/assistants/{assistantId}/aiprompts", 200] },
-  () => ListAIPromptsRequest,
-  () => ListAIPromptsResponse,
-];
-export var ListAIPromptVersions: StaticOperationSchema = [
-  9,
-  n0,
-  _LAIPV,
-  { [_htt]: ["GET", "/assistants/{assistantId}/aiprompts/{aiPromptId}/versions", 200] },
-  () => ListAIPromptVersionsRequest,
-  () => ListAIPromptVersionsResponse,
-];
-export var ListAssistantAssociations: StaticOperationSchema = [
-  9,
-  n0,
-  _LAA,
-  { [_htt]: ["GET", "/assistants/{assistantId}/associations", 200] },
-  () => ListAssistantAssociationsRequest,
-  () => ListAssistantAssociationsResponse,
-];
-export var ListAssistants: StaticOperationSchema = [
-  9,
-  n0,
-  _LA,
-  { [_htt]: ["GET", "/assistants", 200] },
-  () => ListAssistantsRequest,
-  () => ListAssistantsResponse,
-];
-export var ListContentAssociations: StaticOperationSchema = [
-  9,
-  n0,
-  _LCA,
-  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/associations", 200] },
-  () => ListContentAssociationsRequest,
-  () => ListContentAssociationsResponse,
-];
-export var ListContents: StaticOperationSchema = [
-  9,
-  n0,
-  _LC,
-  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/contents", 200] },
-  () => ListContentsRequest,
-  () => ListContentsResponse,
-];
-export var ListImportJobs: StaticOperationSchema = [
-  9,
-  n0,
-  _LIJ,
-  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/importJobs", 200] },
-  () => ListImportJobsRequest,
-  () => ListImportJobsResponse,
-];
-export var ListKnowledgeBases: StaticOperationSchema = [
-  9,
-  n0,
-  _LKB,
-  { [_htt]: ["GET", "/knowledgeBases", 200] },
-  () => ListKnowledgeBasesRequest,
-  () => ListKnowledgeBasesResponse,
-];
-export var ListMessages: StaticOperationSchema = [
-  9,
-  n0,
-  _LM,
-  { [_htt]: ["GET", "/assistants/{assistantId}/sessions/{sessionId}/messages", 200] },
-  () => ListMessagesRequest,
-  () => ListMessagesResponse,
-];
-export var ListMessageTemplates: StaticOperationSchema = [
-  9,
-  n0,
-  _LMT,
-  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/messageTemplates", 200] },
-  () => ListMessageTemplatesRequest,
-  () => ListMessageTemplatesResponse,
-];
-export var ListMessageTemplateVersions: StaticOperationSchema = [
-  9,
-  n0,
-  _LMTV,
-  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/versions", 200] },
-  () => ListMessageTemplateVersionsRequest,
-  () => ListMessageTemplateVersionsResponse,
-];
-export var ListQuickResponses: StaticOperationSchema = [
-  9,
-  n0,
-  _LQR,
-  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/quickResponses", 200] },
-  () => ListQuickResponsesRequest,
-  () => ListQuickResponsesResponse,
-];
-export var ListSpans: StaticOperationSchema = [
-  9,
-  n0,
-  _LS,
-  { [_htt]: ["GET", "/assistants/{assistantId}/sessions/{sessionId}/spans", 200] },
-  () => ListSpansRequest,
-  () => ListSpansResponse,
-];
-export var ListTagsForResource: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  { [_htt]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
-];
-export var NotifyRecommendationsReceived: StaticOperationSchema = [
-  9,
-  n0,
-  _NRR,
-  { [_htt]: ["POST", "/assistants/{assistantId}/sessions/{sessionId}/recommendations/notify", 200] },
-  () => NotifyRecommendationsReceivedRequest,
-  () => NotifyRecommendationsReceivedResponse,
-];
-export var PutFeedback: StaticOperationSchema = [
-  9,
-  n0,
-  _PF,
-  { [_htt]: ["PUT", "/assistants/{assistantId}/feedback", 200] },
-  () => PutFeedbackRequest,
-  () => PutFeedbackResponse,
-];
-export var QueryAssistant: StaticOperationSchema = [
-  9,
-  n0,
-  _QA,
-  { [_htt]: ["POST", "/assistants/{assistantId}/query", 200] },
-  () => QueryAssistantRequest,
-  () => QueryAssistantResponse,
-];
-export var RemoveAssistantAIAgent: StaticOperationSchema = [
-  9,
-  n0,
-  _RAAIA,
-  { [_htt]: ["DELETE", "/assistants/{assistantId}/aiagentConfiguration", 204] },
-  () => RemoveAssistantAIAgentRequest,
-  () => RemoveAssistantAIAgentResponse,
-];
-export var RemoveKnowledgeBaseTemplateUri: StaticOperationSchema = [
-  9,
-  n0,
-  _RKBTU,
-  { [_htt]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/templateUri", 204] },
-  () => RemoveKnowledgeBaseTemplateUriRequest,
-  () => RemoveKnowledgeBaseTemplateUriResponse,
-];
-export var RenderMessageTemplate: StaticOperationSchema = [
-  9,
-  n0,
-  _RMT,
-  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/render", 200] },
-  () => RenderMessageTemplateRequest,
-  () => RenderMessageTemplateResponse,
-];
-export var Retrieve: StaticOperationSchema = [
-  9,
-  n0,
-  _R,
-  { [_htt]: ["POST", "/assistants/{assistantId}/retrieve", 200] },
-  () => RetrieveRequest,
-  () => RetrieveResponse,
-];
-export var SearchContent: StaticOperationSchema = [
-  9,
-  n0,
-  _SCe,
-  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/search", 200] },
-  () => SearchContentRequest,
-  () => SearchContentResponse,
-];
-export var SearchMessageTemplates: StaticOperationSchema = [
-  9,
-  n0,
-  _SMT,
-  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/search/messageTemplates", 200] },
-  () => SearchMessageTemplatesRequest,
-  () => SearchMessageTemplatesResponse,
-];
-export var SearchQuickResponses: StaticOperationSchema = [
-  9,
-  n0,
-  _SQR,
-  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/search/quickResponses", 200] },
-  () => SearchQuickResponsesRequest,
-  () => SearchQuickResponsesResponse,
-];
-export var SearchSessions: StaticOperationSchema = [
-  9,
-  n0,
-  _SSea,
-  { [_htt]: ["POST", "/assistants/{assistantId}/searchSessions", 200] },
-  () => SearchSessionsRequest,
-  () => SearchSessionsResponse,
-];
-export var SendMessage: StaticOperationSchema = [
-  9,
-  n0,
-  _SMe,
-  { [_htt]: ["POST", "/assistants/{assistantId}/sessions/{sessionId}/message", 200] },
-  () => SendMessageRequest,
-  () => SendMessageResponse,
-];
-export var StartContentUpload: StaticOperationSchema = [
-  9,
-  n0,
-  _SCU,
-  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/upload", 200] },
-  () => StartContentUploadRequest,
-  () => StartContentUploadResponse,
-];
-export var StartImportJob: StaticOperationSchema = [
-  9,
-  n0,
-  _SIJ,
-  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/importJobs", 200] },
-  () => StartImportJobRequest,
-  () => StartImportJobResponse,
-];
-export var TagResource: StaticOperationSchema = [
-  9,
-  n0,
-  _TR,
-  { [_htt]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
-];
-export var UntagResource: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  { [_htt]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
-];
-export var UpdateAIAgent: StaticOperationSchema = [
-  9,
-  n0,
-  _UAIA,
-  { [_htt]: ["POST", "/assistants/{assistantId}/aiagents/{aiAgentId}", 200] },
-  () => UpdateAIAgentRequest,
-  () => UpdateAIAgentResponse,
-];
-export var UpdateAIGuardrail: StaticOperationSchema = [
-  9,
-  n0,
-  _UAIG,
-  { [_htt]: ["POST", "/assistants/{assistantId}/aiguardrails/{aiGuardrailId}", 200] },
-  () => UpdateAIGuardrailRequest,
-  () => UpdateAIGuardrailResponse,
-];
-export var UpdateAIPrompt: StaticOperationSchema = [
-  9,
-  n0,
-  _UAIP,
-  { [_htt]: ["POST", "/assistants/{assistantId}/aiprompts/{aiPromptId}", 200] },
-  () => UpdateAIPromptRequest,
-  () => UpdateAIPromptResponse,
-];
-export var UpdateAssistantAIAgent: StaticOperationSchema = [
-  9,
-  n0,
-  _UAAIA,
-  { [_htt]: ["POST", "/assistants/{assistantId}/aiagentConfiguration", 200] },
-  () => UpdateAssistantAIAgentRequest,
-  () => UpdateAssistantAIAgentResponse,
-];
-export var UpdateContent: StaticOperationSchema = [
-  9,
-  n0,
-  _UCp,
-  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}", 200] },
-  () => UpdateContentRequest,
-  () => UpdateContentResponse,
-];
-export var UpdateKnowledgeBaseTemplateUri: StaticOperationSchema = [
-  9,
-  n0,
-  _UKBTU,
-  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/templateUri", 200] },
-  () => UpdateKnowledgeBaseTemplateUriRequest,
-  () => UpdateKnowledgeBaseTemplateUriResponse,
-];
-export var UpdateMessageTemplate: StaticOperationSchema = [
-  9,
-  n0,
-  _UMT,
-  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}", 200] },
-  () => UpdateMessageTemplateRequest,
-  () => UpdateMessageTemplateResponse,
-];
-export var UpdateMessageTemplateMetadata: StaticOperationSchema = [
-  9,
-  n0,
-  _UMTM,
-  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/metadata", 200] },
-  () => UpdateMessageTemplateMetadataRequest,
-  () => UpdateMessageTemplateMetadataResponse,
-];
-export var UpdateQuickResponse: StaticOperationSchema = [
-  9,
-  n0,
-  _UQR,
-  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}", 200] },
-  () => UpdateQuickResponseRequest,
-  () => UpdateQuickResponseResponse,
-];
-export var UpdateSession: StaticOperationSchema = [
-  9,
-  n0,
-  _US,
-  { [_htt]: ["POST", "/assistants/{assistantId}/sessions/{sessionId}", 200] },
-  () => UpdateSessionRequest,
-  () => UpdateSessionResponse,
-];
-export var UpdateSessionData: StaticOperationSchema = [
-  9,
-  n0,
-  _USD,
-  { [_htt]: ["PATCH", "/assistants/{assistantId}/sessions/{sessionId}/data", 200] },
-  () => UpdateSessionDataRequest,
-  () => UpdateSessionDataResponse,
+  [[() => ToolOverrideConstantInputValue$, 0]]
+];
+export var ActivateMessageTemplate$: StaticOperationSchema = [9, n0, _AMT,
+  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/activate", 200] }, () => ActivateMessageTemplateRequest$, () => ActivateMessageTemplateResponse$
+];
+export var CreateAIAgent$: StaticOperationSchema = [9, n0, _CAIA,
+  { [_htt]: ["POST", "/assistants/{assistantId}/aiagents", 200] }, () => CreateAIAgentRequest$, () => CreateAIAgentResponse$
+];
+export var CreateAIAgentVersion$: StaticOperationSchema = [9, n0, _CAIAV,
+  { [_htt]: ["POST", "/assistants/{assistantId}/aiagents/{aiAgentId}/versions", 200] }, () => CreateAIAgentVersionRequest$, () => CreateAIAgentVersionResponse$
+];
+export var CreateAIGuardrail$: StaticOperationSchema = [9, n0, _CAIG,
+  { [_htt]: ["POST", "/assistants/{assistantId}/aiguardrails", 200] }, () => CreateAIGuardrailRequest$, () => CreateAIGuardrailResponse$
+];
+export var CreateAIGuardrailVersion$: StaticOperationSchema = [9, n0, _CAIGV,
+  { [_htt]: ["POST", "/assistants/{assistantId}/aiguardrails/{aiGuardrailId}/versions", 200] }, () => CreateAIGuardrailVersionRequest$, () => CreateAIGuardrailVersionResponse$
+];
+export var CreateAIPrompt$: StaticOperationSchema = [9, n0, _CAIP,
+  { [_htt]: ["POST", "/assistants/{assistantId}/aiprompts", 200] }, () => CreateAIPromptRequest$, () => CreateAIPromptResponse$
+];
+export var CreateAIPromptVersion$: StaticOperationSchema = [9, n0, _CAIPV,
+  { [_htt]: ["POST", "/assistants/{assistantId}/aiprompts/{aiPromptId}/versions", 200] }, () => CreateAIPromptVersionRequest$, () => CreateAIPromptVersionResponse$
+];
+export var CreateAssistant$: StaticOperationSchema = [9, n0, _CAr,
+  { [_htt]: ["POST", "/assistants", 200] }, () => CreateAssistantRequest$, () => CreateAssistantResponse$
+];
+export var CreateAssistantAssociation$: StaticOperationSchema = [9, n0, _CAA,
+  { [_htt]: ["POST", "/assistants/{assistantId}/associations", 200] }, () => CreateAssistantAssociationRequest$, () => CreateAssistantAssociationResponse$
+];
+export var CreateContent$: StaticOperationSchema = [9, n0, _CCr,
+  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/contents", 200] }, () => CreateContentRequest$, () => CreateContentResponse$
+];
+export var CreateContentAssociation$: StaticOperationSchema = [9, n0, _CCA,
+  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/associations", 200] }, () => CreateContentAssociationRequest$, () => CreateContentAssociationResponse$
+];
+export var CreateKnowledgeBase$: StaticOperationSchema = [9, n0, _CKB,
+  { [_htt]: ["POST", "/knowledgeBases", 200] }, () => CreateKnowledgeBaseRequest$, () => CreateKnowledgeBaseResponse$
+];
+export var CreateMessageTemplate$: StaticOperationSchema = [9, n0, _CMT,
+  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/messageTemplates", 200] }, () => CreateMessageTemplateRequest$, () => CreateMessageTemplateResponse$
+];
+export var CreateMessageTemplateAttachment$: StaticOperationSchema = [9, n0, _CMTA,
+  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/attachments", 200] }, () => CreateMessageTemplateAttachmentRequest$, () => CreateMessageTemplateAttachmentResponse$
+];
+export var CreateMessageTemplateVersion$: StaticOperationSchema = [9, n0, _CMTV,
+  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/versions", 200] }, () => CreateMessageTemplateVersionRequest$, () => CreateMessageTemplateVersionResponse$
+];
+export var CreateQuickResponse$: StaticOperationSchema = [9, n0, _CQR,
+  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/quickResponses", 200] }, () => CreateQuickResponseRequest$, () => CreateQuickResponseResponse$
+];
+export var CreateSession$: StaticOperationSchema = [9, n0, _CSr,
+  { [_htt]: ["POST", "/assistants/{assistantId}/sessions", 200] }, () => CreateSessionRequest$, () => CreateSessionResponse$
+];
+export var DeactivateMessageTemplate$: StaticOperationSchema = [9, n0, _DMT,
+  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/deactivate", 200] }, () => DeactivateMessageTemplateRequest$, () => DeactivateMessageTemplateResponse$
+];
+export var DeleteAIAgent$: StaticOperationSchema = [9, n0, _DAIA,
+  { [_htt]: ["DELETE", "/assistants/{assistantId}/aiagents/{aiAgentId}", 204] }, () => DeleteAIAgentRequest$, () => DeleteAIAgentResponse$
+];
+export var DeleteAIAgentVersion$: StaticOperationSchema = [9, n0, _DAIAV,
+  { [_htt]: ["DELETE", "/assistants/{assistantId}/aiagents/{aiAgentId}/versions/{versionNumber}", 204] }, () => DeleteAIAgentVersionRequest$, () => DeleteAIAgentVersionResponse$
+];
+export var DeleteAIGuardrail$: StaticOperationSchema = [9, n0, _DAIG,
+  { [_htt]: ["DELETE", "/assistants/{assistantId}/aiguardrails/{aiGuardrailId}", 202] }, () => DeleteAIGuardrailRequest$, () => DeleteAIGuardrailResponse$
+];
+export var DeleteAIGuardrailVersion$: StaticOperationSchema = [9, n0, _DAIGV,
+  { [_htt]: ["DELETE", "/assistants/{assistantId}/aiguardrails/{aiGuardrailId}/versions/{versionNumber}", 202] }, () => DeleteAIGuardrailVersionRequest$, () => DeleteAIGuardrailVersionResponse$
+];
+export var DeleteAIPrompt$: StaticOperationSchema = [9, n0, _DAIP,
+  { [_htt]: ["DELETE", "/assistants/{assistantId}/aiprompts/{aiPromptId}", 204] }, () => DeleteAIPromptRequest$, () => DeleteAIPromptResponse$
+];
+export var DeleteAIPromptVersion$: StaticOperationSchema = [9, n0, _DAIPV,
+  { [_htt]: ["DELETE", "/assistants/{assistantId}/aiprompts/{aiPromptId}/versions/{versionNumber}", 204] }, () => DeleteAIPromptVersionRequest$, () => DeleteAIPromptVersionResponse$
+];
+export var DeleteAssistant$: StaticOperationSchema = [9, n0, _DA,
+  { [_htt]: ["DELETE", "/assistants/{assistantId}", 204] }, () => DeleteAssistantRequest$, () => DeleteAssistantResponse$
+];
+export var DeleteAssistantAssociation$: StaticOperationSchema = [9, n0, _DAA,
+  { [_htt]: ["DELETE", "/assistants/{assistantId}/associations/{assistantAssociationId}", 204] }, () => DeleteAssistantAssociationRequest$, () => DeleteAssistantAssociationResponse$
+];
+export var DeleteContent$: StaticOperationSchema = [9, n0, _DC,
+  { [_htt]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}", 204] }, () => DeleteContentRequest$, () => DeleteContentResponse$
+];
+export var DeleteContentAssociation$: StaticOperationSchema = [9, n0, _DCA,
+  { [_htt]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/associations/{contentAssociationId}", 204] }, () => DeleteContentAssociationRequest$, () => DeleteContentAssociationResponse$
+];
+export var DeleteImportJob$: StaticOperationSchema = [9, n0, _DIJ,
+  { [_htt]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/importJobs/{importJobId}", 204] }, () => DeleteImportJobRequest$, () => DeleteImportJobResponse$
+];
+export var DeleteKnowledgeBase$: StaticOperationSchema = [9, n0, _DKB,
+  { [_htt]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}", 204] }, () => DeleteKnowledgeBaseRequest$, () => DeleteKnowledgeBaseResponse$
+];
+export var DeleteMessageTemplate$: StaticOperationSchema = [9, n0, _DMTe,
+  { [_htt]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}", 204] }, () => DeleteMessageTemplateRequest$, () => DeleteMessageTemplateResponse$
+];
+export var DeleteMessageTemplateAttachment$: StaticOperationSchema = [9, n0, _DMTA,
+  { [_htt]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/attachments/{attachmentId}", 204] }, () => DeleteMessageTemplateAttachmentRequest$, () => DeleteMessageTemplateAttachmentResponse$
+];
+export var DeleteQuickResponse$: StaticOperationSchema = [9, n0, _DQR,
+  { [_htt]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}", 204] }, () => DeleteQuickResponseRequest$, () => DeleteQuickResponseResponse$
+];
+export var GetAIAgent$: StaticOperationSchema = [9, n0, _GAIA,
+  { [_htt]: ["GET", "/assistants/{assistantId}/aiagents/{aiAgentId}", 200] }, () => GetAIAgentRequest$, () => GetAIAgentResponse$
+];
+export var GetAIGuardrail$: StaticOperationSchema = [9, n0, _GAIG,
+  { [_htt]: ["GET", "/assistants/{assistantId}/aiguardrails/{aiGuardrailId}", 200] }, () => GetAIGuardrailRequest$, () => GetAIGuardrailResponse$
+];
+export var GetAIPrompt$: StaticOperationSchema = [9, n0, _GAIP,
+  { [_htt]: ["GET", "/assistants/{assistantId}/aiprompts/{aiPromptId}", 200] }, () => GetAIPromptRequest$, () => GetAIPromptResponse$
+];
+export var GetAssistant$: StaticOperationSchema = [9, n0, _GA,
+  { [_htt]: ["GET", "/assistants/{assistantId}", 200] }, () => GetAssistantRequest$, () => GetAssistantResponse$
+];
+export var GetAssistantAssociation$: StaticOperationSchema = [9, n0, _GAA,
+  { [_htt]: ["GET", "/assistants/{assistantId}/associations/{assistantAssociationId}", 200] }, () => GetAssistantAssociationRequest$, () => GetAssistantAssociationResponse$
+];
+export var GetContent$: StaticOperationSchema = [9, n0, _GCe,
+  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}", 200] }, () => GetContentRequest$, () => GetContentResponse$
+];
+export var GetContentAssociation$: StaticOperationSchema = [9, n0, _GCA,
+  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/associations/{contentAssociationId}", 200] }, () => GetContentAssociationRequest$, () => GetContentAssociationResponse$
+];
+export var GetContentSummary$: StaticOperationSchema = [9, n0, _GCS,
+  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/summary", 200] }, () => GetContentSummaryRequest$, () => GetContentSummaryResponse$
+];
+export var GetImportJob$: StaticOperationSchema = [9, n0, _GIJ,
+  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/importJobs/{importJobId}", 200] }, () => GetImportJobRequest$, () => GetImportJobResponse$
+];
+export var GetKnowledgeBase$: StaticOperationSchema = [9, n0, _GKB,
+  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}", 200] }, () => GetKnowledgeBaseRequest$, () => GetKnowledgeBaseResponse$
+];
+export var GetMessageTemplate$: StaticOperationSchema = [9, n0, _GMT,
+  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}", 200] }, () => GetMessageTemplateRequest$, () => GetMessageTemplateResponse$
+];
+export var GetNextMessage$: StaticOperationSchema = [9, n0, _GNM,
+  { [_htt]: ["GET", "/assistants/{assistantId}/sessions/{sessionId}/messages/next", 200] }, () => GetNextMessageRequest$, () => GetNextMessageResponse$
+];
+export var GetQuickResponse$: StaticOperationSchema = [9, n0, _GQR,
+  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}", 200] }, () => GetQuickResponseRequest$, () => GetQuickResponseResponse$
+];
+export var GetRecommendations$: StaticOperationSchema = [9, n0, _GRe,
+  { [_htt]: ["GET", "/assistants/{assistantId}/sessions/{sessionId}/recommendations", 200] }, () => GetRecommendationsRequest$, () => GetRecommendationsResponse$
+];
+export var GetSession$: StaticOperationSchema = [9, n0, _GS,
+  { [_htt]: ["GET", "/assistants/{assistantId}/sessions/{sessionId}", 200] }, () => GetSessionRequest$, () => GetSessionResponse$
+];
+export var ListAIAgents$: StaticOperationSchema = [9, n0, _LAIA,
+  { [_htt]: ["GET", "/assistants/{assistantId}/aiagents", 200] }, () => ListAIAgentsRequest$, () => ListAIAgentsResponse$
+];
+export var ListAIAgentVersions$: StaticOperationSchema = [9, n0, _LAIAV,
+  { [_htt]: ["GET", "/assistants/{assistantId}/aiagents/{aiAgentId}/versions", 200] }, () => ListAIAgentVersionsRequest$, () => ListAIAgentVersionsResponse$
+];
+export var ListAIGuardrails$: StaticOperationSchema = [9, n0, _LAIG,
+  { [_htt]: ["GET", "/assistants/{assistantId}/aiguardrails", 200] }, () => ListAIGuardrailsRequest$, () => ListAIGuardrailsResponse$
+];
+export var ListAIGuardrailVersions$: StaticOperationSchema = [9, n0, _LAIGV,
+  { [_htt]: ["GET", "/assistants/{assistantId}/aiguardrails/{aiGuardrailId}/versions", 200] }, () => ListAIGuardrailVersionsRequest$, () => ListAIGuardrailVersionsResponse$
+];
+export var ListAIPrompts$: StaticOperationSchema = [9, n0, _LAIP,
+  { [_htt]: ["GET", "/assistants/{assistantId}/aiprompts", 200] }, () => ListAIPromptsRequest$, () => ListAIPromptsResponse$
+];
+export var ListAIPromptVersions$: StaticOperationSchema = [9, n0, _LAIPV,
+  { [_htt]: ["GET", "/assistants/{assistantId}/aiprompts/{aiPromptId}/versions", 200] }, () => ListAIPromptVersionsRequest$, () => ListAIPromptVersionsResponse$
+];
+export var ListAssistantAssociations$: StaticOperationSchema = [9, n0, _LAA,
+  { [_htt]: ["GET", "/assistants/{assistantId}/associations", 200] }, () => ListAssistantAssociationsRequest$, () => ListAssistantAssociationsResponse$
+];
+export var ListAssistants$: StaticOperationSchema = [9, n0, _LA,
+  { [_htt]: ["GET", "/assistants", 200] }, () => ListAssistantsRequest$, () => ListAssistantsResponse$
+];
+export var ListContentAssociations$: StaticOperationSchema = [9, n0, _LCA,
+  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/associations", 200] }, () => ListContentAssociationsRequest$, () => ListContentAssociationsResponse$
+];
+export var ListContents$: StaticOperationSchema = [9, n0, _LC,
+  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/contents", 200] }, () => ListContentsRequest$, () => ListContentsResponse$
+];
+export var ListImportJobs$: StaticOperationSchema = [9, n0, _LIJ,
+  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/importJobs", 200] }, () => ListImportJobsRequest$, () => ListImportJobsResponse$
+];
+export var ListKnowledgeBases$: StaticOperationSchema = [9, n0, _LKB,
+  { [_htt]: ["GET", "/knowledgeBases", 200] }, () => ListKnowledgeBasesRequest$, () => ListKnowledgeBasesResponse$
+];
+export var ListMessages$: StaticOperationSchema = [9, n0, _LM,
+  { [_htt]: ["GET", "/assistants/{assistantId}/sessions/{sessionId}/messages", 200] }, () => ListMessagesRequest$, () => ListMessagesResponse$
+];
+export var ListMessageTemplates$: StaticOperationSchema = [9, n0, _LMT,
+  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/messageTemplates", 200] }, () => ListMessageTemplatesRequest$, () => ListMessageTemplatesResponse$
+];
+export var ListMessageTemplateVersions$: StaticOperationSchema = [9, n0, _LMTV,
+  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/versions", 200] }, () => ListMessageTemplateVersionsRequest$, () => ListMessageTemplateVersionsResponse$
+];
+export var ListQuickResponses$: StaticOperationSchema = [9, n0, _LQR,
+  { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/quickResponses", 200] }, () => ListQuickResponsesRequest$, () => ListQuickResponsesResponse$
+];
+export var ListSpans$: StaticOperationSchema = [9, n0, _LS,
+  { [_htt]: ["GET", "/assistants/{assistantId}/sessions/{sessionId}/spans", 200] }, () => ListSpansRequest$, () => ListSpansResponse$
+];
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  { [_htt]: ["GET", "/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
+];
+export var NotifyRecommendationsReceived$: StaticOperationSchema = [9, n0, _NRR,
+  { [_htt]: ["POST", "/assistants/{assistantId}/sessions/{sessionId}/recommendations/notify", 200] }, () => NotifyRecommendationsReceivedRequest$, () => NotifyRecommendationsReceivedResponse$
+];
+export var PutFeedback$: StaticOperationSchema = [9, n0, _PF,
+  { [_htt]: ["PUT", "/assistants/{assistantId}/feedback", 200] }, () => PutFeedbackRequest$, () => PutFeedbackResponse$
+];
+export var QueryAssistant$: StaticOperationSchema = [9, n0, _QA,
+  { [_htt]: ["POST", "/assistants/{assistantId}/query", 200] }, () => QueryAssistantRequest$, () => QueryAssistantResponse$
+];
+export var RemoveAssistantAIAgent$: StaticOperationSchema = [9, n0, _RAAIA,
+  { [_htt]: ["DELETE", "/assistants/{assistantId}/aiagentConfiguration", 204] }, () => RemoveAssistantAIAgentRequest$, () => RemoveAssistantAIAgentResponse$
+];
+export var RemoveKnowledgeBaseTemplateUri$: StaticOperationSchema = [9, n0, _RKBTU,
+  { [_htt]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/templateUri", 204] }, () => RemoveKnowledgeBaseTemplateUriRequest$, () => RemoveKnowledgeBaseTemplateUriResponse$
+];
+export var RenderMessageTemplate$: StaticOperationSchema = [9, n0, _RMT,
+  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/render", 200] }, () => RenderMessageTemplateRequest$, () => RenderMessageTemplateResponse$
+];
+export var Retrieve$: StaticOperationSchema = [9, n0, _R,
+  { [_htt]: ["POST", "/assistants/{assistantId}/retrieve", 200] }, () => RetrieveRequest$, () => RetrieveResponse$
+];
+export var SearchContent$: StaticOperationSchema = [9, n0, _SCe,
+  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/search", 200] }, () => SearchContentRequest$, () => SearchContentResponse$
+];
+export var SearchMessageTemplates$: StaticOperationSchema = [9, n0, _SMT,
+  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/search/messageTemplates", 200] }, () => SearchMessageTemplatesRequest$, () => SearchMessageTemplatesResponse$
+];
+export var SearchQuickResponses$: StaticOperationSchema = [9, n0, _SQR,
+  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/search/quickResponses", 200] }, () => SearchQuickResponsesRequest$, () => SearchQuickResponsesResponse$
+];
+export var SearchSessions$: StaticOperationSchema = [9, n0, _SSea,
+  { [_htt]: ["POST", "/assistants/{assistantId}/searchSessions", 200] }, () => SearchSessionsRequest$, () => SearchSessionsResponse$
+];
+export var SendMessage$: StaticOperationSchema = [9, n0, _SMe,
+  { [_htt]: ["POST", "/assistants/{assistantId}/sessions/{sessionId}/message", 200] }, () => SendMessageRequest$, () => SendMessageResponse$
+];
+export var StartContentUpload$: StaticOperationSchema = [9, n0, _SCU,
+  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/upload", 200] }, () => StartContentUploadRequest$, () => StartContentUploadResponse$
+];
+export var StartImportJob$: StaticOperationSchema = [9, n0, _SIJ,
+  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/importJobs", 200] }, () => StartImportJobRequest$, () => StartImportJobResponse$
+];
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  { [_htt]: ["POST", "/tags/{resourceArn}", 200] }, () => TagResourceRequest$, () => TagResourceResponse$
+];
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  { [_htt]: ["DELETE", "/tags/{resourceArn}", 200] }, () => UntagResourceRequest$, () => UntagResourceResponse$
+];
+export var UpdateAIAgent$: StaticOperationSchema = [9, n0, _UAIA,
+  { [_htt]: ["POST", "/assistants/{assistantId}/aiagents/{aiAgentId}", 200] }, () => UpdateAIAgentRequest$, () => UpdateAIAgentResponse$
+];
+export var UpdateAIGuardrail$: StaticOperationSchema = [9, n0, _UAIG,
+  { [_htt]: ["POST", "/assistants/{assistantId}/aiguardrails/{aiGuardrailId}", 200] }, () => UpdateAIGuardrailRequest$, () => UpdateAIGuardrailResponse$
+];
+export var UpdateAIPrompt$: StaticOperationSchema = [9, n0, _UAIP,
+  { [_htt]: ["POST", "/assistants/{assistantId}/aiprompts/{aiPromptId}", 200] }, () => UpdateAIPromptRequest$, () => UpdateAIPromptResponse$
+];
+export var UpdateAssistantAIAgent$: StaticOperationSchema = [9, n0, _UAAIA,
+  { [_htt]: ["POST", "/assistants/{assistantId}/aiagentConfiguration", 200] }, () => UpdateAssistantAIAgentRequest$, () => UpdateAssistantAIAgentResponse$
+];
+export var UpdateContent$: StaticOperationSchema = [9, n0, _UCp,
+  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}", 200] }, () => UpdateContentRequest$, () => UpdateContentResponse$
+];
+export var UpdateKnowledgeBaseTemplateUri$: StaticOperationSchema = [9, n0, _UKBTU,
+  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/templateUri", 200] }, () => UpdateKnowledgeBaseTemplateUriRequest$, () => UpdateKnowledgeBaseTemplateUriResponse$
+];
+export var UpdateMessageTemplate$: StaticOperationSchema = [9, n0, _UMT,
+  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}", 200] }, () => UpdateMessageTemplateRequest$, () => UpdateMessageTemplateResponse$
+];
+export var UpdateMessageTemplateMetadata$: StaticOperationSchema = [9, n0, _UMTM,
+  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/metadata", 200] }, () => UpdateMessageTemplateMetadataRequest$, () => UpdateMessageTemplateMetadataResponse$
+];
+export var UpdateQuickResponse$: StaticOperationSchema = [9, n0, _UQR,
+  { [_htt]: ["POST", "/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}", 200] }, () => UpdateQuickResponseRequest$, () => UpdateQuickResponseResponse$
+];
+export var UpdateSession$: StaticOperationSchema = [9, n0, _US,
+  { [_htt]: ["POST", "/assistants/{assistantId}/sessions/{sessionId}", 200] }, () => UpdateSessionRequest$, () => UpdateSessionResponse$
+];
+export var UpdateSessionData$: StaticOperationSchema = [9, n0, _USD,
+  { [_htt]: ["PATCH", "/assistants/{assistantId}/sessions/{sessionId}/data", 200] }, () => UpdateSessionDataRequest$, () => UpdateSessionDataResponse$
 ];

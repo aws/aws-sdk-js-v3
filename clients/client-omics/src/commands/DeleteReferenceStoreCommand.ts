@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteReferenceStoreRequest, DeleteReferenceStoreResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { DeleteReferenceStore } from "../schemas/schemas_0";
+import { DeleteReferenceStore$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DeleteReferenceStoreCommand extends $Command
   })
   .s("Omics", "DeleteReferenceStore", {})
   .n("OmicsClient", "DeleteReferenceStoreCommand")
-  .sc(DeleteReferenceStore)
+  .sc(DeleteReferenceStore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

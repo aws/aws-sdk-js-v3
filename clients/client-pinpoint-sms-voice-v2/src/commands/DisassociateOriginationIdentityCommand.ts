@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DisassociateOriginationIdentity } from "../schemas/schemas_0";
+import { DisassociateOriginationIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface DisassociateOriginationIdentityCommandInput extends Disassociat
  *
  * The output of {@link DisassociateOriginationIdentityCommand}.
  */
-export interface DisassociateOriginationIdentityCommandOutput
-  extends DisassociateOriginationIdentityResult,
-    __MetadataBearer {}
+export interface DisassociateOriginationIdentityCommandOutput extends DisassociateOriginationIdentityResult, __MetadataBearer {}
 
 /**
  * <p>Removes the specified origination identity from an existing pool.</p> <p>If the origination identity isn't associated with the specified pool, an error is returned.</p>
@@ -104,7 +102,7 @@ export class DisassociateOriginationIdentityCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DisassociateOriginationIdentity", {})
   .n("PinpointSMSVoiceV2Client", "DisassociateOriginationIdentityCommand")
-  .sc(DisassociateOriginationIdentity)
+  .sc(DisassociateOriginationIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

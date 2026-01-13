@@ -143,8 +143,14 @@ export interface KendraRanking {
   /**
    * @see {@link RescoreCommand}
    */
-  rescore(args: RescoreCommandInput, options?: __HttpHandlerOptions): Promise<RescoreCommandOutput>;
-  rescore(args: RescoreCommandInput, cb: (err: any, data?: RescoreCommandOutput) => void): void;
+  rescore(
+    args: RescoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RescoreCommandOutput>;
+  rescore(
+    args: RescoreCommandInput,
+    cb: (err: any, data?: RescoreCommandOutput) => void
+  ): void;
   rescore(
     args: RescoreCommandInput,
     options: __HttpHandlerOptions,
@@ -154,8 +160,14 @@ export interface KendraRanking {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -165,8 +177,14 @@ export interface KendraRanking {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

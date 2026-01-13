@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeEventsClient";
-import { PutActionInteractions } from "../schemas/schemas_0";
+import { PutActionInteractions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class PutActionInteractionsCommand extends $Command
   })
   .s("AmazonPersonalizeEvents", "PutActionInteractions", {})
   .n("PersonalizeEventsClient", "PutActionInteractionsCommand")
-  .sc(PutActionInteractions)
+  .sc(PutActionInteractions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

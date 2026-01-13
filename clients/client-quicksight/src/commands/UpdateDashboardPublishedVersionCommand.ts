@@ -9,7 +9,7 @@ import type {
   UpdateDashboardPublishedVersionResponse,
 } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateDashboardPublishedVersion } from "../schemas/schemas_0";
+import { UpdateDashboardPublishedVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateDashboardPublishedVersionCommandInput extends UpdateDashb
  *
  * The output of {@link UpdateDashboardPublishedVersionCommand}.
  */
-export interface UpdateDashboardPublishedVersionCommandOutput
-  extends UpdateDashboardPublishedVersionResponse,
-    __MetadataBearer {}
+export interface UpdateDashboardPublishedVersionCommandOutput extends UpdateDashboardPublishedVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the published version of a dashboard.</p>
@@ -104,7 +102,7 @@ export class UpdateDashboardPublishedVersionCommand extends $Command
   })
   .s("QuickSight_20180401", "UpdateDashboardPublishedVersion", {})
   .n("QuickSightClient", "UpdateDashboardPublishedVersionCommand")
-  .sc(UpdateDashboardPublishedVersion)
+  .sc(UpdateDashboardPublishedVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

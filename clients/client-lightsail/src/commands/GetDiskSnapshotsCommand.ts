@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetDiskSnapshotsRequest, GetDiskSnapshotsResult } from "../models/models_0";
-import { GetDiskSnapshots } from "../schemas/schemas_0";
+import { GetDiskSnapshots$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -135,7 +135,7 @@ export class GetDiskSnapshotsCommand extends $Command
   })
   .s("Lightsail_20161128", "GetDiskSnapshots", {})
   .n("LightsailClient", "GetDiskSnapshotsCommand")
-  .sc(GetDiskSnapshots)
+  .sc(GetDiskSnapshots$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   UpdateEc2DeepInspectionConfigurationRequest,
   UpdateEc2DeepInspectionConfigurationResponse,
 } from "../models/models_1";
-import { UpdateEc2DeepInspectionConfiguration } from "../schemas/schemas_0";
+import { UpdateEc2DeepInspectionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateEc2DeepInspectionConfigurationCommandInput extends Update
  *
  * The output of {@link UpdateEc2DeepInspectionConfigurationCommand}.
  */
-export interface UpdateEc2DeepInspectionConfigurationCommandOutput
-  extends UpdateEc2DeepInspectionConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateEc2DeepInspectionConfigurationCommandOutput extends UpdateEc2DeepInspectionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Activates, deactivates Amazon Inspector deep inspection, or updates custom paths for your account.
@@ -104,7 +102,7 @@ export class UpdateEc2DeepInspectionConfigurationCommand extends $Command
   })
   .s("Inspector2", "UpdateEc2DeepInspectionConfiguration", {})
   .n("Inspector2Client", "UpdateEc2DeepInspectionConfigurationCommand")
-  .sc(UpdateEc2DeepInspectionConfiguration)
+  .sc(UpdateEc2DeepInspectionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

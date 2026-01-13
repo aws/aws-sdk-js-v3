@@ -11,7 +11,7 @@ import type {
   StartMedicalStreamTranscriptionRequest,
   StartMedicalStreamTranscriptionResponse,
 } from "../models/models_0";
-import { StartMedicalStreamTranscription } from "../schemas/schemas_0";
+import { StartMedicalStreamTranscription$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -34,9 +34,7 @@ export interface StartMedicalStreamTranscriptionCommandInput extends StartMedica
  *
  * The output of {@link StartMedicalStreamTranscriptionCommand}.
  */
-export interface StartMedicalStreamTranscriptionCommandOutput
-  extends StartMedicalStreamTranscriptionResponse,
-    __MetadataBearer {}
+export interface StartMedicalStreamTranscriptionCommandOutput extends StartMedicalStreamTranscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
@@ -222,7 +220,7 @@ export class StartMedicalStreamTranscriptionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEventStreamPlugin(config),
       getWebSocketPlugin(config, {
-        headerPrefix: "x-amzn-transcribe-",
+        headerPrefix: 'x-amzn-transcribe-',
       }),
       getTranscribeStreamingPlugin(config),
     ];
@@ -237,7 +235,7 @@ export class StartMedicalStreamTranscriptionCommand extends $Command
     },
   })
   .n("TranscribeStreamingClient", "StartMedicalStreamTranscriptionCommand")
-  .sc(StartMedicalStreamTranscription)
+  .sc(StartMedicalStreamTranscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

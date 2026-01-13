@@ -13,7 +13,7 @@ import type {
   GetRegisteredSubscriptionProviderRequest,
   GetRegisteredSubscriptionProviderResponse,
 } from "../models/models_0";
-import { GetRegisteredSubscriptionProvider } from "../schemas/schemas_0";
+import { GetRegisteredSubscriptionProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetRegisteredSubscriptionProviderCommandInput extends GetRegist
  *
  * The output of {@link GetRegisteredSubscriptionProviderCommand}.
  */
-export interface GetRegisteredSubscriptionProviderCommandOutput
-  extends GetRegisteredSubscriptionProviderResponse,
-    __MetadataBearer {}
+export interface GetRegisteredSubscriptionProviderCommandOutput extends GetRegisteredSubscriptionProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Get details for a Bring Your Own License (BYOL) subscription that's registered to your account.</p>
@@ -99,7 +97,7 @@ export class GetRegisteredSubscriptionProviderCommand extends $Command
   })
   .s("LicenseManagerLinuxSubscriptions", "GetRegisteredSubscriptionProvider", {})
   .n("LicenseManagerLinuxSubscriptionsClient", "GetRegisteredSubscriptionProviderCommand")
-  .sc(GetRegisteredSubscriptionProvider)
+  .sc(GetRegisteredSubscriptionProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

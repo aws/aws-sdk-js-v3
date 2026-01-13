@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateConnectionAliasPermissionRequest, UpdateConnectionAliasPermissionResult } from "../models/models_0";
-import { UpdateConnectionAliasPermission } from "../schemas/schemas_0";
+import { UpdateConnectionAliasPermission$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -24,9 +24,7 @@ export interface UpdateConnectionAliasPermissionCommandInput extends UpdateConne
  *
  * The output of {@link UpdateConnectionAliasPermissionCommand}.
  */
-export interface UpdateConnectionAliasPermissionCommandOutput
-  extends UpdateConnectionAliasPermissionResult,
-    __MetadataBearer {}
+export interface UpdateConnectionAliasPermissionCommandOutput extends UpdateConnectionAliasPermissionResult, __MetadataBearer {}
 
 /**
  * <p>Shares or unshares a connection alias with one account by specifying whether that
@@ -119,7 +117,7 @@ export class UpdateConnectionAliasPermissionCommand extends $Command
   })
   .s("WorkspacesService", "UpdateConnectionAliasPermission", {})
   .n("WorkSpacesClient", "UpdateConnectionAliasPermissionCommand")
-  .sc(UpdateConnectionAliasPermission)
+  .sc(UpdateConnectionAliasPermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

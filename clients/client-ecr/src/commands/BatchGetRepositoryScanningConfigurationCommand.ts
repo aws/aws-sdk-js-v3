@@ -9,7 +9,7 @@ import type {
   BatchGetRepositoryScanningConfigurationRequest,
   BatchGetRepositoryScanningConfigurationResponse,
 } from "../models/models_0";
-import { BatchGetRepositoryScanningConfiguration } from "../schemas/schemas_0";
+import { BatchGetRepositoryScanningConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchGetRepositoryScanningConfigurationCommand}.
  */
-export interface BatchGetRepositoryScanningConfigurationCommandInput
-  extends BatchGetRepositoryScanningConfigurationRequest {}
+export interface BatchGetRepositoryScanningConfigurationCommandInput extends BatchGetRepositoryScanningConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link BatchGetRepositoryScanningConfigurationCommand}.
  */
-export interface BatchGetRepositoryScanningConfigurationCommandOutput
-  extends BatchGetRepositoryScanningConfigurationResponse,
-    __MetadataBearer {}
+export interface BatchGetRepositoryScanningConfigurationCommandOutput extends BatchGetRepositoryScanningConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the scanning configuration for one or more repositories.</p>
@@ -115,7 +112,7 @@ export class BatchGetRepositoryScanningConfigurationCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "BatchGetRepositoryScanningConfiguration", {})
   .n("ECRClient", "BatchGetRepositoryScanningConfigurationCommand")
-  .sc(BatchGetRepositoryScanningConfiguration)
+  .sc(BatchGetRepositoryScanningConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

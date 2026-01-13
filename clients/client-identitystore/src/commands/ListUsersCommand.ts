@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
 import type { ListUsersRequest, ListUsersResponse } from "../models/models_0";
-import { ListUsers } from "../schemas/schemas_0";
+import { ListUsers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,6 +117,13 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * //       ],
  * //       Website: "STRING_VALUE",
  * //       Birthdate: "STRING_VALUE",
+ * //       Roles: [ // Roles
+ * //         { // Role
+ * //           Value: "STRING_VALUE",
+ * //           Type: "STRING_VALUE",
+ * //           Primary: true || false,
+ * //         },
+ * //       ],
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       CreatedBy: "STRING_VALUE",
  * //       UpdatedAt: new Date("TIMESTAMP"),
@@ -172,7 +179,7 @@ export class ListUsersCommand extends $Command
   })
   .s("AWSIdentityStore", "ListUsers", {})
   .n("IdentitystoreClient", "ListUsersCommand")
-  .sc(ListUsers)
+  .sc(ListUsers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

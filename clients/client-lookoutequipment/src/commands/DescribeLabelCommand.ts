@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LookoutEquipmentClient";
 import type { DescribeLabelRequest, DescribeLabelResponse } from "../models/models_0";
-import { DescribeLabel } from "../schemas/schemas_0";
+import { DescribeLabel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class DescribeLabelCommand extends $Command
   })
   .s("AWSLookoutEquipmentFrontendService", "DescribeLabel", {})
   .n("LookoutEquipmentClient", "DescribeLabelCommand")
-  .sc(DescribeLabel)
+  .sc(DescribeLabel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -190,8 +190,14 @@ export interface Outposts {
   /**
    * @see {@link CancelOrderCommand}
    */
-  cancelOrder(args: CancelOrderCommandInput, options?: __HttpHandlerOptions): Promise<CancelOrderCommandOutput>;
-  cancelOrder(args: CancelOrderCommandInput, cb: (err: any, data?: CancelOrderCommandOutput) => void): void;
+  cancelOrder(
+    args: CancelOrderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelOrderCommandOutput>;
+  cancelOrder(
+    args: CancelOrderCommandInput,
+    cb: (err: any, data?: CancelOrderCommandOutput) => void
+  ): void;
   cancelOrder(
     args: CancelOrderCommandInput,
     options: __HttpHandlerOptions,
@@ -201,8 +207,14 @@ export interface Outposts {
   /**
    * @see {@link CreateOrderCommand}
    */
-  createOrder(args: CreateOrderCommandInput, options?: __HttpHandlerOptions): Promise<CreateOrderCommandOutput>;
-  createOrder(args: CreateOrderCommandInput, cb: (err: any, data?: CreateOrderCommandOutput) => void): void;
+  createOrder(
+    args: CreateOrderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateOrderCommandOutput>;
+  createOrder(
+    args: CreateOrderCommandInput,
+    cb: (err: any, data?: CreateOrderCommandOutput) => void
+  ): void;
   createOrder(
     args: CreateOrderCommandInput,
     options: __HttpHandlerOptions,
@@ -212,8 +224,14 @@ export interface Outposts {
   /**
    * @see {@link CreateOutpostCommand}
    */
-  createOutpost(args: CreateOutpostCommandInput, options?: __HttpHandlerOptions): Promise<CreateOutpostCommandOutput>;
-  createOutpost(args: CreateOutpostCommandInput, cb: (err: any, data?: CreateOutpostCommandOutput) => void): void;
+  createOutpost(
+    args: CreateOutpostCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateOutpostCommandOutput>;
+  createOutpost(
+    args: CreateOutpostCommandInput,
+    cb: (err: any, data?: CreateOutpostCommandOutput) => void
+  ): void;
   createOutpost(
     args: CreateOutpostCommandInput,
     options: __HttpHandlerOptions,
@@ -223,8 +241,14 @@ export interface Outposts {
   /**
    * @see {@link CreateSiteCommand}
    */
-  createSite(args: CreateSiteCommandInput, options?: __HttpHandlerOptions): Promise<CreateSiteCommandOutput>;
-  createSite(args: CreateSiteCommandInput, cb: (err: any, data?: CreateSiteCommandOutput) => void): void;
+  createSite(
+    args: CreateSiteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSiteCommandOutput>;
+  createSite(
+    args: CreateSiteCommandInput,
+    cb: (err: any, data?: CreateSiteCommandOutput) => void
+  ): void;
   createSite(
     args: CreateSiteCommandInput,
     options: __HttpHandlerOptions,
@@ -234,8 +258,14 @@ export interface Outposts {
   /**
    * @see {@link DeleteOutpostCommand}
    */
-  deleteOutpost(args: DeleteOutpostCommandInput, options?: __HttpHandlerOptions): Promise<DeleteOutpostCommandOutput>;
-  deleteOutpost(args: DeleteOutpostCommandInput, cb: (err: any, data?: DeleteOutpostCommandOutput) => void): void;
+  deleteOutpost(
+    args: DeleteOutpostCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteOutpostCommandOutput>;
+  deleteOutpost(
+    args: DeleteOutpostCommandInput,
+    cb: (err: any, data?: DeleteOutpostCommandOutput) => void
+  ): void;
   deleteOutpost(
     args: DeleteOutpostCommandInput,
     options: __HttpHandlerOptions,
@@ -245,8 +275,14 @@ export interface Outposts {
   /**
    * @see {@link DeleteSiteCommand}
    */
-  deleteSite(args: DeleteSiteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSiteCommandOutput>;
-  deleteSite(args: DeleteSiteCommandInput, cb: (err: any, data?: DeleteSiteCommandOutput) => void): void;
+  deleteSite(
+    args: DeleteSiteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSiteCommandOutput>;
+  deleteSite(
+    args: DeleteSiteCommandInput,
+    cb: (err: any, data?: DeleteSiteCommandOutput) => void
+  ): void;
   deleteSite(
     args: DeleteSiteCommandInput,
     options: __HttpHandlerOptions,
@@ -260,7 +296,10 @@ export interface Outposts {
     args: GetCapacityTaskCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCapacityTaskCommandOutput>;
-  getCapacityTask(args: GetCapacityTaskCommandInput, cb: (err: any, data?: GetCapacityTaskCommandOutput) => void): void;
+  getCapacityTask(
+    args: GetCapacityTaskCommandInput,
+    cb: (err: any, data?: GetCapacityTaskCommandOutput) => void
+  ): void;
   getCapacityTask(
     args: GetCapacityTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -274,7 +313,10 @@ export interface Outposts {
     args: GetCatalogItemCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCatalogItemCommandOutput>;
-  getCatalogItem(args: GetCatalogItemCommandInput, cb: (err: any, data?: GetCatalogItemCommandOutput) => void): void;
+  getCatalogItem(
+    args: GetCatalogItemCommandInput,
+    cb: (err: any, data?: GetCatalogItemCommandOutput) => void
+  ): void;
   getCatalogItem(
     args: GetCatalogItemCommandInput,
     options: __HttpHandlerOptions,
@@ -284,8 +326,14 @@ export interface Outposts {
   /**
    * @see {@link GetConnectionCommand}
    */
-  getConnection(args: GetConnectionCommandInput, options?: __HttpHandlerOptions): Promise<GetConnectionCommandOutput>;
-  getConnection(args: GetConnectionCommandInput, cb: (err: any, data?: GetConnectionCommandOutput) => void): void;
+  getConnection(
+    args: GetConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectionCommandOutput>;
+  getConnection(
+    args: GetConnectionCommandInput,
+    cb: (err: any, data?: GetConnectionCommandOutput) => void
+  ): void;
   getConnection(
     args: GetConnectionCommandInput,
     options: __HttpHandlerOptions,
@@ -295,8 +343,14 @@ export interface Outposts {
   /**
    * @see {@link GetOrderCommand}
    */
-  getOrder(args: GetOrderCommandInput, options?: __HttpHandlerOptions): Promise<GetOrderCommandOutput>;
-  getOrder(args: GetOrderCommandInput, cb: (err: any, data?: GetOrderCommandOutput) => void): void;
+  getOrder(
+    args: GetOrderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOrderCommandOutput>;
+  getOrder(
+    args: GetOrderCommandInput,
+    cb: (err: any, data?: GetOrderCommandOutput) => void
+  ): void;
   getOrder(
     args: GetOrderCommandInput,
     options: __HttpHandlerOptions,
@@ -306,8 +360,14 @@ export interface Outposts {
   /**
    * @see {@link GetOutpostCommand}
    */
-  getOutpost(args: GetOutpostCommandInput, options?: __HttpHandlerOptions): Promise<GetOutpostCommandOutput>;
-  getOutpost(args: GetOutpostCommandInput, cb: (err: any, data?: GetOutpostCommandOutput) => void): void;
+  getOutpost(
+    args: GetOutpostCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOutpostCommandOutput>;
+  getOutpost(
+    args: GetOutpostCommandInput,
+    cb: (err: any, data?: GetOutpostCommandOutput) => void
+  ): void;
   getOutpost(
     args: GetOutpostCommandInput,
     options: __HttpHandlerOptions,
@@ -368,8 +428,14 @@ export interface Outposts {
   /**
    * @see {@link GetSiteCommand}
    */
-  getSite(args: GetSiteCommandInput, options?: __HttpHandlerOptions): Promise<GetSiteCommandOutput>;
-  getSite(args: GetSiteCommandInput, cb: (err: any, data?: GetSiteCommandOutput) => void): void;
+  getSite(
+    args: GetSiteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSiteCommandOutput>;
+  getSite(
+    args: GetSiteCommandInput,
+    cb: (err: any, data?: GetSiteCommandOutput) => void
+  ): void;
   getSite(
     args: GetSiteCommandInput,
     options: __HttpHandlerOptions,
@@ -383,7 +449,10 @@ export interface Outposts {
     args: GetSiteAddressCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSiteAddressCommandOutput>;
-  getSiteAddress(args: GetSiteAddressCommandInput, cb: (err: any, data?: GetSiteAddressCommandOutput) => void): void;
+  getSiteAddress(
+    args: GetSiteAddressCommandInput,
+    cb: (err: any, data?: GetSiteAddressCommandOutput) => void
+  ): void;
   getSiteAddress(
     args: GetSiteAddressCommandInput,
     options: __HttpHandlerOptions,
@@ -410,8 +479,14 @@ export interface Outposts {
   /**
    * @see {@link ListAssetsCommand}
    */
-  listAssets(args: ListAssetsCommandInput, options?: __HttpHandlerOptions): Promise<ListAssetsCommandOutput>;
-  listAssets(args: ListAssetsCommandInput, cb: (err: any, data?: ListAssetsCommandOutput) => void): void;
+  listAssets(
+    args: ListAssetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetsCommandOutput>;
+  listAssets(
+    args: ListAssetsCommandInput,
+    cb: (err: any, data?: ListAssetsCommandOutput) => void
+  ): void;
   listAssets(
     args: ListAssetsCommandInput,
     options: __HttpHandlerOptions,
@@ -475,8 +550,14 @@ export interface Outposts {
    * @see {@link ListOrdersCommand}
    */
   listOrders(): Promise<ListOrdersCommandOutput>;
-  listOrders(args: ListOrdersCommandInput, options?: __HttpHandlerOptions): Promise<ListOrdersCommandOutput>;
-  listOrders(args: ListOrdersCommandInput, cb: (err: any, data?: ListOrdersCommandOutput) => void): void;
+  listOrders(
+    args: ListOrdersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOrdersCommandOutput>;
+  listOrders(
+    args: ListOrdersCommandInput,
+    cb: (err: any, data?: ListOrdersCommandOutput) => void
+  ): void;
   listOrders(
     args: ListOrdersCommandInput,
     options: __HttpHandlerOptions,
@@ -487,8 +568,14 @@ export interface Outposts {
    * @see {@link ListOutpostsCommand}
    */
   listOutposts(): Promise<ListOutpostsCommandOutput>;
-  listOutposts(args: ListOutpostsCommandInput, options?: __HttpHandlerOptions): Promise<ListOutpostsCommandOutput>;
-  listOutposts(args: ListOutpostsCommandInput, cb: (err: any, data?: ListOutpostsCommandOutput) => void): void;
+  listOutposts(
+    args: ListOutpostsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOutpostsCommandOutput>;
+  listOutposts(
+    args: ListOutpostsCommandInput,
+    cb: (err: any, data?: ListOutpostsCommandOutput) => void
+  ): void;
   listOutposts(
     args: ListOutpostsCommandInput,
     options: __HttpHandlerOptions,
@@ -499,8 +586,14 @@ export interface Outposts {
    * @see {@link ListSitesCommand}
    */
   listSites(): Promise<ListSitesCommandOutput>;
-  listSites(args: ListSitesCommandInput, options?: __HttpHandlerOptions): Promise<ListSitesCommandOutput>;
-  listSites(args: ListSitesCommandInput, cb: (err: any, data?: ListSitesCommandOutput) => void): void;
+  listSites(
+    args: ListSitesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSitesCommandOutput>;
+  listSites(
+    args: ListSitesCommandInput,
+    cb: (err: any, data?: ListSitesCommandOutput) => void
+  ): void;
   listSites(
     args: ListSitesCommandInput,
     options: __HttpHandlerOptions,
@@ -548,7 +641,10 @@ export interface Outposts {
     args: StartConnectionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartConnectionCommandOutput>;
-  startConnection(args: StartConnectionCommandInput, cb: (err: any, data?: StartConnectionCommandOutput) => void): void;
+  startConnection(
+    args: StartConnectionCommandInput,
+    cb: (err: any, data?: StartConnectionCommandOutput) => void
+  ): void;
   startConnection(
     args: StartConnectionCommandInput,
     options: __HttpHandlerOptions,
@@ -575,8 +671,14 @@ export interface Outposts {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -586,8 +688,14 @@ export interface Outposts {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -597,8 +705,14 @@ export interface Outposts {
   /**
    * @see {@link UpdateOutpostCommand}
    */
-  updateOutpost(args: UpdateOutpostCommandInput, options?: __HttpHandlerOptions): Promise<UpdateOutpostCommandOutput>;
-  updateOutpost(args: UpdateOutpostCommandInput, cb: (err: any, data?: UpdateOutpostCommandOutput) => void): void;
+  updateOutpost(
+    args: UpdateOutpostCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateOutpostCommandOutput>;
+  updateOutpost(
+    args: UpdateOutpostCommandInput,
+    cb: (err: any, data?: UpdateOutpostCommandOutput) => void
+  ): void;
   updateOutpost(
     args: UpdateOutpostCommandInput,
     options: __HttpHandlerOptions,
@@ -608,8 +722,14 @@ export interface Outposts {
   /**
    * @see {@link UpdateSiteCommand}
    */
-  updateSite(args: UpdateSiteCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSiteCommandOutput>;
-  updateSite(args: UpdateSiteCommandInput, cb: (err: any, data?: UpdateSiteCommandOutput) => void): void;
+  updateSite(
+    args: UpdateSiteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSiteCommandOutput>;
+  updateSite(
+    args: UpdateSiteCommandInput,
+    cb: (err: any, data?: UpdateSiteCommandOutput) => void
+  ): void;
   updateSite(
     args: UpdateSiteCommandInput,
     options: __HttpHandlerOptions,

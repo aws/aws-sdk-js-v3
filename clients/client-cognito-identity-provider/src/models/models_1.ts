@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { VerifySoftwareTokenResponseType } from "./enums";
-
 import type { CustomDomainConfigType, UserPoolClientType } from "./models_0";
 
 /**

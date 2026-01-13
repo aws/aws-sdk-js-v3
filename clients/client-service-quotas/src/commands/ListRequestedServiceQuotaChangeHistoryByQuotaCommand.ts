@@ -8,7 +8,7 @@ import type {
   ListRequestedServiceQuotaChangeHistoryByQuotaRequest,
   ListRequestedServiceQuotaChangeHistoryByQuotaResponse,
 } from "../models/models_0";
-import { ListRequestedServiceQuotaChangeHistoryByQuota } from "../schemas/schemas_0";
+import { ListRequestedServiceQuotaChangeHistoryByQuota$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommand}.
  */
-export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput
-  extends ListRequestedServiceQuotaChangeHistoryByQuotaRequest {}
+export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput extends ListRequestedServiceQuotaChangeHistoryByQuotaRequest {}
 /**
  * @public
  *
  * The output of {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommand}.
  */
-export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
-  extends ListRequestedServiceQuotaChangeHistoryByQuotaResponse,
-    __MetadataBearer {}
+export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput extends ListRequestedServiceQuotaChangeHistoryByQuotaResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the quota increase requests for the specified quota. Filter responses to
@@ -129,7 +126,7 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
   })
   .s("ServiceQuotasV20190624", "ListRequestedServiceQuotaChangeHistoryByQuota", {})
   .n("ServiceQuotasClient", "ListRequestedServiceQuotaChangeHistoryByQuotaCommand")
-  .sc(ListRequestedServiceQuotaChangeHistoryByQuota)
+  .sc(ListRequestedServiceQuotaChangeHistoryByQuota$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

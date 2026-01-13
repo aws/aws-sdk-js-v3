@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LookoutEquipmentClient";
 import type { DescribeDatasetRequest, DescribeDatasetResponse } from "../models/models_0";
-import { DescribeDataset } from "../schemas/schemas_0";
+import { DescribeDataset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -148,7 +148,7 @@ export class DescribeDatasetCommand extends $Command
   })
   .s("AWSLookoutEquipmentFrontendService", "DescribeDataset", {})
   .n("LookoutEquipmentClient", "DescribeDatasetCommand")
-  .sc(DescribeDataset)
+  .sc(DescribeDataset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTJobsDataPlaneClient";
 import type { GetPendingJobExecutionsRequest, GetPendingJobExecutionsResponse } from "../models/models_0";
-import { GetPendingJobExecutions } from "../schemas/schemas_0";
+import { GetPendingJobExecutions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class GetPendingJobExecutionsCommand extends $Command
   })
   .s("IotLaserThingJobManagerExternalService", "GetPendingJobExecutions", {})
   .n("IoTJobsDataPlaneClient", "GetPendingJobExecutionsCommand")
-  .sc(GetPendingJobExecutions)
+  .sc(GetPendingJobExecutions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

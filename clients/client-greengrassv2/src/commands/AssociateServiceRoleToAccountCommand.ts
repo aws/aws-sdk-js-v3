@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import type { AssociateServiceRoleToAccountRequest, AssociateServiceRoleToAccountResponse } from "../models/models_0";
-import { AssociateServiceRoleToAccount } from "../schemas/schemas_0";
+import { AssociateServiceRoleToAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface AssociateServiceRoleToAccountCommandInput extends AssociateServ
  *
  * The output of {@link AssociateServiceRoleToAccountCommand}.
  */
-export interface AssociateServiceRoleToAccountCommandOutput
-  extends AssociateServiceRoleToAccountResponse,
-    __MetadataBearer {}
+export interface AssociateServiceRoleToAccountCommandOutput extends AssociateServiceRoleToAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a Greengrass service role with IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region. IoT Greengrass
@@ -86,7 +84,7 @@ export class AssociateServiceRoleToAccountCommand extends $Command
   })
   .s("GreengrassV2", "AssociateServiceRoleToAccount", {})
   .n("GreengrassV2Client", "AssociateServiceRoleToAccountCommand")
-  .sc(AssociateServiceRoleToAccount)
+  .sc(AssociateServiceRoleToAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

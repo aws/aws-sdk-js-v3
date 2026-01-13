@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import type { GetMinuteUsageRequest, GetMinuteUsageResponse } from "../models/models_0";
-import { GetMinuteUsage } from "../schemas/schemas_0";
+import { GetMinuteUsage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class GetMinuteUsageCommand extends $Command
   })
   .s("GroundStation", "GetMinuteUsage", {})
   .n("GroundStationClient", "GetMinuteUsageCommand")
-  .sc(GetMinuteUsage)
+  .sc(GetMinuteUsage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

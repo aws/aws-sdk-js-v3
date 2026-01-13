@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerMetricsClient";
-import { BatchPutMetrics } from "../schemas/schemas_0";
+import { BatchPutMetrics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class BatchPutMetricsCommand extends $Command
   })
   .s("SageMakerMetricsService", "BatchPutMetrics", {})
   .n("SageMakerMetricsClient", "BatchPutMetricsCommand")
-  .sc(BatchPutMetrics)
+  .sc(BatchPutMetrics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import type { SimpleScalarPropertiesInputOutput } from "../models/models_0";
-import { SimpleScalarProperties } from "../schemas/schemas_0";
+import { SimpleScalarProperties$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -75,7 +75,7 @@ export class SimpleScalarPropertiesCommand extends $Command
   })
   .s("JsonProtocol", "SimpleScalarProperties", {})
   .n("JsonProtocolClient", "SimpleScalarPropertiesCommand")
-  .sc(SimpleScalarProperties)
+  .sc(SimpleScalarProperties$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

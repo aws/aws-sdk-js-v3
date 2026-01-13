@@ -13,7 +13,7 @@ import type {
   GetEnrollmentStatusesForOrganizationRequest,
   GetEnrollmentStatusesForOrganizationResponse,
 } from "../models/models_0";
-import { GetEnrollmentStatusesForOrganization } from "../schemas/schemas_0";
+import { GetEnrollmentStatusesForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface GetEnrollmentStatusesForOrganizationCommandInput extends GetEnr
  *
  * The output of {@link GetEnrollmentStatusesForOrganizationCommand}.
  */
-export interface GetEnrollmentStatusesForOrganizationCommandOutput
-  extends GetEnrollmentStatusesForOrganizationResponse,
-    __MetadataBearer {}
+export interface GetEnrollmentStatusesForOrganizationCommandOutput extends GetEnrollmentStatusesForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the Compute Optimizer enrollment (opt-in) status of organization member
@@ -120,7 +118,7 @@ export class GetEnrollmentStatusesForOrganizationCommand extends $Command
   })
   .s("ComputeOptimizerService", "GetEnrollmentStatusesForOrganization", {})
   .n("ComputeOptimizerClient", "GetEnrollmentStatusesForOrganizationCommand")
-  .sc(GetEnrollmentStatusesForOrganization)
+  .sc(GetEnrollmentStatusesForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

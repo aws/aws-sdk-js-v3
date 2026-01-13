@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAccountLimitRequest, GetAccountLimitResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { GetAccountLimit } from "../schemas/schemas_0";
+import { GetAccountLimit$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class GetAccountLimitCommand extends $Command
   })
   .s("AWSDnsV20130401", "GetAccountLimit", {})
   .n("Route53Client", "GetAccountLimitCommand")
-  .sc(GetAccountLimit)
+  .sc(GetAccountLimit$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

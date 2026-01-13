@@ -265,8 +265,14 @@ export interface BedrockAgentCore {
   /**
    * @see {@link CreateEventCommand}
    */
-  createEvent(args: CreateEventCommandInput, options?: __HttpHandlerOptions): Promise<CreateEventCommandOutput>;
-  createEvent(args: CreateEventCommandInput, cb: (err: any, data?: CreateEventCommandOutput) => void): void;
+  createEvent(
+    args: CreateEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEventCommandOutput>;
+  createEvent(
+    args: CreateEventCommandInput,
+    cb: (err: any, data?: CreateEventCommandOutput) => void
+  ): void;
   createEvent(
     args: CreateEventCommandInput,
     options: __HttpHandlerOptions,
@@ -276,8 +282,14 @@ export interface BedrockAgentCore {
   /**
    * @see {@link DeleteEventCommand}
    */
-  deleteEvent(args: DeleteEventCommandInput, options?: __HttpHandlerOptions): Promise<DeleteEventCommandOutput>;
-  deleteEvent(args: DeleteEventCommandInput, cb: (err: any, data?: DeleteEventCommandOutput) => void): void;
+  deleteEvent(
+    args: DeleteEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEventCommandOutput>;
+  deleteEvent(
+    args: DeleteEventCommandInput,
+    cb: (err: any, data?: DeleteEventCommandOutput) => void
+  ): void;
   deleteEvent(
     args: DeleteEventCommandInput,
     options: __HttpHandlerOptions,
@@ -304,8 +316,14 @@ export interface BedrockAgentCore {
   /**
    * @see {@link EvaluateCommand}
    */
-  evaluate(args: EvaluateCommandInput, options?: __HttpHandlerOptions): Promise<EvaluateCommandOutput>;
-  evaluate(args: EvaluateCommandInput, cb: (err: any, data?: EvaluateCommandOutput) => void): void;
+  evaluate(
+    args: EvaluateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EvaluateCommandOutput>;
+  evaluate(
+    args: EvaluateCommandInput,
+    cb: (err: any, data?: EvaluateCommandOutput) => void
+  ): void;
   evaluate(
     args: EvaluateCommandInput,
     options: __HttpHandlerOptions,
@@ -315,8 +333,14 @@ export interface BedrockAgentCore {
   /**
    * @see {@link GetAgentCardCommand}
    */
-  getAgentCard(args: GetAgentCardCommandInput, options?: __HttpHandlerOptions): Promise<GetAgentCardCommandOutput>;
-  getAgentCard(args: GetAgentCardCommandInput, cb: (err: any, data?: GetAgentCardCommandOutput) => void): void;
+  getAgentCard(
+    args: GetAgentCardCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAgentCardCommandOutput>;
+  getAgentCard(
+    args: GetAgentCardCommandInput,
+    cb: (err: any, data?: GetAgentCardCommandOutput) => void
+  ): void;
   getAgentCard(
     args: GetAgentCardCommandInput,
     options: __HttpHandlerOptions,
@@ -360,8 +384,14 @@ export interface BedrockAgentCore {
   /**
    * @see {@link GetEventCommand}
    */
-  getEvent(args: GetEventCommandInput, options?: __HttpHandlerOptions): Promise<GetEventCommandOutput>;
-  getEvent(args: GetEventCommandInput, cb: (err: any, data?: GetEventCommandOutput) => void): void;
+  getEvent(
+    args: GetEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEventCommandOutput>;
+  getEvent(
+    args: GetEventCommandInput,
+    cb: (err: any, data?: GetEventCommandOutput) => void
+  ): void;
   getEvent(
     args: GetEventCommandInput,
     options: __HttpHandlerOptions,
@@ -375,7 +405,10 @@ export interface BedrockAgentCore {
     args: GetMemoryRecordCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetMemoryRecordCommandOutput>;
-  getMemoryRecord(args: GetMemoryRecordCommandInput, cb: (err: any, data?: GetMemoryRecordCommandOutput) => void): void;
+  getMemoryRecord(
+    args: GetMemoryRecordCommandInput,
+    cb: (err: any, data?: GetMemoryRecordCommandOutput) => void
+  ): void;
   getMemoryRecord(
     args: GetMemoryRecordCommandInput,
     options: __HttpHandlerOptions,
@@ -504,8 +537,14 @@ export interface BedrockAgentCore {
   /**
    * @see {@link ListActorsCommand}
    */
-  listActors(args: ListActorsCommandInput, options?: __HttpHandlerOptions): Promise<ListActorsCommandOutput>;
-  listActors(args: ListActorsCommandInput, cb: (err: any, data?: ListActorsCommandOutput) => void): void;
+  listActors(
+    args: ListActorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListActorsCommandOutput>;
+  listActors(
+    args: ListActorsCommandInput,
+    cb: (err: any, data?: ListActorsCommandOutput) => void
+  ): void;
   listActors(
     args: ListActorsCommandInput,
     options: __HttpHandlerOptions,
@@ -549,8 +588,14 @@ export interface BedrockAgentCore {
   /**
    * @see {@link ListEventsCommand}
    */
-  listEvents(args: ListEventsCommandInput, options?: __HttpHandlerOptions): Promise<ListEventsCommandOutput>;
-  listEvents(args: ListEventsCommandInput, cb: (err: any, data?: ListEventsCommandOutput) => void): void;
+  listEvents(
+    args: ListEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEventsCommandOutput>;
+  listEvents(
+    args: ListEventsCommandInput,
+    cb: (err: any, data?: ListEventsCommandOutput) => void
+  ): void;
   listEvents(
     args: ListEventsCommandInput,
     options: __HttpHandlerOptions,
@@ -594,8 +639,14 @@ export interface BedrockAgentCore {
   /**
    * @see {@link ListSessionsCommand}
    */
-  listSessions(args: ListSessionsCommandInput, options?: __HttpHandlerOptions): Promise<ListSessionsCommandOutput>;
-  listSessions(args: ListSessionsCommandInput, cb: (err: any, data?: ListSessionsCommandOutput) => void): void;
+  listSessions(
+    args: ListSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSessionsCommandOutput>;
+  listSessions(
+    args: ListSessionsCommandInput,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
+  ): void;
   listSessions(
     args: ListSessionsCommandInput,
     options: __HttpHandlerOptions,

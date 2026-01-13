@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetServiceSettingsOutput } from "../models/models_0";
-import { GetServiceSettings } from "../schemas/schemas_0";
+import { GetServiceSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMQuickSetupClientResolvedConfig } from "../SSMQuickSetupClient";
 
 /**
@@ -85,7 +85,7 @@ export class GetServiceSettingsCommand extends $Command
   })
   .s("QuickSetup", "GetServiceSettings", {})
   .n("SSMQuickSetupClient", "GetServiceSettingsCommand")
-  .sc(GetServiceSettings)
+  .sc(GetServiceSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

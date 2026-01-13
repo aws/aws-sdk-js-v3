@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageV2Client";
 import type { ResetChannelStateRequest, ResetChannelStateResponse } from "../models/models_0";
-import { ResetChannelState } from "../schemas/schemas_0";
+import { ResetChannelState$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class ResetChannelStateCommand extends $Command
   })
   .s("mediapackagev2", "ResetChannelState", {})
   .n("MediaPackageV2Client", "ResetChannelStateCommand")
-  .sc(ResetChannelState)
+  .sc(ResetChannelState$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

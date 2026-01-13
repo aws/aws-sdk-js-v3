@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { DescribeEventConfigurationsRequest, DescribeEventConfigurationsResponse } from "../models/models_1";
-import { DescribeEventConfigurations } from "../schemas/schemas_0";
+import { DescribeEventConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeEventConfigurationsCommandInput extends DescribeEventCo
  *
  * The output of {@link DescribeEventConfigurationsCommand}.
  */
-export interface DescribeEventConfigurationsCommandOutput
-  extends DescribeEventConfigurationsResponse,
-    __MetadataBearer {}
+export interface DescribeEventConfigurationsCommandOutput extends DescribeEventConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes event configurations.</p>
@@ -86,7 +84,7 @@ export class DescribeEventConfigurationsCommand extends $Command
   })
   .s("AWSIotService", "DescribeEventConfigurations", {})
   .n("IoTClient", "DescribeEventConfigurationsCommand")
-  .sc(DescribeEventConfigurations)
+  .sc(DescribeEventConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

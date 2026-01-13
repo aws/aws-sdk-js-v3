@@ -9,7 +9,7 @@ import type {
   GetComplianceDetailsByConfigRuleRequest,
   GetComplianceDetailsByConfigRuleResponse,
 } from "../models/models_0";
-import { GetComplianceDetailsByConfigRule } from "../schemas/schemas_0";
+import { GetComplianceDetailsByConfigRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetComplianceDetailsByConfigRuleCommandInput extends GetComplia
  *
  * The output of {@link GetComplianceDetailsByConfigRuleCommand}.
  */
-export interface GetComplianceDetailsByConfigRuleCommandOutput
-  extends GetComplianceDetailsByConfigRuleResponse,
-    __MetadataBearer {}
+export interface GetComplianceDetailsByConfigRuleCommandOutput extends GetComplianceDetailsByConfigRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the evaluation results for the specified Config
@@ -117,7 +115,7 @@ export class GetComplianceDetailsByConfigRuleCommand extends $Command
   })
   .s("StarlingDoveService", "GetComplianceDetailsByConfigRule", {})
   .n("ConfigServiceClient", "GetComplianceDetailsByConfigRuleCommand")
-  .sc(GetComplianceDetailsByConfigRule)
+  .sc(GetComplianceDetailsByConfigRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

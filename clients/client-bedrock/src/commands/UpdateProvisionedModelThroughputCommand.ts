@@ -9,7 +9,7 @@ import type {
   UpdateProvisionedModelThroughputRequest,
   UpdateProvisionedModelThroughputResponse,
 } from "../models/models_1";
-import { UpdateProvisionedModelThroughput } from "../schemas/schemas_0";
+import { UpdateProvisionedModelThroughput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateProvisionedModelThroughputCommandInput extends UpdateProv
  *
  * The output of {@link UpdateProvisionedModelThroughputCommand}.
  */
-export interface UpdateProvisionedModelThroughputCommandOutput
-  extends UpdateProvisionedModelThroughputResponse,
-    __MetadataBearer {}
+export interface UpdateProvisionedModelThroughputCommandOutput extends UpdateProvisionedModelThroughputResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the name or associated model for a Provisioned Throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
@@ -93,7 +91,7 @@ export class UpdateProvisionedModelThroughputCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "UpdateProvisionedModelThroughput", {})
   .n("BedrockClient", "UpdateProvisionedModelThroughputCommand")
-  .sc(UpdateProvisionedModelThroughput)
+  .sc(UpdateProvisionedModelThroughput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

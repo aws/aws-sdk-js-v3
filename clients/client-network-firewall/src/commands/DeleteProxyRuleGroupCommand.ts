@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { DeleteProxyRuleGroup } from "../schemas/schemas_0";
+import { DeleteProxyRuleGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class DeleteProxyRuleGroupCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "DeleteProxyRuleGroup", {})
   .n("NetworkFirewallClient", "DeleteProxyRuleGroupCommand")
-  .sc(DeleteProxyRuleGroup)
+  .sc(DeleteProxyRuleGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

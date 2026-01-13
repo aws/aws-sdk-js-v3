@@ -13,7 +13,7 @@ import type {
   GetEffectiveRecommendationPreferencesRequest,
   GetEffectiveRecommendationPreferencesResponse,
 } from "../models/models_0";
-import { GetEffectiveRecommendationPreferences } from "../schemas/schemas_0";
+import { GetEffectiveRecommendationPreferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link GetEffectiveRecommendationPreferencesCommand}.
  */
-export interface GetEffectiveRecommendationPreferencesCommandInput
-  extends GetEffectiveRecommendationPreferencesRequest {}
+export interface GetEffectiveRecommendationPreferencesCommandInput extends GetEffectiveRecommendationPreferencesRequest {}
 /**
  * @public
  *
  * The output of {@link GetEffectiveRecommendationPreferencesCommand}.
  */
-export interface GetEffectiveRecommendationPreferencesCommandOutput
-  extends GetEffectiveRecommendationPreferencesResponse,
-    __MetadataBearer {}
+export interface GetEffectiveRecommendationPreferencesCommandOutput extends GetEffectiveRecommendationPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the recommendation preferences that are in effect for a given resource, such
@@ -140,7 +137,7 @@ export class GetEffectiveRecommendationPreferencesCommand extends $Command
   })
   .s("ComputeOptimizerService", "GetEffectiveRecommendationPreferences", {})
   .n("ComputeOptimizerClient", "GetEffectiveRecommendationPreferencesCommand")
-  .sc(GetEffectiveRecommendationPreferences)
+  .sc(GetEffectiveRecommendationPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

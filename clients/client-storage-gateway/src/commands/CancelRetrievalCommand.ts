@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelRetrievalInput, CancelRetrievalOutput } from "../models/models_0";
-import { CancelRetrieval } from "../schemas/schemas_0";
+import { CancelRetrieval$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -104,7 +104,7 @@ export class CancelRetrievalCommand extends $Command
   })
   .s("StorageGateway_20130630", "CancelRetrieval", {})
   .n("StorageGatewayClient", "CancelRetrievalCommand")
-  .sc(CancelRetrieval)
+  .sc(CancelRetrieval$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeVolumesModificationsRequest, DescribeVolumesModificationsResult } from "../models/models_5";
-import { DescribeVolumesModifications } from "../schemas/schemas_0";
+import { DescribeVolumesModifications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeVolumesModificationsCommandInput extends DescribeVolume
  *
  * The output of {@link DescribeVolumesModificationsCommand}.
  */
-export interface DescribeVolumesModificationsCommandOutput
-  extends DescribeVolumesModificationsResult,
-    __MetadataBearer {}
+export interface DescribeVolumesModificationsCommandOutput extends DescribeVolumesModificationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the most recent volume modification request for the specified EBS volumes.</p>
@@ -110,7 +108,7 @@ export class DescribeVolumesModificationsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeVolumesModifications", {})
   .n("EC2Client", "DescribeVolumesModificationsCommand")
-  .sc(DescribeVolumesModifications)
+  .sc(DescribeVolumesModifications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

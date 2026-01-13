@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateKnowledgeBaseRequest, CreateKnowledgeBaseResponse } from "../models/models_0";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { CreateKnowledgeBase } from "../schemas/schemas_0";
+import { CreateKnowledgeBase$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -241,7 +241,7 @@ export class CreateKnowledgeBaseCommand extends $Command
   })
   .s("WisdomService", "CreateKnowledgeBase", {})
   .n("QConnectClient", "CreateKnowledgeBaseCommand")
-  .sc(CreateKnowledgeBase)
+  .sc(CreateKnowledgeBase$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

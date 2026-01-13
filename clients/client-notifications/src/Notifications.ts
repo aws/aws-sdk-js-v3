@@ -313,7 +313,10 @@ export interface Notifications {
     args: CreateEventRuleCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateEventRuleCommandOutput>;
-  createEventRule(args: CreateEventRuleCommandInput, cb: (err: any, data?: CreateEventRuleCommandOutput) => void): void;
+  createEventRule(
+    args: CreateEventRuleCommandInput,
+    cb: (err: any, data?: CreateEventRuleCommandOutput) => void
+  ): void;
   createEventRule(
     args: CreateEventRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -344,7 +347,10 @@ export interface Notifications {
     args: DeleteEventRuleCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEventRuleCommandOutput>;
-  deleteEventRule(args: DeleteEventRuleCommandInput, cb: (err: any, data?: DeleteEventRuleCommandOutput) => void): void;
+  deleteEventRule(
+    args: DeleteEventRuleCommandInput,
+    cb: (err: any, data?: DeleteEventRuleCommandOutput) => void
+  ): void;
   deleteEventRule(
     args: DeleteEventRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -492,8 +498,14 @@ export interface Notifications {
   /**
    * @see {@link GetEventRuleCommand}
    */
-  getEventRule(args: GetEventRuleCommandInput, options?: __HttpHandlerOptions): Promise<GetEventRuleCommandOutput>;
-  getEventRule(args: GetEventRuleCommandInput, cb: (err: any, data?: GetEventRuleCommandOutput) => void): void;
+  getEventRule(
+    args: GetEventRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEventRuleCommandOutput>;
+  getEventRule(
+    args: GetEventRuleCommandInput,
+    cb: (err: any, data?: GetEventRuleCommandOutput) => void
+  ): void;
   getEventRule(
     args: GetEventRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -606,8 +618,14 @@ export interface Notifications {
   /**
    * @see {@link ListChannelsCommand}
    */
-  listChannels(args: ListChannelsCommandInput, options?: __HttpHandlerOptions): Promise<ListChannelsCommandOutput>;
-  listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
+  listChannels(
+    args: ListChannelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelsCommandOutput>;
+  listChannels(
+    args: ListChannelsCommandInput,
+    cb: (err: any, data?: ListChannelsCommandOutput) => void
+  ): void;
   listChannels(
     args: ListChannelsCommandInput,
     options: __HttpHandlerOptions,
@@ -621,7 +639,10 @@ export interface Notifications {
     args: ListEventRulesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListEventRulesCommandOutput>;
-  listEventRules(args: ListEventRulesCommandInput, cb: (err: any, data?: ListEventRulesCommandOutput) => void): void;
+  listEventRules(
+    args: ListEventRulesCommandInput,
+    cb: (err: any, data?: ListEventRulesCommandOutput) => void
+  ): void;
   listEventRules(
     args: ListEventRulesCommandInput,
     options: __HttpHandlerOptions,
@@ -823,8 +844,14 @@ export interface Notifications {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -834,8 +861,14 @@ export interface Notifications {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -849,7 +882,10 @@ export interface Notifications {
     args: UpdateEventRuleCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateEventRuleCommandOutput>;
-  updateEventRule(args: UpdateEventRuleCommandInput, cb: (err: any, data?: UpdateEventRuleCommandOutput) => void): void;
+  updateEventRule(
+    args: UpdateEventRuleCommandInput,
+    cb: (err: any, data?: UpdateEventRuleCommandOutput) => void
+  ): void;
   updateEventRule(
     args: UpdateEventRuleCommandInput,
     options: __HttpHandlerOptions,

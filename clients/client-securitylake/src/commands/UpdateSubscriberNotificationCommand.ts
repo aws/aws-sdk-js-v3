@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateSubscriberNotificationRequest, UpdateSubscriberNotificationResponse } from "../models/models_0";
-import { UpdateSubscriberNotification } from "../schemas/schemas_0";
+import { UpdateSubscriberNotification$ } from "../schemas/schemas_0";
 import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -24,9 +24,7 @@ export interface UpdateSubscriberNotificationCommandInput extends UpdateSubscrib
  *
  * The output of {@link UpdateSubscriberNotificationCommand}.
  */
-export interface UpdateSubscriberNotificationCommandOutput
-  extends UpdateSubscriberNotificationResponse,
-    __MetadataBearer {}
+export interface UpdateSubscriberNotificationCommandOutput extends UpdateSubscriberNotificationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing notification method for the subscription (SQS or HTTPs endpoint) or
@@ -111,7 +109,7 @@ export class UpdateSubscriberNotificationCommand extends $Command
   })
   .s("SecurityLake", "UpdateSubscriberNotification", {})
   .n("SecurityLakeClient", "UpdateSubscriberNotificationCommand")
-  .sc(UpdateSubscriberNotification)
+  .sc(UpdateSubscriberNotification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

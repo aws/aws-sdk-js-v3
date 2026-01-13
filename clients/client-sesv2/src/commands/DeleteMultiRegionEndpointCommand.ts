@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteMultiRegionEndpointRequest, DeleteMultiRegionEndpointResponse } from "../models/models_0";
-import { DeleteMultiRegionEndpoint } from "../schemas/schemas_0";
+import { DeleteMultiRegionEndpoint$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -87,7 +87,7 @@ export class DeleteMultiRegionEndpointCommand extends $Command
   })
   .s("SimpleEmailService_v2", "DeleteMultiRegionEndpoint", {})
   .n("SESv2Client", "DeleteMultiRegionEndpointCommand")
-  .sc(DeleteMultiRegionEndpoint)
+  .sc(DeleteMultiRegionEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

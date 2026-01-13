@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAccessPointsRequest, DescribeAccessPointsResponse } from "../models/models_0";
-import { DescribeAccessPoints } from "../schemas/schemas_0";
+import { DescribeAccessPoints$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class DescribeAccessPointsCommand extends $Command
   })
   .s("MagnolioAPIService_v20150201", "DescribeAccessPoints", {})
   .n("EFSClient", "DescribeAccessPointsCommand")
-  .sc(DescribeAccessPoints)
+  .sc(DescribeAccessPoints$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

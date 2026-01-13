@@ -9,7 +9,7 @@ import type {
   GetTableBucketMaintenanceConfigurationResponse,
 } from "../models/models_0";
 import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
-import { GetTableBucketMaintenanceConfiguration } from "../schemas/schemas_0";
+import { GetTableBucketMaintenanceConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetTableBucketMaintenanceConfigurationCommand}.
  */
-export interface GetTableBucketMaintenanceConfigurationCommandInput
-  extends GetTableBucketMaintenanceConfigurationRequest {}
+export interface GetTableBucketMaintenanceConfigurationCommandInput extends GetTableBucketMaintenanceConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link GetTableBucketMaintenanceConfigurationCommand}.
  */
-export interface GetTableBucketMaintenanceConfigurationCommandOutput
-  extends GetTableBucketMaintenanceConfigurationResponse,
-    __MetadataBearer {}
+export interface GetTableBucketMaintenanceConfigurationCommandOutput extends GetTableBucketMaintenanceConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets details about a maintenance configuration for a given table bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html">Amazon S3 table bucket maintenance</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableBucketMaintenanceConfiguration</code> permission to use this operation. </p> </dd> </dl>
@@ -108,7 +105,7 @@ export class GetTableBucketMaintenanceConfigurationCommand extends $Command
   })
   .s("S3TableBuckets", "GetTableBucketMaintenanceConfiguration", {})
   .n("S3TablesClient", "GetTableBucketMaintenanceConfigurationCommand")
-  .sc(GetTableBucketMaintenanceConfiguration)
+  .sc(GetTableBucketMaintenanceConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

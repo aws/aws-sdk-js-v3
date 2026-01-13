@@ -9,7 +9,7 @@ import type {
   GetAutomatedReasoningPolicyTestResultRequest,
   GetAutomatedReasoningPolicyTestResultResponse,
 } from "../models/models_0";
-import { GetAutomatedReasoningPolicyTestResult } from "../schemas/schemas_0";
+import { GetAutomatedReasoningPolicyTestResult$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetAutomatedReasoningPolicyTestResultCommand}.
  */
-export interface GetAutomatedReasoningPolicyTestResultCommandInput
-  extends GetAutomatedReasoningPolicyTestResultRequest {}
+export interface GetAutomatedReasoningPolicyTestResultCommandInput extends GetAutomatedReasoningPolicyTestResultRequest {}
 /**
  * @public
  *
  * The output of {@link GetAutomatedReasoningPolicyTestResultCommand}.
  */
-export interface GetAutomatedReasoningPolicyTestResultCommandOutput
-  extends GetAutomatedReasoningPolicyTestResultResponse,
-    __MetadataBearer {}
+export interface GetAutomatedReasoningPolicyTestResultCommandOutput extends GetAutomatedReasoningPolicyTestResultResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the test result for a specific Automated Reasoning policy test. Returns detailed validation findings and execution status.</p>
@@ -265,7 +262,7 @@ export class GetAutomatedReasoningPolicyTestResultCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "GetAutomatedReasoningPolicyTestResult", {})
   .n("BedrockClient", "GetAutomatedReasoningPolicyTestResultCommand")
-  .sc(GetAutomatedReasoningPolicyTestResult)
+  .sc(GetAutomatedReasoningPolicyTestResult$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteClusterRequest, DeleteClusterResponse } from "../models/models_0";
-import { DeleteCluster } from "../schemas/schemas_0";
+import { DeleteCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -149,7 +149,7 @@ export class DeleteClusterCommand extends $Command
   })
   .s("AmazonDAXV3", "DeleteCluster", {})
   .n("DAXClient", "DeleteClusterCommand")
-  .sc(DeleteCluster)
+  .sc(DeleteCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

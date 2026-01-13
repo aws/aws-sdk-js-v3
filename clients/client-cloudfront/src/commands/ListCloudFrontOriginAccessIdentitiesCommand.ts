@@ -9,7 +9,7 @@ import type {
   ListCloudFrontOriginAccessIdentitiesRequest,
   ListCloudFrontOriginAccessIdentitiesResult,
 } from "../models/models_1";
-import { ListCloudFrontOriginAccessIdentities } from "../schemas/schemas_0";
+import { ListCloudFrontOriginAccessIdentities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListCloudFrontOriginAccessIdentitiesCommandInput extends ListCl
  *
  * The output of {@link ListCloudFrontOriginAccessIdentitiesCommand}.
  */
-export interface ListCloudFrontOriginAccessIdentitiesCommandOutput
-  extends ListCloudFrontOriginAccessIdentitiesResult,
-    __MetadataBearer {}
+export interface ListCloudFrontOriginAccessIdentitiesCommandOutput extends ListCloudFrontOriginAccessIdentitiesResult, __MetadataBearer {}
 
 /**
  * <p>Lists origin access identities.</p>
@@ -95,7 +93,7 @@ export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "ListCloudFrontOriginAccessIdentities", {})
   .n("CloudFrontClient", "ListCloudFrontOriginAccessIdentitiesCommand")
-  .sc(ListCloudFrontOriginAccessIdentities)
+  .sc(ListCloudFrontOriginAccessIdentities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

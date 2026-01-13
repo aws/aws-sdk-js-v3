@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteScraperRequest, DeleteScraperResponse } from "../models/models_0";
-import { DeleteScraper } from "../schemas/schemas_0";
+import { DeleteScraper$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class DeleteScraperCommand extends $Command
   })
   .s("AmazonPrometheusService", "DeleteScraper", {})
   .n("AmpClient", "DeleteScraperCommand")
-  .sc(DeleteScraper)
+  .sc(DeleteScraper$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

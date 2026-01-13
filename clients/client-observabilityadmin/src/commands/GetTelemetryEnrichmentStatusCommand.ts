@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { GetTelemetryEnrichmentStatus } from "../schemas/schemas_0";
+import { GetTelemetryEnrichmentStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface GetTelemetryEnrichmentStatusCommandInput {}
  *
  * The output of {@link GetTelemetryEnrichmentStatusCommand}.
  */
-export interface GetTelemetryEnrichmentStatusCommandOutput
-  extends GetTelemetryEnrichmentStatusOutput,
-    __MetadataBearer {}
+export interface GetTelemetryEnrichmentStatusCommandOutput extends GetTelemetryEnrichmentStatusOutput, __MetadataBearer {}
 
 /**
  * <p> Returns the current status of the resource tags for telemetry feature, which enhances telemetry data with additional resource metadata from Resource Explorer. </p>
@@ -90,7 +88,7 @@ export class GetTelemetryEnrichmentStatusCommand extends $Command
   })
   .s("ObservabilityAdmin", "GetTelemetryEnrichmentStatus", {})
   .n("ObservabilityAdminClient", "GetTelemetryEnrichmentStatusCommand")
-  .sc(GetTelemetryEnrichmentStatus)
+  .sc(GetTelemetryEnrichmentStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

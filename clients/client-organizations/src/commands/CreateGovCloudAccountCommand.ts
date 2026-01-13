@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateGovCloudAccountRequest, CreateGovCloudAccountResponse } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { CreateGovCloudAccount } from "../schemas/schemas_0";
+import { CreateGovCloudAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -643,7 +643,7 @@ export class CreateGovCloudAccountCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "CreateGovCloudAccount", {})
   .n("OrganizationsClient", "CreateGovCloudAccountCommand")
-  .sc(CreateGovCloudAccount)
+  .sc(CreateGovCloudAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

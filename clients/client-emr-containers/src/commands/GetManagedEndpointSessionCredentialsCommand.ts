@@ -9,7 +9,7 @@ import type {
   GetManagedEndpointSessionCredentialsRequest,
   GetManagedEndpointSessionCredentialsResponse,
 } from "../models/models_0";
-import { GetManagedEndpointSessionCredentials } from "../schemas/schemas_0";
+import { GetManagedEndpointSessionCredentials$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface GetManagedEndpointSessionCredentialsCommandInput extends GetMan
  *
  * The output of {@link GetManagedEndpointSessionCredentialsCommand}.
  */
-export interface GetManagedEndpointSessionCredentialsCommandOutput
-  extends GetManagedEndpointSessionCredentialsResponse,
-    __MetadataBearer {}
+export interface GetManagedEndpointSessionCredentialsCommandOutput extends GetManagedEndpointSessionCredentialsResponse, __MetadataBearer {}
 
 /**
  * <p>Generate a session token to connect to a managed endpoint. </p>
@@ -100,7 +98,7 @@ export class GetManagedEndpointSessionCredentialsCommand extends $Command
   })
   .s("AwsChicagoWebService", "GetManagedEndpointSessionCredentials", {})
   .n("EMRContainersClient", "GetManagedEndpointSessionCredentialsCommand")
-  .sc(GetManagedEndpointSessionCredentials)
+  .sc(GetManagedEndpointSessionCredentials$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

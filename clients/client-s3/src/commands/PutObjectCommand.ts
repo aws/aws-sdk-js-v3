@@ -9,7 +9,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type PutObjectOutput, PutObjectRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { PutObject } from "../schemas/schemas_0";
+import { PutObject$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -463,7 +463,7 @@ export class PutObjectCommand extends $Command
     return [
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
+        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
         requestChecksumRequired: false,
       }),
       getCheckContentLengthHeaderPlugin(config),
@@ -473,7 +473,7 @@ export class PutObjectCommand extends $Command
   })
   .s("AmazonS3", "PutObject", {})
   .n("S3Client", "PutObjectCommand")
-  .sc(PutObject)
+  .sc(PutObject$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

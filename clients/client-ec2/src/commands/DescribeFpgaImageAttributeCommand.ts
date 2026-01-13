@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeFpgaImageAttributeRequest, DescribeFpgaImageAttributeResult } from "../models/models_3";
-import { DescribeFpgaImageAttribute } from "../schemas/schemas_0";
+import { DescribeFpgaImageAttribute$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DescribeFpgaImageAttributeCommand extends $Command
   })
   .s("AmazonEC2", "DescribeFpgaImageAttribute", {})
   .n("EC2Client", "DescribeFpgaImageAttributeCommand")
-  .sc(DescribeFpgaImageAttribute)
+  .sc(DescribeFpgaImageAttribute$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { PutRegistrationFieldValue } from "../schemas/schemas_0";
+import { PutRegistrationFieldValue$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class PutRegistrationFieldValueCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "PutRegistrationFieldValue", {})
   .n("PinpointSMSVoiceV2Client", "PutRegistrationFieldValueCommand")
-  .sc(PutRegistrationFieldValue)
+  .sc(PutRegistrationFieldValue$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

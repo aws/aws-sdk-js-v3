@@ -9,7 +9,7 @@ import type {
   UpdateThingRuntimeConfigurationRequest,
   UpdateThingRuntimeConfigurationResponse,
 } from "../models/models_0";
-import { UpdateThingRuntimeConfiguration } from "../schemas/schemas_0";
+import { UpdateThingRuntimeConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateThingRuntimeConfigurationCommandInput extends UpdateThing
  *
  * The output of {@link UpdateThingRuntimeConfigurationCommand}.
  */
-export interface UpdateThingRuntimeConfigurationCommandOutput
-  extends UpdateThingRuntimeConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateThingRuntimeConfigurationCommandOutput extends UpdateThingRuntimeConfigurationResponse, __MetadataBearer {}
 
 /**
  * Updates the runtime configuration of a thing.
@@ -85,7 +83,7 @@ export class UpdateThingRuntimeConfigurationCommand extends $Command
   })
   .s("Greengrass", "UpdateThingRuntimeConfiguration", {})
   .n("GreengrassClient", "UpdateThingRuntimeConfigurationCommand")
-  .sc(UpdateThingRuntimeConfiguration)
+  .sc(UpdateThingRuntimeConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

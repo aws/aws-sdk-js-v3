@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import type { CreateStorageVirtualMachineRequest, CreateStorageVirtualMachineResponse } from "../models/models_0";
-import { CreateStorageVirtualMachine } from "../schemas/schemas_0";
+import { CreateStorageVirtualMachine$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateStorageVirtualMachineCommandInput extends CreateStorageVi
  *
  * The output of {@link CreateStorageVirtualMachineCommand}.
  */
-export interface CreateStorageVirtualMachineCommandOutput
-  extends CreateStorageVirtualMachineResponse,
-    __MetadataBearer {}
+export interface CreateStorageVirtualMachineCommandOutput extends CreateStorageVirtualMachineResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a storage virtual machine (SVM) for an Amazon FSx for ONTAP file system.</p>
@@ -187,7 +185,7 @@ export class CreateStorageVirtualMachineCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "CreateStorageVirtualMachine", {})
   .n("FSxClient", "CreateStorageVirtualMachineCommand")
-  .sc(CreateStorageVirtualMachine)
+  .sc(CreateStorageVirtualMachine$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

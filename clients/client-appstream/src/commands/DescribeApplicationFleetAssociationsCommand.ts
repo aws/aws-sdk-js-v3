@@ -9,7 +9,7 @@ import type {
   DescribeApplicationFleetAssociationsRequest,
   DescribeApplicationFleetAssociationsResult,
 } from "../models/models_0";
-import { DescribeApplicationFleetAssociations } from "../schemas/schemas_0";
+import { DescribeApplicationFleetAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeApplicationFleetAssociationsCommandInput extends Descri
  *
  * The output of {@link DescribeApplicationFleetAssociationsCommand}.
  */
-export interface DescribeApplicationFleetAssociationsCommandOutput
-  extends DescribeApplicationFleetAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeApplicationFleetAssociationsCommandOutput extends DescribeApplicationFleetAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes one or more application fleet associations. Either ApplicationArn or FleetName must be specified.</p>
@@ -93,7 +91,7 @@ export class DescribeApplicationFleetAssociationsCommand extends $Command
   })
   .s("PhotonAdminProxyService", "DescribeApplicationFleetAssociations", {})
   .n("AppStreamClient", "DescribeApplicationFleetAssociationsCommand")
-  .sc(DescribeApplicationFleetAssociations)
+  .sc(DescribeApplicationFleetAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

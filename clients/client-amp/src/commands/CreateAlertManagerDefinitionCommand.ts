@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateAlertManagerDefinitionRequest, CreateAlertManagerDefinitionResponse } from "../models/models_0";
-import { CreateAlertManagerDefinition } from "../schemas/schemas_0";
+import { CreateAlertManagerDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateAlertManagerDefinitionCommandInput extends CreateAlertMan
  *
  * The output of {@link CreateAlertManagerDefinitionCommand}.
  */
-export interface CreateAlertManagerDefinitionCommandOutput
-  extends CreateAlertManagerDefinitionResponse,
-    __MetadataBearer {}
+export interface CreateAlertManagerDefinitionCommandOutput extends CreateAlertManagerDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>The <code>CreateAlertManagerDefinition</code> operation creates the alert manager definition in a workspace. If a workspace already has an alert manager definition, don't use this operation to update it. Instead, use <code>PutAlertManagerDefinition</code>.</p>
@@ -101,7 +99,7 @@ export class CreateAlertManagerDefinitionCommand extends $Command
   })
   .s("AmazonPrometheusService", "CreateAlertManagerDefinition", {})
   .n("AmpClient", "CreateAlertManagerDefinitionCommand")
-  .sc(CreateAlertManagerDefinition)
+  .sc(CreateAlertManagerDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

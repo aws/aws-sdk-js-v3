@@ -11,10 +11,8 @@ communication channel for discovering peers, transmitting offers and answers in 
 establish peer-to-peer connection in webRTC technology.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-kinesis-video-signaling
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-kinesis-video-signaling`
 - `yarn add @aws-sdk/client-kinesis-video-signaling`
 - `pnpm add @aws-sdk/client-kinesis-video-signaling`
@@ -50,9 +48,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new KinesisVideoSignalingClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new GetIceServerConfigCommand(params);
 ```
 
@@ -211,7 +207,6 @@ GetIceServerConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-video-signaling/command/GetIceServerConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-signaling/Interface/GetIceServerConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-signaling/Interface/GetIceServerConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -219,5 +214,4 @@ SendAlexaOfferToMaster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-video-signaling/command/SendAlexaOfferToMasterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-signaling/Interface/SendAlexaOfferToMasterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-signaling/Interface/SendAlexaOfferToMasterCommandOutput/)
-
 </details>

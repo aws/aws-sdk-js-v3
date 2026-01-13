@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchGetMemberAccountDetailsRequest, BatchGetMemberAccountDetailsResponse } from "../models/models_0";
-import { BatchGetMemberAccountDetails } from "../schemas/schemas_0";
+import { BatchGetMemberAccountDetails$ } from "../schemas/schemas_0";
 import type { SecurityIRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityIRClient";
 
 /**
@@ -24,9 +24,7 @@ export interface BatchGetMemberAccountDetailsCommandInput extends BatchGetMember
  *
  * The output of {@link BatchGetMemberAccountDetailsCommand}.
  */
-export interface BatchGetMemberAccountDetailsCommandOutput
-  extends BatchGetMemberAccountDetailsResponse,
-    __MetadataBearer {}
+export interface BatchGetMemberAccountDetailsCommandOutput extends BatchGetMemberAccountDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides information on whether the supplied account IDs are associated with a membership.</p> <note> <p> AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be <code>123123123</code> which is nine digits, and with zero-prepend would be <code>000123123123</code>. Not zero-prepending to 12 digits could result in errors. </p> </note>
@@ -142,7 +140,7 @@ export class BatchGetMemberAccountDetailsCommand extends $Command
   })
   .s("SecurityIncidentResponse", "BatchGetMemberAccountDetails", {})
   .n("SecurityIRClient", "BatchGetMemberAccountDetailsCommand")
-  .sc(BatchGetMemberAccountDetails)
+  .sc(BatchGetMemberAccountDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

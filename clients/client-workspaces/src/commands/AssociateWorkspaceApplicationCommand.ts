@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateWorkspaceApplicationRequest, AssociateWorkspaceApplicationResult } from "../models/models_0";
-import { AssociateWorkspaceApplication } from "../schemas/schemas_0";
+import { AssociateWorkspaceApplication$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -24,9 +24,7 @@ export interface AssociateWorkspaceApplicationCommandInput extends AssociateWork
  *
  * The output of {@link AssociateWorkspaceApplicationCommand}.
  */
-export interface AssociateWorkspaceApplicationCommandOutput
-  extends AssociateWorkspaceApplicationResult,
-    __MetadataBearer {}
+export interface AssociateWorkspaceApplicationCommandOutput extends AssociateWorkspaceApplicationResult, __MetadataBearer {}
 
 /**
  * <p>Associates the specified application to the specified WorkSpace.</p>
@@ -52,7 +50,7 @@ export interface AssociateWorkspaceApplicationCommandOutput
  * //     LastUpdatedTime: new Date("TIMESTAMP"),
  * //     State: "PENDING_INSTALL" || "PENDING_INSTALL_DEPLOYMENT" || "PENDING_UNINSTALL" || "PENDING_UNINSTALL_DEPLOYMENT" || "INSTALLING" || "UNINSTALLING" || "ERROR" || "COMPLETED" || "REMOVED",
  * //     StateReason: { // AssociationStateReason
- * //       ErrorCode: "ValidationError.InsufficientDiskSpace" || "ValidationError.InsufficientMemory" || "ValidationError.UnsupportedOperatingSystem" || "DeploymentError.InternalServerError" || "DeploymentError.WorkspaceUnreachable",
+ * //       ErrorCode: "ValidationError.InsufficientDiskSpace" || "ValidationError.InsufficientMemory" || "ValidationError.UnsupportedOperatingSystem" || "DeploymentError.InternalServerError" || "DeploymentError.WorkspaceUnreachable" || "ValidationError.ApplicationOldVersionExists",
  * //       ErrorMessage: "STRING_VALUE",
  * //     },
  * //     WorkspaceId: "STRING_VALUE",
@@ -117,7 +115,7 @@ export class AssociateWorkspaceApplicationCommand extends $Command
   })
   .s("WorkspacesService", "AssociateWorkspaceApplication", {})
   .n("WorkSpacesClient", "AssociateWorkspaceApplicationCommand")
-  .sc(AssociateWorkspaceApplication)
+  .sc(AssociateWorkspaceApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAutomationExecutionsRequest, DescribeAutomationExecutionsResult } from "../models/models_0";
-import { DescribeAutomationExecutions } from "../schemas/schemas_0";
+import { DescribeAutomationExecutions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DescribeAutomationExecutionsCommandInput extends DescribeAutoma
  *
  * The output of {@link DescribeAutomationExecutionsCommand}.
  */
-export interface DescribeAutomationExecutionsCommandOutput
-  extends DescribeAutomationExecutionsResult,
-    __MetadataBearer {}
+export interface DescribeAutomationExecutionsCommandOutput extends DescribeAutomationExecutionsResult, __MetadataBearer {}
 
 /**
  * <p>Provides details about all active and terminated Automation executions.</p>
@@ -221,7 +219,7 @@ export class DescribeAutomationExecutionsCommand extends $Command
   })
   .s("AmazonSSM", "DescribeAutomationExecutions", {})
   .n("SSMClient", "DescribeAutomationExecutionsCommand")
-  .sc(DescribeAutomationExecutions)
+  .sc(DescribeAutomationExecutions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

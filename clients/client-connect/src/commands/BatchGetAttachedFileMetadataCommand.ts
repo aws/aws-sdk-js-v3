@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchGetAttachedFileMetadataRequest, BatchGetAttachedFileMetadataResponse } from "../models/models_0";
-import { BatchGetAttachedFileMetadata } from "../schemas/schemas_0";
+import { BatchGetAttachedFileMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface BatchGetAttachedFileMetadataCommandInput extends BatchGetAttach
  *
  * The output of {@link BatchGetAttachedFileMetadataCommand}.
  */
-export interface BatchGetAttachedFileMetadataCommandOutput
-  extends BatchGetAttachedFileMetadataResponse,
-    __MetadataBearer {}
+export interface BatchGetAttachedFileMetadataCommandOutput extends BatchGetAttachedFileMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Allows you to retrieve metadata about multiple attached files on an associated resource. Each attached file
@@ -120,7 +118,7 @@ export class BatchGetAttachedFileMetadataCommand extends $Command
   })
   .s("AmazonConnectService", "BatchGetAttachedFileMetadata", {})
   .n("ConnectClient", "BatchGetAttachedFileMetadataCommand")
-  .sc(BatchGetAttachedFileMetadata)
+  .sc(BatchGetAttachedFileMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

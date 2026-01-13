@@ -13,7 +13,7 @@ import type {
   DescribeReplicationTaskIndividualAssessmentsMessage,
   DescribeReplicationTaskIndividualAssessmentsResponse,
 } from "../models/models_0";
-import { DescribeReplicationTaskIndividualAssessments } from "../schemas/schemas_0";
+import { DescribeReplicationTaskIndividualAssessments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeReplicationTaskIndividualAssessmentsCommand}.
  */
-export interface DescribeReplicationTaskIndividualAssessmentsCommandInput
-  extends DescribeReplicationTaskIndividualAssessmentsMessage {}
+export interface DescribeReplicationTaskIndividualAssessmentsCommandInput extends DescribeReplicationTaskIndividualAssessmentsMessage {}
 /**
  * @public
  *
  * The output of {@link DescribeReplicationTaskIndividualAssessmentsCommand}.
  */
-export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput
-  extends DescribeReplicationTaskIndividualAssessmentsResponse,
-    __MetadataBearer {}
+export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput extends DescribeReplicationTaskIndividualAssessmentsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of individual assessments based on filter settings.</p>
@@ -106,7 +103,7 @@ export class DescribeReplicationTaskIndividualAssessmentsCommand extends $Comman
   })
   .s("AmazonDMSv20160101", "DescribeReplicationTaskIndividualAssessments", {})
   .n("DatabaseMigrationServiceClient", "DescribeReplicationTaskIndividualAssessmentsCommand")
-  .sc(DescribeReplicationTaskIndividualAssessments)
+  .sc(DescribeReplicationTaskIndividualAssessments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

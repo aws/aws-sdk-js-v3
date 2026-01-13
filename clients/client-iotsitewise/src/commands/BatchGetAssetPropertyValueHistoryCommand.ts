@@ -9,7 +9,7 @@ import type {
   BatchGetAssetPropertyValueHistoryRequest,
   BatchGetAssetPropertyValueHistoryResponse,
 } from "../models/models_0";
-import { BatchGetAssetPropertyValueHistory } from "../schemas/schemas_0";
+import { BatchGetAssetPropertyValueHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface BatchGetAssetPropertyValueHistoryCommandInput extends BatchGetA
  *
  * The output of {@link BatchGetAssetPropertyValueHistoryCommand}.
  */
-export interface BatchGetAssetPropertyValueHistoryCommandOutput
-  extends BatchGetAssetPropertyValueHistoryResponse,
-    __MetadataBearer {}
+export interface BatchGetAssetPropertyValueHistoryCommandOutput extends BatchGetAssetPropertyValueHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the historical values for one or more asset properties. For more information, see
@@ -150,7 +148,7 @@ export class BatchGetAssetPropertyValueHistoryCommand extends $Command
   })
   .s("AWSIoTSiteWise", "BatchGetAssetPropertyValueHistory", {})
   .n("IoTSiteWiseClient", "BatchGetAssetPropertyValueHistoryCommand")
-  .sc(BatchGetAssetPropertyValueHistory)
+  .sc(BatchGetAssetPropertyValueHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

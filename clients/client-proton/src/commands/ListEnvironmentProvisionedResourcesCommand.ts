@@ -9,7 +9,7 @@ import type {
   ListEnvironmentProvisionedResourcesOutput,
 } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { ListEnvironmentProvisionedResources } from "../schemas/schemas_0";
+import { ListEnvironmentProvisionedResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListEnvironmentProvisionedResourcesCommandInput extends ListEnv
  *
  * The output of {@link ListEnvironmentProvisionedResourcesCommand}.
  */
-export interface ListEnvironmentProvisionedResourcesCommandOutput
-  extends ListEnvironmentProvisionedResourcesOutput,
-    __MetadataBearer {}
+export interface ListEnvironmentProvisionedResourcesCommandOutput extends ListEnvironmentProvisionedResourcesOutput, __MetadataBearer {}
 
 /**
  * <p>List the provisioned resources for your environment.</p>
@@ -103,7 +101,7 @@ export class ListEnvironmentProvisionedResourcesCommand extends $Command
   })
   .s("AwsProton20200720", "ListEnvironmentProvisionedResources", {})
   .n("ProtonClient", "ListEnvironmentProvisionedResourcesCommand")
-  .sc(ListEnvironmentProvisionedResources)
+  .sc(ListEnvironmentProvisionedResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   EnableIpamOrganizationAdminAccountRequest,
   EnableIpamOrganizationAdminAccountResult,
 } from "../models/models_5";
-import { EnableIpamOrganizationAdminAccount } from "../schemas/schemas_0";
+import { EnableIpamOrganizationAdminAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface EnableIpamOrganizationAdminAccountCommandInput extends EnableIp
  *
  * The output of {@link EnableIpamOrganizationAdminAccountCommand}.
  */
-export interface EnableIpamOrganizationAdminAccountCommandOutput
-  extends EnableIpamOrganizationAdminAccountResult,
-    __MetadataBearer {}
+export interface EnableIpamOrganizationAdminAccountCommandOutput extends EnableIpamOrganizationAdminAccountResult, __MetadataBearer {}
 
 /**
  * <p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.
@@ -80,7 +78,7 @@ export class EnableIpamOrganizationAdminAccountCommand extends $Command
   })
   .s("AmazonEC2", "EnableIpamOrganizationAdminAccount", {})
   .n("EC2Client", "EnableIpamOrganizationAdminAccountCommand")
-  .sc(EnableIpamOrganizationAdminAccount)
+  .sc(EnableIpamOrganizationAdminAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

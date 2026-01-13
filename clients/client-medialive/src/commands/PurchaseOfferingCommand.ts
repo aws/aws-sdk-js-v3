@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { PurchaseOfferingRequest, PurchaseOfferingResponse } from "../models/models_1";
-import { PurchaseOffering } from "../schemas/schemas_0";
+import { PurchaseOffering$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -142,7 +142,7 @@ export class PurchaseOfferingCommand extends $Command
   })
   .s("MediaLive", "PurchaseOffering", {})
   .n("MediaLiveClient", "PurchaseOfferingCommand")
-  .sc(PurchaseOffering)
+  .sc(PurchaseOffering$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

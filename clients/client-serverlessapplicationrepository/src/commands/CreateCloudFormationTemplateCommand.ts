@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateCloudFormationTemplateRequest, CreateCloudFormationTemplateResponse } from "../models/models_0";
-import { CreateCloudFormationTemplate } from "../schemas/schemas_0";
+import { CreateCloudFormationTemplate$ } from "../schemas/schemas_0";
 import type {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
@@ -28,9 +28,7 @@ export interface CreateCloudFormationTemplateCommandInput extends CreateCloudFor
  *
  * The output of {@link CreateCloudFormationTemplateCommand}.
  */
-export interface CreateCloudFormationTemplateCommandOutput
-  extends CreateCloudFormationTemplateResponse,
-    __MetadataBearer {}
+export interface CreateCloudFormationTemplateCommandOutput extends CreateCloudFormationTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an AWS CloudFormation template.</p>
@@ -101,7 +99,7 @@ export class CreateCloudFormationTemplateCommand extends $Command
   })
   .s("ServerlessApplicationRepository", "CreateCloudFormationTemplate", {})
   .n("ServerlessApplicationRepositoryClient", "CreateCloudFormationTemplateCommand")
-  .sc(CreateCloudFormationTemplate)
+  .sc(CreateCloudFormationTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

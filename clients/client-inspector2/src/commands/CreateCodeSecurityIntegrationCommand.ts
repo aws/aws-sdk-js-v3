@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import type { CreateCodeSecurityIntegrationRequest, CreateCodeSecurityIntegrationResponse } from "../models/models_0";
-import { CreateCodeSecurityIntegration } from "../schemas/schemas_0";
+import { CreateCodeSecurityIntegration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface CreateCodeSecurityIntegrationCommandInput extends CreateCodeSec
  *
  * The output of {@link CreateCodeSecurityIntegrationCommand}.
  */
-export interface CreateCodeSecurityIntegrationCommandOutput
-  extends CreateCodeSecurityIntegrationResponse,
-    __MetadataBearer {}
+export interface CreateCodeSecurityIntegrationCommandOutput extends CreateCodeSecurityIntegrationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a code security integration with a source code repository provider.</p>
@@ -114,7 +112,7 @@ export class CreateCodeSecurityIntegrationCommand extends $Command
   })
   .s("Inspector2", "CreateCodeSecurityIntegration", {})
   .n("Inspector2Client", "CreateCodeSecurityIntegrationCommand")
-  .sc(CreateCodeSecurityIntegration)
+  .sc(CreateCodeSecurityIntegration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

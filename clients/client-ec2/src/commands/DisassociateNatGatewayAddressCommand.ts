@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateNatGatewayAddressRequest, DisassociateNatGatewayAddressResult } from "../models/models_5";
-import { DisassociateNatGatewayAddress } from "../schemas/schemas_0";
+import { DisassociateNatGatewayAddress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DisassociateNatGatewayAddressCommandInput extends DisassociateN
  *
  * The output of {@link DisassociateNatGatewayAddressCommand}.
  */
-export interface DisassociateNatGatewayAddressCommandOutput
-  extends DisassociateNatGatewayAddressResult,
-    __MetadataBearer {}
+export interface DisassociateNatGatewayAddressCommandOutput extends DisassociateNatGatewayAddressResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway.
@@ -101,7 +99,7 @@ export class DisassociateNatGatewayAddressCommand extends $Command
   })
   .s("AmazonEC2", "DisassociateNatGatewayAddress", {})
   .n("EC2Client", "DisassociateNatGatewayAddressCommand")
-  .sc(DisassociateNatGatewayAddress)
+  .sc(DisassociateNatGatewayAddress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DescribeOrganizationConfigRuleStatusesRequest,
   DescribeOrganizationConfigRuleStatusesResponse,
 } from "../models/models_0";
-import { DescribeOrganizationConfigRuleStatuses } from "../schemas/schemas_0";
+import { DescribeOrganizationConfigRuleStatuses$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeOrganizationConfigRuleStatusesCommand}.
  */
-export interface DescribeOrganizationConfigRuleStatusesCommandInput
-  extends DescribeOrganizationConfigRuleStatusesRequest {}
+export interface DescribeOrganizationConfigRuleStatusesCommandInput extends DescribeOrganizationConfigRuleStatusesRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeOrganizationConfigRuleStatusesCommand}.
  */
-export interface DescribeOrganizationConfigRuleStatusesCommandOutput
-  extends DescribeOrganizationConfigRuleStatusesResponse,
-    __MetadataBearer {}
+export interface DescribeOrganizationConfigRuleStatusesCommandOutput extends DescribeOrganizationConfigRuleStatusesResponse, __MetadataBearer {}
 
 /**
  * <p>Provides organization Config rule deployment status for an organization.</p>
@@ -131,7 +128,7 @@ export class DescribeOrganizationConfigRuleStatusesCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeOrganizationConfigRuleStatuses", {})
   .n("ConfigServiceClient", "DescribeOrganizationConfigRuleStatusesCommand")
-  .sc(DescribeOrganizationConfigRuleStatuses)
+  .sc(DescribeOrganizationConfigRuleStatuses$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

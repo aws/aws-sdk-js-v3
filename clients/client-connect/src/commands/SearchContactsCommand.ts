@@ -7,7 +7,7 @@ import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchContactsRequest } from "../models/models_2";
 import type { SearchContactsResponse } from "../models/models_3";
-import { SearchContacts } from "../schemas/schemas_0";
+import { SearchContacts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -144,6 +144,9 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  *       ],
  *       MatchType: "MATCH_ALL" || "MATCH_ANY" || "MATCH_EXACT" || "MATCH_NONE",
  *     },
+ *     ActiveRegions: [ // ActiveRegionList
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
@@ -297,6 +300,11 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  * //         ActivationTimestamp: new Date("TIMESTAMP"),
  * //         Index: Number("int"),
  * //       },
+ * //       GlobalResiliencyMetadata: { // GlobalResiliencyMetadata
+ * //         ActiveRegion: "STRING_VALUE",
+ * //         OriginRegion: "STRING_VALUE",
+ * //         TrafficDistributionGroupId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -346,7 +354,7 @@ export class SearchContactsCommand extends $Command
   })
   .s("AmazonConnectService", "SearchContacts", {})
   .n("ConnectClient", "SearchContactsCommand")
-  .sc(SearchContacts)
+  .sc(SearchContacts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

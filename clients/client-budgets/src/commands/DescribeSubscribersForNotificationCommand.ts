@@ -9,7 +9,7 @@ import type {
   DescribeSubscribersForNotificationRequest,
   DescribeSubscribersForNotificationResponse,
 } from "../models/models_0";
-import { DescribeSubscribersForNotification } from "../schemas/schemas_0";
+import { DescribeSubscribersForNotification$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeSubscribersForNotificationCommandInput extends Describe
  *
  * The output of {@link DescribeSubscribersForNotificationCommand}.
  */
-export interface DescribeSubscribersForNotificationCommandOutput
-  extends DescribeSubscribersForNotificationResponse,
-    __MetadataBearer {}
+export interface DescribeSubscribersForNotificationCommandOutput extends DescribeSubscribersForNotificationResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the subscribers that are associated with a notification.</p>
@@ -116,7 +114,7 @@ export class DescribeSubscribersForNotificationCommand extends $Command
   })
   .s("AWSBudgetServiceGateway", "DescribeSubscribersForNotification", {})
   .n("BudgetsClient", "DescribeSubscribersForNotificationCommand")
-  .sc(DescribeSubscribersForNotification)
+  .sc(DescribeSubscribersForNotification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

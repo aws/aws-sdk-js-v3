@@ -9,7 +9,7 @@ import type {
   DescribeReservedInstanceOfferingsResponse,
 } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { DescribeReservedInstanceOfferings } from "../schemas/schemas_0";
+import { DescribeReservedInstanceOfferings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeReservedInstanceOfferingsCommandInput extends DescribeR
  *
  * The output of {@link DescribeReservedInstanceOfferingsCommand}.
  */
-export interface DescribeReservedInstanceOfferingsCommandOutput
-  extends DescribeReservedInstanceOfferingsResponse,
-    __MetadataBearer {}
+export interface DescribeReservedInstanceOfferingsCommandOutput extends DescribeReservedInstanceOfferingsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the available Amazon OpenSearch Service Reserved Instance offerings for a
@@ -111,7 +109,7 @@ export class DescribeReservedInstanceOfferingsCommand extends $Command
   })
   .s("AmazonOpenSearchService", "DescribeReservedInstanceOfferings", {})
   .n("OpenSearchClient", "DescribeReservedInstanceOfferingsCommand")
-  .sc(DescribeReservedInstanceOfferings)
+  .sc(DescribeReservedInstanceOfferings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

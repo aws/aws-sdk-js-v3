@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import type { DisassociateApplicationsRequest, DisassociateApplicationsResponse } from "../models/models_0";
-import { DisassociateApplications } from "../schemas/schemas_0";
+import { DisassociateApplications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DisassociateApplicationsCommand extends $Command
   })
   .s("ApplicationMigrationService", "DisassociateApplications", {})
   .n("MgnClient", "DisassociateApplicationsCommand")
-  .sc(DisassociateApplications)
+  .sc(DisassociateApplications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

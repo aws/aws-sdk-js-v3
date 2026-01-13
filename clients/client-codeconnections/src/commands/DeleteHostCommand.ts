@@ -10,7 +10,7 @@ import type {
 } from "../CodeConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteHostInput, DeleteHostOutput } from "../models/models_0";
-import { DeleteHost } from "../schemas/schemas_0";
+import { DeleteHost$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DeleteHostCommand extends $Command
   })
   .s("CodeConnections_20231201", "DeleteHost", {})
   .n("CodeConnectionsClient", "DeleteHostCommand")
-  .sc(DeleteHost)
+  .sc(DeleteHost$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

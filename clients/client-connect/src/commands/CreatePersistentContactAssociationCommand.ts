@@ -9,7 +9,7 @@ import type {
   CreatePersistentContactAssociationRequest,
   CreatePersistentContactAssociationResponse,
 } from "../models/models_0";
-import { CreatePersistentContactAssociation } from "../schemas/schemas_0";
+import { CreatePersistentContactAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface CreatePersistentContactAssociationCommandInput extends CreatePe
  *
  * The output of {@link CreatePersistentContactAssociationCommand}.
  */
-export interface CreatePersistentContactAssociationCommandOutput
-  extends CreatePersistentContactAssociationResponse,
-    __MetadataBearer {}
+export interface CreatePersistentContactAssociationCommandOutput extends CreatePersistentContactAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Enables rehydration of chats for the lifespan of a contact. For more information about chat rehydration, see
@@ -102,7 +100,7 @@ export class CreatePersistentContactAssociationCommand extends $Command
   })
   .s("AmazonConnectService", "CreatePersistentContactAssociation", {})
   .n("ConnectClient", "CreatePersistentContactAssociationCommand")
-  .sc(CreatePersistentContactAssociation)
+  .sc(CreatePersistentContactAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

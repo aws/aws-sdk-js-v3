@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FailoverGlobalReplicationGroupMessage, FailoverGlobalReplicationGroupResult } from "../models/models_0";
-import { FailoverGlobalReplicationGroup } from "../schemas/schemas_0";
+import { FailoverGlobalReplicationGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface FailoverGlobalReplicationGroupCommandInput extends FailoverGlob
  *
  * The output of {@link FailoverGlobalReplicationGroupCommand}.
  */
-export interface FailoverGlobalReplicationGroupCommandOutput
-  extends FailoverGlobalReplicationGroupResult,
-    __MetadataBearer {}
+export interface FailoverGlobalReplicationGroupCommandOutput extends FailoverGlobalReplicationGroupResult, __MetadataBearer {}
 
 /**
  * <p>Used to failover the primary region to a secondary region. The secondary region will
@@ -117,7 +115,7 @@ export class FailoverGlobalReplicationGroupCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "FailoverGlobalReplicationGroup", {})
   .n("ElastiCacheClient", "FailoverGlobalReplicationGroupCommand")
-  .sc(FailoverGlobalReplicationGroup)
+  .sc(FailoverGlobalReplicationGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

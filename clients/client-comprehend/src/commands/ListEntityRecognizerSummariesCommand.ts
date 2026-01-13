@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListEntityRecognizerSummariesRequest, ListEntityRecognizerSummariesResponse } from "../models/models_0";
-import { ListEntityRecognizerSummaries } from "../schemas/schemas_0";
+import { ListEntityRecognizerSummaries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface ListEntityRecognizerSummariesCommandInput extends ListEntityRec
  *
  * The output of {@link ListEntityRecognizerSummariesCommand}.
  */
-export interface ListEntityRecognizerSummariesCommandOutput
-  extends ListEntityRecognizerSummariesResponse,
-    __MetadataBearer {}
+export interface ListEntityRecognizerSummariesCommandOutput extends ListEntityRecognizerSummariesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of summaries for the entity recognizers that you have created.</p>
@@ -94,7 +92,7 @@ export class ListEntityRecognizerSummariesCommand extends $Command
   })
   .s("Comprehend_20171127", "ListEntityRecognizerSummaries", {})
   .n("ComprehendClient", "ListEntityRecognizerSummariesCommand")
-  .sc(ListEntityRecognizerSummaries)
+  .sc(ListEntityRecognizerSummaries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

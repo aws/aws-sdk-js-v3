@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetContentAssociationRequest, GetContentAssociationResponse } from "../models/models_0";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { GetContentAssociation } from "../schemas/schemas_0";
+import { GetContentAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class GetContentAssociationCommand extends $Command
   })
   .s("WisdomService", "GetContentAssociation", {})
   .n("QConnectClient", "GetContentAssociationCommand")
-  .sc(GetContentAssociation)
+  .sc(GetContentAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

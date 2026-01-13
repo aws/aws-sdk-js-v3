@@ -8,7 +8,7 @@ import type {
   DescribePermissionSetProvisioningStatusRequest,
   DescribePermissionSetProvisioningStatusResponse,
 } from "../models/models_0";
-import { DescribePermissionSetProvisioningStatus } from "../schemas/schemas_0";
+import { DescribePermissionSetProvisioningStatus$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribePermissionSetProvisioningStatusCommand}.
  */
-export interface DescribePermissionSetProvisioningStatusCommandInput
-  extends DescribePermissionSetProvisioningStatusRequest {}
+export interface DescribePermissionSetProvisioningStatusCommandInput extends DescribePermissionSetProvisioningStatusRequest {}
 /**
  * @public
  *
  * The output of {@link DescribePermissionSetProvisioningStatusCommand}.
  */
-export interface DescribePermissionSetProvisioningStatusCommandOutput
-  extends DescribePermissionSetProvisioningStatusResponse,
-    __MetadataBearer {}
+export interface DescribePermissionSetProvisioningStatusCommandOutput extends DescribePermissionSetProvisioningStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the status for the given permission set provisioning request.</p>
@@ -102,7 +99,7 @@ export class DescribePermissionSetProvisioningStatusCommand extends $Command
   })
   .s("SWBExternalService", "DescribePermissionSetProvisioningStatus", {})
   .n("SSOAdminClient", "DescribePermissionSetProvisioningStatusCommand")
-  .sc(DescribePermissionSetProvisioningStatus)
+  .sc(DescribePermissionSetProvisioningStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

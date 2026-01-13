@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteQueryDefinitionRequest, DeleteQueryDefinitionResponse } from "../models/models_0";
-import { DeleteQueryDefinition } from "../schemas/schemas_0";
+import { DeleteQueryDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteQueryDefinitionCommand extends $Command
   })
   .s("Logs_20140328", "DeleteQueryDefinition", {})
   .n("CloudWatchLogsClient", "DeleteQueryDefinitionCommand")
-  .sc(DeleteQueryDefinition)
+  .sc(DeleteQueryDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { UpdateCrossAccountAttachmentRequest, UpdateCrossAccountAttachmentResponse } from "../models/models_0";
-import { UpdateCrossAccountAttachment } from "../schemas/schemas_0";
+import { UpdateCrossAccountAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface UpdateCrossAccountAttachmentCommandInput extends UpdateCrossAcc
  *
  * The output of {@link UpdateCrossAccountAttachmentCommand}.
  */
-export interface UpdateCrossAccountAttachmentCommandOutput
-  extends UpdateCrossAccountAttachmentResponse,
-    __MetadataBearer {}
+export interface UpdateCrossAccountAttachmentCommandOutput extends UpdateCrossAccountAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Update a cross-account attachment to add or remove principals or resources. When you update
@@ -138,7 +136,7 @@ export class UpdateCrossAccountAttachmentCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "UpdateCrossAccountAttachment", {})
   .n("GlobalAcceleratorClient", "UpdateCrossAccountAttachmentCommand")
-  .sc(UpdateCrossAccountAttachment)
+  .sc(UpdateCrossAccountAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

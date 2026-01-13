@@ -9,7 +9,7 @@ import type {
   ListFunctionsByCodeSigningConfigRequest,
   ListFunctionsByCodeSigningConfigResponse,
 } from "../models/models_0";
-import { ListFunctionsByCodeSigningConfig } from "../schemas/schemas_0";
+import { ListFunctionsByCodeSigningConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListFunctionsByCodeSigningConfigCommandInput extends ListFuncti
  *
  * The output of {@link ListFunctionsByCodeSigningConfigCommand}.
  */
-export interface ListFunctionsByCodeSigningConfigCommandOutput
-  extends ListFunctionsByCodeSigningConfigResponse,
-    __MetadataBearer {}
+export interface ListFunctionsByCodeSigningConfigCommandOutput extends ListFunctionsByCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
  * <p>List the functions that use the specified code signing configuration. You can use this method prior to deleting a code signing configuration, to verify that no functions are using it.</p>
@@ -92,7 +90,7 @@ export class ListFunctionsByCodeSigningConfigCommand extends $Command
   })
   .s("AWSGirApiService", "ListFunctionsByCodeSigningConfig", {})
   .n("LambdaClient", "ListFunctionsByCodeSigningConfigCommand")
-  .sc(ListFunctionsByCodeSigningConfig)
+  .sc(ListFunctionsByCodeSigningConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

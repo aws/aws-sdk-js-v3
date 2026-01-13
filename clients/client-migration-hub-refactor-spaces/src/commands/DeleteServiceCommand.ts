@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
 import type { DeleteServiceRequest, DeleteServiceResponse } from "../models/models_0";
-import { DeleteService } from "../schemas/schemas_0";
+import { DeleteService$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DeleteServiceCommand extends $Command
   })
   .s("RefactorSpaces", "DeleteService", {})
   .n("MigrationHubRefactorSpacesClient", "DeleteServiceCommand")
-  .sc(DeleteService)
+  .sc(DeleteService$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

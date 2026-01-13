@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableImportFindingsForProductRequest, EnableImportFindingsForProductResponse } from "../models/models_2";
-import { EnableImportFindingsForProduct } from "../schemas/schemas_0";
+import { EnableImportFindingsForProduct$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -24,9 +24,7 @@ export interface EnableImportFindingsForProductCommandInput extends EnableImport
  *
  * The output of {@link EnableImportFindingsForProductCommand}.
  */
-export interface EnableImportFindingsForProductCommandOutput
-  extends EnableImportFindingsForProductResponse,
-    __MetadataBearer {}
+export interface EnableImportFindingsForProductCommandOutput extends EnableImportFindingsForProductResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the integration of a partner product with Security Hub. Integrated products send
@@ -110,7 +108,7 @@ export class EnableImportFindingsForProductCommand extends $Command
   })
   .s("SecurityHubAPIService", "EnableImportFindingsForProduct", {})
   .n("SecurityHubClient", "EnableImportFindingsForProductCommand")
-  .sc(EnableImportFindingsForProduct)
+  .sc(EnableImportFindingsForProduct$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

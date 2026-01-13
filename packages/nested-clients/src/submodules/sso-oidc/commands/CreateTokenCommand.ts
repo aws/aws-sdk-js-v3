@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateTokenRequest, CreateTokenResponse } from "../models/models_0";
-import { CreateToken } from "../schemas/schemas_0";
+import { CreateToken$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
 /**
@@ -175,7 +175,7 @@ export class CreateTokenCommand extends $Command
   })
   .s("AWSSSOOIDCService", "CreateToken", {})
   .n("SSOOIDCClient", "CreateTokenCommand")
-  .sc(CreateToken)
+  .sc(CreateToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import type { DescribeSharedVpcConfigurationRequest, DescribeSharedVpcConfigurationResponse } from "../models/models_0";
-import { DescribeSharedVpcConfiguration } from "../schemas/schemas_0";
+import { DescribeSharedVpcConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeSharedVpcConfigurationCommandInput extends DescribeShar
  *
  * The output of {@link DescribeSharedVpcConfigurationCommand}.
  */
-export interface DescribeSharedVpcConfigurationCommandOutput
-  extends DescribeSharedVpcConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeSharedVpcConfigurationCommandOutput extends DescribeSharedVpcConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Indicates whether participant accounts in your organization can create Amazon FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a virtual
@@ -80,7 +78,7 @@ export class DescribeSharedVpcConfigurationCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "DescribeSharedVpcConfiguration", {})
   .n("FSxClient", "DescribeSharedVpcConfigurationCommand")
-  .sc(DescribeSharedVpcConfiguration)
+  .sc(DescribeSharedVpcConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

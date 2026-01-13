@@ -236,7 +236,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "SSO_SESSION_TOKEN_us-sso-region-1",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_SSO_LEGACY: "u",
         },
       });
@@ -523,7 +522,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
           CREDENTIALS_STS_ASSUME_ROLE: "i",
         },
@@ -567,7 +565,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
           CREDENTIALS_STS_ASSUME_ROLE: "i",
         },
@@ -613,7 +610,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
           CREDENTIALS_STS_ASSUME_ROLE: "i",
         },
@@ -666,7 +662,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
           CREDENTIALS_STS_ASSUME_ROLE: "i",
         },
@@ -724,7 +719,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_ARWI_SESSION_TOKEN_ap-northeast-1",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_STS_ASSUME_ROLE_WEB_ID: "k",
         },
       });
@@ -765,7 +759,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_ARWI_SESSION_TOKEN_eu-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_STS_ASSUME_ROLE_WEB_ID: "k",
         },
       });
@@ -827,7 +820,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "COGNITO_SESSION_TOKEN_ap-northeast-1",
         identityId: "",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
-        $source: { CREDENTIALS_CODE: "e" },
       });
     });
 
@@ -846,7 +838,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "COGNITO_SESSION_TOKEN_ap-northeast-1",
         identityId: "ap-northeast-1:COGNITO_IDENTITY_ID",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
-        $source: { CREDENTIALS_CODE: "e" },
       });
     });
 
@@ -875,7 +866,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_AR_SESSION_TOKEN_eu-west-1",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
           CREDENTIALS_STS_ASSUME_ROLE: "i",
         },
@@ -907,7 +897,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_AR_SESSION_TOKEN_eu-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
           CREDENTIALS_STS_ASSUME_ROLE: "i",
         },
@@ -930,7 +919,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_ARWI_SESSION_TOKEN_ap-northeast-1",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_STS_ASSUME_ROLE_WEB_ID: "k",
         },
       });
@@ -1108,7 +1096,6 @@ describe("credential-provider-node integration test", () => {
           sessionToken: "STS_AR_SESSION_TOKEN_ap-northeast-1",
           expiration: new Date("3000-01-01T00:00:00.000Z"),
           $source: {
-            CREDENTIALS_CODE: "e",
             CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
             CREDENTIALS_STS_ASSUME_ROLE: "i",
           },
@@ -1156,7 +1143,6 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "DEFAULT",
         sessionToken: undefined,
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE: "n",
         },
       });
@@ -1232,7 +1218,6 @@ describe("credential-provider-node integration test", () => {
             sessionToken: "SSO_SESSION_TOKEN_us-sso-region-2",
             expiration: new Date("3000-01-01T00:00:00.000Z"),
             $source: {
-              CREDENTIALS_CODE: "e",
               CREDENTIALS_PROFILE_SSO: "r",
               CREDENTIALS_SSO: "s",
             },
@@ -1306,9 +1291,6 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_AK1",
         secretAccessKey: "STS_SAK1",
-        $source: {
-          CREDENTIALS_CODE: "e",
-        },
       });
     });
 
@@ -1321,18 +1303,12 @@ describe("credential-provider-node integration test", () => {
       expect(credentials1).toEqual({
         accessKeyId: "STS_AK1",
         secretAccessKey: "STS_SAK1",
-        $source: {
-          CREDENTIALS_CODE: "e",
-        },
       });
 
       const credentials2 = await client.config.credentials({});
       expect(credentials2).toEqual({
         accessKeyId: "STS_AK1",
         secretAccessKey: "STS_SAK1",
-        $source: {
-          CREDENTIALS_CODE: "e",
-        },
       });
 
       const credentials3 = await client.config.credentials({
@@ -1341,18 +1317,12 @@ describe("credential-provider-node integration test", () => {
       expect(credentials3).toEqual({
         accessKeyId: "STS_AK2",
         secretAccessKey: "STS_SAK2",
-        $source: {
-          CREDENTIALS_CODE: "e",
-        },
       });
 
       const credentials4 = await client.config.credentials({});
       expect(credentials4).toEqual({
         accessKeyId: "STS_AK2",
         secretAccessKey: "STS_SAK2",
-        $source: {
-          CREDENTIALS_CODE: "e",
-        },
       });
     });
   });

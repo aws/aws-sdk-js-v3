@@ -9,7 +9,7 @@ import type {
   DescribeReplicationConfigurationsRequest,
   DescribeReplicationConfigurationsResponse,
 } from "../models/models_0";
-import { DescribeReplicationConfigurations } from "../schemas/schemas_0";
+import { DescribeReplicationConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeReplicationConfigurationsCommandInput extends DescribeR
  *
  * The output of {@link DescribeReplicationConfigurationsCommand}.
  */
-export interface DescribeReplicationConfigurationsCommandOutput
-  extends DescribeReplicationConfigurationsResponse,
-    __MetadataBearer {}
+export interface DescribeReplicationConfigurationsCommandOutput extends DescribeReplicationConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the replication configuration for a specific file system. If a file system is
@@ -121,7 +119,7 @@ export class DescribeReplicationConfigurationsCommand extends $Command
   })
   .s("MagnolioAPIService_v20150201", "DescribeReplicationConfigurations", {})
   .n("EFSClient", "DescribeReplicationConfigurationsCommand")
-  .sc(DescribeReplicationConfigurations)
+  .sc(DescribeReplicationConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

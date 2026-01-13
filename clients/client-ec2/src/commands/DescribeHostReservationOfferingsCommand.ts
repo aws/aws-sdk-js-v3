@@ -9,7 +9,7 @@ import type {
   DescribeHostReservationOfferingsRequest,
   DescribeHostReservationOfferingsResult,
 } from "../models/models_3";
-import { DescribeHostReservationOfferings } from "../schemas/schemas_0";
+import { DescribeHostReservationOfferings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeHostReservationOfferingsCommandInput extends DescribeHo
  *
  * The output of {@link DescribeHostReservationOfferingsCommand}.
  */
-export interface DescribeHostReservationOfferingsCommandOutput
-  extends DescribeHostReservationOfferingsResult,
-    __MetadataBearer {}
+export interface DescribeHostReservationOfferingsCommandOutput extends DescribeHostReservationOfferingsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the Dedicated Host reservations that are available to purchase.</p>
@@ -107,7 +105,7 @@ export class DescribeHostReservationOfferingsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeHostReservationOfferings", {})
   .n("EC2Client", "DescribeHostReservationOfferingsCommand")
-  .sc(DescribeHostReservationOfferings)
+  .sc(DescribeHostReservationOfferings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

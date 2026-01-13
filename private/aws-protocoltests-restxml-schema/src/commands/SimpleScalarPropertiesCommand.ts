@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { SimpleScalarProperties } from "../schemas/schemas_0";
+import { SimpleScalarProperties$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class SimpleScalarPropertiesCommand extends $Command
   })
   .s("RestXml", "SimpleScalarProperties", {})
   .n("RestXmlProtocolClient", "SimpleScalarPropertiesCommand")
-  .sc(SimpleScalarProperties)
+  .sc(SimpleScalarProperties$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

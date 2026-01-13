@@ -8,7 +8,7 @@ import type {
   DescribeOrganizationConfigurationRequest,
   DescribeOrganizationConfigurationResponse,
 } from "../models/models_2";
-import { DescribeOrganizationConfiguration } from "../schemas/schemas_0";
+import { DescribeOrganizationConfiguration$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -27,9 +27,7 @@ export interface DescribeOrganizationConfigurationCommandInput extends DescribeO
  *
  * The output of {@link DescribeOrganizationConfigurationCommand}.
  */
-export interface DescribeOrganizationConfigurationCommandOutput
-  extends DescribeOrganizationConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeOrganizationConfigurationCommandOutput extends DescribeOrganizationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the way your organization is configured in Security Hub. Only the
@@ -117,7 +115,7 @@ export class DescribeOrganizationConfigurationCommand extends $Command
   })
   .s("SecurityHubAPIService", "DescribeOrganizationConfiguration", {})
   .n("SecurityHubClient", "DescribeOrganizationConfigurationCommand")
-  .sc(DescribeOrganizationConfiguration)
+  .sc(DescribeOrganizationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

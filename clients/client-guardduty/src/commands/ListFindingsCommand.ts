@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import type { ListFindingsRequest, ListFindingsResponse } from "../models/models_1";
-import { ListFindings } from "../schemas/schemas_0";
+import { ListFindings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class ListFindingsCommand extends $Command
   })
   .s("GuardDutyAPIService", "ListFindings", {})
   .n("GuardDutyClient", "ListFindingsCommand")
-  .sc(ListFindings)
+  .sc(ListFindings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

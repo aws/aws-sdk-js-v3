@@ -9,7 +9,7 @@ import type {
   ListTargetedSentimentDetectionJobsRequest,
   ListTargetedSentimentDetectionJobsResponse,
 } from "../models/models_0";
-import { ListTargetedSentimentDetectionJobs } from "../schemas/schemas_0";
+import { ListTargetedSentimentDetectionJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface ListTargetedSentimentDetectionJobsCommandInput extends ListTarg
  *
  * The output of {@link ListTargetedSentimentDetectionJobsCommand}.
  */
-export interface ListTargetedSentimentDetectionJobsCommandOutput
-  extends ListTargetedSentimentDetectionJobsResponse,
-    __MetadataBearer {}
+export interface ListTargetedSentimentDetectionJobsCommandOutput extends ListTargetedSentimentDetectionJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of targeted sentiment detection jobs that you have submitted.</p>
@@ -135,7 +133,7 @@ export class ListTargetedSentimentDetectionJobsCommand extends $Command
   })
   .s("Comprehend_20171127", "ListTargetedSentimentDetectionJobs", {})
   .n("ComprehendClient", "ListTargetedSentimentDetectionJobsCommand")
-  .sc(ListTargetedSentimentDetectionJobs)
+  .sc(ListTargetedSentimentDetectionJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

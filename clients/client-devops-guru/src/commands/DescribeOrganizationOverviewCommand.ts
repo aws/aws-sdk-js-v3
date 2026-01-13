@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeOrganizationOverviewRequest, DescribeOrganizationOverviewResponse } from "../models/models_0";
-import { DescribeOrganizationOverview } from "../schemas/schemas_0";
+import { DescribeOrganizationOverview$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DescribeOrganizationOverviewCommandInput extends DescribeOrgani
  *
  * The output of {@link DescribeOrganizationOverviewCommand}.
  */
-export interface DescribeOrganizationOverviewCommandOutput
-  extends DescribeOrganizationOverviewResponse,
-    __MetadataBearer {}
+export interface DescribeOrganizationOverviewCommandOutput extends DescribeOrganizationOverviewResponse, __MetadataBearer {}
 
 /**
  * <p>Returns an overview of your organization's history based on the specified time range.
@@ -100,7 +98,7 @@ export class DescribeOrganizationOverviewCommand extends $Command
   })
   .s("CapstoneControlPlaneService", "DescribeOrganizationOverview", {})
   .n("DevOpsGuruClient", "DescribeOrganizationOverviewCommand")
-  .sc(DescribeOrganizationOverview)
+  .sc(DescribeOrganizationOverview$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

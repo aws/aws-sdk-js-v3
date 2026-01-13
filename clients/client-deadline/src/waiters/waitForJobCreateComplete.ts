@@ -7,12 +7,12 @@ import { DeadlineClient } from "../DeadlineClient";
 const checkState = async (client: DeadlineClient, input: GetJobCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetJobCommand(input));
+    let result: any = await client.send(new GetJobCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
         return result.lifecycleStatus;
-      };
+      }
       if (returnComparator() === "CREATE_COMPLETE") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -20,7 +20,7 @@ const checkState = async (client: DeadlineClient, input: GetJobCommandInput): Pr
     try {
       const returnComparator = () => {
         return result.lifecycleStatus;
-      };
+      }
       if (returnComparator() === "UPDATE_IN_PROGRESS") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -28,7 +28,7 @@ const checkState = async (client: DeadlineClient, input: GetJobCommandInput): Pr
     try {
       const returnComparator = () => {
         return result.lifecycleStatus;
-      };
+      }
       if (returnComparator() === "UPDATE_FAILED") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -36,7 +36,7 @@ const checkState = async (client: DeadlineClient, input: GetJobCommandInput): Pr
     try {
       const returnComparator = () => {
         return result.lifecycleStatus;
-      };
+      }
       if (returnComparator() === "UPDATE_SUCCEEDED") {
         return { state: WaiterState.SUCCESS, reason };
       }
@@ -44,7 +44,7 @@ const checkState = async (client: DeadlineClient, input: GetJobCommandInput): Pr
     try {
       const returnComparator = () => {
         return result.lifecycleStatus;
-      };
+      }
       if (returnComparator() === "UPLOAD_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
@@ -52,7 +52,7 @@ const checkState = async (client: DeadlineClient, input: GetJobCommandInput): Pr
     try {
       const returnComparator = () => {
         return result.lifecycleStatus;
-      };
+      }
       if (returnComparator() === "CREATE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

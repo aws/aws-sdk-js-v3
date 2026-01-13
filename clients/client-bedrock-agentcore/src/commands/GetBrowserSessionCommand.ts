@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetBrowserSessionRequest, GetBrowserSessionResponse } from "../models/models_0";
-import { GetBrowserSession } from "../schemas/schemas_0";
+import { GetBrowserSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetBrowserSessionCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "GetBrowserSession", {})
   .n("BedrockAgentCoreClient", "GetBrowserSessionCommand")
-  .sc(GetBrowserSession)
+  .sc(GetBrowserSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

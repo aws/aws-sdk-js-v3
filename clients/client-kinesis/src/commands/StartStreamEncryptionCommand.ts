@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import type { StartStreamEncryptionInput } from "../models/models_0";
-import { StartStreamEncryption } from "../schemas/schemas_0";
+import { StartStreamEncryption$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -145,7 +145,7 @@ export class StartStreamEncryptionCommand extends $Command
   })
   .s("Kinesis_20131202", "StartStreamEncryption", {})
   .n("KinesisClient", "StartStreamEncryptionCommand")
-  .sc(StartStreamEncryption)
+  .sc(StartStreamEncryption$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

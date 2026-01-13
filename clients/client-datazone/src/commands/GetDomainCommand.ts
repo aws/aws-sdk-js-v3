@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDomainInput, GetDomainOutput } from "../models/models_1";
-import { GetDomain } from "../schemas/schemas_0";
+import { GetDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class GetDomainCommand extends $Command
   })
   .s("DataZone", "GetDomain", {})
   .n("DataZoneClient", "GetDomainCommand")
-  .sc(GetDomain)
+  .sc(GetDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

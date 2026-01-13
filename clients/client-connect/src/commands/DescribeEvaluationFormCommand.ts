@@ -7,7 +7,7 @@ import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeEvaluationFormRequest } from "../models/models_1";
 import type { DescribeEvaluationFormResponse } from "../models/models_3";
-import { DescribeEvaluationForm } from "../schemas/schemas_0";
+import { DescribeEvaluationForm$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -374,7 +374,7 @@ export class DescribeEvaluationFormCommand extends $Command
   })
   .s("AmazonConnectService", "DescribeEvaluationForm", {})
   .n("ConnectClient", "DescribeEvaluationFormCommand")
-  .sc(DescribeEvaluationForm)
+  .sc(DescribeEvaluationForm$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

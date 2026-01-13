@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableRouteServerPropagationRequest, EnableRouteServerPropagationResult } from "../models/models_5";
-import { EnableRouteServerPropagation } from "../schemas/schemas_0";
+import { EnableRouteServerPropagation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface EnableRouteServerPropagationCommandInput extends EnableRouteSer
  *
  * The output of {@link EnableRouteServerPropagationCommand}.
  */
-export interface EnableRouteServerPropagationCommandOutput
-  extends EnableRouteServerPropagationResult,
-    __MetadataBearer {}
+export interface EnableRouteServerPropagationCommandOutput extends EnableRouteServerPropagationResult, __MetadataBearer {}
 
 /**
  * <p>Defines which route tables the route server can update with routes.</p>
@@ -83,7 +81,7 @@ export class EnableRouteServerPropagationCommand extends $Command
   })
   .s("AmazonEC2", "EnableRouteServerPropagation", {})
   .n("EC2Client", "EnableRouteServerPropagationCommand")
-  .sc(EnableRouteServerPropagation)
+  .sc(EnableRouteServerPropagation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,8 +31,14 @@ export interface SSOOIDC {
   /**
    * @see {@link CreateTokenCommand}
    */
-  createToken(args: CreateTokenCommandInput, options?: __HttpHandlerOptions): Promise<CreateTokenCommandOutput>;
-  createToken(args: CreateTokenCommandInput, cb: (err: any, data?: CreateTokenCommandOutput) => void): void;
+  createToken(
+    args: CreateTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTokenCommandOutput>;
+  createToken(
+    args: CreateTokenCommandInput,
+    cb: (err: any, data?: CreateTokenCommandOutput) => void
+  ): void;
   createToken(
     args: CreateTokenCommandInput,
     options: __HttpHandlerOptions,
@@ -63,7 +69,10 @@ export interface SSOOIDC {
     args: RegisterClientCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RegisterClientCommandOutput>;
-  registerClient(args: RegisterClientCommandInput, cb: (err: any, data?: RegisterClientCommandOutput) => void): void;
+  registerClient(
+    args: RegisterClientCommandInput,
+    cb: (err: any, data?: RegisterClientCommandOutput) => void
+  ): void;
   registerClient(
     args: RegisterClientCommandInput,
     options: __HttpHandlerOptions,

@@ -9,7 +9,7 @@ import type {
   PutVoiceConnectorEmergencyCallingConfigurationRequest,
   PutVoiceConnectorEmergencyCallingConfigurationResponse,
 } from "../models/models_0";
-import { PutVoiceConnectorEmergencyCallingConfiguration } from "../schemas/schemas_0";
+import { PutVoiceConnectorEmergencyCallingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutVoiceConnectorEmergencyCallingConfigurationCommand}.
  */
-export interface PutVoiceConnectorEmergencyCallingConfigurationCommandInput
-  extends PutVoiceConnectorEmergencyCallingConfigurationRequest {}
+export interface PutVoiceConnectorEmergencyCallingConfigurationCommandInput extends PutVoiceConnectorEmergencyCallingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link PutVoiceConnectorEmergencyCallingConfigurationCommand}.
  */
-export interface PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
-  extends PutVoiceConnectorEmergencyCallingConfigurationResponse,
-    __MetadataBearer {}
+export interface PutVoiceConnectorEmergencyCallingConfigurationCommandOutput extends PutVoiceConnectorEmergencyCallingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a Voice Connector's emergency calling configuration.</p>
@@ -117,7 +114,7 @@ export class PutVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
   })
   .s("ChimeSDKTelephonyService", "PutVoiceConnectorEmergencyCallingConfiguration", {})
   .n("ChimeSDKVoiceClient", "PutVoiceConnectorEmergencyCallingConfigurationCommand")
-  .sc(PutVoiceConnectorEmergencyCallingConfiguration)
+  .sc(PutVoiceConnectorEmergencyCallingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeApplicationProviderRequest, DescribeApplicationProviderResponse } from "../models/models_0";
-import { DescribeApplicationProvider } from "../schemas/schemas_0";
+import { DescribeApplicationProvider$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -24,9 +24,7 @@ export interface DescribeApplicationProviderCommandInput extends DescribeApplica
  *
  * The output of {@link DescribeApplicationProviderCommand}.
  */
-export interface DescribeApplicationProviderCommandOutput
-  extends DescribeApplicationProviderResponse,
-    __MetadataBearer {}
+export interface DescribeApplicationProviderCommandOutput extends DescribeApplicationProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details about a provider that can be used to connect an Amazon Web Services managed application or customer managed application to IAM Identity Center.</p>
@@ -104,7 +102,7 @@ export class DescribeApplicationProviderCommand extends $Command
   })
   .s("SWBExternalService", "DescribeApplicationProvider", {})
   .n("SSOAdminClient", "DescribeApplicationProviderCommand")
-  .sc(DescribeApplicationProvider)
+  .sc(DescribeApplicationProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

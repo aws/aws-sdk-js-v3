@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { SetV2LoggingLevelRequest } from "../models/models_2";
-import { SetV2LoggingLevel } from "../schemas/schemas_0";
+import { SetV2LoggingLevel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class SetV2LoggingLevelCommand extends $Command
   })
   .s("AWSIotService", "SetV2LoggingLevel", {})
   .n("IoTClient", "SetV2LoggingLevelCommand")
-  .sc(SetV2LoggingLevel)
+  .sc(SetV2LoggingLevel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

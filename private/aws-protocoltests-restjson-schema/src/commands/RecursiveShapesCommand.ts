@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { RecursiveShapes } from "../schemas/schemas_0";
+import { RecursiveShapes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class RecursiveShapesCommand extends $Command
   })
   .s("RestJson", "RecursiveShapes", {})
   .n("RestJsonProtocolClient", "RecursiveShapesCommand")
-  .sc(RecursiveShapes)
+  .sc(RecursiveShapes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

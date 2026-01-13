@@ -381,8 +381,14 @@ export interface ECR {
   /**
    * @see {@link BatchGetImageCommand}
    */
-  batchGetImage(args: BatchGetImageCommandInput, options?: __HttpHandlerOptions): Promise<BatchGetImageCommandOutput>;
-  batchGetImage(args: BatchGetImageCommandInput, cb: (err: any, data?: BatchGetImageCommandOutput) => void): void;
+  batchGetImage(
+    args: BatchGetImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetImageCommandOutput>;
+  batchGetImage(
+    args: BatchGetImageCommandInput,
+    cb: (err: any, data?: BatchGetImageCommandOutput) => void
+  ): void;
   batchGetImage(
     args: BatchGetImageCommandInput,
     options: __HttpHandlerOptions,
@@ -636,7 +642,10 @@ export interface ECR {
     args: DescribeImagesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeImagesCommandOutput>;
-  describeImages(args: DescribeImagesCommandInput, cb: (err: any, data?: DescribeImagesCommandOutput) => void): void;
+  describeImages(
+    args: DescribeImagesCommandInput,
+    cb: (err: any, data?: DescribeImagesCommandOutput) => void
+  ): void;
   describeImages(
     args: DescribeImagesCommandInput,
     options: __HttpHandlerOptions,
@@ -943,8 +952,14 @@ export interface ECR {
   /**
    * @see {@link ListImagesCommand}
    */
-  listImages(args: ListImagesCommandInput, options?: __HttpHandlerOptions): Promise<ListImagesCommandOutput>;
-  listImages(args: ListImagesCommandInput, cb: (err: any, data?: ListImagesCommandOutput) => void): void;
+  listImages(
+    args: ListImagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImagesCommandOutput>;
+  listImages(
+    args: ListImagesCommandInput,
+    cb: (err: any, data?: ListImagesCommandOutput) => void
+  ): void;
   listImages(
     args: ListImagesCommandInput,
     options: __HttpHandlerOptions,
@@ -1006,8 +1021,14 @@ export interface ECR {
   /**
    * @see {@link PutImageCommand}
    */
-  putImage(args: PutImageCommandInput, options?: __HttpHandlerOptions): Promise<PutImageCommandOutput>;
-  putImage(args: PutImageCommandInput, cb: (err: any, data?: PutImageCommandOutput) => void): void;
+  putImage(
+    args: PutImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutImageCommandOutput>;
+  putImage(
+    args: PutImageCommandInput,
+    cb: (err: any, data?: PutImageCommandOutput) => void
+  ): void;
   putImage(
     args: PutImageCommandInput,
     options: __HttpHandlerOptions,
@@ -1175,7 +1196,10 @@ export interface ECR {
     args: StartImageScanCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartImageScanCommandOutput>;
-  startImageScan(args: StartImageScanCommandInput, cb: (err: any, data?: StartImageScanCommandOutput) => void): void;
+  startImageScan(
+    args: StartImageScanCommandInput,
+    cb: (err: any, data?: StartImageScanCommandOutput) => void
+  ): void;
   startImageScan(
     args: StartImageScanCommandInput,
     options: __HttpHandlerOptions,
@@ -1202,8 +1226,14 @@ export interface ECR {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1213,8 +1243,14 @@ export interface ECR {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1279,7 +1315,10 @@ export interface ECR {
     args: UploadLayerPartCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UploadLayerPartCommandOutput>;
-  uploadLayerPart(args: UploadLayerPartCommandInput, cb: (err: any, data?: UploadLayerPartCommandOutput) => void): void;
+  uploadLayerPart(
+    args: UploadLayerPartCommandInput,
+    cb: (err: any, data?: UploadLayerPartCommandOutput) => void
+  ): void;
   uploadLayerPart(
     args: UploadLayerPartCommandInput,
     options: __HttpHandlerOptions,

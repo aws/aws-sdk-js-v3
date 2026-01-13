@@ -10,7 +10,7 @@ import type {
 } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CheckNoNewAccessRequest, CheckNoNewAccessResponse } from "../models/models_0";
-import { CheckNoNewAccess } from "../schemas/schemas_0";
+import { CheckNoNewAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class CheckNoNewAccessCommand extends $Command
   })
   .s("AccessAnalyzer", "CheckNoNewAccess", {})
   .n("AccessAnalyzerClient", "CheckNoNewAccessCommand")
-  .sc(CheckNoNewAccess)
+  .sc(CheckNoNewAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

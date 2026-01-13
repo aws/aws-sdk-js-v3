@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import type { GetViolationDetailsRequest, GetViolationDetailsResponse } from "../models/models_0";
-import { GetViolationDetails } from "../schemas/schemas_0";
+import { GetViolationDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -642,7 +642,7 @@ export class GetViolationDetailsCommand extends $Command
   })
   .s("AWSFMS_20180101", "GetViolationDetails", {})
   .n("FMSClient", "GetViolationDetailsCommand")
-  .sc(GetViolationDetails)
+  .sc(GetViolationDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   DescribeComponentConfigurationRecommendationRequest,
   DescribeComponentConfigurationRecommendationResponse,
 } from "../models/models_0";
-import { DescribeComponentConfigurationRecommendation } from "../schemas/schemas_0";
+import { DescribeComponentConfigurationRecommendation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeComponentConfigurationRecommendationCommand}.
  */
-export interface DescribeComponentConfigurationRecommendationCommandInput
-  extends DescribeComponentConfigurationRecommendationRequest {}
+export interface DescribeComponentConfigurationRecommendationCommandInput extends DescribeComponentConfigurationRecommendationRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeComponentConfigurationRecommendationCommand}.
  */
-export interface DescribeComponentConfigurationRecommendationCommandOutput
-  extends DescribeComponentConfigurationRecommendationResponse,
-    __MetadataBearer {}
+export interface DescribeComponentConfigurationRecommendationCommandOutput extends DescribeComponentConfigurationRecommendationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the recommended monitoring configuration of the component.</p>
@@ -96,7 +93,7 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
   })
   .s("EC2WindowsBarleyService", "DescribeComponentConfigurationRecommendation", {})
   .n("ApplicationInsightsClient", "DescribeComponentConfigurationRecommendationCommand")
-  .sc(DescribeComponentConfigurationRecommendation)
+  .sc(DescribeComponentConfigurationRecommendation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

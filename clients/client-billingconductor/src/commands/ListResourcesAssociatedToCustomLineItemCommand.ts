@@ -13,7 +13,7 @@ import type {
   ListResourcesAssociatedToCustomLineItemInput,
   ListResourcesAssociatedToCustomLineItemOutput,
 } from "../models/models_0";
-import { ListResourcesAssociatedToCustomLineItem } from "../schemas/schemas_0";
+import { ListResourcesAssociatedToCustomLineItem$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListResourcesAssociatedToCustomLineItemCommand}.
  */
-export interface ListResourcesAssociatedToCustomLineItemCommandInput
-  extends ListResourcesAssociatedToCustomLineItemInput {}
+export interface ListResourcesAssociatedToCustomLineItemCommandInput extends ListResourcesAssociatedToCustomLineItemInput {}
 /**
  * @public
  *
  * The output of {@link ListResourcesAssociatedToCustomLineItemCommand}.
  */
-export interface ListResourcesAssociatedToCustomLineItemCommandOutput
-  extends ListResourcesAssociatedToCustomLineItemOutput,
-    __MetadataBearer {}
+export interface ListResourcesAssociatedToCustomLineItemCommandOutput extends ListResourcesAssociatedToCustomLineItemOutput, __MetadataBearer {}
 
 /**
  * <p> List the resources that are associated to a custom line item. </p>
@@ -112,7 +109,7 @@ export class ListResourcesAssociatedToCustomLineItemCommand extends $Command
   })
   .s("AWSBillingConductor", "ListResourcesAssociatedToCustomLineItem", {})
   .n("BillingconductorClient", "ListResourcesAssociatedToCustomLineItemCommand")
-  .sc(ListResourcesAssociatedToCustomLineItem)
+  .sc(ListResourcesAssociatedToCustomLineItem$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

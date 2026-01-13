@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateGatewayInformationInput, UpdateGatewayInformationOutput } from "../models/models_0";
-import { UpdateGatewayInformation } from "../schemas/schemas_0";
+import { UpdateGatewayInformation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class UpdateGatewayInformationCommand extends $Command
   })
   .s("BackupOnPremises_v20210101", "UpdateGatewayInformation", {})
   .n("BackupGatewayClient", "UpdateGatewayInformationCommand")
-  .sc(UpdateGatewayInformation)
+  .sc(UpdateGatewayInformation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

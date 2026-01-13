@@ -13,7 +13,7 @@ import type {
   CancelElasticsearchServiceSoftwareUpdateRequest,
   CancelElasticsearchServiceSoftwareUpdateResponse,
 } from "../models/models_0";
-import { CancelElasticsearchServiceSoftwareUpdate } from "../schemas/schemas_0";
+import { CancelElasticsearchServiceSoftwareUpdate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link CancelElasticsearchServiceSoftwareUpdateCommand}.
  */
-export interface CancelElasticsearchServiceSoftwareUpdateCommandInput
-  extends CancelElasticsearchServiceSoftwareUpdateRequest {}
+export interface CancelElasticsearchServiceSoftwareUpdateCommandInput extends CancelElasticsearchServiceSoftwareUpdateRequest {}
 /**
  * @public
  *
  * The output of {@link CancelElasticsearchServiceSoftwareUpdateCommand}.
  */
-export interface CancelElasticsearchServiceSoftwareUpdateCommandOutput
-  extends CancelElasticsearchServiceSoftwareUpdateResponse,
-    __MetadataBearer {}
+export interface CancelElasticsearchServiceSoftwareUpdateCommandOutput extends CancelElasticsearchServiceSoftwareUpdateResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a scheduled service software update for an Amazon ES domain. You can only perform this operation before the <code>AutomatedUpdateDate</code> and when the <code>UpdateStatus</code> is in the <code>PENDING_UPDATE</code> state.</p>
@@ -104,7 +101,7 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "CancelElasticsearchServiceSoftwareUpdate", {})
   .n("ElasticsearchServiceClient", "CancelElasticsearchServiceSoftwareUpdateCommand")
-  .sc(CancelElasticsearchServiceSoftwareUpdate)
+  .sc(CancelElasticsearchServiceSoftwareUpdate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

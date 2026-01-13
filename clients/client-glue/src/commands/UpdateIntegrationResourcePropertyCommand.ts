@@ -9,7 +9,7 @@ import type {
   UpdateIntegrationResourcePropertyRequest,
   UpdateIntegrationResourcePropertyResponse,
 } from "../models/models_2";
-import { UpdateIntegrationResourceProperty } from "../schemas/schemas_0";
+import { UpdateIntegrationResourceProperty$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface UpdateIntegrationResourcePropertyCommandInput extends UpdateInt
  *
  * The output of {@link UpdateIntegrationResourcePropertyCommand}.
  */
-export interface UpdateIntegrationResourcePropertyCommandOutput
-  extends UpdateIntegrationResourcePropertyResponse,
-    __MetadataBearer {}
+export interface UpdateIntegrationResourcePropertyCommandOutput extends UpdateIntegrationResourcePropertyResponse, __MetadataBearer {}
 
 /**
  * <p>This API can be used for updating the <code>ResourceProperty</code> of the Glue connection (for the source) or Glue database ARN (for the target). These properties can include the role to access the connection or database. Since the same resource can be used across multiple integrations, updating resource properties will impact all the integrations using it.</p>
@@ -118,7 +116,7 @@ export class UpdateIntegrationResourcePropertyCommand extends $Command
   })
   .s("AWSGlue", "UpdateIntegrationResourceProperty", {})
   .n("GlueClient", "UpdateIntegrationResourcePropertyCommand")
-  .sc(UpdateIntegrationResourceProperty)
+  .sc(UpdateIntegrationResourceProperty$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

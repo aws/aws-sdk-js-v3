@@ -9,7 +9,7 @@ import type {
   CreateTransitGatewayPrefixListReferenceRequest,
   CreateTransitGatewayPrefixListReferenceResult,
 } from "../models/models_2";
-import { CreateTransitGatewayPrefixListReference } from "../schemas/schemas_0";
+import { CreateTransitGatewayPrefixListReference$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateTransitGatewayPrefixListReferenceCommand}.
  */
-export interface CreateTransitGatewayPrefixListReferenceCommandInput
-  extends CreateTransitGatewayPrefixListReferenceRequest {}
+export interface CreateTransitGatewayPrefixListReferenceCommandInput extends CreateTransitGatewayPrefixListReferenceRequest {}
 /**
  * @public
  *
  * The output of {@link CreateTransitGatewayPrefixListReferenceCommand}.
  */
-export interface CreateTransitGatewayPrefixListReferenceCommandOutput
-  extends CreateTransitGatewayPrefixListReferenceResult,
-    __MetadataBearer {}
+export interface CreateTransitGatewayPrefixListReferenceCommandOutput extends CreateTransitGatewayPrefixListReferenceResult, __MetadataBearer {}
 
 /**
  * <p>Creates a reference (route) to a prefix list in a specified transit gateway route table.</p>
@@ -94,7 +91,7 @@ export class CreateTransitGatewayPrefixListReferenceCommand extends $Command
   })
   .s("AmazonEC2", "CreateTransitGatewayPrefixListReference", {})
   .n("EC2Client", "CreateTransitGatewayPrefixListReferenceCommand")
-  .sc(CreateTransitGatewayPrefixListReference)
+  .sc(CreateTransitGatewayPrefixListReference$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

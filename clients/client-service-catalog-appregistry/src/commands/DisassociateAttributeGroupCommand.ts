@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateAttributeGroupRequest, DisassociateAttributeGroupResponse } from "../models/models_0";
-import { DisassociateAttributeGroup } from "../schemas/schemas_0";
+import { DisassociateAttributeGroup$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -88,7 +88,7 @@ export class DisassociateAttributeGroupCommand extends $Command
   })
   .s("AWS242AppRegistry", "DisassociateAttributeGroup", {})
   .n("ServiceCatalogAppRegistryClient", "DisassociateAttributeGroupCommand")
-  .sc(DisassociateAttributeGroup)
+  .sc(DisassociateAttributeGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

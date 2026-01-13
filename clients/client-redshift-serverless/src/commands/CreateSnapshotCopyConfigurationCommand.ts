@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { CreateSnapshotCopyConfiguration } from "../schemas/schemas_0";
+import { CreateSnapshotCopyConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -31,9 +31,7 @@ export interface CreateSnapshotCopyConfigurationCommandInput extends CreateSnaps
  *
  * The output of {@link CreateSnapshotCopyConfigurationCommand}.
  */
-export interface CreateSnapshotCopyConfigurationCommandOutput
-  extends CreateSnapshotCopyConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateSnapshotCopyConfigurationCommandOutput extends CreateSnapshotCopyConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a snapshot copy configuration that lets you copy snapshots to another Amazon Web Services Region.</p>
@@ -110,7 +108,7 @@ export class CreateSnapshotCopyConfigurationCommand extends $Command
   })
   .s("RedshiftServerless", "CreateSnapshotCopyConfiguration", {})
   .n("RedshiftServerlessClient", "CreateSnapshotCopyConfigurationCommand")
-  .sc(CreateSnapshotCopyConfiguration)
+  .sc(CreateSnapshotCopyConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

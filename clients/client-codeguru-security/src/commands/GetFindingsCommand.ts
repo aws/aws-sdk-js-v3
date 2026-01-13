@@ -10,7 +10,7 @@ import type {
 } from "../CodeGuruSecurityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetFindingsRequest, GetFindingsResponse } from "../models/models_0";
-import { GetFindings } from "../schemas/schemas_0";
+import { GetFindings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -155,7 +155,7 @@ export class GetFindingsCommand extends $Command
   })
   .s("AwsCodeGuruSecurity", "GetFindings", {})
   .n("CodeGuruSecurityClient", "GetFindingsCommand")
-  .sc(GetFindings)
+  .sc(GetFindings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

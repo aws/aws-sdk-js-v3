@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import type { DeleteVpcPeeringAuthorizationInput, DeleteVpcPeeringAuthorizationOutput } from "../models/models_0";
-import { DeleteVpcPeeringAuthorization } from "../schemas/schemas_0";
+import { DeleteVpcPeeringAuthorization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -24,9 +24,7 @@ export interface DeleteVpcPeeringAuthorizationCommandInput extends DeleteVpcPeer
  *
  * The output of {@link DeleteVpcPeeringAuthorizationCommand}.
  */
-export interface DeleteVpcPeeringAuthorizationCommandOutput
-  extends DeleteVpcPeeringAuthorizationOutput,
-    __MetadataBearer {}
+export interface DeleteVpcPeeringAuthorizationCommandOutput extends DeleteVpcPeeringAuthorizationOutput, __MetadataBearer {}
 
 /**
  * <p>
@@ -97,7 +95,7 @@ export class DeleteVpcPeeringAuthorizationCommand extends $Command
   })
   .s("GameLift", "DeleteVpcPeeringAuthorization", {})
   .n("GameLiftClient", "DeleteVpcPeeringAuthorizationCommand")
-  .sc(DeleteVpcPeeringAuthorization)
+  .sc(DeleteVpcPeeringAuthorization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

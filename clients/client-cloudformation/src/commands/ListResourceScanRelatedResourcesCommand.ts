@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListResourceScanRelatedResourcesInput, ListResourceScanRelatedResourcesOutput } from "../models/models_0";
-import { ListResourceScanRelatedResources } from "../schemas/schemas_0";
+import { ListResourceScanRelatedResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -28,9 +28,7 @@ export interface ListResourceScanRelatedResourcesCommandInput extends ListResour
  *
  * The output of {@link ListResourceScanRelatedResourcesCommand}.
  */
-export interface ListResourceScanRelatedResourcesCommandOutput
-  extends ListResourceScanRelatedResourcesOutput,
-    __MetadataBearer {}
+export interface ListResourceScanRelatedResourcesCommandOutput extends ListResourceScanRelatedResourcesOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the related resources for a list of resources from a resource scan. The response
@@ -165,7 +163,7 @@ export class ListResourceScanRelatedResourcesCommand extends $Command
   })
   .s("CloudFormation", "ListResourceScanRelatedResources", {})
   .n("CloudFormationClient", "ListResourceScanRelatedResourcesCommand")
-  .sc(ListResourceScanRelatedResources)
+  .sc(ListResourceScanRelatedResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

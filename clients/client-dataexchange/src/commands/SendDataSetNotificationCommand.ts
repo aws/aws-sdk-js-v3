@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SendDataSetNotificationRequest, SendDataSetNotificationResponse } from "../models/models_0";
-import { SendDataSetNotification } from "../schemas/schemas_0";
+import { SendDataSetNotification$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class SendDataSetNotificationCommand extends $Command
   })
   .s("DataExchange", "SendDataSetNotification", {})
   .n("DataExchangeClient", "SendDataSetNotificationCommand")
-  .sc(SendDataSetNotification)
+  .sc(SendDataSetNotification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

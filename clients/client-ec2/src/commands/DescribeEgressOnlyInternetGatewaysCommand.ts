@@ -9,7 +9,7 @@ import type {
   DescribeEgressOnlyInternetGatewaysRequest,
   DescribeEgressOnlyInternetGatewaysResult,
 } from "../models/models_3";
-import { DescribeEgressOnlyInternetGateways } from "../schemas/schemas_0";
+import { DescribeEgressOnlyInternetGateways$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface DescribeEgressOnlyInternetGatewaysCommandInput extends Describe
  *
  * The output of {@link DescribeEgressOnlyInternetGatewaysCommand}.
  */
-export interface DescribeEgressOnlyInternetGatewaysCommandOutput
-  extends DescribeEgressOnlyInternetGatewaysResult,
-    __MetadataBearer {}
+export interface DescribeEgressOnlyInternetGatewaysCommandOutput extends DescribeEgressOnlyInternetGatewaysResult, __MetadataBearer {}
 
 /**
  * <p>Describes your egress-only internet gateways. The default is to describe all your egress-only internet gateways.
@@ -110,7 +108,7 @@ export class DescribeEgressOnlyInternetGatewaysCommand extends $Command
   })
   .s("AmazonEC2", "DescribeEgressOnlyInternetGateways", {})
   .n("EC2Client", "DescribeEgressOnlyInternetGatewaysCommand")
-  .sc(DescribeEgressOnlyInternetGateways)
+  .sc(DescribeEgressOnlyInternetGateways$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

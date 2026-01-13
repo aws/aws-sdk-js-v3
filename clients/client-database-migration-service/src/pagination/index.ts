@@ -1,25 +1,16 @@
-export * from "./DescribeApplicableIndividualAssessmentsPaginator";
-
-export * from "./DescribeCertificatesPaginator";
-
-export * from "./DescribeConnectionsPaginator";
-
-export * from "./DescribeDataMigrationsPaginator";
-
-export * from "./DescribeDataProvidersPaginator";
-
-export * from "./DescribeEndpointSettingsPaginator";
-
-export * from "./DescribeEndpointTypesPaginator";
-
-export * from "./DescribeEndpointsPaginator";
-
-export * from "./DescribeEngineVersionsPaginator";
-
-export * from "./DescribeEventSubscriptionsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeApplicableIndividualAssessmentsPaginator";
+export * from "./DescribeCertificatesPaginator";
+export * from "./DescribeConnectionsPaginator";
+export * from "./DescribeDataMigrationsPaginator";
+export * from "./DescribeDataProvidersPaginator";
+export * from "./DescribeEndpointsPaginator";
+export * from "./DescribeEndpointSettingsPaginator";
+export * from "./DescribeEndpointTypesPaginator";
+export * from "./DescribeEngineVersionsPaginator";
 export * from "./DescribeEventsPaginator";
+export * from "./DescribeEventSubscriptionsPaginator";
 export * from "./DescribeExtensionPackAssociationsPaginator";
 export * from "./DescribeFleetAdvisorCollectorsPaginator";
 export * from "./DescribeFleetAdvisorDatabasesPaginator";
@@ -40,14 +31,14 @@ export * from "./DescribePendingMaintenanceActionsPaginator";
 export * from "./DescribeRecommendationLimitationsPaginator";
 export * from "./DescribeRecommendationsPaginator";
 export * from "./DescribeReplicationConfigsPaginator";
-export * from "./DescribeReplicationInstanceTaskLogsPaginator";
 export * from "./DescribeReplicationInstancesPaginator";
+export * from "./DescribeReplicationInstanceTaskLogsPaginator";
+export * from "./DescribeReplicationsPaginator";
 export * from "./DescribeReplicationSubnetGroupsPaginator";
 export * from "./DescribeReplicationTableStatisticsPaginator";
 export * from "./DescribeReplicationTaskAssessmentResultsPaginator";
 export * from "./DescribeReplicationTaskAssessmentRunsPaginator";
 export * from "./DescribeReplicationTaskIndividualAssessmentsPaginator";
 export * from "./DescribeReplicationTasksPaginator";
-export * from "./DescribeReplicationsPaginator";
 export * from "./DescribeSchemasPaginator";
 export * from "./DescribeTableStatisticsPaginator";

@@ -9,7 +9,7 @@ import type {
   AssociateSbomWithPackageVersionRequest,
   AssociateSbomWithPackageVersionResponse,
 } from "../models/models_0";
-import { AssociateSbomWithPackageVersion } from "../schemas/schemas_0";
+import { AssociateSbomWithPackageVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -27,9 +27,7 @@ export interface AssociateSbomWithPackageVersionCommandInput extends AssociateSb
  *
  * The output of {@link AssociateSbomWithPackageVersionCommand}.
  */
-export interface AssociateSbomWithPackageVersionCommandOutput
-  extends AssociateSbomWithPackageVersionResponse,
-    __MetadataBearer {}
+export interface AssociateSbomWithPackageVersionCommandOutput extends AssociateSbomWithPackageVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Associates the selected software bill of materials (SBOM) with a specific software package version.</p>
@@ -116,7 +114,7 @@ export class AssociateSbomWithPackageVersionCommand extends $Command
   })
   .s("AWSIotService", "AssociateSbomWithPackageVersion", {})
   .n("IoTClient", "AssociateSbomWithPackageVersionCommand")
-  .sc(AssociateSbomWithPackageVersion)
+  .sc(AssociateSbomWithPackageVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

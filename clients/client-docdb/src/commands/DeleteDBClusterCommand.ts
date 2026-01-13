@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDBClusterMessage, DeleteDBClusterResult } from "../models/models_0";
-import { DeleteDBCluster } from "../schemas/schemas_0";
+import { DeleteDBCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -160,7 +160,7 @@ export class DeleteDBClusterCommand extends $Command
   })
   .s("AmazonRDSv19", "DeleteDBCluster", {})
   .n("DocDBClient", "DeleteDBClusterCommand")
-  .sc(DeleteDBCluster)
+  .sc(DeleteDBCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

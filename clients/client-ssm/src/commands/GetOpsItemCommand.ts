@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetOpsItemRequest, GetOpsItemResponse } from "../models/models_0";
-import { GetOpsItem } from "../schemas/schemas_0";
+import { GetOpsItem$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -127,7 +127,7 @@ export class GetOpsItemCommand extends $Command
   })
   .s("AmazonSSM", "GetOpsItem", {})
   .n("SSMClient", "GetOpsItemCommand")
-  .sc(GetOpsItem)
+  .sc(GetOpsItem$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

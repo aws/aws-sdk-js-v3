@@ -8,7 +8,7 @@ import type {
   PutConfigurationSetSuppressionOptionsRequest,
   PutConfigurationSetSuppressionOptionsResponse,
 } from "../models/models_0";
-import { PutConfigurationSetSuppressionOptions } from "../schemas/schemas_0";
+import { PutConfigurationSetSuppressionOptions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutConfigurationSetSuppressionOptionsCommand}.
  */
-export interface PutConfigurationSetSuppressionOptionsCommandInput
-  extends PutConfigurationSetSuppressionOptionsRequest {}
+export interface PutConfigurationSetSuppressionOptionsCommandInput extends PutConfigurationSetSuppressionOptionsRequest {}
 /**
  * @public
  *
  * The output of {@link PutConfigurationSetSuppressionOptionsCommand}.
  */
-export interface PutConfigurationSetSuppressionOptionsCommandOutput
-  extends PutConfigurationSetSuppressionOptionsResponse,
-    __MetadataBearer {}
+export interface PutConfigurationSetSuppressionOptionsCommandOutput extends PutConfigurationSetSuppressionOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Specify the account suppression list preferences for a configuration set.</p>
@@ -47,6 +44,14 @@ export interface PutConfigurationSetSuppressionOptionsCommandOutput
  *   SuppressedReasons: [ // SuppressionListReasons
  *     "BOUNCE" || "COMPLAINT",
  *   ],
+ *   ValidationOptions: { // SuppressionValidationOptions
+ *     ConditionThreshold: { // SuppressionConditionThreshold
+ *       ConditionThresholdEnabled: "ENABLED" || "DISABLED", // required
+ *       OverallConfidenceThreshold: { // SuppressionConfidenceThreshold
+ *         ConfidenceVerdictThreshold: "MEDIUM" || "HIGH" || "MANAGED", // required
+ *       },
+ *     },
+ *   },
  * };
  * const command = new PutConfigurationSetSuppressionOptionsCommand(input);
  * const response = await client.send(command);
@@ -89,7 +94,7 @@ export class PutConfigurationSetSuppressionOptionsCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutConfigurationSetSuppressionOptions", {})
   .n("SESv2Client", "PutConfigurationSetSuppressionOptionsCommand")
-  .sc(PutConfigurationSetSuppressionOptions)
+  .sc(PutConfigurationSetSuppressionOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

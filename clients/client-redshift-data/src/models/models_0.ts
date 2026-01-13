@@ -838,7 +838,9 @@ export namespace Field {
  * <p>The results of the SQL statement.</p>
  * @public
  */
-export type QueryRecords = QueryRecords.CSVRecordsMember | QueryRecords.$UnknownMember;
+export type QueryRecords =
+  | QueryRecords.CSVRecordsMember
+  | QueryRecords.$UnknownMember;
 
 /**
  * @public

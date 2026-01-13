@@ -49,17 +49,13 @@ export const defaultKinesisVideoSignalingHttpAuthSchemeParametersProvider = asyn
 ): Promise<KinesisVideoSignalingHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: KinesisVideoSignalingHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: KinesisVideoSignalingHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface KinesisVideoSignalingHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultKinesisVideoSignalingHttpAuthSchemeProvider: KinesisVideoSignalingHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultKinesisVideoSignalingHttpAuthSchemeProvider: KinesisVideoSignalingHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

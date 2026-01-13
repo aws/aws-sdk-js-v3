@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateRecommenderRequest, UpdateRecommenderResponse } from "../models/models_0";
 import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { UpdateRecommender } from "../schemas/schemas_0";
+import { UpdateRecommender$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class UpdateRecommenderCommand extends $Command
   })
   .s("AmazonPersonalize", "UpdateRecommender", {})
   .n("PersonalizeClient", "UpdateRecommenderCommand")
-  .sc(UpdateRecommender)
+  .sc(UpdateRecommender$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

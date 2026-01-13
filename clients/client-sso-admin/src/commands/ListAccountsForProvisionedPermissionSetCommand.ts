@@ -8,7 +8,7 @@ import type {
   ListAccountsForProvisionedPermissionSetRequest,
   ListAccountsForProvisionedPermissionSetResponse,
 } from "../models/models_0";
-import { ListAccountsForProvisionedPermissionSet } from "../schemas/schemas_0";
+import { ListAccountsForProvisionedPermissionSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListAccountsForProvisionedPermissionSetCommand}.
  */
-export interface ListAccountsForProvisionedPermissionSetCommandInput
-  extends ListAccountsForProvisionedPermissionSetRequest {}
+export interface ListAccountsForProvisionedPermissionSetCommandInput extends ListAccountsForProvisionedPermissionSetRequest {}
 /**
  * @public
  *
  * The output of {@link ListAccountsForProvisionedPermissionSetCommand}.
  */
-export interface ListAccountsForProvisionedPermissionSetCommandOutput
-  extends ListAccountsForProvisionedPermissionSetResponse,
-    __MetadataBearer {}
+export interface ListAccountsForProvisionedPermissionSetCommandOutput extends ListAccountsForProvisionedPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the Amazon Web Services accounts where the specified permission set is provisioned.</p>
@@ -101,7 +98,7 @@ export class ListAccountsForProvisionedPermissionSetCommand extends $Command
   })
   .s("SWBExternalService", "ListAccountsForProvisionedPermissionSet", {})
   .n("SSOAdminClient", "ListAccountsForProvisionedPermissionSetCommand")
-  .sc(ListAccountsForProvisionedPermissionSet)
+  .sc(ListAccountsForProvisionedPermissionSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

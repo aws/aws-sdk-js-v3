@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateIPSetRequest, CreateIPSetResponse } from "../models/models_0";
-import { CreateIPSet } from "../schemas/schemas_0";
+import { CreateIPSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -144,7 +144,7 @@ export class CreateIPSetCommand extends $Command
   })
   .s("AWSWAF_20190729", "CreateIPSet", {})
   .n("WAFV2Client", "CreateIPSetCommand")
-  .sc(CreateIPSet)
+  .sc(CreateIPSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

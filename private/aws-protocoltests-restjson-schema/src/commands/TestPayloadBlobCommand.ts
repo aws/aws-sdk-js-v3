@@ -11,7 +11,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { TestPayloadBlob } from "../schemas/schemas_0";
+import { TestPayloadBlob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class TestPayloadBlobCommand extends $Command
   })
   .s("RestJson", "TestPayloadBlob", {})
   .n("RestJsonProtocolClient", "TestPayloadBlobCommand")
-  .sc(TestPayloadBlob)
+  .sc(TestPayloadBlob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

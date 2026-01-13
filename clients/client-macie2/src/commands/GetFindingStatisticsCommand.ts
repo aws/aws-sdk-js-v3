@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import type { GetFindingStatisticsRequest, GetFindingStatisticsResponse } from "../models/models_0";
-import { GetFindingStatistics } from "../schemas/schemas_0";
+import { GetFindingStatistics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class GetFindingStatisticsCommand extends $Command
   })
   .s("Macie2", "GetFindingStatistics", {})
   .n("Macie2Client", "GetFindingStatisticsCommand")
-  .sc(GetFindingStatistics)
+  .sc(GetFindingStatistics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

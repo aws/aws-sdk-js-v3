@@ -190,8 +190,14 @@ export interface PartnerCentralBenefits {
   /**
    * @see {@link GetBenefitCommand}
    */
-  getBenefit(args: GetBenefitCommandInput, options?: __HttpHandlerOptions): Promise<GetBenefitCommandOutput>;
-  getBenefit(args: GetBenefitCommandInput, cb: (err: any, data?: GetBenefitCommandOutput) => void): void;
+  getBenefit(
+    args: GetBenefitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBenefitCommandOutput>;
+  getBenefit(
+    args: GetBenefitCommandInput,
+    cb: (err: any, data?: GetBenefitCommandOutput) => void
+  ): void;
   getBenefit(
     args: GetBenefitCommandInput,
     options: __HttpHandlerOptions,
@@ -269,8 +275,14 @@ export interface PartnerCentralBenefits {
   /**
    * @see {@link ListBenefitsCommand}
    */
-  listBenefits(args: ListBenefitsCommandInput, options?: __HttpHandlerOptions): Promise<ListBenefitsCommandOutput>;
-  listBenefits(args: ListBenefitsCommandInput, cb: (err: any, data?: ListBenefitsCommandOutput) => void): void;
+  listBenefits(
+    args: ListBenefitsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBenefitsCommandOutput>;
+  listBenefits(
+    args: ListBenefitsCommandInput,
+    cb: (err: any, data?: ListBenefitsCommandOutput) => void
+  ): void;
   listBenefits(
     args: ListBenefitsCommandInput,
     options: __HttpHandlerOptions,
@@ -331,8 +343,14 @@ export interface PartnerCentralBenefits {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -342,8 +360,14 @@ export interface PartnerCentralBenefits {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
