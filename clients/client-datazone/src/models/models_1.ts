@@ -4,6 +4,7 @@ import {
   ConnectionScope,
   ConnectionType,
   DataAssetActivityStatus,
+  DataProductStatus,
   DataSourceRunStatus,
   DataSourceRunType,
   DataSourceStatus,
@@ -48,6 +49,7 @@ import {
   SortKey,
   SortOrder,
   Status,
+  SubscriptionGrantCreationMode,
   SubscriptionGrantOverallStatus,
   SubscriptionRequestStatus,
   SubscriptionStatus,
@@ -97,6 +99,7 @@ import {
   ConfigurableEnvironmentAction,
   ConnectionSummary,
   CustomParameter,
+  DataProductItem,
   DetailedGlossaryTerm,
   DomainUnitOwnerProperties,
   EnvironmentConfiguration,
@@ -116,6 +119,118 @@ import {
   SubscriptionTargetForm,
   TimeSeriesDataPointSummaryFormOutput,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetDataProductInput {
+  /**
+   * <p>The ID of the domain where the data product lives.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the data product.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The revision of the data product.</p>
+   * @public
+   */
+  revision?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataProductOutput {
+  /**
+   * <p>The ID of the domain where the data product lives.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ID of the data product.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The revision of the data product.</p>
+   * @public
+   */
+  revision: string | undefined;
+
+  /**
+   * <p>The ID of the owning project of the data product.</p>
+   * @public
+   */
+  owningProjectId: string | undefined;
+
+  /**
+   * <p>The name of the data product.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The status of the data product.</p>
+   * @public
+   */
+  status: DataProductStatus | undefined;
+
+  /**
+   * <p>The description of the data product.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The glossary terms of the data product.</p>
+   * @public
+   */
+  glossaryTerms?: string[] | undefined;
+
+  /**
+   * <p>The data assets of the data product.</p>
+   * @public
+   */
+  items?: DataProductItem[] | undefined;
+
+  /**
+   * <p>The metadata forms of the data product.</p>
+   * @public
+   */
+  formsOutput?: FormOutput[] | undefined;
+
+  /**
+   * <p>The timestamp at which the data product is created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The user who created the data product.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the first revision of the data product is created.</p>
+   * @public
+   */
+  firstRevisionCreatedAt?: Date | undefined;
+
+  /**
+   * <p>The user who created the first revision of the data product.</p>
+   * @public
+   */
+  firstRevisionCreatedBy?: string | undefined;
+}
 
 /**
  * <p>The additional attributes of an Amazon DataZone data product.</p>
@@ -5162,6 +5277,12 @@ export interface GetSubscriptionTargetOutput {
    * @public
    */
   provider: string | undefined;
+
+  /**
+   * <p> Determines the subscription grant creation mode for this target, defining if grants are auto-created upon subscription approval or managed manually. </p>
+   * @public
+   */
+  subscriptionGrantCreationMode?: SubscriptionGrantCreationMode | undefined;
 }
 
 /**
@@ -8157,6 +8278,12 @@ export interface ListSubscriptionGrantsInput {
   owningProjectId?: string | undefined;
 
   /**
+   * <p>The ARN of the owning IAM principal.</p>
+   * @public
+   */
+  owningIamPrincipalArn?: string | undefined;
+
+  /**
    * <p>The ID of the owning user.</p>
    * @public
    */
@@ -8319,6 +8446,12 @@ export interface ListSubscriptionRequestsInput {
    * @public
    */
   owningProjectId?: string | undefined;
+
+  /**
+   * <p>The ARN of the owning IAM principal.</p>
+   * @public
+   */
+  owningIamPrincipalArn?: string | undefined;
 
   /**
    * <p>The identifier of the subscription request approver's project.</p>
@@ -8529,6 +8662,12 @@ export interface ListSubscriptionsInput {
    * @public
    */
   owningProjectId?: string | undefined;
+
+  /**
+   * <p>The ARN of the owning IAM principal.</p>
+   * @public
+   */
+  owningIamPrincipalArn?: string | undefined;
 
   /**
    * <p>The ID of the owning user.</p>
@@ -8799,6 +8938,12 @@ export interface SubscriptionTargetSummary {
    * @public
    */
   provider: string | undefined;
+
+  /**
+   * <p> Determines the subscription grant creation mode for this target, defining if grants are auto-created upon subscription approval or managed manually. </p>
+   * @public
+   */
+  subscriptionGrantCreationMode?: SubscriptionGrantCreationMode | undefined;
 }
 
 /**
@@ -11109,25 +11254,3 @@ export interface TagResourceRequest {
  * @public
  */
 export interface TagResourceResponse {}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>The ARN of the resource to be untagged in Amazon DataZone.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>Specifies the tag keys for the <code>UntagResource</code> action.</p>
-   * @public
-   */
-  tagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceResponse {}

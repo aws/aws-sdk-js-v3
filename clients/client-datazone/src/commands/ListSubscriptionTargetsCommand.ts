@@ -73,6 +73,7 @@ export interface ListSubscriptionTargetsCommandOutput extends ListSubscriptionTa
  * //         },
  * //       ],
  * //       provider: "STRING_VALUE", // required
+ * //       subscriptionGrantCreationMode: "AUTOMATIC" || "MANUAL",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

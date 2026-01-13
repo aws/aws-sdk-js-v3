@@ -49,6 +49,9 @@ export interface CreateSubscriptionRequestCommandOutput extends CreateSubscripti
  *       group: { // SubscribedGroupInput
  *         identifier: "STRING_VALUE",
  *       },
+ *       iam: { // SubscribedIamPrincipalInput
+ *         identifier: "STRING_VALUE",
+ *       },
  *     },
  *   ],
  *   subscribedListings: [ // SubscribedListingInputs // required
@@ -119,6 +122,9 @@ export interface CreateSubscriptionRequestCommandOutput extends CreateSubscripti
  * //       group: { // SubscribedGroup
  * //         id: "STRING_VALUE",
  * //         name: "STRING_VALUE",
+ * //       },
+ * //       iam: { // SubscribedIamPrincipal
+ * //         principalArn: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

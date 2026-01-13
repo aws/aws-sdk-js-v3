@@ -68,6 +68,7 @@ export interface GetSubscriptionTargetCommandOutput extends GetSubscriptionTarge
  * //     },
  * //   ],
  * //   provider: "STRING_VALUE", // required
+ * //   subscriptionGrantCreationMode: "AUTOMATIC" || "MANUAL",
  * // };
  *
  * ```

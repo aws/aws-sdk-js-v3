@@ -957,6 +957,20 @@ export type SubscriptionGrantOverallStatus =
  * @public
  * @enum
  */
+export const SubscriptionGrantCreationMode = {
+  AUTOMATIC: "AUTOMATIC",
+  MANUAL: "MANUAL",
+} as const;
+/**
+ * @public
+ */
+export type SubscriptionGrantCreationMode =
+  (typeof SubscriptionGrantCreationMode)[keyof typeof SubscriptionGrantCreationMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const UserType = {
   IAM_ROLE: "IAM_ROLE",
   IAM_USER: "IAM_USER",

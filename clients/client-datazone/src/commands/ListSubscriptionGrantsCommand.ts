@@ -43,6 +43,7 @@ export interface ListSubscriptionGrantsCommandOutput extends ListSubscriptionGra
  *   subscribedListingId: "STRING_VALUE",
  *   subscriptionId: "STRING_VALUE",
  *   owningProjectId: "STRING_VALUE",
+ *   owningIamPrincipalArn: "STRING_VALUE",
  *   owningUserId: "STRING_VALUE",
  *   owningGroupId: "STRING_VALUE",
  *   sortBy: "CREATED_AT" || "UPDATED_AT",

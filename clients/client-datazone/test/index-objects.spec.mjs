@@ -994,6 +994,8 @@ import {
   SubscribedAssetListing$,
   SubscribedGroup$,
   SubscribedGroupInput$,
+  SubscribedIamPrincipal$,
+  SubscribedIamPrincipalInput$,
   SubscribedListing$,
   SubscribedListingInput$,
   SubscribedListingItem$,
@@ -1004,6 +1006,7 @@ import {
   SubscribedProjectInput$,
   SubscribedUser$,
   SubscribedUserInput$,
+  SubscriptionGrantCreationMode,
   SubscriptionGrantOverallStatus,
   SubscriptionGrantStatus,
   SubscriptionGrantSummary$,
@@ -2056,6 +2059,8 @@ assert(typeof SubscribedAsset$ === "object");
 assert(typeof SubscribedAssetListing$ === "object");
 assert(typeof SubscribedGroup$ === "object");
 assert(typeof SubscribedGroupInput$ === "object");
+assert(typeof SubscribedIamPrincipal$ === "object");
+assert(typeof SubscribedIamPrincipalInput$ === "object");
 assert(typeof SubscribedListing$ === "object");
 assert(typeof SubscribedListingInput$ === "object");
 assert(typeof SubscribedListingItem$ === "object");
@@ -2208,6 +2213,7 @@ assert(typeof SortFieldProject === "object");
 assert(typeof SortKey === "object");
 assert(typeof SortOrder === "object");
 assert(typeof Status === "object");
+assert(typeof SubscriptionGrantCreationMode === "object");
 assert(typeof SubscriptionGrantOverallStatus === "object");
 assert(typeof SubscriptionGrantStatus === "object");
 assert(typeof SubscriptionRequestStatus === "object");

@@ -55,6 +55,7 @@ export interface UpdateSubscriptionTargetCommandOutput extends UpdateSubscriptio
  *   ],
  *   manageAccessRole: "STRING_VALUE",
  *   provider: "STRING_VALUE",
+ *   subscriptionGrantCreationMode: "AUTOMATIC" || "MANUAL",
  * };
  * const command = new UpdateSubscriptionTargetCommand(input);
  * const response = await client.send(command);
@@ -83,6 +84,7 @@ export interface UpdateSubscriptionTargetCommandOutput extends UpdateSubscriptio
  * //     },
  * //   ],
  * //   provider: "STRING_VALUE", // required
+ * //   subscriptionGrantCreationMode: "AUTOMATIC" || "MANUAL",
  * // };
  *
  * ```

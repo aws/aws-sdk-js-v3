@@ -824,6 +824,8 @@ const _SGu = "SubscriptionGrants";
 const _SI = "SearchInput";
 const _SII = "SearchInItem";
 const _SIL = "SearchInList";
+const _SIP = "SubscribedIamPrincipal";
+const _SIPI = "SubscribedIamPrincipalInput";
 const _SIRI = "SearchInventoryResultItems";
 const _SIRIe = "SearchInventoryResultItem";
 const _SL = "SubscribedListing";
@@ -1354,6 +1356,7 @@ const _oDI = "originDomainId";
 const _oDS = "overallDeploymentStatus";
 const _oDUO = "overrideDomainUnitOwners";
 const _oGI = "owningGroupId";
+const _oIPA = "owningIamPrincipalArn";
 const _oLRES = "openLineageRunEventSummary";
 const _oPI = "owningProjectId";
 const _oPIr = "originProjectId";
@@ -1369,6 +1372,7 @@ const _ou = "outputs";
 const _ow = "owners";
 const _p = "principal";
 const _pA = "profileArn";
+const _pAr = "principalArn";
 const _pC = "predictionChoice";
 const _pCR = "physicalConnectionRequirements";
 const _pCr = "predictionConfiguration";
@@ -1467,6 +1471,7 @@ const _sB = "sortBy";
 const _sD = "shortDescription";
 const _sDC = "skipDeletionCheck";
 const _sEP = "sparkEmrProperties";
+const _sGCM = "subscriptionGrantCreationMode";
 const _sGIL = "securityGroupIdList";
 const _sGP = "sparkGlueProperties";
 const _sGS = "selfGrantStatus";
@@ -2307,13 +2312,13 @@ export var CreateSubscriptionRequestOutput$: StaticStructureSchema = [3, n0, _CS
 ];
 export var CreateSubscriptionTargetInput$: StaticStructureSchema = [3, n0, _CSTI,
   0,
-  [_dI, _eInv, _n, _ty, _sTC, _aPu, _mAR, _aAT, _pro, _cT],
-  [[0, 1], [0, 1], [() => SubscriptionTargetName, 0], 0, () => SubscriptionTargetForms, 64 | 0, 0, 64 | 0, 0, [0, 4]]
+  [_dI, _eInv, _n, _ty, _sTC, _aPu, _mAR, _aAT, _pro, _cT, _sGCM],
+  [[0, 1], [0, 1], [() => SubscriptionTargetName, 0], 0, () => SubscriptionTargetForms, 64 | 0, 0, 64 | 0, 0, [0, 4], 0]
 ];
 export var CreateSubscriptionTargetOutput$: StaticStructureSchema = [3, n0, _CSTO,
   0,
-  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _uB, _cA, _uA, _mAR, _aAT, _sTC, _pro],
-  [0, 64 | 0, 0, 0, 0, [() => SubscriptionTargetName, 0], 0, 0, 0, 4, 4, 0, 64 | 0, () => SubscriptionTargetForms, 0]
+  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _uB, _cA, _uA, _mAR, _aAT, _sTC, _pro, _sGCM],
+  [0, 64 | 0, 0, 0, 0, [() => SubscriptionTargetName, 0], 0, 0, 0, 4, 4, 0, 64 | 0, () => SubscriptionTargetForms, 0, 0]
 ];
 export var CreateUserProfileInput$: StaticStructureSchema = [3, n0, _CUPI,
   0,
@@ -3142,8 +3147,8 @@ export var GetSubscriptionTargetInput$: StaticStructureSchema = [3, n0, _GSTI,
 ];
 export var GetSubscriptionTargetOutput$: StaticStructureSchema = [3, n0, _GSTO,
   0,
-  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _uB, _cA, _uA, _mAR, _aAT, _sTC, _pro],
-  [0, 64 | 0, 0, 0, 0, [() => SubscriptionTargetName, 0], 0, 0, 0, 4, 4, 0, 64 | 0, () => SubscriptionTargetForms, 0]
+  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _uB, _cA, _uA, _mAR, _aAT, _sTC, _pro, _sGCM],
+  [0, 64 | 0, 0, 0, 0, [() => SubscriptionTargetName, 0], 0, 0, 0, 4, 4, 0, 64 | 0, () => SubscriptionTargetForms, 0, 0]
 ];
 export var GetTimeSeriesDataPointInput$: StaticStructureSchema = [3, n0, _GTSDPI,
   0,
@@ -3678,8 +3683,8 @@ export var ListRulesOutput$: StaticStructureSchema = [3, n0, _LRO,
 ];
 export var ListSubscriptionGrantsInput$: StaticStructureSchema = [3, n0, _LSGI,
   0,
-  [_dI, _eInvi, _sTIu, _sLI, _sI, _oPI, _oUI, _oGI, _sB, _sO, _mRa, _nT],
-  [[0, 1], [0, { [_hQ]: _eInvi }], [0, { [_hQ]: _sTIu }], [0, { [_hQ]: _sLI }], [0, { [_hQ]: _sI }], [0, { [_hQ]: _oPI }], [0, { [_hQ]: _oUI }], [0, { [_hQ]: _oGI }], [0, { [_hQ]: _sB }], [0, { [_hQ]: _sO }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
+  [_dI, _eInvi, _sTIu, _sLI, _sI, _oPI, _oIPA, _oUI, _oGI, _sB, _sO, _mRa, _nT],
+  [[0, 1], [0, { [_hQ]: _eInvi }], [0, { [_hQ]: _sTIu }], [0, { [_hQ]: _sLI }], [0, { [_hQ]: _sI }], [0, { [_hQ]: _oPI }], [0, { [_hQ]: _oIPA }], [0, { [_hQ]: _oUI }], [0, { [_hQ]: _oGI }], [0, { [_hQ]: _sB }], [0, { [_hQ]: _sO }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
 ];
 export var ListSubscriptionGrantsOutput$: StaticStructureSchema = [3, n0, _LSGO,
   0,
@@ -3688,8 +3693,8 @@ export var ListSubscriptionGrantsOutput$: StaticStructureSchema = [3, n0, _LSGO,
 ];
 export var ListSubscriptionRequestsInput$: StaticStructureSchema = [3, n0, _LSRI,
   0,
-  [_dI, _s, _sLI, _oPI, _aPI, _oUI, _oGI, _sB, _sO, _mRa, _nT],
-  [[0, 1], [0, { [_hQ]: _s }], [0, { [_hQ]: _sLI }], [0, { [_hQ]: _oPI }], [0, { [_hQ]: _aPI }], [0, { [_hQ]: _oUI }], [0, { [_hQ]: _oGI }], [0, { [_hQ]: _sB }], [0, { [_hQ]: _sO }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
+  [_dI, _s, _sLI, _oPI, _oIPA, _aPI, _oUI, _oGI, _sB, _sO, _mRa, _nT],
+  [[0, 1], [0, { [_hQ]: _s }], [0, { [_hQ]: _sLI }], [0, { [_hQ]: _oPI }], [0, { [_hQ]: _oIPA }], [0, { [_hQ]: _aPI }], [0, { [_hQ]: _oUI }], [0, { [_hQ]: _oGI }], [0, { [_hQ]: _sB }], [0, { [_hQ]: _sO }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
 ];
 export var ListSubscriptionRequestsOutput$: StaticStructureSchema = [3, n0, _LSRO,
   0,
@@ -3698,8 +3703,8 @@ export var ListSubscriptionRequestsOutput$: StaticStructureSchema = [3, n0, _LSR
 ];
 export var ListSubscriptionsInput$: StaticStructureSchema = [3, n0, _LSIi,
   0,
-  [_dI, _sRIu, _s, _sLI, _oPI, _oUI, _oGI, _aPI, _sB, _sO, _mRa, _nT],
-  [[0, 1], [0, { [_hQ]: _sRIu }], [0, { [_hQ]: _s }], [0, { [_hQ]: _sLI }], [0, { [_hQ]: _oPI }], [0, { [_hQ]: _oUI }], [0, { [_hQ]: _oGI }], [0, { [_hQ]: _aPI }], [0, { [_hQ]: _sB }], [0, { [_hQ]: _sO }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
+  [_dI, _sRIu, _s, _sLI, _oPI, _oIPA, _oUI, _oGI, _aPI, _sB, _sO, _mRa, _nT],
+  [[0, 1], [0, { [_hQ]: _sRIu }], [0, { [_hQ]: _s }], [0, { [_hQ]: _sLI }], [0, { [_hQ]: _oPI }], [0, { [_hQ]: _oIPA }], [0, { [_hQ]: _oUI }], [0, { [_hQ]: _oGI }], [0, { [_hQ]: _aPI }], [0, { [_hQ]: _sB }], [0, { [_hQ]: _sO }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
 ];
 export var ListSubscriptionsOutput$: StaticStructureSchema = [3, n0, _LSO,
   0,
@@ -4303,6 +4308,16 @@ export var SubscribedGroupInput$: StaticStructureSchema = [3, n0, _SGI,
   [_i],
   [0]
 ];
+export var SubscribedIamPrincipal$: StaticStructureSchema = [3, n0, _SIP,
+  0,
+  [_pAr],
+  [0]
+];
+export var SubscribedIamPrincipalInput$: StaticStructureSchema = [3, n0, _SIPI,
+  0,
+  [_i],
+  [0]
+];
 export var SubscribedListing$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_id, _r, _n, _de, _ite, _oPIwn, _oPN],
@@ -4360,8 +4375,8 @@ export var SubscriptionTargetForm$: StaticStructureSchema = [3, n0, _STF,
 ];
 export var SubscriptionTargetSummary$: StaticStructureSchema = [3, n0, _STS,
   0,
-  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _uB, _cA, _uA, _mAR, _aAT, _sTC, _pro],
-  [0, 64 | 0, 0, 0, 0, [() => SubscriptionTargetName, 0], 0, 0, 0, 4, 4, 0, 64 | 0, () => SubscriptionTargetForms, 0]
+  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _uB, _cA, _uA, _mAR, _aAT, _sTC, _pro, _sGCM],
+  [0, 64 | 0, 0, 0, 0, [() => SubscriptionTargetName, 0], 0, 0, 0, 4, 4, 0, 64 | 0, () => SubscriptionTargetForms, 0, 0]
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
@@ -4622,13 +4637,13 @@ export var UpdateSubscriptionRequestOutput$: StaticStructureSchema = [3, n0, _US
 ];
 export var UpdateSubscriptionTargetInput$: StaticStructureSchema = [3, n0, _USTI,
   0,
-  [_dI, _eInv, _i, _n, _aPu, _aAT, _sTC, _mAR, _pro],
-  [[0, 1], [0, 1], [0, 1], [() => SubscriptionTargetName, 0], 64 | 0, 64 | 0, () => SubscriptionTargetForms, 0, 0]
+  [_dI, _eInv, _i, _n, _aPu, _aAT, _sTC, _mAR, _pro, _sGCM],
+  [[0, 1], [0, 1], [0, 1], [() => SubscriptionTargetName, 0], 64 | 0, 64 | 0, () => SubscriptionTargetForms, 0, 0, 0]
 ];
 export var UpdateSubscriptionTargetOutput$: StaticStructureSchema = [3, n0, _USTO,
   0,
-  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _uB, _cA, _uA, _mAR, _aAT, _sTC, _pro],
-  [0, 64 | 0, 0, 0, 0, [() => SubscriptionTargetName, 0], 0, 0, 0, 4, 4, 0, 64 | 0, () => SubscriptionTargetForms, 0]
+  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _uB, _cA, _uA, _mAR, _aAT, _sTC, _pro, _sGCM],
+  [0, 64 | 0, 0, 0, 0, [() => SubscriptionTargetName, 0], 0, 0, 0, 4, 4, 0, 64 | 0, () => SubscriptionTargetForms, 0, 0]
 ];
 export var UpdateUserProfileInput$: StaticStructureSchema = [3, n0, _UUPI,
   0,
@@ -5276,13 +5291,13 @@ export var SubscribedListingItem$: StaticUnionSchema = [4, n0, _SLIubs,
 ];
 export var SubscribedPrincipal$: StaticUnionSchema = [4, n0, _SPub,
   0,
-  [_proj, _use, _g],
-  [[() => SubscribedProject$, 0], [() => SubscribedUser$, 0], [() => SubscribedGroup$, 0]]
+  [_proj, _use, _g, _ia],
+  [[() => SubscribedProject$, 0], [() => SubscribedUser$, 0], [() => SubscribedGroup$, 0], () => SubscribedIamPrincipal$]
 ];
 export var SubscribedPrincipalInput$: StaticUnionSchema = [4, n0, _SPIubs,
   0,
-  [_proj, _use, _g],
-  [() => SubscribedProjectInput$, () => SubscribedUserInput$, () => SubscribedGroupInput$]
+  [_proj, _use, _g, _ia],
+  [() => SubscribedProjectInput$, () => SubscribedUserInput$, () => SubscribedGroupInput$, () => SubscribedIamPrincipalInput$]
 ];
 export var UserPolicyGrantPrincipal$: StaticUnionSchema = [4, n0, _UPGP,
   0,

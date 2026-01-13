@@ -75,6 +75,9 @@ export interface GetSubscriptionRequestDetailsCommandOutput extends GetSubscript
  * //         id: "STRING_VALUE",
  * //         name: "STRING_VALUE",
  * //       },
+ * //       iam: { // SubscribedIamPrincipal
+ * //         principalArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   subscribedListings: [ // SubscribedListings // required
