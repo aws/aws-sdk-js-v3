@@ -1,5 +1,5 @@
 import { CloudWatch } from "@aws-sdk/client-cloudwatch";
-import { beforeAll, describe, expect, test as it } from "vitest";
+import { afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
 describe(CloudWatch.name, () => {
   let client: CloudWatch;
@@ -9,33 +9,38 @@ describe(CloudWatch.name, () => {
   });
 
   describe("Alarms", () => {
-    it("should create, list, and find CloudWatch alarm", async () => {
+    describe("Normal flow", () => {
       const alarmName = `aws-js-sdk-alarm-${Date.now()}`;
 
-      // Create alarm
-      await client.putMetricAlarm({
-        AlarmName: alarmName,
-        ComparisonOperator: "GreaterThanThreshold",
-        EvaluationPeriods: 1,
-        AlarmDescription: "Test alarm for SDK",
-        MetricName: "CPUUtilization",
-        Namespace: "AWS/EC2",
-        Statistic: "Average",
-        Threshold: 80,
-        Period: 300,
+      it("should create, list, and find CloudWatch alarm", async () => {
+        // Create alarm
+        await client.putMetricAlarm({
+          AlarmName: alarmName,
+          ComparisonOperator: "GreaterThanThreshold",
+          EvaluationPeriods: 1,
+          AlarmDescription: "Test alarm for SDK",
+          MetricName: "CPUUtilization",
+          Namespace: "AWS/EC2",
+          Statistic: "Average",
+          Threshold: 80,
+          Period: 300,
+        });
+
+        // List alarms
+        const result = await client.describeAlarms({ AlarmNames: [alarmName] });
+
+        expect(Array.isArray(result.MetricAlarms)).toBe(true);
+
+        // Check if our alarm is in the list
+        const foundAlarm = result.MetricAlarms?.find((alarm) => alarm.AlarmName === alarmName);
+        expect(foundAlarm?.AlarmName).toBe(alarmName);
       });
 
-      // List alarms
-      const result = await client.describeAlarms({ AlarmNames: [alarmName] });
-
-      expect(Array.isArray(result.MetricAlarms)).toBe(true);
-
-      // Check if our alarm is in the list
-      const foundAlarm = result.MetricAlarms?.find((alarm) => alarm.AlarmName === alarmName);
-      expect(foundAlarm?.AlarmName).toBe(alarmName);
-
-      // Cleanup
-      await client.deleteAlarms({ AlarmNames: [alarmName] });
+      afterEach(async () => {
+        await client.deleteAlarms({ AlarmNames: [alarmName] }).catch(() => {
+          // Ignore errors during cleanup (e.g. if alarm was already deleted)
+        });
+      });
     });
   });
 
