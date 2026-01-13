@@ -2,6 +2,9 @@ import "@aws-sdk/signature-v4-crt";
 
 import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
+import { FetchHttpHandler, streamCollector } from "@smithy/fetch-http-handler";
+import { blobHasher } from "@smithy/hash-blob-browser";
+import { Readable } from "node:stream";
 import { afterAll, afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
 import { createBuffer } from "./helpers";
@@ -37,7 +40,6 @@ describe("@aws-sdk/client-s3", () => {
     it("should succeed with Node.js readable stream body", async () => {
       const length = 100 * 1024; // 100KB
       const chunkSize = 8 * 1024; // 8KB
-      const { Readable } = require("stream");
       let sizeLeft = length;
       const inputStream = new Readable({
         read() {
@@ -53,13 +55,43 @@ describe("@aws-sdk/client-s3", () => {
           sizeLeft -= chunk.length;
         },
       });
-      inputStream.size = length; // This is required
       const result = await client.putObject({
         Bucket,
         Key,
         Body: inputStream,
+        ContentLength: length,
       });
       expect(result.$metadata.httpStatusCode).toEqual(200);
+    });
+
+    it("should be able to send a stream of size 0 (Readable)", async () => {
+      await client.putObject({
+        Bucket,
+        Key: "empty-from-buffer-readable",
+        Body: Readable.from(Buffer.from("")),
+        ContentLength: 0,
+      });
+    });
+
+    // TODO(s3): work is needed to support ReadableStreams in this scenario.
+    it.skip("should be able to send a stream of size 0 (ReadableStream)", async () => {
+      const readableStream = new ReadableStream({
+        start(controller) {
+          controller.enqueue("");
+        },
+      });
+      const client = new S3({
+        requestHandler: new FetchHttpHandler(),
+        streamHasher: blobHasher,
+        streamCollector,
+      });
+
+      await client.putObject({
+        Bucket,
+        Key: "empty-from-readablestream",
+        Body: readableStream,
+        ContentLength: 0,
+      });
     });
   });
 
