@@ -10,7 +10,7 @@ describe(CloudWatch.name, () => {
 
   describe("Alarms", () => {
     describe("Normal flow", () => {
-      const alarmName = `aws-js-sdk-alarm-${Date.now()}`;
+      const alarmName = `aws-js-sdk-alarm-${crypto.randomUUID()}`;
 
       it("should create, list, and find CloudWatch alarm", async () => {
         // Create alarm
