@@ -17,7 +17,7 @@
     "build:packages": "node ./scripts/turbo build -F=./packages/*",
     "build:protocols": "node ./scripts/turbo build -F=./private/aws-protocoltests-*",
     "build:server-protocols": "node ./scripts/turbo build -F=./private/*-server",
-    "build:types:downlevel": "node --es-module-specifier-resolution=node ./scripts/downlevel-dts",
+    "build:types:downlevel": "node ./scripts/downlevel-dts/index.mjs",
     "clean": "yarn clear-build-cache && yarn clear-build-info && lerna clean",
     "clear-build-docs": "rimraf ./clients/*/docs/ ./dist/docs/clients/*/docs/ ./clientDocs",
     "clear-build-cache": "rimraf ./packages/*/dist-* ./clients/*/dist-* ./lib/*/dist-* ./private/*/dist-*",
@@ -52,8 +52,8 @@
     "test:size": "node ./tests/bundlers/runner/run.mjs",
     "test:unit": "make test-unit",
     "test:versions": "jest --config tests/versions/jest.config.js tests/versions/index.spec.ts",
-    "update:versions:default": "node --es-module-specifier-resolution=node ./scripts/update-versions/default.mjs",
-    "update:versions:current": "node --es-module-specifier-resolution=node ./scripts/update-versions/current.mjs"
+    "update:versions:default": "node ./scripts/update-versions/default.mjs",
+    "update:versions:current": "node ./scripts/update-versions/current.mjs"
   },
   "repository": {
     "type": "git",
