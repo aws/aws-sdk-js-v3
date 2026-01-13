@@ -3,7 +3,7 @@
   "version": "3.967.0",
   "description": "AWS credential provider that sources credentials from a Node.JS environment. ",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
-    "@types/node": "^18.19.69",
+    "@types/node": "^20.14.8",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "5.0.10",

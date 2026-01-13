@@ -64,15 +64,16 @@
   "devDependencies": {
     "@aws-sdk/client-iam": "*",
     "@tsconfig/node18": "18.2.4",
+    "@tsconfig/node20": "20.1.8",
     "@types/chai": "^4.2.11",
-    "@types/node": "^18.19.69",
+    "@types/node": "^20.14.8",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "5.0.10",
     "typescript": "~5.8.3"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "typesVersions": {
     "<4.0": {
