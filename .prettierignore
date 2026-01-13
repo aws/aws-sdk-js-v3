@@ -5,7 +5,6 @@ CHANGELOG.md
 **/*/report.md
 clients/**/src
 clients/**/README.md
-private/**/src
-private/**/README.md
+private/**
 packages/nested-clients/src/submodules/*/endpoint/ruleset.ts
 **/*.java
