@@ -14,10 +14,9 @@ import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import {
-  getLernaChanged,
   getLernaList,
+  getLocalChangedPackagesManifest,
   getWorkspaceVersion,
-  independentPackagesConfig,
   linkedPackagesConfig,
   overwriteLerna,
 } from "./lib/release.mjs";
@@ -30,8 +29,7 @@ const workspaceVersion = await getWorkspaceVersion();
 overwriteLerna(linkedPackagesConfig);
 const linked = (await getLernaList()).filter((pkg) => pkg.version === workspaceVersion && pkg.private === false);
 
-overwriteLerna(independentPackagesConfig);
-const unlinked = (await getLernaChanged()).filter((pkg) => pkg.private === false);
+const unlinked = (await getLocalChangedPackagesManifest()).filter((pkg) => pkg.private === false);
 
 const relativeLocation = (pkg) => {
   return {

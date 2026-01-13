@@ -3,9 +3,10 @@ import { readFile } from "node:fs/promises";
 import path, { join } from "node:path";
 
 import { spawnProcess, spawnProcessReturnValue } from "../../utils/spawn-process.js";
+import { manifestPath } from "./generateChangelog.mjs";
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
-const root = path.resolve(__dirname, "..", "..", "..");
+export const root = path.resolve(__dirname, "..", "..", "..");
 
 const lernaConfigPath = path.join(root, "lerna.json");
 const lernaConfig = JSON.parse(fs.readFileSync(lernaConfigPath, "utf8"));
@@ -16,15 +17,6 @@ const lernaConfig = JSON.parse(fs.readFileSync(lernaConfigPath, "utf8"));
 export const linkedPackagesConfig = {
   useWorkspaces: false,
   packages: ["clients/*", "private/*", "lib/*", "packages/*"],
-};
-
-/**
- * Overrides for lerna.json when publishing independent packages.
- */
-export const independentPackagesConfig = {
-  version: "independent",
-  useWorkspaces: false,
-  packages: ["packages-internal/*"],
 };
 
 /**
@@ -70,25 +62,11 @@ export const getLernaList = async () => {
 };
 
 /**
- * Returns the output of `lerna changed`.
- * This takes longer, and so is used against the independent-version
- * package list but not the linked-version package list.
+ * Returns the local manifest values populated by the changelog generator.
  */
-export const getLernaChanged = async () => {
-  try {
-    const lernaList = await spawnProcessReturnValue(
-      "yarn",
-      ["run", "--silent", "lerna", "changed", "--toposort", "--loglevel", "silent", "--json"],
-      {
-        cwd: root,
-      }
-    );
-    return JSON.parse(lernaList);
-  } catch (e) {
-    // lerna returns code 1 when no changes are found, but we can continue.
-    console.warn(e);
-    return [];
-  }
+export const getLocalChangedPackagesManifest = async () => {
+  const localCustomManifest = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
+  return Object.values(localCustomManifest).sort((a, b) => a.name.localeCompare(b.name));
 };
 
 export const getWorkspaceVersion = async () => {
