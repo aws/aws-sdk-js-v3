@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+
+# 3.965.2 (2026-01-13)
+### Chores
+* drop support for Node.js 18.x ([#7647](https://github.com/aws/aws-sdk-js-v3/issues/7647)) ([b97d320](https://github.com/aws/aws-sdk-js-v3/commit/b97d3208cf8e7d9bd1c96d08f5c8b853ff88ac93))
+
+
+
 ## 3.965.1 (2026-01-12)
 
 **Note:** Version bump only for package @aws-sdk/util-locate-window
