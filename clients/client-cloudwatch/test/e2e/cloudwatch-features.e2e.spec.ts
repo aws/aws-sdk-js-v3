@@ -26,7 +26,7 @@ describe(CloudWatch.name, () => {
       });
 
       // List alarms
-      const result = await client.describeAlarms({});
+      const result = await client.describeAlarms({ AlarmNames: [alarmName] });
 
       expect(Array.isArray(result.MetricAlarms)).toBe(true);
 
