@@ -3,8 +3,9 @@ CHANGELOG.md
 .github/*
 **/*.hbs
 **/*/report.md
-clients/*/src/endpoint/ruleset.ts
-clients/**/*.*
-private/**/*.*
+clients/**/src
+clients/**/README.md
+private/**/src
+private/**/README.md
 packages/nested-clients/src/submodules/*/endpoint/ruleset.ts
 **/*.java
