@@ -27,9 +27,7 @@ export interface ModifyTenantDatabaseCommandInput extends ModifyTenantDatabaseMe
 export interface ModifyTenantDatabaseCommandOutput extends ModifyTenantDatabaseResult, __MetadataBearer {}
 
 /**
- * <p>Modifies an existing tenant database in a DB instance. You can change the tenant
- *             database name or the master user password. This operation is supported only for RDS for
- *             Oracle CDB instances using the multi-tenant configuration.</p>
+ * <p>Modifies an existing tenant database in a DB instance. You can change the tenant database name or the master user password. This operation is supported only for RDS for Oracle CDB instances using the multi-tenant configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,8 +87,7 @@ export interface ModifyTenantDatabaseCommandOutput extends ModifyTenantDatabaseR
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
@@ -99,8 +96,7 @@ export interface ModifyTenantDatabaseCommandOutput extends ModifyTenantDatabaseR
  *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
  *
  * @throws {@link TenantDatabaseAlreadyExistsFault} (client fault)
- *  <p>You attempted to either create a tenant database that already exists or
- *                 modify a tenant database to use the name of an existing tenant database.</p>
+ *  <p>You attempted to either create a tenant database that already exists or modify a tenant database to use the name of an existing tenant database.</p>
  *
  * @throws {@link TenantDatabaseNotFoundFault} (client fault)
  *  <p>The specified tenant database wasn't found in the DB instance.</p>

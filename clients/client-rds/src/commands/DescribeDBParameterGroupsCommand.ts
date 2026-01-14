@@ -27,8 +27,7 @@ export interface DescribeDBParameterGroupsCommandInput extends DescribeDBParamet
 export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroupsMessage, __MetadataBearer {}
 
 /**
- * <p>Returns a list of <code>DBParameterGroup</code> descriptions. If a <code>DBParameterGroupName</code> is specified,
- *             the list will contain only the description of the specified DB parameter group.</p>
+ * <p>Returns a list of <code>DBParameterGroup</code> descriptions. If a <code>DBParameterGroupName</code> is specified, the list will contain only the description of the specified DB parameter group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,9 +72,7 @@ export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroup
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBParameterGroupName</code> doesn't refer to an
- *         existing DB parameter group.</p>
+ *  <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

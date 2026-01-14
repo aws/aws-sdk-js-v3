@@ -27,14 +27,7 @@ export interface DescribeDBClustersCommandInput extends DescribeDBClustersMessag
 export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __MetadataBearer {}
 
 /**
- * <p>Describes existing Amazon Aurora DB clusters and Multi-AZ DB clusters. This API supports pagination.</p>
- *          <p>For more information on Amazon Aurora DB clusters, see
- *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
- *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
- *                 cluster deployments</a> in the <i>Amazon RDS User
- *             Guide</i>.</p>
- *          <p>This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.</p>
+ * <p>Describes existing Amazon Aurora DB clusters and Multi-AZ DB clusters. This API supports pagination.</p> <p>For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.</p> <p>This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -267,8 +260,7 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

@@ -27,8 +27,7 @@ export interface DescribeDBLogFilesCommandInput extends DescribeDBLogFilesMessag
 export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of DB log files for the DB instance.</p>
- *          <p>This command doesn't apply to RDS Custom.</p>
+ * <p>Returns a list of DB log files for the DB instance.</p> <p>This command doesn't apply to RDS Custom.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +74,7 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link DBInstanceNotReadyFault} (client fault)
  *  <p>An attempt to download or examine log files didn't succeed because an Aurora Serverless v2 instance was paused.</p>

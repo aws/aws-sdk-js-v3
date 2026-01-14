@@ -27,9 +27,7 @@ export interface DeleteDBProxyEndpointCommandInput extends DeleteDBProxyEndpoint
 export interface DeleteDBProxyEndpointCommandOutput extends DeleteDBProxyEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a <code>DBProxyEndpoint</code>. Doing so removes the ability to access the DB proxy using the
- *         endpoint that you defined. The endpoint that you delete might have provided capabilities such as read/write
- *         or read-only operations, or using a different VPC than the DB proxy's default VPC.</p>
+ * <p>Deletes a <code>DBProxyEndpoint</code>. Doing so removes the ability to access the DB proxy using the endpoint that you defined. The endpoint that you delete might have provided capabilities such as read/write or read-only operations, or using a different VPC than the DB proxy's default VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

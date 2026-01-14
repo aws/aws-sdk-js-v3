@@ -27,13 +27,7 @@ export interface DescribeDBClusterParametersCommandInput extends DescribeDBClust
 export interface DescribeDBClusterParametersCommandOutput extends DBClusterParameterGroupDetails, __MetadataBearer {}
 
 /**
- * <p>Returns the detailed parameter list for a particular DB cluster parameter group.</p>
- *          <p>For more information on Amazon Aurora, see
- *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
- *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
- *                 cluster deployments</a> in the <i>Amazon RDS User
- *             Guide</i>.</p>
+ * <p>Returns the detailed parameter list for a particular DB cluster parameter group.</p> <p>For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,9 +82,7 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBParameterGroupName</code> doesn't refer to an
- *         existing DB parameter group.</p>
+ *  <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

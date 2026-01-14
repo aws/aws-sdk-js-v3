@@ -27,8 +27,7 @@ export interface CreateDBSnapshotCommandInput extends CreateDBSnapshotMessage {}
 export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Creates a snapshot of a DB instance. The source DB instance must be in the <code>available</code> or
- *                 <code>storage-optimization</code> state.</p>
+ * <p>Creates a snapshot of a DB instance. The source DB instance must be in the <code>available</code> or <code>storage-optimization</code> state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,7 +96,6 @@ export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, _
  * //     DBSystemId: "STRING_VALUE",
  * //     MultiTenant: true || false,
  * //     DedicatedLogVolume: true || false,
- * //     SnapshotAvailabilityZone: "STRING_VALUE",
  * //     AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
  * //       { // AdditionalStorageVolume
  * //         VolumeName: "STRING_VALUE", // required
@@ -108,6 +106,7 @@ export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, _
  * //         StorageType: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SnapshotAvailabilityZone: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -120,19 +119,16 @@ export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, _
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link DBSnapshotAlreadyExistsFault} (client fault)
- *  <p>
- *             <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
+ *  <p> <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of DB
- *             snapshots.</p>
+ *  <p>The request would result in the user exceeding the allowed number of DB snapshots.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

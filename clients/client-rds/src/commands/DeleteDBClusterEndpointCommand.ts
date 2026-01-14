@@ -27,10 +27,7 @@ export interface DeleteDBClusterEndpointCommandInput extends DeleteDBClusterEndp
 export interface DeleteDBClusterEndpointCommandOutput extends DBClusterEndpoint, __MetadataBearer {}
 
 /**
- * <p>Deletes a custom endpoint and removes it from an Amazon Aurora DB cluster.</p>
- *          <note>
- *             <p>This action only applies to Aurora DB clusters.</p>
- *          </note>
+ * <p>Deletes a custom endpoint and removes it from an Amazon Aurora DB cluster.</p> <note> <p>This action only applies to Aurora DB clusters.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

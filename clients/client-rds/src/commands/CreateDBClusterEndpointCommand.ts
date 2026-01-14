@@ -27,10 +27,7 @@ export interface CreateDBClusterEndpointCommandInput extends CreateDBClusterEndp
 export interface CreateDBClusterEndpointCommandOutput extends DBClusterEndpoint, __MetadataBearer {}
 
 /**
- * <p>Creates a new custom endpoint and associates it with an Amazon Aurora DB cluster.</p>
- *          <note>
- *             <p>This action applies only to Aurora DB clusters.</p>
- *          </note>
+ * <p>Creates a new custom endpoint and associates it with an Amazon Aurora DB cluster.</p> <note> <p>This action applies only to Aurora DB clusters.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,12 +87,10 @@ export interface CreateDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  *  <p>The cluster already has the maximum number of custom endpoints.</p>
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>

@@ -41,6 +41,9 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  *   EngineVersion: "STRING_VALUE", // required
  *   DatabaseInstallationFilesS3BucketName: "STRING_VALUE",
  *   DatabaseInstallationFilesS3Prefix: "STRING_VALUE",
+ *   DatabaseInstallationFiles: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
  *   ImageId: "STRING_VALUE",
  *   KMSKeyId: "STRING_VALUE",
  *   SourceCustomDbEngineVersionIdentifier: "STRING_VALUE",
@@ -53,9 +56,6 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   DatabaseInstallationFiles: [ // StringList
- *     "STRING_VALUE",
- *   ],
  * };
  * const command = new CreateCustomDBEngineVersionCommand(input);
  * const response = await client.send(command);
@@ -65,6 +65,9 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //   EngineVersion: "STRING_VALUE",
  * //   DatabaseInstallationFilesS3BucketName: "STRING_VALUE",
  * //   DatabaseInstallationFilesS3Prefix: "STRING_VALUE",
+ * //   DatabaseInstallationFiles: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
  * //   CustomDBEngineVersionManifest: "STRING_VALUE",
  * //   DBParameterGroupFamily: "STRING_VALUE",
  * //   DBEngineDescription: "STRING_VALUE",
@@ -74,6 +77,7 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //     CharacterSetName: "STRING_VALUE",
  * //     CharacterSetDescription: "STRING_VALUE",
  * //   },
+ * //   FailureReason: "STRING_VALUE",
  * //   Image: { // CustomDBEngineVersionAMI
  * //     ImageId: "STRING_VALUE",
  * //     Status: "STRING_VALUE",
@@ -148,10 +152,6 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //     MinCapacity: Number("double"),
  * //     MaxCapacity: Number("double"),
  * //   },
- * //   DatabaseInstallationFiles: [ // StringList
- * //     "STRING_VALUE",
- * //   ],
- * //   FailureReason: "STRING_VALUE",
  * // };
  *
  * ```

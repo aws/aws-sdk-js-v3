@@ -89,7 +89,7 @@ export const waitForDBInstanceDeleted = async (
   params: WaiterConfiguration<RDSClient>,
   input: DescribeDBInstancesCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 30, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 30, maxDelay: 1800 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
 /**
@@ -101,7 +101,7 @@ export const waitUntilDBInstanceDeleted = async (
   params: WaiterConfiguration<RDSClient>,
   input: DescribeDBInstancesCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 30, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 30, maxDelay: 1800 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
   return checkExceptions(result);
 };

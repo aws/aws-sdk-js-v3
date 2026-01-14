@@ -27,13 +27,7 @@ export interface DescribeDBClusterBacktracksCommandInput extends DescribeDBClust
 export interface DescribeDBClusterBacktracksCommandOutput extends DBClusterBacktrackMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about backtracks for a DB cluster.</p>
- *          <p>For more information on Amazon Aurora, see
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
- *                 What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *          <note>
- *             <p>This action only applies to Aurora MySQL DB clusters.</p>
- *          </note>
+ * <p>Returns information about backtracks for a DB cluster.</p> <p>For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <note> <p>This action only applies to Aurora MySQL DB clusters.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,12 +75,10 @@ export interface DescribeDBClusterBacktracksCommandOutput extends DBClusterBackt
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterBacktrackNotFoundFault} (client fault)
- *  <p>
- *             <code>BacktrackIdentifier</code> doesn't refer to an existing backtrack.</p>
+ *  <p> <code>BacktrackIdentifier</code> doesn't refer to an existing backtrack.</p>
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

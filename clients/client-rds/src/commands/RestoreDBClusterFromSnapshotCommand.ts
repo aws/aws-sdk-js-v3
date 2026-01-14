@@ -27,25 +27,7 @@ export interface RestoreDBClusterFromSnapshotCommandInput extends RestoreDBClust
 export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClusterFromSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
- *          <p>The target DB cluster is created from the source snapshot with a default
- *             configuration. If you don't specify a security group, the new DB cluster is
- *             associated with the default security group.</p>
- *          <note>
- *             <p>This operation only restores the DB cluster, not the DB instances for that DB
- *                 cluster. You must invoke the <code>CreateDBInstance</code> operation to create DB
- *                 instances for the restored DB cluster, specifying the identifier of the restored DB
- *                 cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after
- *                 the <code>RestoreDBClusterFromSnapshot</code> operation has completed and the DB
- *                 cluster is available.</p>
- *          </note>
- *          <p>For more information on Amazon Aurora DB clusters, see
- *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
- *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
- *                 cluster deployments</a> in the <i>Amazon RDS User
- *             Guide.</i>
- *          </p>
+ * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p> <p>The target DB cluster is created from the source snapshot with a default configuration. If you don't specify a security group, the new DB cluster is associated with the default security group.</p> <note> <p>This operation only restores the DB cluster, not the DB instances for that DB cluster. You must invoke the <code>CreateDBInstance</code> operation to create DB instances for the restored DB cluster, specifying the identifier of the restored DB cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after the <code>RestoreDBClusterFromSnapshot</code> operation has completed and the DB cluster is available.</p> </note> <p>For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide.</i> </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -338,44 +320,34 @@ export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClus
  *  <p>The user already has a DB cluster with the given identifier.</p>
  *
  * @throws {@link DBClusterParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB
- *             cluster parameter group.</p>
+ *  <p> <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB cluster parameter group.</p>
  *
  * @throws {@link DBClusterQuotaExceededFault} (client fault)
- *  <p>The user attempted to create a new DB cluster and the user has already reached the
- *             maximum allowed DB cluster quota.</p>
+ *  <p>The user attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
  *
  * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
+ *  <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
  *
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *  <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  *
  * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
  *  <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+ *  <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
  *
  * @throws {@link DomainNotFoundFault} (client fault)
- *  <p>
- *             <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+ *  <p> <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
  *
  * @throws {@link InsufficientDBClusterCapacityFault} (client fault)
  *  <p>The DB cluster doesn't have enough capacity for the current operation.</p>
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
- *  <p>The specified DB instance class isn't available in the specified Availability
- *             Zone.</p>
+ *  <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
  *
  * @throws {@link InsufficientStorageClusterCapacityFault} (client fault)
- *  <p>There is insufficient storage available for the current action. You might be able to
- *             resolve this error by updating your subnet group to use different Availability Zones
- *             that have more storage available.</p>
+ *  <p>There is insufficient storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.</p>
  *
  * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
  *  <p>The supplied value isn't a valid DB cluster snapshot state.</p>
@@ -393,8 +365,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClus
  *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The DB subnet group doesn't cover all Availability Zones after it's
- *             created because of users' change.</p>
+ *  <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
  *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
@@ -406,16 +377,13 @@ export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClus
  *  <p>The specified option group could not be found.</p>
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed amount of storage
- *             available across all DB instances.</p>
+ *  <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
  *
  * @throws {@link StorageTypeNotSupportedFault} (client fault)
  *  <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
  *
  * @throws {@link VpcEncryptionControlViolationException} (client fault)
- *  <p>The operation violates VPC encryption control settings. Make sure that your DB
- *             instance type supports the Nitro encryption-in-transit capability,
- *             or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+ *  <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

@@ -28,8 +28,7 @@ export interface ModifyDBShardGroupCommandInput extends ModifyDBShardGroupMessag
 export interface ModifyDBShardGroupCommandOutput extends DBShardGroup, __MetadataBearer {}
 
 /**
- * <p>Modifies the settings of an Aurora Limitless Database DB shard group. You can change one or more settings by
- *             specifying these parameters and the new values in the request.</p>
+ * <p>Modifies the settings of an Aurora Limitless Database DB shard group. You can change one or more settings by specifying these parameters and the new values in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

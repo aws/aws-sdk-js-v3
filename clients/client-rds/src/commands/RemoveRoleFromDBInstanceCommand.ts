@@ -54,12 +54,10 @@ export interface RemoveRoleFromDBInstanceCommandOutput extends __MetadataBearer 
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link DBInstanceRoleNotFoundFault} (client fault)
- *  <p>The specified <code>RoleArn</code> value doesn't match the specified feature for
- *             the DB instance.</p>
+ *  <p>The specified <code>RoleArn</code> value doesn't match the specified feature for the DB instance.</p>
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>

@@ -27,12 +27,7 @@ export interface RemoveFromGlobalClusterCommandInput extends RemoveFromGlobalClu
 export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalClusterResult, __MetadataBearer {}
 
 /**
- * <p>Detaches an Aurora secondary cluster from an Aurora global database cluster. The cluster becomes a
- *         standalone cluster with read-write capability instead of being read-only and receiving data from a
- *         primary cluster in a different Region.</p>
- *          <note>
- *             <p>This operation only applies to Aurora DB clusters.</p>
- *          </note>
+ * <p>Detaches an Aurora secondary cluster from an Aurora global database cluster. The cluster becomes a standalone cluster with read-write capability instead of being read-only and receiving data from a primary cluster in a different Region.</p> <note> <p>This operation only applies to Aurora DB clusters.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,8 +90,7 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
  *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>

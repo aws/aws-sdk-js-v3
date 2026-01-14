@@ -28,20 +28,7 @@ export interface CreateDBInstanceReadReplicaCommandInput extends CreateDBInstanc
 export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstanceReadReplicaResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new DB instance that acts as a read replica for an existing source DB
- *             instance or Multi-AZ DB cluster. You can create a read replica for a DB instance running
- *             Db2, MariaDB, MySQL, Oracle, PostgreSQL, or SQL Server. You can create a read replica
- *             for a Multi-AZ DB cluster running MySQL or PostgreSQL. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working
- *                 with read replicas</a> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html#multi-az-db-clusters-migrating-to-instance-with-read-replica">Migrating from a Multi-AZ DB cluster to a DB instance using a read replica</a>
- *             in the <i>Amazon RDS User Guide</i>.</p>
- *          <p>Amazon Aurora doesn't support this operation. To create a DB instance for an Aurora DB cluster, use the <code>CreateDBInstance</code>
- *             operation.</p>
- *          <p>RDS creates read replicas with backups disabled. All other attributes
- *             (including DB security groups and DB parameter groups) are inherited from the source DB
- *             instance or cluster, except as specified.</p>
- *          <important>
- *             <p>Your source DB instance or cluster must have backup retention enabled.</p>
- *          </important>
+ * <p>Creates a new DB instance that acts as a read replica for an existing source DB instance or Multi-AZ DB cluster. You can create a read replica for a DB instance running Db2, MariaDB, MySQL, Oracle, PostgreSQL, or SQL Server. You can create a read replica for a Multi-AZ DB cluster running MySQL or PostgreSQL. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working with read replicas</a> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html#multi-az-db-clusters-migrating-to-instance-with-read-replica">Migrating from a Multi-AZ DB cluster to a DB instance using a read replica</a> in the <i>Amazon RDS User Guide</i>.</p> <p>Amazon Aurora doesn't support this operation. To create a DB instance for an Aurora DB cluster, use the <code>CreateDBInstance</code> operation.</p> <p>RDS creates read replicas with backups disabled. All other attributes (including DB security groups and DB parameter groups) are inherited from the source DB instance or cluster, except as specified.</p> <important> <p>Your source DB instance or cluster must have backup retention enabled.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,6 +101,16 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *   DedicatedLogVolume: true || false,
  *   UpgradeStorageConfig: true || false,
  *   CACertificateIdentifier: "STRING_VALUE",
+ *   AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
+ *     { // AdditionalStorageVolume
+ *       VolumeName: "STRING_VALUE", // required
+ *       AllocatedStorage: Number("int"),
+ *       IOPS: Number("int"),
+ *       MaxAllocatedStorage: Number("int"),
+ *       StorageThroughput: Number("int"),
+ *       StorageType: "STRING_VALUE",
+ *     },
+ *   ],
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
  *       ResourceType: "STRING_VALUE",
@@ -123,16 +120,6 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *           Value: "STRING_VALUE",
  *         },
  *       ],
- *     },
- *   ],
- *   AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
- *     { // AdditionalStorageVolume
- *       VolumeName: "STRING_VALUE", // required
- *       AllocatedStorage: Number("int"),
- *       IOPS: Number("int"),
- *       MaxAllocatedStorage: Number("int"),
- *       StorageThroughput: Number("int"),
- *       StorageType: "STRING_VALUE",
  *     },
  *   ],
  * };
@@ -398,52 +385,40 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link CertificateNotFoundFault} (client fault)
- *  <p>
- *             <code>CertificateIdentifier</code> doesn't refer to an
- *         existing certificate.</p>
+ *  <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate.</p>
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link DBInstanceAlreadyExistsFault} (client fault)
  *  <p>The user already has a DB instance with the given identifier.</p>
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBParameterGroupName</code> doesn't refer to an
- *         existing DB parameter group.</p>
+ *  <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
  *
  * @throws {@link DBSecurityGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+ *  <p> <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
  *
  * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
  *  <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
  *
  * @throws {@link DBSubnetGroupNotAllowedFault} (client fault)
- *  <p>The DBSubnetGroup shouldn't be specified while creating read replicas that lie
- *             in the same region as the source instance.</p>
+ *  <p>The DBSubnetGroup shouldn't be specified while creating read replicas that lie in the same region as the source instance.</p>
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+ *  <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
  *
  * @throws {@link DomainNotFoundFault} (client fault)
- *  <p>
- *             <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+ *  <p> <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
  *
  * @throws {@link InstanceQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of DB
- *             instances.</p>
+ *  <p>The request would result in the user exceeding the allowed number of DB instances.</p>
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
- *  <p>The specified DB instance class isn't available in the specified Availability
- *             Zone.</p>
+ *  <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
@@ -452,15 +427,13 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *  <p>The DB instance isn't in a valid state.</p>
  *
  * @throws {@link InvalidDBSubnetGroupFault} (client fault)
- *  <p>The DBSubnetGroup doesn't belong to the same VPC as that of an existing
- *             cross-region read replica of the same source instance.</p>
+ *  <p>The DBSubnetGroup doesn't belong to the same VPC as that of an existing cross-region read replica of the same source instance.</p>
  *
  * @throws {@link InvalidSubnet} (client fault)
  *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The DB subnet group doesn't cover all Availability Zones after it's
- *             created because of users' change.</p>
+ *  <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
  *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
@@ -475,20 +448,16 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *  <p>Provisioned IOPS not available in the specified Availability Zone.</p>
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed amount of storage
- *             available across all DB instances.</p>
+ *  <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
  *
  * @throws {@link StorageTypeNotSupportedFault} (client fault)
  *  <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
  *
  * @throws {@link TenantDatabaseQuotaExceededFault} (client fault)
- *  <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services
- *             account.</p>
+ *  <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services account.</p>
  *
  * @throws {@link VpcEncryptionControlViolationException} (client fault)
- *  <p>The operation violates VPC encryption control settings. Make sure that your DB
- *             instance type supports the Nitro encryption-in-transit capability,
- *             or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+ *  <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

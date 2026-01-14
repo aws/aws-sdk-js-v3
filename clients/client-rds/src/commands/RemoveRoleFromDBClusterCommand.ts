@@ -27,15 +27,7 @@ export interface RemoveRoleFromDBClusterCommandInput extends RemoveRoleFromDBClu
 export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes the asssociation of an Amazon Web Services Identity and Access Management (IAM) role from a
- *             DB cluster.</p>
- *          <p>For more information on Amazon Aurora DB clusters, see
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
- *                 What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
- *                 cluster deployments</a> in the <i>Amazon RDS User
- *             Guide.</i>
- *          </p>
+ * <p>Removes the asssociation of an Amazon Web Services Identity and Access Management (IAM) role from a DB cluster.</p> <p>For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide.</i> </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +54,7 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link DBClusterRoleNotFoundFault} (client fault)
  *  <p>The specified IAM role Amazon Resource Name (ARN) isn't associated with the specified DB cluster.</p>

@@ -84,8 +84,7 @@ export interface DescribeDBShardGroupsCommandOutput extends DescribeDBShardGroup
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link DBShardGroupNotFoundFault} (client fault)
  *  <p>The specified DB shard group name wasn't found.</p>

@@ -27,8 +27,7 @@ export interface CancelExportTaskCommandInput extends CancelExportTaskMessage {}
 export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBearer {}
 
 /**
- * <p>Cancels an export task in progress that is exporting a snapshot or cluster to Amazon S3.
- *             Any data that has already been written to the S3 bucket isn't removed.</p>
+ * <p>Cancels an export task in progress that is exporting a snapshot or cluster to Amazon S3. Any data that has already been written to the S3 bucket isn't removed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

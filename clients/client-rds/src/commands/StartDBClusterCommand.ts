@@ -27,14 +27,7 @@ export interface StartDBClusterCommandInput extends StartDBClusterMessage {}
 export interface StartDBClusterCommandOutput extends StartDBClusterResult, __MetadataBearer {}
 
 /**
- * <p>Starts an Amazon Aurora DB cluster that was stopped using the Amazon Web Services console, the stop-db-cluster
- *        CLI command, or the <code>StopDBCluster</code> operation.</p>
- *          <p>For more information, see
- *            <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html">
- *                Stopping and Starting an Aurora Cluster</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *          <note>
- *             <p>This operation only applies to Aurora DB clusters.</p>
- *          </note>
+ * <p>Starts an Amazon Aurora DB cluster that was stopped using the Amazon Web Services console, the stop-db-cluster CLI command, or the <code>StopDBCluster</code> operation.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html"> Stopping and Starting an Aurora Cluster</a> in the <i>Amazon Aurora User Guide</i>.</p> <note> <p>This operation only applies to Aurora DB clusters.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -253,8 +246,7 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
@@ -269,9 +261,7 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
  *
  * @throws {@link VpcEncryptionControlViolationException} (client fault)
- *  <p>The operation violates VPC encryption control settings. Make sure that your DB
- *             instance type supports the Nitro encryption-in-transit capability,
- *             or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+ *  <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

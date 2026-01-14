@@ -27,11 +27,7 @@ export interface DeleteDBSnapshotCommandInput extends DeleteDBSnapshotMessage {}
 export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a DB snapshot. If the snapshot is being copied, the copy operation is
- *             terminated.</p>
- *          <note>
- *             <p>The DB snapshot must be in the <code>available</code> state to be deleted.</p>
- *          </note>
+ * <p>Deletes a DB snapshot. If the snapshot is being copied, the copy operation is terminated.</p> <note> <p>The DB snapshot must be in the <code>available</code> state to be deleted.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,7 +89,6 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * //     DBSystemId: "STRING_VALUE",
  * //     MultiTenant: true || false,
  * //     DedicatedLogVolume: true || false,
- * //     SnapshotAvailabilityZone: "STRING_VALUE",
  * //     AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
  * //       { // AdditionalStorageVolume
  * //         VolumeName: "STRING_VALUE", // required
@@ -104,6 +99,7 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * //         StorageType: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SnapshotAvailabilityZone: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -116,8 +112,7 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *  <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  *
  * @throws {@link InvalidDBSnapshotStateFault} (client fault)
  *  <p>The state of the DB snapshot doesn't allow deletion.</p>

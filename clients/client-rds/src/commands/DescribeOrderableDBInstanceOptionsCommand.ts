@@ -111,8 +111,8 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput extends Orderab
  * //       ],
  * //       SupportsClusters: true || false,
  * //       SupportsDedicatedLogVolume: true || false,
- * //       SupportsHttpEndpoint: true || false,
  * //       SupportsAdditionalStorageVolumes: true || false,
+ * //       SupportsHttpEndpoint: true || false,
  * //       AvailableAdditionalStorageVolumesOptions: [ // AvailableAdditionalStorageVolumesOptionList
  * //         { // AvailableAdditionalStorageVolumesOption
  * //           SupportsStorageAutoscaling: true || false,

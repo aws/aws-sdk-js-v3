@@ -27,10 +27,7 @@ export interface DescribeDBClusterEndpointsCommandInput extends DescribeDBCluste
 export interface DescribeDBClusterEndpointsCommandOutput extends DBClusterEndpointMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about endpoints for an Amazon Aurora DB cluster.</p>
- *          <note>
- *             <p>This action only applies to Aurora DB clusters.</p>
- *          </note>
+ * <p>Returns information about endpoints for an Amazon Aurora DB cluster.</p> <note> <p>This action only applies to Aurora DB clusters.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,8 +83,7 @@ export interface DescribeDBClusterEndpointsCommandOutput extends DBClusterEndpoi
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

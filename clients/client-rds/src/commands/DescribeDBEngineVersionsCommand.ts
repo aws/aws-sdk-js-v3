@@ -66,6 +66,9 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * //       EngineVersion: "STRING_VALUE",
  * //       DatabaseInstallationFilesS3BucketName: "STRING_VALUE",
  * //       DatabaseInstallationFilesS3Prefix: "STRING_VALUE",
+ * //       DatabaseInstallationFiles: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
  * //       CustomDBEngineVersionManifest: "STRING_VALUE",
  * //       DBParameterGroupFamily: "STRING_VALUE",
  * //       DBEngineDescription: "STRING_VALUE",
@@ -75,6 +78,7 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * //         CharacterSetName: "STRING_VALUE",
  * //         CharacterSetDescription: "STRING_VALUE",
  * //       },
+ * //       FailureReason: "STRING_VALUE",
  * //       Image: { // CustomDBEngineVersionAMI
  * //         ImageId: "STRING_VALUE",
  * //         Status: "STRING_VALUE",
@@ -149,10 +153,6 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * //         MinCapacity: Number("double"),
  * //         MaxCapacity: Number("double"),
  * //       },
- * //       DatabaseInstallationFiles: [ // StringList
- * //         "STRING_VALUE",
- * //       ],
- * //       FailureReason: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

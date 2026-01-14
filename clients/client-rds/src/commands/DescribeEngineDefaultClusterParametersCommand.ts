@@ -30,10 +30,7 @@ export interface DescribeEngineDefaultClusterParametersCommandInput extends Desc
 export interface DescribeEngineDefaultClusterParametersCommandOutput extends DescribeEngineDefaultClusterParametersResult, __MetadataBearer {}
 
 /**
- * <p>Returns the default engine and system parameter information for the cluster database engine.</p>
- *          <p>For more information on Amazon Aurora, see
- *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
- *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
+ * <p>Returns the default engine and system parameter information for the cluster database engine.</p> <p>For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

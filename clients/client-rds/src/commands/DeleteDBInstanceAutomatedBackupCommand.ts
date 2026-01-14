@@ -113,8 +113,7 @@ export interface DeleteDBInstanceAutomatedBackupCommandOutput extends DeleteDBIn
  *  <p>No automated backup for this DB instance was found.</p>
  *
  * @throws {@link InvalidDBInstanceAutomatedBackupStateFault} (client fault)
- *  <p>The automated backup is in an invalid state.
- *             For example, this automated backup is associated with an active instance.</p>
+ *  <p>The automated backup is in an invalid state. For example, this automated backup is associated with an active instance.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

@@ -85,19 +85,16 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBSubnetGroupAlreadyExistsFault} (client fault)
- *  <p>
- *             <code>DBSubnetGroupName</code> is already used by an existing DB subnet group.</p>
+ *  <p> <code>DBSubnetGroupName</code> is already used by an existing DB subnet group.</p>
  *
  * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
  *  <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
  *
  * @throws {@link DBSubnetGroupQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of DB subnet
- *             groups.</p>
+ *  <p>The request would result in the user exceeding the allowed number of DB subnet groups.</p>
  *
  * @throws {@link DBSubnetQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of subnets in a
- *             DB subnet groups.</p>
+ *  <p>The request would result in the user exceeding the allowed number of subnets in a DB subnet groups.</p>
  *
  * @throws {@link InvalidSubnet} (client fault)
  *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>

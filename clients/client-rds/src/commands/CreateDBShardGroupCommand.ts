@@ -27,8 +27,7 @@ export interface CreateDBShardGroupCommandInput extends CreateDBShardGroupMessag
 export interface CreateDBShardGroupCommandOutput extends DBShardGroup, __MetadataBearer {}
 
 /**
- * <p>Creates a new DB shard group for Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.</p>
- *          <p>Valid for: Aurora DB clusters only</p>
+ * <p>Creates a new DB shard group for Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.</p> <p>Valid for: Aurora DB clusters only</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,8 +80,7 @@ export interface CreateDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link DBShardGroupAlreadyExistsFault} (client fault)
  *  <p>The specified DB shard group name must be unique in your Amazon Web Services account in the specified Amazon Web Services Region.</p>
@@ -91,8 +89,7 @@ export interface CreateDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The DB subnet group doesn't cover all Availability Zones after it's
- *             created because of users' change.</p>
+ *  <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
  *
  * @throws {@link MaxDBShardGroupLimitReached} (client fault)
  *  <p>The maximum number of DB shard groups for your Amazon Web Services account in the specified Amazon Web Services Region has been reached.</p>

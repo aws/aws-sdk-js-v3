@@ -27,10 +27,7 @@ export interface DeleteTenantDatabaseCommandInput extends DeleteTenantDatabaseMe
 export interface DeleteTenantDatabaseCommandOutput extends DeleteTenantDatabaseResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a tenant database from your DB instance. This command only applies to RDS for
- *             Oracle container database (CDB) instances.</p>
- *          <p>You can't delete a tenant database when it is the only tenant in the DB
- *             instance.</p>
+ * <p>Deletes a tenant database from your DB instance. This command only applies to RDS for Oracle container database (CDB) instances.</p> <p>You can't delete a tenant database when it is the only tenant in the DB instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,12 +84,10 @@ export interface DeleteTenantDatabaseCommandOutput extends DeleteTenantDatabaseR
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link DBSnapshotAlreadyExistsFault} (client fault)
- *  <p>
- *             <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
+ *  <p> <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>

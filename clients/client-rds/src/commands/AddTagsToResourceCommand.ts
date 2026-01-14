@@ -27,11 +27,7 @@ export interface AddTagsToResourceCommandInput extends AddTagsToResourceMessage 
 export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds metadata tags to an Amazon RDS resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon RDS resources, or used in a Condition statement in an IAM policy for Amazon RDS.</p>
- *          <p>For an overview on tagging your relational database resources,
- *             see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a>
- *             or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html">Tagging Amazon Aurora and Amazon RDS Resources</a>.
- *         </p>
+ * <p>Adds metadata tags to an Amazon RDS resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon RDS resources, or used in a Condition statement in an IAM policy for Amazon RDS.</p> <p>For an overview on tagging your relational database resources, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html">Tagging Amazon Aurora and Amazon RDS Resources</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,16 +58,13 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link BlueGreenDeploymentNotFoundFault} (client fault)
- *  <p>
- *             <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
+ *  <p> <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link DBProxyEndpointNotFoundFault} (client fault)
  *  <p>The DB proxy endpoint doesn't exist.</p>
@@ -86,8 +79,7 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  *  <p>The specified DB shard group name wasn't found.</p>
  *
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *  <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  *
  * @throws {@link DBSnapshotTenantDatabaseNotFoundFault} (client fault)
  *  <p>The specified snapshot tenant database wasn't found.</p>

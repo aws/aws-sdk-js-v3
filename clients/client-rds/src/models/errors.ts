@@ -4,8 +4,7 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smith
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
 
 /**
- * <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ * <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  * @public
  */
 export class DBClusterNotFoundFault extends __BaseException {
@@ -85,8 +84,7 @@ export class InvalidDBClusterStateFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ * <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  * @public
  */
 export class DBInstanceNotFoundFault extends __BaseException {
@@ -206,8 +204,7 @@ export class SubscriptionNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
+ * <p> <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
  * @public
  */
 export class BlueGreenDeploymentNotFoundFault extends __BaseException {
@@ -307,8 +304,7 @@ export class DBShardGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ * <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  * @public
  */
 export class DBSnapshotNotFoundFault extends __BaseException {
@@ -428,8 +424,7 @@ export class ResourceNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The specified CIDR IP range or Amazon EC2 security group is already authorized for
- *             the specified DB security group.</p>
+ * <p>The specified CIDR IP range or Amazon EC2 security group is already authorized for the specified DB security group.</p>
  * @public
  */
 export class AuthorizationAlreadyExistsFault extends __BaseException {
@@ -469,8 +464,7 @@ export class AuthorizationQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+ * <p> <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
  * @public
  */
 export class DBSecurityGroupNotFoundFault extends __BaseException {
@@ -570,9 +564,7 @@ export class DBParameterGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <code>DBParameterGroupName</code> doesn't refer to an
- *         existing DB parameter group.</p>
+ * <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
  * @public
  */
 export class DBParameterGroupNotFoundFault extends __BaseException {
@@ -592,8 +584,7 @@ export class DBParameterGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The request would result in the user exceeding the allowed number of DB parameter
- *             groups.</p>
+ * <p>The request would result in the user exceeding the allowed number of DB parameter groups.</p>
  * @public
  */
 export class DBParameterGroupQuotaExceededFault extends __BaseException {
@@ -633,8 +624,7 @@ export class DBClusterSnapshotAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
+ * <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
  * @public
  */
 export class DBClusterSnapshotNotFoundFault extends __BaseException {
@@ -694,8 +684,7 @@ export class KMSKeyNotAccessibleFault extends __BaseException {
 }
 
 /**
- * <p>The request would result in the user exceeding the allowed number of DB
- *             snapshots.</p>
+ * <p>The request would result in the user exceeding the allowed number of DB snapshots.</p>
  * @public
  */
 export class SnapshotQuotaExceededFault extends __BaseException {
@@ -715,9 +704,7 @@ export class SnapshotQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <code>CustomAvailabilityZoneId</code> doesn't refer to an existing custom
- *             Availability Zone identifier.</p>
+ * <p> <code>CustomAvailabilityZoneId</code> doesn't refer to an existing custom Availability Zone identifier.</p>
  * @public
  */
 export class CustomAvailabilityZoneNotFoundFault extends __BaseException {
@@ -737,8 +724,7 @@ export class CustomAvailabilityZoneNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
+ * <p> <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
  * @public
  */
 export class DBSnapshotAlreadyExistsFault extends __BaseException {
@@ -858,9 +844,7 @@ export class BlueGreenDeploymentAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB
- *             cluster parameter group.</p>
+ * <p> <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB cluster parameter group.</p>
  * @public
  */
 export class DBClusterParameterGroupNotFoundFault extends __BaseException {
@@ -880,8 +864,7 @@ export class DBClusterParameterGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The user attempted to create a new DB cluster and the user has already reached the
- *             maximum allowed DB cluster quota.</p>
+ * <p>The user attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
  * @public
  */
 export class DBClusterQuotaExceededFault extends __BaseException {
@@ -901,8 +884,7 @@ export class DBClusterQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The request would result in the user exceeding the allowed number of DB
- *             instances.</p>
+ * <p>The request would result in the user exceeding the allowed number of DB instances.</p>
  * @public
  */
 export class InstanceQuotaExceededFault extends __BaseException {
@@ -962,8 +944,7 @@ export class SourceDatabaseNotSupportedFault extends __BaseException {
 }
 
 /**
- * <p>The request would result in the user exceeding the allowed amount of storage
- *             available across all DB instances.</p>
+ * <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
  * @public
  */
 export class StorageQuotaExceededFault extends __BaseException {
@@ -1143,8 +1124,7 @@ export class DBSubnetGroupDoesNotCoverEnoughAZs extends __BaseException {
 }
 
 /**
- * <p>
- *             <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+ * <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
  * @public
  */
 export class DBSubnetGroupNotFoundFault extends __BaseException {
@@ -1164,8 +1144,7 @@ export class DBSubnetGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+ * <p> <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
  * @public
  */
 export class DomainNotFoundFault extends __BaseException {
@@ -1205,8 +1184,7 @@ export class GlobalClusterNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The specified DB instance class isn't available in the specified Availability
- *             Zone.</p>
+ * <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
  * @public
  */
 export class InsufficientDBInstanceCapacityFault extends __BaseException {
@@ -1226,9 +1204,7 @@ export class InsufficientDBInstanceCapacityFault extends __BaseException {
 }
 
 /**
- * <p>There is insufficient storage available for the current action. You might be able to
- *             resolve this error by updating your subnet group to use different Availability Zones
- *             that have more storage available.</p>
+ * <p>There is insufficient storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.</p>
  * @public
  */
 export class InsufficientStorageClusterCapacityFault extends __BaseException {
@@ -1248,8 +1224,7 @@ export class InsufficientStorageClusterCapacityFault extends __BaseException {
 }
 
 /**
- * <p>The DBSubnetGroup doesn't belong to the same VPC as that of an existing
- *             cross-region read replica of the same source instance.</p>
+ * <p>The DBSubnetGroup doesn't belong to the same VPC as that of an existing cross-region read replica of the same source instance.</p>
  * @public
  */
 export class InvalidDBSubnetGroupFault extends __BaseException {
@@ -1329,8 +1304,7 @@ export class InvalidSubnet extends __BaseException {
 }
 
 /**
- * <p>The DB subnet group doesn't cover all Availability Zones after it's
- *             created because of users' change.</p>
+ * <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
  * @public
  */
 export class InvalidVPCNetworkStateFault extends __BaseException {
@@ -1390,9 +1364,7 @@ export class StorageTypeNotSupportedFault extends __BaseException {
 }
 
 /**
- * <p>The operation violates VPC encryption control settings. Make sure that your DB
- *             instance type supports the Nitro encryption-in-transit capability,
- *             or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+ * <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
  * @public
  */
 export class VpcEncryptionControlViolationException extends __BaseException {
@@ -1452,10 +1424,7 @@ export class DBClusterEndpointQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized
- *             for the specified DB security group.</p>
- *          <p>Or, RDS might not be authorized to perform necessary actions using IAM on your
- *             behalf.</p>
+ * <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized for the specified DB security group.</p> <p>Or, RDS might not be authorized to perform necessary actions using IAM on your behalf.</p>
  * @public
  */
 export class AuthorizationNotFoundFault extends __BaseException {
@@ -1475,6 +1444,9 @@ export class AuthorizationNotFoundFault extends __BaseException {
 }
 
 /**
+ *
+ *
+ * @deprecated Please avoid using this fault
  * @public
  */
 export class BackupPolicyNotFoundFault extends __BaseException {
@@ -1494,9 +1466,7 @@ export class BackupPolicyNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <code>CertificateIdentifier</code> doesn't refer to an
- *         existing certificate.</p>
+ * <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate.</p>
  * @public
  */
 export class CertificateNotFoundFault extends __BaseException {
@@ -1556,8 +1526,7 @@ export class ProvisionedIopsNotAvailableInAZFault extends __BaseException {
 }
 
 /**
- * <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services
- *             account.</p>
+ * <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services account.</p>
  * @public
  */
 export class TenantDatabaseQuotaExceededFault extends __BaseException {
@@ -1577,8 +1546,7 @@ export class TenantDatabaseQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The DBSubnetGroup shouldn't be specified while creating read replicas that lie
- *             in the same region as the source instance.</p>
+ * <p>The DBSubnetGroup shouldn't be specified while creating read replicas that lie in the same region as the source instance.</p>
  * @public
  */
 export class DBSubnetGroupNotAllowedFault extends __BaseException {
@@ -1698,8 +1666,7 @@ export class InvalidDBProxyStateFault extends __BaseException {
 }
 
 /**
- * <p>A DB security group with the name specified in
- *         <code>DBSecurityGroupName</code> already exists.</p>
+ * <p>A DB security group with the name specified in <code>DBSecurityGroupName</code> already exists.</p>
  * @public
  */
 export class DBSecurityGroupAlreadyExistsFault extends __BaseException {
@@ -1739,8 +1706,7 @@ export class DBSecurityGroupNotSupportedFault extends __BaseException {
 }
 
 /**
- * <p>The request would result in the user exceeding the allowed number of DB security
- *             groups.</p>
+ * <p>The request would result in the user exceeding the allowed number of DB security groups.</p>
  * @public
  */
 export class DBSecurityGroupQuotaExceededFault extends __BaseException {
@@ -1820,8 +1786,7 @@ export class UnsupportedDBEngineVersionFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <code>DBSubnetGroupName</code> is already used by an existing DB subnet group.</p>
+ * <p> <code>DBSubnetGroupName</code> is already used by an existing DB subnet group.</p>
  * @public
  */
 export class DBSubnetGroupAlreadyExistsFault extends __BaseException {
@@ -1841,8 +1806,7 @@ export class DBSubnetGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The request would result in the user exceeding the allowed number of DB subnet
- *             groups.</p>
+ * <p>The request would result in the user exceeding the allowed number of DB subnet groups.</p>
  * @public
  */
 export class DBSubnetGroupQuotaExceededFault extends __BaseException {
@@ -1862,8 +1826,7 @@ export class DBSubnetGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The request would result in the user exceeding the allowed number of subnets in a
- *             DB subnet groups.</p>
+ * <p>The request would result in the user exceeding the allowed number of subnets in a DB subnet groups.</p>
  * @public
  */
 export class DBSubnetQuotaExceededFault extends __BaseException {
@@ -2003,8 +1966,7 @@ export class SubscriptionCategoryNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The <code>GlobalClusterIdentifier</code> already exists. Specify a new global database identifier
- *         (unique name) to create a new global database cluster or to rename an existing one.</p>
+ * <p>The <code>GlobalClusterIdentifier</code> already exists. Specify a new global database identifier (unique name) to create a new global database cluster or to rename an existing one.</p>
  * @public
  */
 export class GlobalClusterAlreadyExistsFault extends __BaseException {
@@ -2084,9 +2046,7 @@ export class IntegrationAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>A conflicting conditional operation is currently in progress against this resource.
- *             Typically occurs when there are multiple requests being made to the same resource at the same time,
- *             and these requests conflict with each other.</p>
+ * <p>A conflicting conditional operation is currently in progress against this resource. Typically occurs when there are multiple requests being made to the same resource at the same time, and these requests conflict with each other.</p>
  * @public
  */
 export class IntegrationConflictOperationFault extends __BaseException {
@@ -2126,8 +2086,7 @@ export class IntegrationQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>You attempted to either create a tenant database that already exists or
- *                 modify a tenant database to use the name of an existing tenant database.</p>
+ * <p>You attempted to either create a tenant database that already exists or modify a tenant database to use the name of an existing tenant database.</p>
  * @public
  */
 export class TenantDatabaseAlreadyExistsFault extends __BaseException {
@@ -2147,8 +2106,7 @@ export class TenantDatabaseAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The blue/green deployment can't be switched over or deleted because there is an invalid configuration in
- *             the green environment.</p>
+ * <p>The blue/green deployment can't be switched over or deleted because there is an invalid configuration in the green environment.</p>
  * @public
  */
 export class InvalidBlueGreenDeploymentStateFault extends __BaseException {
@@ -2168,8 +2126,7 @@ export class InvalidBlueGreenDeploymentStateFault extends __BaseException {
 }
 
 /**
- * <p>The quota for retained automated backups was exceeded. This prevents you from retaining any additional automated
- *             backups. The retained automated backups quota is the same as your DB cluster quota.</p>
+ * <p>The quota for retained automated backups was exceeded. This prevents you from retaining any additional automated backups. The retained automated backups quota is the same as your DB cluster quota.</p>
  * @public
  */
 export class DBClusterAutomatedBackupQuotaExceededFault extends __BaseException {
@@ -2209,8 +2166,7 @@ export class DBClusterAutomatedBackupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The automated backup is in an invalid state.
- *             For example, this automated backup is associated with an active cluster.</p>
+ * <p>The automated backup is in an invalid state. For example, this automated backup is associated with an active cluster.</p>
  * @public
  */
 export class InvalidDBClusterAutomatedBackupStateFault extends __BaseException {
@@ -2250,9 +2206,7 @@ export class DBClusterEndpointNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The DB parameter group is in use or is in an invalid state. If you are attempting
- *             to delete the parameter group, you can't delete it when the parameter group is in
- *             this state.</p>
+ * <p>The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
  * @public
  */
 export class InvalidDBParameterGroupStateFault extends __BaseException {
@@ -2272,9 +2226,7 @@ export class InvalidDBParameterGroupStateFault extends __BaseException {
 }
 
 /**
- * <p>The quota for retained automated backups was exceeded. This prevents you
- *             from retaining any additional automated backups. The retained automated backups
- *             quota is the same as your DB instance quota.</p>
+ * <p>The quota for retained automated backups was exceeded. This prevents you from retaining any additional automated backups. The retained automated backups quota is the same as your DB instance quota.</p>
  * @public
  */
 export class DBInstanceAutomatedBackupQuotaExceededFault extends __BaseException {
@@ -2314,8 +2266,7 @@ export class DBInstanceAutomatedBackupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The automated backup is in an invalid state.
- *             For example, this automated backup is associated with an active instance.</p>
+ * <p>The automated backup is in an invalid state. For example, this automated backup is associated with an active instance.</p>
  * @public
  */
 export class InvalidDBInstanceAutomatedBackupStateFault extends __BaseException {
@@ -2455,8 +2406,7 @@ export class DBProxyTargetNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <code>BacktrackIdentifier</code> doesn't refer to an existing backtrack.</p>
+ * <p> <code>BacktrackIdentifier</code> doesn't refer to an existing backtrack.</p>
  * @public
  */
 export class DBClusterBacktrackNotFoundFault extends __BaseException {
@@ -2556,8 +2506,7 @@ export class InvalidResourceStateFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <code>LogFileName</code> doesn't refer to an existing DB log file.</p>
+ * <p> <code>LogFileName</code> doesn't refer to an existing DB log file.</p>
  * @public
  */
 export class DBLogFileNotFoundFault extends __BaseException {
@@ -2577,10 +2526,7 @@ export class DBLogFileNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <code>Capacity</code> isn't a valid Aurora Serverless DB cluster
- *             capacity. Valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>,
- *             <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</p>
+ * <p> <code>Capacity</code> isn't a valid Aurora Serverless DB cluster capacity. Valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</p>
  * @public
  */
 export class InvalidDBClusterCapacityFault extends __BaseException {
@@ -2600,8 +2546,7 @@ export class InvalidDBClusterCapacityFault extends __BaseException {
 }
 
 /**
- * <p>The <code>aurora-iopt1</code> storage type isn't available, because you modified the DB cluster
- *             to use this storage type less than one month ago.</p>
+ * <p>The <code>aurora-iopt1</code> storage type isn't available, because you modified the DB cluster to use this storage type less than one month ago.</p>
  * @public
  */
 export class StorageTypeNotAvailableFault extends __BaseException {
@@ -2641,8 +2586,7 @@ export class SharedSnapshotQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The DB upgrade failed because a resource the DB depends on can't be
- *             modified.</p>
+ * <p>The DB upgrade failed because a resource the DB depends on can't be modified.</p>
  * @public
  */
 export class DBUpgradeDependencyFailureFault extends __BaseException {
@@ -2742,9 +2686,7 @@ export class DBProxyTargetAlreadyRegisteredFault extends __BaseException {
 }
 
 /**
- * <p>The requested operation can't be performed because there aren't enough available IP addresses
- *            in the proxy's subnets. Add more CIDR blocks to the VPC or remove IP address that aren't required
- *            from the subnets.</p>
+ * <p>The requested operation can't be performed because there aren't enough available IP addresses in the proxy's subnets. Add more CIDR blocks to the VPC or remove IP address that aren't required from the subnets.</p>
  * @public
  */
 export class InsufficientAvailableIPsInSubnetFault extends __BaseException {
@@ -2784,8 +2726,7 @@ export class DBClusterRoleNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The specified <code>RoleArn</code> value doesn't match the specified feature for
- *             the DB instance.</p>
+ * <p>The specified <code>RoleArn</code> value doesn't match the specified feature for the DB instance.</p>
  * @public
  */
 export class DBInstanceRoleNotFoundFault extends __BaseException {
@@ -2805,8 +2746,7 @@ export class DBInstanceRoleNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The specified Amazon S3 bucket name can't be found or Amazon RDS isn't
- *             authorized to access the specified Amazon S3 bucket. Verify the <b>SourceS3BucketName</b> and <b>S3IngestionRoleArn</b> values and try again.</p>
+ * <p>The specified Amazon S3 bucket name can't be found or Amazon RDS isn't authorized to access the specified Amazon S3 bucket. Verify the <b>SourceS3BucketName</b> and <b>S3IngestionRoleArn</b> values and try again.</p>
  * @public
  */
 export class InvalidS3BucketFault extends __BaseException {
@@ -2866,10 +2806,7 @@ export class InvalidRestoreFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <code>SourceDBInstanceIdentifier</code>
- *         refers to a DB instance with
- *         <code>BackupRetentionPeriod</code> equal to 0.</p>
+ * <p> <code>SourceDBInstanceIdentifier</code> refers to a DB instance with <code>BackupRetentionPeriod</code> equal to 0.</p>
  * @public
  */
 export class PointInTimeRestoreNotEnabledFault extends __BaseException {

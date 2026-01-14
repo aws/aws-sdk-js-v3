@@ -28,10 +28,7 @@ export interface ModifyDBClusterEndpointCommandInput extends ModifyDBClusterEndp
 export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint, __MetadataBearer {}
 
 /**
- * <p>Modifies the properties of an endpoint in an Amazon Aurora DB cluster.</p>
- *          <note>
- *             <p>This operation only applies to Aurora DB clusters.</p>
- *          </note>
+ * <p>Modifies the properties of an endpoint in an Amazon Aurora DB cluster.</p> <note> <p>This operation only applies to Aurora DB clusters.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,8 +78,7 @@ export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  *  <p>The specified custom endpoint doesn't exist.</p>
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link InvalidDBClusterEndpointStateFault} (client fault)
  *  <p>The requested operation can't be performed on the endpoint while the endpoint is in this state.</p>

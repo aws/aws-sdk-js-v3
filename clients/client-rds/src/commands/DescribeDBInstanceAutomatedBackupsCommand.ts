@@ -27,13 +27,7 @@ export interface DescribeDBInstanceAutomatedBackupsCommandInput extends Describe
 export interface DescribeDBInstanceAutomatedBackupsCommandOutput extends DBInstanceAutomatedBackupMessage, __MetadataBearer {}
 
 /**
- * <p>Displays backups for both current and deleted
- *             instances. For example, use this operation to
- *             find details about automated backups for previously deleted instances. Current instances
- *             with retention periods greater than zero (0) are returned for both the
- *             <code>DescribeDBInstanceAutomatedBackups</code> and
- *             <code>DescribeDBInstances</code> operations.</p>
- *          <p>All parameters are optional.</p>
+ * <p>Displays backups for both current and deleted instances. For example, use this operation to find details about automated backups for previously deleted instances. Current instances with retention periods greater than zero (0) are returned for both the <code>DescribeDBInstanceAutomatedBackups</code> and <code>DescribeDBInstances</code> operations.</p> <p>All parameters are optional.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

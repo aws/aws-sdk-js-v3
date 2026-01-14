@@ -27,17 +27,7 @@ export interface SwitchoverGlobalClusterCommandInput extends SwitchoverGlobalClu
 export interface SwitchoverGlobalClusterCommandOutput extends SwitchoverGlobalClusterResult, __MetadataBearer {}
 
 /**
- * <p>Switches over the specified secondary DB cluster to be the new primary DB cluster in the global database cluster.
- *        Switchover operations were previously called "managed planned failovers."</p>
- *          <p>Aurora promotes the specified secondary cluster to assume full read/write capabilities and demotes the current primary cluster
- *        to a secondary (read-only) cluster, maintaining the orginal replication topology. All secondary clusters are synchronized with the primary
- *        at the beginning of the process so the new primary continues operations for the Aurora global database without losing any data. Your database
- *        is unavailable for a short time while the primary and selected secondary clusters are assuming their new roles. For more information about
- *        switching over an Aurora global database, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-disaster-recovery.managed-failover">Performing switchovers for Amazon Aurora global databases</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *          <note>
- *             <p>This operation is intended for controlled environments, for operations such as "regional rotation" or to fall back to the original
- *        primary after a global database failover.</p>
- *          </note>
+ * <p>Switches over the specified secondary DB cluster to be the new primary DB cluster in the global database cluster. Switchover operations were previously called "managed planned failovers."</p> <p>Aurora promotes the specified secondary cluster to assume full read/write capabilities and demotes the current primary cluster to a secondary (read-only) cluster, maintaining the orginal replication topology. All secondary clusters are synchronized with the primary at the beginning of the process so the new primary continues operations for the Aurora global database without losing any data. Your database is unavailable for a short time while the primary and selected secondary clusters are assuming their new roles. For more information about switching over an Aurora global database, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-disaster-recovery.managed-failover">Performing switchovers for Amazon Aurora global databases</a> in the <i>Amazon Aurora User Guide</i>.</p> <note> <p>This operation is intended for controlled environments, for operations such as "regional rotation" or to fall back to the original primary after a global database failover.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,8 +90,7 @@ export interface SwitchoverGlobalClusterCommandOutput extends SwitchoverGlobalCl
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
  *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>

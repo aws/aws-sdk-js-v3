@@ -867,6 +867,7 @@ import {
   paginateDescribeDBSnapshots,
   paginateDescribeDBSnapshotTenantDatabases,
   paginateDescribeDBSubnetGroups,
+  paginateDescribeEngineDefaultClusterParameters,
   paginateDescribeEngineDefaultParameters,
   paginateDescribeEvents,
   paginateDescribeEventSubscriptions,
@@ -2279,6 +2280,7 @@ assert(typeof paginateDescribeDBSecurityGroups === "function");
 assert(typeof paginateDescribeDBSnapshotTenantDatabases === "function");
 assert(typeof paginateDescribeDBSnapshots === "function");
 assert(typeof paginateDescribeDBSubnetGroups === "function");
+assert(typeof paginateDescribeEngineDefaultClusterParameters === "function");
 assert(typeof paginateDescribeEngineDefaultParameters === "function");
 assert(typeof paginateDescribeEventSubscriptions === "function");
 assert(typeof paginateDescribeEvents === "function");

@@ -91,20 +91,16 @@ export interface CreateIntegrationCommandOutput extends Integration, __MetadataB
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link IntegrationAlreadyExistsFault} (client fault)
  *  <p>The integration you are trying to create already exists.</p>
  *
  * @throws {@link IntegrationConflictOperationFault} (client fault)
- *  <p>A conflicting conditional operation is currently in progress against this resource.
- *             Typically occurs when there are multiple requests being made to the same resource at the same time,
- *             and these requests conflict with each other.</p>
+ *  <p>A conflicting conditional operation is currently in progress against this resource. Typically occurs when there are multiple requests being made to the same resource at the same time, and these requests conflict with each other.</p>
  *
  * @throws {@link IntegrationQuotaExceededFault} (client fault)
  *  <p>You can't crate any more zero-ETL integrations because the quota has been reached.</p>

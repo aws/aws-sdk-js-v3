@@ -27,22 +27,7 @@ export interface ResetDBClusterParameterGroupCommandInput extends ResetDBCluster
 export interface ResetDBClusterParameterGroupCommandOutput extends DBClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**
- * <p>Modifies the parameters of a DB cluster parameter group to the default value. To
- *             reset specific parameters submit a list of the following: <code>ParameterName</code>
- *             and <code>ApplyMethod</code>. To reset the
- *             entire DB cluster parameter group, specify the <code>DBClusterParameterGroupName</code>
- *             and <code>ResetAllParameters</code> parameters.</p>
- *          <p>When resetting the entire group, dynamic parameters are updated immediately and static parameters
- *             are set to <code>pending-reboot</code> to take effect on the next DB instance restart
- *             or <code>RebootDBInstance</code> request. You must call <code>RebootDBInstance</code> for every
- *             DB instance in your DB cluster that you want the updated static parameter to apply to.</p>
- *          <p>For more information on Amazon Aurora DB clusters, see
- *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
- *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
- *                 cluster deployments</a> in the <i>Amazon RDS User
- *             Guide.</i>
- *          </p>
+ * <p>Modifies the parameters of a DB cluster parameter group to the default value. To reset specific parameters submit a list of the following: <code>ParameterName</code> and <code>ApplyMethod</code>. To reset the entire DB cluster parameter group, specify the <code>DBClusterParameterGroupName</code> and <code>ResetAllParameters</code> parameters.</p> <p>When resetting the entire group, dynamic parameters are updated immediately and static parameters are set to <code>pending-reboot</code> to take effect on the next DB instance restart or <code>RebootDBInstance</code> request. You must call <code>RebootDBInstance</code> for every DB instance in your DB cluster that you want the updated static parameter to apply to.</p> <p>For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide.</i> </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,14 +72,10 @@ export interface ResetDBClusterParameterGroupCommandOutput extends DBClusterPara
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBParameterGroupName</code> doesn't refer to an
- *         existing DB parameter group.</p>
+ *  <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
  *
  * @throws {@link InvalidDBParameterGroupStateFault} (client fault)
- *  <p>The DB parameter group is in use or is in an invalid state. If you are attempting
- *             to delete the parameter group, you can't delete it when the parameter group is in
- *             this state.</p>
+ *  <p>The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
