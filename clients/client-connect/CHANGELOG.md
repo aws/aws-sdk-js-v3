@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.969.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.968.0...v3.969.0) (2026-01-14)
+
+
+### Features
+
+* **client-connect:** Amazon Connect makes it easier to manage contact center operating hours by enabling automated scheduling for recurring events like holidays and maintenance windows. Set up recurring patterns (weekly, monthly, etc.) or link to another hours of operation to inherit overrides. ([224e585](https://github.com/aws/aws-sdk-js-v3/commit/224e5859f4ffac55a46882c11020414b429e0951))
+
+
+
+
+
 # [3.968.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.967.0...v3.968.0) (2026-01-13)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.969.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.968.0...v3.969.0) (2026-01-14)
+
+
+### Features
+
+* **client-rds:** no feature changes. model migrated to Smithy ([75005b7](https://github.com/aws/aws-sdk-js-v3/commit/75005b770fc7c9cbc8409024db9e56b7535992e7))
+
+
+
+
+
 # [3.968.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.967.0...v3.968.0) (2026-01-13)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

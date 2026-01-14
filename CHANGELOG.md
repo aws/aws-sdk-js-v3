@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.969.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.968.0...v3.969.0) (2026-01-14)
+
+
+### Features
+
+* **client-connect:** Amazon Connect makes it easier to manage contact center operating hours by enabling automated scheduling for recurring events like holidays and maintenance windows. Set up recurring patterns (weekly, monthly, etc.) or link to another hours of operation to inherit overrides. ([224e585](https://github.com/aws/aws-sdk-js-v3/commit/224e5859f4ffac55a46882c11020414b429e0951))
+* **client-eks:** Added support for BOTTLEROCKET NVIDIA FIPS AMIs to AMI types in US regions. ([9ab0b4d](https://github.com/aws/aws-sdk-js-v3/commit/9ab0b4d222200755d23501bb5f36b5a561805215))
+* **client-rds:** no feature changes. model migrated to Smithy ([75005b7](https://github.com/aws/aws-sdk-js-v3/commit/75005b770fc7c9cbc8409024db9e56b7535992e7))
+* **client-redshift-serverless:** Adds support for enabling extra compute resources for automatic optimization during create and update operations in Amazon Redshift Serverless workgroups. ([74186ff](https://github.com/aws/aws-sdk-js-v3/commit/74186ff4eb4e912bc23291480eecd736bebb60c2))
+* **client-redshift:** Adds support for enabling extra compute resources for automatic optimization during create and modify operations in Amazon Redshift clusters. ([83a2d07](https://github.com/aws/aws-sdk-js-v3/commit/83a2d07e201bb5f21114145656c0bda87d10cb44))
+* **client-socialmessaging:** This release clarifies WhatsApp template operations as a resource-authenticated operation via the parent WhatsApp Business Account. It also introduces new parameters for parameter format, CTA URL link tracking, and template body examples, and increases the phone number ID length. ([5d9010b](https://github.com/aws/aws-sdk-js-v3/commit/5d9010bfde67a2e5fb581133e7a86d7cab5269cf))
+* **clients:** update client endpoints as of 2026-01-14 ([2e57c02](https://github.com/aws/aws-sdk-js-v3/commit/2e57c021fa62260c0871df64a08fcbaee8aa5af9))
+
+
+
+
+
 # [3.968.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.967.0...v3.968.0) (2026-01-13)
 
 
