@@ -32,6 +32,9 @@ export interface CreateWhatsAppMessageTemplateCommandOutput extends CreateWhatsA
 
 /**
  * <p>Creates a new WhatsApp message template from a custom definition.</p>
+ *          <note>
+ *             <p>Amazon Web Services End User Messaging Social does not store any WhatsApp message template content.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

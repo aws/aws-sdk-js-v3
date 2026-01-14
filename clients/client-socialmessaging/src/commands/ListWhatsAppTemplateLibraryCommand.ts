@@ -79,6 +79,9 @@ export interface ListWhatsAppTemplateLibraryCommandOutput extends ListWhatsAppTe
  * //         },
  * //       ],
  * //       templateId: "STRING_VALUE",
+ * //       templateBodyExampleParams: [ // MetaTemplateBodyExampleParams
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

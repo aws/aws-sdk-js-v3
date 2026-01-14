@@ -34,8 +34,7 @@ export interface GetLinkedWhatsAppBusinessAccountPhoneNumberCommandInput extends
 export interface GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput extends GetLinkedWhatsAppBusinessAccountPhoneNumberOutput, __MetadataBearer {}
 
 /**
- * <p>Use your WhatsApp phone number id to get the WABA account id and phone number
- *          details.</p>
+ * <p>Retrieve the WABA account id and phone number details of a WhatsApp business account phone number.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

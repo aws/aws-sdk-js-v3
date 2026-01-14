@@ -43,8 +43,10 @@ export interface UpdateWhatsAppMessageTemplateCommandOutput extends UpdateWhatsA
  * const input = { // UpdateWhatsAppMessageTemplateInput
  *   id: "STRING_VALUE", // required
  *   metaTemplateId: "STRING_VALUE", // required
+ *   parameterFormat: "STRING_VALUE",
  *   templateCategory: "STRING_VALUE",
  *   templateComponents: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *   ctaUrlLinkTrackingOptedOut: true || false,
  * };
  * const command = new UpdateWhatsAppMessageTemplateCommand(input);
  * const response = await client.send(command);

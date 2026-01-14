@@ -118,6 +118,7 @@ const _bN = "bucketName";
 const _c = "client";
 const _cEM = "codeExpirationMinutes";
 const _cU = "callbackUrl";
+const _cULTOO = "ctaUrlLinkTrackingOptedOut";
 const _ca = "category";
 const _dAL = "deleteAllLanguages";
 const _dAT = "deleteAllTemplates";
@@ -159,6 +160,7 @@ const _mTI = "metaTemplateId";
 const _nT = "nextToken";
 const _oPNI = "originationPhoneNumberId";
 const _oT = "otpType";
+const _pF = "parameterFormat";
 const _pN = "phoneNumber";
 const _pNI = "phoneNumberId";
 const _pNP = "phoneNumberParent";
@@ -179,6 +181,7 @@ const _se = "server";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.socialmessaging";
 const _t = "template";
 const _tB = "templateBody";
+const _tBEP = "templateBodyExampleParams";
 const _tBe = "templateButtons";
 const _tC = "templateCategory";
 const _tCe = "templateComponents";
@@ -458,8 +461,8 @@ export var MetaLibraryTemplate$: StaticStructureSchema = [3, n0, _MLT,
 ];
 export var MetaLibraryTemplateDefinition$: StaticStructureSchema = [3, n0, _MLTD,
   0,
-  [_tN, _tL, _tC, _tT, _tUC, _tI, _tH, _tB, _tBe, _tIe],
-  [0, 0, 0, 0, 0, 64 | 0, 0, 0, () => MetaLibraryTemplateButtonList, 0]
+  [_tN, _tL, _tC, _tT, _tUC, _tI, _tH, _tB, _tBe, _tIe, _tBEP],
+  [0, 0, 0, 0, 0, 64 | 0, 0, 0, () => MetaLibraryTemplateButtonList, 0, 64 | 0]
 ];
 export var PostWhatsAppMessageMediaInput$: StaticStructureSchema = [3, n0, _PWAMMI,
   0,
@@ -545,8 +548,8 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 ];
 export var UpdateWhatsAppMessageTemplateInput$: StaticStructureSchema = [3, n0, _UWAMTI,
   0,
-  [_i, _mTI, _tC, _tCe],
-  [0, 0, 0, 21], 2
+  [_i, _mTI, _pF, _tC, _tCe, _cULTOO],
+  [0, 0, 0, 0, 21, 2], 2
 ];
 export var UpdateWhatsAppMessageTemplateOutput$: StaticStructureSchema = [3, n0, _UWAMTO,
   0,
@@ -614,6 +617,7 @@ var MetaLibraryTemplateButtonList: StaticListSchema = [1, n0, _MLTBL,
 var MetaLibraryTemplatesList: StaticListSchema = [1, n0, _MLTL,
   0, () => MetaLibraryTemplateDefinition$
 ];
+var MetaTemplateBodyExampleParams = 64 | 0;
 var StringList = 64 | 0;
 var SupportedApps: StaticListSchema = [1, n0, _SA,
   0, 128 | 0
