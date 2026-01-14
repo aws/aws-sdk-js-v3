@@ -288,12 +288,12 @@ TypeRegistry.for(n0).registerError(AccessDeniedForDependencyException$, AccessDe
 export var ApplicationLayerAutomaticResponseConfiguration$: StaticStructureSchema = [3, n0, _ALARC,
   0,
   [_S, _A],
-  [0, () => ResponseAction$]
+  [0, () => ResponseAction$], 2
 ];
 export var AssociateDRTLogBucketRequest$: StaticStructureSchema = [3, n0, _ADRTLBR,
   0,
   [_LB],
-  [0]
+  [0], 1
 ];
 export var AssociateDRTLogBucketResponse$: StaticStructureSchema = [3, n0, _ADRTLBRs,
   0,
@@ -303,7 +303,7 @@ export var AssociateDRTLogBucketResponse$: StaticStructureSchema = [3, n0, _ADRT
 export var AssociateDRTRoleRequest$: StaticStructureSchema = [3, n0, _ADRTRR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var AssociateDRTRoleResponse$: StaticStructureSchema = [3, n0, _ADRTRRs,
   0,
@@ -313,7 +313,7 @@ export var AssociateDRTRoleResponse$: StaticStructureSchema = [3, n0, _ADRTRRs,
 export var AssociateHealthCheckRequest$: StaticStructureSchema = [3, n0, _AHCR,
   0,
   [_PI, _HCA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateHealthCheckResponse$: StaticStructureSchema = [3, n0, _AHCRs,
   0,
@@ -323,7 +323,7 @@ export var AssociateHealthCheckResponse$: StaticStructureSchema = [3, n0, _AHCRs
 export var AssociateProactiveEngagementDetailsRequest$: StaticStructureSchema = [3, n0, _APEDR,
   0,
   [_ECL],
-  [() => EmergencyContactList]
+  [() => EmergencyContactList], 1
 ];
 export var AssociateProactiveEngagementDetailsResponse$: StaticStructureSchema = [3, n0, _APEDRs,
   0,
@@ -342,8 +342,8 @@ export var AttackProperty$: StaticStructureSchema = [3, n0, _APt,
 ];
 export var AttackStatisticsDataItem$: StaticStructureSchema = [3, n0, _ASDI,
   0,
-  [_AV, _ACt],
-  [() => AttackVolume$, 1]
+  [_ACt, _AV],
+  [1, () => AttackVolume$], 1
 ];
 export var AttackSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
@@ -353,7 +353,7 @@ export var AttackSummary$: StaticStructureSchema = [3, n0, _AS,
 export var AttackVectorDescription$: StaticStructureSchema = [3, n0, _AVD,
   0,
   [_VT],
-  [0]
+  [0], 1
 ];
 export var AttackVolume$: StaticStructureSchema = [3, n0, _AV,
   0,
@@ -363,7 +363,7 @@ export var AttackVolume$: StaticStructureSchema = [3, n0, _AV,
 export var AttackVolumeStatistics$: StaticStructureSchema = [3, n0, _AVS,
   0,
   [_Ma],
-  [1]
+  [1], 1
 ];
 export var BlockAction$: StaticStructureSchema = [3, n0, _BA,
   0,
@@ -383,7 +383,7 @@ export var CountAction$: StaticStructureSchema = [3, n0, _CA,
 export var CreateProtectionGroupRequest$: StaticStructureSchema = [3, n0, _CPGR,
   0,
   [_PGI, _Ag, _P, _RT, _Me, _Ta],
-  [0, 0, 0, 0, 64 | 0, () => TagList]
+  [0, 0, 0, 0, 64 | 0, () => TagList], 3
 ];
 export var CreateProtectionGroupResponse$: StaticStructureSchema = [3, n0, _CPGRr,
   0,
@@ -393,7 +393,7 @@ export var CreateProtectionGroupResponse$: StaticStructureSchema = [3, n0, _CPGR
 export var CreateProtectionRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
   [_N, _RAe, _Ta],
-  [0, 0, () => TagList]
+  [0, 0, () => TagList], 2
 ];
 export var CreateProtectionResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
@@ -413,7 +413,7 @@ export var CreateSubscriptionResponse$: StaticStructureSchema = [3, n0, _CSRr,
 export var DeleteProtectionGroupRequest$: StaticStructureSchema = [3, n0, _DPGR,
   0,
   [_PGI],
-  [0]
+  [0], 1
 ];
 export var DeleteProtectionGroupResponse$: StaticStructureSchema = [3, n0, _DPGRe,
   0,
@@ -423,7 +423,7 @@ export var DeleteProtectionGroupResponse$: StaticStructureSchema = [3, n0, _DPGR
 export var DeleteProtectionRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_PI],
-  [0]
+  [0], 1
 ];
 export var DeleteProtectionResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
@@ -443,7 +443,7 @@ export var DeleteSubscriptionResponse$: StaticStructureSchema = [3, n0, _DSRe,
 export var DescribeAttackRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var DescribeAttackResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -458,7 +458,7 @@ export var DescribeAttackStatisticsRequest$: StaticStructureSchema = [3, n0, _DA
 export var DescribeAttackStatisticsResponse$: StaticStructureSchema = [3, n0, _DASRe,
   0,
   [_TR, _DI],
-  [() => TimeRange$, () => AttackStatisticsDataList]
+  [() => TimeRange$, () => AttackStatisticsDataList], 2
 ];
 export var DescribeDRTAccessRequest$: StaticStructureSchema = [3, n0, _DDRTAR,
   0,
@@ -483,12 +483,12 @@ export var DescribeEmergencyContactSettingsResponse$: StaticStructureSchema = [3
 export var DescribeProtectionGroupRequest$: StaticStructureSchema = [3, n0, _DPGRes,
   0,
   [_PGI],
-  [0]
+  [0], 1
 ];
 export var DescribeProtectionGroupResponse$: StaticStructureSchema = [3, n0, _DPGResc,
   0,
   [_PG],
-  [() => ProtectionGroup$]
+  [() => ProtectionGroup$], 1
 ];
 export var DescribeProtectionRequest$: StaticStructureSchema = [3, n0, _DPRes,
   0,
@@ -513,7 +513,7 @@ export var DescribeSubscriptionResponse$: StaticStructureSchema = [3, n0, _DSRes
 export var DisableApplicationLayerAutomaticResponseRequest$: StaticStructureSchema = [3, n0, _DALARR,
   0,
   [_RAe],
-  [0]
+  [0], 1
 ];
 export var DisableApplicationLayerAutomaticResponseResponse$: StaticStructureSchema = [3, n0, _DALARRi,
   0,
@@ -533,7 +533,7 @@ export var DisableProactiveEngagementResponse$: StaticStructureSchema = [3, n0, 
 export var DisassociateDRTLogBucketRequest$: StaticStructureSchema = [3, n0, _DDRTLBR,
   0,
   [_LB],
-  [0]
+  [0], 1
 ];
 export var DisassociateDRTLogBucketResponse$: StaticStructureSchema = [3, n0, _DDRTLBRi,
   0,
@@ -553,7 +553,7 @@ export var DisassociateDRTRoleResponse$: StaticStructureSchema = [3, n0, _DDRTRR
 export var DisassociateHealthCheckRequest$: StaticStructureSchema = [3, n0, _DHCR,
   0,
   [_PI, _HCA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DisassociateHealthCheckResponse$: StaticStructureSchema = [3, n0, _DHCRi,
   0,
@@ -563,12 +563,12 @@ export var DisassociateHealthCheckResponse$: StaticStructureSchema = [3, n0, _DH
 export var EmergencyContact$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_EA, _PN, _CN],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var EnableApplicationLayerAutomaticResponseRequest$: StaticStructureSchema = [3, n0, _EALARR,
   0,
   [_RAe, _A],
-  [0, () => ResponseAction$]
+  [0, () => ResponseAction$], 2
 ];
 export var EnableApplicationLayerAutomaticResponseResponse$: StaticStructureSchema = [3, n0, _EALARRn,
   0,
@@ -593,7 +593,7 @@ export var GetSubscriptionStateRequest$: StaticStructureSchema = [3, n0, _GSSR,
 export var GetSubscriptionStateResponse$: StaticStructureSchema = [3, n0, _GSSRe,
   0,
   [_SS],
-  [0]
+  [0], 1
 ];
 export var InclusionProtectionFilters$: StaticStructureSchema = [3, n0, _IPF,
   0,
@@ -664,7 +664,7 @@ export var ListProtectionGroupsRequest$: StaticStructureSchema = [3, n0, _LPGR,
 export var ListProtectionGroupsResponse$: StaticStructureSchema = [3, n0, _LPGRi,
   0,
   [_PGr, _NT],
-  [() => ProtectionGroups, 0]
+  [() => ProtectionGroups, 0], 1
 ];
 export var ListProtectionsRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
@@ -679,17 +679,17 @@ export var ListProtectionsResponse$: StaticStructureSchema = [3, n0, _LPRi,
 export var ListResourcesInProtectionGroupRequest$: StaticStructureSchema = [3, n0, _LRIPGR,
   0,
   [_PGI, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListResourcesInProtectionGroupResponse$: StaticStructureSchema = [3, n0, _LRIPGRi,
   0,
   [_RAes, _NT],
-  [64 | 0, 0]
+  [64 | 0, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -726,28 +726,28 @@ export var Protection$: StaticStructureSchema = [3, n0, _Pr,
 ];
 export var ProtectionGroup$: StaticStructureSchema = [3, n0, _PG,
   0,
-  [_PGI, _Ag, _P, _RT, _Me, _PGA],
-  [0, 0, 0, 0, 64 | 0, 0]
+  [_PGI, _Ag, _P, _Me, _RT, _PGA],
+  [0, 0, 0, 64 | 0, 0, 0], 4
 ];
 export var ProtectionGroupArbitraryPatternLimits$: StaticStructureSchema = [3, n0, _PGAPL,
   0,
   [_MM],
-  [1]
+  [1], 1
 ];
 export var ProtectionGroupLimits$: StaticStructureSchema = [3, n0, _PGL,
   0,
   [_MPG, _PTL],
-  [1, () => ProtectionGroupPatternTypeLimits$]
+  [1, () => ProtectionGroupPatternTypeLimits$], 2
 ];
 export var ProtectionGroupPatternTypeLimits$: StaticStructureSchema = [3, n0, _PGPTL,
   0,
   [_APL],
-  [() => ProtectionGroupArbitraryPatternLimits$]
+  [() => ProtectionGroupArbitraryPatternLimits$], 1
 ];
 export var ProtectionLimits$: StaticStructureSchema = [3, n0, _PL,
   0,
   [_PRTL],
-  [() => Limits]
+  [() => Limits], 1
 ];
 export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
   { [_e]: _c },
@@ -773,18 +773,18 @@ export var SubResourceSummary$: StaticStructureSchema = [3, n0, _SRS,
 ];
 export var Subscription$: StaticStructureSchema = [3, n0, _Su,
   0,
-  [_ST, _ET, _TCIS, _AR, _Li, _PES, _SL, _SA],
-  [4, 4, 1, 0, () => Limits, 0, () => SubscriptionLimits$, 0]
+  [_SL, _ST, _ET, _TCIS, _AR, _Li, _PES, _SA],
+  [() => SubscriptionLimits$, 4, 4, 1, 0, () => Limits, 0, 0], 1
 ];
 export var SubscriptionLimits$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_PL, _PGL],
-  [() => ProtectionLimits$, () => ProtectionGroupLimits$]
+  [() => ProtectionLimits$, () => ProtectionGroupLimits$], 2
 ];
 export var SummarizedAttackVector$: StaticStructureSchema = [3, n0, _SAV,
   0,
   [_VT, _VC],
-  [0, () => SummarizedCounterList]
+  [0, () => SummarizedCounterList], 1
 ];
 export var SummarizedCounter$: StaticStructureSchema = [3, n0, _SC,
   0,
@@ -799,7 +799,7 @@ export var Tag$: StaticStructureSchema = [3, n0, _Tag,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -814,7 +814,7 @@ export var TimeRange$: StaticStructureSchema = [3, n0, _TR,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -824,7 +824,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateApplicationLayerAutomaticResponseRequest$: StaticStructureSchema = [3, n0, _UALARR,
   0,
   [_RAe, _A],
-  [0, () => ResponseAction$]
+  [0, () => ResponseAction$], 2
 ];
 export var UpdateApplicationLayerAutomaticResponseResponse$: StaticStructureSchema = [3, n0, _UALARRp,
   0,
@@ -844,7 +844,7 @@ export var UpdateEmergencyContactSettingsResponse$: StaticStructureSchema = [3, 
 export var UpdateProtectionGroupRequest$: StaticStructureSchema = [3, n0, _UPGR,
   0,
   [_PGI, _Ag, _P, _RT, _Me],
-  [0, 0, 0, 0, 64 | 0]
+  [0, 0, 0, 0, 64 | 0], 3
 ];
 export var UpdateProtectionGroupResponse$: StaticStructureSchema = [3, n0, _UPGRp,
   0,
@@ -864,7 +864,7 @@ export var UpdateSubscriptionResponse$: StaticStructureSchema = [3, n0, _USRp,
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ShieldServiceException$: StaticErrorSchema = [-3, _sm, "ShieldServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ShieldServiceException$, ShieldServiceException);

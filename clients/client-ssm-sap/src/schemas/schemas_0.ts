@@ -272,7 +272,7 @@ export var Application$: StaticStructureSchema = [3, n0, _A,
 export var ApplicationCredential$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_DN, _CT, _SI],
-  [0, 0, [() => SecretId, 0]]
+  [0, 0, [() => SecretId, 0]], 3
 ];
 export var ApplicationSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
@@ -287,7 +287,7 @@ export var AssociatedHost$: StaticStructureSchema = [3, n0, _AH,
 export var BackintConfig$: StaticStructureSchema = [3, n0, _BC,
   0,
   [_BM, _ENBIP],
-  [0, 2]
+  [0, 2], 2
 ];
 export var Component$: StaticStructureSchema = [3, n0, _Co,
   0,
@@ -297,7 +297,7 @@ export var Component$: StaticStructureSchema = [3, n0, _Co,
 export var ComponentInfo$: StaticStructureSchema = [3, n0, _CIo,
   0,
   [_CTo, _Si, _EII],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ComponentSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
@@ -337,8 +337,8 @@ export var DatabaseSummary$: StaticStructureSchema = [3, n0, _DSa,
 ];
 export var DeleteResourcePermissionInput$: StaticStructureSchema = [3, n0, _DRPI,
   0,
-  [_AT, _SRA, _RA],
-  [0, 0, 0]
+  [_RA, _AT, _SRA],
+  [0, 0, 0], 1
 ];
 export var DeleteResourcePermissionOutput$: StaticStructureSchema = [3, n0, _DRPO,
   0,
@@ -348,7 +348,7 @@ export var DeleteResourcePermissionOutput$: StaticStructureSchema = [3, n0, _DRP
 export var DeregisterApplicationInput$: StaticStructureSchema = [3, n0, _DAI,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var DeregisterApplicationOutput$: StaticStructureSchema = [3, n0, _DAO,
   0,
@@ -358,7 +358,7 @@ export var DeregisterApplicationOutput$: StaticStructureSchema = [3, n0, _DAO,
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
   [_N, _V, _O],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetApplicationInput$: StaticStructureSchema = [3, n0, _GAI,
   0,
@@ -373,7 +373,7 @@ export var GetApplicationOutput$: StaticStructureSchema = [3, n0, _GAO,
 export var GetComponentInput$: StaticStructureSchema = [3, n0, _GCI,
   0,
   [_AI, _CI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetComponentOutput$: StaticStructureSchema = [3, n0, _GCO,
   0,
@@ -383,7 +383,7 @@ export var GetComponentOutput$: StaticStructureSchema = [3, n0, _GCO,
 export var GetConfigurationCheckOperationInput$: StaticStructureSchema = [3, n0, _GCCOI,
   0,
   [_OI],
-  [0]
+  [0], 1
 ];
 export var GetConfigurationCheckOperationOutput$: StaticStructureSchema = [3, n0, _GCCOO,
   0,
@@ -403,7 +403,7 @@ export var GetDatabaseOutput$: StaticStructureSchema = [3, n0, _GDO,
 export var GetOperationInput$: StaticStructureSchema = [3, n0, _GOI,
   0,
   [_OI],
-  [0]
+  [0], 1
 ];
 export var GetOperationOutput$: StaticStructureSchema = [3, n0, _GOO,
   0,
@@ -412,8 +412,8 @@ export var GetOperationOutput$: StaticStructureSchema = [3, n0, _GOO,
 ];
 export var GetResourcePermissionInput$: StaticStructureSchema = [3, n0, _GRPI,
   0,
-  [_AT, _RA],
-  [0, 0]
+  [_RA, _AT],
+  [0, 0], 1
 ];
 export var GetResourcePermissionOutput$: StaticStructureSchema = [3, n0, _GRPO,
   0,
@@ -469,7 +469,7 @@ export var ListConfigurationCheckDefinitionsOutput$: StaticStructureSchema = [3,
 export var ListConfigurationCheckOperationsInput$: StaticStructureSchema = [3, n0, _LCCOI,
   0,
   [_AI, _LM, _MR, _NT, _Fi],
-  [0, 0, 1, 0, () => FilterList]
+  [0, 0, 1, 0, () => FilterList], 1
 ];
 export var ListConfigurationCheckOperationsOutput$: StaticStructureSchema = [3, n0, _LCCOO,
   0,
@@ -489,7 +489,7 @@ export var ListDatabasesOutput$: StaticStructureSchema = [3, n0, _LDO,
 export var ListOperationEventsInput$: StaticStructureSchema = [3, n0, _LOEI,
   0,
   [_OI, _MR, _NT, _Fi],
-  [0, 1, 0, () => FilterList]
+  [0, 1, 0, () => FilterList], 1
 ];
 export var ListOperationEventsOutput$: StaticStructureSchema = [3, n0, _LOEO,
   0,
@@ -499,7 +499,7 @@ export var ListOperationEventsOutput$: StaticStructureSchema = [3, n0, _LOEO,
 export var ListOperationsInput$: StaticStructureSchema = [3, n0, _LOI,
   0,
   [_AI, _MR, _NT, _Fi],
-  [0, 1, 0, () => FilterList]
+  [0, 1, 0, () => FilterList], 1
 ];
 export var ListOperationsOutput$: StaticStructureSchema = [3, n0, _LOO,
   0,
@@ -509,7 +509,7 @@ export var ListOperationsOutput$: StaticStructureSchema = [3, n0, _LOO,
 export var ListSubCheckResultsInput$: StaticStructureSchema = [3, n0, _LSCRI,
   0,
   [_OI, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListSubCheckResultsOutput$: StaticStructureSchema = [3, n0, _LSCRO,
   0,
@@ -519,7 +519,7 @@ export var ListSubCheckResultsOutput$: StaticStructureSchema = [3, n0, _LSCRO,
 export var ListSubCheckRuleResultsInput$: StaticStructureSchema = [3, n0, _LSCRRI,
   0,
   [_SCRI, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListSubCheckRuleResultsOutput$: StaticStructureSchema = [3, n0, _LSCRRO,
   0,
@@ -529,7 +529,7 @@ export var ListSubCheckRuleResultsOutput$: StaticStructureSchema = [3, n0, _LSCR
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -549,7 +549,7 @@ export var OperationEvent$: StaticStructureSchema = [3, n0, _OEp,
 export var PutResourcePermissionInput$: StaticStructureSchema = [3, n0, _PRPI,
   0,
   [_AT, _SRA, _RA],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var PutResourcePermissionOutput$: StaticStructureSchema = [3, n0, _PRPO,
   0,
@@ -559,7 +559,7 @@ export var PutResourcePermissionOutput$: StaticStructureSchema = [3, n0, _PRPO,
 export var RegisterApplicationInput$: StaticStructureSchema = [3, n0, _RAI,
   0,
   [_AI, _ATp, _In, _SIN, _Si, _Ta, _Cr, _DA, _CIom],
-  [0, 0, 64 | 0, 0, 0, 128 | 0, [() => ApplicationCredentialList, 0], 0, () => ComponentInfoList]
+  [0, 0, 64 | 0, 0, 0, 128 | 0, [() => ApplicationCredentialList, 0], 0, () => ComponentInfoList], 3
 ];
 export var RegisterApplicationOutput$: StaticStructureSchema = [3, n0, _RAO,
   0,
@@ -595,7 +595,7 @@ export var RuleStatusCounts$: StaticStructureSchema = [3, n0, _RSC,
 export var StartApplicationInput$: StaticStructureSchema = [3, n0, _SAI,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var StartApplicationOutput$: StaticStructureSchema = [3, n0, _SAO,
   0,
@@ -605,7 +605,7 @@ export var StartApplicationOutput$: StaticStructureSchema = [3, n0, _SAO,
 export var StartApplicationRefreshInput$: StaticStructureSchema = [3, n0, _SARI,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var StartApplicationRefreshOutput$: StaticStructureSchema = [3, n0, _SARO,
   0,
@@ -615,7 +615,7 @@ export var StartApplicationRefreshOutput$: StaticStructureSchema = [3, n0, _SARO
 export var StartConfigurationChecksInput$: StaticStructureSchema = [3, n0, _SCCI,
   0,
   [_AI, _CCIo],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var StartConfigurationChecksOutput$: StaticStructureSchema = [3, n0, _SCCO,
   0,
@@ -625,7 +625,7 @@ export var StartConfigurationChecksOutput$: StaticStructureSchema = [3, n0, _SCC
 export var StopApplicationInput$: StaticStructureSchema = [3, n0, _SAIt,
   0,
   [_AI, _SCE, _IEIS],
-  [0, 0, 2]
+  [0, 0, 2], 1
 ];
 export var StopApplicationOutput$: StaticStructureSchema = [3, n0, _SAOt,
   0,
@@ -640,7 +640,7 @@ export var SubCheckResult$: StaticStructureSchema = [3, n0, _SCRu,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -656,7 +656,7 @@ TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -666,7 +666,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateApplicationSettingsInput$: StaticStructureSchema = [3, n0, _UASI,
   0,
   [_AI, _CTAOU, _CTR, _B, _DA],
-  [0, [() => ApplicationCredentialList, 0], [() => ApplicationCredentialList, 0], () => BackintConfig$, 0]
+  [0, [() => ApplicationCredentialList, 0], [() => ApplicationCredentialList, 0], () => BackintConfig$, 0], 1
 ];
 export var UpdateApplicationSettingsOutput$: StaticStructureSchema = [3, n0, _UASO,
   0,

@@ -339,7 +339,7 @@ export var AgentNetworkInfo$: StaticStructureSchema = [3, n0, _ANI,
 export var AssociateConfigurationItemsToApplicationRequest$: StaticStructureSchema = [3, n0, _ACITAR,
   0,
   [_aCI, _cIo],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var AssociateConfigurationItemsToApplicationResponse$: StaticStructureSchema = [3, n0, _ACITARs,
   0,
@@ -355,12 +355,12 @@ TypeRegistry.for(n0).registerError(AuthorizationErrorException$, AuthorizationEr
 export var BatchDeleteAgentError$: StaticStructureSchema = [3, n0, _BDAE,
   0,
   [_aI, _eM, _eC],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var BatchDeleteAgentsRequest$: StaticStructureSchema = [3, n0, _BDAR,
   0,
   [_dA],
-  [() => DeleteAgents]
+  [() => DeleteAgents], 1
 ];
 export var BatchDeleteAgentsResponse$: StaticStructureSchema = [3, n0, _BDARa,
   0,
@@ -380,7 +380,7 @@ export var BatchDeleteImportDataError$: StaticStructureSchema = [3, n0, _BDIDE,
 export var BatchDeleteImportDataRequest$: StaticStructureSchema = [3, n0, _BDIDR,
   0,
   [_iTIm, _dH],
-  [64 | 0, 2]
+  [64 | 0, 2], 1
 ];
 export var BatchDeleteImportDataResponse$: StaticStructureSchema = [3, n0, _BDIDRa,
   0,
@@ -406,7 +406,7 @@ export var ContinuousExportDescription$: StaticStructureSchema = [3, n0, _CED,
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_n, _d, _w],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -416,7 +416,7 @@ export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
 export var CreateTagsRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_cIo, _t],
-  [64 | 0, [() => TagSet, 0]]
+  [64 | 0, [() => TagSet, 0]], 2
 ];
 export var CreateTagsResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
@@ -426,32 +426,32 @@ export var CreateTagsResponse$: StaticStructureSchema = [3, n0, _CTRr,
 export var CustomerAgentInfo$: StaticStructureSchema = [3, n0, _CAI,
   0,
   [_aA, _hA, _bLA, _sA, _uA, _tA, _uAn],
-  [1, 1, 1, 1, 1, 1, 1]
+  [1, 1, 1, 1, 1, 1, 1], 7
 ];
 export var CustomerAgentlessCollectorInfo$: StaticStructureSchema = [3, n0, _CACI,
   0,
   [_aAC, _hAC, _dLAC, _sAC, _uAC, _tAC, _uACn],
-  [1, 1, 1, 1, 1, 1, 1]
+  [1, 1, 1, 1, 1, 1, 1], 7
 ];
 export var CustomerConnectorInfo$: StaticStructureSchema = [3, n0, _CCI,
   0,
   [_aC, _hC, _bLC, _sC, _uC, _tC, _uCn],
-  [1, 1, 1, 1, 1, 1, 1]
+  [1, 1, 1, 1, 1, 1, 1], 7
 ];
 export var CustomerMeCollectorInfo$: StaticStructureSchema = [3, n0, _CMCI,
   0,
   [_aMC, _hMC, _dLMC, _sMC, _uMC, _tMC, _uMCn],
-  [1, 1, 1, 1, 1, 1, 1]
+  [1, 1, 1, 1, 1, 1, 1], 7
 ];
 export var DeleteAgent$: StaticStructureSchema = [3, n0, _DA,
   0,
   [_aI, _f],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteApplicationsRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_cIo],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DeleteApplicationsResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -461,7 +461,7 @@ export var DeleteApplicationsResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DeleteTagsRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_cIo, _t],
-  [64 | 0, [() => TagSet, 0]]
+  [64 | 0, [() => TagSet, 0]], 1
 ];
 export var DeleteTagsResponse$: StaticStructureSchema = [3, n0, _DTRe,
   0,
@@ -486,7 +486,7 @@ export var DescribeAgentsResponse$: StaticStructureSchema = [3, n0, _DAResc,
 export var DescribeBatchDeleteConfigurationTaskRequest$: StaticStructureSchema = [3, n0, _DBDCTR,
   0,
   [_tI],
-  [0]
+  [0], 1
 ];
 export var DescribeBatchDeleteConfigurationTaskResponse$: StaticStructureSchema = [3, n0, _DBDCTRe,
   0,
@@ -496,7 +496,7 @@ export var DescribeBatchDeleteConfigurationTaskResponse$: StaticStructureSchema 
 export var DescribeConfigurationsRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_cIo],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DescribeConfigurationsResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -556,7 +556,7 @@ export var DescribeTagsResponse$: StaticStructureSchema = [3, n0, _DTResc,
 export var DisassociateConfigurationItemsFromApplicationRequest$: StaticStructureSchema = [3, n0, _DCIFAR,
   0,
   [_aCI, _cIo],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DisassociateConfigurationItemsFromApplicationResponse$: StaticStructureSchema = [3, n0, _DCIFARi,
   0,
@@ -576,12 +576,12 @@ export var ExportConfigurationsResponse$: StaticStructureSchema = [3, n0, _ECR,
 export var ExportFilter$: StaticStructureSchema = [3, n0, _EF,
   0,
   [_n, _val, _con],
-  [0, [() => FilterValues, 0], 0]
+  [0, [() => FilterValues, 0], 0], 3
 ];
 export var ExportInfo$: StaticStructureSchema = [3, n0, _EI,
   0,
-  [_eI, _eS, _sM, _cDU, _eRT, _iT, _rST, _rET],
-  [0, 0, 0, 0, 4, 2, 4, 4]
+  [_eI, _eS, _sM, _eRT, _cDU, _iT, _rST, _rET],
+  [0, 0, 0, 4, 0, 2, 4, 4], 4
 ];
 export var FailedConfiguration$: StaticStructureSchema = [3, n0, _FC,
   0,
@@ -591,7 +591,7 @@ export var FailedConfiguration$: StaticStructureSchema = [3, n0, _FC,
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
   [_n, _val, _con],
-  [0, [() => FilterValues, 0], 0]
+  [0, [() => FilterValues, 0], 0], 3
 ];
 export var GetDiscoverySummaryRequest$: StaticStructureSchema = [3, n0, _GDSR,
   0,
@@ -640,7 +640,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var ListConfigurationsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_cT, _fi, _mR, _nT, _oB],
-  [0, [() => Filters, 0], 1, 0, () => OrderByList]
+  [0, [() => Filters, 0], 1, 0, () => OrderByList], 1
 ];
 export var ListConfigurationsResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
@@ -650,17 +650,17 @@ export var ListConfigurationsResponse$: StaticStructureSchema = [3, n0, _LCRi,
 export var ListServerNeighborsRequest$: StaticStructureSchema = [3, n0, _LSNR,
   0,
   [_cIon, _pIN, _nCI, _mR, _nT],
-  [0, 2, 64 | 0, 1, 0]
+  [0, 2, 64 | 0, 1, 0], 1
 ];
 export var ListServerNeighborsResponse$: StaticStructureSchema = [3, n0, _LSNRi,
   0,
   [_ne, _nT, _kDC],
-  [() => NeighborDetailsList, 0, 1]
+  [() => NeighborDetailsList, 0, 1], 1
 ];
 export var NeighborConnectionDetail$: StaticStructureSchema = [3, n0, _NCD,
   0,
-  [_sSI, _dSI, _dP, _tP, _cC],
-  [0, 0, 1, 0, 1]
+  [_sSI, _dSI, _cC, _dP, _tP],
+  [0, 0, 1, 1, 0], 3
 ];
 export var OperationNotPermittedException$: StaticErrorSchema = [-3, n0, _ONPE,
   { [_e]: _c, [_hE]: 429 },
@@ -671,12 +671,12 @@ TypeRegistry.for(n0).registerError(OperationNotPermittedException$, OperationNot
 export var OrderByElement$: StaticStructureSchema = [3, n0, _OBE,
   0,
   [_fN, _sO],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ReservedInstanceOptions$: StaticStructureSchema = [3, n0, _RIO,
   0,
   [_pO, _oC, _tL],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
   { [_e]: _c, [_hE]: 400 },
@@ -699,7 +699,7 @@ TypeRegistry.for(n0).registerError(ServerInternalErrorException$, ServerInternal
 export var StartBatchDeleteConfigurationTaskRequest$: StaticStructureSchema = [3, n0, _SBDCTR,
   0,
   [_cT, _cIo],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var StartBatchDeleteConfigurationTaskResponse$: StaticStructureSchema = [3, n0, _SBDCTRt,
   0,
@@ -719,7 +719,7 @@ export var StartContinuousExportResponse$: StaticStructureSchema = [3, n0, _SCER
 export var StartDataCollectionByAgentIdsRequest$: StaticStructureSchema = [3, n0, _SDCBAIR,
   0,
   [_aIg],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var StartDataCollectionByAgentIdsResponse$: StaticStructureSchema = [3, n0, _SDCBAIRt,
   0,
@@ -738,8 +738,8 @@ export var StartExportTaskResponse$: StaticStructureSchema = [3, n0, _SETRt,
 ];
 export var StartImportTaskRequest$: StaticStructureSchema = [3, n0, _SITR,
   0,
-  [_cRT, _n, _iU],
-  [[0, 4], 0, 0]
+  [_n, _iU, _cRT],
+  [0, 0, [0, 4]], 2
 ];
 export var StartImportTaskResponse$: StaticStructureSchema = [3, n0, _SITRt,
   0,
@@ -749,7 +749,7 @@ export var StartImportTaskResponse$: StaticStructureSchema = [3, n0, _SITRt,
 export var StopContinuousExportRequest$: StaticStructureSchema = [3, n0, _SCERto,
   0,
   [_eI],
-  [0]
+  [0], 1
 ];
 export var StopContinuousExportResponse$: StaticStructureSchema = [3, n0, _SCERtop,
   0,
@@ -759,7 +759,7 @@ export var StopContinuousExportResponse$: StaticStructureSchema = [3, n0, _SCERt
 export var StopDataCollectionByAgentIdsRequest$: StaticStructureSchema = [3, n0, _SDCBAIRto,
   0,
   [_aIg],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var StopDataCollectionByAgentIdsResponse$: StaticStructureSchema = [3, n0, _SDCBAIRtop,
   0,
@@ -769,17 +769,17 @@ export var StopDataCollectionByAgentIdsResponse$: StaticStructureSchema = [3, n0
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagFilter$: StaticStructureSchema = [3, n0, _TF,
   0,
   [_n, _val],
-  [0, [() => FilterValues, 0]]
+  [0, [() => FilterValues, 0]], 2
 ];
 export var UpdateApplicationRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_cIon, _n, _d, _w],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,

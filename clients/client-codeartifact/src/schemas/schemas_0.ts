@@ -367,13 +367,13 @@ var Asset: StaticSimpleSchema = [0, n0, _A, { [_s]: 1 }, 42];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AssetSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_n, _si, _h],
-  [0, 1, 128 | 0]
+  [0, 1, 128 | 0], 1
 ];
 export var AssociatedPackage$: StaticStructureSchema = [3, n0, _AP,
   0,
@@ -382,8 +382,8 @@ export var AssociatedPackage$: StaticStructureSchema = [3, n0, _AP,
 ];
 export var AssociateExternalConnectionRequest$: StaticStructureSchema = [3, n0, _AECR,
   0,
-  [_d, _dO, _r, _eC],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], [0, { [_hQ]: _ec }]]
+  [_d, _r, _eC, _dO],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _ec }], [0, { [_hQ]: _do }]], 3
 ];
 export var AssociateExternalConnectionResult$: StaticStructureSchema = [3, n0, _AECRs,
   0,
@@ -393,13 +393,13 @@ export var AssociateExternalConnectionResult$: StaticStructureSchema = [3, n0, _
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CopyPackageVersionsRequest$: StaticStructureSchema = [3, n0, _CPVR,
   0,
-  [_d, _dO, _sR, _dR, _f, _na, _p, _v, _vR, _aO, _iFU],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _sr }], [0, { [_hQ]: _dr }], [0, { [_hQ]: _f }], [0, { [_hQ]: _na }], [0, { [_hQ]: _p }], 64 | 0, 128 | 0, 2, 2]
+  [_d, _sR, _dR, _f, _p, _dO, _na, _v, _vR, _aO, _iFU],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _sr }], [0, { [_hQ]: _dr }], [0, { [_hQ]: _f }], [0, { [_hQ]: _p }], [0, { [_hQ]: _do }], [0, { [_hQ]: _na }], 64 | 0, 128 | 0, 2, 2], 5
 ];
 export var CopyPackageVersionsResult$: StaticStructureSchema = [3, n0, _CPVRo,
   0,
@@ -409,7 +409,7 @@ export var CopyPackageVersionsResult$: StaticStructureSchema = [3, n0, _CPVRo,
 export var CreateDomainRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_d, _eK, _t],
-  [[0, { [_hQ]: _d }], 0, () => TagList]
+  [[0, { [_hQ]: _d }], 0, () => TagList], 1
 ];
 export var CreateDomainResult$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -418,8 +418,8 @@ export var CreateDomainResult$: StaticStructureSchema = [3, n0, _CDRr,
 ];
 export var CreatePackageGroupRequest$: StaticStructureSchema = [3, n0, _CPGR,
   0,
-  [_d, _dO, _pG, _cI, _de, _t],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], 0, 0, 0, () => TagList]
+  [_d, _pG, _dO, _cI, _de, _t],
+  [[0, { [_hQ]: _d }], 0, [0, { [_hQ]: _do }], 0, 0, () => TagList], 2
 ];
 export var CreatePackageGroupResult$: StaticStructureSchema = [3, n0, _CPGRr,
   0,
@@ -428,8 +428,8 @@ export var CreatePackageGroupResult$: StaticStructureSchema = [3, n0, _CPGRr,
 ];
 export var CreateRepositoryRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
-  [_d, _dO, _r, _de, _u, _t],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], 0, () => UpstreamRepositoryList, () => TagList]
+  [_d, _r, _dO, _de, _u, _t],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _do }], 0, () => UpstreamRepositoryList, () => TagList], 2
 ];
 export var CreateRepositoryResult$: StaticStructureSchema = [3, n0, _CRRr,
   0,
@@ -439,7 +439,7 @@ export var CreateRepositoryResult$: StaticStructureSchema = [3, n0, _CRRr,
 export var DeleteDomainPermissionsPolicyRequest$: StaticStructureSchema = [3, n0, _DDPPR,
   0,
   [_d, _dO, _pR],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _pr }]]
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _pr }]], 1
 ];
 export var DeleteDomainPermissionsPolicyResult$: StaticStructureSchema = [3, n0, _DDPPRe,
   0,
@@ -449,7 +449,7 @@ export var DeleteDomainPermissionsPolicyResult$: StaticStructureSchema = [3, n0,
 export var DeleteDomainRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_d, _dO],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }]]
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }]], 1
 ];
 export var DeleteDomainResult$: StaticStructureSchema = [3, n0, _DDRe,
   0,
@@ -458,8 +458,8 @@ export var DeleteDomainResult$: StaticStructureSchema = [3, n0, _DDRe,
 ];
 export var DeletePackageGroupRequest$: StaticStructureSchema = [3, n0, _DPGR,
   0,
-  [_d, _dO, _pG],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _pg }]]
+  [_d, _pG, _dO],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _pg }], [0, { [_hQ]: _do }]], 2
 ];
 export var DeletePackageGroupResult$: StaticStructureSchema = [3, n0, _DPGRe,
   0,
@@ -468,8 +468,8 @@ export var DeletePackageGroupResult$: StaticStructureSchema = [3, n0, _DPGRe,
 ];
 export var DeletePackageRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
-  [_d, _dO, _r, _f, _na, _p],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _na }], [0, { [_hQ]: _p }]]
+  [_d, _r, _f, _p, _dO, _na],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _p }], [0, { [_hQ]: _do }], [0, { [_hQ]: _na }]], 4
 ];
 export var DeletePackageResult$: StaticStructureSchema = [3, n0, _DPRe,
   0,
@@ -478,8 +478,8 @@ export var DeletePackageResult$: StaticStructureSchema = [3, n0, _DPRe,
 ];
 export var DeletePackageVersionsRequest$: StaticStructureSchema = [3, n0, _DPVR,
   0,
-  [_d, _dO, _r, _f, _na, _p, _v, _eS],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _na }], [0, { [_hQ]: _p }], 64 | 0, 0]
+  [_d, _r, _f, _p, _v, _dO, _na, _eS],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _p }], 64 | 0, [0, { [_hQ]: _do }], [0, { [_hQ]: _na }], 0], 5
 ];
 export var DeletePackageVersionsResult$: StaticStructureSchema = [3, n0, _DPVRe,
   0,
@@ -488,8 +488,8 @@ export var DeletePackageVersionsResult$: StaticStructureSchema = [3, n0, _DPVRe,
 ];
 export var DeleteRepositoryPermissionsPolicyRequest$: StaticStructureSchema = [3, n0, _DRPPR,
   0,
-  [_d, _dO, _r, _pR],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], [0, { [_hQ]: _pr }]]
+  [_d, _r, _dO, _pR],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _do }], [0, { [_hQ]: _pr }]], 2
 ];
 export var DeleteRepositoryPermissionsPolicyResult$: StaticStructureSchema = [3, n0, _DRPPRe,
   0,
@@ -498,8 +498,8 @@ export var DeleteRepositoryPermissionsPolicyResult$: StaticStructureSchema = [3,
 ];
 export var DeleteRepositoryRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
-  [_d, _dO, _r],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }]]
+  [_d, _r, _dO],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _do }]], 2
 ];
 export var DeleteRepositoryResult$: StaticStructureSchema = [3, n0, _DRRe,
   0,
@@ -509,7 +509,7 @@ export var DeleteRepositoryResult$: StaticStructureSchema = [3, n0, _DRRe,
 export var DescribeDomainRequest$: StaticStructureSchema = [3, n0, _DDRes,
   0,
   [_d, _dO],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }]]
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }]], 1
 ];
 export var DescribeDomainResult$: StaticStructureSchema = [3, n0, _DDResc,
   0,
@@ -518,8 +518,8 @@ export var DescribeDomainResult$: StaticStructureSchema = [3, n0, _DDResc,
 ];
 export var DescribePackageGroupRequest$: StaticStructureSchema = [3, n0, _DPGRes,
   0,
-  [_d, _dO, _pG],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _pg }]]
+  [_d, _pG, _dO],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _pg }], [0, { [_hQ]: _do }]], 2
 ];
 export var DescribePackageGroupResult$: StaticStructureSchema = [3, n0, _DPGResc,
   0,
@@ -528,28 +528,28 @@ export var DescribePackageGroupResult$: StaticStructureSchema = [3, n0, _DPGResc
 ];
 export var DescribePackageRequest$: StaticStructureSchema = [3, n0, _DPRes,
   0,
-  [_d, _dO, _r, _f, _na, _p],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _na }], [0, { [_hQ]: _p }]]
+  [_d, _r, _f, _p, _dO, _na],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _p }], [0, { [_hQ]: _do }], [0, { [_hQ]: _na }]], 4
 ];
 export var DescribePackageResult$: StaticStructureSchema = [3, n0, _DPResc,
   0,
   [_p],
-  [() => PackageDescription$]
+  [() => PackageDescription$], 1
 ];
 export var DescribePackageVersionRequest$: StaticStructureSchema = [3, n0, _DPVRes,
   0,
-  [_d, _dO, _r, _f, _na, _p, _pV],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _na }], [0, { [_hQ]: _p }], [0, { [_hQ]: _ve }]]
+  [_d, _r, _f, _p, _pV, _dO, _na],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _p }], [0, { [_hQ]: _ve }], [0, { [_hQ]: _do }], [0, { [_hQ]: _na }]], 5
 ];
 export var DescribePackageVersionResult$: StaticStructureSchema = [3, n0, _DPVResc,
   0,
   [_pV],
-  [() => PackageVersionDescription$]
+  [() => PackageVersionDescription$], 1
 ];
 export var DescribeRepositoryRequest$: StaticStructureSchema = [3, n0, _DRRes,
   0,
-  [_d, _dO, _r],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }]]
+  [_d, _r, _dO],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _do }]], 2
 ];
 export var DescribeRepositoryResult$: StaticStructureSchema = [3, n0, _DRResc,
   0,
@@ -558,8 +558,8 @@ export var DescribeRepositoryResult$: StaticStructureSchema = [3, n0, _DRResc,
 ];
 export var DisassociateExternalConnectionRequest$: StaticStructureSchema = [3, n0, _DECR,
   0,
-  [_d, _dO, _r, _eC],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], [0, { [_hQ]: _ec }]]
+  [_d, _r, _eC, _dO],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _ec }], [0, { [_hQ]: _do }]], 3
 ];
 export var DisassociateExternalConnectionResult$: StaticStructureSchema = [3, n0, _DECRi,
   0,
@@ -568,8 +568,8 @@ export var DisassociateExternalConnectionResult$: StaticStructureSchema = [3, n0
 ];
 export var DisposePackageVersionsRequest$: StaticStructureSchema = [3, n0, _DPVRi,
   0,
-  [_d, _dO, _r, _f, _na, _p, _v, _vR, _eS],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _na }], [0, { [_hQ]: _p }], 64 | 0, 128 | 0, 0]
+  [_d, _r, _f, _p, _v, _dO, _na, _vR, _eS],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _p }], 64 | 0, [0, { [_hQ]: _do }], [0, { [_hQ]: _na }], 128 | 0, 0], 5
 ];
 export var DisposePackageVersionsResult$: StaticStructureSchema = [3, n0, _DPVRis,
   0,
@@ -593,8 +593,8 @@ export var DomainSummary$: StaticStructureSchema = [3, n0, _DS,
 ];
 export var GetAssociatedPackageGroupRequest$: StaticStructureSchema = [3, n0, _GAPGR,
   0,
-  [_d, _dO, _f, _na, _p],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _f }], [0, { [_hQ]: _na }], [0, { [_hQ]: _p }]]
+  [_d, _f, _p, _dO, _na],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _f }], [0, { [_hQ]: _p }], [0, { [_hQ]: _do }], [0, { [_hQ]: _na }]], 3
 ];
 export var GetAssociatedPackageGroupResult$: StaticStructureSchema = [3, n0, _GAPGRe,
   0,
@@ -604,7 +604,7 @@ export var GetAssociatedPackageGroupResult$: StaticStructureSchema = [3, n0, _GA
 export var GetAuthorizationTokenRequest$: StaticStructureSchema = [3, n0, _GATR,
   0,
   [_d, _dO, _dS],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [1, { [_hQ]: _du }]]
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [1, { [_hQ]: _du }]], 1
 ];
 export var GetAuthorizationTokenResult$: StaticStructureSchema = [3, n0, _GATRe,
   8,
@@ -614,7 +614,7 @@ export var GetAuthorizationTokenResult$: StaticStructureSchema = [3, n0, _GATRe,
 export var GetDomainPermissionsPolicyRequest$: StaticStructureSchema = [3, n0, _GDPPR,
   0,
   [_d, _dO],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }]]
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }]], 1
 ];
 export var GetDomainPermissionsPolicyResult$: StaticStructureSchema = [3, n0, _GDPPRe,
   0,
@@ -623,8 +623,8 @@ export var GetDomainPermissionsPolicyResult$: StaticStructureSchema = [3, n0, _G
 ];
 export var GetPackageVersionAssetRequest$: StaticStructureSchema = [3, n0, _GPVAR,
   0,
-  [_d, _dO, _r, _f, _na, _p, _pV, _as, _pVR],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _na }], [0, { [_hQ]: _p }], [0, { [_hQ]: _ve }], [0, { [_hQ]: _as }], [0, { [_hQ]: _re }]]
+  [_d, _r, _f, _p, _pV, _as, _dO, _na, _pVR],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _p }], [0, { [_hQ]: _ve }], [0, { [_hQ]: _as }], [0, { [_hQ]: _do }], [0, { [_hQ]: _na }], [0, { [_hQ]: _re }]], 6
 ];
 export var GetPackageVersionAssetResult$: StaticStructureSchema = [3, n0, _GPVARe,
   0,
@@ -633,8 +633,8 @@ export var GetPackageVersionAssetResult$: StaticStructureSchema = [3, n0, _GPVAR
 ];
 export var GetPackageVersionReadmeRequest$: StaticStructureSchema = [3, n0, _GPVRR,
   0,
-  [_d, _dO, _r, _f, _na, _p, _pV],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _na }], [0, { [_hQ]: _p }], [0, { [_hQ]: _ve }]]
+  [_d, _r, _f, _p, _pV, _dO, _na],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _p }], [0, { [_hQ]: _ve }], [0, { [_hQ]: _do }], [0, { [_hQ]: _na }]], 5
 ];
 export var GetPackageVersionReadmeResult$: StaticStructureSchema = [3, n0, _GPVRRe,
   0,
@@ -643,8 +643,8 @@ export var GetPackageVersionReadmeResult$: StaticStructureSchema = [3, n0, _GPVR
 ];
 export var GetRepositoryEndpointRequest$: StaticStructureSchema = [3, n0, _GRER,
   0,
-  [_d, _dO, _r, _f, _eT],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _eT }]]
+  [_d, _r, _f, _dO, _eT],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _do }], [0, { [_hQ]: _eT }]], 3
 ];
 export var GetRepositoryEndpointResult$: StaticStructureSchema = [3, n0, _GRERe,
   0,
@@ -653,8 +653,8 @@ export var GetRepositoryEndpointResult$: StaticStructureSchema = [3, n0, _GRERe,
 ];
 export var GetRepositoryPermissionsPolicyRequest$: StaticStructureSchema = [3, n0, _GRPPR,
   0,
-  [_d, _dO, _r],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }]]
+  [_d, _r, _dO],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _do }]], 2
 ];
 export var GetRepositoryPermissionsPolicyResult$: StaticStructureSchema = [3, n0, _GRPPRe,
   0,
@@ -664,7 +664,7 @@ export var GetRepositoryPermissionsPolicyResult$: StaticStructureSchema = [3, n0
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LicenseInfo$: StaticStructureSchema = [3, n0, _LI,
@@ -674,8 +674,8 @@ export var LicenseInfo$: StaticStructureSchema = [3, n0, _LI,
 ];
 export var ListAllowedRepositoriesForGroupRequest$: StaticStructureSchema = [3, n0, _LARFGR,
   0,
-  [_d, _dO, _pG, _oRT, _mR, _nT],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _pg }], [0, { [_hQ]: _oRT }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]]
+  [_d, _pG, _oRT, _dO, _mR, _nT],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _pg }], [0, { [_hQ]: _oRT }], [0, { [_hQ]: _do }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]], 3
 ];
 export var ListAllowedRepositoriesForGroupResult$: StaticStructureSchema = [3, n0, _LARFGRi,
   0,
@@ -684,8 +684,8 @@ export var ListAllowedRepositoriesForGroupResult$: StaticStructureSchema = [3, n
 ];
 export var ListAssociatedPackagesRequest$: StaticStructureSchema = [3, n0, _LAPR,
   0,
-  [_d, _dO, _pG, _mR, _nT, _pre],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _pg }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [2, { [_hQ]: _pre }]]
+  [_d, _pG, _dO, _mR, _nT, _pre],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _pg }], [0, { [_hQ]: _do }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [2, { [_hQ]: _pre }]], 2
 ];
 export var ListAssociatedPackagesResult$: StaticStructureSchema = [3, n0, _LAPRi,
   0,
@@ -705,7 +705,7 @@ export var ListDomainsResult$: StaticStructureSchema = [3, n0, _LDRi,
 export var ListPackageGroupsRequest$: StaticStructureSchema = [3, n0, _LPGR,
   0,
   [_d, _dO, _mR, _nT, _pref],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [0, { [_hQ]: _pref }]]
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [0, { [_hQ]: _pref }]], 1
 ];
 export var ListPackageGroupsResult$: StaticStructureSchema = [3, n0, _LPGRi,
   0,
@@ -714,8 +714,8 @@ export var ListPackageGroupsResult$: StaticStructureSchema = [3, n0, _LPGRi,
 ];
 export var ListPackagesRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
-  [_d, _dO, _r, _f, _na, _pP, _mR, _nT, _pu, _up],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _na }], [0, { [_hQ]: _pp }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [0, { [_hQ]: _pu }], [0, { [_hQ]: _up }]]
+  [_d, _r, _dO, _f, _na, _pP, _mR, _nT, _pu, _up],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _do }], [0, { [_hQ]: _f }], [0, { [_hQ]: _na }], [0, { [_hQ]: _pp }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [0, { [_hQ]: _pu }], [0, { [_hQ]: _up }]], 2
 ];
 export var ListPackagesResult$: StaticStructureSchema = [3, n0, _LPRi,
   0,
@@ -724,8 +724,8 @@ export var ListPackagesResult$: StaticStructureSchema = [3, n0, _LPRi,
 ];
 export var ListPackageVersionAssetsRequest$: StaticStructureSchema = [3, n0, _LPVAR,
   0,
-  [_d, _dO, _r, _f, _na, _p, _pV, _mR, _nT],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _na }], [0, { [_hQ]: _p }], [0, { [_hQ]: _ve }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]]
+  [_d, _r, _f, _p, _pV, _dO, _na, _mR, _nT],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _p }], [0, { [_hQ]: _ve }], [0, { [_hQ]: _do }], [0, { [_hQ]: _na }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]], 5
 ];
 export var ListPackageVersionAssetsResult$: StaticStructureSchema = [3, n0, _LPVARi,
   0,
@@ -734,8 +734,8 @@ export var ListPackageVersionAssetsResult$: StaticStructureSchema = [3, n0, _LPV
 ];
 export var ListPackageVersionDependenciesRequest$: StaticStructureSchema = [3, n0, _LPVDR,
   0,
-  [_d, _dO, _r, _f, _na, _p, _pV, _nT],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _na }], [0, { [_hQ]: _p }], [0, { [_hQ]: _ve }], [0, { [_hQ]: _nt }]]
+  [_d, _r, _f, _p, _pV, _dO, _na, _nT],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _p }], [0, { [_hQ]: _ve }], [0, { [_hQ]: _do }], [0, { [_hQ]: _na }], [0, { [_hQ]: _nt }]], 5
 ];
 export var ListPackageVersionDependenciesResult$: StaticStructureSchema = [3, n0, _LPVDRi,
   0,
@@ -744,8 +744,8 @@ export var ListPackageVersionDependenciesResult$: StaticStructureSchema = [3, n0
 ];
 export var ListPackageVersionsRequest$: StaticStructureSchema = [3, n0, _LPVR,
   0,
-  [_d, _dO, _r, _f, _na, _p, _st, _sB, _mR, _nT, _oT],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _na }], [0, { [_hQ]: _p }], [0, { [_hQ]: _st }], [0, { [_hQ]: _sB }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [0, { [_hQ]: _oT }]]
+  [_d, _r, _f, _p, _dO, _na, _st, _sB, _mR, _nT, _oT],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _p }], [0, { [_hQ]: _do }], [0, { [_hQ]: _na }], [0, { [_hQ]: _st }], [0, { [_hQ]: _sB }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [0, { [_hQ]: _oT }]], 4
 ];
 export var ListPackageVersionsResult$: StaticStructureSchema = [3, n0, _LPVRi,
   0,
@@ -755,7 +755,7 @@ export var ListPackageVersionsResult$: StaticStructureSchema = [3, n0, _LPVRi,
 export var ListRepositoriesInDomainRequest$: StaticStructureSchema = [3, n0, _LRIDR,
   0,
   [_d, _dO, _aA, _rP, _mR, _nT],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _aa }], [0, { [_hQ]: _rp }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]]
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _aa }], [0, { [_hQ]: _rp }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]], 1
 ];
 export var ListRepositoriesInDomainResult$: StaticStructureSchema = [3, n0, _LRIDRi,
   0,
@@ -774,8 +774,8 @@ export var ListRepositoriesResult$: StaticStructureSchema = [3, n0, _LRRi,
 ];
 export var ListSubPackageGroupsRequest$: StaticStructureSchema = [3, n0, _LSPGR,
   0,
-  [_d, _dO, _pG, _mR, _nT],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _pg }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]]
+  [_d, _pG, _dO, _mR, _nT],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _pg }], [0, { [_hQ]: _do }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]], 2
 ];
 export var ListSubPackageGroupsResult$: StaticStructureSchema = [3, n0, _LSPGRi,
   0,
@@ -785,7 +785,7 @@ export var ListSubPackageGroupsResult$: StaticStructureSchema = [3, n0, _LSPGRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, { [_hQ]: _rA }]]
+  [[0, { [_hQ]: _rA }]], 1
 ];
 export var ListTagsForResourceResult$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -840,7 +840,7 @@ export var PackageOriginConfiguration$: StaticStructureSchema = [3, n0, _POC,
 export var PackageOriginRestrictions$: StaticStructureSchema = [3, n0, _POR,
   0,
   [_pu, _up],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PackageSummary$: StaticStructureSchema = [3, n0, _PS,
   0,
@@ -864,13 +864,13 @@ export var PackageVersionOrigin$: StaticStructureSchema = [3, n0, _PVO,
 ];
 export var PackageVersionSummary$: StaticStructureSchema = [3, n0, _PVS,
   0,
-  [_ve, _re, _st, _or],
-  [0, 0, 0, () => PackageVersionOrigin$]
+  [_ve, _st, _re, _or],
+  [0, 0, 0, () => PackageVersionOrigin$], 2
 ];
 export var PublishPackageVersionRequest$: StaticStructureSchema = [3, n0, _PPVR,
   0,
-  [_d, _dO, _r, _f, _na, _p, _pV, _aC, _aN, _aSHA, _un],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _na }], [0, { [_hQ]: _p }], [0, { [_hQ]: _ve }], [() => Asset, 16], [0, { [_hQ]: _as }], [0, { [_hH]: _xacs }], [2, { [_hQ]: _un }]]
+  [_d, _r, _f, _p, _pV, _aC, _aN, _aSHA, _dO, _na, _un],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _p }], [0, { [_hQ]: _ve }], [() => Asset, 16], [0, { [_hQ]: _as }], [0, { [_hH]: _xacs }], [0, { [_hQ]: _do }], [0, { [_hQ]: _na }], [2, { [_hQ]: _un }]], 8
 ];
 export var PublishPackageVersionResult$: StaticStructureSchema = [3, n0, _PPVRu,
   0,
@@ -879,8 +879,8 @@ export var PublishPackageVersionResult$: StaticStructureSchema = [3, n0, _PPVRu,
 ];
 export var PutDomainPermissionsPolicyRequest$: StaticStructureSchema = [3, n0, _PDPPR,
   0,
-  [_d, _dO, _pR, _pD],
-  [0, 0, 0, 0]
+  [_d, _pD, _dO, _pR],
+  [0, 0, 0, 0], 2
 ];
 export var PutDomainPermissionsPolicyResult$: StaticStructureSchema = [3, n0, _PDPPRu,
   0,
@@ -889,8 +889,8 @@ export var PutDomainPermissionsPolicyResult$: StaticStructureSchema = [3, n0, _P
 ];
 export var PutPackageOriginConfigurationRequest$: StaticStructureSchema = [3, n0, _PPOCR,
   0,
-  [_d, _dO, _r, _f, _na, _p, _res],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _na }], [0, { [_hQ]: _p }], () => PackageOriginRestrictions$]
+  [_d, _r, _f, _p, _res, _dO, _na],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _p }], () => PackageOriginRestrictions$, [0, { [_hQ]: _do }], [0, { [_hQ]: _na }]], 5
 ];
 export var PutPackageOriginConfigurationResult$: StaticStructureSchema = [3, n0, _PPOCRu,
   0,
@@ -899,8 +899,8 @@ export var PutPackageOriginConfigurationResult$: StaticStructureSchema = [3, n0,
 ];
 export var PutRepositoryPermissionsPolicyRequest$: StaticStructureSchema = [3, n0, _PRPPR,
   0,
-  [_d, _dO, _r, _pR, _pD],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], 0, 0]
+  [_d, _r, _pD, _dO, _pR],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], 0, [0, { [_hQ]: _do }], 0], 3
 ];
 export var PutRepositoryPermissionsPolicyResult$: StaticStructureSchema = [3, n0, _PRPPRu,
   0,
@@ -925,7 +925,7 @@ export var RepositorySummary$: StaticStructureSchema = [3, n0, _RS,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourcePolicy$: StaticStructureSchema = [3, n0, _RP,
@@ -936,7 +936,7 @@ export var ResourcePolicy$: StaticStructureSchema = [3, n0, _RP,
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SuccessfulPackageVersionInfo$: StaticStructureSchema = [3, n0, _SPVI,
@@ -947,12 +947,12 @@ export var SuccessfulPackageVersionInfo$: StaticStructureSchema = [3, n0, _SPVI,
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [[0, { [_hQ]: _rA }], () => TagList]
+  [[0, { [_hQ]: _rA }], () => TagList], 2
 ];
 export var TagResourceResult$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -962,13 +962,13 @@ export var TagResourceResult$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]]
+  [0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, { [_hQ]: _rA }], 64 | 0]
+  [[0, { [_hQ]: _rA }], 64 | 0], 2
 ];
 export var UntagResourceResult$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -977,8 +977,8 @@ export var UntagResourceResult$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdatePackageGroupOriginConfigurationRequest$: StaticStructureSchema = [3, n0, _UPGOCR,
   0,
-  [_d, _dO, _pG, _res, _aAR, _rAR],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _pg }], 128 | 0, () => PackageGroupAllowedRepositoryList, () => PackageGroupAllowedRepositoryList]
+  [_d, _pG, _dO, _res, _aAR, _rAR],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _pg }], [0, { [_hQ]: _do }], 128 | 0, () => PackageGroupAllowedRepositoryList, () => PackageGroupAllowedRepositoryList], 2
 ];
 export var UpdatePackageGroupOriginConfigurationResult$: StaticStructureSchema = [3, n0, _UPGOCRp,
   0,
@@ -987,8 +987,8 @@ export var UpdatePackageGroupOriginConfigurationResult$: StaticStructureSchema =
 ];
 export var UpdatePackageGroupRequest$: StaticStructureSchema = [3, n0, _UPGR,
   0,
-  [_d, _dO, _pG, _cI, _de],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], 0, 0, 0]
+  [_d, _pG, _dO, _cI, _de],
+  [[0, { [_hQ]: _d }], 0, [0, { [_hQ]: _do }], 0, 0], 2
 ];
 export var UpdatePackageGroupResult$: StaticStructureSchema = [3, n0, _UPGRp,
   0,
@@ -997,8 +997,8 @@ export var UpdatePackageGroupResult$: StaticStructureSchema = [3, n0, _UPGRp,
 ];
 export var UpdatePackageVersionsStatusRequest$: StaticStructureSchema = [3, n0, _UPVSR,
   0,
-  [_d, _dO, _r, _f, _na, _p, _v, _vR, _eS, _tS],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _na }], [0, { [_hQ]: _p }], 64 | 0, 128 | 0, 0, 0]
+  [_d, _r, _f, _p, _v, _tS, _dO, _na, _vR, _eS],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _f }], [0, { [_hQ]: _p }], 64 | 0, 0, [0, { [_hQ]: _do }], [0, { [_hQ]: _na }], 128 | 0, 0], 6
 ];
 export var UpdatePackageVersionsStatusResult$: StaticStructureSchema = [3, n0, _UPVSRp,
   0,
@@ -1007,8 +1007,8 @@ export var UpdatePackageVersionsStatusResult$: StaticStructureSchema = [3, n0, _
 ];
 export var UpdateRepositoryRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
-  [_d, _dO, _r, _de, _u],
-  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], 0, () => UpstreamRepositoryList]
+  [_d, _r, _dO, _de, _u],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _r }], [0, { [_hQ]: _do }], 0, () => UpstreamRepositoryList], 2
 ];
 export var UpdateRepositoryResult$: StaticStructureSchema = [3, n0, _URRpd,
   0,
@@ -1018,7 +1018,7 @@ export var UpdateRepositoryResult$: StaticStructureSchema = [3, n0, _URRpd,
 export var UpstreamRepository$: StaticStructureSchema = [3, n0, _UR,
   0,
   [_rN],
-  [0]
+  [0], 1
 ];
 export var UpstreamRepositoryInfo$: StaticStructureSchema = [3, n0, _URI,
   0,
@@ -1028,7 +1028,7 @@ export var UpstreamRepositoryInfo$: StaticStructureSchema = [3, n0, _URI,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _reas],
-  [0, 0]
+  [0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var CodeartifactServiceException$: StaticErrorSchema = [-3, _sm, "CodeartifactServiceException", 0, [], []];

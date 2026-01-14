@@ -368,7 +368,7 @@ export var ActiveSpeakerOnlyConfiguration$: StaticStructureSchema = [3, n0, _ASO
 export var AmazonTranscribeCallAnalyticsProcessorConfiguration$: StaticStructureSchema = [3, n0, _ATCAPC,
   0,
   [_LC, _VN, _VFN, _VFM, _LMN, _EPRS, _PRS, _CIT, _CRTo, _PET, _FPR, _PCAS, _CASC],
-  [0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, () => PostCallAnalyticsSettings$, 64 | 0]
+  [0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, () => PostCallAnalyticsSettings$, 64 | 0], 1
 ];
 export var AmazonTranscribeProcessorConfiguration$: StaticStructureSchema = [3, n0, _ATPC,
   0,
@@ -378,22 +378,22 @@ export var AmazonTranscribeProcessorConfiguration$: StaticStructureSchema = [3, 
 export var ArtifactsConcatenationConfiguration$: StaticStructureSchema = [3, n0, _ACC,
   0,
   [_Au, _V, _C, _DC, _TM, _ME, _CV],
-  [() => AudioConcatenationConfiguration$, () => VideoConcatenationConfiguration$, () => ContentConcatenationConfiguration$, () => DataChannelConcatenationConfiguration$, () => TranscriptionMessagesConcatenationConfiguration$, () => MeetingEventsConcatenationConfiguration$, () => CompositedVideoConcatenationConfiguration$]
+  [() => AudioConcatenationConfiguration$, () => VideoConcatenationConfiguration$, () => ContentConcatenationConfiguration$, () => DataChannelConcatenationConfiguration$, () => TranscriptionMessagesConcatenationConfiguration$, () => MeetingEventsConcatenationConfiguration$, () => CompositedVideoConcatenationConfiguration$], 7
 ];
 export var ArtifactsConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_Au, _V, _C, _CV],
-  [() => AudioArtifactsConfiguration$, () => VideoArtifactsConfiguration$, () => ContentArtifactsConfiguration$, () => CompositedVideoArtifactsConfiguration$]
+  [() => AudioArtifactsConfiguration$, () => VideoArtifactsConfiguration$, () => ContentArtifactsConfiguration$, () => CompositedVideoArtifactsConfiguration$], 3
 ];
 export var AudioArtifactsConfiguration$: StaticStructureSchema = [3, n0, _AAC,
   0,
   [_MT],
-  [0]
+  [0], 1
 ];
 export var AudioConcatenationConfiguration$: StaticStructureSchema = [3, n0, _ACCu,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
@@ -404,12 +404,12 @@ TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var ChannelDefinition$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_CI, _PR],
-  [1, 0]
+  [1, 0], 1
 ];
 export var ChimeSdkMeetingConcatenationConfiguration$: StaticStructureSchema = [3, n0, _CSMCC,
   0,
   [_AC],
-  [() => ArtifactsConcatenationConfiguration$]
+  [() => ArtifactsConcatenationConfiguration$], 1
 ];
 export var ChimeSdkMeetingConfiguration$: StaticStructureSchema = [3, n0, _CSMC,
   0,
@@ -419,27 +419,27 @@ export var ChimeSdkMeetingConfiguration$: StaticStructureSchema = [3, n0, _CSMC,
 export var ChimeSdkMeetingLiveConnectorConfiguration$: StaticStructureSchema = [3, n0, _CSMLCC,
   0,
   [_A, _MT, _CV, _SC],
-  [[() => Arn, 0], 0, () => CompositedVideoArtifactsConfiguration$, [() => SourceConfiguration$, 0]]
+  [[() => Arn, 0], 0, () => CompositedVideoArtifactsConfiguration$, [() => SourceConfiguration$, 0]], 2
 ];
 export var CompositedVideoArtifactsConfiguration$: StaticStructureSchema = [3, n0, _CVAC,
   0,
-  [_L, _R, _GVC],
-  [0, 0, () => GridViewConfiguration$]
+  [_GVC, _L, _R],
+  [() => GridViewConfiguration$, 0, 0], 1
 ];
 export var CompositedVideoConcatenationConfiguration$: StaticStructureSchema = [3, n0, _CVCC,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var ConcatenationSink$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_T, _SBSC],
-  [0, [() => S3BucketSinkConfiguration$, 0]]
+  [0, [() => S3BucketSinkConfiguration$, 0]], 2
 ];
 export var ConcatenationSource$: StaticStructureSchema = [3, n0, _CSo,
   0,
   [_T, _MCPSC],
-  [0, [() => MediaCapturePipelineSourceConfiguration$, 0]]
+  [0, [() => MediaCapturePipelineSourceConfiguration$, 0]], 2
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -450,17 +450,17 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContentArtifactsConfiguration$: StaticStructureSchema = [3, n0, _CAC,
   0,
   [_S, _MT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ContentConcatenationConfiguration$: StaticStructureSchema = [3, n0, _CCC,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var CreateMediaCapturePipelineRequest$: StaticStructureSchema = [3, n0, _CMCPR,
   0,
   [_ST, _SA, _STi, _SAi, _CRT, _CSMC, _SAKMP, _SIRA, _Ta],
-  [0, [() => Arn, 0], 0, [() => Arn, 0], [() => ClientRequestToken, 4], [() => ChimeSdkMeetingConfiguration$, 0], () => SseAwsKeyManagementParams$, [() => Arn, 0], () => TagList]
+  [0, [() => Arn, 0], 0, [() => Arn, 0], [() => ClientRequestToken, 4], [() => ChimeSdkMeetingConfiguration$, 0], () => SseAwsKeyManagementParams$, [() => Arn, 0], () => TagList], 4
 ];
 export var CreateMediaCapturePipelineResponse$: StaticStructureSchema = [3, n0, _CMCPRr,
   0,
@@ -470,7 +470,7 @@ export var CreateMediaCapturePipelineResponse$: StaticStructureSchema = [3, n0, 
 export var CreateMediaConcatenationPipelineRequest$: StaticStructureSchema = [3, n0, _CMCPRre,
   0,
   [_So, _Si, _CRT, _Ta],
-  [[() => ConcatenationSourceList, 0], [() => ConcatenationSinkList, 0], [() => ClientRequestToken, 4], () => TagList]
+  [[() => ConcatenationSourceList, 0], [() => ConcatenationSinkList, 0], [() => ClientRequestToken, 4], () => TagList], 2
 ];
 export var CreateMediaConcatenationPipelineResponse$: StaticStructureSchema = [3, n0, _CMCPRrea,
   0,
@@ -479,8 +479,8 @@ export var CreateMediaConcatenationPipelineResponse$: StaticStructureSchema = [3
 ];
 export var CreateMediaInsightsPipelineConfigurationRequest$: StaticStructureSchema = [3, n0, _CMIPCR,
   0,
-  [_MIPCN, _RARA, _RTAC, _E, _Ta, _CRT],
-  [0, [() => Arn, 0], () => RealTimeAlertConfiguration$, [() => MediaInsightsPipelineConfigurationElements, 0], () => TagList, [() => ClientRequestToken, 4]]
+  [_MIPCN, _RARA, _E, _RTAC, _Ta, _CRT],
+  [0, [() => Arn, 0], [() => MediaInsightsPipelineConfigurationElements, 0], () => RealTimeAlertConfiguration$, () => TagList, [() => ClientRequestToken, 4]], 3
 ];
 export var CreateMediaInsightsPipelineConfigurationResponse$: StaticStructureSchema = [3, n0, _CMIPCRr,
   0,
@@ -490,17 +490,17 @@ export var CreateMediaInsightsPipelineConfigurationResponse$: StaticStructureSch
 export var CreateMediaInsightsPipelineRequest$: StaticStructureSchema = [3, n0, _CMIPR,
   0,
   [_MIPCA, _KVSSRC, _MIRM, _KVSRSRC, _SRSRC, _Ta, _CRT],
-  [[() => Arn, 0], () => KinesisVideoStreamSourceRuntimeConfiguration$, [() => MediaInsightsRuntimeMetadata, 0], () => KinesisVideoStreamRecordingSourceRuntimeConfiguration$, [() => S3RecordingSinkRuntimeConfiguration$, 0], () => TagList, [() => ClientRequestToken, 4]]
+  [[() => Arn, 0], () => KinesisVideoStreamSourceRuntimeConfiguration$, [() => MediaInsightsRuntimeMetadata, 0], () => KinesisVideoStreamRecordingSourceRuntimeConfiguration$, [() => S3RecordingSinkRuntimeConfiguration$, 0], () => TagList, [() => ClientRequestToken, 4]], 1
 ];
 export var CreateMediaInsightsPipelineResponse$: StaticStructureSchema = [3, n0, _CMIPRr,
   0,
   [_MIP],
-  [[() => MediaInsightsPipeline$, 0]]
+  [[() => MediaInsightsPipeline$, 0]], 1
 ];
 export var CreateMediaLiveConnectorPipelineRequest$: StaticStructureSchema = [3, n0, _CMLCPR,
   0,
   [_So, _Si, _CRT, _Ta],
-  [[() => LiveConnectorSourceList, 0], [() => LiveConnectorSinkList, 0], [() => ClientRequestToken, 4], () => TagList]
+  [[() => LiveConnectorSourceList, 0], [() => LiveConnectorSinkList, 0], [() => ClientRequestToken, 4], () => TagList], 2
 ];
 export var CreateMediaLiveConnectorPipelineResponse$: StaticStructureSchema = [3, n0, _CMLCPRr,
   0,
@@ -510,7 +510,7 @@ export var CreateMediaLiveConnectorPipelineResponse$: StaticStructureSchema = [3
 export var CreateMediaPipelineKinesisVideoStreamPoolRequest$: StaticStructureSchema = [3, n0, _CMPKVSPR,
   0,
   [_SCt, _PN, _CRT, _Ta],
-  [() => KinesisVideoStreamConfiguration$, 0, [() => ClientRequestToken, 4], () => TagList]
+  [() => KinesisVideoStreamConfiguration$, 0, [() => ClientRequestToken, 4], () => TagList], 2
 ];
 export var CreateMediaPipelineKinesisVideoStreamPoolResponse$: StaticStructureSchema = [3, n0, _CMPKVSPRr,
   0,
@@ -520,7 +520,7 @@ export var CreateMediaPipelineKinesisVideoStreamPoolResponse$: StaticStructureSc
 export var CreateMediaStreamPipelineRequest$: StaticStructureSchema = [3, n0, _CMSPR,
   0,
   [_So, _Si, _CRT, _Ta],
-  [[() => MediaStreamSourceList, 0], [() => MediaStreamSinkList, 0], [() => ClientRequestToken, 4], () => TagList]
+  [[() => MediaStreamSourceList, 0], [() => MediaStreamSinkList, 0], [() => ClientRequestToken, 4], () => TagList], 2
 ];
 export var CreateMediaStreamPipelineResponse$: StaticStructureSchema = [3, n0, _CMSPRr,
   0,
@@ -530,27 +530,27 @@ export var CreateMediaStreamPipelineResponse$: StaticStructureSchema = [3, n0, _
 export var DataChannelConcatenationConfiguration$: StaticStructureSchema = [3, n0, _DCCC,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var DeleteMediaCapturePipelineRequest$: StaticStructureSchema = [3, n0, _DMCPR,
   0,
   [_MPI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteMediaInsightsPipelineConfigurationRequest$: StaticStructureSchema = [3, n0, _DMIPCR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteMediaPipelineKinesisVideoStreamPoolRequest$: StaticStructureSchema = [3, n0, _DMPKVSPR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteMediaPipelineRequest$: StaticStructureSchema = [3, n0, _DMPR,
   0,
   [_MPI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
   { [_e]: _c, [_hE]: 403 },
@@ -561,12 +561,12 @@ TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var FragmentSelector$: StaticStructureSchema = [3, n0, _FS,
   0,
   [_FST, _TR],
-  [0, () => TimestampRange$]
+  [0, () => TimestampRange$], 2
 ];
 export var GetMediaCapturePipelineRequest$: StaticStructureSchema = [3, n0, _GMCPR,
   0,
   [_MPI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetMediaCapturePipelineResponse$: StaticStructureSchema = [3, n0, _GMCPRe,
   0,
@@ -576,7 +576,7 @@ export var GetMediaCapturePipelineResponse$: StaticStructureSchema = [3, n0, _GM
 export var GetMediaInsightsPipelineConfigurationRequest$: StaticStructureSchema = [3, n0, _GMIPCR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetMediaInsightsPipelineConfigurationResponse$: StaticStructureSchema = [3, n0, _GMIPCRe,
   0,
@@ -586,7 +586,7 @@ export var GetMediaInsightsPipelineConfigurationResponse$: StaticStructureSchema
 export var GetMediaPipelineKinesisVideoStreamPoolRequest$: StaticStructureSchema = [3, n0, _GMPKVSPR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetMediaPipelineKinesisVideoStreamPoolResponse$: StaticStructureSchema = [3, n0, _GMPKVSPRe,
   0,
@@ -596,7 +596,7 @@ export var GetMediaPipelineKinesisVideoStreamPoolResponse$: StaticStructureSchem
 export var GetMediaPipelineRequest$: StaticStructureSchema = [3, n0, _GMPR,
   0,
   [_MPI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetMediaPipelineResponse$: StaticStructureSchema = [3, n0, _GMPRe,
   0,
@@ -606,7 +606,7 @@ export var GetMediaPipelineResponse$: StaticStructureSchema = [3, n0, _GMPRe,
 export var GetSpeakerSearchTaskRequest$: StaticStructureSchema = [3, n0, _GSSTR,
   0,
   [_I, _SSTI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetSpeakerSearchTaskResponse$: StaticStructureSchema = [3, n0, _GSSTRe,
   0,
@@ -616,7 +616,7 @@ export var GetSpeakerSearchTaskResponse$: StaticStructureSchema = [3, n0, _GSSTR
 export var GetVoiceToneAnalysisTaskRequest$: StaticStructureSchema = [3, n0, _GVTATR,
   0,
   [_I, _VTATI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetVoiceToneAnalysisTaskResponse$: StaticStructureSchema = [3, n0, _GVTATRe,
   0,
@@ -626,7 +626,7 @@ export var GetVoiceToneAnalysisTaskResponse$: StaticStructureSchema = [3, n0, _G
 export var GridViewConfiguration$: StaticStructureSchema = [3, n0, _GVC,
   0,
   [_CSL, _POC, _ASOC, _HLC, _VLC, _VA, _CO],
-  [0, () => PresenterOnlyConfiguration$, () => ActiveSpeakerOnlyConfiguration$, () => HorizontalLayoutConfiguration$, () => VerticalLayoutConfiguration$, () => VideoAttribute$, 0]
+  [0, () => PresenterOnlyConfiguration$, () => ActiveSpeakerOnlyConfiguration$, () => HorizontalLayoutConfiguration$, () => VerticalLayoutConfiguration$, () => VideoAttribute$, 0], 1
 ];
 export var HorizontalLayoutConfiguration$: StaticStructureSchema = [3, n0, _HLC,
   0,
@@ -636,12 +636,12 @@ export var HorizontalLayoutConfiguration$: StaticStructureSchema = [3, n0, _HLC,
 export var IssueDetectionConfiguration$: StaticStructureSchema = [3, n0, _IDC,
   0,
   [_RN],
-  [0]
+  [0], 1
 ];
 export var KeywordMatchConfiguration$: StaticStructureSchema = [3, n0, _KMC,
   0,
   [_RN, _K, _N],
-  [0, 64 | 0, 2]
+  [0, 64 | 0, 2], 2
 ];
 export var KinesisDataStreamSinkConfiguration$: StaticStructureSchema = [3, n0, _KDSSC,
   0,
@@ -651,7 +651,7 @@ export var KinesisDataStreamSinkConfiguration$: StaticStructureSchema = [3, n0, 
 export var KinesisVideoStreamConfiguration$: StaticStructureSchema = [3, n0, _KVSC,
   0,
   [_Re, _DRIH],
-  [0, 1]
+  [0, 1], 1
 ];
 export var KinesisVideoStreamConfigurationUpdate$: StaticStructureSchema = [3, n0, _KVSCU,
   0,
@@ -671,17 +671,17 @@ export var KinesisVideoStreamPoolSummary$: StaticStructureSchema = [3, n0, _KVSP
 export var KinesisVideoStreamRecordingSourceRuntimeConfiguration$: StaticStructureSchema = [3, n0, _KVSRSRC,
   0,
   [_St, _FS],
-  [() => RecordingStreamList, () => FragmentSelector$]
+  [() => RecordingStreamList, () => FragmentSelector$], 2
 ];
 export var KinesisVideoStreamSourceRuntimeConfiguration$: StaticStructureSchema = [3, n0, _KVSSRC,
   0,
   [_St, _MEe, _MSR],
-  [() => Streams, 0, 1]
+  [() => Streams, 0, 1], 3
 ];
 export var KinesisVideoStreamSourceTaskConfiguration$: StaticStructureSchema = [3, n0, _KVSSTC,
   0,
   [_SAt, _CI, _FN],
-  [0, 1, 0]
+  [0, 1, 0], 2
 ];
 export var LambdaFunctionSinkConfiguration$: StaticStructureSchema = [3, n0, _LFSC,
   0,
@@ -731,7 +731,7 @@ export var ListMediaPipelinesResponse$: StaticStructureSchema = [3, n0, _LMPRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [[0, { [_hQ]: _a }]]
+  [[0, { [_hQ]: _a }]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -741,17 +741,17 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var LiveConnectorRTMPConfiguration$: StaticStructureSchema = [3, n0, _LCRTMPC,
   0,
   [_U, _ACu, _ASR],
-  [[() => SensitiveString, 0], 0, 0]
+  [[() => SensitiveString, 0], 0, 0], 1
 ];
 export var LiveConnectorSinkConfiguration$: StaticStructureSchema = [3, n0, _LCSC,
   0,
   [_STi, _RTMPC],
-  [0, [() => LiveConnectorRTMPConfiguration$, 0]]
+  [0, [() => LiveConnectorRTMPConfiguration$, 0]], 2
 ];
 export var LiveConnectorSourceConfiguration$: StaticStructureSchema = [3, n0, _LCSCi,
   0,
   [_ST, _CSMLCC],
-  [0, [() => ChimeSdkMeetingLiveConnectorConfiguration$, 0]]
+  [0, [() => ChimeSdkMeetingLiveConnectorConfiguration$, 0]], 2
 ];
 export var MediaCapturePipeline$: StaticStructureSchema = [3, n0, _MCP,
   0,
@@ -761,7 +761,7 @@ export var MediaCapturePipeline$: StaticStructureSchema = [3, n0, _MCP,
 export var MediaCapturePipelineSourceConfiguration$: StaticStructureSchema = [3, n0, _MCPSC,
   0,
   [_MPA, _CSMC],
-  [[() => Arn, 0], () => ChimeSdkMeetingConcatenationConfiguration$]
+  [[() => Arn, 0], () => ChimeSdkMeetingConcatenationConfiguration$], 2
 ];
 export var MediaCapturePipelineSummary$: StaticStructureSchema = [3, n0, _MCPS,
   0,
@@ -786,7 +786,7 @@ export var MediaInsightsPipelineConfiguration$: StaticStructureSchema = [3, n0, 
 export var MediaInsightsPipelineConfigurationElement$: StaticStructureSchema = [3, n0, _MIPCE,
   0,
   [_T, _ATCAPC, _ATPC, _KDSSC, _SRSC, _VAPC, _LFSC, _SQSC, _STSC, _VESC],
-  [0, () => AmazonTranscribeCallAnalyticsProcessorConfiguration$, () => AmazonTranscribeProcessorConfiguration$, [() => KinesisDataStreamSinkConfiguration$, 0], [() => S3RecordingSinkConfiguration$, 0], () => VoiceAnalyticsProcessorConfiguration$, [() => LambdaFunctionSinkConfiguration$, 0], [() => SqsQueueSinkConfiguration$, 0], [() => SnsTopicSinkConfiguration$, 0], () => VoiceEnhancementSinkConfiguration$]
+  [0, () => AmazonTranscribeCallAnalyticsProcessorConfiguration$, () => AmazonTranscribeProcessorConfiguration$, [() => KinesisDataStreamSinkConfiguration$, 0], [() => S3RecordingSinkConfiguration$, 0], () => VoiceAnalyticsProcessorConfiguration$, [() => LambdaFunctionSinkConfiguration$, 0], [() => SqsQueueSinkConfiguration$, 0], [() => SnsTopicSinkConfiguration$, 0], () => VoiceEnhancementSinkConfiguration$], 1
 ];
 export var MediaInsightsPipelineConfigurationSummary$: StaticStructureSchema = [3, n0, _MIPCS,
   0,
@@ -821,17 +821,17 @@ export var MediaStreamPipeline$: StaticStructureSchema = [3, n0, _MSP,
 export var MediaStreamSink$: StaticStructureSchema = [3, n0, _MSS,
   0,
   [_SAi, _STi, _RSC, _MST],
-  [[() => Arn, 0], 0, 1, 0]
+  [[() => Arn, 0], 0, 1, 0], 4
 ];
 export var MediaStreamSource$: StaticStructureSchema = [3, n0, _MSSe,
   0,
   [_ST, _SA],
-  [0, [() => Arn, 0]]
+  [0, [() => Arn, 0]], 2
 ];
 export var MeetingEventsConcatenationConfiguration$: StaticStructureSchema = [3, n0, _MECC,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
   { [_e]: _c, [_hE]: 404 },
@@ -842,7 +842,7 @@ TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PostCallAnalyticsSettings$: StaticStructureSchema = [3, n0, _PCAS,
   0,
   [_OL, _DARA, _CRO, _OEKMSKI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var PresenterOnlyConfiguration$: StaticStructureSchema = [3, n0, _POC,
   0,
@@ -857,7 +857,7 @@ export var RealTimeAlertConfiguration$: StaticStructureSchema = [3, n0, _RTAC,
 export var RealTimeAlertRule$: StaticStructureSchema = [3, n0, _RTAR,
   0,
   [_T, _KMC, _SCe, _IDC],
-  [0, () => KeywordMatchConfiguration$, () => SentimentConfiguration$, () => IssueDetectionConfiguration$]
+  [0, () => KeywordMatchConfiguration$, () => SentimentConfiguration$, () => IssueDetectionConfiguration$], 1
 ];
 export var RecordingStreamConfiguration$: StaticStructureSchema = [3, n0, _RSCe,
   0,
@@ -873,7 +873,7 @@ TypeRegistry.for(n0).registerError(ResourceLimitExceededException$, ResourceLimi
 export var S3BucketSinkConfiguration$: StaticStructureSchema = [3, n0, _SBSC,
   0,
   [_De],
-  [[() => Arn, 0]]
+  [[() => Arn, 0]], 1
 ];
 export var S3RecordingSinkConfiguration$: StaticStructureSchema = [3, n0, _SRSC,
   0,
@@ -883,7 +883,7 @@ export var S3RecordingSinkConfiguration$: StaticStructureSchema = [3, n0, _SRSC,
 export var S3RecordingSinkRuntimeConfiguration$: StaticStructureSchema = [3, n0, _SRSRC,
   0,
   [_De, _RFF],
-  [[() => Arn, 0], 0]
+  [[() => Arn, 0], 0], 2
 ];
 export var SelectedVideoStreams$: StaticStructureSchema = [3, n0, _SVS,
   0,
@@ -893,7 +893,7 @@ export var SelectedVideoStreams$: StaticStructureSchema = [3, n0, _SVS,
 export var SentimentConfiguration$: StaticStructureSchema = [3, n0, _SCe,
   0,
   [_RN, _STe, _TPi],
-  [0, 0, 1]
+  [0, 0, 1], 3
 ];
 export var ServiceFailureException$: StaticErrorSchema = [-3, n0, _SFE,
   { [_e]: _s, [_hE]: 500 },
@@ -930,12 +930,12 @@ export var SqsQueueSinkConfiguration$: StaticStructureSchema = [3, n0, _SQSC,
 export var SseAwsKeyManagementParams$: StaticStructureSchema = [3, n0, _SAKMP,
   0,
   [_AKKI, _AKEC],
-  [0, 0]
+  [0, 0], 1
 ];
 export var StartSpeakerSearchTaskRequest$: StaticStructureSchema = [3, n0, _SSSTR,
   0,
   [_I, _VPDA, _KVSSTC, _CRT],
-  [[0, 1], [() => Arn, 0], () => KinesisVideoStreamSourceTaskConfiguration$, [() => ClientRequestToken, 4]]
+  [[0, 1], [() => Arn, 0], () => KinesisVideoStreamSourceTaskConfiguration$, [() => ClientRequestToken, 4]], 2
 ];
 export var StartSpeakerSearchTaskResponse$: StaticStructureSchema = [3, n0, _SSSTRt,
   0,
@@ -945,7 +945,7 @@ export var StartSpeakerSearchTaskResponse$: StaticStructureSchema = [3, n0, _SSS
 export var StartVoiceToneAnalysisTaskRequest$: StaticStructureSchema = [3, n0, _SVTATR,
   0,
   [_I, _LC, _KVSSTC, _CRT],
-  [[0, 1], 0, () => KinesisVideoStreamSourceTaskConfiguration$, [() => ClientRequestToken, 4]]
+  [[0, 1], 0, () => KinesisVideoStreamSourceTaskConfiguration$, [() => ClientRequestToken, 4]], 2
 ];
 export var StartVoiceToneAnalysisTaskResponse$: StaticStructureSchema = [3, n0, _SVTATRt,
   0,
@@ -955,32 +955,32 @@ export var StartVoiceToneAnalysisTaskResponse$: StaticStructureSchema = [3, n0, 
 export var StopSpeakerSearchTaskRequest$: StaticStructureSchema = [3, n0, _SSSTRto,
   0,
   [_I, _SSTI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var StopVoiceToneAnalysisTaskRequest$: StaticStructureSchema = [3, n0, _SVTATRto,
   0,
   [_I, _VTATI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var StreamChannelDefinition$: StaticStructureSchema = [3, n0, _SCD,
   0,
   [_NOC, _CDh],
-  [1, () => ChannelDefinitions]
+  [1, () => ChannelDefinitions], 1
 ];
 export var StreamConfiguration$: StaticStructureSchema = [3, n0, _SCt,
   0,
-  [_SAt, _FN, _SCD],
-  [0, 0, () => StreamChannelDefinition$]
+  [_SAt, _SCD, _FN],
+  [0, () => StreamChannelDefinition$, 0], 2
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_Ke, _Va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -996,12 +996,12 @@ TypeRegistry.for(n0).registerError(ThrottledClientException$, ThrottledClientExc
 export var TimestampRange$: StaticStructureSchema = [3, n0, _TR,
   0,
   [_STt, _ET],
-  [4, 4]
+  [4, 4], 2
 ];
 export var TranscriptionMessagesConcatenationConfiguration$: StaticStructureSchema = [3, n0, _TMCC,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var UnauthorizedClientException$: StaticErrorSchema = [-3, n0, _UCE,
   { [_e]: _c, [_hE]: 401 },
@@ -1012,7 +1012,7 @@ TypeRegistry.for(n0).registerError(UnauthorizedClientException$, UnauthorizedCli
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1021,8 +1021,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateMediaInsightsPipelineConfigurationRequest$: StaticStructureSchema = [3, n0, _UMIPCR,
   0,
-  [_I, _RARA, _RTAC, _E],
-  [[0, 1], [() => Arn, 0], () => RealTimeAlertConfiguration$, [() => MediaInsightsPipelineConfigurationElements, 0]]
+  [_I, _RARA, _E, _RTAC],
+  [[0, 1], [() => Arn, 0], [() => MediaInsightsPipelineConfigurationElements, 0], () => RealTimeAlertConfiguration$], 3
 ];
 export var UpdateMediaInsightsPipelineConfigurationResponse$: StaticStructureSchema = [3, n0, _UMIPCRp,
   0,
@@ -1032,12 +1032,12 @@ export var UpdateMediaInsightsPipelineConfigurationResponse$: StaticStructureSch
 export var UpdateMediaInsightsPipelineStatusRequest$: StaticStructureSchema = [3, n0, _UMIPSR,
   0,
   [_I, _US],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var UpdateMediaPipelineKinesisVideoStreamPoolRequest$: StaticStructureSchema = [3, n0, _UMPKVSPR,
   0,
   [_I, _SCt],
-  [[0, 1], () => KinesisVideoStreamConfigurationUpdate$]
+  [[0, 1], () => KinesisVideoStreamConfigurationUpdate$], 1
 ];
 export var UpdateMediaPipelineKinesisVideoStreamPoolResponse$: StaticStructureSchema = [3, n0, _UMPKVSPRp,
   0,
@@ -1052,7 +1052,7 @@ export var VerticalLayoutConfiguration$: StaticStructureSchema = [3, n0, _VLC,
 export var VideoArtifactsConfiguration$: StaticStructureSchema = [3, n0, _VAC,
   0,
   [_S, _MT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var VideoAttribute$: StaticStructureSchema = [3, n0, _VA,
   0,
@@ -1062,7 +1062,7 @@ export var VideoAttribute$: StaticStructureSchema = [3, n0, _VA,
 export var VideoConcatenationConfiguration$: StaticStructureSchema = [3, n0, _VCC,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var VoiceAnalyticsProcessorConfiguration$: StaticStructureSchema = [3, n0, _VAPC,
   0,

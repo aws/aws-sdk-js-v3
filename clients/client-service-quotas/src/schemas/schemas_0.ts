@@ -239,7 +239,7 @@ TypeRegistry.for(n0).registerError(AWSServiceAccessNotEnabledException$, AWSServ
 export var CreateSupportCaseRequest$: StaticStructureSchema = [3, n0, _CSCR,
   0,
   [_RI],
-  [0]
+  [0], 1
 ];
 export var CreateSupportCaseResponse$: StaticStructureSchema = [3, n0, _CSCRr,
   0,
@@ -249,7 +249,7 @@ export var CreateSupportCaseResponse$: StaticStructureSchema = [3, n0, _CSCRr,
 export var DeleteServiceQuotaIncreaseRequestFromTemplateRequest$: StaticStructureSchema = [3, n0, _DSQIRFTR,
   0,
   [_SC, _QC, _AR],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DeleteServiceQuotaIncreaseRequestFromTemplateResponse$: StaticStructureSchema = [3, n0, _DSQIRFTRe,
   0,
@@ -300,7 +300,7 @@ export var GetAutoManagementConfigurationResponse$: StaticStructureSchema = [3, 
 export var GetAWSDefaultServiceQuotaRequest$: StaticStructureSchema = [3, n0, _GAWSDSQR,
   0,
   [_SC, _QC],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetAWSDefaultServiceQuotaResponse$: StaticStructureSchema = [3, n0, _GAWSDSQRe,
   0,
@@ -310,7 +310,7 @@ export var GetAWSDefaultServiceQuotaResponse$: StaticStructureSchema = [3, n0, _
 export var GetQuotaUtilizationReportRequest$: StaticStructureSchema = [3, n0, _GQURR,
   0,
   [_RIe, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var GetQuotaUtilizationReportResponse$: StaticStructureSchema = [3, n0, _GQURRe,
   0,
@@ -320,7 +320,7 @@ export var GetQuotaUtilizationReportResponse$: StaticStructureSchema = [3, n0, _
 export var GetRequestedServiceQuotaChangeRequest$: StaticStructureSchema = [3, n0, _GRSQCR,
   0,
   [_RI],
-  [0]
+  [0], 1
 ];
 export var GetRequestedServiceQuotaChangeResponse$: StaticStructureSchema = [3, n0, _GRSQCRe,
   0,
@@ -330,7 +330,7 @@ export var GetRequestedServiceQuotaChangeResponse$: StaticStructureSchema = [3, 
 export var GetServiceQuotaIncreaseRequestFromTemplateRequest$: StaticStructureSchema = [3, n0, _GSQIRFTR,
   0,
   [_SC, _QC, _AR],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetServiceQuotaIncreaseRequestFromTemplateResponse$: StaticStructureSchema = [3, n0, _GSQIRFTRe,
   0,
@@ -340,7 +340,7 @@ export var GetServiceQuotaIncreaseRequestFromTemplateResponse$: StaticStructureS
 export var GetServiceQuotaRequest$: StaticStructureSchema = [3, n0, _GSQR,
   0,
   [_SC, _QC, _CI],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var GetServiceQuotaResponse$: StaticStructureSchema = [3, n0, _GSQRe,
   0,
@@ -368,7 +368,7 @@ TypeRegistry.for(n0).registerError(InvalidResourceStateException$, InvalidResour
 export var ListAWSDefaultServiceQuotasRequest$: StaticStructureSchema = [3, n0, _LAWSDSQR,
   0,
   [_SC, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListAWSDefaultServiceQuotasResponse$: StaticStructureSchema = [3, n0, _LAWSDSQRi,
   0,
@@ -378,7 +378,7 @@ export var ListAWSDefaultServiceQuotasResponse$: StaticStructureSchema = [3, n0,
 export var ListRequestedServiceQuotaChangeHistoryByQuotaRequest$: StaticStructureSchema = [3, n0, _LRSQCHBQR,
   0,
   [_SC, _QC, _S, _NT, _MR, _QRAL],
-  [0, 0, 0, 0, 1, 0]
+  [0, 0, 0, 0, 1, 0], 2
 ];
 export var ListRequestedServiceQuotaChangeHistoryByQuotaResponse$: StaticStructureSchema = [3, n0, _LRSQCHBQRi,
   0,
@@ -408,7 +408,7 @@ export var ListServiceQuotaIncreaseRequestsInTemplateResponse$: StaticStructureS
 export var ListServiceQuotasRequest$: StaticStructureSchema = [3, n0, _LSQR,
   0,
   [_SC, _NT, _MR, _QC, _QAAL],
-  [0, 0, 1, 0, 0]
+  [0, 0, 1, 0, 0], 1
 ];
 export var ListServiceQuotasResponse$: StaticStructureSchema = [3, n0, _LSQRi,
   0,
@@ -428,7 +428,7 @@ export var ListServicesResponse$: StaticStructureSchema = [3, n0, _LSRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -461,7 +461,7 @@ TypeRegistry.for(n0).registerError(OrganizationNotInAllFeaturesModeException$, O
 export var PutServiceQuotaIncreaseRequestIntoTemplateRequest$: StaticStructureSchema = [3, n0, _PSQIRITR,
   0,
   [_QC, _SC, _AR, _DV],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 4
 ];
 export var PutServiceQuotaIncreaseRequestIntoTemplateResponse$: StaticStructureSchema = [3, n0, _PSQIRITRu,
   0,
@@ -502,7 +502,7 @@ export var RequestedServiceQuotaChange$: StaticStructureSchema = [3, n0, _RSQC,
 export var RequestServiceQuotaIncreaseRequest$: StaticStructureSchema = [3, n0, _RSQIR,
   0,
   [_SC, _QC, _DV, _CI, _SCA],
-  [0, 0, 1, 0, 2]
+  [0, 0, 1, 0, 2], 3
 ];
 export var RequestServiceQuotaIncreaseResponse$: StaticStructureSchema = [3, n0, _RSQIRe,
   0,
@@ -545,7 +545,7 @@ TypeRegistry.for(n0).registerError(ServiceQuotaTemplateNotInUseException$, Servi
 export var StartAutoManagementRequest$: StaticStructureSchema = [3, n0, _SAMR,
   0,
   [_OIL, _OIT, _NA, _EL],
-  [0, 0, 0, [2, n0, _EL, 0, 0, 64 | 0]]
+  [0, 0, 0, [2, n0, _EL, 0, 0, 64 | 0]], 2
 ];
 export var StartAutoManagementResponse$: StaticStructureSchema = [3, n0, _SAMRt,
   0,
@@ -575,7 +575,7 @@ export var StopAutoManagementResponse$: StaticStructureSchema = [3, n0, _SAMRtop
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagPolicyViolationException$: StaticErrorSchema = [-3, n0, _TPVE,
   { [_e]: _c, [_hE]: 401 },
@@ -586,7 +586,7 @@ TypeRegistry.for(n0).registerError(TagPolicyViolationException$, TagPolicyViolat
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _T],
-  [0, () => InputTags]
+  [0, () => InputTags], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -614,7 +614,7 @@ TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,

@@ -478,37 +478,37 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var BatchPutPropertyError$: StaticStructureSchema = [3, n0, _BPPE,
   0,
   [_eC, _eM, _en],
-  [0, 0, () => PropertyValueEntry$]
+  [0, 0, () => PropertyValueEntry$], 3
 ];
 export var BatchPutPropertyErrorEntry$: StaticStructureSchema = [3, n0, _BPPEE,
   0,
   [_er],
-  [() => Errors]
+  [() => Errors], 1
 ];
 export var BatchPutPropertyValuesRequest$: StaticStructureSchema = [3, n0, _BPPVR,
   0,
   [_wI, _ent],
-  [[0, 1], () => Entries]
+  [[0, 1], () => Entries], 2
 ];
 export var BatchPutPropertyValuesResponse$: StaticStructureSchema = [3, n0, _BPPVRa,
   0,
   [_eE],
-  [() => ErrorEntries]
+  [() => ErrorEntries], 1
 ];
 export var BundleInformation$: StaticStructureSchema = [3, n0, _BI,
   0,
   [_bN, _pT],
-  [64 | 0, 0]
+  [64 | 0, 0], 1
 ];
 export var CancelMetadataTransferJobRequest$: StaticStructureSchema = [3, n0, _CMTJR,
   0,
   [_mTJI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var CancelMetadataTransferJobResponse$: StaticStructureSchema = [3, n0, _CMTJRa,
   0,
   [_mTJI, _a, _uDT, _s, _p],
-  [0, 0, 4, () => MetadataTransferJobStatus$, () => MetadataTransferJobProgress$]
+  [0, 0, 4, () => MetadataTransferJobStatus$, () => MetadataTransferJobProgress$], 4
 ];
 export var ColumnDescription$: StaticStructureSchema = [3, n0, _CD,
   0,
@@ -523,7 +523,7 @@ export var ComponentPropertyGroupRequest$: StaticStructureSchema = [3, n0, _CPGR
 export var ComponentPropertyGroupResponse$: StaticStructureSchema = [3, n0, _CPGRo,
   0,
   [_gT, _pN, _iI],
-  [0, 64 | 0, 2]
+  [0, 64 | 0, 2], 3
 ];
 export var ComponentRequest$: StaticStructureSchema = [3, n0, _CR,
   0,
@@ -537,13 +537,13 @@ export var ComponentResponse$: StaticStructureSchema = [3, n0, _CRo,
 ];
 export var ComponentSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_cN, _cTI, _dI, _d, _pG, _s, _sS, _cP],
-  [0, 0, 0, 0, () => ComponentPropertyGroupResponses, () => Status$, 0, 0]
+  [_cN, _cTI, _s, _dI, _d, _pG, _sS, _cP],
+  [0, 0, () => Status$, 0, 0, () => ComponentPropertyGroupResponses, 0, 0], 3
 ];
 export var ComponentTypeSummary$: StaticStructureSchema = [3, n0, _CTS,
   0,
   [_a, _cTI, _cDT, _uDT, _d, _s, _cTN],
-  [0, 0, 4, 4, 0, () => Status$, 0]
+  [0, 0, 4, 4, 0, () => Status$, 0], 4
 ];
 export var ComponentUpdateRequest$: StaticStructureSchema = [3, n0, _CUR,
   0,
@@ -590,63 +590,63 @@ export var ConnectorTimeoutException$: StaticErrorSchema = [-3, n0, _CTE,
 TypeRegistry.for(n0).registerError(ConnectorTimeoutException$, ConnectorTimeoutException);
 export var CreateComponentTypeRequest$: StaticStructureSchema = [3, n0, _CCTRr,
   0,
-  [_wI, _iS, _cTI, _d, _pD, _eF, _f, _ta, _pG, _cTN, _cCT],
-  [[0, 1], 2, [0, 1], 0, () => PropertyDefinitionsRequest, 64 | 0, () => FunctionsRequest, 128 | 0, () => PropertyGroupsRequest, 0, () => CompositeComponentTypesRequest]
+  [_wI, _cTI, _iS, _d, _pD, _eF, _f, _ta, _pG, _cTN, _cCT],
+  [[0, 1], [0, 1], 2, 0, () => PropertyDefinitionsRequest, 64 | 0, () => FunctionsRequest, 128 | 0, () => PropertyGroupsRequest, 0, () => CompositeComponentTypesRequest], 2
 ];
 export var CreateComponentTypeResponse$: StaticStructureSchema = [3, n0, _CCTRre,
   0,
   [_a, _cDT, _st],
-  [0, 4, 0]
+  [0, 4, 0], 3
 ];
 export var CreateEntityRequest$: StaticStructureSchema = [3, n0, _CER,
   0,
-  [_wI, _eI, _eN, _d, _co, _cC, _pEI, _ta],
-  [[0, 1], 0, 0, 0, () => ComponentsMapRequest, () => CompositeComponentsMapRequest, 0, 128 | 0]
+  [_wI, _eN, _eI, _d, _co, _cC, _pEI, _ta],
+  [[0, 1], 0, 0, 0, () => ComponentsMapRequest, () => CompositeComponentsMapRequest, 0, 128 | 0], 2
 ];
 export var CreateEntityResponse$: StaticStructureSchema = [3, n0, _CERr,
   0,
   [_eI, _a, _cDT, _st],
-  [0, 0, 4, 0]
+  [0, 0, 4, 0], 4
 ];
 export var CreateMetadataTransferJobRequest$: StaticStructureSchema = [3, n0, _CMTJRr,
   0,
-  [_mTJI, _d, _so, _de],
-  [0, 0, () => SourceConfigurations, () => DestinationConfiguration$]
+  [_so, _de, _mTJI, _d],
+  [() => SourceConfigurations, () => DestinationConfiguration$, 0, 0], 2
 ];
 export var CreateMetadataTransferJobResponse$: StaticStructureSchema = [3, n0, _CMTJRre,
   0,
   [_mTJI, _a, _cDT, _s],
-  [0, 0, 4, () => MetadataTransferJobStatus$]
+  [0, 0, 4, () => MetadataTransferJobStatus$], 4
 ];
 export var CreateSceneRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
   [_wI, _sI, _cL, _d, _ca, _ta, _sM],
-  [[0, 1], 0, 0, 0, 64 | 0, 128 | 0, 128 | 0]
+  [[0, 1], 0, 0, 0, 64 | 0, 128 | 0, 128 | 0], 3
 ];
 export var CreateSceneResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
   [_a, _cDT],
-  [0, 4]
+  [0, 4], 2
 ];
 export var CreateSyncJobRequest$: StaticStructureSchema = [3, n0, _CSJR,
   0,
   [_wI, _sS, _sR, _ta],
-  [[0, 1], [0, 1], 0, 128 | 0]
+  [[0, 1], [0, 1], 0, 128 | 0], 3
 ];
 export var CreateSyncJobResponse$: StaticStructureSchema = [3, n0, _CSJRr,
   0,
   [_a, _cDT, _st],
-  [0, 4, 0]
+  [0, 4, 0], 3
 ];
 export var CreateWorkspaceRequest$: StaticStructureSchema = [3, n0, _CWR,
   0,
   [_wI, _d, _sL, _r, _ta],
-  [[0, 1], 0, 0, 0, 128 | 0]
+  [[0, 1], 0, 0, 0, 128 | 0], 1
 ];
 export var CreateWorkspaceResponse$: StaticStructureSchema = [3, n0, _CWRr,
   0,
   [_a, _cDT],
-  [0, 4]
+  [0, 4], 2
 ];
 export var DataConnector$: StaticStructureSchema = [3, n0, _DC,
   0,
@@ -656,7 +656,7 @@ export var DataConnector$: StaticStructureSchema = [3, n0, _DC,
 export var DataType$: StaticStructureSchema = [3, n0, _DT,
   0,
   [_t, _nT, _aV, _uOM, _re],
-  [0, () => DataType$, () => DataValueList, 0, () => Relationship$]
+  [0, () => DataType$, () => DataValueList, 0, () => Relationship$], 1
 ];
 export var DataValue$: StaticStructureSchema = [3, n0, _DV,
   0,
@@ -666,27 +666,27 @@ export var DataValue$: StaticStructureSchema = [3, n0, _DV,
 export var DeleteComponentTypeRequest$: StaticStructureSchema = [3, n0, _DCTR,
   0,
   [_wI, _cTI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteComponentTypeResponse$: StaticStructureSchema = [3, n0, _DCTRe,
   0,
   [_st],
-  [0]
+  [0], 1
 ];
 export var DeleteEntityRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_wI, _eI, _iR],
-  [[0, 1], [0, 1], [2, { [_hQ]: _iR }]]
+  [[0, 1], [0, 1], [2, { [_hQ]: _iR }]], 2
 ];
 export var DeleteEntityResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
   [_st],
-  [0]
+  [0], 1
 ];
 export var DeleteSceneRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_wI, _sI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteSceneResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
@@ -696,17 +696,17 @@ export var DeleteSceneResponse$: StaticStructureSchema = [3, n0, _DSRe,
 export var DeleteSyncJobRequest$: StaticStructureSchema = [3, n0, _DSJR,
   0,
   [_wI, _sS],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteSyncJobResponse$: StaticStructureSchema = [3, n0, _DSJRe,
   0,
   [_st],
-  [0]
+  [0], 1
 ];
 export var DeleteWorkspaceRequest$: StaticStructureSchema = [3, n0, _DWR,
   0,
   [_wI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteWorkspaceResponse$: StaticStructureSchema = [3, n0, _DWRe,
   0,
@@ -716,17 +716,17 @@ export var DeleteWorkspaceResponse$: StaticStructureSchema = [3, n0, _DWRe,
 export var DestinationConfiguration$: StaticStructureSchema = [3, n0, _DCe,
   0,
   [_t, _sC, _iTMC],
-  [0, () => S3DestinationConfiguration$, () => IotTwinMakerDestinationConfiguration$]
+  [0, () => S3DestinationConfiguration$, () => IotTwinMakerDestinationConfiguration$], 1
 ];
 export var EntityPropertyReference$: StaticStructureSchema = [3, n0, _EPR,
   0,
-  [_cN, _cP, _eIP, _eI, _pNr],
-  [0, 0, 128 | 0, 0, 0]
+  [_pNr, _cN, _cP, _eIP, _eI],
+  [0, 0, 0, 128 | 0, 0], 1
 ];
 export var EntitySummary$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_eI, _eN, _a, _pEI, _s, _d, _hCE, _cDT, _uDT],
-  [0, 0, 0, 0, () => Status$, 0, 2, 4, 4]
+  [_eI, _eN, _a, _s, _cDT, _uDT, _pEI, _d, _hCE],
+  [0, 0, 0, () => Status$, 4, 4, 0, 0, 2], 6
 ];
 export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED,
   0,
@@ -736,7 +736,7 @@ export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED,
 export var ExecuteQueryRequest$: StaticStructureSchema = [3, n0, _EQR,
   0,
   [_wI, _qS, _mR, _nTe],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 2
 ];
 export var ExecuteQueryResponse$: StaticStructureSchema = [3, n0, _EQRx,
   0,
@@ -756,12 +756,12 @@ export var FilterByAssetModel$: StaticStructureSchema = [3, n0, _FBAM,
 export var FilterByComponentType$: StaticStructureSchema = [3, n0, _FBCT,
   0,
   [_cTI],
-  [0]
+  [0], 1
 ];
 export var FilterByEntity$: StaticStructureSchema = [3, n0, _FBE,
   0,
   [_eI],
-  [0]
+  [0], 1
 ];
 export var FunctionRequest$: StaticStructureSchema = [3, n0, _FR,
   0,
@@ -776,32 +776,32 @@ export var FunctionResponse$: StaticStructureSchema = [3, n0, _FRu,
 export var GetComponentTypeRequest$: StaticStructureSchema = [3, n0, _GCTR,
   0,
   [_wI, _cTI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetComponentTypeResponse$: StaticStructureSchema = [3, n0, _GCTRe,
   0,
-  [_wI, _iS, _cTI, _d, _pD, _eF, _f, _cDT, _uDT, _a, _iAs, _iSI, _s, _pG, _sS, _cTN, _cCT],
-  [0, 2, 0, 0, () => PropertyDefinitionsResponse, 64 | 0, () => FunctionsResponse, 4, 4, 0, 2, 2, () => Status$, () => PropertyGroupsResponse, 0, 0, () => CompositeComponentTypesResponse]
+  [_wI, _cTI, _cDT, _uDT, _a, _iS, _d, _pD, _eF, _f, _iAs, _iSI, _s, _pG, _sS, _cTN, _cCT],
+  [0, 0, 4, 4, 0, 2, 0, () => PropertyDefinitionsResponse, 64 | 0, () => FunctionsResponse, 2, 2, () => Status$, () => PropertyGroupsResponse, 0, 0, () => CompositeComponentTypesResponse], 5
 ];
 export var GetEntityRequest$: StaticStructureSchema = [3, n0, _GER,
   0,
   [_wI, _eI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetEntityResponse$: StaticStructureSchema = [3, n0, _GERe,
   0,
-  [_eI, _eN, _a, _s, _wI, _d, _co, _pEI, _hCE, _cDT, _uDT, _sS, _aACR],
-  [0, 0, 0, () => Status$, 0, 0, () => ComponentsMap, 0, 2, 4, 4, 0, 2]
+  [_eI, _eN, _a, _s, _wI, _pEI, _hCE, _cDT, _uDT, _d, _co, _sS, _aACR],
+  [0, 0, 0, () => Status$, 0, 0, 2, 4, 4, 0, () => ComponentsMap, 0, 2], 9
 ];
 export var GetMetadataTransferJobRequest$: StaticStructureSchema = [3, n0, _GMTJR,
   0,
   [_mTJI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetMetadataTransferJobResponse$: StaticStructureSchema = [3, n0, _GMTJRe,
   0,
-  [_mTJI, _a, _d, _so, _de, _mTJR, _rU, _cDT, _uDT, _s, _p],
-  [0, 0, 0, () => SourceConfigurations, () => DestinationConfiguration$, 0, 0, 4, 4, () => MetadataTransferJobStatus$, () => MetadataTransferJobProgress$]
+  [_mTJI, _a, _so, _de, _mTJR, _cDT, _uDT, _s, _d, _rU, _p],
+  [0, 0, () => SourceConfigurations, () => DestinationConfiguration$, 0, 4, 4, () => MetadataTransferJobStatus$, 0, 0, () => MetadataTransferJobProgress$], 8
 ];
 export var GetPricingPlanRequest$: StaticStructureSchema = [3, n0, _GPPR,
   0,
@@ -811,22 +811,22 @@ export var GetPricingPlanRequest$: StaticStructureSchema = [3, n0, _GPPR,
 export var GetPricingPlanResponse$: StaticStructureSchema = [3, n0, _GPPRe,
   0,
   [_cPP, _pPP],
-  [() => PricingPlan$, () => PricingPlan$]
+  [() => PricingPlan$, () => PricingPlan$], 1
 ];
 export var GetPropertyValueHistoryRequest$: StaticStructureSchema = [3, n0, _GPVHR,
   0,
-  [_wI, _eI, _cN, _cP, _cTI, _sP, _pF, _sDT, _eDT, _i, _nTe, _mR, _oBT, _sT, _eT],
-  [[0, 1], 0, 0, 0, 0, 64 | 0, () => PropertyFilters, 4, 4, () => InterpolationParameters$, 0, 1, 0, 0, 0]
+  [_wI, _sP, _eI, _cN, _cP, _cTI, _pF, _sDT, _eDT, _i, _nTe, _mR, _oBT, _sT, _eT],
+  [[0, 1], 64 | 0, 0, 0, 0, 0, () => PropertyFilters, 4, 4, () => InterpolationParameters$, 0, 1, 0, 0, 0], 2
 ];
 export var GetPropertyValueHistoryResponse$: StaticStructureSchema = [3, n0, _GPVHRe,
   0,
   [_pV, _nTe],
-  [() => PropertyValueList, 0]
+  [() => PropertyValueList, 0], 1
 ];
 export var GetPropertyValueRequest$: StaticStructureSchema = [3, n0, _GPVR,
   0,
-  [_cN, _cP, _cTI, _eI, _sP, _wI, _mR, _nTe, _pGN, _tC],
-  [0, 0, 0, 0, 64 | 0, [0, 1], 1, 0, 0, () => TabularConditions$]
+  [_sP, _wI, _cN, _cP, _cTI, _eI, _mR, _nTe, _pGN, _tC],
+  [64 | 0, [0, 1], 0, 0, 0, 0, 1, 0, 0, () => TabularConditions$], 2
 ];
 export var GetPropertyValueResponse$: StaticStructureSchema = [3, n0, _GPVRe,
   0,
@@ -836,32 +836,32 @@ export var GetPropertyValueResponse$: StaticStructureSchema = [3, n0, _GPVRe,
 export var GetSceneRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_wI, _sI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetSceneResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
   [_wI, _sI, _cL, _a, _cDT, _uDT, _d, _ca, _sM, _gSM, _e],
-  [0, 0, 0, 0, 4, 4, 0, 64 | 0, 128 | 0, 128 | 0, () => SceneError$]
+  [0, 0, 0, 0, 4, 4, 0, 64 | 0, 128 | 0, 128 | 0, () => SceneError$], 6
 ];
 export var GetSyncJobRequest$: StaticStructureSchema = [3, n0, _GSJR,
   0,
   [_sS, _wI],
-  [[0, 1], [0, { [_hQ]: _w }]]
+  [[0, 1], [0, { [_hQ]: _w }]], 1
 ];
 export var GetSyncJobResponse$: StaticStructureSchema = [3, n0, _GSJRe,
   0,
   [_a, _wI, _sS, _sR, _s, _cDT, _uDT],
-  [0, 0, 0, 0, () => SyncJobStatus$, 4, 4]
+  [0, 0, 0, 0, () => SyncJobStatus$, 4, 4], 7
 ];
 export var GetWorkspaceRequest$: StaticStructureSchema = [3, n0, _GWR,
   0,
   [_wI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetWorkspaceResponse$: StaticStructureSchema = [3, n0, _GWRe,
   0,
-  [_wI, _a, _d, _lS, _sL, _r, _cDT, _uDT],
-  [0, 0, 0, 64 | 0, 0, 0, 4, 4]
+  [_wI, _a, _cDT, _uDT, _d, _lS, _sL, _r],
+  [0, 0, 4, 4, 0, 64 | 0, 0, 0], 4
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
@@ -882,42 +882,42 @@ export var IotSiteWiseSourceConfiguration$: StaticStructureSchema = [3, n0, _ISW
 export var IotTwinMakerDestinationConfiguration$: StaticStructureSchema = [3, n0, _ITMDC,
   0,
   [_w],
-  [0]
+  [0], 1
 ];
 export var IotTwinMakerSourceConfiguration$: StaticStructureSchema = [3, n0, _ITMSC,
   0,
   [_w, _fi],
-  [0, () => IotTwinMakerSourceConfigurationFilters]
+  [0, () => IotTwinMakerSourceConfigurationFilters], 1
 ];
 export var LambdaFunction$: StaticStructureSchema = [3, n0, _LF,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var ListComponentsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_wI, _eI, _cP, _mR, _nTe],
-  [[0, 1], [0, 1], 0, 1, 0]
+  [[0, 1], [0, 1], 0, 1, 0], 2
 ];
 export var ListComponentsResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
   [_cS, _nTe],
-  [() => ComponentSummaries, 0]
+  [() => ComponentSummaries, 0], 1
 ];
 export var ListComponentTypesRequest$: StaticStructureSchema = [3, n0, _LCTR,
   0,
   [_wI, _fi, _nTe, _mR],
-  [[0, 1], () => ListComponentTypesFilters, 0, 1]
+  [[0, 1], () => ListComponentTypesFilters, 0, 1], 1
 ];
 export var ListComponentTypesResponse$: StaticStructureSchema = [3, n0, _LCTRi,
   0,
   [_wI, _cTS, _nTe, _mR],
-  [0, () => ComponentTypeSummaries, 0, 1]
+  [0, () => ComponentTypeSummaries, 0, 1], 2
 ];
 export var ListEntitiesRequest$: StaticStructureSchema = [3, n0, _LER,
   0,
   [_wI, _fi, _mR, _nTe],
-  [[0, 1], () => ListEntitiesFilters, 1, 0]
+  [[0, 1], () => ListEntitiesFilters, 1, 0], 1
 ];
 export var ListEntitiesResponse$: StaticStructureSchema = [3, n0, _LERi,
   0,
@@ -927,27 +927,27 @@ export var ListEntitiesResponse$: StaticStructureSchema = [3, n0, _LERi,
 export var ListMetadataTransferJobsRequest$: StaticStructureSchema = [3, n0, _LMTJR,
   0,
   [_sTo, _dT, _fi, _nTe, _mR],
-  [0, 0, () => ListMetadataTransferJobsFilters, 0, 1]
+  [0, 0, () => ListMetadataTransferJobsFilters, 0, 1], 2
 ];
 export var ListMetadataTransferJobsResponse$: StaticStructureSchema = [3, n0, _LMTJRi,
   0,
   [_mTJS, _nTe],
-  [() => MetadataTransferJobSummaries, 0]
+  [() => MetadataTransferJobSummaries, 0], 1
 ];
 export var ListPropertiesRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
-  [_wI, _cN, _cP, _eI, _mR, _nTe],
-  [[0, 1], 0, 0, 0, 1, 0]
+  [_wI, _eI, _cN, _cP, _mR, _nTe],
+  [[0, 1], 0, 0, 0, 1, 0], 2
 ];
 export var ListPropertiesResponse$: StaticStructureSchema = [3, n0, _LPRi,
   0,
   [_pS, _nTe],
-  [() => PropertySummaries, 0]
+  [() => PropertySummaries, 0], 1
 ];
 export var ListScenesRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
   [_wI, _mR, _nTe],
-  [[0, 1], 1, 0]
+  [[0, 1], 1, 0], 1
 ];
 export var ListScenesResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
@@ -957,7 +957,7 @@ export var ListScenesResponse$: StaticStructureSchema = [3, n0, _LSRi,
 export var ListSyncJobsRequest$: StaticStructureSchema = [3, n0, _LSJR,
   0,
   [_wI, _mR, _nTe],
-  [[0, 1], 1, 0]
+  [[0, 1], 1, 0], 1
 ];
 export var ListSyncJobsResponse$: StaticStructureSchema = [3, n0, _LSJRi,
   0,
@@ -967,7 +967,7 @@ export var ListSyncJobsResponse$: StaticStructureSchema = [3, n0, _LSJRi,
 export var ListSyncResourcesRequest$: StaticStructureSchema = [3, n0, _LSRR,
   0,
   [_wI, _sS, _fi, _mR, _nTe],
-  [[0, 1], [0, 1], () => SyncResourceFilters, 1, 0]
+  [[0, 1], [0, 1], () => SyncResourceFilters, 1, 0], 2
 ];
 export var ListSyncResourcesResponse$: StaticStructureSchema = [3, n0, _LSRRi,
   0,
@@ -977,7 +977,7 @@ export var ListSyncResourcesResponse$: StaticStructureSchema = [3, n0, _LSRRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rARN, _mR, _nTe],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1007,22 +1007,22 @@ export var MetadataTransferJobStatus$: StaticStructureSchema = [3, n0, _MTJS,
 export var MetadataTransferJobSummary$: StaticStructureSchema = [3, n0, _MTJSe,
   0,
   [_mTJI, _a, _cDT, _uDT, _s, _p],
-  [0, 0, 4, 4, () => MetadataTransferJobStatus$, () => MetadataTransferJobProgress$]
+  [0, 0, 4, 4, () => MetadataTransferJobStatus$, () => MetadataTransferJobProgress$], 5
 ];
 export var OrderBy$: StaticStructureSchema = [3, n0, _OB,
   0,
-  [_o, _pNr],
-  [0, 0]
+  [_pNr, _o],
+  [0, 0], 1
 ];
 export var ParentEntityUpdateRequest$: StaticStructureSchema = [3, n0, _PEUR,
   0,
   [_uT, _pEI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var PricingPlan$: StaticStructureSchema = [3, n0, _PP,
   0,
-  [_bEC, _bI, _eDTf, _pM, _uDT, _uR],
-  [1, () => BundleInformation$, 4, 0, 4, 0]
+  [_eDTf, _pM, _uDT, _uR, _bEC, _bI],
+  [4, 0, 4, 0, 1, () => BundleInformation$], 4
 ];
 export var PropertyDefinitionRequest$: StaticStructureSchema = [3, n0, _PDR,
   0,
@@ -1032,7 +1032,7 @@ export var PropertyDefinitionRequest$: StaticStructureSchema = [3, n0, _PDR,
 export var PropertyDefinitionResponse$: StaticStructureSchema = [3, n0, _PDRr,
   0,
   [_dTa, _iTS, _iRIE, _iEI, _iSE, _iIs, _iF, _iI, _dVe, _con, _dN],
-  [() => DataType$, 2, 2, 2, 2, 2, 2, 2, () => DataValue$, 128 | 0, 0]
+  [() => DataType$, 2, 2, 2, 2, 2, 2, 2, () => DataValue$, 128 | 0, 0], 8
 ];
 export var PropertyFilter$: StaticStructureSchema = [3, n0, _PF,
   0,
@@ -1047,12 +1047,12 @@ export var PropertyGroupRequest$: StaticStructureSchema = [3, n0, _PGR,
 export var PropertyGroupResponse$: StaticStructureSchema = [3, n0, _PGRr,
   0,
   [_gT, _pN, _iI],
-  [0, 64 | 0, 2]
+  [0, 64 | 0, 2], 3
 ];
 export var PropertyLatestValue$: StaticStructureSchema = [3, n0, _PLV,
   0,
   [_pR, _pVr],
-  [() => EntityPropertyReference$, () => DataValue$]
+  [() => EntityPropertyReference$, () => DataValue$], 1
 ];
 export var PropertyRequest$: StaticStructureSchema = [3, n0, _PR,
   0,
@@ -1066,23 +1066,23 @@ export var PropertyResponse$: StaticStructureSchema = [3, n0, _PRr,
 ];
 export var PropertySummary$: StaticStructureSchema = [3, n0, _PS,
   0,
-  [_def, _pNr, _v, _aAPVR],
-  [() => PropertyDefinitionResponse$, 0, () => DataValue$, 2]
+  [_pNr, _def, _v, _aAPVR],
+  [0, () => PropertyDefinitionResponse$, () => DataValue$, 2], 1
 ];
 export var PropertyValue$: StaticStructureSchema = [3, n0, _PV,
   0,
-  [_ti, _v, _tim],
-  [4, () => DataValue$, 0]
+  [_v, _ti, _tim],
+  [() => DataValue$, 4, 0], 1
 ];
 export var PropertyValueEntry$: StaticStructureSchema = [3, n0, _PVE,
   0,
   [_ePR, _pV],
-  [() => EntityPropertyReference$, () => PropertyValues]
+  [() => EntityPropertyReference$, () => PropertyValues], 1
 ];
 export var PropertyValueHistory$: StaticStructureSchema = [3, n0, _PVH,
   0,
   [_ePR, _va],
-  [() => EntityPropertyReference$, () => Values]
+  [() => EntityPropertyReference$, () => Values], 1
 ];
 export var QueryTimeoutException$: StaticErrorSchema = [-3, n0, _QTE,
   { [_e]: _c, [_hE]: 400 },
@@ -1114,12 +1114,12 @@ export var Row$: StaticStructureSchema = [3, n0, _Ro,
 export var S3DestinationConfiguration$: StaticStructureSchema = [3, n0, _SDC,
   0,
   [_lo],
-  [0]
+  [0], 1
 ];
 export var S3SourceConfiguration$: StaticStructureSchema = [3, n0, _SSC,
   0,
   [_lo],
-  [0]
+  [0], 1
 ];
 export var SceneError$: StaticStructureSchema = [3, n0, _SE,
   0,
@@ -1129,7 +1129,7 @@ export var SceneError$: StaticStructureSchema = [3, n0, _SE,
 export var SceneSummary$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_sI, _cL, _a, _cDT, _uDT, _d],
-  [0, 0, 0, 4, 4, 0]
+  [0, 0, 0, 4, 4, 0], 5
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
@@ -1140,7 +1140,7 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var SourceConfiguration$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_t, _sC, _iSWC, _iTMC],
-  [0, () => S3SourceConfiguration$, () => IotSiteWiseSourceConfiguration$, () => IotTwinMakerSourceConfiguration$]
+  [0, () => S3SourceConfiguration$, () => IotSiteWiseSourceConfiguration$, () => IotTwinMakerSourceConfiguration$], 1
 ];
 export var Status$: StaticStructureSchema = [3, n0, _S,
   0,
@@ -1175,7 +1175,7 @@ export var TabularConditions$: StaticStructureSchema = [3, n0, _TC,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rARN, _ta],
-  [0, 128 | 0]
+  [0, 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1197,7 +1197,7 @@ TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rARN, _tK],
-  [[0, { [_hQ]: _rARN }], [64 | 0, { [_hQ]: _tK }]]
+  [[0, { [_hQ]: _rARN }], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1206,53 +1206,53 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateComponentTypeRequest$: StaticStructureSchema = [3, n0, _UCTR,
   0,
-  [_wI, _iS, _cTI, _d, _pD, _eF, _f, _pG, _cTN, _cCT],
-  [[0, 1], 2, [0, 1], 0, () => PropertyDefinitionsRequest, 64 | 0, () => FunctionsRequest, () => PropertyGroupsRequest, 0, () => CompositeComponentTypesRequest]
+  [_wI, _cTI, _iS, _d, _pD, _eF, _f, _pG, _cTN, _cCT],
+  [[0, 1], [0, 1], 2, 0, () => PropertyDefinitionsRequest, 64 | 0, () => FunctionsRequest, () => PropertyGroupsRequest, 0, () => CompositeComponentTypesRequest], 2
 ];
 export var UpdateComponentTypeResponse$: StaticStructureSchema = [3, n0, _UCTRp,
   0,
   [_wI, _a, _cTI, _st],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var UpdateEntityRequest$: StaticStructureSchema = [3, n0, _UER,
   0,
   [_wI, _eI, _eN, _d, _cU, _cCU, _pEU],
-  [[0, 1], [0, 1], 0, 0, () => ComponentUpdatesMapRequest, () => CompositeComponentUpdatesMapRequest, () => ParentEntityUpdateRequest$]
+  [[0, 1], [0, 1], 0, 0, () => ComponentUpdatesMapRequest, () => CompositeComponentUpdatesMapRequest, () => ParentEntityUpdateRequest$], 2
 ];
 export var UpdateEntityResponse$: StaticStructureSchema = [3, n0, _UERp,
   0,
   [_uDT, _st],
-  [4, 0]
+  [4, 0], 2
 ];
 export var UpdatePricingPlanRequest$: StaticStructureSchema = [3, n0, _UPPR,
   0,
   [_pM, _bN],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var UpdatePricingPlanResponse$: StaticStructureSchema = [3, n0, _UPPRp,
   0,
   [_cPP, _pPP],
-  [() => PricingPlan$, () => PricingPlan$]
+  [() => PricingPlan$, () => PricingPlan$], 1
 ];
 export var UpdateSceneRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
   [_wI, _sI, _cL, _d, _ca, _sM],
-  [[0, 1], [0, 1], 0, 0, 64 | 0, 128 | 0]
+  [[0, 1], [0, 1], 0, 0, 64 | 0, 128 | 0], 2
 ];
 export var UpdateSceneResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
   [_uDT],
-  [4]
+  [4], 1
 ];
 export var UpdateWorkspaceRequest$: StaticStructureSchema = [3, n0, _UWR,
   0,
   [_wI, _d, _r, _sL],
-  [[0, 1], 0, 0, 0]
+  [[0, 1], 0, 0, 0], 1
 ];
 export var UpdateWorkspaceResponse$: StaticStructureSchema = [3, n0, _UWRp,
   0,
   [_uDT],
-  [4]
+  [4], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
@@ -1262,8 +1262,8 @@ export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WorkspaceSummary$: StaticStructureSchema = [3, n0, _WS,
   0,
-  [_wI, _a, _d, _lS, _cDT, _uDT],
-  [0, 0, 0, 64 | 0, 4, 4]
+  [_wI, _a, _cDT, _uDT, _d, _lS],
+  [0, 0, 4, 4, 0, 64 | 0], 4
 ];
 export var IoTTwinMakerServiceException$: StaticErrorSchema = [-3, _sm, "IoTTwinMakerServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IoTTwinMakerServiceException$, IoTTwinMakerServiceException);

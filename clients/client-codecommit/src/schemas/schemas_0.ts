@@ -1035,7 +1035,7 @@ TypeRegistry.for(n0).registerError(ApprovalStateRequiredException$, ApprovalStat
 export var AssociateApprovalRuleTemplateWithRepositoryInput$: StaticStructureSchema = [3, n0, _AARTWRI,
   0,
   [_aRTN, _rN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AuthorDoesNotExistException$: StaticErrorSchema = [-3, n0, _ADNEEu,
   { [_e]: _c },
@@ -1051,27 +1051,27 @@ export var BatchAssociateApprovalRuleTemplateWithRepositoriesError$: StaticStruc
 export var BatchAssociateApprovalRuleTemplateWithRepositoriesInput$: StaticStructureSchema = [3, n0, _BAARTWRI,
   0,
   [_aRTN, _rNe],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var BatchAssociateApprovalRuleTemplateWithRepositoriesOutput$: StaticStructureSchema = [3, n0, _BAARTWRO,
   0,
   [_aRNs, _er],
-  [64 | 0, () => BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList]
+  [64 | 0, () => BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList], 2
 ];
 export var BatchDescribeMergeConflictsError$: StaticStructureSchema = [3, n0, _BDMCE,
   0,
   [_fP, _eN, _m],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var BatchDescribeMergeConflictsInput$: StaticStructureSchema = [3, n0, _BDMCI,
   0,
   [_rN, _dCS, _sCS, _mO, _mMH, _mCF, _fPi, _cDL, _cRS, _nT],
-  [0, 0, 0, 0, 1, 1, 64 | 0, 0, 0, 0]
+  [0, 0, 0, 0, 1, 1, 64 | 0, 0, 0, 0], 4
 ];
 export var BatchDescribeMergeConflictsOutput$: StaticStructureSchema = [3, n0, _BDMCO,
   0,
-  [_co, _nT, _er, _dCI, _sCI, _bCI],
-  [() => Conflicts, 0, () => BatchDescribeMergeConflictsErrors, 0, 0, 0]
+  [_co, _dCI, _sCI, _nT, _er, _bCI],
+  [() => Conflicts, 0, 0, 0, () => BatchDescribeMergeConflictsErrors, 0], 3
 ];
 export var BatchDisassociateApprovalRuleTemplateFromRepositoriesError$: StaticStructureSchema = [3, n0, _BDARTFRE,
   0,
@@ -1081,12 +1081,12 @@ export var BatchDisassociateApprovalRuleTemplateFromRepositoriesError$: StaticSt
 export var BatchDisassociateApprovalRuleTemplateFromRepositoriesInput$: StaticStructureSchema = [3, n0, _BDARTFRI,
   0,
   [_aRTN, _rNe],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput$: StaticStructureSchema = [3, n0, _BDARTFRO,
   0,
   [_dRN, _er],
-  [64 | 0, () => BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList]
+  [64 | 0, () => BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList], 2
 ];
 export var BatchGetCommitsError$: StaticStructureSchema = [3, n0, _BGCE,
   0,
@@ -1096,7 +1096,7 @@ export var BatchGetCommitsError$: StaticStructureSchema = [3, n0, _BGCE,
 export var BatchGetCommitsInput$: StaticStructureSchema = [3, n0, _BGCI,
   0,
   [_cIo, _rN],
-  [64 | 0, 0]
+  [64 | 0, 0], 2
 ];
 export var BatchGetCommitsOutput$: StaticStructureSchema = [3, n0, _BGCO,
   0,
@@ -1111,7 +1111,7 @@ export var BatchGetRepositoriesError$: StaticStructureSchema = [3, n0, _BGRE,
 export var BatchGetRepositoriesInput$: StaticStructureSchema = [3, n0, _BGRI,
   0,
   [_rNe],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchGetRepositoriesOutput$: StaticStructureSchema = [3, n0, _BGRO,
   0,
@@ -1310,22 +1310,22 @@ export var ConflictResolution$: StaticStructureSchema = [3, n0, _CR,
 export var CreateApprovalRuleTemplateInput$: StaticStructureSchema = [3, n0, _CARTI,
   0,
   [_aRTN, _aRTC, _aRTD],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var CreateApprovalRuleTemplateOutput$: StaticStructureSchema = [3, n0, _CARTO,
   0,
   [_aRT],
-  [() => ApprovalRuleTemplate$]
+  [() => ApprovalRuleTemplate$], 1
 ];
 export var CreateBranchInput$: StaticStructureSchema = [3, n0, _CBI,
   0,
   [_rN, _bN, _cI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var CreateCommitInput$: StaticStructureSchema = [3, n0, _CCI,
   0,
   [_rN, _bN, _pCI, _aN, _em, _cMo, _kEF, _pF, _dF, _sFM],
-  [0, 0, 0, 0, 0, 0, 2, () => PutFileEntries, () => DeleteFileEntries, () => SetFileModeEntries]
+  [0, 0, 0, 0, 0, 0, 2, () => PutFileEntries, () => DeleteFileEntries, () => SetFileModeEntries], 2
 ];
 export var CreateCommitOutput$: StaticStructureSchema = [3, n0, _CCO,
   0,
@@ -1335,27 +1335,27 @@ export var CreateCommitOutput$: StaticStructureSchema = [3, n0, _CCO,
 export var CreatePullRequestApprovalRuleInput$: StaticStructureSchema = [3, n0, _CPRARI,
   0,
   [_pRI, _aRN, _aRC],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var CreatePullRequestApprovalRuleOutput$: StaticStructureSchema = [3, n0, _CPRARO,
   0,
   [_aR],
-  [() => ApprovalRule$]
+  [() => ApprovalRule$], 1
 ];
 export var CreatePullRequestInput$: StaticStructureSchema = [3, n0, _CPRI,
   0,
-  [_t, _de, _ta, _cRT],
-  [0, 0, () => TargetList, [0, 4]]
+  [_t, _ta, _de, _cRT],
+  [0, () => TargetList, 0, [0, 4]], 2
 ];
 export var CreatePullRequestOutput$: StaticStructureSchema = [3, n0, _CPRO,
   0,
   [_pR],
-  [() => PullRequest$]
+  [() => PullRequest$], 1
 ];
 export var CreateRepositoryInput$: StaticStructureSchema = [3, n0, _CRI,
   0,
   [_rN, _rD, _tag, _kKI],
-  [0, 0, 128 | 0, 0]
+  [0, 0, 128 | 0, 0], 1
 ];
 export var CreateRepositoryOutput$: StaticStructureSchema = [3, n0, _CRO,
   0,
@@ -1365,7 +1365,7 @@ export var CreateRepositoryOutput$: StaticStructureSchema = [3, n0, _CRO,
 export var CreateUnreferencedMergeCommitInput$: StaticStructureSchema = [3, n0, _CUMCI,
   0,
   [_rN, _sCS, _dCS, _mO, _cDL, _cRS, _aN, _em, _cMo, _kEF, _cRo],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 2, () => ConflictResolution$]
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 2, () => ConflictResolution$], 4
 ];
 export var CreateUnreferencedMergeCommitOutput$: StaticStructureSchema = [3, n0, _CUMCO,
   0,
@@ -1381,17 +1381,17 @@ TypeRegistry.for(n0).registerError(DefaultBranchCannotBeDeletedException$, Defau
 export var DeleteApprovalRuleTemplateInput$: StaticStructureSchema = [3, n0, _DARTI,
   0,
   [_aRTN],
-  [0]
+  [0], 1
 ];
 export var DeleteApprovalRuleTemplateOutput$: StaticStructureSchema = [3, n0, _DARTO,
   0,
   [_aRTI],
-  [0]
+  [0], 1
 ];
 export var DeleteBranchInput$: StaticStructureSchema = [3, n0, _DBI,
   0,
   [_rN, _bN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteBranchOutput$: StaticStructureSchema = [3, n0, _DBO,
   0,
@@ -1401,7 +1401,7 @@ export var DeleteBranchOutput$: StaticStructureSchema = [3, n0, _DBO,
 export var DeleteCommentContentInput$: StaticStructureSchema = [3, n0, _DCCI,
   0,
   [_cIom],
-  [0]
+  [0], 1
 ];
 export var DeleteCommentContentOutput$: StaticStructureSchema = [3, n0, _DCCO,
   0,
@@ -1411,32 +1411,32 @@ export var DeleteCommentContentOutput$: StaticStructureSchema = [3, n0, _DCCO,
 export var DeleteFileEntry$: StaticStructureSchema = [3, n0, _DFE,
   0,
   [_fP],
-  [0]
+  [0], 1
 ];
 export var DeleteFileInput$: StaticStructureSchema = [3, n0, _DFI,
   0,
   [_rN, _bN, _fP, _pCI, _kEF, _cMo, _n, _em],
-  [0, 0, 0, 0, 2, 0, 0, 0]
+  [0, 0, 0, 0, 2, 0, 0, 0], 4
 ];
 export var DeleteFileOutput$: StaticStructureSchema = [3, n0, _DFO,
   0,
   [_cI, _bI, _tI, _fP],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var DeletePullRequestApprovalRuleInput$: StaticStructureSchema = [3, n0, _DPRARI,
   0,
   [_pRI, _aRN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeletePullRequestApprovalRuleOutput$: StaticStructureSchema = [3, n0, _DPRARO,
   0,
   [_aRI],
-  [0]
+  [0], 1
 ];
 export var DeleteRepositoryInput$: StaticStructureSchema = [3, n0, _DRI,
   0,
   [_rN],
-  [0]
+  [0], 1
 ];
 export var DeleteRepositoryOutput$: StaticStructureSchema = [3, n0, _DRO,
   0,
@@ -1445,23 +1445,23 @@ export var DeleteRepositoryOutput$: StaticStructureSchema = [3, n0, _DRO,
 ];
 export var DescribeMergeConflictsInput$: StaticStructureSchema = [3, n0, _DMCI,
   0,
-  [_rN, _dCS, _sCS, _mO, _mMH, _fP, _cDL, _cRS, _nT],
-  [0, 0, 0, 0, 1, 0, 0, 0, 0]
+  [_rN, _dCS, _sCS, _mO, _fP, _mMH, _cDL, _cRS, _nT],
+  [0, 0, 0, 0, 0, 1, 0, 0, 0], 5
 ];
 export var DescribeMergeConflictsOutput$: StaticStructureSchema = [3, n0, _DMCO,
   0,
-  [_cM, _mH, _nT, _dCI, _sCI, _bCI],
-  [() => ConflictMetadata$, () => MergeHunks, 0, 0, 0, 0]
+  [_cM, _mH, _dCI, _sCI, _nT, _bCI],
+  [() => ConflictMetadata$, () => MergeHunks, 0, 0, 0, 0], 4
 ];
 export var DescribePullRequestEventsInput$: StaticStructureSchema = [3, n0, _DPREI,
   0,
   [_pRI, _pRET, _aAc, _nT, _mR],
-  [0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 1], 1
 ];
 export var DescribePullRequestEventsOutput$: StaticStructureSchema = [3, n0, _DPREO,
   0,
   [_pRE, _nT],
-  [() => PullRequestEventList, 0]
+  [() => PullRequestEventList, 0], 1
 ];
 export var Difference$: StaticStructureSchema = [3, n0, _D,
   0,
@@ -1477,7 +1477,7 @@ TypeRegistry.for(n0).registerError(DirectoryNameConflictsWithFileNameException$,
 export var DisassociateApprovalRuleTemplateFromRepositoryInput$: StaticStructureSchema = [3, n0, _DARTFRI,
   0,
   [_aRTN, _rN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EncryptionIntegrityChecksFailedException$: StaticErrorSchema = [-3, n0, _EICFE,
   { [_e]: _s },
@@ -1530,12 +1530,12 @@ TypeRegistry.for(n0).registerError(EncryptionKeyUnavailableException$, Encryptio
 export var EvaluatePullRequestApprovalRulesInput$: StaticStructureSchema = [3, n0, _EPRARI,
   0,
   [_pRI, _rI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EvaluatePullRequestApprovalRulesOutput$: StaticStructureSchema = [3, n0, _EPRARO,
   0,
   [_ev],
-  [() => Evaluation$]
+  [() => Evaluation$], 1
 ];
 export var Evaluation$: StaticStructureSchema = [3, n0, _E,
   0,
@@ -1641,22 +1641,22 @@ TypeRegistry.for(n0).registerError(FolderDoesNotExistException$, FolderDoesNotEx
 export var GetApprovalRuleTemplateInput$: StaticStructureSchema = [3, n0, _GARTI,
   0,
   [_aRTN],
-  [0]
+  [0], 1
 ];
 export var GetApprovalRuleTemplateOutput$: StaticStructureSchema = [3, n0, _GARTO,
   0,
   [_aRT],
-  [() => ApprovalRuleTemplate$]
+  [() => ApprovalRuleTemplate$], 1
 ];
 export var GetBlobInput$: StaticStructureSchema = [3, n0, _GBI,
   0,
   [_rN, _bI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetBlobOutput$: StaticStructureSchema = [3, n0, _GBO,
   0,
   [_con],
-  [21]
+  [21], 1
 ];
 export var GetBranchInput$: StaticStructureSchema = [3, n0, _GBIe,
   0,
@@ -1671,7 +1671,7 @@ export var GetBranchOutput$: StaticStructureSchema = [3, n0, _GBOe,
 export var GetCommentInput$: StaticStructureSchema = [3, n0, _GCI,
   0,
   [_cIom],
-  [0]
+  [0], 1
 ];
 export var GetCommentOutput$: StaticStructureSchema = [3, n0, _GCO,
   0,
@@ -1681,17 +1681,17 @@ export var GetCommentOutput$: StaticStructureSchema = [3, n0, _GCO,
 export var GetCommentReactionsInput$: StaticStructureSchema = [3, n0, _GCRI,
   0,
   [_cIom, _rUA, _nT, _mR],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 1
 ];
 export var GetCommentReactionsOutput$: StaticStructureSchema = [3, n0, _GCRO,
   0,
   [_rFC, _nT],
-  [() => ReactionsForCommentList, 0]
+  [() => ReactionsForCommentList, 0], 1
 ];
 export var GetCommentsForComparedCommitInput$: StaticStructureSchema = [3, n0, _GCFCCI,
   0,
-  [_rN, _bCIe, _aCI, _nT, _mR],
-  [0, 0, 0, 0, 1]
+  [_rN, _aCI, _bCIe, _nT, _mR],
+  [0, 0, 0, 0, 1], 2
 ];
 export var GetCommentsForComparedCommitOutput$: StaticStructureSchema = [3, n0, _GCFCCO,
   0,
@@ -1701,7 +1701,7 @@ export var GetCommentsForComparedCommitOutput$: StaticStructureSchema = [3, n0, 
 export var GetCommentsForPullRequestInput$: StaticStructureSchema = [3, n0, _GCFPRI,
   0,
   [_pRI, _rN, _bCIe, _aCI, _nT, _mR],
-  [0, 0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 0, 1], 1
 ];
 export var GetCommentsForPullRequestOutput$: StaticStructureSchema = [3, n0, _GCFPRO,
   0,
@@ -1711,17 +1711,17 @@ export var GetCommentsForPullRequestOutput$: StaticStructureSchema = [3, n0, _GC
 export var GetCommitInput$: StaticStructureSchema = [3, n0, _GCIe,
   0,
   [_rN, _cI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetCommitOutput$: StaticStructureSchema = [3, n0, _GCOe,
   0,
   [_commit],
-  [() => Commit$]
+  [() => Commit$], 1
 ];
 export var GetDifferencesInput$: StaticStructureSchema = [3, n0, _GDI,
   0,
-  [_rN, _bCS, _aCS, _bP, _aPf, _MR, _NT],
-  [0, 0, 0, 0, 0, 1, 0]
+  [_rN, _aCS, _bCS, _bP, _aPf, _MR, _NT],
+  [0, 0, 0, 0, 0, 1, 0], 2
 ];
 export var GetDifferencesOutput$: StaticStructureSchema = [3, n0, _GDO,
   0,
@@ -1730,28 +1730,28 @@ export var GetDifferencesOutput$: StaticStructureSchema = [3, n0, _GDO,
 ];
 export var GetFileInput$: StaticStructureSchema = [3, n0, _GFI,
   0,
-  [_rN, _cS, _fP],
-  [0, 0, 0]
+  [_rN, _fP, _cS],
+  [0, 0, 0], 2
 ];
 export var GetFileOutput$: StaticStructureSchema = [3, n0, _GFO,
   0,
   [_cI, _bI, _fP, _fMi, _fSi, _fC],
-  [0, 0, 0, 0, 1, 21]
+  [0, 0, 0, 0, 1, 21], 6
 ];
 export var GetFolderInput$: StaticStructureSchema = [3, n0, _GFIe,
   0,
-  [_rN, _cS, _fPo],
-  [0, 0, 0]
+  [_rN, _fPo, _cS],
+  [0, 0, 0], 2
 ];
 export var GetFolderOutput$: StaticStructureSchema = [3, n0, _GFOe,
   0,
   [_cI, _fPo, _tI, _sF, _f, _sL, _sM],
-  [0, 0, 0, () => FolderList, () => FileList, () => SymbolicLinkList, () => SubModuleList]
+  [0, 0, 0, () => FolderList, () => FileList, () => SymbolicLinkList, () => SubModuleList], 2
 ];
 export var GetMergeCommitInput$: StaticStructureSchema = [3, n0, _GMCI,
   0,
   [_rN, _sCS, _dCS, _cDL, _cRS],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 3
 ];
 export var GetMergeCommitOutput$: StaticStructureSchema = [3, n0, _GMCO,
   0,
@@ -1761,27 +1761,27 @@ export var GetMergeCommitOutput$: StaticStructureSchema = [3, n0, _GMCO,
 export var GetMergeConflictsInput$: StaticStructureSchema = [3, n0, _GMCIe,
   0,
   [_rN, _dCS, _sCS, _mO, _cDL, _mCF, _cRS, _nT],
-  [0, 0, 0, 0, 0, 1, 0, 0]
+  [0, 0, 0, 0, 0, 1, 0, 0], 4
 ];
 export var GetMergeConflictsOutput$: StaticStructureSchema = [3, n0, _GMCOe,
   0,
-  [_me, _dCI, _sCI, _bCI, _cML, _nT],
-  [2, 0, 0, 0, () => ConflictMetadataList, 0]
+  [_me, _dCI, _sCI, _cML, _bCI, _nT],
+  [2, 0, 0, () => ConflictMetadataList, 0, 0], 4
 ];
 export var GetMergeOptionsInput$: StaticStructureSchema = [3, n0, _GMOI,
   0,
   [_rN, _sCS, _dCS, _cDL, _cRS],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 3
 ];
 export var GetMergeOptionsOutput$: StaticStructureSchema = [3, n0, _GMOO,
   0,
   [_mOer, _sCI, _dCI, _bCI],
-  [64 | 0, 0, 0, 0]
+  [64 | 0, 0, 0, 0], 4
 ];
 export var GetPullRequestApprovalStatesInput$: StaticStructureSchema = [3, n0, _GPRASI,
   0,
   [_pRI, _rI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetPullRequestApprovalStatesOutput$: StaticStructureSchema = [3, n0, _GPRASO,
   0,
@@ -1791,17 +1791,17 @@ export var GetPullRequestApprovalStatesOutput$: StaticStructureSchema = [3, n0, 
 export var GetPullRequestInput$: StaticStructureSchema = [3, n0, _GPRI,
   0,
   [_pRI],
-  [0]
+  [0], 1
 ];
 export var GetPullRequestOutput$: StaticStructureSchema = [3, n0, _GPRO,
   0,
   [_pR],
-  [() => PullRequest$]
+  [() => PullRequest$], 1
 ];
 export var GetPullRequestOverrideStateInput$: StaticStructureSchema = [3, n0, _GPROSI,
   0,
   [_pRI, _rI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetPullRequestOverrideStateOutput$: StaticStructureSchema = [3, n0, _GPROSO,
   0,
@@ -1811,7 +1811,7 @@ export var GetPullRequestOverrideStateOutput$: StaticStructureSchema = [3, n0, _
 export var GetRepositoryInput$: StaticStructureSchema = [3, n0, _GRI,
   0,
   [_rN],
-  [0]
+  [0], 1
 ];
 export var GetRepositoryOutput$: StaticStructureSchema = [3, n0, _GRO,
   0,
@@ -1821,7 +1821,7 @@ export var GetRepositoryOutput$: StaticStructureSchema = [3, n0, _GRO,
 export var GetRepositoryTriggersInput$: StaticStructureSchema = [3, n0, _GRTI,
   0,
   [_rN],
-  [0]
+  [0], 1
 ];
 export var GetRepositoryTriggersOutput$: StaticStructureSchema = [3, n0, _GRTO,
   0,
@@ -2230,7 +2230,7 @@ export var ListApprovalRuleTemplatesOutput$: StaticStructureSchema = [3, n0, _LA
 export var ListAssociatedApprovalRuleTemplatesForRepositoryInput$: StaticStructureSchema = [3, n0, _LAARTFRI,
   0,
   [_rN, _nT, _mR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListAssociatedApprovalRuleTemplatesForRepositoryOutput$: StaticStructureSchema = [3, n0, _LAARTFRO,
   0,
@@ -2240,7 +2240,7 @@ export var ListAssociatedApprovalRuleTemplatesForRepositoryOutput$: StaticStruct
 export var ListBranchesInput$: StaticStructureSchema = [3, n0, _LBI,
   0,
   [_rN, _nT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListBranchesOutput$: StaticStructureSchema = [3, n0, _LBO,
   0,
@@ -2249,28 +2249,28 @@ export var ListBranchesOutput$: StaticStructureSchema = [3, n0, _LBO,
 ];
 export var ListFileCommitHistoryRequest$: StaticStructureSchema = [3, n0, _LFCHR,
   0,
-  [_rN, _cS, _fP, _mR, _nT],
-  [0, 0, 0, 1, 0]
+  [_rN, _fP, _cS, _mR, _nT],
+  [0, 0, 0, 1, 0], 2
 ];
 export var ListFileCommitHistoryResponse$: StaticStructureSchema = [3, n0, _LFCHRi,
   0,
   [_rDe, _nT],
-  [() => RevisionDag, 0]
+  [() => RevisionDag, 0], 1
 ];
 export var ListPullRequestsInput$: StaticStructureSchema = [3, n0, _LPRI,
   0,
   [_rN, _aA, _pRS, _nT, _mR],
-  [0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 1], 1
 ];
 export var ListPullRequestsOutput$: StaticStructureSchema = [3, n0, _LPRO,
   0,
   [_pRIu, _nT],
-  [64 | 0, 0]
+  [64 | 0, 0], 1
 ];
 export var ListRepositoriesForApprovalRuleTemplateInput$: StaticStructureSchema = [3, n0, _LRFARTI,
   0,
   [_aRTN, _nT, _mR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListRepositoriesForApprovalRuleTemplateOutput$: StaticStructureSchema = [3, n0, _LRFARTO,
   0,
@@ -2290,7 +2290,7 @@ export var ListRepositoriesOutput$: StaticStructureSchema = [3, n0, _LRO,
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_rA, _nT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -2371,7 +2371,7 @@ TypeRegistry.for(n0).registerError(MaximumRuleTemplatesAssociatedWithRepositoryE
 export var MergeBranchesByFastForwardInput$: StaticStructureSchema = [3, n0, _MBBFFI,
   0,
   [_rN, _sCS, _dCS, _tB],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var MergeBranchesByFastForwardOutput$: StaticStructureSchema = [3, n0, _MBBFFO,
   0,
@@ -2381,7 +2381,7 @@ export var MergeBranchesByFastForwardOutput$: StaticStructureSchema = [3, n0, _M
 export var MergeBranchesBySquashInput$: StaticStructureSchema = [3, n0, _MBBSI,
   0,
   [_rN, _sCS, _dCS, _tB, _cDL, _cRS, _aN, _em, _cMo, _kEF, _cRo],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 2, () => ConflictResolution$]
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 2, () => ConflictResolution$], 3
 ];
 export var MergeBranchesBySquashOutput$: StaticStructureSchema = [3, n0, _MBBSO,
   0,
@@ -2391,7 +2391,7 @@ export var MergeBranchesBySquashOutput$: StaticStructureSchema = [3, n0, _MBBSO,
 export var MergeBranchesByThreeWayInput$: StaticStructureSchema = [3, n0, _MBBTWI,
   0,
   [_rN, _sCS, _dCS, _tB, _cDL, _cRS, _aN, _em, _cMo, _kEF, _cRo],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 2, () => ConflictResolution$]
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 2, () => ConflictResolution$], 3
 ];
 export var MergeBranchesByThreeWayOutput$: StaticStructureSchema = [3, n0, _MBBTWO,
   0,
@@ -2427,7 +2427,7 @@ TypeRegistry.for(n0).registerError(MergeOptionRequiredException$, MergeOptionReq
 export var MergePullRequestByFastForwardInput$: StaticStructureSchema = [3, n0, _MPRBFFI,
   0,
   [_pRI, _rN, _sCI],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var MergePullRequestByFastForwardOutput$: StaticStructureSchema = [3, n0, _MPRBFFO,
   0,
@@ -2437,7 +2437,7 @@ export var MergePullRequestByFastForwardOutput$: StaticStructureSchema = [3, n0,
 export var MergePullRequestBySquashInput$: StaticStructureSchema = [3, n0, _MPRBSI,
   0,
   [_pRI, _rN, _sCI, _cDL, _cRS, _cMo, _aN, _em, _kEF, _cRo],
-  [0, 0, 0, 0, 0, 0, 0, 0, 2, () => ConflictResolution$]
+  [0, 0, 0, 0, 0, 0, 0, 0, 2, () => ConflictResolution$], 2
 ];
 export var MergePullRequestBySquashOutput$: StaticStructureSchema = [3, n0, _MPRBSO,
   0,
@@ -2447,7 +2447,7 @@ export var MergePullRequestBySquashOutput$: StaticStructureSchema = [3, n0, _MPR
 export var MergePullRequestByThreeWayInput$: StaticStructureSchema = [3, n0, _MPRBTWI,
   0,
   [_pRI, _rN, _sCI, _cDL, _cRS, _cMo, _aN, _em, _kEF, _cRo],
-  [0, 0, 0, 0, 0, 0, 0, 0, 2, () => ConflictResolution$]
+  [0, 0, 0, 0, 0, 0, 0, 0, 2, () => ConflictResolution$], 2
 ];
 export var MergePullRequestByThreeWayOutput$: StaticStructureSchema = [3, n0, _MPRBTWO,
   0,
@@ -2515,7 +2515,7 @@ TypeRegistry.for(n0).registerError(OverrideAlreadySetException$, OverrideAlready
 export var OverridePullRequestApprovalRulesInput$: StaticStructureSchema = [3, n0, _OPRARI,
   0,
   [_pRI, _rI, _oS],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var OverrideStatusRequiredException$: StaticErrorSchema = [-3, n0, _OSRE,
   { [_e]: _c },
@@ -2555,8 +2555,8 @@ export var PathRequiredException$: StaticErrorSchema = [-3, n0, _PRE,
 TypeRegistry.for(n0).registerError(PathRequiredException$, PathRequiredException);
 export var PostCommentForComparedCommitInput$: StaticStructureSchema = [3, n0, _PCFCCI,
   0,
-  [_rN, _bCIe, _aCI, _l, _con, _cRT],
-  [0, 0, 0, () => Location$, 0, [0, 4]]
+  [_rN, _aCI, _con, _bCIe, _l, _cRT],
+  [0, 0, 0, 0, () => Location$, [0, 4]], 3
 ];
 export var PostCommentForComparedCommitOutput$: StaticStructureSchema = [3, n0, _PCFCCO,
   0,
@@ -2565,8 +2565,8 @@ export var PostCommentForComparedCommitOutput$: StaticStructureSchema = [3, n0, 
 ];
 export var PostCommentForPullRequestInput$: StaticStructureSchema = [3, n0, _PCFPRI,
   0,
-  [_pRI, _rN, _bCIe, _aCI, _l, _con, _cRT],
-  [0, 0, 0, 0, () => Location$, 0, [0, 4]]
+  [_pRI, _rN, _bCIe, _aCI, _con, _l, _cRT],
+  [0, 0, 0, 0, 0, () => Location$, [0, 4]], 5
 ];
 export var PostCommentForPullRequestOutput$: StaticStructureSchema = [3, n0, _PCFPRO,
   0,
@@ -2575,8 +2575,8 @@ export var PostCommentForPullRequestOutput$: StaticStructureSchema = [3, n0, _PC
 ];
 export var PostCommentReplyInput$: StaticStructureSchema = [3, n0, _PCRI,
   0,
-  [_iRT, _cRT, _con],
-  [0, [0, 4], 0]
+  [_iRT, _con, _cRT],
+  [0, 0, [0, 4]], 2
 ];
 export var PostCommentReplyOutput$: StaticStructureSchema = [3, n0, _PCRO,
   0,
@@ -2657,12 +2657,12 @@ export var PullRequestTarget$: StaticStructureSchema = [3, n0, _PRT,
 export var PutCommentReactionInput$: StaticStructureSchema = [3, n0, _PCRIu,
   0,
   [_cIom, _rV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutFileEntry$: StaticStructureSchema = [3, n0, _PFE,
   0,
   [_fP, _fMi, _fC, _sFo],
-  [0, 0, 21, () => SourceFileSpecifier$]
+  [0, 0, 21, () => SourceFileSpecifier$], 1
 ];
 export var PutFileEntryConflictException$: StaticErrorSchema = [-3, n0, _PFECE,
   { [_e]: _c },
@@ -2673,17 +2673,17 @@ TypeRegistry.for(n0).registerError(PutFileEntryConflictException$, PutFileEntryC
 export var PutFileInput$: StaticStructureSchema = [3, n0, _PFI,
   0,
   [_rN, _bN, _fC, _fP, _fMi, _pCI, _cMo, _n, _em],
-  [0, 0, 21, 0, 0, 0, 0, 0, 0]
+  [0, 0, 21, 0, 0, 0, 0, 0, 0], 4
 ];
 export var PutFileOutput$: StaticStructureSchema = [3, n0, _PFO,
   0,
   [_cI, _bI, _tI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var PutRepositoryTriggersInput$: StaticStructureSchema = [3, n0, _PRTI,
   0,
   [_rN, _tr],
-  [0, () => RepositoryTriggersList]
+  [0, () => RepositoryTriggersList], 2
 ];
 export var PutRepositoryTriggersOutput$: StaticStructureSchema = [3, n0, _PRTO,
   0,
@@ -2733,7 +2733,7 @@ TypeRegistry.for(n0).registerError(ReferenceTypeNotSupportedException$, Referenc
 export var ReplaceContentEntry$: StaticStructureSchema = [3, n0, _RCE,
   0,
   [_fP, _rT, _con, _fMi],
-  [0, 0, 21, 0]
+  [0, 0, 21, 0], 2
 ];
 export var ReplacementContentRequiredException$: StaticErrorSchema = [-3, n0, _RCRE,
   { [_e]: _c },
@@ -2795,8 +2795,8 @@ export var RepositoryNotAssociatedWithPullRequestException$: StaticErrorSchema =
 TypeRegistry.for(n0).registerError(RepositoryNotAssociatedWithPullRequestException$, RepositoryNotAssociatedWithPullRequestException);
 export var RepositoryTrigger$: StaticStructureSchema = [3, n0, _RT,
   0,
-  [_n, _dA, _cDu, _bra, _eve],
-  [0, 0, 0, 64 | 0, 64 | 0]
+  [_n, _dA, _eve, _cDu, _bra],
+  [0, 0, 64 | 0, 0, 64 | 0], 3
 ];
 export var RepositoryTriggerBranchNameListRequiredException$: StaticErrorSchema = [-3, n0, _RTBNLRE,
   { [_e]: _c },
@@ -2872,7 +2872,7 @@ TypeRegistry.for(n0).registerError(SamePathRequestException$, SamePathRequestExc
 export var SetFileModeEntry$: StaticStructureSchema = [3, n0, _SFME,
   0,
   [_fP, _fMi],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SourceAndDestinationAreSameException$: StaticErrorSchema = [-3, n0, _SADASE,
   { [_e]: _c },
@@ -2889,7 +2889,7 @@ TypeRegistry.for(n0).registerError(SourceFileOrContentRequiredException$, Source
 export var SourceFileSpecifier$: StaticStructureSchema = [3, n0, _SFS,
   0,
   [_fP, _iMs],
-  [0, 2]
+  [0, 2], 1
 ];
 export var SubModule$: StaticStructureSchema = [3, n0, _SM,
   0,
@@ -2916,7 +2916,7 @@ TypeRegistry.for(n0).registerError(TagPolicyException$, TagPolicyException);
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rA, _tag],
-  [0, 128 | 0]
+  [0, 128 | 0], 2
 ];
 export var TagsMapRequiredException$: StaticErrorSchema = [-3, n0, _TMRE,
   { [_e]: _c },
@@ -2927,7 +2927,7 @@ TypeRegistry.for(n0).registerError(TagsMapRequiredException$, TagsMapRequiredExc
 export var Target$: StaticStructureSchema = [3, n0, _T,
   0,
   [_rN, _sR, _dR],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var TargetRequiredException$: StaticErrorSchema = [-3, n0, _TRE,
   { [_e]: _c },
@@ -2944,7 +2944,7 @@ TypeRegistry.for(n0).registerError(TargetsRequiredException$, TargetsRequiredExc
 export var TestRepositoryTriggersInput$: StaticStructureSchema = [3, n0, _TRTI,
   0,
   [_rN, _tr],
-  [0, () => RepositoryTriggersList]
+  [0, () => RepositoryTriggersList], 2
 ];
 export var TestRepositoryTriggersOutput$: StaticStructureSchema = [3, n0, _TRTO,
   0,
@@ -2978,42 +2978,42 @@ TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UpdateApprovalRuleTemplateContentInput$: StaticStructureSchema = [3, n0, _UARTCI,
   0,
   [_aRTN, _nRC, _eRCS],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var UpdateApprovalRuleTemplateContentOutput$: StaticStructureSchema = [3, n0, _UARTCO,
   0,
   [_aRT],
-  [() => ApprovalRuleTemplate$]
+  [() => ApprovalRuleTemplate$], 1
 ];
 export var UpdateApprovalRuleTemplateDescriptionInput$: StaticStructureSchema = [3, n0, _UARTDI,
   0,
   [_aRTN, _aRTD],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateApprovalRuleTemplateDescriptionOutput$: StaticStructureSchema = [3, n0, _UARTDO,
   0,
   [_aRT],
-  [() => ApprovalRuleTemplate$]
+  [() => ApprovalRuleTemplate$], 1
 ];
 export var UpdateApprovalRuleTemplateNameInput$: StaticStructureSchema = [3, n0, _UARTNI,
   0,
   [_oARTN, _nARTN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateApprovalRuleTemplateNameOutput$: StaticStructureSchema = [3, n0, _UARTNO,
   0,
   [_aRT],
-  [() => ApprovalRuleTemplate$]
+  [() => ApprovalRuleTemplate$], 1
 ];
 export var UpdateCommentInput$: StaticStructureSchema = [3, n0, _UCI,
   0,
   [_cIom, _con],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateCommentOutput$: StaticStructureSchema = [3, n0, _UCO,
   0,
@@ -3023,62 +3023,62 @@ export var UpdateCommentOutput$: StaticStructureSchema = [3, n0, _UCO,
 export var UpdateDefaultBranchInput$: StaticStructureSchema = [3, n0, _UDBI,
   0,
   [_rN, _dBN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdatePullRequestApprovalRuleContentInput$: StaticStructureSchema = [3, n0, _UPRARCI,
   0,
-  [_pRI, _aRN, _eRCS, _nRC],
-  [0, 0, 0, 0]
+  [_pRI, _aRN, _nRC, _eRCS],
+  [0, 0, 0, 0], 3
 ];
 export var UpdatePullRequestApprovalRuleContentOutput$: StaticStructureSchema = [3, n0, _UPRARCO,
   0,
   [_aR],
-  [() => ApprovalRule$]
+  [() => ApprovalRule$], 1
 ];
 export var UpdatePullRequestApprovalStateInput$: StaticStructureSchema = [3, n0, _UPRASI,
   0,
   [_pRI, _rI, _aS],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var UpdatePullRequestDescriptionInput$: StaticStructureSchema = [3, n0, _UPRDI,
   0,
   [_pRI, _de],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdatePullRequestDescriptionOutput$: StaticStructureSchema = [3, n0, _UPRDO,
   0,
   [_pR],
-  [() => PullRequest$]
+  [() => PullRequest$], 1
 ];
 export var UpdatePullRequestStatusInput$: StaticStructureSchema = [3, n0, _UPRSI,
   0,
   [_pRI, _pRS],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdatePullRequestStatusOutput$: StaticStructureSchema = [3, n0, _UPRSO,
   0,
   [_pR],
-  [() => PullRequest$]
+  [() => PullRequest$], 1
 ];
 export var UpdatePullRequestTitleInput$: StaticStructureSchema = [3, n0, _UPRTI,
   0,
   [_pRI, _t],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdatePullRequestTitleOutput$: StaticStructureSchema = [3, n0, _UPRTO,
   0,
   [_pR],
-  [() => PullRequest$]
+  [() => PullRequest$], 1
 ];
 export var UpdateRepositoryDescriptionInput$: StaticStructureSchema = [3, n0, _URDI,
   0,
   [_rN, _rD],
-  [0, 0]
+  [0, 0], 1
 ];
 export var UpdateRepositoryEncryptionKeyInput$: StaticStructureSchema = [3, n0, _UREKI,
   0,
   [_rN, _kKI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateRepositoryEncryptionKeyOutput$: StaticStructureSchema = [3, n0, _UREKO,
   0,
@@ -3088,7 +3088,7 @@ export var UpdateRepositoryEncryptionKeyOutput$: StaticStructureSchema = [3, n0,
 export var UpdateRepositoryNameInput$: StaticStructureSchema = [3, n0, _URNI,
   0,
   [_oN, _nN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UserInfo$: StaticStructureSchema = [3, n0, _UI,
   0,

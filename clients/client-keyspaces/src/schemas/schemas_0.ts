@@ -226,42 +226,42 @@ export var AutoScalingSpecification$: StaticStructureSchema = [3, n0, _ASSu,
 export var CapacitySpecification$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_tM, _rCU, _wCU],
-  [0, 1, 1]
+  [0, 1, 1], 1
 ];
 export var CapacitySpecificationSummary$: StaticStructureSchema = [3, n0, _CSS,
   0,
   [_tM, _rCU, _wCU, _lUTPPRT],
-  [0, 1, 1, 4]
+  [0, 1, 1, 4], 1
 ];
 export var CdcSpecification$: StaticStructureSchema = [3, n0, _CSd,
   0,
   [_s, _vT, _t, _pT],
-  [0, 0, () => TagList, 0]
+  [0, 0, () => TagList, 0], 1
 ];
 export var CdcSpecificationSummary$: StaticStructureSchema = [3, n0, _CSSd,
   0,
   [_s, _vT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ClientSideTimestamps$: StaticStructureSchema = [3, n0, _CST,
   0,
   [_s],
-  [0]
+  [0], 1
 ];
 export var ClusteringKey$: StaticStructureSchema = [3, n0, _CK,
   0,
   [_n, _oB],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ColumnDefinition$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_n, _ty],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Comment$: StaticStructureSchema = [3, n0, _C,
   0,
   [_m],
-  [0]
+  [0], 1
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_aQE]: [`ConflictException`, 409], [_e]: _c, [_hE]: 409 },
@@ -272,37 +272,37 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateKeyspaceRequest$: StaticStructureSchema = [3, n0, _CKR,
   0,
   [_kN, _t, _rS],
-  [0, () => TagList, () => ReplicationSpecification$]
+  [0, () => TagList, () => ReplicationSpecification$], 1
 ];
 export var CreateKeyspaceResponse$: StaticStructureSchema = [3, n0, _CKRr,
   0,
   [_rA],
-  [0]
+  [0], 1
 ];
 export var CreateTableRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_kN, _tN, _sD, _co, _cS, _eS, _pITR, _tt, _dTTL, _t, _cST, _aSS, _rSe, _cSd],
-  [0, 0, () => SchemaDefinition$, () => Comment$, () => CapacitySpecification$, () => EncryptionSpecification$, () => PointInTimeRecovery$, () => TimeToLive$, 1, () => TagList, () => ClientSideTimestamps$, () => AutoScalingSpecification$, () => ReplicaSpecificationList, () => CdcSpecification$]
+  [0, 0, () => SchemaDefinition$, () => Comment$, () => CapacitySpecification$, () => EncryptionSpecification$, () => PointInTimeRecovery$, () => TimeToLive$, 1, () => TagList, () => ClientSideTimestamps$, () => AutoScalingSpecification$, () => ReplicaSpecificationList, () => CdcSpecification$], 3
 ];
 export var CreateTableResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
   [_rA],
-  [0]
+  [0], 1
 ];
 export var CreateTypeRequest$: StaticStructureSchema = [3, n0, _CTRre,
   0,
   [_kN, _tNy, _fD],
-  [0, 0, () => FieldList]
+  [0, 0, () => FieldList], 3
 ];
 export var CreateTypeResponse$: StaticStructureSchema = [3, n0, _CTRrea,
   0,
   [_kA, _tNy],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteKeyspaceRequest$: StaticStructureSchema = [3, n0, _DKR,
   0,
   [_kN],
-  [0]
+  [0], 1
 ];
 export var DeleteKeyspaceResponse$: StaticStructureSchema = [3, n0, _DKRe,
   0,
@@ -312,7 +312,7 @@ export var DeleteKeyspaceResponse$: StaticStructureSchema = [3, n0, _DKRe,
 export var DeleteTableRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_kN, _tN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteTableResponse$: StaticStructureSchema = [3, n0, _DTRe,
   0,
@@ -322,62 +322,62 @@ export var DeleteTableResponse$: StaticStructureSchema = [3, n0, _DTRe,
 export var DeleteTypeRequest$: StaticStructureSchema = [3, n0, _DTRel,
   0,
   [_kN, _tNy],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteTypeResponse$: StaticStructureSchema = [3, n0, _DTRele,
   0,
   [_kA, _tNy],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EncryptionSpecification$: StaticStructureSchema = [3, n0, _ES,
   0,
   [_ty, _kKI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var FieldDefinition$: StaticStructureSchema = [3, n0, _FD,
   0,
   [_n, _ty],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetKeyspaceRequest$: StaticStructureSchema = [3, n0, _GKR,
   0,
   [_kN],
-  [0]
+  [0], 1
 ];
 export var GetKeyspaceResponse$: StaticStructureSchema = [3, n0, _GKRe,
   0,
   [_kN, _rA, _rSep, _rR, _rGS],
-  [0, 0, 0, 64 | 0, () => ReplicationGroupStatusList]
+  [0, 0, 0, 64 | 0, () => ReplicationGroupStatusList], 3
 ];
 export var GetTableAutoScalingSettingsRequest$: StaticStructureSchema = [3, n0, _GTASSR,
   0,
   [_kN, _tN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetTableAutoScalingSettingsResponse$: StaticStructureSchema = [3, n0, _GTASSRe,
   0,
   [_kN, _tN, _rA, _aSS, _rSe],
-  [0, 0, 0, () => AutoScalingSpecification$, () => ReplicaAutoScalingSpecificationList]
+  [0, 0, 0, () => AutoScalingSpecification$, () => ReplicaAutoScalingSpecificationList], 3
 ];
 export var GetTableRequest$: StaticStructureSchema = [3, n0, _GTR,
   0,
   [_kN, _tN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetTableResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
   [_kN, _tN, _rA, _cT, _s, _sD, _cS, _eS, _pITR, _tt, _dTTL, _co, _cST, _rSe, _lSA, _cSd],
-  [0, 0, 0, 4, 0, () => SchemaDefinition$, () => CapacitySpecificationSummary$, () => EncryptionSpecification$, () => PointInTimeRecoverySummary$, () => TimeToLive$, 1, () => Comment$, () => ClientSideTimestamps$, () => ReplicaSpecificationSummaryList, 0, () => CdcSpecificationSummary$]
+  [0, 0, 0, 4, 0, () => SchemaDefinition$, () => CapacitySpecificationSummary$, () => EncryptionSpecification$, () => PointInTimeRecoverySummary$, () => TimeToLive$, 1, () => Comment$, () => ClientSideTimestamps$, () => ReplicaSpecificationSummaryList, 0, () => CdcSpecificationSummary$], 3
 ];
 export var GetTypeRequest$: StaticStructureSchema = [3, n0, _GTRet,
   0,
   [_kN, _tNy],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetTypeResponse$: StaticStructureSchema = [3, n0, _GTRety,
   0,
-  [_kN, _tNy, _fD, _lMT, _s, _dRT, _dPT, _mND, _kA],
-  [0, 0, () => FieldList, 4, 0, 64 | 0, 64 | 0, 1, 0]
+  [_kN, _tNy, _kA, _fD, _lMT, _s, _dRT, _dPT, _mND],
+  [0, 0, 0, () => FieldList, 4, 0, 64 | 0, 64 | 0, 1], 3
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_aQE]: [`InternalServerException`, 500], [_e]: _se, [_hE]: 500 },
@@ -388,7 +388,7 @@ TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerExcep
 export var KeyspaceSummary$: StaticStructureSchema = [3, n0, _KS,
   0,
   [_kN, _rA, _rSep, _rR],
-  [0, 0, 0, 64 | 0]
+  [0, 0, 0, 64 | 0], 3
 ];
 export var ListKeyspacesRequest$: StaticStructureSchema = [3, n0, _LKR,
   0,
@@ -397,13 +397,13 @@ export var ListKeyspacesRequest$: StaticStructureSchema = [3, n0, _LKR,
 ];
 export var ListKeyspacesResponse$: StaticStructureSchema = [3, n0, _LKRi,
   0,
-  [_nT, _k],
-  [0, () => KeyspaceSummaryList]
+  [_k, _nT],
+  [() => KeyspaceSummaryList, 0], 1
 ];
 export var ListTablesRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
-  [_nT, _mR, _kN],
-  [0, 1, 0]
+  [_kN, _nT, _mR],
+  [0, 0, 1], 1
 ];
 export var ListTablesResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
@@ -413,7 +413,7 @@ export var ListTablesResponse$: StaticStructureSchema = [3, n0, _LTRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA, _nT, _mR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -422,28 +422,28 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var ListTypesRequest$: StaticStructureSchema = [3, n0, _LTRis,
   0,
-  [_nT, _mR, _kN],
-  [0, 1, 0]
+  [_kN, _nT, _mR],
+  [0, 0, 1], 1
 ];
 export var ListTypesResponse$: StaticStructureSchema = [3, n0, _LTRist,
   0,
-  [_nT, _typ],
-  [0, 64 | 0]
+  [_typ, _nT],
+  [64 | 0, 0], 1
 ];
 export var PartitionKey$: StaticStructureSchema = [3, n0, _PK,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var PointInTimeRecovery$: StaticStructureSchema = [3, n0, _PITR,
   0,
   [_s],
-  [0]
+  [0], 1
 ];
 export var PointInTimeRecoverySummary$: StaticStructureSchema = [3, n0, _PITRS,
   0,
   [_s, _eRT],
-  [0, 4]
+  [0, 4], 1
 ];
 export var ReplicaAutoScalingSpecification$: StaticStructureSchema = [3, n0, _RASS,
   0,
@@ -453,7 +453,7 @@ export var ReplicaAutoScalingSpecification$: StaticStructureSchema = [3, n0, _RA
 export var ReplicaSpecification$: StaticStructureSchema = [3, n0, _RS,
   0,
   [_r, _rCU, _rCAS],
-  [0, 1, () => AutoScalingSettings$]
+  [0, 1, () => AutoScalingSettings$], 1
 ];
 export var ReplicaSpecificationSummary$: StaticStructureSchema = [3, n0, _RSS,
   0,
@@ -463,12 +463,12 @@ export var ReplicaSpecificationSummary$: StaticStructureSchema = [3, n0, _RSS,
 export var ReplicationGroupStatus$: StaticStructureSchema = [3, n0, _RGS,
   0,
   [_r, _kS, _tRP],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var ReplicationSpecification$: StaticStructureSchema = [3, n0, _RSe,
   0,
   [_rSep, _rL],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
@@ -479,17 +479,17 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var RestoreTableRequest$: StaticStructureSchema = [3, n0, _RTR,
   0,
   [_sKN, _sTN, _tKN, _tTN, _rT, _cSO, _eSO, _pITRO, _tO, _aSS, _rSe],
-  [0, 0, 0, 0, 4, () => CapacitySpecification$, () => EncryptionSpecification$, () => PointInTimeRecovery$, () => TagList, () => AutoScalingSpecification$, () => ReplicaSpecificationList]
+  [0, 0, 0, 0, 4, () => CapacitySpecification$, () => EncryptionSpecification$, () => PointInTimeRecovery$, () => TagList, () => AutoScalingSpecification$, () => ReplicaSpecificationList], 4
 ];
 export var RestoreTableResponse$: StaticStructureSchema = [3, n0, _RTRe,
   0,
   [_rTARN],
-  [0]
+  [0], 1
 ];
 export var SchemaDefinition$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_aC, _pK, _cK, _sC],
-  [() => ColumnDefinitionList, () => PartitionKeyList, () => ClusteringKeyList, () => StaticColumnList]
+  [() => ColumnDefinitionList, () => PartitionKeyList, () => ClusteringKeyList, () => StaticColumnList], 2
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_aQE]: [`ServiceQuotaExceededException`, 402], [_e]: _c, [_hE]: 402 },
@@ -500,22 +500,22 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var StaticColumn$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var TableSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
   [_kN, _tN, _rA],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_ke, _v],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -524,18 +524,18 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var TargetTrackingScalingPolicyConfiguration$: StaticStructureSchema = [3, n0, _TTSPC,
   0,
-  [_dSI, _sIC, _sOC, _tV],
-  [2, 1, 1, 1]
+  [_tV, _dSI, _sIC, _sOC],
+  [1, 2, 1, 1], 1
 ];
 export var TimeToLive$: StaticStructureSchema = [3, n0, _TTL,
   0,
   [_s],
-  [0]
+  [0], 1
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _t],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -545,22 +545,22 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateKeyspaceRequest$: StaticStructureSchema = [3, n0, _UKR,
   0,
   [_kN, _rS, _cST],
-  [0, () => ReplicationSpecification$, () => ClientSideTimestamps$]
+  [0, () => ReplicationSpecification$, () => ClientSideTimestamps$], 2
 ];
 export var UpdateKeyspaceResponse$: StaticStructureSchema = [3, n0, _UKRp,
   0,
   [_rA],
-  [0]
+  [0], 1
 ];
 export var UpdateTableRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
   [_kN, _tN, _aCd, _cS, _eS, _pITR, _tt, _dTTL, _cST, _aSS, _rSe, _cSd],
-  [0, 0, () => ColumnDefinitionList, () => CapacitySpecification$, () => EncryptionSpecification$, () => PointInTimeRecovery$, () => TimeToLive$, 1, () => ClientSideTimestamps$, () => AutoScalingSpecification$, () => ReplicaSpecificationList, () => CdcSpecification$]
+  [0, 0, () => ColumnDefinitionList, () => CapacitySpecification$, () => EncryptionSpecification$, () => PointInTimeRecovery$, () => TimeToLive$, 1, () => ClientSideTimestamps$, () => AutoScalingSpecification$, () => ReplicaSpecificationList, () => CdcSpecification$], 2
 ];
 export var UpdateTableResponse$: StaticStructureSchema = [3, n0, _UTRp,
   0,
   [_rA],
-  [0]
+  [0], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_aQE]: [`ValidationException`, 400], [_e]: _c },

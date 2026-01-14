@@ -341,7 +341,7 @@ export var BatchGetCollectionResponse$: StaticStructureSchema = [3, n0, _BGCRa,
 export var BatchGetEffectiveLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _BGELPR,
   0,
   [_rI],
-  [() => LifecyclePolicyResourceIdentifiers]
+  [() => LifecyclePolicyResourceIdentifiers], 1
 ];
 export var BatchGetEffectiveLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _BGELPRa,
   0,
@@ -351,7 +351,7 @@ export var BatchGetEffectiveLifecyclePolicyResponse$: StaticStructureSchema = [3
 export var BatchGetLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _BGLPR,
   0,
   [_id],
-  [() => LifecyclePolicyIdentifiers]
+  [() => LifecyclePolicyIdentifiers], 1
 ];
 export var BatchGetLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _BGLPRa,
   0,
@@ -361,7 +361,7 @@ export var BatchGetLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _BG
 export var BatchGetVpcEndpointRequest$: StaticStructureSchema = [3, n0, _BGVER,
   0,
   [_i],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchGetVpcEndpointResponse$: StaticStructureSchema = [3, n0, _BGVERa,
   0,
@@ -401,8 +401,8 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAccessPolicyRequest$: StaticStructureSchema = [3, n0, _CAPR,
   0,
-  [_t, _n, _d, _p, _cT],
-  [0, 0, 0, 0, [0, 4]]
+  [_t, _n, _p, _d, _cT],
+  [0, 0, 0, 0, [0, 4]], 3
 ];
 export var CreateAccessPolicyResponse$: StaticStructureSchema = [3, n0, _CAPRr,
   0,
@@ -417,7 +417,7 @@ export var CreateCollectionDetail$: StaticStructureSchema = [3, n0, _CCD,
 export var CreateCollectionRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_n, _t, _d, _ta, _sR, _vO, _cT],
-  [0, 0, 0, () => Tags, 0, () => VectorOptions$, [0, 4]]
+  [0, 0, 0, () => Tags, 0, () => VectorOptions$, [0, 4]], 1
 ];
 export var CreateCollectionResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -427,12 +427,12 @@ export var CreateCollectionResponse$: StaticStructureSchema = [3, n0, _CCRr,
 export var CreateIamIdentityCenterConfigOptions$: StaticStructureSchema = [3, n0, _CIICCO,
   0,
   [_iA, _uA, _gA],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var CreateIndexRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
   [_id_, _iN, _iS],
-  [0, 0, 15]
+  [0, 0, 15], 2
 ];
 export var CreateIndexResponse$: StaticStructureSchema = [3, n0, _CIRr,
   0,
@@ -441,8 +441,8 @@ export var CreateIndexResponse$: StaticStructureSchema = [3, n0, _CIRr,
 ];
 export var CreateLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _CLPR,
   0,
-  [_t, _n, _d, _p, _cT],
-  [0, 0, 0, 0, [0, 4]]
+  [_t, _n, _p, _d, _cT],
+  [0, 0, 0, 0, [0, 4]], 3
 ];
 export var CreateLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _CLPRr,
   0,
@@ -452,7 +452,7 @@ export var CreateLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _CLPR
 export var CreateSecurityConfigRequest$: StaticStructureSchema = [3, n0, _CSCR,
   0,
   [_t, _n, _d, _sO, _iICO, _iFO, _cT],
-  [0, 0, 0, () => SamlConfigOptions$, () => CreateIamIdentityCenterConfigOptions$, () => IamFederationConfigOptions$, [0, 4]]
+  [0, 0, 0, () => SamlConfigOptions$, () => CreateIamIdentityCenterConfigOptions$, () => IamFederationConfigOptions$, [0, 4]], 2
 ];
 export var CreateSecurityConfigResponse$: StaticStructureSchema = [3, n0, _CSCRr,
   0,
@@ -461,8 +461,8 @@ export var CreateSecurityConfigResponse$: StaticStructureSchema = [3, n0, _CSCRr
 ];
 export var CreateSecurityPolicyRequest$: StaticStructureSchema = [3, n0, _CSPR,
   0,
-  [_t, _n, _d, _p, _cT],
-  [0, 0, 0, 0, [0, 4]]
+  [_t, _n, _p, _d, _cT],
+  [0, 0, 0, 0, [0, 4]], 3
 ];
 export var CreateSecurityPolicyResponse$: StaticStructureSchema = [3, n0, _CSPRr,
   0,
@@ -477,7 +477,7 @@ export var CreateVpcEndpointDetail$: StaticStructureSchema = [3, n0, _CVED,
 export var CreateVpcEndpointRequest$: StaticStructureSchema = [3, n0, _CVER,
   0,
   [_n, _vI, _sI, _sGI, _cT],
-  [0, 0, 64 | 0, 64 | 0, [0, 4]]
+  [0, 0, 64 | 0, 64 | 0, [0, 4]], 3
 ];
 export var CreateVpcEndpointResponse$: StaticStructureSchema = [3, n0, _CVERr,
   0,
@@ -487,7 +487,7 @@ export var CreateVpcEndpointResponse$: StaticStructureSchema = [3, n0, _CVERr,
 export var DeleteAccessPolicyRequest$: StaticStructureSchema = [3, n0, _DAPR,
   0,
   [_t, _n, _cT],
-  [0, 0, [0, 4]]
+  [0, 0, [0, 4]], 2
 ];
 export var DeleteAccessPolicyResponse$: StaticStructureSchema = [3, n0, _DAPRe,
   0,
@@ -502,7 +502,7 @@ export var DeleteCollectionDetail$: StaticStructureSchema = [3, n0, _DCD,
 export var DeleteCollectionRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_id_, _cT],
-  [0, [0, 4]]
+  [0, [0, 4]], 1
 ];
 export var DeleteCollectionResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -512,7 +512,7 @@ export var DeleteCollectionResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteIndexRequest$: StaticStructureSchema = [3, n0, _DIR,
   0,
   [_id_, _iN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteIndexResponse$: StaticStructureSchema = [3, n0, _DIRe,
   0,
@@ -522,7 +522,7 @@ export var DeleteIndexResponse$: StaticStructureSchema = [3, n0, _DIRe,
 export var DeleteLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _DLPR,
   0,
   [_t, _n, _cT],
-  [0, 0, [0, 4]]
+  [0, 0, [0, 4]], 2
 ];
 export var DeleteLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _DLPRe,
   0,
@@ -532,7 +532,7 @@ export var DeleteLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _DLPR
 export var DeleteSecurityConfigRequest$: StaticStructureSchema = [3, n0, _DSCR,
   0,
   [_id_, _cT],
-  [0, [0, 4]]
+  [0, [0, 4]], 1
 ];
 export var DeleteSecurityConfigResponse$: StaticStructureSchema = [3, n0, _DSCRe,
   0,
@@ -542,7 +542,7 @@ export var DeleteSecurityConfigResponse$: StaticStructureSchema = [3, n0, _DSCRe
 export var DeleteSecurityPolicyRequest$: StaticStructureSchema = [3, n0, _DSPR,
   0,
   [_t, _n, _cT],
-  [0, 0, [0, 4]]
+  [0, 0, [0, 4]], 2
 ];
 export var DeleteSecurityPolicyResponse$: StaticStructureSchema = [3, n0, _DSPRe,
   0,
@@ -557,7 +557,7 @@ export var DeleteVpcEndpointDetail$: StaticStructureSchema = [3, n0, _DVED,
 export var DeleteVpcEndpointRequest$: StaticStructureSchema = [3, n0, _DVER,
   0,
   [_id_, _cT],
-  [0, [0, 4]]
+  [0, [0, 4]], 1
 ];
 export var DeleteVpcEndpointResponse$: StaticStructureSchema = [3, n0, _DVERe,
   0,
@@ -582,7 +582,7 @@ export var FipsEndpoints$: StaticStructureSchema = [3, n0, _FE,
 export var GetAccessPolicyRequest$: StaticStructureSchema = [3, n0, _GAPR,
   0,
   [_t, _n],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetAccessPolicyResponse$: StaticStructureSchema = [3, n0, _GAPRe,
   0,
@@ -602,7 +602,7 @@ export var GetAccountSettingsResponse$: StaticStructureSchema = [3, n0, _GASRe,
 export var GetIndexRequest$: StaticStructureSchema = [3, n0, _GIR,
   0,
   [_id_, _iN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetIndexResponse$: StaticStructureSchema = [3, n0, _GIRe,
   0,
@@ -622,7 +622,7 @@ export var GetPoliciesStatsResponse$: StaticStructureSchema = [3, n0, _GPSRe,
 export var GetSecurityConfigRequest$: StaticStructureSchema = [3, n0, _GSCR,
   0,
   [_id_],
-  [0]
+  [0], 1
 ];
 export var GetSecurityConfigResponse$: StaticStructureSchema = [3, n0, _GSCRe,
   0,
@@ -632,7 +632,7 @@ export var GetSecurityConfigResponse$: StaticStructureSchema = [3, n0, _GSCRe,
 export var GetSecurityPolicyRequest$: StaticStructureSchema = [3, n0, _GSPR,
   0,
   [_t, _n],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetSecurityPolicyResponse$: StaticStructureSchema = [3, n0, _GSPRe,
   0,
@@ -668,12 +668,12 @@ export var LifecyclePolicyErrorDetail$: StaticStructureSchema = [3, n0, _LPED,
 export var LifecyclePolicyIdentifier$: StaticStructureSchema = [3, n0, _LPI,
   0,
   [_t, _n],
-  [0, 0]
+  [0, 0], 2
 ];
 export var LifecyclePolicyResourceIdentifier$: StaticStructureSchema = [3, n0, _LPRI,
   0,
   [_t, _r],
-  [0, 0]
+  [0, 0], 2
 ];
 export var LifecyclePolicyStats$: StaticStructureSchema = [3, n0, _LPS,
   0,
@@ -688,7 +688,7 @@ export var LifecyclePolicySummary$: StaticStructureSchema = [3, n0, _LPSi,
 export var ListAccessPoliciesRequest$: StaticStructureSchema = [3, n0, _LAPR,
   0,
   [_t, _r, _nT, _mR],
-  [0, 64 | 0, 0, 1]
+  [0, 64 | 0, 0, 1], 1
 ];
 export var ListAccessPoliciesResponse$: StaticStructureSchema = [3, n0, _LAPRi,
   0,
@@ -708,7 +708,7 @@ export var ListCollectionsResponse$: StaticStructureSchema = [3, n0, _LCRi,
 export var ListLifecyclePoliciesRequest$: StaticStructureSchema = [3, n0, _LLPR,
   0,
   [_t, _re, _nT, _mR],
-  [0, 64 | 0, 0, 1]
+  [0, 64 | 0, 0, 1], 1
 ];
 export var ListLifecyclePoliciesResponse$: StaticStructureSchema = [3, n0, _LLPRi,
   0,
@@ -718,7 +718,7 @@ export var ListLifecyclePoliciesResponse$: StaticStructureSchema = [3, n0, _LLPR
 export var ListSecurityConfigsRequest$: StaticStructureSchema = [3, n0, _LSCR,
   0,
   [_t, _nT, _mR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListSecurityConfigsResponse$: StaticStructureSchema = [3, n0, _LSCRi,
   0,
@@ -728,7 +728,7 @@ export var ListSecurityConfigsResponse$: StaticStructureSchema = [3, n0, _LSCRi,
 export var ListSecurityPoliciesRequest$: StaticStructureSchema = [3, n0, _LSPR,
   0,
   [_t, _r, _nT, _mR],
-  [0, 64 | 0, 0, 1]
+  [0, 64 | 0, 0, 1], 1
 ];
 export var ListSecurityPoliciesResponse$: StaticStructureSchema = [3, n0, _LSPRi,
   0,
@@ -738,7 +738,7 @@ export var ListSecurityPoliciesResponse$: StaticStructureSchema = [3, n0, _LSPRi
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -758,7 +758,7 @@ export var ListVpcEndpointsResponse$: StaticStructureSchema = [3, n0, _LVERi,
 export var OcuLimitExceededException$: StaticErrorSchema = [-3, n0, _OLEE,
   { [_e]: _c, [_hE]: 402 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(OcuLimitExceededException$, OcuLimitExceededException);
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
@@ -770,7 +770,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var SamlConfigOptions$: StaticStructureSchema = [3, n0, _SCO,
   0,
   [_me, _uA, _gA, _oSSEI, _sT],
-  [0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 1], 1
 ];
 export var SecurityConfigDetail$: StaticStructureSchema = [3, n0, _SCD,
   0,
@@ -804,19 +804,19 @@ export var SecurityPolicySummary$: StaticStructureSchema = [3, n0, _SPSe,
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
-  [_m, _rIe, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0]
+  [_m, _sC, _rIe, _rT, _qC],
+  [0, 0, 0, 0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _v],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _ta],
-  [0, () => Tags]
+  [0, () => Tags], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -826,7 +826,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -836,7 +836,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateAccessPolicyRequest$: StaticStructureSchema = [3, n0, _UAPR,
   0,
   [_t, _n, _pV, _d, _p, _cT],
-  [0, 0, 0, 0, 0, [0, 4]]
+  [0, 0, 0, 0, 0, [0, 4]], 3
 ];
 export var UpdateAccessPolicyResponse$: StaticStructureSchema = [3, n0, _UAPRp,
   0,
@@ -861,7 +861,7 @@ export var UpdateCollectionDetail$: StaticStructureSchema = [3, n0, _UCD,
 export var UpdateCollectionRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_id_, _d, _cT],
-  [0, 0, [0, 4]]
+  [0, 0, [0, 4]], 1
 ];
 export var UpdateCollectionResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -876,7 +876,7 @@ export var UpdateIamIdentityCenterConfigOptions$: StaticStructureSchema = [3, n0
 export var UpdateIndexRequest$: StaticStructureSchema = [3, n0, _UIR,
   0,
   [_id_, _iN, _iS],
-  [0, 0, 15]
+  [0, 0, 15], 2
 ];
 export var UpdateIndexResponse$: StaticStructureSchema = [3, n0, _UIRp,
   0,
@@ -886,7 +886,7 @@ export var UpdateIndexResponse$: StaticStructureSchema = [3, n0, _UIRp,
 export var UpdateLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _ULPR,
   0,
   [_t, _n, _pV, _d, _p, _cT],
-  [0, 0, 0, 0, 0, [0, 4]]
+  [0, 0, 0, 0, 0, [0, 4]], 3
 ];
 export var UpdateLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _ULPRp,
   0,
@@ -896,7 +896,7 @@ export var UpdateLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _ULPR
 export var UpdateSecurityConfigRequest$: StaticStructureSchema = [3, n0, _USCR,
   0,
   [_id_, _cV, _d, _sO, _iICOU, _iFO, _cT],
-  [0, 0, 0, () => SamlConfigOptions$, () => UpdateIamIdentityCenterConfigOptions$, () => IamFederationConfigOptions$, [0, 4]]
+  [0, 0, 0, () => SamlConfigOptions$, () => UpdateIamIdentityCenterConfigOptions$, () => IamFederationConfigOptions$, [0, 4]], 2
 ];
 export var UpdateSecurityConfigResponse$: StaticStructureSchema = [3, n0, _USCRp,
   0,
@@ -906,7 +906,7 @@ export var UpdateSecurityConfigResponse$: StaticStructureSchema = [3, n0, _USCRp
 export var UpdateSecurityPolicyRequest$: StaticStructureSchema = [3, n0, _USPR,
   0,
   [_t, _n, _pV, _d, _p, _cT],
-  [0, 0, 0, 0, 0, [0, 4]]
+  [0, 0, 0, 0, 0, [0, 4]], 3
 ];
 export var UpdateSecurityPolicyResponse$: StaticStructureSchema = [3, n0, _USPRp,
   0,
@@ -921,7 +921,7 @@ export var UpdateVpcEndpointDetail$: StaticStructureSchema = [3, n0, _UVED,
 export var UpdateVpcEndpointRequest$: StaticStructureSchema = [3, n0, _UVER,
   0,
   [_id_, _aSI, _rSI, _aSGI, _rSGI, _cT],
-  [0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, [0, 4]]
+  [0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, [0, 4]], 1
 ];
 export var UpdateVpcEndpointResponse$: StaticStructureSchema = [3, n0, _UVERp,
   0,
@@ -937,7 +937,7 @@ TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VectorOptions$: StaticStructureSchema = [3, n0, _VO,
   0,
   [_SVA],
-  [0]
+  [0], 1
 ];
 export var VpcEndpointDetail$: StaticStructureSchema = [3, n0, _VED,
   0,

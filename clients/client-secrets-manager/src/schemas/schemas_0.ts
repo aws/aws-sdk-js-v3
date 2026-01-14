@@ -238,7 +238,7 @@ export var BatchGetSecretValueResponse$: StaticStructureSchema = [3, n0, _BGSVRa
 export var CancelRotateSecretRequest$: StaticStructureSchema = [3, n0, _CRSR,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var CancelRotateSecretResponse$: StaticStructureSchema = [3, n0, _CRSRa,
   0,
@@ -248,7 +248,7 @@ export var CancelRotateSecretResponse$: StaticStructureSchema = [3, n0, _CRSRa,
 export var CreateSecretRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
   [_N, _CRT, _D, _KKI, _SB, _SS, _T, _ARR, _FORS, _Ty],
-  [0, [0, 4], 0, 0, [() => SecretBinaryType, 0], [() => SecretStringType, 0], () => TagListType, () => AddReplicaRegionListType, 2, 0]
+  [0, [0, 4], 0, 0, [() => SecretBinaryType, 0], [() => SecretStringType, 0], () => TagListType, () => AddReplicaRegionListType, 2, 0], 1
 ];
 export var CreateSecretResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -264,7 +264,7 @@ TypeRegistry.for(n0).registerError(DecryptionFailure$, DecryptionFailure);
 export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe,
   0,
@@ -274,7 +274,7 @@ export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe
 export var DeleteSecretRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_SI, _RWID, _FDWR],
-  [0, 1, 2]
+  [0, 1, 2], 1
 ];
 export var DeleteSecretResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
@@ -284,7 +284,7 @@ export var DeleteSecretResponse$: StaticStructureSchema = [3, n0, _DSRe,
 export var DescribeSecretRequest$: StaticStructureSchema = [3, n0, _DSRes,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var DescribeSecretResponse$: StaticStructureSchema = [3, n0, _DSResc,
   0,
@@ -320,7 +320,7 @@ export var GetRandomPasswordResponse$: StaticStructureSchema = [3, n0, _GRPRe,
 export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPRet,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRete,
   0,
@@ -330,7 +330,7 @@ export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRete,
 export var GetSecretValueRequest$: StaticStructureSchema = [3, n0, _GSVR,
   0,
   [_SI, _VI, _VS],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var GetSecretValueResponse$: StaticStructureSchema = [3, n0, _GSVRe,
   0,
@@ -380,7 +380,7 @@ export var ListSecretsResponse$: StaticStructureSchema = [3, n0, _LSRi,
 export var ListSecretVersionIdsRequest$: StaticStructureSchema = [3, n0, _LSVIR,
   0,
   [_SI, _MR, _NT, _ID],
-  [0, 1, 0, 2]
+  [0, 1, 0, 2], 1
 ];
 export var ListSecretVersionIdsResponse$: StaticStructureSchema = [3, n0, _LSVIRi,
   0,
@@ -408,7 +408,7 @@ TypeRegistry.for(n0).registerError(PublicPolicyException$, PublicPolicyException
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
   [_SI, _RPe, _BPP],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   0,
@@ -418,7 +418,7 @@ export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
 export var PutSecretValueRequest$: StaticStructureSchema = [3, n0, _PSVR,
   0,
   [_SI, _CRT, _SB, _SS, _VSe, _RT],
-  [0, [0, 4], [() => SecretBinaryType, 0], [() => SecretStringType, 0], 64 | 0, [() => RotationTokenType, 0]]
+  [0, [0, 4], [() => SecretBinaryType, 0], [() => SecretStringType, 0], 64 | 0, [() => RotationTokenType, 0]], 1
 ];
 export var PutSecretValueResponse$: StaticStructureSchema = [3, n0, _PSVRu,
   0,
@@ -428,7 +428,7 @@ export var PutSecretValueResponse$: StaticStructureSchema = [3, n0, _PSVRu,
 export var RemoveRegionsFromReplicationRequest$: StaticStructureSchema = [3, n0, _RRFRR,
   0,
   [_SI, _RRR],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var RemoveRegionsFromReplicationResponse$: StaticStructureSchema = [3, n0, _RRFRRe,
   0,
@@ -443,7 +443,7 @@ export var ReplicaRegionType$: StaticStructureSchema = [3, n0, _RRT,
 export var ReplicateSecretToRegionsRequest$: StaticStructureSchema = [3, n0, _RSTRR,
   0,
   [_SI, _ARR, _FORS],
-  [0, () => AddReplicaRegionListType, 2]
+  [0, () => AddReplicaRegionListType, 2], 2
 ];
 export var ReplicateSecretToRegionsResponse$: StaticStructureSchema = [3, n0, _RSTRRe,
   0,
@@ -470,7 +470,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var RestoreSecretRequest$: StaticStructureSchema = [3, n0, _RSR,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var RestoreSecretResponse$: StaticStructureSchema = [3, n0, _RSRe,
   0,
@@ -480,7 +480,7 @@ export var RestoreSecretResponse$: StaticStructureSchema = [3, n0, _RSRe,
 export var RotateSecretRequest$: StaticStructureSchema = [3, n0, _RSRo,
   0,
   [_SI, _CRT, _RLARN, _RR, _ESRM, _ESRRA, _RI],
-  [0, [0, 4], 0, () => RotationRulesType$, () => ExternalSecretRotationMetadataType, 0, 2]
+  [0, [0, 4], 0, () => RotationRulesType$, () => ExternalSecretRotationMetadataType, 0, 2], 1
 ];
 export var RotateSecretResponse$: StaticStructureSchema = [3, n0, _RSRot,
   0,
@@ -510,7 +510,7 @@ export var SecretVersionsListEntry$: StaticStructureSchema = [3, n0, _SVLE,
 export var StopReplicationToReplicaRequest$: StaticStructureSchema = [3, n0, _SRTRR,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var StopReplicationToReplicaResponse$: StaticStructureSchema = [3, n0, _SRTRRt,
   0,
@@ -525,17 +525,17 @@ export var Tag$: StaticStructureSchema = [3, n0, _Ta,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_SI, _T],
-  [0, () => TagListType]
+  [0, () => TagListType], 2
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_SI, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UpdateSecretRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
   [_SI, _CRT, _D, _KKI, _SB, _SS, _Ty],
-  [0, [0, 4], 0, 0, [() => SecretBinaryType, 0], [() => SecretStringType, 0], 0]
+  [0, [0, 4], 0, 0, [() => SecretBinaryType, 0], [() => SecretStringType, 0], 0], 1
 ];
 export var UpdateSecretResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
@@ -545,7 +545,7 @@ export var UpdateSecretResponse$: StaticStructureSchema = [3, n0, _USRp,
 export var UpdateSecretVersionStageRequest$: StaticStructureSchema = [3, n0, _USVSR,
   0,
   [_SI, _VS, _RFVI, _MTVI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var UpdateSecretVersionStageResponse$: StaticStructureSchema = [3, n0, _USVSRp,
   0,
@@ -554,8 +554,8 @@ export var UpdateSecretVersionStageResponse$: StaticStructureSchema = [3, n0, _U
 ];
 export var ValidateResourcePolicyRequest$: StaticStructureSchema = [3, n0, _VRPR,
   0,
-  [_SI, _RPe],
-  [0, 0]
+  [_RPe, _SI],
+  [0, 0], 1
 ];
 export var ValidateResourcePolicyResponse$: StaticStructureSchema = [3, n0, _VRPRa,
   0,

@@ -264,7 +264,7 @@ const _rSA = "replicationSetArns";
 const _rT = "resourceType";
 const _rTe = "resolvedTime";
 const _re = "resource";
-const _s = "summary";
+const _s = "status";
 const _sA = "stackArn";
 const _sAs = "ssmAutomation";
 const _sB = "sortBy";
@@ -282,7 +282,7 @@ const _sV = "stringValues";
 const _se = "server";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.ssmincidents";
 const _so = "source";
-const _st = "status";
+const _su = "summary";
 const _t = "tags";
 const _tA = "targetAccount";
 const _tAr = "triggerArn";
@@ -322,79 +322,79 @@ import { SSMIncidentsServiceException } from "../models/SSMIncidentsServiceExcep
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AddRegionAction$: StaticStructureSchema = [3, n0, _ARA,
   0,
   [_rN, _sKKI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var BatchGetIncidentFindingsError$: StaticStructureSchema = [3, n0, _BGIFE,
   0,
   [_fI, _co, _m],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var BatchGetIncidentFindingsInput$: StaticStructureSchema = [3, n0, _BGIFI,
   0,
   [_iRA, _fIi],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var BatchGetIncidentFindingsOutput$: StaticStructureSchema = [3, n0, _BGIFO,
   0,
   [_f, _er],
-  [() => FindingList, () => BatchGetIncidentFindingsErrorList]
+  [() => FindingList, () => BatchGetIncidentFindingsErrorList], 2
 ];
 export var CloudFormationStackUpdate$: StaticStructureSchema = [3, n0, _CFSU,
   0,
-  [_sT, _eT, _sA],
-  [4, 4, 0]
+  [_sT, _sA, _eT],
+  [4, 0, 4], 2
 ];
 export var CodeDeployDeployment$: StaticStructureSchema = [3, n0, _CDD,
   0,
-  [_sT, _eT, _dGA, _dI],
-  [4, 4, 0, 0]
+  [_sT, _dGA, _dI, _eT],
+  [4, 0, 0, 4], 3
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m, _rI, _rT, _rA],
-  [0, 0, 0, 4]
+  [0, 0, 0, 4], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateReplicationSetInput$: StaticStructureSchema = [3, n0, _CRSI,
   0,
   [_r, _cT, _t],
-  [() => RegionMapInput, [0, 4], 128 | 0]
+  [() => RegionMapInput, [0, 4], 128 | 0], 1
 ];
 export var CreateReplicationSetOutput$: StaticStructureSchema = [3, n0, _CRSO,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var CreateResponsePlanInput$: StaticStructureSchema = [3, n0, _CRPI,
   0,
-  [_cT, _n, _dN, _iT, _cC, _en, _ac, _t, _i],
-  [[0, 4], 0, 0, () => IncidentTemplate$, () => ChatChannel$, 64 | 0, () => ActionsList, 128 | 0, () => Integrations]
+  [_n, _iT, _cT, _dN, _cC, _en, _ac, _t, _i],
+  [0, () => IncidentTemplate$, [0, 4], 0, () => ChatChannel$, 64 | 0, () => ActionsList, 128 | 0, () => Integrations], 2
 ];
 export var CreateResponsePlanOutput$: StaticStructureSchema = [3, n0, _CRPO,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var CreateTimelineEventInput$: StaticStructureSchema = [3, n0, _CTEI,
   0,
-  [_cT, _iRA, _eTv, _eTve, _eD, _eR],
-  [[0, 4], 0, 4, 0, 0, () => EventReferenceList]
+  [_iRA, _eTv, _eTve, _eD, _cT, _eR],
+  [0, 4, 0, 0, [0, 4], () => EventReferenceList], 4
 ];
 export var CreateTimelineEventOutput$: StaticStructureSchema = [3, n0, _CTEO,
   0,
   [_iRA, _eI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteIncidentRecordInput$: StaticStructureSchema = [3, n0, _DIRI,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DeleteIncidentRecordOutput$: StaticStructureSchema = [3, n0, _DIRO,
   0,
@@ -404,12 +404,12 @@ export var DeleteIncidentRecordOutput$: StaticStructureSchema = [3, n0, _DIRO,
 export var DeleteRegionAction$: StaticStructureSchema = [3, n0, _DRA,
   0,
   [_rN],
-  [0]
+  [0], 1
 ];
 export var DeleteReplicationSetInput$: StaticStructureSchema = [3, n0, _DRSI,
   0,
   [_a],
-  [[0, { [_hQ]: _a }]]
+  [[0, { [_hQ]: _a }]], 1
 ];
 export var DeleteReplicationSetOutput$: StaticStructureSchema = [3, n0, _DRSO,
   0,
@@ -419,7 +419,7 @@ export var DeleteReplicationSetOutput$: StaticStructureSchema = [3, n0, _DRSO,
 export var DeleteResourcePolicyInput$: StaticStructureSchema = [3, n0, _DRPI,
   0,
   [_rAe, _pI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteResourcePolicyOutput$: StaticStructureSchema = [3, n0, _DRPO,
   0,
@@ -429,7 +429,7 @@ export var DeleteResourcePolicyOutput$: StaticStructureSchema = [3, n0, _DRPO,
 export var DeleteResponsePlanInput$: StaticStructureSchema = [3, n0, _DRPIe,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DeleteResponsePlanOutput$: StaticStructureSchema = [3, n0, _DRPOe,
   0,
@@ -439,7 +439,7 @@ export var DeleteResponsePlanOutput$: StaticStructureSchema = [3, n0, _DRPOe,
 export var DeleteTimelineEventInput$: StaticStructureSchema = [3, n0, _DTEI,
   0,
   [_iRA, _eI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteTimelineEventOutput$: StaticStructureSchema = [3, n0, _DTEO,
   0,
@@ -454,113 +454,113 @@ export var EmptyChatChannel$: StaticStructureSchema = [3, n0, _ECC,
 export var EventSummary$: StaticStructureSchema = [3, n0, _ES,
   0,
   [_iRA, _eI, _eTv, _eUT, _eTve, _eR],
-  [0, 0, 4, 4, 0, () => EventReferenceList]
+  [0, 0, 4, 4, 0, () => EventReferenceList], 5
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
   [_k, _con],
-  [0, () => Condition$]
+  [0, () => Condition$], 2
 ];
 export var Finding$: StaticStructureSchema = [3, n0, _Fi,
   0,
   [_id, _cTr, _lMT, _d],
-  [0, 4, 4, () => FindingDetails$]
+  [0, 4, 4, () => FindingDetails$], 3
 ];
 export var FindingSummary$: StaticStructureSchema = [3, n0, _FS,
   0,
   [_id, _lMT],
-  [0, 4]
+  [0, 4], 2
 ];
 export var GetIncidentRecordInput$: StaticStructureSchema = [3, n0, _GIRI,
   0,
   [_a],
-  [[0, { [_hQ]: _a }]]
+  [[0, { [_hQ]: _a }]], 1
 ];
 export var GetIncidentRecordOutput$: StaticStructureSchema = [3, n0, _GIRO,
   0,
   [_iR],
-  [() => IncidentRecord$]
+  [() => IncidentRecord$], 1
 ];
 export var GetReplicationSetInput$: StaticStructureSchema = [3, n0, _GRSI,
   0,
   [_a],
-  [[0, { [_hQ]: _a }]]
+  [[0, { [_hQ]: _a }]], 1
 ];
 export var GetReplicationSetOutput$: StaticStructureSchema = [3, n0, _GRSO,
   0,
   [_rS],
-  [() => ReplicationSet$]
+  [() => ReplicationSet$], 1
 ];
 export var GetResourcePoliciesInput$: StaticStructureSchema = [3, n0, _GRPI,
   0,
   [_rAe, _mR, _nT],
-  [[0, { [_hQ]: _rAe }], 1, 0]
+  [[0, { [_hQ]: _rAe }], 1, 0], 1
 ];
 export var GetResourcePoliciesOutput$: StaticStructureSchema = [3, n0, _GRPO,
   0,
   [_rP, _nT],
-  [() => ResourcePolicyList, 0]
+  [() => ResourcePolicyList, 0], 1
 ];
 export var GetResponsePlanInput$: StaticStructureSchema = [3, n0, _GRPIe,
   0,
   [_a],
-  [[0, { [_hQ]: _a }]]
+  [[0, { [_hQ]: _a }]], 1
 ];
 export var GetResponsePlanOutput$: StaticStructureSchema = [3, n0, _GRPOe,
   0,
-  [_a, _n, _dN, _iT, _cC, _en, _ac, _i],
-  [0, 0, 0, () => IncidentTemplate$, () => ChatChannel$, 64 | 0, () => ActionsList, () => Integrations]
+  [_a, _n, _iT, _dN, _cC, _en, _ac, _i],
+  [0, 0, () => IncidentTemplate$, 0, () => ChatChannel$, 64 | 0, () => ActionsList, () => Integrations], 3
 ];
 export var GetTimelineEventInput$: StaticStructureSchema = [3, n0, _GTEI,
   0,
   [_iRA, _eI],
-  [[0, { [_hQ]: _iRA }], [0, { [_hQ]: _eI }]]
+  [[0, { [_hQ]: _iRA }], [0, { [_hQ]: _eI }]], 2
 ];
 export var GetTimelineEventOutput$: StaticStructureSchema = [3, n0, _GTEO,
   0,
   [_ev],
-  [() => TimelineEvent$]
+  [() => TimelineEvent$], 1
 ];
 export var IncidentRecord$: StaticStructureSchema = [3, n0, _IR,
   0,
-  [_a, _ti, _s, _st, _im, _cTr, _rTe, _lMT, _lMB, _aE, _iRS, _dS, _cC, _nTo],
-  [0, 0, 0, 0, 1, 4, 4, 4, 0, () => AutomationExecutionSet, () => IncidentRecordSource$, 0, () => ChatChannel$, () => NotificationTargetSet]
+  [_a, _ti, _s, _im, _cTr, _lMT, _lMB, _iRS, _dS, _su, _rTe, _aE, _cC, _nTo],
+  [0, 0, 0, 1, 4, 4, 0, () => IncidentRecordSource$, 0, 0, 4, () => AutomationExecutionSet, () => ChatChannel$, () => NotificationTargetSet], 9
 ];
 export var IncidentRecordSource$: StaticStructureSchema = [3, n0, _IRS,
   0,
-  [_cB, _iB, _rAe, _so],
-  [0, 0, 0, 0]
+  [_cB, _so, _iB, _rAe],
+  [0, 0, 0, 0], 2
 ];
 export var IncidentRecordSummary$: StaticStructureSchema = [3, n0, _IRSn,
   0,
-  [_a, _ti, _st, _im, _cTr, _rTe, _iRS],
-  [0, 0, 0, 1, 4, 4, () => IncidentRecordSource$]
+  [_a, _ti, _s, _im, _cTr, _iRS, _rTe],
+  [0, 0, 0, 1, 4, () => IncidentRecordSource$, 4], 6
 ];
 export var IncidentTemplate$: StaticStructureSchema = [3, n0, _IT,
   0,
-  [_ti, _im, _s, _dS, _nTo, _iTn],
-  [0, 1, 0, 0, () => NotificationTargetSet, 128 | 0]
+  [_ti, _im, _su, _dS, _nTo, _iTn],
+  [0, 1, 0, 0, () => NotificationTargetSet, 128 | 0], 2
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ItemIdentifier$: StaticStructureSchema = [3, n0, _II,
   0,
   [_v, _ty],
-  [() => ItemValue$, 0]
+  [() => ItemValue$, 0], 2
 ];
 export var ListIncidentFindingsInput$: StaticStructureSchema = [3, n0, _LIFI,
   0,
   [_iRA, _mR, _nT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListIncidentFindingsOutput$: StaticStructureSchema = [3, n0, _LIFO,
   0,
   [_f, _nT],
-  [() => FindingSummaryList, 0]
+  [() => FindingSummaryList, 0], 1
 ];
 export var ListIncidentRecordsInput$: StaticStructureSchema = [3, n0, _LIRI,
   0,
@@ -570,17 +570,17 @@ export var ListIncidentRecordsInput$: StaticStructureSchema = [3, n0, _LIRI,
 export var ListIncidentRecordsOutput$: StaticStructureSchema = [3, n0, _LIRO,
   0,
   [_iRSn, _nT],
-  [() => IncidentRecordSummaryList, 0]
+  [() => IncidentRecordSummaryList, 0], 1
 ];
 export var ListRelatedItemsInput$: StaticStructureSchema = [3, n0, _LRII,
   0,
   [_iRA, _mR, _nT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListRelatedItemsOutput$: StaticStructureSchema = [3, n0, _LRIO,
   0,
   [_rIe, _nT],
-  [() => RelatedItemList, 0]
+  [() => RelatedItemList, 0], 1
 ];
 export var ListReplicationSetsInput$: StaticStructureSchema = [3, n0, _LRSI,
   0,
@@ -590,7 +590,7 @@ export var ListReplicationSetsInput$: StaticStructureSchema = [3, n0, _LRSI,
 export var ListReplicationSetsOutput$: StaticStructureSchema = [3, n0, _LRSO,
   0,
   [_rSA, _nT],
-  [64 | 0, 0]
+  [64 | 0, 0], 1
 ];
 export var ListResponsePlansInput$: StaticStructureSchema = [3, n0, _LRPI,
   0,
@@ -600,57 +600,57 @@ export var ListResponsePlansInput$: StaticStructureSchema = [3, n0, _LRPI,
 export var ListResponsePlansOutput$: StaticStructureSchema = [3, n0, _LRPO,
   0,
   [_rPS, _nT],
-  [() => ResponsePlanSummaryList, 0]
+  [() => ResponsePlanSummaryList, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rAe],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
   [_t],
-  [128 | 0]
+  [128 | 0], 1
 ];
 export var ListTimelineEventsInput$: StaticStructureSchema = [3, n0, _LTEI,
   0,
   [_iRA, _fi, _sB, _sO, _mR, _nT],
-  [0, () => FilterList, 0, 0, 1, 0]
+  [0, () => FilterList, 0, 0, 1, 0], 1
 ];
 export var ListTimelineEventsOutput$: StaticStructureSchema = [3, n0, _LTEO,
   0,
   [_eS, _nT],
-  [() => EventSummaryList, 0]
+  [() => EventSummaryList, 0], 1
 ];
 export var PagerDutyConfiguration$: StaticStructureSchema = [3, n0, _PDC,
   0,
   [_n, _sI, _pDIC],
-  [0, 0, () => PagerDutyIncidentConfiguration$]
+  [0, 0, () => PagerDutyIncidentConfiguration$], 3
 ];
 export var PagerDutyIncidentConfiguration$: StaticStructureSchema = [3, n0, _PDIC,
   0,
   [_sIe],
-  [0]
+  [0], 1
 ];
 export var PagerDutyIncidentDetail$: StaticStructureSchema = [3, n0, _PDID,
   0,
   [_id, _aR, _sI],
-  [0, 2, 0]
+  [0, 2, 0], 1
 ];
 export var PutResourcePolicyInput$: StaticStructureSchema = [3, n0, _PRPI,
   0,
   [_rAe, _p],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutResourcePolicyOutput$: StaticStructureSchema = [3, n0, _PRPO,
   0,
   [_pI],
-  [0]
+  [0], 1
 ];
 export var RegionInfo$: StaticStructureSchema = [3, n0, _RI,
   0,
-  [_sKKI, _st, _sM, _sUDT],
-  [0, 0, 0, 4]
+  [_s, _sUDT, _sKKI, _sM],
+  [0, 4, 0, 0], 2
 ];
 export var RegionMapInputValue$: StaticStructureSchema = [3, n0, _RMIV,
   0,
@@ -660,54 +660,54 @@ export var RegionMapInputValue$: StaticStructureSchema = [3, n0, _RMIV,
 export var RelatedItem$: StaticStructureSchema = [3, n0, _RIe,
   0,
   [_ide, _ti, _gI],
-  [() => ItemIdentifier$, 0, 0]
+  [() => ItemIdentifier$, 0, 0], 1
 ];
 export var ReplicationSet$: StaticStructureSchema = [3, n0, _RS,
   0,
-  [_a, _rM, _st, _dP, _cTre, _cB, _lMT, _lMB],
-  [0, () => RegionInfoMap, 0, 2, 4, 0, 4, 0]
+  [_rM, _s, _dP, _cTre, _cB, _lMT, _lMB, _a],
+  [() => RegionInfoMap, 0, 2, 4, 0, 4, 0, 0], 7
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourcePolicy$: StaticStructureSchema = [3, n0, _RP,
   0,
   [_pD, _pI, _rRSR],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ResponsePlanSummary$: StaticStructureSchema = [3, n0, _RPS,
   0,
   [_a, _n, _dN],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0]
+  [_m, _sC, _qC, _rI, _rT],
+  [0, 0, 0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SsmAutomation$: StaticStructureSchema = [3, n0, _SA,
   0,
   [_rAo, _dNo, _dV, _tA, _pa, _dPy],
-  [0, 0, 0, 0, [2, n0, _SP, 0, 0, 64 | 0], () => DynamicSsmParameters]
+  [0, 0, 0, 0, [2, n0, _SP, 0, 0, 64 | 0], () => DynamicSsmParameters], 2
 ];
 export var StartIncidentInput$: StaticStructureSchema = [3, n0, _SII,
   0,
-  [_cT, _rPA, _ti, _im, _tD, _rIe],
-  [[0, 4], 0, 0, 1, () => TriggerDetails$, () => RelatedItemList]
+  [_rPA, _cT, _ti, _im, _tD, _rIe],
+  [0, [0, 4], 0, 1, () => TriggerDetails$, () => RelatedItemList], 1
 ];
 export var StartIncidentOutput$: StaticStructureSchema = [3, n0, _SIO,
   0,
   [_iRA],
-  [0]
+  [0], 1
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rAe, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -717,23 +717,23 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimelineEvent$: StaticStructureSchema = [3, n0, _TEi,
   0,
   [_iRA, _eI, _eTv, _eUT, _eTve, _eD, _eR],
-  [0, 0, 4, 4, 0, 0, () => EventReferenceList]
+  [0, 0, 4, 4, 0, 0, () => EventReferenceList], 6
 ];
 export var TriggerDetails$: StaticStructureSchema = [3, n0, _TD,
   0,
-  [_so, _tAr, _tim, _rD],
-  [0, 0, 4, 0]
+  [_so, _tim, _tAr, _rD],
+  [0, 4, 0, 0], 2
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -743,7 +743,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateDeletionProtectionInput$: StaticStructureSchema = [3, n0, _UDPI,
   0,
   [_a, _dP, _cT],
-  [0, 2, [0, 4]]
+  [0, 2, [0, 4]], 2
 ];
 export var UpdateDeletionProtectionOutput$: StaticStructureSchema = [3, n0, _UDPO,
   0,
@@ -752,8 +752,8 @@ export var UpdateDeletionProtectionOutput$: StaticStructureSchema = [3, n0, _UDP
 ];
 export var UpdateIncidentRecordInput$: StaticStructureSchema = [3, n0, _UIRI,
   0,
-  [_cT, _a, _ti, _s, _im, _st, _cC, _nTo],
-  [[0, 4], 0, 0, 0, 1, 0, () => ChatChannel$, () => NotificationTargetSet]
+  [_a, _cT, _ti, _su, _im, _s, _cC, _nTo],
+  [0, [0, 4], 0, 0, 1, 0, () => ChatChannel$, () => NotificationTargetSet], 1
 ];
 export var UpdateIncidentRecordOutput$: StaticStructureSchema = [3, n0, _UIRO,
   0,
@@ -762,8 +762,8 @@ export var UpdateIncidentRecordOutput$: StaticStructureSchema = [3, n0, _UIRO,
 ];
 export var UpdateRelatedItemsInput$: StaticStructureSchema = [3, n0, _URII,
   0,
-  [_cT, _iRA, _rIU],
-  [[0, 4], 0, () => RelatedItemsUpdate$]
+  [_iRA, _rIU, _cT],
+  [0, () => RelatedItemsUpdate$, [0, 4]], 2
 ];
 export var UpdateRelatedItemsOutput$: StaticStructureSchema = [3, n0, _URIO,
   0,
@@ -773,7 +773,7 @@ export var UpdateRelatedItemsOutput$: StaticStructureSchema = [3, n0, _URIO,
 export var UpdateReplicationSetInput$: StaticStructureSchema = [3, n0, _URSI,
   0,
   [_a, _ac, _cT],
-  [0, () => UpdateActionList, [0, 4]]
+  [0, () => UpdateActionList, [0, 4]], 2
 ];
 export var UpdateReplicationSetOutput$: StaticStructureSchema = [3, n0, _URSO,
   0,
@@ -782,8 +782,8 @@ export var UpdateReplicationSetOutput$: StaticStructureSchema = [3, n0, _URSO,
 ];
 export var UpdateResponsePlanInput$: StaticStructureSchema = [3, n0, _URPI,
   0,
-  [_cT, _a, _dN, _iTT, _iTI, _iTS, _iTDS, _iTNT, _cC, _en, _ac, _iTTn, _i],
-  [[0, 4], 0, 0, 0, 1, 0, 0, () => NotificationTargetSet, () => ChatChannel$, 64 | 0, () => ActionsList, 128 | 0, () => Integrations]
+  [_a, _cT, _dN, _iTT, _iTI, _iTS, _iTDS, _iTNT, _cC, _en, _ac, _iTTn, _i],
+  [0, [0, 4], 0, 0, 1, 0, 0, () => NotificationTargetSet, () => ChatChannel$, 64 | 0, () => ActionsList, 128 | 0, () => Integrations], 1
 ];
 export var UpdateResponsePlanOutput$: StaticStructureSchema = [3, n0, _URPO,
   0,
@@ -792,8 +792,8 @@ export var UpdateResponsePlanOutput$: StaticStructureSchema = [3, n0, _URPO,
 ];
 export var UpdateTimelineEventInput$: StaticStructureSchema = [3, n0, _UTEI,
   0,
-  [_cT, _iRA, _eI, _eTv, _eTve, _eD, _eR],
-  [[0, 4], 0, 0, 4, 0, 0, () => EventReferenceList]
+  [_iRA, _eI, _cT, _eTv, _eTve, _eD, _eR],
+  [0, 0, [0, 4], 4, 0, 0, () => EventReferenceList], 2
 ];
 export var UpdateTimelineEventOutput$: StaticStructureSchema = [3, n0, _UTEO,
   0,
@@ -803,7 +803,7 @@ export var UpdateTimelineEventOutput$: StaticStructureSchema = [3, n0, _UTEO,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var SSMIncidentsServiceException$: StaticErrorSchema = [-3, _sm, "SSMIncidentsServiceException", 0, [], []];

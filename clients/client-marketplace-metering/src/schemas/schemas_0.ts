@@ -98,7 +98,7 @@ import { MarketplaceMeteringServiceException } from "../models/MarketplaceMeteri
 export var BatchMeterUsageRequest$: StaticStructureSchema = [3, n0, _BMUR,
   0,
   [_UR, _PC],
-  [() => UsageRecordList, 0]
+  [() => UsageRecordList, 0], 2
 ];
 export var BatchMeterUsageResult$: StaticStructureSchema = [3, n0, _BMURa,
   0,
@@ -198,7 +198,7 @@ TypeRegistry.for(n0).registerError(InvalidUsageDimensionException$, InvalidUsage
 export var MeterUsageRequest$: StaticStructureSchema = [3, n0, _MUR,
   0,
   [_PC, _T, _UD, _UQ, _DR, _UA, _CT],
-  [0, 4, 0, 1, 2, () => UsageAllocations, [0, 4]]
+  [0, 4, 0, 1, 2, () => UsageAllocations, [0, 4]], 3
 ];
 export var MeterUsageResult$: StaticStructureSchema = [3, n0, _MURe,
   0,
@@ -214,7 +214,7 @@ TypeRegistry.for(n0).registerError(PlatformNotSupportedException$, PlatformNotSu
 export var RegisterUsageRequest$: StaticStructureSchema = [3, n0, _RUR,
   0,
   [_PC, _PKV, _N],
-  [0, 1, 0]
+  [0, 1, 0], 2
 ];
 export var RegisterUsageResult$: StaticStructureSchema = [3, n0, _RURe,
   0,
@@ -224,7 +224,7 @@ export var RegisterUsageResult$: StaticStructureSchema = [3, n0, _RURe,
 export var ResolveCustomerRequest$: StaticStructureSchema = [3, n0, _RCR,
   0,
   [_RT],
-  [0]
+  [0], 1
 ];
 export var ResolveCustomerResult$: StaticStructureSchema = [3, n0, _RCRe,
   0,
@@ -234,7 +234,7 @@ export var ResolveCustomerResult$: StaticStructureSchema = [3, n0, _RCRe,
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c },
@@ -251,12 +251,12 @@ TypeRegistry.for(n0).registerError(TimestampOutOfBoundsException$, TimestampOutO
 export var UsageAllocation$: StaticStructureSchema = [3, n0, _UAs,
   0,
   [_AUQ, _Tag],
-  [1, () => TagList]
+  [1, () => TagList], 1
 ];
 export var UsageRecord$: StaticStructureSchema = [3, n0, _URs,
   0,
-  [_T, _CI, _D, _Q, _UA, _CAWSAI],
-  [4, 0, 0, 1, () => UsageAllocations, 0]
+  [_T, _D, _CI, _Q, _UA, _CAWSAI],
+  [4, 0, 0, 1, () => UsageAllocations, 0], 2
 ];
 export var UsageRecordResult$: StaticStructureSchema = [3, n0, _URR,
   0,

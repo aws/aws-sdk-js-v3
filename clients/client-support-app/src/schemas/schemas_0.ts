@@ -91,8 +91,8 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateSlackChannelConfigurationRequest$: StaticStructureSchema = [3, n0, _CSCCR,
   0,
-  [_tI, _cI, _cN, _nOCORC, _nOACTC, _nORC, _nOCS, _cRA],
-  [0, 0, 0, 2, 2, 2, 0, 0]
+  [_tI, _cI, _nOCS, _cRA, _cN, _nOCORC, _nOACTC, _nORC],
+  [0, 0, 0, 0, 0, 2, 2, 2], 4
 ];
 export var CreateSlackChannelConfigurationResult$: StaticStructureSchema = [3, n0, _CSCCRr,
   0,
@@ -112,7 +112,7 @@ export var DeleteAccountAliasResult$: StaticStructureSchema = [3, n0, _DAARe,
 export var DeleteSlackChannelConfigurationRequest$: StaticStructureSchema = [3, n0, _DSCCR,
   0,
   [_tI, _cI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteSlackChannelConfigurationResult$: StaticStructureSchema = [3, n0, _DSCCRe,
   0,
@@ -122,7 +122,7 @@ export var DeleteSlackChannelConfigurationResult$: StaticStructureSchema = [3, n
 export var DeleteSlackWorkspaceConfigurationRequest$: StaticStructureSchema = [3, n0, _DSWCR,
   0,
   [_tI],
-  [0]
+  [0], 1
 ];
 export var DeleteSlackWorkspaceConfigurationResult$: StaticStructureSchema = [3, n0, _DSWCRe,
   0,
@@ -152,8 +152,8 @@ export var ListSlackChannelConfigurationsRequest$: StaticStructureSchema = [3, n
 ];
 export var ListSlackChannelConfigurationsResult$: StaticStructureSchema = [3, n0, _LSCCRi,
   0,
-  [_nT, _sCC],
-  [0, () => slackChannelConfigurationList]
+  [_sCC, _nT],
+  [() => slackChannelConfigurationList, 0], 1
 ];
 export var ListSlackWorkspaceConfigurationsRequest$: StaticStructureSchema = [3, n0, _LSWCR,
   0,
@@ -168,7 +168,7 @@ export var ListSlackWorkspaceConfigurationsResult$: StaticStructureSchema = [3, 
 export var PutAccountAliasRequest$: StaticStructureSchema = [3, n0, _PAAR,
   0,
   [_aA],
-  [0]
+  [0], 1
 ];
 export var PutAccountAliasResult$: StaticStructureSchema = [3, n0, _PAARu,
   0,
@@ -178,7 +178,7 @@ export var PutAccountAliasResult$: StaticStructureSchema = [3, n0, _PAARu,
 export var RegisterSlackWorkspaceForOrganizationRequest$: StaticStructureSchema = [3, n0, _RSWFOR,
   0,
   [_tI],
-  [0]
+  [0], 1
 ];
 export var RegisterSlackWorkspaceForOrganizationResult$: StaticStructureSchema = [3, n0, _RSWFORe,
   0,
@@ -200,17 +200,17 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var SlackChannelConfiguration$: StaticStructureSchema = [3, n0, _SCC,
   0,
   [_tI, _cI, _cN, _nOCORC, _nOACTC, _nORC, _nOCS, _cRA],
-  [0, 0, 0, 2, 2, 2, 0, 0]
+  [0, 0, 0, 2, 2, 2, 0, 0], 2
 ];
 export var SlackWorkspaceConfiguration$: StaticStructureSchema = [3, n0, _SWC,
   0,
   [_tI, _tN, _aOMA],
-  [0, 0, 2]
+  [0, 0, 2], 1
 ];
 export var UpdateSlackChannelConfigurationRequest$: StaticStructureSchema = [3, n0, _USCCR,
   0,
   [_tI, _cI, _cN, _nOCORC, _nOACTC, _nORC, _nOCS, _cRA],
-  [0, 0, 0, 2, 2, 2, 0, 0]
+  [0, 0, 0, 2, 2, 2, 0, 0], 2
 ];
 export var UpdateSlackChannelConfigurationResult$: StaticStructureSchema = [3, n0, _USCCRp,
   0,

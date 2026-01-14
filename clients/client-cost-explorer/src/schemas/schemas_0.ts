@@ -675,28 +675,28 @@ export var AnalysisSummary$: StaticStructureSchema = [3, n0, _AS,
 ];
 export var Anomaly$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_AIn, _ASD, _AED, _DV, _RC, _ASno, _I, _MA, _F],
-  [0, 0, 0, 0, () => RootCauses, () => AnomalyScore$, () => Impact$, 0, 0]
+  [_AIn, _ASno, _I, _MA, _ASD, _AED, _DV, _RC, _F],
+  [0, () => AnomalyScore$, () => Impact$, 0, 0, 0, 0, () => RootCauses, 0], 4
 ];
 export var AnomalyDateInterval$: StaticStructureSchema = [3, n0, _ADI,
   0,
   [_SD, _ED],
-  [0, 0]
+  [0, 0], 1
 ];
 export var AnomalyMonitor$: StaticStructureSchema = [3, n0, _AM,
   0,
-  [_MA, _MN, _CD, _LUD, _LED, _MT, _MD, _MS, _DVC],
-  [0, 0, 0, 0, 0, 0, 0, () => Expression$, 1]
+  [_MN, _MT, _MA, _CD, _LUD, _LED, _MD, _MS, _DVC],
+  [0, 0, 0, 0, 0, 0, 0, () => Expression$, 1], 2
 ];
 export var AnomalyScore$: StaticStructureSchema = [3, n0, _ASno,
   0,
   [_MSa, _CS],
-  [1, 1]
+  [1, 1], 2
 ];
 export var AnomalySubscription$: StaticStructureSchema = [3, n0, _ASnom,
   0,
-  [_SA, _AIc, _MAL, _S, _T, _Fr, _SN, _TE],
-  [0, 0, 64 | 0, () => Subscribers, 1, 0, 0, () => Expression$]
+  [_MAL, _S, _Fr, _SN, _SA, _AIc, _T, _TE],
+  [64 | 0, () => Subscribers, 0, 0, 0, 0, 1, () => Expression$], 4
 ];
 export var BackfillLimitExceededException$: StaticErrorSchema = [-3, n0, _BLEE,
   { [_e]: _c, [_hE]: 400 },
@@ -729,7 +729,7 @@ export var ComparisonMetricValue$: StaticStructureSchema = [3, n0, _CMV,
 export var CostAllocationTag$: StaticStructureSchema = [3, n0, _CAT,
   0,
   [_TK, _Ty, _St, _LUD, _LUDa],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 3
 ];
 export var CostAllocationTagBackfillRequest$: StaticStructureSchema = [3, n0, _CATBR,
   0,
@@ -739,7 +739,7 @@ export var CostAllocationTagBackfillRequest$: StaticStructureSchema = [3, n0, _C
 export var CostAllocationTagStatusEntry$: StaticStructureSchema = [3, n0, _CATSE,
   0,
   [_TK, _St],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CostAndUsageComparison$: StaticStructureSchema = [3, n0, _CAUC,
   0,
@@ -748,8 +748,8 @@ export var CostAndUsageComparison$: StaticStructureSchema = [3, n0, _CAUC,
 ];
 export var CostCategory$: StaticStructureSchema = [3, n0, _CC,
   0,
-  [_CCA, _ES, _EE, _N, _RV, _R, _SCR, _PS, _DVe],
-  [0, 0, 0, 0, 0, () => CostCategoryRulesList, () => CostCategorySplitChargeRulesList, () => CostCategoryProcessingStatusList, 0]
+  [_CCA, _ES, _N, _RV, _R, _EE, _SCR, _PS, _DVe],
+  [0, 0, 0, 0, () => CostCategoryRulesList, 0, () => CostCategorySplitChargeRulesList, () => CostCategoryProcessingStatusList, 0], 5
 ];
 export var CostCategoryInheritedValueDimension$: StaticStructureSchema = [3, n0, _CCIVD,
   0,
@@ -779,12 +779,12 @@ export var CostCategoryRule$: StaticStructureSchema = [3, n0, _CCRo,
 export var CostCategorySplitChargeRule$: StaticStructureSchema = [3, n0, _CCSCR,
   0,
   [_So, _Ta, _Met, _P],
-  [0, 64 | 0, 0, () => CostCategorySplitChargeRuleParametersList]
+  [0, 64 | 0, 0, () => CostCategorySplitChargeRuleParametersList], 3
 ];
 export var CostCategorySplitChargeRuleParameter$: StaticStructureSchema = [3, n0, _CCSCRP,
   0,
   [_Ty, _V],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var CostCategoryValues$: StaticStructureSchema = [3, n0, _CCV,
   0,
@@ -829,27 +829,27 @@ export var CoverageNormalizedUnits$: StaticStructureSchema = [3, n0, _CNU,
 export var CreateAnomalyMonitorRequest$: StaticStructureSchema = [3, n0, _CAMR,
   0,
   [_AM, _RT],
-  [() => AnomalyMonitor$, () => ResourceTagList]
+  [() => AnomalyMonitor$, () => ResourceTagList], 1
 ];
 export var CreateAnomalyMonitorResponse$: StaticStructureSchema = [3, n0, _CAMRr,
   0,
   [_MA],
-  [0]
+  [0], 1
 ];
 export var CreateAnomalySubscriptionRequest$: StaticStructureSchema = [3, n0, _CASR,
   0,
   [_ASnom, _RT],
-  [() => AnomalySubscription$, () => ResourceTagList]
+  [() => AnomalySubscription$, () => ResourceTagList], 1
 ];
 export var CreateAnomalySubscriptionResponse$: StaticStructureSchema = [3, n0, _CASRr,
   0,
   [_SA],
-  [0]
+  [0], 1
 ];
 export var CreateCostCategoryDefinitionRequest$: StaticStructureSchema = [3, n0, _CCCDR,
   0,
-  [_N, _ES, _RV, _R, _DVe, _SCR, _RT],
-  [0, 0, 0, () => CostCategoryRulesList, 0, () => CostCategorySplitChargeRulesList, () => ResourceTagList]
+  [_N, _RV, _R, _ES, _DVe, _SCR, _RT],
+  [0, 0, () => CostCategoryRulesList, 0, 0, () => CostCategorySplitChargeRulesList, () => ResourceTagList], 3
 ];
 export var CreateCostCategoryDefinitionResponse$: StaticStructureSchema = [3, n0, _CCCDRr,
   0,
@@ -870,12 +870,12 @@ TypeRegistry.for(n0).registerError(DataUnavailableException$, DataUnavailableExc
 export var DateInterval$: StaticStructureSchema = [3, n0, _DI,
   0,
   [_Sta, _E],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteAnomalyMonitorRequest$: StaticStructureSchema = [3, n0, _DAMR,
   0,
   [_MA],
-  [0]
+  [0], 1
 ];
 export var DeleteAnomalyMonitorResponse$: StaticStructureSchema = [3, n0, _DAMRe,
   0,
@@ -885,7 +885,7 @@ export var DeleteAnomalyMonitorResponse$: StaticStructureSchema = [3, n0, _DAMRe
 export var DeleteAnomalySubscriptionRequest$: StaticStructureSchema = [3, n0, _DASR,
   0,
   [_SA],
-  [0]
+  [0], 1
 ];
 export var DeleteAnomalySubscriptionResponse$: StaticStructureSchema = [3, n0, _DASRe,
   0,
@@ -895,7 +895,7 @@ export var DeleteAnomalySubscriptionResponse$: StaticStructureSchema = [3, n0, _
 export var DeleteCostCategoryDefinitionRequest$: StaticStructureSchema = [3, n0, _DCCDR,
   0,
   [_CCA],
-  [0]
+  [0], 1
 ];
 export var DeleteCostCategoryDefinitionResponse$: StaticStructureSchema = [3, n0, _DCCDRe,
   0,
@@ -905,7 +905,7 @@ export var DeleteCostCategoryDefinitionResponse$: StaticStructureSchema = [3, n0
 export var DescribeCostCategoryDefinitionRequest$: StaticStructureSchema = [3, n0, _DCCDRes,
   0,
   [_CCA, _EO],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DescribeCostCategoryDefinitionResponse$: StaticStructureSchema = [3, n0, _DCCDResc,
   0,
@@ -990,13 +990,13 @@ export var GenerationSummary$: StaticStructureSchema = [3, n0, _GS,
 ];
 export var GetAnomaliesRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
-  [_MA, _DI, _F, _TI, _NPT, _MR],
-  [0, () => AnomalyDateInterval$, 0, () => TotalImpactFilter$, 0, 1]
+  [_DI, _MA, _F, _TI, _NPT, _MR],
+  [() => AnomalyDateInterval$, 0, 0, () => TotalImpactFilter$, 0, 1], 1
 ];
 export var GetAnomaliesResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
   [_Ano, _NPT],
-  [() => Anomalies, 0]
+  [() => Anomalies, 0], 1
 ];
 export var GetAnomalyMonitorsRequest$: StaticStructureSchema = [3, n0, _GAMR,
   0,
@@ -1006,7 +1006,7 @@ export var GetAnomalyMonitorsRequest$: StaticStructureSchema = [3, n0, _GAMR,
 export var GetAnomalyMonitorsResponse$: StaticStructureSchema = [3, n0, _GAMRe,
   0,
   [_AMn, _NPT],
-  [() => AnomalyMonitors, 0]
+  [() => AnomalyMonitors, 0], 1
 ];
 export var GetAnomalySubscriptionsRequest$: StaticStructureSchema = [3, n0, _GASR,
   0,
@@ -1016,12 +1016,12 @@ export var GetAnomalySubscriptionsRequest$: StaticStructureSchema = [3, n0, _GAS
 export var GetAnomalySubscriptionsResponse$: StaticStructureSchema = [3, n0, _GASRe,
   0,
   [_ASnoma, _NPT],
-  [() => AnomalySubscriptions, 0]
+  [() => AnomalySubscriptions, 0], 1
 ];
 export var GetApproximateUsageRecordsRequest$: StaticStructureSchema = [3, n0, _GAURR,
   0,
-  [_Gr, _Se, _ADp],
-  [0, 64 | 0, 0]
+  [_Gr, _ADp, _Se],
+  [0, 0, 64 | 0], 2
 ];
 export var GetApproximateUsageRecordsResponse$: StaticStructureSchema = [3, n0, _GAURRe,
   0,
@@ -1031,17 +1031,17 @@ export var GetApproximateUsageRecordsResponse$: StaticStructureSchema = [3, n0, 
 export var GetCommitmentPurchaseAnalysisRequest$: StaticStructureSchema = [3, n0, _GCPAR,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var GetCommitmentPurchaseAnalysisResponse$: StaticStructureSchema = [3, n0, _GCPARe,
   0,
-  [_ECT, _ACT, _AST, _AI, _ASn, _EC, _AD, _CPAC],
-  [0, 0, 0, 0, 0, 0, () => AnalysisDetails$, () => CommitmentPurchaseAnalysisConfiguration$]
+  [_ECT, _AST, _AI, _ASn, _CPAC, _ACT, _EC, _AD],
+  [0, 0, 0, 0, () => CommitmentPurchaseAnalysisConfiguration$, 0, 0, () => AnalysisDetails$], 5
 ];
 export var GetCostAndUsageComparisonsRequest$: StaticStructureSchema = [3, n0, _GCAUCR,
   0,
-  [_BVA, _BTP, _CTP, _MFC, _Fi, _GB, _MR, _NPT],
-  [0, () => DateInterval$, () => DateInterval$, 0, () => Expression$, () => GroupDefinitions, 1, 0]
+  [_BTP, _CTP, _MFC, _BVA, _Fi, _GB, _MR, _NPT],
+  [() => DateInterval$, () => DateInterval$, 0, 0, () => Expression$, () => GroupDefinitions, 1, 0], 3
 ];
 export var GetCostAndUsageComparisonsResponse$: StaticStructureSchema = [3, n0, _GCAUCRe,
   0,
@@ -1050,8 +1050,8 @@ export var GetCostAndUsageComparisonsResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var GetCostAndUsageRequest$: StaticStructureSchema = [3, n0, _GCAUR,
   0,
-  [_TP, _Gr, _Fi, _Me, _GB, _BVA, _NPT],
-  [() => DateInterval$, 0, () => Expression$, 64 | 0, () => GroupDefinitions, 0, 0]
+  [_TP, _Gr, _Me, _Fi, _GB, _BVA, _NPT],
+  [() => DateInterval$, 0, 64 | 0, () => Expression$, () => GroupDefinitions, 0, 0], 3
 ];
 export var GetCostAndUsageResponse$: StaticStructureSchema = [3, n0, _GCAURe,
   0,
@@ -1061,7 +1061,7 @@ export var GetCostAndUsageResponse$: StaticStructureSchema = [3, n0, _GCAURe,
 export var GetCostAndUsageWithResourcesRequest$: StaticStructureSchema = [3, n0, _GCAUWRR,
   0,
   [_TP, _Gr, _Fi, _Me, _GB, _BVA, _NPT],
-  [() => DateInterval$, 0, () => Expression$, 64 | 0, () => GroupDefinitions, 0, 0]
+  [() => DateInterval$, 0, () => Expression$, 64 | 0, () => GroupDefinitions, 0, 0], 3
 ];
 export var GetCostAndUsageWithResourcesResponse$: StaticStructureSchema = [3, n0, _GCAUWRRe,
   0,
@@ -1070,18 +1070,18 @@ export var GetCostAndUsageWithResourcesResponse$: StaticStructureSchema = [3, n0
 ];
 export var GetCostCategoriesRequest$: StaticStructureSchema = [3, n0, _GCCR,
   0,
-  [_SS, _TP, _CCN, _Fi, _SB, _BVA, _MR, _NPT],
-  [0, () => DateInterval$, 0, () => Expression$, () => SortDefinitions, 0, 1, 0]
+  [_TP, _SS, _CCN, _Fi, _SB, _BVA, _MR, _NPT],
+  [() => DateInterval$, 0, 0, () => Expression$, () => SortDefinitions, 0, 1, 0], 1
 ];
 export var GetCostCategoriesResponse$: StaticStructureSchema = [3, n0, _GCCRe,
   0,
-  [_NPT, _CCNo, _CCV, _RS, _TS],
-  [0, 64 | 0, 64 | 0, 1, 1]
+  [_RS, _TS, _NPT, _CCNo, _CCV],
+  [1, 1, 0, 64 | 0, 64 | 0], 2
 ];
 export var GetCostComparisonDriversRequest$: StaticStructureSchema = [3, n0, _GCCDR,
   0,
-  [_BVA, _BTP, _CTP, _MFC, _Fi, _GB, _MR, _NPT],
-  [0, () => DateInterval$, () => DateInterval$, 0, () => Expression$, () => GroupDefinitions, 1, 0]
+  [_BTP, _CTP, _MFC, _BVA, _Fi, _GB, _MR, _NPT],
+  [() => DateInterval$, () => DateInterval$, 0, 0, () => Expression$, () => GroupDefinitions, 1, 0], 3
 ];
 export var GetCostComparisonDriversResponse$: StaticStructureSchema = [3, n0, _GCCDRe,
   0,
@@ -1091,7 +1091,7 @@ export var GetCostComparisonDriversResponse$: StaticStructureSchema = [3, n0, _G
 export var GetCostForecastRequest$: StaticStructureSchema = [3, n0, _GCFR,
   0,
   [_TP, _Metr, _Gr, _Fi, _BVA, _PIL],
-  [() => DateInterval$, 0, 0, () => Expression$, 0, 1]
+  [() => DateInterval$, 0, 0, () => Expression$, 0, 1], 3
 ];
 export var GetCostForecastResponse$: StaticStructureSchema = [3, n0, _GCFRe,
   0,
@@ -1100,28 +1100,28 @@ export var GetCostForecastResponse$: StaticStructureSchema = [3, n0, _GCFRe,
 ];
 export var GetDimensionValuesRequest$: StaticStructureSchema = [3, n0, _GDVR,
   0,
-  [_SS, _TP, _Dim, _Con, _Fi, _SB, _BVA, _MR, _NPT],
-  [0, () => DateInterval$, 0, 0, () => Expression$, () => SortDefinitions, 0, 1, 0]
+  [_TP, _Dim, _SS, _Con, _Fi, _SB, _BVA, _MR, _NPT],
+  [() => DateInterval$, 0, 0, 0, () => Expression$, () => SortDefinitions, 0, 1, 0], 2
 ];
 export var GetDimensionValuesResponse$: StaticStructureSchema = [3, n0, _GDVRe,
   0,
   [_DVi, _RS, _TS, _NPT],
-  [() => DimensionValuesWithAttributesList, 1, 1, 0]
+  [() => DimensionValuesWithAttributesList, 1, 1, 0], 3
 ];
 export var GetReservationCoverageRequest$: StaticStructureSchema = [3, n0, _GRCR,
   0,
   [_TP, _GB, _Gr, _Fi, _Me, _NPT, _SB, _MR],
-  [() => DateInterval$, () => GroupDefinitions, 0, () => Expression$, 64 | 0, 0, () => SortDefinition$, 1]
+  [() => DateInterval$, () => GroupDefinitions, 0, () => Expression$, 64 | 0, 0, () => SortDefinition$, 1], 1
 ];
 export var GetReservationCoverageResponse$: StaticStructureSchema = [3, n0, _GRCRe,
   0,
   [_CBTo, _To, _NPT],
-  [() => CoveragesByTime, () => Coverage$, 0]
+  [() => CoveragesByTime, () => Coverage$, 0], 1
 ];
 export var GetReservationPurchaseRecommendationRequest$: StaticStructureSchema = [3, n0, _GRPRR,
   0,
-  [_AIc, _Ser, _Fi, _ASc, _LPID, _TIY, _PO, _SSe, _PSa, _NPT],
-  [0, 0, () => Expression$, 0, 0, 0, 0, () => ServiceSpecification$, 1, 0]
+  [_Ser, _AIc, _Fi, _ASc, _LPID, _TIY, _PO, _SSe, _PSa, _NPT],
+  [0, 0, () => Expression$, 0, 0, 0, 0, () => ServiceSpecification$, 1, 0], 1
 ];
 export var GetReservationPurchaseRecommendationResponse$: StaticStructureSchema = [3, n0, _GRPRRe,
   0,
@@ -1131,17 +1131,17 @@ export var GetReservationPurchaseRecommendationResponse$: StaticStructureSchema 
 export var GetReservationUtilizationRequest$: StaticStructureSchema = [3, n0, _GRUR,
   0,
   [_TP, _GB, _Gr, _Fi, _SB, _NPT, _MR],
-  [() => DateInterval$, () => GroupDefinitions, 0, () => Expression$, () => SortDefinition$, 0, 1]
+  [() => DateInterval$, () => GroupDefinitions, 0, () => Expression$, () => SortDefinition$, 0, 1], 1
 ];
 export var GetReservationUtilizationResponse$: StaticStructureSchema = [3, n0, _GRURe,
   0,
   [_UBT, _To, _NPT],
-  [() => UtilizationsByTime, () => ReservationAggregates$, 0]
+  [() => UtilizationsByTime, () => ReservationAggregates$, 0], 1
 ];
 export var GetRightsizingRecommendationRequest$: StaticStructureSchema = [3, n0, _GRRR,
   0,
-  [_Fi, _Conf, _Ser, _PSa, _NPT],
-  [() => Expression$, () => RightsizingRecommendationConfiguration$, 0, 1, 0]
+  [_Ser, _Fi, _Conf, _PSa, _NPT],
+  [0, () => Expression$, () => RightsizingRecommendationConfiguration$, 1, 0], 1
 ];
 export var GetRightsizingRecommendationResponse$: StaticStructureSchema = [3, n0, _GRRRe,
   0,
@@ -1151,7 +1151,7 @@ export var GetRightsizingRecommendationResponse$: StaticStructureSchema = [3, n0
 export var GetSavingsPlanPurchaseRecommendationDetailsRequest$: StaticStructureSchema = [3, n0, _GSPPRDR,
   0,
   [_RDI],
-  [0]
+  [0], 1
 ];
 export var GetSavingsPlanPurchaseRecommendationDetailsResponse$: StaticStructureSchema = [3, n0, _GSPPRDRe,
   0,
@@ -1161,17 +1161,17 @@ export var GetSavingsPlanPurchaseRecommendationDetailsResponse$: StaticStructure
 export var GetSavingsPlansCoverageRequest$: StaticStructureSchema = [3, n0, _GSPCR,
   0,
   [_TP, _GB, _Gr, _Fi, _Me, _NTe, _MR, _SB],
-  [() => DateInterval$, () => GroupDefinitions, 0, () => Expression$, 64 | 0, 0, 1, () => SortDefinition$]
+  [() => DateInterval$, () => GroupDefinitions, 0, () => Expression$, 64 | 0, 0, 1, () => SortDefinition$], 1
 ];
 export var GetSavingsPlansCoverageResponse$: StaticStructureSchema = [3, n0, _GSPCRe,
   0,
   [_SPC, _NTe],
-  [() => SavingsPlansCoverages, 0]
+  [() => SavingsPlansCoverages, 0], 1
 ];
 export var GetSavingsPlansPurchaseRecommendationRequest$: StaticStructureSchema = [3, n0, _GSPPRR,
   0,
-  [_SPT, _TIY, _PO, _ASc, _NPT, _PSa, _LPID, _Fi],
-  [0, 0, 0, 0, 0, 1, 0, () => Expression$]
+  [_SPT, _TIY, _PO, _LPID, _ASc, _NPT, _PSa, _Fi],
+  [0, 0, 0, 0, 0, 0, 1, () => Expression$], 4
 ];
 export var GetSavingsPlansPurchaseRecommendationResponse$: StaticStructureSchema = [3, n0, _GSPPRRe,
   0,
@@ -1181,37 +1181,37 @@ export var GetSavingsPlansPurchaseRecommendationResponse$: StaticStructureSchema
 export var GetSavingsPlansUtilizationDetailsRequest$: StaticStructureSchema = [3, n0, _GSPUDR,
   0,
   [_TP, _Fi, _DT, _NTe, _MR, _SB],
-  [() => DateInterval$, () => Expression$, 64 | 0, 0, 1, () => SortDefinition$]
+  [() => DateInterval$, () => Expression$, 64 | 0, 0, 1, () => SortDefinition$], 1
 ];
 export var GetSavingsPlansUtilizationDetailsResponse$: StaticStructureSchema = [3, n0, _GSPUDRe,
   0,
-  [_SPUD, _To, _TP, _NTe],
-  [() => SavingsPlansUtilizationDetails, () => SavingsPlansUtilizationAggregates$, () => DateInterval$, 0]
+  [_SPUD, _TP, _To, _NTe],
+  [() => SavingsPlansUtilizationDetails, () => DateInterval$, () => SavingsPlansUtilizationAggregates$, 0], 2
 ];
 export var GetSavingsPlansUtilizationRequest$: StaticStructureSchema = [3, n0, _GSPUR,
   0,
   [_TP, _Gr, _Fi, _SB],
-  [() => DateInterval$, 0, () => Expression$, () => SortDefinition$]
+  [() => DateInterval$, 0, () => Expression$, () => SortDefinition$], 1
 ];
 export var GetSavingsPlansUtilizationResponse$: StaticStructureSchema = [3, n0, _GSPURe,
   0,
-  [_SPUBT, _To],
-  [() => SavingsPlansUtilizationsByTime, () => SavingsPlansUtilizationAggregates$]
+  [_To, _SPUBT],
+  [() => SavingsPlansUtilizationAggregates$, () => SavingsPlansUtilizationsByTime], 1
 ];
 export var GetTagsRequest$: StaticStructureSchema = [3, n0, _GTR,
   0,
-  [_SS, _TP, _TK, _Fi, _SB, _BVA, _MR, _NPT],
-  [0, () => DateInterval$, 0, () => Expression$, () => SortDefinitions, 0, 1, 0]
+  [_TP, _SS, _TK, _Fi, _SB, _BVA, _MR, _NPT],
+  [() => DateInterval$, 0, 0, () => Expression$, () => SortDefinitions, 0, 1, 0], 1
 ];
 export var GetTagsResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
-  [_NPT, _Tag, _RS, _TS],
-  [0, 64 | 0, 1, 1]
+  [_Tag, _RS, _TS, _NPT],
+  [64 | 0, 1, 1, 0], 3
 ];
 export var GetUsageForecastRequest$: StaticStructureSchema = [3, n0, _GUFR,
   0,
   [_TP, _Metr, _Gr, _Fi, _BVA, _PIL],
-  [() => DateInterval$, 0, 0, () => Expression$, 0, 1]
+  [() => DateInterval$, 0, 0, () => Expression$, 0, 1], 3
 ];
 export var GetUsageForecastResponse$: StaticStructureSchema = [3, n0, _GUFRe,
   0,
@@ -1231,7 +1231,7 @@ export var GroupDefinition$: StaticStructureSchema = [3, n0, _GDr,
 export var Impact$: StaticStructureSchema = [3, n0, _I,
   0,
   [_MI, _TI, _TAS, _TES, _TIP],
-  [1, 1, 1, 1, 1]
+  [1, 1, 1, 1, 1], 1
 ];
 export var InstanceDetails$: StaticStructureSchema = [3, n0, _ID,
   0,
@@ -1313,7 +1313,7 @@ export var ListSavingsPlansPurchaseRecommendationGenerationResponse$: StaticStru
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RAe],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1343,12 +1343,12 @@ export var NetworkResourceUtilization$: StaticStructureSchema = [3, n0, _NRU,
 export var ProvideAnomalyFeedbackRequest$: StaticStructureSchema = [3, n0, _PAFR,
   0,
   [_AIn, _F],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ProvideAnomalyFeedbackResponse$: StaticStructureSchema = [3, n0, _PAFRr,
   0,
   [_AIn],
-  [0]
+  [0], 1
 ];
 export var RDSInstanceDetails$: StaticStructureSchema = [3, n0, _RDSID,
   0,
@@ -1430,7 +1430,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RTe,
   0,
   [_K, _Va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ResourceUtilization$: StaticStructureSchema = [3, n0, _RU,
   0,
@@ -1450,7 +1450,7 @@ export var RightsizingRecommendation$: StaticStructureSchema = [3, n0, _RRi,
 export var RightsizingRecommendationConfiguration$: StaticStructureSchema = [3, n0, _RRC,
   0,
   [_RTec, _BC],
-  [0, 2]
+  [0, 2], 2
 ];
 export var RightsizingRecommendationMetadata$: StaticStructureSchema = [3, n0, _RRM,
   0,
@@ -1470,7 +1470,7 @@ export var RootCause$: StaticStructureSchema = [3, n0, _RCo,
 export var RootCauseImpact$: StaticStructureSchema = [3, n0, _RCI,
   0,
   [_Cont],
-  [1]
+  [1], 1
 ];
 export var SavingsPlans$: StaticStructureSchema = [3, n0, _SPa,
   0,
@@ -1499,8 +1499,8 @@ export var SavingsPlansDetails$: StaticStructureSchema = [3, n0, _SPD,
 ];
 export var SavingsPlansPurchaseAnalysisConfiguration$: StaticStructureSchema = [3, n0, _SPPAC,
   0,
-  [_ASc, _AIc, _AT, _SPTA, _SPTE, _LBTP],
-  [0, 0, 0, () => SavingsPlansToAdd, 64 | 0, () => DateInterval$]
+  [_AT, _SPTA, _LBTP, _ASc, _AIc, _SPTE],
+  [0, () => SavingsPlansToAdd, () => DateInterval$, 0, 0, 64 | 0], 3
 ];
 export var SavingsPlansPurchaseAnalysisDetails$: StaticStructureSchema = [3, n0, _SPPAD,
   0,
@@ -1540,12 +1540,12 @@ export var SavingsPlansUtilization$: StaticStructureSchema = [3, n0, _SPU,
 export var SavingsPlansUtilizationAggregates$: StaticStructureSchema = [3, n0, _SPUA,
   0,
   [_Ut, _Sa, _AC],
-  [() => SavingsPlansUtilization$, () => SavingsPlansSavings$, () => SavingsPlansAmortizedCommitment$]
+  [() => SavingsPlansUtilization$, () => SavingsPlansSavings$, () => SavingsPlansAmortizedCommitment$], 1
 ];
 export var SavingsPlansUtilizationByTime$: StaticStructureSchema = [3, n0, _SPUBTa,
   0,
   [_TP, _Ut, _Sa, _AC],
-  [() => DateInterval$, () => SavingsPlansUtilization$, () => SavingsPlansSavings$, () => SavingsPlansAmortizedCommitment$]
+  [() => DateInterval$, () => SavingsPlansUtilization$, () => SavingsPlansSavings$, () => SavingsPlansAmortizedCommitment$], 2
 ];
 export var SavingsPlansUtilizationDetail$: StaticStructureSchema = [3, n0, _SPUDa,
   0,
@@ -1566,22 +1566,22 @@ export var ServiceSpecification$: StaticStructureSchema = [3, n0, _SSe,
 export var SortDefinition$: StaticStructureSchema = [3, n0, _SDo,
   0,
   [_K, _SO],
-  [0, 0]
+  [0, 0], 1
 ];
 export var StartCommitmentPurchaseAnalysisRequest$: StaticStructureSchema = [3, n0, _SCPAR,
   0,
   [_CPAC],
-  [() => CommitmentPurchaseAnalysisConfiguration$]
+  [() => CommitmentPurchaseAnalysisConfiguration$], 1
 ];
 export var StartCommitmentPurchaseAnalysisResponse$: StaticStructureSchema = [3, n0, _SCPARt,
   0,
   [_AI, _AST, _ECT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var StartCostAllocationTagBackfillRequest$: StaticStructureSchema = [3, n0, _SCATBR,
   0,
   [_BF],
-  [0]
+  [0], 1
 ];
 export var StartCostAllocationTagBackfillResponse$: StaticStructureSchema = [3, n0, _SCATBRt,
   0,
@@ -1606,7 +1606,7 @@ export var Subscriber$: StaticStructureSchema = [3, n0, _Sub,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAe, _RT],
-  [0, () => ResourceTagList]
+  [0, () => ResourceTagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1637,7 +1637,7 @@ TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var TotalImpactFilter$: StaticStructureSchema = [3, n0, _TIF,
   0,
   [_NO, _SV, _EV],
-  [0, 1, 1]
+  [0, 1, 1], 2
 ];
 export var UnknownMonitorException$: StaticErrorSchema = [-3, n0, _UME,
   { [_e]: _c, [_hE]: 404 },
@@ -1660,7 +1660,7 @@ TypeRegistry.for(n0).registerError(UnresolvableUsageUnitException$, Unresolvable
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _RTK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1670,22 +1670,22 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateAnomalyMonitorRequest$: StaticStructureSchema = [3, n0, _UAMR,
   0,
   [_MA, _MN],
-  [0, 0]
+  [0, 0], 1
 ];
 export var UpdateAnomalyMonitorResponse$: StaticStructureSchema = [3, n0, _UAMRp,
   0,
   [_MA],
-  [0]
+  [0], 1
 ];
 export var UpdateAnomalySubscriptionRequest$: StaticStructureSchema = [3, n0, _UASR,
   0,
   [_SA, _T, _Fr, _MAL, _S, _SN, _TE],
-  [0, 1, 0, 64 | 0, () => Subscribers, 0, () => Expression$]
+  [0, 1, 0, 64 | 0, () => Subscribers, 0, () => Expression$], 1
 ];
 export var UpdateAnomalySubscriptionResponse$: StaticStructureSchema = [3, n0, _UASRp,
   0,
   [_SA],
-  [0]
+  [0], 1
 ];
 export var UpdateCostAllocationTagsStatusError$: StaticStructureSchema = [3, n0, _UCATSE,
   0,
@@ -1695,7 +1695,7 @@ export var UpdateCostAllocationTagsStatusError$: StaticStructureSchema = [3, n0,
 export var UpdateCostAllocationTagsStatusRequest$: StaticStructureSchema = [3, n0, _UCATSR,
   0,
   [_CATS],
-  [() => CostAllocationTagStatusList]
+  [() => CostAllocationTagStatusList], 1
 ];
 export var UpdateCostAllocationTagsStatusResponse$: StaticStructureSchema = [3, n0, _UCATSRp,
   0,
@@ -1704,8 +1704,8 @@ export var UpdateCostAllocationTagsStatusResponse$: StaticStructureSchema = [3, 
 ];
 export var UpdateCostCategoryDefinitionRequest$: StaticStructureSchema = [3, n0, _UCCDR,
   0,
-  [_CCA, _ES, _RV, _R, _DVe, _SCR],
-  [0, 0, 0, () => CostCategoryRulesList, 0, () => CostCategorySplitChargeRulesList]
+  [_CCA, _RV, _R, _ES, _DVe, _SCR],
+  [0, 0, () => CostCategoryRulesList, 0, 0, () => CostCategorySplitChargeRulesList], 3
 ];
 export var UpdateCostCategoryDefinitionResponse$: StaticStructureSchema = [3, n0, _UCCDRp,
   0,

@@ -818,7 +818,7 @@ export var AbortIncompleteMultipartUpload$: StaticStructureSchema = [3, n0, _AIM
 export var AccessControlTranslation$: StaticStructureSchema = [3, n0, _ACT,
   0,
   [_O],
-  [0]
+  [0], 1
 ];
 export var AccessGrantsLocationConfiguration$: StaticStructureSchema = [3, n0, _AGLC,
   0,
@@ -827,13 +827,13 @@ export var AccessGrantsLocationConfiguration$: StaticStructureSchema = [3, n0, _
 ];
 export var AccessPoint$: StaticStructureSchema = [3, n0, _AP,
   0,
-  [_N, _NO, _VC, _B, _APA, _A, _BAI, _DSI, _DST],
-  [0, 0, () => VpcConfiguration$, 0, 0, 0, 0, 0, 0]
+  [_N, _NO, _B, _VC, _APA, _A, _BAI, _DSI, _DST],
+  [0, 0, 0, () => VpcConfiguration$, 0, 0, 0, 0, 0], 3
 ];
 export var AccountLevel$: StaticStructureSchema = [3, n0, _AL,
   0,
-  [_AM, _BL, _ACOM, _ADPM, _DSCM, _APM, _SLGL],
-  [() => ActivityMetrics$, () => BucketLevel$, () => AdvancedCostOptimizationMetrics$, () => AdvancedDataProtectionMetrics$, () => DetailedStatusCodesMetrics$, () => AdvancedPerformanceMetrics$, [() => StorageLensGroupLevel$, 0]]
+  [_BL, _AM, _ACOM, _ADPM, _DSCM, _APM, _SLGL],
+  [() => BucketLevel$, () => ActivityMetrics$, () => AdvancedCostOptimizationMetrics$, () => AdvancedDataProtectionMetrics$, () => DetailedStatusCodesMetrics$, () => AdvancedPerformanceMetrics$, [() => StorageLensGroupLevel$, 0]], 1
 ];
 export var ActivityMetrics$: StaticStructureSchema = [3, n0, _AM,
   0,
@@ -857,8 +857,8 @@ export var AdvancedPerformanceMetrics$: StaticStructureSchema = [3, n0, _APM,
 ];
 export var AssociateAccessGrantsIdentityCenterRequest$: StaticStructureSchema = [3, n0, _AAGICR,
   0,
-  [_AI, _ICA],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], 0]
+  [_ICA, _AI],
+  [0, [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var AsyncErrorDetails$: StaticStructureSchema = [3, n0, _AED,
   0,
@@ -883,7 +883,7 @@ export var AsyncResponseDetails$: StaticStructureSchema = [3, n0, _ARD,
 export var AwsLambdaTransformation$: StaticStructureSchema = [3, n0, _ALT,
   0,
   [_FA, _FP],
-  [0, 0]
+  [0, 0], 1
 ];
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c },
@@ -911,12 +911,12 @@ export var BucketLevel$: StaticStructureSchema = [3, n0, _BL,
 export var CloudWatchMetrics$: StaticStructureSchema = [3, n0, _CWM,
   0,
   [_IE],
-  [2]
+  [2], 1
 ];
 export var CreateAccessGrantRequest$: StaticStructureSchema = [3, n0, _CAGR,
   0,
-  [_AI, _AGLI, _AGLC, _G, _P, _AA, _SPT, _T],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], 0, () => AccessGrantsLocationConfiguration$, () => Grantee$, 0, 0, 0, [() => TagList, 0]]
+  [_AGLI, _G, _P, _AI, _AGLC, _AA, _SPT, _T],
+  [0, () => Grantee$, 0, [0, { [_hL]: 1, [_hH]: _xaai }], () => AccessGrantsLocationConfiguration$, 0, 0, [() => TagList, 0]], 3
 ];
 export var CreateAccessGrantResult$: StaticStructureSchema = [3, n0, _CAGRr,
   0,
@@ -935,8 +935,8 @@ export var CreateAccessGrantsInstanceResult$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateAccessGrantsLocationRequest$: StaticStructureSchema = [3, n0, _CAGLR,
   0,
-  [_AI, _LS, _IAMRA, _T],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], 0, 0, [() => TagList, 0]]
+  [_LS, _IAMRA, _AI, _T],
+  [0, 0, [0, { [_hL]: 1, [_hH]: _xaai }], [() => TagList, 0]], 2
 ];
 export var CreateAccessGrantsLocationResult$: StaticStructureSchema = [3, n0, _CAGLRr,
   0,
@@ -945,8 +945,8 @@ export var CreateAccessGrantsLocationResult$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateAccessPointForObjectLambdaRequest$: StaticStructureSchema = [3, n0, _CAPFOLR,
   0,
-  [_AI, _N, _Co],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], [() => ObjectLambdaConfiguration$, 0]]
+  [_N, _Co, _AI],
+  [[0, 1], [() => ObjectLambdaConfiguration$, 0], [0, { [_hL]: 1, [_hH]: _xaai }]], 2
 ];
 export var CreateAccessPointForObjectLambdaResult$: StaticStructureSchema = [3, n0, _CAPFOLRr,
   0,
@@ -955,8 +955,8 @@ export var CreateAccessPointForObjectLambdaResult$: StaticStructureSchema = [3, 
 ];
 export var CreateAccessPointRequest$: StaticStructureSchema = [3, n0, _CAPR,
   0,
-  [_AI, _N, _B, _VC, _PABC, _BAI, _S, _T],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], 0, () => VpcConfiguration$, [() => PublicAccessBlockConfiguration$, 0], 0, [() => Scope$, 0], [() => TagList, 0]]
+  [_N, _B, _AI, _VC, _PABC, _BAI, _S, _T],
+  [[0, 1], 0, [0, { [_hL]: 1, [_hH]: _xaai }], () => VpcConfiguration$, [() => PublicAccessBlockConfiguration$, 0], 0, [() => Scope$, 0], [() => TagList, 0]], 2
 ];
 export var CreateAccessPointResult$: StaticStructureSchema = [3, n0, _CAPRr,
   0,
@@ -970,8 +970,8 @@ export var CreateBucketConfiguration$: StaticStructureSchema = [3, n0, _CBC,
 ];
 export var CreateBucketRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
-  [_ACL, _B, _CBC, _GFC, _GR, _GRACP, _GW, _GWACP, _OLEFB, _OI],
-  [[0, { [_hH]: _xaa }], [0, 1], [() => CreateBucketConfiguration$, { [_hP]: 1, [_xN]: _CBC }], [0, { [_hH]: _xagfc }], [0, { [_hH]: _xagr }], [0, { [_hH]: _xagra }], [0, { [_hH]: _xagw }], [0, { [_hH]: _xagwa }], [2, { [_hH]: _xabole }], [0, { [_hH]: _xaoi }]]
+  [_B, _ACL, _CBC, _GFC, _GR, _GRACP, _GW, _GWACP, _OLEFB, _OI],
+  [[0, 1], [0, { [_hH]: _xaa }], [() => CreateBucketConfiguration$, { [_hP]: 1, [_xN]: _CBC }], [0, { [_hH]: _xagfc }], [0, { [_hH]: _xagr }], [0, { [_hH]: _xagra }], [0, { [_hH]: _xagw }], [0, { [_hH]: _xagwa }], [2, { [_hH]: _xabole }], [0, { [_hH]: _xaoi }]], 1
 ];
 export var CreateBucketResult$: StaticStructureSchema = [3, n0, _CBRr,
   0,
@@ -980,8 +980,8 @@ export var CreateBucketResult$: StaticStructureSchema = [3, n0, _CBRr,
 ];
 export var CreateJobRequest$: StaticStructureSchema = [3, n0, _CJR,
   0,
-  [_AI, _CR, _Op, _Re, _CRT, _Ma, _D, _Pr, _RA, _T, _MG],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], 2, () => JobOperation$, () => JobReport$, [0, 4], () => JobManifest$, 0, 1, 0, () => S3TagSet, [() => JobManifestGenerator$, 0]]
+  [_Op, _Re, _Pr, _RA, _AI, _CR, _CRT, _Ma, _D, _T, _MG],
+  [() => JobOperation$, () => JobReport$, 1, 0, [0, { [_hL]: 1, [_hH]: _xaai }], 2, [0, 4], () => JobManifest$, 0, () => S3TagSet, [() => JobManifestGenerator$, 0]], 4
 ];
 export var CreateJobResult$: StaticStructureSchema = [3, n0, _CJRr,
   0,
@@ -990,13 +990,13 @@ export var CreateJobResult$: StaticStructureSchema = [3, n0, _CJRr,
 ];
 export var CreateMultiRegionAccessPointInput$: StaticStructureSchema = [3, n0, _CMRAPI,
   0,
-  [_N, _PAB, _Reg],
-  [0, [() => PublicAccessBlockConfiguration$, 0], [() => RegionCreationList, 0]]
+  [_N, _Reg, _PAB],
+  [0, [() => RegionCreationList, 0], [() => PublicAccessBlockConfiguration$, 0]], 2
 ];
 export var CreateMultiRegionAccessPointRequest$: StaticStructureSchema = [3, n0, _CMRAPR,
   0,
-  [_AI, _CTl, _De],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 4], [() => CreateMultiRegionAccessPointInput$, 0]]
+  [_De, _AI, _CTl],
+  [[() => CreateMultiRegionAccessPointInput$, 0], [0, { [_hL]: 1, [_hH]: _xaai }], [0, 4]], 1
 ];
 export var CreateMultiRegionAccessPointResult$: StaticStructureSchema = [3, n0, _CMRAPRr,
   0,
@@ -1005,8 +1005,8 @@ export var CreateMultiRegionAccessPointResult$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateStorageLensGroupRequest$: StaticStructureSchema = [3, n0, _CSLGR,
   0,
-  [_AI, _SLG, _T],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [() => StorageLensGroup$, 0], [() => TagList, 0]]
+  [_SLG, _AI, _T],
+  [[() => StorageLensGroup$, 0], [0, { [_hL]: 1, [_hH]: _xaai }], [() => TagList, 0]], 1
 ];
 export var Credentials$: StaticStructureSchema = [3, n0, _Cr,
   8,
@@ -1015,8 +1015,8 @@ export var Credentials$: StaticStructureSchema = [3, n0, _Cr,
 ];
 export var DeleteAccessGrantRequest$: StaticStructureSchema = [3, n0, _DAGR,
   0,
-  [_AI, _AGI],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_AGI, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var DeleteAccessGrantsInstanceRequest$: StaticStructureSchema = [3, n0, _DAGIR,
   0,
@@ -1030,63 +1030,63 @@ export var DeleteAccessGrantsInstanceResourcePolicyRequest$: StaticStructureSche
 ];
 export var DeleteAccessGrantsLocationRequest$: StaticStructureSchema = [3, n0, _DAGLR,
   0,
-  [_AI, _AGLI],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_AGLI, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var DeleteAccessPointForObjectLambdaRequest$: StaticStructureSchema = [3, n0, _DAPFOLR,
   0,
-  [_AI, _N],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_N, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var DeleteAccessPointPolicyForObjectLambdaRequest$: StaticStructureSchema = [3, n0, _DAPPFOLR,
   0,
-  [_AI, _N],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_N, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var DeleteAccessPointPolicyRequest$: StaticStructureSchema = [3, n0, _DAPPR,
   0,
-  [_AI, _N],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_N, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var DeleteAccessPointRequest$: StaticStructureSchema = [3, n0, _DAPR,
   0,
-  [_AI, _N],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_N, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var DeleteAccessPointScopeRequest$: StaticStructureSchema = [3, n0, _DAPSR,
   0,
-  [_AI, _N],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_N, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var DeleteBucketLifecycleConfigurationRequest$: StaticStructureSchema = [3, n0, _DBLCR,
   0,
-  [_AI, _B],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_B, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var DeleteBucketPolicyRequest$: StaticStructureSchema = [3, n0, _DBPR,
   0,
-  [_AI, _B],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_B, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var DeleteBucketReplicationRequest$: StaticStructureSchema = [3, n0, _DBRR,
   0,
-  [_AI, _B],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_B, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var DeleteBucketRequest$: StaticStructureSchema = [3, n0, _DBR,
   0,
-  [_AI, _B],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_B, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var DeleteBucketTaggingRequest$: StaticStructureSchema = [3, n0, _DBTR,
   0,
-  [_AI, _B],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_B, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var DeleteJobTaggingRequest$: StaticStructureSchema = [3, n0, _DJTR,
   0,
-  [_AI, _JI],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_JI, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var DeleteJobTaggingResult$: StaticStructureSchema = [3, n0, _DJTRe,
   0,
@@ -1096,17 +1096,17 @@ export var DeleteJobTaggingResult$: StaticStructureSchema = [3, n0, _DJTRe,
 export var DeleteMarkerReplication$: StaticStructureSchema = [3, n0, _DMR,
   0,
   [_St],
-  [0]
+  [0], 1
 ];
 export var DeleteMultiRegionAccessPointInput$: StaticStructureSchema = [3, n0, _DMRAPI,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var DeleteMultiRegionAccessPointRequest$: StaticStructureSchema = [3, n0, _DMRAPR,
   0,
-  [_AI, _CTl, _De],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 4], () => DeleteMultiRegionAccessPointInput$]
+  [_De, _AI, _CTl],
+  [() => DeleteMultiRegionAccessPointInput$, [0, { [_hL]: 1, [_hH]: _xaai }], [0, 4]], 1
 ];
 export var DeleteMultiRegionAccessPointResult$: StaticStructureSchema = [3, n0, _DMRAPRe,
   0,
@@ -1121,12 +1121,12 @@ export var DeletePublicAccessBlockRequest$: StaticStructureSchema = [3, n0, _DPA
 export var DeleteStorageLensConfigurationRequest$: StaticStructureSchema = [3, n0, _DSLCR,
   0,
   [_CI, _AI],
-  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]]
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var DeleteStorageLensConfigurationTaggingRequest$: StaticStructureSchema = [3, n0, _DSLCTR,
   0,
   [_CI, _AI],
-  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]]
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var DeleteStorageLensConfigurationTaggingResult$: StaticStructureSchema = [3, n0, _DSLCTRe,
   0,
@@ -1136,12 +1136,12 @@ export var DeleteStorageLensConfigurationTaggingResult$: StaticStructureSchema =
 export var DeleteStorageLensGroupRequest$: StaticStructureSchema = [3, n0, _DSLGR,
   0,
   [_N, _AI],
-  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]]
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var DescribeJobRequest$: StaticStructureSchema = [3, n0, _DJR,
   0,
-  [_AI, _JI],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_JI, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var DescribeJobResult$: StaticStructureSchema = [3, n0, _DJRe,
   0,
@@ -1150,8 +1150,8 @@ export var DescribeJobResult$: StaticStructureSchema = [3, n0, _DJRe,
 ];
 export var DescribeMultiRegionAccessPointOperationRequest$: StaticStructureSchema = [3, n0, _DMRAPOR,
   0,
-  [_AI, _RTARN],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_RTARN, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var DescribeMultiRegionAccessPointOperationResult$: StaticStructureSchema = [3, n0, _DMRAPORe,
   0,
@@ -1160,8 +1160,8 @@ export var DescribeMultiRegionAccessPointOperationResult$: StaticStructureSchema
 ];
 export var Destination$: StaticStructureSchema = [3, n0, _Des,
   0,
-  [_Ac, _B, _RT, _ACT, _EC, _Me, _SC],
-  [0, 0, () => ReplicationTime$, () => AccessControlTranslation$, () => EncryptionConfiguration$, () => Metrics$, 0]
+  [_B, _Ac, _RT, _ACT, _EC, _Me, _SC],
+  [0, 0, () => ReplicationTime$, () => AccessControlTranslation$, () => EncryptionConfiguration$, () => Metrics$, 0], 1
 ];
 export var DetailedStatusCodesMetrics$: StaticStructureSchema = [3, n0, _DSCM,
   0,
@@ -1196,7 +1196,7 @@ export var _Exclude$: StaticStructureSchema = [3, n0, _Ex,
 export var ExistingObjectReplication$: StaticStructureSchema = [3, n0, _EOR,
   0,
   [_St],
-  [0]
+  [0], 1
 ];
 export var GeneratedManifestEncryption$: StaticStructureSchema = [3, n0, _GME,
   0,
@@ -1205,8 +1205,8 @@ export var GeneratedManifestEncryption$: StaticStructureSchema = [3, n0, _GME,
 ];
 export var GetAccessGrantRequest$: StaticStructureSchema = [3, n0, _GAGR,
   0,
-  [_AI, _AGI],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_AGI, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetAccessGrantResult$: StaticStructureSchema = [3, n0, _GAGRe,
   0,
@@ -1215,8 +1215,8 @@ export var GetAccessGrantResult$: StaticStructureSchema = [3, n0, _GAGRe,
 ];
 export var GetAccessGrantsInstanceForPrefixRequest$: StaticStructureSchema = [3, n0, _GAGIFPR,
   0,
-  [_AI, _SP],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, { [_hQ]: _s }]]
+  [_SP, _AI],
+  [[0, { [_hQ]: _s }], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetAccessGrantsInstanceForPrefixResult$: StaticStructureSchema = [3, n0, _GAGIFPRe,
   0,
@@ -1245,8 +1245,8 @@ export var GetAccessGrantsInstanceResult$: StaticStructureSchema = [3, n0, _GAGI
 ];
 export var GetAccessGrantsLocationRequest$: StaticStructureSchema = [3, n0, _GAGLR,
   0,
-  [_AI, _AGLI],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_AGLI, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetAccessGrantsLocationResult$: StaticStructureSchema = [3, n0, _GAGLRe,
   0,
@@ -1255,8 +1255,8 @@ export var GetAccessGrantsLocationResult$: StaticStructureSchema = [3, n0, _GAGL
 ];
 export var GetAccessPointConfigurationForObjectLambdaRequest$: StaticStructureSchema = [3, n0, _GAPCFOLR,
   0,
-  [_AI, _N],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_N, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetAccessPointConfigurationForObjectLambdaResult$: StaticStructureSchema = [3, n0, _GAPCFOLRe,
   0,
@@ -1265,8 +1265,8 @@ export var GetAccessPointConfigurationForObjectLambdaResult$: StaticStructureSch
 ];
 export var GetAccessPointForObjectLambdaRequest$: StaticStructureSchema = [3, n0, _GAPFOLR,
   0,
-  [_AI, _N],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_N, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetAccessPointForObjectLambdaResult$: StaticStructureSchema = [3, n0, _GAPFOLRe,
   0,
@@ -1275,8 +1275,8 @@ export var GetAccessPointForObjectLambdaResult$: StaticStructureSchema = [3, n0,
 ];
 export var GetAccessPointPolicyForObjectLambdaRequest$: StaticStructureSchema = [3, n0, _GAPPFOLR,
   0,
-  [_AI, _N],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_N, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetAccessPointPolicyForObjectLambdaResult$: StaticStructureSchema = [3, n0, _GAPPFOLRe,
   0,
@@ -1285,8 +1285,8 @@ export var GetAccessPointPolicyForObjectLambdaResult$: StaticStructureSchema = [
 ];
 export var GetAccessPointPolicyRequest$: StaticStructureSchema = [3, n0, _GAPPR,
   0,
-  [_AI, _N],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_N, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetAccessPointPolicyResult$: StaticStructureSchema = [3, n0, _GAPPRe,
   0,
@@ -1295,8 +1295,8 @@ export var GetAccessPointPolicyResult$: StaticStructureSchema = [3, n0, _GAPPRe,
 ];
 export var GetAccessPointPolicyStatusForObjectLambdaRequest$: StaticStructureSchema = [3, n0, _GAPPSFOLR,
   0,
-  [_AI, _N],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_N, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetAccessPointPolicyStatusForObjectLambdaResult$: StaticStructureSchema = [3, n0, _GAPPSFOLRe,
   0,
@@ -1305,8 +1305,8 @@ export var GetAccessPointPolicyStatusForObjectLambdaResult$: StaticStructureSche
 ];
 export var GetAccessPointPolicyStatusRequest$: StaticStructureSchema = [3, n0, _GAPPSR,
   0,
-  [_AI, _N],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_N, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetAccessPointPolicyStatusResult$: StaticStructureSchema = [3, n0, _GAPPSRe,
   0,
@@ -1315,8 +1315,8 @@ export var GetAccessPointPolicyStatusResult$: StaticStructureSchema = [3, n0, _G
 ];
 export var GetAccessPointRequest$: StaticStructureSchema = [3, n0, _GAPR,
   0,
-  [_AI, _N],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_N, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetAccessPointResult$: StaticStructureSchema = [3, n0, _GAPRe,
   0,
@@ -1325,8 +1325,8 @@ export var GetAccessPointResult$: StaticStructureSchema = [3, n0, _GAPRe,
 ];
 export var GetAccessPointScopeRequest$: StaticStructureSchema = [3, n0, _GAPSR,
   0,
-  [_AI, _N],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_N, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetAccessPointScopeResult$: StaticStructureSchema = [3, n0, _GAPSRe,
   0,
@@ -1335,8 +1335,8 @@ export var GetAccessPointScopeResult$: StaticStructureSchema = [3, n0, _GAPSRe,
 ];
 export var GetBucketLifecycleConfigurationRequest$: StaticStructureSchema = [3, n0, _GBLCR,
   0,
-  [_AI, _B],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_B, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetBucketLifecycleConfigurationResult$: StaticStructureSchema = [3, n0, _GBLCRe,
   0,
@@ -1345,8 +1345,8 @@ export var GetBucketLifecycleConfigurationResult$: StaticStructureSchema = [3, n
 ];
 export var GetBucketPolicyRequest$: StaticStructureSchema = [3, n0, _GBPR,
   0,
-  [_AI, _B],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_B, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetBucketPolicyResult$: StaticStructureSchema = [3, n0, _GBPRe,
   0,
@@ -1355,8 +1355,8 @@ export var GetBucketPolicyResult$: StaticStructureSchema = [3, n0, _GBPRe,
 ];
 export var GetBucketReplicationRequest$: StaticStructureSchema = [3, n0, _GBRR,
   0,
-  [_AI, _B],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_B, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetBucketReplicationResult$: StaticStructureSchema = [3, n0, _GBRRe,
   0,
@@ -1365,8 +1365,8 @@ export var GetBucketReplicationResult$: StaticStructureSchema = [3, n0, _GBRRe,
 ];
 export var GetBucketRequest$: StaticStructureSchema = [3, n0, _GBR,
   0,
-  [_AI, _B],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_B, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetBucketResult$: StaticStructureSchema = [3, n0, _GBRe,
   0,
@@ -1375,18 +1375,18 @@ export var GetBucketResult$: StaticStructureSchema = [3, n0, _GBRe,
 ];
 export var GetBucketTaggingRequest$: StaticStructureSchema = [3, n0, _GBTR,
   0,
-  [_AI, _B],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_B, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetBucketTaggingResult$: StaticStructureSchema = [3, n0, _GBTRe,
   0,
   [_TS],
-  [() => S3TagSet]
+  [() => S3TagSet], 1
 ];
 export var GetBucketVersioningRequest$: StaticStructureSchema = [3, n0, _GBVR,
   0,
-  [_AI, _B],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_B, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetBucketVersioningResult$: StaticStructureSchema = [3, n0, _GBVRe,
   0,
@@ -1395,8 +1395,8 @@ export var GetBucketVersioningResult$: StaticStructureSchema = [3, n0, _GBVRe,
 ];
 export var GetDataAccessRequest$: StaticStructureSchema = [3, n0, _GDAR,
   0,
-  [_AI, _Ta, _P, _DS, _Pri, _TT],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, { [_hQ]: _t }], [0, { [_hQ]: _p }], [1, { [_hQ]: _dS }], [0, { [_hQ]: _pr }], [0, { [_hQ]: _tT }]]
+  [_Ta, _P, _AI, _DS, _Pri, _TT],
+  [[0, { [_hQ]: _t }], [0, { [_hQ]: _p }], [0, { [_hL]: 1, [_hH]: _xaai }], [1, { [_hQ]: _dS }], [0, { [_hQ]: _pr }], [0, { [_hQ]: _tT }]], 2
 ];
 export var GetDataAccessResult$: StaticStructureSchema = [3, n0, _GDARe,
   0,
@@ -1405,8 +1405,8 @@ export var GetDataAccessResult$: StaticStructureSchema = [3, n0, _GDARe,
 ];
 export var GetJobTaggingRequest$: StaticStructureSchema = [3, n0, _GJTR,
   0,
-  [_AI, _JI],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_JI, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetJobTaggingResult$: StaticStructureSchema = [3, n0, _GJTRe,
   0,
@@ -1415,8 +1415,8 @@ export var GetJobTaggingResult$: StaticStructureSchema = [3, n0, _GJTRe,
 ];
 export var GetMultiRegionAccessPointPolicyRequest$: StaticStructureSchema = [3, n0, _GMRAPPR,
   0,
-  [_AI, _N],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_N, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetMultiRegionAccessPointPolicyResult$: StaticStructureSchema = [3, n0, _GMRAPPRe,
   0,
@@ -1425,8 +1425,8 @@ export var GetMultiRegionAccessPointPolicyResult$: StaticStructureSchema = [3, n
 ];
 export var GetMultiRegionAccessPointPolicyStatusRequest$: StaticStructureSchema = [3, n0, _GMRAPPSR,
   0,
-  [_AI, _N],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_N, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetMultiRegionAccessPointPolicyStatusResult$: StaticStructureSchema = [3, n0, _GMRAPPSRe,
   0,
@@ -1435,8 +1435,8 @@ export var GetMultiRegionAccessPointPolicyStatusResult$: StaticStructureSchema =
 ];
 export var GetMultiRegionAccessPointRequest$: StaticStructureSchema = [3, n0, _GMRAPR,
   0,
-  [_AI, _N],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_N, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetMultiRegionAccessPointResult$: StaticStructureSchema = [3, n0, _GMRAPRe,
   0,
@@ -1445,8 +1445,8 @@ export var GetMultiRegionAccessPointResult$: StaticStructureSchema = [3, n0, _GM
 ];
 export var GetMultiRegionAccessPointRoutesRequest$: StaticStructureSchema = [3, n0, _GMRAPRR,
   0,
-  [_AI, _Mr],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_Mr, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetMultiRegionAccessPointRoutesResult$: StaticStructureSchema = [3, n0, _GMRAPRRe,
   0,
@@ -1466,7 +1466,7 @@ export var GetPublicAccessBlockRequest$: StaticStructureSchema = [3, n0, _GPABR,
 export var GetStorageLensConfigurationRequest$: StaticStructureSchema = [3, n0, _GSLCR,
   0,
   [_CI, _AI],
-  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]]
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetStorageLensConfigurationResult$: StaticStructureSchema = [3, n0, _GSLCRe,
   0,
@@ -1476,7 +1476,7 @@ export var GetStorageLensConfigurationResult$: StaticStructureSchema = [3, n0, _
 export var GetStorageLensConfigurationTaggingRequest$: StaticStructureSchema = [3, n0, _GSLCTR,
   0,
   [_CI, _AI],
-  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]]
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetStorageLensConfigurationTaggingResult$: StaticStructureSchema = [3, n0, _GSLCTRe,
   0,
@@ -1486,7 +1486,7 @@ export var GetStorageLensConfigurationTaggingResult$: StaticStructureSchema = [3
 export var GetStorageLensGroupRequest$: StaticStructureSchema = [3, n0, _GSLGR,
   0,
   [_N, _AI],
-  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]]
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetStorageLensGroupResult$: StaticStructureSchema = [3, n0, _GSLGRe,
   0,
@@ -1545,7 +1545,7 @@ export var JobListDescriptor$: StaticStructureSchema = [3, n0, _JLD,
 export var JobManifest$: StaticStructureSchema = [3, n0, _JM,
   0,
   [_Sp, _L],
-  [() => JobManifestSpec$, () => JobManifestLocation$]
+  [() => JobManifestSpec$, () => JobManifestLocation$], 2
 ];
 export var JobManifestGeneratorFilter$: StaticStructureSchema = [3, n0, _JMGF,
   0,
@@ -1554,13 +1554,13 @@ export var JobManifestGeneratorFilter$: StaticStructureSchema = [3, n0, _JMGF,
 ];
 export var JobManifestLocation$: StaticStructureSchema = [3, n0, _JML,
   0,
-  [_OA, _OVI, _ET],
-  [0, 0, 0]
+  [_OA, _ET, _OVI],
+  [0, 0, 0], 2
 ];
 export var JobManifestSpec$: StaticStructureSchema = [3, n0, _JMS,
   0,
   [_F, _Fi],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var JobOperation$: StaticStructureSchema = [3, n0, _JO,
   0,
@@ -1574,8 +1574,8 @@ export var JobProgressSummary$: StaticStructureSchema = [3, n0, _JPS,
 ];
 export var JobReport$: StaticStructureSchema = [3, n0, _JR,
   0,
-  [_B, _F, _Ena, _Pre, _RSe, _EBO],
-  [0, 0, 2, 0, 0, 0]
+  [_Ena, _B, _F, _Pre, _RSe, _EBO],
+  [2, 0, 0, 0, 0, 0], 1
 ];
 export var JobStatusException$: StaticErrorSchema = [-3, n0, _JSE,
   { [_e]: _c },
@@ -1610,8 +1610,8 @@ export var LifecycleExpiration$: StaticStructureSchema = [3, n0, _LE,
 ];
 export var LifecycleRule$: StaticStructureSchema = [3, n0, _LR,
   0,
-  [_E, _ID, _Fil, _St, _Tr, _NVT, _NVE, _AIMU],
-  [() => LifecycleExpiration$, 0, () => LifecycleRuleFilter$, 0, [() => TransitionList, 0], [() => NoncurrentVersionTransitionList, 0], () => NoncurrentVersionExpiration$, () => AbortIncompleteMultipartUpload$]
+  [_St, _E, _ID, _Fil, _Tr, _NVT, _NVE, _AIMU],
+  [0, () => LifecycleExpiration$, 0, () => LifecycleRuleFilter$, [() => TransitionList, 0], [() => NoncurrentVersionTransitionList, 0], () => NoncurrentVersionExpiration$, () => AbortIncompleteMultipartUpload$], 1
 ];
 export var LifecycleRuleAndOperator$: StaticStructureSchema = [3, n0, _LRAO,
   0,
@@ -1746,7 +1746,7 @@ export var ListRegionalBucketsResult$: StaticStructureSchema = [3, n0, _LRBRi,
 export var ListStorageLensConfigurationEntry$: StaticStructureSchema = [3, n0, _LSLCE,
   0,
   [_Id, _SLA, _HR, _IE],
-  [0, 0, 0, 2]
+  [0, 0, 0, 2], 3
 ];
 export var ListStorageLensConfigurationsRequest$: StaticStructureSchema = [3, n0, _LSLCR,
   0,
@@ -1761,7 +1761,7 @@ export var ListStorageLensConfigurationsResult$: StaticStructureSchema = [3, n0,
 export var ListStorageLensGroupEntry$: StaticStructureSchema = [3, n0, _LSLGE,
   0,
   [_N, _SLGA, _HR],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ListStorageLensGroupsRequest$: StaticStructureSchema = [3, n0, _LSLGR,
   0,
@@ -1775,8 +1775,8 @@ export var ListStorageLensGroupsResult$: StaticStructureSchema = [3, n0, _LSLGRi
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
-  [_AI, _RAe],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1]]
+  [_RAe, _AI],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var ListTagsForResourceResult$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1796,7 +1796,7 @@ export var MatchObjectSize$: StaticStructureSchema = [3, n0, _MOS,
 export var Metrics$: StaticStructureSchema = [3, n0, _Me,
   0,
   [_St, _ETv],
-  [0, () => ReplicationTimeValue$]
+  [0, () => ReplicationTimeValue$], 1
 ];
 export var MultiRegionAccessPointPolicyDocument$: StaticStructureSchema = [3, n0, _MRAPPD,
   0,
@@ -1815,8 +1815,8 @@ export var MultiRegionAccessPointReport$: StaticStructureSchema = [3, n0, _MRAPR
 ];
 export var MultiRegionAccessPointRoute$: StaticStructureSchema = [3, n0, _MRAPRu,
   0,
-  [_B, _Regi, _TDP],
-  [0, 0, 1]
+  [_TDP, _B, _Regi],
+  [1, 0, 0], 1
 ];
 export var MultiRegionAccessPointsAsyncResponse$: StaticStructureSchema = [3, n0, _MRAPAR,
   0,
@@ -1853,7 +1853,7 @@ export var NotSSEFilter$: StaticStructureSchema = [3, n0, _NSSEF,
 export var ObjectLambdaAccessPoint$: StaticStructureSchema = [3, n0, _OLAP,
   0,
   [_N, _OLAPA, _A],
-  [0, 0, () => ObjectLambdaAccessPointAlias$]
+  [0, 0, () => ObjectLambdaAccessPointAlias$], 1
 ];
 export var ObjectLambdaAccessPointAlias$: StaticStructureSchema = [3, n0, _OLAPAb,
   0,
@@ -1862,13 +1862,13 @@ export var ObjectLambdaAccessPointAlias$: StaticStructureSchema = [3, n0, _OLAPA
 ];
 export var ObjectLambdaConfiguration$: StaticStructureSchema = [3, n0, _OLC,
   0,
-  [_SAP, _CWME, _AF, _TC],
-  [0, 2, [() => ObjectLambdaAllowedFeaturesList, 0], [() => ObjectLambdaTransformationConfigurationsList, 0]]
+  [_SAP, _TC, _CWME, _AF],
+  [0, [() => ObjectLambdaTransformationConfigurationsList, 0], 2, [() => ObjectLambdaAllowedFeaturesList, 0]], 2
 ];
 export var ObjectLambdaTransformationConfiguration$: StaticStructureSchema = [3, n0, _OLTC,
   0,
   [_Act, _CTo],
-  [[() => ObjectLambdaTransformationConfigurationActionsList, 0], () => ObjectLambdaContentTransformation$]
+  [[() => ObjectLambdaTransformationConfigurationActionsList, 0], () => ObjectLambdaContentTransformation$], 2
 ];
 export var PolicyStatus$: StaticStructureSchema = [3, n0, _PS,
   0,
@@ -1878,7 +1878,7 @@ export var PolicyStatus$: StaticStructureSchema = [3, n0, _PS,
 export var PrefixLevel$: StaticStructureSchema = [3, n0, _PL,
   0,
   [_SM],
-  [() => PrefixLevelStorageMetrics$]
+  [() => PrefixLevelStorageMetrics$], 1
 ];
 export var PrefixLevelStorageMetrics$: StaticStructureSchema = [3, n0, _PLSM,
   0,
@@ -1897,8 +1897,8 @@ export var PublicAccessBlockConfiguration$: StaticStructureSchema = [3, n0, _PAB
 ];
 export var PutAccessGrantsInstanceResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PAGIRPR,
   0,
-  [_AI, _Po, _Or],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], 0, 0]
+  [_Po, _AI, _Or],
+  [0, [0, { [_hL]: 1, [_hH]: _xaai }], 0], 1
 ];
 export var PutAccessGrantsInstanceResourcePolicyResult$: StaticStructureSchema = [3, n0, _PAGIRPRu,
   0,
@@ -1907,53 +1907,53 @@ export var PutAccessGrantsInstanceResourcePolicyResult$: StaticStructureSchema =
 ];
 export var PutAccessPointConfigurationForObjectLambdaRequest$: StaticStructureSchema = [3, n0, _PAPCFOLR,
   0,
-  [_AI, _N, _Co],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], [() => ObjectLambdaConfiguration$, 0]]
+  [_N, _Co, _AI],
+  [[0, 1], [() => ObjectLambdaConfiguration$, 0], [0, { [_hL]: 1, [_hH]: _xaai }]], 2
 ];
 export var PutAccessPointPolicyForObjectLambdaRequest$: StaticStructureSchema = [3, n0, _PAPPFOLR,
   0,
-  [_AI, _N, _Po],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], 0]
+  [_N, _Po, _AI],
+  [[0, 1], 0, [0, { [_hL]: 1, [_hH]: _xaai }]], 2
 ];
 export var PutAccessPointPolicyRequest$: StaticStructureSchema = [3, n0, _PAPPR,
   0,
-  [_AI, _N, _Po],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], 0]
+  [_N, _Po, _AI],
+  [[0, 1], 0, [0, { [_hL]: 1, [_hH]: _xaai }]], 2
 ];
 export var PutAccessPointScopeRequest$: StaticStructureSchema = [3, n0, _PAPSR,
   0,
-  [_AI, _N, _S],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], [() => Scope$, 0]]
+  [_N, _S, _AI],
+  [[0, 1], [() => Scope$, 0], [0, { [_hL]: 1, [_hH]: _xaai }]], 2
 ];
 export var PutBucketLifecycleConfigurationRequest$: StaticStructureSchema = [3, n0, _PBLCR,
   0,
-  [_AI, _B, _LCi],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], [() => LifecycleConfiguration$, { [_hP]: 1, [_xN]: _LCi }]]
+  [_B, _AI, _LCi],
+  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }], [() => LifecycleConfiguration$, { [_hP]: 1, [_xN]: _LCi }]], 1
 ];
 export var PutBucketPolicyRequest$: StaticStructureSchema = [3, n0, _PBPR,
   0,
-  [_AI, _B, _CRSBA, _Po],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], [2, { [_hH]: _xacrsba }], 0]
+  [_B, _Po, _AI, _CRSBA],
+  [[0, 1], 0, [0, { [_hL]: 1, [_hH]: _xaai }], [2, { [_hH]: _xacrsba }]], 2
 ];
 export var PutBucketReplicationRequest$: StaticStructureSchema = [3, n0, _PBRR,
   0,
-  [_AI, _B, _RC],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], [() => ReplicationConfiguration$, { [_hP]: 1, [_xN]: _RC }]]
+  [_B, _RC, _AI],
+  [[0, 1], [() => ReplicationConfiguration$, { [_hP]: 1, [_xN]: _RC }], [0, { [_hL]: 1, [_hH]: _xaai }]], 2
 ];
 export var PutBucketTaggingRequest$: StaticStructureSchema = [3, n0, _PBTR,
   0,
-  [_AI, _B, _Tagg],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], [() => Tagging$, { [_hP]: 1, [_xN]: _Tagg }]]
+  [_B, _Tagg, _AI],
+  [[0, 1], [() => Tagging$, { [_hP]: 1, [_xN]: _Tagg }], [0, { [_hL]: 1, [_hH]: _xaai }]], 2
 ];
 export var PutBucketVersioningRequest$: StaticStructureSchema = [3, n0, _PBVR,
   0,
-  [_AI, _B, _MFA, _VCe],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], [0, { [_hH]: _xam }], [() => VersioningConfiguration$, { [_hP]: 1, [_xN]: _VCe }]]
+  [_B, _VCe, _AI, _MFA],
+  [[0, 1], [() => VersioningConfiguration$, { [_hP]: 1, [_xN]: _VCe }], [0, { [_hL]: 1, [_hH]: _xaai }], [0, { [_hH]: _xam }]], 2
 ];
 export var PutJobTaggingRequest$: StaticStructureSchema = [3, n0, _PJTR,
   0,
-  [_AI, _JI, _T],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], () => S3TagSet]
+  [_JI, _T, _AI],
+  [[0, 1], () => S3TagSet, [0, { [_hL]: 1, [_hH]: _xaai }]], 2
 ];
 export var PutJobTaggingResult$: StaticStructureSchema = [3, n0, _PJTRu,
   0,
@@ -1963,12 +1963,12 @@ export var PutJobTaggingResult$: StaticStructureSchema = [3, n0, _PJTRu,
 export var PutMultiRegionAccessPointPolicyInput$: StaticStructureSchema = [3, n0, _PMRAPPI,
   0,
   [_N, _Po],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutMultiRegionAccessPointPolicyRequest$: StaticStructureSchema = [3, n0, _PMRAPPR,
   0,
-  [_AI, _CTl, _De],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 4], () => PutMultiRegionAccessPointPolicyInput$]
+  [_De, _AI, _CTl],
+  [() => PutMultiRegionAccessPointPolicyInput$, [0, { [_hL]: 1, [_hH]: _xaai }], [0, 4]], 1
 ];
 export var PutMultiRegionAccessPointPolicyResult$: StaticStructureSchema = [3, n0, _PMRAPPRu,
   0,
@@ -1978,17 +1978,17 @@ export var PutMultiRegionAccessPointPolicyResult$: StaticStructureSchema = [3, n
 export var PutPublicAccessBlockRequest$: StaticStructureSchema = [3, n0, _PPABR,
   0,
   [_PABC, _AI],
-  [[() => PublicAccessBlockConfiguration$, { [_hP]: 1, [_xN]: _PABC }], [0, { [_hL]: 1, [_hH]: _xaai }]]
+  [[() => PublicAccessBlockConfiguration$, { [_hP]: 1, [_xN]: _PABC }], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var PutStorageLensConfigurationRequest$: StaticStructureSchema = [3, n0, _PSLCR,
   0,
-  [_CI, _AI, _SLC, _T],
-  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }], [() => StorageLensConfiguration$, 0], [() => StorageLensTags, 0]]
+  [_CI, _SLC, _AI, _T],
+  [[0, 1], [() => StorageLensConfiguration$, 0], [0, { [_hL]: 1, [_hH]: _xaai }], [() => StorageLensTags, 0]], 2
 ];
 export var PutStorageLensConfigurationTaggingRequest$: StaticStructureSchema = [3, n0, _PSLCTR,
   0,
-  [_CI, _AI, _T],
-  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }], [() => StorageLensTags, 0]]
+  [_CI, _T, _AI],
+  [[0, 1], [() => StorageLensTags, 0], [0, { [_hL]: 1, [_hH]: _xaai }]], 2
 ];
 export var PutStorageLensConfigurationTaggingResult$: StaticStructureSchema = [3, n0, _PSLCTRu,
   0,
@@ -1998,12 +1998,12 @@ export var PutStorageLensConfigurationTaggingResult$: StaticStructureSchema = [3
 export var Region$: StaticStructureSchema = [3, n0, _Regi,
   0,
   [_B, _BAI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var RegionalBucket$: StaticStructureSchema = [3, n0, _RB,
   0,
-  [_B, _BA, _PABE, _CD, _OI],
-  [0, 0, 2, 4, 0]
+  [_B, _PABE, _CD, _BA, _OI],
+  [0, 2, 4, 0, 0], 3
 ];
 export var RegionReport$: StaticStructureSchema = [3, n0, _RR,
   0,
@@ -2013,17 +2013,17 @@ export var RegionReport$: StaticStructureSchema = [3, n0, _RR,
 export var ReplicaModifications$: StaticStructureSchema = [3, n0, _RM,
   0,
   [_St],
-  [0]
+  [0], 1
 ];
 export var ReplicationConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_Rol, _Ru],
-  [0, [() => ReplicationRules, 0]]
+  [0, [() => ReplicationRules, 0]], 2
 ];
 export var ReplicationRule$: StaticStructureSchema = [3, n0, _RRe,
   0,
-  [_ID, _Pr, _Pre, _Fil, _St, _SSC, _EOR, _Des, _DMR, _B],
-  [0, 1, 0, () => ReplicationRuleFilter$, 0, () => SourceSelectionCriteria$, () => ExistingObjectReplication$, () => Destination$, () => DeleteMarkerReplication$, 0]
+  [_St, _Des, _B, _ID, _Pr, _Pre, _Fil, _SSC, _EOR, _DMR],
+  [0, () => Destination$, 0, 0, 1, 0, () => ReplicationRuleFilter$, () => SourceSelectionCriteria$, () => ExistingObjectReplication$, () => DeleteMarkerReplication$], 3
 ];
 export var ReplicationRuleAndOperator$: StaticStructureSchema = [3, n0, _RRAO,
   0,
@@ -2038,7 +2038,7 @@ export var ReplicationRuleFilter$: StaticStructureSchema = [3, n0, _RRF,
 export var ReplicationTime$: StaticStructureSchema = [3, n0, _RT,
   0,
   [_St, _Tim],
-  [0, () => ReplicationTimeValue$]
+  [0, () => ReplicationTimeValue$], 2
 ];
 export var ReplicationTimeValue$: StaticStructureSchema = [3, n0, _RTV,
   0,
@@ -2048,7 +2048,7 @@ export var ReplicationTimeValue$: StaticStructureSchema = [3, n0, _RTV,
 export var S3AccessControlList$: StaticStructureSchema = [3, n0, _SACL,
   0,
   [_O, _Gr],
-  [() => S3ObjectOwner$, () => S3GrantList]
+  [() => S3ObjectOwner$, () => S3GrantList], 1
 ];
 export var S3AccessControlPolicy$: StaticStructureSchema = [3, n0, _SACP,
   0,
@@ -2057,8 +2057,8 @@ export var S3AccessControlPolicy$: StaticStructureSchema = [3, n0, _SACP,
 ];
 export var S3BucketDestination$: StaticStructureSchema = [3, n0, _SBD,
   0,
-  [_F, _OSV, _AI, _Ar, _Pre, _Enc],
-  [0, 0, 0, 0, 0, [() => StorageLensDataExportEncryption$, 0]]
+  [_F, _OSV, _Ar, _AI, _Pre, _Enc],
+  [0, 0, 0, 0, 0, [() => StorageLensDataExportEncryption$, 0]], 3
 ];
 export var S3ComputeObjectChecksumOperation$: StaticStructureSchema = [3, n0, _SCOCO,
   0,
@@ -2097,18 +2097,18 @@ export var S3InitiateRestoreObjectOperation$: StaticStructureSchema = [3, n0, _S
 ];
 export var S3JobManifestGenerator$: StaticStructureSchema = [3, n0, _SJMG,
   0,
-  [_EBO, _SB, _MOL, _Fil, _EMO],
-  [0, 0, [() => S3ManifestOutputLocation$, 0], [() => JobManifestGeneratorFilter$, 0], 2]
+  [_SB, _EMO, _EBO, _MOL, _Fil],
+  [0, 2, 0, [() => S3ManifestOutputLocation$, 0], [() => JobManifestGeneratorFilter$, 0]], 2
 ];
 export var S3ManifestOutputLocation$: StaticStructureSchema = [3, n0, _SMOL,
   0,
-  [_EMBO, _B, _MP, _ME, _MF],
-  [0, 0, 0, [() => GeneratedManifestEncryption$, 0], 0]
+  [_B, _MF, _EMBO, _MP, _ME],
+  [0, 0, 0, 0, [() => GeneratedManifestEncryption$, 0]], 2
 ];
 export var S3ObjectLockLegalHold$: StaticStructureSchema = [3, n0, _SOLLH,
   0,
   [_St],
-  [0]
+  [0], 1
 ];
 export var S3ObjectMetadata$: StaticStructureSchema = [3, n0, _SOM,
   0,
@@ -2138,12 +2138,12 @@ export var S3SetObjectAclOperation$: StaticStructureSchema = [3, n0, _SSOAO,
 export var S3SetObjectLegalHoldOperation$: StaticStructureSchema = [3, n0, _SSOLHO,
   0,
   [_LH],
-  [() => S3ObjectLockLegalHold$]
+  [() => S3ObjectLockLegalHold$], 1
 ];
 export var S3SetObjectRetentionOperation$: StaticStructureSchema = [3, n0, _SSORO,
   0,
-  [_BGR, _Ret],
-  [2, () => S3Retention$]
+  [_Ret, _BGR],
+  [() => S3Retention$, 2], 1
 ];
 export var S3SetObjectTaggingOperation$: StaticStructureSchema = [3, n0, _SSOTO,
   0,
@@ -2153,7 +2153,7 @@ export var S3SetObjectTaggingOperation$: StaticStructureSchema = [3, n0, _SSOTO,
 export var S3Tag$: StaticStructureSchema = [3, n0, _STa,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Scope$: StaticStructureSchema = [3, n0, _S,
   0,
@@ -2178,17 +2178,17 @@ export var SSECFilter$: StaticStructureSchema = [3, n0, _SSECF,
 export var SSEKMS$: StaticStructureSchema = [3, n0, _SSEKMS,
   { [_xN]: _SK },
   [_KI],
-  [0]
+  [0], 1
 ];
 export var SseKmsEncryptedObjects$: StaticStructureSchema = [3, n0, _SKEO,
   0,
   [_St],
-  [0]
+  [0], 1
 ];
 export var SSEKMSEncryption$: StaticStructureSchema = [3, n0, _SSEKMSE,
   { [_xN]: _SK },
   [_KI],
-  [0]
+  [0], 1
 ];
 export var SSEKMSFilter$: StaticStructureSchema = [3, n0, _SSEKMSF,
   0,
@@ -2213,12 +2213,12 @@ export var SSES3Filter$: StaticStructureSchema = [3, n0, _SSESF,
 export var StorageLensAwsOrg$: StaticStructureSchema = [3, n0, _SLAO,
   0,
   [_Ar],
-  [0]
+  [0], 1
 ];
 export var StorageLensConfiguration$: StaticStructureSchema = [3, n0, _SLC,
   0,
-  [_Id, _AL, _I, _Ex, _DE, _EPDE, _IE, _AOw, _SLA, _PD],
-  [0, [() => AccountLevel$, 0], [() => Include$, 0], [() => _Exclude$, 0], [() => StorageLensDataExport$, 0], [() => StorageLensExpandedPrefixesDataExport$, 0], 2, () => StorageLensAwsOrg$, 0, 0]
+  [_Id, _AL, _IE, _I, _Ex, _DE, _EPDE, _AOw, _SLA, _PD],
+  [0, [() => AccountLevel$, 0], 2, [() => Include$, 0], [() => _Exclude$, 0], [() => StorageLensDataExport$, 0], [() => StorageLensExpandedPrefixesDataExport$, 0], () => StorageLensAwsOrg$, 0, 0], 3
 ];
 export var StorageLensDataExport$: StaticStructureSchema = [3, n0, _SLDE,
   0,
@@ -2238,7 +2238,7 @@ export var StorageLensExpandedPrefixesDataExport$: StaticStructureSchema = [3, n
 export var StorageLensGroup$: StaticStructureSchema = [3, n0, _SLG,
   0,
   [_N, _Fil, _SLGA],
-  [0, [() => StorageLensGroupFilter$, 0], 0]
+  [0, [() => StorageLensGroupFilter$, 0], 0], 2
 ];
 export var StorageLensGroupAndOperator$: StaticStructureSchema = [3, n0, _SLGAO,
   0,
@@ -2268,17 +2268,17 @@ export var StorageLensGroupOrOperator$: StaticStructureSchema = [3, n0, _SLGOO,
 export var StorageLensTableDestination$: StaticStructureSchema = [3, n0, _SLTD,
   0,
   [_IE, _Enc],
-  [2, [() => StorageLensDataExportEncryption$, 0]]
+  [2, [() => StorageLensDataExportEncryption$, 0]], 1
 ];
 export var StorageLensTag$: StaticStructureSchema = [3, n0, _SLT,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SubmitMultiRegionAccessPointRoutesRequest$: StaticStructureSchema = [3, n0, _SMRAPRR,
   0,
-  [_AI, _Mr, _RU],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], [() => RouteList, 0]]
+  [_Mr, _RU, _AI],
+  [[0, 1], [() => RouteList, 0], [0, { [_hL]: 1, [_hH]: _xaai }]], 2
 ];
 export var SubmitMultiRegionAccessPointRoutesResult$: StaticStructureSchema = [3, n0, _SMRAPRRu,
   0,
@@ -2288,17 +2288,17 @@ export var SubmitMultiRegionAccessPointRoutesResult$: StaticStructureSchema = [3
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Tagging$: StaticStructureSchema = [3, n0, _Tagg,
   0,
   [_TS],
-  [() => S3TagSet]
+  [() => S3TagSet], 1
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
-  [_AI, _RAe, _T],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], [() => TagList, 0]]
+  [_RAe, _T, _AI],
+  [[0, 1], [() => TagList, 0], [0, { [_hL]: 1, [_hH]: _xaai }]], 2
 ];
 export var TagResourceResult$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -2324,8 +2324,8 @@ export var Transition$: StaticStructureSchema = [3, n0, _Tra,
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
-  [_AI, _RAe, _TK],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [_RAe, _TK, _AI],
+  [[0, 1], [64 | 0, { [_hQ]: _tK }], [0, { [_hL]: 1, [_hH]: _xaai }]], 2
 ];
 export var UntagResourceResult$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -2334,8 +2334,8 @@ export var UntagResourceResult$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateAccessGrantsLocationRequest$: StaticStructureSchema = [3, n0, _UAGLR,
   0,
-  [_AI, _AGLI, _IAMRA],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], 0]
+  [_AGLI, _IAMRA, _AI],
+  [[0, 1], 0, [0, { [_hL]: 1, [_hH]: _xaai }]], 2
 ];
 export var UpdateAccessGrantsLocationResult$: StaticStructureSchema = [3, n0, _UAGLRp,
   0,
@@ -2344,18 +2344,18 @@ export var UpdateAccessGrantsLocationResult$: StaticStructureSchema = [3, n0, _U
 ];
 export var UpdateJobPriorityRequest$: StaticStructureSchema = [3, n0, _UJPR,
   0,
-  [_AI, _JI, _Pr],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], [1, { [_hQ]: _pri }]]
+  [_JI, _Pr, _AI],
+  [[0, 1], [1, { [_hQ]: _pri }], [0, { [_hL]: 1, [_hH]: _xaai }]], 2
 ];
 export var UpdateJobPriorityResult$: StaticStructureSchema = [3, n0, _UJPRp,
   0,
   [_JI, _Pr],
-  [0, 1]
+  [0, 1], 2
 ];
 export var UpdateJobStatusRequest$: StaticStructureSchema = [3, n0, _UJSR,
   0,
-  [_AI, _JI, _RJS, _SUR],
-  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], [0, { [_hQ]: _rJS }], [0, { [_hQ]: _sUR }]]
+  [_JI, _RJS, _AI, _SUR],
+  [[0, 1], [0, { [_hQ]: _rJS }], [0, { [_hL]: 1, [_hH]: _xaai }], [0, { [_hQ]: _sUR }]], 2
 ];
 export var UpdateJobStatusResult$: StaticStructureSchema = [3, n0, _UJSRp,
   0,
@@ -2364,8 +2364,8 @@ export var UpdateJobStatusResult$: StaticStructureSchema = [3, n0, _UJSRp,
 ];
 export var UpdateStorageLensGroupRequest$: StaticStructureSchema = [3, n0, _USLGR,
   0,
-  [_N, _AI, _SLG],
-  [[0, 1], [0, { [_hL]: 1, [_hH]: _xaai }], [() => StorageLensGroup$, 0]]
+  [_N, _SLG, _AI],
+  [[0, 1], [() => StorageLensGroup$, 0], [0, { [_hL]: 1, [_hH]: _xaai }]], 2
 ];
 export var VersioningConfiguration$: StaticStructureSchema = [3, n0, _VCe,
   0,
@@ -2375,7 +2375,7 @@ export var VersioningConfiguration$: StaticStructureSchema = [3, n0, _VCe,
 export var VpcConfiguration$: StaticStructureSchema = [3, n0, _VC,
   0,
   [_VI],
-  [0]
+  [0], 1
 ];
 var __Unit = "unit" as const;
 export var S3ControlServiceException$: StaticErrorSchema = [-3, _sm, "S3ControlServiceException", 0, [], []];

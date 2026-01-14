@@ -605,7 +605,7 @@ export var Address$: StaticStructureSchema = [3, n0, _Ad,
 export var AssociatePhoneNumbersWithVoiceConnectorGroupRequest$: StaticStructureSchema = [3, n0, _APNWVCGR,
   0,
   [_VCGI, _EPNh, _FAo],
-  [[0, 1], [() => E164PhoneNumberList, 0], 2]
+  [[0, 1], [() => E164PhoneNumberList, 0], 2], 2
 ];
 export var AssociatePhoneNumbersWithVoiceConnectorGroupResponse$: StaticStructureSchema = [3, n0, _APNWVCGRs,
   0,
@@ -615,7 +615,7 @@ export var AssociatePhoneNumbersWithVoiceConnectorGroupResponse$: StaticStructur
 export var AssociatePhoneNumbersWithVoiceConnectorRequest$: StaticStructureSchema = [3, n0, _APNWVCR,
   0,
   [_VCI, _EPNh, _FAo],
-  [[0, 1], [() => E164PhoneNumberList, 0], 2]
+  [[0, 1], [() => E164PhoneNumberList, 0], 2], 2
 ];
 export var AssociatePhoneNumbersWithVoiceConnectorResponse$: StaticStructureSchema = [3, n0, _APNWVCRs,
   0,
@@ -631,7 +631,7 @@ TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var BatchDeletePhoneNumberRequest$: StaticStructureSchema = [3, n0, _BDPNR,
   0,
   [_PNI],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchDeletePhoneNumberResponse$: StaticStructureSchema = [3, n0, _BDPNRa,
   0,
@@ -641,7 +641,7 @@ export var BatchDeletePhoneNumberResponse$: StaticStructureSchema = [3, n0, _BDP
 export var BatchUpdatePhoneNumberRequest$: StaticStructureSchema = [3, n0, _BUPNR,
   0,
   [_UPNRI],
-  [[() => UpdatePhoneNumberRequestItemList, 0]]
+  [[() => UpdatePhoneNumberRequestItemList, 0]], 1
 ];
 export var BatchUpdatePhoneNumberResponse$: StaticStructureSchema = [3, n0, _BUPNRa,
   0,
@@ -667,7 +667,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreatePhoneNumberOrderRequest$: StaticStructureSchema = [3, n0, _CPNOR,
   0,
   [_PT, _EPNh, _N],
-  [0, [() => E164PhoneNumberList, 0], [() => PhoneNumberName, 0]]
+  [0, [() => E164PhoneNumberList, 0], [() => PhoneNumberName, 0]], 2
 ];
 export var CreatePhoneNumberOrderResponse$: StaticStructureSchema = [3, n0, _CPNORr,
   0,
@@ -676,8 +676,8 @@ export var CreatePhoneNumberOrderResponse$: StaticStructureSchema = [3, n0, _CPN
 ];
 export var CreateProxySessionRequest$: StaticStructureSchema = [3, n0, _CPSR,
   0,
-  [_VCI, _PPN, _N, _EM, _Ca, _NSB, _GML, _GMP],
-  [[0, 1], [() => ParticipantPhoneNumberList, 0], [() => ProxySessionNameString, 0], 1, 64 | 0, 0, 0, () => GeoMatchParams$]
+  [_VCI, _PPN, _Ca, _N, _EM, _NSB, _GML, _GMP],
+  [[0, 1], [() => ParticipantPhoneNumberList, 0], 64 | 0, [() => ProxySessionNameString, 0], 1, 0, 0, () => GeoMatchParams$], 3
 ];
 export var CreateProxySessionResponse$: StaticStructureSchema = [3, n0, _CPSRr,
   0,
@@ -687,7 +687,7 @@ export var CreateProxySessionResponse$: StaticStructureSchema = [3, n0, _CPSRr,
 export var CreateSipMediaApplicationCallRequest$: StaticStructureSchema = [3, n0, _CSMACR,
   0,
   [_FPN, _TPN, _SMAI, _SH, _AM],
-  [[() => E164PhoneNumber, 0], [() => E164PhoneNumber, 0], [0, 1], [() => SipHeadersMap, 0], [() => SMACreateCallArgumentsMap, 0]]
+  [[() => E164PhoneNumber, 0], [() => E164PhoneNumber, 0], [0, 1], [() => SipHeadersMap, 0], [() => SMACreateCallArgumentsMap, 0]], 3
 ];
 export var CreateSipMediaApplicationCallResponse$: StaticStructureSchema = [3, n0, _CSMACRr,
   0,
@@ -697,7 +697,7 @@ export var CreateSipMediaApplicationCallResponse$: StaticStructureSchema = [3, n
 export var CreateSipMediaApplicationRequest$: StaticStructureSchema = [3, n0, _CSMAR,
   0,
   [_AR, _N, _E, _T],
-  [0, 0, [() => SipMediaApplicationEndpointList, 0], [() => TagList, 0]]
+  [0, 0, [() => SipMediaApplicationEndpointList, 0], [() => TagList, 0]], 3
 ];
 export var CreateSipMediaApplicationResponse$: StaticStructureSchema = [3, n0, _CSMARr,
   0,
@@ -707,7 +707,7 @@ export var CreateSipMediaApplicationResponse$: StaticStructureSchema = [3, n0, _
 export var CreateSipRuleRequest$: StaticStructureSchema = [3, n0, _CSRR,
   0,
   [_N, _TT, _TVr, _D, _TA],
-  [0, 0, 0, 2, () => SipRuleTargetApplicationList]
+  [0, 0, 0, 2, () => SipRuleTargetApplicationList], 3
 ];
 export var CreateSipRuleResponse$: StaticStructureSchema = [3, n0, _CSRRr,
   0,
@@ -717,7 +717,7 @@ export var CreateSipRuleResponse$: StaticStructureSchema = [3, n0, _CSRRr,
 export var CreateVoiceConnectorGroupRequest$: StaticStructureSchema = [3, n0, _CVCGR,
   0,
   [_N, _VCIo],
-  [0, () => VoiceConnectorItemList]
+  [0, () => VoiceConnectorItemList], 1
 ];
 export var CreateVoiceConnectorGroupResponse$: StaticStructureSchema = [3, n0, _CVCGRr,
   0,
@@ -726,8 +726,8 @@ export var CreateVoiceConnectorGroupResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var CreateVoiceConnectorRequest$: StaticStructureSchema = [3, n0, _CVCR,
   0,
-  [_N, _AR, _RE, _T, _IT, _NT],
-  [0, 0, 2, [() => TagList, 0], 0, 0]
+  [_N, _RE, _AR, _T, _IT, _NT],
+  [0, 2, 0, [() => TagList, 0], 0, 0], 2
 ];
 export var CreateVoiceConnectorResponse$: StaticStructureSchema = [3, n0, _CVCRr,
   0,
@@ -736,8 +736,8 @@ export var CreateVoiceConnectorResponse$: StaticStructureSchema = [3, n0, _CVCRr
 ];
 export var CreateVoiceProfileDomainRequest$: StaticStructureSchema = [3, n0, _CVPDR,
   0,
-  [_N, _De, _SSEC, _CRT, _T],
-  [0, 0, [() => ServerSideEncryptionConfiguration$, 0], 0, [() => TagList, 0]]
+  [_N, _SSEC, _De, _CRT, _T],
+  [0, [() => ServerSideEncryptionConfiguration$, 0], 0, 0, [() => TagList, 0]], 2
 ];
 export var CreateVoiceProfileDomainResponse$: StaticStructureSchema = [3, n0, _CVPDRr,
   0,
@@ -747,7 +747,7 @@ export var CreateVoiceProfileDomainResponse$: StaticStructureSchema = [3, n0, _C
 export var CreateVoiceProfileRequest$: StaticStructureSchema = [3, n0, _CVPR,
   0,
   [_SSTI],
-  [0]
+  [0], 1
 ];
 export var CreateVoiceProfileResponse$: StaticStructureSchema = [3, n0, _CVPRr,
   0,
@@ -762,82 +762,82 @@ export var Credential$: StaticStructureSchema = [3, n0, _Cr,
 export var DeletePhoneNumberRequest$: StaticStructureSchema = [3, n0, _DPNR,
   0,
   [_PNIh],
-  [[() => SensitiveNonEmptyString, 1]]
+  [[() => SensitiveNonEmptyString, 1]], 1
 ];
 export var DeleteProxySessionRequest$: StaticStructureSchema = [3, n0, _DPSR,
   0,
   [_VCI, _PSI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteSipMediaApplicationRequest$: StaticStructureSchema = [3, n0, _DSMAR,
   0,
   [_SMAI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteSipRuleRequest$: StaticStructureSchema = [3, n0, _DSRR,
   0,
   [_SRI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteVoiceConnectorEmergencyCallingConfigurationRequest$: StaticStructureSchema = [3, n0, _DVCECCR,
   0,
   [_VCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteVoiceConnectorExternalSystemsConfigurationRequest$: StaticStructureSchema = [3, n0, _DVCESCR,
   0,
   [_VCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteVoiceConnectorGroupRequest$: StaticStructureSchema = [3, n0, _DVCGR,
   0,
   [_VCGI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteVoiceConnectorOriginationRequest$: StaticStructureSchema = [3, n0, _DVCOR,
   0,
   [_VCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteVoiceConnectorProxyRequest$: StaticStructureSchema = [3, n0, _DVCPR,
   0,
   [_VCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteVoiceConnectorRequest$: StaticStructureSchema = [3, n0, _DVCR,
   0,
   [_VCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteVoiceConnectorStreamingConfigurationRequest$: StaticStructureSchema = [3, n0, _DVCSCR,
   0,
   [_VCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteVoiceConnectorTerminationCredentialsRequest$: StaticStructureSchema = [3, n0, _DVCTCR,
   0,
   [_VCI, _Us],
-  [[0, 1], [() => SensitiveStringList, 0]]
+  [[0, 1], [() => SensitiveStringList, 0]], 2
 ];
 export var DeleteVoiceConnectorTerminationRequest$: StaticStructureSchema = [3, n0, _DVCTR,
   0,
   [_VCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteVoiceProfileDomainRequest$: StaticStructureSchema = [3, n0, _DVPDR,
   0,
   [_VPDI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteVoiceProfileRequest$: StaticStructureSchema = [3, n0, _DVPR,
   0,
   [_VPI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DisassociatePhoneNumbersFromVoiceConnectorGroupRequest$: StaticStructureSchema = [3, n0, _DPNFVCGR,
   0,
   [_VCGI, _EPNh],
-  [[0, 1], [() => E164PhoneNumberList, 0]]
+  [[0, 1], [() => E164PhoneNumberList, 0]], 2
 ];
 export var DisassociatePhoneNumbersFromVoiceConnectorGroupResponse$: StaticStructureSchema = [3, n0, _DPNFVCGRi,
   0,
@@ -847,7 +847,7 @@ export var DisassociatePhoneNumbersFromVoiceConnectorGroupResponse$: StaticStruc
 export var DisassociatePhoneNumbersFromVoiceConnectorRequest$: StaticStructureSchema = [3, n0, _DPNFVCR,
   0,
   [_VCI, _EPNh],
-  [[0, 1], [() => E164PhoneNumberList, 0]]
+  [[0, 1], [() => E164PhoneNumberList, 0]], 2
 ];
 export var DisassociatePhoneNumbersFromVoiceConnectorResponse$: StaticStructureSchema = [3, n0, _DPNFVCRi,
   0,
@@ -856,8 +856,8 @@ export var DisassociatePhoneNumbersFromVoiceConnectorResponse$: StaticStructureS
 ];
 export var DNISEmergencyCallingConfiguration$: StaticStructureSchema = [3, n0, _DNISECC,
   0,
-  [_EPNm, _TPNe, _CC],
-  [[() => E164PhoneNumber, 0], [() => E164PhoneNumber, 0], 0]
+  [_EPNm, _CC, _TPNe],
+  [[() => E164PhoneNumber, 0], 0, [() => E164PhoneNumber, 0]], 2
 ];
 export var EmergencyCallingConfiguration$: StaticStructureSchema = [3, n0, _ECC,
   0,
@@ -878,7 +878,7 @@ TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GeoMatchParams$: StaticStructureSchema = [3, n0, _GMP,
   0,
   [_Co, _AC],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetGlobalSettingsResponse$: StaticStructureSchema = [3, n0, _GGSR,
   0,
@@ -888,7 +888,7 @@ export var GetGlobalSettingsResponse$: StaticStructureSchema = [3, n0, _GGSR,
 export var GetPhoneNumberOrderRequest$: StaticStructureSchema = [3, n0, _GPNOR,
   0,
   [_PNOI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetPhoneNumberOrderResponse$: StaticStructureSchema = [3, n0, _GPNORe,
   0,
@@ -898,7 +898,7 @@ export var GetPhoneNumberOrderResponse$: StaticStructureSchema = [3, n0, _GPNORe
 export var GetPhoneNumberRequest$: StaticStructureSchema = [3, n0, _GPNR,
   0,
   [_PNIh],
-  [[() => SensitiveNonEmptyString, 1]]
+  [[() => SensitiveNonEmptyString, 1]], 1
 ];
 export var GetPhoneNumberResponse$: StaticStructureSchema = [3, n0, _GPNRe,
   0,
@@ -913,7 +913,7 @@ export var GetPhoneNumberSettingsResponse$: StaticStructureSchema = [3, n0, _GPN
 export var GetProxySessionRequest$: StaticStructureSchema = [3, n0, _GPSR,
   0,
   [_VCI, _PSI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetProxySessionResponse$: StaticStructureSchema = [3, n0, _GPSRe,
   0,
@@ -923,7 +923,7 @@ export var GetProxySessionResponse$: StaticStructureSchema = [3, n0, _GPSRe,
 export var GetSipMediaApplicationAlexaSkillConfigurationRequest$: StaticStructureSchema = [3, n0, _GSMAASCR,
   0,
   [_SMAI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSipMediaApplicationAlexaSkillConfigurationResponse$: StaticStructureSchema = [3, n0, _GSMAASCRe,
   0,
@@ -933,7 +933,7 @@ export var GetSipMediaApplicationAlexaSkillConfigurationResponse$: StaticStructu
 export var GetSipMediaApplicationLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _GSMALCR,
   0,
   [_SMAI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSipMediaApplicationLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _GSMALCRe,
   0,
@@ -943,7 +943,7 @@ export var GetSipMediaApplicationLoggingConfigurationResponse$: StaticStructureS
 export var GetSipMediaApplicationRequest$: StaticStructureSchema = [3, n0, _GSMAR,
   0,
   [_SMAI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSipMediaApplicationResponse$: StaticStructureSchema = [3, n0, _GSMARe,
   0,
@@ -953,7 +953,7 @@ export var GetSipMediaApplicationResponse$: StaticStructureSchema = [3, n0, _GSM
 export var GetSipRuleRequest$: StaticStructureSchema = [3, n0, _GSRR,
   0,
   [_SRI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSipRuleResponse$: StaticStructureSchema = [3, n0, _GSRRe,
   0,
@@ -963,7 +963,7 @@ export var GetSipRuleResponse$: StaticStructureSchema = [3, n0, _GSRRe,
 export var GetSpeakerSearchTaskRequest$: StaticStructureSchema = [3, n0, _GSSTR,
   0,
   [_VCI, _SSTI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetSpeakerSearchTaskResponse$: StaticStructureSchema = [3, n0, _GSSTRe,
   0,
@@ -973,7 +973,7 @@ export var GetSpeakerSearchTaskResponse$: StaticStructureSchema = [3, n0, _GSSTR
 export var GetVoiceConnectorEmergencyCallingConfigurationRequest$: StaticStructureSchema = [3, n0, _GVCECCR,
   0,
   [_VCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetVoiceConnectorEmergencyCallingConfigurationResponse$: StaticStructureSchema = [3, n0, _GVCECCRe,
   0,
@@ -983,7 +983,7 @@ export var GetVoiceConnectorEmergencyCallingConfigurationResponse$: StaticStruct
 export var GetVoiceConnectorExternalSystemsConfigurationRequest$: StaticStructureSchema = [3, n0, _GVCESCR,
   0,
   [_VCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetVoiceConnectorExternalSystemsConfigurationResponse$: StaticStructureSchema = [3, n0, _GVCESCRe,
   0,
@@ -993,7 +993,7 @@ export var GetVoiceConnectorExternalSystemsConfigurationResponse$: StaticStructu
 export var GetVoiceConnectorGroupRequest$: StaticStructureSchema = [3, n0, _GVCGR,
   0,
   [_VCGI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetVoiceConnectorGroupResponse$: StaticStructureSchema = [3, n0, _GVCGRe,
   0,
@@ -1003,7 +1003,7 @@ export var GetVoiceConnectorGroupResponse$: StaticStructureSchema = [3, n0, _GVC
 export var GetVoiceConnectorLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _GVCLCR,
   0,
   [_VCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetVoiceConnectorLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _GVCLCRe,
   0,
@@ -1013,7 +1013,7 @@ export var GetVoiceConnectorLoggingConfigurationResponse$: StaticStructureSchema
 export var GetVoiceConnectorOriginationRequest$: StaticStructureSchema = [3, n0, _GVCOR,
   0,
   [_VCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetVoiceConnectorOriginationResponse$: StaticStructureSchema = [3, n0, _GVCORe,
   0,
@@ -1023,7 +1023,7 @@ export var GetVoiceConnectorOriginationResponse$: StaticStructureSchema = [3, n0
 export var GetVoiceConnectorProxyRequest$: StaticStructureSchema = [3, n0, _GVCPR,
   0,
   [_VCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetVoiceConnectorProxyResponse$: StaticStructureSchema = [3, n0, _GVCPRe,
   0,
@@ -1033,7 +1033,7 @@ export var GetVoiceConnectorProxyResponse$: StaticStructureSchema = [3, n0, _GVC
 export var GetVoiceConnectorRequest$: StaticStructureSchema = [3, n0, _GVCR,
   0,
   [_VCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetVoiceConnectorResponse$: StaticStructureSchema = [3, n0, _GVCRe,
   0,
@@ -1043,7 +1043,7 @@ export var GetVoiceConnectorResponse$: StaticStructureSchema = [3, n0, _GVCRe,
 export var GetVoiceConnectorStreamingConfigurationRequest$: StaticStructureSchema = [3, n0, _GVCSCR,
   0,
   [_VCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetVoiceConnectorStreamingConfigurationResponse$: StaticStructureSchema = [3, n0, _GVCSCRe,
   0,
@@ -1053,7 +1053,7 @@ export var GetVoiceConnectorStreamingConfigurationResponse$: StaticStructureSche
 export var GetVoiceConnectorTerminationHealthRequest$: StaticStructureSchema = [3, n0, _GVCTHR,
   0,
   [_VCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetVoiceConnectorTerminationHealthResponse$: StaticStructureSchema = [3, n0, _GVCTHRe,
   0,
@@ -1063,7 +1063,7 @@ export var GetVoiceConnectorTerminationHealthResponse$: StaticStructureSchema = 
 export var GetVoiceConnectorTerminationRequest$: StaticStructureSchema = [3, n0, _GVCTR,
   0,
   [_VCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetVoiceConnectorTerminationResponse$: StaticStructureSchema = [3, n0, _GVCTRe,
   0,
@@ -1073,7 +1073,7 @@ export var GetVoiceConnectorTerminationResponse$: StaticStructureSchema = [3, n0
 export var GetVoiceProfileDomainRequest$: StaticStructureSchema = [3, n0, _GVPDR,
   0,
   [_VPDI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetVoiceProfileDomainResponse$: StaticStructureSchema = [3, n0, _GVPDRe,
   0,
@@ -1083,7 +1083,7 @@ export var GetVoiceProfileDomainResponse$: StaticStructureSchema = [3, n0, _GVPD
 export var GetVoiceProfileRequest$: StaticStructureSchema = [3, n0, _GVPR,
   0,
   [_VPI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetVoiceProfileResponse$: StaticStructureSchema = [3, n0, _GVPRe,
   0,
@@ -1093,7 +1093,7 @@ export var GetVoiceProfileResponse$: StaticStructureSchema = [3, n0, _GVPRe,
 export var GetVoiceToneAnalysisTaskRequest$: StaticStructureSchema = [3, n0, _GVTATR,
   0,
   [_VCI, _VTATI, _IC],
-  [[0, 1], [0, 1], [2, { [_hQ]: _iC }]]
+  [[0, 1], [0, 1], [2, { [_hQ]: _iC }]], 3
 ];
 export var GetVoiceToneAnalysisTaskResponse$: StaticStructureSchema = [3, n0, _GVTATRe,
   0,
@@ -1134,7 +1134,7 @@ export var ListPhoneNumbersResponse$: StaticStructureSchema = [3, n0, _LPNRi,
 export var ListProxySessionsRequest$: StaticStructureSchema = [3, n0, _LPSR,
   0,
   [_VCI, _S, _NTe, _MR],
-  [[0, 1], [0, { [_hQ]: _st }], [0, { [_hQ]: _nt }], [1, { [_hQ]: _mr }]]
+  [[0, 1], [0, { [_hQ]: _st }], [0, { [_hQ]: _nt }], [1, { [_hQ]: _mr }]], 1
 ];
 export var ListProxySessionsResponse$: StaticStructureSchema = [3, n0, _LPSRi,
   0,
@@ -1164,7 +1164,7 @@ export var ListSipRulesResponse$: StaticStructureSchema = [3, n0, _LSRRi,
 export var ListSupportedPhoneNumberCountriesRequest$: StaticStructureSchema = [3, n0, _LSPNCR,
   0,
   [_PT],
-  [[0, { [_hQ]: _pt }]]
+  [[0, { [_hQ]: _pt }]], 1
 ];
 export var ListSupportedPhoneNumberCountriesResponse$: StaticStructureSchema = [3, n0, _LSPNCRi,
   0,
@@ -1174,7 +1174,7 @@ export var ListSupportedPhoneNumberCountriesResponse$: StaticStructureSchema = [
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [[() => Arn, { [_hQ]: _a }]]
+  [[() => Arn, { [_hQ]: _a }]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1204,7 +1204,7 @@ export var ListVoiceConnectorsResponse$: StaticStructureSchema = [3, n0, _LVCRi,
 export var ListVoiceConnectorTerminationCredentialsRequest$: StaticStructureSchema = [3, n0, _LVCTCR,
   0,
   [_VCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListVoiceConnectorTerminationCredentialsResponse$: StaticStructureSchema = [3, n0, _LVCTCRi,
   0,
@@ -1224,7 +1224,7 @@ export var ListVoiceProfileDomainsResponse$: StaticStructureSchema = [3, n0, _LV
 export var ListVoiceProfilesRequest$: StaticStructureSchema = [3, n0, _LVPR,
   0,
   [_VPDI, _NTe, _MR],
-  [[0, { [_hQ]: _vpdi }], [0, { [_hQ]: _nt }], [1, { [_hQ]: _mr }]]
+  [[0, { [_hQ]: _vpdi }], [0, { [_hQ]: _nt }], [1, { [_hQ]: _mr }]], 1
 ];
 export var ListVoiceProfilesResponse$: StaticStructureSchema = [3, n0, _LVPRi,
   0,
@@ -1310,7 +1310,7 @@ export var ProxySession$: StaticStructureSchema = [3, n0, _PS,
 export var PutSipMediaApplicationAlexaSkillConfigurationRequest$: StaticStructureSchema = [3, n0, _PSMAASCR,
   0,
   [_SMAI, _SMAASC],
-  [[0, 1], [() => SipMediaApplicationAlexaSkillConfiguration$, 0]]
+  [[0, 1], [() => SipMediaApplicationAlexaSkillConfiguration$, 0]], 1
 ];
 export var PutSipMediaApplicationAlexaSkillConfigurationResponse$: StaticStructureSchema = [3, n0, _PSMAASCRu,
   0,
@@ -1320,7 +1320,7 @@ export var PutSipMediaApplicationAlexaSkillConfigurationResponse$: StaticStructu
 export var PutSipMediaApplicationLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _PSMALCR,
   0,
   [_SMAI, _SMALC],
-  [[0, 1], () => SipMediaApplicationLoggingConfiguration$]
+  [[0, 1], () => SipMediaApplicationLoggingConfiguration$], 1
 ];
 export var PutSipMediaApplicationLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _PSMALCRu,
   0,
@@ -1330,7 +1330,7 @@ export var PutSipMediaApplicationLoggingConfigurationResponse$: StaticStructureS
 export var PutVoiceConnectorEmergencyCallingConfigurationRequest$: StaticStructureSchema = [3, n0, _PVCECCR,
   0,
   [_VCI, _ECC],
-  [[0, 1], [() => EmergencyCallingConfiguration$, 0]]
+  [[0, 1], [() => EmergencyCallingConfiguration$, 0]], 2
 ];
 export var PutVoiceConnectorEmergencyCallingConfigurationResponse$: StaticStructureSchema = [3, n0, _PVCECCRu,
   0,
@@ -1340,7 +1340,7 @@ export var PutVoiceConnectorEmergencyCallingConfigurationResponse$: StaticStruct
 export var PutVoiceConnectorExternalSystemsConfigurationRequest$: StaticStructureSchema = [3, n0, _PVCESCR,
   0,
   [_VCI, _SBCT, _CCST],
-  [[0, 1], 64 | 0, 64 | 0]
+  [[0, 1], 64 | 0, 64 | 0], 1
 ];
 export var PutVoiceConnectorExternalSystemsConfigurationResponse$: StaticStructureSchema = [3, n0, _PVCESCRu,
   0,
@@ -1350,7 +1350,7 @@ export var PutVoiceConnectorExternalSystemsConfigurationResponse$: StaticStructu
 export var PutVoiceConnectorLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _PVCLCR,
   0,
   [_VCI, _LC],
-  [[0, 1], () => LoggingConfiguration$]
+  [[0, 1], () => LoggingConfiguration$], 2
 ];
 export var PutVoiceConnectorLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _PVCLCRu,
   0,
@@ -1360,7 +1360,7 @@ export var PutVoiceConnectorLoggingConfigurationResponse$: StaticStructureSchema
 export var PutVoiceConnectorOriginationRequest$: StaticStructureSchema = [3, n0, _PVCOR,
   0,
   [_VCI, _O],
-  [[0, 1], () => Origination$]
+  [[0, 1], () => Origination$], 2
 ];
 export var PutVoiceConnectorOriginationResponse$: StaticStructureSchema = [3, n0, _PVCORu,
   0,
@@ -1370,7 +1370,7 @@ export var PutVoiceConnectorOriginationResponse$: StaticStructureSchema = [3, n0
 export var PutVoiceConnectorProxyRequest$: StaticStructureSchema = [3, n0, _PVCPR,
   0,
   [_VCI, _DSEM, _PNPC, _FBPN, _D],
-  [[0, 1], 1, 64 | 0, [() => E164PhoneNumber, 0], 2]
+  [[0, 1], 1, 64 | 0, [() => E164PhoneNumber, 0], 2], 3
 ];
 export var PutVoiceConnectorProxyResponse$: StaticStructureSchema = [3, n0, _PVCPRu,
   0,
@@ -1380,7 +1380,7 @@ export var PutVoiceConnectorProxyResponse$: StaticStructureSchema = [3, n0, _PVC
 export var PutVoiceConnectorStreamingConfigurationRequest$: StaticStructureSchema = [3, n0, _PVCSCR,
   0,
   [_VCI, _SC],
-  [[0, 1], [() => StreamingConfiguration$, 0]]
+  [[0, 1], [() => StreamingConfiguration$, 0]], 2
 ];
 export var PutVoiceConnectorStreamingConfigurationResponse$: StaticStructureSchema = [3, n0, _PVCSCRu,
   0,
@@ -1390,12 +1390,12 @@ export var PutVoiceConnectorStreamingConfigurationResponse$: StaticStructureSche
 export var PutVoiceConnectorTerminationCredentialsRequest$: StaticStructureSchema = [3, n0, _PVCTCR,
   0,
   [_VCI, _Cre],
-  [[0, 1], [() => CredentialList, 0]]
+  [[0, 1], [() => CredentialList, 0]], 1
 ];
 export var PutVoiceConnectorTerminationRequest$: StaticStructureSchema = [3, n0, _PVCTR,
   0,
   [_VCI, _Te],
-  [[0, 1], [() => Termination$, 0]]
+  [[0, 1], [() => Termination$, 0]], 2
 ];
 export var PutVoiceConnectorTerminationResponse$: StaticStructureSchema = [3, n0, _PVCTRu,
   0,
@@ -1411,7 +1411,7 @@ TypeRegistry.for(n0).registerError(ResourceLimitExceededException$, ResourceLimi
 export var RestorePhoneNumberRequest$: StaticStructureSchema = [3, n0, _RPNR,
   0,
   [_PNIh],
-  [[() => SensitiveNonEmptyString, 1]]
+  [[() => SensitiveNonEmptyString, 1]], 1
 ];
 export var RestorePhoneNumberResponse$: StaticStructureSchema = [3, n0, _RPNRe,
   0,
@@ -1431,7 +1431,7 @@ export var SearchAvailablePhoneNumbersResponse$: StaticStructureSchema = [3, n0,
 export var ServerSideEncryptionConfiguration$: StaticStructureSchema = [3, n0, _SSEC,
   0,
   [_KKA],
-  [[() => Arn, 0]]
+  [[() => Arn, 0]], 1
 ];
 export var ServiceFailureException$: StaticErrorSchema = [-3, n0, _SFE,
   { [_e]: _se, [_hE]: 500 },
@@ -1453,7 +1453,7 @@ export var SipMediaApplication$: StaticStructureSchema = [3, n0, _SMA,
 export var SipMediaApplicationAlexaSkillConfiguration$: StaticStructureSchema = [3, n0, _SMAASC,
   0,
   [_ASS, _ASIl],
-  [0, [() => AlexaSkillIdList, 0]]
+  [0, [() => AlexaSkillIdList, 0]], 2
 ];
 export var SipMediaApplicationCall$: StaticStructureSchema = [3, n0, _SMAC,
   0,
@@ -1498,7 +1498,7 @@ export var SpeakerSearchTask$: StaticStructureSchema = [3, n0, _SST,
 export var StartSpeakerSearchTaskRequest$: StaticStructureSchema = [3, n0, _SSSTR,
   0,
   [_VCI, _TI, _VPDI, _CRT, _CL],
-  [[0, 1], 0, 0, 0, 0]
+  [[0, 1], 0, 0, 0, 0], 3
 ];
 export var StartSpeakerSearchTaskResponse$: StaticStructureSchema = [3, n0, _SSSTRt,
   0,
@@ -1508,7 +1508,7 @@ export var StartSpeakerSearchTaskResponse$: StaticStructureSchema = [3, n0, _SSS
 export var StartVoiceToneAnalysisTaskRequest$: StaticStructureSchema = [3, n0, _SVTATR,
   0,
   [_VCI, _TI, _LCa, _CRT],
-  [[0, 1], 0, 0, 0]
+  [[0, 1], 0, 0, 0], 3
 ];
 export var StartVoiceToneAnalysisTaskResponse$: StaticStructureSchema = [3, n0, _SVTATRt,
   0,
@@ -1518,17 +1518,17 @@ export var StartVoiceToneAnalysisTaskResponse$: StaticStructureSchema = [3, n0, 
 export var StopSpeakerSearchTaskRequest$: StaticStructureSchema = [3, n0, _SSSTRto,
   0,
   [_VCI, _SSTI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var StopVoiceToneAnalysisTaskRequest$: StaticStructureSchema = [3, n0, _SVTATRto,
   0,
   [_VCI, _VTATI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var StreamingConfiguration$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_DRIH, _D, _SNT, _MIC],
-  [1, 2, () => StreamingNotificationTargetList, [() => MediaInsightsConfiguration$, 0]]
+  [1, 2, () => StreamingNotificationTargetList, [() => MediaInsightsConfiguration$, 0]], 2
 ];
 export var StreamingNotificationTarget$: StaticStructureSchema = [3, n0, _SNTt,
   0,
@@ -1538,12 +1538,12 @@ export var StreamingNotificationTarget$: StaticStructureSchema = [3, n0, _SNTt,
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [[() => TagKey, 0], [() => TagValue, 0]]
+  [[() => TagKey, 0], [() => TagValue, 0]], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _T],
-  [[() => Arn, 0], [() => TagList, 0]]
+  [[() => Arn, 0], [() => TagList, 0]], 2
 ];
 export var Termination$: StaticStructureSchema = [3, n0, _Te,
   0,
@@ -1576,7 +1576,7 @@ TypeRegistry.for(n0).registerError(UnprocessableEntityException$, UnprocessableE
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TKa],
-  [[() => Arn, 0], [() => TagKeyList, 0]]
+  [[() => Arn, 0], [() => TagKeyList, 0]], 2
 ];
 export var UpdateGlobalSettingsRequest$: StaticStructureSchema = [3, n0, _UGSR,
   0,
@@ -1586,12 +1586,12 @@ export var UpdateGlobalSettingsRequest$: StaticStructureSchema = [3, n0, _UGSR,
 export var UpdatePhoneNumberRequest$: StaticStructureSchema = [3, n0, _UPNR,
   0,
   [_PNIh, _PT, _CN, _N],
-  [[() => SensitiveNonEmptyString, 1], 0, [() => CallingName, 0], [() => PhoneNumberName, 0]]
+  [[() => SensitiveNonEmptyString, 1], 0, [() => CallingName, 0], [() => PhoneNumberName, 0]], 1
 ];
 export var UpdatePhoneNumberRequestItem$: StaticStructureSchema = [3, n0, _UPNRIp,
   0,
   [_PNIh, _PT, _CN, _N],
-  [[() => SensitiveNonEmptyString, 0], 0, [() => CallingName, 0], [() => PhoneNumberName, 0]]
+  [[() => SensitiveNonEmptyString, 0], 0, [() => CallingName, 0], [() => PhoneNumberName, 0]], 1
 ];
 export var UpdatePhoneNumberResponse$: StaticStructureSchema = [3, n0, _UPNRp,
   0,
@@ -1601,12 +1601,12 @@ export var UpdatePhoneNumberResponse$: StaticStructureSchema = [3, n0, _UPNRp,
 export var UpdatePhoneNumberSettingsRequest$: StaticStructureSchema = [3, n0, _UPNSR,
   0,
   [_CN],
-  [[() => CallingName, 0]]
+  [[() => CallingName, 0]], 1
 ];
 export var UpdateProxySessionRequest$: StaticStructureSchema = [3, n0, _UPSR,
   0,
   [_VCI, _PSI, _Ca, _EM],
-  [[0, 1], [0, 1], 64 | 0, 1]
+  [[0, 1], [0, 1], 64 | 0, 1], 3
 ];
 export var UpdateProxySessionResponse$: StaticStructureSchema = [3, n0, _UPSRp,
   0,
@@ -1616,7 +1616,7 @@ export var UpdateProxySessionResponse$: StaticStructureSchema = [3, n0, _UPSRp,
 export var UpdateSipMediaApplicationCallRequest$: StaticStructureSchema = [3, n0, _USMACR,
   0,
   [_SMAI, _TI, _Ar],
-  [[0, 1], [0, 1], [() => SMAUpdateCallArgumentsMap, 0]]
+  [[0, 1], [0, 1], [() => SMAUpdateCallArgumentsMap, 0]], 3
 ];
 export var UpdateSipMediaApplicationCallResponse$: StaticStructureSchema = [3, n0, _USMACRp,
   0,
@@ -1626,7 +1626,7 @@ export var UpdateSipMediaApplicationCallResponse$: StaticStructureSchema = [3, n
 export var UpdateSipMediaApplicationRequest$: StaticStructureSchema = [3, n0, _USMAR,
   0,
   [_SMAI, _N, _E],
-  [[0, 1], 0, [() => SipMediaApplicationEndpointList, 0]]
+  [[0, 1], 0, [() => SipMediaApplicationEndpointList, 0]], 1
 ];
 export var UpdateSipMediaApplicationResponse$: StaticStructureSchema = [3, n0, _USMARp,
   0,
@@ -1636,7 +1636,7 @@ export var UpdateSipMediaApplicationResponse$: StaticStructureSchema = [3, n0, _
 export var UpdateSipRuleRequest$: StaticStructureSchema = [3, n0, _USRR,
   0,
   [_SRI, _N, _D, _TA],
-  [[0, 1], 0, 2, () => SipRuleTargetApplicationList]
+  [[0, 1], 0, 2, () => SipRuleTargetApplicationList], 2
 ];
 export var UpdateSipRuleResponse$: StaticStructureSchema = [3, n0, _USRRp,
   0,
@@ -1646,7 +1646,7 @@ export var UpdateSipRuleResponse$: StaticStructureSchema = [3, n0, _USRRp,
 export var UpdateVoiceConnectorGroupRequest$: StaticStructureSchema = [3, n0, _UVCGR,
   0,
   [_VCGI, _N, _VCIo],
-  [[0, 1], 0, () => VoiceConnectorItemList]
+  [[0, 1], 0, () => VoiceConnectorItemList], 3
 ];
 export var UpdateVoiceConnectorGroupResponse$: StaticStructureSchema = [3, n0, _UVCGRp,
   0,
@@ -1656,7 +1656,7 @@ export var UpdateVoiceConnectorGroupResponse$: StaticStructureSchema = [3, n0, _
 export var UpdateVoiceConnectorRequest$: StaticStructureSchema = [3, n0, _UVCR,
   0,
   [_VCI, _N, _RE],
-  [[0, 1], 0, 2]
+  [[0, 1], 0, 2], 3
 ];
 export var UpdateVoiceConnectorResponse$: StaticStructureSchema = [3, n0, _UVCRp,
   0,
@@ -1666,7 +1666,7 @@ export var UpdateVoiceConnectorResponse$: StaticStructureSchema = [3, n0, _UVCRp
 export var UpdateVoiceProfileDomainRequest$: StaticStructureSchema = [3, n0, _UVPDR,
   0,
   [_VPDI, _N, _De],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 1
 ];
 export var UpdateVoiceProfileDomainResponse$: StaticStructureSchema = [3, n0, _UVPDRp,
   0,
@@ -1676,7 +1676,7 @@ export var UpdateVoiceProfileDomainResponse$: StaticStructureSchema = [3, n0, _U
 export var UpdateVoiceProfileRequest$: StaticStructureSchema = [3, n0, _UVPR,
   0,
   [_VPI, _SSTI],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var UpdateVoiceProfileResponse$: StaticStructureSchema = [3, n0, _UVPRp,
   0,
@@ -1686,7 +1686,7 @@ export var UpdateVoiceProfileResponse$: StaticStructureSchema = [3, n0, _UVPRp,
 export var ValidateE911AddressRequest$: StaticStructureSchema = [3, n0, _VEAR,
   0,
   [_AAI, _SN, _SI, _Ci, _St, _Co, _PC],
-  [0, [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0]]
+  [0, [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0]], 7
 ];
 export var ValidateE911AddressResponse$: StaticStructureSchema = [3, n0, _VEARa,
   0,
@@ -1706,7 +1706,7 @@ export var VoiceConnectorGroup$: StaticStructureSchema = [3, n0, _VCG,
 export var VoiceConnectorItem$: StaticStructureSchema = [3, n0, _VCIoi,
   0,
   [_VCI, _Pri],
-  [0, 1]
+  [0, 1], 2
 ];
 export var VoiceConnectorSettings$: StaticStructureSchema = [3, n0, _VCS,
   0,

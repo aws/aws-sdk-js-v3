@@ -151,7 +151,7 @@ var RecommendationUpdateReason: StaticSimpleSchema = [0, n0, _RUR, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountRecommendationLifecycleSummary$: StaticStructureSchema = [3, n0, _ARLS,
@@ -162,28 +162,28 @@ export var AccountRecommendationLifecycleSummary$: StaticStructureSchema = [3, n
 export var BatchUpdateRecommendationResourceExclusionRequest$: StaticStructureSchema = [3, n0, _BURRER,
   0,
   [_rRE],
-  [() => RecommendationResourceExclusionList]
+  [() => RecommendationResourceExclusionList], 1
 ];
 export var BatchUpdateRecommendationResourceExclusionResponse$: StaticStructureSchema = [3, n0, _BURRERa,
   0,
   [_bURREE],
-  [() => UpdateRecommendationResourceExclusionErrorList]
+  [() => UpdateRecommendationResourceExclusionErrorList], 1
 ];
 export var CheckSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_i, _a, _n, _d, _p, _aS, _s, _me],
-  [0, 0, 0, 0, 64 | 0, 64 | 0, 0, 128 | 0]
+  [0, 0, 0, 0, 64 | 0, 64 | 0, 0, 128 | 0], 8
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var GetOrganizationRecommendationRequest$: StaticStructureSchema = [3, n0, _GORR,
   0,
   [_oRI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetOrganizationRecommendationResponse$: StaticStructureSchema = [3, n0, _GORRe,
   0,
@@ -193,7 +193,7 @@ export var GetOrganizationRecommendationResponse$: StaticStructureSchema = [3, n
 export var GetRecommendationRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_rI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetRecommendationResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
@@ -203,7 +203,7 @@ export var GetRecommendationResponse$: StaticStructureSchema = [3, n0, _GRRe,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListChecksRequest$: StaticStructureSchema = [3, n0, _LCR,
@@ -213,28 +213,28 @@ export var ListChecksRequest$: StaticStructureSchema = [3, n0, _LCR,
 ];
 export var ListChecksResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
-  [_nT, _cS],
-  [0, () => CheckSummaryList]
+  [_cS, _nT],
+  [() => CheckSummaryList, 0], 1
 ];
 export var ListOrganizationRecommendationAccountsRequest$: StaticStructureSchema = [3, n0, _LORAR,
   0,
-  [_nT, _mR, _oRI, _aAI],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1], [0, { [_hQ]: _aAI }]]
+  [_oRI, _nT, _mR, _aAI],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _aAI }]], 1
 ];
 export var ListOrganizationRecommendationAccountsResponse$: StaticStructureSchema = [3, n0, _LORARi,
   0,
-  [_nT, _aRLS],
-  [0, [() => AccountRecommendationLifecycleSummaryList, 0]]
+  [_aRLS, _nT],
+  [[() => AccountRecommendationLifecycleSummaryList, 0], 0], 1
 ];
 export var ListOrganizationRecommendationResourcesRequest$: StaticStructureSchema = [3, n0, _LORRR,
   0,
-  [_nT, _mR, _st, _eS, _rC, _oRI, _aAI],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _st }], [0, { [_hQ]: _eS }], [0, { [_hQ]: _rC }], [0, 1], [0, { [_hQ]: _aAI }]]
+  [_oRI, _nT, _mR, _st, _eS, _rC, _aAI],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _st }], [0, { [_hQ]: _eS }], [0, { [_hQ]: _rC }], [0, { [_hQ]: _aAI }]], 1
 ];
 export var ListOrganizationRecommendationResourcesResponse$: StaticStructureSchema = [3, n0, _LORRRi,
   0,
-  [_nT, _oRRS],
-  [0, () => OrganizationRecommendationResourceSummaryList]
+  [_oRRS, _nT],
+  [() => OrganizationRecommendationResourceSummaryList, 0], 1
 ];
 export var ListOrganizationRecommendationsRequest$: StaticStructureSchema = [3, n0, _LORR,
   0,
@@ -243,18 +243,18 @@ export var ListOrganizationRecommendationsRequest$: StaticStructureSchema = [3, 
 ];
 export var ListOrganizationRecommendationsResponse$: StaticStructureSchema = [3, n0, _LORRi,
   0,
-  [_nT, _oRS],
-  [0, () => OrganizationRecommendationSummaryList]
+  [_oRS, _nT],
+  [() => OrganizationRecommendationSummaryList, 0], 1
 ];
 export var ListRecommendationResourcesRequest$: StaticStructureSchema = [3, n0, _LRRR,
   0,
-  [_nT, _mR, _st, _eS, _rC, _rI],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _st }], [0, { [_hQ]: _eS }], [0, { [_hQ]: _rC }], [0, 1]]
+  [_rI, _nT, _mR, _st, _eS, _rC],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _st }], [0, { [_hQ]: _eS }], [0, { [_hQ]: _rC }]], 1
 ];
 export var ListRecommendationResourcesResponse$: StaticStructureSchema = [3, n0, _LRRRi,
   0,
-  [_nT, _rRS],
-  [0, () => RecommendationResourceSummaryList]
+  [_rRS, _nT],
+  [() => RecommendationResourceSummaryList, 0], 1
 ];
 export var ListRecommendationsRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
@@ -263,33 +263,33 @@ export var ListRecommendationsRequest$: StaticStructureSchema = [3, n0, _LRR,
 ];
 export var ListRecommendationsResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
-  [_nT, _rS],
-  [0, () => RecommendationSummaryList]
+  [_rS, _nT],
+  [() => RecommendationSummaryList, 0], 1
 ];
 export var OrganizationRecommendation$: StaticStructureSchema = [3, n0, _OR,
   0,
-  [_i, _t, _cA, _st, _lS, _p, _s, _aS, _n, _rA, _pSA, _cAr, _lUA, _a, _d, _cB, _uOBO, _uOBOJT, _uR, _uRC, _rAe],
-  [0, 0, 0, 0, 0, 64 | 0, 0, 64 | 0, 0, () => RecommendationResourcesAggregates$, () => RecommendationPillarSpecificAggregates$, 5, 5, 0, 0, 0, 0, 0, [() => RecommendationUpdateReason, 0], 0, 5]
+  [_i, _t, _st, _p, _s, _n, _rA, _a, _d, _cA, _lS, _aS, _pSA, _cAr, _lUA, _cB, _uOBO, _uOBOJT, _uR, _uRC, _rAe],
+  [0, 0, 0, 64 | 0, 0, 0, () => RecommendationResourcesAggregates$, 0, 0, 0, 0, 64 | 0, () => RecommendationPillarSpecificAggregates$, 5, 5, 0, 0, 0, [() => RecommendationUpdateReason, 0], 0, 5], 9
 ];
 export var OrganizationRecommendationResourceSummary$: StaticStructureSchema = [3, n0, _ORRS,
   0,
-  [_i, _a, _aRI, _rC, _st, _me, _lUA, _eS, _aI, _rAec],
-  [0, 0, 0, 0, 0, 128 | 0, 5, 0, 0, 0]
+  [_i, _a, _aRI, _rC, _st, _me, _lUA, _rAec, _eS, _aI],
+  [0, 0, 0, 0, 0, 128 | 0, 5, 0, 0, 0], 8
 ];
 export var OrganizationRecommendationSummary$: StaticStructureSchema = [3, n0, _ORS,
   0,
-  [_i, _t, _cA, _st, _lS, _p, _s, _aS, _n, _rA, _pSA, _cAr, _lUA, _a],
-  [0, 0, 0, 0, 0, 64 | 0, 0, 64 | 0, 0, () => RecommendationResourcesAggregates$, () => RecommendationPillarSpecificAggregates$, 5, 5, 0]
+  [_i, _t, _st, _p, _s, _n, _rA, _a, _cA, _lS, _aS, _pSA, _cAr, _lUA],
+  [0, 0, 0, 64 | 0, 0, 0, () => RecommendationResourcesAggregates$, 0, 0, 0, 64 | 0, () => RecommendationPillarSpecificAggregates$, 5, 5], 8
 ];
 export var Recommendation$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_i, _t, _cA, _st, _lS, _p, _s, _aS, _n, _rA, _pSA, _cAr, _lUA, _a, _d, _cB, _uOBO, _uOBOJT, _uR, _uRC, _rAe],
-  [0, 0, 0, 0, 0, 64 | 0, 0, 64 | 0, 0, () => RecommendationResourcesAggregates$, () => RecommendationPillarSpecificAggregates$, 5, 5, 0, 0, 0, 0, 0, [() => RecommendationUpdateReason, 0], 0, 5]
+  [_i, _t, _st, _p, _s, _n, _rA, _a, _d, _cA, _lS, _aS, _pSA, _cAr, _lUA, _cB, _uOBO, _uOBOJT, _uR, _uRC, _rAe],
+  [0, 0, 0, 64 | 0, 0, 0, () => RecommendationResourcesAggregates$, 0, 0, 0, 0, 64 | 0, () => RecommendationPillarSpecificAggregates$, 5, 5, 0, 0, 0, [() => RecommendationUpdateReason, 0], 0, 5], 9
 ];
 export var RecommendationCostOptimizingAggregates$: StaticStructureSchema = [3, n0, _RCOA,
   0,
   [_eMS, _ePMS],
-  [1, 1]
+  [1, 1], 2
 ];
 export var RecommendationPillarSpecificAggregates$: StaticStructureSchema = [3, n0, _RPSA,
   0,
@@ -299,44 +299,44 @@ export var RecommendationPillarSpecificAggregates$: StaticStructureSchema = [3, 
 export var RecommendationResourceExclusion$: StaticStructureSchema = [3, n0, _RRE,
   0,
   [_a, _iE],
-  [0, 2]
+  [0, 2], 2
 ];
 export var RecommendationResourcesAggregates$: StaticStructureSchema = [3, n0, _RRA,
   0,
   [_oC, _wC, _eC],
-  [1, 1, 1]
+  [1, 1, 1], 3
 ];
 export var RecommendationResourceSummary$: StaticStructureSchema = [3, n0, _RRS,
   0,
-  [_i, _a, _aRI, _rC, _st, _me, _lUA, _eS, _rAec],
-  [0, 0, 0, 0, 0, 128 | 0, 5, 0, 0]
+  [_i, _a, _aRI, _rC, _st, _me, _lUA, _rAec, _eS],
+  [0, 0, 0, 0, 0, 128 | 0, 5, 0, 0], 8
 ];
 export var RecommendationSummary$: StaticStructureSchema = [3, n0, _RS,
   0,
-  [_i, _t, _cA, _st, _lS, _p, _s, _aS, _n, _rA, _pSA, _cAr, _lUA, _a],
-  [0, 0, 0, 0, 0, 64 | 0, 0, 64 | 0, 0, () => RecommendationResourcesAggregates$, () => RecommendationPillarSpecificAggregates$, 5, 5, 0]
+  [_i, _t, _st, _p, _s, _n, _rA, _a, _cA, _lS, _aS, _pSA, _cAr, _lUA],
+  [0, 0, 0, 64 | 0, 0, 0, () => RecommendationResourcesAggregates$, 0, 0, 0, 64 | 0, () => RecommendationPillarSpecificAggregates$, 5, 5], 8
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UpdateOrganizationRecommendationLifecycleRequest$: StaticStructureSchema = [3, n0, _UORLR,
   0,
-  [_lS, _uR, _uRC, _oRI],
-  [0, [() => RecommendationUpdateReason, 0], 0, [0, 1]]
+  [_lS, _oRI, _uR, _uRC],
+  [0, [0, 1], [() => RecommendationUpdateReason, 0], 0], 2
 ];
 export var UpdateRecommendationLifecycleRequest$: StaticStructureSchema = [3, n0, _URLR,
   0,
-  [_lS, _uR, _uRC, _rI],
-  [0, [() => RecommendationUpdateReason, 0], 0, [0, 1]]
+  [_lS, _rI, _uR, _uRC],
+  [0, [0, 1], [() => RecommendationUpdateReason, 0], 0], 2
 ];
 export var UpdateRecommendationResourceExclusionError$: StaticStructureSchema = [3, n0, _URREE,
   0,
@@ -346,7 +346,7 @@ export var UpdateRecommendationResourceExclusionError$: StaticStructureSchema = 
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;

@@ -120,7 +120,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var DescribeJobExecutionRequest$: StaticStructureSchema = [3, n0, _DJER,
   0,
   [_jI, _tN, _iJD, _eN],
-  [[0, 1], [0, 1], [2, { [_hQ]: _iJD }], [1, { [_hQ]: _eN }]]
+  [[0, 1], [0, 1], [2, { [_hQ]: _iJD }], [1, { [_hQ]: _eN }]], 2
 ];
 export var DescribeJobExecutionResponse$: StaticStructureSchema = [3, n0, _DJERe,
   0,
@@ -130,7 +130,7 @@ export var DescribeJobExecutionResponse$: StaticStructureSchema = [3, n0, _DJERe
 export var GetPendingJobExecutionsRequest$: StaticStructureSchema = [3, n0, _GPJER,
   0,
   [_tN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetPendingJobExecutionsResponse$: StaticStructureSchema = [3, n0, _GPJERe,
   0,
@@ -191,7 +191,7 @@ TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavaila
 export var StartCommandExecutionRequest$: StaticStructureSchema = [3, n0, _SCER,
   0,
   [_tA, _cA, _p, _eTS, _cT],
-  [0, 0, () => CommandExecutionParameterMap, 1, [0, 4]]
+  [0, 0, () => CommandExecutionParameterMap, 1, [0, 4]], 2
 ];
 export var StartCommandExecutionResponse$: StaticStructureSchema = [3, n0, _SCERt,
   0,
@@ -201,7 +201,7 @@ export var StartCommandExecutionResponse$: StaticStructureSchema = [3, n0, _SCER
 export var StartNextPendingJobExecutionRequest$: StaticStructureSchema = [3, n0, _SNPJER,
   0,
   [_tN, _sD, _sTIM],
-  [[0, 1], 128 | 0, 1]
+  [[0, 1], 128 | 0, 1], 1
 ];
 export var StartNextPendingJobExecutionResponse$: StaticStructureSchema = [3, n0, _SNPJERt,
   0,
@@ -223,7 +223,7 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UpdateJobExecutionRequest$: StaticStructureSchema = [3, n0, _UJER,
   0,
   [_jI, _tN, _st, _sD, _sTIM, _eV, _iJES, _iJD, _eN],
-  [[0, 1], [0, 1], 0, 128 | 0, 1, 1, 2, 2, 1]
+  [[0, 1], [0, 1], 0, 128 | 0, 1, 1, 2, 2, 1], 3
 ];
 export var UpdateJobExecutionResponse$: StaticStructureSchema = [3, n0, _UJERp,
   0,

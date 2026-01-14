@@ -149,7 +149,7 @@ var LexiconContent: StaticSimpleSchema = [0, n0, _LC, 8, 0];
 export var DeleteLexiconInput$: StaticStructureSchema = [3, n0, _DLI,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteLexiconOutput$: StaticStructureSchema = [3, n0, _DLO,
   0,
@@ -175,7 +175,7 @@ TypeRegistry.for(n0).registerError(EngineNotSupportedException$, EngineNotSuppor
 export var GetLexiconInput$: StaticStructureSchema = [3, n0, _GLI,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetLexiconOutput$: StaticStructureSchema = [3, n0, _GLO,
   0,
@@ -185,7 +185,7 @@ export var GetLexiconOutput$: StaticStructureSchema = [3, n0, _GLO,
 export var GetSpeechSynthesisTaskInput$: StaticStructureSchema = [3, n0, _GSSTI,
   0,
   [_TI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSpeechSynthesisTaskOutput$: StaticStructureSchema = [3, n0, _GSSTO,
   0,
@@ -314,7 +314,7 @@ TypeRegistry.for(n0).registerError(MaxLexiconsNumberExceededException$, MaxLexic
 export var PutLexiconInput$: StaticStructureSchema = [3, n0, _PLI,
   0,
   [_N, _C],
-  [[0, 1], [() => LexiconContent, 0]]
+  [[0, 1], [() => LexiconContent, 0]], 2
 ];
 export var PutLexiconOutput$: StaticStructureSchema = [3, n0, _PLO,
   0,
@@ -335,8 +335,8 @@ export var SsmlMarksNotSupportedForTextTypeException$: StaticErrorSchema = [-3, 
 TypeRegistry.for(n0).registerError(SsmlMarksNotSupportedForTextTypeException$, SsmlMarksNotSupportedForTextTypeException);
 export var StartSpeechSynthesisTaskInput$: StaticStructureSchema = [3, n0, _SSSTI,
   0,
-  [_E, _LCa, _LN, _OF, _OSBN, _OSKP, _SR, _STA, _SMT, _T, _TT, _VI],
-  [0, 0, 64 | 0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0]
+  [_OF, _OSBN, _T, _VI, _E, _LCa, _LN, _OSKP, _SR, _STA, _SMT, _TT],
+  [0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 64 | 0, 0], 4
 ];
 export var StartSpeechSynthesisTaskOutput$: StaticStructureSchema = [3, n0, _SSSTO,
   0,
@@ -356,8 +356,8 @@ export var SynthesisTaskNotFoundException$: StaticErrorSchema = [-3, n0, _STNFE,
 TypeRegistry.for(n0).registerError(SynthesisTaskNotFoundException$, SynthesisTaskNotFoundException);
 export var SynthesizeSpeechInput$: StaticStructureSchema = [3, n0, _SSI,
   0,
-  [_E, _LCa, _LN, _OF, _SR, _SMT, _T, _TT, _VI],
-  [0, 0, 64 | 0, 0, 0, 64 | 0, 0, 0, 0]
+  [_OF, _T, _VI, _E, _LCa, _LN, _SR, _SMT, _TT],
+  [0, 0, 0, 0, 0, 64 | 0, 0, 64 | 0, 0], 3
 ];
 export var SynthesizeSpeechOutput$: StaticStructureSchema = [3, n0, _SSO,
   0,

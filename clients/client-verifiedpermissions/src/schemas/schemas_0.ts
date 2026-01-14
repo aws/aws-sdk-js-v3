@@ -379,43 +379,43 @@ var Token: StaticSimpleSchema = [0, n0, _T, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var ActionIdentifier$: StaticStructureSchema = [3, n0, _AIc,
   0,
   [_aT, _aI],
-  [[() => ActionType, 0], [() => ActionId, 0]]
+  [[() => ActionType, 0], [() => ActionId, 0]], 2
 ];
 export var BatchGetPolicyErrorItem$: StaticStructureSchema = [3, n0, _BGPEI,
   0,
   [_co, _pSI, _pI, _m],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var BatchGetPolicyInput$: StaticStructureSchema = [3, n0, _BGPI,
   0,
   [_r],
-  [() => BatchGetPolicyInputList]
+  [() => BatchGetPolicyInputList], 1
 ];
 export var BatchGetPolicyInputItem$: StaticStructureSchema = [3, n0, _BGPII,
   0,
   [_pSI, _pI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var BatchGetPolicyOutput$: StaticStructureSchema = [3, n0, _BGPO,
   0,
   [_re, _er],
-  [[() => BatchGetPolicyOutputList, 0], () => BatchGetPolicyErrorList]
+  [[() => BatchGetPolicyOutputList, 0], () => BatchGetPolicyErrorList], 2
 ];
 export var BatchGetPolicyOutputItem$: StaticStructureSchema = [3, n0, _BGPOI,
   0,
   [_pSI, _pI, _pT, _d, _cD, _lUD],
-  [0, 0, 0, [() => PolicyDefinitionDetail$, 0], 5, 5]
+  [0, 0, 0, [() => PolicyDefinitionDetail$, 0], 5, 5], 6
 ];
 export var BatchIsAuthorizedInput$: StaticStructureSchema = [3, n0, _BIAI,
   0,
-  [_pSI, _en, _r],
-  [0, [() => EntitiesDefinition$, 0], [() => BatchIsAuthorizedInputList, 0]]
+  [_pSI, _r, _en],
+  [0, [() => BatchIsAuthorizedInputList, 0], [() => EntitiesDefinition$, 0]], 2
 ];
 export var BatchIsAuthorizedInputItem$: StaticStructureSchema = [3, n0, _BIAII,
   0,
@@ -425,17 +425,17 @@ export var BatchIsAuthorizedInputItem$: StaticStructureSchema = [3, n0, _BIAII,
 export var BatchIsAuthorizedOutput$: StaticStructureSchema = [3, n0, _BIAO,
   0,
   [_re],
-  [[() => BatchIsAuthorizedOutputList, 0]]
+  [[() => BatchIsAuthorizedOutputList, 0]], 1
 ];
 export var BatchIsAuthorizedOutputItem$: StaticStructureSchema = [3, n0, _BIAOI,
   0,
   [_req, _de, _dP, _er],
-  [[() => BatchIsAuthorizedInputItem$, 0], 0, () => DeterminingPolicyList, [() => EvaluationErrorList, 0]]
+  [[() => BatchIsAuthorizedInputItem$, 0], 0, () => DeterminingPolicyList, [() => EvaluationErrorList, 0]], 4
 ];
 export var BatchIsAuthorizedWithTokenInput$: StaticStructureSchema = [3, n0, _BIAWTI,
   0,
-  [_pSI, _iT, _aTc, _en, _r],
-  [0, [() => Token, 0], [() => Token, 0], [() => EntitiesDefinition$, 0], [() => BatchIsAuthorizedWithTokenInputList, 0]]
+  [_pSI, _r, _iT, _aTc, _en],
+  [0, [() => BatchIsAuthorizedWithTokenInputList, 0], [() => Token, 0], [() => Token, 0], [() => EntitiesDefinition$, 0]], 2
 ];
 export var BatchIsAuthorizedWithTokenInputItem$: StaticStructureSchema = [3, n0, _BIAWTII,
   0,
@@ -444,18 +444,18 @@ export var BatchIsAuthorizedWithTokenInputItem$: StaticStructureSchema = [3, n0,
 ];
 export var BatchIsAuthorizedWithTokenOutput$: StaticStructureSchema = [3, n0, _BIAWTO,
   0,
-  [_p, _re],
-  [[() => EntityIdentifier$, 0], [() => BatchIsAuthorizedWithTokenOutputList, 0]]
+  [_re, _p],
+  [[() => BatchIsAuthorizedWithTokenOutputList, 0], [() => EntityIdentifier$, 0]], 1
 ];
 export var BatchIsAuthorizedWithTokenOutputItem$: StaticStructureSchema = [3, n0, _BIAWTOI,
   0,
   [_req, _de, _dP, _er],
-  [[() => BatchIsAuthorizedWithTokenInputItem$, 0], 0, () => DeterminingPolicyList, [() => EvaluationErrorList, 0]]
+  [[() => BatchIsAuthorizedWithTokenInputItem$, 0], 0, () => DeterminingPolicyList, [() => EvaluationErrorList, 0]], 4
 ];
 export var CognitoGroupConfiguration$: StaticStructureSchema = [3, n0, _CGC,
   0,
   [_gET],
-  [[() => GroupEntityType, 0]]
+  [[() => GroupEntityType, 0]], 1
 ];
 export var CognitoGroupConfigurationDetail$: StaticStructureSchema = [3, n0, _CGCD,
   0,
@@ -470,68 +470,68 @@ export var CognitoGroupConfigurationItem$: StaticStructureSchema = [3, n0, _CGCI
 export var CognitoUserPoolConfiguration$: StaticStructureSchema = [3, n0, _CUPC,
   0,
   [_uPA, _cI, _gC],
-  [0, [() => ClientIds, 0], [() => CognitoGroupConfiguration$, 0]]
+  [0, [() => ClientIds, 0], [() => CognitoGroupConfiguration$, 0]], 1
 ];
 export var CognitoUserPoolConfigurationDetail$: StaticStructureSchema = [3, n0, _CUPCD,
   0,
   [_uPA, _cI, _i, _gC],
-  [0, [() => ClientIds, 0], 0, [() => CognitoGroupConfigurationDetail$, 0]]
+  [0, [() => ClientIds, 0], 0, [() => CognitoGroupConfigurationDetail$, 0]], 3
 ];
 export var CognitoUserPoolConfigurationItem$: StaticStructureSchema = [3, n0, _CUPCI,
   0,
   [_uPA, _cI, _i, _gC],
-  [0, [() => ClientIds, 0], 0, [() => CognitoGroupConfigurationItem$, 0]]
+  [0, [() => ClientIds, 0], 0, [() => CognitoGroupConfigurationItem$, 0]], 3
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m, _reso],
-  [0, () => ResourceConflictList]
+  [0, () => ResourceConflictList], 2
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateIdentitySourceInput$: StaticStructureSchema = [3, n0, _CISI,
   0,
-  [_cT, _pSI, _conf, _pET],
-  [[0, 4], 0, [() => Configuration$, 0], [() => PrincipalEntityType, 0]]
+  [_pSI, _conf, _cT, _pET],
+  [0, [() => Configuration$, 0], [0, 4], [() => PrincipalEntityType, 0]], 2
 ];
 export var CreateIdentitySourceOutput$: StaticStructureSchema = [3, n0, _CISO,
   0,
   [_cD, _iSI, _lUD, _pSI],
-  [5, 0, 5, 0]
+  [5, 0, 5, 0], 4
 ];
 export var CreatePolicyInput$: StaticStructureSchema = [3, n0, _CPI,
   0,
-  [_cT, _pSI, _d],
-  [[0, 4], 0, [() => PolicyDefinition$, 0]]
+  [_pSI, _d, _cT],
+  [0, [() => PolicyDefinition$, 0], [0, 4]], 2
 ];
 export var CreatePolicyOutput$: StaticStructureSchema = [3, n0, _CPO,
   0,
-  [_pSI, _pI, _pT, _p, _res, _ac, _cD, _lUD, _ef],
-  [0, 0, 0, [() => EntityIdentifier$, 0], [() => EntityIdentifier$, 0], [() => ActionIdentifierList, 0], 5, 5, 0]
+  [_pSI, _pI, _pT, _cD, _lUD, _p, _res, _ac, _ef],
+  [0, 0, 0, 5, 5, [() => EntityIdentifier$, 0], [() => EntityIdentifier$, 0], [() => ActionIdentifierList, 0], 0], 5
 ];
 export var CreatePolicyStoreInput$: StaticStructureSchema = [3, n0, _CPSI,
   0,
-  [_cT, _vS, _des, _dPe, _t],
-  [[0, 4], () => ValidationSettings$, [() => PolicyStoreDescription, 0], 0, 128 | 0]
+  [_vS, _cT, _des, _dPe, _t],
+  [() => ValidationSettings$, [0, 4], [() => PolicyStoreDescription, 0], 0, 128 | 0], 1
 ];
 export var CreatePolicyStoreOutput$: StaticStructureSchema = [3, n0, _CPSO,
   0,
   [_pSI, _ar, _cD, _lUD],
-  [0, 0, 5, 5]
+  [0, 0, 5, 5], 4
 ];
 export var CreatePolicyTemplateInput$: StaticStructureSchema = [3, n0, _CPTI,
   0,
-  [_cT, _pSI, _des, _s],
-  [[0, 4], 0, [() => PolicyTemplateDescription, 0], [() => PolicyStatement, 0]]
+  [_pSI, _s, _cT, _des],
+  [0, [() => PolicyStatement, 0], [0, 4], [() => PolicyTemplateDescription, 0]], 2
 ];
 export var CreatePolicyTemplateOutput$: StaticStructureSchema = [3, n0, _CPTO,
   0,
   [_pSI, _pTI, _cD, _lUD],
-  [0, 0, 5, 5]
+  [0, 0, 5, 5], 4
 ];
 export var DeleteIdentitySourceInput$: StaticStructureSchema = [3, n0, _DISI,
   0,
   [_pSI, _iSI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteIdentitySourceOutput$: StaticStructureSchema = [3, n0, _DISO,
   0,
@@ -541,7 +541,7 @@ export var DeleteIdentitySourceOutput$: StaticStructureSchema = [3, n0, _DISO,
 export var DeletePolicyInput$: StaticStructureSchema = [3, n0, _DPI,
   0,
   [_pSI, _pI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeletePolicyOutput$: StaticStructureSchema = [3, n0, _DPO,
   0,
@@ -551,7 +551,7 @@ export var DeletePolicyOutput$: StaticStructureSchema = [3, n0, _DPO,
 export var DeletePolicyStoreInput$: StaticStructureSchema = [3, n0, _DPSI,
   0,
   [_pSI],
-  [0]
+  [0], 1
 ];
 export var DeletePolicyStoreOutput$: StaticStructureSchema = [3, n0, _DPSO,
   0,
@@ -561,7 +561,7 @@ export var DeletePolicyStoreOutput$: StaticStructureSchema = [3, n0, _DPSO,
 export var DeletePolicyTemplateInput$: StaticStructureSchema = [3, n0, _DPTI,
   0,
   [_pSI, _pTI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeletePolicyTemplateOutput$: StaticStructureSchema = [3, n0, _DPTO,
   0,
@@ -571,72 +571,72 @@ export var DeletePolicyTemplateOutput$: StaticStructureSchema = [3, n0, _DPTO,
 export var DeterminingPolicyItem$: StaticStructureSchema = [3, n0, _DPIe,
   0,
   [_pI],
-  [0]
+  [0], 1
 ];
 export var EntityIdentifier$: StaticStructureSchema = [3, n0, _EIn,
   0,
   [_eT, _eI],
-  [[() => EntityType, 0], [() => EntityId, 0]]
+  [[() => EntityType, 0], [() => EntityId, 0]], 2
 ];
 export var EntityItem$: StaticStructureSchema = [3, n0, _EInt,
   0,
   [_id, _at, _pa, _t],
-  [[() => EntityIdentifier$, 0], [() => EntityAttributes, 0], [() => ParentList, 0], [() => EntityCedarTags, 0]]
+  [[() => EntityIdentifier$, 0], [() => EntityAttributes, 0], [() => ParentList, 0], [() => EntityCedarTags, 0]], 1
 ];
 export var EvaluationErrorItem$: StaticStructureSchema = [3, n0, _EEI,
   8,
   [_eD],
-  [0]
+  [0], 1
 ];
 export var GetIdentitySourceInput$: StaticStructureSchema = [3, n0, _GISI,
   0,
   [_pSI, _iSI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetIdentitySourceOutput$: StaticStructureSchema = [3, n0, _GISO,
   0,
-  [_cD, _det, _iSI, _lUD, _pSI, _pET, _conf],
-  [5, [() => IdentitySourceDetails$, 0], 0, 5, 0, [() => PrincipalEntityType, 0], [() => ConfigurationDetail$, 0]]
+  [_cD, _iSI, _lUD, _pSI, _pET, _det, _conf],
+  [5, 0, 5, 0, [() => PrincipalEntityType, 0], [() => IdentitySourceDetails$, 0], [() => ConfigurationDetail$, 0]], 5
 ];
 export var GetPolicyInput$: StaticStructureSchema = [3, n0, _GPI,
   0,
   [_pSI, _pI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetPolicyOutput$: StaticStructureSchema = [3, n0, _GPO,
   0,
-  [_pSI, _pI, _pT, _p, _res, _ac, _d, _cD, _lUD, _ef],
-  [0, 0, 0, [() => EntityIdentifier$, 0], [() => EntityIdentifier$, 0], [() => ActionIdentifierList, 0], [() => PolicyDefinitionDetail$, 0], 5, 5, 0]
+  [_pSI, _pI, _pT, _d, _cD, _lUD, _p, _res, _ac, _ef],
+  [0, 0, 0, [() => PolicyDefinitionDetail$, 0], 5, 5, [() => EntityIdentifier$, 0], [() => EntityIdentifier$, 0], [() => ActionIdentifierList, 0], 0], 6
 ];
 export var GetPolicyStoreInput$: StaticStructureSchema = [3, n0, _GPSI,
   0,
   [_pSI, _t],
-  [0, 2]
+  [0, 2], 1
 ];
 export var GetPolicyStoreOutput$: StaticStructureSchema = [3, n0, _GPSO,
   0,
   [_pSI, _ar, _vS, _cD, _lUD, _des, _dPe, _cV, _t],
-  [0, 0, () => ValidationSettings$, 5, 5, [() => PolicyStoreDescription, 0], 0, 0, 128 | 0]
+  [0, 0, () => ValidationSettings$, 5, 5, [() => PolicyStoreDescription, 0], 0, 0, 128 | 0], 5
 ];
 export var GetPolicyTemplateInput$: StaticStructureSchema = [3, n0, _GPTI,
   0,
   [_pSI, _pTI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetPolicyTemplateOutput$: StaticStructureSchema = [3, n0, _GPTO,
   0,
-  [_pSI, _pTI, _des, _s, _cD, _lUD],
-  [0, 0, [() => PolicyTemplateDescription, 0], [() => PolicyStatement, 0], 5, 5]
+  [_pSI, _pTI, _s, _cD, _lUD, _des],
+  [0, 0, [() => PolicyStatement, 0], 5, 5, [() => PolicyTemplateDescription, 0]], 5
 ];
 export var GetSchemaInput$: StaticStructureSchema = [3, n0, _GSI,
   0,
   [_pSI],
-  [0]
+  [0], 1
 ];
 export var GetSchemaOutput$: StaticStructureSchema = [3, n0, _GSO,
   0,
   [_pSI, _sc, _cD, _lUD, _n],
-  [0, [() => SchemaJson, 0], 5, 5, [() => NamespaceList, 0]]
+  [0, [() => SchemaJson, 0], 5, 5, [() => NamespaceList, 0]], 4
 ];
 export var IdentitySourceDetails$: StaticStructureSchema = [3, n0, _ISD,
   0,
@@ -650,8 +650,8 @@ export var IdentitySourceFilter$: StaticStructureSchema = [3, n0, _ISF,
 ];
 export var IdentitySourceItem$: StaticStructureSchema = [3, n0, _ISI,
   0,
-  [_cD, _det, _iSI, _lUD, _pSI, _pET, _conf],
-  [5, [() => IdentitySourceItemDetails$, 0], 0, 5, 0, [() => PrincipalEntityType, 0], [() => ConfigurationItem$, 0]]
+  [_cD, _iSI, _lUD, _pSI, _pET, _det, _conf],
+  [5, 0, 5, 0, [() => PrincipalEntityType, 0], [() => IdentitySourceItemDetails$, 0], [() => ConfigurationItem$, 0]], 5
 ];
 export var IdentitySourceItemDetails$: StaticStructureSchema = [3, n0, _ISID,
   0,
@@ -661,54 +661,54 @@ export var IdentitySourceItemDetails$: StaticStructureSchema = [3, n0, _ISID,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvalidStateException$: StaticErrorSchema = [-3, n0, _ISEn,
   { [_e]: _c, [_hE]: 406 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InvalidStateException$, InvalidStateException);
 export var IsAuthorizedInput$: StaticStructureSchema = [3, n0, _IAI,
   0,
   [_pSI, _p, _a, _res, _con, _en],
-  [0, [() => EntityIdentifier$, 0], [() => ActionIdentifier$, 0], [() => EntityIdentifier$, 0], [() => ContextDefinition$, 0], [() => EntitiesDefinition$, 0]]
+  [0, [() => EntityIdentifier$, 0], [() => ActionIdentifier$, 0], [() => EntityIdentifier$, 0], [() => ContextDefinition$, 0], [() => EntitiesDefinition$, 0]], 1
 ];
 export var IsAuthorizedOutput$: StaticStructureSchema = [3, n0, _IAO,
   0,
   [_de, _dP, _er],
-  [0, () => DeterminingPolicyList, [() => EvaluationErrorList, 0]]
+  [0, () => DeterminingPolicyList, [() => EvaluationErrorList, 0]], 3
 ];
 export var IsAuthorizedWithTokenInput$: StaticStructureSchema = [3, n0, _IAWTI,
   0,
   [_pSI, _iT, _aTc, _a, _res, _con, _en],
-  [0, [() => Token, 0], [() => Token, 0], [() => ActionIdentifier$, 0], [() => EntityIdentifier$, 0], [() => ContextDefinition$, 0], [() => EntitiesDefinition$, 0]]
+  [0, [() => Token, 0], [() => Token, 0], [() => ActionIdentifier$, 0], [() => EntityIdentifier$, 0], [() => ContextDefinition$, 0], [() => EntitiesDefinition$, 0]], 1
 ];
 export var IsAuthorizedWithTokenOutput$: StaticStructureSchema = [3, n0, _IAWTO,
   0,
   [_de, _dP, _er, _p],
-  [0, () => DeterminingPolicyList, [() => EvaluationErrorList, 0], [() => EntityIdentifier$, 0]]
+  [0, () => DeterminingPolicyList, [() => EvaluationErrorList, 0], [() => EntityIdentifier$, 0]], 3
 ];
 export var ListIdentitySourcesInput$: StaticStructureSchema = [3, n0, _LISI,
   0,
   [_pSI, _nT, _mR, _f],
-  [0, 0, 1, [() => IdentitySourceFilters, 0]]
+  [0, 0, 1, [() => IdentitySourceFilters, 0]], 1
 ];
 export var ListIdentitySourcesOutput$: StaticStructureSchema = [3, n0, _LISO,
   0,
-  [_nT, _iS],
-  [0, [() => IdentitySources, 0]]
+  [_iS, _nT],
+  [[() => IdentitySources, 0], 0], 1
 ];
 export var ListPoliciesInput$: StaticStructureSchema = [3, n0, _LPI,
   0,
   [_pSI, _nT, _mR, _fi],
-  [0, 0, 1, [() => PolicyFilter$, 0]]
+  [0, 0, 1, [() => PolicyFilter$, 0]], 1
 ];
 export var ListPoliciesOutput$: StaticStructureSchema = [3, n0, _LPO,
   0,
-  [_nT, _po],
-  [0, [() => PolicyList, 0]]
+  [_po, _nT],
+  [[() => PolicyList, 0], 0], 1
 ];
 export var ListPolicyStoresInput$: StaticStructureSchema = [3, n0, _LPSI,
   0,
@@ -717,23 +717,23 @@ export var ListPolicyStoresInput$: StaticStructureSchema = [3, n0, _LPSI,
 ];
 export var ListPolicyStoresOutput$: StaticStructureSchema = [3, n0, _LPSO,
   0,
-  [_nT, _pS],
-  [0, [() => PolicyStoreList, 0]]
+  [_pS, _nT],
+  [[() => PolicyStoreList, 0], 0], 1
 ];
 export var ListPolicyTemplatesInput$: StaticStructureSchema = [3, n0, _LPTI,
   0,
   [_pSI, _nT, _mR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListPolicyTemplatesOutput$: StaticStructureSchema = [3, n0, _LPTO,
   0,
-  [_nT, _pTo],
-  [0, [() => PolicyTemplatesList, 0]]
+  [_pTo, _nT],
+  [[() => PolicyTemplatesList, 0], 0], 1
 ];
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_rA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -757,33 +757,33 @@ export var OpenIdConnectAccessTokenConfigurationItem$: StaticStructureSchema = [
 ];
 export var OpenIdConnectConfiguration$: StaticStructureSchema = [3, n0, _OICC,
   0,
-  [_i, _eIP, _gC, _tS],
-  [0, [() => EntityIdPrefix, 0], [() => OpenIdConnectGroupConfiguration$, 0], [() => OpenIdConnectTokenSelection$, 0]]
+  [_i, _tS, _eIP, _gC],
+  [0, [() => OpenIdConnectTokenSelection$, 0], [() => EntityIdPrefix, 0], [() => OpenIdConnectGroupConfiguration$, 0]], 2
 ];
 export var OpenIdConnectConfigurationDetail$: StaticStructureSchema = [3, n0, _OICCD,
   0,
-  [_i, _eIP, _gC, _tS],
-  [0, [() => EntityIdPrefix, 0], [() => OpenIdConnectGroupConfigurationDetail$, 0], [() => OpenIdConnectTokenSelectionDetail$, 0]]
+  [_i, _tS, _eIP, _gC],
+  [0, [() => OpenIdConnectTokenSelectionDetail$, 0], [() => EntityIdPrefix, 0], [() => OpenIdConnectGroupConfigurationDetail$, 0]], 2
 ];
 export var OpenIdConnectConfigurationItem$: StaticStructureSchema = [3, n0, _OICCI,
   0,
-  [_i, _eIP, _gC, _tS],
-  [0, [() => EntityIdPrefix, 0], [() => OpenIdConnectGroupConfigurationItem$, 0], [() => OpenIdConnectTokenSelectionItem$, 0]]
+  [_i, _tS, _eIP, _gC],
+  [0, [() => OpenIdConnectTokenSelectionItem$, 0], [() => EntityIdPrefix, 0], [() => OpenIdConnectGroupConfigurationItem$, 0]], 2
 ];
 export var OpenIdConnectGroupConfiguration$: StaticStructureSchema = [3, n0, _OICGC,
   0,
   [_gCr, _gET],
-  [[() => Claim, 0], [() => GroupEntityType, 0]]
+  [[() => Claim, 0], [() => GroupEntityType, 0]], 2
 ];
 export var OpenIdConnectGroupConfigurationDetail$: StaticStructureSchema = [3, n0, _OICGCD,
   0,
   [_gCr, _gET],
-  [[() => Claim, 0], [() => GroupEntityType, 0]]
+  [[() => Claim, 0], [() => GroupEntityType, 0]], 2
 ];
 export var OpenIdConnectGroupConfigurationItem$: StaticStructureSchema = [3, n0, _OICGCI,
   0,
   [_gCr, _gET],
-  [[() => Claim, 0], [() => GroupEntityType, 0]]
+  [[() => Claim, 0], [() => GroupEntityType, 0]], 2
 ];
 export var OpenIdConnectIdentityTokenConfiguration$: StaticStructureSchema = [3, n0, _OICITC,
   0,
@@ -807,55 +807,55 @@ export var PolicyFilter$: StaticStructureSchema = [3, n0, _PF,
 ];
 export var PolicyItem$: StaticStructureSchema = [3, n0, _PI,
   0,
-  [_pSI, _pI, _pT, _p, _res, _ac, _d, _cD, _lUD, _ef],
-  [0, 0, 0, [() => EntityIdentifier$, 0], [() => EntityIdentifier$, 0], [() => ActionIdentifierList, 0], [() => PolicyDefinitionItem$, 0], 5, 5, 0]
+  [_pSI, _pI, _pT, _d, _cD, _lUD, _p, _res, _ac, _ef],
+  [0, 0, 0, [() => PolicyDefinitionItem$, 0], 5, 5, [() => EntityIdentifier$, 0], [() => EntityIdentifier$, 0], [() => ActionIdentifierList, 0], 0], 6
 ];
 export var PolicyStoreItem$: StaticStructureSchema = [3, n0, _PSI,
   0,
   [_pSI, _ar, _cD, _lUD, _des],
-  [0, 0, 5, 5, [() => PolicyStoreDescription, 0]]
+  [0, 0, 5, 5, [() => PolicyStoreDescription, 0]], 3
 ];
 export var PolicyTemplateItem$: StaticStructureSchema = [3, n0, _PTI,
   0,
-  [_pSI, _pTI, _des, _cD, _lUD],
-  [0, 0, [() => PolicyTemplateDescription, 0], 5, 5]
+  [_pSI, _pTI, _cD, _lUD, _des],
+  [0, 0, 5, 5, [() => PolicyTemplateDescription, 0]], 4
 ];
 export var PutSchemaInput$: StaticStructureSchema = [3, n0, _PSIu,
   0,
   [_pSI, _d],
-  [0, [() => SchemaDefinition$, 0]]
+  [0, [() => SchemaDefinition$, 0]], 2
 ];
 export var PutSchemaOutput$: StaticStructureSchema = [3, n0, _PSO,
   0,
   [_pSI, _n, _cD, _lUD],
-  [0, [() => NamespaceList, 0], 5, 5]
+  [0, [() => NamespaceList, 0], 5, 5], 4
 ];
 export var ResourceConflict$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_rI, _rT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0]
+  [_m, _rT, _rI, _sC, _qC],
+  [0, 0, 0, 0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StaticPolicyDefinition$: StaticStructureSchema = [3, n0, _SPDt,
   0,
-  [_des, _s],
-  [[() => StaticPolicyDescription, 0], [() => PolicyStatement, 0]]
+  [_s, _des],
+  [[() => PolicyStatement, 0], [() => StaticPolicyDescription, 0]], 1
 ];
 export var StaticPolicyDefinitionDetail$: StaticStructureSchema = [3, n0, _SPDD,
   0,
-  [_des, _s],
-  [[() => StaticPolicyDescription, 0], [() => PolicyStatement, 0]]
+  [_s, _des],
+  [[() => PolicyStatement, 0], [() => StaticPolicyDescription, 0]], 1
 ];
 export var StaticPolicyDefinitionItem$: StaticStructureSchema = [3, n0, _SPDI,
   0,
@@ -865,7 +865,7 @@ export var StaticPolicyDefinitionItem$: StaticStructureSchema = [3, n0, _SPDI,
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rA, _t],
-  [0, 128 | 0]
+  [0, 128 | 0], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -875,22 +875,22 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
 export var TemplateLinkedPolicyDefinition$: StaticStructureSchema = [3, n0, _TLPD,
   0,
   [_pTI, _p, _res],
-  [0, [() => EntityIdentifier$, 0], [() => EntityIdentifier$, 0]]
+  [0, [() => EntityIdentifier$, 0], [() => EntityIdentifier$, 0]], 1
 ];
 export var TemplateLinkedPolicyDefinitionDetail$: StaticStructureSchema = [3, n0, _TLPDD,
   0,
   [_pTI, _p, _res],
-  [0, [() => EntityIdentifier$, 0], [() => EntityIdentifier$, 0]]
+  [0, [() => EntityIdentifier$, 0], [() => EntityIdentifier$, 0]], 1
 ];
 export var TemplateLinkedPolicyDefinitionItem$: StaticStructureSchema = [3, n0, _TLPDI,
   0,
   [_pTI, _p, _res],
-  [0, [() => EntityIdentifier$, 0], [() => EntityIdentifier$, 0]]
+  [0, [() => EntityIdentifier$, 0], [() => EntityIdentifier$, 0]], 1
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
@@ -902,7 +902,7 @@ TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -912,22 +912,22 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 export var UpdateCognitoGroupConfiguration$: StaticStructureSchema = [3, n0, _UCGC,
   0,
   [_gET],
-  [[() => GroupEntityType, 0]]
+  [[() => GroupEntityType, 0]], 1
 ];
 export var UpdateCognitoUserPoolConfiguration$: StaticStructureSchema = [3, n0, _UCUPC,
   0,
   [_uPA, _cI, _gC],
-  [0, [() => ClientIds, 0], [() => UpdateCognitoGroupConfiguration$, 0]]
+  [0, [() => ClientIds, 0], [() => UpdateCognitoGroupConfiguration$, 0]], 1
 ];
 export var UpdateIdentitySourceInput$: StaticStructureSchema = [3, n0, _UISI,
   0,
   [_pSI, _iSI, _uC, _pET],
-  [0, 0, [() => UpdateConfiguration$, 0], [() => PrincipalEntityType, 0]]
+  [0, 0, [() => UpdateConfiguration$, 0], [() => PrincipalEntityType, 0]], 3
 ];
 export var UpdateIdentitySourceOutput$: StaticStructureSchema = [3, n0, _UISO,
   0,
   [_cD, _iSI, _lUD, _pSI],
-  [5, 0, 5, 0]
+  [5, 0, 5, 0], 4
 ];
 export var UpdateOpenIdConnectAccessTokenConfiguration$: StaticStructureSchema = [3, n0, _UOICATC,
   0,
@@ -936,13 +936,13 @@ export var UpdateOpenIdConnectAccessTokenConfiguration$: StaticStructureSchema =
 ];
 export var UpdateOpenIdConnectConfiguration$: StaticStructureSchema = [3, n0, _UOICC,
   0,
-  [_i, _eIP, _gC, _tS],
-  [0, [() => EntityIdPrefix, 0], [() => UpdateOpenIdConnectGroupConfiguration$, 0], [() => UpdateOpenIdConnectTokenSelection$, 0]]
+  [_i, _tS, _eIP, _gC],
+  [0, [() => UpdateOpenIdConnectTokenSelection$, 0], [() => EntityIdPrefix, 0], [() => UpdateOpenIdConnectGroupConfiguration$, 0]], 2
 ];
 export var UpdateOpenIdConnectGroupConfiguration$: StaticStructureSchema = [3, n0, _UOICGC,
   0,
   [_gCr, _gET],
-  [[() => Claim, 0], [() => GroupEntityType, 0]]
+  [[() => Claim, 0], [() => GroupEntityType, 0]], 2
 ];
 export var UpdateOpenIdConnectIdentityTokenConfiguration$: StaticStructureSchema = [3, n0, _UOICITC,
   0,
@@ -952,53 +952,53 @@ export var UpdateOpenIdConnectIdentityTokenConfiguration$: StaticStructureSchema
 export var UpdatePolicyInput$: StaticStructureSchema = [3, n0, _UPI,
   0,
   [_pSI, _pI, _d],
-  [0, 0, [() => UpdatePolicyDefinition$, 0]]
+  [0, 0, [() => UpdatePolicyDefinition$, 0]], 3
 ];
 export var UpdatePolicyOutput$: StaticStructureSchema = [3, n0, _UPO,
   0,
-  [_pSI, _pI, _pT, _p, _res, _ac, _cD, _lUD, _ef],
-  [0, 0, 0, [() => EntityIdentifier$, 0], [() => EntityIdentifier$, 0], [() => ActionIdentifierList, 0], 5, 5, 0]
+  [_pSI, _pI, _pT, _cD, _lUD, _p, _res, _ac, _ef],
+  [0, 0, 0, 5, 5, [() => EntityIdentifier$, 0], [() => EntityIdentifier$, 0], [() => ActionIdentifierList, 0], 0], 5
 ];
 export var UpdatePolicyStoreInput$: StaticStructureSchema = [3, n0, _UPSI,
   0,
   [_pSI, _vS, _dPe, _des],
-  [0, () => ValidationSettings$, 0, [() => PolicyStoreDescription, 0]]
+  [0, () => ValidationSettings$, 0, [() => PolicyStoreDescription, 0]], 2
 ];
 export var UpdatePolicyStoreOutput$: StaticStructureSchema = [3, n0, _UPSO,
   0,
   [_pSI, _ar, _cD, _lUD],
-  [0, 0, 5, 5]
+  [0, 0, 5, 5], 4
 ];
 export var UpdatePolicyTemplateInput$: StaticStructureSchema = [3, n0, _UPTI,
   0,
-  [_pSI, _pTI, _des, _s],
-  [0, 0, [() => PolicyTemplateDescription, 0], [() => PolicyStatement, 0]]
+  [_pSI, _pTI, _s, _des],
+  [0, 0, [() => PolicyStatement, 0], [() => PolicyTemplateDescription, 0]], 3
 ];
 export var UpdatePolicyTemplateOutput$: StaticStructureSchema = [3, n0, _UPTO,
   0,
   [_pSI, _pTI, _cD, _lUD],
-  [0, 0, 5, 5]
+  [0, 0, 5, 5], 4
 ];
 export var UpdateStaticPolicyDefinition$: StaticStructureSchema = [3, n0, _USPD,
   0,
-  [_des, _s],
-  [[() => StaticPolicyDescription, 0], [() => PolicyStatement, 0]]
+  [_s, _des],
+  [[() => PolicyStatement, 0], [() => StaticPolicyDescription, 0]], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c },
   [_m, _fL],
-  [0, () => ValidationExceptionFieldList]
+  [0, () => ValidationExceptionFieldList], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_pat, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ValidationSettings$: StaticStructureSchema = [3, n0, _VS,
   0,
   [_mo],
-  [0]
+  [0], 1
 ];
 export var VerifiedPermissionsServiceException$: StaticErrorSchema = [-3, _sm, "VerifiedPermissionsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(VerifiedPermissionsServiceException$, VerifiedPermissionsServiceException);

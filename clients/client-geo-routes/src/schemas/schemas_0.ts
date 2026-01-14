@@ -722,59 +722,59 @@ var WeightKilograms: StaticSimpleSchema = [0, n0, _WK, 8, 1];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
-  [[0, { [_jN]: _m }]]
+  [[0, { [_jN]: _m }]], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var CalculateIsolinesRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
-  [_A, _AT, _Av, _DN, _DT, _D, _DO, _IGF, _IG, _K, _OIF, _ORF, _O, _OO, _T, _Tr, _TM, _TMO],
-  [[() => IsolineAllowOptions$, 0], [() => TimestampWithTimezoneOffset, 0], [() => IsolineAvoidanceOptions$, 0], [() => SensitiveBoolean, 0], [() => TimestampWithTimezoneOffset, 0], [() => Position, 0], [() => IsolineDestinationOptions$, 0], 0, [() => IsolineGranularityOptions$, 0], [() => ApiKey, { [_hQ]: _k }], 0, 0, [() => Position, 0], [() => IsolineOriginOptions$, 0], [() => IsolineThresholds$, 0], [() => IsolineTrafficOptions$, 0], 0, [() => IsolineTravelModeOptions$, 0]]
+  [_T, _A, _AT, _Av, _DN, _DT, _D, _DO, _IGF, _IG, _K, _OIF, _ORF, _O, _OO, _Tr, _TM, _TMO],
+  [[() => IsolineThresholds$, 0], [() => IsolineAllowOptions$, 0], [() => TimestampWithTimezoneOffset, 0], [() => IsolineAvoidanceOptions$, 0], [() => SensitiveBoolean, 0], [() => TimestampWithTimezoneOffset, 0], [() => Position, 0], [() => IsolineDestinationOptions$, 0], 0, [() => IsolineGranularityOptions$, 0], [() => ApiKey, { [_hQ]: _k }], 0, 0, [() => Position, 0], [() => IsolineOriginOptions$, 0], [() => IsolineTrafficOptions$, 0], 0, [() => IsolineTravelModeOptions$, 0]], 1
 ];
 export var CalculateIsolinesResponse$: StaticStructureSchema = [3, n0, _CIRa,
   0,
-  [_AT, _DT, _IGF, _I, _PB, _SDn, _SO],
-  [[() => TimestampWithTimezoneOffset, 0], [() => TimestampWithTimezoneOffset, 0], 0, [() => IsolineList, 0], [0, { [_hH]: _xagpb }], [() => Position, 0], [() => Position, 0]]
+  [_IGF, _I, _PB, _AT, _DT, _SDn, _SO],
+  [0, [() => IsolineList, 0], [0, { [_hH]: _xagpb }], [() => TimestampWithTimezoneOffset, 0], [() => TimestampWithTimezoneOffset, 0], [() => Position, 0], [() => Position, 0]], 3
 ];
 export var CalculateRouteMatrixRequest$: StaticStructureSchema = [3, n0, _CRMR,
   0,
-  [_A, _Av, _DN, _DT, _De, _E, _K, _ORF, _Or, _RB, _Tr, _TM, _TMO],
-  [[() => RouteMatrixAllowOptions$, 0], [() => RouteMatrixAvoidanceOptions$, 0], [() => SensitiveBoolean, 0], [() => TimestampWithTimezoneOffset, 0], [() => RouteMatrixDestinationList, 0], [() => RouteMatrixExclusionOptions$, 0], [() => ApiKey, { [_hQ]: _k }], 0, [() => RouteMatrixOriginList, 0], [() => RouteMatrixBoundary$, 0], [() => RouteMatrixTrafficOptions$, 0], 0, [() => RouteMatrixTravelModeOptions$, 0]]
+  [_De, _Or, _RB, _A, _Av, _DN, _DT, _E, _K, _ORF, _Tr, _TM, _TMO],
+  [[() => RouteMatrixDestinationList, 0], [() => RouteMatrixOriginList, 0], [() => RouteMatrixBoundary$, 0], [() => RouteMatrixAllowOptions$, 0], [() => RouteMatrixAvoidanceOptions$, 0], [() => SensitiveBoolean, 0], [() => TimestampWithTimezoneOffset, 0], [() => RouteMatrixExclusionOptions$, 0], [() => ApiKey, { [_hQ]: _k }], 0, [() => RouteMatrixTrafficOptions$, 0], 0, [() => RouteMatrixTravelModeOptions$, 0]], 3
 ];
 export var CalculateRouteMatrixResponse$: StaticStructureSchema = [3, n0, _CRMRa,
   0,
   [_EC, _PB, _RM, _RB],
-  [1, [0, { [_hH]: _xagpb }], [() => RouteMatrix, 0], [() => RouteMatrixBoundary$, 0]]
+  [1, [0, { [_hH]: _xagpb }], [() => RouteMatrix, 0], [() => RouteMatrixBoundary$, 0]], 4
 ];
 export var CalculateRoutesRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
-  [_A, _AT, _Av, _DN, _DT, _D, _DO, _Dr, _E, _IMS, _K, _L, _LAF, _LGF, _MA, _ORF, _O, _OO, _SAF, _To, _Tr, _TM, _TMO, _TST, _W],
-  [[() => RouteAllowOptions$, 0], [() => TimestampWithTimezoneOffset, 0], [() => RouteAvoidanceOptions$, 0], [() => SensitiveBoolean, 0], [() => TimestampWithTimezoneOffset, 0], [() => Position, 0], [() => RouteDestinationOptions$, 0], [() => RouteDriverOptions$, 0], [() => RouteExclusionOptions$, 0], 0, [() => ApiKey, { [_hQ]: _k }], 64 | 0, [() => RouteLegAdditionalFeatureList, 0], 0, 1, 0, [() => Position, 0], [() => RouteOriginOptions$, 0], 64 | 0, [() => RouteTollOptions$, 0], [() => RouteTrafficOptions$, 0], 0, [() => RouteTravelModeOptions$, 0], 0, [() => RouteWaypointList, 0]]
+  [_D, _O, _A, _AT, _Av, _DN, _DT, _DO, _Dr, _E, _IMS, _K, _L, _LAF, _LGF, _MA, _ORF, _OO, _SAF, _To, _Tr, _TM, _TMO, _TST, _W],
+  [[() => Position, 0], [() => Position, 0], [() => RouteAllowOptions$, 0], [() => TimestampWithTimezoneOffset, 0], [() => RouteAvoidanceOptions$, 0], [() => SensitiveBoolean, 0], [() => TimestampWithTimezoneOffset, 0], [() => RouteDestinationOptions$, 0], [() => RouteDriverOptions$, 0], [() => RouteExclusionOptions$, 0], 0, [() => ApiKey, { [_hQ]: _k }], 64 | 0, [() => RouteLegAdditionalFeatureList, 0], 0, 1, 0, [() => RouteOriginOptions$, 0], 64 | 0, [() => RouteTollOptions$, 0], [() => RouteTrafficOptions$, 0], 0, [() => RouteTravelModeOptions$, 0], 0, [() => RouteWaypointList, 0]], 2
 ];
 export var CalculateRoutesResponse$: StaticStructureSchema = [3, n0, _CRRa,
   0,
   [_LGF, _N, _PB, _R],
-  [0, () => RouteResponseNoticeList, [0, { [_hH]: _xagpb }], [() => RouteList, 0]]
+  [0, () => RouteResponseNoticeList, [0, { [_hH]: _xagpb }], [() => RouteList, 0]], 4
 ];
 export var Circle$: StaticStructureSchema = [3, n0, _C,
   8,
   [_Ce, _Ra],
-  [[() => Position, 0], [() => SensitiveDouble, 0]]
+  [[() => Position, 0], [() => SensitiveDouble, 0]], 2
 ];
 export var Corridor$: StaticStructureSchema = [3, n0, _Co,
   8,
   [_LS, _Ra],
-  [[() => LineString, 0], 1]
+  [[() => LineString, 0], 1], 2
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_M],
-  [[0, { [_jN]: _m }]]
+  [[0, { [_jN]: _m }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var Isoline$: StaticStructureSchema = [3, n0, _Is,
   0,
-  [_Con, _DTi, _G, _TT],
-  [[() => IsolineConnectionList, 0], [() => DistanceMeters, 0], [() => IsolineShapeGeometryList, 0], [() => DurationSeconds, 0]]
+  [_Con, _G, _DTi, _TT],
+  [[() => IsolineConnectionList, 0], [() => IsolineShapeGeometryList, 0], [() => DistanceMeters, 0], [() => DurationSeconds, 0]], 2
 ];
 export var IsolineAllowOptions$: StaticStructureSchema = [3, n0, _IAO,
   0,
@@ -783,8 +783,8 @@ export var IsolineAllowOptions$: StaticStructureSchema = [3, n0, _IAO,
 ];
 export var IsolineAvoidanceArea$: StaticStructureSchema = [3, n0, _IAA,
   0,
-  [_Ex, _Ge],
-  [[() => IsolineAvoidanceAreaGeometryList, 0], [() => IsolineAvoidanceAreaGeometry$, 0]]
+  [_Ge, _Ex],
+  [[() => IsolineAvoidanceAreaGeometry$, 0], [() => IsolineAvoidanceAreaGeometryList, 0]], 1
 ];
 export var IsolineAvoidanceAreaGeometry$: StaticStructureSchema = [3, n0, _IAAG,
   0,
@@ -809,7 +809,7 @@ export var IsolineCarOptions$: StaticStructureSchema = [3, n0, _ICO,
 export var IsolineConnection$: StaticStructureSchema = [3, n0, _IC,
   0,
   [_FPI, _Ge, _TPI],
-  [1, [() => IsolineConnectionGeometry$, 0], 1]
+  [1, [() => IsolineConnectionGeometry$, 0], 1], 3
 ];
 export var IsolineConnectionGeometry$: StaticStructureSchema = [3, n0, _ICG,
   0,
@@ -849,7 +849,7 @@ export var IsolineShapeGeometry$: StaticStructureSchema = [3, n0, _ISG,
 export var IsolineSideOfStreetOptions$: StaticStructureSchema = [3, n0, _ISOSO,
   0,
   [_Pos, _UW],
-  [[() => Position, 0], 0]
+  [[() => Position, 0], 0], 1
 ];
 export var IsolineThresholds$: StaticStructureSchema = [3, n0, _IT,
   0,
@@ -883,28 +883,28 @@ export var IsolineVehicleLicensePlate$: StaticStructureSchema = [3, n0, _IVLP,
 ];
 export var LocalizedString$: StaticStructureSchema = [3, n0, _LSo,
   0,
-  [_La, _V],
-  [0, [() => SensitiveString, 0]]
+  [_V, _La],
+  [[() => SensitiveString, 0], 0], 1
 ];
 export var OptimizeWaypointsRequest$: StaticStructureSchema = [3, n0, _OWR,
   0,
-  [_Av, _Cl, _DT, _D, _DO, _Dr, _E, _K, _OSF, _O, _OO, _Tr, _TM, _TMO, _W],
-  [[() => WaypointOptimizationAvoidanceOptions$, 0], [() => WaypointOptimizationClusteringOptions$, 0], [() => TimestampWithTimezoneOffset, 0], [() => Position, 0], [() => WaypointOptimizationDestinationOptions$, 0], [() => WaypointOptimizationDriverOptions$, 0], [() => WaypointOptimizationExclusionOptions$, 0], [() => ApiKey, { [_hQ]: _k }], 0, [() => Position, 0], () => WaypointOptimizationOriginOptions$, () => WaypointOptimizationTrafficOptions$, 0, [() => WaypointOptimizationTravelModeOptions$, 0], [() => WaypointOptimizationWaypointList, 0]]
+  [_O, _Av, _Cl, _DT, _D, _DO, _Dr, _E, _K, _OSF, _OO, _Tr, _TM, _TMO, _W],
+  [[() => Position, 0], [() => WaypointOptimizationAvoidanceOptions$, 0], [() => WaypointOptimizationClusteringOptions$, 0], [() => TimestampWithTimezoneOffset, 0], [() => Position, 0], [() => WaypointOptimizationDestinationOptions$, 0], [() => WaypointOptimizationDriverOptions$, 0], [() => WaypointOptimizationExclusionOptions$, 0], [() => ApiKey, { [_hQ]: _k }], 0, () => WaypointOptimizationOriginOptions$, () => WaypointOptimizationTrafficOptions$, 0, [() => WaypointOptimizationTravelModeOptions$, 0], [() => WaypointOptimizationWaypointList, 0]], 1
 ];
 export var OptimizeWaypointsResponse$: StaticStructureSchema = [3, n0, _OWRp,
   0,
   [_Con, _Di, _Du, _IW, _OW, _PB, _TB],
-  [[() => WaypointOptimizationConnectionList, 0], [() => DistanceMeters, 0], [() => DurationSeconds, 0], [() => WaypointOptimizationImpedingWaypointList, 0], [() => WaypointOptimizationOptimizedWaypointList, 0], [0, { [_hH]: _xagpb }], [() => WaypointOptimizationTimeBreakdown$, 0]]
+  [[() => WaypointOptimizationConnectionList, 0], [() => DistanceMeters, 0], [() => DurationSeconds, 0], [() => WaypointOptimizationImpedingWaypointList, 0], [() => WaypointOptimizationOptimizedWaypointList, 0], [0, { [_hH]: _xagpb }], [() => WaypointOptimizationTimeBreakdown$, 0]], 7
 ];
 export var PolylineCorridor$: StaticStructureSchema = [3, n0, _PC,
   8,
   [_P, _Ra],
-  [[() => Polyline, 0], 1]
+  [[() => Polyline, 0], 1], 2
 ];
 export var RoadSnapNotice$: StaticStructureSchema = [3, n0, _RSN,
   0,
   [_Cod, _Tit, _TPIr],
-  [[() => RoadSnapNoticeCode, 0], [() => SensitiveString, 0], [() => RoadSnapTracePointIndexList, 0]]
+  [[() => RoadSnapNoticeCode, 0], [() => SensitiveString, 0], [() => RoadSnapTracePointIndexList, 0]], 3
 ];
 export var RoadSnapSnappedGeometry$: StaticStructureSchema = [3, n0, _RSSG,
   0,
@@ -914,12 +914,12 @@ export var RoadSnapSnappedGeometry$: StaticStructureSchema = [3, n0, _RSSG,
 export var RoadSnapSnappedTracePoint$: StaticStructureSchema = [3, n0, _RSSTP,
   0,
   [_Conf, _OP, _SP],
-  [[() => SensitiveDouble, 0], [() => Position, 0], [() => Position, 0]]
+  [[() => SensitiveDouble, 0], [() => Position, 0], [() => Position, 0]], 3
 ];
 export var RoadSnapTracePoint$: StaticStructureSchema = [3, n0, _RSTP,
   0,
-  [_H, _Pos, _Sp, _Tim],
-  [[() => Heading, 0], [() => Position, 0], [() => SpeedKilometersPerHour, 0], [() => TimestampWithTimezoneOffset, 0]]
+  [_Pos, _H, _Sp, _Tim],
+  [[() => Position, 0], [() => Heading, 0], [() => SpeedKilometersPerHour, 0], [() => TimestampWithTimezoneOffset, 0]], 1
 ];
 export var RoadSnapTrailerOptions$: StaticStructureSchema = [3, n0, _RSTO,
   0,
@@ -939,7 +939,7 @@ export var RoadSnapTruckOptions$: StaticStructureSchema = [3, n0, _RSTOo,
 export var Route$: StaticStructureSchema = [3, n0, _Ro,
   0,
   [_Leg, _MRL, _Su],
-  [[() => RouteLegList, 0], [() => RouteMajorRoadLabelList, 0], [() => RouteSummary$, 0]]
+  [[() => RouteLegList, 0], [() => RouteMajorRoadLabelList, 0], [() => RouteSummary$, 0]], 2
 ];
 export var RouteAllowOptions$: StaticStructureSchema = [3, n0, _RAO,
   0,
@@ -948,8 +948,8 @@ export var RouteAllowOptions$: StaticStructureSchema = [3, n0, _RAO,
 ];
 export var RouteAvoidanceArea$: StaticStructureSchema = [3, n0, _RAA,
   0,
-  [_Ex, _Ge],
-  [[() => RouteAvoidanceAreaGeometryList, 0], [() => RouteAvoidanceAreaGeometry$, 0]]
+  [_Ge, _Ex],
+  [[() => RouteAvoidanceAreaGeometry$, 0], [() => RouteAvoidanceAreaGeometryList, 0]], 1
 ];
 export var RouteAvoidanceAreaGeometry$: StaticStructureSchema = [3, n0, _RAAG,
   0,
@@ -964,7 +964,7 @@ export var RouteAvoidanceOptions$: StaticStructureSchema = [3, n0, _RAOo,
 export var RouteAvoidanceZoneCategory$: StaticStructureSchema = [3, n0, _RAZC,
   0,
   [_Ca],
-  [[() => RouteZoneCategory, 0]]
+  [[() => RouteZoneCategory, 0]], 1
 ];
 export var RouteCarOptions$: StaticStructureSchema = [3, n0, _RCO,
   0,
@@ -974,12 +974,12 @@ export var RouteCarOptions$: StaticStructureSchema = [3, n0, _RCO,
 export var RouteContinueHighwayStepDetails$: StaticStructureSchema = [3, n0, _RCHSD,
   0,
   [_In, _SDt, _TA, _TI],
-  [[() => LocalizedStringList, 0], [() => RouteSteeringDirection, 0], 1, [() => RouteTurnIntensity, 0]]
+  [[() => LocalizedStringList, 0], [() => RouteSteeringDirection, 0], 1, [() => RouteTurnIntensity, 0]], 1
 ];
 export var RouteContinueStepDetails$: StaticStructureSchema = [3, n0, _RCSD,
   0,
   [_In],
-  [[() => LocalizedStringList, 0]]
+  [[() => LocalizedStringList, 0]], 1
 ];
 export var RouteDestinationOptions$: StaticStructureSchema = [3, n0, _RDO,
   0,
@@ -994,67 +994,67 @@ export var RouteDriverOptions$: StaticStructureSchema = [3, n0, _RDOo,
 export var RouteDriverScheduleInterval$: StaticStructureSchema = [3, n0, _RDSI,
   0,
   [_DD, _RDe],
-  [[() => DurationSeconds, 0], [() => DurationSeconds, 0]]
+  [[() => DurationSeconds, 0], [() => DurationSeconds, 0]], 2
 ];
 export var RouteEmissionType$: StaticStructureSchema = [3, n0, _RETo,
   0,
-  [_CEC, _Ty],
-  [[() => SensitiveString, 0], [() => SensitiveString, 0]]
+  [_Ty, _CEC],
+  [[() => SensitiveString, 0], [() => SensitiveString, 0]], 1
 ];
 export var RouteEnterHighwayStepDetails$: StaticStructureSchema = [3, n0, _REHSD,
   0,
   [_In, _SDt, _TA, _TI],
-  [[() => LocalizedStringList, 0], [() => RouteSteeringDirection, 0], 1, [() => RouteTurnIntensity, 0]]
+  [[() => LocalizedStringList, 0], [() => RouteSteeringDirection, 0], 1, [() => RouteTurnIntensity, 0]], 1
 ];
 export var RouteExclusionOptions$: StaticStructureSchema = [3, n0, _REO,
   0,
   [_Cou],
-  [[() => CountryCodeList, 0]]
+  [[() => CountryCodeList, 0]], 1
 ];
 export var RouteExitStepDetails$: StaticStructureSchema = [3, n0, _RESD,
   0,
   [_In, _RE, _SDt, _TA, _TI],
-  [[() => LocalizedStringList, 0], [() => SensitiveInteger, 0], [() => RouteSteeringDirection, 0], 1, [() => RouteTurnIntensity, 0]]
+  [[() => LocalizedStringList, 0], [() => SensitiveInteger, 0], [() => RouteSteeringDirection, 0], 1, [() => RouteTurnIntensity, 0]], 1
 ];
 export var RouteFerryAfterTravelStep$: StaticStructureSchema = [3, n0, _RFATS,
   0,
-  [_Du, _Ins, _Ty],
-  [[() => DurationSeconds, 0], [() => SensitiveString, 0], [() => RouteFerryAfterTravelStepType, 0]]
+  [_Du, _Ty, _Ins],
+  [[() => DurationSeconds, 0], [() => RouteFerryAfterTravelStepType, 0], [() => SensitiveString, 0]], 2
 ];
 export var RouteFerryArrival$: StaticStructureSchema = [3, n0, _RFA,
   0,
   [_Pl, _Ti],
-  [[() => RouteFerryPlace$, 0], [() => TimestampWithTimezoneOffset, 0]]
+  [[() => RouteFerryPlace$, 0], [() => TimestampWithTimezoneOffset, 0]], 1
 ];
 export var RouteFerryBeforeTravelStep$: StaticStructureSchema = [3, n0, _RFBTS,
   0,
-  [_Du, _Ins, _Ty],
-  [[() => DurationSeconds, 0], [() => SensitiveString, 0], [() => RouteFerryBeforeTravelStepType, 0]]
+  [_Du, _Ty, _Ins],
+  [[() => DurationSeconds, 0], [() => RouteFerryBeforeTravelStepType, 0], [() => SensitiveString, 0]], 2
 ];
 export var RouteFerryDeparture$: StaticStructureSchema = [3, n0, _RFD,
   0,
   [_Pl, _Ti],
-  [[() => RouteFerryPlace$, 0], [() => TimestampWithTimezoneOffset, 0]]
+  [[() => RouteFerryPlace$, 0], [() => TimestampWithTimezoneOffset, 0]], 1
 ];
 export var RouteFerryLegDetails$: StaticStructureSchema = [3, n0, _RFLD,
   0,
-  [_ATS, _Arr, _BTS, _Dep, _N, _PTW, _RN, _Spa, _Su, _TS],
-  [[() => RouteFerryAfterTravelStepList, 0], [() => RouteFerryArrival$, 0], [() => RouteFerryBeforeTravelStepList, 0], [() => RouteFerryDeparture$, 0], () => RouteFerryNoticeList, [() => RoutePassThroughWaypointList, 0], [() => SensitiveString, 0], [() => RouteFerrySpanList, 0], [() => RouteFerrySummary$, 0], [() => RouteFerryTravelStepList, 0]]
+  [_ATS, _Arr, _BTS, _Dep, _N, _PTW, _Spa, _TS, _RN, _Su],
+  [[() => RouteFerryAfterTravelStepList, 0], [() => RouteFerryArrival$, 0], [() => RouteFerryBeforeTravelStepList, 0], [() => RouteFerryDeparture$, 0], () => RouteFerryNoticeList, [() => RoutePassThroughWaypointList, 0], [() => RouteFerrySpanList, 0], [() => RouteFerryTravelStepList, 0], [() => SensitiveString, 0], [() => RouteFerrySummary$, 0]], 8
 ];
 export var RouteFerryNotice$: StaticStructureSchema = [3, n0, _RFN,
   0,
   [_Cod, _Im],
-  [0, 0]
+  [0, 0], 1
 ];
 export var RouteFerryOverviewSummary$: StaticStructureSchema = [3, n0, _RFOS,
   0,
   [_Di, _Du],
-  [[() => DistanceMeters, 0], [() => DurationSeconds, 0]]
+  [[() => DistanceMeters, 0], [() => DurationSeconds, 0]], 2
 ];
 export var RouteFerryPlace$: StaticStructureSchema = [3, n0, _RFP,
   0,
-  [_Na, _OP, _Pos, _WI],
-  [[() => SensitiveString, 0], [() => Position23, 0], [() => Position23, 0], [() => SensitiveInteger, 0]]
+  [_Pos, _Na, _OP, _WI],
+  [[() => Position23, 0], [() => SensitiveString, 0], [() => Position23, 0], [() => SensitiveInteger, 0]], 1
 ];
 export var RouteFerrySpan$: StaticStructureSchema = [3, n0, _RFS,
   0,
@@ -1069,22 +1069,22 @@ export var RouteFerrySummary$: StaticStructureSchema = [3, n0, _RFSo,
 export var RouteFerryTravelOnlySummary$: StaticStructureSchema = [3, n0, _RFTOS,
   0,
   [_Du],
-  [[() => DurationSeconds, 0]]
+  [[() => DurationSeconds, 0]], 1
 ];
 export var RouteFerryTravelStep$: StaticStructureSchema = [3, n0, _RFTS,
   0,
-  [_Di, _Du, _GO, _Ins, _Ty],
-  [[() => DistanceMeters, 0], [() => DurationSeconds, 0], 1, [() => SensitiveString, 0], [() => RouteFerryTravelStepType, 0]]
+  [_Du, _Ty, _Di, _GO, _Ins],
+  [[() => DurationSeconds, 0], [() => RouteFerryTravelStepType, 0], [() => DistanceMeters, 0], 1, [() => SensitiveString, 0]], 2
 ];
 export var RouteKeepStepDetails$: StaticStructureSchema = [3, n0, _RKSD,
   0,
   [_In, _SDt, _TA, _TI],
-  [[() => LocalizedStringList, 0], [() => RouteSteeringDirection, 0], 1, [() => RouteTurnIntensity, 0]]
+  [[() => LocalizedStringList, 0], [() => RouteSteeringDirection, 0], 1, [() => RouteTurnIntensity, 0]], 1
 ];
 export var RouteLeg$: StaticStructureSchema = [3, n0, _RL,
   0,
-  [_FLD, _Ge, _La, _PLD, _TM, _Ty, _VLD],
-  [[() => RouteFerryLegDetails$, 0], [() => RouteLegGeometry$, 0], 0, [() => RoutePedestrianLegDetails$, 0], [() => RouteLegTravelMode, 0], [() => RouteLegType, 0], [() => RouteVehicleLegDetails$, 0]]
+  [_Ge, _TM, _Ty, _FLD, _La, _PLD, _VLD],
+  [[() => RouteLegGeometry$, 0], [() => RouteLegTravelMode, 0], [() => RouteLegType, 0], [() => RouteFerryLegDetails$, 0], 0, [() => RoutePedestrianLegDetails$, 0], [() => RouteVehicleLegDetails$, 0]], 3
 ];
 export var RouteLegGeometry$: StaticStructureSchema = [3, n0, _RLG,
   0,
@@ -1114,7 +1114,7 @@ export var RouteMatrixAutoCircle$: StaticStructureSchema = [3, n0, _RMAC,
 export var RouteMatrixAvoidanceArea$: StaticStructureSchema = [3, n0, _RMAA,
   0,
   [_Ge],
-  [[() => RouteMatrixAvoidanceAreaGeometry$, 0]]
+  [[() => RouteMatrixAvoidanceAreaGeometry$, 0]], 1
 ];
 export var RouteMatrixAvoidanceAreaGeometry$: StaticStructureSchema = [3, n0, _RMAAG,
   0,
@@ -1148,8 +1148,8 @@ export var RouteMatrixCarOptions$: StaticStructureSchema = [3, n0, _RMCO,
 ];
 export var RouteMatrixDestination$: StaticStructureSchema = [3, n0, _RMD,
   0,
-  [_Op, _Pos],
-  [[() => RouteMatrixDestinationOptions$, 0], [() => Position, 0]]
+  [_Pos, _Op],
+  [[() => Position, 0], [() => RouteMatrixDestinationOptions$, 0]], 1
 ];
 export var RouteMatrixDestinationOptions$: StaticStructureSchema = [3, n0, _RMDO,
   0,
@@ -1159,12 +1159,12 @@ export var RouteMatrixDestinationOptions$: StaticStructureSchema = [3, n0, _RMDO
 export var RouteMatrixEntry$: StaticStructureSchema = [3, n0, _RME,
   0,
   [_Di, _Du, _Er],
-  [[() => DistanceMeters, 0], [() => DurationSeconds, 0], 0]
+  [[() => DistanceMeters, 0], [() => DurationSeconds, 0], 0], 2
 ];
 export var RouteMatrixExclusionOptions$: StaticStructureSchema = [3, n0, _RMEO,
   0,
   [_Cou],
-  [[() => CountryCodeList, 0]]
+  [[() => CountryCodeList, 0]], 1
 ];
 export var RouteMatrixMatchingOptions$: StaticStructureSchema = [3, n0, _RMMO,
   0,
@@ -1173,8 +1173,8 @@ export var RouteMatrixMatchingOptions$: StaticStructureSchema = [3, n0, _RMMO,
 ];
 export var RouteMatrixOrigin$: StaticStructureSchema = [3, n0, _RMOo,
   0,
-  [_Op, _Pos],
-  [[() => RouteMatrixOriginOptions$, 0], [() => Position, 0]]
+  [_Pos, _Op],
+  [[() => Position, 0], [() => RouteMatrixOriginOptions$, 0]], 1
 ];
 export var RouteMatrixOriginOptions$: StaticStructureSchema = [3, n0, _RMOO,
   0,
@@ -1189,7 +1189,7 @@ export var RouteMatrixScooterOptions$: StaticStructureSchema = [3, n0, _RMSO,
 export var RouteMatrixSideOfStreetOptions$: StaticStructureSchema = [3, n0, _RMSOSO,
   0,
   [_Pos, _UW],
-  [[() => Position, 0], 0]
+  [[() => Position, 0], 0], 1
 ];
 export var RouteMatrixTrafficOptions$: StaticStructureSchema = [3, n0, _RMTO,
   0,
@@ -1223,8 +1223,8 @@ export var RouteNoticeDetailRange$: StaticStructureSchema = [3, n0, _RNDR,
 ];
 export var RouteNumber$: StaticStructureSchema = [3, n0, _RNou,
   0,
-  [_Dir, _La, _V],
-  [[() => RouteDirection, 0], 0, [() => SensitiveString, 0]]
+  [_V, _Dir, _La],
+  [[() => SensitiveString, 0], [() => RouteDirection, 0], 0], 1
 ];
 export var RouteOriginOptions$: StaticStructureSchema = [3, n0, _ROO,
   0,
@@ -1233,33 +1233,33 @@ export var RouteOriginOptions$: StaticStructureSchema = [3, n0, _ROO,
 ];
 export var RoutePassThroughPlace$: StaticStructureSchema = [3, n0, _RPTP,
   0,
-  [_OP, _Pos, _WI],
-  [[() => Position23, 0], [() => Position23, 0], [() => SensitiveInteger, 0]]
+  [_Pos, _OP, _WI],
+  [[() => Position23, 0], [() => Position23, 0], [() => SensitiveInteger, 0]], 1
 ];
 export var RoutePassThroughWaypoint$: StaticStructureSchema = [3, n0, _RPTW,
   0,
-  [_GO, _Pl],
-  [1, [() => RoutePassThroughPlace$, 0]]
+  [_Pl, _GO],
+  [[() => RoutePassThroughPlace$, 0], 1], 1
 ];
 export var RoutePedestrianArrival$: StaticStructureSchema = [3, n0, _RPA,
   0,
   [_Pl, _Ti],
-  [[() => RoutePedestrianPlace$, 0], [() => TimestampWithTimezoneOffset, 0]]
+  [[() => RoutePedestrianPlace$, 0], [() => TimestampWithTimezoneOffset, 0]], 1
 ];
 export var RoutePedestrianDeparture$: StaticStructureSchema = [3, n0, _RPD,
   0,
   [_Pl, _Ti],
-  [[() => RoutePedestrianPlace$, 0], [() => TimestampWithTimezoneOffset, 0]]
+  [[() => RoutePedestrianPlace$, 0], [() => TimestampWithTimezoneOffset, 0]], 1
 ];
 export var RoutePedestrianLegDetails$: StaticStructureSchema = [3, n0, _RPLD,
   0,
-  [_Arr, _Dep, _N, _PTW, _Spa, _Su, _TS],
-  [[() => RoutePedestrianArrival$, 0], [() => RoutePedestrianDeparture$, 0], () => RoutePedestrianNoticeList, [() => RoutePassThroughWaypointList, 0], [() => RoutePedestrianSpanList, 0], [() => RoutePedestrianSummary$, 0], [() => RoutePedestrianTravelStepList, 0]]
+  [_Arr, _Dep, _N, _PTW, _Spa, _TS, _Su],
+  [[() => RoutePedestrianArrival$, 0], [() => RoutePedestrianDeparture$, 0], () => RoutePedestrianNoticeList, [() => RoutePassThroughWaypointList, 0], [() => RoutePedestrianSpanList, 0], [() => RoutePedestrianTravelStepList, 0], [() => RoutePedestrianSummary$, 0]], 6
 ];
 export var RoutePedestrianNotice$: StaticStructureSchema = [3, n0, _RPN,
   0,
   [_Cod, _Im],
-  [0, 0]
+  [0, 0], 1
 ];
 export var RoutePedestrianOptions$: StaticStructureSchema = [3, n0, _RPO,
   0,
@@ -1269,12 +1269,12 @@ export var RoutePedestrianOptions$: StaticStructureSchema = [3, n0, _RPO,
 export var RoutePedestrianOverviewSummary$: StaticStructureSchema = [3, n0, _RPOS,
   0,
   [_Di, _Du],
-  [[() => DistanceMeters, 0], [() => DurationSeconds, 0]]
+  [[() => DistanceMeters, 0], [() => DurationSeconds, 0]], 2
 ];
 export var RoutePedestrianPlace$: StaticStructureSchema = [3, n0, _RPP,
   0,
-  [_Na, _OP, _Pos, _SOS, _WI],
-  [[() => SensitiveString, 0], [() => Position23, 0], [() => Position23, 0], [() => RouteSideOfStreet, 0], [() => SensitiveInteger, 0]]
+  [_Pos, _Na, _OP, _SOS, _WI],
+  [[() => Position23, 0], [() => SensitiveString, 0], [() => Position23, 0], [() => RouteSideOfStreet, 0], [() => SensitiveInteger, 0]], 1
 ];
 export var RoutePedestrianSpan$: StaticStructureSchema = [3, n0, _RPS,
   0,
@@ -1289,42 +1289,42 @@ export var RoutePedestrianSummary$: StaticStructureSchema = [3, n0, _RPSo,
 export var RoutePedestrianTravelOnlySummary$: StaticStructureSchema = [3, n0, _RPTOS,
   0,
   [_Du],
-  [[() => DurationSeconds, 0]]
+  [[() => DurationSeconds, 0]], 1
 ];
 export var RoutePedestrianTravelStep$: StaticStructureSchema = [3, n0, _RPTS,
   0,
-  [_CSD, _CR, _Di, _Du, _EN, _GO, _Ins, _KSD, _NR, _RESDo, _RESDou, _RPSD, _Si, _TSD, _Ty],
-  [[() => RouteContinueStepDetails$, 0], [() => RouteRoad$, 0], [() => DistanceMeters, 0], [() => DurationSeconds, 0], [() => LocalizedStringList, 0], 1, [() => SensitiveString, 0], [() => RouteKeepStepDetails$, 0], [() => RouteRoad$, 0], [() => RouteRoundaboutEnterStepDetails$, 0], [() => RouteRoundaboutExitStepDetails$, 0], [() => RouteRoundaboutPassStepDetails$, 0], [() => RouteSignpost$, 0], [() => RouteTurnStepDetails$, 0], [() => RoutePedestrianTravelStepType, 0]]
+  [_Du, _Ty, _CSD, _CR, _Di, _EN, _GO, _Ins, _KSD, _NR, _RESDo, _RESDou, _RPSD, _Si, _TSD],
+  [[() => DurationSeconds, 0], [() => RoutePedestrianTravelStepType, 0], [() => RouteContinueStepDetails$, 0], [() => RouteRoad$, 0], [() => DistanceMeters, 0], [() => LocalizedStringList, 0], 1, [() => SensitiveString, 0], [() => RouteKeepStepDetails$, 0], [() => RouteRoad$, 0], [() => RouteRoundaboutEnterStepDetails$, 0], [() => RouteRoundaboutExitStepDetails$, 0], [() => RouteRoundaboutPassStepDetails$, 0], [() => RouteSignpost$, 0], [() => RouteTurnStepDetails$, 0]], 2
 ];
 export var RouteRampStepDetails$: StaticStructureSchema = [3, n0, _RRSD,
   0,
   [_In, _SDt, _TA, _TI],
-  [[() => LocalizedStringList, 0], [() => RouteSteeringDirection, 0], 1, [() => RouteTurnIntensity, 0]]
+  [[() => LocalizedStringList, 0], [() => RouteSteeringDirection, 0], 1, [() => RouteTurnIntensity, 0]], 1
 ];
 export var RouteResponseNotice$: StaticStructureSchema = [3, n0, _RRN,
   0,
   [_Cod, _Im],
-  [0, 0]
+  [0, 0], 1
 ];
 export var RouteRoad$: StaticStructureSchema = [3, n0, _RR,
   0,
   [_RNo, _RNou, _Tow, _Ty],
-  [[() => LocalizedStringList, 0], [() => RouteNumberList, 0], [() => LocalizedStringList, 0], [() => RouteRoadType, 0]]
+  [[() => LocalizedStringList, 0], [() => RouteNumberList, 0], [() => LocalizedStringList, 0], [() => RouteRoadType, 0]], 3
 ];
 export var RouteRoundaboutEnterStepDetails$: StaticStructureSchema = [3, n0, _RRESD,
   0,
   [_In, _SDt, _TA, _TI],
-  [[() => LocalizedStringList, 0], [() => RouteSteeringDirection, 0], 1, [() => RouteTurnIntensity, 0]]
+  [[() => LocalizedStringList, 0], [() => RouteSteeringDirection, 0], 1, [() => RouteTurnIntensity, 0]], 1
 ];
 export var RouteRoundaboutExitStepDetails$: StaticStructureSchema = [3, n0, _RRESDo,
   0,
   [_In, _RE, _RAo, _SDt],
-  [[() => LocalizedStringList, 0], [() => SensitiveInteger, 0], 1, [() => RouteSteeringDirection, 0]]
+  [[() => LocalizedStringList, 0], [() => SensitiveInteger, 0], 1, [() => RouteSteeringDirection, 0]], 1
 ];
 export var RouteRoundaboutPassStepDetails$: StaticStructureSchema = [3, n0, _RRPSD,
   0,
   [_In, _SDt, _TA, _TI],
-  [[() => LocalizedStringList, 0], [() => RouteSteeringDirection, 0], 1, [() => RouteTurnIntensity, 0]]
+  [[() => LocalizedStringList, 0], [() => RouteSteeringDirection, 0], 1, [() => RouteTurnIntensity, 0]], 1
 ];
 export var RouteScooterOptions$: StaticStructureSchema = [3, n0, _RSO,
   0,
@@ -1334,12 +1334,12 @@ export var RouteScooterOptions$: StaticStructureSchema = [3, n0, _RSO,
 export var RouteSideOfStreetOptions$: StaticStructureSchema = [3, n0, _RSOSO,
   0,
   [_Pos, _UW],
-  [[() => Position, 0], 0]
+  [[() => Position, 0], 0], 1
 ];
 export var RouteSignpost$: StaticStructureSchema = [3, n0, _RS,
   0,
   [_Lab],
-  [[() => RouteSignpostLabelList, 0]]
+  [[() => RouteSignpostLabelList, 0]], 1
 ];
 export var RouteSignpostLabel$: StaticStructureSchema = [3, n0, _RSL,
   0,
@@ -1363,8 +1363,8 @@ export var RouteSummary$: StaticStructureSchema = [3, n0, _RSo,
 ];
 export var RouteToll$: StaticStructureSchema = [3, n0, _RT,
   0,
-  [_Coun, _PS, _Rat, _Sy],
-  [[() => CountryCode3, 0], [() => RouteTollPaymentSiteList, 0], [() => RouteTollRateList, 0], 64 | 1]
+  [_PS, _Rat, _Sy, _Coun],
+  [[() => RouteTollPaymentSiteList, 0], [() => RouteTollRateList, 0], 64 | 1, [() => CountryCode3, 0]], 3
 ];
 export var RouteTollOptions$: StaticStructureSchema = [3, n0, _RTO,
   0,
@@ -1379,32 +1379,32 @@ export var RouteTollPass$: StaticStructureSchema = [3, n0, _RTP,
 export var RouteTollPassValidityPeriod$: StaticStructureSchema = [3, n0, _RTPVP,
   0,
   [_Pe, _PCe],
-  [[() => RouteTollPassValidityPeriodType, 0], [() => SensitiveInteger, 0]]
+  [[() => RouteTollPassValidityPeriodType, 0], [() => SensitiveInteger, 0]], 1
 ];
 export var RouteTollPaymentSite$: StaticStructureSchema = [3, n0, _RTPS,
   0,
-  [_Na, _Pos],
-  [0, [() => Position23, 0]]
+  [_Pos, _Na],
+  [[() => Position23, 0], 0], 1
 ];
 export var RouteTollPrice$: StaticStructureSchema = [3, n0, _RTPo,
   0,
-  [_Cu, _Es, _PD, _Ran, _RV, _V],
-  [0, [() => SensitiveBoolean, 0], [() => DurationSeconds, 0], [() => SensitiveBoolean, 0], [() => RouteTollPriceValueRange$, 0], [() => SensitiveDouble, 0]]
+  [_Cu, _Es, _Ran, _V, _PD, _RV],
+  [0, [() => SensitiveBoolean, 0], [() => SensitiveBoolean, 0], [() => SensitiveDouble, 0], [() => DurationSeconds, 0], [() => RouteTollPriceValueRange$, 0]], 4
 ];
 export var RouteTollPriceSummary$: StaticStructureSchema = [3, n0, _RTPSo,
   0,
-  [_Cu, _Es, _Ran, _RV, _V],
-  [0, [() => SensitiveBoolean, 0], [() => SensitiveBoolean, 0], [() => RouteTollPriceValueRange$, 0], [() => SensitiveDouble, 0]]
+  [_Cu, _Es, _Ran, _V, _RV],
+  [0, [() => SensitiveBoolean, 0], [() => SensitiveBoolean, 0], [() => SensitiveDouble, 0], [() => RouteTollPriceValueRange$, 0]], 4
 ];
 export var RouteTollPriceValueRange$: StaticStructureSchema = [3, n0, _RTPVR,
   0,
   [_Mi, _Max],
-  [[() => SensitiveDouble, 0], [() => SensitiveDouble, 0]]
+  [[() => SensitiveDouble, 0], [() => SensitiveDouble, 0]], 2
 ];
 export var RouteTollRate$: StaticStructureSchema = [3, n0, _RTR,
   0,
-  [_ATp, _CP, _Id, _LPo, _Na, _Pa, _PM, _Tran],
-  [[() => SensitiveString, 0], [() => RouteTollPrice$, 0], [() => SensitiveString, 0], [() => RouteTollPrice$, 0], [() => SensitiveString, 0], [() => RouteTollPass$, 0], [() => RouteTollPaymentMethodList, 0], [() => RouteTransponderList, 0]]
+  [_Id, _LPo, _Na, _PM, _Tran, _ATp, _CP, _Pa],
+  [[() => SensitiveString, 0], [() => RouteTollPrice$, 0], [() => SensitiveString, 0], [() => RouteTollPaymentMethodList, 0], [() => RouteTransponderList, 0], [() => SensitiveString, 0], [() => RouteTollPrice$, 0], [() => RouteTollPass$, 0]], 5
 ];
 export var RouteTollSummary$: StaticStructureSchema = [3, n0, _RTS,
   0,
@@ -1444,22 +1444,22 @@ export var RouteTruckOptions$: StaticStructureSchema = [3, n0, _RTOout,
 export var RouteTurnStepDetails$: StaticStructureSchema = [3, n0, _RTSD,
   0,
   [_In, _SDt, _TA, _TI],
-  [[() => LocalizedStringList, 0], [() => RouteSteeringDirection, 0], 1, [() => RouteTurnIntensity, 0]]
+  [[() => LocalizedStringList, 0], [() => RouteSteeringDirection, 0], 1, [() => RouteTurnIntensity, 0]], 1
 ];
 export var RouteUTurnStepDetails$: StaticStructureSchema = [3, n0, _RUTSD,
   0,
   [_In, _SDt, _TA, _TI],
-  [[() => LocalizedStringList, 0], [() => RouteSteeringDirection, 0], 1, [() => RouteTurnIntensity, 0]]
+  [[() => LocalizedStringList, 0], [() => RouteSteeringDirection, 0], 1, [() => RouteTurnIntensity, 0]], 1
 ];
 export var RouteVehicleArrival$: StaticStructureSchema = [3, n0, _RVA,
   0,
   [_Pl, _Ti],
-  [[() => RouteVehiclePlace$, 0], [() => TimestampWithTimezoneOffset, 0]]
+  [[() => RouteVehiclePlace$, 0], [() => TimestampWithTimezoneOffset, 0]], 1
 ];
 export var RouteVehicleDeparture$: StaticStructureSchema = [3, n0, _RVD,
   0,
   [_Pl, _Ti],
-  [[() => RouteVehiclePlace$, 0], [() => TimestampWithTimezoneOffset, 0]]
+  [[() => RouteVehiclePlace$, 0], [() => TimestampWithTimezoneOffset, 0]], 1
 ];
 export var RouteVehicleIncident$: StaticStructureSchema = [3, n0, _RVI,
   0,
@@ -1468,8 +1468,8 @@ export var RouteVehicleIncident$: StaticStructureSchema = [3, n0, _RVI,
 ];
 export var RouteVehicleLegDetails$: StaticStructureSchema = [3, n0, _RVLD,
   0,
-  [_Arr, _Dep, _Inc, _N, _PTW, _Spa, _Su, _To, _TSo, _TS, _TRTr, _Z],
-  [[() => RouteVehicleArrival$, 0], [() => RouteVehicleDeparture$, 0], [() => RouteVehicleIncidentList, 0], [() => RouteVehicleNoticeList, 0], [() => RoutePassThroughWaypointList, 0], [() => RouteVehicleSpanList, 0], [() => RouteVehicleSummary$, 0], [() => RouteTollList, 0], [() => RouteTollSystemList, 0], [() => RouteVehicleTravelStepList, 0], [() => TruckRoadTypeList, 0], [() => RouteZoneList, 0]]
+  [_Arr, _Dep, _Inc, _N, _PTW, _Spa, _To, _TSo, _TS, _TRTr, _Z, _Su],
+  [[() => RouteVehicleArrival$, 0], [() => RouteVehicleDeparture$, 0], [() => RouteVehicleIncidentList, 0], [() => RouteVehicleNoticeList, 0], [() => RoutePassThroughWaypointList, 0], [() => RouteVehicleSpanList, 0], [() => RouteTollList, 0], [() => RouteTollSystemList, 0], [() => RouteVehicleTravelStepList, 0], [() => TruckRoadTypeList, 0], [() => RouteZoneList, 0], [() => RouteVehicleSummary$, 0]], 11
 ];
 export var RouteVehicleLicensePlate$: StaticStructureSchema = [3, n0, _RVLP,
   0,
@@ -1479,7 +1479,7 @@ export var RouteVehicleLicensePlate$: StaticStructureSchema = [3, n0, _RVLP,
 export var RouteVehicleNotice$: StaticStructureSchema = [3, n0, _RVN,
   0,
   [_Cod, _Det, _Im],
-  [0, [() => RouteVehicleNoticeDetailList, 0], 0]
+  [0, [() => RouteVehicleNoticeDetailList, 0], 0], 2
 ];
 export var RouteVehicleNoticeDetail$: StaticStructureSchema = [3, n0, _RVND,
   0,
@@ -1488,13 +1488,13 @@ export var RouteVehicleNoticeDetail$: StaticStructureSchema = [3, n0, _RVND,
 ];
 export var RouteVehicleOverviewSummary$: StaticStructureSchema = [3, n0, _RVOS,
   0,
-  [_BCD, _Di, _Du, _TD],
-  [[() => DurationSeconds, 0], [() => DistanceMeters, 0], [() => DurationSeconds, 0], [() => DurationSeconds, 0]]
+  [_Di, _Du, _BCD, _TD],
+  [[() => DistanceMeters, 0], [() => DurationSeconds, 0], [() => DurationSeconds, 0], [() => DurationSeconds, 0]], 2
 ];
 export var RouteVehiclePlace$: StaticStructureSchema = [3, n0, _RVP,
   0,
-  [_Na, _OP, _Pos, _SOS, _WI],
-  [[() => SensitiveString, 0], [() => Position23, 0], [() => Position23, 0], [() => RouteSideOfStreet, 0], [() => SensitiveInteger, 0]]
+  [_Pos, _Na, _OP, _SOS, _WI],
+  [[() => Position23, 0], [() => SensitiveString, 0], [() => Position23, 0], [() => RouteSideOfStreet, 0], [() => SensitiveInteger, 0]], 1
 ];
 export var RouteVehicleSpan$: StaticStructureSchema = [3, n0, _RVS,
   0,
@@ -1508,28 +1508,28 @@ export var RouteVehicleSummary$: StaticStructureSchema = [3, n0, _RVSo,
 ];
 export var RouteVehicleTravelOnlySummary$: StaticStructureSchema = [3, n0, _RVTOS,
   0,
-  [_BCD, _Du, _TD],
-  [[() => DurationSeconds, 0], [() => DurationSeconds, 0], [() => DurationSeconds, 0]]
+  [_Du, _BCD, _TD],
+  [[() => DurationSeconds, 0], [() => DurationSeconds, 0], [() => DurationSeconds, 0]], 1
 ];
 export var RouteVehicleTravelStep$: StaticStructureSchema = [3, n0, _RVTS,
   0,
-  [_CHSD, _CSD, _CR, _Di, _Du, _EHSD, _EN, _ESD, _GO, _Ins, _KSD, _NR, _RSDa, _RESDo, _RESDou, _RPSD, _Si, _TSD, _Ty, _UTSD],
-  [[() => RouteContinueHighwayStepDetails$, 0], [() => RouteContinueStepDetails$, 0], [() => RouteRoad$, 0], [() => DistanceMeters, 0], [() => DurationSeconds, 0], [() => RouteEnterHighwayStepDetails$, 0], [() => LocalizedStringList, 0], [() => RouteExitStepDetails$, 0], 1, [() => SensitiveString, 0], [() => RouteKeepStepDetails$, 0], [() => RouteRoad$, 0], [() => RouteRampStepDetails$, 0], [() => RouteRoundaboutEnterStepDetails$, 0], [() => RouteRoundaboutExitStepDetails$, 0], [() => RouteRoundaboutPassStepDetails$, 0], [() => RouteSignpost$, 0], [() => RouteTurnStepDetails$, 0], [() => RouteVehicleTravelStepType, 0], [() => RouteUTurnStepDetails$, 0]]
+  [_Du, _Ty, _CHSD, _CSD, _CR, _Di, _EHSD, _EN, _ESD, _GO, _Ins, _KSD, _NR, _RSDa, _RESDo, _RESDou, _RPSD, _Si, _TSD, _UTSD],
+  [[() => DurationSeconds, 0], [() => RouteVehicleTravelStepType, 0], [() => RouteContinueHighwayStepDetails$, 0], [() => RouteContinueStepDetails$, 0], [() => RouteRoad$, 0], [() => DistanceMeters, 0], [() => RouteEnterHighwayStepDetails$, 0], [() => LocalizedStringList, 0], [() => RouteExitStepDetails$, 0], 1, [() => SensitiveString, 0], [() => RouteKeepStepDetails$, 0], [() => RouteRoad$, 0], [() => RouteRampStepDetails$, 0], [() => RouteRoundaboutEnterStepDetails$, 0], [() => RouteRoundaboutExitStepDetails$, 0], [() => RouteRoundaboutPassStepDetails$, 0], [() => RouteSignpost$, 0], [() => RouteTurnStepDetails$, 0], [() => RouteUTurnStepDetails$, 0]], 2
 ];
 export var RouteViolatedConstraints$: StaticStructureSchema = [3, n0, _RVC,
   0,
-  [_AHR, _AC, _HC, _MH, _MKL, _ML, _MPC, _MW, _MWPA, _MWPAG, _MWa, _Oc, _RTe, _TDi, _TC, _TM, _TRT, _TTr, _TRC],
-  [[() => SensitiveBoolean, 0], () => RouteNoticeDetailRange$, [() => RouteHazardousCargoTypeList, 0], [() => DimensionCentimeters, 0], [() => DimensionCentimeters, 0], [() => DimensionCentimeters, 0], [() => WeightKilograms, 0], [() => RouteWeightConstraint$, 0], [() => WeightKilograms, 0], [() => WeightPerAxleGroup$, 0], [() => DimensionCentimeters, 0], () => RouteNoticeDetailRange$, 0, [() => SensitiveBoolean, 0], () => RouteNoticeDetailRange$, [() => SensitiveBoolean, 0], 0, [() => RouteTruckType, 0], [() => TunnelRestrictionCode, 0]]
+  [_HC, _AHR, _AC, _MH, _MKL, _ML, _MPC, _MW, _MWPA, _MWPAG, _MWa, _Oc, _RTe, _TDi, _TC, _TM, _TRT, _TTr, _TRC],
+  [[() => RouteHazardousCargoTypeList, 0], [() => SensitiveBoolean, 0], () => RouteNoticeDetailRange$, [() => DimensionCentimeters, 0], [() => DimensionCentimeters, 0], [() => DimensionCentimeters, 0], [() => WeightKilograms, 0], [() => RouteWeightConstraint$, 0], [() => WeightKilograms, 0], [() => WeightPerAxleGroup$, 0], [() => DimensionCentimeters, 0], () => RouteNoticeDetailRange$, 0, [() => SensitiveBoolean, 0], () => RouteNoticeDetailRange$, [() => SensitiveBoolean, 0], 0, [() => RouteTruckType, 0], [() => TunnelRestrictionCode, 0]], 1
 ];
 export var RouteWaypoint$: StaticStructureSchema = [3, n0, _RW,
   0,
-  [_AAFD, _AUT, _H, _Ma, _PT, _Pos, _SOS, _SDto],
-  [[() => DistanceMeters, 0], [() => SensitiveBoolean, 0], [() => Heading, 0], [() => RouteMatchingOptions$, 0], [() => SensitiveBoolean, 0], [() => Position, 0], [() => RouteSideOfStreetOptions$, 0], [() => DurationSeconds, 0]]
+  [_Pos, _AAFD, _AUT, _H, _Ma, _PT, _SOS, _SDto],
+  [[() => Position, 0], [() => DistanceMeters, 0], [() => SensitiveBoolean, 0], [() => Heading, 0], [() => RouteMatchingOptions$, 0], [() => SensitiveBoolean, 0], [() => RouteSideOfStreetOptions$, 0], [() => DurationSeconds, 0]], 1
 ];
 export var RouteWeightConstraint$: StaticStructureSchema = [3, n0, _RWC,
   0,
   [_Ty, _V],
-  [0, [() => WeightKilograms, 0]]
+  [0, [() => WeightKilograms, 0]], 2
 ];
 export var RouteZone$: StaticStructureSchema = [3, n0, _RZ,
   0,
@@ -1538,45 +1538,45 @@ export var RouteZone$: StaticStructureSchema = [3, n0, _RZ,
 ];
 export var SnapToRoadsRequest$: StaticStructureSchema = [3, n0, _STRR,
   0,
-  [_K, _SGF, _SR, _TP, _TM, _TMO],
-  [[() => ApiKey, { [_hQ]: _k }], 0, [() => DistanceMeters, 0], [() => RoadSnapTracePointList, 0], 0, [() => RoadSnapTravelModeOptions$, 0]]
+  [_TP, _K, _SGF, _SR, _TM, _TMO],
+  [[() => RoadSnapTracePointList, 0], [() => ApiKey, { [_hQ]: _k }], 0, [() => DistanceMeters, 0], 0, [() => RoadSnapTravelModeOptions$, 0]], 1
 ];
 export var SnapToRoadsResponse$: StaticStructureSchema = [3, n0, _STRRn,
   0,
-  [_N, _PB, _SG, _SGF, _STP],
-  [[() => RoadSnapNoticeList, 0], [0, { [_hH]: _xagpb }], [() => RoadSnapSnappedGeometry$, 0], 0, [() => RoadSnapSnappedTracePointList, 0]]
+  [_N, _PB, _SGF, _STP, _SG],
+  [[() => RoadSnapNoticeList, 0], [0, { [_hH]: _xagpb }], 0, [() => RoadSnapSnappedTracePointList, 0], [() => RoadSnapSnappedGeometry$, 0]], 4
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M],
-  [[0, { [_jN]: _m }]]
+  [[0, { [_jN]: _m }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M, _Rea, _FL],
-  [[0, { [_jN]: _m }], [0, { [_jN]: _r }], [() => ValidationExceptionFieldList, { [_jN]: _fL }]]
+  [[0, { [_jN]: _m }], [0, { [_jN]: _r }], [() => ValidationExceptionFieldList, { [_jN]: _fL }]], 3
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_Na, _M],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _m }]]
+  [[0, { [_jN]: _n }], [0, { [_jN]: _m }]], 2
 ];
 export var WaypointOptimizationAccessHours$: StaticStructureSchema = [3, n0, _WOAH,
   0,
   [_Fr, _To_],
-  [[() => WaypointOptimizationAccessHoursEntry$, 0], [() => WaypointOptimizationAccessHoursEntry$, 0]]
+  [[() => WaypointOptimizationAccessHoursEntry$, 0], [() => WaypointOptimizationAccessHoursEntry$, 0]], 2
 ];
 export var WaypointOptimizationAccessHoursEntry$: StaticStructureSchema = [3, n0, _WOAHE,
   0,
   [_DOW, _TOD],
-  [[() => DayOfWeek, 0], [() => TimeOfDay, 0]]
+  [[() => DayOfWeek, 0], [() => TimeOfDay, 0]], 2
 ];
 export var WaypointOptimizationAvoidanceArea$: StaticStructureSchema = [3, n0, _WOAA,
   0,
   [_Ge],
-  [[() => WaypointOptimizationAvoidanceAreaGeometry$, 0]]
+  [[() => WaypointOptimizationAvoidanceAreaGeometry$, 0]], 1
 ];
 export var WaypointOptimizationAvoidanceAreaGeometry$: StaticStructureSchema = [3, n0, _WOAAG,
   0,
@@ -1591,12 +1591,12 @@ export var WaypointOptimizationAvoidanceOptions$: StaticStructureSchema = [3, n0
 export var WaypointOptimizationClusteringOptions$: StaticStructureSchema = [3, n0, _WOCO,
   0,
   [_Al, _DDO],
-  [[() => WaypointOptimizationClusteringAlgorithm, 0], [() => WaypointOptimizationDrivingDistanceOptions$, 0]]
+  [[() => WaypointOptimizationClusteringAlgorithm, 0], [() => WaypointOptimizationDrivingDistanceOptions$, 0]], 1
 ];
 export var WaypointOptimizationConnection$: StaticStructureSchema = [3, n0, _WOCa,
   0,
   [_Di, _Fr, _RDe, _To_, _TDr, _WD],
-  [[() => DistanceMeters, 0], 0, [() => DurationSeconds, 0], 0, [() => DurationSeconds, 0], [() => DurationSeconds, 0]]
+  [[() => DistanceMeters, 0], 0, [() => DurationSeconds, 0], 0, [() => DurationSeconds, 0], [() => DurationSeconds, 0]], 6
 ];
 export var WaypointOptimizationDestinationOptions$: StaticStructureSchema = [3, n0, _WODO,
   0,
@@ -1611,12 +1611,12 @@ export var WaypointOptimizationDriverOptions$: StaticStructureSchema = [3, n0, _
 export var WaypointOptimizationDrivingDistanceOptions$: StaticStructureSchema = [3, n0, _WODDO,
   0,
   [_DDr],
-  [[() => DistanceMeters, 0]]
+  [[() => DistanceMeters, 0]], 1
 ];
 export var WaypointOptimizationExclusionOptions$: StaticStructureSchema = [3, n0, _WOEO,
   0,
   [_Cou],
-  [[() => CountryCodeList, 0]]
+  [[() => CountryCodeList, 0]], 1
 ];
 export var WaypointOptimizationFailedConstraint$: StaticStructureSchema = [3, n0, _WOFC,
   0,
@@ -1626,12 +1626,12 @@ export var WaypointOptimizationFailedConstraint$: StaticStructureSchema = [3, n0
 export var WaypointOptimizationImpedingWaypoint$: StaticStructureSchema = [3, n0, _WOIW,
   0,
   [_FCa, _Id, _Pos],
-  [[() => WaypointOptimizationFailedConstraintList, 0], 0, [() => Position, 0]]
+  [[() => WaypointOptimizationFailedConstraintList, 0], 0, [() => Position, 0]], 3
 ];
 export var WaypointOptimizationOptimizedWaypoint$: StaticStructureSchema = [3, n0, _WOOW,
   0,
-  [_AT, _CI, _DT, _Id, _Pos],
-  [[() => TimestampWithTimezoneOffset, 0], 1, [() => TimestampWithTimezoneOffset, 0], 0, [() => Position, 0]]
+  [_DT, _Id, _Pos, _AT, _CI],
+  [[() => TimestampWithTimezoneOffset, 0], 0, [() => Position, 0], [() => TimestampWithTimezoneOffset, 0], 1], 3
 ];
 export var WaypointOptimizationOriginOptions$: StaticStructureSchema = [3, n0, _WOOO,
   0,
@@ -1646,27 +1646,27 @@ export var WaypointOptimizationPedestrianOptions$: StaticStructureSchema = [3, n
 export var WaypointOptimizationRestCycleDurations$: StaticStructureSchema = [3, n0, _WORCD,
   0,
   [_RDe, _WDo],
-  [[() => DurationSeconds, 0], [() => DurationSeconds, 0]]
+  [[() => DurationSeconds, 0], [() => DurationSeconds, 0]], 2
 ];
 export var WaypointOptimizationRestCycles$: StaticStructureSchema = [3, n0, _WORC,
   0,
   [_LCo, _SCh],
-  [[() => WaypointOptimizationRestCycleDurations$, 0], [() => WaypointOptimizationRestCycleDurations$, 0]]
+  [[() => WaypointOptimizationRestCycleDurations$, 0], [() => WaypointOptimizationRestCycleDurations$, 0]], 2
 ];
 export var WaypointOptimizationRestProfile$: StaticStructureSchema = [3, n0, _WORP,
   0,
   [_Pr],
-  [[() => SensitiveString, 0]]
+  [[() => SensitiveString, 0]], 1
 ];
 export var WaypointOptimizationSideOfStreetOptions$: StaticStructureSchema = [3, n0, _WOSOSO,
   0,
   [_Pos, _UW],
-  [[() => Position, 0], 0]
+  [[() => Position, 0], 0], 1
 ];
 export var WaypointOptimizationTimeBreakdown$: StaticStructureSchema = [3, n0, _WOTB,
   0,
   [_RDe, _SDe, _TDr, _WD],
-  [[() => DurationSeconds, 0], [() => DurationSeconds, 0], [() => DurationSeconds, 0], [() => DurationSeconds, 0]]
+  [[() => DurationSeconds, 0], [() => DurationSeconds, 0], [() => DurationSeconds, 0], [() => DurationSeconds, 0]], 4
 ];
 export var WaypointOptimizationTrafficOptions$: StaticStructureSchema = [3, n0, _WOTO,
   0,
@@ -1690,8 +1690,8 @@ export var WaypointOptimizationTruckOptions$: StaticStructureSchema = [3, n0, _W
 ];
 export var WaypointOptimizationWaypoint$: StaticStructureSchema = [3, n0, _WOW,
   0,
-  [_AH, _ATpp, _B, _H, _Id, _Pos, _SDe, _SOS],
-  [[() => WaypointOptimizationAccessHours$, 0], [() => TimestampWithTimezoneOffset, 0], 64 | 1, [() => Heading, 0], 0, [() => Position, 0], [() => DurationSeconds, 0], [() => WaypointOptimizationSideOfStreetOptions$, 0]]
+  [_Pos, _AH, _ATpp, _B, _H, _Id, _SDe, _SOS],
+  [[() => Position, 0], [() => WaypointOptimizationAccessHours$, 0], [() => TimestampWithTimezoneOffset, 0], 64 | 1, [() => Heading, 0], 0, [() => DurationSeconds, 0], [() => WaypointOptimizationSideOfStreetOptions$, 0]], 1
 ];
 export var WeightPerAxleGroup$: StaticStructureSchema = [3, n0, _WPAG,
   0,

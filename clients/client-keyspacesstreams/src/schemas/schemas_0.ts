@@ -136,7 +136,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var GetRecordsInput$: StaticStructureSchema = [3, n0, _GRI,
   0,
   [_sI, _mR],
-  [0, 1]
+  [0, 1], 1
 ];
 export var GetRecordsOutput$: StaticStructureSchema = [3, n0, _GRO,
   0,
@@ -146,7 +146,7 @@ export var GetRecordsOutput$: StaticStructureSchema = [3, n0, _GRO,
 export var GetShardIteratorInput$: StaticStructureSchema = [3, n0, _GSII,
   0,
   [_sA, _sIh, _sIT, _sN],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var GetShardIteratorOutput$: StaticStructureSchema = [3, n0, _GSIO,
   0,
@@ -156,12 +156,12 @@ export var GetShardIteratorOutput$: StaticStructureSchema = [3, n0, _GSIO,
 export var GetStreamInput$: StaticStructureSchema = [3, n0, _GSI,
   0,
   [_sA, _mR, _sF, _nT],
-  [0, 1, () => ShardFilter$, 0]
+  [0, 1, () => ShardFilter$, 0], 1
 ];
 export var GetStreamOutput$: StaticStructureSchema = [3, n0, _GSO,
   0,
   [_sA, _sL, _sS, _sVT, _cRDT, _kN, _tN, _s, _nT],
-  [0, 0, 0, 0, 4, 0, 0, () => ShardDescriptionList, 0]
+  [0, 0, 0, 0, 4, 0, 0, () => ShardDescriptionList, 0], 7
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_aQE]: [`InternalServerException`, 500], [_e]: _se, [_hE]: 500 },
@@ -228,7 +228,7 @@ export var ShardFilter$: StaticStructureSchema = [3, n0, _SF,
 export var _Stream$: StaticStructureSchema = [3, n0, _St,
   0,
   [_sA, _kN, _tN, _sL],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_aQE]: [`ThrottlingException`, 429], [_e]: _c, [_hE]: 429 },

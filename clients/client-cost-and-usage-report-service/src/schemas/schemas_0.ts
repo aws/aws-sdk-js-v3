@@ -75,7 +75,7 @@ import {
 export var DeleteReportDefinitionRequest$: StaticStructureSchema = [3, n0, _DRDR,
   0,
   [_RN],
-  [0]
+  [0], 1
 ];
 export var DeleteReportDefinitionResponse$: StaticStructureSchema = [3, n0, _DRDRe,
   0,
@@ -107,7 +107,7 @@ TypeRegistry.for(n0).registerError(InternalErrorException$, InternalErrorExcepti
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -117,7 +117,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ModifyReportDefinitionRequest$: StaticStructureSchema = [3, n0, _MRDR,
   0,
   [_RN, _RDe],
-  [0, () => ReportDefinition$]
+  [0, () => ReportDefinition$], 2
 ];
 export var ModifyReportDefinitionResponse$: StaticStructureSchema = [3, n0, _MRDRo,
   0,
@@ -127,7 +127,7 @@ export var ModifyReportDefinitionResponse$: StaticStructureSchema = [3, n0, _MRD
 export var PutReportDefinitionRequest$: StaticStructureSchema = [3, n0, _PRDR,
   0,
   [_RDe, _T],
-  [() => ReportDefinition$, () => TagList]
+  [() => ReportDefinition$, () => TagList], 1
 ];
 export var PutReportDefinitionResponse$: StaticStructureSchema = [3, n0, _PRDRu,
   0,
@@ -137,7 +137,7 @@ export var PutReportDefinitionResponse$: StaticStructureSchema = [3, n0, _PRDRu,
 export var ReportDefinition$: StaticStructureSchema = [3, n0, _RDe,
   0,
   [_RN, _TU, _F, _C, _ASE, _SB, _SP, _SR, _AA, _RCR, _RV, _BVA, _RS],
-  [0, 0, 0, 0, 64 | 0, 0, 0, 0, 64 | 0, 2, 0, 0, () => ReportStatus$]
+  [0, 0, 0, 0, 64 | 0, 0, 0, 0, 64 | 0, 2, 0, 0, () => ReportStatus$], 8
 ];
 export var ReportLimitReachedException$: StaticErrorSchema = [-3, n0, _RLRE,
   { [_e]: _c },
@@ -159,12 +159,12 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RN, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -174,7 +174,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,

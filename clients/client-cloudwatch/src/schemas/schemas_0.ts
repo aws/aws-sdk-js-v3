@@ -383,7 +383,7 @@ import {
 export var AlarmContributor$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_CI, _CA, _SR, _STT],
-  [0, 128 | 0, 0, 4]
+  [0, 128 | 0, 0, 4], 3
 ];
 export var AlarmHistoryItem$: StaticStructureSchema = [3, n0, _AHI,
   0,
@@ -447,7 +447,7 @@ export var Datapoint$: StaticStructureSchema = [3, n0, _Da,
 export var DeleteAlarmsInput$: StaticStructureSchema = [3, n0, _DAI,
   0,
   [_ANl],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DeleteAnomalyDetectorInput$: StaticStructureSchema = [3, n0, _DADI,
   0,
@@ -462,7 +462,7 @@ export var DeleteAnomalyDetectorOutput$: StaticStructureSchema = [3, n0, _DADO,
 export var DeleteDashboardsInput$: StaticStructureSchema = [3, n0, _DDI,
   0,
   [_DNa],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DeleteDashboardsOutput$: StaticStructureSchema = [3, n0, _DDO,
   0,
@@ -472,7 +472,7 @@ export var DeleteDashboardsOutput$: StaticStructureSchema = [3, n0, _DDO,
 export var DeleteInsightRulesInput$: StaticStructureSchema = [3, n0, _DIRI,
   0,
   [_RN],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DeleteInsightRulesOutput$: StaticStructureSchema = [3, n0, _DIRO,
   0,
@@ -482,7 +482,7 @@ export var DeleteInsightRulesOutput$: StaticStructureSchema = [3, n0, _DIRO,
 export var DeleteMetricStreamInput$: StaticStructureSchema = [3, n0, _DMSI,
   0,
   [_Na],
-  [0]
+  [0], 1
 ];
 export var DeleteMetricStreamOutput$: StaticStructureSchema = [3, n0, _DMSO,
   0,
@@ -492,12 +492,12 @@ export var DeleteMetricStreamOutput$: StaticStructureSchema = [3, n0, _DMSO,
 export var DescribeAlarmContributorsInput$: StaticStructureSchema = [3, n0, _DACI,
   0,
   [_AN, _NT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DescribeAlarmContributorsOutput$: StaticStructureSchema = [3, n0, _DACO,
   0,
   [_ACl, _NT],
-  [() => AlarmContributors, 0]
+  [() => AlarmContributors, 0], 1
 ];
 export var DescribeAlarmHistoryInput$: StaticStructureSchema = [3, n0, _DAHI,
   0,
@@ -512,7 +512,7 @@ export var DescribeAlarmHistoryOutput$: StaticStructureSchema = [3, n0, _DAHO,
 export var DescribeAlarmsForMetricInput$: StaticStructureSchema = [3, n0, _DAFMI,
   0,
   [_MN, _N, _St, _ESx, _D, _P, _U],
-  [0, 0, 0, 0, () => Dimensions, 1, 0]
+  [0, 0, 0, 0, () => Dimensions, 1, 0], 2
 ];
 export var DescribeAlarmsForMetricOutput$: StaticStructureSchema = [3, n0, _DAFMO,
   0,
@@ -552,22 +552,22 @@ export var DescribeInsightRulesOutput$: StaticStructureSchema = [3, n0, _DIROe,
 export var Dimension$: StaticStructureSchema = [3, n0, _Di,
   0,
   [_Na, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DimensionFilter$: StaticStructureSchema = [3, n0, _DF,
   0,
   [_Na, _V],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DisableAlarmActionsInput$: StaticStructureSchema = [3, n0, _DAAI,
   0,
   [_ANl],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DisableInsightRulesInput$: StaticStructureSchema = [3, n0, _DIRIi,
   0,
   [_RN],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DisableInsightRulesOutput$: StaticStructureSchema = [3, n0, _DIROi,
   0,
@@ -577,12 +577,12 @@ export var DisableInsightRulesOutput$: StaticStructureSchema = [3, n0, _DIROi,
 export var EnableAlarmActionsInput$: StaticStructureSchema = [3, n0, _EAAI,
   0,
   [_ANl],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var EnableInsightRulesInput$: StaticStructureSchema = [3, n0, _EIRI,
   0,
   [_RN],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var EnableInsightRulesOutput$: StaticStructureSchema = [3, n0, _EIRO,
   0,
@@ -602,7 +602,7 @@ export var EntityMetricData$: StaticStructureSchema = [3, n0, _EMD,
 export var GetDashboardInput$: StaticStructureSchema = [3, n0, _GDI,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var GetDashboardOutput$: StaticStructureSchema = [3, n0, _GDO,
   0,
@@ -612,7 +612,7 @@ export var GetDashboardOutput$: StaticStructureSchema = [3, n0, _GDO,
 export var GetInsightRuleReportInput$: StaticStructureSchema = [3, n0, _GIRRI,
   0,
   [_RNu, _ST, _ET, _P, _MCC, _Me, _OB],
-  [0, 4, 4, 1, 1, 64 | 0, 0]
+  [0, 4, 4, 1, 1, 64 | 0, 0], 4
 ];
 export var GetInsightRuleReportOutput$: StaticStructureSchema = [3, n0, _GIRRO,
   0,
@@ -622,7 +622,7 @@ export var GetInsightRuleReportOutput$: StaticStructureSchema = [3, n0, _GIRRO,
 export var GetMetricDataInput$: StaticStructureSchema = [3, n0, _GMDI,
   0,
   [_MDQ, _ST, _ET, _NT, _SB, _MDa, _LO],
-  [() => MetricDataQueries, 4, 4, 0, 0, 1, () => LabelOptions$]
+  [() => MetricDataQueries, 4, 4, 0, 0, 1, () => LabelOptions$], 3
 ];
 export var GetMetricDataOutput$: StaticStructureSchema = [3, n0, _GMDO,
   0,
@@ -631,8 +631,8 @@ export var GetMetricDataOutput$: StaticStructureSchema = [3, n0, _GMDO,
 ];
 export var GetMetricStatisticsInput$: StaticStructureSchema = [3, n0, _GMSI,
   0,
-  [_N, _MN, _D, _ST, _ET, _P, _Sta, _ES, _U],
-  [0, 0, () => Dimensions, 4, 4, 1, 64 | 0, 64 | 0, 0]
+  [_N, _MN, _ST, _ET, _P, _D, _Sta, _ES, _U],
+  [0, 0, 4, 4, 1, () => Dimensions, 64 | 0, 64 | 0, 0], 5
 ];
 export var GetMetricStatisticsOutput$: StaticStructureSchema = [3, n0, _GMSO,
   0,
@@ -642,7 +642,7 @@ export var GetMetricStatisticsOutput$: StaticStructureSchema = [3, n0, _GMSO,
 export var GetMetricStreamInput$: StaticStructureSchema = [3, n0, _GMSIe,
   0,
   [_Na],
-  [0]
+  [0], 1
 ];
 export var GetMetricStreamOutput$: StaticStructureSchema = [3, n0, _GMSOe,
   0,
@@ -652,7 +652,7 @@ export var GetMetricStreamOutput$: StaticStructureSchema = [3, n0, _GMSOe,
 export var GetMetricWidgetImageInput$: StaticStructureSchema = [3, n0, _GMWII,
   0,
   [_MW, _OF],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetMetricWidgetImageOutput$: StaticStructureSchema = [3, n0, _GMWIO,
   0,
@@ -662,22 +662,22 @@ export var GetMetricWidgetImageOutput$: StaticStructureSchema = [3, n0, _GMWIO,
 export var InsightRule$: StaticStructureSchema = [3, n0, _IRn,
   0,
   [_Na, _Stat, _Sc, _De, _MRan, _AOTL],
-  [0, 0, 0, 0, 2, 2]
+  [0, 0, 0, 0, 2, 2], 4
 ];
 export var InsightRuleContributor$: StaticStructureSchema = [3, n0, _IRC,
   0,
   [_K, _AAV, _Dat],
-  [64 | 0, 1, () => InsightRuleContributorDatapoints]
+  [64 | 0, 1, () => InsightRuleContributorDatapoints], 3
 ];
 export var InsightRuleContributorDatapoint$: StaticStructureSchema = [3, n0, _IRCD,
   0,
   [_T, _AVp],
-  [4, 1]
+  [4, 1], 2
 ];
 export var InsightRuleMetricDatapoint$: StaticStructureSchema = [3, n0, _IRMD,
   0,
   [_T, _UC, _MCV, _SC, _A, _Su, _Mi, _Ma],
-  [4, 1, 1, 1, 1, 1, 1, 1]
+  [4, 1, 1, 1, 1, 1, 1, 1], 1
 ];
 export var InternalServiceFault$: StaticErrorSchema = [-3, n0, _ISF,
   { [_aQE]: [`InternalServiceError`, 500], [_e]: _s, [_hE]: 500 },
@@ -739,7 +739,7 @@ export var ListDashboardsOutput$: StaticStructureSchema = [3, n0, _LDO,
 export var ListManagedInsightRulesInput$: StaticStructureSchema = [3, n0, _LMIRI,
   0,
   [_RARN, _NT, _MRa],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListManagedInsightRulesOutput$: StaticStructureSchema = [3, n0, _LMIRO,
   0,
@@ -769,7 +769,7 @@ export var ListMetricStreamsOutput$: StaticStructureSchema = [3, n0, _LMSO,
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -779,7 +779,7 @@ export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
 export var ManagedRule$: StaticStructureSchema = [3, n0, _MRan,
   0,
   [_TN, _RARN, _Ta],
-  [0, 0, () => TagList]
+  [0, 0, () => TagList], 2
 ];
 export var ManagedRuleDescription$: StaticStructureSchema = [3, n0, _MRD,
   0,
@@ -789,7 +789,7 @@ export var ManagedRuleDescription$: StaticStructureSchema = [3, n0, _MRD,
 export var ManagedRuleState$: StaticStructureSchema = [3, n0, _MRS,
   0,
   [_RNu, _Stat],
-  [0, 0]
+  [0, 0], 2
 ];
 export var MessageData$: StaticStructureSchema = [3, n0, _MDes,
   0,
@@ -814,7 +814,7 @@ export var MetricCharacteristics$: StaticStructureSchema = [3, n0, _MC,
 export var MetricDataQuery$: StaticStructureSchema = [3, n0, _MDQe,
   0,
   [_I, _MS, _Ex, _L, _RD, _P, _AI],
-  [0, () => MetricStat$, 0, 0, 2, 1, 0]
+  [0, () => MetricStat$, 0, 0, 2, 1, 0], 1
 ];
 export var MetricDataResult$: StaticStructureSchema = [3, n0, _MDRe,
   0,
@@ -824,7 +824,7 @@ export var MetricDataResult$: StaticStructureSchema = [3, n0, _MDRe,
 export var MetricDatum$: StaticStructureSchema = [3, n0, _MDet,
   0,
   [_MN, _D, _T, _V, _SVt, _Va, _Cou, _U, _SRt],
-  [0, () => Dimensions, 4, 1, () => StatisticSet$, 64 | 1, 64 | 1, 0, 1]
+  [0, () => Dimensions, 4, 1, () => StatisticSet$, 64 | 1, 64 | 1, 0, 1], 1
 ];
 export var MetricMathAnomalyDetector$: StaticStructureSchema = [3, n0, _MMAD,
   0,
@@ -834,7 +834,7 @@ export var MetricMathAnomalyDetector$: StaticStructureSchema = [3, n0, _MMAD,
 export var MetricStat$: StaticStructureSchema = [3, n0, _MS,
   0,
   [_Met, _P, _S, _U],
-  [() => Metric$, 1, 0, 0]
+  [() => Metric$, 1, 0, 0], 3
 ];
 export var MetricStreamEntry$: StaticStructureSchema = [3, n0, _MSE,
   0,
@@ -849,12 +849,12 @@ export var MetricStreamFilter$: StaticStructureSchema = [3, n0, _MSF,
 export var MetricStreamStatisticsConfiguration$: StaticStructureSchema = [3, n0, _MSSC,
   0,
   [_IM, _ASd],
-  [() => MetricStreamStatisticsIncludeMetrics, 64 | 0]
+  [() => MetricStreamStatisticsIncludeMetrics, 64 | 0], 2
 ];
 export var MetricStreamStatisticsMetric$: StaticStructureSchema = [3, n0, _MSSM,
   0,
   [_N, _MN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var MissingRequiredParameterException$: StaticErrorSchema = [-3, n0, _MRPE,
   { [_aQE]: [`MissingParameter`, 400], [_e]: _c, [_hE]: 400 },
@@ -879,13 +879,13 @@ export var PutAnomalyDetectorOutput$: StaticStructureSchema = [3, n0, _PADO,
 ];
 export var PutCompositeAlarmInput$: StaticStructureSchema = [3, n0, _PCAI,
   0,
-  [_AE, _AA, _ADl, _AN, _AR, _IDA, _OKA, _Ta, _AS, _ASWP, _ASEP],
-  [2, 64 | 0, 0, 0, 0, 64 | 0, 64 | 0, () => TagList, 0, 1, 1]
+  [_AN, _AR, _AE, _AA, _ADl, _IDA, _OKA, _Ta, _AS, _ASWP, _ASEP],
+  [0, 0, 2, 64 | 0, 0, 64 | 0, 64 | 0, () => TagList, 0, 1, 1], 2
 ];
 export var PutDashboardInput$: StaticStructureSchema = [3, n0, _PDI,
   0,
   [_DN, _DB],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutDashboardOutput$: StaticStructureSchema = [3, n0, _PDO,
   0,
@@ -894,8 +894,8 @@ export var PutDashboardOutput$: StaticStructureSchema = [3, n0, _PDO,
 ];
 export var PutInsightRuleInput$: StaticStructureSchema = [3, n0, _PIRI,
   0,
-  [_RNu, _RS, _RDu, _Ta, _AOTL],
-  [0, 0, 0, () => TagList, 2]
+  [_RNu, _RDu, _RS, _Ta, _AOTL],
+  [0, 0, 0, () => TagList, 2], 2
 ];
 export var PutInsightRuleOutput$: StaticStructureSchema = [3, n0, _PIRO,
   0,
@@ -905,7 +905,7 @@ export var PutInsightRuleOutput$: StaticStructureSchema = [3, n0, _PIRO,
 export var PutManagedInsightRulesInput$: StaticStructureSchema = [3, n0, _PMIRI,
   0,
   [_MRana],
-  [() => ManagedRules]
+  [() => ManagedRules], 1
 ];
 export var PutManagedInsightRulesOutput$: StaticStructureSchema = [3, n0, _PMIRO,
   0,
@@ -914,18 +914,18 @@ export var PutManagedInsightRulesOutput$: StaticStructureSchema = [3, n0, _PMIRO
 ];
 export var PutMetricAlarmInput$: StaticStructureSchema = [3, n0, _PMAI,
   0,
-  [_AN, _ADl, _AE, _OKA, _AA, _IDA, _MN, _N, _St, _ESx, _D, _P, _U, _EP, _DTA, _Th, _CO, _TMD, _ELSCP, _Me, _Ta, _TMI],
-  [0, 0, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, () => Dimensions, 1, 0, 1, 1, 1, 0, 0, 0, () => MetricDataQueries, () => TagList, 0]
+  [_AN, _EP, _CO, _ADl, _AE, _OKA, _AA, _IDA, _MN, _N, _St, _ESx, _D, _P, _U, _DTA, _Th, _TMD, _ELSCP, _Me, _Ta, _TMI],
+  [0, 1, 0, 0, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, () => Dimensions, 1, 0, 1, 1, 0, 0, () => MetricDataQueries, () => TagList, 0], 3
 ];
 export var PutMetricDataInput$: StaticStructureSchema = [3, n0, _PMDI,
   0,
   [_N, _MD, _EMD, _SEV],
-  [0, () => MetricData, () => EntityMetricDataList, 2]
+  [0, () => MetricData, () => EntityMetricDataList, 2], 1
 ];
 export var PutMetricStreamInput$: StaticStructureSchema = [3, n0, _PMSI,
   0,
-  [_Na, _IF, _EF, _FA, _RA, _OF, _Ta, _SCt, _ILAM],
-  [0, () => MetricStreamFilters, () => MetricStreamFilters, 0, 0, 0, () => TagList, () => MetricStreamStatisticsConfigurations, 2]
+  [_Na, _FA, _RA, _OF, _IF, _EF, _Ta, _SCt, _ILAM],
+  [0, 0, 0, 0, () => MetricStreamFilters, () => MetricStreamFilters, () => TagList, () => MetricStreamStatisticsConfigurations, 2], 4
 ];
 export var PutMetricStreamOutput$: StaticStructureSchema = [3, n0, _PMSO,
   0,
@@ -935,7 +935,7 @@ export var PutMetricStreamOutput$: StaticStructureSchema = [3, n0, _PMSO,
 export var Range$: StaticStructureSchema = [3, n0, _R,
   0,
   [_ST, _ET],
-  [4, 4]
+  [4, 4], 2
 ];
 export var ResourceNotFound$: StaticErrorSchema = [-3, n0, _RNF,
   { [_aQE]: [`ResourceNotFound`, 404], [_e]: _c, [_hE]: 404 },
@@ -952,7 +952,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var SetAlarmStateInput$: StaticStructureSchema = [3, n0, _SASI,
   0,
   [_AN, _SV, _SR, _SRD],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var SingleMetricAnomalyDetector$: StaticStructureSchema = [3, n0, _SMAD,
   0,
@@ -962,7 +962,7 @@ export var SingleMetricAnomalyDetector$: StaticStructureSchema = [3, n0, _SMAD,
 export var StartMetricStreamsInput$: StaticStructureSchema = [3, n0, _SMSI,
   0,
   [_Nam],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var StartMetricStreamsOutput$: StaticStructureSchema = [3, n0, _SMSO,
   0,
@@ -972,12 +972,12 @@ export var StartMetricStreamsOutput$: StaticStructureSchema = [3, n0, _SMSO,
 export var StatisticSet$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_SC, _Su, _Mi, _Ma],
-  [1, 1, 1, 1]
+  [1, 1, 1, 1], 4
 ];
 export var StopMetricStreamsInput$: StaticStructureSchema = [3, n0, _SMSIt,
   0,
   [_Nam],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var StopMetricStreamsOutput$: StaticStructureSchema = [3, n0, _SMSOt,
   0,
@@ -987,12 +987,12 @@ export var StopMetricStreamsOutput$: StaticStructureSchema = [3, n0, _SMSOt,
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_Ke, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_RARN, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -1002,7 +1002,7 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,

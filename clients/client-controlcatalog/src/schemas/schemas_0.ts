@@ -144,12 +144,12 @@ export var CommonControlFilter$: StaticStructureSchema = [3, n0, _CCF,
 export var CommonControlMappingDetails$: StaticStructureSchema = [3, n0, _CCMD,
   0,
   [_CCA],
-  [0]
+  [0], 1
 ];
 export var CommonControlSummary$: StaticStructureSchema = [3, n0, _CCS,
   0,
   [_A, _N, _D, _Do, _Ob, _CT, _LUT],
-  [0, 0, 0, () => AssociatedDomainSummary$, () => AssociatedObjectiveSummary$, 4, 4]
+  [0, 0, 0, () => AssociatedDomainSummary$, () => AssociatedObjectiveSummary$, 4, 4], 7
 ];
 export var ControlFilter$: StaticStructureSchema = [3, n0, _CF,
   0,
@@ -159,7 +159,7 @@ export var ControlFilter$: StaticStructureSchema = [3, n0, _CF,
 export var ControlMapping$: StaticStructureSchema = [3, n0, _CM,
   0,
   [_CA, _MT, _Ma],
-  [0, 0, () => Mapping$]
+  [0, 0, () => Mapping$], 3
 ];
 export var ControlMappingFilter$: StaticStructureSchema = [3, n0, _CMF,
   0,
@@ -169,12 +169,12 @@ export var ControlMappingFilter$: StaticStructureSchema = [3, n0, _CMF,
 export var ControlParameter$: StaticStructureSchema = [3, n0, _CP,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var ControlSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_A, _Al, _N, _D, _B, _S, _Im, _CT, _GR],
-  [0, 64 | 0, 0, 0, 0, 0, () => ImplementationSummary$, 4, 64 | 0]
+  [_A, _N, _D, _Al, _B, _S, _Im, _CT, _GR],
+  [0, 0, 0, 64 | 0, 0, 0, () => ImplementationSummary$, 4, 64 | 0], 3
 ];
 export var DomainResourceFilter$: StaticStructureSchema = [3, n0, _DRF,
   0,
@@ -184,27 +184,27 @@ export var DomainResourceFilter$: StaticStructureSchema = [3, n0, _DRF,
 export var DomainSummary$: StaticStructureSchema = [3, n0, _DS,
   0,
   [_A, _N, _D, _CT, _LUT],
-  [0, 0, 0, 4, 4]
+  [0, 0, 0, 4, 4], 5
 ];
 export var FrameworkMappingDetails$: StaticStructureSchema = [3, n0, _FMD,
   0,
   [_N, _It],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetControlRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_CA],
-  [0]
+  [0], 1
 ];
 export var GetControlResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
-  [_A, _Al, _N, _D, _B, _S, _RC, _Im, _P, _CT, _GR],
-  [0, 64 | 0, 0, 0, 0, 0, () => RegionConfiguration$, () => ImplementationDetails$, () => ControlParameters, 4, 64 | 0]
+  [_A, _N, _D, _B, _RC, _Al, _S, _Im, _P, _CT, _GR],
+  [0, 0, 0, 0, () => RegionConfiguration$, 64 | 0, 0, () => ImplementationDetails$, () => ControlParameters, 4, 64 | 0], 5
 ];
 export var ImplementationDetails$: StaticStructureSchema = [3, n0, _ID,
   0,
   [_T, _Id],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ImplementationFilter$: StaticStructureSchema = [3, n0, _IF,
   0,
@@ -214,7 +214,7 @@ export var ImplementationFilter$: StaticStructureSchema = [3, n0, _IF,
 export var ImplementationSummary$: StaticStructureSchema = [3, n0, _IS,
   0,
   [_T, _Id],
-  [0, 0]
+  [0, 0], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
@@ -230,7 +230,7 @@ export var ListCommonControlsRequest$: StaticStructureSchema = [3, n0, _LCCR,
 export var ListCommonControlsResponse$: StaticStructureSchema = [3, n0, _LCCRi,
   0,
   [_CC, _NT],
-  [() => CommonControlSummaryList, 0]
+  [() => CommonControlSummaryList, 0], 1
 ];
 export var ListControlMappingsRequest$: StaticStructureSchema = [3, n0, _LCMR,
   0,
@@ -240,7 +240,7 @@ export var ListControlMappingsRequest$: StaticStructureSchema = [3, n0, _LCMR,
 export var ListControlMappingsResponse$: StaticStructureSchema = [3, n0, _LCMRi,
   0,
   [_CMo, _NT],
-  [() => ControlMappings, 0]
+  [() => ControlMappings, 0], 1
 ];
 export var ListControlsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
@@ -250,7 +250,7 @@ export var ListControlsRequest$: StaticStructureSchema = [3, n0, _LCR,
 export var ListControlsResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
   [_C, _NT],
-  [() => Controls, 0]
+  [() => Controls, 0], 1
 ];
 export var ListDomainsRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
@@ -260,7 +260,7 @@ export var ListDomainsRequest$: StaticStructureSchema = [3, n0, _LDR,
 export var ListDomainsResponse$: StaticStructureSchema = [3, n0, _LDRi,
   0,
   [_Dom, _NT],
-  [() => DomainSummaryList, 0]
+  [() => DomainSummaryList, 0], 1
 ];
 export var ListObjectivesRequest$: StaticStructureSchema = [3, n0, _LOR,
   0,
@@ -270,7 +270,7 @@ export var ListObjectivesRequest$: StaticStructureSchema = [3, n0, _LOR,
 export var ListObjectivesResponse$: StaticStructureSchema = [3, n0, _LORi,
   0,
   [_O, _NT],
-  [() => ObjectiveSummaryList, 0]
+  [() => ObjectiveSummaryList, 0], 1
 ];
 export var ObjectiveFilter$: StaticStructureSchema = [3, n0, _OF,
   0,
@@ -285,17 +285,17 @@ export var ObjectiveResourceFilter$: StaticStructureSchema = [3, n0, _ORF,
 export var ObjectiveSummary$: StaticStructureSchema = [3, n0, _OS,
   0,
   [_A, _N, _D, _Do, _CT, _LUT],
-  [0, 0, 0, () => AssociatedDomainSummary$, 4, 4]
+  [0, 0, 0, () => AssociatedDomainSummary$, 4, 4], 6
 ];
 export var RegionConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_Sc, _DR],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var RelatedControlMappingDetails$: StaticStructureSchema = [3, n0, _RCMD,
   0,
-  [_CA, _RT],
-  [0, 0]
+  [_RT, _CA],
+  [0, 0], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },

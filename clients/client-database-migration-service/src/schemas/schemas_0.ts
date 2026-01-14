@@ -1208,7 +1208,7 @@ export var AccountQuota$: StaticStructureSchema = [3, n0, _AQ,
 export var AddTagsToResourceMessage$: StaticStructureSchema = [3, n0, _ATTRM,
   0,
   [_RA, _T],
-  [0, [() => TagList, 0]]
+  [0, [() => TagList, 0]], 2
 ];
 export var AddTagsToResourceResponse$: StaticStructureSchema = [3, n0, _ATTRR,
   0,
@@ -1218,7 +1218,7 @@ export var AddTagsToResourceResponse$: StaticStructureSchema = [3, n0, _ATTRR,
 export var ApplyPendingMaintenanceActionMessage$: StaticStructureSchema = [3, n0, _APMAM,
   0,
   [_RIA, _AA, _OIT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ApplyPendingMaintenanceActionResponse$: StaticStructureSchema = [3, n0, _APMAR,
   0,
@@ -1248,7 +1248,7 @@ export var BatchStartRecommendationsResponse$: StaticStructureSchema = [3, n0, _
 export var CancelMetadataModelConversionMessage$: StaticStructureSchema = [3, n0, _CMMCM,
   0,
   [_MPI, _RI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CancelMetadataModelConversionResponse$: StaticStructureSchema = [3, n0, _CMMCR,
   0,
@@ -1258,7 +1258,7 @@ export var CancelMetadataModelConversionResponse$: StaticStructureSchema = [3, n
 export var CancelMetadataModelCreationMessage$: StaticStructureSchema = [3, n0, _CMMCMa,
   0,
   [_MPI, _RI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CancelMetadataModelCreationResponse$: StaticStructureSchema = [3, n0, _CMMCRa,
   0,
@@ -1268,7 +1268,7 @@ export var CancelMetadataModelCreationResponse$: StaticStructureSchema = [3, n0,
 export var CancelReplicationTaskAssessmentRunMessage$: StaticStructureSchema = [3, n0, _CRTARM,
   0,
   [_RTARA],
-  [0]
+  [0], 1
 ];
 export var CancelReplicationTaskAssessmentRunResponse$: StaticStructureSchema = [3, n0, _CRTARR,
   0,
@@ -1313,8 +1313,8 @@ export var Connection$: StaticStructureSchema = [3, n0, _Co,
 ];
 export var CreateDataMigrationMessage$: StaticStructureSchema = [3, n0, _CDMM,
   0,
-  [_DMN, _MPI, _DMT, _SARA, _ECL, _SDS, _TDS, _NOJ, _T, _SR],
-  [0, 0, 0, 0, 2, () => SourceDataSettings, () => TargetDataSettings, 1, [() => TagList, 0], [() => SecretString, 0]]
+  [_MPI, _DMT, _SARA, _DMN, _ECL, _SDS, _TDS, _NOJ, _T, _SR],
+  [0, 0, 0, 0, 2, () => SourceDataSettings, () => TargetDataSettings, 1, [() => TagList, 0], [() => SecretString, 0]], 3
 ];
 export var CreateDataMigrationResponse$: StaticStructureSchema = [3, n0, _CDMR,
   0,
@@ -1323,8 +1323,8 @@ export var CreateDataMigrationResponse$: StaticStructureSchema = [3, n0, _CDMR,
 ];
 export var CreateDataProviderMessage$: StaticStructureSchema = [3, n0, _CDPM,
   0,
-  [_DPN, _De, _E, _V, _Se, _T],
-  [0, 0, 0, 2, () => DataProviderSettings$, [() => TagList, 0]]
+  [_E, _Se, _DPN, _De, _V, _T],
+  [0, () => DataProviderSettings$, 0, 0, 2, [() => TagList, 0]], 2
 ];
 export var CreateDataProviderResponse$: StaticStructureSchema = [3, n0, _CDPR,
   0,
@@ -1334,7 +1334,7 @@ export var CreateDataProviderResponse$: StaticStructureSchema = [3, n0, _CDPR,
 export var CreateEndpointMessage$: StaticStructureSchema = [3, n0, _CEM,
   0,
   [_EI, _ET, _EN, _Us, _P, _SN, _Po, _DN, _ECA, _KKI, _T, _CA, _SM, _SARA, _ETD, _DDS, _SSe, _DTS, _MDS, _KS, _KSa, _ES, _NS, _RS, _PSQLS, _MSQLS, _OS, _SSy, _MSQLSS, _IBMDS, _RIe, _DDSo, _RSe, _GMSQLS, _TS],
-  [0, 0, 0, 0, [() => SecretString, 0], 0, 1, 0, 0, 0, [() => TagList, 0], 0, 0, 0, 0, () => DynamoDbSettings$, () => S3Settings$, () => DmsTransferSettings$, [() => MongoDbSettings$, 0], () => KinesisSettings$, [() => KafkaSettings$, 0], () => ElasticsearchSettings$, () => NeptuneSettings$, [() => RedshiftSettings$, 0], [() => PostgreSQLSettings$, 0], [() => MySQLSettings$, 0], [() => OracleSettings$, 0], [() => SybaseSettings$, 0], [() => MicrosoftSQLServerSettings$, 0], [() => IBMDb2Settings$, 0], 0, [() => DocDbSettings$, 0], [() => RedisSettings$, 0], [() => GcpMySQLSettings$, 0], () => TimestreamSettings$]
+  [0, 0, 0, 0, [() => SecretString, 0], 0, 1, 0, 0, 0, [() => TagList, 0], 0, 0, 0, 0, () => DynamoDbSettings$, () => S3Settings$, () => DmsTransferSettings$, [() => MongoDbSettings$, 0], () => KinesisSettings$, [() => KafkaSettings$, 0], () => ElasticsearchSettings$, () => NeptuneSettings$, [() => RedshiftSettings$, 0], [() => PostgreSQLSettings$, 0], [() => MySQLSettings$, 0], [() => OracleSettings$, 0], [() => SybaseSettings$, 0], [() => MicrosoftSQLServerSettings$, 0], [() => IBMDb2Settings$, 0], 0, [() => DocDbSettings$, 0], [() => RedisSettings$, 0], [() => GcpMySQLSettings$, 0], () => TimestreamSettings$], 3
 ];
 export var CreateEndpointResponse$: StaticStructureSchema = [3, n0, _CER,
   0,
@@ -1344,7 +1344,7 @@ export var CreateEndpointResponse$: StaticStructureSchema = [3, n0, _CER,
 export var CreateEventSubscriptionMessage$: StaticStructureSchema = [3, n0, _CESM,
   0,
   [_SNu, _STA, _ST, _EC, _SI, _Ena, _T],
-  [0, 0, 0, [() => EventCategoriesList, 0], [() => SourceIdsList, 0], 2, [() => TagList, 0]]
+  [0, 0, 0, [() => EventCategoriesList, 0], [() => SourceIdsList, 0], 2, [() => TagList, 0]], 2
 ];
 export var CreateEventSubscriptionResponse$: StaticStructureSchema = [3, n0, _CESR,
   0,
@@ -1353,8 +1353,8 @@ export var CreateEventSubscriptionResponse$: StaticStructureSchema = [3, n0, _CE
 ];
 export var CreateFleetAdvisorCollectorRequest$: StaticStructureSchema = [3, n0, _CFACR,
   0,
-  [_CN, _De, _SARA, _SBN],
-  [0, 0, 0, 0]
+  [_CN, _SARA, _SBN, _De],
+  [0, 0, 0, 0], 3
 ];
 export var CreateFleetAdvisorCollectorResponse$: StaticStructureSchema = [3, n0, _CFACRr,
   0,
@@ -1373,8 +1373,8 @@ export var CreateInstanceProfileResponse$: StaticStructureSchema = [3, n0, _CIPR
 ];
 export var CreateMigrationProjectMessage$: StaticStructureSchema = [3, n0, _CMPM,
   0,
-  [_MPN, _SDPD, _TDPD, _IPI, _TR, _De, _T, _SCAA],
-  [0, () => DataProviderDescriptorDefinitionList, () => DataProviderDescriptorDefinitionList, 0, 0, 0, [() => TagList, 0], () => SCApplicationAttributes$]
+  [_SDPD, _TDPD, _IPI, _MPN, _TR, _De, _T, _SCAA],
+  [() => DataProviderDescriptorDefinitionList, () => DataProviderDescriptorDefinitionList, 0, 0, 0, 0, [() => TagList, 0], () => SCApplicationAttributes$], 3
 ];
 export var CreateMigrationProjectResponse$: StaticStructureSchema = [3, n0, _CMPR,
   0,
@@ -1384,7 +1384,7 @@ export var CreateMigrationProjectResponse$: StaticStructureSchema = [3, n0, _CMP
 export var CreateReplicationConfigMessage$: StaticStructureSchema = [3, n0, _CRCM,
   0,
   [_RCI, _SEA, _TEA, _CC, _RT, _TM, _RSep, _SSu, _RIe, _T],
-  [0, 0, 0, () => ComputeConfig$, 0, 0, 0, 0, 0, [() => TagList, 0]]
+  [0, 0, 0, () => ComputeConfig$, 0, 0, 0, 0, 0, [() => TagList, 0]], 6
 ];
 export var CreateReplicationConfigResponse$: StaticStructureSchema = [3, n0, _CRCR,
   0,
@@ -1393,8 +1393,8 @@ export var CreateReplicationConfigResponse$: StaticStructureSchema = [3, n0, _CR
 ];
 export var CreateReplicationInstanceMessage$: StaticStructureSchema = [3, n0, _CRIM,
   0,
-  [_RII, _AS, _RIC, _VSGI, _AZ, _RSGIe, _PMW, _MAZ, _EV, _AMVU, _T, _KKI, _PA, _DNS, _RIe, _NT, _KAS],
-  [0, 1, 0, [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 2, 0, 2, [() => TagList, 0], 0, 2, 0, 0, 0, () => KerberosAuthenticationSettings$]
+  [_RII, _RIC, _AS, _VSGI, _AZ, _RSGIe, _PMW, _MAZ, _EV, _AMVU, _T, _KKI, _PA, _DNS, _RIe, _NT, _KAS],
+  [0, 0, 1, [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 2, 0, 2, [() => TagList, 0], 0, 2, 0, 0, 0, () => KerberosAuthenticationSettings$], 2
 ];
 export var CreateReplicationInstanceResponse$: StaticStructureSchema = [3, n0, _CRIR,
   0,
@@ -1404,7 +1404,7 @@ export var CreateReplicationInstanceResponse$: StaticStructureSchema = [3, n0, _
 export var CreateReplicationSubnetGroupMessage$: StaticStructureSchema = [3, n0, _CRSGM,
   0,
   [_RSGIe, _RSGD, _SIu, _T],
-  [0, 0, [() => SubnetIdentifierList, 0], [() => TagList, 0]]
+  [0, 0, [() => SubnetIdentifierList, 0], [() => TagList, 0]], 3
 ];
 export var CreateReplicationSubnetGroupResponse$: StaticStructureSchema = [3, n0, _CRSGR,
   0,
@@ -1414,7 +1414,7 @@ export var CreateReplicationSubnetGroupResponse$: StaticStructureSchema = [3, n0
 export var CreateReplicationTaskMessage$: StaticStructureSchema = [3, n0, _CRTM,
   0,
   [_RTI, _SEA, _TEA, _RIA, _MT, _TM, _RTS, _CST, _CSP, _CSPd, _T, _TD, _RIe],
-  [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, [() => TagList, 0], 0, 0]
+  [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, [() => TagList, 0], 0, 0], 6
 ];
 export var CreateReplicationTaskResponse$: StaticStructureSchema = [3, n0, _CRTR,
   0,
@@ -1464,7 +1464,7 @@ export var DataProviderDescriptor$: StaticStructureSchema = [3, n0, _DPD,
 export var DataProviderDescriptorDefinition$: StaticStructureSchema = [3, n0, _DPDD,
   0,
   [_DPI, _SMSI, _SMARA],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var DefaultErrorDetails$: StaticStructureSchema = [3, n0, _DED,
   0,
@@ -1474,7 +1474,7 @@ export var DefaultErrorDetails$: StaticStructureSchema = [3, n0, _DED,
 export var DeleteCertificateMessage$: StaticStructureSchema = [3, n0, _DCM,
   0,
   [_CA],
-  [0]
+  [0], 1
 ];
 export var DeleteCertificateResponse$: StaticStructureSchema = [3, n0, _DCR,
   0,
@@ -1484,12 +1484,12 @@ export var DeleteCertificateResponse$: StaticStructureSchema = [3, n0, _DCR,
 export var DeleteCollectorRequest$: StaticStructureSchema = [3, n0, _DCRe,
   0,
   [_CRI],
-  [0]
+  [0], 1
 ];
 export var DeleteConnectionMessage$: StaticStructureSchema = [3, n0, _DCMe,
   0,
   [_EA, _RIA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteConnectionResponse$: StaticStructureSchema = [3, n0, _DCRel,
   0,
@@ -1499,7 +1499,7 @@ export var DeleteConnectionResponse$: StaticStructureSchema = [3, n0, _DCRel,
 export var DeleteDataMigrationMessage$: StaticStructureSchema = [3, n0, _DDMM,
   0,
   [_DMI],
-  [0]
+  [0], 1
 ];
 export var DeleteDataMigrationResponse$: StaticStructureSchema = [3, n0, _DDMR,
   0,
@@ -1509,7 +1509,7 @@ export var DeleteDataMigrationResponse$: StaticStructureSchema = [3, n0, _DDMR,
 export var DeleteDataProviderMessage$: StaticStructureSchema = [3, n0, _DDPM,
   0,
   [_DPI],
-  [0]
+  [0], 1
 ];
 export var DeleteDataProviderResponse$: StaticStructureSchema = [3, n0, _DDPR,
   0,
@@ -1519,7 +1519,7 @@ export var DeleteDataProviderResponse$: StaticStructureSchema = [3, n0, _DDPR,
 export var DeleteEndpointMessage$: StaticStructureSchema = [3, n0, _DEM,
   0,
   [_EA],
-  [0]
+  [0], 1
 ];
 export var DeleteEndpointResponse$: StaticStructureSchema = [3, n0, _DER,
   0,
@@ -1529,7 +1529,7 @@ export var DeleteEndpointResponse$: StaticStructureSchema = [3, n0, _DER,
 export var DeleteEventSubscriptionMessage$: StaticStructureSchema = [3, n0, _DESM,
   0,
   [_SNu],
-  [0]
+  [0], 1
 ];
 export var DeleteEventSubscriptionResponse$: StaticStructureSchema = [3, n0, _DESR,
   0,
@@ -1539,7 +1539,7 @@ export var DeleteEventSubscriptionResponse$: StaticStructureSchema = [3, n0, _DE
 export var DeleteFleetAdvisorDatabasesRequest$: StaticStructureSchema = [3, n0, _DFADR,
   0,
   [_DIa],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DeleteFleetAdvisorDatabasesResponse$: StaticStructureSchema = [3, n0, _DFADRe,
   0,
@@ -1549,7 +1549,7 @@ export var DeleteFleetAdvisorDatabasesResponse$: StaticStructureSchema = [3, n0,
 export var DeleteInstanceProfileMessage$: StaticStructureSchema = [3, n0, _DIPM,
   0,
   [_IPI],
-  [0]
+  [0], 1
 ];
 export var DeleteInstanceProfileResponse$: StaticStructureSchema = [3, n0, _DIPR,
   0,
@@ -1559,7 +1559,7 @@ export var DeleteInstanceProfileResponse$: StaticStructureSchema = [3, n0, _DIPR
 export var DeleteMigrationProjectMessage$: StaticStructureSchema = [3, n0, _DMPM,
   0,
   [_MPI],
-  [0]
+  [0], 1
 ];
 export var DeleteMigrationProjectResponse$: StaticStructureSchema = [3, n0, _DMPR,
   0,
@@ -1569,7 +1569,7 @@ export var DeleteMigrationProjectResponse$: StaticStructureSchema = [3, n0, _DMP
 export var DeleteReplicationConfigMessage$: StaticStructureSchema = [3, n0, _DRCM,
   0,
   [_RCA],
-  [0]
+  [0], 1
 ];
 export var DeleteReplicationConfigResponse$: StaticStructureSchema = [3, n0, _DRCR,
   0,
@@ -1579,7 +1579,7 @@ export var DeleteReplicationConfigResponse$: StaticStructureSchema = [3, n0, _DR
 export var DeleteReplicationInstanceMessage$: StaticStructureSchema = [3, n0, _DRIM,
   0,
   [_RIA],
-  [0]
+  [0], 1
 ];
 export var DeleteReplicationInstanceResponse$: StaticStructureSchema = [3, n0, _DRIR,
   0,
@@ -1589,7 +1589,7 @@ export var DeleteReplicationInstanceResponse$: StaticStructureSchema = [3, n0, _
 export var DeleteReplicationSubnetGroupMessage$: StaticStructureSchema = [3, n0, _DRSGM,
   0,
   [_RSGIe],
-  [0]
+  [0], 1
 ];
 export var DeleteReplicationSubnetGroupResponse$: StaticStructureSchema = [3, n0, _DRSGR,
   0,
@@ -1599,7 +1599,7 @@ export var DeleteReplicationSubnetGroupResponse$: StaticStructureSchema = [3, n0
 export var DeleteReplicationTaskAssessmentRunMessage$: StaticStructureSchema = [3, n0, _DRTARM,
   0,
   [_RTARA],
-  [0]
+  [0], 1
 ];
 export var DeleteReplicationTaskAssessmentRunResponse$: StaticStructureSchema = [3, n0, _DRTARR,
   0,
@@ -1609,7 +1609,7 @@ export var DeleteReplicationTaskAssessmentRunResponse$: StaticStructureSchema = 
 export var DeleteReplicationTaskMessage$: StaticStructureSchema = [3, n0, _DRTM,
   0,
   [_RTA],
-  [0]
+  [0], 1
 ];
 export var DeleteReplicationTaskResponse$: StaticStructureSchema = [3, n0, _DRTR,
   0,
@@ -1659,7 +1659,7 @@ export var DescribeConnectionsResponse$: StaticStructureSchema = [3, n0, _DCResc
 export var DescribeConversionConfigurationMessage$: StaticStructureSchema = [3, n0, _DCCM,
   0,
   [_MPI],
-  [0]
+  [0], 1
 ];
 export var DescribeConversionConfigurationResponse$: StaticStructureSchema = [3, n0, _DCCR,
   0,
@@ -1689,7 +1689,7 @@ export var DescribeDataProvidersResponse$: StaticStructureSchema = [3, n0, _DDPR
 export var DescribeEndpointSettingsMessage$: StaticStructureSchema = [3, n0, _DESMe,
   0,
   [_EN, _MR, _Ma],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var DescribeEndpointSettingsResponse$: StaticStructureSchema = [3, n0, _DESRe,
   0,
@@ -1759,7 +1759,7 @@ export var DescribeEventSubscriptionsResponse$: StaticStructureSchema = [3, n0, 
 export var DescribeExtensionPackAssociationsMessage$: StaticStructureSchema = [3, n0, _DEPAM,
   0,
   [_MPI, _F, _Ma, _MR],
-  [0, [() => FilterList, 0], 0, 1]
+  [0, [() => FilterList, 0], 0, 1], 1
 ];
 export var DescribeExtensionPackAssociationsResponse$: StaticStructureSchema = [3, n0, _DEPAR,
   0,
@@ -1829,7 +1829,7 @@ export var DescribeInstanceProfilesResponse$: StaticStructureSchema = [3, n0, _D
 export var DescribeMetadataModelAssessmentsMessage$: StaticStructureSchema = [3, n0, _DMMAM,
   0,
   [_MPI, _F, _Ma, _MR],
-  [0, [() => FilterList, 0], 0, 1]
+  [0, [() => FilterList, 0], 0, 1], 1
 ];
 export var DescribeMetadataModelAssessmentsResponse$: StaticStructureSchema = [3, n0, _DMMAR,
   0,
@@ -1839,7 +1839,7 @@ export var DescribeMetadataModelAssessmentsResponse$: StaticStructureSchema = [3
 export var DescribeMetadataModelChildrenMessage$: StaticStructureSchema = [3, n0, _DMMCM,
   0,
   [_SR, _MPI, _O, _Ma, _MR],
-  [0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 1], 3
 ];
 export var DescribeMetadataModelChildrenResponse$: StaticStructureSchema = [3, n0, _DMMCR,
   0,
@@ -1849,7 +1849,7 @@ export var DescribeMetadataModelChildrenResponse$: StaticStructureSchema = [3, n
 export var DescribeMetadataModelConversionsMessage$: StaticStructureSchema = [3, n0, _DMMCMe,
   0,
   [_MPI, _F, _Ma, _MR],
-  [0, [() => FilterList, 0], 0, 1]
+  [0, [() => FilterList, 0], 0, 1], 1
 ];
 export var DescribeMetadataModelConversionsResponse$: StaticStructureSchema = [3, n0, _DMMCRe,
   0,
@@ -1858,8 +1858,8 @@ export var DescribeMetadataModelConversionsResponse$: StaticStructureSchema = [3
 ];
 export var DescribeMetadataModelCreationsMessage$: StaticStructureSchema = [3, n0, _DMMCMes,
   0,
-  [_F, _Ma, _MR, _MPI],
-  [[() => FilterList, 0], 0, 1, 0]
+  [_MPI, _F, _Ma, _MR],
+  [0, [() => FilterList, 0], 0, 1], 1
 ];
 export var DescribeMetadataModelCreationsResponse$: StaticStructureSchema = [3, n0, _DMMCRes,
   0,
@@ -1869,7 +1869,7 @@ export var DescribeMetadataModelCreationsResponse$: StaticStructureSchema = [3, 
 export var DescribeMetadataModelExportsAsScriptMessage$: StaticStructureSchema = [3, n0, _DMMEASM,
   0,
   [_MPI, _F, _Ma, _MR],
-  [0, [() => FilterList, 0], 0, 1]
+  [0, [() => FilterList, 0], 0, 1], 1
 ];
 export var DescribeMetadataModelExportsAsScriptResponse$: StaticStructureSchema = [3, n0, _DMMEASR,
   0,
@@ -1879,7 +1879,7 @@ export var DescribeMetadataModelExportsAsScriptResponse$: StaticStructureSchema 
 export var DescribeMetadataModelExportsToTargetMessage$: StaticStructureSchema = [3, n0, _DMMETTM,
   0,
   [_MPI, _F, _Ma, _MR],
-  [0, [() => FilterList, 0], 0, 1]
+  [0, [() => FilterList, 0], 0, 1], 1
 ];
 export var DescribeMetadataModelExportsToTargetResponse$: StaticStructureSchema = [3, n0, _DMMETTR,
   0,
@@ -1889,7 +1889,7 @@ export var DescribeMetadataModelExportsToTargetResponse$: StaticStructureSchema 
 export var DescribeMetadataModelImportsMessage$: StaticStructureSchema = [3, n0, _DMMIM,
   0,
   [_MPI, _F, _Ma, _MR],
-  [0, [() => FilterList, 0], 0, 1]
+  [0, [() => FilterList, 0], 0, 1], 1
 ];
 export var DescribeMetadataModelImportsResponse$: StaticStructureSchema = [3, n0, _DMMIR,
   0,
@@ -1899,7 +1899,7 @@ export var DescribeMetadataModelImportsResponse$: StaticStructureSchema = [3, n0
 export var DescribeMetadataModelMessage$: StaticStructureSchema = [3, n0, _DMMM,
   0,
   [_SR, _MPI, _O],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DescribeMetadataModelResponse$: StaticStructureSchema = [3, n0, _DMMR,
   0,
@@ -1959,7 +1959,7 @@ export var DescribeRecommendationsResponse$: StaticStructureSchema = [3, n0, _DR
 export var DescribeRefreshSchemasStatusMessage$: StaticStructureSchema = [3, n0, _DRSSM,
   0,
   [_EA],
-  [0]
+  [0], 1
 ];
 export var DescribeRefreshSchemasStatusResponse$: StaticStructureSchema = [3, n0, _DRSSR,
   0,
@@ -1989,7 +1989,7 @@ export var DescribeReplicationInstancesResponse$: StaticStructureSchema = [3, n0
 export var DescribeReplicationInstanceTaskLogsMessage$: StaticStructureSchema = [3, n0, _DRITLM,
   0,
   [_RIA, _MR, _Ma],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var DescribeReplicationInstanceTaskLogsResponse$: StaticStructureSchema = [3, n0, _DRITLR,
   0,
@@ -2019,7 +2019,7 @@ export var DescribeReplicationSubnetGroupsResponse$: StaticStructureSchema = [3,
 export var DescribeReplicationTableStatisticsMessage$: StaticStructureSchema = [3, n0, _DRTSM,
   0,
   [_RCA, _MR, _Ma, _F],
-  [0, 1, 0, [() => FilterList, 0]]
+  [0, 1, 0, [() => FilterList, 0]], 1
 ];
 export var DescribeReplicationTableStatisticsResponse$: StaticStructureSchema = [3, n0, _DRTSR,
   0,
@@ -2069,7 +2069,7 @@ export var DescribeReplicationTasksResponse$: StaticStructureSchema = [3, n0, _D
 export var DescribeSchemasMessage$: StaticStructureSchema = [3, n0, _DSM,
   0,
   [_EA, _MR, _Ma],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var DescribeSchemasResponse$: StaticStructureSchema = [3, n0, _DSR,
   0,
@@ -2079,7 +2079,7 @@ export var DescribeSchemasResponse$: StaticStructureSchema = [3, n0, _DSR,
 export var DescribeTableStatisticsMessage$: StaticStructureSchema = [3, n0, _DTSM,
   0,
   [_RTA, _MR, _Ma, _F],
-  [0, 1, 0, [() => FilterList, 0]]
+  [0, 1, 0, [() => FilterList, 0]], 1
 ];
 export var DescribeTableStatisticsResponse$: StaticStructureSchema = [3, n0, _DTSR,
   0,
@@ -2104,12 +2104,12 @@ export var DocDbSettings$: StaticStructureSchema = [3, n0, _DDSo,
 export var DynamoDbSettings$: StaticStructureSchema = [3, n0, _DDS,
   0,
   [_SARA],
-  [0]
+  [0], 1
 ];
 export var ElasticsearchSettings$: StaticStructureSchema = [3, n0, _ES,
   0,
   [_SARA, _EU, _FLEP, _ERD, _UNMT],
-  [0, 0, 1, 1, 2]
+  [0, 0, 1, 1, 2], 2
 ];
 export var Endpoint$: StaticStructureSchema = [3, n0, _En,
   0,
@@ -2144,7 +2144,7 @@ export var EventSubscription$: StaticStructureSchema = [3, n0, _ESv,
 export var ExportMetadataModelAssessmentMessage$: StaticStructureSchema = [3, n0, _EMMAM,
   0,
   [_MPI, _SR, _FN, _ART],
-  [0, 0, 0, 64 | 0]
+  [0, 0, 0, 64 | 0], 2
 ];
 export var ExportMetadataModelAssessmentResponse$: StaticStructureSchema = [3, n0, _EMMAR,
   0,
@@ -2170,7 +2170,7 @@ TypeRegistry.for(n0).registerError(FailedDependencyFault$, FailedDependencyFault
 export var Filter$: StaticStructureSchema = [3, n0, _Fi,
   0,
   [_N, _Va],
-  [0, [() => FilterValueList, 0]]
+  [0, [() => FilterValueList, 0]], 2
 ];
 export var FleetAdvisorLsaAnalysisResponse$: StaticStructureSchema = [3, n0, _FALAR,
   0,
@@ -2190,7 +2190,7 @@ export var GcpMySQLSettings$: StaticStructureSchema = [3, n0, _GMSQLS,
 export var GetTargetSelectionRulesMessage$: StaticStructureSchema = [3, n0, _GTSRM,
   0,
   [_MPI, _SR],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetTargetSelectionRulesResponse$: StaticStructureSchema = [3, n0, _GTSRR,
   0,
@@ -2215,7 +2215,7 @@ export var IbmDb2zOsDataProviderSettings$: StaticStructureSchema = [3, n0, _IDOD
 export var ImportCertificateMessage$: StaticStructureSchema = [3, n0, _ICM,
   0,
   [_CI, _CP, _CW, _T, _KKI],
-  [0, [() => SecretString, 0], 21, [() => TagList, 0], 0]
+  [0, [() => SecretString, 0], 21, [() => TagList, 0], 0], 1
 ];
 export var ImportCertificateResponse$: StaticStructureSchema = [3, n0, _ICR,
   0,
@@ -2322,7 +2322,7 @@ TypeRegistry.for(n0).registerError(KMSThrottlingFault$, KMSThrottlingFault);
 export var LakehouseSettings$: StaticStructureSchema = [3, n0, _LS,
   0,
   [_Ar],
-  [0]
+  [0], 1
 ];
 export var Limitation$: StaticStructureSchema = [3, n0, _Lim,
   0,
@@ -2367,7 +2367,7 @@ export var MigrationProject$: StaticStructureSchema = [3, n0, _MP,
 export var ModifyConversionConfigurationMessage$: StaticStructureSchema = [3, n0, _MCCM,
   0,
   [_MPI, _CCo],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ModifyConversionConfigurationResponse$: StaticStructureSchema = [3, n0, _MCCR,
   0,
@@ -2377,7 +2377,7 @@ export var ModifyConversionConfigurationResponse$: StaticStructureSchema = [3, n
 export var ModifyDataMigrationMessage$: StaticStructureSchema = [3, n0, _MDMM,
   0,
   [_DMI, _DMN, _ECL, _SARA, _DMT, _SDS, _TDS, _NOJ, _SR],
-  [0, 0, 2, 0, 0, () => SourceDataSettings, () => TargetDataSettings, 1, [() => SecretString, 0]]
+  [0, 0, 2, 0, 0, () => SourceDataSettings, () => TargetDataSettings, 1, [() => SecretString, 0]], 1
 ];
 export var ModifyDataMigrationResponse$: StaticStructureSchema = [3, n0, _MDMR,
   0,
@@ -2387,7 +2387,7 @@ export var ModifyDataMigrationResponse$: StaticStructureSchema = [3, n0, _MDMR,
 export var ModifyDataProviderMessage$: StaticStructureSchema = [3, n0, _MDPM,
   0,
   [_DPI, _DPN, _De, _E, _V, _ESx, _Se],
-  [0, 0, 0, 0, 2, 2, () => DataProviderSettings$]
+  [0, 0, 0, 0, 2, 2, () => DataProviderSettings$], 1
 ];
 export var ModifyDataProviderResponse$: StaticStructureSchema = [3, n0, _MDPR,
   0,
@@ -2397,7 +2397,7 @@ export var ModifyDataProviderResponse$: StaticStructureSchema = [3, n0, _MDPR,
 export var ModifyEndpointMessage$: StaticStructureSchema = [3, n0, _MEM,
   0,
   [_EA, _EI, _ET, _EN, _Us, _P, _SN, _Po, _DN, _ECA, _CA, _SM, _SARA, _ETD, _DDS, _SSe, _DTS, _MDS, _KS, _KSa, _ES, _NS, _RS, _PSQLS, _MSQLS, _OS, _SSy, _MSQLSS, _IBMDS, _DDSo, _RSe, _ESx, _GMSQLS, _TS],
-  [0, 0, 0, 0, 0, [() => SecretString, 0], 0, 1, 0, 0, 0, 0, 0, 0, () => DynamoDbSettings$, () => S3Settings$, () => DmsTransferSettings$, [() => MongoDbSettings$, 0], () => KinesisSettings$, [() => KafkaSettings$, 0], () => ElasticsearchSettings$, () => NeptuneSettings$, [() => RedshiftSettings$, 0], [() => PostgreSQLSettings$, 0], [() => MySQLSettings$, 0], [() => OracleSettings$, 0], [() => SybaseSettings$, 0], [() => MicrosoftSQLServerSettings$, 0], [() => IBMDb2Settings$, 0], [() => DocDbSettings$, 0], [() => RedisSettings$, 0], 2, [() => GcpMySQLSettings$, 0], () => TimestreamSettings$]
+  [0, 0, 0, 0, 0, [() => SecretString, 0], 0, 1, 0, 0, 0, 0, 0, 0, () => DynamoDbSettings$, () => S3Settings$, () => DmsTransferSettings$, [() => MongoDbSettings$, 0], () => KinesisSettings$, [() => KafkaSettings$, 0], () => ElasticsearchSettings$, () => NeptuneSettings$, [() => RedshiftSettings$, 0], [() => PostgreSQLSettings$, 0], [() => MySQLSettings$, 0], [() => OracleSettings$, 0], [() => SybaseSettings$, 0], [() => MicrosoftSQLServerSettings$, 0], [() => IBMDb2Settings$, 0], [() => DocDbSettings$, 0], [() => RedisSettings$, 0], 2, [() => GcpMySQLSettings$, 0], () => TimestreamSettings$], 1
 ];
 export var ModifyEndpointResponse$: StaticStructureSchema = [3, n0, _MER,
   0,
@@ -2407,7 +2407,7 @@ export var ModifyEndpointResponse$: StaticStructureSchema = [3, n0, _MER,
 export var ModifyEventSubscriptionMessage$: StaticStructureSchema = [3, n0, _MESM,
   0,
   [_SNu, _STA, _ST, _EC, _Ena],
-  [0, 0, 0, [() => EventCategoriesList, 0], 2]
+  [0, 0, 0, [() => EventCategoriesList, 0], 2], 1
 ];
 export var ModifyEventSubscriptionResponse$: StaticStructureSchema = [3, n0, _MESR,
   0,
@@ -2417,7 +2417,7 @@ export var ModifyEventSubscriptionResponse$: StaticStructureSchema = [3, n0, _ME
 export var ModifyInstanceProfileMessage$: StaticStructureSchema = [3, n0, _MIPM,
   0,
   [_IPI, _AZ, _KKA, _PA, _NT, _IPN, _De, _SGI, _VSG],
-  [0, 0, 0, 2, 0, 0, 0, 0, 64 | 0]
+  [0, 0, 0, 2, 0, 0, 0, 0, 64 | 0], 1
 ];
 export var ModifyInstanceProfileResponse$: StaticStructureSchema = [3, n0, _MIPR,
   0,
@@ -2427,7 +2427,7 @@ export var ModifyInstanceProfileResponse$: StaticStructureSchema = [3, n0, _MIPR
 export var ModifyMigrationProjectMessage$: StaticStructureSchema = [3, n0, _MMPM,
   0,
   [_MPI, _MPN, _SDPD, _TDPD, _IPI, _TR, _De, _SCAA],
-  [0, 0, () => DataProviderDescriptorDefinitionList, () => DataProviderDescriptorDefinitionList, 0, 0, 0, () => SCApplicationAttributes$]
+  [0, 0, () => DataProviderDescriptorDefinitionList, () => DataProviderDescriptorDefinitionList, 0, 0, 0, () => SCApplicationAttributes$], 1
 ];
 export var ModifyMigrationProjectResponse$: StaticStructureSchema = [3, n0, _MMPR,
   0,
@@ -2437,7 +2437,7 @@ export var ModifyMigrationProjectResponse$: StaticStructureSchema = [3, n0, _MMP
 export var ModifyReplicationConfigMessage$: StaticStructureSchema = [3, n0, _MRCM,
   0,
   [_RCA, _RCI, _RT, _TM, _RSep, _SSu, _CC, _SEA, _TEA],
-  [0, 0, 0, 0, 0, 0, () => ComputeConfig$, 0, 0]
+  [0, 0, 0, 0, 0, 0, () => ComputeConfig$, 0, 0], 1
 ];
 export var ModifyReplicationConfigResponse$: StaticStructureSchema = [3, n0, _MRCR,
   0,
@@ -2447,7 +2447,7 @@ export var ModifyReplicationConfigResponse$: StaticStructureSchema = [3, n0, _MR
 export var ModifyReplicationInstanceMessage$: StaticStructureSchema = [3, n0, _MRIM,
   0,
   [_RIA, _AS, _AI, _RIC, _VSGI, _PMW, _MAZ, _EV, _AMVUl, _AMVU, _RII, _NT, _KAS],
-  [0, 1, 2, 0, [() => VpcSecurityGroupIdList, 0], 0, 2, 0, 2, 2, 0, 0, () => KerberosAuthenticationSettings$]
+  [0, 1, 2, 0, [() => VpcSecurityGroupIdList, 0], 0, 2, 0, 2, 2, 0, 0, () => KerberosAuthenticationSettings$], 1
 ];
 export var ModifyReplicationInstanceResponse$: StaticStructureSchema = [3, n0, _MRIR,
   0,
@@ -2456,8 +2456,8 @@ export var ModifyReplicationInstanceResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var ModifyReplicationSubnetGroupMessage$: StaticStructureSchema = [3, n0, _MRSGM,
   0,
-  [_RSGIe, _RSGD, _SIu],
-  [0, 0, [() => SubnetIdentifierList, 0]]
+  [_RSGIe, _SIu, _RSGD],
+  [0, [() => SubnetIdentifierList, 0], 0], 2
 ];
 export var ModifyReplicationSubnetGroupResponse$: StaticStructureSchema = [3, n0, _MRSGR,
   0,
@@ -2467,7 +2467,7 @@ export var ModifyReplicationSubnetGroupResponse$: StaticStructureSchema = [3, n0
 export var ModifyReplicationTaskMessage$: StaticStructureSchema = [3, n0, _MRTM,
   0,
   [_RTA, _RTI, _MT, _TM, _RTS, _CST, _CSP, _CSPd, _TD],
-  [0, 0, 0, 0, 0, 4, 0, 0, 0]
+  [0, 0, 0, 0, 0, 4, 0, 0, 0], 1
 ];
 export var ModifyReplicationTaskResponse$: StaticStructureSchema = [3, n0, _MRTR,
   0,
@@ -2487,7 +2487,7 @@ export var MongoDbSettings$: StaticStructureSchema = [3, n0, _MDS,
 export var MoveReplicationTaskMessage$: StaticStructureSchema = [3, n0, _MRTMo,
   0,
   [_RTA, _TRIA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var MoveReplicationTaskResponse$: StaticStructureSchema = [3, n0, _MRTRo,
   0,
@@ -2506,8 +2506,8 @@ export var MySQLSettings$: StaticStructureSchema = [3, n0, _MSQLS,
 ];
 export var NeptuneSettings$: StaticStructureSchema = [3, n0, _NS,
   0,
-  [_SARA, _SBN, _SBF, _ERD, _MFS, _MRC, _IAE],
-  [0, 0, 0, 1, 1, 1, 2]
+  [_SBN, _SBF, _SARA, _ERD, _MFS, _MRC, _IAE],
+  [0, 0, 0, 1, 1, 1, 2], 2
 ];
 export var OracleDataProviderSettings$: StaticStructureSchema = [3, n0, _ODPS,
   0,
@@ -2577,7 +2577,7 @@ export var RdsRequirements$: StaticStructureSchema = [3, n0, _RRd,
 export var RebootReplicationInstanceMessage$: StaticStructureSchema = [3, n0, _RRIM,
   0,
   [_RIA, _FF, _FPF],
-  [0, 2, 2]
+  [0, 2, 2], 1
 ];
 export var RebootReplicationInstanceResponse$: StaticStructureSchema = [3, n0, _RRIR,
   0,
@@ -2597,12 +2597,12 @@ export var RecommendationData$: StaticStructureSchema = [3, n0, _RDe,
 export var RecommendationSettings$: StaticStructureSchema = [3, n0, _RSec,
   0,
   [_IST, _WT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RedisSettings$: StaticStructureSchema = [3, n0, _RSe,
   0,
   [_SN, _Po, _SSP, _AT, _AUN, _APu, _SCCAs],
-  [0, 1, 0, 0, 0, [() => SecretString, 0], 0]
+  [0, 1, 0, 0, 0, [() => SecretString, 0], 0], 2
 ];
 export var RedshiftDataProviderSettings$: StaticStructureSchema = [3, n0, _RDPS,
   0,
@@ -2617,7 +2617,7 @@ export var RedshiftSettings$: StaticStructureSchema = [3, n0, _RS,
 export var RefreshSchemasMessage$: StaticStructureSchema = [3, n0, _RSM,
   0,
   [_EA, _RIA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RefreshSchemasResponse$: StaticStructureSchema = [3, n0, _RSR,
   0,
@@ -2632,7 +2632,7 @@ export var RefreshSchemasStatus$: StaticStructureSchema = [3, n0, _RSS,
 export var ReloadReplicationTablesMessage$: StaticStructureSchema = [3, n0, _RRTM,
   0,
   [_RCA, _TTR, _RO],
-  [0, () => TableListToReload, 0]
+  [0, () => TableListToReload, 0], 2
 ];
 export var ReloadReplicationTablesResponse$: StaticStructureSchema = [3, n0, _RRTR,
   0,
@@ -2642,7 +2642,7 @@ export var ReloadReplicationTablesResponse$: StaticStructureSchema = [3, n0, _RR
 export var ReloadTablesMessage$: StaticStructureSchema = [3, n0, _RTM,
   0,
   [_RTA, _TTR, _RO],
-  [0, () => TableListToReload, 0]
+  [0, () => TableListToReload, 0], 2
 ];
 export var ReloadTablesResponse$: StaticStructureSchema = [3, n0, _RTR,
   0,
@@ -2652,7 +2652,7 @@ export var ReloadTablesResponse$: StaticStructureSchema = [3, n0, _RTR,
 export var RemoveTagsFromResourceMessage$: StaticStructureSchema = [3, n0, _RTFRM,
   0,
   [_RA, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var RemoveTagsFromResourceResponse$: StaticStructureSchema = [3, n0, _RTFRR,
   0,
@@ -2825,7 +2825,7 @@ export var SourceDataSetting$: StaticStructureSchema = [3, n0, _SDSo,
 export var StartDataMigrationMessage$: StaticStructureSchema = [3, n0, _SDMM,
   0,
   [_DMI, _STta],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StartDataMigrationResponse$: StaticStructureSchema = [3, n0, _SDMR,
   0,
@@ -2835,7 +2835,7 @@ export var StartDataMigrationResponse$: StaticStructureSchema = [3, n0, _SDMR,
 export var StartExtensionPackAssociationMessage$: StaticStructureSchema = [3, n0, _SEPAM,
   0,
   [_MPI],
-  [0]
+  [0], 1
 ];
 export var StartExtensionPackAssociationResponse$: StaticStructureSchema = [3, n0, _SEPAR,
   0,
@@ -2845,7 +2845,7 @@ export var StartExtensionPackAssociationResponse$: StaticStructureSchema = [3, n
 export var StartMetadataModelAssessmentMessage$: StaticStructureSchema = [3, n0, _SMMAM,
   0,
   [_MPI, _SR],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StartMetadataModelAssessmentResponse$: StaticStructureSchema = [3, n0, _SMMAR,
   0,
@@ -2855,7 +2855,7 @@ export var StartMetadataModelAssessmentResponse$: StaticStructureSchema = [3, n0
 export var StartMetadataModelConversionMessage$: StaticStructureSchema = [3, n0, _SMMCM,
   0,
   [_MPI, _SR],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StartMetadataModelConversionResponse$: StaticStructureSchema = [3, n0, _SMMCR,
   0,
@@ -2865,7 +2865,7 @@ export var StartMetadataModelConversionResponse$: StaticStructureSchema = [3, n0
 export var StartMetadataModelCreationMessage$: StaticStructureSchema = [3, n0, _SMMCMt,
   0,
   [_MPI, _SR, _MMN, _Pro],
-  [0, 0, 0, () => MetadataModelProperties$]
+  [0, 0, 0, () => MetadataModelProperties$], 4
 ];
 export var StartMetadataModelCreationResponse$: StaticStructureSchema = [3, n0, _SMMCRt,
   0,
@@ -2875,7 +2875,7 @@ export var StartMetadataModelCreationResponse$: StaticStructureSchema = [3, n0, 
 export var StartMetadataModelExportAsScriptMessage$: StaticStructureSchema = [3, n0, _SMMEASM,
   0,
   [_MPI, _SR, _O, _FN],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var StartMetadataModelExportAsScriptResponse$: StaticStructureSchema = [3, n0, _SMMEASR,
   0,
@@ -2885,7 +2885,7 @@ export var StartMetadataModelExportAsScriptResponse$: StaticStructureSchema = [3
 export var StartMetadataModelExportToTargetMessage$: StaticStructureSchema = [3, n0, _SMMETTM,
   0,
   [_MPI, _SR, _OEP],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var StartMetadataModelExportToTargetResponse$: StaticStructureSchema = [3, n0, _SMMETTR,
   0,
@@ -2895,7 +2895,7 @@ export var StartMetadataModelExportToTargetResponse$: StaticStructureSchema = [3
 export var StartMetadataModelImportMessage$: StaticStructureSchema = [3, n0, _SMMIM,
   0,
   [_MPI, _SR, _O, _Ref],
-  [0, 0, 0, 2]
+  [0, 0, 0, 2], 3
 ];
 export var StartMetadataModelImportResponse$: StaticStructureSchema = [3, n0, _SMMIR,
   0,
@@ -2905,17 +2905,17 @@ export var StartMetadataModelImportResponse$: StaticStructureSchema = [3, n0, _S
 export var StartRecommendationsRequest$: StaticStructureSchema = [3, n0, _SRR,
   0,
   [_DI, _Se],
-  [0, () => RecommendationSettings$]
+  [0, () => RecommendationSettings$], 2
 ];
 export var StartRecommendationsRequestEntry$: StaticStructureSchema = [3, n0, _SRRE,
   0,
   [_DI, _Se],
-  [0, () => RecommendationSettings$]
+  [0, () => RecommendationSettings$], 2
 ];
 export var StartReplicationMessage$: StaticStructureSchema = [3, n0, _SRM,
   0,
   [_RCA, _SRT, _PASre, _CST, _CSP, _CSPd],
-  [0, 0, 0, 4, 0, 0]
+  [0, 0, 0, 4, 0, 0], 2
 ];
 export var StartReplicationResponse$: StaticStructureSchema = [3, n0, _SRRt,
   0,
@@ -2925,7 +2925,7 @@ export var StartReplicationResponse$: StaticStructureSchema = [3, n0, _SRRt,
 export var StartReplicationTaskAssessmentMessage$: StaticStructureSchema = [3, n0, _SRTAM,
   0,
   [_RTA],
-  [0]
+  [0], 1
 ];
 export var StartReplicationTaskAssessmentResponse$: StaticStructureSchema = [3, n0, _SRTAR,
   0,
@@ -2934,8 +2934,8 @@ export var StartReplicationTaskAssessmentResponse$: StaticStructureSchema = [3, 
 ];
 export var StartReplicationTaskAssessmentRunMessage$: StaticStructureSchema = [3, n0, _SRTARM,
   0,
-  [_RTA, _SARA, _RLB, _RLF, _REM, _RKKA, _ARN, _IO, _Ex, _T],
-  [0, 0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, [() => TagList, 0]]
+  [_RTA, _SARA, _RLB, _ARN, _RLF, _REM, _RKKA, _IO, _Ex, _T],
+  [0, 0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, [() => TagList, 0]], 4
 ];
 export var StartReplicationTaskAssessmentRunResponse$: StaticStructureSchema = [3, n0, _SRTARR,
   0,
@@ -2945,7 +2945,7 @@ export var StartReplicationTaskAssessmentRunResponse$: StaticStructureSchema = [
 export var StartReplicationTaskMessage$: StaticStructureSchema = [3, n0, _SRTM,
   0,
   [_RTA, _SRTT, _CST, _CSP, _CSPd],
-  [0, 0, 4, 0, 0]
+  [0, 0, 4, 0, 0], 2
 ];
 export var StartReplicationTaskResponse$: StaticStructureSchema = [3, n0, _SRTR,
   0,
@@ -2955,12 +2955,12 @@ export var StartReplicationTaskResponse$: StaticStructureSchema = [3, n0, _SRTR,
 export var StatementProperties$: StaticStructureSchema = [3, n0, _SPt,
   0,
   [_Def],
-  [0]
+  [0], 1
 ];
 export var StopDataMigrationMessage$: StaticStructureSchema = [3, n0, _SDMMt,
   0,
   [_DMI],
-  [0]
+  [0], 1
 ];
 export var StopDataMigrationResponse$: StaticStructureSchema = [3, n0, _SDMRt,
   0,
@@ -2970,7 +2970,7 @@ export var StopDataMigrationResponse$: StaticStructureSchema = [3, n0, _SDMRt,
 export var StopReplicationMessage$: StaticStructureSchema = [3, n0, _SRMt,
   0,
   [_RCA],
-  [0]
+  [0], 1
 ];
 export var StopReplicationResponse$: StaticStructureSchema = [3, n0, _SRRto,
   0,
@@ -2980,7 +2980,7 @@ export var StopReplicationResponse$: StaticStructureSchema = [3, n0, _SRRto,
 export var StopReplicationTaskMessage$: StaticStructureSchema = [3, n0, _SRTMt,
   0,
   [_RTA],
-  [0]
+  [0], 1
 ];
 export var StopReplicationTaskResponse$: StaticStructureSchema = [3, n0, _SRTRt,
   0,
@@ -3027,7 +3027,7 @@ export var TableStatistics$: StaticStructureSchema = [3, n0, _TSa,
 export var TableToReload$: StaticStructureSchema = [3, n0, _TTRa,
   0,
   [_SNc, _TN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
@@ -3042,7 +3042,7 @@ export var TargetDataSetting$: StaticStructureSchema = [3, n0, _TDSa,
 export var TestConnectionMessage$: StaticStructureSchema = [3, n0, _TCM,
   0,
   [_RIA, _EA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TestConnectionResponse$: StaticStructureSchema = [3, n0, _TCR,
   0,
@@ -3052,7 +3052,7 @@ export var TestConnectionResponse$: StaticStructureSchema = [3, n0, _TCR,
 export var TimestreamSettings$: StaticStructureSchema = [3, n0, _TS,
   0,
   [_DN, _MDe, _MDa, _CIAU, _EMSW],
-  [0, 1, 1, 2, 2]
+  [0, 1, 1, 2, 2], 3
 ];
 export var UpdateSubscriptionsToEventBridgeMessage$: StaticStructureSchema = [3, n0, _USTEBM,
   0,

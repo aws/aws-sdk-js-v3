@@ -630,7 +630,7 @@ const _RTes = "ResultToken";
 const _RV = "ResourceValue";
 const _Re = "Region";
 const _Res = "Results";
-const _S = "Scope";
+const _S = "Source";
 const _SA = "StackArn";
 const _SAI = "SourceAccountId";
 const _SARC = "SelectAggregateResourceConfig";
@@ -672,8 +672,8 @@ const _STt = "StartTime";
 const _STto = "StopTime";
 const _SV = "StaticValue";
 const _SVI = "SchemaVersionId";
-const _Sc = "Score";
-const _So = "Source";
+const _Sc = "Scope";
+const _Sco = "Score";
 const _St = "Status";
 const _Sta = "State";
 const _T = "Type";
@@ -863,7 +863,7 @@ import {
 export var AccountAggregationSource$: StaticStructureSchema = [3, n0, _AAS,
   0,
   [_AI, _AAR, _AR],
-  [64 | 0, 2, 64 | 0]
+  [64 | 0, 2, 64 | 0], 1
 ];
 export var AggregateComplianceByConfigRule$: StaticStructureSchema = [3, n0, _ACBCR,
   0,
@@ -918,7 +918,7 @@ export var AggregateEvaluationResult$: StaticStructureSchema = [3, n0, _AER,
 export var AggregateResourceIdentifier$: StaticStructureSchema = [3, n0, _ARI,
   0,
   [_SAI, _SR, _RI, _RT, _RN],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 4
 ];
 export var AggregationAuthorization$: StaticStructureSchema = [3, n0, _AA,
   0,
@@ -943,12 +943,12 @@ export var AggregatorFilterServicePrincipal$: StaticStructureSchema = [3, n0, _A
 export var AssociateResourceTypesRequest$: StaticStructureSchema = [3, n0, _ARTR,
   0,
   [_CRA, _RTe],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var AssociateResourceTypesResponse$: StaticStructureSchema = [3, n0, _ARTRs,
   0,
   [_CR],
-  [() => ConfigurationRecorder$]
+  [() => ConfigurationRecorder$], 1
 ];
 export var BaseConfigurationItem$: StaticStructureSchema = [3, n0, _BCI,
   0,
@@ -958,7 +958,7 @@ export var BaseConfigurationItem$: StaticStructureSchema = [3, n0, _BCI,
 export var BatchGetAggregateResourceConfigRequest$: StaticStructureSchema = [3, n0, _BGARCR,
   0,
   [_CAN, _RIe],
-  [0, () => ResourceIdentifiersList]
+  [0, () => ResourceIdentifiersList], 2
 ];
 export var BatchGetAggregateResourceConfigResponse$: StaticStructureSchema = [3, n0, _BGARCRa,
   0,
@@ -968,7 +968,7 @@ export var BatchGetAggregateResourceConfigResponse$: StaticStructureSchema = [3,
 export var BatchGetResourceConfigRequest$: StaticStructureSchema = [3, n0, _BGRCR,
   0,
   [_rK],
-  [() => ResourceKeys]
+  [() => ResourceKeys], 1
 ];
 export var BatchGetResourceConfigResponse$: StaticStructureSchema = [3, n0, _BGRCRa,
   0,
@@ -1012,8 +1012,8 @@ export var ConfigExportDeliveryInfo$: StaticStructureSchema = [3, n0, _CEDI,
 ];
 export var ConfigRule$: StaticStructureSchema = [3, n0, _CRo,
   0,
-  [_CRN, _CRAo, _CRI, _D, _S, _So, _IP, _MEF, _CRS, _CB, _EM],
-  [0, 0, 0, 0, () => Scope$, () => Source$, 0, 0, 0, 0, () => EvaluationModes]
+  [_S, _CRN, _CRAo, _CRI, _D, _Sc, _IP, _MEF, _CRS, _CB, _EM],
+  [() => Source$, 0, 0, 0, 0, () => Scope$, 0, 0, 0, 0, () => EvaluationModes], 1
 ];
 export var ConfigRuleComplianceFilters$: StaticStructureSchema = [3, n0, _CRCF,
   0,
@@ -1067,8 +1067,8 @@ export var ConfigurationRecorderStatus$: StaticStructureSchema = [3, n0, _CRSo,
 ];
 export var ConfigurationRecorderSummary$: StaticStructureSchema = [3, n0, _CRSon,
   0,
-  [_a, _n, _sP, _rS],
-  [0, 0, 0, 0]
+  [_a, _n, _rS, _sP],
+  [0, 0, 0, 0], 3
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
   { [_e]: _cl },
@@ -1083,23 +1083,23 @@ export var ConformancePackComplianceFilters$: StaticStructureSchema = [3, n0, _C
 ];
 export var ConformancePackComplianceScore$: StaticStructureSchema = [3, n0, _CPCS,
   0,
-  [_Sc, _CPN, _LUTa],
+  [_Sco, _CPN, _LUTa],
   [0, 0, 4]
 ];
 export var ConformancePackComplianceScoresFilters$: StaticStructureSchema = [3, n0, _CPCSF,
   0,
   [_CPNo],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var ConformancePackComplianceSummary$: StaticStructureSchema = [3, n0, _CPCSo,
   0,
   [_CPN, _CPCSon],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ConformancePackDetail$: StaticStructureSchema = [3, n0, _CPD,
   0,
   [_CPN, _CPA, _CPI, _DSB, _DSKP, _CPIP, _LURT, _CB, _TSSMDD],
-  [0, 0, 0, 0, 0, () => ConformancePackInputParameters, 4, 0, () => TemplateSSMDocumentDetails$]
+  [0, 0, 0, 0, 0, () => ConformancePackInputParameters, 4, 0, () => TemplateSSMDocumentDetails$], 3
 ];
 export var ConformancePackEvaluationFilters$: StaticStructureSchema = [3, n0, _CPEF,
   0,
@@ -1109,12 +1109,12 @@ export var ConformancePackEvaluationFilters$: StaticStructureSchema = [3, n0, _C
 export var ConformancePackEvaluationResult$: StaticStructureSchema = [3, n0, _CPER,
   0,
   [_CT, _ERI, _CRIT, _RRT, _A],
-  [0, () => EvaluationResultIdentifier$, 4, 4, 0]
+  [0, () => EvaluationResultIdentifier$, 4, 4, 0], 4
 ];
 export var ConformancePackInputParameter$: StaticStructureSchema = [3, n0, _CPIPo,
   0,
   [_PN, _PV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ConformancePackRuleCompliance$: StaticStructureSchema = [3, n0, _CPRC,
   0,
@@ -1123,8 +1123,8 @@ export var ConformancePackRuleCompliance$: StaticStructureSchema = [3, n0, _CPRC
 ];
 export var ConformancePackStatusDetail$: StaticStructureSchema = [3, n0, _CPSD,
   0,
-  [_CPN, _CPI, _CPA, _CPS, _SA, _CPSR, _LURT, _LUCT],
-  [0, 0, 0, 0, 0, 0, 4, 4]
+  [_CPN, _CPI, _CPA, _CPS, _SA, _LURT, _CPSR, _LUCT],
+  [0, 0, 0, 0, 0, 4, 0, 4], 6
 ];
 export var ConformancePackTemplateValidationException$: StaticErrorSchema = [-3, n0, _CPTVE,
   { [_e]: _cl },
@@ -1135,42 +1135,42 @@ TypeRegistry.for(n0).registerError(ConformancePackTemplateValidationException$, 
 export var CustomPolicyDetails$: StaticStructureSchema = [3, n0, _CPDu,
   0,
   [_PR, _PT, _EDLD],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var DeleteAggregationAuthorizationRequest$: StaticStructureSchema = [3, n0, _DAAR,
   0,
   [_AAI, _AARu],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteConfigRuleRequest$: StaticStructureSchema = [3, n0, _DCRR,
   0,
   [_CRN],
-  [0]
+  [0], 1
 ];
 export var DeleteConfigurationAggregatorRequest$: StaticStructureSchema = [3, n0, _DCAR,
   0,
   [_CAN],
-  [0]
+  [0], 1
 ];
 export var DeleteConfigurationRecorderRequest$: StaticStructureSchema = [3, n0, _DCRRe,
   0,
   [_CRNon],
-  [0]
+  [0], 1
 ];
 export var DeleteConformancePackRequest$: StaticStructureSchema = [3, n0, _DCPR,
   0,
   [_CPN],
-  [0]
+  [0], 1
 ];
 export var DeleteDeliveryChannelRequest$: StaticStructureSchema = [3, n0, _DDCR,
   0,
   [_DCN],
-  [0]
+  [0], 1
 ];
 export var DeleteEvaluationResultsRequest$: StaticStructureSchema = [3, n0, _DERR,
   0,
   [_CRN],
-  [0]
+  [0], 1
 ];
 export var DeleteEvaluationResultsResponse$: StaticStructureSchema = [3, n0, _DERRe,
   0,
@@ -1180,22 +1180,22 @@ export var DeleteEvaluationResultsResponse$: StaticStructureSchema = [3, n0, _DE
 export var DeleteOrganizationConfigRuleRequest$: StaticStructureSchema = [3, n0, _DOCRR,
   0,
   [_OCRN],
-  [0]
+  [0], 1
 ];
 export var DeleteOrganizationConformancePackRequest$: StaticStructureSchema = [3, n0, _DOCPR,
   0,
   [_OCPN],
-  [0]
+  [0], 1
 ];
 export var DeletePendingAggregationRequestRequest$: StaticStructureSchema = [3, n0, _DPARR,
   0,
   [_RAI, _RAR],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteRemediationConfigurationRequest$: StaticStructureSchema = [3, n0, _DRCR,
   0,
   [_CRN, _RT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteRemediationConfigurationResponse$: StaticStructureSchema = [3, n0, _DRCRe,
   0,
@@ -1205,7 +1205,7 @@ export var DeleteRemediationConfigurationResponse$: StaticStructureSchema = [3, 
 export var DeleteRemediationExceptionsRequest$: StaticStructureSchema = [3, n0, _DRER,
   0,
   [_CRN, _RK],
-  [0, () => RemediationExceptionResourceKeys]
+  [0, () => RemediationExceptionResourceKeys], 2
 ];
 export var DeleteRemediationExceptionsResponse$: StaticStructureSchema = [3, n0, _DRERe,
   0,
@@ -1215,27 +1215,27 @@ export var DeleteRemediationExceptionsResponse$: StaticStructureSchema = [3, n0,
 export var DeleteResourceConfigRequest$: StaticStructureSchema = [3, n0, _DRCRel,
   0,
   [_RT, _RI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteRetentionConfigurationRequest$: StaticStructureSchema = [3, n0, _DRCRele,
   0,
   [_RCN],
-  [0]
+  [0], 1
 ];
 export var DeleteServiceLinkedConfigurationRecorderRequest$: StaticStructureSchema = [3, n0, _DSLCRR,
   0,
   [_SP],
-  [0]
+  [0], 1
 ];
 export var DeleteServiceLinkedConfigurationRecorderResponse$: StaticStructureSchema = [3, n0, _DSLCRRe,
   0,
   [_Ar, _N],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteStoredQueryRequest$: StaticStructureSchema = [3, n0, _DSQR,
   0,
   [_QN],
-  [0]
+  [0], 1
 ];
 export var DeleteStoredQueryResponse$: StaticStructureSchema = [3, n0, _DSQRe,
   0,
@@ -1245,7 +1245,7 @@ export var DeleteStoredQueryResponse$: StaticStructureSchema = [3, n0, _DSQRe,
 export var DeliverConfigSnapshotRequest$: StaticStructureSchema = [3, n0, _DCSR,
   0,
   [_dCN],
-  [0]
+  [0], 1
 ];
 export var DeliverConfigSnapshotResponse$: StaticStructureSchema = [3, n0, _DCSRe,
   0,
@@ -1265,7 +1265,7 @@ export var DeliveryChannelStatus$: StaticStructureSchema = [3, n0, _DCS,
 export var DescribeAggregateComplianceByConfigRulesRequest$: StaticStructureSchema = [3, n0, _DACBCRR,
   0,
   [_CAN, _F, _L, _NT],
-  [0, () => ConfigRuleComplianceFilters$, 1, 0]
+  [0, () => ConfigRuleComplianceFilters$, 1, 0], 1
 ];
 export var DescribeAggregateComplianceByConfigRulesResponse$: StaticStructureSchema = [3, n0, _DACBCRRe,
   0,
@@ -1275,7 +1275,7 @@ export var DescribeAggregateComplianceByConfigRulesResponse$: StaticStructureSch
 export var DescribeAggregateComplianceByConformancePacksRequest$: StaticStructureSchema = [3, n0, _DACBCPR,
   0,
   [_CAN, _F, _L, _NT],
-  [0, () => AggregateConformancePackComplianceFilters$, 1, 0]
+  [0, () => AggregateConformancePackComplianceFilters$, 1, 0], 1
 ];
 export var DescribeAggregateComplianceByConformancePacksResponse$: StaticStructureSchema = [3, n0, _DACBCPRe,
   0,
@@ -1340,7 +1340,7 @@ export var DescribeConfigRulesResponse$: StaticStructureSchema = [3, n0, _DCRRes
 export var DescribeConfigurationAggregatorSourcesStatusRequest$: StaticStructureSchema = [3, n0, _DCASSR,
   0,
   [_CAN, _US, _NT, _L],
-  [0, 64 | 0, 0, 1]
+  [0, 64 | 0, 0, 1], 1
 ];
 export var DescribeConfigurationAggregatorSourcesStatusResponse$: StaticStructureSchema = [3, n0, _DCASSRe,
   0,
@@ -1380,12 +1380,12 @@ export var DescribeConfigurationRecorderStatusResponse$: StaticStructureSchema =
 export var DescribeConformancePackComplianceRequest$: StaticStructureSchema = [3, n0, _DCPCR,
   0,
   [_CPN, _F, _L, _NT],
-  [0, () => ConformancePackComplianceFilters$, 1, 0]
+  [0, () => ConformancePackComplianceFilters$, 1, 0], 1
 ];
 export var DescribeConformancePackComplianceResponse$: StaticStructureSchema = [3, n0, _DCPCRe,
   0,
   [_CPN, _CPRCL, _NT],
-  [0, () => ConformancePackRuleComplianceList, 0]
+  [0, () => ConformancePackRuleComplianceList, 0], 2
 ];
 export var DescribeConformancePacksRequest$: StaticStructureSchema = [3, n0, _DCPRe,
   0,
@@ -1480,7 +1480,7 @@ export var DescribePendingAggregationRequestsResponse$: StaticStructureSchema = 
 export var DescribeRemediationConfigurationsRequest$: StaticStructureSchema = [3, n0, _DRCRes,
   0,
   [_CRNo],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DescribeRemediationConfigurationsResponse$: StaticStructureSchema = [3, n0, _DRCResc,
   0,
@@ -1490,7 +1490,7 @@ export var DescribeRemediationConfigurationsResponse$: StaticStructureSchema = [
 export var DescribeRemediationExceptionsRequest$: StaticStructureSchema = [3, n0, _DRERes,
   0,
   [_CRN, _RK, _L, _NT],
-  [0, () => RemediationExceptionResourceKeys, 1, 0]
+  [0, () => RemediationExceptionResourceKeys, 1, 0], 1
 ];
 export var DescribeRemediationExceptionsResponse$: StaticStructureSchema = [3, n0, _DREResc,
   0,
@@ -1500,7 +1500,7 @@ export var DescribeRemediationExceptionsResponse$: StaticStructureSchema = [3, n
 export var DescribeRemediationExecutionStatusRequest$: StaticStructureSchema = [3, n0, _DRESR,
   0,
   [_CRN, _RK, _L, _NT],
-  [0, () => ResourceKeys, 1, 0]
+  [0, () => ResourceKeys, 1, 0], 1
 ];
 export var DescribeRemediationExecutionStatusResponse$: StaticStructureSchema = [3, n0, _DRESRe,
   0,
@@ -1520,17 +1520,17 @@ export var DescribeRetentionConfigurationsResponse$: StaticStructureSchema = [3,
 export var DisassociateResourceTypesRequest$: StaticStructureSchema = [3, n0, _DRTR,
   0,
   [_CRA, _RTe],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DisassociateResourceTypesResponse$: StaticStructureSchema = [3, n0, _DRTRi,
   0,
   [_CR],
-  [() => ConfigurationRecorder$]
+  [() => ConfigurationRecorder$], 1
 ];
 export var Evaluation$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_CRT, _CRIo, _CT, _A, _OT],
-  [0, 0, 0, 0, 4]
+  [_CRT, _CRIo, _CT, _OT, _A],
+  [0, 0, 0, 4, 0], 4
 ];
 export var EvaluationContext$: StaticStructureSchema = [3, n0, _EC,
   0,
@@ -1560,7 +1560,7 @@ export var EvaluationResultQualifier$: StaticStructureSchema = [3, n0, _ERQ,
 export var EvaluationStatus$: StaticStructureSchema = [3, n0, _ES,
   0,
   [_St, _FR],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ExclusionByResourceTypes$: StaticStructureSchema = [3, n0, _EBRT,
   0,
@@ -1574,8 +1574,8 @@ export var ExecutionControls$: StaticStructureSchema = [3, n0, _ECx,
 ];
 export var ExternalEvaluation$: StaticStructureSchema = [3, n0, _EE,
   0,
-  [_CRT, _CRIo, _CT, _A, _OT],
-  [0, 0, 0, 0, 4]
+  [_CRT, _CRIo, _CT, _OT, _A],
+  [0, 0, 0, 4, 0], 4
 ];
 export var FailedDeleteRemediationExceptionsBatch$: StaticStructureSchema = [3, n0, _FDREB,
   0,
@@ -1600,7 +1600,7 @@ export var FieldInfo$: StaticStructureSchema = [3, n0, _FIi,
 export var GetAggregateComplianceDetailsByConfigRuleRequest$: StaticStructureSchema = [3, n0, _GACDBCRR,
   0,
   [_CAN, _CRN, _AIc, _ARw, _CT, _L, _NT],
-  [0, 0, 0, 0, 0, 1, 0]
+  [0, 0, 0, 0, 0, 1, 0], 4
 ];
 export var GetAggregateComplianceDetailsByConfigRuleResponse$: StaticStructureSchema = [3, n0, _GACDBCRRe,
   0,
@@ -1610,7 +1610,7 @@ export var GetAggregateComplianceDetailsByConfigRuleResponse$: StaticStructureSc
 export var GetAggregateConfigRuleComplianceSummaryRequest$: StaticStructureSchema = [3, n0, _GACRCSR,
   0,
   [_CAN, _F, _GBK, _L, _NT],
-  [0, () => ConfigRuleComplianceSummaryFilters$, 0, 1, 0]
+  [0, () => ConfigRuleComplianceSummaryFilters$, 0, 1, 0], 1
 ];
 export var GetAggregateConfigRuleComplianceSummaryResponse$: StaticStructureSchema = [3, n0, _GACRCSRe,
   0,
@@ -1620,7 +1620,7 @@ export var GetAggregateConfigRuleComplianceSummaryResponse$: StaticStructureSche
 export var GetAggregateConformancePackComplianceSummaryRequest$: StaticStructureSchema = [3, n0, _GACPCSR,
   0,
   [_CAN, _F, _GBK, _L, _NT],
-  [0, () => AggregateConformancePackComplianceSummaryFilters$, 0, 1, 0]
+  [0, () => AggregateConformancePackComplianceSummaryFilters$, 0, 1, 0], 1
 ];
 export var GetAggregateConformancePackComplianceSummaryResponse$: StaticStructureSchema = [3, n0, _GACPCSRe,
   0,
@@ -1630,17 +1630,17 @@ export var GetAggregateConformancePackComplianceSummaryResponse$: StaticStructur
 export var GetAggregateDiscoveredResourceCountsRequest$: StaticStructureSchema = [3, n0, _GADRCR,
   0,
   [_CAN, _F, _GBK, _L, _NT],
-  [0, () => ResourceCountFilters$, 0, 1, 0]
+  [0, () => ResourceCountFilters$, 0, 1, 0], 1
 ];
 export var GetAggregateDiscoveredResourceCountsResponse$: StaticStructureSchema = [3, n0, _GADRCRe,
   0,
   [_TDR, _GBK, _GRC, _NT],
-  [1, 0, () => GroupedResourceCountList, 0]
+  [1, 0, () => GroupedResourceCountList, 0], 1
 ];
 export var GetAggregateResourceConfigRequest$: StaticStructureSchema = [3, n0, _GARCR,
   0,
   [_CAN, _RIeso],
-  [0, () => AggregateResourceIdentifier$]
+  [0, () => AggregateResourceIdentifier$], 2
 ];
 export var GetAggregateResourceConfigResponse$: StaticStructureSchema = [3, n0, _GARCRe,
   0,
@@ -1650,7 +1650,7 @@ export var GetAggregateResourceConfigResponse$: StaticStructureSchema = [3, n0, 
 export var GetComplianceDetailsByConfigRuleRequest$: StaticStructureSchema = [3, n0, _GCDBCRR,
   0,
   [_CRN, _CTo, _L, _NT],
-  [0, 64 | 0, 1, 0]
+  [0, 64 | 0, 1, 0], 1
 ];
 export var GetComplianceDetailsByConfigRuleResponse$: StaticStructureSchema = [3, n0, _GCDBCRRe,
   0,
@@ -1685,17 +1685,17 @@ export var GetComplianceSummaryByResourceTypeResponse$: StaticStructureSchema = 
 export var GetConformancePackComplianceDetailsRequest$: StaticStructureSchema = [3, n0, _GCPCDR,
   0,
   [_CPN, _F, _L, _NT],
-  [0, () => ConformancePackEvaluationFilters$, 1, 0]
+  [0, () => ConformancePackEvaluationFilters$, 1, 0], 1
 ];
 export var GetConformancePackComplianceDetailsResponse$: StaticStructureSchema = [3, n0, _GCPCDRe,
   0,
   [_CPN, _CPRER, _NT],
-  [0, () => ConformancePackRuleEvaluationResultsList, 0]
+  [0, () => ConformancePackRuleEvaluationResultsList, 0], 1
 ];
 export var GetConformancePackComplianceSummaryRequest$: StaticStructureSchema = [3, n0, _GCPCSR,
   0,
   [_CPNo, _L, _NT],
-  [64 | 0, 1, 0]
+  [64 | 0, 1, 0], 1
 ];
 export var GetConformancePackComplianceSummaryResponse$: StaticStructureSchema = [3, n0, _GCPCSRe,
   0,
@@ -1725,7 +1725,7 @@ export var GetDiscoveredResourceCountsResponse$: StaticStructureSchema = [3, n0,
 export var GetOrganizationConfigRuleDetailedStatusRequest$: StaticStructureSchema = [3, n0, _GOCRDSR,
   0,
   [_OCRN, _F, _L, _NT],
-  [0, () => StatusDetailFilters$, 1, 0]
+  [0, () => StatusDetailFilters$, 1, 0], 1
 ];
 export var GetOrganizationConfigRuleDetailedStatusResponse$: StaticStructureSchema = [3, n0, _GOCRDSRe,
   0,
@@ -1735,7 +1735,7 @@ export var GetOrganizationConfigRuleDetailedStatusResponse$: StaticStructureSche
 export var GetOrganizationConformancePackDetailedStatusRequest$: StaticStructureSchema = [3, n0, _GOCPDSR,
   0,
   [_OCPN, _F, _L, _NT],
-  [0, () => OrganizationResourceDetailedStatusFilters$, 1, 0]
+  [0, () => OrganizationResourceDetailedStatusFilters$, 1, 0], 1
 ];
 export var GetOrganizationConformancePackDetailedStatusResponse$: StaticStructureSchema = [3, n0, _GOCPDSRe,
   0,
@@ -1745,7 +1745,7 @@ export var GetOrganizationConformancePackDetailedStatusResponse$: StaticStructur
 export var GetOrganizationCustomRulePolicyRequest$: StaticStructureSchema = [3, n0, _GOCRPR,
   0,
   [_OCRN],
-  [0]
+  [0], 1
 ];
 export var GetOrganizationCustomRulePolicyResponse$: StaticStructureSchema = [3, n0, _GOCRPRe,
   0,
@@ -1755,7 +1755,7 @@ export var GetOrganizationCustomRulePolicyResponse$: StaticStructureSchema = [3,
 export var GetResourceConfigHistoryRequest$: StaticStructureSchema = [3, n0, _GRCHR,
   0,
   [_rT, _rI, _lT, _eT, _cO, _l, _nT],
-  [0, 0, 4, 4, 0, 1, 0]
+  [0, 0, 4, 4, 0, 1, 0], 2
 ];
 export var GetResourceConfigHistoryResponse$: StaticStructureSchema = [3, n0, _GRCHRe,
   0,
@@ -1765,7 +1765,7 @@ export var GetResourceConfigHistoryResponse$: StaticStructureSchema = [3, n0, _G
 export var GetResourceEvaluationSummaryRequest$: StaticStructureSchema = [3, n0, _GRESR,
   0,
   [_REI],
-  [0]
+  [0], 1
 ];
 export var GetResourceEvaluationSummaryResponse$: StaticStructureSchema = [3, n0, _GRESRe,
   0,
@@ -1775,7 +1775,7 @@ export var GetResourceEvaluationSummaryResponse$: StaticStructureSchema = [3, n0
 export var GetStoredQueryRequest$: StaticStructureSchema = [3, n0, _GSQR,
   0,
   [_QN],
-  [0]
+  [0], 1
 ];
 export var GetStoredQueryResponse$: StaticStructureSchema = [3, n0, _GSQRe,
   0,
@@ -1785,7 +1785,7 @@ export var GetStoredQueryResponse$: StaticStructureSchema = [3, n0, _GSQRe,
 export var GroupedResourceCount$: StaticStructureSchema = [3, n0, _GRCr,
   0,
   [_GN, _RCes],
-  [0, 1]
+  [0, 1], 2
 ];
 export var IdempotentParameterMismatch$: StaticErrorSchema = [-3, n0, _IPM,
   { [_e]: _cl, [_hE]: 400 },
@@ -1898,7 +1898,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var ListAggregateDiscoveredResourcesRequest$: StaticStructureSchema = [3, n0, _LADRR,
   0,
   [_CAN, _RT, _F, _L, _NT],
-  [0, 0, () => ResourceFilters$, 1, 0]
+  [0, 0, () => ResourceFilters$, 1, 0], 2
 ];
 export var ListAggregateDiscoveredResourcesResponse$: StaticStructureSchema = [3, n0, _LADRRi,
   0,
@@ -1913,7 +1913,7 @@ export var ListConfigurationRecordersRequest$: StaticStructureSchema = [3, n0, _
 export var ListConfigurationRecordersResponse$: StaticStructureSchema = [3, n0, _LCRRi,
   0,
   [_CRSonfi, _NT],
-  [() => ConfigurationRecorderSummaries, 0]
+  [() => ConfigurationRecorderSummaries, 0], 1
 ];
 export var ListConformancePackComplianceScoresRequest$: StaticStructureSchema = [3, n0, _LCPCSR,
   0,
@@ -1922,13 +1922,13 @@ export var ListConformancePackComplianceScoresRequest$: StaticStructureSchema = 
 ];
 export var ListConformancePackComplianceScoresResponse$: StaticStructureSchema = [3, n0, _LCPCSRi,
   0,
-  [_NT, _CPCSonf],
-  [0, () => ConformancePackComplianceScores]
+  [_CPCSonf, _NT],
+  [() => ConformancePackComplianceScores, 0], 1
 ];
 export var ListDiscoveredResourcesRequest$: StaticStructureSchema = [3, n0, _LDRR,
   0,
   [_rT, _rIe, _rN, _l, _iDR, _nT],
-  [0, 64 | 0, 0, 1, 2, 0]
+  [0, 64 | 0, 0, 1, 2, 0], 1
 ];
 export var ListDiscoveredResourcesResponse$: StaticStructureSchema = [3, n0, _LDRRi,
   0,
@@ -1958,7 +1958,7 @@ export var ListStoredQueriesResponse$: StaticStructureSchema = [3, n0, _LSQRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA, _L, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -2016,7 +2016,7 @@ TypeRegistry.for(n0).registerError(MaxNumberOfRetentionConfigurationsExceededExc
 export var MemberAccountStatus$: StaticStructureSchema = [3, n0, _MAS,
   0,
   [_AIc, _CRN, _MARS, _ECr, _EMr, _LUT],
-  [0, 0, 0, 0, 0, 4]
+  [0, 0, 0, 0, 0, 4], 3
 ];
 export var NoAvailableConfigurationRecorderException$: StaticErrorSchema = [-3, n0, _NACRE,
   { [_e]: _cl },
@@ -2123,7 +2123,7 @@ TypeRegistry.for(n0).registerError(OrganizationAccessDeniedException$, Organizat
 export var OrganizationAggregationSource$: StaticStructureSchema = [3, n0, _OAS,
   0,
   [_RAo, _AR, _AAR],
-  [0, 64 | 0, 2]
+  [0, 64 | 0, 2], 1
 ];
 export var OrganizationAllFeaturesNotEnabledException$: StaticErrorSchema = [-3, n0, _OAFNEE,
   { [_e]: _cl },
@@ -2134,27 +2134,27 @@ TypeRegistry.for(n0).registerError(OrganizationAllFeaturesNotEnabledException$, 
 export var OrganizationConfigRule$: StaticStructureSchema = [3, n0, _OCRr,
   0,
   [_OCRN, _OCRA, _OMRM, _OCRM, _EA, _LUT, _OCPRM],
-  [0, 0, () => OrganizationManagedRuleMetadata$, () => OrganizationCustomRuleMetadata$, 64 | 0, 4, () => OrganizationCustomPolicyRuleMetadataNoPolicy$]
+  [0, 0, () => OrganizationManagedRuleMetadata$, () => OrganizationCustomRuleMetadata$, 64 | 0, 4, () => OrganizationCustomPolicyRuleMetadataNoPolicy$], 2
 ];
 export var OrganizationConfigRuleStatus$: StaticStructureSchema = [3, n0, _OCRSr,
   0,
   [_OCRN, _ORS, _ECr, _EMr, _LUT],
-  [0, 0, 0, 0, 4]
+  [0, 0, 0, 0, 4], 2
 ];
 export var OrganizationConformancePack$: StaticStructureSchema = [3, n0, _OCPr,
   0,
-  [_OCPN, _OCPA, _DSB, _DSKP, _CPIP, _EA, _LUT],
-  [0, 0, 0, 0, () => ConformancePackInputParameters, 64 | 0, 4]
+  [_OCPN, _OCPA, _LUT, _DSB, _DSKP, _CPIP, _EA],
+  [0, 0, 4, 0, 0, () => ConformancePackInputParameters, 64 | 0], 3
 ];
 export var OrganizationConformancePackDetailedStatus$: StaticStructureSchema = [3, n0, _OCPDSr,
   0,
   [_AIc, _CPN, _St, _ECr, _EMr, _LUT],
-  [0, 0, 0, 0, 0, 4]
+  [0, 0, 0, 0, 0, 4], 3
 ];
 export var OrganizationConformancePackStatus$: StaticStructureSchema = [3, n0, _OCPSr,
   0,
   [_OCPN, _St, _ECr, _EMr, _LUT],
-  [0, 0, 0, 0, 4]
+  [0, 0, 0, 0, 4], 2
 ];
 export var OrganizationConformancePackTemplateValidationException$: StaticErrorSchema = [-3, n0, _OCPTVE,
   { [_e]: _cl },
@@ -2164,8 +2164,8 @@ export var OrganizationConformancePackTemplateValidationException$: StaticErrorS
 TypeRegistry.for(n0).registerError(OrganizationConformancePackTemplateValidationException$, OrganizationConformancePackTemplateValidationException);
 export var OrganizationCustomPolicyRuleMetadata$: StaticStructureSchema = [3, n0, _OCPRM,
   0,
-  [_D, _OCRTT, _IP, _MEF, _RTS, _RIS, _TKS, _TVS, _PR, _PT, _DLDA],
-  [0, 64 | 0, 0, 0, 64 | 0, 0, 0, 0, 0, 0, 64 | 0]
+  [_PR, _PT, _D, _OCRTT, _IP, _MEF, _RTS, _RIS, _TKS, _TVS, _DLDA],
+  [0, 0, 0, 64 | 0, 0, 0, 64 | 0, 0, 0, 0, 64 | 0], 2
 ];
 export var OrganizationCustomPolicyRuleMetadataNoPolicy$: StaticStructureSchema = [3, n0, _OCPRMNP,
   0,
@@ -2174,13 +2174,13 @@ export var OrganizationCustomPolicyRuleMetadataNoPolicy$: StaticStructureSchema 
 ];
 export var OrganizationCustomRuleMetadata$: StaticStructureSchema = [3, n0, _OCRM,
   0,
-  [_D, _LFA, _OCRTT, _IP, _MEF, _RTS, _RIS, _TKS, _TVS],
-  [0, 0, 64 | 0, 0, 0, 64 | 0, 0, 0, 0]
+  [_LFA, _OCRTT, _D, _IP, _MEF, _RTS, _RIS, _TKS, _TVS],
+  [0, 64 | 0, 0, 0, 0, 64 | 0, 0, 0, 0], 2
 ];
 export var OrganizationManagedRuleMetadata$: StaticStructureSchema = [3, n0, _OMRM,
   0,
-  [_D, _RIu, _IP, _MEF, _RTS, _RIS, _TKS, _TVS],
-  [0, 0, 0, 0, 64 | 0, 0, 0, 0]
+  [_RIu, _D, _IP, _MEF, _RTS, _RIS, _TKS, _TVS],
+  [0, 0, 0, 0, 64 | 0, 0, 0, 0], 1
 ];
 export var OrganizationResourceDetailedStatusFilters$: StaticStructureSchema = [3, n0, _ORDSF,
   0,
@@ -2201,7 +2201,7 @@ export var PendingAggregationRequest$: StaticStructureSchema = [3, n0, _PARe,
 export var PutAggregationAuthorizationRequest$: StaticStructureSchema = [3, n0, _PAAR,
   0,
   [_AAI, _AARu, _Ta],
-  [0, 0, () => TagsList]
+  [0, 0, () => TagsList], 2
 ];
 export var PutAggregationAuthorizationResponse$: StaticStructureSchema = [3, n0, _PAARu,
   0,
@@ -2211,12 +2211,12 @@ export var PutAggregationAuthorizationResponse$: StaticStructureSchema = [3, n0,
 export var PutConfigRuleRequest$: StaticStructureSchema = [3, n0, _PCRR,
   0,
   [_CRo, _Ta],
-  [() => ConfigRule$, () => TagsList]
+  [() => ConfigRule$, () => TagsList], 1
 ];
 export var PutConfigurationAggregatorRequest$: StaticStructureSchema = [3, n0, _PCAR,
   0,
   [_CAN, _AASc, _OAS, _Ta, _AF],
-  [0, () => AccountAggregationSourceList, () => OrganizationAggregationSource$, () => TagsList, () => AggregatorFilters$]
+  [0, () => AccountAggregationSourceList, () => OrganizationAggregationSource$, () => TagsList, () => AggregatorFilters$], 1
 ];
 export var PutConfigurationAggregatorResponse$: StaticStructureSchema = [3, n0, _PCARu,
   0,
@@ -2226,12 +2226,12 @@ export var PutConfigurationAggregatorResponse$: StaticStructureSchema = [3, n0, 
 export var PutConfigurationRecorderRequest$: StaticStructureSchema = [3, n0, _PCRRu,
   0,
   [_CR, _Ta],
-  [() => ConfigurationRecorder$, () => TagsList]
+  [() => ConfigurationRecorder$, () => TagsList], 1
 ];
 export var PutConformancePackRequest$: StaticStructureSchema = [3, n0, _PCPR,
   0,
   [_CPN, _TSU, _TB, _DSB, _DSKP, _CPIP, _TSSMDD],
-  [0, 0, 0, 0, 0, () => ConformancePackInputParameters, () => TemplateSSMDocumentDetails$]
+  [0, 0, 0, 0, 0, () => ConformancePackInputParameters, () => TemplateSSMDocumentDetails$], 1
 ];
 export var PutConformancePackResponse$: StaticStructureSchema = [3, n0, _PCPRu,
   0,
@@ -2241,12 +2241,12 @@ export var PutConformancePackResponse$: StaticStructureSchema = [3, n0, _PCPRu,
 export var PutDeliveryChannelRequest$: StaticStructureSchema = [3, n0, _PDCR,
   0,
   [_DC],
-  [() => DeliveryChannel$]
+  [() => DeliveryChannel$], 1
 ];
 export var PutEvaluationsRequest$: StaticStructureSchema = [3, n0, _PER,
   0,
-  [_Ev, _RTes, _TM],
-  [() => Evaluations, 0, 2]
+  [_RTes, _Ev, _TM],
+  [0, () => Evaluations, 2], 1
 ];
 export var PutEvaluationsResponse$: StaticStructureSchema = [3, n0, _PERu,
   0,
@@ -2256,7 +2256,7 @@ export var PutEvaluationsResponse$: StaticStructureSchema = [3, n0, _PERu,
 export var PutExternalEvaluationRequest$: StaticStructureSchema = [3, n0, _PEER,
   0,
   [_CRN, _EE],
-  [0, () => ExternalEvaluation$]
+  [0, () => ExternalEvaluation$], 2
 ];
 export var PutExternalEvaluationResponse$: StaticStructureSchema = [3, n0, _PEERu,
   0,
@@ -2266,7 +2266,7 @@ export var PutExternalEvaluationResponse$: StaticStructureSchema = [3, n0, _PEER
 export var PutOrganizationConfigRuleRequest$: StaticStructureSchema = [3, n0, _POCRR,
   0,
   [_OCRN, _OMRM, _OCRM, _EA, _OCPRM],
-  [0, () => OrganizationManagedRuleMetadata$, () => OrganizationCustomRuleMetadata$, 64 | 0, () => OrganizationCustomPolicyRuleMetadata$]
+  [0, () => OrganizationManagedRuleMetadata$, () => OrganizationCustomRuleMetadata$, 64 | 0, () => OrganizationCustomPolicyRuleMetadata$], 1
 ];
 export var PutOrganizationConfigRuleResponse$: StaticStructureSchema = [3, n0, _POCRRu,
   0,
@@ -2276,7 +2276,7 @@ export var PutOrganizationConfigRuleResponse$: StaticStructureSchema = [3, n0, _
 export var PutOrganizationConformancePackRequest$: StaticStructureSchema = [3, n0, _POCPR,
   0,
   [_OCPN, _TSU, _TB, _DSB, _DSKP, _CPIP, _EA],
-  [0, 0, 0, 0, 0, () => ConformancePackInputParameters, 64 | 0]
+  [0, 0, 0, 0, 0, () => ConformancePackInputParameters, 64 | 0], 1
 ];
 export var PutOrganizationConformancePackResponse$: StaticStructureSchema = [3, n0, _POCPRu,
   0,
@@ -2286,7 +2286,7 @@ export var PutOrganizationConformancePackResponse$: StaticStructureSchema = [3, 
 export var PutRemediationConfigurationsRequest$: StaticStructureSchema = [3, n0, _PRCR,
   0,
   [_RC],
-  [() => RemediationConfigurations]
+  [() => RemediationConfigurations], 1
 ];
 export var PutRemediationConfigurationsResponse$: StaticStructureSchema = [3, n0, _PRCRu,
   0,
@@ -2296,7 +2296,7 @@ export var PutRemediationConfigurationsResponse$: StaticStructureSchema = [3, n0
 export var PutRemediationExceptionsRequest$: StaticStructureSchema = [3, n0, _PRER,
   0,
   [_CRN, _RK, _Me, _ET],
-  [0, () => RemediationExceptionResourceKeys, 0, 4]
+  [0, () => RemediationExceptionResourceKeys, 0, 4], 2
 ];
 export var PutRemediationExceptionsResponse$: StaticStructureSchema = [3, n0, _PRERu,
   0,
@@ -2305,13 +2305,13 @@ export var PutRemediationExceptionsResponse$: StaticStructureSchema = [3, n0, _P
 ];
 export var PutResourceConfigRequest$: StaticStructureSchema = [3, n0, _PRCRut,
   0,
-  [_RT, _SVI, _RI, _RN, _Con, _Ta],
-  [0, 0, 0, 0, 0, 128 | 0]
+  [_RT, _SVI, _RI, _Con, _RN, _Ta],
+  [0, 0, 0, 0, 0, 128 | 0], 4
 ];
 export var PutRetentionConfigurationRequest$: StaticStructureSchema = [3, n0, _PRCRute,
   0,
   [_RPID],
-  [1]
+  [1], 1
 ];
 export var PutRetentionConfigurationResponse$: StaticStructureSchema = [3, n0, _PRCRutet,
   0,
@@ -2321,7 +2321,7 @@ export var PutRetentionConfigurationResponse$: StaticStructureSchema = [3, n0, _
 export var PutServiceLinkedConfigurationRecorderRequest$: StaticStructureSchema = [3, n0, _PSLCRR,
   0,
   [_SP, _Ta],
-  [0, () => TagsList]
+  [0, () => TagsList], 1
 ];
 export var PutServiceLinkedConfigurationRecorderResponse$: StaticStructureSchema = [3, n0, _PSLCRRu,
   0,
@@ -2331,7 +2331,7 @@ export var PutServiceLinkedConfigurationRecorderResponse$: StaticStructureSchema
 export var PutStoredQueryRequest$: StaticStructureSchema = [3, n0, _PSQR,
   0,
   [_SQ, _Ta],
-  [() => StoredQuery$, () => TagsList]
+  [() => StoredQuery$, () => TagsList], 1
 ];
 export var PutStoredQueryResponse$: StaticStructureSchema = [3, n0, _PSQRu,
   0,
@@ -2351,12 +2351,12 @@ export var RecordingGroup$: StaticStructureSchema = [3, n0, _RG,
 export var RecordingMode$: StaticStructureSchema = [3, n0, _RM,
   0,
   [_rF, _rMO],
-  [0, () => RecordingModeOverrides]
+  [0, () => RecordingModeOverrides], 1
 ];
 export var RecordingModeOverride$: StaticStructureSchema = [3, n0, _RMO,
   0,
-  [_d, _rTe, _rF],
-  [0, 64 | 0, 0]
+  [_rTe, _rF, _d],
+  [64 | 0, 0, 0], 2
 ];
 export var RecordingStrategy$: StaticStructureSchema = [3, n0, _RS,
   0,
@@ -2371,12 +2371,12 @@ export var Relationship$: StaticStructureSchema = [3, n0, _R,
 export var RemediationConfiguration$: StaticStructureSchema = [3, n0, _RCem,
   0,
   [_CRN, _TT, _TI, _TV, _P, _RT, _Au, _ECx, _MAA, _RAS, _Ar, _CBS],
-  [0, 0, 0, 0, () => RemediationParameters, 0, 2, () => ExecutionControls$, 1, 1, 0, 0]
+  [0, 0, 0, 0, () => RemediationParameters, 0, 2, () => ExecutionControls$, 1, 1, 0, 0], 3
 ];
 export var RemediationException$: StaticStructureSchema = [3, n0, _REem,
   0,
   [_CRN, _RT, _RI, _Me, _ET],
-  [0, 0, 0, 0, 4]
+  [0, 0, 0, 0, 4], 3
 ];
 export var RemediationExceptionResourceKey$: StaticStructureSchema = [3, n0, _RERK,
   0,
@@ -2423,7 +2423,7 @@ export var ResourceCountFilters$: StaticStructureSchema = [3, n0, _RCF,
 export var ResourceDetails$: StaticStructureSchema = [3, n0, _RD,
   0,
   [_RI, _RT, _RCeso, _RCST],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var ResourceEvaluation$: StaticStructureSchema = [3, n0, _REes,
   0,
@@ -2454,7 +2454,7 @@ TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseExcepti
 export var ResourceKey$: StaticStructureSchema = [3, n0, _RKe,
   0,
   [_rT, _rI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ResourceNotDiscoveredException$: StaticErrorSchema = [-3, n0, _RNDE,
   { [_e]: _cl },
@@ -2471,14 +2471,14 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var ResourceValue$: StaticStructureSchema = [3, n0, _RV,
   0,
   [_V],
-  [0]
+  [0], 1
 ];
 export var RetentionConfiguration$: StaticStructureSchema = [3, n0, _RCet,
   0,
   [_N, _RPID],
-  [0, 1]
+  [0, 1], 2
 ];
-export var Scope$: StaticStructureSchema = [3, n0, _S,
+export var Scope$: StaticStructureSchema = [3, n0, _Sc,
   0,
   [_CRTo, _TK, _TVa, _CRIo],
   [64 | 0, 0, 0, 0]
@@ -2486,7 +2486,7 @@ export var Scope$: StaticStructureSchema = [3, n0, _S,
 export var SelectAggregateResourceConfigRequest$: StaticStructureSchema = [3, n0, _SARCR,
   0,
   [_Ex, _CAN, _L, _MR, _NT],
-  [0, 0, 1, 1, 0]
+  [0, 0, 1, 1, 0], 2
 ];
 export var SelectAggregateResourceConfigResponse$: StaticStructureSchema = [3, n0, _SARCRe,
   0,
@@ -2496,17 +2496,17 @@ export var SelectAggregateResourceConfigResponse$: StaticStructureSchema = [3, n
 export var SelectResourceConfigRequest$: StaticStructureSchema = [3, n0, _SRCR,
   0,
   [_Ex, _L, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var SelectResourceConfigResponse$: StaticStructureSchema = [3, n0, _SRCRe,
   0,
   [_Res, _QI, _NT],
   [64 | 0, () => QueryInfo$, 0]
 ];
-export var Source$: StaticStructureSchema = [3, n0, _So,
+export var Source$: StaticStructureSchema = [3, n0, _S,
   0,
   [_O, _SIo, _SDo, _CPDu],
-  [0, 0, () => SourceDetails, () => CustomPolicyDetails$]
+  [0, 0, () => SourceDetails, () => CustomPolicyDetails$], 1
 ];
 export var SourceDetail$: StaticStructureSchema = [3, n0, _SDou,
   0,
@@ -2531,12 +2531,12 @@ export var StartConfigRulesEvaluationResponse$: StaticStructureSchema = [3, n0, 
 export var StartConfigurationRecorderRequest$: StaticStructureSchema = [3, n0, _SCRR,
   0,
   [_CRNon],
-  [0]
+  [0], 1
 ];
 export var StartRemediationExecutionRequest$: StaticStructureSchema = [3, n0, _SRER,
   0,
   [_CRN, _RK],
-  [0, () => ResourceKeys]
+  [0, () => ResourceKeys], 2
 ];
 export var StartRemediationExecutionResponse$: StaticStructureSchema = [3, n0, _SRERt,
   0,
@@ -2545,8 +2545,8 @@ export var StartRemediationExecutionResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var StartResourceEvaluationRequest$: StaticStructureSchema = [3, n0, _SRERta,
   0,
-  [_RD, _EC, _EMv, _ETv, _CTl],
-  [() => ResourceDetails$, () => EvaluationContext$, 0, 1, 0]
+  [_RD, _EMv, _EC, _ETv, _CTl],
+  [() => ResourceDetails$, 0, () => EvaluationContext$, 1, 0], 2
 ];
 export var StartResourceEvaluationResponse$: StaticStructureSchema = [3, n0, _SRERtar,
   0,
@@ -2556,7 +2556,7 @@ export var StartResourceEvaluationResponse$: StaticStructureSchema = [3, n0, _SR
 export var StaticValue$: StaticStructureSchema = [3, n0, _SV,
   0,
   [_Va],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var StatusDetailFilters$: StaticStructureSchema = [3, n0, _SDF,
   0,
@@ -2566,17 +2566,17 @@ export var StatusDetailFilters$: StaticStructureSchema = [3, n0, _SDF,
 export var StopConfigurationRecorderRequest$: StaticStructureSchema = [3, n0, _SCRRt,
   0,
   [_CRNon],
-  [0]
+  [0], 1
 ];
 export var StoredQuery$: StaticStructureSchema = [3, n0, _SQ,
   0,
-  [_QIu, _QA, _QN, _D, _Ex],
-  [0, 0, 0, 0, 0]
+  [_QN, _QIu, _QA, _D, _Ex],
+  [0, 0, 0, 0, 0], 1
 ];
 export var StoredQueryMetadata$: StaticStructureSchema = [3, n0, _SQM,
   0,
   [_QIu, _QA, _QN, _D],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
@@ -2586,12 +2586,12 @@ export var Tag$: StaticStructureSchema = [3, n0, _Tag,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TemplateSSMDocumentDetails$: StaticStructureSchema = [3, n0, _TSSMDD,
   0,
   [_DN, _DV],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TimeWindow$: StaticStructureSchema = [3, n0, _TW,
   0,
@@ -2613,7 +2613,7 @@ TypeRegistry.for(n0).registerError(UnmodifiableEntityException$, UnmodifiableEnt
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TKa],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _cl },

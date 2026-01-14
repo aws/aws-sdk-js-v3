@@ -912,7 +912,7 @@ export var ApplicationConfig$: StaticStructureSchema = [3, n0, _AC,
 export var AssociateAwsAccountWithPartnerAccountRequest$: StaticStructureSchema = [3, n0, _AAAWPAR,
   0,
   [_S, _CRT, _Ta],
-  [[() => SidewalkAccountInfo$, 0], [0, 4], () => TagList]
+  [[() => SidewalkAccountInfo$, 0], [0, 4], () => TagList], 1
 ];
 export var AssociateAwsAccountWithPartnerAccountResponse$: StaticStructureSchema = [3, n0, _AAAWPARs,
   0,
@@ -922,7 +922,7 @@ export var AssociateAwsAccountWithPartnerAccountResponse$: StaticStructureSchema
 export var AssociateMulticastGroupWithFuotaTaskRequest$: StaticStructureSchema = [3, n0, _AMGWFTR,
   0,
   [_I, _MGI],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var AssociateMulticastGroupWithFuotaTaskResponse$: StaticStructureSchema = [3, n0, _AMGWFTRs,
   0,
@@ -932,7 +932,7 @@ export var AssociateMulticastGroupWithFuotaTaskResponse$: StaticStructureSchema 
 export var AssociateWirelessDeviceWithFuotaTaskRequest$: StaticStructureSchema = [3, n0, _AWDWFTR,
   0,
   [_I, _WDI],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var AssociateWirelessDeviceWithFuotaTaskResponse$: StaticStructureSchema = [3, n0, _AWDWFTRs,
   0,
@@ -942,7 +942,7 @@ export var AssociateWirelessDeviceWithFuotaTaskResponse$: StaticStructureSchema 
 export var AssociateWirelessDeviceWithMulticastGroupRequest$: StaticStructureSchema = [3, n0, _AWDWMGR,
   0,
   [_I, _WDI],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var AssociateWirelessDeviceWithMulticastGroupResponse$: StaticStructureSchema = [3, n0, _AWDWMGRs,
   0,
@@ -952,7 +952,7 @@ export var AssociateWirelessDeviceWithMulticastGroupResponse$: StaticStructureSc
 export var AssociateWirelessDeviceWithThingRequest$: StaticStructureSchema = [3, n0, _AWDWTR,
   0,
   [_I, _TA],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var AssociateWirelessDeviceWithThingResponse$: StaticStructureSchema = [3, n0, _AWDWTRs,
   0,
@@ -962,7 +962,7 @@ export var AssociateWirelessDeviceWithThingResponse$: StaticStructureSchema = [3
 export var AssociateWirelessGatewayWithCertificateRequest$: StaticStructureSchema = [3, n0, _AWGWCR,
   0,
   [_I, _ICI],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var AssociateWirelessGatewayWithCertificateResponse$: StaticStructureSchema = [3, n0, _AWGWCRs,
   0,
@@ -972,7 +972,7 @@ export var AssociateWirelessGatewayWithCertificateResponse$: StaticStructureSche
 export var AssociateWirelessGatewayWithThingRequest$: StaticStructureSchema = [3, n0, _AWGWTR,
   0,
   [_I, _TA],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var AssociateWirelessGatewayWithThingResponse$: StaticStructureSchema = [3, n0, _AWGWTRs,
   0,
@@ -987,7 +987,7 @@ export var Beaconing$: StaticStructureSchema = [3, n0, _B,
 export var CancelMulticastGroupSessionRequest$: StaticStructureSchema = [3, n0, _CMGSR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var CancelMulticastGroupSessionResponse$: StaticStructureSchema = [3, n0, _CMGSRa,
   0,
@@ -997,17 +997,17 @@ export var CancelMulticastGroupSessionResponse$: StaticStructureSchema = [3, n0,
 export var CdmaLocalId$: StaticStructureSchema = [3, n0, _CLI,
   0,
   [_PO, _CC],
-  [1, 1]
+  [1, 1], 2
 ];
 export var CdmaNmrObj$: StaticStructureSchema = [3, n0, _CNO,
   0,
   [_PO, _CC, _PP, _BSI],
-  [1, 1, 1, 1]
+  [1, 1, 1, 1], 2
 ];
 export var CdmaObj$: StaticStructureSchema = [3, n0, _CO,
   0,
   [_SI, _NI, _BSI, _RZ, _CLI, _PP, _BL, _BLa, _CN],
-  [1, 1, 1, 1, () => CdmaLocalId$, 1, 1, 1, () => CdmaNmrList]
+  [1, 1, 1, 1, () => CdmaLocalId$, 1, 1, 1, () => CdmaNmrList], 3
 ];
 export var CellTowers$: StaticStructureSchema = [3, n0, _CT,
   0,
@@ -1017,7 +1017,7 @@ export var CellTowers$: StaticStructureSchema = [3, n0, _CT,
 export var CertificateList$: StaticStructureSchema = [3, n0, _CL,
   0,
   [_SA, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -1037,8 +1037,8 @@ export var ConnectionStatusResourceTypeEventConfiguration$: StaticStructureSchem
 ];
 export var CreateDestinationRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
-  [_N, _ET, _E, _D, _RA, _Ta, _CRT],
-  [0, 0, 0, 0, 0, () => TagList, [0, 4]]
+  [_N, _ET, _E, _RA, _D, _Ta, _CRT],
+  [0, 0, 0, 0, 0, () => TagList, [0, 4]], 4
 ];
 export var CreateDestinationResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -1057,8 +1057,8 @@ export var CreateDeviceProfileResponse$: StaticStructureSchema = [3, n0, _CDPRr,
 ];
 export var CreateFuotaTaskRequest$: StaticStructureSchema = [3, n0, _CFTR,
   0,
-  [_N, _D, _CRT, _LRWAN, _FUI, _FUR, _Ta, _RP, _FSB, _FIMS, _De],
-  [0, 0, [0, 4], () => LoRaWANFuotaTask$, 0, 0, () => TagList, 1, 1, 1, 0]
+  [_FUI, _FUR, _N, _D, _CRT, _LRWAN, _Ta, _RP, _FSB, _FIMS, _De],
+  [0, 0, 0, 0, [0, 4], () => LoRaWANFuotaTask$, () => TagList, 1, 1, 1, 0], 2
 ];
 export var CreateFuotaTaskResponse$: StaticStructureSchema = [3, n0, _CFTRr,
   0,
@@ -1067,8 +1067,8 @@ export var CreateFuotaTaskResponse$: StaticStructureSchema = [3, n0, _CFTRr,
 ];
 export var CreateMulticastGroupRequest$: StaticStructureSchema = [3, n0, _CMGR,
   0,
-  [_N, _D, _CRT, _LRWAN, _Ta],
-  [0, 0, [0, 4], () => LoRaWANMulticast$, () => TagList]
+  [_LRWAN, _N, _D, _CRT, _Ta],
+  [() => LoRaWANMulticast$, 0, 0, [0, 4], () => TagList], 1
 ];
 export var CreateMulticastGroupResponse$: StaticStructureSchema = [3, n0, _CMGRr,
   0,
@@ -1078,7 +1078,7 @@ export var CreateMulticastGroupResponse$: StaticStructureSchema = [3, n0, _CMGRr
 export var CreateNetworkAnalyzerConfigurationRequest$: StaticStructureSchema = [3, n0, _CNACR,
   0,
   [_N, _TC, _WD, _WG, _D, _Ta, _CRT, _MG],
-  [0, () => TraceContent$, 64 | 0, 64 | 0, 0, () => TagList, [0, 4], 64 | 0]
+  [0, () => TraceContent$, 64 | 0, 64 | 0, 0, () => TagList, [0, 4], 64 | 0], 1
 ];
 export var CreateNetworkAnalyzerConfigurationResponse$: StaticStructureSchema = [3, n0, _CNACRr,
   0,
@@ -1097,8 +1097,8 @@ export var CreateServiceProfileResponse$: StaticStructureSchema = [3, n0, _CSPRr
 ];
 export var CreateWirelessDeviceRequest$: StaticStructureSchema = [3, n0, _CWDR,
   0,
-  [_T, _N, _D, _DN, _CRT, _LRWAN, _Ta, _P, _S],
-  [0, 0, 0, 0, [0, 4], () => LoRaWANDevice$, () => TagList, 0, () => SidewalkCreateWirelessDevice$]
+  [_T, _DN, _N, _D, _CRT, _LRWAN, _Ta, _P, _S],
+  [0, 0, 0, 0, [0, 4], () => LoRaWANDevice$, () => TagList, 0, () => SidewalkCreateWirelessDevice$], 2
 ];
 export var CreateWirelessDeviceResponse$: StaticStructureSchema = [3, n0, _CWDRr,
   0,
@@ -1107,8 +1107,8 @@ export var CreateWirelessDeviceResponse$: StaticStructureSchema = [3, n0, _CWDRr
 ];
 export var CreateWirelessGatewayRequest$: StaticStructureSchema = [3, n0, _CWGR,
   0,
-  [_N, _D, _LRWAN, _Ta, _CRT],
-  [0, 0, () => LoRaWANGateway$, () => TagList, [0, 4]]
+  [_LRWAN, _N, _D, _Ta, _CRT],
+  [() => LoRaWANGateway$, 0, 0, () => TagList, [0, 4]], 1
 ];
 export var CreateWirelessGatewayResponse$: StaticStructureSchema = [3, n0, _CWGRr,
   0,
@@ -1118,7 +1118,7 @@ export var CreateWirelessGatewayResponse$: StaticStructureSchema = [3, n0, _CWGR
 export var CreateWirelessGatewayTaskDefinitionRequest$: StaticStructureSchema = [3, n0, _CWGTDR,
   0,
   [_ACT, _N, _U, _CRT, _Ta],
-  [2, 0, () => UpdateWirelessGatewayTaskCreate$, [0, 4], () => TagList]
+  [2, 0, () => UpdateWirelessGatewayTaskCreate$, [0, 4], () => TagList], 1
 ];
 export var CreateWirelessGatewayTaskDefinitionResponse$: StaticStructureSchema = [3, n0, _CWGTDRr,
   0,
@@ -1128,7 +1128,7 @@ export var CreateWirelessGatewayTaskDefinitionResponse$: StaticStructureSchema =
 export var CreateWirelessGatewayTaskRequest$: StaticStructureSchema = [3, n0, _CWGTR,
   0,
   [_I, _WGTDI],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var CreateWirelessGatewayTaskResponse$: StaticStructureSchema = [3, n0, _CWGTRr,
   0,
@@ -1138,12 +1138,12 @@ export var CreateWirelessGatewayTaskResponse$: StaticStructureSchema = [3, n0, _
 export var DakCertificateMetadata$: StaticStructureSchema = [3, n0, _DCM,
   0,
   [_CI, _MAS, _FS, _AI, _DTI],
-  [0, 1, 2, 0, 0]
+  [0, 1, 2, 0, 0], 1
 ];
 export var DeleteDestinationRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteDestinationResponse$: StaticStructureSchema = [3, n0, _DDRe,
   0,
@@ -1153,7 +1153,7 @@ export var DeleteDestinationResponse$: StaticStructureSchema = [3, n0, _DDRe,
 export var DeleteDeviceProfileRequest$: StaticStructureSchema = [3, n0, _DDPR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteDeviceProfileResponse$: StaticStructureSchema = [3, n0, _DDPRe,
   0,
@@ -1163,7 +1163,7 @@ export var DeleteDeviceProfileResponse$: StaticStructureSchema = [3, n0, _DDPRe,
 export var DeleteFuotaTaskRequest$: StaticStructureSchema = [3, n0, _DFTR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteFuotaTaskResponse$: StaticStructureSchema = [3, n0, _DFTRe,
   0,
@@ -1173,7 +1173,7 @@ export var DeleteFuotaTaskResponse$: StaticStructureSchema = [3, n0, _DFTRe,
 export var DeleteMulticastGroupRequest$: StaticStructureSchema = [3, n0, _DMGR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteMulticastGroupResponse$: StaticStructureSchema = [3, n0, _DMGRe,
   0,
@@ -1183,7 +1183,7 @@ export var DeleteMulticastGroupResponse$: StaticStructureSchema = [3, n0, _DMGRe
 export var DeleteNetworkAnalyzerConfigurationRequest$: StaticStructureSchema = [3, n0, _DNACR,
   0,
   [_CNo],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteNetworkAnalyzerConfigurationResponse$: StaticStructureSchema = [3, n0, _DNACRe,
   0,
@@ -1193,7 +1193,7 @@ export var DeleteNetworkAnalyzerConfigurationResponse$: StaticStructureSchema = 
 export var DeleteQueuedMessagesRequest$: StaticStructureSchema = [3, n0, _DQMR,
   0,
   [_I, _MI, _WDT],
-  [[0, 1], [0, { [_hQ]: _mI }], [0, { [_hQ]: _WDT }]]
+  [[0, 1], [0, { [_hQ]: _mI }], [0, { [_hQ]: _WDT }]], 2
 ];
 export var DeleteQueuedMessagesResponse$: StaticStructureSchema = [3, n0, _DQMRe,
   0,
@@ -1203,7 +1203,7 @@ export var DeleteQueuedMessagesResponse$: StaticStructureSchema = [3, n0, _DQMRe
 export var DeleteServiceProfileRequest$: StaticStructureSchema = [3, n0, _DSPR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteServiceProfileResponse$: StaticStructureSchema = [3, n0, _DSPRe,
   0,
@@ -1213,7 +1213,7 @@ export var DeleteServiceProfileResponse$: StaticStructureSchema = [3, n0, _DSPRe
 export var DeleteWirelessDeviceImportTaskRequest$: StaticStructureSchema = [3, n0, _DWDITR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteWirelessDeviceImportTaskResponse$: StaticStructureSchema = [3, n0, _DWDITRe,
   0,
@@ -1223,7 +1223,7 @@ export var DeleteWirelessDeviceImportTaskResponse$: StaticStructureSchema = [3, 
 export var DeleteWirelessDeviceRequest$: StaticStructureSchema = [3, n0, _DWDR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteWirelessDeviceResponse$: StaticStructureSchema = [3, n0, _DWDRe,
   0,
@@ -1233,7 +1233,7 @@ export var DeleteWirelessDeviceResponse$: StaticStructureSchema = [3, n0, _DWDRe
 export var DeleteWirelessGatewayRequest$: StaticStructureSchema = [3, n0, _DWGR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteWirelessGatewayResponse$: StaticStructureSchema = [3, n0, _DWGRe,
   0,
@@ -1243,7 +1243,7 @@ export var DeleteWirelessGatewayResponse$: StaticStructureSchema = [3, n0, _DWGR
 export var DeleteWirelessGatewayTaskDefinitionRequest$: StaticStructureSchema = [3, n0, _DWGTDR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteWirelessGatewayTaskDefinitionResponse$: StaticStructureSchema = [3, n0, _DWGTDRe,
   0,
@@ -1253,7 +1253,7 @@ export var DeleteWirelessGatewayTaskDefinitionResponse$: StaticStructureSchema =
 export var DeleteWirelessGatewayTaskRequest$: StaticStructureSchema = [3, n0, _DWGTR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteWirelessGatewayTaskResponse$: StaticStructureSchema = [3, n0, _DWGTRe,
   0,
@@ -1263,7 +1263,7 @@ export var DeleteWirelessGatewayTaskResponse$: StaticStructureSchema = [3, n0, _
 export var DeregisterWirelessDeviceRequest$: StaticStructureSchema = [3, n0, _DWDRer,
   0,
   [_Id, _WDT],
-  [[0, 1], [0, { [_hQ]: _WDT }]]
+  [[0, 1], [0, { [_hQ]: _WDT }]], 1
 ];
 export var DeregisterWirelessDeviceResponse$: StaticStructureSchema = [3, n0, _DWDRere,
   0,
@@ -1298,7 +1298,7 @@ export var Dimension$: StaticStructureSchema = [3, n0, _Di,
 export var DisassociateAwsAccountFromPartnerAccountRequest$: StaticStructureSchema = [3, n0, _DAAFPAR,
   0,
   [_PAI, _PT],
-  [[0, 1], [0, { [_hQ]: _pT }]]
+  [[0, 1], [0, { [_hQ]: _pT }]], 2
 ];
 export var DisassociateAwsAccountFromPartnerAccountResponse$: StaticStructureSchema = [3, n0, _DAAFPARi,
   0,
@@ -1308,7 +1308,7 @@ export var DisassociateAwsAccountFromPartnerAccountResponse$: StaticStructureSch
 export var DisassociateMulticastGroupFromFuotaTaskRequest$: StaticStructureSchema = [3, n0, _DMGFFTR,
   0,
   [_I, _MGI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DisassociateMulticastGroupFromFuotaTaskResponse$: StaticStructureSchema = [3, n0, _DMGFFTRi,
   0,
@@ -1318,7 +1318,7 @@ export var DisassociateMulticastGroupFromFuotaTaskResponse$: StaticStructureSche
 export var DisassociateWirelessDeviceFromFuotaTaskRequest$: StaticStructureSchema = [3, n0, _DWDFFTR,
   0,
   [_I, _WDI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DisassociateWirelessDeviceFromFuotaTaskResponse$: StaticStructureSchema = [3, n0, _DWDFFTRi,
   0,
@@ -1328,7 +1328,7 @@ export var DisassociateWirelessDeviceFromFuotaTaskResponse$: StaticStructureSche
 export var DisassociateWirelessDeviceFromMulticastGroupRequest$: StaticStructureSchema = [3, n0, _DWDFMGR,
   0,
   [_I, _WDI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DisassociateWirelessDeviceFromMulticastGroupResponse$: StaticStructureSchema = [3, n0, _DWDFMGRi,
   0,
@@ -1338,7 +1338,7 @@ export var DisassociateWirelessDeviceFromMulticastGroupResponse$: StaticStructur
 export var DisassociateWirelessDeviceFromThingRequest$: StaticStructureSchema = [3, n0, _DWDFTR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DisassociateWirelessDeviceFromThingResponse$: StaticStructureSchema = [3, n0, _DWDFTRi,
   0,
@@ -1348,7 +1348,7 @@ export var DisassociateWirelessDeviceFromThingResponse$: StaticStructureSchema =
 export var DisassociateWirelessGatewayFromCertificateRequest$: StaticStructureSchema = [3, n0, _DWGFCR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DisassociateWirelessGatewayFromCertificateResponse$: StaticStructureSchema = [3, n0, _DWGFCRi,
   0,
@@ -1358,7 +1358,7 @@ export var DisassociateWirelessGatewayFromCertificateResponse$: StaticStructureS
 export var DisassociateWirelessGatewayFromThingRequest$: StaticStructureSchema = [3, n0, _DWGFTR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DisassociateWirelessGatewayFromThingResponse$: StaticStructureSchema = [3, n0, _DWGFTRi,
   0,
@@ -1393,22 +1393,22 @@ export var FuotaTask$: StaticStructureSchema = [3, n0, _FT,
 export var FuotaTaskEventLogOption$: StaticStructureSchema = [3, n0, _FTELO,
   0,
   [_Eve, _LL],
-  [0, 0]
+  [0, 0], 2
 ];
 export var FuotaTaskLogOption$: StaticStructureSchema = [3, n0, _FTLO,
   0,
   [_T, _LL, _Ev],
-  [0, 0, () => FuotaTaskEventLogOptionList]
+  [0, 0, () => FuotaTaskEventLogOptionList], 2
 ];
 export var GatewayListItem$: StaticStructureSchema = [3, n0, _GLI,
   0,
   [_GI, _DF],
-  [0, 1]
+  [0, 1], 2
 ];
 export var GetDestinationRequest$: StaticStructureSchema = [3, n0, _GDR,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDestinationResponse$: StaticStructureSchema = [3, n0, _GDRe,
   0,
@@ -1418,7 +1418,7 @@ export var GetDestinationResponse$: StaticStructureSchema = [3, n0, _GDRe,
 export var GetDeviceProfileRequest$: StaticStructureSchema = [3, n0, _GDPR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDeviceProfileResponse$: StaticStructureSchema = [3, n0, _GDPRe,
   0,
@@ -1438,7 +1438,7 @@ export var GetEventConfigurationByResourceTypesResponse$: StaticStructureSchema 
 export var GetFuotaTaskRequest$: StaticStructureSchema = [3, n0, _GFTR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetFuotaTaskResponse$: StaticStructureSchema = [3, n0, _GFTRe,
   0,
@@ -1478,7 +1478,7 @@ export var GetMetricsResponse$: StaticStructureSchema = [3, n0, _GMRe,
 export var GetMulticastGroupRequest$: StaticStructureSchema = [3, n0, _GMGR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetMulticastGroupResponse$: StaticStructureSchema = [3, n0, _GMGRe,
   0,
@@ -1488,7 +1488,7 @@ export var GetMulticastGroupResponse$: StaticStructureSchema = [3, n0, _GMGRe,
 export var GetMulticastGroupSessionRequest$: StaticStructureSchema = [3, n0, _GMGSR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetMulticastGroupSessionResponse$: StaticStructureSchema = [3, n0, _GMGSRe,
   0,
@@ -1498,7 +1498,7 @@ export var GetMulticastGroupSessionResponse$: StaticStructureSchema = [3, n0, _G
 export var GetNetworkAnalyzerConfigurationRequest$: StaticStructureSchema = [3, n0, _GNACR,
   0,
   [_CNo],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetNetworkAnalyzerConfigurationResponse$: StaticStructureSchema = [3, n0, _GNACRe,
   0,
@@ -1508,7 +1508,7 @@ export var GetNetworkAnalyzerConfigurationResponse$: StaticStructureSchema = [3,
 export var GetPartnerAccountRequest$: StaticStructureSchema = [3, n0, _GPAR,
   0,
   [_PAI, _PT],
-  [[0, 1], [0, { [_hQ]: _pT }]]
+  [[0, 1], [0, { [_hQ]: _pT }]], 2
 ];
 export var GetPartnerAccountResponse$: StaticStructureSchema = [3, n0, _GPARe,
   0,
@@ -1518,7 +1518,7 @@ export var GetPartnerAccountResponse$: StaticStructureSchema = [3, n0, _GPARe,
 export var GetPositionConfigurationRequest$: StaticStructureSchema = [3, n0, _GPCR,
   0,
   [_RIe, _RT],
-  [[0, 1], [0, { [_hQ]: _rT }]]
+  [[0, 1], [0, { [_hQ]: _rT }]], 2
 ];
 export var GetPositionConfigurationResponse$: StaticStructureSchema = [3, n0, _GPCRe,
   0,
@@ -1538,7 +1538,7 @@ export var GetPositionEstimateResponse$: StaticStructureSchema = [3, n0, _GPERe,
 export var GetPositionRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
   [_RIe, _RT],
-  [[0, 1], [0, { [_hQ]: _rT }]]
+  [[0, 1], [0, { [_hQ]: _rT }]], 2
 ];
 export var GetPositionResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
@@ -1548,7 +1548,7 @@ export var GetPositionResponse$: StaticStructureSchema = [3, n0, _GPRe,
 export var GetResourceEventConfigurationRequest$: StaticStructureSchema = [3, n0, _GRECR,
   0,
   [_Id, _IT, _PT],
-  [[0, 1], [0, { [_hQ]: _iT }], [0, { [_hQ]: _pT }]]
+  [[0, 1], [0, { [_hQ]: _iT }], [0, { [_hQ]: _pT }]], 2
 ];
 export var GetResourceEventConfigurationResponse$: StaticStructureSchema = [3, n0, _GRECRe,
   0,
@@ -1558,7 +1558,7 @@ export var GetResourceEventConfigurationResponse$: StaticStructureSchema = [3, n
 export var GetResourceLogLevelRequest$: StaticStructureSchema = [3, n0, _GRLLR,
   0,
   [_RIe, _RT],
-  [[0, 1], [0, { [_hQ]: _rT }]]
+  [[0, 1], [0, { [_hQ]: _rT }]], 2
 ];
 export var GetResourceLogLevelResponse$: StaticStructureSchema = [3, n0, _GRLLRe,
   0,
@@ -1568,7 +1568,7 @@ export var GetResourceLogLevelResponse$: StaticStructureSchema = [3, n0, _GRLLRe
 export var GetResourcePositionRequest$: StaticStructureSchema = [3, n0, _GRPR,
   0,
   [_RIe, _RT],
-  [[0, 1], [0, { [_hQ]: _rT }]]
+  [[0, 1], [0, { [_hQ]: _rT }]], 2
 ];
 export var GetResourcePositionResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   0,
@@ -1588,7 +1588,7 @@ export var GetServiceEndpointResponse$: StaticStructureSchema = [3, n0, _GSERe,
 export var GetServiceProfileRequest$: StaticStructureSchema = [3, n0, _GSPR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetServiceProfileResponse$: StaticStructureSchema = [3, n0, _GSPRe,
   0,
@@ -1598,7 +1598,7 @@ export var GetServiceProfileResponse$: StaticStructureSchema = [3, n0, _GSPRe,
 export var GetWirelessDeviceImportTaskRequest$: StaticStructureSchema = [3, n0, _GWDITR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetWirelessDeviceImportTaskResponse$: StaticStructureSchema = [3, n0, _GWDITRe,
   0,
@@ -1608,7 +1608,7 @@ export var GetWirelessDeviceImportTaskResponse$: StaticStructureSchema = [3, n0,
 export var GetWirelessDeviceRequest$: StaticStructureSchema = [3, n0, _GWDR,
   0,
   [_Id, _IT],
-  [[0, 1], [0, { [_hQ]: _iT }]]
+  [[0, 1], [0, { [_hQ]: _iT }]], 2
 ];
 export var GetWirelessDeviceResponse$: StaticStructureSchema = [3, n0, _GWDRe,
   0,
@@ -1618,7 +1618,7 @@ export var GetWirelessDeviceResponse$: StaticStructureSchema = [3, n0, _GWDRe,
 export var GetWirelessDeviceStatisticsRequest$: StaticStructureSchema = [3, n0, _GWDSR,
   0,
   [_WDI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetWirelessDeviceStatisticsResponse$: StaticStructureSchema = [3, n0, _GWDSRe,
   0,
@@ -1628,7 +1628,7 @@ export var GetWirelessDeviceStatisticsResponse$: StaticStructureSchema = [3, n0,
 export var GetWirelessGatewayCertificateRequest$: StaticStructureSchema = [3, n0, _GWGCR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetWirelessGatewayCertificateResponse$: StaticStructureSchema = [3, n0, _GWGCRe,
   0,
@@ -1638,7 +1638,7 @@ export var GetWirelessGatewayCertificateResponse$: StaticStructureSchema = [3, n
 export var GetWirelessGatewayFirmwareInformationRequest$: StaticStructureSchema = [3, n0, _GWGFIR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetWirelessGatewayFirmwareInformationResponse$: StaticStructureSchema = [3, n0, _GWGFIRe,
   0,
@@ -1648,7 +1648,7 @@ export var GetWirelessGatewayFirmwareInformationResponse$: StaticStructureSchema
 export var GetWirelessGatewayRequest$: StaticStructureSchema = [3, n0, _GWGR,
   0,
   [_Id, _IT],
-  [[0, 1], [0, { [_hQ]: _iT }]]
+  [[0, 1], [0, { [_hQ]: _iT }]], 2
 ];
 export var GetWirelessGatewayResponse$: StaticStructureSchema = [3, n0, _GWGRe,
   0,
@@ -1658,7 +1658,7 @@ export var GetWirelessGatewayResponse$: StaticStructureSchema = [3, n0, _GWGRe,
 export var GetWirelessGatewayStatisticsRequest$: StaticStructureSchema = [3, n0, _GWGSR,
   0,
   [_WGI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetWirelessGatewayStatisticsResponse$: StaticStructureSchema = [3, n0, _GWGSRe,
   0,
@@ -1668,7 +1668,7 @@ export var GetWirelessGatewayStatisticsResponse$: StaticStructureSchema = [3, n0
 export var GetWirelessGatewayTaskDefinitionRequest$: StaticStructureSchema = [3, n0, _GWGTDR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetWirelessGatewayTaskDefinitionResponse$: StaticStructureSchema = [3, n0, _GWGTDRe,
   0,
@@ -1678,7 +1678,7 @@ export var GetWirelessGatewayTaskDefinitionResponse$: StaticStructureSchema = [3
 export var GetWirelessGatewayTaskRequest$: StaticStructureSchema = [3, n0, _GWGTR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetWirelessGatewayTaskResponse$: StaticStructureSchema = [3, n0, _GWGTRe,
   0,
@@ -1688,27 +1688,27 @@ export var GetWirelessGatewayTaskResponse$: StaticStructureSchema = [3, n0, _GWG
 export var GlobalIdentity$: StaticStructureSchema = [3, n0, _GIl,
   0,
   [_La, _GC],
-  [1, 1]
+  [1, 1], 2
 ];
 export var Gnss$: StaticStructureSchema = [3, n0, _Gn,
   0,
   [_Pa, _CTa, _CTA, _AP, _AA, _UDS],
-  [0, 1, 1, 64 | 1, 1, 2]
+  [0, 1, 1, 64 | 1, 1, 2], 1
 ];
 export var GsmLocalId$: StaticStructureSchema = [3, n0, _GLIs,
   0,
   [_Bs, _Bc],
-  [1, 1]
+  [1, 1], 2
 ];
 export var GsmNmrObj$: StaticStructureSchema = [3, n0, _GNO,
   0,
   [_Bs, _Bc, _RL, _GIl],
-  [1, 1, 1, () => GlobalIdentity$]
+  [1, 1, 1, () => GlobalIdentity$], 2
 ];
 export var GsmObj$: StaticStructureSchema = [3, n0, _GO,
   0,
   [_Mc, _Mn, _La, _GC, _GLIs, _GTA, _RL, _GN],
-  [1, 1, 1, 1, () => GsmLocalId$, 1, 1, () => GsmNmrList]
+  [1, 1, 1, 1, () => GsmLocalId$, 1, 1, () => GsmNmrList], 4
 ];
 export var ImportedSidewalkDevice$: StaticStructureSchema = [3, n0, _ISD,
   0,
@@ -1729,7 +1729,7 @@ TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerExcep
 export var Ip$: StaticStructureSchema = [3, n0, _Ip,
   0,
   [_IA],
-  [0]
+  [0], 1
 ];
 export var JoinEventConfiguration$: StaticStructureSchema = [3, n0, _JEC,
   0,
@@ -1764,7 +1764,7 @@ export var ListDeviceProfilesResponse$: StaticStructureSchema = [3, n0, _LDPRi,
 export var ListDevicesForWirelessDeviceImportTaskRequest$: StaticStructureSchema = [3, n0, _LDFWDITR,
   0,
   [_I, _MR, _NT, _St],
-  [[0, { [_hQ]: _i }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _st }]]
+  [[0, { [_hQ]: _i }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _st }]], 1
 ];
 export var ListDevicesForWirelessDeviceImportTaskResponse$: StaticStructureSchema = [3, n0, _LDFWDITRi,
   0,
@@ -1774,7 +1774,7 @@ export var ListDevicesForWirelessDeviceImportTaskResponse$: StaticStructureSchem
 export var ListEventConfigurationsRequest$: StaticStructureSchema = [3, n0, _LECR,
   0,
   [_RT, _MR, _NT],
-  [[0, { [_hQ]: _rT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, { [_hQ]: _rT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListEventConfigurationsResponse$: StaticStructureSchema = [3, n0, _LECRi,
   0,
@@ -1794,7 +1794,7 @@ export var ListFuotaTasksResponse$: StaticStructureSchema = [3, n0, _LFTRi,
 export var ListMulticastGroupsByFuotaTaskRequest$: StaticStructureSchema = [3, n0, _LMGBFTR,
   0,
   [_I, _NT, _MR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListMulticastGroupsByFuotaTaskResponse$: StaticStructureSchema = [3, n0, _LMGBFTRi,
   0,
@@ -1844,7 +1844,7 @@ export var ListPositionConfigurationsResponse$: StaticStructureSchema = [3, n0, 
 export var ListQueuedMessagesRequest$: StaticStructureSchema = [3, n0, _LQMR,
   0,
   [_I, _NT, _MR, _WDT],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _WDT }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _WDT }]], 1
 ];
 export var ListQueuedMessagesResponse$: StaticStructureSchema = [3, n0, _LQMRi,
   0,
@@ -1864,7 +1864,7 @@ export var ListServiceProfilesResponse$: StaticStructureSchema = [3, n0, _LSPRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RAes],
-  [[0, { [_hQ]: _rA }]]
+  [[0, { [_hQ]: _rA }]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -2044,17 +2044,17 @@ export var LoRaWANUpdateGatewayTaskEntry$: StaticStructureSchema = [3, n0, _LRWA
 export var LteLocalId$: StaticStructureSchema = [3, n0, _LLI,
   0,
   [_Pc, _Ea],
-  [1, 1]
+  [1, 1], 2
 ];
 export var LteNmrObj$: StaticStructureSchema = [3, n0, _LNO,
   0,
   [_Pc, _Ea, _EC, _Rs, _Rsr],
-  [1, 1, 1, 1, 1]
+  [1, 1, 1, 1, 1], 2
 ];
 export var LteObj$: StaticStructureSchema = [3, n0, _LO,
   0,
   [_Mc, _Mn, _EC, _Tac, _LLI, _LTA, _Rs, _Rsr, _NC, _LN],
-  [1, 1, 1, 1, () => LteLocalId$, 1, 1, 1, 2, () => LteNmrList]
+  [1, 1, 1, 1, () => LteLocalId$, 1, 1, 1, 2, () => LteNmrList], 3
 ];
 export var MessageDeliveryStatusEventConfiguration$: StaticStructureSchema = [3, n0, _MDSEC,
   0,
@@ -2104,7 +2104,7 @@ export var OtaaV1_1$: StaticStructureSchema = [3, n0, _O,
 export var ParticipatingGateways$: StaticStructureSchema = [3, n0, _PGa,
   0,
   [_DMo, _GL, _TI],
-  [0, () => GatewayList, 1]
+  [0, () => GatewayList, 1], 3
 ];
 export var ParticipatingGatewaysMulticast$: StaticStructureSchema = [3, n0, _PGM,
   0,
@@ -2144,7 +2144,7 @@ export var ProximityResourceTypeEventConfiguration$: StaticStructureSchema = [3,
 export var PutPositionConfigurationRequest$: StaticStructureSchema = [3, n0, _PPCR,
   0,
   [_RIe, _RT, _So, _Dest],
-  [[0, 1], [0, { [_hQ]: _rT }], () => PositionSolverConfigurations$, 0]
+  [[0, 1], [0, { [_hQ]: _rT }], () => PositionSolverConfigurations$, 0], 2
 ];
 export var PutPositionConfigurationResponse$: StaticStructureSchema = [3, n0, _PPCRu,
   0,
@@ -2154,7 +2154,7 @@ export var PutPositionConfigurationResponse$: StaticStructureSchema = [3, n0, _P
 export var PutResourceLogLevelRequest$: StaticStructureSchema = [3, n0, _PRLLR,
   0,
   [_RIe, _RT, _LL],
-  [[0, 1], [0, { [_hQ]: _rT }], 0]
+  [[0, 1], [0, { [_hQ]: _rT }], 0], 3
 ];
 export var PutResourceLogLevelResponse$: StaticStructureSchema = [3, n0, _PRLLRu,
   0,
@@ -2174,7 +2174,7 @@ export var ResetAllResourceLogLevelsResponse$: StaticStructureSchema = [3, n0, _
 export var ResetResourceLogLevelRequest$: StaticStructureSchema = [3, n0, _RRLLR,
   0,
   [_RIe, _RT],
-  [[0, 1], [0, { [_hQ]: _rT }]]
+  [[0, 1], [0, { [_hQ]: _rT }]], 2
 ];
 export var ResetResourceLogLevelResponse$: StaticStructureSchema = [3, n0, _RRLLRe,
   0,
@@ -2190,7 +2190,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var SemtechGnssConfiguration$: StaticStructureSchema = [3, n0, _SGC,
   0,
   [_St, _Fe],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SemtechGnssDetail$: StaticStructureSchema = [3, n0, _SGD,
   0,
@@ -2200,7 +2200,7 @@ export var SemtechGnssDetail$: StaticStructureSchema = [3, n0, _SGD,
 export var SendDataToMulticastGroupRequest$: StaticStructureSchema = [3, n0, _SDTMGR,
   0,
   [_I, _PD, _WM],
-  [[0, 1], 0, () => MulticastWirelessMetadata$]
+  [[0, 1], 0, () => MulticastWirelessMetadata$], 3
 ];
 export var SendDataToMulticastGroupResponse$: StaticStructureSchema = [3, n0, _SDTMGRe,
   0,
@@ -2210,7 +2210,7 @@ export var SendDataToMulticastGroupResponse$: StaticStructureSchema = [3, n0, _S
 export var SendDataToWirelessDeviceRequest$: StaticStructureSchema = [3, n0, _SDTWDR,
   0,
   [_I, _TM, _PD, _WM],
-  [[0, 1], 1, 0, () => WirelessMetadata$]
+  [[0, 1], 1, 0, () => WirelessMetadata$], 3
 ];
 export var SendDataToWirelessDeviceResponse$: StaticStructureSchema = [3, n0, _SDTWDRe,
   0,
@@ -2330,7 +2330,7 @@ export var SidewalkUpdateWirelessDevice$: StaticStructureSchema = [3, n0, _SUWD,
 export var StartBulkAssociateWirelessDeviceWithMulticastGroupRequest$: StaticStructureSchema = [3, n0, _SBAWDWMGR,
   0,
   [_I, _QSu, _Ta],
-  [[0, 1], 0, () => TagList]
+  [[0, 1], 0, () => TagList], 1
 ];
 export var StartBulkAssociateWirelessDeviceWithMulticastGroupResponse$: StaticStructureSchema = [3, n0, _SBAWDWMGRt,
   0,
@@ -2340,7 +2340,7 @@ export var StartBulkAssociateWirelessDeviceWithMulticastGroupResponse$: StaticSt
 export var StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest$: StaticStructureSchema = [3, n0, _SBDWDFMGR,
   0,
   [_I, _QSu, _Ta],
-  [[0, 1], 0, () => TagList]
+  [[0, 1], 0, () => TagList], 1
 ];
 export var StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse$: StaticStructureSchema = [3, n0, _SBDWDFMGRt,
   0,
@@ -2350,7 +2350,7 @@ export var StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse$: Stati
 export var StartFuotaTaskRequest$: StaticStructureSchema = [3, n0, _SFTR,
   0,
   [_I, _LRWAN],
-  [[0, 1], () => LoRaWANStartFuotaTask$]
+  [[0, 1], () => LoRaWANStartFuotaTask$], 1
 ];
 export var StartFuotaTaskResponse$: StaticStructureSchema = [3, n0, _SFTRt,
   0,
@@ -2360,7 +2360,7 @@ export var StartFuotaTaskResponse$: StaticStructureSchema = [3, n0, _SFTRt,
 export var StartMulticastGroupSessionRequest$: StaticStructureSchema = [3, n0, _SMGSR,
   0,
   [_I, _LRWAN],
-  [[0, 1], () => LoRaWANMulticastSession$]
+  [[0, 1], () => LoRaWANMulticastSession$], 2
 ];
 export var StartMulticastGroupSessionResponse$: StaticStructureSchema = [3, n0, _SMGSRt,
   0,
@@ -2369,8 +2369,8 @@ export var StartMulticastGroupSessionResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var StartSingleWirelessDeviceImportTaskRequest$: StaticStructureSchema = [3, n0, _SSWDITR,
   0,
-  [_DN, _CRT, _DNe, _Ta, _P, _S],
-  [0, [0, 4], 0, () => TagList, 0, () => SidewalkSingleStartImportInfo$]
+  [_DN, _S, _CRT, _DNe, _Ta, _P],
+  [0, () => SidewalkSingleStartImportInfo$, [0, 4], 0, () => TagList, 0], 2
 ];
 export var StartSingleWirelessDeviceImportTaskResponse$: StaticStructureSchema = [3, n0, _SSWDITRt,
   0,
@@ -2379,8 +2379,8 @@ export var StartSingleWirelessDeviceImportTaskResponse$: StaticStructureSchema =
 ];
 export var StartWirelessDeviceImportTaskRequest$: StaticStructureSchema = [3, n0, _SWDITR,
   0,
-  [_DN, _CRT, _Ta, _P, _S],
-  [0, [0, 4], () => TagList, 0, () => SidewalkStartImportInfo$]
+  [_DN, _S, _CRT, _Ta, _P],
+  [0, () => SidewalkStartImportInfo$, [0, 4], () => TagList, 0], 2
 ];
 export var StartWirelessDeviceImportTaskResponse$: StaticStructureSchema = [3, n0, _SWDITRt,
   0,
@@ -2405,12 +2405,12 @@ export var SummaryMetricQueryResult$: StaticStructureSchema = [3, n0, _SMQRu,
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAes, _Ta],
-  [[0, { [_hQ]: _rA }], () => TagList]
+  [[0, { [_hQ]: _rA }], () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -2420,22 +2420,22 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var TdscdmaLocalId$: StaticStructureSchema = [3, n0, _TLI,
   0,
   [_Ua, _CP],
-  [1, 1]
+  [1, 1], 2
 ];
 export var TdscdmaNmrObj$: StaticStructureSchema = [3, n0, _TNO,
   0,
   [_Ua, _CP, _UC, _Rsc, _PL],
-  [1, 1, 1, 1, 1]
+  [1, 1, 1, 1, 1], 2
 ];
 export var TdscdmaObj$: StaticStructureSchema = [3, n0, _TO,
   0,
-  [_Mc, _Mn, _La, _UC, _TLI, _TTA, _Rsc, _PL, _TNd],
-  [1, 1, 1, 1, () => TdscdmaLocalId$, 1, 1, 1, () => TdscdmaNmrList]
+  [_Mc, _Mn, _UC, _La, _TLI, _TTA, _Rsc, _PL, _TNd],
+  [1, 1, 1, 1, () => TdscdmaLocalId$, 1, 1, 1, () => TdscdmaNmrList], 3
 ];
 export var TestWirelessDeviceRequest$: StaticStructureSchema = [3, n0, _TWDR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var TestWirelessDeviceResponse$: StaticStructureSchema = [3, n0, _TWDRe,
   0,
@@ -2462,7 +2462,7 @@ export var TraceContent$: StaticStructureSchema = [3, n0, _TC,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAes, _TK],
-  [[0, { [_hQ]: _rA }], [64 | 0, { [_hQ]: _tK }]]
+  [[0, { [_hQ]: _rA }], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -2482,7 +2482,7 @@ export var UpdateAbpV1_1$: StaticStructureSchema = [3, n0, _U_,
 export var UpdateDestinationRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
   [_N, _ET, _E, _D, _RA],
-  [[0, 1], 0, 0, 0, 0]
+  [[0, 1], 0, 0, 0, 0], 1
 ];
 export var UpdateDestinationResponse$: StaticStructureSchema = [3, n0, _UDRp,
   0,
@@ -2507,7 +2507,7 @@ export var UpdateFPorts$: StaticStructureSchema = [3, n0, _UFP,
 export var UpdateFuotaTaskRequest$: StaticStructureSchema = [3, n0, _UFTR,
   0,
   [_I, _N, _D, _LRWAN, _FUI, _FUR, _RP, _FSB, _FIMS, _De],
-  [[0, 1], 0, 0, () => LoRaWANFuotaTask$, 0, 0, 1, 1, 1, 0]
+  [[0, 1], 0, 0, () => LoRaWANFuotaTask$, 0, 0, 1, 1, 1, 0], 1
 ];
 export var UpdateFuotaTaskResponse$: StaticStructureSchema = [3, n0, _UFTRp,
   0,
@@ -2537,7 +2537,7 @@ export var UpdateMetricConfigurationResponse$: StaticStructureSchema = [3, n0, _
 export var UpdateMulticastGroupRequest$: StaticStructureSchema = [3, n0, _UMGR,
   0,
   [_I, _N, _D, _LRWAN],
-  [[0, 1], 0, 0, () => LoRaWANMulticast$]
+  [[0, 1], 0, 0, () => LoRaWANMulticast$], 1
 ];
 export var UpdateMulticastGroupResponse$: StaticStructureSchema = [3, n0, _UMGRp,
   0,
@@ -2547,7 +2547,7 @@ export var UpdateMulticastGroupResponse$: StaticStructureSchema = [3, n0, _UMGRp
 export var UpdateNetworkAnalyzerConfigurationRequest$: StaticStructureSchema = [3, n0, _UNACR,
   0,
   [_CNo, _TC, _WDTA, _WDTR, _WGTA, _WGTR, _D, _MGTA, _MGTR],
-  [[0, 1], () => TraceContent$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 64 | 0, 64 | 0]
+  [[0, 1], () => TraceContent$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 64 | 0, 64 | 0], 1
 ];
 export var UpdateNetworkAnalyzerConfigurationResponse$: StaticStructureSchema = [3, n0, _UNACRp,
   0,
@@ -2557,7 +2557,7 @@ export var UpdateNetworkAnalyzerConfigurationResponse$: StaticStructureSchema = 
 export var UpdatePartnerAccountRequest$: StaticStructureSchema = [3, n0, _UPAR,
   0,
   [_S, _PAI, _PT],
-  [[() => SidewalkUpdateAccount$, 0], [0, 1], [0, { [_hQ]: _pT }]]
+  [[() => SidewalkUpdateAccount$, 0], [0, 1], [0, { [_hQ]: _pT }]], 3
 ];
 export var UpdatePartnerAccountResponse$: StaticStructureSchema = [3, n0, _UPARp,
   0,
@@ -2567,7 +2567,7 @@ export var UpdatePartnerAccountResponse$: StaticStructureSchema = [3, n0, _UPARp
 export var UpdatePositionRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
   [_RIe, _RT, _Po],
-  [[0, 1], [0, { [_hQ]: _rT }], 64 | 1]
+  [[0, 1], [0, { [_hQ]: _rT }], 64 | 1], 3
 ];
 export var UpdatePositionResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
@@ -2577,7 +2577,7 @@ export var UpdatePositionResponse$: StaticStructureSchema = [3, n0, _UPRp,
 export var UpdateResourceEventConfigurationRequest$: StaticStructureSchema = [3, n0, _URECR,
   0,
   [_Id, _IT, _PT, _DRS, _Pr, _J, _CS, _MDS],
-  [[0, 1], [0, { [_hQ]: _iT }], [0, { [_hQ]: _pT }], () => DeviceRegistrationStateEventConfiguration$, () => ProximityEventConfiguration$, () => JoinEventConfiguration$, () => ConnectionStatusEventConfiguration$, () => MessageDeliveryStatusEventConfiguration$]
+  [[0, 1], [0, { [_hQ]: _iT }], [0, { [_hQ]: _pT }], () => DeviceRegistrationStateEventConfiguration$, () => ProximityEventConfiguration$, () => JoinEventConfiguration$, () => ConnectionStatusEventConfiguration$, () => MessageDeliveryStatusEventConfiguration$], 2
 ];
 export var UpdateResourceEventConfigurationResponse$: StaticStructureSchema = [3, n0, _URECRp,
   0,
@@ -2587,7 +2587,7 @@ export var UpdateResourceEventConfigurationResponse$: StaticStructureSchema = [3
 export var UpdateResourcePositionRequest$: StaticStructureSchema = [3, n0, _URPR,
   0,
   [_RIe, _RT, _GJP],
-  [[0, 1], [0, { [_hQ]: _rT }], [21, 16]]
+  [[0, 1], [0, { [_hQ]: _rT }], [21, 16]], 2
 ];
 export var UpdateResourcePositionResponse$: StaticStructureSchema = [3, n0, _URPRp,
   0,
@@ -2597,7 +2597,7 @@ export var UpdateResourcePositionResponse$: StaticStructureSchema = [3, n0, _URP
 export var UpdateWirelessDeviceImportTaskRequest$: StaticStructureSchema = [3, n0, _UWDITR,
   0,
   [_I, _S],
-  [[0, 1], () => SidewalkUpdateImportInfo$]
+  [[0, 1], () => SidewalkUpdateImportInfo$], 2
 ];
 export var UpdateWirelessDeviceImportTaskResponse$: StaticStructureSchema = [3, n0, _UWDITRp,
   0,
@@ -2607,7 +2607,7 @@ export var UpdateWirelessDeviceImportTaskResponse$: StaticStructureSchema = [3, 
 export var UpdateWirelessDeviceRequest$: StaticStructureSchema = [3, n0, _UWDR,
   0,
   [_I, _DN, _N, _D, _LRWAN, _P, _S],
-  [[0, 1], 0, 0, 0, () => LoRaWANUpdateDevice$, 0, () => SidewalkUpdateWirelessDevice$]
+  [[0, 1], 0, 0, 0, () => LoRaWANUpdateDevice$, 0, () => SidewalkUpdateWirelessDevice$], 1
 ];
 export var UpdateWirelessDeviceResponse$: StaticStructureSchema = [3, n0, _UWDRp,
   0,
@@ -2617,7 +2617,7 @@ export var UpdateWirelessDeviceResponse$: StaticStructureSchema = [3, n0, _UWDRp
 export var UpdateWirelessGatewayRequest$: StaticStructureSchema = [3, n0, _UWGR,
   0,
   [_I, _N, _D, _JEF, _NIF, _ME],
-  [[0, 1], 0, 0, [1, n0, _JEF, 0, 64 | 0], 64 | 0, 1]
+  [[0, 1], 0, 0, [1, n0, _JEF, 0, 64 | 0], 64 | 0, 1], 1
 ];
 export var UpdateWirelessGatewayResponse$: StaticStructureSchema = [3, n0, _UWGRp,
   0,
@@ -2643,27 +2643,27 @@ TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WcdmaLocalId$: StaticStructureSchema = [3, n0, _WLI,
   0,
   [_Uar, _Ps],
-  [1, 1]
+  [1, 1], 2
 ];
 export var WcdmaNmrObj$: StaticStructureSchema = [3, n0, _WNO,
   0,
   [_Uar, _Ps, _UC, _Rsc, _PL],
-  [1, 1, 1, 1, 1]
+  [1, 1, 1, 1, 1], 3
 ];
 export var WcdmaObj$: StaticStructureSchema = [3, n0, _WO,
   0,
-  [_Mc, _Mn, _La, _UC, _WLI, _Rsc, _PL, _WN],
-  [1, 1, 1, 1, () => WcdmaLocalId$, 1, 1, () => WcdmaNmrList]
+  [_Mc, _Mn, _UC, _La, _WLI, _Rsc, _PL, _WN],
+  [1, 1, 1, 1, () => WcdmaLocalId$, 1, 1, () => WcdmaNmrList], 3
 ];
 export var WiFiAccessPoint$: StaticStructureSchema = [3, n0, _WFAPi,
   0,
   [_MA, _Rss],
-  [0, 1]
+  [0, 1], 2
 ];
 export var WirelessDeviceEventLogOption$: StaticStructureSchema = [3, n0, _WDELO,
   0,
   [_Eve, _LL],
-  [0, 0]
+  [0, 0], 2
 ];
 export var WirelessDeviceImportTask$: StaticStructureSchema = [3, n0, _WDIT,
   0,
@@ -2673,7 +2673,7 @@ export var WirelessDeviceImportTask$: StaticStructureSchema = [3, n0, _WDIT,
 export var WirelessDeviceLogOption$: StaticStructureSchema = [3, n0, _WDLOi,
   0,
   [_T, _LL, _Ev],
-  [0, 0, () => WirelessDeviceEventLogOptionList]
+  [0, 0, () => WirelessDeviceEventLogOptionList], 2
 ];
 export var WirelessDeviceStatistics$: StaticStructureSchema = [3, n0, _WDS,
   0,
@@ -2683,12 +2683,12 @@ export var WirelessDeviceStatistics$: StaticStructureSchema = [3, n0, _WDS,
 export var WirelessGatewayEventLogOption$: StaticStructureSchema = [3, n0, _WGELO,
   0,
   [_Eve, _LL],
-  [0, 0]
+  [0, 0], 2
 ];
 export var WirelessGatewayLogOption$: StaticStructureSchema = [3, n0, _WGLOi,
   0,
   [_T, _LL, _Ev],
-  [0, 0, () => WirelessGatewayEventLogOptionList]
+  [0, 0, () => WirelessGatewayEventLogOptionList], 2
 ];
 export var WirelessGatewayStatistics$: StaticStructureSchema = [3, n0, _WGS,
   0,

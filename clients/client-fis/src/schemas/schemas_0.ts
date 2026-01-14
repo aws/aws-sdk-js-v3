@@ -312,7 +312,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateExperimentTemplateActionInput$: StaticStructureSchema = [3, n0, _CETAI,
   0,
   [_aI, _d, _p, _t, _sA],
-  [0, 0, 128 | 0, 128 | 0, 64 | 0]
+  [0, 0, 128 | 0, 128 | 0, 64 | 0], 1
 ];
 export var CreateExperimentTemplateExperimentOptionsInput$: StaticStructureSchema = [3, n0, _CETEOI,
   0,
@@ -321,8 +321,8 @@ export var CreateExperimentTemplateExperimentOptionsInput$: StaticStructureSchem
 ];
 export var CreateExperimentTemplateLogConfigurationInput$: StaticStructureSchema = [3, n0, _CETLCI,
   0,
-  [_cWLC, _sC, _lSV],
-  [() => ExperimentTemplateCloudWatchLogsLogConfigurationInput$, () => ExperimentTemplateS3LogConfigurationInput$, 1]
+  [_lSV, _cWLC, _sC],
+  [1, () => ExperimentTemplateCloudWatchLogsLogConfigurationInput$, () => ExperimentTemplateS3LogConfigurationInput$], 1
 ];
 export var CreateExperimentTemplateReportConfigurationInput$: StaticStructureSchema = [3, n0, _CETRCI,
   0,
@@ -331,8 +331,8 @@ export var CreateExperimentTemplateReportConfigurationInput$: StaticStructureSch
 ];
 export var CreateExperimentTemplateRequest$: StaticStructureSchema = [3, n0, _CETR,
   0,
-  [_cT, _d, _sCt, _t, _ac, _rA, _ta, _lC, _eO, _eRC],
-  [[0, 4], 0, () => CreateExperimentTemplateStopConditionInputList, () => CreateExperimentTemplateTargetInputMap, () => CreateExperimentTemplateActionInputMap, 0, 128 | 0, () => CreateExperimentTemplateLogConfigurationInput$, () => CreateExperimentTemplateExperimentOptionsInput$, () => CreateExperimentTemplateReportConfigurationInput$]
+  [_d, _sCt, _ac, _rA, _cT, _t, _ta, _lC, _eO, _eRC],
+  [0, () => CreateExperimentTemplateStopConditionInputList, () => CreateExperimentTemplateActionInputMap, 0, [0, 4], () => CreateExperimentTemplateTargetInputMap, 128 | 0, () => CreateExperimentTemplateLogConfigurationInput$, () => CreateExperimentTemplateExperimentOptionsInput$, () => CreateExperimentTemplateReportConfigurationInput$], 4
 ];
 export var CreateExperimentTemplateResponse$: StaticStructureSchema = [3, n0, _CETRr,
   0,
@@ -342,17 +342,17 @@ export var CreateExperimentTemplateResponse$: StaticStructureSchema = [3, n0, _C
 export var CreateExperimentTemplateStopConditionInput$: StaticStructureSchema = [3, n0, _CETSCI,
   0,
   [_s, _v],
-  [0, 0]
+  [0, 0], 1
 ];
 export var CreateExperimentTemplateTargetInput$: StaticStructureSchema = [3, n0, _CETTI,
   0,
-  [_rT, _rAe, _rTe, _f, _sM, _p],
-  [0, 64 | 0, 128 | 0, () => ExperimentTemplateTargetFilterInputList, 0, 128 | 0]
+  [_rT, _sM, _rAe, _rTe, _f, _p],
+  [0, 0, 64 | 0, 128 | 0, () => ExperimentTemplateTargetFilterInputList, 128 | 0], 2
 ];
 export var CreateTargetAccountConfigurationRequest$: StaticStructureSchema = [3, n0, _CTACR,
   0,
-  [_cT, _eTI, _aIc, _rA, _d],
-  [[0, 4], [0, 1], [0, 1], 0, 0]
+  [_eTI, _aIc, _rA, _cT, _d],
+  [[0, 1], [0, 1], 0, [0, 4], 0], 3
 ];
 export var CreateTargetAccountConfigurationResponse$: StaticStructureSchema = [3, n0, _CTACRr,
   0,
@@ -362,7 +362,7 @@ export var CreateTargetAccountConfigurationResponse$: StaticStructureSchema = [3
 export var DeleteExperimentTemplateRequest$: StaticStructureSchema = [3, n0, _DETR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteExperimentTemplateResponse$: StaticStructureSchema = [3, n0, _DETRe,
   0,
@@ -372,7 +372,7 @@ export var DeleteExperimentTemplateResponse$: StaticStructureSchema = [3, n0, _D
 export var DeleteTargetAccountConfigurationRequest$: StaticStructureSchema = [3, n0, _DTACR,
   0,
   [_eTI, _aIc],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteTargetAccountConfigurationResponse$: StaticStructureSchema = [3, n0, _DTACRe,
   0,
@@ -517,7 +517,7 @@ export var ExperimentTemplateCloudWatchLogsLogConfiguration$: StaticStructureSch
 export var ExperimentTemplateCloudWatchLogsLogConfigurationInput$: StaticStructureSchema = [3, n0, _ETCWLLCI,
   0,
   [_lGA],
-  [0]
+  [0], 1
 ];
 export var ExperimentTemplateExperimentOptions$: StaticStructureSchema = [3, n0, _ETEO,
   0,
@@ -567,7 +567,7 @@ export var ExperimentTemplateS3LogConfiguration$: StaticStructureSchema = [3, n0
 export var ExperimentTemplateS3LogConfigurationInput$: StaticStructureSchema = [3, n0, _ETSLCI,
   0,
   [_bN, _pr],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ExperimentTemplateStopCondition$: StaticStructureSchema = [3, n0, _ETSC,
   0,
@@ -592,12 +592,12 @@ export var ExperimentTemplateTargetFilter$: StaticStructureSchema = [3, n0, _ETT
 export var ExperimentTemplateTargetInputFilter$: StaticStructureSchema = [3, n0, _ETTIF,
   0,
   [_pa, _va],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var GetActionRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetActionResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
@@ -607,7 +607,7 @@ export var GetActionResponse$: StaticStructureSchema = [3, n0, _GARe,
 export var GetExperimentRequest$: StaticStructureSchema = [3, n0, _GER,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetExperimentResponse$: StaticStructureSchema = [3, n0, _GERe,
   0,
@@ -617,7 +617,7 @@ export var GetExperimentResponse$: StaticStructureSchema = [3, n0, _GERe,
 export var GetExperimentTargetAccountConfigurationRequest$: StaticStructureSchema = [3, n0, _GETACR,
   0,
   [_eI, _aIc],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetExperimentTargetAccountConfigurationResponse$: StaticStructureSchema = [3, n0, _GETACRe,
   0,
@@ -627,7 +627,7 @@ export var GetExperimentTargetAccountConfigurationResponse$: StaticStructureSche
 export var GetExperimentTemplateRequest$: StaticStructureSchema = [3, n0, _GETR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetExperimentTemplateResponse$: StaticStructureSchema = [3, n0, _GETRe,
   0,
@@ -637,7 +637,7 @@ export var GetExperimentTemplateResponse$: StaticStructureSchema = [3, n0, _GETR
 export var GetSafetyLeverRequest$: StaticStructureSchema = [3, n0, _GSLR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSafetyLeverResponse$: StaticStructureSchema = [3, n0, _GSLRe,
   0,
@@ -647,7 +647,7 @@ export var GetSafetyLeverResponse$: StaticStructureSchema = [3, n0, _GSLRe,
 export var GetTargetAccountConfigurationRequest$: StaticStructureSchema = [3, n0, _GTACR,
   0,
   [_eTI, _aIc],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetTargetAccountConfigurationResponse$: StaticStructureSchema = [3, n0, _GTACRe,
   0,
@@ -657,7 +657,7 @@ export var GetTargetAccountConfigurationResponse$: StaticStructureSchema = [3, n
 export var GetTargetResourceTypeRequest$: StaticStructureSchema = [3, n0, _GTRTR,
   0,
   [_rT],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetTargetResourceTypeResponse$: StaticStructureSchema = [3, n0, _GTRTRe,
   0,
@@ -677,7 +677,7 @@ export var ListActionsResponse$: StaticStructureSchema = [3, n0, _LARi,
 export var ListExperimentResolvedTargetsRequest$: StaticStructureSchema = [3, n0, _LERTR,
   0,
   [_eI, _mR, _nT, _tN],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _tN }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _tN }]], 1
 ];
 export var ListExperimentResolvedTargetsResponse$: StaticStructureSchema = [3, n0, _LERTRi,
   0,
@@ -697,7 +697,7 @@ export var ListExperimentsResponse$: StaticStructureSchema = [3, n0, _LERi,
 export var ListExperimentTargetAccountConfigurationsRequest$: StaticStructureSchema = [3, n0, _LETACR,
   0,
   [_eI, _nT],
-  [[0, 1], [0, { [_hQ]: _nT }]]
+  [[0, 1], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListExperimentTargetAccountConfigurationsResponse$: StaticStructureSchema = [3, n0, _LETACRi,
   0,
@@ -717,7 +717,7 @@ export var ListExperimentTemplatesResponse$: StaticStructureSchema = [3, n0, _LE
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rAes],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -727,7 +727,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListTargetAccountConfigurationsRequest$: StaticStructureSchema = [3, n0, _LTACR,
   0,
   [_eTI, _mR, _nT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListTargetAccountConfigurationsResponse$: StaticStructureSchema = [3, n0, _LTACRi,
   0,
@@ -793,8 +793,8 @@ export var StartExperimentExperimentOptionsInput$: StaticStructureSchema = [3, n
 ];
 export var StartExperimentRequest$: StaticStructureSchema = [3, n0, _SER,
   0,
-  [_cT, _eTI, _eO, _ta],
-  [[0, 4], 0, () => StartExperimentExperimentOptionsInput$, 128 | 0]
+  [_eTI, _cT, _eO, _ta],
+  [0, [0, 4], () => StartExperimentExperimentOptionsInput$, 128 | 0], 1
 ];
 export var StartExperimentResponse$: StaticStructureSchema = [3, n0, _SERt,
   0,
@@ -804,7 +804,7 @@ export var StartExperimentResponse$: StaticStructureSchema = [3, n0, _SERt,
 export var StopExperimentRequest$: StaticStructureSchema = [3, n0, _SERto,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var StopExperimentResponse$: StaticStructureSchema = [3, n0, _SERtop,
   0,
@@ -814,7 +814,7 @@ export var StopExperimentResponse$: StaticStructureSchema = [3, n0, _SERtop,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rAes, _ta],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -849,7 +849,7 @@ export var TargetResourceTypeSummary$: StaticStructureSchema = [3, n0, _TRTS,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAes, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 1
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -879,7 +879,7 @@ export var UpdateExperimentTemplateReportConfigurationInput$: StaticStructureSch
 export var UpdateExperimentTemplateRequest$: StaticStructureSchema = [3, n0, _UETR,
   0,
   [_i, _d, _sCt, _t, _ac, _rA, _lC, _eO, _eRC],
-  [[0, 1], 0, () => UpdateExperimentTemplateStopConditionInputList, () => UpdateExperimentTemplateTargetInputMap, () => UpdateExperimentTemplateActionInputMap, 0, () => UpdateExperimentTemplateLogConfigurationInput$, () => UpdateExperimentTemplateExperimentOptionsInput$, () => UpdateExperimentTemplateReportConfigurationInput$]
+  [[0, 1], 0, () => UpdateExperimentTemplateStopConditionInputList, () => UpdateExperimentTemplateTargetInputMap, () => UpdateExperimentTemplateActionInputMap, 0, () => UpdateExperimentTemplateLogConfigurationInput$, () => UpdateExperimentTemplateExperimentOptionsInput$, () => UpdateExperimentTemplateReportConfigurationInput$], 1
 ];
 export var UpdateExperimentTemplateResponse$: StaticStructureSchema = [3, n0, _UETRp,
   0,
@@ -889,22 +889,22 @@ export var UpdateExperimentTemplateResponse$: StaticStructureSchema = [3, n0, _U
 export var UpdateExperimentTemplateStopConditionInput$: StaticStructureSchema = [3, n0, _UETSCI,
   0,
   [_s, _v],
-  [0, 0]
+  [0, 0], 1
 ];
 export var UpdateExperimentTemplateTargetInput$: StaticStructureSchema = [3, n0, _UETTI,
   0,
-  [_rT, _rAe, _rTe, _f, _sM, _p],
-  [0, 64 | 0, 128 | 0, () => ExperimentTemplateTargetFilterInputList, 0, 128 | 0]
+  [_rT, _sM, _rAe, _rTe, _f, _p],
+  [0, 0, 64 | 0, 128 | 0, () => ExperimentTemplateTargetFilterInputList, 128 | 0], 2
 ];
 export var UpdateSafetyLeverStateInput$: StaticStructureSchema = [3, n0, _USLSI,
   0,
   [_sta, _re],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateSafetyLeverStateRequest$: StaticStructureSchema = [3, n0, _USLSR,
   0,
   [_i, _st],
-  [[0, 1], () => UpdateSafetyLeverStateInput$]
+  [[0, 1], () => UpdateSafetyLeverStateInput$], 2
 ];
 export var UpdateSafetyLeverStateResponse$: StaticStructureSchema = [3, n0, _USLSRp,
   0,
@@ -914,7 +914,7 @@ export var UpdateSafetyLeverStateResponse$: StaticStructureSchema = [3, n0, _USL
 export var UpdateTargetAccountConfigurationRequest$: StaticStructureSchema = [3, n0, _UTACR,
   0,
   [_eTI, _aIc, _rA, _d],
-  [[0, 1], [0, 1], 0, 0]
+  [[0, 1], [0, 1], 0, 0], 2
 ];
 export var UpdateTargetAccountConfigurationResponse$: StaticStructureSchema = [3, n0, _UTACRp,
   0,

@@ -87,7 +87,7 @@ var ClientAccessToken: StaticSimpleSchema = [0, n0, _CAT, 8, 0];
 export var CloseTunnelRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_tI, _d],
-  [[0, 1], [2, { [_hQ]: _d }]]
+  [[0, 1], [2, { [_hQ]: _d }]], 1
 ];
 export var CloseTunnelResponse$: StaticStructureSchema = [3, n0, _CTRl,
   0,
@@ -102,7 +102,7 @@ export var ConnectionState$: StaticStructureSchema = [3, n0, _CS,
 export var DescribeTunnelRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_tI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeTunnelResponse$: StaticStructureSchema = [3, n0, _DTRe,
   0,
@@ -111,8 +111,8 @@ export var DescribeTunnelResponse$: StaticStructureSchema = [3, n0, _DTRe,
 ];
 export var DestinationConfig$: StaticStructureSchema = [3, n0, _DC,
   0,
-  [_tN, _se],
-  [0, 64 | 0]
+  [_se, _tN],
+  [64 | 0, 0], 1
 ];
 export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
   { [_aQE]: [`LimitExceededException`, 403], [_e]: _c, [_hE]: 403 },
@@ -123,7 +123,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, { [_hQ]: _rA }]]
+  [[0, { [_hQ]: _rA }]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -159,7 +159,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var RotateTunnelAccessTokenRequest$: StaticStructureSchema = [3, n0, _RTATR,
   0,
   [_tI, _cM, _dC],
-  [[0, 1], 0, () => DestinationConfig$]
+  [[0, 1], 0, () => DestinationConfig$], 2
 ];
 export var RotateTunnelAccessTokenResponse$: StaticStructureSchema = [3, n0, _RTATRo,
   0,
@@ -169,12 +169,12 @@ export var RotateTunnelAccessTokenResponse$: StaticStructureSchema = [3, n0, _RT
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _v],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -199,7 +199,7 @@ export var TunnelSummary$: StaticStructureSchema = [3, n0, _TS,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,

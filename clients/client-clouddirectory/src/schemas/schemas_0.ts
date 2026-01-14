@@ -527,8 +527,8 @@ export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AddFacetToObjectRequest$: StaticStructureSchema = [3, n0, _AFTOR,
   0,
-  [_DA, _SF, _OAL, _OR],
-  [[0, { [_hH]: _xadp }], () => SchemaFacet$, () => AttributeKeyAndValueList, () => ObjectReference$]
+  [_DA, _SF, _OR, _OAL],
+  [[0, { [_hH]: _xadp }], () => SchemaFacet$, () => ObjectReference$, () => AttributeKeyAndValueList], 3
 ];
 export var AddFacetToObjectResponse$: StaticStructureSchema = [3, n0, _AFTORd,
   0,
@@ -538,7 +538,7 @@ export var AddFacetToObjectResponse$: StaticStructureSchema = [3, n0, _AFTORd,
 export var ApplySchemaRequest$: StaticStructureSchema = [3, n0, _ASR,
   0,
   [_PSA, _DA],
-  [0, [0, { [_hH]: _xadp }]]
+  [0, [0, { [_hH]: _xadp }]], 2
 ];
 export var ApplySchemaResponse$: StaticStructureSchema = [3, n0, _ASRp,
   0,
@@ -548,7 +548,7 @@ export var ApplySchemaResponse$: StaticStructureSchema = [3, n0, _ASRp,
 export var AttachObjectRequest$: StaticStructureSchema = [3, n0, _AOR,
   0,
   [_DA, _PR, _CR, _LN],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => ObjectReference$, 0]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => ObjectReference$, 0], 4
 ];
 export var AttachObjectResponse$: StaticStructureSchema = [3, n0, _AORt,
   0,
@@ -558,7 +558,7 @@ export var AttachObjectResponse$: StaticStructureSchema = [3, n0, _AORt,
 export var AttachPolicyRequest$: StaticStructureSchema = [3, n0, _APR,
   0,
   [_DA, _PRo, _OR],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => ObjectReference$]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => ObjectReference$], 3
 ];
 export var AttachPolicyResponse$: StaticStructureSchema = [3, n0, _APRt,
   0,
@@ -568,7 +568,7 @@ export var AttachPolicyResponse$: StaticStructureSchema = [3, n0, _APRt,
 export var AttachToIndexRequest$: StaticStructureSchema = [3, n0, _ATIR,
   0,
   [_DA, _IR, _TR],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => ObjectReference$]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => ObjectReference$], 3
 ];
 export var AttachToIndexResponse$: StaticStructureSchema = [3, n0, _ATIRt,
   0,
@@ -578,7 +578,7 @@ export var AttachToIndexResponse$: StaticStructureSchema = [3, n0, _ATIRt,
 export var AttachTypedLinkRequest$: StaticStructureSchema = [3, n0, _ATLR,
   0,
   [_DA, _SOR, _TOR, _TLF, _A],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => ObjectReference$, () => TypedLinkSchemaAndFacetName$, () => AttributeNameAndValueList]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => ObjectReference$, () => TypedLinkSchemaAndFacetName$, () => AttributeNameAndValueList], 5
 ];
 export var AttachTypedLinkResponse$: StaticStructureSchema = [3, n0, _ATLRt,
   0,
@@ -588,22 +588,22 @@ export var AttachTypedLinkResponse$: StaticStructureSchema = [3, n0, _ATLRt,
 export var AttributeKey$: StaticStructureSchema = [3, n0, _AK,
   0,
   [_SA, _FN, _N],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var AttributeKeyAndValue$: StaticStructureSchema = [3, n0, _AKAV,
   0,
   [_K, _V],
-  [() => AttributeKey$, () => TypedAttributeValue$]
+  [() => AttributeKey$, () => TypedAttributeValue$], 2
 ];
 export var AttributeNameAndValue$: StaticStructureSchema = [3, n0, _ANAV,
   0,
   [_AN, _V],
-  [0, () => TypedAttributeValue$]
+  [0, () => TypedAttributeValue$], 2
 ];
 export var BatchAddFacetToObject$: StaticStructureSchema = [3, n0, _BAFTO,
   0,
   [_SF, _OAL, _OR],
-  [() => SchemaFacet$, () => AttributeKeyAndValueList, () => ObjectReference$]
+  [() => SchemaFacet$, () => AttributeKeyAndValueList, () => ObjectReference$], 3
 ];
 export var BatchAddFacetToObjectResponse$: StaticStructureSchema = [3, n0, _BAFTOR,
   0,
@@ -613,7 +613,7 @@ export var BatchAddFacetToObjectResponse$: StaticStructureSchema = [3, n0, _BAFT
 export var BatchAttachObject$: StaticStructureSchema = [3, n0, _BAO,
   0,
   [_PR, _CR, _LN],
-  [() => ObjectReference$, () => ObjectReference$, 0]
+  [() => ObjectReference$, () => ObjectReference$, 0], 3
 ];
 export var BatchAttachObjectResponse$: StaticStructureSchema = [3, n0, _BAOR,
   0,
@@ -623,7 +623,7 @@ export var BatchAttachObjectResponse$: StaticStructureSchema = [3, n0, _BAOR,
 export var BatchAttachPolicy$: StaticStructureSchema = [3, n0, _BAP,
   0,
   [_PRo, _OR],
-  [() => ObjectReference$, () => ObjectReference$]
+  [() => ObjectReference$, () => ObjectReference$], 2
 ];
 export var BatchAttachPolicyResponse$: StaticStructureSchema = [3, n0, _BAPR,
   0,
@@ -633,7 +633,7 @@ export var BatchAttachPolicyResponse$: StaticStructureSchema = [3, n0, _BAPR,
 export var BatchAttachToIndex$: StaticStructureSchema = [3, n0, _BATI,
   0,
   [_IR, _TR],
-  [() => ObjectReference$, () => ObjectReference$]
+  [() => ObjectReference$, () => ObjectReference$], 2
 ];
 export var BatchAttachToIndexResponse$: StaticStructureSchema = [3, n0, _BATIR,
   0,
@@ -643,7 +643,7 @@ export var BatchAttachToIndexResponse$: StaticStructureSchema = [3, n0, _BATIR,
 export var BatchAttachTypedLink$: StaticStructureSchema = [3, n0, _BATL,
   0,
   [_SOR, _TOR, _TLF, _A],
-  [() => ObjectReference$, () => ObjectReference$, () => TypedLinkSchemaAndFacetName$, () => AttributeNameAndValueList]
+  [() => ObjectReference$, () => ObjectReference$, () => TypedLinkSchemaAndFacetName$, () => AttributeNameAndValueList], 4
 ];
 export var BatchAttachTypedLinkResponse$: StaticStructureSchema = [3, n0, _BATLR,
   0,
@@ -653,7 +653,7 @@ export var BatchAttachTypedLinkResponse$: StaticStructureSchema = [3, n0, _BATLR
 export var BatchCreateIndex$: StaticStructureSchema = [3, n0, _BCI,
   0,
   [_OIAL, _IU, _PR, _LN, _BRN],
-  [() => AttributeKeyList, 2, () => ObjectReference$, 0, 0]
+  [() => AttributeKeyList, 2, () => ObjectReference$, 0, 0], 2
 ];
 export var BatchCreateIndexResponse$: StaticStructureSchema = [3, n0, _BCIR,
   0,
@@ -663,7 +663,7 @@ export var BatchCreateIndexResponse$: StaticStructureSchema = [3, n0, _BCIR,
 export var BatchCreateObject$: StaticStructureSchema = [3, n0, _BCO,
   0,
   [_SF, _OAL, _PR, _LN, _BRN],
-  [() => SchemaFacetList, () => AttributeKeyAndValueList, () => ObjectReference$, 0, 0]
+  [() => SchemaFacetList, () => AttributeKeyAndValueList, () => ObjectReference$, 0, 0], 2
 ];
 export var BatchCreateObjectResponse$: StaticStructureSchema = [3, n0, _BCOR,
   0,
@@ -673,7 +673,7 @@ export var BatchCreateObjectResponse$: StaticStructureSchema = [3, n0, _BCOR,
 export var BatchDeleteObject$: StaticStructureSchema = [3, n0, _BDO,
   0,
   [_OR],
-  [() => ObjectReference$]
+  [() => ObjectReference$], 1
 ];
 export var BatchDeleteObjectResponse$: StaticStructureSchema = [3, n0, _BDOR,
   0,
@@ -683,7 +683,7 @@ export var BatchDeleteObjectResponse$: StaticStructureSchema = [3, n0, _BDOR,
 export var BatchDetachFromIndex$: StaticStructureSchema = [3, n0, _BDFI,
   0,
   [_IR, _TR],
-  [() => ObjectReference$, () => ObjectReference$]
+  [() => ObjectReference$, () => ObjectReference$], 2
 ];
 export var BatchDetachFromIndexResponse$: StaticStructureSchema = [3, n0, _BDFIR,
   0,
@@ -693,7 +693,7 @@ export var BatchDetachFromIndexResponse$: StaticStructureSchema = [3, n0, _BDFIR
 export var BatchDetachObject$: StaticStructureSchema = [3, n0, _BDOa,
   0,
   [_PR, _LN, _BRN],
-  [() => ObjectReference$, 0, 0]
+  [() => ObjectReference$, 0, 0], 2
 ];
 export var BatchDetachObjectResponse$: StaticStructureSchema = [3, n0, _BDORa,
   0,
@@ -703,7 +703,7 @@ export var BatchDetachObjectResponse$: StaticStructureSchema = [3, n0, _BDORa,
 export var BatchDetachPolicy$: StaticStructureSchema = [3, n0, _BDP,
   0,
   [_PRo, _OR],
-  [() => ObjectReference$, () => ObjectReference$]
+  [() => ObjectReference$, () => ObjectReference$], 2
 ];
 export var BatchDetachPolicyResponse$: StaticStructureSchema = [3, n0, _BDPR,
   0,
@@ -713,7 +713,7 @@ export var BatchDetachPolicyResponse$: StaticStructureSchema = [3, n0, _BDPR,
 export var BatchDetachTypedLink$: StaticStructureSchema = [3, n0, _BDTL,
   0,
   [_TLS],
-  [() => TypedLinkSpecifier$]
+  [() => TypedLinkSpecifier$], 1
 ];
 export var BatchDetachTypedLinkResponse$: StaticStructureSchema = [3, n0, _BDTLR,
   0,
@@ -723,7 +723,7 @@ export var BatchDetachTypedLinkResponse$: StaticStructureSchema = [3, n0, _BDTLR
 export var BatchGetLinkAttributes$: StaticStructureSchema = [3, n0, _BGLA,
   0,
   [_TLS, _ANt],
-  [() => TypedLinkSpecifier$, 64 | 0]
+  [() => TypedLinkSpecifier$, 64 | 0], 2
 ];
 export var BatchGetLinkAttributesResponse$: StaticStructureSchema = [3, n0, _BGLAR,
   0,
@@ -733,7 +733,7 @@ export var BatchGetLinkAttributesResponse$: StaticStructureSchema = [3, n0, _BGL
 export var BatchGetObjectAttributes$: StaticStructureSchema = [3, n0, _BGOA,
   0,
   [_OR, _SF, _ANt],
-  [() => ObjectReference$, () => SchemaFacet$, 64 | 0]
+  [() => ObjectReference$, () => SchemaFacet$, 64 | 0], 3
 ];
 export var BatchGetObjectAttributesResponse$: StaticStructureSchema = [3, n0, _BGOAR,
   0,
@@ -743,7 +743,7 @@ export var BatchGetObjectAttributesResponse$: StaticStructureSchema = [3, n0, _B
 export var BatchGetObjectInformation$: StaticStructureSchema = [3, n0, _BGOI,
   0,
   [_OR],
-  [() => ObjectReference$]
+  [() => ObjectReference$], 1
 ];
 export var BatchGetObjectInformationResponse$: StaticStructureSchema = [3, n0, _BGOIR,
   0,
@@ -753,7 +753,7 @@ export var BatchGetObjectInformationResponse$: StaticStructureSchema = [3, n0, _
 export var BatchListAttachedIndices$: StaticStructureSchema = [3, n0, _BLAI,
   0,
   [_TR, _NT, _MR],
-  [() => ObjectReference$, 0, 1]
+  [() => ObjectReference$, 0, 1], 1
 ];
 export var BatchListAttachedIndicesResponse$: StaticStructureSchema = [3, n0, _BLAIR,
   0,
@@ -763,7 +763,7 @@ export var BatchListAttachedIndicesResponse$: StaticStructureSchema = [3, n0, _B
 export var BatchListIncomingTypedLinks$: StaticStructureSchema = [3, n0, _BLITL,
   0,
   [_OR, _FAR, _FTL, _NT, _MR],
-  [() => ObjectReference$, () => TypedLinkAttributeRangeList, () => TypedLinkSchemaAndFacetName$, 0, 1]
+  [() => ObjectReference$, () => TypedLinkAttributeRangeList, () => TypedLinkSchemaAndFacetName$, 0, 1], 1
 ];
 export var BatchListIncomingTypedLinksResponse$: StaticStructureSchema = [3, n0, _BLITLR,
   0,
@@ -772,8 +772,8 @@ export var BatchListIncomingTypedLinksResponse$: StaticStructureSchema = [3, n0,
 ];
 export var BatchListIndex$: StaticStructureSchema = [3, n0, _BLI,
   0,
-  [_ROIV, _IR, _MR, _NT],
-  [() => ObjectAttributeRangeList, () => ObjectReference$, 1, 0]
+  [_IR, _ROIV, _MR, _NT],
+  [() => ObjectReference$, () => ObjectAttributeRangeList, 1, 0], 1
 ];
 export var BatchListIndexResponse$: StaticStructureSchema = [3, n0, _BLIR,
   0,
@@ -783,7 +783,7 @@ export var BatchListIndexResponse$: StaticStructureSchema = [3, n0, _BLIR,
 export var BatchListObjectAttributes$: StaticStructureSchema = [3, n0, _BLOA,
   0,
   [_OR, _NT, _MR, _FF],
-  [() => ObjectReference$, 0, 1, () => SchemaFacet$]
+  [() => ObjectReference$, 0, 1, () => SchemaFacet$], 1
 ];
 export var BatchListObjectAttributesResponse$: StaticStructureSchema = [3, n0, _BLOAR,
   0,
@@ -793,7 +793,7 @@ export var BatchListObjectAttributesResponse$: StaticStructureSchema = [3, n0, _
 export var BatchListObjectChildren$: StaticStructureSchema = [3, n0, _BLOC,
   0,
   [_OR, _NT, _MR],
-  [() => ObjectReference$, 0, 1]
+  [() => ObjectReference$, 0, 1], 1
 ];
 export var BatchListObjectChildrenResponse$: StaticStructureSchema = [3, n0, _BLOCR,
   0,
@@ -803,7 +803,7 @@ export var BatchListObjectChildrenResponse$: StaticStructureSchema = [3, n0, _BL
 export var BatchListObjectParentPaths$: StaticStructureSchema = [3, n0, _BLOPP,
   0,
   [_OR, _NT, _MR],
-  [() => ObjectReference$, 0, 1]
+  [() => ObjectReference$, 0, 1], 1
 ];
 export var BatchListObjectParentPathsResponse$: StaticStructureSchema = [3, n0, _BLOPPR,
   0,
@@ -813,7 +813,7 @@ export var BatchListObjectParentPathsResponse$: StaticStructureSchema = [3, n0, 
 export var BatchListObjectParents$: StaticStructureSchema = [3, n0, _BLOP,
   0,
   [_OR, _NT, _MR],
-  [() => ObjectReference$, 0, 1]
+  [() => ObjectReference$, 0, 1], 1
 ];
 export var BatchListObjectParentsResponse$: StaticStructureSchema = [3, n0, _BLOPR,
   0,
@@ -823,7 +823,7 @@ export var BatchListObjectParentsResponse$: StaticStructureSchema = [3, n0, _BLO
 export var BatchListObjectPolicies$: StaticStructureSchema = [3, n0, _BLOPa,
   0,
   [_OR, _NT, _MR],
-  [() => ObjectReference$, 0, 1]
+  [() => ObjectReference$, 0, 1], 1
 ];
 export var BatchListObjectPoliciesResponse$: StaticStructureSchema = [3, n0, _BLOPRa,
   0,
@@ -833,7 +833,7 @@ export var BatchListObjectPoliciesResponse$: StaticStructureSchema = [3, n0, _BL
 export var BatchListOutgoingTypedLinks$: StaticStructureSchema = [3, n0, _BLOTL,
   0,
   [_OR, _FAR, _FTL, _NT, _MR],
-  [() => ObjectReference$, () => TypedLinkAttributeRangeList, () => TypedLinkSchemaAndFacetName$, 0, 1]
+  [() => ObjectReference$, () => TypedLinkAttributeRangeList, () => TypedLinkSchemaAndFacetName$, 0, 1], 1
 ];
 export var BatchListOutgoingTypedLinksResponse$: StaticStructureSchema = [3, n0, _BLOTLR,
   0,
@@ -843,7 +843,7 @@ export var BatchListOutgoingTypedLinksResponse$: StaticStructureSchema = [3, n0,
 export var BatchListPolicyAttachments$: StaticStructureSchema = [3, n0, _BLPA,
   0,
   [_PRo, _NT, _MR],
-  [() => ObjectReference$, 0, 1]
+  [() => ObjectReference$, 0, 1], 1
 ];
 export var BatchListPolicyAttachmentsResponse$: StaticStructureSchema = [3, n0, _BLPAR,
   0,
@@ -853,7 +853,7 @@ export var BatchListPolicyAttachmentsResponse$: StaticStructureSchema = [3, n0, 
 export var BatchLookupPolicy$: StaticStructureSchema = [3, n0, _BLP,
   0,
   [_OR, _NT, _MR],
-  [() => ObjectReference$, 0, 1]
+  [() => ObjectReference$, 0, 1], 1
 ];
 export var BatchLookupPolicyResponse$: StaticStructureSchema = [3, n0, _BLPR,
   0,
@@ -878,7 +878,7 @@ export var BatchReadOperationResponse$: StaticStructureSchema = [3, n0, _BROR,
 export var BatchReadRequest$: StaticStructureSchema = [3, n0, _BRR,
   0,
   [_DA, _O, _CL],
-  [[0, { [_hH]: _xadp }], () => BatchReadOperationList, [0, { [_hH]: _xacl }]]
+  [[0, { [_hH]: _xadp }], () => BatchReadOperationList, [0, { [_hH]: _xacl }]], 2
 ];
 export var BatchReadResponse$: StaticStructureSchema = [3, n0, _BRRa,
   0,
@@ -893,7 +893,7 @@ export var BatchReadSuccessfulResponse$: StaticStructureSchema = [3, n0, _BRSR,
 export var BatchRemoveFacetFromObject$: StaticStructureSchema = [3, n0, _BRFFO,
   0,
   [_SF, _OR],
-  [() => SchemaFacet$, () => ObjectReference$]
+  [() => SchemaFacet$, () => ObjectReference$], 2
 ];
 export var BatchRemoveFacetFromObjectResponse$: StaticStructureSchema = [3, n0, _BRFFOR,
   0,
@@ -903,7 +903,7 @@ export var BatchRemoveFacetFromObjectResponse$: StaticStructureSchema = [3, n0, 
 export var BatchUpdateLinkAttributes$: StaticStructureSchema = [3, n0, _BULA,
   0,
   [_TLS, _AU],
-  [() => TypedLinkSpecifier$, () => LinkAttributeUpdateList]
+  [() => TypedLinkSpecifier$, () => LinkAttributeUpdateList], 2
 ];
 export var BatchUpdateLinkAttributesResponse$: StaticStructureSchema = [3, n0, _BULAR,
   0,
@@ -913,7 +913,7 @@ export var BatchUpdateLinkAttributesResponse$: StaticStructureSchema = [3, n0, _
 export var BatchUpdateObjectAttributes$: StaticStructureSchema = [3, n0, _BUOA,
   0,
   [_OR, _AU],
-  [() => ObjectReference$, () => ObjectAttributeUpdateList]
+  [() => ObjectReference$, () => ObjectAttributeUpdateList], 2
 ];
 export var BatchUpdateObjectAttributesResponse$: StaticStructureSchema = [3, n0, _BUOAR,
   0,
@@ -939,7 +939,7 @@ export var BatchWriteOperationResponse$: StaticStructureSchema = [3, n0, _BWOR,
 export var BatchWriteRequest$: StaticStructureSchema = [3, n0, _BWR,
   0,
   [_DA, _O],
-  [[0, { [_hH]: _xadp }], () => BatchWriteOperationList]
+  [[0, { [_hH]: _xadp }], () => BatchWriteOperationList], 2
 ];
 export var BatchWriteResponse$: StaticStructureSchema = [3, n0, _BWRa,
   0,
@@ -955,17 +955,17 @@ TypeRegistry.for(n0).registerError(CannotListParentOfRootException$, CannotListP
 export var CreateDirectoryRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_N, _SA],
-  [0, [0, { [_hH]: _xadp }]]
+  [0, [0, { [_hH]: _xadp }]], 2
 ];
 export var CreateDirectoryResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
   [_DA, _N, _OI, _ASA],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var CreateFacetRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
   [_SA, _N, _A, _OT, _FS],
-  [[0, { [_hH]: _xadp }], 0, () => FacetAttributeList, 0, 0]
+  [[0, { [_hH]: _xadp }], 0, () => FacetAttributeList, 0, 0], 2
 ];
 export var CreateFacetResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
@@ -975,7 +975,7 @@ export var CreateFacetResponse$: StaticStructureSchema = [3, n0, _CFRr,
 export var CreateIndexRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
   [_DA, _OIAL, _IU, _PR, _LN],
-  [[0, { [_hH]: _xadp }], () => AttributeKeyList, 2, () => ObjectReference$, 0]
+  [[0, { [_hH]: _xadp }], () => AttributeKeyList, 2, () => ObjectReference$, 0], 3
 ];
 export var CreateIndexResponse$: StaticStructureSchema = [3, n0, _CIRr,
   0,
@@ -985,7 +985,7 @@ export var CreateIndexResponse$: StaticStructureSchema = [3, n0, _CIRr,
 export var CreateObjectRequest$: StaticStructureSchema = [3, n0, _COR,
   0,
   [_DA, _SFc, _OAL, _PR, _LN],
-  [[0, { [_hH]: _xadp }], () => SchemaFacetList, () => AttributeKeyAndValueList, () => ObjectReference$, 0]
+  [[0, { [_hH]: _xadp }], () => SchemaFacetList, () => AttributeKeyAndValueList, () => ObjectReference$, 0], 2
 ];
 export var CreateObjectResponse$: StaticStructureSchema = [3, n0, _CORr,
   0,
@@ -995,7 +995,7 @@ export var CreateObjectResponse$: StaticStructureSchema = [3, n0, _CORr,
 export var CreateSchemaRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var CreateSchemaResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -1005,7 +1005,7 @@ export var CreateSchemaResponse$: StaticStructureSchema = [3, n0, _CSRr,
 export var CreateTypedLinkFacetRequest$: StaticStructureSchema = [3, n0, _CTLFR,
   0,
   [_SA, _F],
-  [[0, { [_hH]: _xadp }], () => TypedLinkFacet$]
+  [[0, { [_hH]: _xadp }], () => TypedLinkFacet$], 2
 ];
 export var CreateTypedLinkFacetResponse$: StaticStructureSchema = [3, n0, _CTLFRr,
   0,
@@ -1015,17 +1015,17 @@ export var CreateTypedLinkFacetResponse$: StaticStructureSchema = [3, n0, _CTLFR
 export var DeleteDirectoryRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_DA],
-  [[0, { [_hH]: _xadp }]]
+  [[0, { [_hH]: _xadp }]], 1
 ];
 export var DeleteDirectoryResponse$: StaticStructureSchema = [3, n0, _DDRe,
   0,
   [_DA],
-  [0]
+  [0], 1
 ];
 export var DeleteFacetRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
   [_SA, _N],
-  [[0, { [_hH]: _xadp }], 0]
+  [[0, { [_hH]: _xadp }], 0], 2
 ];
 export var DeleteFacetResponse$: StaticStructureSchema = [3, n0, _DFRe,
   0,
@@ -1035,7 +1035,7 @@ export var DeleteFacetResponse$: StaticStructureSchema = [3, n0, _DFRe,
 export var DeleteObjectRequest$: StaticStructureSchema = [3, n0, _DOR,
   0,
   [_DA, _OR],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$], 2
 ];
 export var DeleteObjectResponse$: StaticStructureSchema = [3, n0, _DORe,
   0,
@@ -1045,7 +1045,7 @@ export var DeleteObjectResponse$: StaticStructureSchema = [3, n0, _DORe,
 export var DeleteSchemaRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_SA],
-  [[0, { [_hH]: _xadp }]]
+  [[0, { [_hH]: _xadp }]], 1
 ];
 export var DeleteSchemaResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
@@ -1055,7 +1055,7 @@ export var DeleteSchemaResponse$: StaticStructureSchema = [3, n0, _DSRe,
 export var DeleteTypedLinkFacetRequest$: StaticStructureSchema = [3, n0, _DTLFR,
   0,
   [_SA, _N],
-  [[0, { [_hH]: _xadp }], 0]
+  [[0, { [_hH]: _xadp }], 0], 2
 ];
 export var DeleteTypedLinkFacetResponse$: StaticStructureSchema = [3, n0, _DTLFRe,
   0,
@@ -1065,7 +1065,7 @@ export var DeleteTypedLinkFacetResponse$: StaticStructureSchema = [3, n0, _DTLFR
 export var DetachFromIndexRequest$: StaticStructureSchema = [3, n0, _DFIR,
   0,
   [_DA, _IR, _TR],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => ObjectReference$]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => ObjectReference$], 3
 ];
 export var DetachFromIndexResponse$: StaticStructureSchema = [3, n0, _DFIRe,
   0,
@@ -1075,7 +1075,7 @@ export var DetachFromIndexResponse$: StaticStructureSchema = [3, n0, _DFIRe,
 export var DetachObjectRequest$: StaticStructureSchema = [3, n0, _DORet,
   0,
   [_DA, _PR, _LN],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, 0]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, 0], 3
 ];
 export var DetachObjectResponse$: StaticStructureSchema = [3, n0, _DOReta,
   0,
@@ -1085,7 +1085,7 @@ export var DetachObjectResponse$: StaticStructureSchema = [3, n0, _DOReta,
 export var DetachPolicyRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_DA, _PRo, _OR],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => ObjectReference$]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => ObjectReference$], 3
 ];
 export var DetachPolicyResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
@@ -1095,7 +1095,7 @@ export var DetachPolicyResponse$: StaticStructureSchema = [3, n0, _DPRe,
 export var DetachTypedLinkRequest$: StaticStructureSchema = [3, n0, _DTLR,
   0,
   [_DA, _TLS],
-  [[0, { [_hH]: _xadp }], () => TypedLinkSpecifier$]
+  [[0, { [_hH]: _xadp }], () => TypedLinkSpecifier$], 2
 ];
 export var Directory$: StaticStructureSchema = [3, n0, _D,
   0,
@@ -1129,22 +1129,22 @@ TypeRegistry.for(n0).registerError(DirectoryNotEnabledException$, DirectoryNotEn
 export var DisableDirectoryRequest$: StaticStructureSchema = [3, n0, _DDRi,
   0,
   [_DA],
-  [[0, { [_hH]: _xadp }]]
+  [[0, { [_hH]: _xadp }]], 1
 ];
 export var DisableDirectoryResponse$: StaticStructureSchema = [3, n0, _DDRis,
   0,
   [_DA],
-  [0]
+  [0], 1
 ];
 export var EnableDirectoryRequest$: StaticStructureSchema = [3, n0, _EDR,
   0,
   [_DA],
-  [[0, { [_hH]: _xadp }]]
+  [[0, { [_hH]: _xadp }]], 1
 ];
 export var EnableDirectoryResponse$: StaticStructureSchema = [3, n0, _EDRn,
   0,
   [_DA],
-  [0]
+  [0], 1
 ];
 export var Facet$: StaticStructureSchema = [3, n0, _F,
   0,
@@ -1160,17 +1160,17 @@ TypeRegistry.for(n0).registerError(FacetAlreadyExistsException$, FacetAlreadyExi
 export var FacetAttribute$: StaticStructureSchema = [3, n0, _FA,
   0,
   [_N, _AD, _AR, _RB],
-  [0, () => FacetAttributeDefinition$, () => FacetAttributeReference$, 0]
+  [0, () => FacetAttributeDefinition$, () => FacetAttributeReference$, 0], 1
 ];
 export var FacetAttributeDefinition$: StaticStructureSchema = [3, n0, _FAD,
   0,
   [_T, _DV, _II, _Ru],
-  [0, () => TypedAttributeValue$, 2, () => RuleMap]
+  [0, () => TypedAttributeValue$, 2, () => RuleMap], 1
 ];
 export var FacetAttributeReference$: StaticStructureSchema = [3, n0, _FARa,
   0,
   [_TFN, _TAN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var FacetAttributeUpdate$: StaticStructureSchema = [3, n0, _FAU,
   0,
@@ -1198,7 +1198,7 @@ TypeRegistry.for(n0).registerError(FacetValidationException$, FacetValidationExc
 export var GetAppliedSchemaVersionRequest$: StaticStructureSchema = [3, n0, _GASVR,
   0,
   [_SA],
-  [0]
+  [0], 1
 ];
 export var GetAppliedSchemaVersionResponse$: StaticStructureSchema = [3, n0, _GASVRe,
   0,
@@ -1208,17 +1208,17 @@ export var GetAppliedSchemaVersionResponse$: StaticStructureSchema = [3, n0, _GA
 export var GetDirectoryRequest$: StaticStructureSchema = [3, n0, _GDR,
   0,
   [_DA],
-  [[0, { [_hH]: _xadp }]]
+  [[0, { [_hH]: _xadp }]], 1
 ];
 export var GetDirectoryResponse$: StaticStructureSchema = [3, n0, _GDRe,
   0,
   [_D],
-  [() => Directory$]
+  [() => Directory$], 1
 ];
 export var GetFacetRequest$: StaticStructureSchema = [3, n0, _GFR,
   0,
   [_SA, _N],
-  [[0, { [_hH]: _xadp }], 0]
+  [[0, { [_hH]: _xadp }], 0], 2
 ];
 export var GetFacetResponse$: StaticStructureSchema = [3, n0, _GFRe,
   0,
@@ -1228,7 +1228,7 @@ export var GetFacetResponse$: StaticStructureSchema = [3, n0, _GFRe,
 export var GetLinkAttributesRequest$: StaticStructureSchema = [3, n0, _GLAR,
   0,
   [_DA, _TLS, _ANt, _CL],
-  [[0, { [_hH]: _xadp }], () => TypedLinkSpecifier$, 64 | 0, 0]
+  [[0, { [_hH]: _xadp }], () => TypedLinkSpecifier$, 64 | 0, 0], 3
 ];
 export var GetLinkAttributesResponse$: StaticStructureSchema = [3, n0, _GLARe,
   0,
@@ -1237,8 +1237,8 @@ export var GetLinkAttributesResponse$: StaticStructureSchema = [3, n0, _GLARe,
 ];
 export var GetObjectAttributesRequest$: StaticStructureSchema = [3, n0, _GOAR,
   0,
-  [_DA, _OR, _CL, _SF, _ANt],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, [0, { [_hH]: _xacl }], () => SchemaFacet$, 64 | 0]
+  [_DA, _OR, _SF, _ANt, _CL],
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => SchemaFacet$, 64 | 0, [0, { [_hH]: _xacl }]], 4
 ];
 export var GetObjectAttributesResponse$: StaticStructureSchema = [3, n0, _GOARe,
   0,
@@ -1248,7 +1248,7 @@ export var GetObjectAttributesResponse$: StaticStructureSchema = [3, n0, _GOARe,
 export var GetObjectInformationRequest$: StaticStructureSchema = [3, n0, _GOIR,
   0,
   [_DA, _OR, _CL],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, [0, { [_hH]: _xacl }]]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, [0, { [_hH]: _xacl }]], 2
 ];
 export var GetObjectInformationResponse$: StaticStructureSchema = [3, n0, _GOIRe,
   0,
@@ -1258,7 +1258,7 @@ export var GetObjectInformationResponse$: StaticStructureSchema = [3, n0, _GOIRe
 export var GetSchemaAsJsonRequest$: StaticStructureSchema = [3, n0, _GSAJR,
   0,
   [_SA],
-  [[0, { [_hH]: _xadp }]]
+  [[0, { [_hH]: _xadp }]], 1
 ];
 export var GetSchemaAsJsonResponse$: StaticStructureSchema = [3, n0, _GSAJRe,
   0,
@@ -1268,7 +1268,7 @@ export var GetSchemaAsJsonResponse$: StaticStructureSchema = [3, n0, _GSAJRe,
 export var GetTypedLinkFacetInformationRequest$: StaticStructureSchema = [3, n0, _GTLFIR,
   0,
   [_SA, _N],
-  [[0, { [_hH]: _xadp }], 0]
+  [[0, { [_hH]: _xadp }], 0], 2
 ];
 export var GetTypedLinkFacetInformationResponse$: StaticStructureSchema = [3, n0, _GTLFIRe,
   0,
@@ -1365,7 +1365,7 @@ TypeRegistry.for(n0).registerError(LinkNameAlreadyInUseException$, LinkNameAlrea
 export var ListAppliedSchemaArnsRequest$: StaticStructureSchema = [3, n0, _LASAR,
   0,
   [_DA, _SA, _NT, _MR],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 1
 ];
 export var ListAppliedSchemaArnsResponse$: StaticStructureSchema = [3, n0, _LASARi,
   0,
@@ -1375,7 +1375,7 @@ export var ListAppliedSchemaArnsResponse$: StaticStructureSchema = [3, n0, _LASA
 export var ListAttachedIndicesRequest$: StaticStructureSchema = [3, n0, _LAIR,
   0,
   [_DA, _TR, _NT, _MR, _CL],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, 0, 1, [0, { [_hH]: _xacl }]]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, 0, 1, [0, { [_hH]: _xacl }]], 2
 ];
 export var ListAttachedIndicesResponse$: StaticStructureSchema = [3, n0, _LAIRi,
   0,
@@ -1400,12 +1400,12 @@ export var ListDirectoriesRequest$: StaticStructureSchema = [3, n0, _LDR,
 export var ListDirectoriesResponse$: StaticStructureSchema = [3, n0, _LDRi,
   0,
   [_Di, _NT],
-  [() => DirectoryList, 0]
+  [() => DirectoryList, 0], 1
 ];
 export var ListFacetAttributesRequest$: StaticStructureSchema = [3, n0, _LFAR,
   0,
   [_SA, _N, _NT, _MR],
-  [[0, { [_hH]: _xadp }], 0, 0, 1]
+  [[0, { [_hH]: _xadp }], 0, 0, 1], 2
 ];
 export var ListFacetAttributesResponse$: StaticStructureSchema = [3, n0, _LFARi,
   0,
@@ -1415,7 +1415,7 @@ export var ListFacetAttributesResponse$: StaticStructureSchema = [3, n0, _LFARi,
 export var ListFacetNamesRequest$: StaticStructureSchema = [3, n0, _LFNR,
   0,
   [_SA, _NT, _MR],
-  [[0, { [_hH]: _xadp }], 0, 1]
+  [[0, { [_hH]: _xadp }], 0, 1], 1
 ];
 export var ListFacetNamesResponse$: StaticStructureSchema = [3, n0, _LFNRi,
   0,
@@ -1425,7 +1425,7 @@ export var ListFacetNamesResponse$: StaticStructureSchema = [3, n0, _LFNRi,
 export var ListIncomingTypedLinksRequest$: StaticStructureSchema = [3, n0, _LITLR,
   0,
   [_DA, _OR, _FAR, _FTL, _NT, _MR, _CL],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => TypedLinkAttributeRangeList, () => TypedLinkSchemaAndFacetName$, 0, 1, 0]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => TypedLinkAttributeRangeList, () => TypedLinkSchemaAndFacetName$, 0, 1, 0], 2
 ];
 export var ListIncomingTypedLinksResponse$: StaticStructureSchema = [3, n0, _LITLRi,
   0,
@@ -1434,8 +1434,8 @@ export var ListIncomingTypedLinksResponse$: StaticStructureSchema = [3, n0, _LIT
 ];
 export var ListIndexRequest$: StaticStructureSchema = [3, n0, _LIR,
   0,
-  [_DA, _ROIV, _IR, _MR, _NT, _CL],
-  [[0, { [_hH]: _xadp }], () => ObjectAttributeRangeList, () => ObjectReference$, 1, 0, [0, { [_hH]: _xacl }]]
+  [_DA, _IR, _ROIV, _MR, _NT, _CL],
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => ObjectAttributeRangeList, 1, 0, [0, { [_hH]: _xacl }]], 2
 ];
 export var ListIndexResponse$: StaticStructureSchema = [3, n0, _LIRi,
   0,
@@ -1455,7 +1455,7 @@ export var ListManagedSchemaArnsResponse$: StaticStructureSchema = [3, n0, _LMSA
 export var ListObjectAttributesRequest$: StaticStructureSchema = [3, n0, _LOAR,
   0,
   [_DA, _OR, _NT, _MR, _CL, _FF],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, 0, 1, [0, { [_hH]: _xacl }], () => SchemaFacet$]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, 0, 1, [0, { [_hH]: _xacl }], () => SchemaFacet$], 2
 ];
 export var ListObjectAttributesResponse$: StaticStructureSchema = [3, n0, _LOARi,
   0,
@@ -1465,7 +1465,7 @@ export var ListObjectAttributesResponse$: StaticStructureSchema = [3, n0, _LOARi
 export var ListObjectChildrenRequest$: StaticStructureSchema = [3, n0, _LOCR,
   0,
   [_DA, _OR, _NT, _MR, _CL],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, 0, 1, [0, { [_hH]: _xacl }]]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, 0, 1, [0, { [_hH]: _xacl }]], 2
 ];
 export var ListObjectChildrenResponse$: StaticStructureSchema = [3, n0, _LOCRi,
   0,
@@ -1475,7 +1475,7 @@ export var ListObjectChildrenResponse$: StaticStructureSchema = [3, n0, _LOCRi,
 export var ListObjectParentPathsRequest$: StaticStructureSchema = [3, n0, _LOPPR,
   0,
   [_DA, _OR, _NT, _MR],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, 0, 1]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, 0, 1], 2
 ];
 export var ListObjectParentPathsResponse$: StaticStructureSchema = [3, n0, _LOPPRi,
   0,
@@ -1485,7 +1485,7 @@ export var ListObjectParentPathsResponse$: StaticStructureSchema = [3, n0, _LOPP
 export var ListObjectParentsRequest$: StaticStructureSchema = [3, n0, _LOPR,
   0,
   [_DA, _OR, _NT, _MR, _CL, _IALTEP],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, 0, 1, [0, { [_hH]: _xacl }], 2]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, 0, 1, [0, { [_hH]: _xacl }], 2], 2
 ];
 export var ListObjectParentsResponse$: StaticStructureSchema = [3, n0, _LOPRi,
   0,
@@ -1495,7 +1495,7 @@ export var ListObjectParentsResponse$: StaticStructureSchema = [3, n0, _LOPRi,
 export var ListObjectPoliciesRequest$: StaticStructureSchema = [3, n0, _LOPRis,
   0,
   [_DA, _OR, _NT, _MR, _CL],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, 0, 1, [0, { [_hH]: _xacl }]]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, 0, 1, [0, { [_hH]: _xacl }]], 2
 ];
 export var ListObjectPoliciesResponse$: StaticStructureSchema = [3, n0, _LOPRist,
   0,
@@ -1505,7 +1505,7 @@ export var ListObjectPoliciesResponse$: StaticStructureSchema = [3, n0, _LOPRist
 export var ListOutgoingTypedLinksRequest$: StaticStructureSchema = [3, n0, _LOTLR,
   0,
   [_DA, _OR, _FAR, _FTL, _NT, _MR, _CL],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => TypedLinkAttributeRangeList, () => TypedLinkSchemaAndFacetName$, 0, 1, 0]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => TypedLinkAttributeRangeList, () => TypedLinkSchemaAndFacetName$, 0, 1, 0], 2
 ];
 export var ListOutgoingTypedLinksResponse$: StaticStructureSchema = [3, n0, _LOTLRi,
   0,
@@ -1515,7 +1515,7 @@ export var ListOutgoingTypedLinksResponse$: StaticStructureSchema = [3, n0, _LOT
 export var ListPolicyAttachmentsRequest$: StaticStructureSchema = [3, n0, _LPAR,
   0,
   [_DA, _PRo, _NT, _MR, _CL],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, 0, 1, [0, { [_hH]: _xacl }]]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, 0, 1, [0, { [_hH]: _xacl }]], 2
 ];
 export var ListPolicyAttachmentsResponse$: StaticStructureSchema = [3, n0, _LPARi,
   0,
@@ -1535,7 +1535,7 @@ export var ListPublishedSchemaArnsResponse$: StaticStructureSchema = [3, n0, _LP
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1545,7 +1545,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListTypedLinkFacetAttributesRequest$: StaticStructureSchema = [3, n0, _LTLFAR,
   0,
   [_SA, _N, _NT, _MR],
-  [[0, { [_hH]: _xadp }], 0, 0, 1]
+  [[0, { [_hH]: _xadp }], 0, 0, 1], 2
 ];
 export var ListTypedLinkFacetAttributesResponse$: StaticStructureSchema = [3, n0, _LTLFARi,
   0,
@@ -1555,7 +1555,7 @@ export var ListTypedLinkFacetAttributesResponse$: StaticStructureSchema = [3, n0
 export var ListTypedLinkFacetNamesRequest$: StaticStructureSchema = [3, n0, _LTLFNR,
   0,
   [_SA, _NT, _MR],
-  [[0, { [_hH]: _xadp }], 0, 1]
+  [[0, { [_hH]: _xadp }], 0, 1], 1
 ];
 export var ListTypedLinkFacetNamesResponse$: StaticStructureSchema = [3, n0, _LTLFNRi,
   0,
@@ -1565,7 +1565,7 @@ export var ListTypedLinkFacetNamesResponse$: StaticStructureSchema = [3, n0, _LT
 export var LookupPolicyRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
   [_DA, _OR, _NT, _MR],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, 0, 1]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, 0, 1], 2
 ];
 export var LookupPolicyResponse$: StaticStructureSchema = [3, n0, _LPRo,
   0,
@@ -1645,7 +1645,7 @@ export var PolicyToPath$: StaticStructureSchema = [3, n0, _PTP,
 export var PublishSchemaRequest$: StaticStructureSchema = [3, n0, _PSR,
   0,
   [_DSA, _Ve, _MV, _N],
-  [[0, { [_hH]: _xadp }], 0, 0, 0]
+  [[0, { [_hH]: _xadp }], 0, 0, 0], 2
 ];
 export var PublishSchemaResponse$: StaticStructureSchema = [3, n0, _PSRu,
   0,
@@ -1655,7 +1655,7 @@ export var PublishSchemaResponse$: StaticStructureSchema = [3, n0, _PSRu,
 export var PutSchemaFromJsonRequest$: StaticStructureSchema = [3, n0, _PSFJR,
   0,
   [_SA, _Do],
-  [[0, { [_hH]: _xadp }], 0]
+  [[0, { [_hH]: _xadp }], 0], 2
 ];
 export var PutSchemaFromJsonResponse$: StaticStructureSchema = [3, n0, _PSFJRu,
   0,
@@ -1665,7 +1665,7 @@ export var PutSchemaFromJsonResponse$: StaticStructureSchema = [3, n0, _PSFJRu,
 export var RemoveFacetFromObjectRequest$: StaticStructureSchema = [3, n0, _RFFOR,
   0,
   [_DA, _SF, _OR],
-  [[0, { [_hH]: _xadp }], () => SchemaFacet$, () => ObjectReference$]
+  [[0, { [_hH]: _xadp }], () => SchemaFacet$, () => ObjectReference$], 3
 ];
 export var RemoveFacetFromObjectResponse$: StaticStructureSchema = [3, n0, _RFFORe,
   0,
@@ -1720,7 +1720,7 @@ export var Tag$: StaticStructureSchema = [3, n0, _Tag,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1729,38 +1729,38 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var TypedAttributeValueRange$: StaticStructureSchema = [3, n0, _TAVR,
   0,
-  [_SM, _SV, _EM, _EV],
-  [0, () => TypedAttributeValue$, 0, () => TypedAttributeValue$]
+  [_SM, _EM, _SV, _EV],
+  [0, 0, () => TypedAttributeValue$, () => TypedAttributeValue$], 2
 ];
 export var TypedLinkAttributeDefinition$: StaticStructureSchema = [3, n0, _TLAD,
   0,
-  [_N, _T, _DV, _II, _Ru, _RB],
-  [0, 0, () => TypedAttributeValue$, 2, () => RuleMap, 0]
+  [_N, _T, _RB, _DV, _II, _Ru],
+  [0, 0, 0, () => TypedAttributeValue$, 2, () => RuleMap], 3
 ];
 export var TypedLinkAttributeRange$: StaticStructureSchema = [3, n0, _TLAR,
   0,
-  [_AN, _Ra],
-  [0, () => TypedAttributeValueRange$]
+  [_Ra, _AN],
+  [() => TypedAttributeValueRange$, 0], 1
 ];
 export var TypedLinkFacet$: StaticStructureSchema = [3, n0, _TLF,
   0,
   [_N, _A, _IAO],
-  [0, () => TypedLinkAttributeDefinitionList, 64 | 0]
+  [0, () => TypedLinkAttributeDefinitionList, 64 | 0], 3
 ];
 export var TypedLinkFacetAttributeUpdate$: StaticStructureSchema = [3, n0, _TLFAU,
   0,
   [_At, _Ac],
-  [() => TypedLinkAttributeDefinition$, 0]
+  [() => TypedLinkAttributeDefinition$, 0], 2
 ];
 export var TypedLinkSchemaAndFacetName$: StaticStructureSchema = [3, n0, _TLSAFN,
   0,
   [_SA, _TLN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TypedLinkSpecifier$: StaticStructureSchema = [3, n0, _TLS,
   0,
   [_TLF, _SOR, _TOR, _IAV],
-  [() => TypedLinkSchemaAndFacetName$, () => ObjectReference$, () => ObjectReference$, () => AttributeNameAndValueList]
+  [() => TypedLinkSchemaAndFacetName$, () => ObjectReference$, () => ObjectReference$, () => AttributeNameAndValueList], 4
 ];
 export var UnsupportedIndexTypeException$: StaticErrorSchema = [-3, n0, _UITE,
   { [_e]: _c, [_hE]: 400 },
@@ -1771,7 +1771,7 @@ TypeRegistry.for(n0).registerError(UnsupportedIndexTypeException$, UnsupportedIn
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1781,7 +1781,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateFacetRequest$: StaticStructureSchema = [3, n0, _UFR,
   0,
   [_SA, _N, _AU, _OT],
-  [[0, { [_hH]: _xadp }], 0, () => FacetAttributeUpdateList, 0]
+  [[0, { [_hH]: _xadp }], 0, () => FacetAttributeUpdateList, 0], 2
 ];
 export var UpdateFacetResponse$: StaticStructureSchema = [3, n0, _UFRp,
   0,
@@ -1791,7 +1791,7 @@ export var UpdateFacetResponse$: StaticStructureSchema = [3, n0, _UFRp,
 export var UpdateLinkAttributesRequest$: StaticStructureSchema = [3, n0, _ULAR,
   0,
   [_DA, _TLS, _AU],
-  [[0, { [_hH]: _xadp }], () => TypedLinkSpecifier$, () => LinkAttributeUpdateList]
+  [[0, { [_hH]: _xadp }], () => TypedLinkSpecifier$, () => LinkAttributeUpdateList], 3
 ];
 export var UpdateLinkAttributesResponse$: StaticStructureSchema = [3, n0, _ULARp,
   0,
@@ -1801,7 +1801,7 @@ export var UpdateLinkAttributesResponse$: StaticStructureSchema = [3, n0, _ULARp
 export var UpdateObjectAttributesRequest$: StaticStructureSchema = [3, n0, _UOAR,
   0,
   [_DA, _OR, _AU],
-  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => ObjectAttributeUpdateList]
+  [[0, { [_hH]: _xadp }], () => ObjectReference$, () => ObjectAttributeUpdateList], 3
 ];
 export var UpdateObjectAttributesResponse$: StaticStructureSchema = [3, n0, _UOARp,
   0,
@@ -1811,7 +1811,7 @@ export var UpdateObjectAttributesResponse$: StaticStructureSchema = [3, n0, _UOA
 export var UpdateSchemaRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
   [_SA, _N],
-  [[0, { [_hH]: _xadp }], 0]
+  [[0, { [_hH]: _xadp }], 0], 2
 ];
 export var UpdateSchemaResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
@@ -1821,7 +1821,7 @@ export var UpdateSchemaResponse$: StaticStructureSchema = [3, n0, _USRp,
 export var UpdateTypedLinkFacetRequest$: StaticStructureSchema = [3, n0, _UTLFR,
   0,
   [_SA, _N, _AU, _IAO],
-  [[0, { [_hH]: _xadp }], 0, () => TypedLinkFacetAttributeUpdateList, 64 | 0]
+  [[0, { [_hH]: _xadp }], 0, () => TypedLinkFacetAttributeUpdateList, 64 | 0], 4
 ];
 export var UpdateTypedLinkFacetResponse$: StaticStructureSchema = [3, n0, _UTLFRp,
   0,
@@ -1831,7 +1831,7 @@ export var UpdateTypedLinkFacetResponse$: StaticStructureSchema = [3, n0, _UTLFR
 export var UpgradeAppliedSchemaRequest$: StaticStructureSchema = [3, n0, _UASR,
   0,
   [_PSA, _DA, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var UpgradeAppliedSchemaResponse$: StaticStructureSchema = [3, n0, _UASRp,
   0,
@@ -1841,7 +1841,7 @@ export var UpgradeAppliedSchemaResponse$: StaticStructureSchema = [3, n0, _UASRp
 export var UpgradePublishedSchemaRequest$: StaticStructureSchema = [3, n0, _UPSR,
   0,
   [_DSA, _PSA, _MV, _DR],
-  [0, 0, 0, 2]
+  [0, 0, 0, 2], 3
 ];
 export var UpgradePublishedSchemaResponse$: StaticStructureSchema = [3, n0, _UPSRp,
   0,

@@ -691,187 +691,187 @@ export var CreateApiKeyRequest$: StaticStructureSchema = [3, n0, _CAKR,
 export var CreateAuthorizerRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_rAI, _n, _ty, _pARN, _aT, _aU, _aC, _iS, _iVE, _aRTIS],
-  [[0, 1], 0, 0, 64 | 0, 0, 0, 0, 0, 0, 1]
+  [[0, 1], 0, 0, 64 | 0, 0, 0, 0, 0, 0, 1], 3
 ];
 export var CreateBasePathMappingRequest$: StaticStructureSchema = [3, n0, _CBPMR,
   0,
-  [_dN, _dNI, _bP, _rAI, _s],
-  [[0, 1], [0, { [_hQ]: _dNI }], 0, 0, 0]
+  [_dN, _rAI, _dNI, _bP, _s],
+  [[0, 1], 0, [0, { [_hQ]: _dNI }], 0, 0], 2
 ];
 export var CreateDeploymentRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_rAI, _sN, _sD, _d, _cCE, _cCS, _va, _cS, _tE],
-  [[0, 1], 0, 0, 0, 2, 0, 128 | 0, () => DeploymentCanarySettings$, 2]
+  [[0, 1], 0, 0, 0, 2, 0, 128 | 0, () => DeploymentCanarySettings$, 2], 1
 ];
 export var CreateDocumentationPartRequest$: StaticStructureSchema = [3, n0, _CDPR,
   0,
   [_rAI, _l, _pr],
-  [[0, 1], () => DocumentationPartLocation$, 0]
+  [[0, 1], () => DocumentationPartLocation$, 0], 3
 ];
 export var CreateDocumentationVersionRequest$: StaticStructureSchema = [3, n0, _CDVR,
   0,
   [_rAI, _dV, _sN, _d],
-  [[0, 1], 0, 0, 0]
+  [[0, 1], 0, 0, 0], 2
 ];
 export var CreateDomainNameAccessAssociationRequest$: StaticStructureSchema = [3, n0, _CDNAAR,
   0,
   [_dNA, _aAST, _aAS, _t],
-  [0, 0, 0, 128 | 0]
+  [0, 0, 0, 128 | 0], 3
 ];
 export var CreateDomainNameRequest$: StaticStructureSchema = [3, n0, _CDNR,
   0,
   [_dN, _cN, _cB, _cPK, _cC, _cA, _rCN, _rCA, _eC, _t, _sP, _eAM, _mTA, _oVCA, _po, _rM],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => EndpointConfiguration$, 128 | 0, 0, 0, () => MutualTlsAuthenticationInput$, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0, 0, () => EndpointConfiguration$, 128 | 0, 0, 0, () => MutualTlsAuthenticationInput$, 0, 0, 0], 1
 ];
 export var CreateModelRequest$: StaticStructureSchema = [3, n0, _CMR,
   0,
-  [_rAI, _n, _d, _sc, _cT],
-  [[0, 1], 0, 0, 0, 0]
+  [_rAI, _n, _cT, _d, _sc],
+  [[0, 1], 0, 0, 0, 0], 3
 ];
 export var CreateRequestValidatorRequest$: StaticStructureSchema = [3, n0, _CRVR,
   0,
   [_rAI, _n, _vRB, _vRP],
-  [[0, 1], 0, 2, 2]
+  [[0, 1], 0, 2, 2], 1
 ];
 export var CreateResourceRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
   [_rAI, _pI, _pP],
-  [[0, 1], [0, 1], 0]
+  [[0, 1], [0, 1], 0], 3
 ];
 export var CreateRestApiRequest$: StaticStructureSchema = [3, n0, _CRAR,
   0,
   [_n, _d, _ve, _cF, _bMT, _mCS, _aKS, _eC, _po, _t, _dEAE, _sP, _eAM],
-  [0, 0, 0, 0, 64 | 0, 1, 0, () => EndpointConfiguration$, 0, 128 | 0, 2, 0, 0]
+  [0, 0, 0, 0, 64 | 0, 1, 0, () => EndpointConfiguration$, 0, 128 | 0, 2, 0, 0], 1
 ];
 export var CreateStageRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
   [_rAI, _sN, _dI, _d, _cCE, _cCS, _va, _dV, _cS, _tE, _t],
-  [[0, 1], 0, 0, 0, 2, 0, 128 | 0, 0, () => CanarySettings$, 2, 128 | 0]
+  [[0, 1], 0, 0, 0, 2, 0, 128 | 0, 0, () => CanarySettings$, 2, 128 | 0], 3
 ];
 export var CreateUsagePlanKeyRequest$: StaticStructureSchema = [3, n0, _CUPKR,
   0,
   [_uPI, _kI, _kT],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 3
 ];
 export var CreateUsagePlanRequest$: StaticStructureSchema = [3, n0, _CUPR,
   0,
   [_n, _d, _aS, _th, _q, _t],
-  [0, 0, () => ListOfApiStage, () => ThrottleSettings$, () => QuotaSettings$, 128 | 0]
+  [0, 0, () => ListOfApiStage, () => ThrottleSettings$, () => QuotaSettings$, 128 | 0], 1
 ];
 export var CreateVpcLinkRequest$: StaticStructureSchema = [3, n0, _CVLR,
   0,
-  [_n, _d, _tA, _t],
-  [0, 0, 64 | 0, 128 | 0]
+  [_n, _tA, _d, _t],
+  [0, 64 | 0, 0, 128 | 0], 2
 ];
 export var DeleteApiKeyRequest$: StaticStructureSchema = [3, n0, _DAKR,
   0,
   [_aK],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteAuthorizerRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_rAI, _aIu],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteBasePathMappingRequest$: StaticStructureSchema = [3, n0, _DBPMR,
   0,
-  [_dN, _dNI, _bP],
-  [[0, 1], [0, { [_hQ]: _dNI }], [0, 1]]
+  [_dN, _bP, _dNI],
+  [[0, 1], [0, 1], [0, { [_hQ]: _dNI }]], 2
 ];
 export var DeleteClientCertificateRequest$: StaticStructureSchema = [3, n0, _DCCR,
   0,
   [_cCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteDeploymentRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_rAI, _dI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteDocumentationPartRequest$: StaticStructureSchema = [3, n0, _DDPR,
   0,
   [_rAI, _dPI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteDocumentationVersionRequest$: StaticStructureSchema = [3, n0, _DDVR,
   0,
   [_rAI, _dV],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteDomainNameAccessAssociationRequest$: StaticStructureSchema = [3, n0, _DDNAAR,
   0,
   [_dNAAA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteDomainNameRequest$: StaticStructureSchema = [3, n0, _DDNR,
   0,
   [_dN, _dNI],
-  [[0, 1], [0, { [_hQ]: _dNI }]]
+  [[0, 1], [0, { [_hQ]: _dNI }]], 1
 ];
 export var DeleteGatewayResponseRequest$: StaticStructureSchema = [3, n0, _DGRR,
   0,
   [_rAI, _rT],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteIntegrationRequest$: StaticStructureSchema = [3, n0, _DIR,
   0,
   [_rAI, _rI, _hM],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteIntegrationResponseRequest$: StaticStructureSchema = [3, n0, _DIRR,
   0,
   [_rAI, _rI, _hM, _sC],
-  [[0, 1], [0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1], [0, 1]], 4
 ];
 export var DeleteMethodRequest$: StaticStructureSchema = [3, n0, _DMR,
   0,
   [_rAI, _rI, _hM],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteMethodResponseRequest$: StaticStructureSchema = [3, n0, _DMRR,
   0,
   [_rAI, _rI, _hM, _sC],
-  [[0, 1], [0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1], [0, 1]], 4
 ];
 export var DeleteModelRequest$: StaticStructureSchema = [3, n0, _DMRe,
   0,
   [_rAI, _mN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteRequestValidatorRequest$: StaticStructureSchema = [3, n0, _DRVR,
   0,
   [_rAI, _rVI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteResourceRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_rAI, _rI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteRestApiRequest$: StaticStructureSchema = [3, n0, _DRAR,
   0,
   [_rAI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteStageRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_rAI, _sN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteUsagePlanKeyRequest$: StaticStructureSchema = [3, n0, _DUPKR,
   0,
   [_uPI, _kI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteUsagePlanRequest$: StaticStructureSchema = [3, n0, _DUPR,
   0,
   [_uPI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteVpcLinkRequest$: StaticStructureSchema = [3, n0, _DVLR,
   0,
   [_vLI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var Deployment$: StaticStructureSchema = [3, n0, _D,
   0,
@@ -901,7 +901,7 @@ export var DocumentationPartIds$: StaticStructureSchema = [3, n0, _DPI,
 export var DocumentationPartLocation$: StaticStructureSchema = [3, n0, _DPL,
   0,
   [_ty, _pa, _me, _sC, _n],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 1
 ];
 export var DocumentationParts$: StaticStructureSchema = [3, n0, _DPo,
   0,
@@ -951,12 +951,12 @@ export var ExportResponse$: StaticStructureSchema = [3, n0, _ER,
 export var FlushStageAuthorizersCacheRequest$: StaticStructureSchema = [3, n0, _FSACR,
   0,
   [_rAI, _sN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var FlushStageCacheRequest$: StaticStructureSchema = [3, n0, _FSCR,
   0,
   [_rAI, _sN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GatewayResponse$: StaticStructureSchema = [3, n0, _GR,
   0,
@@ -981,7 +981,7 @@ export var GetAccountRequest$: StaticStructureSchema = [3, n0, _GAR,
 export var GetApiKeyRequest$: StaticStructureSchema = [3, n0, _GAKR,
   0,
   [_aK, _iV],
-  [[0, 1], [2, { [_hQ]: _iV }]]
+  [[0, 1], [2, { [_hQ]: _iV }]], 1
 ];
 export var GetApiKeysRequest$: StaticStructureSchema = [3, n0, _GAKRe,
   0,
@@ -991,27 +991,27 @@ export var GetApiKeysRequest$: StaticStructureSchema = [3, n0, _GAKRe,
 export var GetAuthorizerRequest$: StaticStructureSchema = [3, n0, _GARe,
   0,
   [_rAI, _aIu],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetAuthorizersRequest$: StaticStructureSchema = [3, n0, _GARet,
   0,
   [_rAI, _p, _li],
-  [[0, 1], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }]]
+  [[0, 1], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }]], 1
 ];
 export var GetBasePathMappingRequest$: StaticStructureSchema = [3, n0, _GBPMR,
   0,
-  [_dN, _dNI, _bP],
-  [[0, 1], [0, { [_hQ]: _dNI }], [0, 1]]
+  [_dN, _bP, _dNI],
+  [[0, 1], [0, 1], [0, { [_hQ]: _dNI }]], 2
 ];
 export var GetBasePathMappingsRequest$: StaticStructureSchema = [3, n0, _GBPMRe,
   0,
   [_dN, _dNI, _p, _li],
-  [[0, 1], [0, { [_hQ]: _dNI }], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }]]
+  [[0, 1], [0, { [_hQ]: _dNI }], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }]], 1
 ];
 export var GetClientCertificateRequest$: StaticStructureSchema = [3, n0, _GCCRe,
   0,
   [_cCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetClientCertificatesRequest$: StaticStructureSchema = [3, n0, _GCCRet,
   0,
@@ -1021,32 +1021,32 @@ export var GetClientCertificatesRequest$: StaticStructureSchema = [3, n0, _GCCRe
 export var GetDeploymentRequest$: StaticStructureSchema = [3, n0, _GDR,
   0,
   [_rAI, _dI, _em],
-  [[0, 1], [0, 1], [64 | 0, { [_hQ]: _em }]]
+  [[0, 1], [0, 1], [64 | 0, { [_hQ]: _em }]], 2
 ];
 export var GetDeploymentsRequest$: StaticStructureSchema = [3, n0, _GDRe,
   0,
   [_rAI, _p, _li],
-  [[0, 1], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }]]
+  [[0, 1], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }]], 1
 ];
 export var GetDocumentationPartRequest$: StaticStructureSchema = [3, n0, _GDPR,
   0,
   [_rAI, _dPI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetDocumentationPartsRequest$: StaticStructureSchema = [3, n0, _GDPRe,
   0,
   [_rAI, _ty, _nQ, _pa, _p, _li, _lS],
-  [[0, 1], [0, { [_hQ]: _ty }], [0, { [_hQ]: _n }], [0, { [_hQ]: _pa }], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }], [0, { [_hQ]: _lS }]]
+  [[0, 1], [0, { [_hQ]: _ty }], [0, { [_hQ]: _n }], [0, { [_hQ]: _pa }], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }], [0, { [_hQ]: _lS }]], 1
 ];
 export var GetDocumentationVersionRequest$: StaticStructureSchema = [3, n0, _GDVR,
   0,
   [_rAI, _dV],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetDocumentationVersionsRequest$: StaticStructureSchema = [3, n0, _GDVRe,
   0,
   [_rAI, _p, _li],
-  [[0, 1], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }]]
+  [[0, 1], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }]], 1
 ];
 export var GetDomainNameAccessAssociationsRequest$: StaticStructureSchema = [3, n0, _GDNAAR,
   0,
@@ -1056,7 +1056,7 @@ export var GetDomainNameAccessAssociationsRequest$: StaticStructureSchema = [3, 
 export var GetDomainNameRequest$: StaticStructureSchema = [3, n0, _GDNR,
   0,
   [_dN, _dNI],
-  [[0, 1], [0, { [_hQ]: _dNI }]]
+  [[0, 1], [0, { [_hQ]: _dNI }]], 1
 ];
 export var GetDomainNamesRequest$: StaticStructureSchema = [3, n0, _GDNRe,
   0,
@@ -1066,77 +1066,77 @@ export var GetDomainNamesRequest$: StaticStructureSchema = [3, n0, _GDNRe,
 export var GetExportRequest$: StaticStructureSchema = [3, n0, _GER,
   0,
   [_rAI, _sN, _eT, _par, _a],
-  [[0, 1], [0, 1], [0, 1], [128 | 0, 64], [0, { [_hH]: _Ac }]]
+  [[0, 1], [0, 1], [0, 1], [128 | 0, 64], [0, { [_hH]: _Ac }]], 3
 ];
 export var GetGatewayResponseRequest$: StaticStructureSchema = [3, n0, _GGRR,
   0,
   [_rAI, _rT],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetGatewayResponsesRequest$: StaticStructureSchema = [3, n0, _GGRRe,
   0,
   [_rAI, _p, _li],
-  [[0, 1], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }]]
+  [[0, 1], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }]], 1
 ];
 export var GetIntegrationRequest$: StaticStructureSchema = [3, n0, _GIR,
   0,
   [_rAI, _rI, _hM],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetIntegrationResponseRequest$: StaticStructureSchema = [3, n0, _GIRR,
   0,
   [_rAI, _rI, _hM, _sC],
-  [[0, 1], [0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1], [0, 1]], 4
 ];
 export var GetMethodRequest$: StaticStructureSchema = [3, n0, _GMR,
   0,
   [_rAI, _rI, _hM],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetMethodResponseRequest$: StaticStructureSchema = [3, n0, _GMRR,
   0,
   [_rAI, _rI, _hM, _sC],
-  [[0, 1], [0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1], [0, 1]], 4
 ];
 export var GetModelRequest$: StaticStructureSchema = [3, n0, _GMRe,
   0,
   [_rAI, _mN, _fl],
-  [[0, 1], [0, 1], [2, { [_hQ]: _fl }]]
+  [[0, 1], [0, 1], [2, { [_hQ]: _fl }]], 2
 ];
 export var GetModelsRequest$: StaticStructureSchema = [3, n0, _GMRet,
   0,
   [_rAI, _p, _li],
-  [[0, 1], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }]]
+  [[0, 1], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }]], 1
 ];
 export var GetModelTemplateRequest$: StaticStructureSchema = [3, n0, _GMTR,
   0,
   [_rAI, _mN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetRequestValidatorRequest$: StaticStructureSchema = [3, n0, _GRVR,
   0,
   [_rAI, _rVI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetRequestValidatorsRequest$: StaticStructureSchema = [3, n0, _GRVRe,
   0,
   [_rAI, _p, _li],
-  [[0, 1], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }]]
+  [[0, 1], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }]], 1
 ];
 export var GetResourceRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_rAI, _rI, _em],
-  [[0, 1], [0, 1], [64 | 0, { [_hQ]: _em }]]
+  [[0, 1], [0, 1], [64 | 0, { [_hQ]: _em }]], 2
 ];
 export var GetResourcesRequest$: StaticStructureSchema = [3, n0, _GRRe,
   0,
   [_rAI, _p, _li, _em],
-  [[0, 1], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }], [64 | 0, { [_hQ]: _em }]]
+  [[0, 1], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }], [64 | 0, { [_hQ]: _em }]], 1
 ];
 export var GetRestApiRequest$: StaticStructureSchema = [3, n0, _GRAR,
   0,
   [_rAI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetRestApisRequest$: StaticStructureSchema = [3, n0, _GRARe,
   0,
@@ -1146,12 +1146,12 @@ export var GetRestApisRequest$: StaticStructureSchema = [3, n0, _GRARe,
 export var GetSdkRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_rAI, _sN, _sT, _par],
-  [[0, 1], [0, 1], [0, 1], [128 | 0, 64]]
+  [[0, 1], [0, 1], [0, 1], [128 | 0, 64]], 3
 ];
 export var GetSdkTypeRequest$: StaticStructureSchema = [3, n0, _GSTR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSdkTypesRequest$: StaticStructureSchema = [3, n0, _GSTRe,
   0,
@@ -1161,32 +1161,32 @@ export var GetSdkTypesRequest$: StaticStructureSchema = [3, n0, _GSTRe,
 export var GetStageRequest$: StaticStructureSchema = [3, n0, _GSRe,
   0,
   [_rAI, _sN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetStagesRequest$: StaticStructureSchema = [3, n0, _GSRet,
   0,
   [_rAI, _dI],
-  [[0, 1], [0, { [_hQ]: _dI }]]
+  [[0, 1], [0, { [_hQ]: _dI }]], 1
 ];
 export var GetTagsRequest$: StaticStructureSchema = [3, n0, _GTR,
   0,
   [_rA, _p, _li],
-  [[0, 1], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }]]
+  [[0, 1], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }]], 1
 ];
 export var GetUsagePlanKeyRequest$: StaticStructureSchema = [3, n0, _GUPKR,
   0,
   [_uPI, _kI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetUsagePlanKeysRequest$: StaticStructureSchema = [3, n0, _GUPKRe,
   0,
   [_uPI, _p, _li, _nQ],
-  [[0, 1], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }], [0, { [_hQ]: _n }]]
+  [[0, 1], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }], [0, { [_hQ]: _n }]], 1
 ];
 export var GetUsagePlanRequest$: StaticStructureSchema = [3, n0, _GUPR,
   0,
   [_uPI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetUsagePlansRequest$: StaticStructureSchema = [3, n0, _GUPRe,
   0,
@@ -1195,13 +1195,13 @@ export var GetUsagePlansRequest$: StaticStructureSchema = [3, n0, _GUPRe,
 ];
 export var GetUsageRequest$: StaticStructureSchema = [3, n0, _GUR,
   0,
-  [_uPI, _kI, _sDt, _eDn, _p, _li],
-  [[0, 1], [0, { [_hQ]: _kI }], [0, { [_hQ]: _sDt }], [0, { [_hQ]: _eDn }], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }]]
+  [_uPI, _sDt, _eDn, _kI, _p, _li],
+  [[0, 1], [0, { [_hQ]: _sDt }], [0, { [_hQ]: _eDn }], [0, { [_hQ]: _kI }], [0, { [_hQ]: _p }], [1, { [_hQ]: _li }]], 3
 ];
 export var GetVpcLinkRequest$: StaticStructureSchema = [3, n0, _GVLR,
   0,
   [_vLI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetVpcLinksRequest$: StaticStructureSchema = [3, n0, _GVLRe,
   0,
@@ -1211,17 +1211,17 @@ export var GetVpcLinksRequest$: StaticStructureSchema = [3, n0, _GVLRe,
 export var ImportApiKeysRequest$: StaticStructureSchema = [3, n0, _IAKR,
   0,
   [_b, _f, _fOW],
-  [[21, 16], [0, { [_hQ]: _f }], [2, { [_hQ]: _fa }]]
+  [[21, 16], [0, { [_hQ]: _f }], [2, { [_hQ]: _fa }]], 2
 ];
 export var ImportDocumentationPartsRequest$: StaticStructureSchema = [3, n0, _IDPR,
   0,
-  [_rAI, _mo, _fOW, _b],
-  [[0, 1], [0, { [_hQ]: _mo }], [2, { [_hQ]: _fa }], [21, 16]]
+  [_rAI, _b, _mo, _fOW],
+  [[0, 1], [21, 16], [0, { [_hQ]: _mo }], [2, { [_hQ]: _fa }]], 2
 ];
 export var ImportRestApiRequest$: StaticStructureSchema = [3, n0, _IRAR,
   0,
-  [_fOW, _par, _b],
-  [[2, { [_hQ]: _fa }], [128 | 0, 64], [21, 16]]
+  [_b, _fOW, _par],
+  [[21, 16], [2, { [_hQ]: _fa }], [128 | 0, 64]], 1
 ];
 export var Integration$: StaticStructureSchema = [3, n0, _I,
   0,
@@ -1293,32 +1293,32 @@ export var PatchOperation$: StaticStructureSchema = [3, n0, _PO,
 export var PutGatewayResponseRequest$: StaticStructureSchema = [3, n0, _PGRR,
   0,
   [_rAI, _rT, _sC, _rP, _rTe],
-  [[0, 1], [0, 1], 0, 128 | 0, 128 | 0]
+  [[0, 1], [0, 1], 0, 128 | 0, 128 | 0], 2
 ];
 export var PutIntegrationRequest$: StaticStructureSchema = [3, n0, _PIR,
   0,
   [_rAI, _rI, _hM, _ty, _iHM, _u, _cTo, _cIo, _cr, _rPe, _rTeq, _pB, _cNa, _cKP, _cH, _tIM, _tC, _rTM, _iT],
-  [[0, 1], [0, 1], [0, { [_hL]: 1, [_jN]: _rHM }], 0, [0, { [_jN]: _hM }], 0, 0, 0, 0, 128 | 0, 128 | 0, 0, 0, 64 | 0, 0, 1, () => TlsConfig$, 0, 0]
+  [[0, 1], [0, 1], [0, { [_hL]: 1, [_jN]: _rHM }], 0, [0, { [_jN]: _hM }], 0, 0, 0, 0, 128 | 0, 128 | 0, 0, 0, 64 | 0, 0, 1, () => TlsConfig$, 0, 0], 4
 ];
 export var PutIntegrationResponseRequest$: StaticStructureSchema = [3, n0, _PIRR,
   0,
   [_rAI, _rI, _hM, _sC, _sPe, _rP, _rTe, _cH],
-  [[0, 1], [0, 1], [0, 1], [0, 1], 0, 128 | 0, 128 | 0, 0]
+  [[0, 1], [0, 1], [0, 1], [0, 1], 0, 128 | 0, 128 | 0, 0], 4
 ];
 export var PutMethodRequest$: StaticStructureSchema = [3, n0, _PMR,
   0,
   [_rAI, _rI, _hM, _aTu, _aIu, _aKR, _oN, _rPe, _rMe, _rVI, _aSu],
-  [[0, 1], [0, 1], [0, 1], 0, 0, 2, 0, 128 | 2, 128 | 0, 0, 64 | 0]
+  [[0, 1], [0, 1], [0, 1], 0, 0, 2, 0, 128 | 2, 128 | 0, 0, 64 | 0], 4
 ];
 export var PutMethodResponseRequest$: StaticStructureSchema = [3, n0, _PMRR,
   0,
   [_rAI, _rI, _hM, _sC, _rP, _rMes],
-  [[0, 1], [0, 1], [0, 1], [0, 1], 128 | 2, 128 | 0]
+  [[0, 1], [0, 1], [0, 1], [0, 1], 128 | 2, 128 | 0], 4
 ];
 export var PutRestApiRequest$: StaticStructureSchema = [3, n0, _PRAR,
   0,
-  [_rAI, _mo, _fOW, _par, _b],
-  [[0, 1], [0, { [_hQ]: _mo }], [2, { [_hQ]: _fa }], [128 | 0, 64], [21, 16]]
+  [_rAI, _b, _mo, _fOW, _par],
+  [[0, 1], [21, 16], [0, { [_hQ]: _mo }], [2, { [_hQ]: _fa }], [128 | 0, 64]], 2
 ];
 export var QuotaSettings$: StaticStructureSchema = [3, n0, _QS,
   0,
@@ -1328,7 +1328,7 @@ export var QuotaSettings$: StaticStructureSchema = [3, n0, _QS,
 export var RejectDomainNameAccessAssociationRequest$: StaticStructureSchema = [3, n0, _RDNAAR,
   0,
   [_dNAAA, _dNA],
-  [[0, { [_hQ]: _dNAAA }], [0, { [_hQ]: _dNA }]]
+  [[0, { [_hQ]: _dNAAA }], [0, { [_hQ]: _dNA }]], 2
 ];
 export var RequestValidator$: StaticStructureSchema = [3, n0, _RV,
   0,
@@ -1404,7 +1404,7 @@ export var Stages$: StaticStructureSchema = [3, n0, _St,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var Tags$: StaticStructureSchema = [3, n0, _T,
   0,
@@ -1419,7 +1419,7 @@ export var Template$: StaticStructureSchema = [3, n0, _Te,
 export var TestInvokeAuthorizerRequest$: StaticStructureSchema = [3, n0, _TIAR,
   0,
   [_rAI, _aIu, _h, _mVH, _pWQS, _b, _sV, _aCd],
-  [[0, 1], [0, 1], 128 | 0, [2, n0, _MOSTL, 0, 0, 64 | 0], 0, 0, 128 | 0, 128 | 0]
+  [[0, 1], [0, 1], 128 | 0, [2, n0, _MOSTL, 0, 0, 64 | 0], 0, 0, 128 | 0, 128 | 0], 2
 ];
 export var TestInvokeAuthorizerResponse$: StaticStructureSchema = [3, n0, _TIARe,
   0,
@@ -1429,7 +1429,7 @@ export var TestInvokeAuthorizerResponse$: StaticStructureSchema = [3, n0, _TIARe
 export var TestInvokeMethodRequest$: StaticStructureSchema = [3, n0, _TIMR,
   0,
   [_rAI, _rI, _hM, _pWQS, _b, _h, _mVH, _cCI, _sV],
-  [[0, 1], [0, 1], [0, 1], 0, 0, 128 | 0, [2, n0, _MOSTL, 0, 0, 64 | 0], 0, 128 | 0]
+  [[0, 1], [0, 1], [0, 1], 0, 0, 128 | 0, [2, n0, _MOSTL, 0, 0, 64 | 0], 0, 128 | 0], 3
 ];
 export var TestInvokeMethodResponse$: StaticStructureSchema = [3, n0, _TIMRe,
   0,
@@ -1461,7 +1461,7 @@ TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UpdateAccountRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
@@ -1471,107 +1471,107 @@ export var UpdateAccountRequest$: StaticStructureSchema = [3, n0, _UAR,
 export var UpdateApiKeyRequest$: StaticStructureSchema = [3, n0, _UAKR,
   0,
   [_aK, _pO],
-  [[0, 1], () => ListOfPatchOperation]
+  [[0, 1], () => ListOfPatchOperation], 1
 ];
 export var UpdateAuthorizerRequest$: StaticStructureSchema = [3, n0, _UARp,
   0,
   [_rAI, _aIu, _pO],
-  [[0, 1], [0, 1], () => ListOfPatchOperation]
+  [[0, 1], [0, 1], () => ListOfPatchOperation], 2
 ];
 export var UpdateBasePathMappingRequest$: StaticStructureSchema = [3, n0, _UBPMR,
   0,
-  [_dN, _dNI, _bP, _pO],
-  [[0, 1], [0, { [_hQ]: _dNI }], [0, 1], () => ListOfPatchOperation]
+  [_dN, _bP, _dNI, _pO],
+  [[0, 1], [0, 1], [0, { [_hQ]: _dNI }], () => ListOfPatchOperation], 2
 ];
 export var UpdateClientCertificateRequest$: StaticStructureSchema = [3, n0, _UCCR,
   0,
   [_cCI, _pO],
-  [[0, 1], () => ListOfPatchOperation]
+  [[0, 1], () => ListOfPatchOperation], 1
 ];
 export var UpdateDeploymentRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
   [_rAI, _dI, _pO],
-  [[0, 1], [0, 1], () => ListOfPatchOperation]
+  [[0, 1], [0, 1], () => ListOfPatchOperation], 2
 ];
 export var UpdateDocumentationPartRequest$: StaticStructureSchema = [3, n0, _UDPR,
   0,
   [_rAI, _dPI, _pO],
-  [[0, 1], [0, 1], () => ListOfPatchOperation]
+  [[0, 1], [0, 1], () => ListOfPatchOperation], 2
 ];
 export var UpdateDocumentationVersionRequest$: StaticStructureSchema = [3, n0, _UDVR,
   0,
   [_rAI, _dV, _pO],
-  [[0, 1], [0, 1], () => ListOfPatchOperation]
+  [[0, 1], [0, 1], () => ListOfPatchOperation], 2
 ];
 export var UpdateDomainNameRequest$: StaticStructureSchema = [3, n0, _UDNR,
   0,
   [_dN, _dNI, _pO],
-  [[0, 1], [0, { [_hQ]: _dNI }], () => ListOfPatchOperation]
+  [[0, 1], [0, { [_hQ]: _dNI }], () => ListOfPatchOperation], 1
 ];
 export var UpdateGatewayResponseRequest$: StaticStructureSchema = [3, n0, _UGRR,
   0,
   [_rAI, _rT, _pO],
-  [[0, 1], [0, 1], () => ListOfPatchOperation]
+  [[0, 1], [0, 1], () => ListOfPatchOperation], 2
 ];
 export var UpdateIntegrationRequest$: StaticStructureSchema = [3, n0, _UIR,
   0,
   [_rAI, _rI, _hM, _pO],
-  [[0, 1], [0, 1], [0, 1], () => ListOfPatchOperation]
+  [[0, 1], [0, 1], [0, 1], () => ListOfPatchOperation], 3
 ];
 export var UpdateIntegrationResponseRequest$: StaticStructureSchema = [3, n0, _UIRR,
   0,
   [_rAI, _rI, _hM, _sC, _pO],
-  [[0, 1], [0, 1], [0, 1], [0, 1], () => ListOfPatchOperation]
+  [[0, 1], [0, 1], [0, 1], [0, 1], () => ListOfPatchOperation], 4
 ];
 export var UpdateMethodRequest$: StaticStructureSchema = [3, n0, _UMR,
   0,
   [_rAI, _rI, _hM, _pO],
-  [[0, 1], [0, 1], [0, 1], () => ListOfPatchOperation]
+  [[0, 1], [0, 1], [0, 1], () => ListOfPatchOperation], 3
 ];
 export var UpdateMethodResponseRequest$: StaticStructureSchema = [3, n0, _UMRR,
   0,
   [_rAI, _rI, _hM, _sC, _pO],
-  [[0, 1], [0, 1], [0, 1], [0, 1], () => ListOfPatchOperation]
+  [[0, 1], [0, 1], [0, 1], [0, 1], () => ListOfPatchOperation], 4
 ];
 export var UpdateModelRequest$: StaticStructureSchema = [3, n0, _UMRp,
   0,
   [_rAI, _mN, _pO],
-  [[0, 1], [0, 1], () => ListOfPatchOperation]
+  [[0, 1], [0, 1], () => ListOfPatchOperation], 2
 ];
 export var UpdateRequestValidatorRequest$: StaticStructureSchema = [3, n0, _URVR,
   0,
   [_rAI, _rVI, _pO],
-  [[0, 1], [0, 1], () => ListOfPatchOperation]
+  [[0, 1], [0, 1], () => ListOfPatchOperation], 2
 ];
 export var UpdateResourceRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
   [_rAI, _rI, _pO],
-  [[0, 1], [0, 1], () => ListOfPatchOperation]
+  [[0, 1], [0, 1], () => ListOfPatchOperation], 2
 ];
 export var UpdateRestApiRequest$: StaticStructureSchema = [3, n0, _URAR,
   0,
   [_rAI, _pO],
-  [[0, 1], () => ListOfPatchOperation]
+  [[0, 1], () => ListOfPatchOperation], 1
 ];
 export var UpdateStageRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
   [_rAI, _sN, _pO],
-  [[0, 1], [0, 1], () => ListOfPatchOperation]
+  [[0, 1], [0, 1], () => ListOfPatchOperation], 2
 ];
 export var UpdateUsagePlanRequest$: StaticStructureSchema = [3, n0, _UUPR,
   0,
   [_uPI, _pO],
-  [[0, 1], () => ListOfPatchOperation]
+  [[0, 1], () => ListOfPatchOperation], 1
 ];
 export var UpdateUsageRequest$: StaticStructureSchema = [3, n0, _UUR,
   0,
   [_uPI, _kI, _pO],
-  [[0, 1], [0, 1], () => ListOfPatchOperation]
+  [[0, 1], [0, 1], () => ListOfPatchOperation], 2
 ];
 export var UpdateVpcLinkRequest$: StaticStructureSchema = [3, n0, _UVLR,
   0,
   [_vLI, _pO],
-  [[0, 1], () => ListOfPatchOperation]
+  [[0, 1], () => ListOfPatchOperation], 1
 ];
 export var Usage$: StaticStructureSchema = [3, n0, _U,
   0,

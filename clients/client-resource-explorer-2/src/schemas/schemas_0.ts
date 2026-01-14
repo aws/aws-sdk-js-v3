@@ -237,7 +237,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AssociateDefaultViewInput$: StaticStructureSchema = [3, n0, _ADVI,
   0,
   [_VA],
-  [0]
+  [0], 1
 ];
 export var AssociateDefaultViewOutput$: StaticStructureSchema = [3, n0, _ADVO,
   0,
@@ -247,7 +247,7 @@ export var AssociateDefaultViewOutput$: StaticStructureSchema = [3, n0, _ADVO,
 export var BatchGetViewError$: StaticStructureSchema = [3, n0, _BGVE,
   0,
   [_VA, _EM],
-  [0, 0]
+  [0, 0], 2
 ];
 export var BatchGetViewInput$: StaticStructureSchema = [3, n0, _BGVI,
   0,
@@ -262,7 +262,7 @@ export var BatchGetViewOutput$: StaticStructureSchema = [3, n0, _BGVO,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateIndexInput$: StaticStructureSchema = [3, n0, _CII,
@@ -277,18 +277,18 @@ export var CreateIndexOutput$: StaticStructureSchema = [3, n0, _CIO,
 ];
 export var CreateResourceExplorerSetupInput$: StaticStructureSchema = [3, n0, _CRESI,
   0,
-  [_RL, _AR, _VN],
-  [64 | 0, 64 | 0, 0]
+  [_RL, _VN, _AR],
+  [64 | 0, 0, 64 | 0], 2
 ];
 export var CreateResourceExplorerSetupOutput$: StaticStructureSchema = [3, n0, _CRESO,
   0,
   [_TI],
-  [0]
+  [0], 1
 ];
 export var CreateViewInput$: StaticStructureSchema = [3, n0, _CVI,
   0,
-  [_CT, _VN, _IP, _Sc, _F, _T],
-  [[0, 4], 0, () => IncludedPropertyList, 0, [() => SearchFilter$, 0], [() => TagMap, 0]]
+  [_VN, _CT, _IP, _Sc, _F, _T],
+  [0, [0, 4], () => IncludedPropertyList, 0, [() => SearchFilter$, 0], [() => TagMap, 0]], 1
 ];
 export var CreateViewOutput$: StaticStructureSchema = [3, n0, _CVO,
   0,
@@ -298,7 +298,7 @@ export var CreateViewOutput$: StaticStructureSchema = [3, n0, _CVO,
 export var DeleteIndexInput$: StaticStructureSchema = [3, n0, _DII,
   0,
   [_A],
-  [0]
+  [0], 1
 ];
 export var DeleteIndexOutput$: StaticStructureSchema = [3, n0, _DIO,
   0,
@@ -313,12 +313,12 @@ export var DeleteResourceExplorerSetupInput$: StaticStructureSchema = [3, n0, _D
 export var DeleteResourceExplorerSetupOutput$: StaticStructureSchema = [3, n0, _DRESO,
   0,
   [_TI],
-  [0]
+  [0], 1
 ];
 export var DeleteViewInput$: StaticStructureSchema = [3, n0, _DVI,
   0,
   [_VA],
-  [0]
+  [0], 1
 ];
 export var DeleteViewOutput$: StaticStructureSchema = [3, n0, _DVO,
   0,
@@ -348,7 +348,7 @@ export var GetIndexOutput$: StaticStructureSchema = [3, n0, _GIO,
 export var GetManagedViewInput$: StaticStructureSchema = [3, n0, _GMVI,
   0,
   [_MVA],
-  [0]
+  [0], 1
 ];
 export var GetManagedViewOutput$: StaticStructureSchema = [3, n0, _GMVO,
   0,
@@ -358,7 +358,7 @@ export var GetManagedViewOutput$: StaticStructureSchema = [3, n0, _GMVO,
 export var GetResourceExplorerSetupInput$: StaticStructureSchema = [3, n0, _GRESI,
   0,
   [_TI, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var GetResourceExplorerSetupOutput$: StaticStructureSchema = [3, n0, _GRESO,
   0,
@@ -373,17 +373,17 @@ export var GetServiceIndexOutput$: StaticStructureSchema = [3, n0, _GSIO,
 export var GetServiceViewInput$: StaticStructureSchema = [3, n0, _GSVI,
   0,
   [_SVA],
-  [0]
+  [0], 1
 ];
 export var GetServiceViewOutput$: StaticStructureSchema = [3, n0, _GSVO,
   0,
   [_Vi],
-  [[() => ServiceView$, 0]]
+  [[() => ServiceView$, 0]], 1
 ];
 export var GetViewInput$: StaticStructureSchema = [3, n0, _GVI,
   0,
   [_VA],
-  [0]
+  [0], 1
 ];
 export var GetViewOutput$: StaticStructureSchema = [3, n0, _GVO,
   0,
@@ -393,7 +393,7 @@ export var GetViewOutput$: StaticStructureSchema = [3, n0, _GVO,
 export var IncludedProperty$: StaticStructureSchema = [3, n0, _IPn,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var Index$: StaticStructureSchema = [3, n0, _I,
   0,
@@ -414,7 +414,7 @@ TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerExcep
 export var ListIndexesForMembersInput$: StaticStructureSchema = [3, n0, _LIFMI,
   0,
   [_AIL, _MR, _NT],
-  [64 | 0, 1, 0]
+  [64 | 0, 1, 0], 1
 ];
 export var ListIndexesForMembersOutput$: StaticStructureSchema = [3, n0, _LIFMO,
   0,
@@ -479,7 +479,7 @@ export var ListStreamingAccessForServicesInput$: StaticStructureSchema = [3, n0,
 export var ListStreamingAccessForServicesOutput$: StaticStructureSchema = [3, n0, _LSAFSO,
   0,
   [_SAFS, _NT],
-  [() => StreamingAccessDetailsList, 0]
+  [() => StreamingAccessDetailsList, 0], 1
 ];
 export var ListSupportedResourceTypesInput$: StaticStructureSchema = [3, n0, _LSRTI,
   0,
@@ -494,7 +494,7 @@ export var ListSupportedResourceTypesOutput$: StaticStructureSchema = [3, n0, _L
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -524,7 +524,7 @@ export var MemberIndex$: StaticStructureSchema = [3, n0, _MI,
 export var OrgConfiguration$: StaticStructureSchema = [3, n0, _OC,
   0,
   [_AWSSAS, _SLR],
-  [0, 0]
+  [0, 0], 1
 ];
 export var RegionStatus$: StaticStructureSchema = [3, n0, _RS,
   0,
@@ -555,12 +555,12 @@ export var ResourceProperty$: StaticStructureSchema = [3, n0, _RPe,
 export var SearchFilter$: StaticStructureSchema = [3, n0, _SF,
   8,
   [_FS],
-  [0]
+  [0], 1
 ];
 export var SearchInput$: StaticStructureSchema = [3, n0, _SI,
   0,
   [_QS, _MR, _VA, _NT],
-  [[() => QueryString, 0], 1, 0, 0]
+  [[() => QueryString, 0], 1, 0, 0], 1
 ];
 export var SearchOutput$: StaticStructureSchema = [3, n0, _SO,
   0,
@@ -570,18 +570,18 @@ export var SearchOutput$: StaticStructureSchema = [3, n0, _SO,
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_M, _N, _Va],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ServiceView$: StaticStructureSchema = [3, n0, _SVe,
   0,
   [_SVA, _F, _IP, _SAFSt, _ST],
-  [0, [() => SearchFilter$, 0], () => IncludedPropertyList, 0, 0]
+  [0, [() => SearchFilter$, 0], () => IncludedPropertyList, 0, 0], 1
 ];
 export var StreamingAccessDetails$: StaticStructureSchema = [3, n0, _SAD,
   0,
   [_SP, _CA],
-  [0, 5]
+  [0, 5], 2
 ];
 export var SupportedResourceType$: StaticStructureSchema = [3, n0, _SRT,
   0,
@@ -591,7 +591,7 @@ export var SupportedResourceType$: StaticStructureSchema = [3, n0, _SRT,
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rA, _T],
-  [[0, 1], [() => TagMap, 0]]
+  [[0, 1], [() => TagMap, 0]], 1
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -613,7 +613,7 @@ TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tK],
-  [[0, 1], [() => StringList, { [_hQ]: _tK }]]
+  [[0, 1], [() => StringList, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -623,7 +623,7 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 export var UpdateIndexTypeInput$: StaticStructureSchema = [3, n0, _UITI,
   0,
   [_A, _Ty],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateIndexTypeOutput$: StaticStructureSchema = [3, n0, _UITO,
   0,
@@ -633,7 +633,7 @@ export var UpdateIndexTypeOutput$: StaticStructureSchema = [3, n0, _UITO,
 export var UpdateViewInput$: StaticStructureSchema = [3, n0, _UVI,
   0,
   [_VA, _IP, _F],
-  [0, () => IncludedPropertyList, [() => SearchFilter$, 0]]
+  [0, () => IncludedPropertyList, [() => SearchFilter$, 0]], 1
 ];
 export var UpdateViewOutput$: StaticStructureSchema = [3, n0, _UVO,
   0,
@@ -643,13 +643,13 @@ export var UpdateViewOutput$: StaticStructureSchema = [3, n0, _UVO,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M, _FL],
-  [0, () => ValidationExceptionFieldList]
+  [0, () => ValidationExceptionFieldList], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_N, _VI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var View$: StaticStructureSchema = [3, n0, _Vi,
   0,

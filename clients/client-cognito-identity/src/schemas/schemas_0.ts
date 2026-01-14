@@ -194,7 +194,7 @@ TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentM
 export var CreateIdentityPoolInput$: StaticStructureSchema = [3, n0, _CIPI,
   0,
   [_IPN, _AUI, _ACF, _SLP, _DPN, _OICPARN, _CIPo, _SPARN, _IPTd],
-  [0, 2, 2, 128 | 0, 0, 64 | 0, () => CognitoIdentityProviderList, 64 | 0, 128 | 0]
+  [0, 2, 2, 128 | 0, 0, 64 | 0, () => CognitoIdentityProviderList, 64 | 0, 128 | 0], 2
 ];
 export var Credentials$: StaticStructureSchema = [3, n0, _C,
   0,
@@ -204,7 +204,7 @@ export var Credentials$: StaticStructureSchema = [3, n0, _C,
 export var DeleteIdentitiesInput$: StaticStructureSchema = [3, n0, _DII,
   0,
   [_IITD],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DeleteIdentitiesResponse$: StaticStructureSchema = [3, n0, _DIR,
   0,
@@ -214,17 +214,17 @@ export var DeleteIdentitiesResponse$: StaticStructureSchema = [3, n0, _DIR,
 export var DeleteIdentityPoolInput$: StaticStructureSchema = [3, n0, _DIPI,
   0,
   [_IPI],
-  [0]
+  [0], 1
 ];
 export var DescribeIdentityInput$: StaticStructureSchema = [3, n0, _DIIe,
   0,
   [_II],
-  [0]
+  [0], 1
 ];
 export var DescribeIdentityPoolInput$: StaticStructureSchema = [3, n0, _DIPIe,
   0,
   [_IPI],
-  [0]
+  [0], 1
 ];
 export var DeveloperUserAlreadyRegisteredException$: StaticErrorSchema = [-3, n0, _DUARE,
   { [_e]: _c, [_hE]: 400 },
@@ -241,7 +241,7 @@ TypeRegistry.for(n0).registerError(ExternalServiceException$, ExternalServiceExc
 export var GetCredentialsForIdentityInput$: StaticStructureSchema = [3, n0, _GCFII,
   0,
   [_II, _L, _CRA],
-  [0, [() => LoginsMap, 0], 0]
+  [0, [() => LoginsMap, 0], 0], 1
 ];
 export var GetCredentialsForIdentityResponse$: StaticStructureSchema = [3, n0, _GCFIR,
   0,
@@ -251,7 +251,7 @@ export var GetCredentialsForIdentityResponse$: StaticStructureSchema = [3, n0, _
 export var GetIdentityPoolRolesInput$: StaticStructureSchema = [3, n0, _GIPRI,
   0,
   [_IPI],
-  [0]
+  [0], 1
 ];
 export var GetIdentityPoolRolesResponse$: StaticStructureSchema = [3, n0, _GIPRR,
   0,
@@ -260,8 +260,8 @@ export var GetIdentityPoolRolesResponse$: StaticStructureSchema = [3, n0, _GIPRR
 ];
 export var GetIdInput$: StaticStructureSchema = [3, n0, _GII,
   0,
-  [_AI, _IPI, _L],
-  [0, 0, [() => LoginsMap, 0]]
+  [_IPI, _AI, _L],
+  [0, 0, [() => LoginsMap, 0]], 1
 ];
 export var GetIdResponse$: StaticStructureSchema = [3, n0, _GIR,
   0,
@@ -270,8 +270,8 @@ export var GetIdResponse$: StaticStructureSchema = [3, n0, _GIR,
 ];
 export var GetOpenIdTokenForDeveloperIdentityInput$: StaticStructureSchema = [3, n0, _GOITFDII,
   0,
-  [_IPI, _II, _L, _PT, _TD],
-  [0, 0, [() => LoginsMap, 0], 128 | 0, 1]
+  [_IPI, _L, _II, _PT, _TD],
+  [0, [() => LoginsMap, 0], 0, 128 | 0, 1], 2
 ];
 export var GetOpenIdTokenForDeveloperIdentityResponse$: StaticStructureSchema = [3, n0, _GOITFDIR,
   0,
@@ -281,7 +281,7 @@ export var GetOpenIdTokenForDeveloperIdentityResponse$: StaticStructureSchema = 
 export var GetOpenIdTokenInput$: StaticStructureSchema = [3, n0, _GOITI,
   0,
   [_II, _L],
-  [0, [() => LoginsMap, 0]]
+  [0, [() => LoginsMap, 0]], 1
 ];
 export var GetOpenIdTokenResponse$: StaticStructureSchema = [3, n0, _GOITR,
   0,
@@ -291,7 +291,7 @@ export var GetOpenIdTokenResponse$: StaticStructureSchema = [3, n0, _GOITR,
 export var GetPrincipalTagAttributeMapInput$: StaticStructureSchema = [3, n0, _GPTAMI,
   0,
   [_IPI, _IPNd],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetPrincipalTagAttributeMapResponse$: StaticStructureSchema = [3, n0, _GPTAMR,
   0,
@@ -306,7 +306,7 @@ export var IdentityDescription$: StaticStructureSchema = [3, n0, _ID,
 export var IdentityPool$: StaticStructureSchema = [3, n0, _IP,
   0,
   [_IPI, _IPN, _AUI, _ACF, _SLP, _DPN, _OICPARN, _CIPo, _SPARN, _IPTd],
-  [0, 0, 2, 2, 128 | 0, 0, 64 | 0, () => CognitoIdentityProviderList, 64 | 0, 128 | 0]
+  [0, 0, 2, 2, 128 | 0, 0, 64 | 0, () => CognitoIdentityProviderList, 64 | 0, 128 | 0], 3
 ];
 export var IdentityPoolShortDescription$: StaticStructureSchema = [3, n0, _IPSD,
   0,
@@ -340,7 +340,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var ListIdentitiesInput$: StaticStructureSchema = [3, n0, _LII,
   0,
   [_IPI, _MR, _NT, _HD],
-  [0, 1, 0, 2]
+  [0, 1, 0, 2], 2
 ];
 export var ListIdentitiesResponse$: StaticStructureSchema = [3, n0, _LIR,
   0,
@@ -350,7 +350,7 @@ export var ListIdentitiesResponse$: StaticStructureSchema = [3, n0, _LIR,
 export var ListIdentityPoolsInput$: StaticStructureSchema = [3, n0, _LIPI,
   0,
   [_MR, _NT],
-  [1, 0]
+  [1, 0], 1
 ];
 export var ListIdentityPoolsResponse$: StaticStructureSchema = [3, n0, _LIPR,
   0,
@@ -360,7 +360,7 @@ export var ListIdentityPoolsResponse$: StaticStructureSchema = [3, n0, _LIPR,
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
@@ -370,7 +370,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRR,
 export var LookupDeveloperIdentityInput$: StaticStructureSchema = [3, n0, _LDII,
   0,
   [_IPI, _II, _DUI, _MR, _NT],
-  [0, 0, 0, 1, 0]
+  [0, 0, 0, 1, 0], 1
 ];
 export var LookupDeveloperIdentityResponse$: StaticStructureSchema = [3, n0, _LDIR,
   0,
@@ -380,12 +380,12 @@ export var LookupDeveloperIdentityResponse$: StaticStructureSchema = [3, n0, _LD
 export var MappingRule$: StaticStructureSchema = [3, n0, _MRa,
   0,
   [_Cl, _MT, _V, _RARN],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var MergeDeveloperIdentitiesInput$: StaticStructureSchema = [3, n0, _MDII,
   0,
   [_SUI, _DUIe, _DPN, _IPI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var MergeDeveloperIdentitiesResponse$: StaticStructureSchema = [3, n0, _MDIR,
   0,
@@ -413,22 +413,22 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var RoleMapping$: StaticStructureSchema = [3, n0, _RMo,
   0,
   [_Ty, _ARR, _RC],
-  [0, 0, () => RulesConfigurationType$]
+  [0, 0, () => RulesConfigurationType$], 1
 ];
 export var RulesConfigurationType$: StaticStructureSchema = [3, n0, _RCT,
   0,
   [_Ru],
-  [() => MappingRulesList]
+  [() => MappingRulesList], 1
 ];
 export var SetIdentityPoolRolesInput$: StaticStructureSchema = [3, n0, _SIPRI,
   0,
   [_IPI, _R, _RM],
-  [0, 128 | 0, () => RoleMappingMap]
+  [0, 128 | 0, () => RoleMappingMap], 2
 ];
 export var SetPrincipalTagAttributeMapInput$: StaticStructureSchema = [3, n0, _SPTAMI,
   0,
   [_IPI, _IPNd, _UD, _PT],
-  [0, 0, 2, 128 | 0]
+  [0, 0, 2, 128 | 0], 2
 ];
 export var SetPrincipalTagAttributeMapResponse$: StaticStructureSchema = [3, n0, _SPTAMR,
   0,
@@ -438,7 +438,7 @@ export var SetPrincipalTagAttributeMapResponse$: StaticStructureSchema = [3, n0,
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_RA, _Ta],
-  [0, 128 | 0]
+  [0, 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRR,
   0,
@@ -454,12 +454,12 @@ TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsExc
 export var UnlinkDeveloperIdentityInput$: StaticStructureSchema = [3, n0, _UDII,
   0,
   [_II, _IPI, _DPN, _DUI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var UnlinkIdentityInput$: StaticStructureSchema = [3, n0, _UIIn,
   0,
   [_II, _L, _LTR],
-  [0, [() => LoginsMap, 0], 64 | 0]
+  [0, [() => LoginsMap, 0], 64 | 0], 3
 ];
 export var UnprocessedIdentityId$: StaticStructureSchema = [3, n0, _UIInp,
   0,
@@ -469,7 +469,7 @@ export var UnprocessedIdentityId$: StaticStructureSchema = [3, n0, _UIInp,
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RA, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URR,
   0,

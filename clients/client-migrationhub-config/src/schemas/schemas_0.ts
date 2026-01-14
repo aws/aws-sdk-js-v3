@@ -62,7 +62,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var CreateHomeRegionControlRequest$: StaticStructureSchema = [3, n0, _CHRCR,
   0,
   [_HR, _T, _DR],
-  [0, () => Target$, 2]
+  [0, () => Target$, 2], 2
 ];
 export var CreateHomeRegionControlResult$: StaticStructureSchema = [3, n0, _CHRCRr,
   0,
@@ -72,7 +72,7 @@ export var CreateHomeRegionControlResult$: StaticStructureSchema = [3, n0, _CHRC
 export var DeleteHomeRegionControlRequest$: StaticStructureSchema = [3, n0, _DHRCR,
   0,
   [_CI],
-  [0]
+  [0], 1
 ];
 export var DeleteHomeRegionControlResult$: StaticStructureSchema = [3, n0, _DHRCRe,
   0,
@@ -131,12 +131,12 @@ TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavaila
 export var Target$: StaticStructureSchema = [3, n0, _T,
   0,
   [_Ty, _I],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M, _RAS],
-  [0, [1, { [_hH]: _RA }]]
+  [0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var MigrationHubConfigServiceException$: StaticErrorSchema = [-3, _sm, "MigrationHubConfigServiceException", 0, [], []];

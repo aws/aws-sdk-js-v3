@@ -193,7 +193,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AddTagsToCertificateRequest$: StaticStructureSchema = [3, n0, _ATTCR,
   0,
   [_CA, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var CertificateDetail$: StaticStructureSchema = [3, n0, _CD,
   0,
@@ -219,12 +219,12 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var DeleteCertificateRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_CA],
-  [0]
+  [0], 1
 ];
 export var DescribeCertificateRequest$: StaticStructureSchema = [3, n0, _DCRe,
   0,
   [_CA],
-  [0]
+  [0], 1
 ];
 export var DescribeCertificateResponse$: StaticStructureSchema = [3, n0, _DCRes,
   0,
@@ -234,12 +234,12 @@ export var DescribeCertificateResponse$: StaticStructureSchema = [3, n0, _DCRes,
 export var DomainValidation$: StaticStructureSchema = [3, n0, _DV,
   0,
   [_DN, _VE, _VD, _VS, _RRe, _HR, _VM],
-  [0, 64 | 0, 0, 0, () => ResourceRecord$, () => HttpRedirect$, 0]
+  [0, 64 | 0, 0, 0, () => ResourceRecord$, () => HttpRedirect$, 0], 1
 ];
 export var DomainValidationOption$: StaticStructureSchema = [3, n0, _DVOo,
   0,
   [_DN, _VD],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ExpiryEventsConfiguration$: StaticStructureSchema = [3, n0, _EEC,
   0,
@@ -249,7 +249,7 @@ export var ExpiryEventsConfiguration$: StaticStructureSchema = [3, n0, _EEC,
 export var ExportCertificateRequest$: StaticStructureSchema = [3, n0, _ECR,
   0,
   [_CA, _P],
-  [0, [() => PassphraseBlob, 0]]
+  [0, [() => PassphraseBlob, 0]], 2
 ];
 export var ExportCertificateResponse$: StaticStructureSchema = [3, n0, _ECRx,
   0,
@@ -274,7 +274,7 @@ export var GetAccountConfigurationResponse$: StaticStructureSchema = [3, n0, _GA
 export var GetCertificateRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_CA],
-  [0]
+  [0], 1
 ];
 export var GetCertificateResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
@@ -288,8 +288,8 @@ export var HttpRedirect$: StaticStructureSchema = [3, n0, _HR,
 ];
 export var ImportCertificateRequest$: StaticStructureSchema = [3, n0, _ICR,
   0,
-  [_CA, _C, _PK, _CC, _T],
-  [0, 21, [() => PrivateKeyBlob, 0], 21, () => TagList]
+  [_C, _PK, _CA, _CC, _T],
+  [21, [() => PrivateKeyBlob, 0], 0, 21, () => TagList], 2
 ];
 export var ImportCertificateResponse$: StaticStructureSchema = [3, n0, _ICRm,
   0,
@@ -356,7 +356,7 @@ export var ListCertificatesResponse$: StaticStructureSchema = [3, n0, _LCRi,
 export var ListTagsForCertificateRequest$: StaticStructureSchema = [3, n0, _LTFCR,
   0,
   [_CA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForCertificateResponse$: StaticStructureSchema = [3, n0, _LTFCRi,
   0,
@@ -365,28 +365,28 @@ export var ListTagsForCertificateResponse$: StaticStructureSchema = [3, n0, _LTF
 ];
 export var PutAccountConfigurationRequest$: StaticStructureSchema = [3, n0, _PACR,
   0,
-  [_EE, _IT],
-  [() => ExpiryEventsConfiguration$, 0]
+  [_IT, _EE],
+  [0, () => ExpiryEventsConfiguration$], 1
 ];
 export var RemoveTagsFromCertificateRequest$: StaticStructureSchema = [3, n0, _RTFCR,
   0,
   [_CA, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var RenewalSummary$: StaticStructureSchema = [3, n0, _RS,
   0,
-  [_RSe, _DVO, _RSR, _UA],
-  [0, () => DomainValidationList, 0, 4]
+  [_RSe, _DVO, _UA, _RSR],
+  [0, () => DomainValidationList, 4, 0], 3
 ];
 export var RenewCertificateRequest$: StaticStructureSchema = [3, n0, _RCR,
   0,
   [_CA],
-  [0]
+  [0], 1
 ];
 export var RequestCertificateRequest$: StaticStructureSchema = [3, n0, _RCRe,
   0,
   [_DN, _VM, _SAN, _IT, _DVO, _O, _CAA, _T, _KA, _MB],
-  [0, 0, 64 | 0, 0, () => DomainValidationOptionList, () => CertificateOptions$, 0, () => TagList, 0, 0]
+  [0, 0, 64 | 0, 0, () => DomainValidationOptionList, () => CertificateOptions$, 0, () => TagList, 0, 0], 1
 ];
 export var RequestCertificateResponse$: StaticStructureSchema = [3, n0, _RCReq,
   0,
@@ -402,7 +402,7 @@ TypeRegistry.for(n0).registerError(RequestInProgressException$, RequestInProgres
 export var ResendValidationEmailRequest$: StaticStructureSchema = [3, n0, _RVER,
   0,
   [_CA, _D, _VD],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
   { [_e]: _c },
@@ -419,12 +419,12 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var ResourceRecord$: StaticStructureSchema = [3, n0, _RRe,
   0,
   [_N, _Ty, _V],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var RevokeCertificateRequest$: StaticStructureSchema = [3, n0, _RCRev,
   0,
   [_CA, _RR],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RevokeCertificateResponse$: StaticStructureSchema = [3, n0, _RCRevo,
   0,
@@ -434,7 +434,7 @@ export var RevokeCertificateResponse$: StaticStructureSchema = [3, n0, _RCRevo,
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TagPolicyException$: StaticErrorSchema = [-3, n0, _TPE,
   { [_e]: _c },
@@ -457,7 +457,7 @@ TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UpdateCertificateOptionsRequest$: StaticStructureSchema = [3, n0, _UCOR,
   0,
   [_CA, _O],
-  [0, () => CertificateOptions$]
+  [0, () => CertificateOptions$], 2
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VEa,
   { [_aQE]: [`ValidationError`, 400], [_e]: _c, [_hE]: 400 },

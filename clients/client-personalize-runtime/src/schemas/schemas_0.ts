@@ -81,7 +81,7 @@ export var GetActionRecommendationsResponse$: StaticStructureSchema = [3, n0, _G
 export var GetPersonalizedRankingRequest$: StaticStructureSchema = [3, n0, _GPRR,
   0,
   [_cA, _iL, _uI, _c, _fA, _fV, _mC],
-  [0, 64 | 0, 0, [() => Context, 0], 0, [() => FilterValues, 0], [2, n0, _MC, 0, 0, 64 | 0]]
+  [0, 64 | 0, 0, [() => Context, 0], 0, [() => FilterValues, 0], [2, n0, _MC, 0, 0, 64 | 0]], 3
 ];
 export var GetPersonalizedRankingResponse$: StaticStructureSchema = [3, n0, _GPRRe,
   0,

@@ -144,13 +144,13 @@ var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
-  [[0, { [_jN]: _m }]]
+  [[0, { [_jN]: _m }]], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var GetGlyphsRequest$: StaticStructureSchema = [3, n0, _GGR,
   0,
   [_FS, _FUR],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetGlyphsResponse$: StaticStructureSchema = [3, n0, _GGRe,
   0,
@@ -160,7 +160,7 @@ export var GetGlyphsResponse$: StaticStructureSchema = [3, n0, _GGRe,
 export var GetSpritesRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_FN, _S, _CS, _V],
-  [[0, 1], [0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1], [0, 1]], 4
 ];
 export var GetSpritesResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
@@ -169,18 +169,18 @@ export var GetSpritesResponse$: StaticStructureSchema = [3, n0, _GSRe,
 ];
 export var GetStaticMapRequest$: StaticStructureSchema = [3, n0, _GSMR,
   0,
-  [_BB, _BP, _C, _CS, _CO, _CL, _GJO, _H, _K, _LS, _L, _P, _PV, _POI, _R, _FN, _SBU, _S, _W, _Z],
-  [[() => PositionListString, { [_hQ]: _bb }], [() => PositionListString, { [_hQ]: _bp }], [() => PositionString, { [_hQ]: _ce }], [0, { [_hQ]: _cs }], [() => CompactOverlay, { [_hQ]: _co }], [2, { [_hQ]: _cl }], [() => GeoJsonOverlay, { [_hQ]: _go }], [() => SensitiveInteger, { [_hQ]: _h }], [() => ApiKey, { [_hQ]: _k }], [0, { [_hQ]: _ls }], [0, { [_hQ]: _l }], [() => SensitiveInteger, { [_hQ]: _p }], [() => CountryCode, { [_hQ]: _pv }], [0, { [_hQ]: _po }], [() => DistanceMeters, { [_hQ]: _r }], [0, 1], [0, { [_hQ]: _su }], [0, { [_hQ]: _s }], [() => SensitiveInteger, { [_hQ]: _w }], [() => SensitiveFloat, { [_hQ]: _z }]]
+  [_H, _FN, _W, _BB, _BP, _C, _CS, _CO, _CL, _GJO, _K, _LS, _L, _P, _PV, _POI, _R, _SBU, _S, _Z],
+  [[() => SensitiveInteger, { [_hQ]: _h }], [0, 1], [() => SensitiveInteger, { [_hQ]: _w }], [() => PositionListString, { [_hQ]: _bb }], [() => PositionListString, { [_hQ]: _bp }], [() => PositionString, { [_hQ]: _ce }], [0, { [_hQ]: _cs }], [() => CompactOverlay, { [_hQ]: _co }], [2, { [_hQ]: _cl }], [() => GeoJsonOverlay, { [_hQ]: _go }], [() => ApiKey, { [_hQ]: _k }], [0, { [_hQ]: _ls }], [0, { [_hQ]: _l }], [() => SensitiveInteger, { [_hQ]: _p }], [() => CountryCode, { [_hQ]: _pv }], [0, { [_hQ]: _po }], [() => DistanceMeters, { [_hQ]: _r }], [0, { [_hQ]: _su }], [0, { [_hQ]: _s }], [() => SensitiveFloat, { [_hQ]: _z }]], 3
 ];
 export var GetStaticMapResponse$: StaticStructureSchema = [3, n0, _GSMRe,
   0,
-  [_B, _CT, _CCa, _ET, _PB],
-  [[21, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _CC_ }], [0, { [_hH]: _ET }], [0, { [_hH]: _xagpb }]]
+  [_PB, _B, _CT, _CCa, _ET],
+  [[0, { [_hH]: _xagpb }], [21, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _CC_ }], [0, { [_hH]: _ET }]], 1
 ];
 export var GetStyleDescriptorRequest$: StaticStructureSchema = [3, n0, _GSDR,
   0,
   [_S, _CS, _PV, _T, _CD, _Tr, _TM, _K],
-  [[0, 1], [0, { [_hQ]: _cs }], [() => CountryCode, { [_hQ]: _pv }], [0, { [_hQ]: _t }], [0, { [_hQ]: _cd }], [0, { [_hQ]: _tr }], [64 | 0, { [_hQ]: _tm }], [() => ApiKey, { [_hQ]: _k }]]
+  [[0, 1], [0, { [_hQ]: _cs }], [() => CountryCode, { [_hQ]: _pv }], [0, { [_hQ]: _t }], [0, { [_hQ]: _cd }], [0, { [_hQ]: _tr }], [64 | 0, { [_hQ]: _tm }], [() => ApiKey, { [_hQ]: _k }]], 1
 ];
 export var GetStyleDescriptorResponse$: StaticStructureSchema = [3, n0, _GSDRe,
   0,
@@ -189,42 +189,42 @@ export var GetStyleDescriptorResponse$: StaticStructureSchema = [3, n0, _GSDRe,
 ];
 export var GetTileRequest$: StaticStructureSchema = [3, n0, _GTR,
   0,
-  [_AF, _Ti, _Z_, _X, _Y, _K],
-  [[64 | 0, { [_hQ]: _af }], [0, 1], [() => SensitiveString, 1], [() => SensitiveString, 1], [() => SensitiveString, 1], [() => ApiKey, { [_hQ]: _k }]]
+  [_Ti, _Z_, _X, _Y, _AF, _K],
+  [[0, 1], [() => SensitiveString, 1], [() => SensitiveString, 1], [() => SensitiveString, 1], [64 | 0, { [_hQ]: _af }], [() => ApiKey, { [_hQ]: _k }]], 4
 ];
 export var GetTileResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
-  [_B, _CT, _CCa, _ET, _PB],
-  [[21, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _CC_ }], [0, { [_hH]: _ET }], [0, { [_hH]: _xagpb }]]
+  [_PB, _B, _CT, _CCa, _ET],
+  [[0, { [_hH]: _xagpb }], [21, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _CC_ }], [0, { [_hH]: _ET }]], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_M],
-  [[0, { [_jN]: _m }]]
+  [[0, { [_jN]: _m }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_M],
-  [[0, { [_jN]: _m }]]
+  [[0, { [_jN]: _m }]], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M],
-  [[0, { [_jN]: _m }]]
+  [[0, { [_jN]: _m }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M, _Re, _FL],
-  [[0, { [_jN]: _m }], [0, { [_jN]: _re }], [() => ValidationExceptionFieldList, { [_jN]: _fL }]]
+  [[0, { [_jN]: _m }], [0, { [_jN]: _re }], [() => ValidationExceptionFieldList, { [_jN]: _fL }]], 3
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_N, _M],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _m }]]
+  [[0, { [_jN]: _n }], [0, { [_jN]: _m }]], 2
 ];
 export var GeoMapsServiceException$: StaticErrorSchema = [-3, _sm, "GeoMapsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(GeoMapsServiceException$, GeoMapsServiceException);

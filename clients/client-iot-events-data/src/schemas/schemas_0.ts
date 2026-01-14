@@ -182,7 +182,7 @@ export var AcknowledgeActionConfiguration$: StaticStructureSchema = [3, n0, _AAC
 export var AcknowledgeAlarmActionRequest$: StaticStructureSchema = [3, n0, _AAAR,
   0,
   [_rI, _aMN, _kV, _n],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var Alarm$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -202,7 +202,7 @@ export var AlarmSummary$: StaticStructureSchema = [3, n0, _ASl,
 export var BatchAcknowledgeAlarmRequest$: StaticStructureSchema = [3, n0, _BAAR,
   0,
   [_aAR],
-  [() => AcknowledgeAlarmActionRequests]
+  [() => AcknowledgeAlarmActionRequests], 1
 ];
 export var BatchAcknowledgeAlarmResponse$: StaticStructureSchema = [3, n0, _BAARa,
   0,
@@ -222,7 +222,7 @@ export var BatchDeleteDetectorErrorEntry$: StaticStructureSchema = [3, n0, _BDDE
 export var BatchDeleteDetectorRequest$: StaticStructureSchema = [3, n0, _BDDR,
   0,
   [_d],
-  [() => DeleteDetectorRequests]
+  [() => DeleteDetectorRequests], 1
 ];
 export var BatchDeleteDetectorResponse$: StaticStructureSchema = [3, n0, _BDDRa,
   0,
@@ -232,7 +232,7 @@ export var BatchDeleteDetectorResponse$: StaticStructureSchema = [3, n0, _BDDRa,
 export var BatchDisableAlarmRequest$: StaticStructureSchema = [3, n0, _BDAR,
   0,
   [_dAR],
-  [() => DisableAlarmActionRequests]
+  [() => DisableAlarmActionRequests], 1
 ];
 export var BatchDisableAlarmResponse$: StaticStructureSchema = [3, n0, _BDARa,
   0,
@@ -242,7 +242,7 @@ export var BatchDisableAlarmResponse$: StaticStructureSchema = [3, n0, _BDARa,
 export var BatchEnableAlarmRequest$: StaticStructureSchema = [3, n0, _BEAR,
   0,
   [_eAR],
-  [() => EnableAlarmActionRequests]
+  [() => EnableAlarmActionRequests], 1
 ];
 export var BatchEnableAlarmResponse$: StaticStructureSchema = [3, n0, _BEARa,
   0,
@@ -257,7 +257,7 @@ export var BatchPutMessageErrorEntry$: StaticStructureSchema = [3, n0, _BPMEE,
 export var BatchPutMessageRequest$: StaticStructureSchema = [3, n0, _BPMR,
   0,
   [_m],
-  [() => Messages]
+  [() => Messages], 1
 ];
 export var BatchPutMessageResponse$: StaticStructureSchema = [3, n0, _BPMRa,
   0,
@@ -267,7 +267,7 @@ export var BatchPutMessageResponse$: StaticStructureSchema = [3, n0, _BPMRa,
 export var BatchResetAlarmRequest$: StaticStructureSchema = [3, n0, _BRAR,
   0,
   [_rAR],
-  [() => ResetAlarmActionRequests]
+  [() => ResetAlarmActionRequests], 1
 ];
 export var BatchResetAlarmResponse$: StaticStructureSchema = [3, n0, _BRARa,
   0,
@@ -277,7 +277,7 @@ export var BatchResetAlarmResponse$: StaticStructureSchema = [3, n0, _BRARa,
 export var BatchSnoozeAlarmRequest$: StaticStructureSchema = [3, n0, _BSAR,
   0,
   [_sAR],
-  [() => SnoozeAlarmActionRequests]
+  [() => SnoozeAlarmActionRequests], 1
 ];
 export var BatchSnoozeAlarmResponse$: StaticStructureSchema = [3, n0, _BSARa,
   0,
@@ -292,7 +292,7 @@ export var BatchUpdateDetectorErrorEntry$: StaticStructureSchema = [3, n0, _BUDE
 export var BatchUpdateDetectorRequest$: StaticStructureSchema = [3, n0, _BUDR,
   0,
   [_d],
-  [() => UpdateDetectorRequests]
+  [() => UpdateDetectorRequests], 1
 ];
 export var BatchUpdateDetectorResponse$: StaticStructureSchema = [3, n0, _BUDRa,
   0,
@@ -307,12 +307,12 @@ export var CustomerAction$: StaticStructureSchema = [3, n0, _CA,
 export var DeleteDetectorRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_mI, _dMN, _kV],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var DescribeAlarmRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_aMN, _kV],
-  [[0, 1], [0, { [_hQ]: _kV }]]
+  [[0, 1], [0, { [_hQ]: _kV }]], 1
 ];
 export var DescribeAlarmResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -322,7 +322,7 @@ export var DescribeAlarmResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DescribeDetectorRequest$: StaticStructureSchema = [3, n0, _DDRe,
   0,
   [_dMN, _kV],
-  [[0, 1], [0, { [_hQ]: _kV }]]
+  [[0, 1], [0, { [_hQ]: _kV }]], 1
 ];
 export var DescribeDetectorResponse$: StaticStructureSchema = [3, n0, _DDRes,
   0,
@@ -337,12 +337,12 @@ export var Detector$: StaticStructureSchema = [3, n0, _D,
 export var DetectorState$: StaticStructureSchema = [3, n0, _DS,
   0,
   [_sN, _v, _t],
-  [0, () => Variables, () => Timers]
+  [0, () => Variables, () => Timers], 3
 ];
 export var DetectorStateDefinition$: StaticStructureSchema = [3, n0, _DSD,
   0,
   [_sN, _v, _t],
-  [0, () => VariableDefinitions, () => TimerDefinitions]
+  [0, () => VariableDefinitions, () => TimerDefinitions], 3
 ];
 export var DetectorStateSummary$: StaticStructureSchema = [3, n0, _DSS,
   0,
@@ -362,7 +362,7 @@ export var DisableActionConfiguration$: StaticStructureSchema = [3, n0, _DAC,
 export var DisableAlarmActionRequest$: StaticStructureSchema = [3, n0, _DAAR,
   0,
   [_rI, _aMN, _kV, _n],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var EnableActionConfiguration$: StaticStructureSchema = [3, n0, _EAC,
   0,
@@ -372,7 +372,7 @@ export var EnableActionConfiguration$: StaticStructureSchema = [3, n0, _EAC,
 export var EnableAlarmActionRequest$: StaticStructureSchema = [3, n0, _EAAR,
   0,
   [_rI, _aMN, _kV, _n],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
   { [_e]: _se, [_hE]: 500 },
@@ -389,7 +389,7 @@ TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestExcep
 export var ListAlarmsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
   [_aMN, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListAlarmsResponse$: StaticStructureSchema = [3, n0, _LARi,
   0,
@@ -399,7 +399,7 @@ export var ListAlarmsResponse$: StaticStructureSchema = [3, n0, _LARi,
 export var ListDetectorsRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
   [_dMN, _sN, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _sN }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _sN }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListDetectorsResponse$: StaticStructureSchema = [3, n0, _LDRi,
   0,
@@ -409,7 +409,7 @@ export var ListDetectorsResponse$: StaticStructureSchema = [3, n0, _LDRi,
 export var Message$: StaticStructureSchema = [3, n0, _M,
   0,
   [_mI, _iN, _p, _ti],
-  [0, 0, 21, () => TimestampValue$]
+  [0, 0, 21, () => TimestampValue$], 3
 ];
 export var ResetActionConfiguration$: StaticStructureSchema = [3, n0, _RAC,
   0,
@@ -419,7 +419,7 @@ export var ResetActionConfiguration$: StaticStructureSchema = [3, n0, _RAC,
 export var ResetAlarmActionRequest$: StaticStructureSchema = [3, n0, _RAAR,
   0,
   [_rI, _aMN, _kV, _n],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -450,8 +450,8 @@ export var SnoozeActionConfiguration$: StaticStructureSchema = [3, n0, _SAC,
 ];
 export var SnoozeAlarmActionRequest$: StaticStructureSchema = [3, n0, _SAAR,
   0,
-  [_rI, _aMN, _kV, _n, _sD],
-  [0, 0, 0, 0, 1]
+  [_rI, _aMN, _sD, _kV, _n],
+  [0, 0, 1, 0, 0], 3
 ];
 export var StateChangeConfiguration$: StaticStructureSchema = [3, n0, _SCC,
   0,
@@ -472,12 +472,12 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var Timer$: StaticStructureSchema = [3, n0, _T,
   0,
   [_na, _ti],
-  [0, 4]
+  [0, 4], 2
 ];
 export var TimerDefinition$: StaticStructureSchema = [3, n0, _TD,
   0,
   [_na, _sec],
-  [0, 1]
+  [0, 1], 2
 ];
 export var TimestampValue$: StaticStructureSchema = [3, n0, _TV,
   0,
@@ -486,18 +486,18 @@ export var TimestampValue$: StaticStructureSchema = [3, n0, _TV,
 ];
 export var UpdateDetectorRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
-  [_mI, _dMN, _kV, _st],
-  [0, 0, 0, () => DetectorStateDefinition$]
+  [_mI, _dMN, _st, _kV],
+  [0, 0, () => DetectorStateDefinition$, 0], 3
 ];
 export var Variable$: StaticStructureSchema = [3, n0, _V,
   0,
   [_na, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var VariableDefinition$: StaticStructureSchema = [3, n0, _VD,
   0,
   [_na, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var IoTEventsDataServiceException$: StaticErrorSchema = [-3, _sm, "IoTEventsDataServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IoTEventsDataServiceException$, IoTEventsDataServiceException);

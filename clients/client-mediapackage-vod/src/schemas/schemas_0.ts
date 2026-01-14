@@ -233,22 +233,22 @@ export var AssetShallow$: StaticStructureSchema = [3, n0, _AS,
 export var Authorization$: StaticStructureSchema = [3, n0, _Au,
   0,
   [_CIS, _SRAe],
-  [[0, { [_jN]: _cIS }], [0, { [_jN]: _sRAe }]]
+  [[0, { [_jN]: _cIS }], [0, { [_jN]: _sRAe }]], 2
 ];
 export var CmafEncryption$: StaticStructureSchema = [3, n0, _CE,
   0,
-  [_CIV, _SKP],
-  [[0, { [_jN]: _cIV }], [() => SpekeKeyProvider$, { [_jN]: _sKP }]]
+  [_SKP, _CIV],
+  [[() => SpekeKeyProvider$, { [_jN]: _sKP }], [0, { [_jN]: _cIV }]], 1
 ];
 export var CmafPackage$: StaticStructureSchema = [3, n0, _CP,
   0,
-  [_E, _HM, _IECIS, _SDS],
-  [[() => CmafEncryption$, { [_jN]: _e }], [() => __listOfHlsManifest, { [_jN]: _hM }], [2, { [_jN]: _iECIS }], [1, { [_jN]: _sDS }]]
+  [_HM, _E, _IECIS, _SDS],
+  [[() => __listOfHlsManifest, { [_jN]: _hM }], [() => CmafEncryption$, { [_jN]: _e }], [2, { [_jN]: _iECIS }], [1, { [_jN]: _sDS }]], 1
 ];
 export var ConfigureLogsRequest$: StaticStructureSchema = [3, n0, _CLR,
   0,
-  [_EAL, _I],
-  [[() => EgressAccessLogs$, { [_jN]: _eAL }], [0, 1]]
+  [_I, _EAL],
+  [[0, 1], [() => EgressAccessLogs$, { [_jN]: _eAL }]], 1
 ];
 export var ConfigureLogsResponse$: StaticStructureSchema = [3, n0, _CLRo,
   0,
@@ -257,8 +257,8 @@ export var ConfigureLogsResponse$: StaticStructureSchema = [3, n0, _CLRo,
 ];
 export var CreateAssetRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
-  [_I, _PGI, _RI, _SA, _SRA, _T],
-  [[0, { [_jN]: _i }], [0, { [_jN]: _pGI }], [0, { [_jN]: _rI }], [0, { [_jN]: _sA }], [0, { [_jN]: _sRA }], [128 | 0, { [_jN]: _t }]]
+  [_I, _PGI, _SA, _SRA, _RI, _T],
+  [[0, { [_jN]: _i }], [0, { [_jN]: _pGI }], [0, { [_jN]: _sA }], [0, { [_jN]: _sRA }], [0, { [_jN]: _rI }], [128 | 0, { [_jN]: _t }]], 4
 ];
 export var CreateAssetResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -267,8 +267,8 @@ export var CreateAssetResponse$: StaticStructureSchema = [3, n0, _CARr,
 ];
 export var CreatePackagingConfigurationRequest$: StaticStructureSchema = [3, n0, _CPCR,
   0,
-  [_CP, _DP, _HP, _I, _MP, _PGI, _T],
-  [[() => CmafPackage$, { [_jN]: _cP }], [() => DashPackage$, { [_jN]: _dP }], [() => HlsPackage$, { [_jN]: _hP }], [0, { [_jN]: _i }], [() => MssPackage$, { [_jN]: _mP }], [0, { [_jN]: _pGI }], [128 | 0, { [_jN]: _t }]]
+  [_I, _PGI, _CP, _DP, _HP, _MP, _T],
+  [[0, { [_jN]: _i }], [0, { [_jN]: _pGI }], [() => CmafPackage$, { [_jN]: _cP }], [() => DashPackage$, { [_jN]: _dP }], [() => HlsPackage$, { [_jN]: _hP }], [() => MssPackage$, { [_jN]: _mP }], [128 | 0, { [_jN]: _t }]], 2
 ];
 export var CreatePackagingConfigurationResponse$: StaticStructureSchema = [3, n0, _CPCRr,
   0,
@@ -277,8 +277,8 @@ export var CreatePackagingConfigurationResponse$: StaticStructureSchema = [3, n0
 ];
 export var CreatePackagingGroupRequest$: StaticStructureSchema = [3, n0, _CPGR,
   0,
-  [_Au, _EAL, _I, _T],
-  [[() => Authorization$, { [_jN]: _au }], [() => EgressAccessLogs$, { [_jN]: _eAL }], [0, { [_jN]: _i }], [128 | 0, { [_jN]: _t }]]
+  [_I, _Au, _EAL, _T],
+  [[0, { [_jN]: _i }], [() => Authorization$, { [_jN]: _au }], [() => EgressAccessLogs$, { [_jN]: _eAL }], [128 | 0, { [_jN]: _t }]], 1
 ];
 export var CreatePackagingGroupResponse$: StaticStructureSchema = [3, n0, _CPGRr,
   0,
@@ -288,7 +288,7 @@ export var CreatePackagingGroupResponse$: StaticStructureSchema = [3, n0, _CPGRr
 export var DashEncryption$: StaticStructureSchema = [3, n0, _DE,
   0,
   [_SKP],
-  [[() => SpekeKeyProvider$, { [_jN]: _sKP }]]
+  [[() => SpekeKeyProvider$, { [_jN]: _sKP }]], 1
 ];
 export var DashManifest$: StaticStructureSchema = [3, n0, _DM,
   0,
@@ -298,12 +298,12 @@ export var DashManifest$: StaticStructureSchema = [3, n0, _DM,
 export var DashPackage$: StaticStructureSchema = [3, n0, _DP,
   0,
   [_DMa, _E, _IECIS, _IIOS, _PT, _SDS, _STF],
-  [[() => __listOfDashManifest, { [_jN]: _dM }], [() => DashEncryption$, { [_jN]: _e }], [2, { [_jN]: _iECIS }], [2, { [_jN]: _iIOS }], [64 | 0, { [_jN]: _pT }], [1, { [_jN]: _sDS }], [0, { [_jN]: _sTF }]]
+  [[() => __listOfDashManifest, { [_jN]: _dM }], [() => DashEncryption$, { [_jN]: _e }], [2, { [_jN]: _iECIS }], [2, { [_jN]: _iIOS }], [64 | 0, { [_jN]: _pT }], [1, { [_jN]: _sDS }], [0, { [_jN]: _sTF }]], 1
 ];
 export var DeleteAssetRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteAssetResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -313,7 +313,7 @@ export var DeleteAssetResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DeletePackagingConfigurationRequest$: StaticStructureSchema = [3, n0, _DPCR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeletePackagingConfigurationResponse$: StaticStructureSchema = [3, n0, _DPCRe,
   0,
@@ -323,7 +323,7 @@ export var DeletePackagingConfigurationResponse$: StaticStructureSchema = [3, n0
 export var DeletePackagingGroupRequest$: StaticStructureSchema = [3, n0, _DPGR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeletePackagingGroupResponse$: StaticStructureSchema = [3, n0, _DPGRe,
   0,
@@ -333,7 +333,7 @@ export var DeletePackagingGroupResponse$: StaticStructureSchema = [3, n0, _DPGRe
 export var DescribeAssetRequest$: StaticStructureSchema = [3, n0, _DARes,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeAssetResponse$: StaticStructureSchema = [3, n0, _DAResc,
   0,
@@ -343,7 +343,7 @@ export var DescribeAssetResponse$: StaticStructureSchema = [3, n0, _DAResc,
 export var DescribePackagingConfigurationRequest$: StaticStructureSchema = [3, n0, _DPCRes,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribePackagingConfigurationResponse$: StaticStructureSchema = [3, n0, _DPCResc,
   0,
@@ -353,7 +353,7 @@ export var DescribePackagingConfigurationResponse$: StaticStructureSchema = [3, 
 export var DescribePackagingGroupRequest$: StaticStructureSchema = [3, n0, _DPGRes,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribePackagingGroupResponse$: StaticStructureSchema = [3, n0, _DPGResc,
   0,
@@ -373,7 +373,7 @@ export var EgressEndpoint$: StaticStructureSchema = [3, n0, _EEg,
 export var EncryptionContractConfiguration$: StaticStructureSchema = [3, n0, _ECC,
   0,
   [_PSA, _PSV],
-  [[0, { [_jN]: _pSA }], [0, { [_jN]: _pSV }]]
+  [[0, { [_jN]: _pSA }], [0, { [_jN]: _pSV }]], 2
 ];
 export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
   { [_er]: _c, [_hE]: 403 },
@@ -383,8 +383,8 @@ export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
 TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var HlsEncryption$: StaticStructureSchema = [3, n0, _HE,
   0,
-  [_CIV, _EM, _SKP],
-  [[0, { [_jN]: _cIV }], [0, { [_jN]: _eM }], [() => SpekeKeyProvider$, { [_jN]: _sKP }]]
+  [_SKP, _CIV, _EM],
+  [[() => SpekeKeyProvider$, { [_jN]: _sKP }], [0, { [_jN]: _cIV }], [0, { [_jN]: _eM }]], 1
 ];
 export var HlsManifest$: StaticStructureSchema = [3, n0, _HMl,
   0,
@@ -393,8 +393,8 @@ export var HlsManifest$: StaticStructureSchema = [3, n0, _HMl,
 ];
 export var HlsPackage$: StaticStructureSchema = [3, n0, _HP,
   0,
-  [_E, _HM, _IDS, _SDS, _UARG],
-  [[() => HlsEncryption$, { [_jN]: _e }], [() => __listOfHlsManifest, { [_jN]: _hM }], [2, { [_jN]: _iDS }], [1, { [_jN]: _sDS }], [2, { [_jN]: _uARG }]]
+  [_HM, _E, _IDS, _SDS, _UARG],
+  [[() => __listOfHlsManifest, { [_jN]: _hM }], [() => HlsEncryption$, { [_jN]: _e }], [2, { [_jN]: _iDS }], [1, { [_jN]: _sDS }], [2, { [_jN]: _uARG }]], 1
 ];
 export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
   { [_er]: _se, [_hE]: 500 },
@@ -435,7 +435,7 @@ export var ListPackagingGroupsResponse$: StaticStructureSchema = [3, n0, _LPGRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -445,7 +445,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var MssEncryption$: StaticStructureSchema = [3, n0, _ME,
   0,
   [_SKP],
-  [[() => SpekeKeyProvider$, { [_jN]: _sKP }]]
+  [[() => SpekeKeyProvider$, { [_jN]: _sKP }]], 1
 ];
 export var MssManifest$: StaticStructureSchema = [3, n0, _MM,
   0,
@@ -454,8 +454,8 @@ export var MssManifest$: StaticStructureSchema = [3, n0, _MM,
 ];
 export var MssPackage$: StaticStructureSchema = [3, n0, _MP,
   0,
-  [_E, _MMs, _SDS],
-  [[() => MssEncryption$, { [_jN]: _e }], [() => __listOfMssManifest, { [_jN]: _mM }], [1, { [_jN]: _sDS }]]
+  [_MMs, _E, _SDS],
+  [[() => __listOfMssManifest, { [_jN]: _mM }], [() => MssEncryption$, { [_jN]: _e }], [1, { [_jN]: _sDS }]], 1
 ];
 export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
   { [_er]: _c, [_hE]: 404 },
@@ -481,8 +481,8 @@ export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
 TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SpekeKeyProvider$: StaticStructureSchema = [3, n0, _SKP,
   0,
-  [_ECC, _RAo, _SI, _U],
-  [[() => EncryptionContractConfiguration$, { [_jN]: _eCC }], [0, { [_jN]: _rA }], [64 | 0, { [_jN]: _sI }], [0, { [_jN]: _u }]]
+  [_RAo, _SI, _U, _ECC],
+  [[0, { [_jN]: _rA }], [64 | 0, { [_jN]: _sI }], [0, { [_jN]: _u }], [() => EncryptionContractConfiguration$, { [_jN]: _eCC }]], 3
 ];
 export var StreamSelection$: StaticStructureSchema = [3, n0, _SS,
   0,
@@ -492,7 +492,7 @@ export var StreamSelection$: StaticStructureSchema = [3, n0, _SS,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _T],
-  [[0, 1], [128 | 0, { [_jN]: _t }]]
+  [[0, 1], [128 | 0, { [_jN]: _t }]], 2
 ];
 export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
   { [_er]: _c, [_hE]: 429 },
@@ -509,12 +509,12 @@ TypeRegistry.for(n0).registerError(UnprocessableEntityException$, UnprocessableE
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UpdatePackagingGroupRequest$: StaticStructureSchema = [3, n0, _UPGR,
   0,
-  [_Au, _I],
-  [[() => Authorization$, { [_jN]: _au }], [0, 1]]
+  [_I, _Au],
+  [[0, 1], [() => Authorization$, { [_jN]: _au }]], 1
 ];
 export var UpdatePackagingGroupResponse$: StaticStructureSchema = [3, n0, _UPGRp,
   0,

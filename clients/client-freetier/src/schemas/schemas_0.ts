@@ -98,18 +98,18 @@ import { FreeTierServiceException } from "../models/FreeTierServiceException";
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var ActivitySummary$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_aI, _t, _r, _s],
-  [0, 0, () => ActivityReward$, 0]
+  [0, 0, () => ActivityReward$, 0], 4
 ];
 export var DimensionValues$: StaticStructureSchema = [3, n0, _DV,
   0,
   [_K, _V, _MO],
-  [0, 64 | 0, 64 | 0]
+  [0, 64 | 0, 64 | 0], 3
 ];
 export var Expression$: StaticStructureSchema = [3, n0, _E,
   0,
@@ -124,12 +124,12 @@ export var FreeTierUsage$: StaticStructureSchema = [3, n0, _FTU,
 export var GetAccountActivityRequest$: StaticStructureSchema = [3, n0, _GAAR,
   0,
   [_aI, _lC],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetAccountActivityResponse$: StaticStructureSchema = [3, n0, _GAARe,
   0,
   [_aI, _t, _d, _s, _iU, _r, _eTTCIM, _eA, _sA, _cA],
-  [0, 0, 0, 0, 0, () => ActivityReward$, 1, 5, 5, 5]
+  [0, 0, 0, 0, 0, () => ActivityReward$, 1, 5, 5, 5], 6
 ];
 export var GetAccountPlanStateRequest$: StaticStructureSchema = [3, n0, _GAPSR,
   0,
@@ -139,7 +139,7 @@ export var GetAccountPlanStateRequest$: StaticStructureSchema = [3, n0, _GAPSR,
 export var GetAccountPlanStateResponse$: StaticStructureSchema = [3, n0, _GAPSRe,
   0,
   [_aIc, _aPT, _aPS, _aPRC, _aPED],
-  [0, 0, 0, () => MonetaryAmount$, 5]
+  [0, 0, 0, () => MonetaryAmount$, 5], 3
 ];
 export var GetFreeTierUsageRequest$: StaticStructureSchema = [3, n0, _GFTUR,
   0,
@@ -149,12 +149,12 @@ export var GetFreeTierUsageRequest$: StaticStructureSchema = [3, n0, _GFTUR,
 export var GetFreeTierUsageResponse$: StaticStructureSchema = [3, n0, _GFTURe,
   0,
   [_fTU, _nT],
-  [() => FreeTierUsages, 0]
+  [() => FreeTierUsages, 0], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _ser, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListAccountActivitiesRequest$: StaticStructureSchema = [3, n0, _LAAR,
@@ -165,39 +165,39 @@ export var ListAccountActivitiesRequest$: StaticStructureSchema = [3, n0, _LAAR,
 export var ListAccountActivitiesResponse$: StaticStructureSchema = [3, n0, _LAARi,
   0,
   [_a, _nT],
-  [() => Activities, 0]
+  [() => Activities, 0], 1
 ];
 export var MonetaryAmount$: StaticStructureSchema = [3, n0, _MA,
   0,
   [_am, _u],
-  [1, 0]
+  [1, 0], 2
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UpgradeAccountPlanRequest$: StaticStructureSchema = [3, n0, _UAPR,
   0,
   [_aPT],
-  [0]
+  [0], 1
 ];
 export var UpgradeAccountPlanResponse$: StaticStructureSchema = [3, n0, _UAPRp,
   0,
   [_aIc, _aPT, _aPS],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var FreeTierServiceException$: StaticErrorSchema = [-3, _sm, "FreeTierServiceException", 0, [], []];

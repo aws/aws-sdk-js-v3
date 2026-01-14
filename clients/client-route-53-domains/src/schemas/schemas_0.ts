@@ -289,7 +289,7 @@ var ZipCode: StaticSimpleSchema = [0, n0, _ZC, 8, 0];
 export var AcceptDomainTransferFromAnotherAwsAccountRequest$: StaticStructureSchema = [3, n0, _ADTFAAAR,
   0,
   [_DN, _P],
-  [0, [() => Password, 0]]
+  [0, [() => Password, 0]], 2
 ];
 export var AcceptDomainTransferFromAnotherAwsAccountResponse$: StaticStructureSchema = [3, n0, _ADTFAAARc,
   0,
@@ -299,7 +299,7 @@ export var AcceptDomainTransferFromAnotherAwsAccountResponse$: StaticStructureSc
 export var AssociateDelegationSignerToDomainRequest$: StaticStructureSchema = [3, n0, _ADSTDR,
   0,
   [_DN, _SA],
-  [0, () => DnssecSigningAttributes$]
+  [0, () => DnssecSigningAttributes$], 2
 ];
 export var AssociateDelegationSignerToDomainResponse$: StaticStructureSchema = [3, n0, _ADSTDRs,
   0,
@@ -314,7 +314,7 @@ export var BillingRecord$: StaticStructureSchema = [3, n0, _BR,
 export var CancelDomainTransferToAnotherAwsAccountRequest$: StaticStructureSchema = [3, n0, _CDTTAAAR,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var CancelDomainTransferToAnotherAwsAccountResponse$: StaticStructureSchema = [3, n0, _CDTTAAARa,
   0,
@@ -324,7 +324,7 @@ export var CancelDomainTransferToAnotherAwsAccountResponse$: StaticStructureSche
 export var CheckDomainAvailabilityRequest$: StaticStructureSchema = [3, n0, _CDAR,
   0,
   [_DN, _ILC],
-  [0, 0]
+  [0, 0], 1
 ];
 export var CheckDomainAvailabilityResponse$: StaticStructureSchema = [3, n0, _CDARh,
   0,
@@ -334,7 +334,7 @@ export var CheckDomainAvailabilityResponse$: StaticStructureSchema = [3, n0, _CD
 export var CheckDomainTransferabilityRequest$: StaticStructureSchema = [3, n0, _CDTR,
   0,
   [_DN, _AC],
-  [0, [() => DomainAuthCode, 0]]
+  [0, [() => DomainAuthCode, 0]], 1
 ];
 export var CheckDomainTransferabilityResponse$: StaticStructureSchema = [3, n0, _CDTRh,
   0,
@@ -344,7 +344,7 @@ export var CheckDomainTransferabilityResponse$: StaticStructureSchema = [3, n0, 
 export var Consent$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_MP, _Cu],
-  [1, 0]
+  [1, 0], 2
 ];
 export var ContactDetail$: StaticStructureSchema = [3, n0, _CD,
   8,
@@ -354,7 +354,7 @@ export var ContactDetail$: StaticStructureSchema = [3, n0, _CD,
 export var DeleteDomainRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var DeleteDomainResponse$: StaticStructureSchema = [3, n0, _DDRe,
   0,
@@ -364,7 +364,7 @@ export var DeleteDomainResponse$: StaticStructureSchema = [3, n0, _DDRe,
 export var DeleteTagsForDomainRequest$: StaticStructureSchema = [3, n0, _DTFDR,
   0,
   [_DN, _TTD],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DeleteTagsForDomainResponse$: StaticStructureSchema = [3, n0, _DTFDRe,
   0,
@@ -374,7 +374,7 @@ export var DeleteTagsForDomainResponse$: StaticStructureSchema = [3, n0, _DTFDRe
 export var DisableDomainAutoRenewRequest$: StaticStructureSchema = [3, n0, _DDARR,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var DisableDomainAutoRenewResponse$: StaticStructureSchema = [3, n0, _DDARRi,
   0,
@@ -384,7 +384,7 @@ export var DisableDomainAutoRenewResponse$: StaticStructureSchema = [3, n0, _DDA
 export var DisableDomainTransferLockRequest$: StaticStructureSchema = [3, n0, _DDTLR,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var DisableDomainTransferLockResponse$: StaticStructureSchema = [3, n0, _DDTLRi,
   0,
@@ -394,7 +394,7 @@ export var DisableDomainTransferLockResponse$: StaticStructureSchema = [3, n0, _
 export var DisassociateDelegationSignerFromDomainRequest$: StaticStructureSchema = [3, n0, _DDSFDR,
   0,
   [_DN, _I],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DisassociateDelegationSignerFromDomainResponse$: StaticStructureSchema = [3, n0, _DDSFDRi,
   0,
@@ -452,7 +452,7 @@ TypeRegistry.for(n0).registerError(DuplicateRequest$, DuplicateRequest);
 export var EnableDomainAutoRenewRequest$: StaticStructureSchema = [3, n0, _EDARR,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var EnableDomainAutoRenewResponse$: StaticStructureSchema = [3, n0, _EDARRn,
   0,
@@ -462,7 +462,7 @@ export var EnableDomainAutoRenewResponse$: StaticStructureSchema = [3, n0, _EDAR
 export var EnableDomainTransferLockRequest$: StaticStructureSchema = [3, n0, _EDTLR,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var EnableDomainTransferLockResponse$: StaticStructureSchema = [3, n0, _EDTLRn,
   0,
@@ -472,12 +472,12 @@ export var EnableDomainTransferLockResponse$: StaticStructureSchema = [3, n0, _E
 export var ExtraParam$: StaticStructureSchema = [3, n0, _EPx,
   0,
   [_N, _V],
-  [0, [() => ExtraParamValue, 0]]
+  [0, [() => ExtraParamValue, 0]], 2
 ];
 export var FilterCondition$: StaticStructureSchema = [3, n0, _FC,
   0,
   [_N, _Op, _Va],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 3
 ];
 export var GetContactReachabilityStatusRequest$: StaticStructureSchema = [3, n0, _GCRSR,
   0,
@@ -492,7 +492,7 @@ export var GetContactReachabilityStatusResponse$: StaticStructureSchema = [3, n0
 export var GetDomainDetailRequest$: StaticStructureSchema = [3, n0, _GDDR,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var GetDomainDetailResponse$: StaticStructureSchema = [3, n0, _GDDRe,
   0,
@@ -502,7 +502,7 @@ export var GetDomainDetailResponse$: StaticStructureSchema = [3, n0, _GDDRe,
 export var GetDomainSuggestionsRequest$: StaticStructureSchema = [3, n0, _GDSR,
   0,
   [_DN, _SC, _OA],
-  [0, 1, 2]
+  [0, 1, 2], 3
 ];
 export var GetDomainSuggestionsResponse$: StaticStructureSchema = [3, n0, _GDSRe,
   0,
@@ -512,7 +512,7 @@ export var GetDomainSuggestionsResponse$: StaticStructureSchema = [3, n0, _GDSRe
 export var GetOperationDetailRequest$: StaticStructureSchema = [3, n0, _GODR,
   0,
   [_OI],
-  [0]
+  [0], 1
 ];
 export var GetOperationDetailResponse$: StaticStructureSchema = [3, n0, _GODRe,
   0,
@@ -558,7 +558,7 @@ export var ListPricesResponse$: StaticStructureSchema = [3, n0, _LPRi,
 export var ListTagsForDomainRequest$: StaticStructureSchema = [3, n0, _LTFDR,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForDomainResponse$: StaticStructureSchema = [3, n0, _LTFDRi,
   0,
@@ -568,7 +568,7 @@ export var ListTagsForDomainResponse$: StaticStructureSchema = [3, n0, _LTFDRi,
 export var Nameserver$: StaticStructureSchema = [3, n0, _Nam,
   0,
   [_N, _GI],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var OperationLimitExceeded$: StaticErrorSchema = [-3, n0, _OLE,
   { [_e]: _c, [_hE]: 400 },
@@ -584,17 +584,17 @@ export var OperationSummary$: StaticStructureSchema = [3, n0, _OS,
 export var PriceWithCurrency$: StaticStructureSchema = [3, n0, _PWC,
   0,
   [_Pr, _Cu],
-  [1, 0]
+  [1, 0], 2
 ];
 export var PushDomainRequest$: StaticStructureSchema = [3, n0, _PDR,
   0,
   [_DN, _Ta],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RegisterDomainRequest$: StaticStructureSchema = [3, n0, _RDR,
   0,
-  [_DN, _ILC, _DIY, _AR, _ACd, _RC, _TC, _PPAC, _PPRC, _PPTC, _BC, _PPBC],
-  [0, 0, 1, 2, [() => ContactDetail$, 0], [() => ContactDetail$, 0], [() => ContactDetail$, 0], 2, 2, 2, [() => ContactDetail$, 0], 2]
+  [_DN, _DIY, _ACd, _RC, _TC, _ILC, _AR, _PPAC, _PPRC, _PPTC, _BC, _PPBC],
+  [0, 1, [() => ContactDetail$, 0], [() => ContactDetail$, 0], [() => ContactDetail$, 0], 0, 2, 2, 2, 2, [() => ContactDetail$, 0], 2], 5
 ];
 export var RegisterDomainResponse$: StaticStructureSchema = [3, n0, _RDRe,
   0,
@@ -604,7 +604,7 @@ export var RegisterDomainResponse$: StaticStructureSchema = [3, n0, _RDRe,
 export var RejectDomainTransferFromAnotherAwsAccountRequest$: StaticStructureSchema = [3, n0, _RDTFAAAR,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var RejectDomainTransferFromAnotherAwsAccountResponse$: StaticStructureSchema = [3, n0, _RDTFAAARe,
   0,
@@ -613,8 +613,8 @@ export var RejectDomainTransferFromAnotherAwsAccountResponse$: StaticStructureSc
 ];
 export var RenewDomainRequest$: StaticStructureSchema = [3, n0, _RDRen,
   0,
-  [_DN, _DIY, _CEY],
-  [0, 1, 1]
+  [_DN, _CEY, _DIY],
+  [0, 1, 1], 2
 ];
 export var RenewDomainResponse$: StaticStructureSchema = [3, n0, _RDRene,
   0,
@@ -634,12 +634,12 @@ export var ResendContactReachabilityEmailResponse$: StaticStructureSchema = [3, 
 export var ResendOperationAuthorizationRequest$: StaticStructureSchema = [3, n0, _ROAR,
   0,
   [_OI],
-  [0]
+  [0], 1
 ];
 export var RetrieveDomainAuthCodeRequest$: StaticStructureSchema = [3, n0, _RDACR,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var RetrieveDomainAuthCodeResponse$: StaticStructureSchema = [3, n0, _RDACRe,
   0,
@@ -649,7 +649,7 @@ export var RetrieveDomainAuthCodeResponse$: StaticStructureSchema = [3, n0, _RDA
 export var SortCondition$: StaticStructureSchema = [3, n0, _SCo,
   0,
   [_N, _SO],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
@@ -664,8 +664,8 @@ export var TLDRulesViolation$: StaticErrorSchema = [-3, n0, _TLDRV,
 TypeRegistry.for(n0).registerError(TLDRulesViolation$, TLDRulesViolation);
 export var TransferDomainRequest$: StaticStructureSchema = [3, n0, _TDR,
   0,
-  [_DN, _ILC, _DIY, _Na, _AC, _AR, _ACd, _RC, _TC, _PPAC, _PPRC, _PPTC, _BC, _PPBC],
-  [0, 0, 1, () => NameserverList, [() => DomainAuthCode, 0], 2, [() => ContactDetail$, 0], [() => ContactDetail$, 0], [() => ContactDetail$, 0], 2, 2, 2, [() => ContactDetail$, 0], 2]
+  [_DN, _DIY, _ACd, _RC, _TC, _ILC, _Na, _AC, _AR, _PPAC, _PPRC, _PPTC, _BC, _PPBC],
+  [0, 1, [() => ContactDetail$, 0], [() => ContactDetail$, 0], [() => ContactDetail$, 0], 0, () => NameserverList, [() => DomainAuthCode, 0], 2, 2, 2, 2, [() => ContactDetail$, 0], 2], 5
 ];
 export var TransferDomainResponse$: StaticStructureSchema = [3, n0, _TDRr,
   0,
@@ -675,7 +675,7 @@ export var TransferDomainResponse$: StaticStructureSchema = [3, n0, _TDRr,
 export var TransferDomainToAnotherAwsAccountRequest$: StaticStructureSchema = [3, n0, _TDTAAAR,
   0,
   [_DN, _AI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TransferDomainToAnotherAwsAccountResponse$: StaticStructureSchema = [3, n0, _TDTAAARr,
   0,
@@ -691,7 +691,7 @@ TypeRegistry.for(n0).registerError(UnsupportedTLD$, UnsupportedTLD);
 export var UpdateDomainContactPrivacyRequest$: StaticStructureSchema = [3, n0, _UDCPR,
   0,
   [_DN, _AP, _RPeg, _TPe, _BP],
-  [0, 2, 2, 2, 2]
+  [0, 2, 2, 2, 2], 1
 ];
 export var UpdateDomainContactPrivacyResponse$: StaticStructureSchema = [3, n0, _UDCPRp,
   0,
@@ -701,7 +701,7 @@ export var UpdateDomainContactPrivacyResponse$: StaticStructureSchema = [3, n0, 
 export var UpdateDomainContactRequest$: StaticStructureSchema = [3, n0, _UDCR,
   0,
   [_DN, _ACd, _RC, _TC, _Co, _BC],
-  [0, [() => ContactDetail$, 0], [() => ContactDetail$, 0], [() => ContactDetail$, 0], () => Consent$, [() => ContactDetail$, 0]]
+  [0, [() => ContactDetail$, 0], [() => ContactDetail$, 0], [() => ContactDetail$, 0], () => Consent$, [() => ContactDetail$, 0]], 1
 ];
 export var UpdateDomainContactResponse$: StaticStructureSchema = [3, n0, _UDCRp,
   0,
@@ -710,8 +710,8 @@ export var UpdateDomainContactResponse$: StaticStructureSchema = [3, n0, _UDCRp,
 ];
 export var UpdateDomainNameserversRequest$: StaticStructureSchema = [3, n0, _UDNR,
   0,
-  [_DN, _FIAK, _Na],
-  [0, [() => FIAuthKey, 0], () => NameserverList]
+  [_DN, _Na, _FIAK],
+  [0, () => NameserverList, [() => FIAuthKey, 0]], 2
 ];
 export var UpdateDomainNameserversResponse$: StaticStructureSchema = [3, n0, _UDNRp,
   0,
@@ -721,7 +721,7 @@ export var UpdateDomainNameserversResponse$: StaticStructureSchema = [3, n0, _UD
 export var UpdateTagsForDomainRequest$: StaticStructureSchema = [3, n0, _UTFDR,
   0,
   [_DN, _TTU],
-  [0, () => TagList]
+  [0, () => TagList], 1
 ];
 export var UpdateTagsForDomainResponse$: StaticStructureSchema = [3, n0, _UTFDRp,
   0,

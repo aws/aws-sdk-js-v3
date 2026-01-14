@@ -594,8 +594,8 @@ import { ServiceCatalogServiceException } from "../models/ServiceCatalogServiceE
 /* eslint no-var: 0 */
 export var AcceptPortfolioShareInput$: StaticStructureSchema = [3, n0, _APSI,
   0,
-  [_AL, _PI, _PST],
-  [0, 0, 0]
+  [_PI, _AL, _PST],
+  [0, 0, 0], 1
 ];
 export var AcceptPortfolioShareOutput$: StaticStructureSchema = [3, n0, _APSO,
   0,
@@ -610,7 +610,7 @@ export var AccessLevelFilter$: StaticStructureSchema = [3, n0, _ALF,
 export var AssociateBudgetWithResourceInput$: StaticStructureSchema = [3, n0, _ABWRI,
   0,
   [_BN, _RI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateBudgetWithResourceOutput$: StaticStructureSchema = [3, n0, _ABWRO,
   0,
@@ -619,8 +619,8 @@ export var AssociateBudgetWithResourceOutput$: StaticStructureSchema = [3, n0, _
 ];
 export var AssociatePrincipalWithPortfolioInput$: StaticStructureSchema = [3, n0, _APWPI,
   0,
-  [_AL, _PI, _PARN, _PT],
-  [0, 0, 0, 0]
+  [_PI, _PARN, _PT, _AL],
+  [0, 0, 0, 0], 3
 ];
 export var AssociatePrincipalWithPortfolioOutput$: StaticStructureSchema = [3, n0, _APWPO,
   0,
@@ -629,8 +629,8 @@ export var AssociatePrincipalWithPortfolioOutput$: StaticStructureSchema = [3, n
 ];
 export var AssociateProductWithPortfolioInput$: StaticStructureSchema = [3, n0, _APWPIs,
   0,
-  [_AL, _PIr, _PI, _SPI],
-  [0, 0, 0, 0]
+  [_PIr, _PI, _AL, _SPI],
+  [0, 0, 0, 0], 2
 ];
 export var AssociateProductWithPortfolioOutput$: StaticStructureSchema = [3, n0, _APWPOs,
   0,
@@ -640,7 +640,7 @@ export var AssociateProductWithPortfolioOutput$: StaticStructureSchema = [3, n0,
 export var AssociateServiceActionWithProvisioningArtifactInput$: StaticStructureSchema = [3, n0, _ASAWPAI,
   0,
   [_PIr, _PAI, _SAI, _AL, _IT],
-  [0, 0, 0, 0, [0, 4]]
+  [0, 0, 0, 0, [0, 4]], 3
 ];
 export var AssociateServiceActionWithProvisioningArtifactOutput$: StaticStructureSchema = [3, n0, _ASAWPAO,
   0,
@@ -650,7 +650,7 @@ export var AssociateServiceActionWithProvisioningArtifactOutput$: StaticStructur
 export var AssociateTagOptionWithResourceInput$: StaticStructureSchema = [3, n0, _ATOWRI,
   0,
   [_RI, _TOI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateTagOptionWithResourceOutput$: StaticStructureSchema = [3, n0, _ATOWRO,
   0,
@@ -660,7 +660,7 @@ export var AssociateTagOptionWithResourceOutput$: StaticStructureSchema = [3, n0
 export var BatchAssociateServiceActionWithProvisioningArtifactInput$: StaticStructureSchema = [3, n0, _BASAWPAI,
   0,
   [_SAA, _AL],
-  [() => ServiceActionAssociations, 0]
+  [() => ServiceActionAssociations, 0], 1
 ];
 export var BatchAssociateServiceActionWithProvisioningArtifactOutput$: StaticStructureSchema = [3, n0, _BASAWPAO,
   0,
@@ -670,7 +670,7 @@ export var BatchAssociateServiceActionWithProvisioningArtifactOutput$: StaticStr
 export var BatchDisassociateServiceActionFromProvisioningArtifactInput$: StaticStructureSchema = [3, n0, _BDSAFPAI,
   0,
   [_SAA, _AL],
-  [() => ServiceActionAssociations, 0]
+  [() => ServiceActionAssociations, 0], 1
 ];
 export var BatchDisassociateServiceActionFromProvisioningArtifactOutput$: StaticStructureSchema = [3, n0, _BDSAFPAO,
   0,
@@ -690,7 +690,7 @@ export var CloudWatchDashboard$: StaticStructureSchema = [3, n0, _CWD,
 export var CodeStarParameters$: StaticStructureSchema = [3, n0, _CSP,
   0,
   [_CA, _R, _B, _AP],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var ConstraintDetail$: StaticStructureSchema = [3, n0, _CD,
   0,
@@ -704,8 +704,8 @@ export var ConstraintSummary$: StaticStructureSchema = [3, n0, _CS,
 ];
 export var CopyProductInput$: StaticStructureSchema = [3, n0, _CPI,
   0,
-  [_AL, _SPA, _TPI, _TPN, _SPAI, _CO, _IT],
-  [0, 0, 0, 0, [1, n0, _SPAP, 0, 128 | 0], 64 | 0, [0, 4]]
+  [_SPA, _AL, _TPI, _TPN, _SPAI, _CO, _IT],
+  [0, 0, 0, 0, [1, n0, _SPAP, 0, 128 | 0], 64 | 0, [0, 4]], 1
 ];
 export var CopyProductOutput$: StaticStructureSchema = [3, n0, _CPO,
   0,
@@ -714,8 +714,8 @@ export var CopyProductOutput$: StaticStructureSchema = [3, n0, _CPO,
 ];
 export var CreateConstraintInput$: StaticStructureSchema = [3, n0, _CCI,
   0,
-  [_AL, _PI, _PIr, _P, _T, _D, _IT],
-  [0, 0, 0, 0, 0, 0, [0, 4]]
+  [_PI, _PIr, _P, _T, _AL, _D, _IT],
+  [0, 0, 0, 0, 0, 0, [0, 4]], 4
 ];
 export var CreateConstraintOutput$: StaticStructureSchema = [3, n0, _CCO,
   0,
@@ -724,8 +724,8 @@ export var CreateConstraintOutput$: StaticStructureSchema = [3, n0, _CCO,
 ];
 export var CreatePortfolioInput$: StaticStructureSchema = [3, n0, _CPIr,
   0,
-  [_AL, _DN, _D, _PN, _Ta, _IT],
-  [0, 0, 0, 0, () => AddTags, [0, 4]]
+  [_DN, _PN, _AL, _D, _Ta, _IT],
+  [0, 0, 0, 0, () => AddTags, [0, 4]], 2
 ];
 export var CreatePortfolioOutput$: StaticStructureSchema = [3, n0, _CPOr,
   0,
@@ -734,8 +734,8 @@ export var CreatePortfolioOutput$: StaticStructureSchema = [3, n0, _CPOr,
 ];
 export var CreatePortfolioShareInput$: StaticStructureSchema = [3, n0, _CPSI,
   0,
-  [_AL, _PI, _AI, _ON, _STO, _SP],
-  [0, 0, 0, () => OrganizationNode$, 2, 2]
+  [_PI, _AL, _AI, _ON, _STO, _SP],
+  [0, 0, 0, () => OrganizationNode$, 2, 2], 1
 ];
 export var CreatePortfolioShareOutput$: StaticStructureSchema = [3, n0, _CPSO,
   0,
@@ -744,8 +744,8 @@ export var CreatePortfolioShareOutput$: StaticStructureSchema = [3, n0, _CPSO,
 ];
 export var CreateProductInput$: StaticStructureSchema = [3, n0, _CPIre,
   0,
-  [_AL, _N, _O, _D, _Di, _SD, _SE, _SU, _PTr, _Ta, _PAP, _IT, _SC],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => AddTags, () => ProvisioningArtifactProperties$, [0, 4], () => SourceConnection$]
+  [_N, _O, _PTr, _AL, _D, _Di, _SD, _SE, _SU, _Ta, _PAP, _IT, _SC],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => AddTags, () => ProvisioningArtifactProperties$, [0, 4], () => SourceConnection$], 3
 ];
 export var CreateProductOutput$: StaticStructureSchema = [3, n0, _CPOre,
   0,
@@ -754,8 +754,8 @@ export var CreateProductOutput$: StaticStructureSchema = [3, n0, _CPOre,
 ];
 export var CreateProvisionedProductPlanInput$: StaticStructureSchema = [3, n0, _CPPPI,
   0,
-  [_AL, _PNl, _PTl, _NA, _PIa, _PIr, _PPN, _PAI, _PP, _IT, _Ta],
-  [0, 0, 0, 64 | 0, 0, 0, 0, 0, () => UpdateProvisioningParameters, [0, 4], () => Tags]
+  [_PNl, _PTl, _PIr, _PPN, _PAI, _AL, _NA, _PIa, _PP, _IT, _Ta],
+  [0, 0, 0, 0, 0, 0, 64 | 0, 0, () => UpdateProvisioningParameters, [0, 4], () => Tags], 5
 ];
 export var CreateProvisionedProductPlanOutput$: StaticStructureSchema = [3, n0, _CPPPO,
   0,
@@ -764,8 +764,8 @@ export var CreateProvisionedProductPlanOutput$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateProvisioningArtifactInput$: StaticStructureSchema = [3, n0, _CPAI,
   0,
-  [_AL, _PIr, _P, _IT],
-  [0, 0, () => ProvisioningArtifactProperties$, [0, 4]]
+  [_PIr, _P, _AL, _IT],
+  [0, () => ProvisioningArtifactProperties$, 0, [0, 4]], 2
 ];
 export var CreateProvisioningArtifactOutput$: StaticStructureSchema = [3, n0, _CPAO,
   0,
@@ -775,7 +775,7 @@ export var CreateProvisioningArtifactOutput$: StaticStructureSchema = [3, n0, _C
 export var CreateServiceActionInput$: StaticStructureSchema = [3, n0, _CSAI,
   0,
   [_N, _DT, _De, _D, _AL, _IT],
-  [0, 0, 128 | 0, 0, 0, [0, 4]]
+  [0, 0, 128 | 0, 0, 0, [0, 4]], 3
 ];
 export var CreateServiceActionOutput$: StaticStructureSchema = [3, n0, _CSAO,
   0,
@@ -785,7 +785,7 @@ export var CreateServiceActionOutput$: StaticStructureSchema = [3, n0, _CSAO,
 export var CreateTagOptionInput$: StaticStructureSchema = [3, n0, _CTOI,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateTagOptionOutput$: StaticStructureSchema = [3, n0, _CTOO,
   0,
@@ -794,8 +794,8 @@ export var CreateTagOptionOutput$: StaticStructureSchema = [3, n0, _CTOO,
 ];
 export var DeleteConstraintInput$: StaticStructureSchema = [3, n0, _DCI,
   0,
-  [_AL, _Id],
-  [0, 0]
+  [_Id, _AL],
+  [0, 0], 1
 ];
 export var DeleteConstraintOutput$: StaticStructureSchema = [3, n0, _DCO,
   0,
@@ -804,8 +804,8 @@ export var DeleteConstraintOutput$: StaticStructureSchema = [3, n0, _DCO,
 ];
 export var DeletePortfolioInput$: StaticStructureSchema = [3, n0, _DPI,
   0,
-  [_AL, _Id],
-  [0, 0]
+  [_Id, _AL],
+  [0, 0], 1
 ];
 export var DeletePortfolioOutput$: StaticStructureSchema = [3, n0, _DPO,
   0,
@@ -814,8 +814,8 @@ export var DeletePortfolioOutput$: StaticStructureSchema = [3, n0, _DPO,
 ];
 export var DeletePortfolioShareInput$: StaticStructureSchema = [3, n0, _DPSI,
   0,
-  [_AL, _PI, _AI, _ON],
-  [0, 0, 0, () => OrganizationNode$]
+  [_PI, _AL, _AI, _ON],
+  [0, 0, 0, () => OrganizationNode$], 1
 ];
 export var DeletePortfolioShareOutput$: StaticStructureSchema = [3, n0, _DPSO,
   0,
@@ -824,8 +824,8 @@ export var DeletePortfolioShareOutput$: StaticStructureSchema = [3, n0, _DPSO,
 ];
 export var DeleteProductInput$: StaticStructureSchema = [3, n0, _DPIe,
   0,
-  [_AL, _Id],
-  [0, 0]
+  [_Id, _AL],
+  [0, 0], 1
 ];
 export var DeleteProductOutput$: StaticStructureSchema = [3, n0, _DPOe,
   0,
@@ -834,8 +834,8 @@ export var DeleteProductOutput$: StaticStructureSchema = [3, n0, _DPOe,
 ];
 export var DeleteProvisionedProductPlanInput$: StaticStructureSchema = [3, n0, _DPPPI,
   0,
-  [_AL, _PIl, _IE],
-  [0, 0, 2]
+  [_PIl, _AL, _IE],
+  [0, 0, 2], 1
 ];
 export var DeleteProvisionedProductPlanOutput$: StaticStructureSchema = [3, n0, _DPPPO,
   0,
@@ -844,8 +844,8 @@ export var DeleteProvisionedProductPlanOutput$: StaticStructureSchema = [3, n0, 
 ];
 export var DeleteProvisioningArtifactInput$: StaticStructureSchema = [3, n0, _DPAI,
   0,
-  [_AL, _PIr, _PAI],
-  [0, 0, 0]
+  [_PIr, _PAI, _AL],
+  [0, 0, 0], 2
 ];
 export var DeleteProvisioningArtifactOutput$: StaticStructureSchema = [3, n0, _DPAO,
   0,
@@ -855,7 +855,7 @@ export var DeleteProvisioningArtifactOutput$: StaticStructureSchema = [3, n0, _D
 export var DeleteServiceActionInput$: StaticStructureSchema = [3, n0, _DSAI,
   0,
   [_Id, _AL, _IT],
-  [0, 0, [0, 4]]
+  [0, 0, [0, 4]], 1
 ];
 export var DeleteServiceActionOutput$: StaticStructureSchema = [3, n0, _DSAO,
   0,
@@ -865,7 +865,7 @@ export var DeleteServiceActionOutput$: StaticStructureSchema = [3, n0, _DSAO,
 export var DeleteTagOptionInput$: StaticStructureSchema = [3, n0, _DTOI,
   0,
   [_Id],
-  [[0, { [_hQ]: _i }]]
+  [[0, { [_hQ]: _i }]], 1
 ];
 export var DeleteTagOptionOutput$: StaticStructureSchema = [3, n0, _DTOO,
   0,
@@ -874,8 +874,8 @@ export var DeleteTagOptionOutput$: StaticStructureSchema = [3, n0, _DTOO,
 ];
 export var DescribeConstraintInput$: StaticStructureSchema = [3, n0, _DCIe,
   0,
-  [_AL, _Id],
-  [0, 0]
+  [_Id, _AL],
+  [0, 0], 1
 ];
 export var DescribeConstraintOutput$: StaticStructureSchema = [3, n0, _DCOe,
   0,
@@ -884,8 +884,8 @@ export var DescribeConstraintOutput$: StaticStructureSchema = [3, n0, _DCOe,
 ];
 export var DescribeCopyProductStatusInput$: StaticStructureSchema = [3, n0, _DCPSI,
   0,
-  [_AL, _CPT],
-  [0, 0]
+  [_CPT, _AL],
+  [0, 0], 1
 ];
 export var DescribeCopyProductStatusOutput$: StaticStructureSchema = [3, n0, _DCPSO,
   0,
@@ -894,8 +894,8 @@ export var DescribeCopyProductStatusOutput$: StaticStructureSchema = [3, n0, _DC
 ];
 export var DescribePortfolioInput$: StaticStructureSchema = [3, n0, _DPIes,
   0,
-  [_AL, _Id],
-  [0, 0]
+  [_Id, _AL],
+  [0, 0], 1
 ];
 export var DescribePortfolioOutput$: StaticStructureSchema = [3, n0, _DPOes,
   0,
@@ -905,7 +905,7 @@ export var DescribePortfolioOutput$: StaticStructureSchema = [3, n0, _DPOes,
 export var DescribePortfolioSharesInput$: StaticStructureSchema = [3, n0, _DPSIe,
   0,
   [_PI, _T, _PTa, _PS],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var DescribePortfolioSharesOutput$: StaticStructureSchema = [3, n0, _DPSOe,
   0,
@@ -915,7 +915,7 @@ export var DescribePortfolioSharesOutput$: StaticStructureSchema = [3, n0, _DPSO
 export var DescribePortfolioShareStatusInput$: StaticStructureSchema = [3, n0, _DPSSI,
   0,
   [_PSTo],
-  [0]
+  [0], 1
 ];
 export var DescribePortfolioShareStatusOutput$: StaticStructureSchema = [3, n0, _DPSSO,
   0,
@@ -944,8 +944,8 @@ export var DescribeProductOutput$: StaticStructureSchema = [3, n0, _DPOesc,
 ];
 export var DescribeProductViewInput$: StaticStructureSchema = [3, n0, _DPVI,
   0,
-  [_AL, _Id],
-  [0, 0]
+  [_Id, _AL],
+  [0, 0], 1
 ];
 export var DescribeProductViewOutput$: StaticStructureSchema = [3, n0, _DPVO,
   0,
@@ -964,8 +964,8 @@ export var DescribeProvisionedProductOutput$: StaticStructureSchema = [3, n0, _D
 ];
 export var DescribeProvisionedProductPlanInput$: StaticStructureSchema = [3, n0, _DPPPIe,
   0,
-  [_AL, _PIl, _PS, _PTa],
-  [0, 0, 1, 0]
+  [_PIl, _AL, _PS, _PTa],
+  [0, 0, 1, 0], 1
 ];
 export var DescribeProvisionedProductPlanOutput$: StaticStructureSchema = [3, n0, _DPPPOe,
   0,
@@ -994,8 +994,8 @@ export var DescribeProvisioningParametersOutput$: StaticStructureSchema = [3, n0
 ];
 export var DescribeRecordInput$: StaticStructureSchema = [3, n0, _DRI,
   0,
-  [_AL, _Id, _PTa, _PS],
-  [0, 0, 0, 1]
+  [_Id, _AL, _PTa, _PS],
+  [0, 0, 0, 1], 1
 ];
 export var DescribeRecordOutput$: StaticStructureSchema = [3, n0, _DRO,
   0,
@@ -1005,7 +1005,7 @@ export var DescribeRecordOutput$: StaticStructureSchema = [3, n0, _DRO,
 export var DescribeServiceActionExecutionParametersInput$: StaticStructureSchema = [3, n0, _DSAEPI,
   0,
   [_PPIr, _SAI, _AL],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var DescribeServiceActionExecutionParametersOutput$: StaticStructureSchema = [3, n0, _DSAEPO,
   0,
@@ -1015,7 +1015,7 @@ export var DescribeServiceActionExecutionParametersOutput$: StaticStructureSchem
 export var DescribeServiceActionInput$: StaticStructureSchema = [3, n0, _DSAIe,
   0,
   [_Id, _AL],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DescribeServiceActionOutput$: StaticStructureSchema = [3, n0, _DSAOe,
   0,
@@ -1025,7 +1025,7 @@ export var DescribeServiceActionOutput$: StaticStructureSchema = [3, n0, _DSAOe,
 export var DescribeTagOptionInput$: StaticStructureSchema = [3, n0, _DTOIe,
   0,
   [_Id],
-  [[0, { [_hQ]: _i }]]
+  [[0, { [_hQ]: _i }]], 1
 ];
 export var DescribeTagOptionOutput$: StaticStructureSchema = [3, n0, _DTOOe,
   0,
@@ -1045,7 +1045,7 @@ export var DisableAWSOrganizationsAccessOutput$: StaticStructureSchema = [3, n0,
 export var DisassociateBudgetFromResourceInput$: StaticStructureSchema = [3, n0, _DBFRI,
   0,
   [_BN, _RI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DisassociateBudgetFromResourceOutput$: StaticStructureSchema = [3, n0, _DBFRO,
   0,
@@ -1054,8 +1054,8 @@ export var DisassociateBudgetFromResourceOutput$: StaticStructureSchema = [3, n0
 ];
 export var DisassociatePrincipalFromPortfolioInput$: StaticStructureSchema = [3, n0, _DPFPI,
   0,
-  [_AL, _PI, _PARN, _PT],
-  [0, 0, 0, 0]
+  [_PI, _PARN, _AL, _PT],
+  [0, 0, 0, 0], 2
 ];
 export var DisassociatePrincipalFromPortfolioOutput$: StaticStructureSchema = [3, n0, _DPFPO,
   0,
@@ -1064,8 +1064,8 @@ export var DisassociatePrincipalFromPortfolioOutput$: StaticStructureSchema = [3
 ];
 export var DisassociateProductFromPortfolioInput$: StaticStructureSchema = [3, n0, _DPFPIi,
   0,
-  [_AL, _PIr, _PI],
-  [0, 0, 0]
+  [_PIr, _PI, _AL],
+  [0, 0, 0], 2
 ];
 export var DisassociateProductFromPortfolioOutput$: StaticStructureSchema = [3, n0, _DPFPOi,
   0,
@@ -1075,7 +1075,7 @@ export var DisassociateProductFromPortfolioOutput$: StaticStructureSchema = [3, 
 export var DisassociateServiceActionFromProvisioningArtifactInput$: StaticStructureSchema = [3, n0, _DSAFPAI,
   0,
   [_PIr, _PAI, _SAI, _AL, _IT],
-  [0, 0, 0, 0, [0, 4]]
+  [0, 0, 0, 0, [0, 4]], 3
 ];
 export var DisassociateServiceActionFromProvisioningArtifactOutput$: StaticStructureSchema = [3, n0, _DSAFPAO,
   0,
@@ -1085,7 +1085,7 @@ export var DisassociateServiceActionFromProvisioningArtifactOutput$: StaticStruc
 export var DisassociateTagOptionFromResourceInput$: StaticStructureSchema = [3, n0, _DTOFRI,
   0,
   [_RI, _TOI],
-  [[0, { [_hQ]: _rI }], [0, { [_hQ]: _tOI }]]
+  [[0, { [_hQ]: _rI }], [0, { [_hQ]: _tOI }]], 2
 ];
 export var DisassociateTagOptionFromResourceOutput$: StaticStructureSchema = [3, n0, _DTOFRO,
   0,
@@ -1115,8 +1115,8 @@ export var EngineWorkflowResourceIdentifier$: StaticStructureSchema = [3, n0, _E
 ];
 export var ExecuteProvisionedProductPlanInput$: StaticStructureSchema = [3, n0, _EPPPI,
   0,
-  [_AL, _PIl, _IT],
-  [0, 0, [0, 4]]
+  [_PIl, _AL, _IT],
+  [0, 0, [0, 4]], 1
 ];
 export var ExecuteProvisionedProductPlanOutput$: StaticStructureSchema = [3, n0, _EPPPO,
   0,
@@ -1126,7 +1126,7 @@ export var ExecuteProvisionedProductPlanOutput$: StaticStructureSchema = [3, n0,
 export var ExecuteProvisionedProductServiceActionInput$: StaticStructureSchema = [3, n0, _EPPSAI,
   0,
   [_PPIr, _SAI, _ET, _AL, _P],
-  [0, 0, [0, 4], 0, [2, n0, _EPM, 0, 0, 64 | 0]]
+  [0, 0, [0, 4], 0, [2, n0, _EPM, 0, 0, 64 | 0]], 2
 ];
 export var ExecuteProvisionedProductServiceActionOutput$: StaticStructureSchema = [3, n0, _EPPSAO,
   0,
@@ -1165,8 +1165,8 @@ export var GetProvisionedProductOutputsOutput$: StaticStructureSchema = [3, n0, 
 ];
 export var ImportAsProvisionedProductInput$: StaticStructureSchema = [3, n0, _IAPPI,
   0,
-  [_AL, _PIr, _PAI, _PPN, _PIh, _IT],
-  [0, 0, 0, 0, 0, [0, 4]]
+  [_PIr, _PAI, _PPN, _PIh, _AL, _IT],
+  [0, 0, 0, 0, 0, [0, 4]], 4
 ];
 export var ImportAsProvisionedProductOutput$: StaticStructureSchema = [3, n0, _IAPPO,
   0,
@@ -1218,8 +1218,8 @@ export var ListAcceptedPortfolioSharesOutput$: StaticStructureSchema = [3, n0, _
 ];
 export var ListBudgetsForResourceInput$: StaticStructureSchema = [3, n0, _LBFRI,
   0,
-  [_AL, _RI, _PS, _PTa],
-  [0, 0, 1, 0]
+  [_RI, _AL, _PS, _PTa],
+  [0, 0, 1, 0], 1
 ];
 export var ListBudgetsForResourceOutput$: StaticStructureSchema = [3, n0, _LBFRO,
   0,
@@ -1228,8 +1228,8 @@ export var ListBudgetsForResourceOutput$: StaticStructureSchema = [3, n0, _LBFRO
 ];
 export var ListConstraintsForPortfolioInput$: StaticStructureSchema = [3, n0, _LCFPI,
   0,
-  [_AL, _PI, _PIr, _PS, _PTa],
-  [0, 0, 0, 1, 0]
+  [_PI, _AL, _PIr, _PS, _PTa],
+  [0, 0, 0, 1, 0], 1
 ];
 export var ListConstraintsForPortfolioOutput$: StaticStructureSchema = [3, n0, _LCFPO,
   0,
@@ -1238,8 +1238,8 @@ export var ListConstraintsForPortfolioOutput$: StaticStructureSchema = [3, n0, _
 ];
 export var ListLaunchPathsInput$: StaticStructureSchema = [3, n0, _LLPI,
   0,
-  [_AL, _PIr, _PS, _PTa],
-  [0, 0, 1, 0]
+  [_PIr, _AL, _PS, _PTa],
+  [0, 0, 1, 0], 1
 ];
 export var ListLaunchPathsOutput$: StaticStructureSchema = [3, n0, _LLPO,
   0,
@@ -1248,8 +1248,8 @@ export var ListLaunchPathsOutput$: StaticStructureSchema = [3, n0, _LLPO,
 ];
 export var ListOrganizationPortfolioAccessInput$: StaticStructureSchema = [3, n0, _LOPAI,
   0,
-  [_AL, _PI, _ONT, _PTa, _PS],
-  [0, 0, 0, 0, 1]
+  [_PI, _ONT, _AL, _PTa, _PS],
+  [0, 0, 0, 0, 1], 2
 ];
 export var ListOrganizationPortfolioAccessOutput$: StaticStructureSchema = [3, n0, _LOPAO,
   0,
@@ -1258,8 +1258,8 @@ export var ListOrganizationPortfolioAccessOutput$: StaticStructureSchema = [3, n
 ];
 export var ListPortfolioAccessInput$: StaticStructureSchema = [3, n0, _LPAI,
   0,
-  [_AL, _PI, _OPI, _PTa, _PS],
-  [0, 0, 0, 0, 1]
+  [_PI, _AL, _OPI, _PTa, _PS],
+  [0, 0, 0, 0, 1], 1
 ];
 export var ListPortfolioAccessOutput$: StaticStructureSchema = [3, n0, _LPAO,
   0,
@@ -1268,8 +1268,8 @@ export var ListPortfolioAccessOutput$: StaticStructureSchema = [3, n0, _LPAO,
 ];
 export var ListPortfoliosForProductInput$: StaticStructureSchema = [3, n0, _LPFPI,
   0,
-  [_AL, _PIr, _PTa, _PS],
-  [0, 0, 0, 1]
+  [_PIr, _AL, _PTa, _PS],
+  [0, 0, 0, 1], 1
 ];
 export var ListPortfoliosForProductOutput$: StaticStructureSchema = [3, n0, _LPFPO,
   0,
@@ -1288,8 +1288,8 @@ export var ListPortfoliosOutput$: StaticStructureSchema = [3, n0, _LPO,
 ];
 export var ListPrincipalsForPortfolioInput$: StaticStructureSchema = [3, n0, _LPFPIi,
   0,
-  [_AL, _PI, _PS, _PTa],
-  [0, 0, 1, 0]
+  [_PI, _AL, _PS, _PTa],
+  [0, 0, 1, 0], 1
 ];
 export var ListPrincipalsForPortfolioOutput$: StaticStructureSchema = [3, n0, _LPFPOi,
   0,
@@ -1309,7 +1309,7 @@ export var ListProvisionedProductPlansOutput$: StaticStructureSchema = [3, n0, _
 export var ListProvisioningArtifactsForServiceActionInput$: StaticStructureSchema = [3, n0, _LPAFSAI,
   0,
   [_SAI, _PS, _PTa, _AL],
-  [0, 1, 0, 0]
+  [0, 1, 0, 0], 1
 ];
 export var ListProvisioningArtifactsForServiceActionOutput$: StaticStructureSchema = [3, n0, _LPAFSAO,
   0,
@@ -1318,8 +1318,8 @@ export var ListProvisioningArtifactsForServiceActionOutput$: StaticStructureSche
 ];
 export var ListProvisioningArtifactsInput$: StaticStructureSchema = [3, n0, _LPAIi,
   0,
-  [_AL, _PIr],
-  [0, 0]
+  [_PIr, _AL],
+  [0, 0], 1
 ];
 export var ListProvisioningArtifactsOutput$: StaticStructureSchema = [3, n0, _LPAOi,
   0,
@@ -1344,7 +1344,7 @@ export var ListRecordHistorySearchFilter$: StaticStructureSchema = [3, n0, _LRHS
 export var ListResourcesForTagOptionInput$: StaticStructureSchema = [3, n0, _LRFTOI,
   0,
   [_TOI, _RT, _PS, _PTa],
-  [[0, { [_hQ]: _tOI }], [0, { [_hQ]: _rT }], [1, { [_hQ]: _pS }], [0, { [_hQ]: _pT }]]
+  [[0, { [_hQ]: _tOI }], [0, { [_hQ]: _rT }], [1, { [_hQ]: _pS }], [0, { [_hQ]: _pT }]], 1
 ];
 export var ListResourcesForTagOptionOutput$: StaticStructureSchema = [3, n0, _LRFTOO,
   0,
@@ -1354,7 +1354,7 @@ export var ListResourcesForTagOptionOutput$: StaticStructureSchema = [3, n0, _LR
 export var ListServiceActionsForProvisioningArtifactInput$: StaticStructureSchema = [3, n0, _LSAFPAI,
   0,
   [_PIr, _PAI, _PS, _PTa, _AL],
-  [0, 0, 1, 0, 0]
+  [0, 0, 1, 0, 0], 2
 ];
 export var ListServiceActionsForProvisioningArtifactOutput$: StaticStructureSchema = [3, n0, _LSAFPAO,
   0,
@@ -1373,8 +1373,8 @@ export var ListServiceActionsOutput$: StaticStructureSchema = [3, n0, _LSAO,
 ];
 export var ListStackInstancesForProvisionedProductInput$: StaticStructureSchema = [3, n0, _LSIFPPI,
   0,
-  [_AL, _PPIr, _PTa, _PS],
-  [0, 0, 0, 1]
+  [_PPIr, _AL, _PTa, _PS],
+  [0, 0, 0, 1], 1
 ];
 export var ListStackInstancesForProvisionedProductOutput$: StaticStructureSchema = [3, n0, _LSIFPPO,
   0,
@@ -1399,7 +1399,7 @@ export var ListTagOptionsOutput$: StaticStructureSchema = [3, n0, _LTOO,
 export var NotifyProvisionProductEngineWorkflowResultInput$: StaticStructureSchema = [3, n0, _NPPEWRI,
   0,
   [_WT, _RIe, _S, _FR, _RIes, _Ou, _IT],
-  [0, 0, 0, 0, () => EngineWorkflowResourceIdentifier$, () => RecordOutputs, [0, 4]]
+  [0, 0, 0, 0, () => EngineWorkflowResourceIdentifier$, () => RecordOutputs, [0, 4]], 3
 ];
 export var NotifyProvisionProductEngineWorkflowResultOutput$: StaticStructureSchema = [3, n0, _NPPEWRO,
   0,
@@ -1409,7 +1409,7 @@ export var NotifyProvisionProductEngineWorkflowResultOutput$: StaticStructureSch
 export var NotifyTerminateProvisionedProductEngineWorkflowResultInput$: StaticStructureSchema = [3, n0, _NTPPEWRI,
   0,
   [_WT, _RIe, _S, _FR, _IT],
-  [0, 0, 0, 0, [0, 4]]
+  [0, 0, 0, 0, [0, 4]], 3
 ];
 export var NotifyTerminateProvisionedProductEngineWorkflowResultOutput$: StaticStructureSchema = [3, n0, _NTPPEWRO,
   0,
@@ -1419,7 +1419,7 @@ export var NotifyTerminateProvisionedProductEngineWorkflowResultOutput$: StaticS
 export var NotifyUpdateProvisionedProductEngineWorkflowResultInput$: StaticStructureSchema = [3, n0, _NUPPEWRI,
   0,
   [_WT, _RIe, _S, _FR, _Ou, _IT],
-  [0, 0, 0, 0, () => RecordOutputs, [0, 4]]
+  [0, 0, 0, 0, () => RecordOutputs, [0, 4]], 3
 ];
 export var NotifyUpdateProvisionedProductEngineWorkflowResultOutput$: StaticStructureSchema = [3, n0, _NUPPEWRO,
   0,
@@ -1544,8 +1544,8 @@ export var ProvisioningPreferences$: StaticStructureSchema = [3, n0, _PPro,
 ];
 export var ProvisionProductInput$: StaticStructureSchema = [3, n0, _PPIro,
   0,
-  [_AL, _PIr, _PNr, _PAI, _PAN, _PIa, _PNa, _PPN, _PP, _PPro, _Ta, _NA, _PTro],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => ProvisioningParameters, () => ProvisioningPreferences$, () => Tags, 64 | 0, [0, 4]]
+  [_PPN, _AL, _PIr, _PNr, _PAI, _PAN, _PIa, _PNa, _PP, _PPro, _Ta, _NA, _PTro],
+  [0, 0, 0, 0, 0, 0, 0, 0, () => ProvisioningParameters, () => ProvisioningPreferences$, () => Tags, 64 | 0, [0, 4]], 1
 ];
 export var ProvisionProductOutput$: StaticStructureSchema = [3, n0, _PPO,
   0,
@@ -1574,8 +1574,8 @@ export var RecordTag$: StaticStructureSchema = [3, n0, _RTeco,
 ];
 export var RejectPortfolioShareInput$: StaticStructureSchema = [3, n0, _RPSI,
   0,
-  [_AL, _PI, _PST],
-  [0, 0, 0]
+  [_PI, _AL, _PST],
+  [0, 0, 0], 1
 ];
 export var RejectPortfolioShareOutput$: StaticStructureSchema = [3, n0, _RPSO,
   0,
@@ -1657,7 +1657,7 @@ export var SearchProvisionedProductsOutput$: StaticStructureSchema = [3, n0, _SP
 export var ServiceActionAssociation$: StaticStructureSchema = [3, n0, _SAAe,
   0,
   [_SAI, _PIr, _PAI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ServiceActionDetail$: StaticStructureSchema = [3, n0, _SAD,
   0,
@@ -1681,8 +1681,8 @@ export var ShareError$: StaticStructureSchema = [3, n0, _SEha,
 ];
 export var SourceConnection$: StaticStructureSchema = [3, n0, _SC,
   0,
-  [_T, _CPo],
-  [0, () => SourceConnectionParameters$]
+  [_CPo, _T],
+  [() => SourceConnectionParameters$, 0], 1
 ];
 export var SourceConnectionDetail$: StaticStructureSchema = [3, n0, _SCD,
   0,
@@ -1702,7 +1702,7 @@ export var StackInstance$: StaticStructureSchema = [3, n0, _SIt,
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagOptionDetail$: StaticStructureSchema = [3, n0, _TOD,
   0,
@@ -1737,8 +1737,8 @@ export var UniqueTagResourceIdentifier$: StaticStructureSchema = [3, n0, _UTRI,
 ];
 export var UpdateConstraintInput$: StaticStructureSchema = [3, n0, _UCI,
   0,
-  [_AL, _Id, _D, _P],
-  [0, 0, 0, 0]
+  [_Id, _AL, _D, _P],
+  [0, 0, 0, 0], 1
 ];
 export var UpdateConstraintOutput$: StaticStructureSchema = [3, n0, _UCO,
   0,
@@ -1747,8 +1747,8 @@ export var UpdateConstraintOutput$: StaticStructureSchema = [3, n0, _UCO,
 ];
 export var UpdatePortfolioInput$: StaticStructureSchema = [3, n0, _UPI,
   0,
-  [_AL, _Id, _DN, _D, _PN, _AT, _RTem],
-  [0, 0, 0, 0, 0, () => AddTags, 64 | 0]
+  [_Id, _AL, _DN, _D, _PN, _AT, _RTem],
+  [0, 0, 0, 0, 0, () => AddTags, 64 | 0], 1
 ];
 export var UpdatePortfolioOutput$: StaticStructureSchema = [3, n0, _UPO,
   0,
@@ -1757,8 +1757,8 @@ export var UpdatePortfolioOutput$: StaticStructureSchema = [3, n0, _UPO,
 ];
 export var UpdatePortfolioShareInput$: StaticStructureSchema = [3, n0, _UPSI,
   0,
-  [_AL, _PI, _AI, _ON, _STO, _SP],
-  [0, 0, 0, () => OrganizationNode$, 2, 2]
+  [_PI, _AL, _AI, _ON, _STO, _SP],
+  [0, 0, 0, () => OrganizationNode$, 2, 2], 1
 ];
 export var UpdatePortfolioShareOutput$: StaticStructureSchema = [3, n0, _UPSO,
   0,
@@ -1767,8 +1767,8 @@ export var UpdatePortfolioShareOutput$: StaticStructureSchema = [3, n0, _UPSO,
 ];
 export var UpdateProductInput$: StaticStructureSchema = [3, n0, _UPIp,
   0,
-  [_AL, _Id, _N, _O, _D, _Di, _SD, _SE, _SU, _AT, _RTem, _SC],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => AddTags, 64 | 0, () => SourceConnection$]
+  [_Id, _AL, _N, _O, _D, _Di, _SD, _SE, _SU, _AT, _RTem, _SC],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => AddTags, 64 | 0, () => SourceConnection$], 1
 ];
 export var UpdateProductOutput$: StaticStructureSchema = [3, n0, _UPOp,
   0,
@@ -1787,8 +1787,8 @@ export var UpdateProvisionedProductOutput$: StaticStructureSchema = [3, n0, _UPP
 ];
 export var UpdateProvisionedProductPropertiesInput$: StaticStructureSchema = [3, n0, _UPPPI,
   0,
-  [_AL, _PPIr, _PPPr, _IT],
-  [0, 0, 128 | 0, [0, 4]]
+  [_PPIr, _PPPr, _AL, _IT],
+  [0, 128 | 0, 0, [0, 4]], 2
 ];
 export var UpdateProvisionedProductPropertiesOutput$: StaticStructureSchema = [3, n0, _UPPPO,
   0,
@@ -1797,8 +1797,8 @@ export var UpdateProvisionedProductPropertiesOutput$: StaticStructureSchema = [3
 ];
 export var UpdateProvisioningArtifactInput$: StaticStructureSchema = [3, n0, _UPAI,
   0,
-  [_AL, _PIr, _PAI, _N, _D, _A, _G],
-  [0, 0, 0, 0, 0, 2, 0]
+  [_PIr, _PAI, _AL, _N, _D, _A, _G],
+  [0, 0, 0, 0, 0, 2, 0], 2
 ];
 export var UpdateProvisioningArtifactOutput$: StaticStructureSchema = [3, n0, _UPAO,
   0,
@@ -1818,7 +1818,7 @@ export var UpdateProvisioningPreferences$: StaticStructureSchema = [3, n0, _UPPp
 export var UpdateServiceActionInput$: StaticStructureSchema = [3, n0, _USAI,
   0,
   [_Id, _N, _De, _D, _AL],
-  [0, 0, 128 | 0, 0, 0]
+  [0, 0, 128 | 0, 0, 0], 1
 ];
 export var UpdateServiceActionOutput$: StaticStructureSchema = [3, n0, _USAO,
   0,
@@ -1828,7 +1828,7 @@ export var UpdateServiceActionOutput$: StaticStructureSchema = [3, n0, _USAO,
 export var UpdateTagOptionInput$: StaticStructureSchema = [3, n0, _UTOI,
   0,
   [_Id, _V, _A],
-  [0, 0, 2]
+  [0, 0, 2], 1
 ];
 export var UpdateTagOptionOutput$: StaticStructureSchema = [3, n0, _UTOO,
   0,

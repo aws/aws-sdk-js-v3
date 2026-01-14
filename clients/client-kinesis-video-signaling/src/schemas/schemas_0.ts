@@ -55,7 +55,7 @@ TypeRegistry.for(n0).registerError(ClientLimitExceededException$, ClientLimitExc
 export var GetIceServerConfigRequest$: StaticStructureSchema = [3, n0, _GISCR,
   0,
   [_CARN, _CI, _S, _U],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var GetIceServerConfigResponse$: StaticStructureSchema = [3, n0, _GISCRe,
   0,
@@ -94,7 +94,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var SendAlexaOfferToMasterRequest$: StaticStructureSchema = [3, n0, _SAOTMR,
   0,
   [_CARN, _SCI, _MP],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var SendAlexaOfferToMasterResponse$: StaticStructureSchema = [3, n0, _SAOTMRe,
   0,

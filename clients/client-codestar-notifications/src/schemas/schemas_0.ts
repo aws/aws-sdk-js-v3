@@ -144,7 +144,7 @@ TypeRegistry.for(n0).registerError(ConfigurationException$, ConfigurationExcepti
 export var CreateNotificationRuleRequest$: StaticStructureSchema = [3, n0, _CNRR,
   0,
   [_N, _ETI, _R, _T, _DT, _CRT, _Ta, _S],
-  [[() => NotificationRuleName, 0], 64 | 0, 0, [() => Targets, 0], 0, [0, 4], 128 | 0, 0]
+  [[() => NotificationRuleName, 0], 64 | 0, 0, [() => Targets, 0], 0, [0, 4], 128 | 0, 0], 5
 ];
 export var CreateNotificationRuleResult$: StaticStructureSchema = [3, n0, _CNRRr,
   0,
@@ -154,7 +154,7 @@ export var CreateNotificationRuleResult$: StaticStructureSchema = [3, n0, _CNRRr
 export var DeleteNotificationRuleRequest$: StaticStructureSchema = [3, n0, _DNRR,
   0,
   [_A],
-  [0]
+  [0], 1
 ];
 export var DeleteNotificationRuleResult$: StaticStructureSchema = [3, n0, _DNRRe,
   0,
@@ -164,7 +164,7 @@ export var DeleteNotificationRuleResult$: StaticStructureSchema = [3, n0, _DNRRe
 export var DeleteTargetRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_TA, _FUA],
-  [[() => TargetAddress, 0], 2]
+  [[() => TargetAddress, 0], 2], 1
 ];
 export var DeleteTargetResult$: StaticStructureSchema = [3, n0, _DTRe,
   0,
@@ -174,12 +174,12 @@ export var DeleteTargetResult$: StaticStructureSchema = [3, n0, _DTRe,
 export var DescribeNotificationRuleRequest$: StaticStructureSchema = [3, n0, _DNRRes,
   0,
   [_A],
-  [0]
+  [0], 1
 ];
 export var DescribeNotificationRuleResult$: StaticStructureSchema = [3, n0, _DNRResc,
   0,
   [_A, _N, _ET, _R, _T, _DT, _CB, _S, _CT, _LMT, _Ta],
-  [0, [() => NotificationRuleName, 0], () => EventTypeBatch, 0, [() => TargetsBatch, 0], 0, 0, 0, 4, 4, 128 | 0]
+  [0, [() => NotificationRuleName, 0], () => EventTypeBatch, 0, [() => TargetsBatch, 0], 0, 0, 0, 4, 4, 128 | 0], 1
 ];
 export var EventTypeSummary$: StaticStructureSchema = [3, n0, _ETS,
   0,
@@ -201,7 +201,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var ListEventTypesFilter$: StaticStructureSchema = [3, n0, _LETF,
   0,
   [_N, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ListEventTypesRequest$: StaticStructureSchema = [3, n0, _LETR,
   0,
@@ -216,7 +216,7 @@ export var ListEventTypesResult$: StaticStructureSchema = [3, n0, _LETRi,
 export var ListNotificationRulesFilter$: StaticStructureSchema = [3, n0, _LNRF,
   0,
   [_N, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ListNotificationRulesRequest$: StaticStructureSchema = [3, n0, _LNRR,
   0,
@@ -231,7 +231,7 @@ export var ListNotificationRulesResult$: StaticStructureSchema = [3, n0, _LNRRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_A],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResult$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -241,7 +241,7 @@ export var ListTagsForResourceResult$: StaticStructureSchema = [3, n0, _LTFRRi,
 export var ListTargetsFilter$: StaticStructureSchema = [3, n0, _LTF,
   0,
   [_N, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ListTargetsRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
@@ -273,7 +273,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var SubscribeRequest$: StaticStructureSchema = [3, n0, _SR,
   0,
   [_A, _Tar, _CRT],
-  [0, [() => Target$, 0], 0]
+  [0, [() => Target$, 0], 0], 2
 ];
 export var SubscribeResult$: StaticStructureSchema = [3, n0, _SRu,
   0,
@@ -283,7 +283,7 @@ export var SubscribeResult$: StaticStructureSchema = [3, n0, _SRu,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_A, _Ta],
-  [0, 128 | 0]
+  [0, 128 | 0], 2
 ];
 export var TagResourceResult$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -303,17 +303,17 @@ export var TargetSummary$: StaticStructureSchema = [3, n0, _TS,
 export var UnsubscribeRequest$: StaticStructureSchema = [3, n0, _UR,
   0,
   [_A, _TA],
-  [0, [() => TargetAddress, 0]]
+  [0, [() => TargetAddress, 0]], 2
 ];
 export var UnsubscribeResult$: StaticStructureSchema = [3, n0, _URn,
   0,
   [_A],
-  [0]
+  [0], 1
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_A, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResult$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -323,7 +323,7 @@ export var UntagResourceResult$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateNotificationRuleRequest$: StaticStructureSchema = [3, n0, _UNRR,
   0,
   [_A, _N, _S, _ETI, _T, _DT],
-  [0, [() => NotificationRuleName, 0], 0, 64 | 0, [() => Targets, 0], 0]
+  [0, [() => NotificationRuleName, 0], 0, 64 | 0, [() => Targets, 0], 0], 1
 ];
 export var UpdateNotificationRuleResult$: StaticStructureSchema = [3, n0, _UNRRp,
   0,

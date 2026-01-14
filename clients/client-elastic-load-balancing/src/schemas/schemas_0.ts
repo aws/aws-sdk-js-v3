@@ -246,7 +246,7 @@ import {
 export var AccessLog$: StaticStructureSchema = [3, n0, _AL,
   0,
   [_E, _SBN, _EI, _SBP],
-  [2, 0, 1, 0]
+  [2, 0, 1, 0], 1
 ];
 export var AccessPointNotFoundException$: StaticErrorSchema = [-3, n0, _APNFE,
   { [_aQE]: [`LoadBalancerNotFound`, 400], [_e]: _c, [_hE]: 400 },
@@ -257,7 +257,7 @@ TypeRegistry.for(n0).registerError(AccessPointNotFoundException$, AccessPointNot
 export var AddAvailabilityZonesInput$: StaticStructureSchema = [3, n0, _AAZI,
   0,
   [_LBN, _AZ],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var AddAvailabilityZonesOutput$: StaticStructureSchema = [3, n0, _AAZO,
   0,
@@ -272,7 +272,7 @@ export var AdditionalAttribute$: StaticStructureSchema = [3, n0, _AA,
 export var AddTagsInput$: StaticStructureSchema = [3, n0, _ATI,
   0,
   [_LBNo, _T],
-  [64 | 0, () => TagList]
+  [64 | 0, () => TagList], 2
 ];
 export var AddTagsOutput$: StaticStructureSchema = [3, n0, _ATO,
   0,
@@ -287,7 +287,7 @@ export var AppCookieStickinessPolicy$: StaticStructureSchema = [3, n0, _ACSP,
 export var ApplySecurityGroupsToLoadBalancerInput$: StaticStructureSchema = [3, n0, _ASGTLBI,
   0,
   [_LBN, _SG],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var ApplySecurityGroupsToLoadBalancerOutput$: StaticStructureSchema = [3, n0, _ASGTLBO,
   0,
@@ -297,7 +297,7 @@ export var ApplySecurityGroupsToLoadBalancerOutput$: StaticStructureSchema = [3,
 export var AttachLoadBalancerToSubnetsInput$: StaticStructureSchema = [3, n0, _ALBTSI,
   0,
   [_LBN, _S],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var AttachLoadBalancerToSubnetsOutput$: StaticStructureSchema = [3, n0, _ALBTSO,
   0,
@@ -318,7 +318,7 @@ TypeRegistry.for(n0).registerError(CertificateNotFoundException$, CertificateNot
 export var ConfigureHealthCheckInput$: StaticStructureSchema = [3, n0, _CHCI,
   0,
   [_LBN, _HC],
-  [0, () => HealthCheck$]
+  [0, () => HealthCheck$], 2
 ];
 export var ConfigureHealthCheckOutput$: StaticStructureSchema = [3, n0, _CHCO,
   0,
@@ -328,17 +328,17 @@ export var ConfigureHealthCheckOutput$: StaticStructureSchema = [3, n0, _CHCO,
 export var ConnectionDraining$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_E, _Ti],
-  [2, 1]
+  [2, 1], 1
 ];
 export var ConnectionSettings$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_IT],
-  [1]
+  [1], 1
 ];
 export var CreateAccessPointInput$: StaticStructureSchema = [3, n0, _CAPI,
   0,
   [_LBN, _L, _AZ, _S, _SG, _Sc, _T],
-  [0, () => Listeners, 64 | 0, 64 | 0, 64 | 0, 0, () => TagList]
+  [0, () => Listeners, 64 | 0, 64 | 0, 64 | 0, 0, () => TagList], 2
 ];
 export var CreateAccessPointOutput$: StaticStructureSchema = [3, n0, _CAPO,
   0,
@@ -348,7 +348,7 @@ export var CreateAccessPointOutput$: StaticStructureSchema = [3, n0, _CAPO,
 export var CreateAppCookieStickinessPolicyInput$: StaticStructureSchema = [3, n0, _CACSPI,
   0,
   [_LBN, _PN, _CN],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var CreateAppCookieStickinessPolicyOutput$: StaticStructureSchema = [3, n0, _CACSPO,
   0,
@@ -358,7 +358,7 @@ export var CreateAppCookieStickinessPolicyOutput$: StaticStructureSchema = [3, n
 export var CreateLBCookieStickinessPolicyInput$: StaticStructureSchema = [3, n0, _CLBCSPI,
   0,
   [_LBN, _PN, _CEP],
-  [0, 0, 1]
+  [0, 0, 1], 2
 ];
 export var CreateLBCookieStickinessPolicyOutput$: StaticStructureSchema = [3, n0, _CLBCSPO,
   0,
@@ -368,7 +368,7 @@ export var CreateLBCookieStickinessPolicyOutput$: StaticStructureSchema = [3, n0
 export var CreateLoadBalancerListenerInput$: StaticStructureSchema = [3, n0, _CLBLI,
   0,
   [_LBN, _L],
-  [0, () => Listeners]
+  [0, () => Listeners], 2
 ];
 export var CreateLoadBalancerListenerOutput$: StaticStructureSchema = [3, n0, _CLBLO,
   0,
@@ -378,7 +378,7 @@ export var CreateLoadBalancerListenerOutput$: StaticStructureSchema = [3, n0, _C
 export var CreateLoadBalancerPolicyInput$: StaticStructureSchema = [3, n0, _CLBPI,
   0,
   [_LBN, _PN, _PTN, _PA],
-  [0, 0, 0, () => PolicyAttributes]
+  [0, 0, 0, () => PolicyAttributes], 3
 ];
 export var CreateLoadBalancerPolicyOutput$: StaticStructureSchema = [3, n0, _CLBPO,
   0,
@@ -388,12 +388,12 @@ export var CreateLoadBalancerPolicyOutput$: StaticStructureSchema = [3, n0, _CLB
 export var CrossZoneLoadBalancing$: StaticStructureSchema = [3, n0, _CZLB,
   0,
   [_E],
-  [2]
+  [2], 1
 ];
 export var DeleteAccessPointInput$: StaticStructureSchema = [3, n0, _DAPI,
   0,
   [_LBN],
-  [0]
+  [0], 1
 ];
 export var DeleteAccessPointOutput$: StaticStructureSchema = [3, n0, _DAPO,
   0,
@@ -403,7 +403,7 @@ export var DeleteAccessPointOutput$: StaticStructureSchema = [3, n0, _DAPO,
 export var DeleteLoadBalancerListenerInput$: StaticStructureSchema = [3, n0, _DLBLI,
   0,
   [_LBN, _LBP],
-  [0, 64 | 1]
+  [0, 64 | 1], 2
 ];
 export var DeleteLoadBalancerListenerOutput$: StaticStructureSchema = [3, n0, _DLBLO,
   0,
@@ -413,7 +413,7 @@ export var DeleteLoadBalancerListenerOutput$: StaticStructureSchema = [3, n0, _D
 export var DeleteLoadBalancerPolicyInput$: StaticStructureSchema = [3, n0, _DLBPI,
   0,
   [_LBN, _PN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteLoadBalancerPolicyOutput$: StaticStructureSchema = [3, n0, _DLBPO,
   0,
@@ -429,7 +429,7 @@ TypeRegistry.for(n0).registerError(DependencyThrottleException$, DependencyThrot
 export var DeregisterEndPointsInput$: StaticStructureSchema = [3, n0, _DEPI,
   0,
   [_LBN, _I],
-  [0, () => Instances]
+  [0, () => Instances], 2
 ];
 export var DeregisterEndPointsOutput$: StaticStructureSchema = [3, n0, _DEPO,
   0,
@@ -459,7 +459,7 @@ export var DescribeAccountLimitsOutput$: StaticStructureSchema = [3, n0, _DALO,
 export var DescribeEndPointStateInput$: StaticStructureSchema = [3, n0, _DEPSI,
   0,
   [_LBN, _I],
-  [0, () => Instances]
+  [0, () => Instances], 1
 ];
 export var DescribeEndPointStateOutput$: StaticStructureSchema = [3, n0, _DEPSO,
   0,
@@ -469,7 +469,7 @@ export var DescribeEndPointStateOutput$: StaticStructureSchema = [3, n0, _DEPSO,
 export var DescribeLoadBalancerAttributesInput$: StaticStructureSchema = [3, n0, _DLBAI,
   0,
   [_LBN],
-  [0]
+  [0], 1
 ];
 export var DescribeLoadBalancerAttributesOutput$: StaticStructureSchema = [3, n0, _DLBAO,
   0,
@@ -499,7 +499,7 @@ export var DescribeLoadBalancerPolicyTypesOutput$: StaticStructureSchema = [3, n
 export var DescribeTagsInput$: StaticStructureSchema = [3, n0, _DTI,
   0,
   [_LBNo],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DescribeTagsOutput$: StaticStructureSchema = [3, n0, _DTO,
   0,
@@ -509,7 +509,7 @@ export var DescribeTagsOutput$: StaticStructureSchema = [3, n0, _DTO,
 export var DetachLoadBalancerFromSubnetsInput$: StaticStructureSchema = [3, n0, _DLBFSI,
   0,
   [_LBN, _S],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DetachLoadBalancerFromSubnetsOutput$: StaticStructureSchema = [3, n0, _DLBFSO,
   0,
@@ -543,7 +543,7 @@ TypeRegistry.for(n0).registerError(DuplicateTagKeysException$, DuplicateTagKeysE
 export var HealthCheck$: StaticStructureSchema = [3, n0, _HC,
   0,
   [_Ta, _In, _Ti, _UT, _HT],
-  [0, 1, 1, 1, 1]
+  [0, 1, 1, 1, 1], 5
 ];
 export var Instance$: StaticStructureSchema = [3, n0, _Ins,
   0,
@@ -597,8 +597,8 @@ export var Limit$: StaticStructureSchema = [3, n0, _Lim,
 ];
 export var Listener$: StaticStructureSchema = [3, n0, _Lis,
   0,
-  [_P, _LBPo, _IPn, _IP, _SSLCI],
-  [0, 1, 0, 1, 0]
+  [_P, _LBPo, _IP, _IPn, _SSLCI],
+  [0, 1, 1, 0, 0], 3
 ];
 export var ListenerDescription$: StaticStructureSchema = [3, n0, _LD,
   0,
@@ -630,7 +630,7 @@ export var LoadBalancerDescription$: StaticStructureSchema = [3, n0, _LBDo,
 export var ModifyLoadBalancerAttributesInput$: StaticStructureSchema = [3, n0, _MLBAI,
   0,
   [_LBN, _LBA],
-  [0, () => LoadBalancerAttributes$]
+  [0, () => LoadBalancerAttributes$], 2
 ];
 export var ModifyLoadBalancerAttributesOutput$: StaticStructureSchema = [3, n0, _MLBAO,
   0,
@@ -688,7 +688,7 @@ TypeRegistry.for(n0).registerError(PolicyTypeNotFoundException$, PolicyTypeNotFo
 export var RegisterEndPointsInput$: StaticStructureSchema = [3, n0, _REPI,
   0,
   [_LBN, _I],
-  [0, () => Instances]
+  [0, () => Instances], 2
 ];
 export var RegisterEndPointsOutput$: StaticStructureSchema = [3, n0, _REPO,
   0,
@@ -698,7 +698,7 @@ export var RegisterEndPointsOutput$: StaticStructureSchema = [3, n0, _REPO,
 export var RemoveAvailabilityZonesInput$: StaticStructureSchema = [3, n0, _RAZI,
   0,
   [_LBN, _AZ],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var RemoveAvailabilityZonesOutput$: StaticStructureSchema = [3, n0, _RAZO,
   0,
@@ -708,7 +708,7 @@ export var RemoveAvailabilityZonesOutput$: StaticStructureSchema = [3, n0, _RAZO
 export var RemoveTagsInput$: StaticStructureSchema = [3, n0, _RTI,
   0,
   [_LBNo, _T],
-  [64 | 0, () => TagKeyList]
+  [64 | 0, () => TagKeyList], 2
 ];
 export var RemoveTagsOutput$: StaticStructureSchema = [3, n0, _RTO,
   0,
@@ -718,7 +718,7 @@ export var RemoveTagsOutput$: StaticStructureSchema = [3, n0, _RTO,
 export var SetLoadBalancerListenerSSLCertificateInput$: StaticStructureSchema = [3, n0, _SLBLSSLCI,
   0,
   [_LBN, _LBPo, _SSLCI],
-  [0, 1, 0]
+  [0, 1, 0], 3
 ];
 export var SetLoadBalancerListenerSSLCertificateOutput$: StaticStructureSchema = [3, n0, _SLBLSSLCO,
   0,
@@ -728,7 +728,7 @@ export var SetLoadBalancerListenerSSLCertificateOutput$: StaticStructureSchema =
 export var SetLoadBalancerPoliciesForBackendServerInput$: StaticStructureSchema = [3, n0, _SLBPFBSI,
   0,
   [_LBN, _IP, _PNo],
-  [0, 1, 64 | 0]
+  [0, 1, 64 | 0], 3
 ];
 export var SetLoadBalancerPoliciesForBackendServerOutput$: StaticStructureSchema = [3, n0, _SLBPFBSO,
   0,
@@ -738,7 +738,7 @@ export var SetLoadBalancerPoliciesForBackendServerOutput$: StaticStructureSchema
 export var SetLoadBalancerPoliciesOfListenerInput$: StaticStructureSchema = [3, n0, _SLBPOLI,
   0,
   [_LBN, _LBPo, _PNo],
-  [0, 1, 64 | 0]
+  [0, 1, 64 | 0], 3
 ];
 export var SetLoadBalancerPoliciesOfListenerOutput$: StaticStructureSchema = [3, n0, _SLBPOLO,
   0,
@@ -759,7 +759,7 @@ TypeRegistry.for(n0).registerError(SubnetNotFoundException$, SubnetNotFoundExcep
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TagDescription$: StaticStructureSchema = [3, n0, _TDa,
   0,

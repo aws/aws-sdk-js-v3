@@ -602,12 +602,12 @@ TypeRegistry.for(n0).registerError(ApiLimitExceededException$, ApiLimitExceededE
 export var AppSyncRuntime$: StaticStructureSchema = [3, n0, _ASR,
   0,
   [_n, _rV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateApiRequest$: StaticStructureSchema = [3, n0, _AAR,
   0,
   [_dN, _aI],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var AssociateApiResponse$: StaticStructureSchema = [3, n0, _AARs,
   0,
@@ -617,7 +617,7 @@ export var AssociateApiResponse$: StaticStructureSchema = [3, n0, _AARs,
 export var AssociateMergedGraphqlApiRequest$: StaticStructureSchema = [3, n0, _AMGAR,
   0,
   [_sAI, _mAI, _de, _sAAC],
-  [[0, 1], 0, 0, () => SourceApiAssociationConfig$]
+  [[0, 1], 0, 0, () => SourceApiAssociationConfig$], 2
 ];
 export var AssociateMergedGraphqlApiResponse$: StaticStructureSchema = [3, n0, _AMGARs,
   0,
@@ -627,7 +627,7 @@ export var AssociateMergedGraphqlApiResponse$: StaticStructureSchema = [3, n0, _
 export var AssociateSourceGraphqlApiRequest$: StaticStructureSchema = [3, n0, _ASGAR,
   0,
   [_mAI, _sAI, _de, _sAAC],
-  [[0, 1], 0, 0, () => SourceApiAssociationConfig$]
+  [[0, 1], 0, 0, () => SourceApiAssociationConfig$], 2
 ];
 export var AssociateSourceGraphqlApiResponse$: StaticStructureSchema = [3, n0, _ASGARs,
   0,
@@ -637,17 +637,17 @@ export var AssociateSourceGraphqlApiResponse$: StaticStructureSchema = [3, n0, _
 export var AuthMode$: StaticStructureSchema = [3, n0, _AM,
   0,
   [_aTu],
-  [0]
+  [0], 1
 ];
 export var AuthorizationConfig$: StaticStructureSchema = [3, n0, _ACu,
   0,
   [_aTut, _aIC],
-  [0, () => AwsIamConfig$]
+  [0, () => AwsIamConfig$], 1
 ];
 export var AuthProvider$: StaticStructureSchema = [3, n0, _AP,
   0,
   [_aTu, _cC, _oIDCC, _lAC],
-  [0, () => CognitoConfig$, () => OpenIDConnectConfig$, () => LambdaAuthorizerConfig$]
+  [0, () => CognitoConfig$, () => OpenIDConnectConfig$, () => LambdaAuthorizerConfig$], 1
 ];
 export var AwsIamConfig$: StaticStructureSchema = [3, n0, _AIC,
   0,
@@ -668,7 +668,7 @@ TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var CachingConfig$: StaticStructureSchema = [3, n0, _CC,
   0,
   [_tt, _cK],
-  [1, 64 | 0]
+  [1, 64 | 0], 1
 ];
 export var ChannelNamespace$: StaticStructureSchema = [3, n0, _CN,
   0,
@@ -688,12 +688,12 @@ export var CodeErrorLocation$: StaticStructureSchema = [3, n0, _CEL,
 export var CognitoConfig$: StaticStructureSchema = [3, n0, _CCo,
   0,
   [_uPI, _aR, _aICR],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var CognitoUserPoolConfig$: StaticStructureSchema = [3, n0, _CUPC,
   0,
   [_uPI, _aR, _aICR],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
   { [_e]: _c, [_hE]: 409 },
@@ -709,8 +709,8 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateApiCacheRequest$: StaticStructureSchema = [3, n0, _CACR,
   0,
-  [_aI, _tt, _tEE, _aREE, _aCB, _ty, _hMC],
-  [[0, 1], 1, 2, 2, 0, 0, 0]
+  [_aI, _tt, _aCB, _ty, _tEE, _aREE, _hMC],
+  [[0, 1], 1, 0, 0, 2, 2, 0], 4
 ];
 export var CreateApiCacheResponse$: StaticStructureSchema = [3, n0, _CACRr,
   0,
@@ -720,7 +720,7 @@ export var CreateApiCacheResponse$: StaticStructureSchema = [3, n0, _CACRr,
 export var CreateApiKeyRequest$: StaticStructureSchema = [3, n0, _CAKR,
   0,
   [_aI, _de, _ex],
-  [[0, 1], 0, 1]
+  [[0, 1], 0, 1], 1
 ];
 export var CreateApiKeyResponse$: StaticStructureSchema = [3, n0, _CAKRr,
   0,
@@ -729,8 +729,8 @@ export var CreateApiKeyResponse$: StaticStructureSchema = [3, n0, _CAKRr,
 ];
 export var CreateApiRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
-  [_n, _oC, _t, _eC],
-  [0, 0, 128 | 0, () => EventConfig$]
+  [_n, _eC, _oC, _t],
+  [0, () => EventConfig$, 0, 128 | 0], 2
 ];
 export var CreateApiResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -740,7 +740,7 @@ export var CreateApiResponse$: StaticStructureSchema = [3, n0, _CARr,
 export var CreateChannelNamespaceRequest$: StaticStructureSchema = [3, n0, _CCNR,
   0,
   [_aI, _n, _sAM, _pAM, _cH, _t, _hC],
-  [[0, 1], 0, () => AuthModes, () => AuthModes, 0, 128 | 0, () => HandlerConfigs$]
+  [[0, 1], 0, () => AuthModes, () => AuthModes, 0, 128 | 0, () => HandlerConfigs$], 2
 ];
 export var CreateChannelNamespaceResponse$: StaticStructureSchema = [3, n0, _CCNRr,
   0,
@@ -749,8 +749,8 @@ export var CreateChannelNamespaceResponse$: StaticStructureSchema = [3, n0, _CCN
 ];
 export var CreateDataSourceRequest$: StaticStructureSchema = [3, n0, _CDSR,
   0,
-  [_aI, _n, _de, _ty, _sRA, _dC, _lC, _eCl, _oSSC, _hCt, _rDC, _eBC, _mC],
-  [[0, 1], 0, 0, 0, 0, () => DynamodbDataSourceConfig$, () => LambdaDataSourceConfig$, () => ElasticsearchDataSourceConfig$, () => OpenSearchServiceDataSourceConfig$, () => HttpDataSourceConfig$, () => RelationalDatabaseDataSourceConfig$, () => EventBridgeDataSourceConfig$, 0]
+  [_aI, _n, _ty, _de, _sRA, _dC, _lC, _eCl, _oSSC, _hCt, _rDC, _eBC, _mC],
+  [[0, 1], 0, 0, 0, 0, () => DynamodbDataSourceConfig$, () => LambdaDataSourceConfig$, () => ElasticsearchDataSourceConfig$, () => OpenSearchServiceDataSourceConfig$, () => HttpDataSourceConfig$, () => RelationalDatabaseDataSourceConfig$, () => EventBridgeDataSourceConfig$, 0], 3
 ];
 export var CreateDataSourceResponse$: StaticStructureSchema = [3, n0, _CDSRr,
   0,
@@ -760,7 +760,7 @@ export var CreateDataSourceResponse$: StaticStructureSchema = [3, n0, _CDSRr,
 export var CreateDomainNameRequest$: StaticStructureSchema = [3, n0, _CDNR,
   0,
   [_dN, _cA, _de, _t],
-  [0, 0, 0, 128 | 0]
+  [0, 0, 0, 128 | 0], 2
 ];
 export var CreateDomainNameResponse$: StaticStructureSchema = [3, n0, _CDNRr,
   0,
@@ -769,8 +769,8 @@ export var CreateDomainNameResponse$: StaticStructureSchema = [3, n0, _CDNRr,
 ];
 export var CreateFunctionRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_aI, _n, _de, _dSN, _rMT, _rMTe, _fV, _sC, _mBS, _ru, _cod],
-  [[0, 1], 0, 0, 0, 0, 0, 0, () => SyncConfig$, 1, () => AppSyncRuntime$, 0]
+  [_aI, _n, _dSN, _de, _rMT, _rMTe, _fV, _sC, _mBS, _ru, _cod],
+  [[0, 1], 0, 0, 0, 0, 0, 0, () => SyncConfig$, 1, () => AppSyncRuntime$, 0], 3
 ];
 export var CreateFunctionResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
@@ -779,8 +779,8 @@ export var CreateFunctionResponse$: StaticStructureSchema = [3, n0, _CFRr,
 ];
 export var CreateGraphqlApiRequest$: StaticStructureSchema = [3, n0, _CGAR,
   0,
-  [_n, _lCo, _aT, _uPC, _oIDCC, _t, _aAP, _xE, _lAC, _aTp, _mAERA, _vi, _oC, _iC, _qDL, _rCL, _eMC],
-  [0, () => LogConfig$, 0, () => UserPoolConfig$, () => OpenIDConnectConfig$, 128 | 0, () => AdditionalAuthenticationProviders, 2, () => LambdaAuthorizerConfig$, 0, 0, 0, 0, 0, 1, 1, () => EnhancedMetricsConfig$]
+  [_n, _aT, _lCo, _uPC, _oIDCC, _t, _aAP, _xE, _lAC, _aTp, _mAERA, _vi, _oC, _iC, _qDL, _rCL, _eMC],
+  [0, 0, () => LogConfig$, () => UserPoolConfig$, () => OpenIDConnectConfig$, 128 | 0, () => AdditionalAuthenticationProviders, 2, () => LambdaAuthorizerConfig$, 0, 0, 0, 0, 0, 1, 1, () => EnhancedMetricsConfig$], 2
 ];
 export var CreateGraphqlApiResponse$: StaticStructureSchema = [3, n0, _CGARr,
   0,
@@ -790,7 +790,7 @@ export var CreateGraphqlApiResponse$: StaticStructureSchema = [3, n0, _CGARr,
 export var CreateResolverRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
   [_aI, _tN, _fN, _dSN, _rMT, _rMTe, _k, _pC, _sC, _cCa, _mBS, _ru, _cod, _mC],
-  [[0, 1], [0, 1], 0, 0, 0, 0, 0, () => PipelineConfig$, () => SyncConfig$, () => CachingConfig$, 1, () => AppSyncRuntime$, 0, 0]
+  [[0, 1], [0, 1], 0, 0, 0, 0, 0, () => PipelineConfig$, () => SyncConfig$, () => CachingConfig$, 1, () => AppSyncRuntime$, 0, 0], 3
 ];
 export var CreateResolverResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
@@ -800,7 +800,7 @@ export var CreateResolverResponse$: StaticStructureSchema = [3, n0, _CRRr,
 export var CreateTypeRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_aI, _def, _f],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 3
 ];
 export var CreateTypeResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
@@ -840,7 +840,7 @@ export var DataSourceIntrospectionResult$: StaticStructureSchema = [3, n0, _DSIR
 export var DeleteApiCacheRequest$: StaticStructureSchema = [3, n0, _DACR,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteApiCacheResponse$: StaticStructureSchema = [3, n0, _DACRe,
   0,
@@ -850,7 +850,7 @@ export var DeleteApiCacheResponse$: StaticStructureSchema = [3, n0, _DACRe,
 export var DeleteApiKeyRequest$: StaticStructureSchema = [3, n0, _DAKR,
   0,
   [_aI, _i],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteApiKeyResponse$: StaticStructureSchema = [3, n0, _DAKRe,
   0,
@@ -860,7 +860,7 @@ export var DeleteApiKeyResponse$: StaticStructureSchema = [3, n0, _DAKRe,
 export var DeleteApiRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteApiResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -870,7 +870,7 @@ export var DeleteApiResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DeleteChannelNamespaceRequest$: StaticStructureSchema = [3, n0, _DCNR,
   0,
   [_aI, _n],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteChannelNamespaceResponse$: StaticStructureSchema = [3, n0, _DCNRe,
   0,
@@ -880,7 +880,7 @@ export var DeleteChannelNamespaceResponse$: StaticStructureSchema = [3, n0, _DCN
 export var DeleteDataSourceRequest$: StaticStructureSchema = [3, n0, _DDSR,
   0,
   [_aI, _n],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteDataSourceResponse$: StaticStructureSchema = [3, n0, _DDSRe,
   0,
@@ -890,7 +890,7 @@ export var DeleteDataSourceResponse$: StaticStructureSchema = [3, n0, _DDSRe,
 export var DeleteDomainNameRequest$: StaticStructureSchema = [3, n0, _DDNR,
   0,
   [_dN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteDomainNameResponse$: StaticStructureSchema = [3, n0, _DDNRe,
   0,
@@ -900,7 +900,7 @@ export var DeleteDomainNameResponse$: StaticStructureSchema = [3, n0, _DDNRe,
 export var DeleteFunctionRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
   [_aI, _fI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteFunctionResponse$: StaticStructureSchema = [3, n0, _DFRe,
   0,
@@ -910,7 +910,7 @@ export var DeleteFunctionResponse$: StaticStructureSchema = [3, n0, _DFRe,
 export var DeleteGraphqlApiRequest$: StaticStructureSchema = [3, n0, _DGAR,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteGraphqlApiResponse$: StaticStructureSchema = [3, n0, _DGARe,
   0,
@@ -920,7 +920,7 @@ export var DeleteGraphqlApiResponse$: StaticStructureSchema = [3, n0, _DGARe,
 export var DeleteResolverRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_aI, _tN, _fN],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteResolverResponse$: StaticStructureSchema = [3, n0, _DRRe,
   0,
@@ -930,7 +930,7 @@ export var DeleteResolverResponse$: StaticStructureSchema = [3, n0, _DRRe,
 export var DeleteTypeRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_aI, _tN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteTypeResponse$: StaticStructureSchema = [3, n0, _DTRe,
   0,
@@ -945,7 +945,7 @@ export var DeltaSyncConfig$: StaticStructureSchema = [3, n0, _DSC,
 export var DisassociateApiRequest$: StaticStructureSchema = [3, n0, _DARi,
   0,
   [_dN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DisassociateApiResponse$: StaticStructureSchema = [3, n0, _DARis,
   0,
@@ -955,7 +955,7 @@ export var DisassociateApiResponse$: StaticStructureSchema = [3, n0, _DARis,
 export var DisassociateMergedGraphqlApiRequest$: StaticStructureSchema = [3, n0, _DMGAR,
   0,
   [_sAI, _aIs],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DisassociateMergedGraphqlApiResponse$: StaticStructureSchema = [3, n0, _DMGARi,
   0,
@@ -965,7 +965,7 @@ export var DisassociateMergedGraphqlApiResponse$: StaticStructureSchema = [3, n0
 export var DisassociateSourceGraphqlApiRequest$: StaticStructureSchema = [3, n0, _DSGAR,
   0,
   [_mAI, _aIs],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DisassociateSourceGraphqlApiResponse$: StaticStructureSchema = [3, n0, _DSGARi,
   0,
@@ -980,17 +980,17 @@ export var DomainNameConfig$: StaticStructureSchema = [3, n0, _DNC,
 export var DynamodbDataSourceConfig$: StaticStructureSchema = [3, n0, _DDSC,
   0,
   [_tNa, _aR, _uCC, _dSC, _ve],
-  [0, 0, 2, () => DeltaSyncConfig$, 2]
+  [0, 0, 2, () => DeltaSyncConfig$, 2], 2
 ];
 export var ElasticsearchDataSourceConfig$: StaticStructureSchema = [3, n0, _EDSC,
   0,
   [_en, _aR],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EnhancedMetricsConfig$: StaticStructureSchema = [3, n0, _EMC,
   0,
   [_rLMB, _dSLMB, _oLMC],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ErrorDetail$: StaticStructureSchema = [3, n0, _ED,
   0,
@@ -1005,7 +1005,7 @@ export var EvaluateCodeErrorDetail$: StaticStructureSchema = [3, n0, _ECED,
 export var EvaluateCodeRequest$: StaticStructureSchema = [3, n0, _ECR,
   0,
   [_ru, _cod, _con, _fu],
-  [() => AppSyncRuntime$, 0, 0, 0]
+  [() => AppSyncRuntime$, 0, 0, 0], 3
 ];
 export var EvaluateCodeResponse$: StaticStructureSchema = [3, n0, _ECRv,
   0,
@@ -1015,7 +1015,7 @@ export var EvaluateCodeResponse$: StaticStructureSchema = [3, n0, _ECRv,
 export var EvaluateMappingTemplateRequest$: StaticStructureSchema = [3, n0, _EMTR,
   0,
   [_te, _con],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EvaluateMappingTemplateResponse$: StaticStructureSchema = [3, n0, _EMTRv,
   0,
@@ -1025,22 +1025,22 @@ export var EvaluateMappingTemplateResponse$: StaticStructureSchema = [3, n0, _EM
 export var EventBridgeDataSourceConfig$: StaticStructureSchema = [3, n0, _EBDSC,
   0,
   [_eBA],
-  [0]
+  [0], 1
 ];
 export var EventConfig$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_aP, _cAM, _dPAM, _dSAM, _lCo],
-  [() => AuthProviders, () => AuthModes, () => AuthModes, () => AuthModes, () => EventLogConfig$]
+  [() => AuthProviders, () => AuthModes, () => AuthModes, () => AuthModes, () => EventLogConfig$], 4
 ];
 export var EventLogConfig$: StaticStructureSchema = [3, n0, _ELC,
   0,
   [_lL, _cWLRA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var FlushApiCacheRequest$: StaticStructureSchema = [3, n0, _FACR,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var FlushApiCacheResponse$: StaticStructureSchema = [3, n0, _FACRl,
   0,
@@ -1055,7 +1055,7 @@ export var FunctionConfiguration$: StaticStructureSchema = [3, n0, _FC,
 export var GetApiAssociationRequest$: StaticStructureSchema = [3, n0, _GAAR,
   0,
   [_dN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetApiAssociationResponse$: StaticStructureSchema = [3, n0, _GAARe,
   0,
@@ -1065,7 +1065,7 @@ export var GetApiAssociationResponse$: StaticStructureSchema = [3, n0, _GAARe,
 export var GetApiCacheRequest$: StaticStructureSchema = [3, n0, _GACR,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetApiCacheResponse$: StaticStructureSchema = [3, n0, _GACRe,
   0,
@@ -1075,7 +1075,7 @@ export var GetApiCacheResponse$: StaticStructureSchema = [3, n0, _GACRe,
 export var GetApiRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetApiResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
@@ -1085,7 +1085,7 @@ export var GetApiResponse$: StaticStructureSchema = [3, n0, _GARe,
 export var GetChannelNamespaceRequest$: StaticStructureSchema = [3, n0, _GCNR,
   0,
   [_aI, _n],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetChannelNamespaceResponse$: StaticStructureSchema = [3, n0, _GCNRe,
   0,
@@ -1095,7 +1095,7 @@ export var GetChannelNamespaceResponse$: StaticStructureSchema = [3, n0, _GCNRe,
 export var GetDataSourceIntrospectionRequest$: StaticStructureSchema = [3, n0, _GDSIR,
   0,
   [_iI, _iMSDL, _nT, _mR],
-  [[0, 1], [2, { [_hQ]: _iMSDL }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [2, { [_hQ]: _iMSDL }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var GetDataSourceIntrospectionResponse$: StaticStructureSchema = [3, n0, _GDSIRe,
   0,
@@ -1105,7 +1105,7 @@ export var GetDataSourceIntrospectionResponse$: StaticStructureSchema = [3, n0, 
 export var GetDataSourceRequest$: StaticStructureSchema = [3, n0, _GDSR,
   0,
   [_aI, _n],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetDataSourceResponse$: StaticStructureSchema = [3, n0, _GDSRe,
   0,
@@ -1115,7 +1115,7 @@ export var GetDataSourceResponse$: StaticStructureSchema = [3, n0, _GDSRe,
 export var GetDomainNameRequest$: StaticStructureSchema = [3, n0, _GDNR,
   0,
   [_dN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDomainNameResponse$: StaticStructureSchema = [3, n0, _GDNRe,
   0,
@@ -1125,7 +1125,7 @@ export var GetDomainNameResponse$: StaticStructureSchema = [3, n0, _GDNRe,
 export var GetFunctionRequest$: StaticStructureSchema = [3, n0, _GFR,
   0,
   [_aI, _fI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetFunctionResponse$: StaticStructureSchema = [3, n0, _GFRe,
   0,
@@ -1135,7 +1135,7 @@ export var GetFunctionResponse$: StaticStructureSchema = [3, n0, _GFRe,
 export var GetGraphqlApiEnvironmentVariablesRequest$: StaticStructureSchema = [3, n0, _GGAEVR,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetGraphqlApiEnvironmentVariablesResponse$: StaticStructureSchema = [3, n0, _GGAEVRe,
   0,
@@ -1145,7 +1145,7 @@ export var GetGraphqlApiEnvironmentVariablesResponse$: StaticStructureSchema = [
 export var GetGraphqlApiRequest$: StaticStructureSchema = [3, n0, _GGAR,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetGraphqlApiResponse$: StaticStructureSchema = [3, n0, _GGARe,
   0,
@@ -1155,7 +1155,7 @@ export var GetGraphqlApiResponse$: StaticStructureSchema = [3, n0, _GGARe,
 export var GetIntrospectionSchemaRequest$: StaticStructureSchema = [3, n0, _GISR,
   0,
   [_aI, _f, _iD],
-  [[0, 1], [0, { [_hQ]: _f }], [2, { [_hQ]: _iD }]]
+  [[0, 1], [0, { [_hQ]: _f }], [2, { [_hQ]: _iD }]], 2
 ];
 export var GetIntrospectionSchemaResponse$: StaticStructureSchema = [3, n0, _GISRe,
   0,
@@ -1165,7 +1165,7 @@ export var GetIntrospectionSchemaResponse$: StaticStructureSchema = [3, n0, _GIS
 export var GetResolverRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_aI, _tN, _fN],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetResolverResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
@@ -1175,7 +1175,7 @@ export var GetResolverResponse$: StaticStructureSchema = [3, n0, _GRRe,
 export var GetSchemaCreationStatusRequest$: StaticStructureSchema = [3, n0, _GSCSR,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSchemaCreationStatusResponse$: StaticStructureSchema = [3, n0, _GSCSRe,
   0,
@@ -1185,7 +1185,7 @@ export var GetSchemaCreationStatusResponse$: StaticStructureSchema = [3, n0, _GS
 export var GetSourceApiAssociationRequest$: StaticStructureSchema = [3, n0, _GSAAR,
   0,
   [_mAI, _aIs],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetSourceApiAssociationResponse$: StaticStructureSchema = [3, n0, _GSAARe,
   0,
@@ -1195,7 +1195,7 @@ export var GetSourceApiAssociationResponse$: StaticStructureSchema = [3, n0, _GS
 export var GetTypeRequest$: StaticStructureSchema = [3, n0, _GTR,
   0,
   [_aI, _tN, _f],
-  [[0, 1], [0, 1], [0, { [_hQ]: _f }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _f }]], 3
 ];
 export var GetTypeResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
@@ -1216,7 +1216,7 @@ TypeRegistry.for(n0).registerError(GraphQLSchemaException$, GraphQLSchemaExcepti
 export var HandlerConfig$: StaticStructureSchema = [3, n0, _HC,
   0,
   [_b, _int],
-  [0, () => Integration$]
+  [0, () => Integration$], 2
 ];
 export var HandlerConfigs$: StaticStructureSchema = [3, n0, _HCa,
   0,
@@ -1231,7 +1231,7 @@ export var HttpDataSourceConfig$: StaticStructureSchema = [3, n0, _HDSC,
 export var Integration$: StaticStructureSchema = [3, n0, _I,
   0,
   [_dSN, _lC],
-  [0, () => LambdaConfig$]
+  [0, () => LambdaConfig$], 1
 ];
 export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
   { [_e]: _se, [_hE]: 500 },
@@ -1241,8 +1241,8 @@ export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
 TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
 export var LambdaAuthorizerConfig$: StaticStructureSchema = [3, n0, _LAC,
   0,
-  [_aRTIS, _aU, _iVE],
-  [1, 0, 0]
+  [_aU, _aRTIS, _iVE],
+  [0, 1, 0], 1
 ];
 export var LambdaConfig$: StaticStructureSchema = [3, n0, _LC,
   0,
@@ -1257,7 +1257,7 @@ export var LambdaConflictHandlerConfig$: StaticStructureSchema = [3, n0, _LCHC,
 export var LambdaDataSourceConfig$: StaticStructureSchema = [3, n0, _LDSC,
   0,
   [_lFA],
-  [0]
+  [0], 1
 ];
 export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
   { [_e]: _c, [_hE]: 429 },
@@ -1268,7 +1268,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var ListApiKeysRequest$: StaticStructureSchema = [3, n0, _LAKR,
   0,
   [_aI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListApiKeysResponse$: StaticStructureSchema = [3, n0, _LAKRi,
   0,
@@ -1288,7 +1288,7 @@ export var ListApisResponse$: StaticStructureSchema = [3, n0, _LARi,
 export var ListChannelNamespacesRequest$: StaticStructureSchema = [3, n0, _LCNR,
   0,
   [_aI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListChannelNamespacesResponse$: StaticStructureSchema = [3, n0, _LCNRi,
   0,
@@ -1298,7 +1298,7 @@ export var ListChannelNamespacesResponse$: StaticStructureSchema = [3, n0, _LCNR
 export var ListDataSourcesRequest$: StaticStructureSchema = [3, n0, _LDSR,
   0,
   [_aI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListDataSourcesResponse$: StaticStructureSchema = [3, n0, _LDSRi,
   0,
@@ -1318,7 +1318,7 @@ export var ListDomainNamesResponse$: StaticStructureSchema = [3, n0, _LDNRi,
 export var ListFunctionsRequest$: StaticStructureSchema = [3, n0, _LFR,
   0,
   [_aI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListFunctionsResponse$: StaticStructureSchema = [3, n0, _LFRi,
   0,
@@ -1338,7 +1338,7 @@ export var ListGraphqlApisResponse$: StaticStructureSchema = [3, n0, _LGARi,
 export var ListResolversByFunctionRequest$: StaticStructureSchema = [3, n0, _LRBFR,
   0,
   [_aI, _fI, _nT, _mR],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var ListResolversByFunctionResponse$: StaticStructureSchema = [3, n0, _LRBFRi,
   0,
@@ -1348,7 +1348,7 @@ export var ListResolversByFunctionResponse$: StaticStructureSchema = [3, n0, _LR
 export var ListResolversRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
   [_aI, _tN, _nT, _mR],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var ListResolversResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
@@ -1358,7 +1358,7 @@ export var ListResolversResponse$: StaticStructureSchema = [3, n0, _LRRi,
 export var ListSourceApiAssociationsRequest$: StaticStructureSchema = [3, n0, _LSAAR,
   0,
   [_aI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListSourceApiAssociationsResponse$: StaticStructureSchema = [3, n0, _LSAARi,
   0,
@@ -1368,7 +1368,7 @@ export var ListSourceApiAssociationsResponse$: StaticStructureSchema = [3, n0, _
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1378,7 +1378,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListTypesByAssociationRequest$: StaticStructureSchema = [3, n0, _LTBAR,
   0,
   [_mAI, _aIs, _f, _nT, _mR],
-  [[0, 1], [0, 1], [0, { [_hQ]: _f }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _f }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 3
 ];
 export var ListTypesByAssociationResponse$: StaticStructureSchema = [3, n0, _LTBARi,
   0,
@@ -1388,7 +1388,7 @@ export var ListTypesByAssociationResponse$: StaticStructureSchema = [3, n0, _LTB
 export var ListTypesRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
   [_aI, _f, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _f }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _f }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var ListTypesResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
@@ -1398,7 +1398,7 @@ export var ListTypesResponse$: StaticStructureSchema = [3, n0, _LTRi,
 export var LogConfig$: StaticStructureSchema = [3, n0, _LCo,
   0,
   [_fLL, _cWLRA, _eVC],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
   { [_e]: _c, [_hE]: 404 },
@@ -1409,12 +1409,12 @@ TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var OpenIDConnectConfig$: StaticStructureSchema = [3, n0, _OIDCC,
   0,
   [_is, _cI, _iTTL, _aTTL],
-  [0, 0, 1, 1]
+  [0, 0, 1, 1], 1
 ];
 export var OpenSearchServiceDataSourceConfig$: StaticStructureSchema = [3, n0, _OSSDSC,
   0,
   [_en, _aR],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PipelineConfig$: StaticStructureSchema = [3, n0, _PC,
   0,
@@ -1424,7 +1424,7 @@ export var PipelineConfig$: StaticStructureSchema = [3, n0, _PC,
 export var PutGraphqlApiEnvironmentVariablesRequest$: StaticStructureSchema = [3, n0, _PGAEVR,
   0,
   [_aI, _eV],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var PutGraphqlApiEnvironmentVariablesResponse$: StaticStructureSchema = [3, n0, _PGAEVRu,
   0,
@@ -1434,7 +1434,7 @@ export var PutGraphqlApiEnvironmentVariablesResponse$: StaticStructureSchema = [
 export var RdsDataApiConfig$: StaticStructureSchema = [3, n0, _RDAC,
   0,
   [_rA, _sA, _dNa],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var RdsHttpEndpointConfig$: StaticStructureSchema = [3, n0, _RHEC,
   0,
@@ -1485,7 +1485,7 @@ export var StartDataSourceIntrospectionResponse$: StaticStructureSchema = [3, n0
 export var StartSchemaCreationRequest$: StaticStructureSchema = [3, n0, _SSCR,
   0,
   [_aI, _def],
-  [[0, 1], 21]
+  [[0, 1], 21], 2
 ];
 export var StartSchemaCreationResponse$: StaticStructureSchema = [3, n0, _SSCRt,
   0,
@@ -1495,7 +1495,7 @@ export var StartSchemaCreationResponse$: StaticStructureSchema = [3, n0, _SSCRt,
 export var StartSchemaMergeRequest$: StaticStructureSchema = [3, n0, _SSMR,
   0,
   [_aIs, _mAI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var StartSchemaMergeResponse$: StaticStructureSchema = [3, n0, _SSMRt,
   0,
@@ -1510,7 +1510,7 @@ export var SyncConfig$: StaticStructureSchema = [3, n0, _SC,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1531,7 +1531,7 @@ TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1541,7 +1541,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateApiCacheRequest$: StaticStructureSchema = [3, n0, _UACR,
   0,
   [_aI, _tt, _aCB, _ty, _hMC],
-  [[0, 1], 1, 0, 0, 0]
+  [[0, 1], 1, 0, 0, 0], 4
 ];
 export var UpdateApiCacheResponse$: StaticStructureSchema = [3, n0, _UACRp,
   0,
@@ -1551,7 +1551,7 @@ export var UpdateApiCacheResponse$: StaticStructureSchema = [3, n0, _UACRp,
 export var UpdateApiKeyRequest$: StaticStructureSchema = [3, n0, _UAKR,
   0,
   [_aI, _i, _de, _ex],
-  [[0, 1], [0, 1], 0, 1]
+  [[0, 1], [0, 1], 0, 1], 2
 ];
 export var UpdateApiKeyResponse$: StaticStructureSchema = [3, n0, _UAKRp,
   0,
@@ -1560,8 +1560,8 @@ export var UpdateApiKeyResponse$: StaticStructureSchema = [3, n0, _UAKRp,
 ];
 export var UpdateApiRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
-  [_aI, _n, _oC, _eC],
-  [[0, 1], 0, 0, () => EventConfig$]
+  [_aI, _n, _eC, _oC],
+  [[0, 1], 0, () => EventConfig$, 0], 3
 ];
 export var UpdateApiResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
@@ -1571,7 +1571,7 @@ export var UpdateApiResponse$: StaticStructureSchema = [3, n0, _UARp,
 export var UpdateChannelNamespaceRequest$: StaticStructureSchema = [3, n0, _UCNR,
   0,
   [_aI, _n, _sAM, _pAM, _cH, _hC],
-  [[0, 1], [0, 1], () => AuthModes, () => AuthModes, 0, () => HandlerConfigs$]
+  [[0, 1], [0, 1], () => AuthModes, () => AuthModes, 0, () => HandlerConfigs$], 2
 ];
 export var UpdateChannelNamespaceResponse$: StaticStructureSchema = [3, n0, _UCNRp,
   0,
@@ -1580,8 +1580,8 @@ export var UpdateChannelNamespaceResponse$: StaticStructureSchema = [3, n0, _UCN
 ];
 export var UpdateDataSourceRequest$: StaticStructureSchema = [3, n0, _UDSR,
   0,
-  [_aI, _n, _de, _ty, _sRA, _dC, _lC, _eCl, _oSSC, _hCt, _rDC, _eBC, _mC],
-  [[0, 1], [0, 1], 0, 0, 0, () => DynamodbDataSourceConfig$, () => LambdaDataSourceConfig$, () => ElasticsearchDataSourceConfig$, () => OpenSearchServiceDataSourceConfig$, () => HttpDataSourceConfig$, () => RelationalDatabaseDataSourceConfig$, () => EventBridgeDataSourceConfig$, 0]
+  [_aI, _n, _ty, _de, _sRA, _dC, _lC, _eCl, _oSSC, _hCt, _rDC, _eBC, _mC],
+  [[0, 1], [0, 1], 0, 0, 0, () => DynamodbDataSourceConfig$, () => LambdaDataSourceConfig$, () => ElasticsearchDataSourceConfig$, () => OpenSearchServiceDataSourceConfig$, () => HttpDataSourceConfig$, () => RelationalDatabaseDataSourceConfig$, () => EventBridgeDataSourceConfig$, 0], 3
 ];
 export var UpdateDataSourceResponse$: StaticStructureSchema = [3, n0, _UDSRp,
   0,
@@ -1591,7 +1591,7 @@ export var UpdateDataSourceResponse$: StaticStructureSchema = [3, n0, _UDSRp,
 export var UpdateDomainNameRequest$: StaticStructureSchema = [3, n0, _UDNR,
   0,
   [_dN, _de],
-  [[0, 1], 0]
+  [[0, 1], 0], 1
 ];
 export var UpdateDomainNameResponse$: StaticStructureSchema = [3, n0, _UDNRp,
   0,
@@ -1600,8 +1600,8 @@ export var UpdateDomainNameResponse$: StaticStructureSchema = [3, n0, _UDNRp,
 ];
 export var UpdateFunctionRequest$: StaticStructureSchema = [3, n0, _UFR,
   0,
-  [_aI, _n, _de, _fI, _dSN, _rMT, _rMTe, _fV, _sC, _mBS, _ru, _cod],
-  [[0, 1], 0, 0, [0, 1], 0, 0, 0, 0, () => SyncConfig$, 1, () => AppSyncRuntime$, 0]
+  [_aI, _n, _fI, _dSN, _de, _rMT, _rMTe, _fV, _sC, _mBS, _ru, _cod],
+  [[0, 1], 0, [0, 1], 0, 0, 0, 0, 0, () => SyncConfig$, 1, () => AppSyncRuntime$, 0], 4
 ];
 export var UpdateFunctionResponse$: StaticStructureSchema = [3, n0, _UFRp,
   0,
@@ -1610,8 +1610,8 @@ export var UpdateFunctionResponse$: StaticStructureSchema = [3, n0, _UFRp,
 ];
 export var UpdateGraphqlApiRequest$: StaticStructureSchema = [3, n0, _UGAR,
   0,
-  [_aI, _n, _lCo, _aT, _uPC, _oIDCC, _aAP, _xE, _lAC, _mAERA, _oC, _iC, _qDL, _rCL, _eMC],
-  [[0, 1], 0, () => LogConfig$, 0, () => UserPoolConfig$, () => OpenIDConnectConfig$, () => AdditionalAuthenticationProviders, 2, () => LambdaAuthorizerConfig$, 0, 0, 0, 1, 1, () => EnhancedMetricsConfig$]
+  [_aI, _n, _aT, _lCo, _uPC, _oIDCC, _aAP, _xE, _lAC, _mAERA, _oC, _iC, _qDL, _rCL, _eMC],
+  [[0, 1], 0, 0, () => LogConfig$, () => UserPoolConfig$, () => OpenIDConnectConfig$, () => AdditionalAuthenticationProviders, 2, () => LambdaAuthorizerConfig$, 0, 0, 0, 1, 1, () => EnhancedMetricsConfig$], 3
 ];
 export var UpdateGraphqlApiResponse$: StaticStructureSchema = [3, n0, _UGARp,
   0,
@@ -1621,7 +1621,7 @@ export var UpdateGraphqlApiResponse$: StaticStructureSchema = [3, n0, _UGARp,
 export var UpdateResolverRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
   [_aI, _tN, _fN, _dSN, _rMT, _rMTe, _k, _pC, _sC, _cCa, _mBS, _ru, _cod, _mC],
-  [[0, 1], [0, 1], [0, 1], 0, 0, 0, 0, () => PipelineConfig$, () => SyncConfig$, () => CachingConfig$, 1, () => AppSyncRuntime$, 0, 0]
+  [[0, 1], [0, 1], [0, 1], 0, 0, 0, 0, () => PipelineConfig$, () => SyncConfig$, () => CachingConfig$, 1, () => AppSyncRuntime$, 0, 0], 3
 ];
 export var UpdateResolverResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,
@@ -1631,7 +1631,7 @@ export var UpdateResolverResponse$: StaticStructureSchema = [3, n0, _URRpd,
 export var UpdateSourceApiAssociationRequest$: StaticStructureSchema = [3, n0, _USAAR,
   0,
   [_aIs, _mAI, _de, _sAAC],
-  [[0, 1], [0, 1], 0, () => SourceApiAssociationConfig$]
+  [[0, 1], [0, 1], 0, () => SourceApiAssociationConfig$], 2
 ];
 export var UpdateSourceApiAssociationResponse$: StaticStructureSchema = [3, n0, _USAARp,
   0,
@@ -1640,8 +1640,8 @@ export var UpdateSourceApiAssociationResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateTypeRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
-  [_aI, _tN, _def, _f],
-  [[0, 1], [0, 1], 0, 0]
+  [_aI, _tN, _f, _def],
+  [[0, 1], [0, 1], 0, 0], 3
 ];
 export var UpdateTypeResponse$: StaticStructureSchema = [3, n0, _UTRp,
   0,
@@ -1651,7 +1651,7 @@ export var UpdateTypeResponse$: StaticStructureSchema = [3, n0, _UTRp,
 export var UserPoolConfig$: StaticStructureSchema = [3, n0, _UPC,
   0,
   [_uPI, _aR, _dA, _aICR],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var AppSyncServiceException$: StaticErrorSchema = [-3, _sm, "AppSyncServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AppSyncServiceException$, AppSyncServiceException);

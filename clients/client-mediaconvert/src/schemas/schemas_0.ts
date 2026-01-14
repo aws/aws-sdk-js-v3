@@ -1828,7 +1828,7 @@ export var Ac3Settings$: StaticStructureSchema = [3, n0, _ASc,
 export var AccelerationSettings$: StaticStructureSchema = [3, n0, _AScc,
   0,
   [_M],
-  [[0, { [_jN]: _m }]]
+  [[0, { [_jN]: _m }]], 1
 ];
 export var AdvancedInputFilterSettings$: StaticStructureSchema = [3, n0, _AIFS,
   0,
@@ -1853,7 +1853,7 @@ export var AncillarySourceSettings$: StaticStructureSchema = [3, n0, _ASS,
 export var AssociateCertificateRequest$: StaticStructureSchema = [3, n0, _ACR,
   0,
   [_A],
-  [[0, { [_jN]: _a }]]
+  [[0, { [_jN]: _a }]], 1
 ];
 export var AssociateCertificateResponse$: StaticStructureSchema = [3, n0, _ACRs,
   0,
@@ -1959,7 +1959,7 @@ export var BurninDestinationSettings$: StaticStructureSchema = [3, n0, _BDS,
 export var CancelJobRequest$: StaticStructureSchema = [3, n0, _CJR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var CancelJobResponse$: StaticStructureSchema = [3, n0, _CJRa,
   0,
@@ -2064,8 +2064,8 @@ export var ContainerSettings$: StaticStructureSchema = [3, n0, _CSon,
 ];
 export var CreateJobRequest$: StaticStructureSchema = [3, n0, _CJRr,
   0,
-  [_AScc, _BTS, _CRT, _HD, _JEV, _JT, _Pri, _Q, _Ro, _Se, _SRQ, _SUI, _Ta, _UM],
-  [[() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _bTS }], [0, { [_iT]: 1, [_jN]: _cRT }], [() => __listOfHopDestination, { [_jN]: _hD }], [0, { [_jN]: _jEV }], [0, { [_jN]: _jT }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [0, { [_jN]: _ro }], [() => JobSettings$, { [_jN]: _se }], [0, { [_jN]: _sRQ }], [0, { [_jN]: _sUI }], [128 | 0, { [_jN]: _ta }], [128 | 0, { [_jN]: _uM }]]
+  [_Ro, _Se, _AScc, _BTS, _CRT, _HD, _JEV, _JT, _Pri, _Q, _SRQ, _SUI, _Ta, _UM],
+  [[0, { [_jN]: _ro }], [() => JobSettings$, { [_jN]: _se }], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _bTS }], [0, { [_iT]: 1, [_jN]: _cRT }], [() => __listOfHopDestination, { [_jN]: _hD }], [0, { [_jN]: _jEV }], [0, { [_jN]: _jT }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [0, { [_jN]: _sRQ }], [0, { [_jN]: _sUI }], [128 | 0, { [_jN]: _ta }], [128 | 0, { [_jN]: _uM }]], 2
 ];
 export var CreateJobResponse$: StaticStructureSchema = [3, n0, _CJRre,
   0,
@@ -2074,8 +2074,8 @@ export var CreateJobResponse$: StaticStructureSchema = [3, n0, _CJRre,
 ];
 export var CreateJobTemplateRequest$: StaticStructureSchema = [3, n0, _CJTR,
   0,
-  [_AScc, _Ca, _Des, _HD, _N, _Pri, _Q, _Se, _SUI, _Ta],
-  [[() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _ca }], [0, { [_jN]: _des }], [() => __listOfHopDestination, { [_jN]: _hD }], [0, { [_jN]: _n }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [() => JobTemplateSettings$, { [_jN]: _se }], [0, { [_jN]: _sUI }], [128 | 0, { [_jN]: _ta }]]
+  [_N, _Se, _AScc, _Ca, _Des, _HD, _Pri, _Q, _SUI, _Ta],
+  [[0, { [_jN]: _n }], [() => JobTemplateSettings$, { [_jN]: _se }], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _ca }], [0, { [_jN]: _des }], [() => __listOfHopDestination, { [_jN]: _hD }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [0, { [_jN]: _sUI }], [128 | 0, { [_jN]: _ta }]], 2
 ];
 export var CreateJobTemplateResponse$: StaticStructureSchema = [3, n0, _CJTRr,
   0,
@@ -2084,8 +2084,8 @@ export var CreateJobTemplateResponse$: StaticStructureSchema = [3, n0, _CJTRr,
 ];
 export var CreatePresetRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
-  [_Ca, _Des, _N, _Se, _Ta],
-  [[0, { [_jN]: _ca }], [0, { [_jN]: _des }], [0, { [_jN]: _n }], [() => PresetSettings$, { [_jN]: _se }], [128 | 0, { [_jN]: _ta }]]
+  [_N, _Se, _Ca, _Des, _Ta],
+  [[0, { [_jN]: _n }], [() => PresetSettings$, { [_jN]: _se }], [0, { [_jN]: _ca }], [0, { [_jN]: _des }], [128 | 0, { [_jN]: _ta }]], 2
 ];
 export var CreatePresetResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
@@ -2094,8 +2094,8 @@ export var CreatePresetResponse$: StaticStructureSchema = [3, n0, _CPRr,
 ];
 export var CreateQueueRequest$: StaticStructureSchema = [3, n0, _CQR,
   0,
-  [_CJ, _Des, _N, _PP, _RPS, _Sta, _Ta],
-  [[1, { [_jN]: _cJ }], [0, { [_jN]: _des }], [0, { [_jN]: _n }], [0, { [_jN]: _pP }], [() => ReservationPlanSettings$, { [_jN]: _rPS }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]]
+  [_N, _CJ, _Des, _PP, _RPS, _Sta, _Ta],
+  [[0, { [_jN]: _n }], [1, { [_jN]: _cJ }], [0, { [_jN]: _des }], [0, { [_jN]: _pP }], [() => ReservationPlanSettings$, { [_jN]: _rPS }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]], 1
 ];
 export var CreateQueueResponse$: StaticStructureSchema = [3, n0, _CQRr,
   0,
@@ -2105,7 +2105,7 @@ export var CreateQueueResponse$: StaticStructureSchema = [3, n0, _CQRr,
 export var CreateResourceShareRequest$: StaticStructureSchema = [3, n0, _CRSR,
   0,
   [_JI, _SCI],
-  [[0, { [_jN]: _jI }], [0, { [_jN]: _sCI }]]
+  [[0, { [_jN]: _jI }], [0, { [_jN]: _sCI }]], 2
 ];
 export var CreateResourceShareResponse$: StaticStructureSchema = [3, n0, _CRSRr,
   0,
@@ -2145,7 +2145,7 @@ export var Deinterlacer$: StaticStructureSchema = [3, n0, _Dei,
 export var DeleteJobTemplateRequest$: StaticStructureSchema = [3, n0, _DJTR,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteJobTemplateResponse$: StaticStructureSchema = [3, n0, _DJTRe,
   0,
@@ -2165,7 +2165,7 @@ export var DeletePolicyResponse$: StaticStructureSchema = [3, n0, _DPRe,
 export var DeletePresetRequest$: StaticStructureSchema = [3, n0, _DPRel,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeletePresetResponse$: StaticStructureSchema = [3, n0, _DPRele,
   0,
@@ -2175,7 +2175,7 @@ export var DeletePresetResponse$: StaticStructureSchema = [3, n0, _DPRele,
 export var DeleteQueueRequest$: StaticStructureSchema = [3, n0, _DQR,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteQueueResponse$: StaticStructureSchema = [3, n0, _DQRe,
   0,
@@ -2200,7 +2200,7 @@ export var DestinationSettings$: StaticStructureSchema = [3, n0, _DSe,
 export var DisassociateCertificateRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_A],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DisassociateCertificateResponse$: StaticStructureSchema = [3, n0, _DCRi,
   0,
@@ -2341,7 +2341,7 @@ export var FrameRate$: StaticStructureSchema = [3, n0, _FR,
 export var GetJobRequest$: StaticStructureSchema = [3, n0, _GJR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetJobResponse$: StaticStructureSchema = [3, n0, _GJRe,
   0,
@@ -2351,7 +2351,7 @@ export var GetJobResponse$: StaticStructureSchema = [3, n0, _GJRe,
 export var GetJobsQueryResultsRequest$: StaticStructureSchema = [3, n0, _GJQRR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetJobsQueryResultsResponse$: StaticStructureSchema = [3, n0, _GJQRRe,
   0,
@@ -2361,7 +2361,7 @@ export var GetJobsQueryResultsResponse$: StaticStructureSchema = [3, n0, _GJQRRe
 export var GetJobTemplateRequest$: StaticStructureSchema = [3, n0, _GJTR,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetJobTemplateResponse$: StaticStructureSchema = [3, n0, _GJTRe,
   0,
@@ -2381,7 +2381,7 @@ export var GetPolicyResponse$: StaticStructureSchema = [3, n0, _GPRe,
 export var GetPresetRequest$: StaticStructureSchema = [3, n0, _GPRet,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetPresetResponse$: StaticStructureSchema = [3, n0, _GPRetr,
   0,
@@ -2391,7 +2391,7 @@ export var GetPresetResponse$: StaticStructureSchema = [3, n0, _GPRetr,
 export var GetQueueRequest$: StaticStructureSchema = [3, n0, _GQR,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetQueueResponse$: StaticStructureSchema = [3, n0, _GQRe,
   0,
@@ -2531,8 +2531,8 @@ export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
 TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var Job$: StaticStructureSchema = [3, n0, _J,
   0,
-  [_AScc, _AScce, _A, _BTS, _CRT, _CA, _CPu, _EC, _EMr, _HD, _I, _JEVR, _JEVU, _JPC, _JT, _LSD, _Mes, _OGD, _Pri, _Q, _QT, _RC, _Ro, _Se, _SSh, _SRQ, _Sta, _SUI, _Timi, _UM, _Wa],
-  [[() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _aScce }], [0, { [_jN]: _a }], [0, { [_jN]: _bTS }], [0, { [_jN]: _cRT }], [7, { [_jN]: _cA }], [0, { [_jN]: _cPu }], [1, { [_jN]: _eC }], [0, { [_jN]: _eMr }], [() => __listOfHopDestination, { [_jN]: _hD }], [0, { [_jN]: _id }], [0, { [_jN]: _jEVR }], [0, { [_jN]: _jEVU }], [1, { [_jN]: _jPC }], [0, { [_jN]: _jT }], [0, { [_jN]: _lSD }], [() => JobMessages$, { [_jN]: _mes }], [() => __listOfOutputGroupDetail, { [_jN]: _oGD }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [() => __listOfQueueTransition, { [_jN]: _qT }], [1, { [_jN]: _rC }], [0, { [_jN]: _ro }], [() => JobSettings$, { [_jN]: _se }], [0, { [_jN]: _sSh }], [0, { [_jN]: _sRQ }], [0, { [_jN]: _sta }], [0, { [_jN]: _sUI }], [() => Timing$, { [_jN]: _timi }], [128 | 0, { [_jN]: _uM }], [() => __listOfWarningGroup, { [_jN]: _wa }]]
+  [_Ro, _Se, _AScc, _AScce, _A, _BTS, _CRT, _CA, _CPu, _EC, _EMr, _HD, _I, _JEVR, _JEVU, _JPC, _JT, _LSD, _Mes, _OGD, _Pri, _Q, _QT, _RC, _SSh, _SRQ, _Sta, _SUI, _Timi, _UM, _Wa],
+  [[0, { [_jN]: _ro }], [() => JobSettings$, { [_jN]: _se }], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _aScce }], [0, { [_jN]: _a }], [0, { [_jN]: _bTS }], [0, { [_jN]: _cRT }], [7, { [_jN]: _cA }], [0, { [_jN]: _cPu }], [1, { [_jN]: _eC }], [0, { [_jN]: _eMr }], [() => __listOfHopDestination, { [_jN]: _hD }], [0, { [_jN]: _id }], [0, { [_jN]: _jEVR }], [0, { [_jN]: _jEVU }], [1, { [_jN]: _jPC }], [0, { [_jN]: _jT }], [0, { [_jN]: _lSD }], [() => JobMessages$, { [_jN]: _mes }], [() => __listOfOutputGroupDetail, { [_jN]: _oGD }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [() => __listOfQueueTransition, { [_jN]: _qT }], [1, { [_jN]: _rC }], [0, { [_jN]: _sSh }], [0, { [_jN]: _sRQ }], [0, { [_jN]: _sta }], [0, { [_jN]: _sUI }], [() => Timing$, { [_jN]: _timi }], [128 | 0, { [_jN]: _uM }], [() => __listOfWarningGroup, { [_jN]: _wa }]], 2
 ];
 export var JobEngineVersion$: StaticStructureSchema = [3, n0, _JEV,
   0,
@@ -2556,8 +2556,8 @@ export var JobsQueryFilter$: StaticStructureSchema = [3, n0, _JQF,
 ];
 export var JobTemplate$: StaticStructureSchema = [3, n0, _JT,
   0,
-  [_AScc, _A, _Ca, _CA, _Des, _HD, _LU, _N, _Pri, _Q, _Se, _SUI, _Ty],
-  [[() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _a }], [0, { [_jN]: _ca }], [7, { [_jN]: _cA }], [0, { [_jN]: _des }], [() => __listOfHopDestination, { [_jN]: _hD }], [7, { [_jN]: _lU }], [0, { [_jN]: _n }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [() => JobTemplateSettings$, { [_jN]: _se }], [0, { [_jN]: _sUI }], [0, { [_jN]: _ty }]]
+  [_N, _Se, _AScc, _A, _Ca, _CA, _Des, _HD, _LU, _Pri, _Q, _SUI, _Ty],
+  [[0, { [_jN]: _n }], [() => JobTemplateSettings$, { [_jN]: _se }], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _a }], [0, { [_jN]: _ca }], [7, { [_jN]: _cA }], [0, { [_jN]: _des }], [() => __listOfHopDestination, { [_jN]: _hD }], [7, { [_jN]: _lU }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [0, { [_jN]: _sUI }], [0, { [_jN]: _ty }]], 2
 ];
 export var JobTemplateSettings$: StaticStructureSchema = [3, n0, _JTS,
   0,
@@ -2612,7 +2612,7 @@ export var ListQueuesResponse$: StaticStructureSchema = [3, n0, _LQRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_A],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -2827,8 +2827,8 @@ export var Policy$: StaticStructureSchema = [3, n0, _Po,
 ];
 export var Preset$: StaticStructureSchema = [3, n0, _Pre,
   0,
-  [_A, _Ca, _CA, _Des, _LU, _N, _Se, _Ty],
-  [[0, { [_jN]: _a }], [0, { [_jN]: _ca }], [7, { [_jN]: _cA }], [0, { [_jN]: _des }], [7, { [_jN]: _lU }], [0, { [_jN]: _n }], [() => PresetSettings$, { [_jN]: _se }], [0, { [_jN]: _ty }]]
+  [_N, _Se, _A, _Ca, _CA, _Des, _LU, _Ty],
+  [[0, { [_jN]: _n }], [() => PresetSettings$, { [_jN]: _se }], [0, { [_jN]: _a }], [0, { [_jN]: _ca }], [7, { [_jN]: _cA }], [0, { [_jN]: _des }], [7, { [_jN]: _lU }], [0, { [_jN]: _ty }]], 2
 ];
 export var PresetSettings$: StaticStructureSchema = [3, n0, _PSr,
   0,
@@ -2863,7 +2863,7 @@ export var ProresSettings$: StaticStructureSchema = [3, n0, _PSro,
 export var PutPolicyRequest$: StaticStructureSchema = [3, n0, _PPR,
   0,
   [_Po],
-  [[() => Policy$, { [_jN]: _po }]]
+  [[() => Policy$, { [_jN]: _po }]], 1
 ];
 export var PutPolicyResponse$: StaticStructureSchema = [3, n0, _PPRu,
   0,
@@ -2872,8 +2872,8 @@ export var PutPolicyResponse$: StaticStructureSchema = [3, n0, _PPRu,
 ];
 export var Queue$: StaticStructureSchema = [3, n0, _Q,
   0,
-  [_A, _CJ, _CA, _Des, _LU, _N, _PP, _PJC, _RPe, _SOer, _Sta, _SJC, _Ty],
-  [[0, { [_jN]: _a }], [1, { [_jN]: _cJ }], [7, { [_jN]: _cA }], [0, { [_jN]: _des }], [7, { [_jN]: _lU }], [0, { [_jN]: _n }], [0, { [_jN]: _pP }], [1, { [_jN]: _pJC }], [() => ReservationPlan$, { [_jN]: _rPe }], [() => __listOfServiceOverride, { [_jN]: _sOer }], [0, { [_jN]: _sta }], [1, { [_jN]: _sJC }], [0, { [_jN]: _ty }]]
+  [_N, _A, _CJ, _CA, _Des, _LU, _PP, _PJC, _RPe, _SOer, _Sta, _SJC, _Ty],
+  [[0, { [_jN]: _n }], [0, { [_jN]: _a }], [1, { [_jN]: _cJ }], [7, { [_jN]: _cA }], [0, { [_jN]: _des }], [7, { [_jN]: _lU }], [0, { [_jN]: _pP }], [1, { [_jN]: _pJC }], [() => ReservationPlan$, { [_jN]: _rPe }], [() => __listOfServiceOverride, { [_jN]: _sOer }], [0, { [_jN]: _sta }], [1, { [_jN]: _sJC }], [0, { [_jN]: _ty }]], 1
 ];
 export var QueueTransition$: StaticStructureSchema = [3, n0, _QTu,
   0,
@@ -2898,7 +2898,7 @@ export var ReservationPlan$: StaticStructureSchema = [3, n0, _RPe,
 export var ReservationPlanSettings$: StaticStructureSchema = [3, n0, _RPS,
   0,
   [_Com, _RTe, _RSe],
-  [[0, { [_jN]: _com }], [0, { [_jN]: _rTe }], [1, { [_jN]: _rSe }]]
+  [[0, { [_jN]: _com }], [0, { [_jN]: _rTe }], [1, { [_jN]: _rSe }]], 3
 ];
 export var ResourceTags$: StaticStructureSchema = [3, n0, _RT,
   0,
@@ -2979,7 +2979,7 @@ export var StaticKeyProvider$: StaticStructureSchema = [3, n0, _SKPt,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_A, _Ta],
-  [[0, { [_jN]: _a }], [128 | 0, { [_jN]: _ta }]]
+  [[0, { [_jN]: _a }], [128 | 0, { [_jN]: _ta }]], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -3050,7 +3050,7 @@ export var UncompressedSettings$: StaticStructureSchema = [3, n0, _US,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_A, _TK],
-  [[0, 1], [64 | 0, { [_jN]: _tK }]]
+  [[0, 1], [64 | 0, { [_jN]: _tK }]], 1
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -3059,8 +3059,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateJobTemplateRequest$: StaticStructureSchema = [3, n0, _UJTR,
   0,
-  [_AScc, _Ca, _Des, _HD, _N, _Pri, _Q, _Se, _SUI],
-  [[() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _ca }], [0, { [_jN]: _des }], [() => __listOfHopDestination, { [_jN]: _hD }], [0, 1], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [() => JobTemplateSettings$, { [_jN]: _se }], [0, { [_jN]: _sUI }]]
+  [_N, _AScc, _Ca, _Des, _HD, _Pri, _Q, _Se, _SUI],
+  [[0, 1], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _ca }], [0, { [_jN]: _des }], [() => __listOfHopDestination, { [_jN]: _hD }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [() => JobTemplateSettings$, { [_jN]: _se }], [0, { [_jN]: _sUI }]], 1
 ];
 export var UpdateJobTemplateResponse$: StaticStructureSchema = [3, n0, _UJTRp,
   0,
@@ -3069,8 +3069,8 @@ export var UpdateJobTemplateResponse$: StaticStructureSchema = [3, n0, _UJTRp,
 ];
 export var UpdatePresetRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
-  [_Ca, _Des, _N, _Se],
-  [[0, { [_jN]: _ca }], [0, { [_jN]: _des }], [0, 1], [() => PresetSettings$, { [_jN]: _se }]]
+  [_N, _Ca, _Des, _Se],
+  [[0, 1], [0, { [_jN]: _ca }], [0, { [_jN]: _des }], [() => PresetSettings$, { [_jN]: _se }]], 1
 ];
 export var UpdatePresetResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
@@ -3079,8 +3079,8 @@ export var UpdatePresetResponse$: StaticStructureSchema = [3, n0, _UPRp,
 ];
 export var UpdateQueueRequest$: StaticStructureSchema = [3, n0, _UQR,
   0,
-  [_CJ, _Des, _N, _RPS, _Sta],
-  [[1, { [_jN]: _cJ }], [0, { [_jN]: _des }], [0, 1], [() => ReservationPlanSettings$, { [_jN]: _rPS }], [0, { [_jN]: _sta }]]
+  [_N, _CJ, _Des, _RPS, _Sta],
+  [[0, 1], [1, { [_jN]: _cJ }], [0, { [_jN]: _des }], [() => ReservationPlanSettings$, { [_jN]: _rPS }], [0, { [_jN]: _sta }]], 1
 ];
 export var UpdateQueueResponse$: StaticStructureSchema = [3, n0, _UQRp,
   0,
@@ -3170,7 +3170,7 @@ export var Vp9Settings$: StaticStructureSchema = [3, n0, _VSpe,
 export var WarningGroup$: StaticStructureSchema = [3, n0, _WG,
   0,
   [_Cod, _Cou],
-  [[1, { [_jN]: _cod }], [1, { [_jN]: _cou }]]
+  [[1, { [_jN]: _cod }], [1, { [_jN]: _cou }]], 2
 ];
 export var WavSettings$: StaticStructureSchema = [3, n0, _WS,
   0,

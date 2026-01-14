@@ -384,8 +384,8 @@ export var AmazonOpenSearchServerlessBufferingHints$: StaticStructureSchema = [3
 ];
 export var AmazonOpenSearchServerlessDestinationConfiguration$: StaticStructureSchema = [3, n0, _AOSSDC,
   0,
-  [_RARN, _CE, _IN, _BH, _RO, _SBM, _SC, _PC, _CWLO, _VC],
-  [0, 0, 0, () => AmazonOpenSearchServerlessBufferingHints$, () => AmazonOpenSearchServerlessRetryOptions$, 0, () => S3DestinationConfiguration$, () => ProcessingConfiguration$, () => CloudWatchLoggingOptions$, () => VpcConfiguration$]
+  [_RARN, _IN, _SC, _CE, _BH, _RO, _SBM, _PC, _CWLO, _VC],
+  [0, 0, () => S3DestinationConfiguration$, 0, () => AmazonOpenSearchServerlessBufferingHints$, () => AmazonOpenSearchServerlessRetryOptions$, 0, () => ProcessingConfiguration$, () => CloudWatchLoggingOptions$, () => VpcConfiguration$], 3
 ];
 export var AmazonOpenSearchServerlessDestinationDescription$: StaticStructureSchema = [3, n0, _AOSSDD,
   0,
@@ -409,8 +409,8 @@ export var AmazonopensearchserviceBufferingHints$: StaticStructureSchema = [3, n
 ];
 export var AmazonopensearchserviceDestinationConfiguration$: StaticStructureSchema = [3, n0, _ADC,
   0,
-  [_RARN, _DARN, _CEl, _IN, _TN, _IRP, _BH, _RO, _SBM, _SC, _PC, _CWLO, _VC, _DIO],
-  [0, 0, 0, 0, 0, 0, () => AmazonopensearchserviceBufferingHints$, () => AmazonopensearchserviceRetryOptions$, 0, () => S3DestinationConfiguration$, () => ProcessingConfiguration$, () => CloudWatchLoggingOptions$, () => VpcConfiguration$, () => DocumentIdOptions$]
+  [_RARN, _IN, _SC, _DARN, _CEl, _TN, _IRP, _BH, _RO, _SBM, _PC, _CWLO, _VC, _DIO],
+  [0, 0, () => S3DestinationConfiguration$, 0, 0, 0, 0, () => AmazonopensearchserviceBufferingHints$, () => AmazonopensearchserviceRetryOptions$, 0, () => ProcessingConfiguration$, () => CloudWatchLoggingOptions$, () => VpcConfiguration$, () => DocumentIdOptions$], 3
 ];
 export var AmazonopensearchserviceDestinationDescription$: StaticStructureSchema = [3, n0, _ADD,
   0,
@@ -430,7 +430,7 @@ export var AmazonopensearchserviceRetryOptions$: StaticStructureSchema = [3, n0,
 export var AuthenticationConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_RARN, _C],
-  [0, 0]
+  [0, 0], 2
 ];
 export var BufferingHints$: StaticStructureSchema = [3, n0, _BH,
   0,
@@ -456,12 +456,12 @@ TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentM
 export var CopyCommand$: StaticStructureSchema = [3, n0, _CCo,
   0,
   [_DTN, _DTC, _CO],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var CreateDeliveryStreamInput$: StaticStructureSchema = [3, n0, _CDSI,
   0,
   [_DSN, _DST, _DPSC, _KSSC, _DSECI, _SDC, _ESDC, _RDC, _EDC, _ADC, _SDCp, _HEDC, _T, _AOSSDC, _MSKSC, _SDCn, _IDC, _DSC],
-  [0, 0, () => DirectPutSourceConfiguration$, () => KinesisStreamSourceConfiguration$, () => DeliveryStreamEncryptionConfigurationInput$, () => S3DestinationConfiguration$, () => ExtendedS3DestinationConfiguration$, [() => RedshiftDestinationConfiguration$, 0], () => ElasticsearchDestinationConfiguration$, () => AmazonopensearchserviceDestinationConfiguration$, () => SplunkDestinationConfiguration$, [() => HttpEndpointDestinationConfiguration$, 0], () => TagDeliveryStreamInputTagList, () => AmazonOpenSearchServerlessDestinationConfiguration$, () => MSKSourceConfiguration$, [() => SnowflakeDestinationConfiguration$, 0], () => IcebergDestinationConfiguration$, () => DatabaseSourceConfiguration$]
+  [0, 0, () => DirectPutSourceConfiguration$, () => KinesisStreamSourceConfiguration$, () => DeliveryStreamEncryptionConfigurationInput$, () => S3DestinationConfiguration$, () => ExtendedS3DestinationConfiguration$, [() => RedshiftDestinationConfiguration$, 0], () => ElasticsearchDestinationConfiguration$, () => AmazonopensearchserviceDestinationConfiguration$, () => SplunkDestinationConfiguration$, [() => HttpEndpointDestinationConfiguration$, 0], () => TagDeliveryStreamInputTagList, () => AmazonOpenSearchServerlessDestinationConfiguration$, () => MSKSourceConfiguration$, [() => SnowflakeDestinationConfiguration$, 0], () => IcebergDestinationConfiguration$, () => DatabaseSourceConfiguration$], 1
 ];
 export var CreateDeliveryStreamOutput$: StaticStructureSchema = [3, n0, _CDSO,
   0,
@@ -481,17 +481,17 @@ export var DatabaseList$: StaticStructureSchema = [3, n0, _DL,
 export var DatabaseSnapshotInfo$: StaticStructureSchema = [3, n0, _DSI,
   0,
   [_Id, _Ta, _RT, _RB, _S, _FD],
-  [0, 0, 4, 0, 0, () => FailureDescription$]
+  [0, 0, 4, 0, 0, () => FailureDescription$], 5
 ];
 export var DatabaseSourceAuthenticationConfiguration$: StaticStructureSchema = [3, n0, _DSAC,
   0,
   [_SMC],
-  [() => SecretsManagerConfiguration$]
+  [() => SecretsManagerConfiguration$], 1
 ];
 export var DatabaseSourceConfiguration$: StaticStructureSchema = [3, n0, _DSC,
   0,
-  [_Ty, _En, _Po, _SSLM, _D, _Tab, _Co, _SK, _SWT, _DSAC, _DSVPCC],
-  [0, 0, 1, 0, () => DatabaseList$, () => DatabaseTableList$, () => DatabaseColumnList$, 64 | 0, 0, () => DatabaseSourceAuthenticationConfiguration$, () => DatabaseSourceVPCConfiguration$]
+  [_Ty, _En, _Po, _D, _Tab, _SWT, _DSAC, _DSVPCC, _SSLM, _Co, _SK],
+  [0, 0, 1, () => DatabaseList$, () => DatabaseTableList$, 0, () => DatabaseSourceAuthenticationConfiguration$, () => DatabaseSourceVPCConfiguration$, 0, () => DatabaseColumnList$, 64 | 0], 8
 ];
 export var DatabaseSourceDescription$: StaticStructureSchema = [3, n0, _DSD,
   0,
@@ -501,7 +501,7 @@ export var DatabaseSourceDescription$: StaticStructureSchema = [3, n0, _DSD,
 export var DatabaseSourceVPCConfiguration$: StaticStructureSchema = [3, n0, _DSVPCC,
   0,
   [_VESN],
-  [0]
+  [0], 1
 ];
 export var DatabaseTableList$: StaticStructureSchema = [3, n0, _DTL,
   0,
@@ -516,7 +516,7 @@ export var DataFormatConversionConfiguration$: StaticStructureSchema = [3, n0, _
 export var DeleteDeliveryStreamInput$: StaticStructureSchema = [3, n0, _DDSI,
   0,
   [_DSN, _AFD],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteDeliveryStreamOutput$: StaticStructureSchema = [3, n0, _DDSO,
   0,
@@ -525,8 +525,8 @@ export var DeleteDeliveryStreamOutput$: StaticStructureSchema = [3, n0, _DDSO,
 ];
 export var DeliveryStreamDescription$: StaticStructureSchema = [3, n0, _DSDe,
   0,
-  [_DSN, _DSARN, _DSS, _FD, _DSEC, _DST, _VI, _CT, _LUT, _So, _De, _HMD],
-  [0, 0, 0, () => FailureDescription$, () => DeliveryStreamEncryptionConfiguration$, 0, 0, 4, 4, () => SourceDescription$, [() => DestinationDescriptionList, 0], 2]
+  [_DSN, _DSARN, _DSS, _DST, _VI, _De, _HMD, _FD, _DSEC, _CT, _LUT, _So],
+  [0, 0, 0, 0, 0, [() => DestinationDescriptionList, 0], 2, () => FailureDescription$, () => DeliveryStreamEncryptionConfiguration$, 4, 4, () => SourceDescription$], 7
 ];
 export var DeliveryStreamEncryptionConfiguration$: StaticStructureSchema = [3, n0, _DSEC,
   0,
@@ -535,18 +535,18 @@ export var DeliveryStreamEncryptionConfiguration$: StaticStructureSchema = [3, n
 ];
 export var DeliveryStreamEncryptionConfigurationInput$: StaticStructureSchema = [3, n0, _DSECI,
   0,
-  [_KARN, _KT],
-  [0, 0]
+  [_KT, _KARN],
+  [0, 0], 1
 ];
 export var DescribeDeliveryStreamInput$: StaticStructureSchema = [3, n0, _DDSIe,
   0,
   [_DSN, _L, _ESDI],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var DescribeDeliveryStreamOutput$: StaticStructureSchema = [3, n0, _DDSOe,
   0,
   [_DSDe],
-  [[() => DeliveryStreamDescription$, 0]]
+  [[() => DeliveryStreamDescription$, 0]], 1
 ];
 export var Deserializer$: StaticStructureSchema = [3, n0, _Des,
   0,
@@ -556,17 +556,17 @@ export var Deserializer$: StaticStructureSchema = [3, n0, _Des,
 export var DestinationDescription$: StaticStructureSchema = [3, n0, _DD,
   0,
   [_DI, _SDD, _ESDD, _RDD, _EDD, _ADD, _SDDp, _HEDD, _SDDn, _AOSSDD, _IDD],
-  [0, () => S3DestinationDescription$, () => ExtendedS3DestinationDescription$, [() => RedshiftDestinationDescription$, 0], () => ElasticsearchDestinationDescription$, () => AmazonopensearchserviceDestinationDescription$, () => SplunkDestinationDescription$, [() => HttpEndpointDestinationDescription$, 0], [() => SnowflakeDestinationDescription$, 0], () => AmazonOpenSearchServerlessDestinationDescription$, () => IcebergDestinationDescription$]
+  [0, () => S3DestinationDescription$, () => ExtendedS3DestinationDescription$, [() => RedshiftDestinationDescription$, 0], () => ElasticsearchDestinationDescription$, () => AmazonopensearchserviceDestinationDescription$, () => SplunkDestinationDescription$, [() => HttpEndpointDestinationDescription$, 0], [() => SnowflakeDestinationDescription$, 0], () => AmazonOpenSearchServerlessDestinationDescription$, () => IcebergDestinationDescription$], 1
 ];
 export var DestinationTableConfiguration$: StaticStructureSchema = [3, n0, _DTCe,
   0,
   [_DTNe, _DDN, _UK, _PS, _SEOP],
-  [0, 0, 64 | 0, () => PartitionSpec$, 0]
+  [0, 0, 64 | 0, () => PartitionSpec$, 0], 2
 ];
 export var DirectPutSourceConfiguration$: StaticStructureSchema = [3, n0, _DPSC,
   0,
   [_THIMB],
-  [1]
+  [1], 1
 ];
 export var DirectPutSourceDescription$: StaticStructureSchema = [3, n0, _DPSD,
   0,
@@ -576,7 +576,7 @@ export var DirectPutSourceDescription$: StaticStructureSchema = [3, n0, _DPSD,
 export var DocumentIdOptions$: StaticStructureSchema = [3, n0, _DIO,
   0,
   [_DDIF],
-  [0]
+  [0], 1
 ];
 export var DynamicPartitioningConfiguration$: StaticStructureSchema = [3, n0, _DPC,
   0,
@@ -590,8 +590,8 @@ export var ElasticsearchBufferingHints$: StaticStructureSchema = [3, n0, _EBH,
 ];
 export var ElasticsearchDestinationConfiguration$: StaticStructureSchema = [3, n0, _EDC,
   0,
-  [_RARN, _DARN, _CEl, _IN, _TN, _IRP, _BH, _RO, _SBM, _SC, _PC, _CWLO, _VC, _DIO],
-  [0, 0, 0, 0, 0, 0, () => ElasticsearchBufferingHints$, () => ElasticsearchRetryOptions$, 0, () => S3DestinationConfiguration$, () => ProcessingConfiguration$, () => CloudWatchLoggingOptions$, () => VpcConfiguration$, () => DocumentIdOptions$]
+  [_RARN, _IN, _SC, _DARN, _CEl, _TN, _IRP, _BH, _RO, _SBM, _PC, _CWLO, _VC, _DIO],
+  [0, 0, () => S3DestinationConfiguration$, 0, 0, 0, 0, () => ElasticsearchBufferingHints$, () => ElasticsearchRetryOptions$, 0, () => ProcessingConfiguration$, () => CloudWatchLoggingOptions$, () => VpcConfiguration$, () => DocumentIdOptions$], 3
 ];
 export var ElasticsearchDestinationDescription$: StaticStructureSchema = [3, n0, _EDD,
   0,
@@ -616,12 +616,12 @@ export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
 export var ExtendedS3DestinationConfiguration$: StaticStructureSchema = [3, n0, _ESDC,
   0,
   [_RARN, _BARN, _Pr, _EOP, _BH, _CF, _EC, _CWLO, _PC, _SBM, _SBC, _DFCC, _DPC, _FE, _CTZ],
-  [0, 0, 0, 0, () => BufferingHints$, 0, () => EncryptionConfiguration$, () => CloudWatchLoggingOptions$, () => ProcessingConfiguration$, 0, () => S3DestinationConfiguration$, () => DataFormatConversionConfiguration$, () => DynamicPartitioningConfiguration$, 0, 0]
+  [0, 0, 0, 0, () => BufferingHints$, 0, () => EncryptionConfiguration$, () => CloudWatchLoggingOptions$, () => ProcessingConfiguration$, 0, () => S3DestinationConfiguration$, () => DataFormatConversionConfiguration$, () => DynamicPartitioningConfiguration$, 0, 0], 2
 ];
 export var ExtendedS3DestinationDescription$: StaticStructureSchema = [3, n0, _ESDD,
   0,
-  [_RARN, _BARN, _Pr, _EOP, _BH, _CF, _EC, _CWLO, _PC, _SBM, _SBD, _DFCC, _DPC, _FE, _CTZ],
-  [0, 0, 0, 0, () => BufferingHints$, 0, () => EncryptionConfiguration$, () => CloudWatchLoggingOptions$, () => ProcessingConfiguration$, 0, () => S3DestinationDescription$, () => DataFormatConversionConfiguration$, () => DynamicPartitioningConfiguration$, 0, 0]
+  [_RARN, _BARN, _BH, _CF, _EC, _Pr, _EOP, _CWLO, _PC, _SBM, _SBD, _DFCC, _DPC, _FE, _CTZ],
+  [0, 0, () => BufferingHints$, 0, () => EncryptionConfiguration$, 0, 0, () => CloudWatchLoggingOptions$, () => ProcessingConfiguration$, 0, () => S3DestinationDescription$, () => DataFormatConversionConfiguration$, () => DynamicPartitioningConfiguration$, 0, 0], 5
 ];
 export var ExtendedS3DestinationUpdate$: StaticStructureSchema = [3, n0, _ESDU,
   0,
@@ -631,7 +631,7 @@ export var ExtendedS3DestinationUpdate$: StaticStructureSchema = [3, n0, _ESDU,
 export var FailureDescription$: StaticStructureSchema = [3, n0, _FD,
   0,
   [_Ty, _Det],
-  [0, 0]
+  [0, 0], 2
 ];
 export var HiveJsonSerDe$: StaticStructureSchema = [3, n0, _HJSD,
   0,
@@ -646,12 +646,12 @@ export var HttpEndpointBufferingHints$: StaticStructureSchema = [3, n0, _HEBH,
 export var HttpEndpointCommonAttribute$: StaticStructureSchema = [3, n0, _HECA,
   0,
   [_AN, _AV],
-  [[() => HttpEndpointAttributeName, 0], [() => HttpEndpointAttributeValue, 0]]
+  [[() => HttpEndpointAttributeName, 0], [() => HttpEndpointAttributeValue, 0]], 2
 ];
 export var HttpEndpointConfiguration$: StaticStructureSchema = [3, n0, _HEC,
   0,
   [_Ur, _N, _AK],
-  [[() => HttpEndpointUrl, 0], 0, [() => HttpEndpointAccessKey, 0]]
+  [[() => HttpEndpointUrl, 0], 0, [() => HttpEndpointAccessKey, 0]], 1
 ];
 export var HttpEndpointDescription$: StaticStructureSchema = [3, n0, _HED,
   0,
@@ -660,8 +660,8 @@ export var HttpEndpointDescription$: StaticStructureSchema = [3, n0, _HED,
 ];
 export var HttpEndpointDestinationConfiguration$: StaticStructureSchema = [3, n0, _HEDC,
   0,
-  [_ECn, _BH, _CWLO, _RC, _PC, _RARN, _RO, _SBM, _SC, _SMC],
-  [[() => HttpEndpointConfiguration$, 0], () => HttpEndpointBufferingHints$, () => CloudWatchLoggingOptions$, [() => HttpEndpointRequestConfiguration$, 0], () => ProcessingConfiguration$, 0, () => HttpEndpointRetryOptions$, 0, () => S3DestinationConfiguration$, () => SecretsManagerConfiguration$]
+  [_ECn, _SC, _BH, _CWLO, _RC, _PC, _RARN, _RO, _SBM, _SMC],
+  [[() => HttpEndpointConfiguration$, 0], () => S3DestinationConfiguration$, () => HttpEndpointBufferingHints$, () => CloudWatchLoggingOptions$, [() => HttpEndpointRequestConfiguration$, 0], () => ProcessingConfiguration$, 0, () => HttpEndpointRetryOptions$, 0, () => SecretsManagerConfiguration$], 2
 ];
 export var HttpEndpointDestinationDescription$: StaticStructureSchema = [3, n0, _HEDD,
   0,
@@ -685,8 +685,8 @@ export var HttpEndpointRetryOptions$: StaticStructureSchema = [3, n0, _HERO,
 ];
 export var IcebergDestinationConfiguration$: StaticStructureSchema = [3, n0, _IDC,
   0,
-  [_DTCL, _SEC, _TCC, _BH, _CWLO, _PC, _SBM, _RO, _RARN, _AO, _CC, _SC],
-  [() => DestinationTableConfigurationList, () => SchemaEvolutionConfiguration$, () => TableCreationConfiguration$, () => BufferingHints$, () => CloudWatchLoggingOptions$, () => ProcessingConfiguration$, 0, () => RetryOptions$, 0, 2, () => CatalogConfiguration$, () => S3DestinationConfiguration$]
+  [_RARN, _CC, _SC, _DTCL, _SEC, _TCC, _BH, _CWLO, _PC, _SBM, _RO, _AO],
+  [0, () => CatalogConfiguration$, () => S3DestinationConfiguration$, () => DestinationTableConfigurationList, () => SchemaEvolutionConfiguration$, () => TableCreationConfiguration$, () => BufferingHints$, () => CloudWatchLoggingOptions$, () => ProcessingConfiguration$, 0, () => RetryOptions$, 2], 3
 ];
 export var IcebergDestinationDescription$: StaticStructureSchema = [3, n0, _IDD,
   0,
@@ -724,7 +724,7 @@ TypeRegistry.for(n0).registerError(InvalidSourceException$, InvalidSourceExcepti
 export var KinesisStreamSourceConfiguration$: StaticStructureSchema = [3, n0, _KSSC,
   0,
   [_KSARN, _RARN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var KinesisStreamSourceDescription$: StaticStructureSchema = [3, n0, _KSSD,
   0,
@@ -734,7 +734,7 @@ export var KinesisStreamSourceDescription$: StaticStructureSchema = [3, n0, _KSS
 export var KMSEncryptionConfig$: StaticStructureSchema = [3, n0, _KMSEC,
   0,
   [_AWSKMSKARN],
-  [0]
+  [0], 1
 ];
 export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
   { [_e]: _c },
@@ -750,22 +750,22 @@ export var ListDeliveryStreamsInput$: StaticStructureSchema = [3, n0, _LDSI,
 export var ListDeliveryStreamsOutput$: StaticStructureSchema = [3, n0, _LDSO,
   0,
   [_DSNe, _HMDS],
-  [64 | 0, 2]
+  [64 | 0, 2], 2
 ];
 export var ListTagsForDeliveryStreamInput$: StaticStructureSchema = [3, n0, _LTFDSI,
   0,
   [_DSN, _ESTK, _L],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListTagsForDeliveryStreamOutput$: StaticStructureSchema = [3, n0, _LTFDSO,
   0,
   [_T, _HMT],
-  [() => ListTagsForDeliveryStreamOutputTagList, 2]
+  [() => ListTagsForDeliveryStreamOutputTagList, 2], 2
 ];
 export var MSKSourceConfiguration$: StaticStructureSchema = [3, n0, _MSKSC,
   0,
   [_MSKCARN, _TNo, _AC, _RFT],
-  [0, 0, () => AuthenticationConfiguration$, 4]
+  [0, 0, () => AuthenticationConfiguration$, 4], 3
 ];
 export var MSKSourceDescription$: StaticStructureSchema = [3, n0, _MSKSD,
   0,
@@ -795,7 +795,7 @@ export var ParquetSerDe$: StaticStructureSchema = [3, n0, _PSD,
 export var PartitionField$: StaticStructureSchema = [3, n0, _PF,
   0,
   [_SN],
-  [0]
+  [0], 1
 ];
 export var PartitionSpec$: StaticStructureSchema = [3, n0, _PS,
   0,
@@ -810,22 +810,22 @@ export var ProcessingConfiguration$: StaticStructureSchema = [3, n0, _PC,
 export var Processor$: StaticStructureSchema = [3, n0, _Proc,
   0,
   [_Ty, _Pa],
-  [0, () => ProcessorParameterList]
+  [0, () => ProcessorParameterList], 1
 ];
 export var ProcessorParameter$: StaticStructureSchema = [3, n0, _PP,
   0,
   [_PN, _PV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutRecordBatchInput$: StaticStructureSchema = [3, n0, _PRBI,
   0,
   [_DSN, _R],
-  [0, () => PutRecordBatchRequestEntryList]
+  [0, () => PutRecordBatchRequestEntryList], 2
 ];
 export var PutRecordBatchOutput$: StaticStructureSchema = [3, n0, _PRBO,
   0,
-  [_FPC, _Enc, _RR],
-  [1, 2, () => PutRecordBatchResponseEntryList]
+  [_FPC, _RR, _Enc],
+  [1, () => PutRecordBatchResponseEntryList, 2], 2
 ];
 export var PutRecordBatchResponseEntry$: StaticStructureSchema = [3, n0, _PRBRE,
   0,
@@ -835,27 +835,27 @@ export var PutRecordBatchResponseEntry$: StaticStructureSchema = [3, n0, _PRBRE,
 export var PutRecordInput$: StaticStructureSchema = [3, n0, _PRI,
   0,
   [_DSN, _Re],
-  [0, () => _Record$]
+  [0, () => _Record$], 2
 ];
 export var PutRecordOutput$: StaticStructureSchema = [3, n0, _PRO,
   0,
   [_RI, _Enc],
-  [0, 2]
+  [0, 2], 1
 ];
 export var _Record$: StaticStructureSchema = [3, n0, _Re,
   0,
   [_Da],
-  [21]
+  [21], 1
 ];
 export var RedshiftDestinationConfiguration$: StaticStructureSchema = [3, n0, _RDC,
   0,
-  [_RARN, _CJDBCURL, _CCo, _U, _P, _RO, _SC, _PC, _SBM, _SBC, _CWLO, _SMC],
-  [0, 0, () => CopyCommand$, [() => Username, 0], [() => Password, 0], () => RedshiftRetryOptions$, () => S3DestinationConfiguration$, () => ProcessingConfiguration$, 0, () => S3DestinationConfiguration$, () => CloudWatchLoggingOptions$, () => SecretsManagerConfiguration$]
+  [_RARN, _CJDBCURL, _CCo, _SC, _U, _P, _RO, _PC, _SBM, _SBC, _CWLO, _SMC],
+  [0, 0, () => CopyCommand$, () => S3DestinationConfiguration$, [() => Username, 0], [() => Password, 0], () => RedshiftRetryOptions$, () => ProcessingConfiguration$, 0, () => S3DestinationConfiguration$, () => CloudWatchLoggingOptions$, () => SecretsManagerConfiguration$], 4
 ];
 export var RedshiftDestinationDescription$: StaticStructureSchema = [3, n0, _RDD,
   0,
-  [_RARN, _CJDBCURL, _CCo, _U, _RO, _SDD, _PC, _SBM, _SBD, _CWLO, _SMC],
-  [0, 0, () => CopyCommand$, [() => Username, 0], () => RedshiftRetryOptions$, () => S3DestinationDescription$, () => ProcessingConfiguration$, 0, () => S3DestinationDescription$, () => CloudWatchLoggingOptions$, () => SecretsManagerConfiguration$]
+  [_RARN, _CJDBCURL, _CCo, _SDD, _U, _RO, _PC, _SBM, _SBD, _CWLO, _SMC],
+  [0, 0, () => CopyCommand$, () => S3DestinationDescription$, [() => Username, 0], () => RedshiftRetryOptions$, () => ProcessingConfiguration$, 0, () => S3DestinationDescription$, () => CloudWatchLoggingOptions$, () => SecretsManagerConfiguration$], 4
 ];
 export var RedshiftDestinationUpdate$: StaticStructureSchema = [3, n0, _RDU,
   0,
@@ -887,12 +887,12 @@ export var RetryOptions$: StaticStructureSchema = [3, n0, _RO,
 export var S3DestinationConfiguration$: StaticStructureSchema = [3, n0, _SDC,
   0,
   [_RARN, _BARN, _Pr, _EOP, _BH, _CF, _EC, _CWLO],
-  [0, 0, 0, 0, () => BufferingHints$, 0, () => EncryptionConfiguration$, () => CloudWatchLoggingOptions$]
+  [0, 0, 0, 0, () => BufferingHints$, 0, () => EncryptionConfiguration$, () => CloudWatchLoggingOptions$], 2
 ];
 export var S3DestinationDescription$: StaticStructureSchema = [3, n0, _SDD,
   0,
-  [_RARN, _BARN, _Pr, _EOP, _BH, _CF, _EC, _CWLO],
-  [0, 0, 0, 0, () => BufferingHints$, 0, () => EncryptionConfiguration$, () => CloudWatchLoggingOptions$]
+  [_RARN, _BARN, _BH, _CF, _EC, _Pr, _EOP, _CWLO],
+  [0, 0, () => BufferingHints$, 0, () => EncryptionConfiguration$, 0, 0, () => CloudWatchLoggingOptions$], 5
 ];
 export var S3DestinationUpdate$: StaticStructureSchema = [3, n0, _SDU,
   0,
@@ -907,12 +907,12 @@ export var SchemaConfiguration$: StaticStructureSchema = [3, n0, _SCc,
 export var SchemaEvolutionConfiguration$: StaticStructureSchema = [3, n0, _SEC,
   0,
   [_E],
-  [2]
+  [2], 1
 ];
 export var SecretsManagerConfiguration$: StaticStructureSchema = [3, n0, _SMC,
   0,
-  [_SARN, _RARN, _E],
-  [0, 0, 2]
+  [_E, _SARN, _RARN],
+  [2, 0, 0], 1
 ];
 export var Serializer$: StaticStructureSchema = [3, n0, _Se,
   0,
@@ -932,8 +932,8 @@ export var SnowflakeBufferingHints$: StaticStructureSchema = [3, n0, _SBH,
 ];
 export var SnowflakeDestinationConfiguration$: StaticStructureSchema = [3, n0, _SDCn,
   0,
-  [_AU, _PK, _KP, _Us, _Dat, _Sc, _Ta, _SRC, _DLO, _MDCN, _CCN, _SVC, _CWLO, _PC, _RARN, _RO, _SBM, _SC, _SMC, _BH],
-  [[() => SnowflakeAccountUrl, 0], [() => SnowflakePrivateKey, 0], [() => SnowflakeKeyPassphrase, 0], [() => SnowflakeUser, 0], [() => SnowflakeDatabase, 0], [() => SnowflakeSchema, 0], [() => SnowflakeTable, 0], [() => SnowflakeRoleConfiguration$, 0], 0, [() => SnowflakeMetaDataColumnName, 0], [() => SnowflakeContentColumnName, 0], [() => SnowflakeVpcConfiguration$, 0], () => CloudWatchLoggingOptions$, () => ProcessingConfiguration$, 0, () => SnowflakeRetryOptions$, 0, () => S3DestinationConfiguration$, () => SecretsManagerConfiguration$, () => SnowflakeBufferingHints$]
+  [_AU, _Dat, _Sc, _Ta, _RARN, _SC, _PK, _KP, _Us, _SRC, _DLO, _MDCN, _CCN, _SVC, _CWLO, _PC, _RO, _SBM, _SMC, _BH],
+  [[() => SnowflakeAccountUrl, 0], [() => SnowflakeDatabase, 0], [() => SnowflakeSchema, 0], [() => SnowflakeTable, 0], 0, () => S3DestinationConfiguration$, [() => SnowflakePrivateKey, 0], [() => SnowflakeKeyPassphrase, 0], [() => SnowflakeUser, 0], [() => SnowflakeRoleConfiguration$, 0], 0, [() => SnowflakeMetaDataColumnName, 0], [() => SnowflakeContentColumnName, 0], [() => SnowflakeVpcConfiguration$, 0], () => CloudWatchLoggingOptions$, () => ProcessingConfiguration$, () => SnowflakeRetryOptions$, 0, () => SecretsManagerConfiguration$, () => SnowflakeBufferingHints$], 6
 ];
 export var SnowflakeDestinationDescription$: StaticStructureSchema = [3, n0, _SDDn,
   0,
@@ -958,7 +958,7 @@ export var SnowflakeRoleConfiguration$: StaticStructureSchema = [3, n0, _SRC,
 export var SnowflakeVpcConfiguration$: StaticStructureSchema = [3, n0, _SVC,
   0,
   [_PLVI],
-  [[() => SnowflakePrivateLinkVpceId, 0]]
+  [[() => SnowflakePrivateLinkVpceId, 0]], 1
 ];
 export var SourceDescription$: StaticStructureSchema = [3, n0, _SDo,
   0,
@@ -972,8 +972,8 @@ export var SplunkBufferingHints$: StaticStructureSchema = [3, n0, _SBHp,
 ];
 export var SplunkDestinationConfiguration$: StaticStructureSchema = [3, n0, _SDCp,
   0,
-  [_HECE, _HECET, _HECT, _HECATIS, _RO, _SBM, _SC, _PC, _CWLO, _BH, _SMC],
-  [0, 0, 0, 1, () => SplunkRetryOptions$, 0, () => S3DestinationConfiguration$, () => ProcessingConfiguration$, () => CloudWatchLoggingOptions$, () => SplunkBufferingHints$, () => SecretsManagerConfiguration$]
+  [_HECE, _HECET, _SC, _HECT, _HECATIS, _RO, _SBM, _PC, _CWLO, _BH, _SMC],
+  [0, 0, () => S3DestinationConfiguration$, 0, 1, () => SplunkRetryOptions$, 0, () => ProcessingConfiguration$, () => CloudWatchLoggingOptions$, () => SplunkBufferingHints$, () => SecretsManagerConfiguration$], 3
 ];
 export var SplunkDestinationDescription$: StaticStructureSchema = [3, n0, _SDDp,
   0,
@@ -993,7 +993,7 @@ export var SplunkRetryOptions$: StaticStructureSchema = [3, n0, _SROp,
 export var StartDeliveryStreamEncryptionInput$: StaticStructureSchema = [3, n0, _SDSEI,
   0,
   [_DSN, _DSECI],
-  [0, () => DeliveryStreamEncryptionConfigurationInput$]
+  [0, () => DeliveryStreamEncryptionConfigurationInput$], 1
 ];
 export var StartDeliveryStreamEncryptionOutput$: StaticStructureSchema = [3, n0, _SDSEO,
   0,
@@ -1003,7 +1003,7 @@ export var StartDeliveryStreamEncryptionOutput$: StaticStructureSchema = [3, n0,
 export var StopDeliveryStreamEncryptionInput$: StaticStructureSchema = [3, n0, _SDSEIt,
   0,
   [_DSN],
-  [0]
+  [0], 1
 ];
 export var StopDeliveryStreamEncryptionOutput$: StaticStructureSchema = [3, n0, _SDSEOt,
   0,
@@ -1013,17 +1013,17 @@ export var StopDeliveryStreamEncryptionOutput$: StaticStructureSchema = [3, n0, 
 export var TableCreationConfiguration$: StaticStructureSchema = [3, n0, _TCC,
   0,
   [_E],
-  [2]
+  [2], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TagDeliveryStreamInput$: StaticStructureSchema = [3, n0, _TDSI,
   0,
   [_DSN, _T],
-  [0, () => TagDeliveryStreamInputTagList]
+  [0, () => TagDeliveryStreamInputTagList], 2
 ];
 export var TagDeliveryStreamOutput$: StaticStructureSchema = [3, n0, _TDSO,
   0,
@@ -1033,7 +1033,7 @@ export var TagDeliveryStreamOutput$: StaticStructureSchema = [3, n0, _TDSO,
 export var UntagDeliveryStreamInput$: StaticStructureSchema = [3, n0, _UDSI,
   0,
   [_DSN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagDeliveryStreamOutput$: StaticStructureSchema = [3, n0, _UDSO,
   0,
@@ -1043,7 +1043,7 @@ export var UntagDeliveryStreamOutput$: StaticStructureSchema = [3, n0, _UDSO,
 export var UpdateDestinationInput$: StaticStructureSchema = [3, n0, _UDI,
   0,
   [_DSN, _CDSVI, _DI, _SDU, _ESDU, _RDU, _EDU, _ADU, _SDUp, _HEDU, _AOSSDU, _SDUn, _IDU],
-  [0, 0, 0, () => S3DestinationUpdate$, () => ExtendedS3DestinationUpdate$, [() => RedshiftDestinationUpdate$, 0], () => ElasticsearchDestinationUpdate$, () => AmazonopensearchserviceDestinationUpdate$, () => SplunkDestinationUpdate$, [() => HttpEndpointDestinationUpdate$, 0], () => AmazonOpenSearchServerlessDestinationUpdate$, [() => SnowflakeDestinationUpdate$, 0], () => IcebergDestinationUpdate$]
+  [0, 0, 0, () => S3DestinationUpdate$, () => ExtendedS3DestinationUpdate$, [() => RedshiftDestinationUpdate$, 0], () => ElasticsearchDestinationUpdate$, () => AmazonopensearchserviceDestinationUpdate$, () => SplunkDestinationUpdate$, [() => HttpEndpointDestinationUpdate$, 0], () => AmazonOpenSearchServerlessDestinationUpdate$, [() => SnowflakeDestinationUpdate$, 0], () => IcebergDestinationUpdate$], 3
 ];
 export var UpdateDestinationOutput$: StaticStructureSchema = [3, n0, _UDO,
   0,
@@ -1053,12 +1053,12 @@ export var UpdateDestinationOutput$: StaticStructureSchema = [3, n0, _UDO,
 export var VpcConfiguration$: StaticStructureSchema = [3, n0, _VC,
   0,
   [_SIu, _RARN, _SGI],
-  [64 | 0, 0, 64 | 0]
+  [64 | 0, 0, 64 | 0], 3
 ];
 export var VpcConfigurationDescription$: StaticStructureSchema = [3, n0, _VCD,
   0,
   [_SIu, _RARN, _SGI, _VIp],
-  [64 | 0, 0, 64 | 0, 0]
+  [64 | 0, 0, 64 | 0, 0], 4
 ];
 export var FirehoseServiceException$: StaticErrorSchema = [-3, _sm, "FirehoseServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(FirehoseServiceException$, FirehoseServiceException);

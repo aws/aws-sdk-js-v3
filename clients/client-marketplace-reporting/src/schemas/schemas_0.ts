@@ -45,12 +45,12 @@ TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var GetBuyerDashboardInput$: StaticStructureSchema = [3, n0, _GBDI,
   0,
   [_dI, _eD],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var GetBuyerDashboardOutput$: StaticStructureSchema = [3, n0, _GBDO,
   0,
   [_eU, _dI, _eD],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 3
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },

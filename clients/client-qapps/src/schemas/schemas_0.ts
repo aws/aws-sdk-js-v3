@@ -317,28 +317,28 @@ import { QAppsServiceException } from "../models/QAppsServiceException";
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AppDefinition$: StaticStructureSchema = [3, n0, _AD,
   0,
   [_aDV, _ca, _cE],
-  [0, () => CardModelList, 2]
+  [0, () => CardModelList, 2], 2
 ];
 export var AppDefinitionInput$: StaticStructureSchema = [3, n0, _ADI,
   0,
   [_ca, _iP],
-  [() => CardList, 0]
+  [() => CardList, 0], 1
 ];
 export var AssociateLibraryItemReviewInput$: StaticStructureSchema = [3, n0, _ALIRI,
   0,
   [_iI, _lII],
-  [[0, { [_hH]: _ii }], 0]
+  [[0, { [_hH]: _ii }], 0], 2
 ];
 export var AssociateQAppWithUserInput$: StaticStructureSchema = [3, n0, _AQAWUI,
   0,
   [_iI, _aI],
-  [[0, { [_hH]: _ii }], 0]
+  [[0, { [_hH]: _ii }], 0], 2
 ];
 export var AttributeFilter$: StaticStructureSchema = [3, n0, _AF,
   0,
@@ -348,104 +348,104 @@ export var AttributeFilter$: StaticStructureSchema = [3, n0, _AF,
 export var BatchCreateCategoryInput$: StaticStructureSchema = [3, n0, _BCCI,
   0,
   [_iI, _cat],
-  [[0, { [_hH]: _ii }], () => BatchCreateCategoryInputCategoryList]
+  [[0, { [_hH]: _ii }], () => BatchCreateCategoryInputCategoryList], 2
 ];
 export var BatchCreateCategoryInputCategory$: StaticStructureSchema = [3, n0, _BCCIC,
   0,
-  [_i, _t, _co],
-  [0, 0, 0]
+  [_t, _i, _co],
+  [0, 0, 0], 1
 ];
 export var BatchDeleteCategoryInput$: StaticStructureSchema = [3, n0, _BDCI,
   0,
   [_iI, _cat],
-  [[0, { [_hH]: _ii }], 64 | 0]
+  [[0, { [_hH]: _ii }], 64 | 0], 2
 ];
 export var BatchUpdateCategoryInput$: StaticStructureSchema = [3, n0, _BUCI,
   0,
   [_iI, _cat],
-  [[0, { [_hH]: _ii }], () => CategoryListInput]
+  [[0, { [_hH]: _ii }], () => CategoryListInput], 2
 ];
 export var CardStatus$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_cS, _cV, _s],
-  [0, 0, () => SubmissionList]
+  [0, 0, () => SubmissionList], 2
 ];
 export var CardValue$: StaticStructureSchema = [3, n0, _CV,
   0,
   [_cI, _v, _sM],
-  [0, 0, () => SubmissionMutation$]
+  [0, 0, () => SubmissionMutation$], 2
 ];
 export var Category$: StaticStructureSchema = [3, n0, _C,
   0,
   [_i, _t, _co, _aC],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var CategoryInput$: StaticStructureSchema = [3, n0, _CI,
   0,
   [_i, _t, _co],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContentTooLargeException$: StaticErrorSchema = [-3, n0, _CTLE,
   { [_e]: _c, [_hE]: 413 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ContentTooLargeException$, ContentTooLargeException);
 export var ConversationMessage$: StaticStructureSchema = [3, n0, _CM,
   0,
   [_b, _ty],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateLibraryItemInput$: StaticStructureSchema = [3, n0, _CLII,
   0,
   [_iI, _aI, _aV, _cat],
-  [[0, { [_hH]: _ii }], 0, 1, 64 | 0]
+  [[0, { [_hH]: _ii }], 0, 1, 64 | 0], 4
 ];
 export var CreateLibraryItemOutput$: StaticStructureSchema = [3, n0, _CLIO,
   0,
-  [_lII, _st, _cAr, _cB, _uA, _uB, _rC, _iV],
-  [0, 0, 5, 0, 5, 0, 1, 2]
+  [_lII, _st, _cAr, _cB, _rC, _uA, _uB, _iV],
+  [0, 0, 5, 0, 1, 5, 0, 2], 5
 ];
 export var CreatePresignedUrlInput$: StaticStructureSchema = [3, n0, _CPUI,
   0,
   [_iI, _cI, _aI, _fCS, _fN, _sc, _sI],
-  [[0, { [_hH]: _ii }], 0, 0, 0, 0, 0, 0]
+  [[0, { [_hH]: _ii }], 0, 0, 0, 0, 0, 0], 6
 ];
 export var CreatePresignedUrlOutput$: StaticStructureSchema = [3, n0, _CPUO,
   0,
   [_fI, _pU, _pUF, _pUE],
-  [0, 0, 128 | 0, 5]
+  [0, 0, 128 | 0, 5], 4
 ];
 export var CreateQAppInput$: StaticStructureSchema = [3, n0, _CQAI,
   0,
-  [_iI, _t, _d, _aD, _ta],
-  [[0, { [_hH]: _ii }], 0, 0, () => AppDefinitionInput$, 128 | 0]
+  [_iI, _t, _aD, _d, _ta],
+  [[0, { [_hH]: _ii }], 0, () => AppDefinitionInput$, 0, 128 | 0], 3
 ];
 export var CreateQAppOutput$: StaticStructureSchema = [3, n0, _CQAO,
   0,
-  [_aI, _aA, _t, _d, _iP, _aV, _st, _cAr, _cB, _uA, _uB, _rCe],
-  [0, 0, 0, 0, 0, 1, 0, 5, 0, 5, 0, 64 | 0]
+  [_aI, _aA, _t, _aV, _st, _cAr, _cB, _uA, _uB, _d, _iP, _rCe],
+  [0, 0, 0, 1, 0, 5, 0, 5, 0, 0, 0, 64 | 0], 9
 ];
 export var DeleteLibraryItemInput$: StaticStructureSchema = [3, n0, _DLII,
   0,
   [_iI, _lII],
-  [[0, { [_hH]: _ii }], 0]
+  [[0, { [_hH]: _ii }], 0], 2
 ];
 export var DeleteQAppInput$: StaticStructureSchema = [3, n0, _DQAI,
   0,
   [_iI, _aI],
-  [[0, { [_hH]: _ii }], 0]
+  [[0, { [_hH]: _ii }], 0], 2
 ];
 export var DescribeQAppPermissionsInput$: StaticStructureSchema = [3, n0, _DQAPI,
   0,
   [_iI, _aI],
-  [[0, { [_hH]: _ii }], [0, { [_hQ]: _aI }]]
+  [[0, { [_hH]: _ii }], [0, { [_hQ]: _aI }]], 2
 ];
 export var DescribeQAppPermissionsOutput$: StaticStructureSchema = [3, n0, _DQAPO,
   0,
@@ -455,97 +455,97 @@ export var DescribeQAppPermissionsOutput$: StaticStructureSchema = [3, n0, _DQAP
 export var DisassociateLibraryItemReviewInput$: StaticStructureSchema = [3, n0, _DLIRI,
   0,
   [_iI, _lII],
-  [[0, { [_hH]: _ii }], 0]
+  [[0, { [_hH]: _ii }], 0], 2
 ];
 export var DisassociateQAppFromUserInput$: StaticStructureSchema = [3, n0, _DQAFUI,
   0,
   [_iI, _aI],
-  [[0, { [_hH]: _ii }], 0]
+  [[0, { [_hH]: _ii }], 0], 2
 ];
 export var DocumentAttribute$: StaticStructureSchema = [3, n0, _DA,
   0,
   [_n, _v],
-  [0, () => DocumentAttributeValue$]
+  [0, () => DocumentAttributeValue$], 2
 ];
 export var ExportQAppSessionDataInput$: StaticStructureSchema = [3, n0, _EQASDI,
   0,
   [_iI, _sI],
-  [[0, { [_hH]: _ii }], 0]
+  [[0, { [_hH]: _ii }], 0], 2
 ];
 export var ExportQAppSessionDataOutput$: StaticStructureSchema = [3, n0, _EQASDO,
   0,
   [_cFL, _eA, _sA],
-  [0, 5, 0]
+  [0, 5, 0], 3
 ];
 export var FileUploadCard$: StaticStructureSchema = [3, n0, _FUC,
   0,
   [_i, _t, _de, _ty, _f, _fI, _aO],
-  [0, 0, 64 | 0, 0, 0, 0, 2]
+  [0, 0, 64 | 0, 0, 0, 0, 2], 4
 ];
 export var FileUploadCardInput$: StaticStructureSchema = [3, n0, _FUCI,
   0,
   [_t, _i, _ty, _f, _fI, _aO],
-  [0, 0, 0, 0, 0, 2]
+  [0, 0, 0, 0, 0, 2], 3
 ];
 export var FormInputCard$: StaticStructureSchema = [3, n0, _FIC,
   0,
   [_i, _t, _de, _ty, _me, _cM],
-  [0, 0, 64 | 0, 0, () => FormInputCardMetadata$, 0]
+  [0, 0, 64 | 0, 0, () => FormInputCardMetadata$, 0], 5
 ];
 export var FormInputCardInput$: StaticStructureSchema = [3, n0, _FICI,
   0,
   [_t, _i, _ty, _me, _cM],
-  [0, 0, 0, () => FormInputCardMetadata$, 0]
+  [0, 0, 0, () => FormInputCardMetadata$, 0], 4
 ];
 export var FormInputCardMetadata$: StaticStructureSchema = [3, n0, _FICM,
   0,
   [_sch],
-  [15]
+  [15], 1
 ];
 export var GetLibraryItemInput$: StaticStructureSchema = [3, n0, _GLII,
   0,
   [_iI, _lII, _aI],
-  [[0, { [_hH]: _ii }], [0, { [_hQ]: _lII }], [0, { [_hQ]: _aI }]]
+  [[0, { [_hH]: _ii }], [0, { [_hQ]: _lII }], [0, { [_hQ]: _aI }]], 2
 ];
 export var GetLibraryItemOutput$: StaticStructureSchema = [3, n0, _GLIO,
   0,
-  [_lII, _aI, _aV, _cat, _st, _cAr, _cB, _uA, _uB, _rC, _iRBU, _uC, _iV],
-  [0, 0, 1, () => CategoryList, 0, 5, 0, 5, 0, 1, 2, 1, 2]
+  [_lII, _aI, _aV, _cat, _st, _cAr, _cB, _rC, _uA, _uB, _iRBU, _uC, _iV],
+  [0, 0, 1, () => CategoryList, 0, 5, 0, 1, 5, 0, 2, 1, 2], 8
 ];
 export var GetQAppInput$: StaticStructureSchema = [3, n0, _GQAI,
   0,
   [_iI, _aI, _aV],
-  [[0, { [_hH]: _ii }], [0, { [_hQ]: _aI }], [1, { [_hQ]: _aV }]]
+  [[0, { [_hH]: _ii }], [0, { [_hQ]: _aI }], [1, { [_hQ]: _aV }]], 2
 ];
 export var GetQAppOutput$: StaticStructureSchema = [3, n0, _GQAO,
   0,
-  [_aI, _aA, _t, _d, _iP, _aV, _st, _cAr, _cB, _uA, _uB, _rCe, _aD],
-  [0, 0, 0, 0, 0, 1, 0, 5, 0, 5, 0, 64 | 0, () => AppDefinition$]
+  [_aI, _aA, _t, _aV, _st, _cAr, _cB, _uA, _uB, _aD, _d, _iP, _rCe],
+  [0, 0, 0, 1, 0, 5, 0, 5, 0, () => AppDefinition$, 0, 0, 64 | 0], 10
 ];
 export var GetQAppSessionInput$: StaticStructureSchema = [3, n0, _GQASI,
   0,
   [_iI, _sI],
-  [[0, { [_hH]: _ii }], [0, { [_hQ]: _sI }]]
+  [[0, { [_hH]: _ii }], [0, { [_hQ]: _sI }]], 2
 ];
 export var GetQAppSessionMetadataInput$: StaticStructureSchema = [3, n0, _GQASMI,
   0,
   [_iI, _sI],
-  [[0, { [_hH]: _ii }], [0, { [_hQ]: _sI }]]
+  [[0, { [_hH]: _ii }], [0, { [_hQ]: _sI }]], 2
 ];
 export var GetQAppSessionMetadataOutput$: StaticStructureSchema = [3, n0, _GQASMO,
   0,
-  [_sI, _sA, _sN, _sC, _sO],
-  [0, 0, 0, () => SessionSharingConfiguration$, 2]
+  [_sI, _sA, _sC, _sN, _sO],
+  [0, 0, () => SessionSharingConfiguration$, 0, 2], 3
 ];
 export var GetQAppSessionOutput$: StaticStructureSchema = [3, n0, _GQASO,
   0,
-  [_sI, _sA, _sN, _aV, _lPAV, _st, _cSa, _uIH],
-  [0, 0, 0, 1, 1, 0, () => CardStatusMap, 2]
+  [_sI, _sA, _st, _cSa, _sN, _aV, _lPAV, _uIH],
+  [0, 0, 0, () => CardStatusMap, 0, 1, 1, 2], 4
 ];
 export var ImportDocumentInput$: StaticStructureSchema = [3, n0, _IDI,
   0,
   [_iI, _cI, _aI, _fCB, _fN, _sc, _sI],
-  [[0, { [_hH]: _ii }], 0, 0, 0, 0, 0, 0]
+  [[0, { [_hH]: _ii }], 0, 0, 0, 0, 0, 0], 6
 ];
 export var ImportDocumentOutput$: StaticStructureSchema = [3, n0, _IDO,
   0,
@@ -555,18 +555,18 @@ export var ImportDocumentOutput$: StaticStructureSchema = [3, n0, _IDO,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]]
+  [0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LibraryItemMember$: StaticStructureSchema = [3, n0, _LIM,
   0,
-  [_lII, _aI, _aV, _cat, _st, _cAr, _cB, _uA, _uB, _rC, _iRBU, _uC, _iV],
-  [0, 0, 1, () => CategoryList, 0, 5, 0, 5, 0, 1, 2, 1, 2]
+  [_lII, _aI, _aV, _cat, _st, _cAr, _cB, _rC, _uA, _uB, _iRBU, _uC, _iV],
+  [0, 0, 1, () => CategoryList, 0, 5, 0, 1, 5, 0, 2, 1, 2], 8
 ];
 export var ListCategoriesInput$: StaticStructureSchema = [3, n0, _LCI,
   0,
   [_iI],
-  [[0, { [_hH]: _ii }]]
+  [[0, { [_hH]: _ii }]], 1
 ];
 export var ListCategoriesOutput$: StaticStructureSchema = [3, n0, _LCO,
   0,
@@ -576,7 +576,7 @@ export var ListCategoriesOutput$: StaticStructureSchema = [3, n0, _LCO,
 export var ListLibraryItemsInput$: StaticStructureSchema = [3, n0, _LLII,
   0,
   [_iI, _l, _nT, _cIa],
-  [[0, { [_hH]: _ii }], [1, { [_hQ]: _l }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _cIa }]]
+  [[0, { [_hH]: _ii }], [1, { [_hQ]: _l }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _cIa }]], 1
 ];
 export var ListLibraryItemsOutput$: StaticStructureSchema = [3, n0, _LLIO,
   0,
@@ -586,27 +586,27 @@ export var ListLibraryItemsOutput$: StaticStructureSchema = [3, n0, _LLIO,
 export var ListQAppSessionDataInput$: StaticStructureSchema = [3, n0, _LQASDI,
   0,
   [_iI, _sI],
-  [[0, { [_hH]: _ii }], [0, { [_hQ]: _sI }]]
+  [[0, { [_hH]: _ii }], [0, { [_hQ]: _sI }]], 2
 ];
 export var ListQAppSessionDataOutput$: StaticStructureSchema = [3, n0, _LQASDO,
   0,
   [_sI, _sA, _sD, _nT],
-  [0, 0, () => QAppSessionDataList, 0]
+  [0, 0, () => QAppSessionDataList, 0], 2
 ];
 export var ListQAppsInput$: StaticStructureSchema = [3, n0, _LQAI,
   0,
   [_iI, _l, _nT],
-  [[0, { [_hH]: _ii }], [1, { [_hQ]: _l }], [0, { [_hQ]: _nT }]]
+  [[0, { [_hH]: _ii }], [1, { [_hQ]: _l }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListQAppsOutput$: StaticStructureSchema = [3, n0, _LQAO,
   0,
   [_a, _nT],
-  [() => UserAppsList, 0]
+  [() => UserAppsList, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rARN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -616,27 +616,27 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var PermissionInput$: StaticStructureSchema = [3, n0, _PI,
   0,
   [_ac, _pr],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PermissionOutput$: StaticStructureSchema = [3, n0, _PO,
   0,
   [_ac, _pr],
-  [0, () => PrincipalOutput$]
+  [0, () => PrincipalOutput$], 2
 ];
 export var PredictAppDefinition$: StaticStructureSchema = [3, n0, _PAD,
   0,
-  [_t, _d, _aD],
-  [0, 0, () => AppDefinitionInput$]
+  [_t, _aD, _d],
+  [0, () => AppDefinitionInput$, 0], 2
 ];
 export var PredictQAppInput$: StaticStructureSchema = [3, n0, _PQAI,
   0,
   [_iI, _o],
-  [[0, { [_hH]: _ii }], () => PredictQAppInputOptions$]
+  [[0, { [_hH]: _ii }], () => PredictQAppInputOptions$], 1
 ];
 export var PredictQAppOutput$: StaticStructureSchema = [3, n0, _PQAO,
   0,
   [_ap, _pS],
-  [() => PredictAppDefinition$, 0]
+  [() => PredictAppDefinition$, 0], 2
 ];
 export var PrincipalOutput$: StaticStructureSchema = [3, n0, _POr,
   0,
@@ -645,60 +645,60 @@ export var PrincipalOutput$: StaticStructureSchema = [3, n0, _POr,
 ];
 export var QAppSessionData$: StaticStructureSchema = [3, n0, _QASD,
   0,
-  [_cI, _v, _u, _sIu, _ti],
-  [0, 15, () => User$, 0, 5]
+  [_cI, _u, _v, _sIu, _ti],
+  [0, () => User$, 15, 0, 5], 2
 ];
 export var QPluginCard$: StaticStructureSchema = [3, n0, _QPC,
   0,
   [_i, _t, _de, _ty, _pro, _pT, _pI, _aIc],
-  [0, 0, 64 | 0, 0, 0, 0, 0, 0]
+  [0, 0, 64 | 0, 0, 0, 0, 0, 0], 7
 ];
 export var QPluginCardInput$: StaticStructureSchema = [3, n0, _QPCI,
   0,
   [_t, _i, _ty, _pro, _pI, _aIc],
-  [0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0], 5
 ];
 export var QQueryCard$: StaticStructureSchema = [3, n0, _QQC,
   0,
   [_i, _t, _de, _ty, _pro, _oS, _aF, _mR],
-  [0, 0, 64 | 0, 0, 0, 0, () => AttributeFilter$, 64 | 0]
+  [0, 0, 64 | 0, 0, 0, 0, () => AttributeFilter$, 64 | 0], 6
 ];
 export var QQueryCardInput$: StaticStructureSchema = [3, n0, _QQCI,
   0,
   [_t, _i, _ty, _pro, _oS, _aF],
-  [0, 0, 0, 0, 0, () => AttributeFilter$]
+  [0, 0, 0, 0, 0, () => AttributeFilter$], 4
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sCe, _qC],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SessionSharingConfiguration$: StaticStructureSchema = [3, n0, _SSC,
   0,
   [_en, _aR, _rCev],
-  [2, 2, 2]
+  [2, 2, 2], 1
 ];
 export var StartQAppSessionInput$: StaticStructureSchema = [3, n0, _SQASI,
   0,
   [_iI, _aI, _aV, _iVn, _sI, _ta],
-  [[0, { [_hH]: _ii }], 0, 1, () => CardValueList, 0, 128 | 0]
+  [[0, { [_hH]: _ii }], 0, 1, () => CardValueList, 0, 128 | 0], 3
 ];
 export var StartQAppSessionOutput$: StaticStructureSchema = [3, n0, _SQASO,
   0,
   [_sI, _sA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StopQAppSessionInput$: StaticStructureSchema = [3, n0, _SQASIt,
   0,
   [_iI, _sI],
-  [[0, { [_hH]: _ii }], 0]
+  [[0, { [_hH]: _ii }], 0], 2
 ];
 export var Submission$: StaticStructureSchema = [3, n0, _S,
   0,
@@ -708,12 +708,12 @@ export var Submission$: StaticStructureSchema = [3, n0, _S,
 export var SubmissionMutation$: StaticStructureSchema = [3, n0, _SM,
   0,
   [_sIu, _mT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rARN, _ta],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -723,29 +723,29 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var TextInputCard$: StaticStructureSchema = [3, n0, _TIC,
   0,
   [_i, _t, _de, _ty, _pl, _dV],
-  [0, 0, 64 | 0, 0, 0, 0]
+  [0, 0, 64 | 0, 0, 0, 0], 4
 ];
 export var TextInputCardInput$: StaticStructureSchema = [3, n0, _TICI,
   0,
   [_t, _i, _ty, _pl, _dV],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 3
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _sCe, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]]
+  [0, 0, 0, [1, { [_hH]: _RA }]], 3
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
   { [_e]: _c, [_hE]: 401 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rARN, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -755,32 +755,32 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateLibraryItemInput$: StaticStructureSchema = [3, n0, _ULII,
   0,
   [_iI, _lII, _st, _cat],
-  [[0, { [_hH]: _ii }], 0, 0, 64 | 0]
+  [[0, { [_hH]: _ii }], 0, 0, 64 | 0], 2
 ];
 export var UpdateLibraryItemMetadataInput$: StaticStructureSchema = [3, n0, _ULIMI,
   0,
   [_iI, _lII, _iV],
-  [[0, { [_hH]: _ii }], 0, 2]
+  [[0, { [_hH]: _ii }], 0, 2], 2
 ];
 export var UpdateLibraryItemOutput$: StaticStructureSchema = [3, n0, _ULIO,
   0,
-  [_lII, _aI, _aV, _cat, _st, _cAr, _cB, _uA, _uB, _rC, _iRBU, _uC, _iV],
-  [0, 0, 1, () => CategoryList, 0, 5, 0, 5, 0, 1, 2, 1, 2]
+  [_lII, _aI, _aV, _cat, _st, _cAr, _cB, _rC, _uA, _uB, _iRBU, _uC, _iV],
+  [0, 0, 1, () => CategoryList, 0, 5, 0, 1, 5, 0, 2, 1, 2], 8
 ];
 export var UpdateQAppInput$: StaticStructureSchema = [3, n0, _UQAI,
   0,
   [_iI, _aI, _t, _d, _aD],
-  [[0, { [_hH]: _ii }], 0, 0, 0, () => AppDefinitionInput$]
+  [[0, { [_hH]: _ii }], 0, 0, 0, () => AppDefinitionInput$], 2
 ];
 export var UpdateQAppOutput$: StaticStructureSchema = [3, n0, _UQAO,
   0,
-  [_aI, _aA, _t, _d, _iP, _aV, _st, _cAr, _cB, _uA, _uB, _rCe],
-  [0, 0, 0, 0, 0, 1, 0, 5, 0, 5, 0, 64 | 0]
+  [_aI, _aA, _t, _aV, _st, _cAr, _cB, _uA, _uB, _d, _iP, _rCe],
+  [0, 0, 0, 1, 0, 5, 0, 5, 0, 0, 0, 64 | 0], 9
 ];
 export var UpdateQAppPermissionsInput$: StaticStructureSchema = [3, n0, _UQAPI,
   0,
   [_iI, _aI, _gP, _rP],
-  [[0, { [_hH]: _ii }], 0, () => PermissionsInputList, () => PermissionsInputList]
+  [[0, { [_hH]: _ii }], 0, () => PermissionsInputList, () => PermissionsInputList], 2
 ];
 export var UpdateQAppPermissionsOutput$: StaticStructureSchema = [3, n0, _UQAPO,
   0,
@@ -790,22 +790,22 @@ export var UpdateQAppPermissionsOutput$: StaticStructureSchema = [3, n0, _UQAPO,
 export var UpdateQAppSessionInput$: StaticStructureSchema = [3, n0, _UQASI,
   0,
   [_iI, _sI, _va],
-  [[0, { [_hH]: _ii }], 0, () => CardValueList]
+  [[0, { [_hH]: _ii }], 0, () => CardValueList], 2
 ];
 export var UpdateQAppSessionMetadataInput$: StaticStructureSchema = [3, n0, _UQASMI,
   0,
-  [_iI, _sI, _sN, _sC],
-  [[0, { [_hH]: _ii }], 0, 0, () => SessionSharingConfiguration$]
+  [_iI, _sI, _sC, _sN],
+  [[0, { [_hH]: _ii }], 0, () => SessionSharingConfiguration$, 0], 3
 ];
 export var UpdateQAppSessionMetadataOutput$: StaticStructureSchema = [3, n0, _UQASMO,
   0,
-  [_sI, _sA, _sN, _sC],
-  [0, 0, 0, () => SessionSharingConfiguration$]
+  [_sI, _sA, _sC, _sN],
+  [0, 0, () => SessionSharingConfiguration$, 0], 3
 ];
 export var UpdateQAppSessionOutput$: StaticStructureSchema = [3, n0, _UQASO,
   0,
   [_sI, _sA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var User$: StaticStructureSchema = [3, n0, _U,
   0,
@@ -814,13 +814,13 @@ export var User$: StaticStructureSchema = [3, n0, _U,
 ];
 export var UserAppItem$: StaticStructureSchema = [3, n0, _UAI,
   0,
-  [_aI, _aA, _t, _d, _cAr, _cE, _st, _iV],
-  [0, 0, 0, 0, 5, 2, 0, 2]
+  [_aI, _aA, _t, _cAr, _d, _cE, _st, _iV],
+  [0, 0, 0, 5, 0, 2, 0, 2], 4
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;

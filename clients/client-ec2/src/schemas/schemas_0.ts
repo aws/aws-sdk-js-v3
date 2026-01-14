@@ -8013,7 +8013,7 @@ export var AcceleratorTotalMemoryMiBRequest$: StaticStructureSchema = [3, n0, _A
 export var AcceptAddressTransferRequest$: StaticStructureSchema = [3, n0, _AATR,
   0,
   [_A, _TS, _DR],
-  [0, [() => TagSpecificationList, { [_xN]: _TSa }], 2]
+  [0, [() => TagSpecificationList, { [_xN]: _TSa }], 2], 1
 ];
 export var AcceptAddressTransferResult$: StaticStructureSchema = [3, n0, _AATRc,
   0,
@@ -8023,8 +8023,8 @@ export var AcceptAddressTransferResult$: StaticStructureSchema = [3, n0, _AATRc,
 ];
 export var AcceptCapacityReservationBillingOwnershipRequest$: StaticStructureSchema = [3, n0, _ACRBOR,
   0,
-  [_DR, _CRI],
-  [2, 0]
+  [_CRI, _DR],
+  [0, 2], 1
 ];
 export var AcceptCapacityReservationBillingOwnershipResult$: StaticStructureSchema = [3, n0, _ACRBORc,
   0,
@@ -8034,8 +8034,8 @@ export var AcceptCapacityReservationBillingOwnershipResult$: StaticStructureSche
 ];
 export var AcceptReservedInstancesExchangeQuoteRequest$: StaticStructureSchema = [3, n0, _ARIEQR,
   0,
-  [_DR, _RII, _TC],
-  [2, [() => ReservedInstanceIdSet, { [_xN]: _RIIe }], [() => TargetConfigurationRequestSet, { [_xN]: _TCa }]]
+  [_RII, _DR, _TC],
+  [[() => ReservedInstanceIdSet, { [_xN]: _RIIe }], 2, [() => TargetConfigurationRequestSet, { [_xN]: _TCa }]], 1
 ];
 export var AcceptReservedInstancesExchangeQuoteResult$: StaticStructureSchema = [3, n0, _ARIEQRc,
   0,
@@ -8057,7 +8057,7 @@ export var AcceptTransitGatewayMulticastDomainAssociationsResult$: StaticStructu
 export var AcceptTransitGatewayPeeringAttachmentRequest$: StaticStructureSchema = [3, n0, _ATGPAR,
   0,
   [_TGAI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var AcceptTransitGatewayPeeringAttachmentResult$: StaticStructureSchema = [3, n0, _ATGPARc,
   0,
@@ -8068,7 +8068,7 @@ export var AcceptTransitGatewayPeeringAttachmentResult$: StaticStructureSchema =
 export var AcceptTransitGatewayVpcAttachmentRequest$: StaticStructureSchema = [3, n0, _ATGVAR,
   0,
   [_TGAI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var AcceptTransitGatewayVpcAttachmentResult$: StaticStructureSchema = [3, n0, _ATGVARc,
   0,
@@ -8078,8 +8078,8 @@ export var AcceptTransitGatewayVpcAttachmentResult$: StaticStructureSchema = [3,
 ];
 export var AcceptVpcEndpointConnectionsRequest$: StaticStructureSchema = [3, n0, _AVECR,
   0,
-  [_DR, _SIe, _VEI],
-  [2, 0, [() => VpcEndpointIdList, { [_xN]: _VEIp }]]
+  [_SIe, _VEI, _DR],
+  [0, [() => VpcEndpointIdList, { [_xN]: _VEIp }], 2], 2
 ];
 export var AcceptVpcEndpointConnectionsResult$: StaticStructureSchema = [3, n0, _AVECRc,
   0,
@@ -8089,10 +8089,10 @@ export var AcceptVpcEndpointConnectionsResult$: StaticStructureSchema = [3, n0, 
 ];
 export var AcceptVpcPeeringConnectionRequest$: StaticStructureSchema = [3, n0, _AVPCR,
   0,
-  [_DR, _VPCI],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `VpcPeeringConnectionId`
-  , [_xN]: _vPCI }]]
+  [_VPCI, _DR],
+  [[0, { [_eQN]: `VpcPeeringConnectionId`
+  , [_xN]: _vPCI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var AcceptVpcPeeringConnectionResult$: StaticStructureSchema = [3, n0, _AVPCRc,
   0,
@@ -8193,7 +8193,7 @@ export var AdditionalDetail$: StaticStructureSchema = [3, n0, _AD,
 export var AddPrefixListEntry$: StaticStructureSchema = [3, n0, _APLE,
   0,
   [_Ci, _De],
-  [0, 0]
+  [0, 0], 1
 ];
 export var Address$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -8239,7 +8239,7 @@ export var AddressTransfer$: StaticStructureSchema = [3, n0, _AT,
 export var AdvertiseByoipCidrRequest$: StaticStructureSchema = [3, n0, _ABCR,
   0,
   [_Ci, _Asn, _DR, _NBG],
-  [0, 0, 2, 0]
+  [0, 0, 2, 0], 1
 ];
 export var AdvertiseByoipCidrResult$: StaticStructureSchema = [3, n0, _ABCRd,
   0,
@@ -8284,8 +8284,8 @@ export var AllocateHostsResult$: StaticStructureSchema = [3, n0, _AHRl,
 ];
 export var AllocateIpamPoolCidrRequest$: StaticStructureSchema = [3, n0, _AIPCR,
   0,
-  [_DR, _IPI, _Ci, _NL, _CT, _De, _PNC, _ACl, _DC],
-  [2, 0, 0, 1, [0, 4], 0, 2, [() => IpamPoolAllocationAllowedCidrs, { [_xN]: _ACll }], [() => IpamPoolAllocationDisallowedCidrs, { [_xN]: _DCi }]]
+  [_IPI, _DR, _Ci, _NL, _CT, _De, _PNC, _ACl, _DC],
+  [0, 2, 0, 1, [0, 4], 0, 2, [() => IpamPoolAllocationAllowedCidrs, { [_xN]: _ACll }], [() => IpamPoolAllocationDisallowedCidrs, { [_xN]: _DCi }]], 1
 ];
 export var AllocateIpamPoolCidrResult$: StaticStructureSchema = [3, n0, _AIPCRl,
   0,
@@ -8389,7 +8389,7 @@ export var AnalysisSecurityGroupRule$: StaticStructureSchema = [3, n0, _ASGR,
 export var ApplySecurityGroupsToClientVpnTargetNetworkRequest$: StaticStructureSchema = [3, n0, _ASGTCVTNR,
   0,
   [_CVEI, _VI, _SGIe, _DR],
-  [0, 0, [() => ClientVpnSecurityGroupIdSet, { [_xN]: _SGI }], 2]
+  [0, 0, [() => ClientVpnSecurityGroupIdSet, { [_xN]: _SGI }], 2], 3
 ];
 export var ApplySecurityGroupsToClientVpnTargetNetworkResult$: StaticStructureSchema = [3, n0, _ASGTCVTNRp,
   0,
@@ -8409,7 +8409,7 @@ export var AsnAssociation$: StaticStructureSchema = [3, n0, _AAs,
 export var AsnAuthorizationContext$: StaticStructureSchema = [3, n0, _AAC,
   0,
   [_Me, _Si],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssignedPrivateIpAddress$: StaticStructureSchema = [3, n0, _APIA,
   0,
@@ -8419,11 +8419,11 @@ export var AssignedPrivateIpAddress$: StaticStructureSchema = [3, n0, _APIA,
 ];
 export var AssignIpv6AddressesRequest$: StaticStructureSchema = [3, n0, _AIAR,
   0,
-  [_IPC, _IPp, _NII, _IA, _IAC],
-  [1, [() => IpPrefixList, { [_xN]: _IPpv }], [0, { [_eQN]: `NetworkInterfaceId`
-  , [_xN]: _nII }], [() => Ipv6AddressList, { [_eQN]: `Ipv6Addresses`
+  [_NII, _IPC, _IPp, _IA, _IAC],
+  [[0, { [_eQN]: `NetworkInterfaceId`
+  , [_xN]: _nII }], 1, [() => IpPrefixList, { [_xN]: _IPpv }], [() => Ipv6AddressList, { [_eQN]: `Ipv6Addresses`
   , [_xN]: _iA }], [1, { [_eQN]: `Ipv6AddressCount`
-  , [_xN]: _iAC }]]
+  , [_xN]: _iAC }]], 1
 ];
 export var AssignIpv6AddressesResult$: StaticStructureSchema = [3, n0, _AIARs,
   0,
@@ -8435,12 +8435,12 @@ export var AssignIpv6AddressesResult$: StaticStructureSchema = [3, n0, _AIARs,
 ];
 export var AssignPrivateIpAddressesRequest$: StaticStructureSchema = [3, n0, _APIAR,
   0,
-  [_IPpvr, _IPCp, _NII, _PIAri, _SPIAC, _AR],
-  [[() => IpPrefixList, { [_xN]: _IPpvre }], 1, [0, { [_eQN]: `NetworkInterfaceId`
-  , [_xN]: _nII }], [() => PrivateIpAddressStringList, { [_eQN]: `PrivateIpAddress`
+  [_NII, _IPpvr, _IPCp, _PIAri, _SPIAC, _AR],
+  [[0, { [_eQN]: `NetworkInterfaceId`
+  , [_xN]: _nII }], [() => IpPrefixList, { [_xN]: _IPpvre }], 1, [() => PrivateIpAddressStringList, { [_eQN]: `PrivateIpAddress`
   , [_xN]: _pIAr }], [1, { [_eQN]: `SecondaryPrivateIpAddressCount`
   , [_xN]: _sPIAC }], [2, { [_eQN]: `AllowReassignment`
-  , [_xN]: _aR }]]
+  , [_xN]: _aR }]], 1
 ];
 export var AssignPrivateIpAddressesResult$: StaticStructureSchema = [3, n0, _APIARs,
   0,
@@ -8453,7 +8453,7 @@ export var AssignPrivateIpAddressesResult$: StaticStructureSchema = [3, n0, _API
 export var AssignPrivateNatGatewayAddressRequest$: StaticStructureSchema = [3, n0, _APNGAR,
   0,
   [_NGI, _PIAri, _PIAC, _DR],
-  [0, [() => IpList, { [_xN]: _PIAr }], 1, 2]
+  [0, [() => IpList, { [_xN]: _PIAr }], 1, 2], 1
 ];
 export var AssignPrivateNatGatewayAddressResult$: StaticStructureSchema = [3, n0, _APNGARs,
   0,
@@ -8479,8 +8479,8 @@ export var AssociateAddressResult$: StaticStructureSchema = [3, n0, _AARss,
 ];
 export var AssociateCapacityReservationBillingOwnerRequest$: StaticStructureSchema = [3, n0, _ACRBORs,
   0,
-  [_DR, _CRI, _URBOI],
-  [2, 0, 0]
+  [_CRI, _URBOI, _DR],
+  [0, 0, 2], 2
 ];
 export var AssociateCapacityReservationBillingOwnerResult$: StaticStructureSchema = [3, n0, _ACRBORss,
   0,
@@ -8491,7 +8491,7 @@ export var AssociateCapacityReservationBillingOwnerResult$: StaticStructureSchem
 export var AssociateClientVpnTargetNetworkRequest$: StaticStructureSchema = [3, n0, _ACVTNR,
   0,
   [_CVEI, _SIu, _CT, _DR],
-  [0, 0, [0, 4], 2]
+  [0, 0, [0, 4], 2], 2
 ];
 export var AssociateClientVpnTargetNetworkResult$: StaticStructureSchema = [3, n0, _ACVTNRs,
   0,
@@ -8504,7 +8504,7 @@ export var AssociateDhcpOptionsRequest$: StaticStructureSchema = [3, n0, _ADOR,
   0,
   [_DOI, _VI, _DR],
   [0, 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 2
 ];
 export var AssociatedRole$: StaticStructureSchema = [3, n0, _ARs,
   0,
@@ -8525,7 +8525,7 @@ export var AssociatedTargetNetwork$: StaticStructureSchema = [3, n0, _ATN,
 export var AssociateEnclaveCertificateIamRoleRequest$: StaticStructureSchema = [3, n0, _AECIRR,
   0,
   [_CAe, _RAo, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var AssociateEnclaveCertificateIamRoleResult$: StaticStructureSchema = [3, n0, _AECIRRs,
   0,
@@ -8538,7 +8538,7 @@ export var AssociateEnclaveCertificateIamRoleResult$: StaticStructureSchema = [3
 export var AssociateIamInstanceProfileRequest$: StaticStructureSchema = [3, n0, _AIIPR,
   0,
   [_IIP, _II],
-  [[() => IamInstanceProfileSpecification$, 0], 0]
+  [[() => IamInstanceProfileSpecification$, 0], 0], 2
 ];
 export var AssociateIamInstanceProfileResult$: StaticStructureSchema = [3, n0, _AIIPRs,
   0,
@@ -8548,8 +8548,8 @@ export var AssociateIamInstanceProfileResult$: StaticStructureSchema = [3, n0, _
 ];
 export var AssociateInstanceEventWindowRequest$: StaticStructureSchema = [3, n0, _AIEWR,
   0,
-  [_DR, _IEWI, _ATs],
-  [2, 0, [() => InstanceEventWindowAssociationRequest$, 0]]
+  [_IEWI, _ATs, _DR],
+  [0, [() => InstanceEventWindowAssociationRequest$, 0], 2], 2
 ];
 export var AssociateInstanceEventWindowResult$: StaticStructureSchema = [3, n0, _AIEWRs,
   0,
@@ -8559,8 +8559,8 @@ export var AssociateInstanceEventWindowResult$: StaticStructureSchema = [3, n0, 
 ];
 export var AssociateIpamByoasnRequest$: StaticStructureSchema = [3, n0, _AIBR,
   0,
-  [_DR, _Asn, _Ci],
-  [2, 0, 0]
+  [_Asn, _Ci, _DR],
+  [0, 0, 2], 2
 ];
 export var AssociateIpamByoasnResult$: StaticStructureSchema = [3, n0, _AIBRs,
   0,
@@ -8570,8 +8570,8 @@ export var AssociateIpamByoasnResult$: StaticStructureSchema = [3, n0, _AIBRs,
 ];
 export var AssociateIpamResourceDiscoveryRequest$: StaticStructureSchema = [3, n0, _AIRDR,
   0,
-  [_DR, _IIp, _IRDI, _TS, _CT],
-  [2, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4]]
+  [_IIp, _IRDI, _DR, _TS, _CT],
+  [0, 0, 2, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4]], 2
 ];
 export var AssociateIpamResourceDiscoveryResult$: StaticStructureSchema = [3, n0, _AIRDRs,
   0,
@@ -8582,7 +8582,7 @@ export var AssociateIpamResourceDiscoveryResult$: StaticStructureSchema = [3, n0
 export var AssociateNatGatewayAddressRequest$: StaticStructureSchema = [3, n0, _ANGAR,
   0,
   [_NGI, _AIll, _PIAri, _DR, _AZ, _AZI],
-  [0, [() => AllocationIdList, { [_xN]: _AIl }], [() => IpList, { [_xN]: _PIAr }], 2, 0, 0]
+  [0, [() => AllocationIdList, { [_xN]: _AIl }], [() => IpList, { [_xN]: _PIAr }], 2, 0, 0], 2
 ];
 export var AssociateNatGatewayAddressResult$: StaticStructureSchema = [3, n0, _ANGARs,
   0,
@@ -8594,7 +8594,7 @@ export var AssociateNatGatewayAddressResult$: StaticStructureSchema = [3, n0, _A
 export var AssociateRouteServerRequest$: StaticStructureSchema = [3, n0, _ARSR,
   0,
   [_RSI, _VI, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var AssociateRouteServerResult$: StaticStructureSchema = [3, n0, _ARSRs,
   0,
@@ -8604,11 +8604,11 @@ export var AssociateRouteServerResult$: StaticStructureSchema = [3, n0, _ARSRs,
 ];
 export var AssociateRouteTableRequest$: StaticStructureSchema = [3, n0, _ARTRs,
   0,
-  [_GI, _PIP, _DR, _SIu, _RTI],
-  [0, 0, [2, { [_eQN]: `DryRun`
+  [_RTI, _GI, _PIP, _DR, _SIu],
+  [[0, { [_eQN]: `RouteTableId`
+  , [_xN]: _rTI }], 0, 0, [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [0, { [_eQN]: `SubnetId`
-  , [_xN]: _sIu }], [0, { [_eQN]: `RouteTableId`
-  , [_xN]: _rTI }]]
+  , [_xN]: _sIu }]], 1
 ];
 export var AssociateRouteTableResult$: StaticStructureSchema = [3, n0, _ARTRss,
   0,
@@ -8620,7 +8620,7 @@ export var AssociateRouteTableResult$: StaticStructureSchema = [3, n0, _ARTRss,
 export var AssociateSecurityGroupVpcRequest$: StaticStructureSchema = [3, n0, _ASGVR,
   0,
   [_GIr, _VI, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var AssociateSecurityGroupVpcResult$: StaticStructureSchema = [3, n0, _ASGVRs,
   0,
@@ -8630,10 +8630,10 @@ export var AssociateSecurityGroupVpcResult$: StaticStructureSchema = [3, n0, _AS
 ];
 export var AssociateSubnetCidrBlockRequest$: StaticStructureSchema = [3, n0, _ASCBR,
   0,
-  [_IIPI, _INL, _SIu, _ICB],
-  [0, 1, [0, { [_eQN]: `SubnetId`
-  , [_xN]: _sIu }], [0, { [_eQN]: `Ipv6CidrBlock`
-  , [_xN]: _iCB }]]
+  [_SIu, _IIPI, _INL, _ICB],
+  [[0, { [_eQN]: `SubnetId`
+  , [_xN]: _sIu }], 0, 1, [0, { [_eQN]: `Ipv6CidrBlock`
+  , [_xN]: _iCB }]], 1
 ];
 export var AssociateSubnetCidrBlockResult$: StaticStructureSchema = [3, n0, _ASCBRs,
   0,
@@ -8645,7 +8645,7 @@ export var AssociateSubnetCidrBlockResult$: StaticStructureSchema = [3, n0, _ASC
 export var AssociateTransitGatewayMulticastDomainRequest$: StaticStructureSchema = [3, n0, _ATGMDR,
   0,
   [_TGMDI, _TGAI, _SI, _DR],
-  [0, 0, [() => TransitGatewaySubnetIdList, 0], 2]
+  [0, 0, [() => TransitGatewaySubnetIdList, 0], 2], 3
 ];
 export var AssociateTransitGatewayMulticastDomainResult$: StaticStructureSchema = [3, n0, _ATGMDRs,
   0,
@@ -8656,7 +8656,7 @@ export var AssociateTransitGatewayMulticastDomainResult$: StaticStructureSchema 
 export var AssociateTransitGatewayPolicyTableRequest$: StaticStructureSchema = [3, n0, _ATGPTR,
   0,
   [_TGPTI, _TGAI, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var AssociateTransitGatewayPolicyTableResult$: StaticStructureSchema = [3, n0, _ATGPTRs,
   0,
@@ -8667,7 +8667,7 @@ export var AssociateTransitGatewayPolicyTableResult$: StaticStructureSchema = [3
 export var AssociateTransitGatewayRouteTableRequest$: StaticStructureSchema = [3, n0, _ATGRTR,
   0,
   [_TGRTI, _TGAI, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var AssociateTransitGatewayRouteTableResult$: StaticStructureSchema = [3, n0, _ATGRTRs,
   0,
@@ -8678,7 +8678,7 @@ export var AssociateTransitGatewayRouteTableResult$: StaticStructureSchema = [3,
 export var AssociateTrunkInterfaceRequest$: StaticStructureSchema = [3, n0, _ATIR,
   0,
   [_BII, _TII, _VIl, _GK, _CT, _DR],
-  [0, 0, 1, 1, [0, 4], 2]
+  [0, 0, 1, 1, [0, 4], 2], 2
 ];
 export var AssociateTrunkInterfaceResult$: StaticStructureSchema = [3, n0, _ATIRs,
   0,
@@ -8689,10 +8689,10 @@ export var AssociateTrunkInterfaceResult$: StaticStructureSchema = [3, n0, _ATIR
 ];
 export var AssociateVpcCidrBlockRequest$: StaticStructureSchema = [3, n0, _AVCBR,
   0,
-  [_CB, _ICBNBG, _IPpvo, _ICB, _IIPIp, _INLp, _IIPI, _INL, _VI, _APICB],
-  [0, 0, 0, 0, 0, 1, 0, 1, [0, { [_eQN]: `VpcId`
-  , [_xN]: _vI }], [2, { [_eQN]: `AmazonProvidedIpv6CidrBlock`
-  , [_xN]: _aPICB }]]
+  [_VI, _CB, _ICBNBG, _IPpvo, _ICB, _IIPIp, _INLp, _IIPI, _INL, _APICB],
+  [[0, { [_eQN]: `VpcId`
+  , [_xN]: _vI }], 0, 0, 0, 0, 0, 1, 0, 1, [2, { [_eQN]: `AmazonProvidedIpv6CidrBlock`
+  , [_xN]: _aPICB }]], 1
 ];
 export var AssociateVpcCidrBlockResult$: StaticStructureSchema = [3, n0, _AVCBRs,
   0,
@@ -8712,15 +8712,15 @@ export var AssociationStatus$: StaticStructureSchema = [3, n0, _ASs,
 export var AthenaIntegration$: StaticStructureSchema = [3, n0, _AIt,
   0,
   [_IRSDA, _PLF, _PSD, _PED],
-  [0, 0, 4, 4]
+  [0, 0, 4, 4], 2
 ];
 export var AttachClassicLinkVpcRequest$: StaticStructureSchema = [3, n0, _ACLVR,
   0,
-  [_DR, _II, _VI, _G],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `InstanceId`
+  [_II, _VI, _G, _DR],
+  [[0, { [_eQN]: `InstanceId`
   , [_xN]: _iI }], [0, { [_eQN]: `VpcId`
-  , [_xN]: _vI }], [() => GroupIdStringList, { [_xN]: _SGI }]]
+  , [_xN]: _vI }], [() => GroupIdStringList, { [_xN]: _SGI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 3
 ];
 export var AttachClassicLinkVpcResult$: StaticStructureSchema = [3, n0, _ACLVRt,
   0,
@@ -8730,11 +8730,11 @@ export var AttachClassicLinkVpcResult$: StaticStructureSchema = [3, n0, _ACLVRt,
 ];
 export var AttachInternetGatewayRequest$: StaticStructureSchema = [3, n0, _AIGR,
   0,
-  [_DR, _IGI, _VI],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `InternetGatewayId`
+  [_IGI, _VI, _DR],
+  [[0, { [_eQN]: `InternetGatewayId`
   , [_xN]: _iGI }], [0, { [_eQN]: `VpcId`
-  , [_xN]: _vI }]]
+  , [_xN]: _vI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 2
 ];
 export var AttachmentEnaSrdSpecification$: StaticStructureSchema = [3, n0, _AESS,
   0,
@@ -8751,12 +8751,12 @@ export var AttachmentEnaSrdUdpSpecification$: StaticStructureSchema = [3, n0, _A
 ];
 export var AttachNetworkInterfaceRequest$: StaticStructureSchema = [3, n0, _ANIR,
   0,
-  [_NCI, _ESS, _EQC, _DR, _NII, _II, _DI],
-  [1, () => EnaSrdSpecification$, 1, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `NetworkInterfaceId`
+  [_NII, _II, _DI, _NCI, _ESS, _EQC, _DR],
+  [[0, { [_eQN]: `NetworkInterfaceId`
   , [_xN]: _nII }], [0, { [_eQN]: `InstanceId`
   , [_xN]: _iI }], [1, { [_eQN]: `DeviceIndex`
-  , [_xN]: _dI }]]
+  , [_xN]: _dI }], 1, () => EnaSrdSpecification$, 1, [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 3
 ];
 export var AttachNetworkInterfaceResult$: StaticStructureSchema = [3, n0, _ANIRt,
   0,
@@ -8768,7 +8768,7 @@ export var AttachNetworkInterfaceResult$: StaticStructureSchema = [3, n0, _ANIRt
 export var AttachVerifiedAccessTrustProviderRequest$: StaticStructureSchema = [3, n0, _AVATPR,
   0,
   [_VAII, _VATPI, _CT, _DR],
-  [0, 0, [0, 4], 2]
+  [0, 0, [0, 4], 2], 2
 ];
 export var AttachVerifiedAccessTrustProviderResult$: StaticStructureSchema = [3, n0, _AVATPRt,
   0,
@@ -8781,13 +8781,13 @@ export var AttachVolumeRequest$: StaticStructureSchema = [3, n0, _AVR,
   0,
   [_Dev, _II, _VIo, _DR],
   [0, 0, 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 3
 ];
 export var AttachVpnGatewayRequest$: StaticStructureSchema = [3, n0, _AVGR,
   0,
   [_VI, _VGI, _DR],
   [0, 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 2
 ];
 export var AttachVpnGatewayResult$: StaticStructureSchema = [3, n0, _AVGRt,
   0,
@@ -8831,7 +8831,7 @@ export var AuthorizationRule$: StaticStructureSchema = [3, n0, _ARu,
 export var AuthorizeClientVpnIngressRequest$: StaticStructureSchema = [3, n0, _ACVIR,
   0,
   [_CVEI, _TNC, _AGI, _AAG, _De, _CT, _DR],
-  [0, 0, 0, 2, 0, [0, 4], 2]
+  [0, 0, 0, 2, 0, [0, 4], 2], 2
 ];
 export var AuthorizeClientVpnIngressResult$: StaticStructureSchema = [3, n0, _ACVIRu,
   0,
@@ -8841,17 +8841,17 @@ export var AuthorizeClientVpnIngressResult$: StaticStructureSchema = [3, n0, _AC
 ];
 export var AuthorizeSecurityGroupEgressRequest$: StaticStructureSchema = [3, n0, _ASGER,
   0,
-  [_TS, _DR, _GIr, _SSGN, _SSGOI, _IPpr, _FP, _TP, _CIi, _IPpe],
-  [[() => TagSpecificationList, { [_xN]: _TSa }], [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `GroupId`
-  , [_xN]: _gIr }], [0, { [_eQN]: `SourceSecurityGroupName`
+  [_GIr, _TS, _DR, _SSGN, _SSGOI, _IPpr, _FP, _TP, _CIi, _IPpe],
+  [[0, { [_eQN]: `GroupId`
+  , [_xN]: _gIr }], [() => TagSpecificationList, { [_xN]: _TSa }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [0, { [_eQN]: `SourceSecurityGroupName`
   , [_xN]: _sSGN }], [0, { [_eQN]: `SourceSecurityGroupOwnerId`
   , [_xN]: _sSGOI }], [0, { [_eQN]: `IpProtocol`
   , [_xN]: _iPp }], [1, { [_eQN]: `FromPort`
   , [_xN]: _fP }], [1, { [_eQN]: `ToPort`
   , [_xN]: _tP }], [0, { [_eQN]: `CidrIp`
   , [_xN]: _cIi }], [() => IpPermissionList, { [_eQN]: `IpPermissions`
-  , [_xN]: _iPpe }]]
+  , [_xN]: _iPpe }]], 1
 ];
 export var AuthorizeSecurityGroupEgressResult$: StaticStructureSchema = [3, n0, _ASGERu,
   0,
@@ -8965,7 +8965,7 @@ export var BundleInstanceRequest$: StaticStructureSchema = [3, n0, _BIR,
   0,
   [_II, _Sto, _DR],
   [0, [() => Storage$, 0], [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 2
 ];
 export var BundleInstanceResult$: StaticStructureSchema = [3, n0, _BIRu,
   0,
@@ -9018,7 +9018,7 @@ export var CancelBundleTaskRequest$: StaticStructureSchema = [3, n0, _CBTR,
   0,
   [_BI, _DR],
   [0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var CancelBundleTaskResult$: StaticStructureSchema = [3, n0, _CBTRa,
   0,
@@ -9035,8 +9035,8 @@ export var CancelCapacityReservationFleetError$: StaticStructureSchema = [3, n0,
 ];
 export var CancelCapacityReservationFleetsRequest$: StaticStructureSchema = [3, n0, _CCRFR,
   0,
-  [_DR, _CRFI],
-  [2, [() => CapacityReservationFleetIdSet, { [_xN]: _CRFIa }]]
+  [_CRFI, _DR],
+  [[() => CapacityReservationFleetIdSet, { [_xN]: _CRFIa }], 2], 1
 ];
 export var CancelCapacityReservationFleetsResult$: StaticStructureSchema = [3, n0, _CCRFRa,
   0,
@@ -9048,7 +9048,7 @@ export var CancelCapacityReservationFleetsResult$: StaticStructureSchema = [3, n
 export var CancelCapacityReservationRequest$: StaticStructureSchema = [3, n0, _CCRR,
   0,
   [_CRI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var CancelCapacityReservationResult$: StaticStructureSchema = [3, n0, _CCRRa,
   0,
@@ -9058,16 +9058,16 @@ export var CancelCapacityReservationResult$: StaticStructureSchema = [3, n0, _CC
 ];
 export var CancelConversionRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_DR, _CTI, _RM],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `ConversionTaskId`
-  , [_xN]: _cTI }], [0, { [_eQN]: `ReasonMessage`
-  , [_xN]: _rM }]]
+  [_CTI, _DR, _RM],
+  [[0, { [_eQN]: `ConversionTaskId`
+  , [_xN]: _cTI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [0, { [_eQN]: `ReasonMessage`
+  , [_xN]: _rM }]], 1
 ];
 export var CancelDeclarativePoliciesReportRequest$: StaticStructureSchema = [3, n0, _CDPRR,
   0,
-  [_DR, _RI],
-  [2, 0]
+  [_RI, _DR],
+  [0, 2], 1
 ];
 export var CancelDeclarativePoliciesReportResult$: StaticStructureSchema = [3, n0, _CDPRRa,
   0,
@@ -9079,12 +9079,12 @@ export var CancelExportTaskRequest$: StaticStructureSchema = [3, n0, _CETR,
   0,
   [_ETI],
   [[0, { [_eQN]: `ExportTaskId`
-  , [_xN]: _eTI }]]
+  , [_xN]: _eTI }]], 1
 ];
 export var CancelImageLaunchPermissionRequest$: StaticStructureSchema = [3, n0, _CILPR,
   0,
   [_IIm, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var CancelImageLaunchPermissionResult$: StaticStructureSchema = [3, n0, _CILPRa,
   0,
@@ -9116,7 +9116,7 @@ export var CancelReservedInstancesListingRequest$: StaticStructureSchema = [3, n
   0,
   [_RILI],
   [[0, { [_eQN]: `ReservedInstancesListingId`
-  , [_xN]: _rILI }]]
+  , [_xN]: _rILI }]], 1
 ];
 export var CancelReservedInstancesListingResult$: StaticStructureSchema = [3, n0, _CRILRa,
   0,
@@ -9140,11 +9140,11 @@ export var CancelSpotFleetRequestsErrorItem$: StaticStructureSchema = [3, n0, _C
 ];
 export var CancelSpotFleetRequestsRequest$: StaticStructureSchema = [3, n0, _CSFRR,
   0,
-  [_DR, _SFRIp, _TI],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [() => SpotFleetRequestIdList, { [_eQN]: `SpotFleetRequestId`
+  [_SFRIp, _TI, _DR],
+  [[() => SpotFleetRequestIdList, { [_eQN]: `SpotFleetRequestId`
   , [_xN]: _sFRI }], [2, { [_eQN]: `TerminateInstances`
-  , [_xN]: _tI }]]
+  , [_xN]: _tI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 2
 ];
 export var CancelSpotFleetRequestsResponse$: StaticStructureSchema = [3, n0, _CSFRRa,
   0,
@@ -9163,9 +9163,9 @@ export var CancelSpotFleetRequestsSuccessItem$: StaticStructureSchema = [3, n0, 
 ];
 export var CancelSpotInstanceRequestsRequest$: StaticStructureSchema = [3, n0, _CSIRR,
   0,
-  [_DR, _SIRIp],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [() => SpotInstanceRequestIdList, { [_xN]: _SIRI }]]
+  [_SIRIp, _DR],
+  [[() => SpotInstanceRequestIdList, { [_xN]: _SIRI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var CancelSpotInstanceRequestsResult$: StaticStructureSchema = [3, n0, _CSIRRa,
   0,
@@ -9479,7 +9479,7 @@ export var CertificateAuthenticationRequest$: StaticStructureSchema = [3, n0, _C
 export var CidrAuthorizationContext$: StaticStructureSchema = [3, n0, _CAC,
   0,
   [_Me, _Si],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CidrBlock$: StaticStructureSchema = [3, n0, _CB,
   0,
@@ -9723,7 +9723,7 @@ export var ConfirmProductInstanceRequest$: StaticStructureSchema = [3, n0, _CPIR
   0,
   [_II, _PCr, _DR],
   [0, 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 2
 ];
 export var ConfirmProductInstanceResult$: StaticStructureSchema = [3, n0, _CPIRo,
   0,
@@ -9798,8 +9798,8 @@ export var ConversionTask$: StaticStructureSchema = [3, n0, _CTo,
 ];
 export var CopyFpgaImageRequest$: StaticStructureSchema = [3, n0, _CFIR,
   0,
-  [_DR, _SFII, _De, _N, _SRo, _CT],
-  [2, 0, 0, 0, 0, 0]
+  [_SFII, _SRo, _DR, _De, _N, _CT],
+  [0, 0, 2, 0, 0, 0], 2
 ];
 export var CopyFpgaImageResult$: StaticStructureSchema = [3, n0, _CFIRo,
   0,
@@ -9809,11 +9809,11 @@ export var CopyFpgaImageResult$: StaticStructureSchema = [3, n0, _CFIRo,
 ];
 export var CopyImageRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
-  [_CT, _De, _Enc, _KKI, _N, _SII, _SRo, _DOA, _CIT, _TS, _SCCDM, _DAZ, _DAZI, _DR],
-  [[0, 4], 0, [2, { [_eQN]: `Encrypted`
+  [_N, _SII, _SRo, _CT, _De, _Enc, _KKI, _DOA, _CIT, _TS, _SCCDM, _DAZ, _DAZI, _DR],
+  [0, 0, 0, [0, 4], 0, [2, { [_eQN]: `Encrypted`
   , [_xN]: _enc }], [0, { [_eQN]: `KmsKeyId`
-  , [_xN]: _kKI }], 0, 0, 0, 0, 2, [() => TagSpecificationList, { [_xN]: _TSa }], 1, 0, 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _kKI }], 0, 2, [() => TagSpecificationList, { [_xN]: _TSa }], 1, 0, 0, [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 3
 ];
 export var CopyImageResult$: StaticStructureSchema = [3, n0, _CIRo,
   0,
@@ -9823,13 +9823,13 @@ export var CopyImageResult$: StaticStructureSchema = [3, n0, _CIRo,
 ];
 export var CopySnapshotRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_De, _DOA, _DRe, _Enc, _KKI, _PU, _SRo, _SSI, _TS, _CDM, _DAZ, _DR],
-  [0, 0, [0, { [_eQN]: `DestinationRegion`
+  [_SRo, _SSI, _De, _DOA, _DRe, _Enc, _KKI, _PU, _TS, _CDM, _DAZ, _DR],
+  [0, 0, 0, 0, [0, { [_eQN]: `DestinationRegion`
   , [_xN]: _dRe }], [2, { [_eQN]: `Encrypted`
   , [_xN]: _enc }], [0, { [_eQN]: `KmsKeyId`
   , [_xN]: _kKI }], [() => CopySnapshotRequestPSU, { [_eQN]: `PresignedUrl`
-  , [_xN]: _pU }], 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 1, 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _pU }], [() => TagSpecificationList, { [_xN]: _TSa }], 1, 0, [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 2
 ];
 export var CopySnapshotResult$: StaticStructureSchema = [3, n0, _CSRo,
   0,
@@ -9841,7 +9841,7 @@ export var CopySnapshotResult$: StaticStructureSchema = [3, n0, _CSRo,
 export var CopyVolumesRequest$: StaticStructureSchema = [3, n0, _CVRo,
   0,
   [_SVI, _Io, _Siz, _VT, _DR, _TS, _MAE, _Th, _CT],
-  [0, 1, 1, 0, 2, [() => TagSpecificationList, { [_xN]: _TSa }], 2, 1, [0, 4]]
+  [0, 1, 1, 0, 2, [() => TagSpecificationList, { [_xN]: _TSa }], 2, 1, [0, 4]], 1
 ];
 export var CopyVolumesResult$: StaticStructureSchema = [3, n0, _CVRop,
   0,
@@ -9875,8 +9875,8 @@ export var CpuPerformanceFactorRequest$: StaticStructureSchema = [3, n0, _CPFR,
 ];
 export var CreateCapacityManagerDataExportRequest$: StaticStructureSchema = [3, n0, _CCMDER,
   0,
-  [_SBN, _SBP, _Sc, _OF, _CT, _DR, _TS],
-  [0, 0, 0, 0, [0, 4], 2, [() => TagSpecificationList, { [_xN]: _TSa }]]
+  [_SBN, _Sc, _OF, _SBP, _CT, _DR, _TS],
+  [0, 0, 0, 0, [0, 4], 2, [() => TagSpecificationList, { [_xN]: _TSa }]], 3
 ];
 export var CreateCapacityManagerDataExportResult$: StaticStructureSchema = [3, n0, _CCMDERr,
   0,
@@ -9886,8 +9886,8 @@ export var CreateCapacityManagerDataExportResult$: StaticStructureSchema = [3, n
 ];
 export var CreateCapacityReservationBySplittingRequest$: StaticStructureSchema = [3, n0, _CCRBSR,
   0,
-  [_DR, _CT, _SCRI, _IC, _TS],
-  [2, [0, 4], 0, 1, [() => TagSpecificationList, { [_xN]: _TSa }]]
+  [_SCRI, _IC, _DR, _CT, _TS],
+  [0, 1, 2, [0, 4], [() => TagSpecificationList, { [_xN]: _TSa }]], 2
 ];
 export var CreateCapacityReservationBySplittingResult$: StaticStructureSchema = [3, n0, _CCRBSRr,
   0,
@@ -9899,8 +9899,8 @@ export var CreateCapacityReservationBySplittingResult$: StaticStructureSchema = 
 ];
 export var CreateCapacityReservationFleetRequest$: StaticStructureSchema = [3, n0, _CCRFRr,
   0,
-  [_ASl, _CT, _ITS, _Te, _TTC, _ED, _IMC, _TS, _DR],
-  [0, [0, 4], [() => ReservationFleetInstanceSpecificationList, { [_xN]: _ITSn }], 0, 1, 4, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2]
+  [_ITS, _TTC, _ASl, _CT, _Te, _ED, _IMC, _TS, _DR],
+  [[() => ReservationFleetInstanceSpecificationList, { [_xN]: _ITSn }], 1, 0, [0, 4], 0, 4, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2], 2
 ];
 export var CreateCapacityReservationFleetResult$: StaticStructureSchema = [3, n0, _CCRFRre,
   0,
@@ -9920,8 +9920,8 @@ export var CreateCapacityReservationFleetResult$: StaticStructureSchema = [3, n0
 ];
 export var CreateCapacityReservationRequest$: StaticStructureSchema = [3, n0, _CCRRr,
   0,
-  [_CT, _IT, _IPn, _AZ, _AZI, _Te, _IC, _EO, _ES, _ED, _EDT, _IMC, _TS, _DR, _OA, _PGA, _SD, _CDo, _DP],
-  [0, 0, 0, 0, 0, 0, 1, 2, 2, 4, 0, 0, [() => TagSpecificationList, 0], 2, 0, 0, 4, 1, 0]
+  [_IT, _IPn, _IC, _CT, _AZ, _AZI, _Te, _EO, _ES, _ED, _EDT, _IMC, _TS, _DR, _OA, _PGA, _SD, _CDo, _DP],
+  [0, 0, 1, 0, 0, 0, 0, 2, 2, 4, 0, 0, [() => TagSpecificationList, 0], 2, 0, 0, 4, 1, 0], 3
 ];
 export var CreateCapacityReservationResult$: StaticStructureSchema = [3, n0, _CCRRre,
   0,
@@ -9932,7 +9932,7 @@ export var CreateCapacityReservationResult$: StaticStructureSchema = [3, n0, _CC
 export var CreateCarrierGatewayRequest$: StaticStructureSchema = [3, n0, _CCGR,
   0,
   [_VI, _TS, _DR, _CT],
-  [0, [() => TagSpecificationList, { [_xN]: _TSa }], 2, [0, 4]]
+  [0, [() => TagSpecificationList, { [_xN]: _TSa }], 2, [0, 4]], 1
 ];
 export var CreateCarrierGatewayResult$: StaticStructureSchema = [3, n0, _CCGRr,
   0,
@@ -9942,8 +9942,8 @@ export var CreateCarrierGatewayResult$: StaticStructureSchema = [3, n0, _CCGRr,
 ];
 export var CreateClientVpnEndpointRequest$: StaticStructureSchema = [3, n0, _CCVER,
   0,
-  [_CCB, _SCA, _AO, _CLO, _DS, _TPr, _VPp, _De, _STp, _DR, _CT, _TS, _SGIe, _VI, _SSP, _CCO, _STH, _CLBO, _CREO, _DOST, _EIAT, _TIAT],
-  [0, 0, [() => ClientVpnAuthenticationRequestList, { [_xN]: _Au }], () => ConnectionLogOptions$, [() => ValueStringList, 0], 0, 1, 0, 2, 2, [0, 4], [() => TagSpecificationList, { [_xN]: _TSa }], [() => ClientVpnSecurityGroupIdSet, { [_xN]: _SGI }], 0, 0, () => ClientConnectOptions$, 1, () => ClientLoginBannerOptions$, () => ClientRouteEnforcementOptions$, 2, 0, 0]
+  [_SCA, _AO, _CLO, _CCB, _DS, _TPr, _VPp, _De, _STp, _DR, _CT, _TS, _SGIe, _VI, _SSP, _CCO, _STH, _CLBO, _CREO, _DOST, _EIAT, _TIAT],
+  [0, [() => ClientVpnAuthenticationRequestList, { [_xN]: _Au }], () => ConnectionLogOptions$, 0, [() => ValueStringList, 0], 0, 1, 0, 2, 2, [0, 4], [() => TagSpecificationList, { [_xN]: _TSa }], [() => ClientVpnSecurityGroupIdSet, { [_xN]: _SGI }], 0, 0, () => ClientConnectOptions$, 1, () => ClientLoginBannerOptions$, () => ClientRouteEnforcementOptions$, 2, 0, 0], 3
 ];
 export var CreateClientVpnEndpointResult$: StaticStructureSchema = [3, n0, _CCVERr,
   0,
@@ -9956,7 +9956,7 @@ export var CreateClientVpnEndpointResult$: StaticStructureSchema = [3, n0, _CCVE
 export var CreateClientVpnRouteRequest$: StaticStructureSchema = [3, n0, _CCVRR,
   0,
   [_CVEI, _DCB, _TVSI, _De, _CT, _DR],
-  [0, 0, 0, 0, [0, 4], 2]
+  [0, 0, 0, 0, [0, 4], 2], 3
 ];
 export var CreateClientVpnRouteResult$: StaticStructureSchema = [3, n0, _CCVRRr,
   0,
@@ -9967,7 +9967,7 @@ export var CreateClientVpnRouteResult$: StaticStructureSchema = [3, n0, _CCVRRr,
 export var CreateCoipCidrRequest$: StaticStructureSchema = [3, n0, _CCCR,
   0,
   [_Ci, _CPI, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var CreateCoipCidrResult$: StaticStructureSchema = [3, n0, _CCCRr,
   0,
@@ -9978,7 +9978,7 @@ export var CreateCoipCidrResult$: StaticStructureSchema = [3, n0, _CCCRr,
 export var CreateCoipPoolRequest$: StaticStructureSchema = [3, n0, _CCPR,
   0,
   [_LGRTI, _TS, _DR],
-  [0, [() => TagSpecificationList, { [_xN]: _TSa }], 2]
+  [0, [() => TagSpecificationList, { [_xN]: _TSa }], 2], 1
 ];
 export var CreateCoipPoolResult$: StaticStructureSchema = [3, n0, _CCPRr,
   0,
@@ -9988,9 +9988,9 @@ export var CreateCoipPoolResult$: StaticStructureSchema = [3, n0, _CCPRr,
 ];
 export var CreateCustomerGatewayRequest$: StaticStructureSchema = [3, n0, _CCGRre,
   0,
-  [_BA, _PI, _CAe, _Ty, _TS, _DN, _IAp, _BAE, _DR],
-  [1, 0, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 0, 0, 1, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  [_Ty, _BA, _PI, _CAe, _TS, _DN, _IAp, _BAE, _DR],
+  [0, 1, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 0, 0, 1, [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var CreateCustomerGatewayResult$: StaticStructureSchema = [3, n0, _CCGRrea,
   0,
@@ -10022,8 +10022,8 @@ export var CreateDefaultVpcResult$: StaticStructureSchema = [3, n0, _CDVRr,
 ];
 export var CreateDelegateMacVolumeOwnershipTaskRequest$: StaticStructureSchema = [3, n0, _CDMVOTR,
   0,
-  [_CT, _DR, _II, _MC, _TS],
-  [[0, 4], 2, 0, [() => SensitiveMacCredentials, 0], [() => TagSpecificationList, { [_xN]: _TSa }]]
+  [_II, _MC, _CT, _DR, _TS],
+  [0, [() => SensitiveMacCredentials, 0], [0, 4], 2, [() => TagSpecificationList, { [_xN]: _TSa }]], 2
 ];
 export var CreateDelegateMacVolumeOwnershipTaskResult$: StaticStructureSchema = [3, n0, _CDMVOTRr,
   0,
@@ -10036,7 +10036,7 @@ export var CreateDhcpOptionsRequest$: StaticStructureSchema = [3, n0, _CDOR,
   [_DCh, _TS, _DR],
   [[() => NewDhcpConfigurationList, { [_eQN]: `DhcpConfiguration`
   , [_xN]: _dCh }], [() => TagSpecificationList, { [_xN]: _TSa }], [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var CreateDhcpOptionsResult$: StaticStructureSchema = [3, n0, _CDORr,
   0,
@@ -10046,8 +10046,8 @@ export var CreateDhcpOptionsResult$: StaticStructureSchema = [3, n0, _CDORr,
 ];
 export var CreateEgressOnlyInternetGatewayRequest$: StaticStructureSchema = [3, n0, _CEOIGR,
   0,
-  [_CT, _DR, _VI, _TS],
-  [0, 2, 0, [() => TagSpecificationList, { [_xN]: _TSa }]]
+  [_VI, _CT, _DR, _TS],
+  [0, 0, 2, [() => TagSpecificationList, { [_xN]: _TSa }]], 1
 ];
 export var CreateEgressOnlyInternetGatewayResult$: StaticStructureSchema = [3, n0, _CEOIGRr,
   0,
@@ -10077,8 +10077,8 @@ export var CreateFleetInstance$: StaticStructureSchema = [3, n0, _CFI,
 ];
 export var CreateFleetRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_DR, _CT, _SO, _ODO, _ECTP, _LTC, _TCS, _TIWE, _Ty, _VF, _VU, _RUI, _TS, _Con],
-  [2, [0, 4], () => SpotOptionsRequest$, () => OnDemandOptionsRequest$, 0, [() => FleetLaunchTemplateConfigListRequest, 0], () => TargetCapacitySpecificationRequest$, 2, 0, 4, 4, 2, [() => TagSpecificationList, { [_xN]: _TSa }], 0]
+  [_LTC, _TCS, _DR, _CT, _SO, _ODO, _ECTP, _TIWE, _Ty, _VF, _VU, _RUI, _TS, _Con],
+  [[() => FleetLaunchTemplateConfigListRequest, 0], () => TargetCapacitySpecificationRequest$, 2, [0, 4], () => SpotOptionsRequest$, () => OnDemandOptionsRequest$, 0, 2, 0, 4, 4, 2, [() => TagSpecificationList, { [_xN]: _TSa }], 0], 2
 ];
 export var CreateFleetResult$: StaticStructureSchema = [3, n0, _CFRr,
   0,
@@ -10090,8 +10090,8 @@ export var CreateFleetResult$: StaticStructureSchema = [3, n0, _CFRr,
 ];
 export var CreateFlowLogsRequest$: StaticStructureSchema = [3, n0, _CFLR,
   0,
-  [_DR, _CT, _DLPA, _DCAR, _LGN, _RIes, _RTe, _TT, _LDTo, _LD, _LF, _TS, _MAI, _DOe],
-  [2, 0, 0, 0, 0, [() => FlowLogResourceIds, { [_xN]: _RIeso }], 0, 0, 0, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 1, () => DestinationOptionsRequest$]
+  [_RIes, _RTe, _DR, _CT, _DLPA, _DCAR, _LGN, _TT, _LDTo, _LD, _LF, _TS, _MAI, _DOe],
+  [[() => FlowLogResourceIds, { [_xN]: _RIeso }], 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 1, () => DestinationOptionsRequest$], 2
 ];
 export var CreateFlowLogsResult$: StaticStructureSchema = [3, n0, _CFLRr,
   0,
@@ -10103,8 +10103,8 @@ export var CreateFlowLogsResult$: StaticStructureSchema = [3, n0, _CFLRr,
 ];
 export var CreateFpgaImageRequest$: StaticStructureSchema = [3, n0, _CFIRr,
   0,
-  [_DR, _ISL, _LSL, _De, _N, _CT, _TS],
-  [2, () => StorageLocation$, () => StorageLocation$, 0, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }]]
+  [_ISL, _DR, _LSL, _De, _N, _CT, _TS],
+  [() => StorageLocation$, 2, () => StorageLocation$, 0, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }]], 1
 ];
 export var CreateFpgaImageResult$: StaticStructureSchema = [3, n0, _CFIRre,
   0,
@@ -10115,14 +10115,14 @@ export var CreateFpgaImageResult$: StaticStructureSchema = [3, n0, _CFIRre,
 ];
 export var CreateImageRequest$: StaticStructureSchema = [3, n0, _CIRr,
   0,
-  [_TS, _SL, _DR, _II, _N, _De, _NR, _BDMl],
-  [[() => TagSpecificationList, { [_xN]: _TSa }], 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `InstanceId`
+  [_II, _N, _TS, _SL, _DR, _De, _NR, _BDMl],
+  [[0, { [_eQN]: `InstanceId`
   , [_xN]: _iI }], [0, { [_eQN]: `Name`
-  , [_xN]: _n }], [0, { [_eQN]: `Description`
+  , [_xN]: _n }], [() => TagSpecificationList, { [_xN]: _TSa }], 0, [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [0, { [_eQN]: `Description`
   , [_xN]: _de }], [2, { [_eQN]: `NoReboot`
   , [_xN]: _nR }], [() => BlockDeviceMappingRequestList, { [_eQN]: `BlockDeviceMapping`
-  , [_xN]: _bDM }]]
+  , [_xN]: _bDM }]], 2
 ];
 export var CreateImageResult$: StaticStructureSchema = [3, n0, _CIRre,
   0,
@@ -10132,8 +10132,8 @@ export var CreateImageResult$: StaticStructureSchema = [3, n0, _CIRre,
 ];
 export var CreateImageUsageReportRequest$: StaticStructureSchema = [3, n0, _CIURR,
   0,
-  [_IIm, _DR, _RTes, _AIcc, _CT, _TS],
-  [0, 2, [() => ImageUsageResourceTypeRequestList, { [_xN]: _RTe }], [() => ImageUsageReportUserIdStringList, { [_xN]: _AIc }], [0, 4], [() => TagSpecificationList, { [_xN]: _TSa }]]
+  [_IIm, _RTes, _DR, _AIcc, _CT, _TS],
+  [0, [() => ImageUsageResourceTypeRequestList, { [_xN]: _RTe }], 2, [() => ImageUsageReportUserIdStringList, { [_xN]: _AIc }], [0, 4], [() => TagSpecificationList, { [_xN]: _TSa }]], 2
 ];
 export var CreateImageUsageReportResult$: StaticStructureSchema = [3, n0, _CIURRr,
   0,
@@ -10143,8 +10143,8 @@ export var CreateImageUsageReportResult$: StaticStructureSchema = [3, n0, _CIURR
 ];
 export var CreateInstanceConnectEndpointRequest$: StaticStructureSchema = [3, n0, _CICER,
   0,
-  [_DR, _SIu, _SGIe, _PCI, _CT, _TS, _IAT],
-  [2, 0, [() => SecurityGroupIdStringListRequest, { [_xN]: _SGI }], 2, [0, 4], [() => TagSpecificationList, { [_xN]: _TSa }], 0]
+  [_SIu, _DR, _SGIe, _PCI, _CT, _TS, _IAT],
+  [0, 2, [() => SecurityGroupIdStringListRequest, { [_xN]: _SGI }], 2, [0, 4], [() => TagSpecificationList, { [_xN]: _TSa }], 0], 1
 ];
 export var CreateInstanceConnectEndpointResult$: StaticStructureSchema = [3, n0, _CICERr,
   0,
@@ -10166,12 +10166,12 @@ export var CreateInstanceEventWindowResult$: StaticStructureSchema = [3, n0, _CI
 ];
 export var CreateInstanceExportTaskRequest$: StaticStructureSchema = [3, n0, _CIETR,
   0,
-  [_TS, _De, _II, _TE, _ETST],
-  [[() => TagSpecificationList, { [_xN]: _TSa }], [0, { [_eQN]: `Description`
-  , [_xN]: _de }], [0, { [_eQN]: `InstanceId`
+  [_II, _TE, _ETST, _TS, _De],
+  [[0, { [_eQN]: `InstanceId`
   , [_xN]: _iI }], [0, { [_eQN]: `TargetEnvironment`
   , [_xN]: _tE }], [() => ExportToS3TaskSpecification$, { [_eQN]: `ExportToS3`
-  , [_xN]: _eTS }]]
+  , [_xN]: _eTS }], [() => TagSpecificationList, { [_xN]: _TSa }], [0, { [_eQN]: `Description`
+  , [_xN]: _de }]], 3
 ];
 export var CreateInstanceExportTaskResult$: StaticStructureSchema = [3, n0, _CIETRr,
   0,
@@ -10194,7 +10194,7 @@ export var CreateInternetGatewayResult$: StaticStructureSchema = [3, n0, _CIGRr,
 export var CreateInterruptibleCapacityReservationAllocationRequest$: StaticStructureSchema = [3, n0, _CICRAR,
   0,
   [_CRI, _IC, _CT, _DR, _TS],
-  [0, 1, [0, 4], 2, [() => TagSpecificationList, { [_xN]: _TSa }]]
+  [0, 1, [0, 4], 2, [() => TagSpecificationList, { [_xN]: _TSa }]], 2
 ];
 export var CreateInterruptibleCapacityReservationAllocationResult$: StaticStructureSchema = [3, n0, _CICRARr,
   0,
@@ -10207,8 +10207,8 @@ export var CreateInterruptibleCapacityReservationAllocationResult$: StaticStruct
 ];
 export var CreateIpamExternalResourceVerificationTokenRequest$: StaticStructureSchema = [3, n0, _CIERVTR,
   0,
-  [_DR, _IIp, _TS, _CT],
-  [2, 0, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4]]
+  [_IIp, _DR, _TS, _CT],
+  [0, 2, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4]], 1
 ];
 export var CreateIpamExternalResourceVerificationTokenResult$: StaticStructureSchema = [3, n0, _CIERVTRr,
   0,
@@ -10218,8 +10218,8 @@ export var CreateIpamExternalResourceVerificationTokenResult$: StaticStructureSc
 ];
 export var CreateIpamPolicyRequest$: StaticStructureSchema = [3, n0, _CIPR,
   0,
-  [_DR, _TS, _CT, _IIp],
-  [2, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4], 0]
+  [_IIp, _DR, _TS, _CT],
+  [0, 2, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4]], 1
 ];
 export var CreateIpamPolicyResult$: StaticStructureSchema = [3, n0, _CIPRr,
   0,
@@ -10229,8 +10229,8 @@ export var CreateIpamPolicyResult$: StaticStructureSchema = [3, n0, _CIPRr,
 ];
 export var CreateIpamPoolRequest$: StaticStructureSchema = [3, n0, _CIPRre,
   0,
-  [_DR, _ISI, _Lo, _SIPI, _De, _AF, _AIu, _PAu, _AMNL, _AMNLl, _ADNL, _ART, _TS, _CT, _ASw, _PIS, _SRou],
-  [2, 0, 0, 0, 0, 0, 2, 2, 1, 1, 1, [() => RequestIpamResourceTagList, { [_xN]: _ARTl }], [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4], 0, 0, () => IpamPoolSourceResourceRequest$]
+  [_ISI, _AF, _DR, _Lo, _SIPI, _De, _AIu, _PAu, _AMNL, _AMNLl, _ADNL, _ART, _TS, _CT, _ASw, _PIS, _SRou],
+  [0, 0, 2, 0, 0, 0, 2, 2, 1, 1, 1, [() => RequestIpamResourceTagList, { [_xN]: _ARTl }], [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4], 0, 0, () => IpamPoolSourceResourceRequest$], 2
 ];
 export var CreateIpamPoolResult$: StaticStructureSchema = [3, n0, _CIPRrea,
   0,
@@ -10240,8 +10240,8 @@ export var CreateIpamPoolResult$: StaticStructureSchema = [3, n0, _CIPRrea,
 ];
 export var CreateIpamPrefixListResolverRequest$: StaticStructureSchema = [3, n0, _CIPLRR,
   0,
-  [_DR, _IIp, _De, _AF, _Ru, _TS, _CT],
-  [2, 0, 0, 0, [() => IpamPrefixListResolverRuleRequestSet, { [_xN]: _Rul }], [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4]]
+  [_IIp, _AF, _DR, _De, _Ru, _TS, _CT],
+  [0, 0, 2, 0, [() => IpamPrefixListResolverRuleRequestSet, { [_xN]: _Rul }], [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4]], 2
 ];
 export var CreateIpamPrefixListResolverResult$: StaticStructureSchema = [3, n0, _CIPLRRr,
   0,
@@ -10251,8 +10251,8 @@ export var CreateIpamPrefixListResolverResult$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateIpamPrefixListResolverTargetRequest$: StaticStructureSchema = [3, n0, _CIPLRTR,
   0,
-  [_DR, _IPLRI, _PLI, _PLR, _DV, _TLV, _TS, _CT],
-  [2, 0, 0, 0, 1, 2, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4]]
+  [_IPLRI, _PLI, _PLR, _TLV, _DR, _DV, _TS, _CT],
+  [0, 0, 0, 2, 2, 1, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4]], 4
 ];
 export var CreateIpamPrefixListResolverTargetResult$: StaticStructureSchema = [3, n0, _CIPLRTRr,
   0,
@@ -10284,8 +10284,8 @@ export var CreateIpamResult$: StaticStructureSchema = [3, n0, _CIRreat,
 ];
 export var CreateIpamScopeRequest$: StaticStructureSchema = [3, n0, _CISR,
   0,
-  [_DR, _IIp, _De, _TS, _CT, _EAC],
-  [2, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4], () => ExternalAuthorityConfiguration$]
+  [_IIp, _DR, _De, _TS, _CT, _EAC],
+  [0, 2, 0, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4], () => ExternalAuthorityConfiguration$], 1
 ];
 export var CreateIpamScopeResult$: StaticStructureSchema = [3, n0, _CISRr,
   0,
@@ -10297,12 +10297,12 @@ export var CreateKeyPairRequest$: StaticStructureSchema = [3, n0, _CKPR,
   0,
   [_KN, _KT, _TS, _KF, _DR],
   [0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var CreateLaunchTemplateRequest$: StaticStructureSchema = [3, n0, _CLTR,
   0,
-  [_DR, _CT, _LTN, _VD, _LTD, _Op, _TS],
-  [2, [0, 4], 0, 0, [() => RequestLaunchTemplateData$, 0], () => OperatorRequest$, [() => TagSpecificationList, { [_xN]: _TSa }]]
+  [_LTN, _LTD, _DR, _CT, _VD, _Op, _TS],
+  [0, [() => RequestLaunchTemplateData$, 0], 2, [0, 4], 0, () => OperatorRequest$, [() => TagSpecificationList, { [_xN]: _TSa }]], 2
 ];
 export var CreateLaunchTemplateResult$: StaticStructureSchema = [3, n0, _CLTRr,
   0,
@@ -10313,8 +10313,8 @@ export var CreateLaunchTemplateResult$: StaticStructureSchema = [3, n0, _CLTRr,
 ];
 export var CreateLaunchTemplateVersionRequest$: StaticStructureSchema = [3, n0, _CLTVR,
   0,
-  [_DR, _CT, _LTI, _LTN, _SV, _VD, _LTD, _RAes],
-  [2, [0, 4], 0, 0, 0, 0, [() => RequestLaunchTemplateData$, 0], 2]
+  [_LTD, _DR, _CT, _LTI, _LTN, _SV, _VD, _RAes],
+  [[() => RequestLaunchTemplateData$, 0], 2, [0, 4], 0, 0, 0, 0, 2], 1
 ];
 export var CreateLaunchTemplateVersionResult$: StaticStructureSchema = [3, n0, _CLTVRr,
   0,
@@ -10325,8 +10325,8 @@ export var CreateLaunchTemplateVersionResult$: StaticStructureSchema = [3, n0, _
 ];
 export var CreateLocalGatewayRouteRequest$: StaticStructureSchema = [3, n0, _CLGRR,
   0,
-  [_DCB, _LGRTI, _LGVIGI, _DR, _NII, _DPLI],
-  [0, 0, 0, 2, 0, 0]
+  [_LGRTI, _DCB, _LGVIGI, _DR, _NII, _DPLI],
+  [0, 0, 0, 2, 0, 0], 1
 ];
 export var CreateLocalGatewayRouteResult$: StaticStructureSchema = [3, n0, _CLGRRr,
   0,
@@ -10337,7 +10337,7 @@ export var CreateLocalGatewayRouteResult$: StaticStructureSchema = [3, n0, _CLGR
 export var CreateLocalGatewayRouteTableRequest$: StaticStructureSchema = [3, n0, _CLGRTR,
   0,
   [_LGI, _Mo, _TS, _DR],
-  [0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2]
+  [0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2], 1
 ];
 export var CreateLocalGatewayRouteTableResult$: StaticStructureSchema = [3, n0, _CLGRTRr,
   0,
@@ -10348,7 +10348,7 @@ export var CreateLocalGatewayRouteTableResult$: StaticStructureSchema = [3, n0, 
 export var CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest$: StaticStructureSchema = [3, n0, _CLGRTVIGAR,
   0,
   [_LGRTI, _LGVIGI, _TS, _DR],
-  [0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2]
+  [0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2], 2
 ];
 export var CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult$: StaticStructureSchema = [3, n0, _CLGRTVIGARr,
   0,
@@ -10359,7 +10359,7 @@ export var CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult$: 
 export var CreateLocalGatewayRouteTableVpcAssociationRequest$: StaticStructureSchema = [3, n0, _CLGRTVAR,
   0,
   [_LGRTI, _VI, _TS, _DR],
-  [0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2]
+  [0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2], 2
 ];
 export var CreateLocalGatewayRouteTableVpcAssociationResult$: StaticStructureSchema = [3, n0, _CLGRTVARr,
   0,
@@ -10370,7 +10370,7 @@ export var CreateLocalGatewayRouteTableVpcAssociationResult$: StaticStructureSch
 export var CreateLocalGatewayVirtualInterfaceGroupRequest$: StaticStructureSchema = [3, n0, _CLGVIGR,
   0,
   [_LGI, _LBA, _LBAE, _TS, _DR],
-  [0, 1, 1, [() => TagSpecificationList, { [_xN]: _TSa }], 2]
+  [0, 1, 1, [() => TagSpecificationList, { [_xN]: _TSa }], 2], 1
 ];
 export var CreateLocalGatewayVirtualInterfaceGroupResult$: StaticStructureSchema = [3, n0, _CLGVIGRr,
   0,
@@ -10381,7 +10381,7 @@ export var CreateLocalGatewayVirtualInterfaceGroupResult$: StaticStructureSchema
 export var CreateLocalGatewayVirtualInterfaceRequest$: StaticStructureSchema = [3, n0, _CLGVIR,
   0,
   [_LGVIGI, _OLI, _Vl, _LA, _PAe, _PBA, _TS, _DR, _PBAE],
-  [0, 0, 1, 0, 0, 1, [() => TagSpecificationList, { [_xN]: _TSa }], 2, 1]
+  [0, 0, 1, 0, 0, 1, [() => TagSpecificationList, { [_xN]: _TSa }], 2, 1], 5
 ];
 export var CreateLocalGatewayVirtualInterfaceResult$: StaticStructureSchema = [3, n0, _CLGVIRr,
   0,
@@ -10391,8 +10391,8 @@ export var CreateLocalGatewayVirtualInterfaceResult$: StaticStructureSchema = [3
 ];
 export var CreateMacSystemIntegrityProtectionModificationTaskRequest$: StaticStructureSchema = [3, n0, _CMSIPMTR,
   0,
-  [_CT, _DR, _II, _MC, _MSIPC, _MSIPS, _TS],
-  [[0, 4], 2, 0, [() => SensitiveMacCredentials, 0], () => MacSystemIntegrityProtectionConfigurationRequest$, 0, [() => TagSpecificationList, { [_xN]: _TSa }]]
+  [_II, _MSIPS, _CT, _DR, _MC, _MSIPC, _TS],
+  [0, 0, [0, 4], 2, [() => SensitiveMacCredentials, 0], () => MacSystemIntegrityProtectionConfigurationRequest$, [() => TagSpecificationList, { [_xN]: _TSa }]], 2
 ];
 export var CreateMacSystemIntegrityProtectionModificationTaskResult$: StaticStructureSchema = [3, n0, _CMSIPMTRr,
   0,
@@ -10402,8 +10402,8 @@ export var CreateMacSystemIntegrityProtectionModificationTaskResult$: StaticStru
 ];
 export var CreateManagedPrefixListRequest$: StaticStructureSchema = [3, n0, _CMPLR,
   0,
-  [_DR, _PLN, _Ent, _ME, _TS, _AF, _CT],
-  [2, 0, [() => AddPrefixListEntries, { [_xN]: _Entr }], 1, [() => TagSpecificationList, { [_xN]: _TSa }], 0, [0, 4]]
+  [_PLN, _ME, _AF, _DR, _Ent, _TS, _CT],
+  [0, 1, 0, 2, [() => AddPrefixListEntries, { [_xN]: _Entr }], [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4]], 3
 ];
 export var CreateManagedPrefixListResult$: StaticStructureSchema = [3, n0, _CMPLRr,
   0,
@@ -10425,24 +10425,24 @@ export var CreateNatGatewayResult$: StaticStructureSchema = [3, n0, _CNGRr,
 ];
 export var CreateNetworkAclEntryRequest$: StaticStructureSchema = [3, n0, _CNAER,
   0,
-  [_DR, _NAI, _RNu, _Pr, _RA, _E, _CB, _ICB, _ITC, _PRo],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `NetworkAclId`
+  [_NAI, _RNu, _Pr, _RA, _E, _DR, _CB, _ICB, _ITC, _PRo],
+  [[0, { [_eQN]: `NetworkAclId`
   , [_xN]: _nAI }], [1, { [_eQN]: `RuleNumber`
   , [_xN]: _rN }], [0, { [_eQN]: `Protocol`
   , [_xN]: _pr }], [0, { [_eQN]: `RuleAction`
   , [_xN]: _rA }], [2, { [_eQN]: `Egress`
-  , [_xN]: _e }], [0, { [_eQN]: `CidrBlock`
+  , [_xN]: _e }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [0, { [_eQN]: `CidrBlock`
   , [_xN]: _cB }], [0, { [_eQN]: `Ipv6CidrBlock`
   , [_xN]: _iCB }], [() => IcmpTypeCode$, { [_xN]: _Ic }], [() => PortRange$, { [_eQN]: `PortRange`
-  , [_xN]: _pRo }]]
+  , [_xN]: _pRo }]], 5
 ];
 export var CreateNetworkAclRequest$: StaticStructureSchema = [3, n0, _CNAR,
   0,
-  [_TS, _CT, _DR, _VI],
-  [[() => TagSpecificationList, { [_xN]: _TSa }], [0, 4], [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `VpcId`
-  , [_xN]: _vI }]]
+  [_VI, _TS, _CT, _DR],
+  [[0, { [_eQN]: `VpcId`
+  , [_xN]: _vI }], [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var CreateNetworkAclResult$: StaticStructureSchema = [3, n0, _CNARr,
   0,
@@ -10465,8 +10465,8 @@ export var CreateNetworkInsightsAccessScopeResult$: StaticStructureSchema = [3, 
 ];
 export var CreateNetworkInsightsPathRequest$: StaticStructureSchema = [3, n0, _CNIPR,
   0,
-  [_SIo, _DIe, _S, _D, _Pr, _DPe, _TS, _DR, _CT, _FAS, _FAD],
-  [0, 0, 0, 0, 0, 1, [() => TagSpecificationList, { [_xN]: _TSa }], 2, [0, 4], () => PathRequestFilter$, () => PathRequestFilter$]
+  [_S, _Pr, _SIo, _DIe, _D, _DPe, _TS, _DR, _CT, _FAS, _FAD],
+  [0, 0, 0, 0, 0, 1, [() => TagSpecificationList, { [_xN]: _TSa }], 2, [0, 4], () => PathRequestFilter$, () => PathRequestFilter$], 2
 ];
 export var CreateNetworkInsightsPathResult$: StaticStructureSchema = [3, n0, _CNIPRr,
   0,
@@ -10476,8 +10476,8 @@ export var CreateNetworkInsightsPathResult$: StaticStructureSchema = [3, n0, _CN
 ];
 export var CreateNetworkInterfacePermissionRequest$: StaticStructureSchema = [3, n0, _CNIPRre,
   0,
-  [_NII, _AAI, _ASw, _Pe, _DR],
-  [0, 0, 0, 0, 2]
+  [_NII, _Pe, _AAI, _ASw, _DR],
+  [0, 0, 0, 0, 2], 2
 ];
 export var CreateNetworkInterfacePermissionResult$: StaticStructureSchema = [3, n0, _CNIPRrea,
   0,
@@ -10487,16 +10487,16 @@ export var CreateNetworkInterfacePermissionResult$: StaticStructureSchema = [3, 
 ];
 export var CreateNetworkInterfaceRequest$: StaticStructureSchema = [3, n0, _CNIR,
   0,
-  [_IPpvr, _IPCp, _IPp, _IPC, _ITnt, _TS, _CT, _EPI, _CTS, _Op, _SIu, _De, _PIAr, _G, _PIAri, _SPIAC, _IA, _IAC, _DR],
-  [[() => Ipv4PrefixList, { [_xN]: _IPpvre }], 1, [() => Ipv6PrefixList, { [_xN]: _IPpv }], 1, 0, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4], 2, () => ConnectionTrackingSpecificationRequest$, () => OperatorRequest$, [0, { [_eQN]: `SubnetId`
-  , [_xN]: _sIu }], [0, { [_eQN]: `Description`
+  [_SIu, _IPpvr, _IPCp, _IPp, _IPC, _ITnt, _TS, _CT, _EPI, _CTS, _Op, _De, _PIAr, _G, _PIAri, _SPIAC, _IA, _IAC, _DR],
+  [[0, { [_eQN]: `SubnetId`
+  , [_xN]: _sIu }], [() => Ipv4PrefixList, { [_xN]: _IPpvre }], 1, [() => Ipv6PrefixList, { [_xN]: _IPpv }], 1, 0, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4], 2, () => ConnectionTrackingSpecificationRequest$, () => OperatorRequest$, [0, { [_eQN]: `Description`
   , [_xN]: _de }], [0, { [_eQN]: `PrivateIpAddress`
   , [_xN]: _pIAr }], [() => SecurityGroupIdStringList, { [_xN]: _SGI }], [() => PrivateIpAddressSpecificationList, { [_eQN]: `PrivateIpAddresses`
   , [_xN]: _pIAri }], [1, { [_eQN]: `SecondaryPrivateIpAddressCount`
   , [_xN]: _sPIAC }], [() => InstanceIpv6AddressList, { [_eQN]: `Ipv6Addresses`
   , [_xN]: _iA }], [1, { [_eQN]: `Ipv6AddressCount`
   , [_xN]: _iAC }], [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var CreateNetworkInterfaceResult$: StaticStructureSchema = [3, n0, _CNIRr,
   0,
@@ -10533,7 +10533,7 @@ export var CreatePublicIpv4PoolResult$: StaticStructureSchema = [3, n0, _CPIPRr,
 export var CreateReplaceRootVolumeTaskRequest$: StaticStructureSchema = [3, n0, _CRRVTR,
   0,
   [_II, _SIn, _CT, _DR, _TS, _IIm, _DRRV, _VIR],
-  [0, 0, [0, 4], 2, [() => TagSpecificationList, { [_xN]: _TSa }], 0, 2, 1]
+  [0, 0, [0, 4], 2, [() => TagSpecificationList, { [_xN]: _TSa }], 0, 2, 1], 1
 ];
 export var CreateReplaceRootVolumeTaskResult$: StaticStructureSchema = [3, n0, _CRRVTRr,
   0,
@@ -10548,7 +10548,7 @@ export var CreateReservedInstancesListingRequest$: StaticStructureSchema = [3, n
   , [_xN]: _rII }], [1, { [_eQN]: `InstanceCount`
   , [_xN]: _iC }], [() => PriceScheduleSpecificationList, { [_eQN]: `PriceSchedules`
   , [_xN]: _pSri }], [0, { [_eQN]: `ClientToken`
-  , [_xN]: _cT }]]
+  , [_xN]: _cT }]], 4
 ];
 export var CreateReservedInstancesListingResult$: StaticStructureSchema = [3, n0, _CRILRre,
   0,
@@ -10559,7 +10559,7 @@ export var CreateReservedInstancesListingResult$: StaticStructureSchema = [3, n0
 export var CreateRestoreImageTaskRequest$: StaticStructureSchema = [3, n0, _CRITR,
   0,
   [_Bu, _OK, _N, _TS, _DR],
-  [0, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2]
+  [0, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2], 2
 ];
 export var CreateRestoreImageTaskResult$: StaticStructureSchema = [3, n0, _CRITRr,
   0,
@@ -10569,10 +10569,10 @@ export var CreateRestoreImageTaskResult$: StaticStructureSchema = [3, n0, _CRITR
 ];
 export var CreateRouteRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
-  [_DPLI, _VEIp, _TGI, _LGI, _CGI, _CNA, _ONA, _DR, _RTI, _DCB, _GI, _DICB, _EOIGI, _II, _NII, _VPCI, _NGI],
-  [0, 0, 0, 0, 0, 0, 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `RouteTableId`
-  , [_xN]: _rTI }], [0, { [_eQN]: `DestinationCidrBlock`
+  [_RTI, _DPLI, _VEIp, _TGI, _LGI, _CGI, _CNA, _ONA, _DR, _DCB, _GI, _DICB, _EOIGI, _II, _NII, _VPCI, _NGI],
+  [[0, { [_eQN]: `RouteTableId`
+  , [_xN]: _rTI }], 0, 0, 0, 0, 0, 0, 0, [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [0, { [_eQN]: `DestinationCidrBlock`
   , [_xN]: _dCB }], [0, { [_eQN]: `GatewayId`
   , [_xN]: _gI }], [0, { [_eQN]: `DestinationIpv6CidrBlock`
   , [_xN]: _dICB }], [0, { [_eQN]: `EgressOnlyInternetGatewayId`
@@ -10580,7 +10580,7 @@ export var CreateRouteRequest$: StaticStructureSchema = [3, n0, _CRR,
   , [_xN]: _iI }], [0, { [_eQN]: `NetworkInterfaceId`
   , [_xN]: _nII }], [0, { [_eQN]: `VpcPeeringConnectionId`
   , [_xN]: _vPCI }], [0, { [_eQN]: `NatGatewayId`
-  , [_xN]: _nGI }]]
+  , [_xN]: _nGI }]], 1
 ];
 export var CreateRouteResult$: StaticStructureSchema = [3, n0, _CRRr,
   0,
@@ -10591,7 +10591,7 @@ export var CreateRouteResult$: StaticStructureSchema = [3, n0, _CRRr,
 export var CreateRouteServerEndpointRequest$: StaticStructureSchema = [3, n0, _CRSER,
   0,
   [_RSI, _SIu, _CT, _DR, _TS],
-  [0, 0, [0, 4], 2, [() => TagSpecificationList, { [_xN]: _TSa }]]
+  [0, 0, [0, 4], 2, [() => TagSpecificationList, { [_xN]: _TSa }]], 2
 ];
 export var CreateRouteServerEndpointResult$: StaticStructureSchema = [3, n0, _CRSERr,
   0,
@@ -10602,7 +10602,7 @@ export var CreateRouteServerEndpointResult$: StaticStructureSchema = [3, n0, _CR
 export var CreateRouteServerPeerRequest$: StaticStructureSchema = [3, n0, _CRSPR,
   0,
   [_RSEI, _PAe, _BO, _DR, _TS],
-  [0, 0, () => RouteServerBgpOptionsRequest$, 2, [() => TagSpecificationList, { [_xN]: _TSa }]]
+  [0, 0, () => RouteServerBgpOptionsRequest$, 2, [() => TagSpecificationList, { [_xN]: _TSa }]], 3
 ];
 export var CreateRouteServerPeerResult$: StaticStructureSchema = [3, n0, _CRSPRr,
   0,
@@ -10613,7 +10613,7 @@ export var CreateRouteServerPeerResult$: StaticStructureSchema = [3, n0, _CRSPRr
 export var CreateRouteServerRequest$: StaticStructureSchema = [3, n0, _CRSRr,
   0,
   [_ASA, _CT, _DR, _PRe, _PRD, _SNE, _TS],
-  [1, [0, 4], 2, 0, 1, 2, [() => TagSpecificationList, { [_xN]: _TSa }]]
+  [1, [0, 4], 2, 0, 1, 2, [() => TagSpecificationList, { [_xN]: _TSa }]], 1
 ];
 export var CreateRouteServerResult$: StaticStructureSchema = [3, n0, _CRSRre,
   0,
@@ -10623,10 +10623,10 @@ export var CreateRouteServerResult$: StaticStructureSchema = [3, n0, _CRSRre,
 ];
 export var CreateRouteTableRequest$: StaticStructureSchema = [3, n0, _CRTRr,
   0,
-  [_TS, _CT, _DR, _VI],
-  [[() => TagSpecificationList, { [_xN]: _TSa }], [0, 4], [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `VpcId`
-  , [_xN]: _vI }]]
+  [_VI, _TS, _CT, _DR],
+  [[0, { [_eQN]: `VpcId`
+  , [_xN]: _vI }], [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var CreateRouteTableResult$: StaticStructureSchema = [3, n0, _CRTRre,
   0,
@@ -10639,7 +10639,7 @@ export var CreateSecurityGroupRequest$: StaticStructureSchema = [3, n0, _CSGR,
   0,
   [_De, _GN, _VI, _TS, _DR],
   [[0, { [_xN]: _GD }], 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 2
 ];
 export var CreateSecurityGroupResult$: StaticStructureSchema = [3, n0, _CSGRr,
   0,
@@ -10651,14 +10651,14 @@ export var CreateSecurityGroupResult$: StaticStructureSchema = [3, n0, _CSGRr,
 ];
 export var CreateSnapshotRequest$: StaticStructureSchema = [3, n0, _CSRr,
   0,
-  [_De, _OA, _VIo, _TS, _Loc, _DR],
+  [_VIo, _De, _OA, _TS, _Loc, _DR],
   [0, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var CreateSnapshotsRequest$: StaticStructureSchema = [3, n0, _CSRre,
   0,
-  [_De, _ISn, _OA, _TS, _DR, _CTFS, _Loc],
-  [0, [() => InstanceSpecification$, 0], 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2, 0, 0]
+  [_ISn, _De, _OA, _TS, _DR, _CTFS, _Loc],
+  [[() => InstanceSpecification$, 0], 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2, 0, 0], 1
 ];
 export var CreateSnapshotsResult$: StaticStructureSchema = [3, n0, _CSRrea,
   0,
@@ -10668,11 +10668,11 @@ export var CreateSnapshotsResult$: StaticStructureSchema = [3, n0, _CSRrea,
 ];
 export var CreateSpotDatafeedSubscriptionRequest$: StaticStructureSchema = [3, n0, _CSDSR,
   0,
-  [_DR, _Bu, _Pre],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `Bucket`
-  , [_xN]: _b }], [0, { [_eQN]: `Prefix`
-  , [_xN]: _pre }]]
+  [_Bu, _DR, _Pre],
+  [[0, { [_eQN]: `Bucket`
+  , [_xN]: _b }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [0, { [_eQN]: `Prefix`
+  , [_xN]: _pre }]], 1
 ];
 export var CreateSpotDatafeedSubscriptionResult$: StaticStructureSchema = [3, n0, _CSDSRr,
   0,
@@ -10683,7 +10683,7 @@ export var CreateSpotDatafeedSubscriptionResult$: StaticStructureSchema = [3, n0
 export var CreateStoreImageTaskRequest$: StaticStructureSchema = [3, n0, _CSITR,
   0,
   [_IIm, _Bu, _SOT, _DR],
-  [0, 0, [() => S3ObjectTagList, { [_xN]: _SOTb }], 2]
+  [0, 0, [() => S3ObjectTagList, { [_xN]: _SOTb }], 2], 2
 ];
 export var CreateStoreImageTaskResult$: StaticStructureSchema = [3, n0, _CSITRr,
   0,
@@ -10694,7 +10694,7 @@ export var CreateStoreImageTaskResult$: StaticStructureSchema = [3, n0, _CSITRr,
 export var CreateSubnetCidrReservationRequest$: StaticStructureSchema = [3, n0, _CSCRR,
   0,
   [_SIu, _Ci, _RT, _De, _DR, _TS],
-  [0, 0, 0, 0, 2, [() => TagSpecificationList, { [_xN]: _TSa }]]
+  [0, 0, 0, 0, 2, [() => TagSpecificationList, { [_xN]: _TSa }]], 3
 ];
 export var CreateSubnetCidrReservationResult$: StaticStructureSchema = [3, n0, _CSCRRr,
   0,
@@ -10704,9 +10704,9 @@ export var CreateSubnetCidrReservationResult$: StaticStructureSchema = [3, n0, _
 ];
 export var CreateSubnetRequest$: StaticStructureSchema = [3, n0, _CSRreat,
   0,
-  [_TS, _AZ, _AZI, _CB, _ICB, _OA, _VI, _IN, _IIPIp, _INLp, _IIPI, _INL, _DR],
-  [[() => TagSpecificationList, { [_xN]: _TSa }], 0, 0, 0, 0, 0, 0, 2, 0, 1, 0, 1, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  [_VI, _TS, _AZ, _AZI, _CB, _ICB, _OA, _IN, _IIPIp, _INLp, _IIPI, _INL, _DR],
+  [0, [() => TagSpecificationList, { [_xN]: _TSa }], 0, 0, 0, 0, 0, 2, 0, 1, 0, 1, [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var CreateSubnetResult$: StaticStructureSchema = [3, n0, _CSRreate,
   0,
@@ -10716,9 +10716,9 @@ export var CreateSubnetResult$: StaticStructureSchema = [3, n0, _CSRreate,
 ];
 export var CreateTagsRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
-  [_DR, _Res, _T],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [64 | 0, { [_xN]: _RIeso }], [() => TagList, { [_xN]: _Ta }]]
+  [_Res, _T, _DR],
+  [[64 | 0, { [_xN]: _RIeso }], [() => TagList, { [_xN]: _Ta }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 2
 ];
 export var CreateTrafficMirrorFilterRequest$: StaticStructureSchema = [3, n0, _CTMFR,
   0,
@@ -10734,8 +10734,8 @@ export var CreateTrafficMirrorFilterResult$: StaticStructureSchema = [3, n0, _CT
 ];
 export var CreateTrafficMirrorFilterRuleRequest$: StaticStructureSchema = [3, n0, _CTMFRR,
   0,
-  [_TMFI, _TD, _RNu, _RA, _DPRe, _SPRo, _Pr, _DCB, _SCB, _De, _DR, _CT, _TS],
-  [0, 0, 1, 0, () => TrafficMirrorPortRangeRequest$, () => TrafficMirrorPortRangeRequest$, 1, 0, 0, 0, 2, [0, 4], [() => TagSpecificationList, { [_xN]: _TSa }]]
+  [_TMFI, _TD, _RNu, _RA, _DCB, _SCB, _DPRe, _SPRo, _Pr, _De, _DR, _CT, _TS],
+  [0, 0, 1, 0, 0, 0, () => TrafficMirrorPortRangeRequest$, () => TrafficMirrorPortRangeRequest$, 1, 0, 2, [0, 4], [() => TagSpecificationList, { [_xN]: _TSa }]], 6
 ];
 export var CreateTrafficMirrorFilterRuleResult$: StaticStructureSchema = [3, n0, _CTMFRRr,
   0,
@@ -10746,8 +10746,8 @@ export var CreateTrafficMirrorFilterRuleResult$: StaticStructureSchema = [3, n0,
 ];
 export var CreateTrafficMirrorSessionRequest$: StaticStructureSchema = [3, n0, _CTMSR,
   0,
-  [_NII, _TMTI, _TMFI, _PLa, _SNe, _VNI, _De, _TS, _DR, _CT],
-  [0, 0, 0, 1, 1, 1, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2, [0, 4]]
+  [_NII, _TMTI, _TMFI, _SNe, _PLa, _VNI, _De, _TS, _DR, _CT],
+  [0, 0, 0, 1, 1, 1, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2, [0, 4]], 4
 ];
 export var CreateTrafficMirrorSessionResult$: StaticStructureSchema = [3, n0, _CTMSRr,
   0,
@@ -10770,8 +10770,8 @@ export var CreateTrafficMirrorTargetResult$: StaticStructureSchema = [3, n0, _CT
 ];
 export var CreateTransitGatewayConnectPeerRequest$: StaticStructureSchema = [3, n0, _CTGCPR,
   0,
-  [_TGAI, _TGA, _PAe, _BO, _ICBn, _TS, _DR],
-  [0, 0, 0, () => TransitGatewayConnectRequestBgpOptions$, [() => InsideCidrBlocksStringList, 0], [() => TagSpecificationList, { [_xN]: _TSa }], 2]
+  [_TGAI, _PAe, _ICBn, _TGA, _BO, _TS, _DR],
+  [0, 0, [() => InsideCidrBlocksStringList, 0], 0, () => TransitGatewayConnectRequestBgpOptions$, [() => TagSpecificationList, { [_xN]: _TSa }], 2], 3
 ];
 export var CreateTransitGatewayConnectPeerResult$: StaticStructureSchema = [3, n0, _CTGCPRr,
   0,
@@ -10782,12 +10782,12 @@ export var CreateTransitGatewayConnectPeerResult$: StaticStructureSchema = [3, n
 export var CreateTransitGatewayConnectRequest$: StaticStructureSchema = [3, n0, _CTGCR,
   0,
   [_TTGAI, _Opt, _TS, _DR],
-  [0, () => CreateTransitGatewayConnectRequestOptions$, [() => TagSpecificationList, { [_xN]: _TSa }], 2]
+  [0, () => CreateTransitGatewayConnectRequestOptions$, [() => TagSpecificationList, { [_xN]: _TSa }], 2], 2
 ];
 export var CreateTransitGatewayConnectRequestOptions$: StaticStructureSchema = [3, n0, _CTGCRO,
   0,
   [_Pr],
-  [0]
+  [0], 1
 ];
 export var CreateTransitGatewayConnectResult$: StaticStructureSchema = [3, n0, _CTGCRr,
   0,
@@ -10797,8 +10797,8 @@ export var CreateTransitGatewayConnectResult$: StaticStructureSchema = [3, n0, _
 ];
 export var CreateTransitGatewayMeteringPolicyEntryRequest$: StaticStructureSchema = [3, n0, _CTGMPER,
   0,
-  [_TGMPI, _PRN, _STGAI, _STGAT, _SCB, _SPRo, _DTGAI, _DTGAT, _DCB, _DPRe, _Pr, _MAe, _DR],
-  [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2]
+  [_TGMPI, _PRN, _MAe, _STGAI, _STGAT, _SCB, _SPRo, _DTGAI, _DTGAT, _DCB, _DPRe, _Pr, _DR],
+  [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2], 3
 ];
 export var CreateTransitGatewayMeteringPolicyEntryResult$: StaticStructureSchema = [3, n0, _CTGMPERr,
   0,
@@ -10809,7 +10809,7 @@ export var CreateTransitGatewayMeteringPolicyEntryResult$: StaticStructureSchema
 export var CreateTransitGatewayMeteringPolicyRequest$: StaticStructureSchema = [3, n0, _CTGMPR,
   0,
   [_TGI, _MAIi, _TS, _DR],
-  [0, [64 | 0, { [_xN]: _MAIid }], [() => TagSpecificationList, 0], 2]
+  [0, [64 | 0, { [_xN]: _MAIid }], [() => TagSpecificationList, 0], 2], 1
 ];
 export var CreateTransitGatewayMeteringPolicyResult$: StaticStructureSchema = [3, n0, _CTGMPRr,
   0,
@@ -10820,7 +10820,7 @@ export var CreateTransitGatewayMeteringPolicyResult$: StaticStructureSchema = [3
 export var CreateTransitGatewayMulticastDomainRequest$: StaticStructureSchema = [3, n0, _CTGMDR,
   0,
   [_TGI, _Opt, _TS, _DR],
-  [0, () => CreateTransitGatewayMulticastDomainRequestOptions$, [() => TagSpecificationList, { [_xN]: _TSa }], 2]
+  [0, () => CreateTransitGatewayMulticastDomainRequestOptions$, [() => TagSpecificationList, { [_xN]: _TSa }], 2], 1
 ];
 export var CreateTransitGatewayMulticastDomainRequestOptions$: StaticStructureSchema = [3, n0, _CTGMDRO,
   0,
@@ -10836,7 +10836,7 @@ export var CreateTransitGatewayMulticastDomainResult$: StaticStructureSchema = [
 export var CreateTransitGatewayPeeringAttachmentRequest$: StaticStructureSchema = [3, n0, _CTGPAR,
   0,
   [_TGI, _PTGI, _PAI, _PRee, _Opt, _TS, _DR],
-  [0, 0, 0, 0, () => CreateTransitGatewayPeeringAttachmentRequestOptions$, [() => TagSpecificationList, { [_xN]: _TSa }], 2]
+  [0, 0, 0, 0, () => CreateTransitGatewayPeeringAttachmentRequestOptions$, [() => TagSpecificationList, { [_xN]: _TSa }], 2], 4
 ];
 export var CreateTransitGatewayPeeringAttachmentRequestOptions$: StaticStructureSchema = [3, n0, _CTGPARO,
   0,
@@ -10852,7 +10852,7 @@ export var CreateTransitGatewayPeeringAttachmentResult$: StaticStructureSchema =
 export var CreateTransitGatewayPolicyTableRequest$: StaticStructureSchema = [3, n0, _CTGPTR,
   0,
   [_TGI, _TS, _DR],
-  [0, [() => TagSpecificationList, 0], 2]
+  [0, [() => TagSpecificationList, 0], 2], 1
 ];
 export var CreateTransitGatewayPolicyTableResult$: StaticStructureSchema = [3, n0, _CTGPTRr,
   0,
@@ -10863,7 +10863,7 @@ export var CreateTransitGatewayPolicyTableResult$: StaticStructureSchema = [3, n
 export var CreateTransitGatewayPrefixListReferenceRequest$: StaticStructureSchema = [3, n0, _CTGPLRR,
   0,
   [_TGRTI, _PLI, _TGAI, _Bl, _DR],
-  [0, 0, 0, 2, 2]
+  [0, 0, 0, 2, 2], 2
 ];
 export var CreateTransitGatewayPrefixListReferenceResult$: StaticStructureSchema = [3, n0, _CTGPLRRr,
   0,
@@ -10885,7 +10885,7 @@ export var CreateTransitGatewayResult$: StaticStructureSchema = [3, n0, _CTGRr,
 export var CreateTransitGatewayRouteRequest$: StaticStructureSchema = [3, n0, _CTGRR,
   0,
   [_DCB, _TGRTI, _TGAI, _Bl, _DR],
-  [0, 0, 0, 2, 2]
+  [0, 0, 0, 2, 2], 2
 ];
 export var CreateTransitGatewayRouteResult$: StaticStructureSchema = [3, n0, _CTGRRr,
   0,
@@ -10896,7 +10896,7 @@ export var CreateTransitGatewayRouteResult$: StaticStructureSchema = [3, n0, _CT
 export var CreateTransitGatewayRouteTableAnnouncementRequest$: StaticStructureSchema = [3, n0, _CTGRTAR,
   0,
   [_TGRTI, _PAIe, _TS, _DR],
-  [0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2]
+  [0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2], 2
 ];
 export var CreateTransitGatewayRouteTableAnnouncementResult$: StaticStructureSchema = [3, n0, _CTGRTARr,
   0,
@@ -10907,7 +10907,7 @@ export var CreateTransitGatewayRouteTableAnnouncementResult$: StaticStructureSch
 export var CreateTransitGatewayRouteTableRequest$: StaticStructureSchema = [3, n0, _CTGRTR,
   0,
   [_TGI, _TS, _DR],
-  [0, [() => TagSpecificationList, 0], 2]
+  [0, [() => TagSpecificationList, 0], 2], 1
 ];
 export var CreateTransitGatewayRouteTableResult$: StaticStructureSchema = [3, n0, _CTGRTRr,
   0,
@@ -10918,7 +10918,7 @@ export var CreateTransitGatewayRouteTableResult$: StaticStructureSchema = [3, n0
 export var CreateTransitGatewayVpcAttachmentRequest$: StaticStructureSchema = [3, n0, _CTGVAR,
   0,
   [_TGI, _VI, _SI, _Opt, _TS, _DR],
-  [0, 0, [() => TransitGatewaySubnetIdList, 0], () => CreateTransitGatewayVpcAttachmentRequestOptions$, [() => TagSpecificationList, 0], 2]
+  [0, 0, [() => TransitGatewaySubnetIdList, 0], () => CreateTransitGatewayVpcAttachmentRequestOptions$, [() => TagSpecificationList, 0], 2], 3
 ];
 export var CreateTransitGatewayVpcAttachmentRequestOptions$: StaticStructureSchema = [3, n0, _CTGVARO,
   0,
@@ -10959,7 +10959,7 @@ export var CreateVerifiedAccessEndpointRdsOptions$: StaticStructureSchema = [3, 
 export var CreateVerifiedAccessEndpointRequest$: StaticStructureSchema = [3, n0, _CVAER,
   0,
   [_VAGI, _ETn, _ATt, _DCA, _ADp, _EDP, _SGIe, _LBO, _NIO, _De, _PDo, _TS, _CT, _DR, _SS, _ROd, _COi],
-  [0, 0, 0, 0, 0, 0, [() => SecurityGroupIdList, { [_xN]: _SGI }], [() => CreateVerifiedAccessEndpointLoadBalancerOptions$, 0], [() => CreateVerifiedAccessEndpointEniOptions$, 0], 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4], 2, () => VerifiedAccessSseSpecificationRequest$, [() => CreateVerifiedAccessEndpointRdsOptions$, 0], [() => CreateVerifiedAccessEndpointCidrOptions$, 0]]
+  [0, 0, 0, 0, 0, 0, [() => SecurityGroupIdList, { [_xN]: _SGI }], [() => CreateVerifiedAccessEndpointLoadBalancerOptions$, 0], [() => CreateVerifiedAccessEndpointEniOptions$, 0], 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4], 2, () => VerifiedAccessSseSpecificationRequest$, [() => CreateVerifiedAccessEndpointRdsOptions$, 0], [() => CreateVerifiedAccessEndpointCidrOptions$, 0]], 3
 ];
 export var CreateVerifiedAccessEndpointResult$: StaticStructureSchema = [3, n0, _CVAERr,
   0,
@@ -10970,7 +10970,7 @@ export var CreateVerifiedAccessEndpointResult$: StaticStructureSchema = [3, n0, 
 export var CreateVerifiedAccessGroupRequest$: StaticStructureSchema = [3, n0, _CVAGR,
   0,
   [_VAII, _De, _PDo, _TS, _CT, _DR, _SS],
-  [0, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4], 2, () => VerifiedAccessSseSpecificationRequest$]
+  [0, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4], 2, () => VerifiedAccessSseSpecificationRequest$], 1
 ];
 export var CreateVerifiedAccessGroupResult$: StaticStructureSchema = [3, n0, _CVAGRr,
   0,
@@ -11006,8 +11006,8 @@ export var CreateVerifiedAccessTrustProviderOidcOptions$: StaticStructureSchema 
 ];
 export var CreateVerifiedAccessTrustProviderRequest$: StaticStructureSchema = [3, n0, _CVATPR,
   0,
-  [_TPT, _UTPT, _DTPT, _OO, _DOev, _PRNo, _De, _TS, _CT, _DR, _SS, _NAOO],
-  [0, 0, 0, [() => CreateVerifiedAccessTrustProviderOidcOptions$, 0], () => CreateVerifiedAccessTrustProviderDeviceOptions$, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4], 2, () => VerifiedAccessSseSpecificationRequest$, [() => CreateVerifiedAccessNativeApplicationOidcOptions$, 0]]
+  [_TPT, _PRNo, _UTPT, _DTPT, _OO, _DOev, _De, _TS, _CT, _DR, _SS, _NAOO],
+  [0, 0, 0, 0, [() => CreateVerifiedAccessTrustProviderOidcOptions$, 0], () => CreateVerifiedAccessTrustProviderDeviceOptions$, 0, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4], 2, () => VerifiedAccessSseSpecificationRequest$, [() => CreateVerifiedAccessNativeApplicationOidcOptions$, 0]], 2
 ];
 export var CreateVerifiedAccessTrustProviderResult$: StaticStructureSchema = [3, n0, _CVATPRr,
   0,
@@ -11036,8 +11036,8 @@ export var CreateVolumeRequest$: StaticStructureSchema = [3, n0, _CVRr,
 ];
 export var CreateVpcBlockPublicAccessExclusionRequest$: StaticStructureSchema = [3, n0, _CVBPAER,
   0,
-  [_DR, _SIu, _VI, _IGEM, _TS],
-  [2, 0, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }]]
+  [_IGEM, _DR, _SIu, _VI, _TS],
+  [0, 2, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }]], 1
 ];
 export var CreateVpcBlockPublicAccessExclusionResult$: StaticStructureSchema = [3, n0, _CVBPAERr,
   0,
@@ -11047,8 +11047,8 @@ export var CreateVpcBlockPublicAccessExclusionResult$: StaticStructureSchema = [
 ];
 export var CreateVpcEncryptionControlRequest$: StaticStructureSchema = [3, n0, _CVECR,
   0,
-  [_DR, _VI, _TS],
-  [2, 0, [() => TagSpecificationList, { [_xN]: _TSa }]]
+  [_VI, _DR, _TS],
+  [0, 2, [() => TagSpecificationList, { [_xN]: _TSa }]], 1
 ];
 export var CreateVpcEncryptionControlResult$: StaticStructureSchema = [3, n0, _CVECRr,
   0,
@@ -11058,8 +11058,8 @@ export var CreateVpcEncryptionControlResult$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateVpcEndpointConnectionNotificationRequest$: StaticStructureSchema = [3, n0, _CVECNR,
   0,
-  [_DR, _SIe, _VEIp, _CNAo, _CE, _CT],
-  [2, 0, 0, 0, [() => ValueStringList, 0], 0]
+  [_CNAo, _CE, _DR, _SIe, _VEIp, _CT],
+  [0, [() => ValueStringList, 0], 2, 0, 0, 0], 2
 ];
 export var CreateVpcEndpointConnectionNotificationResult$: StaticStructureSchema = [3, n0, _CVECNRr,
   0,
@@ -11070,8 +11070,8 @@ export var CreateVpcEndpointConnectionNotificationResult$: StaticStructureSchema
 ];
 export var CreateVpcEndpointRequest$: StaticStructureSchema = [3, n0, _CVER,
   0,
-  [_DR, _VET, _VI, _SN, _PDo, _RTIo, _SI, _SGIe, _IAT, _DOn, _CT, _PDE, _TS, _SC, _SNA, _RCA, _SR],
-  [2, 0, 0, 0, 0, [() => VpcEndpointRouteTableIdList, { [_xN]: _RTI }], [() => VpcEndpointSubnetIdList, { [_xN]: _SIu }], [() => VpcEndpointSecurityGroupIdList, { [_xN]: _SGI }], 0, [() => DnsOptionsSpecification$, 0], 0, 2, [() => TagSpecificationList, { [_xN]: _TSa }], [() => SubnetConfigurationsList, { [_xN]: _SCu }], 0, 0, 0]
+  [_VI, _DR, _VET, _SN, _PDo, _RTIo, _SI, _SGIe, _IAT, _DOn, _CT, _PDE, _TS, _SC, _SNA, _RCA, _SR],
+  [0, 2, 0, 0, 0, [() => VpcEndpointRouteTableIdList, { [_xN]: _RTI }], [() => VpcEndpointSubnetIdList, { [_xN]: _SIu }], [() => VpcEndpointSecurityGroupIdList, { [_xN]: _SGI }], 0, [() => DnsOptionsSpecification$, 0], 0, 2, [() => TagSpecificationList, { [_xN]: _TSa }], [() => SubnetConfigurationsList, { [_xN]: _SCu }], 0, 0, 0], 1
 ];
 export var CreateVpcEndpointResult$: StaticStructureSchema = [3, n0, _CVERr,
   0,
@@ -11094,12 +11094,12 @@ export var CreateVpcEndpointServiceConfigurationResult$: StaticStructureSchema =
 ];
 export var CreateVpcPeeringConnectionRequest$: StaticStructureSchema = [3, n0, _CVPCR,
   0,
-  [_PRee, _TS, _DR, _VI, _PVI, _POI],
-  [0, [() => TagSpecificationList, { [_xN]: _TSa }], [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `VpcId`
-  , [_xN]: _vI }], [0, { [_eQN]: `PeerVpcId`
+  [_VI, _PRee, _TS, _DR, _PVI, _POI],
+  [[0, { [_eQN]: `VpcId`
+  , [_xN]: _vI }], 0, [() => TagSpecificationList, { [_xN]: _TSa }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [0, { [_eQN]: `PeerVpcId`
   , [_xN]: _pVI }], [0, { [_eQN]: `PeerOwnerId`
-  , [_xN]: _pOI }]]
+  , [_xN]: _pOI }]], 1
 ];
 export var CreateVpcPeeringConnectionResult$: StaticStructureSchema = [3, n0, _CVPCRr,
   0,
@@ -11124,7 +11124,7 @@ export var CreateVpcResult$: StaticStructureSchema = [3, n0, _CVRrea,
 export var CreateVpnConcentratorRequest$: StaticStructureSchema = [3, n0, _CVCR,
   0,
   [_Ty, _TGI, _TS, _DR],
-  [0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2]
+  [0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 2], 1
 ];
 export var CreateVpnConcentratorResult$: StaticStructureSchema = [3, n0, _CVCRr,
   0,
@@ -11137,7 +11137,7 @@ export var CreateVpnConnectionRequest$: StaticStructureSchema = [3, n0, _CVCRre,
   [_CGIu, _Ty, _VGI, _TGI, _VCI, _TS, _PSKS, _DR, _Opt],
   [0, 0, 0, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 0, [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [() => VpnConnectionOptionsSpecification$, { [_eQN]: `Options`
-  , [_xN]: _op }]]
+  , [_xN]: _op }]], 2
 ];
 export var CreateVpnConnectionResult$: StaticStructureSchema = [3, n0, _CVCRrea,
   0,
@@ -11148,13 +11148,13 @@ export var CreateVpnConnectionResult$: StaticStructureSchema = [3, n0, _CVCRrea,
 export var CreateVpnConnectionRouteRequest$: StaticStructureSchema = [3, n0, _CVCRR,
   0,
   [_DCB, _VCIp],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateVpnGatewayRequest$: StaticStructureSchema = [3, n0, _CVGR,
   0,
-  [_AZ, _Ty, _TS, _ASA, _DR],
+  [_Ty, _AZ, _TS, _ASA, _DR],
   [0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], 1, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var CreateVpnGatewayResult$: StaticStructureSchema = [3, n0, _CVGRr,
   0,
@@ -11182,7 +11182,7 @@ export var CreditSpecification$: StaticStructureSchema = [3, n0, _CSr,
 export var CreditSpecificationRequest$: StaticStructureSchema = [3, n0, _CSRred,
   0,
   [_CCp],
-  [0]
+  [0], 1
 ];
 export var CustomerGateway$: StaticStructureSchema = [3, n0, _CGu,
   0,
@@ -11231,7 +11231,7 @@ export var DeclarativePoliciesReport$: StaticStructureSchema = [3, n0, _DPRec,
 export var DeleteCapacityManagerDataExportRequest$: StaticStructureSchema = [3, n0, _DCMDER,
   0,
   [_CMDEI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteCapacityManagerDataExportResult$: StaticStructureSchema = [3, n0, _DCMDERe,
   0,
@@ -11242,7 +11242,7 @@ export var DeleteCapacityManagerDataExportResult$: StaticStructureSchema = [3, n
 export var DeleteCarrierGatewayRequest$: StaticStructureSchema = [3, n0, _DCGR,
   0,
   [_CGI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteCarrierGatewayResult$: StaticStructureSchema = [3, n0, _DCGRe,
   0,
@@ -11253,7 +11253,7 @@ export var DeleteCarrierGatewayResult$: StaticStructureSchema = [3, n0, _DCGRe,
 export var DeleteClientVpnEndpointRequest$: StaticStructureSchema = [3, n0, _DCVER,
   0,
   [_CVEI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteClientVpnEndpointResult$: StaticStructureSchema = [3, n0, _DCVERe,
   0,
@@ -11263,8 +11263,8 @@ export var DeleteClientVpnEndpointResult$: StaticStructureSchema = [3, n0, _DCVE
 ];
 export var DeleteClientVpnRouteRequest$: StaticStructureSchema = [3, n0, _DCVRR,
   0,
-  [_CVEI, _TVSI, _DCB, _DR],
-  [0, 0, 0, 2]
+  [_CVEI, _DCB, _TVSI, _DR],
+  [0, 0, 0, 2], 2
 ];
 export var DeleteClientVpnRouteResult$: StaticStructureSchema = [3, n0, _DCVRRe,
   0,
@@ -11275,7 +11275,7 @@ export var DeleteClientVpnRouteResult$: StaticStructureSchema = [3, n0, _DCVRRe,
 export var DeleteCoipCidrRequest$: StaticStructureSchema = [3, n0, _DCCR,
   0,
   [_Ci, _CPI, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var DeleteCoipCidrResult$: StaticStructureSchema = [3, n0, _DCCRe,
   0,
@@ -11286,7 +11286,7 @@ export var DeleteCoipCidrResult$: StaticStructureSchema = [3, n0, _DCCRe,
 export var DeleteCoipPoolRequest$: StaticStructureSchema = [3, n0, _DCPR,
   0,
   [_CPI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteCoipPoolResult$: StaticStructureSchema = [3, n0, _DCPRe,
   0,
@@ -11298,18 +11298,18 @@ export var DeleteCustomerGatewayRequest$: StaticStructureSchema = [3, n0, _DCGRe
   0,
   [_CGIu, _DR],
   [0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var DeleteDhcpOptionsRequest$: StaticStructureSchema = [3, n0, _DDOR,
   0,
   [_DOI, _DR],
   [0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var DeleteEgressOnlyInternetGatewayRequest$: StaticStructureSchema = [3, n0, _DEOIGR,
   0,
-  [_DR, _EOIGI],
-  [2, 0]
+  [_EOIGI, _DR],
+  [0, 2], 1
 ];
 export var DeleteEgressOnlyInternetGatewayResult$: StaticStructureSchema = [3, n0, _DEOIGRe,
   0,
@@ -11333,8 +11333,8 @@ export var DeleteFleetErrorItem$: StaticStructureSchema = [3, n0, _DFEI,
 ];
 export var DeleteFleetsRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
-  [_DR, _FIle, _TI],
-  [2, [64 | 0, { [_xN]: _FIl }], 2]
+  [_FIle, _TI, _DR],
+  [[64 | 0, { [_xN]: _FIl }], 2, 2], 2
 ];
 export var DeleteFleetsResult$: StaticStructureSchema = [3, n0, _DFRe,
   0,
@@ -11353,8 +11353,8 @@ export var DeleteFleetSuccessItem$: StaticStructureSchema = [3, n0, _DFSI,
 ];
 export var DeleteFlowLogsRequest$: StaticStructureSchema = [3, n0, _DFLR,
   0,
-  [_DR, _FLI],
-  [2, [() => FlowLogIdList, { [_xN]: _FLIl }]]
+  [_FLI, _DR],
+  [[() => FlowLogIdList, { [_xN]: _FLIl }], 2], 1
 ];
 export var DeleteFlowLogsResult$: StaticStructureSchema = [3, n0, _DFLRe,
   0,
@@ -11364,8 +11364,8 @@ export var DeleteFlowLogsResult$: StaticStructureSchema = [3, n0, _DFLRe,
 ];
 export var DeleteFpgaImageRequest$: StaticStructureSchema = [3, n0, _DFIR,
   0,
-  [_DR, _FII],
-  [2, 0]
+  [_FII, _DR],
+  [0, 2], 1
 ];
 export var DeleteFpgaImageResult$: StaticStructureSchema = [3, n0, _DFIRe,
   0,
@@ -11376,7 +11376,7 @@ export var DeleteFpgaImageResult$: StaticStructureSchema = [3, n0, _DFIRe,
 export var DeleteImageUsageReportRequest$: StaticStructureSchema = [3, n0, _DIURR,
   0,
   [_RI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteImageUsageReportResult$: StaticStructureSchema = [3, n0, _DIURRe,
   0,
@@ -11386,8 +11386,8 @@ export var DeleteImageUsageReportResult$: StaticStructureSchema = [3, n0, _DIURR
 ];
 export var DeleteInstanceConnectEndpointRequest$: StaticStructureSchema = [3, n0, _DICER,
   0,
-  [_DR, _ICEI],
-  [2, 0]
+  [_ICEI, _DR],
+  [0, 2], 1
 ];
 export var DeleteInstanceConnectEndpointResult$: StaticStructureSchema = [3, n0, _DICERe,
   0,
@@ -11397,8 +11397,8 @@ export var DeleteInstanceConnectEndpointResult$: StaticStructureSchema = [3, n0,
 ];
 export var DeleteInstanceEventWindowRequest$: StaticStructureSchema = [3, n0, _DIEWR,
   0,
-  [_DR, _FD, _IEWI],
-  [2, 2, [0, { [_xN]: _IEWI }]]
+  [_IEWI, _DR, _FD],
+  [[0, { [_xN]: _IEWI }], 2, 2], 1
 ];
 export var DeleteInstanceEventWindowResult$: StaticStructureSchema = [3, n0, _DIEWRe,
   0,
@@ -11408,15 +11408,15 @@ export var DeleteInstanceEventWindowResult$: StaticStructureSchema = [3, n0, _DI
 ];
 export var DeleteInternetGatewayRequest$: StaticStructureSchema = [3, n0, _DIGR,
   0,
-  [_DR, _IGI],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `InternetGatewayId`
-  , [_xN]: _iGI }]]
+  [_IGI, _DR],
+  [[0, { [_eQN]: `InternetGatewayId`
+  , [_xN]: _iGI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var DeleteIpamExternalResourceVerificationTokenRequest$: StaticStructureSchema = [3, n0, _DIERVTR,
   0,
-  [_DR, _IERVTI],
-  [2, 0]
+  [_IERVTI, _DR],
+  [0, 2], 1
 ];
 export var DeleteIpamExternalResourceVerificationTokenResult$: StaticStructureSchema = [3, n0, _DIERVTRe,
   0,
@@ -11426,8 +11426,8 @@ export var DeleteIpamExternalResourceVerificationTokenResult$: StaticStructureSc
 ];
 export var DeleteIpamPolicyRequest$: StaticStructureSchema = [3, n0, _DIPR,
   0,
-  [_DR, _IPIp],
-  [2, 0]
+  [_IPIp, _DR],
+  [0, 2], 1
 ];
 export var DeleteIpamPolicyResult$: StaticStructureSchema = [3, n0, _DIPRe,
   0,
@@ -11437,8 +11437,8 @@ export var DeleteIpamPolicyResult$: StaticStructureSchema = [3, n0, _DIPRe,
 ];
 export var DeleteIpamPoolRequest$: StaticStructureSchema = [3, n0, _DIPRel,
   0,
-  [_DR, _IPI, _Ca],
-  [2, 0, 2]
+  [_IPI, _DR, _Ca],
+  [0, 2, 2], 1
 ];
 export var DeleteIpamPoolResult$: StaticStructureSchema = [3, n0, _DIPRele,
   0,
@@ -11448,8 +11448,8 @@ export var DeleteIpamPoolResult$: StaticStructureSchema = [3, n0, _DIPRele,
 ];
 export var DeleteIpamPrefixListResolverRequest$: StaticStructureSchema = [3, n0, _DIPLRR,
   0,
-  [_DR, _IPLRI],
-  [2, 0]
+  [_IPLRI, _DR],
+  [0, 2], 1
 ];
 export var DeleteIpamPrefixListResolverResult$: StaticStructureSchema = [3, n0, _DIPLRRe,
   0,
@@ -11459,8 +11459,8 @@ export var DeleteIpamPrefixListResolverResult$: StaticStructureSchema = [3, n0, 
 ];
 export var DeleteIpamPrefixListResolverTargetRequest$: StaticStructureSchema = [3, n0, _DIPLRTR,
   0,
-  [_DR, _IPLRTI],
-  [2, 0]
+  [_IPLRTI, _DR],
+  [0, 2], 1
 ];
 export var DeleteIpamPrefixListResolverTargetResult$: StaticStructureSchema = [3, n0, _DIPLRTRe,
   0,
@@ -11470,13 +11470,13 @@ export var DeleteIpamPrefixListResolverTargetResult$: StaticStructureSchema = [3
 ];
 export var DeleteIpamRequest$: StaticStructureSchema = [3, n0, _DIR,
   0,
-  [_DR, _IIp, _Ca],
-  [2, 0, 2]
+  [_IIp, _DR, _Ca],
+  [0, 2, 2], 1
 ];
 export var DeleteIpamResourceDiscoveryRequest$: StaticStructureSchema = [3, n0, _DIRDR,
   0,
-  [_DR, _IRDI],
-  [2, 0]
+  [_IRDI, _DR],
+  [0, 2], 1
 ];
 export var DeleteIpamResourceDiscoveryResult$: StaticStructureSchema = [3, n0, _DIRDRe,
   0,
@@ -11492,8 +11492,8 @@ export var DeleteIpamResult$: StaticStructureSchema = [3, n0, _DIRe,
 ];
 export var DeleteIpamScopeRequest$: StaticStructureSchema = [3, n0, _DISR,
   0,
-  [_DR, _ISI],
-  [2, 0]
+  [_ISI, _DR],
+  [0, 2], 1
 ];
 export var DeleteIpamScopeResult$: StaticStructureSchema = [3, n0, _DISRe,
   0,
@@ -11527,8 +11527,8 @@ export var DeleteLaunchTemplateResult$: StaticStructureSchema = [3, n0, _DLTRe,
 ];
 export var DeleteLaunchTemplateVersionsRequest$: StaticStructureSchema = [3, n0, _DLTVR,
   0,
-  [_DR, _LTI, _LTN, _Ve],
-  [2, 0, 0, [() => VersionStringList, { [_xN]: _LTV }]]
+  [_Ve, _DR, _LTI, _LTN],
+  [[() => VersionStringList, { [_xN]: _LTV }], 2, 0, 0], 1
 ];
 export var DeleteLaunchTemplateVersionsResponseErrorItem$: StaticStructureSchema = [3, n0, _DLTVREI,
   0,
@@ -11556,8 +11556,8 @@ export var DeleteLaunchTemplateVersionsResult$: StaticStructureSchema = [3, n0, 
 ];
 export var DeleteLocalGatewayRouteRequest$: StaticStructureSchema = [3, n0, _DLGRR,
   0,
-  [_DCB, _LGRTI, _DR, _DPLI],
-  [0, 0, 2, 0]
+  [_LGRTI, _DCB, _DR, _DPLI],
+  [0, 0, 2, 0], 1
 ];
 export var DeleteLocalGatewayRouteResult$: StaticStructureSchema = [3, n0, _DLGRRe,
   0,
@@ -11568,7 +11568,7 @@ export var DeleteLocalGatewayRouteResult$: StaticStructureSchema = [3, n0, _DLGR
 export var DeleteLocalGatewayRouteTableRequest$: StaticStructureSchema = [3, n0, _DLGRTR,
   0,
   [_LGRTI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteLocalGatewayRouteTableResult$: StaticStructureSchema = [3, n0, _DLGRTRe,
   0,
@@ -11579,7 +11579,7 @@ export var DeleteLocalGatewayRouteTableResult$: StaticStructureSchema = [3, n0, 
 export var DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest$: StaticStructureSchema = [3, n0, _DLGRTVIGAR,
   0,
   [_LGRTVIGAI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult$: StaticStructureSchema = [3, n0, _DLGRTVIGARe,
   0,
@@ -11590,7 +11590,7 @@ export var DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult$: 
 export var DeleteLocalGatewayRouteTableVpcAssociationRequest$: StaticStructureSchema = [3, n0, _DLGRTVAR,
   0,
   [_LGRTVAI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteLocalGatewayRouteTableVpcAssociationResult$: StaticStructureSchema = [3, n0, _DLGRTVARe,
   0,
@@ -11601,7 +11601,7 @@ export var DeleteLocalGatewayRouteTableVpcAssociationResult$: StaticStructureSch
 export var DeleteLocalGatewayVirtualInterfaceGroupRequest$: StaticStructureSchema = [3, n0, _DLGVIGR,
   0,
   [_LGVIGI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteLocalGatewayVirtualInterfaceGroupResult$: StaticStructureSchema = [3, n0, _DLGVIGRe,
   0,
@@ -11612,7 +11612,7 @@ export var DeleteLocalGatewayVirtualInterfaceGroupResult$: StaticStructureSchema
 export var DeleteLocalGatewayVirtualInterfaceRequest$: StaticStructureSchema = [3, n0, _DLGVIR,
   0,
   [_LGVII, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteLocalGatewayVirtualInterfaceResult$: StaticStructureSchema = [3, n0, _DLGVIRe,
   0,
@@ -11622,8 +11622,8 @@ export var DeleteLocalGatewayVirtualInterfaceResult$: StaticStructureSchema = [3
 ];
 export var DeleteManagedPrefixListRequest$: StaticStructureSchema = [3, n0, _DMPLR,
   0,
-  [_DR, _PLI],
-  [2, 0]
+  [_PLI, _DR],
+  [0, 2], 1
 ];
 export var DeleteManagedPrefixListResult$: StaticStructureSchema = [3, n0, _DMPLRe,
   0,
@@ -11633,8 +11633,8 @@ export var DeleteManagedPrefixListResult$: StaticStructureSchema = [3, n0, _DMPL
 ];
 export var DeleteNatGatewayRequest$: StaticStructureSchema = [3, n0, _DNGR,
   0,
-  [_DR, _NGI],
-  [2, [0, { [_xN]: _NGI }]]
+  [_NGI, _DR],
+  [[0, { [_xN]: _NGI }], 2], 1
 ];
 export var DeleteNatGatewayResult$: StaticStructureSchema = [3, n0, _DNGRe,
   0,
@@ -11644,24 +11644,24 @@ export var DeleteNatGatewayResult$: StaticStructureSchema = [3, n0, _DNGRe,
 ];
 export var DeleteNetworkAclEntryRequest$: StaticStructureSchema = [3, n0, _DNAER,
   0,
-  [_DR, _NAI, _RNu, _E],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `NetworkAclId`
+  [_NAI, _RNu, _E, _DR],
+  [[0, { [_eQN]: `NetworkAclId`
   , [_xN]: _nAI }], [1, { [_eQN]: `RuleNumber`
   , [_xN]: _rN }], [2, { [_eQN]: `Egress`
-  , [_xN]: _e }]]
+  , [_xN]: _e }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 3
 ];
 export var DeleteNetworkAclRequest$: StaticStructureSchema = [3, n0, _DNAR,
   0,
-  [_DR, _NAI],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `NetworkAclId`
-  , [_xN]: _nAI }]]
+  [_NAI, _DR],
+  [[0, { [_eQN]: `NetworkAclId`
+  , [_xN]: _nAI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var DeleteNetworkInsightsAccessScopeAnalysisRequest$: StaticStructureSchema = [3, n0, _DNIASAR,
   0,
   [_NIASAI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteNetworkInsightsAccessScopeAnalysisResult$: StaticStructureSchema = [3, n0, _DNIASARe,
   0,
@@ -11671,8 +11671,8 @@ export var DeleteNetworkInsightsAccessScopeAnalysisResult$: StaticStructureSchem
 ];
 export var DeleteNetworkInsightsAccessScopeRequest$: StaticStructureSchema = [3, n0, _DNIASR,
   0,
-  [_DR, _NIASI],
-  [2, 0]
+  [_NIASI, _DR],
+  [0, 2], 1
 ];
 export var DeleteNetworkInsightsAccessScopeResult$: StaticStructureSchema = [3, n0, _DNIASRe,
   0,
@@ -11682,8 +11682,8 @@ export var DeleteNetworkInsightsAccessScopeResult$: StaticStructureSchema = [3, 
 ];
 export var DeleteNetworkInsightsAnalysisRequest$: StaticStructureSchema = [3, n0, _DNIAR,
   0,
-  [_DR, _NIAI],
-  [2, 0]
+  [_NIAI, _DR],
+  [0, 2], 1
 ];
 export var DeleteNetworkInsightsAnalysisResult$: StaticStructureSchema = [3, n0, _DNIARe,
   0,
@@ -11693,8 +11693,8 @@ export var DeleteNetworkInsightsAnalysisResult$: StaticStructureSchema = [3, n0,
 ];
 export var DeleteNetworkInsightsPathRequest$: StaticStructureSchema = [3, n0, _DNIPR,
   0,
-  [_DR, _NIPI],
-  [2, 0]
+  [_NIPI, _DR],
+  [0, 2], 1
 ];
 export var DeleteNetworkInsightsPathResult$: StaticStructureSchema = [3, n0, _DNIPRe,
   0,
@@ -11705,7 +11705,7 @@ export var DeleteNetworkInsightsPathResult$: StaticStructureSchema = [3, n0, _DN
 export var DeleteNetworkInterfacePermissionRequest$: StaticStructureSchema = [3, n0, _DNIPRel,
   0,
   [_NIPIe, _F, _DR],
-  [0, 2, 2]
+  [0, 2, 2], 1
 ];
 export var DeleteNetworkInterfacePermissionResult$: StaticStructureSchema = [3, n0, _DNIPRele,
   0,
@@ -11715,22 +11715,22 @@ export var DeleteNetworkInterfacePermissionResult$: StaticStructureSchema = [3, 
 ];
 export var DeleteNetworkInterfaceRequest$: StaticStructureSchema = [3, n0, _DNIR,
   0,
-  [_DR, _NII],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `NetworkInterfaceId`
-  , [_xN]: _nII }]]
+  [_NII, _DR],
+  [[0, { [_eQN]: `NetworkInterfaceId`
+  , [_xN]: _nII }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var DeletePlacementGroupRequest$: StaticStructureSchema = [3, n0, _DPGR,
   0,
-  [_DR, _GN],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `GroupName`
-  , [_xN]: _gN }]]
+  [_GN, _DR],
+  [[0, { [_eQN]: `GroupName`
+  , [_xN]: _gN }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var DeletePublicIpv4PoolRequest$: StaticStructureSchema = [3, n0, _DPIPR,
   0,
-  [_DR, _PIo, _NBG],
-  [2, 0, 0]
+  [_PIo, _DR, _NBG],
+  [0, 2, 0], 1
 ];
 export var DeletePublicIpv4PoolResult$: StaticStructureSchema = [3, n0, _DPIPRe,
   0,
@@ -11747,8 +11747,8 @@ export var DeleteQueuedReservedInstancesError$: StaticStructureSchema = [3, n0, 
 ];
 export var DeleteQueuedReservedInstancesRequest$: StaticStructureSchema = [3, n0, _DQRIR,
   0,
-  [_DR, _RIIese],
-  [2, [() => DeleteQueuedReservedInstancesIdList, { [_xN]: _RIIes }]]
+  [_RIIese, _DR],
+  [[() => DeleteQueuedReservedInstancesIdList, { [_xN]: _RIIes }], 2], 1
 ];
 export var DeleteQueuedReservedInstancesResult$: StaticStructureSchema = [3, n0, _DQRIRe,
   0,
@@ -11759,17 +11759,17 @@ export var DeleteQueuedReservedInstancesResult$: StaticStructureSchema = [3, n0,
 ];
 export var DeleteRouteRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
-  [_DPLI, _DR, _RTI, _DCB, _DICB],
-  [0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `RouteTableId`
-  , [_xN]: _rTI }], [0, { [_eQN]: `DestinationCidrBlock`
+  [_RTI, _DPLI, _DR, _DCB, _DICB],
+  [[0, { [_eQN]: `RouteTableId`
+  , [_xN]: _rTI }], 0, [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [0, { [_eQN]: `DestinationCidrBlock`
   , [_xN]: _dCB }], [0, { [_eQN]: `DestinationIpv6CidrBlock`
-  , [_xN]: _dICB }]]
+  , [_xN]: _dICB }]], 1
 ];
 export var DeleteRouteServerEndpointRequest$: StaticStructureSchema = [3, n0, _DRSER,
   0,
   [_RSEI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteRouteServerEndpointResult$: StaticStructureSchema = [3, n0, _DRSERe,
   0,
@@ -11780,7 +11780,7 @@ export var DeleteRouteServerEndpointResult$: StaticStructureSchema = [3, n0, _DR
 export var DeleteRouteServerPeerRequest$: StaticStructureSchema = [3, n0, _DRSPR,
   0,
   [_RSPI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteRouteServerPeerResult$: StaticStructureSchema = [3, n0, _DRSPRe,
   0,
@@ -11791,7 +11791,7 @@ export var DeleteRouteServerPeerResult$: StaticStructureSchema = [3, n0, _DRSPRe
 export var DeleteRouteServerRequest$: StaticStructureSchema = [3, n0, _DRSR,
   0,
   [_RSI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteRouteServerResult$: StaticStructureSchema = [3, n0, _DRSRe,
   0,
@@ -11801,10 +11801,10 @@ export var DeleteRouteServerResult$: StaticStructureSchema = [3, n0, _DRSRe,
 ];
 export var DeleteRouteTableRequest$: StaticStructureSchema = [3, n0, _DRTR,
   0,
-  [_DR, _RTI],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `RouteTableId`
-  , [_xN]: _rTI }]]
+  [_RTI, _DR],
+  [[0, { [_eQN]: `RouteTableId`
+  , [_xN]: _rTI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var DeleteSecurityGroupRequest$: StaticStructureSchema = [3, n0, _DSGR,
   0,
@@ -11823,7 +11823,7 @@ export var DeleteSnapshotRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_SIn, _DR],
   [0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var DeleteSnapshotReturnCode$: StaticStructureSchema = [3, n0, _DSRC,
   0,
@@ -11841,7 +11841,7 @@ export var DeleteSpotDatafeedSubscriptionRequest$: StaticStructureSchema = [3, n
 export var DeleteSubnetCidrReservationRequest$: StaticStructureSchema = [3, n0, _DSCRR,
   0,
   [_SCRIu, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteSubnetCidrReservationResult$: StaticStructureSchema = [3, n0, _DSCRRe,
   0,
@@ -11853,20 +11853,20 @@ export var DeleteSubnetRequest$: StaticStructureSchema = [3, n0, _DSRe,
   0,
   [_SIu, _DR],
   [0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var DeleteTagsRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
-  [_DR, _Res, _T],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [64 | 0, { [_eQN]: `ResourceId`
-  , [_xN]: _rIes }], [() => TagList, { [_eQN]: `Tag`
-  , [_xN]: _ta }]]
+  [_Res, _DR, _T],
+  [[64 | 0, { [_eQN]: `ResourceId`
+  , [_xN]: _rIes }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [() => TagList, { [_eQN]: `Tag`
+  , [_xN]: _ta }]], 1
 ];
 export var DeleteTrafficMirrorFilterRequest$: StaticStructureSchema = [3, n0, _DTMFR,
   0,
   [_TMFI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteTrafficMirrorFilterResult$: StaticStructureSchema = [3, n0, _DTMFRe,
   0,
@@ -11877,7 +11877,7 @@ export var DeleteTrafficMirrorFilterResult$: StaticStructureSchema = [3, n0, _DT
 export var DeleteTrafficMirrorFilterRuleRequest$: StaticStructureSchema = [3, n0, _DTMFRR,
   0,
   [_TMFRI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteTrafficMirrorFilterRuleResult$: StaticStructureSchema = [3, n0, _DTMFRRe,
   0,
@@ -11888,7 +11888,7 @@ export var DeleteTrafficMirrorFilterRuleResult$: StaticStructureSchema = [3, n0,
 export var DeleteTrafficMirrorSessionRequest$: StaticStructureSchema = [3, n0, _DTMSR,
   0,
   [_TMSI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteTrafficMirrorSessionResult$: StaticStructureSchema = [3, n0, _DTMSRe,
   0,
@@ -11899,7 +11899,7 @@ export var DeleteTrafficMirrorSessionResult$: StaticStructureSchema = [3, n0, _D
 export var DeleteTrafficMirrorTargetRequest$: StaticStructureSchema = [3, n0, _DTMTR,
   0,
   [_TMTI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteTrafficMirrorTargetResult$: StaticStructureSchema = [3, n0, _DTMTRe,
   0,
@@ -11910,7 +11910,7 @@ export var DeleteTrafficMirrorTargetResult$: StaticStructureSchema = [3, n0, _DT
 export var DeleteTransitGatewayConnectPeerRequest$: StaticStructureSchema = [3, n0, _DTGCPR,
   0,
   [_TGCPI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteTransitGatewayConnectPeerResult$: StaticStructureSchema = [3, n0, _DTGCPRe,
   0,
@@ -11921,7 +11921,7 @@ export var DeleteTransitGatewayConnectPeerResult$: StaticStructureSchema = [3, n
 export var DeleteTransitGatewayConnectRequest$: StaticStructureSchema = [3, n0, _DTGCR,
   0,
   [_TGAI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteTransitGatewayConnectResult$: StaticStructureSchema = [3, n0, _DTGCRe,
   0,
@@ -11932,7 +11932,7 @@ export var DeleteTransitGatewayConnectResult$: StaticStructureSchema = [3, n0, _
 export var DeleteTransitGatewayMeteringPolicyEntryRequest$: StaticStructureSchema = [3, n0, _DTGMPER,
   0,
   [_TGMPI, _PRN, _DR],
-  [0, 1, 2]
+  [0, 1, 2], 2
 ];
 export var DeleteTransitGatewayMeteringPolicyEntryResult$: StaticStructureSchema = [3, n0, _DTGMPERe,
   0,
@@ -11943,7 +11943,7 @@ export var DeleteTransitGatewayMeteringPolicyEntryResult$: StaticStructureSchema
 export var DeleteTransitGatewayMeteringPolicyRequest$: StaticStructureSchema = [3, n0, _DTGMPR,
   0,
   [_TGMPI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteTransitGatewayMeteringPolicyResult$: StaticStructureSchema = [3, n0, _DTGMPRe,
   0,
@@ -11954,7 +11954,7 @@ export var DeleteTransitGatewayMeteringPolicyResult$: StaticStructureSchema = [3
 export var DeleteTransitGatewayMulticastDomainRequest$: StaticStructureSchema = [3, n0, _DTGMDR,
   0,
   [_TGMDI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteTransitGatewayMulticastDomainResult$: StaticStructureSchema = [3, n0, _DTGMDRe,
   0,
@@ -11965,7 +11965,7 @@ export var DeleteTransitGatewayMulticastDomainResult$: StaticStructureSchema = [
 export var DeleteTransitGatewayPeeringAttachmentRequest$: StaticStructureSchema = [3, n0, _DTGPAR,
   0,
   [_TGAI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteTransitGatewayPeeringAttachmentResult$: StaticStructureSchema = [3, n0, _DTGPARe,
   0,
@@ -11976,7 +11976,7 @@ export var DeleteTransitGatewayPeeringAttachmentResult$: StaticStructureSchema =
 export var DeleteTransitGatewayPolicyTableRequest$: StaticStructureSchema = [3, n0, _DTGPTR,
   0,
   [_TGPTI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteTransitGatewayPolicyTableResult$: StaticStructureSchema = [3, n0, _DTGPTRe,
   0,
@@ -11987,7 +11987,7 @@ export var DeleteTransitGatewayPolicyTableResult$: StaticStructureSchema = [3, n
 export var DeleteTransitGatewayPrefixListReferenceRequest$: StaticStructureSchema = [3, n0, _DTGPLRR,
   0,
   [_TGRTI, _PLI, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var DeleteTransitGatewayPrefixListReferenceResult$: StaticStructureSchema = [3, n0, _DTGPLRRe,
   0,
@@ -11998,7 +11998,7 @@ export var DeleteTransitGatewayPrefixListReferenceResult$: StaticStructureSchema
 export var DeleteTransitGatewayRequest$: StaticStructureSchema = [3, n0, _DTGR,
   0,
   [_TGI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteTransitGatewayResult$: StaticStructureSchema = [3, n0, _DTGRe,
   0,
@@ -12009,7 +12009,7 @@ export var DeleteTransitGatewayResult$: StaticStructureSchema = [3, n0, _DTGRe,
 export var DeleteTransitGatewayRouteRequest$: StaticStructureSchema = [3, n0, _DTGRR,
   0,
   [_TGRTI, _DCB, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var DeleteTransitGatewayRouteResult$: StaticStructureSchema = [3, n0, _DTGRRe,
   0,
@@ -12020,7 +12020,7 @@ export var DeleteTransitGatewayRouteResult$: StaticStructureSchema = [3, n0, _DT
 export var DeleteTransitGatewayRouteTableAnnouncementRequest$: StaticStructureSchema = [3, n0, _DTGRTAR,
   0,
   [_TGRTAI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteTransitGatewayRouteTableAnnouncementResult$: StaticStructureSchema = [3, n0, _DTGRTARe,
   0,
@@ -12031,7 +12031,7 @@ export var DeleteTransitGatewayRouteTableAnnouncementResult$: StaticStructureSch
 export var DeleteTransitGatewayRouteTableRequest$: StaticStructureSchema = [3, n0, _DTGRTR,
   0,
   [_TGRTI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteTransitGatewayRouteTableResult$: StaticStructureSchema = [3, n0, _DTGRTRe,
   0,
@@ -12042,7 +12042,7 @@ export var DeleteTransitGatewayRouteTableResult$: StaticStructureSchema = [3, n0
 export var DeleteTransitGatewayVpcAttachmentRequest$: StaticStructureSchema = [3, n0, _DTGVAR,
   0,
   [_TGAI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteTransitGatewayVpcAttachmentResult$: StaticStructureSchema = [3, n0, _DTGVARe,
   0,
@@ -12053,7 +12053,7 @@ export var DeleteTransitGatewayVpcAttachmentResult$: StaticStructureSchema = [3,
 export var DeleteVerifiedAccessEndpointRequest$: StaticStructureSchema = [3, n0, _DVAER,
   0,
   [_VAEI, _CT, _DR],
-  [0, [0, 4], 2]
+  [0, [0, 4], 2], 1
 ];
 export var DeleteVerifiedAccessEndpointResult$: StaticStructureSchema = [3, n0, _DVAERe,
   0,
@@ -12064,7 +12064,7 @@ export var DeleteVerifiedAccessEndpointResult$: StaticStructureSchema = [3, n0, 
 export var DeleteVerifiedAccessGroupRequest$: StaticStructureSchema = [3, n0, _DVAGR,
   0,
   [_VAGI, _CT, _DR],
-  [0, [0, 4], 2]
+  [0, [0, 4], 2], 1
 ];
 export var DeleteVerifiedAccessGroupResult$: StaticStructureSchema = [3, n0, _DVAGRe,
   0,
@@ -12075,7 +12075,7 @@ export var DeleteVerifiedAccessGroupResult$: StaticStructureSchema = [3, n0, _DV
 export var DeleteVerifiedAccessInstanceRequest$: StaticStructureSchema = [3, n0, _DVAIR,
   0,
   [_VAII, _DR, _CT],
-  [0, 2, [0, 4]]
+  [0, 2, [0, 4]], 1
 ];
 export var DeleteVerifiedAccessInstanceResult$: StaticStructureSchema = [3, n0, _DVAIRe,
   0,
@@ -12086,7 +12086,7 @@ export var DeleteVerifiedAccessInstanceResult$: StaticStructureSchema = [3, n0, 
 export var DeleteVerifiedAccessTrustProviderRequest$: StaticStructureSchema = [3, n0, _DVATPR,
   0,
   [_VATPI, _DR, _CT],
-  [0, 2, [0, 4]]
+  [0, 2, [0, 4]], 1
 ];
 export var DeleteVerifiedAccessTrustProviderResult$: StaticStructureSchema = [3, n0, _DVATPRe,
   0,
@@ -12098,12 +12098,12 @@ export var DeleteVolumeRequest$: StaticStructureSchema = [3, n0, _DVR,
   0,
   [_VIo, _DR],
   [0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var DeleteVpcBlockPublicAccessExclusionRequest$: StaticStructureSchema = [3, n0, _DVBPAER,
   0,
-  [_DR, _EIx],
-  [2, 0]
+  [_EIx, _DR],
+  [0, 2], 1
 ];
 export var DeleteVpcBlockPublicAccessExclusionResult$: StaticStructureSchema = [3, n0, _DVBPAERe,
   0,
@@ -12113,8 +12113,8 @@ export var DeleteVpcBlockPublicAccessExclusionResult$: StaticStructureSchema = [
 ];
 export var DeleteVpcEncryptionControlRequest$: StaticStructureSchema = [3, n0, _DVECR,
   0,
-  [_DR, _VECI],
-  [2, 0]
+  [_VECI, _DR],
+  [0, 2], 1
 ];
 export var DeleteVpcEncryptionControlResult$: StaticStructureSchema = [3, n0, _DVECRe,
   0,
@@ -12124,8 +12124,8 @@ export var DeleteVpcEncryptionControlResult$: StaticStructureSchema = [3, n0, _D
 ];
 export var DeleteVpcEndpointConnectionNotificationsRequest$: StaticStructureSchema = [3, n0, _DVECNR,
   0,
-  [_DR, _CNIo],
-  [2, [() => ConnectionNotificationIdsList, { [_xN]: _CNI }]]
+  [_CNIo, _DR],
+  [[() => ConnectionNotificationIdsList, { [_xN]: _CNI }], 2], 1
 ];
 export var DeleteVpcEndpointConnectionNotificationsResult$: StaticStructureSchema = [3, n0, _DVECNRe,
   0,
@@ -12135,8 +12135,8 @@ export var DeleteVpcEndpointConnectionNotificationsResult$: StaticStructureSchem
 ];
 export var DeleteVpcEndpointServiceConfigurationsRequest$: StaticStructureSchema = [3, n0, _DVESCR,
   0,
-  [_DR, _SIer],
-  [2, [() => VpcEndpointServiceIdList, { [_xN]: _SIe }]]
+  [_SIer, _DR],
+  [[() => VpcEndpointServiceIdList, { [_xN]: _SIe }], 2], 1
 ];
 export var DeleteVpcEndpointServiceConfigurationsResult$: StaticStructureSchema = [3, n0, _DVESCRe,
   0,
@@ -12146,8 +12146,8 @@ export var DeleteVpcEndpointServiceConfigurationsResult$: StaticStructureSchema 
 ];
 export var DeleteVpcEndpointsRequest$: StaticStructureSchema = [3, n0, _DVER,
   0,
-  [_DR, _VEI],
-  [2, [() => VpcEndpointIdList, { [_xN]: _VEIp }]]
+  [_VEI, _DR],
+  [[() => VpcEndpointIdList, { [_xN]: _VEIp }], 2], 1
 ];
 export var DeleteVpcEndpointsResult$: StaticStructureSchema = [3, n0, _DVERe,
   0,
@@ -12157,10 +12157,10 @@ export var DeleteVpcEndpointsResult$: StaticStructureSchema = [3, n0, _DVERe,
 ];
 export var DeleteVpcPeeringConnectionRequest$: StaticStructureSchema = [3, n0, _DVPCR,
   0,
-  [_DR, _VPCI],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `VpcPeeringConnectionId`
-  , [_xN]: _vPCI }]]
+  [_VPCI, _DR],
+  [[0, { [_eQN]: `VpcPeeringConnectionId`
+  , [_xN]: _vPCI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var DeleteVpcPeeringConnectionResult$: StaticStructureSchema = [3, n0, _DVPCRe,
   0,
@@ -12172,12 +12172,12 @@ export var DeleteVpcRequest$: StaticStructureSchema = [3, n0, _DVRe,
   0,
   [_VI, _DR],
   [0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var DeleteVpnConcentratorRequest$: StaticStructureSchema = [3, n0, _DVCR,
   0,
   [_VCI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteVpnConcentratorResult$: StaticStructureSchema = [3, n0, _DVCRe,
   0,
@@ -12189,18 +12189,18 @@ export var DeleteVpnConnectionRequest$: StaticStructureSchema = [3, n0, _DVCRel,
   0,
   [_VCIp, _DR],
   [0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var DeleteVpnConnectionRouteRequest$: StaticStructureSchema = [3, n0, _DVCRR,
   0,
   [_DCB, _VCIp],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteVpnGatewayRequest$: StaticStructureSchema = [3, n0, _DVGR,
   0,
   [_VGI, _DR],
   [0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var DeprecationTimeCondition$: StaticStructureSchema = [3, n0, _DTC,
   0,
@@ -12216,7 +12216,7 @@ export var DeprecationTimeConditionRequest$: StaticStructureSchema = [3, n0, _DT
 export var DeprovisionByoipCidrRequest$: StaticStructureSchema = [3, n0, _DBCR,
   0,
   [_Ci, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeprovisionByoipCidrResult$: StaticStructureSchema = [3, n0, _DBCRe,
   0,
@@ -12226,8 +12226,8 @@ export var DeprovisionByoipCidrResult$: StaticStructureSchema = [3, n0, _DBCRe,
 ];
 export var DeprovisionIpamByoasnRequest$: StaticStructureSchema = [3, n0, _DIBR,
   0,
-  [_DR, _IIp, _Asn],
-  [2, 0, 0]
+  [_IIp, _Asn, _DR],
+  [0, 0, 2], 2
 ];
 export var DeprovisionIpamByoasnResult$: StaticStructureSchema = [3, n0, _DIBRe,
   0,
@@ -12237,8 +12237,8 @@ export var DeprovisionIpamByoasnResult$: StaticStructureSchema = [3, n0, _DIBRe,
 ];
 export var DeprovisionIpamPoolCidrRequest$: StaticStructureSchema = [3, n0, _DIPCR,
   0,
-  [_DR, _IPI, _Ci],
-  [2, 0, 0]
+  [_IPI, _DR, _Ci],
+  [0, 2, 0], 1
 ];
 export var DeprovisionIpamPoolCidrResult$: StaticStructureSchema = [3, n0, _DIPCRe,
   0,
@@ -12248,8 +12248,8 @@ export var DeprovisionIpamPoolCidrResult$: StaticStructureSchema = [3, n0, _DIPC
 ];
 export var DeprovisionPublicIpv4PoolCidrRequest$: StaticStructureSchema = [3, n0, _DPIPCR,
   0,
-  [_DR, _PIo, _Ci],
-  [2, 0, 0]
+  [_PIo, _Ci, _DR],
+  [0, 0, 2], 2
 ];
 export var DeprovisionPublicIpv4PoolCidrResult$: StaticStructureSchema = [3, n0, _DPIPCRe,
   0,
@@ -12262,7 +12262,7 @@ export var DeregisterImageRequest$: StaticStructureSchema = [3, n0, _DIRer,
   0,
   [_IIm, _DAS, _DR],
   [0, 2, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var DeregisterImageResult$: StaticStructureSchema = [3, n0, _DIRere,
   0,
@@ -12273,8 +12273,8 @@ export var DeregisterImageResult$: StaticStructureSchema = [3, n0, _DIRere,
 ];
 export var DeregisterInstanceEventNotificationAttributesRequest$: StaticStructureSchema = [3, n0, _DIENAR,
   0,
-  [_DR, _ITA],
-  [2, [() => DeregisterInstanceTagAttributeRequest$, 0]]
+  [_ITA, _DR],
+  [[() => DeregisterInstanceTagAttributeRequest$, 0], 2], 1
 ];
 export var DeregisterInstanceEventNotificationAttributesResult$: StaticStructureSchema = [3, n0, _DIENARe,
   0,
@@ -12408,8 +12408,8 @@ export var DescribeBundleTasksResult$: StaticStructureSchema = [3, n0, _DBTRe,
 ];
 export var DescribeByoipCidrsRequest$: StaticStructureSchema = [3, n0, _DBCRes,
   0,
-  [_DR, _MR, _NTe],
-  [2, 1, 0]
+  [_MR, _DR, _NTe],
+  [1, 2, 0], 1
 ];
 export var DescribeByoipCidrsResult$: StaticStructureSchema = [3, n0, _DBCResc,
   0,
@@ -12432,8 +12432,8 @@ export var DescribeCapacityBlockExtensionHistoryResult$: StaticStructureSchema =
 ];
 export var DescribeCapacityBlockExtensionOfferingsRequest$: StaticStructureSchema = [3, n0, _DCBEOR,
   0,
-  [_DR, _CBEDH, _CRI, _NTe, _MR],
-  [2, 1, 0, 0, 1]
+  [_CBEDH, _CRI, _DR, _NTe, _MR],
+  [1, 0, 2, 0, 1], 2
 ];
 export var DescribeCapacityBlockExtensionOfferingsResult$: StaticStructureSchema = [3, n0, _DCBEORe,
   0,
@@ -12444,8 +12444,8 @@ export var DescribeCapacityBlockExtensionOfferingsResult$: StaticStructureSchema
 ];
 export var DescribeCapacityBlockOfferingsRequest$: StaticStructureSchema = [3, n0, _DCBOR,
   0,
-  [_DR, _IT, _IC, _SDR, _EDR, _CDH, _NTe, _MR, _UTl, _UC],
-  [2, 0, 1, 4, 4, 1, 0, 1, 0, 1]
+  [_CDH, _DR, _IT, _IC, _SDR, _EDR, _NTe, _MR, _UTl, _UC],
+  [1, 2, 0, 1, 4, 4, 0, 1, 0, 1], 1
 ];
 export var DescribeCapacityBlockOfferingsResult$: StaticStructureSchema = [3, n0, _DCBORe,
   0,
@@ -12492,8 +12492,8 @@ export var DescribeCapacityManagerDataExportsResult$: StaticStructureSchema = [3
 ];
 export var DescribeCapacityReservationBillingRequestsRequest$: StaticStructureSchema = [3, n0, _DCRBRR,
   0,
-  [_CRIa, _Rol, _NTe, _MR, _Fi, _DR],
-  [[() => CapacityReservationIdSet, { [_xN]: _CRI }], 0, 0, 1, [() => FilterList, { [_xN]: _Fil }], 2]
+  [_Rol, _CRIa, _NTe, _MR, _Fi, _DR],
+  [0, [() => CapacityReservationIdSet, { [_xN]: _CRI }], 0, 1, [() => FilterList, { [_xN]: _Fil }], 2], 1
 ];
 export var DescribeCapacityReservationBillingRequestsResult$: StaticStructureSchema = [3, n0, _DCRBRRe,
   0,
@@ -12568,7 +12568,7 @@ export var DescribeClassicLinkInstancesResult$: StaticStructureSchema = [3, n0, 
 export var DescribeClientVpnAuthorizationRulesRequest$: StaticStructureSchema = [3, n0, _DCVARR,
   0,
   [_CVEI, _DR, _NTe, _Fi, _MR],
-  [0, 2, 0, [() => FilterList, { [_xN]: _Fil }], 1]
+  [0, 2, 0, [() => FilterList, { [_xN]: _Fil }], 1], 1
 ];
 export var DescribeClientVpnAuthorizationRulesResult$: StaticStructureSchema = [3, n0, _DCVARRe,
   0,
@@ -12580,7 +12580,7 @@ export var DescribeClientVpnAuthorizationRulesResult$: StaticStructureSchema = [
 export var DescribeClientVpnConnectionsRequest$: StaticStructureSchema = [3, n0, _DCVCR,
   0,
   [_CVEI, _Fi, _NTe, _MR, _DR],
-  [0, [() => FilterList, { [_xN]: _Fil }], 0, 1, 2]
+  [0, [() => FilterList, { [_xN]: _Fil }], 0, 1, 2], 1
 ];
 export var DescribeClientVpnConnectionsResult$: StaticStructureSchema = [3, n0, _DCVCRe,
   0,
@@ -12604,7 +12604,7 @@ export var DescribeClientVpnEndpointsResult$: StaticStructureSchema = [3, n0, _D
 export var DescribeClientVpnRoutesRequest$: StaticStructureSchema = [3, n0, _DCVRRes,
   0,
   [_CVEI, _Fi, _MR, _NTe, _DR],
-  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2]
+  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2], 1
 ];
 export var DescribeClientVpnRoutesResult$: StaticStructureSchema = [3, n0, _DCVRResc,
   0,
@@ -12616,7 +12616,7 @@ export var DescribeClientVpnRoutesResult$: StaticStructureSchema = [3, n0, _DCVR
 export var DescribeClientVpnTargetNetworksRequest$: StaticStructureSchema = [3, n0, _DCVTNR,
   0,
   [_CVEI, _AIsso, _MR, _NTe, _Fi, _DR],
-  [0, [() => ValueStringList, 0], 1, 0, [() => FilterList, { [_xN]: _Fil }], 2]
+  [0, [() => ValueStringList, 0], 1, 0, [() => FilterList, { [_xN]: _Fil }], 2], 1
 ];
 export var DescribeClientVpnTargetNetworksResult$: StaticStructureSchema = [3, n0, _DCVTNRe,
   0,
@@ -12802,8 +12802,8 @@ export var DescribeFleetError$: StaticStructureSchema = [3, n0, _DFEe,
 ];
 export var DescribeFleetHistoryRequest$: StaticStructureSchema = [3, n0, _DFHR,
   0,
-  [_DR, _ETv, _MR, _NTe, _FIl, _ST],
-  [2, 0, 1, 0, 0, 4]
+  [_FIl, _ST, _DR, _ETv, _MR, _NTe],
+  [0, 4, 2, 0, 1, 0], 2
 ];
 export var DescribeFleetHistoryResult$: StaticStructureSchema = [3, n0, _DFHRe,
   0,
@@ -12817,8 +12817,8 @@ export var DescribeFleetHistoryResult$: StaticStructureSchema = [3, n0, _DFHRe,
 ];
 export var DescribeFleetInstancesRequest$: StaticStructureSchema = [3, n0, _DFIRes,
   0,
-  [_DR, _MR, _NTe, _FIl, _Fi],
-  [2, 1, 0, 0, [() => FilterList, { [_xN]: _Fil }]]
+  [_FIl, _DR, _MR, _NTe, _Fi],
+  [0, 2, 1, 0, [() => FilterList, { [_xN]: _Fil }]], 1
 ];
 export var DescribeFleetInstancesResult$: StaticStructureSchema = [3, n0, _DFIResc,
   0,
@@ -12864,8 +12864,8 @@ export var DescribeFlowLogsResult$: StaticStructureSchema = [3, n0, _DFLResc,
 ];
 export var DescribeFpgaImageAttributeRequest$: StaticStructureSchema = [3, n0, _DFIAR,
   0,
-  [_DR, _FII, _At],
-  [2, 0, 0]
+  [_FII, _At, _DR],
+  [0, 0, 2], 2
 ];
 export var DescribeFpgaImageAttributeResult$: StaticStructureSchema = [3, n0, _DFIARe,
   0,
@@ -12939,10 +12939,10 @@ export var DescribeIamInstanceProfileAssociationsResult$: StaticStructureSchema 
 ];
 export var DescribeIdentityIdFormatRequest$: StaticStructureSchema = [3, n0, _DIIFR,
   0,
-  [_Reso, _PAr],
-  [[0, { [_eQN]: `Resource`
-  , [_xN]: _re }], [0, { [_eQN]: `PrincipalArn`
-  , [_xN]: _pAr }]]
+  [_PAr, _Reso],
+  [[0, { [_eQN]: `PrincipalArn`
+  , [_xN]: _pAr }], [0, { [_eQN]: `Resource`
+  , [_xN]: _re }]], 1
 ];
 export var DescribeIdentityIdFormatResult$: StaticStructureSchema = [3, n0, _DIIFRe,
   0,
@@ -12965,12 +12965,12 @@ export var DescribeImageAttributeRequest$: StaticStructureSchema = [3, n0, _DIAR
   0,
   [_At, _IIm, _DR],
   [0, 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 2
 ];
 export var DescribeImageReferencesRequest$: StaticStructureSchema = [3, n0, _DIRR,
   0,
   [_IIma, _IART, _RTes, _NTe, _DR, _MR],
-  [[64 | 0, { [_xN]: _IIm }], 2, [() => ResourceTypeRequestList, { [_xN]: _RTe }], 0, 2, 1]
+  [[64 | 0, { [_xN]: _IIm }], 2, [() => ResourceTypeRequestList, { [_xN]: _RTe }], 0, 2, 1], 1
 ];
 export var DescribeImageReferencesResult$: StaticStructureSchema = [3, n0, _DIRRe,
   0,
@@ -13042,11 +13042,11 @@ export var DescribeImportSnapshotTasksResult$: StaticStructureSchema = [3, n0, _
 ];
 export var DescribeInstanceAttributeRequest$: StaticStructureSchema = [3, n0, _DIARe,
   0,
-  [_DR, _II, _At],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `InstanceId`
+  [_II, _At, _DR],
+  [[0, { [_eQN]: `InstanceId`
   , [_xN]: _iI }], [0, { [_eQN]: `Attribute`
-  , [_xN]: _att }]]
+  , [_xN]: _att }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 2
 ];
 export var DescribeInstanceConnectEndpointsRequest$: StaticStructureSchema = [3, n0, _DICERes,
   0,
@@ -13590,11 +13590,11 @@ export var DescribeNetworkInsightsPathsResult$: StaticStructureSchema = [3, n0, 
 ];
 export var DescribeNetworkInterfaceAttributeRequest$: StaticStructureSchema = [3, n0, _DNIARescr,
   0,
-  [_DR, _NII, _At],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `NetworkInterfaceId`
-  , [_xN]: _nII }], [0, { [_eQN]: `Attribute`
-  , [_xN]: _att }]]
+  [_NII, _DR, _At],
+  [[0, { [_eQN]: `NetworkInterfaceId`
+  , [_xN]: _nII }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [0, { [_eQN]: `Attribute`
+  , [_xN]: _att }]], 1
 ];
 export var DescribeNetworkInterfaceAttributeResult$: StaticStructureSchema = [3, n0, _DNIARescri,
   0,
@@ -13825,8 +13825,8 @@ export var DescribeRouteTablesResult$: StaticStructureSchema = [3, n0, _DRTRes,
 ];
 export var DescribeScheduledInstanceAvailabilityRequest$: StaticStructureSchema = [3, n0, _DSIAR,
   0,
-  [_DR, _Fi, _FSSTR, _MR, _MSDIH, _MSDIHi, _NTe, _Rec],
-  [2, [() => FilterList, { [_xN]: _Fil }], () => SlotDateTimeRangeRequest$, 1, 1, 1, 0, [() => ScheduledInstanceRecurrenceRequest$, 0]]
+  [_FSSTR, _Rec, _DR, _Fi, _MR, _MSDIH, _MSDIHi, _NTe],
+  [() => SlotDateTimeRangeRequest$, [() => ScheduledInstanceRecurrenceRequest$, 0], 2, [() => FilterList, { [_xN]: _Fil }], 1, 1, 1, 0], 2
 ];
 export var DescribeScheduledInstanceAvailabilityResult$: StaticStructureSchema = [3, n0, _DSIARe,
   0,
@@ -13849,8 +13849,8 @@ export var DescribeScheduledInstancesResult$: StaticStructureSchema = [3, n0, _D
 ];
 export var DescribeSecurityGroupReferencesRequest$: StaticStructureSchema = [3, n0, _DSGRR,
   0,
-  [_DR, _GIr],
-  [2, [() => GroupIds, 0]]
+  [_GIr, _DR],
+  [[() => GroupIds, 0], 2], 1
 ];
 export var DescribeSecurityGroupReferencesResult$: StaticStructureSchema = [3, n0, _DSGRRe,
   0,
@@ -13911,7 +13911,7 @@ export var DescribeSnapshotAttributeRequest$: StaticStructureSchema = [3, n0, _D
   0,
   [_At, _SIn, _DR],
   [0, 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 2
 ];
 export var DescribeSnapshotAttributeResult$: StaticStructureSchema = [3, n0, _DSARe,
   0,
@@ -13960,12 +13960,12 @@ export var DescribeSpotDatafeedSubscriptionResult$: StaticStructureSchema = [3, 
 ];
 export var DescribeSpotFleetInstancesRequest$: StaticStructureSchema = [3, n0, _DSFIR,
   0,
-  [_DR, _SFRI, _NTe, _MR],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `SpotFleetRequestId`
-  , [_xN]: _sFRI }], [0, { [_eQN]: `NextToken`
+  [_SFRI, _DR, _NTe, _MR],
+  [[0, { [_eQN]: `SpotFleetRequestId`
+  , [_xN]: _sFRI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [0, { [_eQN]: `NextToken`
   , [_xN]: _nTe }], [1, { [_eQN]: `MaxResults`
-  , [_xN]: _mR }]]
+  , [_xN]: _mR }]], 1
 ];
 export var DescribeSpotFleetInstancesResponse$: StaticStructureSchema = [3, n0, _DSFIRe,
   0,
@@ -13977,14 +13977,14 @@ export var DescribeSpotFleetInstancesResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var DescribeSpotFleetRequestHistoryRequest$: StaticStructureSchema = [3, n0, _DSFRHR,
   0,
-  [_DR, _SFRI, _ETv, _ST, _NTe, _MR],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `SpotFleetRequestId`
-  , [_xN]: _sFRI }], [0, { [_eQN]: `EventType`
-  , [_xN]: _eTv }], [4, { [_eQN]: `StartTime`
-  , [_xN]: _sT }], [0, { [_eQN]: `NextToken`
+  [_SFRI, _ST, _DR, _ETv, _NTe, _MR],
+  [[0, { [_eQN]: `SpotFleetRequestId`
+  , [_xN]: _sFRI }], [4, { [_eQN]: `StartTime`
+  , [_xN]: _sT }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [0, { [_eQN]: `EventType`
+  , [_xN]: _eTv }], [0, { [_eQN]: `NextToken`
   , [_xN]: _nTe }], [1, { [_eQN]: `MaxResults`
-  , [_xN]: _mR }]]
+  , [_xN]: _mR }]], 2
 ];
 export var DescribeSpotFleetRequestHistoryResponse$: StaticStructureSchema = [3, n0, _DSFRHRe,
   0,
@@ -14045,8 +14045,8 @@ export var DescribeSpotPriceHistoryResult$: StaticStructureSchema = [3, n0, _DSP
 ];
 export var DescribeStaleSecurityGroupsRequest$: StaticStructureSchema = [3, n0, _DSSGR,
   0,
-  [_DR, _MR, _NTe, _VI],
-  [2, 1, 0, 0]
+  [_VI, _DR, _MR, _NTe],
+  [0, 2, 1, 0], 1
 ];
 export var DescribeStaleSecurityGroupsResult$: StaticStructureSchema = [3, n0, _DSSGRe,
   0,
@@ -14351,7 +14351,7 @@ export var DescribeVolumeAttributeRequest$: StaticStructureSchema = [3, n0, _DVA
   0,
   [_At, _VIo, _DR],
   [0, 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 2
 ];
 export var DescribeVolumeAttributeResult$: StaticStructureSchema = [3, n0, _DVARe,
   0,
@@ -14405,7 +14405,7 @@ export var DescribeVpcAttributeRequest$: StaticStructureSchema = [3, n0, _DVARes
   0,
   [_At, _VI, _DR],
   [0, 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 2
 ];
 export var DescribeVpcAttributeResult$: StaticStructureSchema = [3, n0, _DVAResc,
   0,
@@ -14527,8 +14527,8 @@ export var DescribeVpcEndpointServiceConfigurationsResult$: StaticStructureSchem
 ];
 export var DescribeVpcEndpointServicePermissionsRequest$: StaticStructureSchema = [3, n0, _DVESPR,
   0,
-  [_DR, _SIe, _Fi, _MR, _NTe],
-  [2, 0, [() => FilterList, { [_xN]: _Fil }], 1, 0]
+  [_SIe, _DR, _Fi, _MR, _NTe],
+  [0, 2, [() => FilterList, { [_xN]: _Fil }], 1, 0], 1
 ];
 export var DescribeVpcEndpointServicePermissionsResult$: StaticStructureSchema = [3, n0, _DVESPRe,
   0,
@@ -14639,11 +14639,11 @@ export var DestinationOptionsResponse$: StaticStructureSchema = [3, n0, _DORe,
 ];
 export var DetachClassicLinkVpcRequest$: StaticStructureSchema = [3, n0, _DCLVR,
   0,
-  [_DR, _II, _VI],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `InstanceId`
+  [_II, _VI, _DR],
+  [[0, { [_eQN]: `InstanceId`
   , [_xN]: _iI }], [0, { [_eQN]: `VpcId`
-  , [_xN]: _vI }]]
+  , [_xN]: _vI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 2
 ];
 export var DetachClassicLinkVpcResult$: StaticStructureSchema = [3, n0, _DCLVRe,
   0,
@@ -14653,24 +14653,24 @@ export var DetachClassicLinkVpcResult$: StaticStructureSchema = [3, n0, _DCLVRe,
 ];
 export var DetachInternetGatewayRequest$: StaticStructureSchema = [3, n0, _DIGRet,
   0,
-  [_DR, _IGI, _VI],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `InternetGatewayId`
+  [_IGI, _VI, _DR],
+  [[0, { [_eQN]: `InternetGatewayId`
   , [_xN]: _iGI }], [0, { [_eQN]: `VpcId`
-  , [_xN]: _vI }]]
+  , [_xN]: _vI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 2
 ];
 export var DetachNetworkInterfaceRequest$: StaticStructureSchema = [3, n0, _DNIRet,
   0,
-  [_DR, _AItt, _F],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `AttachmentId`
-  , [_xN]: _aIt }], [2, { [_eQN]: `Force`
-  , [_xN]: _fo }]]
+  [_AItt, _DR, _F],
+  [[0, { [_eQN]: `AttachmentId`
+  , [_xN]: _aIt }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [2, { [_eQN]: `Force`
+  , [_xN]: _fo }]], 1
 ];
 export var DetachVerifiedAccessTrustProviderRequest$: StaticStructureSchema = [3, n0, _DVATPRet,
   0,
   [_VAII, _VATPI, _CT, _DR],
-  [0, 0, [0, 4], 2]
+  [0, 0, [0, 4], 2], 2
 ];
 export var DetachVerifiedAccessTrustProviderResult$: StaticStructureSchema = [3, n0, _DVATPReta,
   0,
@@ -14681,15 +14681,15 @@ export var DetachVerifiedAccessTrustProviderResult$: StaticStructureSchema = [3,
 ];
 export var DetachVolumeRequest$: StaticStructureSchema = [3, n0, _DVRet,
   0,
-  [_Dev, _F, _II, _VIo, _DR],
-  [0, 2, 0, 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  [_VIo, _Dev, _F, _II, _DR],
+  [0, 0, 2, 0, [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var DetachVpnGatewayRequest$: StaticStructureSchema = [3, n0, _DVGRet,
   0,
   [_VI, _VGI, _DR],
   [0, 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 2
 ];
 export var DeviceOptions$: StaticStructureSchema = [3, n0, _DOev,
   0,
@@ -14733,7 +14733,7 @@ export var DirectoryServiceAuthenticationRequest$: StaticStructureSchema = [3, n
 export var DisableAddressTransferRequest$: StaticStructureSchema = [3, n0, _DATRi,
   0,
   [_AIl, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DisableAddressTransferResult$: StaticStructureSchema = [3, n0, _DATRis,
   0,
@@ -14789,7 +14789,7 @@ export var DisableEbsEncryptionByDefaultResult$: StaticStructureSchema = [3, n0,
 export var DisableFastLaunchRequest$: StaticStructureSchema = [3, n0, _DFLRi,
   0,
   [_IIm, _F, _DR],
-  [0, 2, 2]
+  [0, 2, 2], 1
 ];
 export var DisableFastLaunchResult$: StaticStructureSchema = [3, n0, _DFLRis,
   0,
@@ -14814,8 +14814,8 @@ export var DisableFastSnapshotRestoreErrorItem$: StaticStructureSchema = [3, n0,
 ];
 export var DisableFastSnapshotRestoresRequest$: StaticStructureSchema = [3, n0, _DFSRRi,
   0,
-  [_AZv, _AZIv, _SSIo, _DR],
-  [[() => AvailabilityZoneStringList, { [_xN]: _AZ }], [() => AvailabilityZoneIdStringList, { [_xN]: _AZI }], [() => SnapshotIdStringList, { [_xN]: _SSI }], 2]
+  [_SSIo, _AZv, _AZIv, _DR],
+  [[() => SnapshotIdStringList, { [_xN]: _SSI }], [() => AvailabilityZoneStringList, { [_xN]: _AZ }], [() => AvailabilityZoneIdStringList, { [_xN]: _AZI }], 2], 1
 ];
 export var DisableFastSnapshotRestoresResult$: StaticStructureSchema = [3, n0, _DFSRRis,
   0,
@@ -14870,7 +14870,7 @@ export var DisableImageBlockPublicAccessResult$: StaticStructureSchema = [3, n0,
 export var DisableImageDeprecationRequest$: StaticStructureSchema = [3, n0, _DIDR,
   0,
   [_IIm, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DisableImageDeprecationResult$: StaticStructureSchema = [3, n0, _DIDRi,
   0,
@@ -14881,7 +14881,7 @@ export var DisableImageDeprecationResult$: StaticStructureSchema = [3, n0, _DIDR
 export var DisableImageDeregistrationProtectionRequest$: StaticStructureSchema = [3, n0, _DIDPR,
   0,
   [_IIm, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DisableImageDeregistrationProtectionResult$: StaticStructureSchema = [3, n0, _DIDPRi,
   0,
@@ -14892,7 +14892,7 @@ export var DisableImageDeregistrationProtectionResult$: StaticStructureSchema = 
 export var DisableImageRequest$: StaticStructureSchema = [3, n0, _DIRi,
   0,
   [_IIm, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DisableImageResult$: StaticStructureSchema = [3, n0, _DIRis,
   0,
@@ -14903,7 +14903,7 @@ export var DisableImageResult$: StaticStructureSchema = [3, n0, _DIRis,
 export var DisableInstanceSqlHaStandbyDetectionsRequest$: StaticStructureSchema = [3, n0, _DISHSDR,
   0,
   [_IIns, _DR],
-  [[() => InstanceIdUpdateStringList, { [_xN]: _II }], 2]
+  [[() => InstanceIdUpdateStringList, { [_xN]: _II }], 2], 1
 ];
 export var DisableInstanceSqlHaStandbyDetectionsResult$: StaticStructureSchema = [3, n0, _DISHSDRi,
   0,
@@ -14913,8 +14913,8 @@ export var DisableInstanceSqlHaStandbyDetectionsResult$: StaticStructureSchema =
 ];
 export var DisableIpamOrganizationAdminAccountRequest$: StaticStructureSchema = [3, n0, _DIOAAR,
   0,
-  [_DR, _DAAI],
-  [2, 0]
+  [_DAAI, _DR],
+  [0, 2], 1
 ];
 export var DisableIpamOrganizationAdminAccountResult$: StaticStructureSchema = [3, n0, _DIOAARi,
   0,
@@ -14924,8 +14924,8 @@ export var DisableIpamOrganizationAdminAccountResult$: StaticStructureSchema = [
 ];
 export var DisableIpamPolicyRequest$: StaticStructureSchema = [3, n0, _DIPRi,
   0,
-  [_DR, _IPIp, _OTI],
-  [2, 0, 0]
+  [_IPIp, _DR, _OTI],
+  [0, 2, 0], 1
 ];
 export var DisableIpamPolicyResult$: StaticStructureSchema = [3, n0, _DIPRis,
   0,
@@ -14936,7 +14936,7 @@ export var DisableIpamPolicyResult$: StaticStructureSchema = [3, n0, _DIPRis,
 export var DisableRouteServerPropagationRequest$: StaticStructureSchema = [3, n0, _DRSPRi,
   0,
   [_RSI, _RTI, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var DisableRouteServerPropagationResult$: StaticStructureSchema = [3, n0, _DRSPRis,
   0,
@@ -14969,7 +14969,7 @@ export var DisableSnapshotBlockPublicAccessResult$: StaticStructureSchema = [3, 
 export var DisableTransitGatewayRouteTablePropagationRequest$: StaticStructureSchema = [3, n0, _DTGRTPR,
   0,
   [_TGRTI, _TGAI, _DR, _TGRTAI],
-  [0, 0, 2, 0]
+  [0, 0, 2, 0], 1
 ];
 export var DisableTransitGatewayRouteTablePropagationResult$: StaticStructureSchema = [3, n0, _DTGRTPRi,
   0,
@@ -14980,7 +14980,7 @@ export var DisableTransitGatewayRouteTablePropagationResult$: StaticStructureSch
 export var DisableVgwRoutePropagationRequest$: StaticStructureSchema = [3, n0, _DVRPR,
   0,
   [_GI, _RTI, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var DisableVpcClassicLinkDnsSupportRequest$: StaticStructureSchema = [3, n0, _DVCLDSRi,
   0,
@@ -14995,10 +14995,10 @@ export var DisableVpcClassicLinkDnsSupportResult$: StaticStructureSchema = [3, n
 ];
 export var DisableVpcClassicLinkRequest$: StaticStructureSchema = [3, n0, _DVCLRi,
   0,
-  [_DR, _VI],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `VpcId`
-  , [_xN]: _vI }]]
+  [_VI, _DR],
+  [[0, { [_eQN]: `VpcId`
+  , [_xN]: _vI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var DisableVpcClassicLinkResult$: StaticStructureSchema = [3, n0, _DVCLRis,
   0,
@@ -15014,8 +15014,8 @@ export var DisassociateAddressRequest$: StaticStructureSchema = [3, n0, _DARi,
 ];
 export var DisassociateCapacityReservationBillingOwnerRequest$: StaticStructureSchema = [3, n0, _DCRBOR,
   0,
-  [_DR, _CRI, _URBOI],
-  [2, 0, 0]
+  [_CRI, _URBOI, _DR],
+  [0, 0, 2], 2
 ];
 export var DisassociateCapacityReservationBillingOwnerResult$: StaticStructureSchema = [3, n0, _DCRBORi,
   0,
@@ -15026,7 +15026,7 @@ export var DisassociateCapacityReservationBillingOwnerResult$: StaticStructureSc
 export var DisassociateClientVpnTargetNetworkRequest$: StaticStructureSchema = [3, n0, _DCVTNRi,
   0,
   [_CVEI, _AIs, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var DisassociateClientVpnTargetNetworkResult$: StaticStructureSchema = [3, n0, _DCVTNRis,
   0,
@@ -15038,7 +15038,7 @@ export var DisassociateClientVpnTargetNetworkResult$: StaticStructureSchema = [3
 export var DisassociateEnclaveCertificateIamRoleRequest$: StaticStructureSchema = [3, n0, _DECIRR,
   0,
   [_CAe, _RAo, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var DisassociateEnclaveCertificateIamRoleResult$: StaticStructureSchema = [3, n0, _DECIRRi,
   0,
@@ -15049,7 +15049,7 @@ export var DisassociateEnclaveCertificateIamRoleResult$: StaticStructureSchema =
 export var DisassociateIamInstanceProfileRequest$: StaticStructureSchema = [3, n0, _DIIPR,
   0,
   [_AIs],
-  [0]
+  [0], 1
 ];
 export var DisassociateIamInstanceProfileResult$: StaticStructureSchema = [3, n0, _DIIPRi,
   0,
@@ -15059,8 +15059,8 @@ export var DisassociateIamInstanceProfileResult$: StaticStructureSchema = [3, n0
 ];
 export var DisassociateInstanceEventWindowRequest$: StaticStructureSchema = [3, n0, _DIEWRi,
   0,
-  [_DR, _IEWI, _ATs],
-  [2, 0, [() => InstanceEventWindowDisassociationRequest$, 0]]
+  [_IEWI, _ATs, _DR],
+  [0, [() => InstanceEventWindowDisassociationRequest$, 0], 2], 2
 ];
 export var DisassociateInstanceEventWindowResult$: StaticStructureSchema = [3, n0, _DIEWRis,
   0,
@@ -15070,8 +15070,8 @@ export var DisassociateInstanceEventWindowResult$: StaticStructureSchema = [3, n
 ];
 export var DisassociateIpamByoasnRequest$: StaticStructureSchema = [3, n0, _DIBRi,
   0,
-  [_DR, _Asn, _Ci],
-  [2, 0, 0]
+  [_Asn, _Ci, _DR],
+  [0, 0, 2], 2
 ];
 export var DisassociateIpamByoasnResult$: StaticStructureSchema = [3, n0, _DIBRis,
   0,
@@ -15081,8 +15081,8 @@ export var DisassociateIpamByoasnResult$: StaticStructureSchema = [3, n0, _DIBRi
 ];
 export var DisassociateIpamResourceDiscoveryRequest$: StaticStructureSchema = [3, n0, _DIRDRi,
   0,
-  [_DR, _IRDAIp],
-  [2, 0]
+  [_IRDAIp, _DR],
+  [0, 2], 1
 ];
 export var DisassociateIpamResourceDiscoveryResult$: StaticStructureSchema = [3, n0, _DIRDRis,
   0,
@@ -15093,7 +15093,7 @@ export var DisassociateIpamResourceDiscoveryResult$: StaticStructureSchema = [3,
 export var DisassociateNatGatewayAddressRequest$: StaticStructureSchema = [3, n0, _DNGAR,
   0,
   [_NGI, _AIsso, _MDDS, _DR],
-  [0, [() => EipAssociationIdList, { [_xN]: _AIs }], 1, 2]
+  [0, [() => EipAssociationIdList, { [_xN]: _AIs }], 1, 2], 2
 ];
 export var DisassociateNatGatewayAddressResult$: StaticStructureSchema = [3, n0, _DNGARi,
   0,
@@ -15105,7 +15105,7 @@ export var DisassociateNatGatewayAddressResult$: StaticStructureSchema = [3, n0,
 export var DisassociateRouteServerRequest$: StaticStructureSchema = [3, n0, _DRSRi,
   0,
   [_RSI, _VI, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var DisassociateRouteServerResult$: StaticStructureSchema = [3, n0, _DRSRis,
   0,
@@ -15115,15 +15115,15 @@ export var DisassociateRouteServerResult$: StaticStructureSchema = [3, n0, _DRSR
 ];
 export var DisassociateRouteTableRequest$: StaticStructureSchema = [3, n0, _DRTRi,
   0,
-  [_DR, _AIs],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `AssociationId`
-  , [_xN]: _aIs }]]
+  [_AIs, _DR],
+  [[0, { [_eQN]: `AssociationId`
+  , [_xN]: _aIs }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var DisassociateSecurityGroupVpcRequest$: StaticStructureSchema = [3, n0, _DSGVR,
   0,
   [_GIr, _VI, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var DisassociateSecurityGroupVpcResult$: StaticStructureSchema = [3, n0, _DSGVRi,
   0,
@@ -15135,7 +15135,7 @@ export var DisassociateSubnetCidrBlockRequest$: StaticStructureSchema = [3, n0, 
   0,
   [_AIs],
   [[0, { [_eQN]: `AssociationId`
-  , [_xN]: _aIs }]]
+  , [_xN]: _aIs }]], 1
 ];
 export var DisassociateSubnetCidrBlockResult$: StaticStructureSchema = [3, n0, _DSCBRi,
   0,
@@ -15147,7 +15147,7 @@ export var DisassociateSubnetCidrBlockResult$: StaticStructureSchema = [3, n0, _
 export var DisassociateTransitGatewayMulticastDomainRequest$: StaticStructureSchema = [3, n0, _DTGMDRi,
   0,
   [_TGMDI, _TGAI, _SI, _DR],
-  [0, 0, [() => TransitGatewaySubnetIdList, 0], 2]
+  [0, 0, [() => TransitGatewaySubnetIdList, 0], 2], 3
 ];
 export var DisassociateTransitGatewayMulticastDomainResult$: StaticStructureSchema = [3, n0, _DTGMDRis,
   0,
@@ -15158,7 +15158,7 @@ export var DisassociateTransitGatewayMulticastDomainResult$: StaticStructureSche
 export var DisassociateTransitGatewayPolicyTableRequest$: StaticStructureSchema = [3, n0, _DTGPTRi,
   0,
   [_TGPTI, _TGAI, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var DisassociateTransitGatewayPolicyTableResult$: StaticStructureSchema = [3, n0, _DTGPTRis,
   0,
@@ -15169,7 +15169,7 @@ export var DisassociateTransitGatewayPolicyTableResult$: StaticStructureSchema =
 export var DisassociateTransitGatewayRouteTableRequest$: StaticStructureSchema = [3, n0, _DTGRTRi,
   0,
   [_TGRTI, _TGAI, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var DisassociateTransitGatewayRouteTableResult$: StaticStructureSchema = [3, n0, _DTGRTRis,
   0,
@@ -15180,7 +15180,7 @@ export var DisassociateTransitGatewayRouteTableResult$: StaticStructureSchema = 
 export var DisassociateTrunkInterfaceRequest$: StaticStructureSchema = [3, n0, _DTIR,
   0,
   [_AIs, _CT, _DR],
-  [0, [0, 4], 2]
+  [0, [0, 4], 2], 1
 ];
 export var DisassociateTrunkInterfaceResult$: StaticStructureSchema = [3, n0, _DTIRi,
   0,
@@ -15193,7 +15193,7 @@ export var DisassociateVpcCidrBlockRequest$: StaticStructureSchema = [3, n0, _DV
   0,
   [_AIs],
   [[0, { [_eQN]: `AssociationId`
-  , [_xN]: _aIs }]]
+  , [_xN]: _aIs }]], 1
 ];
 export var DisassociateVpcCidrBlockResult$: StaticStructureSchema = [3, n0, _DVCBRi,
   0,
@@ -15223,7 +15223,7 @@ export var DiskImageDetail$: StaticStructureSchema = [3, n0, _DIDi,
   [[0, { [_eQN]: `Format`
   , [_xN]: _for }], [1, { [_eQN]: `Bytes`
   , [_xN]: _byt }], [() => ImportManifestUrl, { [_eQN]: `ImportManifestUrl`
-  , [_xN]: _iMU }]]
+  , [_xN]: _iMU }]], 3
 ];
 export var DiskImageVolumeDescription$: StaticStructureSchema = [3, n0, _DIVD,
   0,
@@ -15417,7 +15417,7 @@ export var ElasticGpus$: StaticStructureSchema = [3, n0, _EG,
 export var ElasticGpuSpecification$: StaticStructureSchema = [3, n0, _EGSla,
   0,
   [_Ty],
-  [0]
+  [0], 1
 ];
 export var ElasticGpuSpecificationResponse$: StaticStructureSchema = [3, n0, _EGSR,
   0,
@@ -15428,7 +15428,7 @@ export var ElasticGpuSpecificationResponse$: StaticStructureSchema = [3, n0, _EG
 export var ElasticInferenceAccelerator$: StaticStructureSchema = [3, n0, _EIA,
   0,
   [_Ty, _Cou],
-  [0, 1]
+  [0, 1], 1
 ];
 export var ElasticInferenceAcceleratorAssociation$: StaticStructureSchema = [3, n0, _EIAA,
   0,
@@ -15442,7 +15442,7 @@ export var ElasticInferenceAcceleratorAssociation$: StaticStructureSchema = [3, 
 export var EnableAddressTransferRequest$: StaticStructureSchema = [3, n0, _EATR,
   0,
   [_AIl, _TAI, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var EnableAddressTransferResult$: StaticStructureSchema = [3, n0, _EATRn,
   0,
@@ -15453,7 +15453,7 @@ export var EnableAddressTransferResult$: StaticStructureSchema = [3, n0, _EATRn,
 export var EnableAllowedImagesSettingsRequest$: StaticStructureSchema = [3, n0, _EAISR,
   0,
   [_AISS, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var EnableAllowedImagesSettingsResult$: StaticStructureSchema = [3, n0, _EAISRn,
   0,
@@ -15498,7 +15498,7 @@ export var EnableEbsEncryptionByDefaultResult$: StaticStructureSchema = [3, n0, 
 export var EnableFastLaunchRequest$: StaticStructureSchema = [3, n0, _EFLR,
   0,
   [_IIm, _RTe, _SCn, _LT, _MPL, _DR],
-  [0, 0, () => FastLaunchSnapshotConfigurationRequest$, () => FastLaunchLaunchTemplateSpecificationRequest$, 1, 2]
+  [0, 0, () => FastLaunchSnapshotConfigurationRequest$, () => FastLaunchLaunchTemplateSpecificationRequest$, 1, 2], 1
 ];
 export var EnableFastLaunchResult$: StaticStructureSchema = [3, n0, _EFLRn,
   0,
@@ -15523,8 +15523,8 @@ export var EnableFastSnapshotRestoreErrorItem$: StaticStructureSchema = [3, n0, 
 ];
 export var EnableFastSnapshotRestoresRequest$: StaticStructureSchema = [3, n0, _EFSRR,
   0,
-  [_AZv, _AZIv, _SSIo, _DR],
-  [[() => AvailabilityZoneStringList, { [_xN]: _AZ }], [() => AvailabilityZoneIdStringList, { [_xN]: _AZI }], [() => SnapshotIdStringList, { [_xN]: _SSI }], 2]
+  [_SSIo, _AZv, _AZIv, _DR],
+  [[() => SnapshotIdStringList, { [_xN]: _SSI }], [() => AvailabilityZoneStringList, { [_xN]: _AZ }], [() => AvailabilityZoneIdStringList, { [_xN]: _AZI }], 2], 1
 ];
 export var EnableFastSnapshotRestoresResult$: StaticStructureSchema = [3, n0, _EFSRRn,
   0,
@@ -15568,7 +15568,7 @@ export var EnableFastSnapshotRestoreSuccessItem$: StaticStructureSchema = [3, n0
 export var EnableImageBlockPublicAccessRequest$: StaticStructureSchema = [3, n0, _EIBPAR,
   0,
   [_IBPAS, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var EnableImageBlockPublicAccessResult$: StaticStructureSchema = [3, n0, _EIBPARn,
   0,
@@ -15579,7 +15579,7 @@ export var EnableImageBlockPublicAccessResult$: StaticStructureSchema = [3, n0, 
 export var EnableImageDeprecationRequest$: StaticStructureSchema = [3, n0, _EIDR,
   0,
   [_IIm, _DAep, _DR],
-  [0, 4, 2]
+  [0, 4, 2], 2
 ];
 export var EnableImageDeprecationResult$: StaticStructureSchema = [3, n0, _EIDRn,
   0,
@@ -15590,7 +15590,7 @@ export var EnableImageDeprecationResult$: StaticStructureSchema = [3, n0, _EIDRn
 export var EnableImageDeregistrationProtectionRequest$: StaticStructureSchema = [3, n0, _EIDPR,
   0,
   [_IIm, _WC, _DR],
-  [0, 2, 2]
+  [0, 2, 2], 1
 ];
 export var EnableImageDeregistrationProtectionResult$: StaticStructureSchema = [3, n0, _EIDPRn,
   0,
@@ -15601,7 +15601,7 @@ export var EnableImageDeregistrationProtectionResult$: StaticStructureSchema = [
 export var EnableImageRequest$: StaticStructureSchema = [3, n0, _EIR,
   0,
   [_IIm, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var EnableImageResult$: StaticStructureSchema = [3, n0, _EIRn,
   0,
@@ -15612,7 +15612,7 @@ export var EnableImageResult$: StaticStructureSchema = [3, n0, _EIRn,
 export var EnableInstanceSqlHaStandbyDetectionsRequest$: StaticStructureSchema = [3, n0, _EISHSDR,
   0,
   [_IIns, _SSC, _DR],
-  [[() => InstanceIdUpdateStringList, { [_xN]: _II }], 0, 2]
+  [[() => InstanceIdUpdateStringList, { [_xN]: _II }], 0, 2], 1
 ];
 export var EnableInstanceSqlHaStandbyDetectionsResult$: StaticStructureSchema = [3, n0, _EISHSDRn,
   0,
@@ -15622,8 +15622,8 @@ export var EnableInstanceSqlHaStandbyDetectionsResult$: StaticStructureSchema = 
 ];
 export var EnableIpamOrganizationAdminAccountRequest$: StaticStructureSchema = [3, n0, _EIOAAR,
   0,
-  [_DR, _DAAI],
-  [2, 0]
+  [_DAAI, _DR],
+  [0, 2], 1
 ];
 export var EnableIpamOrganizationAdminAccountResult$: StaticStructureSchema = [3, n0, _EIOAARn,
   0,
@@ -15633,8 +15633,8 @@ export var EnableIpamOrganizationAdminAccountResult$: StaticStructureSchema = [3
 ];
 export var EnableIpamPolicyRequest$: StaticStructureSchema = [3, n0, _EIPR,
   0,
-  [_DR, _IPIp, _OTI],
-  [2, 0, 0]
+  [_IPIp, _DR, _OTI],
+  [0, 2, 0], 1
 ];
 export var EnableIpamPolicyResult$: StaticStructureSchema = [3, n0, _EIPRn,
   0,
@@ -15656,7 +15656,7 @@ export var EnableReachabilityAnalyzerOrganizationSharingResult$: StaticStructure
 export var EnableRouteServerPropagationRequest$: StaticStructureSchema = [3, n0, _ERSPR,
   0,
   [_RSI, _RTI, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var EnableRouteServerPropagationResult$: StaticStructureSchema = [3, n0, _ERSPRn,
   0,
@@ -15678,7 +15678,7 @@ export var EnableSerialConsoleAccessResult$: StaticStructureSchema = [3, n0, _ES
 export var EnableSnapshotBlockPublicAccessRequest$: StaticStructureSchema = [3, n0, _ESBPAR,
   0,
   [_St, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var EnableSnapshotBlockPublicAccessResult$: StaticStructureSchema = [3, n0, _ESBPARn,
   0,
@@ -15689,7 +15689,7 @@ export var EnableSnapshotBlockPublicAccessResult$: StaticStructureSchema = [3, n
 export var EnableTransitGatewayRouteTablePropagationRequest$: StaticStructureSchema = [3, n0, _ETGRTPR,
   0,
   [_TGRTI, _TGAI, _DR, _TGRTAI],
-  [0, 0, 2, 0]
+  [0, 0, 2, 0], 1
 ];
 export var EnableTransitGatewayRouteTablePropagationResult$: StaticStructureSchema = [3, n0, _ETGRTPRn,
   0,
@@ -15700,14 +15700,14 @@ export var EnableTransitGatewayRouteTablePropagationResult$: StaticStructureSche
 export var EnableVgwRoutePropagationRequest$: StaticStructureSchema = [3, n0, _EVRPR,
   0,
   [_GI, _RTI, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var EnableVolumeIORequest$: StaticStructureSchema = [3, n0, _EVIOR,
   0,
-  [_DR, _VIo],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `VolumeId`
-  , [_xN]: _vIo }]]
+  [_VIo, _DR],
+  [[0, { [_eQN]: `VolumeId`
+  , [_xN]: _vIo }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var EnableVpcClassicLinkDnsSupportRequest$: StaticStructureSchema = [3, n0, _EVCLDSR,
   0,
@@ -15722,10 +15722,10 @@ export var EnableVpcClassicLinkDnsSupportResult$: StaticStructureSchema = [3, n0
 ];
 export var EnableVpcClassicLinkRequest$: StaticStructureSchema = [3, n0, _EVCLR,
   0,
-  [_DR, _VI],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `VpcId`
-  , [_xN]: _vI }]]
+  [_VI, _DR],
+  [[0, { [_eQN]: `VpcId`
+  , [_xN]: _vI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var EnableVpcClassicLinkResult$: StaticStructureSchema = [3, n0, _EVCLRn,
   0,
@@ -15841,7 +15841,7 @@ export var Explanation$: StaticStructureSchema = [3, n0, _Ex,
 export var ExportClientVpnClientCertificateRevocationListRequest$: StaticStructureSchema = [3, n0, _ECVCCRLR,
   0,
   [_CVEI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var ExportClientVpnClientCertificateRevocationListResult$: StaticStructureSchema = [3, n0, _ECVCCRLRx,
   0,
@@ -15853,7 +15853,7 @@ export var ExportClientVpnClientCertificateRevocationListResult$: StaticStructur
 export var ExportClientVpnClientConfigurationRequest$: StaticStructureSchema = [3, n0, _ECVCCR,
   0,
   [_CVEI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var ExportClientVpnClientConfigurationResult$: StaticStructureSchema = [3, n0, _ECVCCRx,
   0,
@@ -15863,8 +15863,8 @@ export var ExportClientVpnClientConfigurationResult$: StaticStructureSchema = [3
 ];
 export var ExportImageRequest$: StaticStructureSchema = [3, n0, _EIRx,
   0,
-  [_CT, _De, _DIF, _DR, _IIm, _SEL, _RNo, _TS],
-  [[0, 4], 0, 0, 2, 0, () => ExportTaskS3LocationRequest$, 0, [() => TagSpecificationList, { [_xN]: _TSa }]]
+  [_DIF, _IIm, _SEL, _CT, _De, _DR, _RNo, _TS],
+  [0, 0, () => ExportTaskS3LocationRequest$, [0, 4], 0, 2, 0, [() => TagSpecificationList, { [_xN]: _TSa }]], 3
 ];
 export var ExportImageResult$: StaticStructureSchema = [3, n0, _EIRxp,
   0,
@@ -15916,7 +15916,7 @@ export var ExportTaskS3Location$: StaticStructureSchema = [3, n0, _ETSL,
 export var ExportTaskS3LocationRequest$: StaticStructureSchema = [3, n0, _ETSLR,
   0,
   [_SB, _SP],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ExportToS3Task$: StaticStructureSchema = [3, n0, _ETST,
   0,
@@ -15938,8 +15938,8 @@ export var ExportToS3TaskSpecification$: StaticStructureSchema = [3, n0, _ETSTS,
 ];
 export var ExportTransitGatewayRoutesRequest$: StaticStructureSchema = [3, n0, _ETGRR,
   0,
-  [_TGRTI, _Fi, _SB, _DR],
-  [0, [() => FilterList, { [_xN]: _Fil }], 0, 2]
+  [_TGRTI, _SB, _Fi, _DR],
+  [0, 0, [() => FilterList, { [_xN]: _Fil }], 2], 2
 ];
 export var ExportTransitGatewayRoutesResult$: StaticStructureSchema = [3, n0, _ETGRRx,
   0,
@@ -15950,7 +15950,7 @@ export var ExportTransitGatewayRoutesResult$: StaticStructureSchema = [3, n0, _E
 export var ExportVerifiedAccessInstanceClientConfigurationRequest$: StaticStructureSchema = [3, n0, _EVAICCR,
   0,
   [_VAII, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var ExportVerifiedAccessInstanceClientConfigurationResult$: StaticStructureSchema = [3, n0, _EVAICCRx,
   0,
@@ -15984,8 +15984,8 @@ export var FailedQueuedPurchaseDeletion$: StaticStructureSchema = [3, n0, _FQPDa
 ];
 export var FastLaunchLaunchTemplateSpecificationRequest$: StaticStructureSchema = [3, n0, _FLLTSR,
   0,
-  [_LTI, _LTN, _Ver],
-  [0, 0, 0]
+  [_Ver, _LTI, _LTN],
+  [0, 0, 0], 1
 ];
 export var FastLaunchLaunchTemplateSpecificationResponse$: StaticStructureSchema = [3, n0, _FLLTSRa,
   0,
@@ -16261,7 +16261,7 @@ export var FpgaInfo$: StaticStructureSchema = [3, n0, _FIpga,
 export var GetActiveVpnTunnelStatusRequest$: StaticStructureSchema = [3, n0, _GAVTSR,
   0,
   [_VCIp, _VTOIA, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var GetActiveVpnTunnelStatusResult$: StaticStructureSchema = [3, n0, _GAVTSRe,
   0,
@@ -16285,7 +16285,7 @@ export var GetAllowedImagesSettingsResult$: StaticStructureSchema = [3, n0, _GAI
 export var GetAssociatedEnclaveCertificateIamRolesRequest$: StaticStructureSchema = [3, n0, _GAECIRR,
   0,
   [_CAe, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var GetAssociatedEnclaveCertificateIamRolesResult$: StaticStructureSchema = [3, n0, _GAECIRRe,
   0,
@@ -16296,7 +16296,7 @@ export var GetAssociatedEnclaveCertificateIamRolesResult$: StaticStructureSchema
 export var GetAssociatedIpv6PoolCidrsRequest$: StaticStructureSchema = [3, n0, _GAIPCR,
   0,
   [_PIo, _NTe, _MR, _DR],
-  [0, 0, 1, 2]
+  [0, 0, 1, 2], 1
 ];
 export var GetAssociatedIpv6PoolCidrsResult$: StaticStructureSchema = [3, n0, _GAIPCRe,
   0,
@@ -16337,7 +16337,7 @@ export var GetCapacityManagerAttributesResult$: StaticStructureSchema = [3, n0, 
 export var GetCapacityManagerMetricDataRequest$: StaticStructureSchema = [3, n0, _GCMMDR,
   0,
   [_MN, _ST, _ETnd, _Per, _GB, _FB, _MR, _NTe, _DR],
-  [[() => MetricSet, { [_xN]: _MNe }], 4, 4, 1, [() => GroupBySet, { [_xN]: _GB }], [() => CapacityManagerConditionSet, 0], 1, 0, 2]
+  [[() => MetricSet, { [_xN]: _MNe }], 4, 4, 1, [() => GroupBySet, { [_xN]: _GB }], [() => CapacityManagerConditionSet, 0], 1, 0, 2], 4
 ];
 export var GetCapacityManagerMetricDataResult$: StaticStructureSchema = [3, n0, _GCMMDRe,
   0,
@@ -16348,8 +16348,8 @@ export var GetCapacityManagerMetricDataResult$: StaticStructureSchema = [3, n0, 
 ];
 export var GetCapacityManagerMetricDimensionsRequest$: StaticStructureSchema = [3, n0, _GCMMDRet,
   0,
-  [_GB, _FB, _ST, _ETnd, _MN, _MR, _NTe, _DR],
-  [[() => GroupBySet, { [_xN]: _GB }], [() => CapacityManagerConditionSet, 0], 4, 4, [() => MetricSet, { [_xN]: _MNe }], 1, 0, 2]
+  [_GB, _ST, _ETnd, _MN, _FB, _MR, _NTe, _DR],
+  [[() => GroupBySet, { [_xN]: _GB }], 4, 4, [() => MetricSet, { [_xN]: _MNe }], [() => CapacityManagerConditionSet, 0], 1, 0, 2], 4
 ];
 export var GetCapacityManagerMetricDimensionsResult$: StaticStructureSchema = [3, n0, _GCMMDReta,
   0,
@@ -16361,7 +16361,7 @@ export var GetCapacityManagerMetricDimensionsResult$: StaticStructureSchema = [3
 export var GetCapacityReservationUsageRequest$: StaticStructureSchema = [3, n0, _GCRUR,
   0,
   [_CRI, _NTe, _MR, _DR],
-  [0, 0, 1, 2]
+  [0, 0, 1, 2], 1
 ];
 export var GetCapacityReservationUsageResult$: StaticStructureSchema = [3, n0, _GCRURe,
   0,
@@ -16381,7 +16381,7 @@ export var GetCapacityReservationUsageResult$: StaticStructureSchema = [3, n0, _
 export var GetCoipPoolUsageRequest$: StaticStructureSchema = [3, n0, _GCPUR,
   0,
   [_PIo, _Fi, _MR, _NTe, _DR],
-  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2]
+  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2], 1
 ];
 export var GetCoipPoolUsageResult$: StaticStructureSchema = [3, n0, _GCPURe,
   0,
@@ -16396,7 +16396,7 @@ export var GetConsoleOutputRequest$: StaticStructureSchema = [3, n0, _GCOR,
   0,
   [_II, _La, _DR],
   [0, 2, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var GetConsoleOutputResult$: StaticStructureSchema = [3, n0, _GCORe,
   0,
@@ -16408,8 +16408,8 @@ export var GetConsoleOutputResult$: StaticStructureSchema = [3, n0, _GCORe,
 ];
 export var GetConsoleScreenshotRequest$: StaticStructureSchema = [3, n0, _GCSR,
   0,
-  [_DR, _II, _WU],
-  [2, 0, 2]
+  [_II, _DR, _WU],
+  [0, 2, 2], 1
 ];
 export var GetConsoleScreenshotResult$: StaticStructureSchema = [3, n0, _GCSRe,
   0,
@@ -16420,8 +16420,8 @@ export var GetConsoleScreenshotResult$: StaticStructureSchema = [3, n0, _GCSRe,
 ];
 export var GetDeclarativePoliciesReportSummaryRequest$: StaticStructureSchema = [3, n0, _GDPRSR,
   0,
-  [_DR, _RI],
-  [2, 0]
+  [_RI, _DR],
+  [0, 2], 1
 ];
 export var GetDeclarativePoliciesReportSummaryResult$: StaticStructureSchema = [3, n0, _GDPRSRe,
   0,
@@ -16439,8 +16439,8 @@ export var GetDeclarativePoliciesReportSummaryResult$: StaticStructureSchema = [
 ];
 export var GetDefaultCreditSpecificationRequest$: StaticStructureSchema = [3, n0, _GDCSR,
   0,
-  [_DR, _IF],
-  [2, 0]
+  [_IF, _DR],
+  [0, 2], 1
 ];
 export var GetDefaultCreditSpecificationResult$: StaticStructureSchema = [3, n0, _GDCSRe,
   0,
@@ -16486,8 +16486,8 @@ export var GetEnabledIpamPolicyResult$: StaticStructureSchema = [3, n0, _GEIPRe,
 ];
 export var GetFlowLogsIntegrationTemplateRequest$: StaticStructureSchema = [3, n0, _GFLITR,
   0,
-  [_DR, _FLIl, _CDSDA, _ISnt],
-  [2, 0, 0, [() => IntegrateServices$, { [_xN]: _ISnte }]]
+  [_FLIl, _CDSDA, _ISnt, _DR],
+  [0, 0, [() => IntegrateServices$, { [_xN]: _ISnte }], 2], 3
 ];
 export var GetFlowLogsIntegrationTemplateResult$: StaticStructureSchema = [3, n0, _GFLITRe,
   0,
@@ -16498,7 +16498,7 @@ export var GetFlowLogsIntegrationTemplateResult$: StaticStructureSchema = [3, n0
 export var GetGroupsForCapacityReservationRequest$: StaticStructureSchema = [3, n0, _GGFCRR,
   0,
   [_CRI, _NTe, _MR, _DR],
-  [0, 0, 1, 2]
+  [0, 0, 1, 2], 1
 ];
 export var GetGroupsForCapacityReservationResult$: StaticStructureSchema = [3, n0, _GGFCRRe,
   0,
@@ -16510,7 +16510,7 @@ export var GetGroupsForCapacityReservationResult$: StaticStructureSchema = [3, n
 export var GetHostReservationPurchasePreviewRequest$: StaticStructureSchema = [3, n0, _GHRPPR,
   0,
   [_HIS, _OIf],
-  [[() => RequestHostIdSet, 0], 0]
+  [[() => RequestHostIdSet, 0], 0], 2
 ];
 export var GetHostReservationPurchasePreviewResult$: StaticStructureSchema = [3, n0, _GHRPPRe,
   0,
@@ -16524,7 +16524,7 @@ export var GetHostReservationPurchasePreviewResult$: StaticStructureSchema = [3,
 export var GetImageAncestryRequest$: StaticStructureSchema = [3, n0, _GIAR,
   0,
   [_IIm, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var GetImageAncestryResult$: StaticStructureSchema = [3, n0, _GIARe,
   0,
@@ -16558,7 +16558,7 @@ export var GetInstanceMetadataDefaultsResult$: StaticStructureSchema = [3, n0, _
 export var GetInstanceTpmEkPubRequest$: StaticStructureSchema = [3, n0, _GITEPR,
   0,
   [_II, _KT, _KF, _DR],
-  [[0, { [_xN]: _II }], 0, 0, 2]
+  [[0, { [_xN]: _II }], 0, 0, 2], 3
 ];
 export var GetInstanceTpmEkPubResult$: StaticStructureSchema = [3, n0, _GITEPRe,
   0,
@@ -16571,8 +16571,8 @@ export var GetInstanceTpmEkPubResult$: StaticStructureSchema = [3, n0, _GITEPRe,
 ];
 export var GetInstanceTypesFromInstanceRequirementsRequest$: StaticStructureSchema = [3, n0, _GITFIRR,
   0,
-  [_DR, _ATr, _VTi, _IRn, _MR, _NTe, _Con],
-  [2, [() => ArchitectureTypeSet, { [_xN]: _ATrc }], [() => VirtualizationTypeSet, { [_xN]: _VTir }], [() => InstanceRequirementsRequest$, 0], 1, 0, 0]
+  [_ATr, _VTi, _IRn, _DR, _MR, _NTe, _Con],
+  [[() => ArchitectureTypeSet, { [_xN]: _ATrc }], [() => VirtualizationTypeSet, { [_xN]: _VTir }], [() => InstanceRequirementsRequest$, 0], 2, 1, 0, 0], 3
 ];
 export var GetInstanceTypesFromInstanceRequirementsResult$: StaticStructureSchema = [3, n0, _GITFIRRe,
   0,
@@ -16584,7 +16584,7 @@ export var GetInstanceTypesFromInstanceRequirementsResult$: StaticStructureSchem
 export var GetInstanceUefiDataRequest$: StaticStructureSchema = [3, n0, _GIUDR,
   0,
   [_II, _DR],
-  [[0, { [_xN]: _II }], 2]
+  [[0, { [_xN]: _II }], 2], 1
 ];
 export var GetInstanceUefiDataResult$: StaticStructureSchema = [3, n0, _GIUDRe,
   0,
@@ -16595,8 +16595,8 @@ export var GetInstanceUefiDataResult$: StaticStructureSchema = [3, n0, _GIUDRe,
 ];
 export var GetIpamAddressHistoryRequest$: StaticStructureSchema = [3, n0, _GIAHR,
   0,
-  [_DR, _Ci, _ISI, _VI, _ST, _ETnd, _MR, _NTe],
-  [2, 0, 0, 0, 4, 4, 1, 0]
+  [_Ci, _ISI, _DR, _VI, _ST, _ETnd, _MR, _NTe],
+  [0, 0, 2, 0, 4, 4, 1, 0], 2
 ];
 export var GetIpamAddressHistoryResult$: StaticStructureSchema = [3, n0, _GIAHRe,
   0,
@@ -16607,8 +16607,8 @@ export var GetIpamAddressHistoryResult$: StaticStructureSchema = [3, n0, _GIAHRe
 ];
 export var GetIpamDiscoveredAccountsRequest$: StaticStructureSchema = [3, n0, _GIDAR,
   0,
-  [_DR, _IRDI, _DRi, _Fi, _NTe, _MR],
-  [2, 0, 0, [() => FilterList, { [_xN]: _Fil }], 0, 1]
+  [_IRDI, _DRi, _DR, _Fi, _NTe, _MR],
+  [0, 0, 2, [() => FilterList, { [_xN]: _Fil }], 0, 1], 2
 ];
 export var GetIpamDiscoveredAccountsResult$: StaticStructureSchema = [3, n0, _GIDARe,
   0,
@@ -16619,8 +16619,8 @@ export var GetIpamDiscoveredAccountsResult$: StaticStructureSchema = [3, n0, _GI
 ];
 export var GetIpamDiscoveredPublicAddressesRequest$: StaticStructureSchema = [3, n0, _GIDPAR,
   0,
-  [_DR, _IRDI, _ARd, _Fi, _NTe, _MR],
-  [2, 0, 0, [() => FilterList, { [_xN]: _Fil }], 0, 1]
+  [_IRDI, _ARd, _DR, _Fi, _NTe, _MR],
+  [0, 0, 2, [() => FilterList, { [_xN]: _Fil }], 0, 1], 2
 ];
 export var GetIpamDiscoveredPublicAddressesResult$: StaticStructureSchema = [3, n0, _GIDPARe,
   0,
@@ -16632,8 +16632,8 @@ export var GetIpamDiscoveredPublicAddressesResult$: StaticStructureSchema = [3, 
 ];
 export var GetIpamDiscoveredResourceCidrsRequest$: StaticStructureSchema = [3, n0, _GIDRCR,
   0,
-  [_DR, _IRDI, _RR, _Fi, _NTe, _MR],
-  [2, 0, 0, [() => FilterList, { [_xN]: _Fil }], 0, 1]
+  [_IRDI, _RR, _DR, _Fi, _NTe, _MR],
+  [0, 0, 2, [() => FilterList, { [_xN]: _Fil }], 0, 1], 2
 ];
 export var GetIpamDiscoveredResourceCidrsResult$: StaticStructureSchema = [3, n0, _GIDRCRe,
   0,
@@ -16644,8 +16644,8 @@ export var GetIpamDiscoveredResourceCidrsResult$: StaticStructureSchema = [3, n0
 ];
 export var GetIpamPolicyAllocationRulesRequest$: StaticStructureSchema = [3, n0, _GIPARR,
   0,
-  [_DR, _IPIp, _Fi, _Lo, _RTe, _MR, _NTe],
-  [2, 0, [() => FilterList, { [_xN]: _Fil }], 0, 0, 1, 0]
+  [_IPIp, _DR, _Fi, _Lo, _RTe, _MR, _NTe],
+  [0, 2, [() => FilterList, { [_xN]: _Fil }], 0, 0, 1, 0], 1
 ];
 export var GetIpamPolicyAllocationRulesResult$: StaticStructureSchema = [3, n0, _GIPARRe,
   0,
@@ -16656,8 +16656,8 @@ export var GetIpamPolicyAllocationRulesResult$: StaticStructureSchema = [3, n0, 
 ];
 export var GetIpamPolicyOrganizationTargetsRequest$: StaticStructureSchema = [3, n0, _GIPOTR,
   0,
-  [_DR, _MR, _NTe, _IPIp, _Fi],
-  [2, 1, 0, 0, [() => FilterList, { [_xN]: _Fil }]]
+  [_IPIp, _DR, _MR, _NTe, _Fi],
+  [0, 2, 1, 0, [() => FilterList, { [_xN]: _Fil }]], 1
 ];
 export var GetIpamPolicyOrganizationTargetsResult$: StaticStructureSchema = [3, n0, _GIPOTRe,
   0,
@@ -16668,8 +16668,8 @@ export var GetIpamPolicyOrganizationTargetsResult$: StaticStructureSchema = [3, 
 ];
 export var GetIpamPoolAllocationsRequest$: StaticStructureSchema = [3, n0, _GIPAR,
   0,
-  [_DR, _IPI, _IPAI, _Fi, _MR, _NTe],
-  [2, 0, 0, [() => FilterList, { [_xN]: _Fil }], 1, 0]
+  [_IPI, _DR, _IPAI, _Fi, _MR, _NTe],
+  [0, 2, 0, [() => FilterList, { [_xN]: _Fil }], 1, 0], 1
 ];
 export var GetIpamPoolAllocationsResult$: StaticStructureSchema = [3, n0, _GIPARe,
   0,
@@ -16680,8 +16680,8 @@ export var GetIpamPoolAllocationsResult$: StaticStructureSchema = [3, n0, _GIPAR
 ];
 export var GetIpamPoolCidrsRequest$: StaticStructureSchema = [3, n0, _GIPCR,
   0,
-  [_DR, _IPI, _Fi, _MR, _NTe],
-  [2, 0, [() => FilterList, { [_xN]: _Fil }], 1, 0]
+  [_IPI, _DR, _Fi, _MR, _NTe],
+  [0, 2, [() => FilterList, { [_xN]: _Fil }], 1, 0], 1
 ];
 export var GetIpamPoolCidrsResult$: StaticStructureSchema = [3, n0, _GIPCRe,
   0,
@@ -16692,8 +16692,8 @@ export var GetIpamPoolCidrsResult$: StaticStructureSchema = [3, n0, _GIPCRe,
 ];
 export var GetIpamPrefixListResolverRulesRequest$: StaticStructureSchema = [3, n0, _GIPLRRR,
   0,
-  [_DR, _IPLRI, _Fi, _MR, _NTe],
-  [2, 0, [() => FilterList, { [_xN]: _Fil }], 1, 0]
+  [_IPLRI, _DR, _Fi, _MR, _NTe],
+  [0, 2, [() => FilterList, { [_xN]: _Fil }], 1, 0], 1
 ];
 export var GetIpamPrefixListResolverRulesResult$: StaticStructureSchema = [3, n0, _GIPLRRRe,
   0,
@@ -16704,8 +16704,8 @@ export var GetIpamPrefixListResolverRulesResult$: StaticStructureSchema = [3, n0
 ];
 export var GetIpamPrefixListResolverVersionEntriesRequest$: StaticStructureSchema = [3, n0, _GIPLRVER,
   0,
-  [_DR, _IPLRI, _IPLRV, _MR, _NTe],
-  [2, 0, 1, 1, 0]
+  [_IPLRI, _IPLRV, _DR, _MR, _NTe],
+  [0, 1, 2, 1, 0], 2
 ];
 export var GetIpamPrefixListResolverVersionEntriesResult$: StaticStructureSchema = [3, n0, _GIPLRVERe,
   0,
@@ -16716,8 +16716,8 @@ export var GetIpamPrefixListResolverVersionEntriesResult$: StaticStructureSchema
 ];
 export var GetIpamPrefixListResolverVersionsRequest$: StaticStructureSchema = [3, n0, _GIPLRVR,
   0,
-  [_DR, _IPLRI, _IPLRVp, _MR, _Fi, _NTe],
-  [2, 0, [() => IpamPrefixListResolverVersionNumberSet, { [_xN]: _IPLRV }], 1, [() => FilterList, { [_xN]: _Fil }], 0]
+  [_IPLRI, _DR, _IPLRVp, _MR, _Fi, _NTe],
+  [0, 2, [() => IpamPrefixListResolverVersionNumberSet, { [_xN]: _IPLRV }], 1, [() => FilterList, { [_xN]: _Fil }], 0], 1
 ];
 export var GetIpamPrefixListResolverVersionsResult$: StaticStructureSchema = [3, n0, _GIPLRVRe,
   0,
@@ -16728,8 +16728,8 @@ export var GetIpamPrefixListResolverVersionsResult$: StaticStructureSchema = [3,
 ];
 export var GetIpamResourceCidrsRequest$: StaticStructureSchema = [3, n0, _GIRCR,
   0,
-  [_DR, _Fi, _MR, _NTe, _ISI, _IPI, _RIeso, _RTe, _RTeso, _ROe],
-  [2, [() => FilterList, { [_xN]: _Fil }], 1, 0, 0, 0, 0, 0, () => RequestIpamResourceTag$, 0]
+  [_ISI, _DR, _Fi, _MR, _NTe, _IPI, _RIeso, _RTe, _RTeso, _ROe],
+  [0, 2, [() => FilterList, { [_xN]: _Fil }], 1, 0, 0, 0, 0, () => RequestIpamResourceTag$, 0], 1
 ];
 export var GetIpamResourceCidrsResult$: StaticStructureSchema = [3, n0, _GIRCRe,
   0,
@@ -16740,8 +16740,8 @@ export var GetIpamResourceCidrsResult$: StaticStructureSchema = [3, n0, _GIRCRe,
 ];
 export var GetLaunchTemplateDataRequest$: StaticStructureSchema = [3, n0, _GLTDR,
   0,
-  [_DR, _II],
-  [2, 0]
+  [_II, _DR],
+  [0, 2], 1
 ];
 export var GetLaunchTemplateDataResult$: StaticStructureSchema = [3, n0, _GLTDRe,
   0,
@@ -16751,8 +16751,8 @@ export var GetLaunchTemplateDataResult$: StaticStructureSchema = [3, n0, _GLTDRe
 ];
 export var GetManagedPrefixListAssociationsRequest$: StaticStructureSchema = [3, n0, _GMPLAR,
   0,
-  [_DR, _PLI, _MR, _NTe],
-  [2, 0, 1, 0]
+  [_PLI, _DR, _MR, _NTe],
+  [0, 2, 1, 0], 1
 ];
 export var GetManagedPrefixListAssociationsResult$: StaticStructureSchema = [3, n0, _GMPLARe,
   0,
@@ -16763,8 +16763,8 @@ export var GetManagedPrefixListAssociationsResult$: StaticStructureSchema = [3, 
 ];
 export var GetManagedPrefixListEntriesRequest$: StaticStructureSchema = [3, n0, _GMPLER,
   0,
-  [_DR, _PLI, _TV, _MR, _NTe],
-  [2, 0, 1, 1, 0]
+  [_PLI, _DR, _TV, _MR, _NTe],
+  [0, 2, 1, 1, 0], 1
 ];
 export var GetManagedPrefixListEntriesResult$: StaticStructureSchema = [3, n0, _GMPLERe,
   0,
@@ -16776,7 +16776,7 @@ export var GetManagedPrefixListEntriesResult$: StaticStructureSchema = [3, n0, _
 export var GetNetworkInsightsAccessScopeAnalysisFindingsRequest$: StaticStructureSchema = [3, n0, _GNIASAFR,
   0,
   [_NIASAI, _MR, _NTe, _DR],
-  [0, 1, 0, 2]
+  [0, 1, 0, 2], 1
 ];
 export var GetNetworkInsightsAccessScopeAnalysisFindingsResult$: StaticStructureSchema = [3, n0, _GNIASAFRe,
   0,
@@ -16790,7 +16790,7 @@ export var GetNetworkInsightsAccessScopeAnalysisFindingsResult$: StaticStructure
 export var GetNetworkInsightsAccessScopeContentRequest$: StaticStructureSchema = [3, n0, _GNIASCR,
   0,
   [_NIASI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var GetNetworkInsightsAccessScopeContentResult$: StaticStructureSchema = [3, n0, _GNIASCRe,
   0,
@@ -16802,7 +16802,7 @@ export var GetPasswordDataRequest$: StaticStructureSchema = [3, n0, _GPDR,
   0,
   [_II, _DR],
   [0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var GetPasswordDataResult$: StaticStructureSchema = [3, n0, _GPDRe,
   0,
@@ -16814,8 +16814,8 @@ export var GetPasswordDataResult$: StaticStructureSchema = [3, n0, _GPDRe,
 ];
 export var GetReservedInstancesExchangeQuoteRequest$: StaticStructureSchema = [3, n0, _GRIEQR,
   0,
-  [_DR, _RII, _TC],
-  [2, [() => ReservedInstanceIdSet, { [_xN]: _RIIe }], [() => TargetConfigurationRequestSet, { [_xN]: _TCa }]]
+  [_RII, _DR, _TC],
+  [[() => ReservedInstanceIdSet, { [_xN]: _RIIe }], 2, [() => TargetConfigurationRequestSet, { [_xN]: _TCa }]], 1
 ];
 export var GetReservedInstancesExchangeQuoteResult$: StaticStructureSchema = [3, n0, _GRIEQRe,
   0,
@@ -16834,7 +16834,7 @@ export var GetReservedInstancesExchangeQuoteResult$: StaticStructureSchema = [3,
 export var GetRouteServerAssociationsRequest$: StaticStructureSchema = [3, n0, _GRSAR,
   0,
   [_RSI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var GetRouteServerAssociationsResult$: StaticStructureSchema = [3, n0, _GRSARe,
   0,
@@ -16845,7 +16845,7 @@ export var GetRouteServerAssociationsResult$: StaticStructureSchema = [3, n0, _G
 export var GetRouteServerPropagationsRequest$: StaticStructureSchema = [3, n0, _GRSPR,
   0,
   [_RSI, _RTI, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 1
 ];
 export var GetRouteServerPropagationsResult$: StaticStructureSchema = [3, n0, _GRSPRe,
   0,
@@ -16856,7 +16856,7 @@ export var GetRouteServerPropagationsResult$: StaticStructureSchema = [3, n0, _G
 export var GetRouteServerRoutingDatabaseRequest$: StaticStructureSchema = [3, n0, _GRSRDR,
   0,
   [_RSI, _NTe, _MR, _DR, _Fi],
-  [0, 0, 1, 2, [() => FilterList, { [_xN]: _Fil }]]
+  [0, 0, 1, 2, [() => FilterList, { [_xN]: _Fil }]], 1
 ];
 export var GetRouteServerRoutingDatabaseResult$: StaticStructureSchema = [3, n0, _GRSRDRe,
   0,
@@ -16869,7 +16869,7 @@ export var GetRouteServerRoutingDatabaseResult$: StaticStructureSchema = [3, n0,
 export var GetSecurityGroupsForVpcRequest$: StaticStructureSchema = [3, n0, _GSGFVR,
   0,
   [_VI, _NTe, _MR, _Fi, _DR],
-  [0, 0, 1, [() => FilterList, { [_xN]: _Fil }], 2]
+  [0, 0, 1, [() => FilterList, { [_xN]: _Fil }], 2], 1
 ];
 export var GetSecurityGroupsForVpcResult$: StaticStructureSchema = [3, n0, _GSGFVRe,
   0,
@@ -16904,8 +16904,8 @@ export var GetSnapshotBlockPublicAccessStateResult$: StaticStructureSchema = [3,
 ];
 export var GetSpotPlacementScoresRequest$: StaticStructureSchema = [3, n0, _GSPSR,
   0,
-  [_ITnst, _TCar, _TCUT, _SAZ, _RNe, _IRWM, _DR, _MR, _NTe],
-  [[64 | 0, { [_xN]: _IT }], 1, 0, 2, [64 | 0, { [_xN]: _RN }], [() => InstanceRequirementsWithMetadataRequest$, 0], 2, 1, 0]
+  [_TCar, _ITnst, _TCUT, _SAZ, _RNe, _IRWM, _DR, _MR, _NTe],
+  [1, [64 | 0, { [_xN]: _IT }], 0, 2, [64 | 0, { [_xN]: _RN }], [() => InstanceRequirementsWithMetadataRequest$, 0], 2, 1, 0], 1
 ];
 export var GetSpotPlacementScoresResult$: StaticStructureSchema = [3, n0, _GSPSRe,
   0,
@@ -16916,8 +16916,8 @@ export var GetSpotPlacementScoresResult$: StaticStructureSchema = [3, n0, _GSPSR
 ];
 export var GetSubnetCidrReservationsRequest$: StaticStructureSchema = [3, n0, _GSCRR,
   0,
-  [_Fi, _SIu, _DR, _NTe, _MR],
-  [[() => FilterList, { [_xN]: _Fil }], 0, 2, 0, 1]
+  [_SIu, _Fi, _DR, _NTe, _MR],
+  [0, [() => FilterList, { [_xN]: _Fil }], 2, 0, 1], 1
 ];
 export var GetSubnetCidrReservationsResult$: StaticStructureSchema = [3, n0, _GSCRRe,
   0,
@@ -16930,7 +16930,7 @@ export var GetSubnetCidrReservationsResult$: StaticStructureSchema = [3, n0, _GS
 export var GetTransitGatewayAttachmentPropagationsRequest$: StaticStructureSchema = [3, n0, _GTGAPR,
   0,
   [_TGAI, _Fi, _MR, _NTe, _DR],
-  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2]
+  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2], 1
 ];
 export var GetTransitGatewayAttachmentPropagationsResult$: StaticStructureSchema = [3, n0, _GTGAPRe,
   0,
@@ -16942,7 +16942,7 @@ export var GetTransitGatewayAttachmentPropagationsResult$: StaticStructureSchema
 export var GetTransitGatewayMeteringPolicyEntriesRequest$: StaticStructureSchema = [3, n0, _GTGMPER,
   0,
   [_TGMPI, _Fi, _MR, _NTe, _DR],
-  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2]
+  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2], 1
 ];
 export var GetTransitGatewayMeteringPolicyEntriesResult$: StaticStructureSchema = [3, n0, _GTGMPERe,
   0,
@@ -16954,7 +16954,7 @@ export var GetTransitGatewayMeteringPolicyEntriesResult$: StaticStructureSchema 
 export var GetTransitGatewayMulticastDomainAssociationsRequest$: StaticStructureSchema = [3, n0, _GTGMDAR,
   0,
   [_TGMDI, _Fi, _MR, _NTe, _DR],
-  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2]
+  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2], 1
 ];
 export var GetTransitGatewayMulticastDomainAssociationsResult$: StaticStructureSchema = [3, n0, _GTGMDARe,
   0,
@@ -16966,7 +16966,7 @@ export var GetTransitGatewayMulticastDomainAssociationsResult$: StaticStructureS
 export var GetTransitGatewayPolicyTableAssociationsRequest$: StaticStructureSchema = [3, n0, _GTGPTAR,
   0,
   [_TGPTI, _Fi, _MR, _NTe, _DR],
-  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2]
+  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2], 1
 ];
 export var GetTransitGatewayPolicyTableAssociationsResult$: StaticStructureSchema = [3, n0, _GTGPTARe,
   0,
@@ -16978,7 +16978,7 @@ export var GetTransitGatewayPolicyTableAssociationsResult$: StaticStructureSchem
 export var GetTransitGatewayPolicyTableEntriesRequest$: StaticStructureSchema = [3, n0, _GTGPTER,
   0,
   [_TGPTI, _Fi, _MR, _NTe, _DR],
-  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2]
+  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2], 1
 ];
 export var GetTransitGatewayPolicyTableEntriesResult$: StaticStructureSchema = [3, n0, _GTGPTERe,
   0,
@@ -16989,7 +16989,7 @@ export var GetTransitGatewayPolicyTableEntriesResult$: StaticStructureSchema = [
 export var GetTransitGatewayPrefixListReferencesRequest$: StaticStructureSchema = [3, n0, _GTGPLRR,
   0,
   [_TGRTI, _Fi, _MR, _NTe, _DR],
-  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2]
+  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2], 1
 ];
 export var GetTransitGatewayPrefixListReferencesResult$: StaticStructureSchema = [3, n0, _GTGPLRRe,
   0,
@@ -17001,7 +17001,7 @@ export var GetTransitGatewayPrefixListReferencesResult$: StaticStructureSchema =
 export var GetTransitGatewayRouteTableAssociationsRequest$: StaticStructureSchema = [3, n0, _GTGRTAR,
   0,
   [_TGRTI, _Fi, _MR, _NTe, _DR],
-  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2]
+  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2], 1
 ];
 export var GetTransitGatewayRouteTableAssociationsResult$: StaticStructureSchema = [3, n0, _GTGRTARe,
   0,
@@ -17013,7 +17013,7 @@ export var GetTransitGatewayRouteTableAssociationsResult$: StaticStructureSchema
 export var GetTransitGatewayRouteTablePropagationsRequest$: StaticStructureSchema = [3, n0, _GTGRTPR,
   0,
   [_TGRTI, _Fi, _MR, _NTe, _DR],
-  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2]
+  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2], 1
 ];
 export var GetTransitGatewayRouteTablePropagationsResult$: StaticStructureSchema = [3, n0, _GTGRTPRe,
   0,
@@ -17025,7 +17025,7 @@ export var GetTransitGatewayRouteTablePropagationsResult$: StaticStructureSchema
 export var GetVerifiedAccessEndpointPolicyRequest$: StaticStructureSchema = [3, n0, _GVAEPR,
   0,
   [_VAEI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var GetVerifiedAccessEndpointPolicyResult$: StaticStructureSchema = [3, n0, _GVAEPRe,
   0,
@@ -17037,7 +17037,7 @@ export var GetVerifiedAccessEndpointPolicyResult$: StaticStructureSchema = [3, n
 export var GetVerifiedAccessEndpointTargetsRequest$: StaticStructureSchema = [3, n0, _GVAETR,
   0,
   [_VAEI, _MR, _NTe, _DR],
-  [[0, { [_xN]: _VAEI }], 1, 0, 2]
+  [[0, { [_xN]: _VAEI }], 1, 0, 2], 1
 ];
 export var GetVerifiedAccessEndpointTargetsResult$: StaticStructureSchema = [3, n0, _GVAETRe,
   0,
@@ -17049,7 +17049,7 @@ export var GetVerifiedAccessEndpointTargetsResult$: StaticStructureSchema = [3, 
 export var GetVerifiedAccessGroupPolicyRequest$: StaticStructureSchema = [3, n0, _GVAGPR,
   0,
   [_VAGI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var GetVerifiedAccessGroupPolicyResult$: StaticStructureSchema = [3, n0, _GVAGPRe,
   0,
@@ -17061,7 +17061,7 @@ export var GetVerifiedAccessGroupPolicyResult$: StaticStructureSchema = [3, n0, 
 export var GetVpcResourcesBlockingEncryptionEnforcementRequest$: StaticStructureSchema = [3, n0, _GVRBEER,
   0,
   [_VI, _MR, _NTe, _DR],
-  [0, 1, 0, 2]
+  [0, 1, 0, 2], 1
 ];
 export var GetVpcResourcesBlockingEncryptionEnforcementResult$: StaticStructureSchema = [3, n0, _GVRBEERe,
   0,
@@ -17073,7 +17073,7 @@ export var GetVpcResourcesBlockingEncryptionEnforcementResult$: StaticStructureS
 export var GetVpnConnectionDeviceSampleConfigurationRequest$: StaticStructureSchema = [3, n0, _GVCDSCR,
   0,
   [_VCIp, _VCDTI, _IKEV, _STa, _DR],
-  [0, 0, 0, 0, 2]
+  [0, 0, 0, 0, 2], 2
 ];
 export var GetVpnConnectionDeviceSampleConfigurationResult$: StaticStructureSchema = [3, n0, _GVCDSCRe,
   0,
@@ -17096,7 +17096,7 @@ export var GetVpnConnectionDeviceTypesResult$: StaticStructureSchema = [3, n0, _
 export var GetVpnTunnelReplacementStatusRequest$: StaticStructureSchema = [3, n0, _GVTRSR,
   0,
   [_VCIp, _VTOIA, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var GetVpnTunnelReplacementStatusResult$: StaticStructureSchema = [3, n0, _GVTRSRe,
   0,
@@ -17464,7 +17464,7 @@ export var ImageUsageResourceTypeRequest$: StaticStructureSchema = [3, n0, _IURT
 export var ImportClientVpnClientCertificateRevocationListRequest$: StaticStructureSchema = [3, n0, _ICVCCRLR,
   0,
   [_CVEI, _CRL, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var ImportClientVpnClientCertificateRevocationListResult$: StaticStructureSchema = [3, n0, _ICVCCRLRm,
   0,
@@ -17547,13 +17547,13 @@ export var ImportInstanceLaunchSpecification$: StaticStructureSchema = [3, n0, _
 ];
 export var ImportInstanceRequest$: StaticStructureSchema = [3, n0, _IIRmp,
   0,
-  [_DR, _De, _LSa, _DIiskm, _Pl],
-  [[2, { [_eQN]: `DryRun`
+  [_Pl, _DR, _De, _LSa, _DIiskm],
+  [[0, { [_eQN]: `Platform`
+  , [_xN]: _pl }], [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [0, { [_eQN]: `Description`
   , [_xN]: _de }], [() => ImportInstanceLaunchSpecification$, { [_eQN]: `LaunchSpecification`
   , [_xN]: _lSa }], [() => DiskImageList, { [_eQN]: `DiskImage`
-  , [_xN]: _dIis }], [0, { [_eQN]: `Platform`
-  , [_xN]: _pl }]]
+  , [_xN]: _dIis }]], 1
 ];
 export var ImportInstanceResult$: StaticStructureSchema = [3, n0, _IIRmpo,
   0,
@@ -17585,11 +17585,11 @@ export var ImportInstanceVolumeDetailItem$: StaticStructureSchema = [3, n0, _IIV
 ];
 export var ImportKeyPairRequest$: StaticStructureSchema = [3, n0, _IKPR,
   0,
-  [_TS, _DR, _KN, _PKM],
-  [[() => TagSpecificationList, { [_xN]: _TSa }], [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `KeyName`
+  [_KN, _PKM, _TS, _DR],
+  [[0, { [_eQN]: `KeyName`
   , [_xN]: _kN }], [21, { [_eQN]: `PublicKeyMaterial`
-  , [_xN]: _pKM }]]
+  , [_xN]: _pKM }], [() => TagSpecificationList, { [_xN]: _TSa }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 2
 ];
 export var ImportKeyPairResult$: StaticStructureSchema = [3, n0, _IKPRm,
   0,
@@ -17625,13 +17625,13 @@ export var ImportSnapshotTask$: StaticStructureSchema = [3, n0, _ISTm,
 ];
 export var ImportVolumeRequest$: StaticStructureSchema = [3, n0, _IVR,
   0,
-  [_AZI, _DR, _AZ, _Ima, _De, _Vol],
-  [0, [2, { [_eQN]: `DryRun`
+  [_Ima, _Vol, _AZI, _DR, _AZ, _De],
+  [[() => DiskImageDetail$, { [_eQN]: `Image`
+  , [_xN]: _im }], [() => VolumeDetail$, { [_eQN]: `Volume`
+  , [_xN]: _vol }], 0, [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [0, { [_eQN]: `AvailabilityZone`
-  , [_xN]: _aZ }], [() => DiskImageDetail$, { [_eQN]: `Image`
-  , [_xN]: _im }], [0, { [_eQN]: `Description`
-  , [_xN]: _de }], [() => VolumeDetail$, { [_eQN]: `Volume`
-  , [_xN]: _vol }]]
+  , [_xN]: _aZ }], [0, { [_eQN]: `Description`
+  , [_xN]: _de }]], 2
 ];
 export var ImportVolumeResult$: StaticStructureSchema = [3, n0, _IVRm,
   0,
@@ -17835,7 +17835,7 @@ export var InstanceCreditSpecification$: StaticStructureSchema = [3, n0, _ICSn,
 export var InstanceCreditSpecificationRequest$: StaticStructureSchema = [3, n0, _ICSR,
   0,
   [_II, _CCp],
-  [0, 0]
+  [0, 0], 1
 ];
 export var InstanceEventWindow$: StaticStructureSchema = [3, n0, _IEW,
   0,
@@ -18110,7 +18110,7 @@ export var InstanceRequirements$: StaticStructureSchema = [3, n0, _IRn,
 export var InstanceRequirementsRequest$: StaticStructureSchema = [3, n0, _IRR,
   0,
   [_VCC, _MMB, _CM, _MGBPVC, _EITxc, _IGns, _SMPPOLP, _ODMPPOLP, _BMa, _BP, _RHS, _NIC, _LSo, _LST, _TLSGB, _BEBM, _ATc, _AC, _AMc, _ANc, _ATMMB, _NBGe, _AIT, _MSPAPOOODP, _BPF, _REIT],
-  [() => VCpuCountRangeRequest$, () => MemoryMiBRequest$, [() => CpuManufacturerSet, { [_xN]: _CMp }], () => MemoryGiBPerVCpuRequest$, [() => ExcludedInstanceTypeSet, { [_xN]: _EITxcl }], [() => InstanceGenerationSet, { [_xN]: _IGnst }], 1, 1, 0, 0, 2, () => NetworkInterfaceCountRequest$, 0, [() => LocalStorageTypeSet, { [_xN]: _LSTo }], () => TotalLocalStorageGBRequest$, () => BaselineEbsBandwidthMbpsRequest$, [() => AcceleratorTypeSet, { [_xN]: _ATcc }], () => AcceleratorCountRequest$, [() => AcceleratorManufacturerSet, { [_xN]: _AMcc }], [() => AcceleratorNameSet, { [_xN]: _ANcc }], () => AcceleratorTotalMemoryMiBRequest$, () => NetworkBandwidthGbpsRequest$, [() => AllowedInstanceTypeSet, { [_xN]: _AITl }], 1, [() => BaselinePerformanceFactorsRequest$, 0], 2]
+  [() => VCpuCountRangeRequest$, () => MemoryMiBRequest$, [() => CpuManufacturerSet, { [_xN]: _CMp }], () => MemoryGiBPerVCpuRequest$, [() => ExcludedInstanceTypeSet, { [_xN]: _EITxcl }], [() => InstanceGenerationSet, { [_xN]: _IGnst }], 1, 1, 0, 0, 2, () => NetworkInterfaceCountRequest$, 0, [() => LocalStorageTypeSet, { [_xN]: _LSTo }], () => TotalLocalStorageGBRequest$, () => BaselineEbsBandwidthMbpsRequest$, [() => AcceleratorTypeSet, { [_xN]: _ATcc }], () => AcceleratorCountRequest$, [() => AcceleratorManufacturerSet, { [_xN]: _AMcc }], [() => AcceleratorNameSet, { [_xN]: _ANcc }], () => AcceleratorTotalMemoryMiBRequest$, () => NetworkBandwidthGbpsRequest$, [() => AllowedInstanceTypeSet, { [_xN]: _AITl }], 1, [() => BaselinePerformanceFactorsRequest$, 0], 2], 2
 ];
 export var InstanceRequirementsWithMetadataRequest$: StaticStructureSchema = [3, n0, _IRWMR,
   0,
@@ -18120,7 +18120,7 @@ export var InstanceRequirementsWithMetadataRequest$: StaticStructureSchema = [3,
 export var InstanceSpecification$: StaticStructureSchema = [3, n0, _ISn,
   0,
   [_II, _EBV, _EDVI],
-  [0, 2, [() => VolumeIdStringList, { [_xN]: _EDVIx }]]
+  [0, 2, [() => VolumeIdStringList, { [_xN]: _EDVIx }]], 1
 ];
 export var InstanceState$: StaticStructureSchema = [3, n0, _ISnst,
   0,
@@ -18586,12 +18586,12 @@ export var IpamPrefixListResolverRuleCondition$: StaticStructureSchema = [3, n0,
 export var IpamPrefixListResolverRuleConditionRequest$: StaticStructureSchema = [3, n0, _IPLRRCR,
   0,
   [_Ope, _IPI, _RIeso, _ROe, _RR, _RTeso, _Ci],
-  [0, 0, 0, 0, 0, () => RequestIpamResourceTag$, 0]
+  [0, 0, 0, 0, 0, () => RequestIpamResourceTag$, 0], 1
 ];
 export var IpamPrefixListResolverRuleRequest$: StaticStructureSchema = [3, n0, _IPLRRR,
   0,
   [_RTu, _SCt, _ISI, _RTe, _Cond],
-  [0, 0, 0, 0, [() => IpamPrefixListResolverRuleConditionRequestSet, { [_xN]: _Condi }]]
+  [0, 0, 0, 0, [() => IpamPrefixListResolverRuleConditionRequestSet, { [_xN]: _Condi }]], 1
 ];
 export var IpamPrefixListResolverTarget$: StaticStructureSchema = [3, n0, _IPLRT,
   0,
@@ -18958,7 +18958,7 @@ export var LaunchTemplateEbsBlockDeviceRequest$: StaticStructureSchema = [3, n0,
 export var LaunchTemplateElasticInferenceAccelerator$: StaticStructureSchema = [3, n0, _LTEIA,
   0,
   [_Ty, _Cou],
-  [0, 1]
+  [0, 1], 1
 ];
 export var LaunchTemplateElasticInferenceAcceleratorResponse$: StaticStructureSchema = [3, n0, _LTEIAR,
   0,
@@ -19397,8 +19397,8 @@ export var LockedSnapshotsInfo$: StaticStructureSchema = [3, n0, _LSI,
 ];
 export var LockSnapshotRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
-  [_SIn, _DR, _LM, _COP, _LDo, _EDx],
-  [0, 2, 0, 1, 1, 4]
+  [_SIn, _LM, _DR, _COP, _LDo, _EDx],
+  [0, 0, 2, 1, 1, 4], 2
 ];
 export var LockSnapshotResult$: StaticStructureSchema = [3, n0, _LSRo,
   0,
@@ -19525,7 +19525,7 @@ export var MemoryMiB$: StaticStructureSchema = [3, n0, _MMB,
 export var MemoryMiBRequest$: StaticStructureSchema = [3, n0, _MMBR,
   0,
   [_M, _Ma],
-  [1, 1]
+  [1, 1], 1
 ];
 export var MetricDataResult$: StaticStructureSchema = [3, n0, _MDRet,
   0,
@@ -19554,7 +19554,7 @@ export var MetricValue$: StaticStructureSchema = [3, n0, _MVet,
 export var ModifyAddressAttributeRequest$: StaticStructureSchema = [3, n0, _MAAR,
   0,
   [_AIl, _DNo, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 1
 ];
 export var ModifyAddressAttributeResult$: StaticStructureSchema = [3, n0, _MAARo,
   0,
@@ -19565,7 +19565,7 @@ export var ModifyAddressAttributeResult$: StaticStructureSchema = [3, n0, _MAARo
 export var ModifyAvailabilityZoneGroupRequest$: StaticStructureSchema = [3, n0, _MAZGR,
   0,
   [_GN, _OIS, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var ModifyAvailabilityZoneGroupResult$: StaticStructureSchema = [3, n0, _MAZGRo,
   0,
@@ -19576,7 +19576,7 @@ export var ModifyAvailabilityZoneGroupResult$: StaticStructureSchema = [3, n0, _
 export var ModifyCapacityReservationFleetRequest$: StaticStructureSchema = [3, n0, _MCRFR,
   0,
   [_CRFIa, _TTC, _ED, _DR, _RED],
-  [0, 1, 4, 2, 2]
+  [0, 1, 4, 2, 2], 1
 ];
 export var ModifyCapacityReservationFleetResult$: StaticStructureSchema = [3, n0, _MCRFRo,
   0,
@@ -19587,7 +19587,7 @@ export var ModifyCapacityReservationFleetResult$: StaticStructureSchema = [3, n0
 export var ModifyCapacityReservationRequest$: StaticStructureSchema = [3, n0, _MCRR,
   0,
   [_CRI, _IC, _ED, _EDT, _Acce, _DR, _AId, _IMC],
-  [0, 1, 4, 0, 2, 2, 0, 0]
+  [0, 1, 4, 0, 2, 2, 0, 0], 1
 ];
 export var ModifyCapacityReservationResult$: StaticStructureSchema = [3, n0, _MCRRo,
   0,
@@ -19598,7 +19598,7 @@ export var ModifyCapacityReservationResult$: StaticStructureSchema = [3, n0, _MC
 export var ModifyClientVpnEndpointRequest$: StaticStructureSchema = [3, n0, _MCVER,
   0,
   [_CVEI, _SCA, _CLO, _DS, _VPp, _De, _STp, _DR, _SGIe, _VI, _SSP, _CCO, _STH, _CLBO, _CREO, _DOST],
-  [0, 0, () => ConnectionLogOptions$, [() => DnsServersOptionsModifyStructure$, 0], 1, 0, 2, 2, [() => ClientVpnSecurityGroupIdSet, { [_xN]: _SGI }], 0, 0, () => ClientConnectOptions$, 1, () => ClientLoginBannerOptions$, () => ClientRouteEnforcementOptions$, 2]
+  [0, 0, () => ConnectionLogOptions$, [() => DnsServersOptionsModifyStructure$, 0], 1, 0, 2, 2, [() => ClientVpnSecurityGroupIdSet, { [_xN]: _SGI }], 0, 0, () => ClientConnectOptions$, 1, () => ClientLoginBannerOptions$, () => ClientRouteEnforcementOptions$, 2], 1
 ];
 export var ModifyClientVpnEndpointResult$: StaticStructureSchema = [3, n0, _MCVERo,
   0,
@@ -19608,8 +19608,8 @@ export var ModifyClientVpnEndpointResult$: StaticStructureSchema = [3, n0, _MCVE
 ];
 export var ModifyDefaultCreditSpecificationRequest$: StaticStructureSchema = [3, n0, _MDCSR,
   0,
-  [_DR, _IF, _CCp],
-  [2, 0, 0]
+  [_IF, _CCp, _DR],
+  [0, 0, 2], 2
 ];
 export var ModifyDefaultCreditSpecificationResult$: StaticStructureSchema = [3, n0, _MDCSRo,
   0,
@@ -19620,7 +19620,7 @@ export var ModifyDefaultCreditSpecificationResult$: StaticStructureSchema = [3, 
 export var ModifyEbsDefaultKmsKeyIdRequest$: StaticStructureSchema = [3, n0, _MEDKKIR,
   0,
   [_KKI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var ModifyEbsDefaultKmsKeyIdResult$: StaticStructureSchema = [3, n0, _MEDKKIRo,
   0,
@@ -19630,8 +19630,8 @@ export var ModifyEbsDefaultKmsKeyIdResult$: StaticStructureSchema = [3, n0, _MED
 ];
 export var ModifyFleetRequest$: StaticStructureSchema = [3, n0, _MFR,
   0,
-  [_DR, _ECTP, _LTC, _FIl, _TCS, _Con],
-  [2, 0, [() => FleetLaunchTemplateConfigListRequest, { [_xN]: _LTCa }], 0, () => TargetCapacitySpecificationRequest$, 0]
+  [_FIl, _DR, _ECTP, _LTC, _TCS, _Con],
+  [0, 2, 0, [() => FleetLaunchTemplateConfigListRequest, { [_xN]: _LTCa }], () => TargetCapacitySpecificationRequest$, 0], 1
 ];
 export var ModifyFleetResult$: StaticStructureSchema = [3, n0, _MFRo,
   0,
@@ -19641,8 +19641,8 @@ export var ModifyFleetResult$: StaticStructureSchema = [3, n0, _MFRo,
 ];
 export var ModifyFpgaImageAttributeRequest$: StaticStructureSchema = [3, n0, _MFIAR,
   0,
-  [_DR, _FII, _At, _OTp, _UIs, _UG, _PCro, _LPo, _De, _N],
-  [2, 0, 0, 0, [() => UserIdStringList, { [_xN]: _UI }], [() => UserGroupStringList, { [_xN]: _UGs }], [() => ProductCodeStringList, { [_xN]: _PCr }], [() => LoadPermissionModifications$, 0], 0, 0]
+  [_FII, _DR, _At, _OTp, _UIs, _UG, _PCro, _LPo, _De, _N],
+  [0, 2, 0, 0, [() => UserIdStringList, { [_xN]: _UI }], [() => UserGroupStringList, { [_xN]: _UGs }], [() => ProductCodeStringList, { [_xN]: _PCr }], [() => LoadPermissionModifications$, 0], 0, 0], 1
 ];
 export var ModifyFpgaImageAttributeResult$: StaticStructureSchema = [3, n0, _MFIARo,
   0,
@@ -19652,10 +19652,10 @@ export var ModifyFpgaImageAttributeResult$: StaticStructureSchema = [3, n0, _MFI
 ];
 export var ModifyHostsRequest$: StaticStructureSchema = [3, n0, _MHR,
   0,
-  [_HR, _IT, _IF, _HM, _HI, _APu],
-  [0, 0, 0, 0, [() => RequestHostIdList, { [_eQN]: `HostId`
-  , [_xN]: _hI }], [0, { [_eQN]: `AutoPlacement`
-  , [_xN]: _aP }]]
+  [_HI, _HR, _IT, _IF, _HM, _APu],
+  [[() => RequestHostIdList, { [_eQN]: `HostId`
+  , [_xN]: _hI }], 0, 0, 0, 0, [0, { [_eQN]: `AutoPlacement`
+  , [_xN]: _aP }]], 1
 ];
 export var ModifyHostsResult$: StaticStructureSchema = [3, n0, _MHRo,
   0,
@@ -19670,25 +19670,25 @@ export var ModifyIdentityIdFormatRequest$: StaticStructureSchema = [3, n0, _MIIF
   [[0, { [_eQN]: `Resource`
   , [_xN]: _re }], [2, { [_eQN]: `UseLongIds`
   , [_xN]: _uLI }], [0, { [_eQN]: `PrincipalArn`
-  , [_xN]: _pAr }]]
+  , [_xN]: _pAr }]], 3
 ];
 export var ModifyIdFormatRequest$: StaticStructureSchema = [3, n0, _MIFR,
   0,
   [_Reso, _ULI],
-  [0, 2]
+  [0, 2], 2
 ];
 export var ModifyImageAttributeRequest$: StaticStructureSchema = [3, n0, _MIAR,
   0,
-  [_At, _De, _IIm, _LPau, _OTp, _PCro, _UG, _UIs, _V, _OArga, _OUAr, _ISmd, _DR],
-  [0, [() => AttributeValue$, 0], 0, [() => LaunchPermissionModifications$, 0], 0, [() => ProductCodeStringList, { [_xN]: _PCr }], [() => UserGroupStringList, { [_xN]: _UGs }], [() => UserIdStringList, { [_xN]: _UI }], 0, [() => OrganizationArnStringList, { [_xN]: _OArg }], [() => OrganizationalUnitArnStringList, { [_xN]: _OUA }], [() => AttributeValue$, 0], [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  [_IIm, _At, _De, _LPau, _OTp, _PCro, _UG, _UIs, _V, _OArga, _OUAr, _ISmd, _DR],
+  [0, 0, [() => AttributeValue$, 0], [() => LaunchPermissionModifications$, 0], 0, [() => ProductCodeStringList, { [_xN]: _PCr }], [() => UserGroupStringList, { [_xN]: _UGs }], [() => UserIdStringList, { [_xN]: _UI }], 0, [() => OrganizationArnStringList, { [_xN]: _OArg }], [() => OrganizationalUnitArnStringList, { [_xN]: _OUA }], [() => AttributeValue$, 0], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var ModifyInstanceAttributeRequest$: StaticStructureSchema = [3, n0, _MIARo,
   0,
-  [_SDC, _DASi, _DR, _II, _At, _V, _BDMl, _DAT, _IT, _Ke, _Ra, _UDs, _IISB, _G, _EO, _SNS, _ESna],
-  [[() => AttributeBooleanValue$, 0], [() => AttributeBooleanValue$, 0], [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `InstanceId`
-  , [_xN]: _iI }], [0, { [_eQN]: `Attribute`
+  [_II, _SDC, _DASi, _DR, _At, _V, _BDMl, _DAT, _IT, _Ke, _Ra, _UDs, _IISB, _G, _EO, _SNS, _ESna],
+  [[0, { [_eQN]: `InstanceId`
+  , [_xN]: _iI }], [() => AttributeBooleanValue$, 0], [() => AttributeBooleanValue$, 0], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [0, { [_eQN]: `Attribute`
   , [_xN]: _att }], [0, { [_eQN]: `Value`
   , [_xN]: _v }], [() => InstanceBlockDeviceMappingSpecificationList, { [_eQN]: `BlockDeviceMapping`
   , [_xN]: _bDM }], [() => AttributeBooleanValue$, { [_eQN]: `DisableApiTermination`
@@ -19700,12 +19700,12 @@ export var ModifyInstanceAttributeRequest$: StaticStructureSchema = [3, n0, _MIA
   , [_xN]: _iISB }], [() => GroupIdStringList, { [_xN]: _GIr }], [() => AttributeBooleanValue$, { [_eQN]: `EbsOptimized`
   , [_xN]: _eO }], [() => AttributeValue$, { [_eQN]: `SriovNetSupport`
   , [_xN]: _sNSr }], [() => AttributeBooleanValue$, { [_eQN]: `EnaSupport`
-  , [_xN]: _eSna }]]
+  , [_xN]: _eSna }]], 1
 ];
 export var ModifyInstanceCapacityReservationAttributesRequest$: StaticStructureSchema = [3, n0, _MICRAR,
   0,
   [_II, _CRSa, _DR],
-  [0, () => CapacityReservationSpecification$, 2]
+  [0, () => CapacityReservationSpecification$, 2], 2
 ];
 export var ModifyInstanceCapacityReservationAttributesResult$: StaticStructureSchema = [3, n0, _MICRARo,
   0,
@@ -19715,8 +19715,8 @@ export var ModifyInstanceCapacityReservationAttributesResult$: StaticStructureSc
 ];
 export var ModifyInstanceConnectEndpointRequest$: StaticStructureSchema = [3, n0, _MICER,
   0,
-  [_DR, _ICEI, _IAT, _SGIe, _PCI],
-  [2, 0, 0, [() => SecurityGroupIdStringListRequest, { [_xN]: _SGI }], 2]
+  [_ICEI, _DR, _IAT, _SGIe, _PCI],
+  [0, 2, 0, [() => SecurityGroupIdStringListRequest, { [_xN]: _SGI }], 2], 1
 ];
 export var ModifyInstanceConnectEndpointResult$: StaticStructureSchema = [3, n0, _MICERo,
   0,
@@ -19727,7 +19727,7 @@ export var ModifyInstanceConnectEndpointResult$: StaticStructureSchema = [3, n0,
 export var ModifyInstanceCpuOptionsRequest$: StaticStructureSchema = [3, n0, _MICOR,
   0,
   [_II, _CCor, _TPC, _DR],
-  [0, 1, 1, 2]
+  [0, 1, 1, 2], 3
 ];
 export var ModifyInstanceCpuOptionsResult$: StaticStructureSchema = [3, n0, _MICORo,
   0,
@@ -19739,8 +19739,8 @@ export var ModifyInstanceCpuOptionsResult$: StaticStructureSchema = [3, n0, _MIC
 ];
 export var ModifyInstanceCreditSpecificationRequest$: StaticStructureSchema = [3, n0, _MICSR,
   0,
-  [_DR, _CT, _ICS],
-  [2, 0, [() => InstanceCreditSpecificationListRequest, { [_xN]: _ICSn }]]
+  [_ICS, _DR, _CT],
+  [[() => InstanceCreditSpecificationListRequest, { [_xN]: _ICSn }], 2, 0], 1
 ];
 export var ModifyInstanceCreditSpecificationResult$: StaticStructureSchema = [3, n0, _MICSRo,
   0,
@@ -19751,8 +19751,8 @@ export var ModifyInstanceCreditSpecificationResult$: StaticStructureSchema = [3,
 ];
 export var ModifyInstanceEventStartTimeRequest$: StaticStructureSchema = [3, n0, _MIESTR,
   0,
-  [_DR, _II, _IEI, _NB],
-  [2, 0, 0, 4]
+  [_II, _IEI, _NB, _DR],
+  [0, 0, 4, 2], 3
 ];
 export var ModifyInstanceEventStartTimeResult$: StaticStructureSchema = [3, n0, _MIESTRo,
   0,
@@ -19762,8 +19762,8 @@ export var ModifyInstanceEventStartTimeResult$: StaticStructureSchema = [3, n0, 
 ];
 export var ModifyInstanceEventWindowRequest$: StaticStructureSchema = [3, n0, _MIEWR,
   0,
-  [_DR, _N, _IEWI, _TRi, _CEr],
-  [2, 0, 0, [() => InstanceEventWindowTimeRangeRequestSet, { [_xN]: _TRim }], 0]
+  [_IEWI, _DR, _N, _TRi, _CEr],
+  [0, 2, 0, [() => InstanceEventWindowTimeRangeRequestSet, { [_xN]: _TRim }], 0], 1
 ];
 export var ModifyInstanceEventWindowResult$: StaticStructureSchema = [3, n0, _MIEWRo,
   0,
@@ -19774,7 +19774,7 @@ export var ModifyInstanceEventWindowResult$: StaticStructureSchema = [3, n0, _MI
 export var ModifyInstanceMaintenanceOptionsRequest$: StaticStructureSchema = [3, n0, _MIMOR,
   0,
   [_II, _ARuto, _RMe, _DR],
-  [0, 0, 0, 2]
+  [0, 0, 0, 2], 1
 ];
 export var ModifyInstanceMaintenanceOptionsResult$: StaticStructureSchema = [3, n0, _MIMORo,
   0,
@@ -19798,7 +19798,7 @@ export var ModifyInstanceMetadataDefaultsResult$: StaticStructureSchema = [3, n0
 export var ModifyInstanceMetadataOptionsRequest$: StaticStructureSchema = [3, n0, _MIMORod,
   0,
   [_II, _HT, _HPRHL, _HE, _DR, _HPI, _IMT],
-  [0, 0, 1, 0, 2, 0, 0]
+  [0, 0, 1, 0, 2, 0, 0], 1
 ];
 export var ModifyInstanceMetadataOptionsResult$: StaticStructureSchema = [3, n0, _MIMORodi,
   0,
@@ -19810,7 +19810,7 @@ export var ModifyInstanceMetadataOptionsResult$: StaticStructureSchema = [3, n0,
 export var ModifyInstanceNetworkPerformanceRequest$: StaticStructureSchema = [3, n0, _MINPR,
   0,
   [_II, _BW, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var ModifyInstanceNetworkPerformanceResult$: StaticStructureSchema = [3, n0, _MINPRo,
   0,
@@ -19821,12 +19821,12 @@ export var ModifyInstanceNetworkPerformanceResult$: StaticStructureSchema = [3, 
 ];
 export var ModifyInstancePlacementRequest$: StaticStructureSchema = [3, n0, _MIPR,
   0,
-  [_GN, _PN, _HRGA, _GIr, _II, _Te, _Af, _HIo],
-  [0, 1, 0, 0, [0, { [_eQN]: `InstanceId`
-  , [_xN]: _iI }], [0, { [_eQN]: `Tenancy`
+  [_II, _GN, _PN, _HRGA, _GIr, _Te, _Af, _HIo],
+  [[0, { [_eQN]: `InstanceId`
+  , [_xN]: _iI }], 0, 1, 0, 0, [0, { [_eQN]: `Tenancy`
   , [_xN]: _t }], [0, { [_eQN]: `Affinity`
   , [_xN]: _af }], [0, { [_eQN]: `HostId`
-  , [_xN]: _hI }]]
+  , [_xN]: _hI }]], 1
 ];
 export var ModifyInstancePlacementResult$: StaticStructureSchema = [3, n0, _MIPRo,
   0,
@@ -19836,8 +19836,8 @@ export var ModifyInstancePlacementResult$: StaticStructureSchema = [3, n0, _MIPR
 ];
 export var ModifyIpamPolicyAllocationRulesRequest$: StaticStructureSchema = [3, n0, _MIPARR,
   0,
-  [_DR, _IPIp, _Lo, _RTe, _ARllo],
-  [2, 0, 0, 0, [() => IpamPolicyAllocationRuleListRequest, { [_xN]: _ARlloc }]]
+  [_IPIp, _Lo, _RTe, _DR, _ARllo],
+  [0, 0, 0, 2, [() => IpamPolicyAllocationRuleListRequest, { [_xN]: _ARlloc }]], 3
 ];
 export var ModifyIpamPolicyAllocationRulesResult$: StaticStructureSchema = [3, n0, _MIPARRo,
   0,
@@ -19847,8 +19847,8 @@ export var ModifyIpamPolicyAllocationRulesResult$: StaticStructureSchema = [3, n
 ];
 export var ModifyIpamPoolRequest$: StaticStructureSchema = [3, n0, _MIPRod,
   0,
-  [_DR, _IPI, _De, _AIu, _AMNL, _AMNLl, _ADNL, _CADNL, _AART, _RART],
-  [2, 0, 0, 2, 1, 1, 1, 2, [() => RequestIpamResourceTagList, { [_xN]: _AARTd }], [() => RequestIpamResourceTagList, { [_xN]: _RARTe }]]
+  [_IPI, _DR, _De, _AIu, _AMNL, _AMNLl, _ADNL, _CADNL, _AART, _RART],
+  [0, 2, 0, 2, 1, 1, 1, 2, [() => RequestIpamResourceTagList, { [_xN]: _AARTd }], [() => RequestIpamResourceTagList, { [_xN]: _RARTe }]], 1
 ];
 export var ModifyIpamPoolResult$: StaticStructureSchema = [3, n0, _MIPRodi,
   0,
@@ -19858,8 +19858,8 @@ export var ModifyIpamPoolResult$: StaticStructureSchema = [3, n0, _MIPRodi,
 ];
 export var ModifyIpamPrefixListResolverRequest$: StaticStructureSchema = [3, n0, _MIPLRR,
   0,
-  [_DR, _IPLRI, _De, _Ru],
-  [2, 0, 0, [() => IpamPrefixListResolverRuleRequestSet, { [_xN]: _Rul }]]
+  [_IPLRI, _DR, _De, _Ru],
+  [0, 2, 0, [() => IpamPrefixListResolverRuleRequestSet, { [_xN]: _Rul }]], 1
 ];
 export var ModifyIpamPrefixListResolverResult$: StaticStructureSchema = [3, n0, _MIPLRRo,
   0,
@@ -19869,8 +19869,8 @@ export var ModifyIpamPrefixListResolverResult$: StaticStructureSchema = [3, n0, 
 ];
 export var ModifyIpamPrefixListResolverTargetRequest$: StaticStructureSchema = [3, n0, _MIPLRTR,
   0,
-  [_DR, _IPLRTI, _DV, _TLV, _CT],
-  [2, 0, 1, 2, [0, 4]]
+  [_IPLRTI, _DR, _DV, _TLV, _CT],
+  [0, 2, 1, 2, [0, 4]], 1
 ];
 export var ModifyIpamPrefixListResolverTargetResult$: StaticStructureSchema = [3, n0, _MIPLRTRo,
   0,
@@ -19880,13 +19880,13 @@ export var ModifyIpamPrefixListResolverTargetResult$: StaticStructureSchema = [3
 ];
 export var ModifyIpamRequest$: StaticStructureSchema = [3, n0, _MIR,
   0,
-  [_DR, _IIp, _De, _AOR, _ROR, _Tie, _EPG, _MAe],
-  [2, 0, 0, [() => AddIpamOperatingRegionSet, { [_xN]: _AORd }], [() => RemoveIpamOperatingRegionSet, { [_xN]: _RORe }], 0, 2, 0]
+  [_IIp, _DR, _De, _AOR, _ROR, _Tie, _EPG, _MAe],
+  [0, 2, 0, [() => AddIpamOperatingRegionSet, { [_xN]: _AORd }], [() => RemoveIpamOperatingRegionSet, { [_xN]: _RORe }], 0, 2, 0], 1
 ];
 export var ModifyIpamResourceCidrRequest$: StaticStructureSchema = [3, n0, _MIRCR,
   0,
-  [_DR, _RIeso, _RCe, _RR, _CISI, _DISI, _Moni],
-  [2, 0, 0, 0, 0, 0, 2]
+  [_RIeso, _RCe, _RR, _CISI, _Moni, _DR, _DISI],
+  [0, 0, 0, 0, 2, 2, 0], 5
 ];
 export var ModifyIpamResourceCidrResult$: StaticStructureSchema = [3, n0, _MIRCRo,
   0,
@@ -19896,8 +19896,8 @@ export var ModifyIpamResourceCidrResult$: StaticStructureSchema = [3, n0, _MIRCR
 ];
 export var ModifyIpamResourceDiscoveryRequest$: StaticStructureSchema = [3, n0, _MIRDR,
   0,
-  [_DR, _IRDI, _De, _AOR, _ROR, _AOUE, _ROUE],
-  [2, 0, 0, [() => AddIpamOperatingRegionSet, { [_xN]: _AORd }], [() => RemoveIpamOperatingRegionSet, { [_xN]: _RORe }], [() => AddIpamOrganizationalUnitExclusionSet, { [_xN]: _AOUEd }], [() => RemoveIpamOrganizationalUnitExclusionSet, { [_xN]: _ROUEe }]]
+  [_IRDI, _DR, _De, _AOR, _ROR, _AOUE, _ROUE],
+  [0, 2, 0, [() => AddIpamOperatingRegionSet, { [_xN]: _AORd }], [() => RemoveIpamOperatingRegionSet, { [_xN]: _RORe }], [() => AddIpamOrganizationalUnitExclusionSet, { [_xN]: _AOUEd }], [() => RemoveIpamOrganizationalUnitExclusionSet, { [_xN]: _ROUEe }]], 1
 ];
 export var ModifyIpamResourceDiscoveryResult$: StaticStructureSchema = [3, n0, _MIRDRo,
   0,
@@ -19913,8 +19913,8 @@ export var ModifyIpamResult$: StaticStructureSchema = [3, n0, _MIRo,
 ];
 export var ModifyIpamScopeRequest$: StaticStructureSchema = [3, n0, _MISR,
   0,
-  [_DR, _ISI, _De, _EAC, _REAC],
-  [2, 0, 0, () => ExternalAuthorityConfiguration$, 2]
+  [_ISI, _DR, _De, _EAC, _REAC],
+  [0, 2, 0, () => ExternalAuthorityConfiguration$, 2], 1
 ];
 export var ModifyIpamScopeResult$: StaticStructureSchema = [3, n0, _MISRo,
   0,
@@ -19935,8 +19935,8 @@ export var ModifyLaunchTemplateResult$: StaticStructureSchema = [3, n0, _MLTRo,
 ];
 export var ModifyLocalGatewayRouteRequest$: StaticStructureSchema = [3, n0, _MLGRR,
   0,
-  [_DCB, _LGRTI, _LGVIGI, _NII, _DR, _DPLI],
-  [0, 0, 0, 0, 2, 0]
+  [_LGRTI, _DCB, _LGVIGI, _NII, _DR, _DPLI],
+  [0, 0, 0, 0, 2, 0], 1
 ];
 export var ModifyLocalGatewayRouteResult$: StaticStructureSchema = [3, n0, _MLGRRo,
   0,
@@ -19946,8 +19946,8 @@ export var ModifyLocalGatewayRouteResult$: StaticStructureSchema = [3, n0, _MLGR
 ];
 export var ModifyManagedPrefixListRequest$: StaticStructureSchema = [3, n0, _MMPLR,
   0,
-  [_DR, _PLI, _CV, _PLN, _AEd, _REem, _ME, _IPLRSE],
-  [2, 0, 1, 0, [() => AddPrefixListEntries, { [_xN]: _AEdd }], [() => RemovePrefixListEntries, { [_xN]: _REemo }], 1, 2]
+  [_PLI, _DR, _CV, _PLN, _AEd, _REem, _ME, _IPLRSE],
+  [0, 2, 1, 0, [() => AddPrefixListEntries, { [_xN]: _AEdd }], [() => RemovePrefixListEntries, { [_xN]: _REemo }], 1, 2], 1
 ];
 export var ModifyManagedPrefixListResult$: StaticStructureSchema = [3, n0, _MMPLRo,
   0,
@@ -19957,18 +19957,18 @@ export var ModifyManagedPrefixListResult$: StaticStructureSchema = [3, n0, _MMPL
 ];
 export var ModifyNetworkInterfaceAttributeRequest$: StaticStructureSchema = [3, n0, _MNIAR,
   0,
-  [_ESS, _EPI, _CTS, _APIAss, _ASI, _DR, _NII, _De, _SDC, _G, _Att],
-  [() => EnaSrdSpecification$, 2, () => ConnectionTrackingSpecificationRequest$, 2, [() => SubnetIdList, { [_xN]: _ASIs }], [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `NetworkInterfaceId`
-  , [_xN]: _nII }], [() => AttributeValue$, { [_eQN]: `Description`
+  [_NII, _ESS, _EPI, _CTS, _APIAss, _ASI, _DR, _De, _SDC, _G, _Att],
+  [[0, { [_eQN]: `NetworkInterfaceId`
+  , [_xN]: _nII }], () => EnaSrdSpecification$, 2, () => ConnectionTrackingSpecificationRequest$, 2, [() => SubnetIdList, { [_xN]: _ASIs }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [() => AttributeValue$, { [_eQN]: `Description`
   , [_xN]: _de }], [() => AttributeBooleanValue$, { [_eQN]: `SourceDestCheck`
   , [_xN]: _sDC }], [() => SecurityGroupIdStringList, { [_xN]: _SGI }], [() => NetworkInterfaceAttachmentChanges$, { [_eQN]: `Attachment`
-  , [_xN]: _at }]]
+  , [_xN]: _at }]], 1
 ];
 export var ModifyPrivateDnsNameOptionsRequest$: StaticStructureSchema = [3, n0, _MPDNOR,
   0,
-  [_DR, _II, _PDHT, _ERNDAR, _ERNDAAAAR],
-  [2, 0, 0, 2, 2]
+  [_II, _DR, _PDHT, _ERNDAR, _ERNDAAAAR],
+  [0, 2, 0, 2, 2], 1
 ];
 export var ModifyPrivateDnsNameOptionsResult$: StaticStructureSchema = [3, n0, _MPDNORo,
   0,
@@ -19979,7 +19979,7 @@ export var ModifyPrivateDnsNameOptionsResult$: StaticStructureSchema = [3, n0, _
 export var ModifyPublicIpDnsNameOptionsRequest$: StaticStructureSchema = [3, n0, _MPIDNOR,
   0,
   [_NII, _HTo, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var ModifyPublicIpDnsNameOptionsResult$: StaticStructureSchema = [3, n0, _MPIDNORo,
   0,
@@ -19989,9 +19989,9 @@ export var ModifyPublicIpDnsNameOptionsResult$: StaticStructureSchema = [3, n0, 
 ];
 export var ModifyReservedInstancesRequest$: StaticStructureSchema = [3, n0, _MRIR,
   0,
-  [_RIIese, _CT, _TC],
-  [[() => ReservedInstancesIdStringList, { [_xN]: _RIIes }], [0, { [_eQN]: `ClientToken`
-  , [_xN]: _cT }], [() => ReservedInstancesConfigurationList, { [_xN]: _RICSIT }]]
+  [_RIIese, _TC, _CT],
+  [[() => ReservedInstancesIdStringList, { [_xN]: _RIIes }], [() => ReservedInstancesConfigurationList, { [_xN]: _RICSIT }], [0, { [_eQN]: `ClientToken`
+  , [_xN]: _cT }]], 2
 ];
 export var ModifyReservedInstancesResult$: StaticStructureSchema = [3, n0, _MRIRo,
   0,
@@ -20002,7 +20002,7 @@ export var ModifyReservedInstancesResult$: StaticStructureSchema = [3, n0, _MRIR
 export var ModifyRouteServerRequest$: StaticStructureSchema = [3, n0, _MRSR,
   0,
   [_RSI, _PRe, _PRD, _SNE, _DR],
-  [0, 0, 1, 2, 2]
+  [0, 0, 1, 2, 2], 1
 ];
 export var ModifyRouteServerResult$: StaticStructureSchema = [3, n0, _MRSRo,
   0,
@@ -20013,7 +20013,7 @@ export var ModifyRouteServerResult$: StaticStructureSchema = [3, n0, _MRSRo,
 export var ModifySecurityGroupRulesRequest$: StaticStructureSchema = [3, n0, _MSGRR,
   0,
   [_GIr, _SGR, _DR],
-  [0, [() => SecurityGroupRuleUpdateList, { [_xN]: _SGRe }], 2]
+  [0, [() => SecurityGroupRuleUpdateList, { [_xN]: _SGRe }], 2], 2
 ];
 export var ModifySecurityGroupRulesResult$: StaticStructureSchema = [3, n0, _MSGRRo,
   0,
@@ -20023,14 +20023,14 @@ export var ModifySecurityGroupRulesResult$: StaticStructureSchema = [3, n0, _MSG
 ];
 export var ModifySnapshotAttributeRequest$: StaticStructureSchema = [3, n0, _MSAR,
   0,
-  [_At, _CVP, _GNr, _OTp, _SIn, _UIs, _DR],
-  [0, [() => CreateVolumePermissionModifications$, 0], [() => GroupNameStringList, { [_xN]: _UGs }], 0, 0, [() => UserIdStringList, { [_xN]: _UI }], [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  [_SIn, _At, _CVP, _GNr, _OTp, _UIs, _DR],
+  [0, 0, [() => CreateVolumePermissionModifications$, 0], [() => GroupNameStringList, { [_xN]: _UGs }], 0, [() => UserIdStringList, { [_xN]: _UI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var ModifySnapshotTierRequest$: StaticStructureSchema = [3, n0, _MSTR,
   0,
   [_SIn, _STt, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 1
 ];
 export var ModifySnapshotTierResult$: StaticStructureSchema = [3, n0, _MSTRo,
   0,
@@ -20041,11 +20041,11 @@ export var ModifySnapshotTierResult$: StaticStructureSchema = [3, n0, _MSTRo,
 ];
 export var ModifySpotFleetRequestRequest$: StaticStructureSchema = [3, n0, _MSFRR,
   0,
-  [_LTC, _ODTC, _Con, _SFRI, _TCar, _ECTP],
-  [[() => LaunchTemplateConfigList, { [_xN]: _LTCa }], 1, 0, [0, { [_eQN]: `SpotFleetRequestId`
-  , [_xN]: _sFRI }], [1, { [_eQN]: `TargetCapacity`
+  [_SFRI, _LTC, _ODTC, _Con, _TCar, _ECTP],
+  [[0, { [_eQN]: `SpotFleetRequestId`
+  , [_xN]: _sFRI }], [() => LaunchTemplateConfigList, { [_xN]: _LTCa }], 1, 0, [1, { [_eQN]: `TargetCapacity`
   , [_xN]: _tCa }], [0, { [_eQN]: `ExcessCapacityTerminationPolicy`
-  , [_xN]: _eCTP }]]
+  , [_xN]: _eCTP }]], 1
 ];
 export var ModifySpotFleetRequestResponse$: StaticStructureSchema = [3, n0, _MSFRRo,
   0,
@@ -20055,14 +20055,14 @@ export var ModifySpotFleetRequestResponse$: StaticStructureSchema = [3, n0, _MSF
 ];
 export var ModifySubnetAttributeRequest$: StaticStructureSchema = [3, n0, _MSARo,
   0,
-  [_AIAOC, _MPIOL, _SIu, _MCOIOL, _COIP, _EDn, _PDHTOL, _ERNDAROL, _ERNDAAAAROL, _ELADI, _DLADI],
-  [[() => AttributeBooleanValue$, 0], [() => AttributeBooleanValue$, 0], [0, { [_eQN]: `SubnetId`
-  , [_xN]: _sIu }], [() => AttributeBooleanValue$, 0], 0, [() => AttributeBooleanValue$, 0], 0, [() => AttributeBooleanValue$, 0], [() => AttributeBooleanValue$, 0], 1, [() => AttributeBooleanValue$, 0]]
+  [_SIu, _AIAOC, _MPIOL, _MCOIOL, _COIP, _EDn, _PDHTOL, _ERNDAROL, _ERNDAAAAROL, _ELADI, _DLADI],
+  [[0, { [_eQN]: `SubnetId`
+  , [_xN]: _sIu }], [() => AttributeBooleanValue$, 0], [() => AttributeBooleanValue$, 0], [() => AttributeBooleanValue$, 0], 0, [() => AttributeBooleanValue$, 0], 0, [() => AttributeBooleanValue$, 0], [() => AttributeBooleanValue$, 0], 1, [() => AttributeBooleanValue$, 0]], 1
 ];
 export var ModifyTrafficMirrorFilterNetworkServicesRequest$: StaticStructureSchema = [3, n0, _MTMFNSR,
   0,
   [_TMFI, _ANS, _RNS, _DR],
-  [0, [() => TrafficMirrorNetworkServiceList, { [_xN]: _ANSd }], [() => TrafficMirrorNetworkServiceList, { [_xN]: _RNSe }], 2]
+  [0, [() => TrafficMirrorNetworkServiceList, { [_xN]: _ANSd }], [() => TrafficMirrorNetworkServiceList, { [_xN]: _RNSe }], 2], 1
 ];
 export var ModifyTrafficMirrorFilterNetworkServicesResult$: StaticStructureSchema = [3, n0, _MTMFNSRo,
   0,
@@ -20073,7 +20073,7 @@ export var ModifyTrafficMirrorFilterNetworkServicesResult$: StaticStructureSchem
 export var ModifyTrafficMirrorFilterRuleRequest$: StaticStructureSchema = [3, n0, _MTMFRR,
   0,
   [_TMFRI, _TD, _RNu, _RA, _DPRe, _SPRo, _Pr, _DCB, _SCB, _De, _RF, _DR],
-  [0, 0, 1, 0, () => TrafficMirrorPortRangeRequest$, () => TrafficMirrorPortRangeRequest$, 1, 0, 0, 0, [64 | 0, { [_xN]: _RFe }], 2]
+  [0, 0, 1, 0, () => TrafficMirrorPortRangeRequest$, () => TrafficMirrorPortRangeRequest$, 1, 0, 0, 0, [64 | 0, { [_xN]: _RFe }], 2], 1
 ];
 export var ModifyTrafficMirrorFilterRuleResult$: StaticStructureSchema = [3, n0, _MTMFRRo,
   0,
@@ -20084,7 +20084,7 @@ export var ModifyTrafficMirrorFilterRuleResult$: StaticStructureSchema = [3, n0,
 export var ModifyTrafficMirrorSessionRequest$: StaticStructureSchema = [3, n0, _MTMSR,
   0,
   [_TMSI, _TMTI, _TMFI, _PLa, _SNe, _VNI, _De, _RF, _DR],
-  [0, 0, 0, 1, 1, 1, 0, [64 | 0, { [_xN]: _RFe }], 2]
+  [0, 0, 0, 1, 1, 1, 0, [64 | 0, { [_xN]: _RFe }], 2], 1
 ];
 export var ModifyTrafficMirrorSessionResult$: StaticStructureSchema = [3, n0, _MTMSRo,
   0,
@@ -20095,7 +20095,7 @@ export var ModifyTrafficMirrorSessionResult$: StaticStructureSchema = [3, n0, _M
 export var ModifyTransitGatewayMeteringPolicyRequest$: StaticStructureSchema = [3, n0, _MTGMPR,
   0,
   [_TGMPI, _AMAI, _RMAI, _DR],
-  [0, [64 | 0, { [_xN]: _AMAId }], [64 | 0, { [_xN]: _RMAIe }], 2]
+  [0, [64 | 0, { [_xN]: _AMAId }], [64 | 0, { [_xN]: _RMAIe }], 2], 1
 ];
 export var ModifyTransitGatewayMeteringPolicyResult$: StaticStructureSchema = [3, n0, _MTGMPRo,
   0,
@@ -20111,7 +20111,7 @@ export var ModifyTransitGatewayOptions$: StaticStructureSchema = [3, n0, _MTGO,
 export var ModifyTransitGatewayPrefixListReferenceRequest$: StaticStructureSchema = [3, n0, _MTGPLRR,
   0,
   [_TGRTI, _PLI, _TGAI, _Bl, _DR],
-  [0, 0, 0, 2, 2]
+  [0, 0, 0, 2, 2], 2
 ];
 export var ModifyTransitGatewayPrefixListReferenceResult$: StaticStructureSchema = [3, n0, _MTGPLRRo,
   0,
@@ -20122,7 +20122,7 @@ export var ModifyTransitGatewayPrefixListReferenceResult$: StaticStructureSchema
 export var ModifyTransitGatewayRequest$: StaticStructureSchema = [3, n0, _MTGR,
   0,
   [_TGI, _De, _Opt, _DR],
-  [0, 0, [() => ModifyTransitGatewayOptions$, 0], 2]
+  [0, 0, [() => ModifyTransitGatewayOptions$, 0], 2], 1
 ];
 export var ModifyTransitGatewayResult$: StaticStructureSchema = [3, n0, _MTGRo,
   0,
@@ -20133,7 +20133,7 @@ export var ModifyTransitGatewayResult$: StaticStructureSchema = [3, n0, _MTGRo,
 export var ModifyTransitGatewayVpcAttachmentRequest$: StaticStructureSchema = [3, n0, _MTGVAR,
   0,
   [_TGAI, _ASId, _RSIe, _Opt, _DR],
-  [0, [() => TransitGatewaySubnetIdList, 0], [() => TransitGatewaySubnetIdList, 0], () => ModifyTransitGatewayVpcAttachmentRequestOptions$, 2]
+  [0, [() => TransitGatewaySubnetIdList, 0], [() => TransitGatewaySubnetIdList, 0], () => ModifyTransitGatewayVpcAttachmentRequestOptions$, 2], 1
 ];
 export var ModifyTransitGatewayVpcAttachmentRequestOptions$: StaticStructureSchema = [3, n0, _MTGVARO,
   0,
@@ -20164,7 +20164,7 @@ export var ModifyVerifiedAccessEndpointLoadBalancerOptions$: StaticStructureSche
 export var ModifyVerifiedAccessEndpointPolicyRequest$: StaticStructureSchema = [3, n0, _MVAEPR,
   0,
   [_VAEI, _PE, _PDo, _CT, _DR, _SS],
-  [0, 2, 0, [0, 4], 2, () => VerifiedAccessSseSpecificationRequest$]
+  [0, 2, 0, [0, 4], 2, () => VerifiedAccessSseSpecificationRequest$], 1
 ];
 export var ModifyVerifiedAccessEndpointPolicyResult$: StaticStructureSchema = [3, n0, _MVAEPRo,
   0,
@@ -20187,7 +20187,7 @@ export var ModifyVerifiedAccessEndpointRdsOptions$: StaticStructureSchema = [3, 
 export var ModifyVerifiedAccessEndpointRequest$: StaticStructureSchema = [3, n0, _MVAER,
   0,
   [_VAEI, _VAGI, _LBO, _NIO, _De, _CT, _DR, _ROd, _COi],
-  [0, 0, [() => ModifyVerifiedAccessEndpointLoadBalancerOptions$, 0], [() => ModifyVerifiedAccessEndpointEniOptions$, 0], 0, [0, 4], 2, [() => ModifyVerifiedAccessEndpointRdsOptions$, 0], [() => ModifyVerifiedAccessEndpointCidrOptions$, 0]]
+  [0, 0, [() => ModifyVerifiedAccessEndpointLoadBalancerOptions$, 0], [() => ModifyVerifiedAccessEndpointEniOptions$, 0], 0, [0, 4], 2, [() => ModifyVerifiedAccessEndpointRdsOptions$, 0], [() => ModifyVerifiedAccessEndpointCidrOptions$, 0]], 1
 ];
 export var ModifyVerifiedAccessEndpointResult$: StaticStructureSchema = [3, n0, _MVAERo,
   0,
@@ -20198,7 +20198,7 @@ export var ModifyVerifiedAccessEndpointResult$: StaticStructureSchema = [3, n0, 
 export var ModifyVerifiedAccessGroupPolicyRequest$: StaticStructureSchema = [3, n0, _MVAGPR,
   0,
   [_VAGI, _PE, _PDo, _CT, _DR, _SS],
-  [0, 2, 0, [0, 4], 2, () => VerifiedAccessSseSpecificationRequest$]
+  [0, 2, 0, [0, 4], 2, () => VerifiedAccessSseSpecificationRequest$], 1
 ];
 export var ModifyVerifiedAccessGroupPolicyResult$: StaticStructureSchema = [3, n0, _MVAGPRo,
   0,
@@ -20211,7 +20211,7 @@ export var ModifyVerifiedAccessGroupPolicyResult$: StaticStructureSchema = [3, n
 export var ModifyVerifiedAccessGroupRequest$: StaticStructureSchema = [3, n0, _MVAGR,
   0,
   [_VAGI, _VAII, _De, _CT, _DR],
-  [0, 0, 0, [0, 4], 2]
+  [0, 0, 0, [0, 4], 2], 1
 ];
 export var ModifyVerifiedAccessGroupResult$: StaticStructureSchema = [3, n0, _MVAGRo,
   0,
@@ -20222,7 +20222,7 @@ export var ModifyVerifiedAccessGroupResult$: StaticStructureSchema = [3, n0, _MV
 export var ModifyVerifiedAccessInstanceLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _MVAILCR,
   0,
   [_VAII, _ALc, _DR, _CT],
-  [0, () => VerifiedAccessLogOptions$, 2, [0, 4]]
+  [0, () => VerifiedAccessLogOptions$, 2, [0, 4]], 2
 ];
 export var ModifyVerifiedAccessInstanceLoggingConfigurationResult$: StaticStructureSchema = [3, n0, _MVAILCRo,
   0,
@@ -20233,7 +20233,7 @@ export var ModifyVerifiedAccessInstanceLoggingConfigurationResult$: StaticStruct
 export var ModifyVerifiedAccessInstanceRequest$: StaticStructureSchema = [3, n0, _MVAIR,
   0,
   [_VAII, _De, _DR, _CT, _CECSD],
-  [0, 0, 2, [0, 4], 0]
+  [0, 0, 2, [0, 4], 0], 1
 ];
 export var ModifyVerifiedAccessInstanceResult$: StaticStructureSchema = [3, n0, _MVAIRo,
   0,
@@ -20259,7 +20259,7 @@ export var ModifyVerifiedAccessTrustProviderOidcOptions$: StaticStructureSchema 
 export var ModifyVerifiedAccessTrustProviderRequest$: StaticStructureSchema = [3, n0, _MVATPR,
   0,
   [_VATPI, _OO, _DOev, _De, _DR, _CT, _SS, _NAOO],
-  [0, [() => ModifyVerifiedAccessTrustProviderOidcOptions$, 0], () => ModifyVerifiedAccessTrustProviderDeviceOptions$, 0, 2, [0, 4], () => VerifiedAccessSseSpecificationRequest$, [() => ModifyVerifiedAccessNativeApplicationOidcOptions$, 0]]
+  [0, [() => ModifyVerifiedAccessTrustProviderOidcOptions$, 0], () => ModifyVerifiedAccessTrustProviderDeviceOptions$, 0, 2, [0, 4], () => VerifiedAccessSseSpecificationRequest$, [() => ModifyVerifiedAccessNativeApplicationOidcOptions$, 0]], 1
 ];
 export var ModifyVerifiedAccessTrustProviderResult$: StaticStructureSchema = [3, n0, _MVATPRo,
   0,
@@ -20269,14 +20269,14 @@ export var ModifyVerifiedAccessTrustProviderResult$: StaticStructureSchema = [3,
 ];
 export var ModifyVolumeAttributeRequest$: StaticStructureSchema = [3, n0, _MVAR,
   0,
-  [_AEIO, _VIo, _DR],
-  [[() => AttributeBooleanValue$, 0], 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  [_VIo, _AEIO, _DR],
+  [0, [() => AttributeBooleanValue$, 0], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var ModifyVolumeRequest$: StaticStructureSchema = [3, n0, _MVR,
   0,
-  [_DR, _VIo, _Siz, _VT, _Io, _Th, _MAE],
-  [2, 0, 1, 0, 1, 1, 2]
+  [_VIo, _DR, _Siz, _VT, _Io, _Th, _MAE],
+  [0, 2, 1, 0, 1, 1, 2], 1
 ];
 export var ModifyVolumeResult$: StaticStructureSchema = [3, n0, _MVRo,
   0,
@@ -20286,14 +20286,14 @@ export var ModifyVolumeResult$: StaticStructureSchema = [3, n0, _MVRo,
 ];
 export var ModifyVpcAttributeRequest$: StaticStructureSchema = [3, n0, _MVARo,
   0,
-  [_EDH, _EDS, _VI, _ENAUM],
-  [[() => AttributeBooleanValue$, 0], [() => AttributeBooleanValue$, 0], [0, { [_eQN]: `VpcId`
-  , [_xN]: _vI }], [() => AttributeBooleanValue$, 0]]
+  [_VI, _EDH, _EDS, _ENAUM],
+  [[0, { [_eQN]: `VpcId`
+  , [_xN]: _vI }], [() => AttributeBooleanValue$, 0], [() => AttributeBooleanValue$, 0], [() => AttributeBooleanValue$, 0]], 1
 ];
 export var ModifyVpcBlockPublicAccessExclusionRequest$: StaticStructureSchema = [3, n0, _MVBPAER,
   0,
-  [_DR, _EIx, _IGEM],
-  [2, 0, 0]
+  [_EIx, _IGEM, _DR],
+  [0, 0, 2], 2
 ];
 export var ModifyVpcBlockPublicAccessExclusionResult$: StaticStructureSchema = [3, n0, _MVBPAERo,
   0,
@@ -20303,8 +20303,8 @@ export var ModifyVpcBlockPublicAccessExclusionResult$: StaticStructureSchema = [
 ];
 export var ModifyVpcBlockPublicAccessOptionsRequest$: StaticStructureSchema = [3, n0, _MVBPAOR,
   0,
-  [_DR, _IGBM],
-  [2, 0]
+  [_IGBM, _DR],
+  [0, 2], 1
 ];
 export var ModifyVpcBlockPublicAccessOptionsResult$: StaticStructureSchema = [3, n0, _MVBPAORo,
   0,
@@ -20314,8 +20314,8 @@ export var ModifyVpcBlockPublicAccessOptionsResult$: StaticStructureSchema = [3,
 ];
 export var ModifyVpcEncryptionControlRequest$: StaticStructureSchema = [3, n0, _MVECR,
   0,
-  [_DR, _VECI, _Mo, _IGE, _EOIGE, _NGE, _VPGE, _VPE, _LEam, _VLE, _EFSE],
-  [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [_VECI, _DR, _Mo, _IGE, _EOIGE, _NGE, _VPGE, _VPE, _LEam, _VLE, _EFSE],
+  [0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0], 1
 ];
 export var ModifyVpcEncryptionControlResult$: StaticStructureSchema = [3, n0, _MVECRo,
   0,
@@ -20325,8 +20325,8 @@ export var ModifyVpcEncryptionControlResult$: StaticStructureSchema = [3, n0, _M
 ];
 export var ModifyVpcEndpointConnectionNotificationRequest$: StaticStructureSchema = [3, n0, _MVECNR,
   0,
-  [_DR, _CNI, _CNAo, _CE],
-  [2, 0, 0, [() => ValueStringList, 0]]
+  [_CNI, _DR, _CNAo, _CE],
+  [0, 2, 0, [() => ValueStringList, 0]], 1
 ];
 export var ModifyVpcEndpointConnectionNotificationResult$: StaticStructureSchema = [3, n0, _MVECNRo,
   0,
@@ -20336,8 +20336,8 @@ export var ModifyVpcEndpointConnectionNotificationResult$: StaticStructureSchema
 ];
 export var ModifyVpcEndpointRequest$: StaticStructureSchema = [3, n0, _MVER,
   0,
-  [_DR, _VEIp, _RP, _PDo, _ARTI, _RRTI, _ASId, _RSIe, _ASGI, _RSGI, _IAT, _DOn, _PDE, _SC],
-  [2, 0, 2, 0, [() => VpcEndpointRouteTableIdList, { [_xN]: _ARTId }], [() => VpcEndpointRouteTableIdList, { [_xN]: _RRTIe }], [() => VpcEndpointSubnetIdList, { [_xN]: _ASIdd }], [() => VpcEndpointSubnetIdList, { [_xN]: _RSIem }], [() => VpcEndpointSecurityGroupIdList, { [_xN]: _ASGId }], [() => VpcEndpointSecurityGroupIdList, { [_xN]: _RSGIe }], 0, [() => DnsOptionsSpecification$, 0], 2, [() => SubnetConfigurationsList, { [_xN]: _SCu }]]
+  [_VEIp, _DR, _RP, _PDo, _ARTI, _RRTI, _ASId, _RSIe, _ASGI, _RSGI, _IAT, _DOn, _PDE, _SC],
+  [0, 2, 2, 0, [() => VpcEndpointRouteTableIdList, { [_xN]: _ARTId }], [() => VpcEndpointRouteTableIdList, { [_xN]: _RRTIe }], [() => VpcEndpointSubnetIdList, { [_xN]: _ASIdd }], [() => VpcEndpointSubnetIdList, { [_xN]: _RSIem }], [() => VpcEndpointSecurityGroupIdList, { [_xN]: _ASGId }], [() => VpcEndpointSecurityGroupIdList, { [_xN]: _RSGIe }], 0, [() => DnsOptionsSpecification$, 0], 2, [() => SubnetConfigurationsList, { [_xN]: _SCu }]], 1
 ];
 export var ModifyVpcEndpointResult$: StaticStructureSchema = [3, n0, _MVERo,
   0,
@@ -20347,8 +20347,8 @@ export var ModifyVpcEndpointResult$: StaticStructureSchema = [3, n0, _MVERo,
 ];
 export var ModifyVpcEndpointServiceConfigurationRequest$: StaticStructureSchema = [3, n0, _MVESCR,
   0,
-  [_DR, _SIe, _PDN, _RPDN, _ARc, _ANLBA, _RNLBA, _AGLBA, _RGLBA, _ASIAT, _RSIAT, _ASR, _RSR],
-  [2, 0, 0, 2, 2, [() => ValueStringList, { [_xN]: _ANLBAd }], [() => ValueStringList, { [_xN]: _RNLBAe }], [() => ValueStringList, { [_xN]: _AGLBAd }], [() => ValueStringList, { [_xN]: _RGLBAe }], [() => ValueStringList, { [_xN]: _ASIATd }], [() => ValueStringList, { [_xN]: _RSIATe }], [() => ValueStringList, { [_xN]: _ASRd }], [() => ValueStringList, { [_xN]: _RSRe }]]
+  [_SIe, _DR, _PDN, _RPDN, _ARc, _ANLBA, _RNLBA, _AGLBA, _RGLBA, _ASIAT, _RSIAT, _ASR, _RSR],
+  [0, 2, 0, 2, 2, [() => ValueStringList, { [_xN]: _ANLBAd }], [() => ValueStringList, { [_xN]: _RNLBAe }], [() => ValueStringList, { [_xN]: _AGLBAd }], [() => ValueStringList, { [_xN]: _RGLBAe }], [() => ValueStringList, { [_xN]: _ASIATd }], [() => ValueStringList, { [_xN]: _RSIATe }], [() => ValueStringList, { [_xN]: _ASRd }], [() => ValueStringList, { [_xN]: _RSRe }]], 1
 ];
 export var ModifyVpcEndpointServiceConfigurationResult$: StaticStructureSchema = [3, n0, _MVESCRo,
   0,
@@ -20358,8 +20358,8 @@ export var ModifyVpcEndpointServiceConfigurationResult$: StaticStructureSchema =
 ];
 export var ModifyVpcEndpointServicePayerResponsibilityRequest$: StaticStructureSchema = [3, n0, _MVESPRR,
   0,
-  [_DR, _SIe, _PRa],
-  [2, 0, 0]
+  [_SIe, _PRa, _DR],
+  [0, 0, 2], 2
 ];
 export var ModifyVpcEndpointServicePayerResponsibilityResult$: StaticStructureSchema = [3, n0, _MVESPRRo,
   0,
@@ -20369,8 +20369,8 @@ export var ModifyVpcEndpointServicePayerResponsibilityResult$: StaticStructureSc
 ];
 export var ModifyVpcEndpointServicePermissionsRequest$: StaticStructureSchema = [3, n0, _MVESPR,
   0,
-  [_DR, _SIe, _AAP, _RAP],
-  [2, 0, [() => ValueStringList, 0], [() => ValueStringList, 0]]
+  [_SIe, _DR, _AAP, _RAP],
+  [0, 2, [() => ValueStringList, 0], [() => ValueStringList, 0]], 1
 ];
 export var ModifyVpcEndpointServicePermissionsResult$: StaticStructureSchema = [3, n0, _MVESPRo,
   0,
@@ -20381,8 +20381,8 @@ export var ModifyVpcEndpointServicePermissionsResult$: StaticStructureSchema = [
 ];
 export var ModifyVpcPeeringConnectionOptionsRequest$: StaticStructureSchema = [3, n0, _MVPCOR,
   0,
-  [_APCO, _DR, _RPCO, _VPCI],
-  [() => PeeringConnectionOptionsRequest$, 2, () => PeeringConnectionOptionsRequest$, 0]
+  [_VPCI, _APCO, _DR, _RPCO],
+  [0, () => PeeringConnectionOptionsRequest$, 2, () => PeeringConnectionOptionsRequest$], 1
 ];
 export var ModifyVpcPeeringConnectionOptionsResult$: StaticStructureSchema = [3, n0, _MVPCORo,
   0,
@@ -20394,7 +20394,7 @@ export var ModifyVpcPeeringConnectionOptionsResult$: StaticStructureSchema = [3,
 export var ModifyVpcTenancyRequest$: StaticStructureSchema = [3, n0, _MVTR,
   0,
   [_VI, _ITns, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var ModifyVpcTenancyResult$: StaticStructureSchema = [3, n0, _MVTRo,
   0,
@@ -20405,7 +20405,7 @@ export var ModifyVpcTenancyResult$: StaticStructureSchema = [3, n0, _MVTRo,
 export var ModifyVpnConnectionOptionsRequest$: StaticStructureSchema = [3, n0, _MVCOR,
   0,
   [_VCIp, _LINC, _RINC, _LINCo, _RINCe, _DR],
-  [0, 0, 0, 0, 0, 2]
+  [0, 0, 0, 0, 0, 2], 1
 ];
 export var ModifyVpnConnectionOptionsResult$: StaticStructureSchema = [3, n0, _MVCORo,
   0,
@@ -20416,7 +20416,7 @@ export var ModifyVpnConnectionOptionsResult$: StaticStructureSchema = [3, n0, _M
 export var ModifyVpnConnectionRequest$: StaticStructureSchema = [3, n0, _MVCR,
   0,
   [_VCIp, _TGI, _CGIu, _VGI, _DR],
-  [0, 0, 0, 0, 2]
+  [0, 0, 0, 0, 2], 1
 ];
 export var ModifyVpnConnectionResult$: StaticStructureSchema = [3, n0, _MVCRo,
   0,
@@ -20427,7 +20427,7 @@ export var ModifyVpnConnectionResult$: StaticStructureSchema = [3, n0, _MVCRo,
 export var ModifyVpnTunnelCertificateRequest$: StaticStructureSchema = [3, n0, _MVTCR,
   0,
   [_VCIp, _VTOIA, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var ModifyVpnTunnelCertificateResult$: StaticStructureSchema = [3, n0, _MVTCRo,
   0,
@@ -20438,7 +20438,7 @@ export var ModifyVpnTunnelCertificateResult$: StaticStructureSchema = [3, n0, _M
 export var ModifyVpnTunnelOptionsRequest$: StaticStructureSchema = [3, n0, _MVTOR,
   0,
   [_VCIp, _VTOIA, _TO, _DR, _STRk, _PSKS],
-  [0, 0, [() => ModifyVpnTunnelOptionsSpecification$, 0], 2, 2, 0]
+  [0, 0, [() => ModifyVpnTunnelOptionsSpecification$, 0], 2, 2, 0], 3
 ];
 export var ModifyVpnTunnelOptionsResult$: StaticStructureSchema = [3, n0, _MVTORo,
   0,
@@ -20461,7 +20461,7 @@ export var MonitorInstancesRequest$: StaticStructureSchema = [3, n0, _MIRon,
   0,
   [_IIns, _DR],
   [[() => InstanceIdStringList, { [_xN]: _II }], [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var MonitorInstancesResult$: StaticStructureSchema = [3, n0, _MIRoni,
   0,
@@ -20471,10 +20471,10 @@ export var MonitorInstancesResult$: StaticStructureSchema = [3, n0, _MIRoni,
 ];
 export var MoveAddressToVpcRequest$: StaticStructureSchema = [3, n0, _MATVR,
   0,
-  [_DR, _PI],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `PublicIp`
-  , [_xN]: _pI }]]
+  [_PI, _DR],
+  [[0, { [_eQN]: `PublicIp`
+  , [_xN]: _pI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var MoveAddressToVpcResult$: StaticStructureSchema = [3, n0, _MATVRo,
   0,
@@ -20485,8 +20485,8 @@ export var MoveAddressToVpcResult$: StaticStructureSchema = [3, n0, _MATVRo,
 ];
 export var MoveByoipCidrToIpamRequest$: StaticStructureSchema = [3, n0, _MBCTIR,
   0,
-  [_DR, _Ci, _IPI, _IPO],
-  [2, 0, 0, 0]
+  [_Ci, _IPI, _IPO, _DR],
+  [0, 0, 0, 2], 3
 ];
 export var MoveByoipCidrToIpamResult$: StaticStructureSchema = [3, n0, _MBCTIRo,
   0,
@@ -20496,8 +20496,8 @@ export var MoveByoipCidrToIpamResult$: StaticStructureSchema = [3, n0, _MBCTIRo,
 ];
 export var MoveCapacityReservationInstancesRequest$: StaticStructureSchema = [3, n0, _MCRIR,
   0,
-  [_DR, _CT, _SCRI, _DCRI, _IC],
-  [2, [0, 4], 0, 0, 1]
+  [_SCRI, _DCRI, _IC, _DR, _CT],
+  [0, 0, 1, 2, [0, 4]], 3
 ];
 export var MoveCapacityReservationInstancesResult$: StaticStructureSchema = [3, n0, _MCRIRo,
   0,
@@ -21300,7 +21300,7 @@ export var PropagatingVgw$: StaticStructureSchema = [3, n0, _PV,
 export var ProvisionByoipCidrRequest$: StaticStructureSchema = [3, n0, _PBCR,
   0,
   [_Ci, _CAC, _PAu, _De, _DR, _PTS, _MRu, _NBG],
-  [0, () => CidrAuthorizationContext$, 2, 0, 2, [() => TagSpecificationList, { [_xN]: _PTSo }], 2, 0]
+  [0, () => CidrAuthorizationContext$, 2, 0, 2, [() => TagSpecificationList, { [_xN]: _PTSo }], 2, 0], 1
 ];
 export var ProvisionByoipCidrResult$: StaticStructureSchema = [3, n0, _PBCRr,
   0,
@@ -21320,8 +21320,8 @@ export var ProvisionedBandwidth$: StaticStructureSchema = [3, n0, _PB,
 ];
 export var ProvisionIpamByoasnRequest$: StaticStructureSchema = [3, n0, _PIBR,
   0,
-  [_DR, _IIp, _Asn, _AAC],
-  [2, 0, 0, () => AsnAuthorizationContext$]
+  [_IIp, _Asn, _AAC, _DR],
+  [0, 0, () => AsnAuthorizationContext$, 2], 3
 ];
 export var ProvisionIpamByoasnResult$: StaticStructureSchema = [3, n0, _PIBRr,
   0,
@@ -21331,8 +21331,8 @@ export var ProvisionIpamByoasnResult$: StaticStructureSchema = [3, n0, _PIBRr,
 ];
 export var ProvisionIpamPoolCidrRequest$: StaticStructureSchema = [3, n0, _PIPCR,
   0,
-  [_DR, _IPI, _Ci, _CAC, _NL, _CT, _VMe, _IERVTI],
-  [2, 0, 0, () => IpamCidrAuthorizationContext$, 1, [0, 4], 0, 0]
+  [_IPI, _DR, _Ci, _CAC, _NL, _CT, _VMe, _IERVTI],
+  [0, 2, 0, () => IpamCidrAuthorizationContext$, 1, [0, 4], 0, 0], 1
 ];
 export var ProvisionIpamPoolCidrResult$: StaticStructureSchema = [3, n0, _PIPCRr,
   0,
@@ -21342,8 +21342,8 @@ export var ProvisionIpamPoolCidrResult$: StaticStructureSchema = [3, n0, _PIPCRr
 ];
 export var ProvisionPublicIpv4PoolCidrRequest$: StaticStructureSchema = [3, n0, _PPIPCR,
   0,
-  [_DR, _IPI, _PIo, _NL, _NBG],
-  [2, 0, 0, 1, 0]
+  [_IPI, _PIo, _NL, _DR, _NBG],
+  [0, 0, 1, 2, 0], 3
 ];
 export var ProvisionPublicIpv4PoolCidrResult$: StaticStructureSchema = [3, n0, _PPIPCRr,
   0,
@@ -21406,7 +21406,7 @@ export var Purchase$: StaticStructureSchema = [3, n0, _Pur,
 export var PurchaseCapacityBlockExtensionRequest$: StaticStructureSchema = [3, n0, _PCBER,
   0,
   [_CBEOI, _CRI, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var PurchaseCapacityBlockExtensionResult$: StaticStructureSchema = [3, n0, _PCBERu,
   0,
@@ -21416,8 +21416,8 @@ export var PurchaseCapacityBlockExtensionResult$: StaticStructureSchema = [3, n0
 ];
 export var PurchaseCapacityBlockRequest$: StaticStructureSchema = [3, n0, _PCBR,
   0,
-  [_DR, _TS, _CBOI, _IPn],
-  [2, [() => TagSpecificationList, { [_xN]: _TSa }], 0, 0]
+  [_CBOI, _IPn, _DR, _TS],
+  [0, 0, 2, [() => TagSpecificationList, { [_xN]: _TSa }]], 2
 ];
 export var PurchaseCapacityBlockResult$: StaticStructureSchema = [3, n0, _PCBRu,
   0,
@@ -21428,8 +21428,8 @@ export var PurchaseCapacityBlockResult$: StaticStructureSchema = [3, n0, _PCBRu,
 ];
 export var PurchaseHostReservationRequest$: StaticStructureSchema = [3, n0, _PHRR,
   0,
-  [_CT, _CC, _HIS, _LPi, _OIf, _TS],
-  [0, 0, [() => RequestHostIdSet, 0], 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }]]
+  [_HIS, _OIf, _CT, _CC, _LPi, _TS],
+  [[() => RequestHostIdSet, 0], 0, 0, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }]], 2
 ];
 export var PurchaseHostReservationResult$: StaticStructureSchema = [3, n0, _PHRRu,
   0,
@@ -21444,14 +21444,14 @@ export var PurchaseHostReservationResult$: StaticStructureSchema = [3, n0, _PHRR
 export var PurchaseRequest$: StaticStructureSchema = [3, n0, _PRu,
   0,
   [_IC, _PTu],
-  [1, 0]
+  [1, 0], 2
 ];
 export var PurchaseReservedInstancesOfferingRequest$: StaticStructureSchema = [3, n0, _PRIOR,
   0,
   [_IC, _RIOIe, _PTur, _DR, _LPi],
   [1, 0, 4, [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [() => ReservedInstanceLimitPrice$, { [_eQN]: `LimitPrice`
-  , [_xN]: _lPi }]]
+  , [_xN]: _lPi }]], 2
 ];
 export var PurchaseReservedInstancesOfferingResult$: StaticStructureSchema = [3, n0, _PRIORu,
   0,
@@ -21461,8 +21461,8 @@ export var PurchaseReservedInstancesOfferingResult$: StaticStructureSchema = [3,
 ];
 export var PurchaseScheduledInstancesRequest$: StaticStructureSchema = [3, n0, _PSIR,
   0,
-  [_CT, _DR, _PRur],
-  [[0, 4], 2, [() => PurchaseRequestSet, { [_xN]: _PRu }]]
+  [_PRur, _CT, _DR],
+  [[() => PurchaseRequestSet, { [_xN]: _PRu }], [0, 4], 2], 1
 ];
 export var PurchaseScheduledInstancesResult$: StaticStructureSchema = [3, n0, _PSIRu,
   0,
@@ -21474,7 +21474,7 @@ export var RebootInstancesRequest$: StaticStructureSchema = [3, n0, _RIR,
   0,
   [_IIns, _DR],
   [[() => InstanceIdStringList, { [_xN]: _II }], [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var RecurringCharge$: StaticStructureSchema = [3, n0, _RCec,
   0,
@@ -21523,10 +21523,10 @@ export var RegisteredInstance$: StaticStructureSchema = [3, n0, _RIeg,
 ];
 export var RegisterImageRequest$: StaticStructureSchema = [3, n0, _RIRe,
   0,
-  [_IL, _BPi, _BM, _TSp, _UD, _ISmd, _TS, _DR, _N, _De, _Arc, _KI, _RIa, _RDN, _BDMl, _VTir, _SNS, _ESna],
-  [0, [() => BillingProductList, { [_xN]: _BPil }], 0, 0, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `Name`
-  , [_xN]: _n }], [0, { [_eQN]: `Description`
+  [_N, _IL, _BPi, _BM, _TSp, _UD, _ISmd, _TS, _DR, _De, _Arc, _KI, _RIa, _RDN, _BDMl, _VTir, _SNS, _ESna],
+  [[0, { [_eQN]: `Name`
+  , [_xN]: _n }], 0, [() => BillingProductList, { [_xN]: _BPil }], 0, 0, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [0, { [_eQN]: `Description`
   , [_xN]: _de }], [0, { [_eQN]: `Architecture`
   , [_xN]: _arc }], [0, { [_eQN]: `KernelId`
   , [_xN]: _kI }], [0, { [_eQN]: `RamdiskId`
@@ -21534,7 +21534,7 @@ export var RegisterImageRequest$: StaticStructureSchema = [3, n0, _RIRe,
   , [_xN]: _rDN }], [() => BlockDeviceMappingRequestList, { [_xN]: _BDM }], [0, { [_eQN]: `VirtualizationType`
   , [_xN]: _vTi }], [0, { [_eQN]: `SriovNetSupport`
   , [_xN]: _sNSr }], [2, { [_eQN]: `EnaSupport`
-  , [_xN]: _eSna }]]
+  , [_xN]: _eSna }]], 1
 ];
 export var RegisterImageResult$: StaticStructureSchema = [3, n0, _RIReg,
   0,
@@ -21544,8 +21544,8 @@ export var RegisterImageResult$: StaticStructureSchema = [3, n0, _RIReg,
 ];
 export var RegisterInstanceEventNotificationAttributesRequest$: StaticStructureSchema = [3, n0, _RIENAR,
   0,
-  [_DR, _ITA],
-  [2, [() => RegisterInstanceTagAttributeRequest$, 0]]
+  [_ITA, _DR],
+  [[() => RegisterInstanceTagAttributeRequest$, 0], 2], 1
 ];
 export var RegisterInstanceEventNotificationAttributesResult$: StaticStructureSchema = [3, n0, _RIENARe,
   0,
@@ -21560,8 +21560,8 @@ export var RegisterInstanceTagAttributeRequest$: StaticStructureSchema = [3, n0,
 ];
 export var RegisterTransitGatewayMulticastGroupMembersRequest$: StaticStructureSchema = [3, n0, _RTGMGMR,
   0,
-  [_TGMDI, _GIA, _NIIe, _DR],
-  [0, 0, [() => TransitGatewayNetworkInterfaceIdList, 0], 2]
+  [_TGMDI, _NIIe, _GIA, _DR],
+  [0, [() => TransitGatewayNetworkInterfaceIdList, 0], 0, 2], 2
 ];
 export var RegisterTransitGatewayMulticastGroupMembersResult$: StaticStructureSchema = [3, n0, _RTGMGMRe,
   0,
@@ -21571,8 +21571,8 @@ export var RegisterTransitGatewayMulticastGroupMembersResult$: StaticStructureSc
 ];
 export var RegisterTransitGatewayMulticastGroupSourcesRequest$: StaticStructureSchema = [3, n0, _RTGMGSR,
   0,
-  [_TGMDI, _GIA, _NIIe, _DR],
-  [0, 0, [() => TransitGatewayNetworkInterfaceIdList, 0], 2]
+  [_TGMDI, _NIIe, _GIA, _DR],
+  [0, [() => TransitGatewayNetworkInterfaceIdList, 0], 0, 2], 2
 ];
 export var RegisterTransitGatewayMulticastGroupSourcesResult$: StaticStructureSchema = [3, n0, _RTGMGSRe,
   0,
@@ -21582,8 +21582,8 @@ export var RegisterTransitGatewayMulticastGroupSourcesResult$: StaticStructureSc
 ];
 export var RejectCapacityReservationBillingOwnershipRequest$: StaticStructureSchema = [3, n0, _RCRBOR,
   0,
-  [_DR, _CRI],
-  [2, 0]
+  [_CRI, _DR],
+  [0, 2], 1
 ];
 export var RejectCapacityReservationBillingOwnershipResult$: StaticStructureSchema = [3, n0, _RCRBORe,
   0,
@@ -21605,7 +21605,7 @@ export var RejectTransitGatewayMulticastDomainAssociationsResult$: StaticStructu
 export var RejectTransitGatewayPeeringAttachmentRequest$: StaticStructureSchema = [3, n0, _RTGPAR,
   0,
   [_TGAI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var RejectTransitGatewayPeeringAttachmentResult$: StaticStructureSchema = [3, n0, _RTGPARe,
   0,
@@ -21616,7 +21616,7 @@ export var RejectTransitGatewayPeeringAttachmentResult$: StaticStructureSchema =
 export var RejectTransitGatewayVpcAttachmentRequest$: StaticStructureSchema = [3, n0, _RTGVAR,
   0,
   [_TGAI, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var RejectTransitGatewayVpcAttachmentResult$: StaticStructureSchema = [3, n0, _RTGVARe,
   0,
@@ -21626,8 +21626,8 @@ export var RejectTransitGatewayVpcAttachmentResult$: StaticStructureSchema = [3,
 ];
 export var RejectVpcEndpointConnectionsRequest$: StaticStructureSchema = [3, n0, _RVECR,
   0,
-  [_DR, _SIe, _VEI],
-  [2, 0, [() => VpcEndpointIdList, { [_xN]: _VEIp }]]
+  [_SIe, _VEI, _DR],
+  [0, [() => VpcEndpointIdList, { [_xN]: _VEIp }], 2], 2
 ];
 export var RejectVpcEndpointConnectionsResult$: StaticStructureSchema = [3, n0, _RVECRe,
   0,
@@ -21637,10 +21637,10 @@ export var RejectVpcEndpointConnectionsResult$: StaticStructureSchema = [3, n0, 
 ];
 export var RejectVpcPeeringConnectionRequest$: StaticStructureSchema = [3, n0, _RVPCR,
   0,
-  [_DR, _VPCI],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `VpcPeeringConnectionId`
-  , [_xN]: _vPCI }]]
+  [_VPCI, _DR],
+  [[0, { [_eQN]: `VpcPeeringConnectionId`
+  , [_xN]: _vPCI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var RejectVpcPeeringConnectionResult$: StaticStructureSchema = [3, n0, _RVPCRe,
   0,
@@ -21658,7 +21658,7 @@ export var ReleaseHostsRequest$: StaticStructureSchema = [3, n0, _RHR,
   0,
   [_HI],
   [[() => RequestHostIdList, { [_eQN]: `HostId`
-  , [_xN]: _hI }]]
+  , [_xN]: _hI }]], 1
 ];
 export var ReleaseHostsResult$: StaticStructureSchema = [3, n0, _RHRe,
   0,
@@ -21669,8 +21669,8 @@ export var ReleaseHostsResult$: StaticStructureSchema = [3, n0, _RHRe,
 ];
 export var ReleaseIpamPoolAllocationRequest$: StaticStructureSchema = [3, n0, _RIPAR,
   0,
-  [_DR, _IPI, _Ci, _IPAI],
-  [2, 0, 0, 0]
+  [_IPI, _Ci, _IPAI, _DR],
+  [0, 0, 0, 2], 3
 ];
 export var ReleaseIpamPoolAllocationResult$: StaticStructureSchema = [3, n0, _RIPARe,
   0,
@@ -21691,12 +21691,12 @@ export var RemoveIpamOrganizationalUnitExclusion$: StaticStructureSchema = [3, n
 export var RemovePrefixListEntry$: StaticStructureSchema = [3, n0, _RPLE,
   0,
   [_Ci],
-  [0]
+  [0], 1
 ];
 export var ReplaceIamInstanceProfileAssociationRequest$: StaticStructureSchema = [3, n0, _RIIPAR,
   0,
   [_IIP, _AIs],
-  [[() => IamInstanceProfileSpecification$, 0], 0]
+  [[() => IamInstanceProfileSpecification$, 0], 0], 2
 ];
 export var ReplaceIamInstanceProfileAssociationResult$: StaticStructureSchema = [3, n0, _RIIPARe,
   0,
@@ -21717,11 +21717,11 @@ export var ReplaceImageCriteriaInAllowedImagesSettingsResult$: StaticStructureSc
 ];
 export var ReplaceNetworkAclAssociationRequest$: StaticStructureSchema = [3, n0, _RNAAR,
   0,
-  [_DR, _AIs, _NAI],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `AssociationId`
+  [_AIs, _NAI, _DR],
+  [[0, { [_eQN]: `AssociationId`
   , [_xN]: _aIs }], [0, { [_eQN]: `NetworkAclId`
-  , [_xN]: _nAI }]]
+  , [_xN]: _nAI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 2
 ];
 export var ReplaceNetworkAclAssociationResult$: StaticStructureSchema = [3, n0, _RNAARe,
   0,
@@ -21731,17 +21731,17 @@ export var ReplaceNetworkAclAssociationResult$: StaticStructureSchema = [3, n0, 
 ];
 export var ReplaceNetworkAclEntryRequest$: StaticStructureSchema = [3, n0, _RNAER,
   0,
-  [_DR, _NAI, _RNu, _Pr, _RA, _E, _CB, _ICB, _ITC, _PRo],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `NetworkAclId`
+  [_NAI, _RNu, _Pr, _RA, _E, _DR, _CB, _ICB, _ITC, _PRo],
+  [[0, { [_eQN]: `NetworkAclId`
   , [_xN]: _nAI }], [1, { [_eQN]: `RuleNumber`
   , [_xN]: _rN }], [0, { [_eQN]: `Protocol`
   , [_xN]: _pr }], [0, { [_eQN]: `RuleAction`
   , [_xN]: _rA }], [2, { [_eQN]: `Egress`
-  , [_xN]: _e }], [0, { [_eQN]: `CidrBlock`
+  , [_xN]: _e }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [0, { [_eQN]: `CidrBlock`
   , [_xN]: _cB }], [0, { [_eQN]: `Ipv6CidrBlock`
   , [_xN]: _iCB }], [() => IcmpTypeCode$, { [_xN]: _Ic }], [() => PortRange$, { [_eQN]: `PortRange`
-  , [_xN]: _pRo }]]
+  , [_xN]: _pRo }]], 5
 ];
 export var ReplaceRootVolumeTask$: StaticStructureSchema = [3, n0, _RRVT,
   0,
@@ -21759,10 +21759,10 @@ export var ReplaceRootVolumeTask$: StaticStructureSchema = [3, n0, _RRVT,
 ];
 export var ReplaceRouteRequest$: StaticStructureSchema = [3, n0, _RRR,
   0,
-  [_DPLI, _VEIp, _LToc, _TGI, _LGI, _CGI, _CNA, _ONA, _DR, _RTI, _DCB, _GI, _DICB, _EOIGI, _II, _NII, _VPCI, _NGI],
-  [0, 0, 2, 0, 0, 0, 0, 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `RouteTableId`
-  , [_xN]: _rTI }], [0, { [_eQN]: `DestinationCidrBlock`
+  [_RTI, _DPLI, _VEIp, _LToc, _TGI, _LGI, _CGI, _CNA, _ONA, _DR, _DCB, _GI, _DICB, _EOIGI, _II, _NII, _VPCI, _NGI],
+  [[0, { [_eQN]: `RouteTableId`
+  , [_xN]: _rTI }], 0, 0, 2, 0, 0, 0, 0, 0, [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [0, { [_eQN]: `DestinationCidrBlock`
   , [_xN]: _dCB }], [0, { [_eQN]: `GatewayId`
   , [_xN]: _gI }], [0, { [_eQN]: `DestinationIpv6CidrBlock`
   , [_xN]: _dICB }], [0, { [_eQN]: `EgressOnlyInternetGatewayId`
@@ -21770,15 +21770,15 @@ export var ReplaceRouteRequest$: StaticStructureSchema = [3, n0, _RRR,
   , [_xN]: _iI }], [0, { [_eQN]: `NetworkInterfaceId`
   , [_xN]: _nII }], [0, { [_eQN]: `VpcPeeringConnectionId`
   , [_xN]: _vPCI }], [0, { [_eQN]: `NatGatewayId`
-  , [_xN]: _nGI }]]
+  , [_xN]: _nGI }]], 1
 ];
 export var ReplaceRouteTableAssociationRequest$: StaticStructureSchema = [3, n0, _RRTAR,
   0,
-  [_DR, _AIs, _RTI],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `AssociationId`
+  [_AIs, _RTI, _DR],
+  [[0, { [_eQN]: `AssociationId`
   , [_xN]: _aIs }], [0, { [_eQN]: `RouteTableId`
-  , [_xN]: _rTI }]]
+  , [_xN]: _rTI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 2
 ];
 export var ReplaceRouteTableAssociationResult$: StaticStructureSchema = [3, n0, _RRTARe,
   0,
@@ -21790,7 +21790,7 @@ export var ReplaceRouteTableAssociationResult$: StaticStructureSchema = [3, n0, 
 export var ReplaceTransitGatewayRouteRequest$: StaticStructureSchema = [3, n0, _RTGRR,
   0,
   [_DCB, _TGRTI, _TGAI, _Bl, _DR],
-  [0, 0, 0, 2, 2]
+  [0, 0, 0, 2, 2], 2
 ];
 export var ReplaceTransitGatewayRouteResult$: StaticStructureSchema = [3, n0, _RTGRRe,
   0,
@@ -21801,7 +21801,7 @@ export var ReplaceTransitGatewayRouteResult$: StaticStructureSchema = [3, n0, _R
 export var ReplaceVpnTunnelRequest$: StaticStructureSchema = [3, n0, _RVTR,
   0,
   [_VCIp, _VTOIA, _APM, _DR],
-  [0, 0, 2, 2]
+  [0, 0, 2, 2], 2
 ];
 export var ReplaceVpnTunnelResult$: StaticStructureSchema = [3, n0, _RVTRe,
   0,
@@ -21811,15 +21811,15 @@ export var ReplaceVpnTunnelResult$: StaticStructureSchema = [3, n0, _RVTRe,
 ];
 export var ReportInstanceStatusRequest$: StaticStructureSchema = [3, n0, _RISR,
   0,
-  [_DR, _Ins, _Sta, _ST, _ETnd, _RCea, _De],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [() => InstanceIdStringList, { [_eQN]: `InstanceId`
+  [_Ins, _Sta, _RCea, _DR, _ST, _ETnd, _De],
+  [[() => InstanceIdStringList, { [_eQN]: `InstanceId`
   , [_xN]: _iI }], [0, { [_eQN]: `Status`
-  , [_xN]: _sta }], [4, { [_eQN]: `StartTime`
+  , [_xN]: _sta }], [() => ReasonCodesList, { [_eQN]: `ReasonCode`
+  , [_xN]: _rCea }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [4, { [_eQN]: `StartTime`
   , [_xN]: _sT }], [4, { [_eQN]: `EndTime`
-  , [_xN]: _eTn }], [() => ReasonCodesList, { [_eQN]: `ReasonCode`
-  , [_xN]: _rCea }], [() => ReportInstanceStatusRequestDescription, { [_eQN]: `Description`
-  , [_xN]: _de }]]
+  , [_xN]: _eTn }], [() => ReportInstanceStatusRequestDescription, { [_eQN]: `Description`
+  , [_xN]: _de }]], 3
 ];
 export var RequestFilterPortRange$: StaticStructureSchema = [3, n0, _RFPR,
   0,
@@ -21838,10 +21838,10 @@ export var RequestLaunchTemplateData$: StaticStructureSchema = [3, n0, _RLTD,
 ];
 export var RequestSpotFleetRequest$: StaticStructureSchema = [3, n0, _RSFR,
   0,
-  [_DR, _SFRCp],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [() => SpotFleetRequestConfigData$, { [_eQN]: `SpotFleetRequestConfig`
-  , [_xN]: _sFRC }]]
+  [_SFRCp, _DR],
+  [[() => SpotFleetRequestConfigData$, { [_eQN]: `SpotFleetRequestConfig`
+  , [_xN]: _sFRC }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var RequestSpotFleetResponse$: StaticStructureSchema = [3, n0, _RSFRe,
   0,
@@ -22026,7 +22026,7 @@ export var ReservedInstancesOffering$: StaticStructureSchema = [3, n0, _RIOe,
 export var ResetAddressAttributeRequest$: StaticStructureSchema = [3, n0, _RAAR,
   0,
   [_AIl, _At, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var ResetAddressAttributeResult$: StaticStructureSchema = [3, n0, _RAARe,
   0,
@@ -22047,8 +22047,8 @@ export var ResetEbsDefaultKmsKeyIdResult$: StaticStructureSchema = [3, n0, _REDK
 ];
 export var ResetFpgaImageAttributeRequest$: StaticStructureSchema = [3, n0, _RFIAR,
   0,
-  [_DR, _FII, _At],
-  [2, 0, 0]
+  [_FII, _DR, _At],
+  [0, 2, 0], 1
 ];
 export var ResetFpgaImageAttributeResult$: StaticStructureSchema = [3, n0, _RFIARe,
   0,
@@ -22060,29 +22060,29 @@ export var ResetImageAttributeRequest$: StaticStructureSchema = [3, n0, _RIAR,
   0,
   [_At, _IIm, _DR],
   [0, 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 2
 ];
 export var ResetInstanceAttributeRequest$: StaticStructureSchema = [3, n0, _RIARe,
   0,
-  [_DR, _II, _At],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `InstanceId`
+  [_II, _At, _DR],
+  [[0, { [_eQN]: `InstanceId`
   , [_xN]: _iI }], [0, { [_eQN]: `Attribute`
-  , [_xN]: _att }]]
+  , [_xN]: _att }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 2
 ];
 export var ResetNetworkInterfaceAttributeRequest$: StaticStructureSchema = [3, n0, _RNIAR,
   0,
-  [_DR, _NII, _SDC],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `NetworkInterfaceId`
-  , [_xN]: _nII }], [0, { [_eQN]: `SourceDestCheck`
-  , [_xN]: _sDC }]]
+  [_NII, _DR, _SDC],
+  [[0, { [_eQN]: `NetworkInterfaceId`
+  , [_xN]: _nII }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [0, { [_eQN]: `SourceDestCheck`
+  , [_xN]: _sDC }]], 1
 ];
 export var ResetSnapshotAttributeRequest$: StaticStructureSchema = [3, n0, _RSAR,
   0,
   [_At, _SIn, _DR],
   [0, 0, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 2
 ];
 export var ResourceStatement$: StaticStructureSchema = [3, n0, _RSes,
   0,
@@ -22153,10 +22153,10 @@ export var ResponseLaunchTemplateData$: StaticStructureSchema = [3, n0, _RLTDe,
 ];
 export var RestoreAddressToClassicRequest$: StaticStructureSchema = [3, n0, _RATCR,
   0,
-  [_DR, _PI],
-  [[2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `PublicIp`
-  , [_xN]: _pI }]]
+  [_PI, _DR],
+  [[0, { [_eQN]: `PublicIp`
+  , [_xN]: _pI }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }]], 1
 ];
 export var RestoreAddressToClassicResult$: StaticStructureSchema = [3, n0, _RATCRe,
   0,
@@ -22168,7 +22168,7 @@ export var RestoreAddressToClassicResult$: StaticStructureSchema = [3, n0, _RATC
 export var RestoreImageFromRecycleBinRequest$: StaticStructureSchema = [3, n0, _RIFRBR,
   0,
   [_IIm, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var RestoreImageFromRecycleBinResult$: StaticStructureSchema = [3, n0, _RIFRBRe,
   0,
@@ -22178,8 +22178,8 @@ export var RestoreImageFromRecycleBinResult$: StaticStructureSchema = [3, n0, _R
 ];
 export var RestoreManagedPrefixListVersionRequest$: StaticStructureSchema = [3, n0, _RMPLVR,
   0,
-  [_DR, _PLI, _PVr, _CV],
-  [2, 0, 1, 1]
+  [_PLI, _PVr, _CV, _DR],
+  [0, 1, 1, 2], 3
 ];
 export var RestoreManagedPrefixListVersionResult$: StaticStructureSchema = [3, n0, _RMPLVRe,
   0,
@@ -22190,7 +22190,7 @@ export var RestoreManagedPrefixListVersionResult$: StaticStructureSchema = [3, n
 export var RestoreSnapshotFromRecycleBinRequest$: StaticStructureSchema = [3, n0, _RSFRBR,
   0,
   [_SIn, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var RestoreSnapshotFromRecycleBinResult$: StaticStructureSchema = [3, n0, _RSFRBRe,
   0,
@@ -22211,7 +22211,7 @@ export var RestoreSnapshotFromRecycleBinResult$: StaticStructureSchema = [3, n0,
 export var RestoreSnapshotTierRequest$: StaticStructureSchema = [3, n0, _RSTR,
   0,
   [_SIn, _TRD, _PRer, _DR],
-  [0, 1, 2, 2]
+  [0, 1, 2, 2], 1
 ];
 export var RestoreSnapshotTierResult$: StaticStructureSchema = [3, n0, _RSTRe,
   0,
@@ -22225,7 +22225,7 @@ export var RestoreSnapshotTierResult$: StaticStructureSchema = [3, n0, _RSTRe,
 export var RestoreVolumeFromRecycleBinRequest$: StaticStructureSchema = [3, n0, _RVFRBR,
   0,
   [_VIo, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var RestoreVolumeFromRecycleBinResult$: StaticStructureSchema = [3, n0, _RVFRBRe,
   0,
@@ -22236,7 +22236,7 @@ export var RestoreVolumeFromRecycleBinResult$: StaticStructureSchema = [3, n0, _
 export var RevokeClientVpnIngressRequest$: StaticStructureSchema = [3, n0, _RCVIR,
   0,
   [_CVEI, _TNC, _AGI, _RAG, _DR],
-  [0, 0, 0, 2, 2]
+  [0, 0, 0, 2, 2], 2
 ];
 export var RevokeClientVpnIngressResult$: StaticStructureSchema = [3, n0, _RCVIRe,
   0,
@@ -22262,17 +22262,17 @@ export var RevokedSecurityGroupRule$: StaticStructureSchema = [3, n0, _RSGR,
 ];
 export var RevokeSecurityGroupEgressRequest$: StaticStructureSchema = [3, n0, _RSGER,
   0,
-  [_SGRI, _DR, _GIr, _SSGN, _SSGOI, _IPpr, _FP, _TP, _CIi, _IPpe],
-  [[() => SecurityGroupRuleIdList, { [_xN]: _SGRIe }], [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }], [0, { [_eQN]: `GroupId`
-  , [_xN]: _gIr }], [0, { [_eQN]: `SourceSecurityGroupName`
+  [_GIr, _SGRI, _DR, _SSGN, _SSGOI, _IPpr, _FP, _TP, _CIi, _IPpe],
+  [[0, { [_eQN]: `GroupId`
+  , [_xN]: _gIr }], [() => SecurityGroupRuleIdList, { [_xN]: _SGRIe }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _dR }], [0, { [_eQN]: `SourceSecurityGroupName`
   , [_xN]: _sSGN }], [0, { [_eQN]: `SourceSecurityGroupOwnerId`
   , [_xN]: _sSGOI }], [0, { [_eQN]: `IpProtocol`
   , [_xN]: _iPp }], [1, { [_eQN]: `FromPort`
   , [_xN]: _fP }], [1, { [_eQN]: `ToPort`
   , [_xN]: _tP }], [0, { [_eQN]: `CidrIp`
   , [_xN]: _cIi }], [() => IpPermissionList, { [_eQN]: `IpPermissions`
-  , [_xN]: _iPpe }]]
+  , [_xN]: _iPpe }]], 1
 ];
 export var RevokeSecurityGroupEgressResult$: StaticStructureSchema = [3, n0, _RSGERe,
   0,
@@ -22356,7 +22356,7 @@ export var RouteServerBgpOptions$: StaticStructureSchema = [3, n0, _RSBO,
 export var RouteServerBgpOptionsRequest$: StaticStructureSchema = [3, n0, _RSBOR,
   0,
   [_PAee, _PLD],
-  [1, 0]
+  [1, 0], 1
 ];
 export var RouteServerBgpStatus$: StaticStructureSchema = [3, n0, _RSBSo,
   0,
@@ -22482,12 +22482,12 @@ export var RunInstancesMonitoringEnabled$: StaticStructureSchema = [3, n0, _RIME
   0,
   [_En],
   [[2, { [_eQN]: `Enabled`
-  , [_xN]: _en }]]
+  , [_xN]: _en }]], 1
 ];
 export var RunInstancesRequest$: StaticStructureSchema = [3, n0, _RIRu,
   0,
-  [_BDMl, _IIm, _IT, _IAC, _IA, _KI, _KN, _MCa, _MCin, _Mon, _Pla, _RIa, _SGIe, _SG, _SIu, _UDs, _EGSla, _EIAl, _TS, _LT, _IMOns, _CSr, _CO, _CRSa, _HO, _LS, _MO, _EOn, _PDNO, _MOa, _DASi, _EPI, _NPO, _Op, _DR, _DAT, _IISB, _PIAr, _CT, _AId, _NIet, _IIP, _EO],
-  [[() => BlockDeviceMappingRequestList, { [_xN]: _BDM }], 0, 0, 1, [() => InstanceIpv6AddressList, { [_xN]: _IApv }], 0, 0, 1, 1, [() => RunInstancesMonitoringEnabled$, 0], [() => Placement$, 0], 0, [() => SecurityGroupIdStringList, { [_xN]: _SGI }], [() => SecurityGroupStringList, { [_xN]: _SGe }], 0, [() => RunInstancesUserData, 0], [() => ElasticGpuSpecifications, 0], [() => ElasticInferenceAccelerators, { [_xN]: _EIA }], [() => TagSpecificationList, { [_xN]: _TSa }], () => LaunchTemplateSpecification$, () => InstanceMarketOptionsRequest$, () => CreditSpecificationRequest$, () => CpuOptionsRequest$, () => CapacityReservationSpecification$, () => HibernationOptionsRequest$, [() => LicenseSpecificationListRequest, { [_xN]: _LSi }], () => InstanceMetadataOptionsRequest$, () => EnclaveOptionsRequest$, () => PrivateDnsNameOptionsRequest$, () => InstanceMaintenanceOptionsRequest$, 2, 2, () => InstanceNetworkPerformanceOptionsRequest$, () => OperatorRequest$, [2, { [_eQN]: `DryRun`
+  [_MCa, _MCin, _BDMl, _IIm, _IT, _IAC, _IA, _KI, _KN, _Mon, _Pla, _RIa, _SGIe, _SG, _SIu, _UDs, _EGSla, _EIAl, _TS, _LT, _IMOns, _CSr, _CO, _CRSa, _HO, _LS, _MO, _EOn, _PDNO, _MOa, _DASi, _EPI, _NPO, _Op, _DR, _DAT, _IISB, _PIAr, _CT, _AId, _NIet, _IIP, _EO],
+  [1, 1, [() => BlockDeviceMappingRequestList, { [_xN]: _BDM }], 0, 0, 1, [() => InstanceIpv6AddressList, { [_xN]: _IApv }], 0, 0, [() => RunInstancesMonitoringEnabled$, 0], [() => Placement$, 0], 0, [() => SecurityGroupIdStringList, { [_xN]: _SGI }], [() => SecurityGroupStringList, { [_xN]: _SGe }], 0, [() => RunInstancesUserData, 0], [() => ElasticGpuSpecifications, 0], [() => ElasticInferenceAccelerators, { [_xN]: _EIA }], [() => TagSpecificationList, { [_xN]: _TSa }], () => LaunchTemplateSpecification$, () => InstanceMarketOptionsRequest$, () => CreditSpecificationRequest$, () => CpuOptionsRequest$, () => CapacityReservationSpecification$, () => HibernationOptionsRequest$, [() => LicenseSpecificationListRequest, { [_xN]: _LSi }], () => InstanceMetadataOptionsRequest$, () => EnclaveOptionsRequest$, () => PrivateDnsNameOptionsRequest$, () => InstanceMaintenanceOptionsRequest$, 2, 2, () => InstanceNetworkPerformanceOptionsRequest$, () => OperatorRequest$, [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [2, { [_eQN]: `DisableApiTermination`
   , [_xN]: _dAT }], [0, { [_eQN]: `InstanceInitiatedShutdownBehavior`
   , [_xN]: _iISB }], [0, { [_eQN]: `PrivateIpAddress`
@@ -22496,12 +22496,12 @@ export var RunInstancesRequest$: StaticStructureSchema = [3, n0, _RIRu,
   , [_xN]: _aId }], [() => InstanceNetworkInterfaceSpecificationList, { [_eQN]: `NetworkInterface`
   , [_xN]: _nIe }], [() => IamInstanceProfileSpecification$, { [_eQN]: `IamInstanceProfile`
   , [_xN]: _iIP }], [2, { [_eQN]: `EbsOptimized`
-  , [_xN]: _eO }]]
+  , [_xN]: _eO }]], 2
 ];
 export var RunScheduledInstancesRequest$: StaticStructureSchema = [3, n0, _RSIRu,
   0,
-  [_CT, _DR, _IC, _LSa, _SIIch],
-  [[0, 4], 2, 1, [() => ScheduledInstancesLaunchSpecification$, 0], 0]
+  [_LSa, _SIIch, _CT, _DR, _IC],
+  [[() => ScheduledInstancesLaunchSpecification$, 0], 0, [0, 4], 2, 1], 2
 ];
 export var RunScheduledInstancesResult$: StaticStructureSchema = [3, n0, _RSIRun,
   0,
@@ -22598,8 +22598,8 @@ export var ScheduledInstancesIpv6Address$: StaticStructureSchema = [3, n0, _SIIA
 ];
 export var ScheduledInstancesLaunchSpecification$: StaticStructureSchema = [3, n0, _SILS,
   8,
-  [_BDMl, _EO, _IIP, _IIm, _IT, _KI, _KN, _Mon, _NIet, _Pla, _RIa, _SGIe, _SIu, _UDs],
-  [[() => ScheduledInstancesBlockDeviceMappingSet, { [_xN]: _BDM }], 2, () => ScheduledInstancesIamInstanceProfile$, 0, 0, 0, 0, () => ScheduledInstancesMonitoring$, [() => ScheduledInstancesNetworkInterfaceSet, { [_xN]: _NIe }], () => ScheduledInstancesPlacement$, 0, [() => ScheduledInstancesSecurityGroupIdSet, { [_xN]: _SGI }], 0, 0]
+  [_IIm, _BDMl, _EO, _IIP, _IT, _KI, _KN, _Mon, _NIet, _Pla, _RIa, _SGIe, _SIu, _UDs],
+  [0, [() => ScheduledInstancesBlockDeviceMappingSet, { [_xN]: _BDM }], 2, () => ScheduledInstancesIamInstanceProfile$, 0, 0, 0, () => ScheduledInstancesMonitoring$, [() => ScheduledInstancesNetworkInterfaceSet, { [_xN]: _NIe }], () => ScheduledInstancesPlacement$, 0, [() => ScheduledInstancesSecurityGroupIdSet, { [_xN]: _SGI }], 0, 0], 1
 ];
 export var ScheduledInstancesMonitoring$: StaticStructureSchema = [3, n0, _SIM,
   0,
@@ -22624,7 +22624,7 @@ export var ScheduledInstancesPrivateIpAddressConfig$: StaticStructureSchema = [3
 export var SearchLocalGatewayRoutesRequest$: StaticStructureSchema = [3, n0, _SLGRR,
   0,
   [_LGRTI, _Fi, _MR, _NTe, _DR],
-  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2]
+  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2], 1
 ];
 export var SearchLocalGatewayRoutesResult$: StaticStructureSchema = [3, n0, _SLGRRe,
   0,
@@ -22636,7 +22636,7 @@ export var SearchLocalGatewayRoutesResult$: StaticStructureSchema = [3, n0, _SLG
 export var SearchTransitGatewayMulticastGroupsRequest$: StaticStructureSchema = [3, n0, _STGMGR,
   0,
   [_TGMDI, _Fi, _MR, _NTe, _DR],
-  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2]
+  [0, [() => FilterList, { [_xN]: _Fil }], 1, 0, 2], 1
 ];
 export var SearchTransitGatewayMulticastGroupsResult$: StaticStructureSchema = [3, n0, _STGMGRe,
   0,
@@ -22648,7 +22648,7 @@ export var SearchTransitGatewayMulticastGroupsResult$: StaticStructureSchema = [
 export var SearchTransitGatewayRoutesRequest$: StaticStructureSchema = [3, n0, _STGRR,
   0,
   [_TGRTI, _Fi, _MR, _DR],
-  [0, [() => FilterList, { [_xN]: _Fil }], 1, 2]
+  [0, [() => FilterList, { [_xN]: _Fil }], 1, 2], 2
 ];
 export var SearchTransitGatewayRoutesResult$: StaticStructureSchema = [3, n0, _STGRRe,
   0,
@@ -22730,7 +22730,7 @@ export var SecurityGroupRuleRequest$: StaticStructureSchema = [3, n0, _SGRR,
 export var SecurityGroupRuleUpdate$: StaticStructureSchema = [3, n0, _SGRU,
   0,
   [_SGRIe, _SGRe],
-  [0, () => SecurityGroupRuleRequest$]
+  [0, () => SecurityGroupRuleRequest$], 1
 ];
 export var SecurityGroupVpcAssociation$: StaticStructureSchema = [3, n0, _SGVAe,
   0,
@@ -22746,7 +22746,7 @@ export var SecurityGroupVpcAssociation$: StaticStructureSchema = [3, n0, _SGVAe,
 export var SendDiagnosticInterruptRequest$: StaticStructureSchema = [3, n0, _SDIR,
   0,
   [_II, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var ServiceConfiguration$: StaticStructureSchema = [3, n0, _SCe,
   0,
@@ -22819,7 +22819,7 @@ export var ServiceTypeDetail$: StaticStructureSchema = [3, n0, _STDe,
 export var SlotDateTimeRangeRequest$: StaticStructureSchema = [3, n0, _SDTRR,
   0,
   [_ETa, _LTat],
-  [4, 4]
+  [4, 4], 2
 ];
 export var SlotStartTimeRangeRequest$: StaticStructureSchema = [3, n0, _SSTRR,
   0,
@@ -22995,20 +22995,20 @@ export var SpotFleetRequestConfig$: StaticStructureSchema = [3, n0, _SFRCp,
 ];
 export var SpotFleetRequestConfigData$: StaticStructureSchema = [3, n0, _SFRCD,
   0,
-  [_ASl, _ODAS, _SMS, _CT, _ECTP, _FCu, _ODFC, _IFR, _LSau, _LTC, _SPp, _TCar, _ODTC, _ODMTP, _SMTP, _TIWE, _Ty, _VF, _VU, _RUI, _IIB, _LBC, _IPTUC, _Con, _TCUT, _TS],
-  [[0, { [_eQN]: `AllocationStrategy`
+  [_IFR, _TCar, _ASl, _ODAS, _SMS, _CT, _ECTP, _FCu, _ODFC, _LSau, _LTC, _SPp, _ODTC, _ODMTP, _SMTP, _TIWE, _Ty, _VF, _VU, _RUI, _IIB, _LBC, _IPTUC, _Con, _TCUT, _TS],
+  [[0, { [_eQN]: `IamFleetRole`
+  , [_xN]: _iFR }], [1, { [_eQN]: `TargetCapacity`
+  , [_xN]: _tCa }], [0, { [_eQN]: `AllocationStrategy`
   , [_xN]: _aSl }], [0, { [_eQN]: `OnDemandAllocationStrategy`
   , [_xN]: _oDAS }], [() => SpotMaintenanceStrategies$, { [_eQN]: `SpotMaintenanceStrategies`
   , [_xN]: _sMS }], [0, { [_eQN]: `ClientToken`
   , [_xN]: _cT }], [0, { [_eQN]: `ExcessCapacityTerminationPolicy`
   , [_xN]: _eCTP }], [1, { [_eQN]: `FulfilledCapacity`
   , [_xN]: _fC }], [1, { [_eQN]: `OnDemandFulfilledCapacity`
-  , [_xN]: _oDFC }], [0, { [_eQN]: `IamFleetRole`
-  , [_xN]: _iFR }], [() => LaunchSpecsList, { [_eQN]: `LaunchSpecifications`
+  , [_xN]: _oDFC }], [() => LaunchSpecsList, { [_eQN]: `LaunchSpecifications`
   , [_xN]: _lSau }], [() => LaunchTemplateConfigList, { [_eQN]: `LaunchTemplateConfigs`
   , [_xN]: _lTC }], [0, { [_eQN]: `SpotPrice`
-  , [_xN]: _sPp }], [1, { [_eQN]: `TargetCapacity`
-  , [_xN]: _tCa }], [1, { [_eQN]: `OnDemandTargetCapacity`
+  , [_xN]: _sPp }], [1, { [_eQN]: `OnDemandTargetCapacity`
   , [_xN]: _oDTC }], [0, { [_eQN]: `OnDemandMaxTotalPrice`
   , [_xN]: _oDMTP }], [0, { [_eQN]: `SpotMaxTotalPrice`
   , [_xN]: _sMTP }], [2, { [_eQN]: `TerminateInstancesWithExpiration`
@@ -23021,7 +23021,7 @@ export var SpotFleetRequestConfigData$: StaticStructureSchema = [3, n0, _SFRCD,
   , [_xN]: _lBC }], [1, { [_eQN]: `InstancePoolsToUseCount`
   , [_xN]: _iPTUC }], [0, { [_eQN]: `Context`
   , [_xN]: _cont }], [0, { [_eQN]: `TargetCapacityUnitType`
-  , [_xN]: _tCUT }], [() => TagSpecificationList, { [_xN]: _TSa }]]
+  , [_xN]: _tCUT }], [() => TagSpecificationList, { [_xN]: _TSa }]], 2
 ];
 export var SpotFleetTagSpecification$: StaticStructureSchema = [3, n0, _SFTS,
   0,
@@ -23151,8 +23151,8 @@ export var StaleSecurityGroup$: StaticStructureSchema = [3, n0, _SSG,
 ];
 export var StartDeclarativePoliciesReportRequest$: StaticStructureSchema = [3, n0, _SDPRR,
   0,
-  [_DR, _SB, _SP, _TIa, _TS],
-  [2, 0, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }]]
+  [_SB, _TIa, _DR, _SP, _TS],
+  [0, 0, 2, 0, [() => TagSpecificationList, { [_xN]: _TSa }]], 2
 ];
 export var StartDeclarativePoliciesReportResult$: StaticStructureSchema = [3, n0, _SDPRRt,
   0,
@@ -23165,7 +23165,7 @@ export var StartInstancesRequest$: StaticStructureSchema = [3, n0, _SIRt,
   [_IIns, _AId, _DR],
   [[() => InstanceIdStringList, { [_xN]: _II }], [0, { [_eQN]: `AdditionalInfo`
   , [_xN]: _aId }], [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var StartInstancesResult$: StaticStructureSchema = [3, n0, _SIRta,
   0,
@@ -23176,7 +23176,7 @@ export var StartInstancesResult$: StaticStructureSchema = [3, n0, _SIRta,
 export var StartNetworkInsightsAccessScopeAnalysisRequest$: StaticStructureSchema = [3, n0, _SNIASAR,
   0,
   [_NIASI, _DR, _TS, _CT],
-  [0, 2, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4]]
+  [0, 2, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4]], 1
 ];
 export var StartNetworkInsightsAccessScopeAnalysisResult$: StaticStructureSchema = [3, n0, _SNIASARt,
   0,
@@ -23187,7 +23187,7 @@ export var StartNetworkInsightsAccessScopeAnalysisResult$: StaticStructureSchema
 export var StartNetworkInsightsAnalysisRequest$: StaticStructureSchema = [3, n0, _SNIAR,
   0,
   [_NIPI, _AAdd, _FIAi, _FOA, _DR, _TS, _CT],
-  [0, [() => ValueStringList, { [_xN]: _AAddi }], [() => ArnList, { [_xN]: _FIAil }], [() => ArnList, { [_xN]: _FOAi }], 2, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4]]
+  [0, [() => ValueStringList, { [_xN]: _AAddi }], [() => ArnList, { [_xN]: _FIAil }], [() => ArnList, { [_xN]: _FOAi }], 2, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4]], 1
 ];
 export var StartNetworkInsightsAnalysisResult$: StaticStructureSchema = [3, n0, _SNIARt,
   0,
@@ -23197,8 +23197,8 @@ export var StartNetworkInsightsAnalysisResult$: StaticStructureSchema = [3, n0, 
 ];
 export var StartVpcEndpointServicePrivateDnsVerificationRequest$: StaticStructureSchema = [3, n0, _SVESPDVR,
   0,
-  [_DR, _SIe],
-  [2, 0]
+  [_SIe, _DR],
+  [0, 2], 1
 ];
 export var StartVpcEndpointServicePrivateDnsVerificationResult$: StaticStructureSchema = [3, n0, _SVESPDVRt,
   0,
@@ -23218,7 +23218,7 @@ export var StopInstancesRequest$: StaticStructureSchema = [3, n0, _SIRto,
   [_IIns, _Hi, _SOS, _DR, _F],
   [[() => InstanceIdStringList, { [_xN]: _II }], 2, 2, [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [2, { [_eQN]: `Force`
-  , [_xN]: _fo }]]
+  , [_xN]: _fo }]], 1
 ];
 export var StopInstancesResult$: StaticStructureSchema = [3, n0, _SIRtop,
   0,
@@ -23388,7 +23388,7 @@ export var TargetCapacitySpecification$: StaticStructureSchema = [3, n0, _TCS,
 export var TargetCapacitySpecificationRequest$: StaticStructureSchema = [3, n0, _TCSR,
   0,
   [_TTC, _ODTC, _STC, _DTCT, _TCUT],
-  [1, 1, 1, 0, 0]
+  [1, 1, 1, 0, 0], 1
 ];
 export var TargetConfiguration$: StaticStructureSchema = [3, n0, _TCa,
   0,
@@ -23399,8 +23399,8 @@ export var TargetConfiguration$: StaticStructureSchema = [3, n0, _TCa,
 ];
 export var TargetConfigurationRequest$: StaticStructureSchema = [3, n0, _TCR,
   0,
-  [_IC, _OIf],
-  [1, 0]
+  [_OIf, _IC],
+  [0, 1], 1
 ];
 export var TargetGroup$: StaticStructureSchema = [3, n0, _TGa,
   0,
@@ -23435,7 +23435,7 @@ export var TargetReservationValue$: StaticStructureSchema = [3, n0, _TRV,
 export var TerminateClientVpnConnectionsRequest$: StaticStructureSchema = [3, n0, _TCVCR,
   0,
   [_CVEI, _CIon, _Us, _DR],
-  [0, 0, 0, 2]
+  [0, 0, 0, 2], 1
 ];
 export var TerminateClientVpnConnectionsResult$: StaticStructureSchema = [3, n0, _TCVCRe,
   0,
@@ -23457,7 +23457,7 @@ export var TerminateInstancesRequest$: StaticStructureSchema = [3, n0, _TIR,
   0,
   [_IIns, _F, _SOS, _DR],
   [[() => InstanceIdStringList, { [_xN]: _II }], 2, 2, [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var TerminateInstancesResult$: StaticStructureSchema = [3, n0, _TIRe,
   0,
@@ -24047,10 +24047,10 @@ export var TunnelOption$: StaticStructureSchema = [3, n0, _TOu,
 ];
 export var UnassignIpv6AddressesRequest$: StaticStructureSchema = [3, n0, _UIAR,
   0,
-  [_IPp, _NII, _IA],
-  [[() => IpPrefixList, { [_xN]: _IPpv }], [0, { [_eQN]: `NetworkInterfaceId`
-  , [_xN]: _nII }], [() => Ipv6AddressList, { [_eQN]: `Ipv6Addresses`
-  , [_xN]: _iA }]]
+  [_NII, _IPp, _IA],
+  [[0, { [_eQN]: `NetworkInterfaceId`
+  , [_xN]: _nII }], [() => IpPrefixList, { [_xN]: _IPpv }], [() => Ipv6AddressList, { [_eQN]: `Ipv6Addresses`
+  , [_xN]: _iA }]], 1
 ];
 export var UnassignIpv6AddressesResult$: StaticStructureSchema = [3, n0, _UIARn,
   0,
@@ -24062,15 +24062,15 @@ export var UnassignIpv6AddressesResult$: StaticStructureSchema = [3, n0, _UIARn,
 ];
 export var UnassignPrivateIpAddressesRequest$: StaticStructureSchema = [3, n0, _UPIAR,
   0,
-  [_IPpvr, _NII, _PIAri],
-  [[() => IpPrefixList, { [_xN]: _IPpvre }], [0, { [_eQN]: `NetworkInterfaceId`
-  , [_xN]: _nII }], [() => PrivateIpAddressStringList, { [_eQN]: `PrivateIpAddress`
-  , [_xN]: _pIAr }]]
+  [_NII, _IPpvr, _PIAri],
+  [[0, { [_eQN]: `NetworkInterfaceId`
+  , [_xN]: _nII }], [() => IpPrefixList, { [_xN]: _IPpvre }], [() => PrivateIpAddressStringList, { [_eQN]: `PrivateIpAddress`
+  , [_xN]: _pIAr }]], 1
 ];
 export var UnassignPrivateNatGatewayAddressRequest$: StaticStructureSchema = [3, n0, _UPNGAR,
   0,
   [_NGI, _PIAri, _MDDS, _DR],
-  [0, [() => IpList, { [_xN]: _PIAr }], 1, 2]
+  [0, [() => IpList, { [_xN]: _PIAr }], 1, 2], 2
 ];
 export var UnassignPrivateNatGatewayAddressResult$: StaticStructureSchema = [3, n0, _UPNGARn,
   0,
@@ -24082,7 +24082,7 @@ export var UnassignPrivateNatGatewayAddressResult$: StaticStructureSchema = [3, 
 export var UnlockSnapshotRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
   [_SIn, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var UnlockSnapshotResult$: StaticStructureSchema = [3, n0, _USRn,
   0,
@@ -24094,7 +24094,7 @@ export var UnmonitorInstancesRequest$: StaticStructureSchema = [3, n0, _UIR,
   0,
   [_IIns, _DR],
   [[() => InstanceIdStringList, { [_xN]: _II }], [2, { [_eQN]: `DryRun`
-  , [_xN]: _dR }]]
+  , [_xN]: _dR }]], 1
 ];
 export var UnmonitorInstancesResult$: StaticStructureSchema = [3, n0, _UIRn,
   0,
@@ -24133,7 +24133,7 @@ export var UnsuccessfulItemError$: StaticStructureSchema = [3, n0, _UIEn,
 export var UpdateCapacityManagerOrganizationsAccessRequest$: StaticStructureSchema = [3, n0, _UCMOAR,
   0,
   [_OAr, _DR, _CT],
-  [2, 2, [0, 4]]
+  [2, 2, [0, 4]], 1
 ];
 export var UpdateCapacityManagerOrganizationsAccessResult$: StaticStructureSchema = [3, n0, _UCMOARp,
   0,
@@ -24145,7 +24145,7 @@ export var UpdateCapacityManagerOrganizationsAccessResult$: StaticStructureSchem
 export var UpdateInterruptibleCapacityReservationAllocationRequest$: StaticStructureSchema = [3, n0, _UICRAR,
   0,
   [_CRI, _TICa, _DR],
-  [0, 1, 2]
+  [0, 1, 2], 2
 ];
 export var UpdateInterruptibleCapacityReservationAllocationResult$: StaticStructureSchema = [3, n0, _UICRARp,
   0,
@@ -24233,7 +24233,7 @@ export var VCpuCountRange$: StaticStructureSchema = [3, n0, _VCCR,
 export var VCpuCountRangeRequest$: StaticStructureSchema = [3, n0, _VCCRR,
   0,
   [_M, _Ma],
-  [1, 1]
+  [1, 1], 1
 ];
 export var VCpuInfo$: StaticStructureSchema = [3, n0, _VCIpu,
   0,
@@ -24414,7 +24414,7 @@ export var VerifiedAccessLogCloudWatchLogsDestination$: StaticStructureSchema = 
 export var VerifiedAccessLogCloudWatchLogsDestinationOptions$: StaticStructureSchema = [3, n0, _VALCWLDO,
   0,
   [_En, _LGog],
-  [2, 0]
+  [2, 0], 1
 ];
 export var VerifiedAccessLogDeliveryStatus$: StaticStructureSchema = [3, n0, _VALDS,
   0,
@@ -24434,7 +24434,7 @@ export var VerifiedAccessLogKinesisDataFirehoseDestination$: StaticStructureSche
 export var VerifiedAccessLogKinesisDataFirehoseDestinationOptions$: StaticStructureSchema = [3, n0, _VALKDFDO,
   0,
   [_En, _DSel],
-  [2, 0]
+  [2, 0], 1
 ];
 export var VerifiedAccessLogOptions$: StaticStructureSchema = [3, n0, _VALO,
   0,
@@ -24464,7 +24464,7 @@ export var VerifiedAccessLogS3Destination$: StaticStructureSchema = [3, n0, _VAL
 export var VerifiedAccessLogS3DestinationOptions$: StaticStructureSchema = [3, n0, _VALSDO,
   0,
   [_En, _BN, _Pre, _BOu],
-  [2, 0, 0, 0]
+  [2, 0, 0, 0], 1
 ];
 export var VerifiedAccessSseSpecificationRequest$: StaticStructureSchema = [3, n0, _VASSR,
   0,
@@ -24560,7 +24560,7 @@ export var VolumeDetail$: StaticStructureSchema = [3, n0, _VDo,
   0,
   [_Siz],
   [[1, { [_eQN]: `Size`
-  , [_xN]: _si }]]
+  , [_xN]: _si }]], 1
 ];
 export var VolumeModification$: StaticStructureSchema = [3, n0, _VMo,
   0,
@@ -24747,7 +24747,7 @@ export var VpcEncryptionControl$: StaticStructureSchema = [3, n0, _VEC,
 export var VpcEncryptionControlConfiguration$: StaticStructureSchema = [3, n0, _VECC,
   0,
   [_Mo, _IGE, _EOIGE, _NGE, _VPGE, _VPE, _LEam, _VLE, _EFSE],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0, 0, 0], 1
 ];
 export var VpcEncryptionControlExclusion$: StaticStructureSchema = [3, n0, _VECE,
   0,
@@ -24995,7 +24995,7 @@ export var VpnTunnelOptionsSpecification$: StaticStructureSchema = [3, n0, _VTOS
 export var WithdrawByoipCidrRequest$: StaticStructureSchema = [3, n0, _WBCR,
   0,
   [_Ci, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var WithdrawByoipCidrResult$: StaticStructureSchema = [3, n0, _WBCRi,
   0,

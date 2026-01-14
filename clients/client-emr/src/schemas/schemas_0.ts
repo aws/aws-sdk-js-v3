@@ -646,7 +646,7 @@ import { InternalServerError, InternalServerException, InvalidRequestException }
 export var AddInstanceFleetInput$: StaticStructureSchema = [3, n0, _AIFI,
   0,
   [_CI, _IF],
-  [0, () => InstanceFleetConfig$]
+  [0, () => InstanceFleetConfig$], 2
 ];
 export var AddInstanceFleetOutput$: StaticStructureSchema = [3, n0, _AIFO,
   0,
@@ -656,7 +656,7 @@ export var AddInstanceFleetOutput$: StaticStructureSchema = [3, n0, _AIFO,
 export var AddInstanceGroupsInput$: StaticStructureSchema = [3, n0, _AIGI,
   0,
   [_IG, _JFI],
-  [() => InstanceGroupConfigList, 0]
+  [() => InstanceGroupConfigList, 0], 2
 ];
 export var AddInstanceGroupsOutput$: StaticStructureSchema = [3, n0, _AIGO,
   0,
@@ -666,7 +666,7 @@ export var AddInstanceGroupsOutput$: StaticStructureSchema = [3, n0, _AIGO,
 export var AddJobFlowStepsInput$: StaticStructureSchema = [3, n0, _AJFSI,
   0,
   [_JFI, _S, _ERA],
-  [0, () => StepConfigList, 0]
+  [0, () => StepConfigList, 0], 2
 ];
 export var AddJobFlowStepsOutput$: StaticStructureSchema = [3, n0, _AJFSO,
   0,
@@ -676,7 +676,7 @@ export var AddJobFlowStepsOutput$: StaticStructureSchema = [3, n0, _AJFSO,
 export var AddTagsInput$: StaticStructureSchema = [3, n0, _ATI,
   0,
   [_RI, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var AddTagsOutput$: StaticStructureSchema = [3, n0, _ATO,
   0,
@@ -691,7 +691,7 @@ export var Application$: StaticStructureSchema = [3, n0, _A,
 export var AutoScalingPolicy$: StaticStructureSchema = [3, n0, _ASP,
   0,
   [_C, _R],
-  [() => ScalingConstraints$, () => ScalingRuleList]
+  [() => ScalingConstraints$, () => ScalingRuleList], 2
 ];
 export var AutoScalingPolicyDescription$: StaticStructureSchema = [3, n0, _ASPD,
   0,
@@ -716,17 +716,17 @@ export var AutoTerminationPolicy$: StaticStructureSchema = [3, n0, _ATP,
 export var BlockPublicAccessConfiguration$: StaticStructureSchema = [3, n0, _BPAC,
   0,
   [_BPSGR, _PPSGRR, _Cl, _Con, _P],
-  [2, () => PortRanges, 0, () => ConfigurationList, 128 | 0]
+  [2, () => PortRanges, 0, () => ConfigurationList, 128 | 0], 1
 ];
 export var BlockPublicAccessConfigurationMetadata$: StaticStructureSchema = [3, n0, _BPACM,
   0,
   [_CDT, _CBA],
-  [4, 0]
+  [4, 0], 2
 ];
 export var BootstrapActionConfig$: StaticStructureSchema = [3, n0, _BAC,
   0,
   [_N, _SBA],
-  [0, () => ScriptBootstrapActionConfig$]
+  [0, () => ScriptBootstrapActionConfig$], 2
 ];
 export var BootstrapActionDetail$: StaticStructureSchema = [3, n0, _BAD,
   0,
@@ -741,7 +741,7 @@ export var CancelStepsInfo$: StaticStructureSchema = [3, n0, _CSI,
 export var CancelStepsInput$: StaticStructureSchema = [3, n0, _CSIa,
   0,
   [_CI, _SI, _SCO],
-  [0, 64 | 0, 0]
+  [0, 64 | 0, 0], 2
 ];
 export var CancelStepsOutput$: StaticStructureSchema = [3, n0, _CSO,
   0,
@@ -750,13 +750,13 @@ export var CancelStepsOutput$: StaticStructureSchema = [3, n0, _CSO,
 ];
 export var CloudWatchAlarmDefinition$: StaticStructureSchema = [3, n0, _CWAD,
   0,
-  [_CO, _EP, _MN, _Na, _Pe, _Stat, _Th, _U, _D],
-  [0, 1, 0, 0, 1, 0, 1, 0, () => MetricDimensionList]
+  [_CO, _MN, _Pe, _Th, _EP, _Na, _Stat, _U, _D],
+  [0, 0, 1, 1, 1, 0, 0, 0, () => MetricDimensionList], 4
 ];
 export var CloudWatchLogConfiguration$: StaticStructureSchema = [3, n0, _CWLC,
   0,
   [_E, _LGN, _LSNP, _EKA, _LT],
-  [2, 0, 0, 0, [2, n0, _LTM, 0, 0, 64 | 0]]
+  [2, 0, 0, 0, [2, n0, _LTM, 0, 0, 64 | 0]], 1
 ];
 export var Cluster$: StaticStructureSchema = [3, n0, _Clu,
   0,
@@ -791,7 +791,7 @@ export var Command$: StaticStructureSchema = [3, n0, _Com,
 export var ComputeLimits$: StaticStructureSchema = [3, n0, _CL,
   0,
   [_UT, _MCU, _MCUa, _MODCU, _MCCU],
-  [0, 1, 1, 1, 1]
+  [0, 1, 1, 1, 1], 3
 ];
 export var Configuration$: StaticStructureSchema = [3, n0, _Conf,
   0,
@@ -801,7 +801,7 @@ export var Configuration$: StaticStructureSchema = [3, n0, _Conf,
 export var CreatePersistentAppUIInput$: StaticStructureSchema = [3, n0, _CPAUII,
   0,
   [_TRA, _EMRCC, _T, _XR, _PT],
-  [0, () => EMRContainersConfig$, () => TagList, 0, 0]
+  [0, () => EMRContainersConfig$, () => TagList, 0, 0], 1
 ];
 export var CreatePersistentAppUIOutput$: StaticStructureSchema = [3, n0, _CPAUIO,
   0,
@@ -811,17 +811,17 @@ export var CreatePersistentAppUIOutput$: StaticStructureSchema = [3, n0, _CPAUIO
 export var CreateSecurityConfigurationInput$: StaticStructureSchema = [3, n0, _CSCI,
   0,
   [_N, _SC],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateSecurityConfigurationOutput$: StaticStructureSchema = [3, n0, _CSCO,
   0,
   [_N, _CDT],
-  [0, 4]
+  [0, 4], 2
 ];
 export var CreateStudioInput$: StaticStructureSchema = [3, n0, _CSIr,
   0,
-  [_N, _De, _AM, _VI, _SIu, _SR, _UR, _WSGI, _ESGI, _DSL, _IAU, _IRSPN, _T, _TIPE, _IUA, _IIA, _EKA],
-  [0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 0, 0, 0, () => TagList, 2, 0, 0, 0]
+  [_N, _AM, _VI, _SIu, _SR, _WSGI, _ESGI, _DSL, _De, _UR, _IAU, _IRSPN, _T, _TIPE, _IUA, _IIA, _EKA],
+  [0, 0, 0, 64 | 0, 0, 0, 0, 0, 0, 0, 0, 0, () => TagList, 2, 0, 0, 0], 8
 ];
 export var CreateStudioOutput$: StaticStructureSchema = [3, n0, _CSOr,
   0,
@@ -830,13 +830,13 @@ export var CreateStudioOutput$: StaticStructureSchema = [3, n0, _CSOr,
 ];
 export var CreateStudioSessionMappingInput$: StaticStructureSchema = [3, n0, _CSSMI,
   0,
-  [_SItu, _II, _IN, _ITd, _SPA],
-  [0, 0, 0, 0, 0]
+  [_SItu, _ITd, _SPA, _II, _IN],
+  [0, 0, 0, 0, 0], 3
 ];
 export var DeleteSecurityConfigurationInput$: StaticStructureSchema = [3, n0, _DSCI,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var DeleteSecurityConfigurationOutput$: StaticStructureSchema = [3, n0, _DSCO,
   0,
@@ -846,17 +846,17 @@ export var DeleteSecurityConfigurationOutput$: StaticStructureSchema = [3, n0, _
 export var DeleteStudioInput$: StaticStructureSchema = [3, n0, _DSI,
   0,
   [_SItu],
-  [0]
+  [0], 1
 ];
 export var DeleteStudioSessionMappingInput$: StaticStructureSchema = [3, n0, _DSSMI,
   0,
-  [_SItu, _II, _IN, _ITd],
-  [0, 0, 0, 0]
+  [_SItu, _ITd, _II, _IN],
+  [0, 0, 0, 0], 2
 ];
 export var DescribeClusterInput$: StaticStructureSchema = [3, n0, _DCI,
   0,
   [_CI],
-  [0]
+  [0], 1
 ];
 export var DescribeClusterOutput$: StaticStructureSchema = [3, n0, _DCO,
   0,
@@ -876,7 +876,7 @@ export var DescribeJobFlowsOutput$: StaticStructureSchema = [3, n0, _DJFO,
 export var DescribeNotebookExecutionInput$: StaticStructureSchema = [3, n0, _DNEI,
   0,
   [_NEI],
-  [0]
+  [0], 1
 ];
 export var DescribeNotebookExecutionOutput$: StaticStructureSchema = [3, n0, _DNEO,
   0,
@@ -886,7 +886,7 @@ export var DescribeNotebookExecutionOutput$: StaticStructureSchema = [3, n0, _DN
 export var DescribePersistentAppUIInput$: StaticStructureSchema = [3, n0, _DPAUII,
   0,
   [_PAUII],
-  [0]
+  [0], 1
 ];
 export var DescribePersistentAppUIOutput$: StaticStructureSchema = [3, n0, _DPAUIO,
   0,
@@ -906,7 +906,7 @@ export var DescribeReleaseLabelOutput$: StaticStructureSchema = [3, n0, _DRLO,
 export var DescribeSecurityConfigurationInput$: StaticStructureSchema = [3, n0, _DSCIe,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var DescribeSecurityConfigurationOutput$: StaticStructureSchema = [3, n0, _DSCOe,
   0,
@@ -916,7 +916,7 @@ export var DescribeSecurityConfigurationOutput$: StaticStructureSchema = [3, n0,
 export var DescribeStepInput$: StaticStructureSchema = [3, n0, _DSIe,
   0,
   [_CI, _SIt],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeStepOutput$: StaticStructureSchema = [3, n0, _DSO,
   0,
@@ -926,7 +926,7 @@ export var DescribeStepOutput$: StaticStructureSchema = [3, n0, _DSO,
 export var DescribeStudioInput$: StaticStructureSchema = [3, n0, _DSIes,
   0,
   [_SItu],
-  [0]
+  [0], 1
 ];
 export var DescribeStudioOutput$: StaticStructureSchema = [3, n0, _DSOe,
   0,
@@ -941,7 +941,7 @@ export var EbsBlockDevice$: StaticStructureSchema = [3, n0, _EBD,
 export var EbsBlockDeviceConfig$: StaticStructureSchema = [3, n0, _EBDC,
   0,
   [_VS, _VPI],
-  [() => VolumeSpecification$, 1]
+  [() => VolumeSpecification$, 1], 1
 ];
 export var EbsConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
@@ -971,7 +971,7 @@ export var ErrorDetail$: StaticStructureSchema = [3, n0, _EDr,
 export var ExecutionEngineConfig$: StaticStructureSchema = [3, n0, _EEC,
   0,
   [_I, _Ty, _MISGI, _ERA],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var FailureDetails$: StaticStructureSchema = [3, n0, _FD,
   0,
@@ -981,7 +981,7 @@ export var FailureDetails$: StaticStructureSchema = [3, n0, _FD,
 export var GetAutoTerminationPolicyInput$: StaticStructureSchema = [3, n0, _GATPI,
   0,
   [_CI],
-  [0]
+  [0], 1
 ];
 export var GetAutoTerminationPolicyOutput$: StaticStructureSchema = [3, n0, _GATPO,
   0,
@@ -996,12 +996,12 @@ export var GetBlockPublicAccessConfigurationInput$: StaticStructureSchema = [3, 
 export var GetBlockPublicAccessConfigurationOutput$: StaticStructureSchema = [3, n0, _GBPACO,
   0,
   [_BPAC, _BPACM],
-  [() => BlockPublicAccessConfiguration$, () => BlockPublicAccessConfigurationMetadata$]
+  [() => BlockPublicAccessConfiguration$, () => BlockPublicAccessConfigurationMetadata$], 2
 ];
 export var GetClusterSessionCredentialsInput$: StaticStructureSchema = [3, n0, _GCSCI,
   0,
   [_CI, _ERA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetClusterSessionCredentialsOutput$: StaticStructureSchema = [3, n0, _GCSCO,
   0,
@@ -1011,7 +1011,7 @@ export var GetClusterSessionCredentialsOutput$: StaticStructureSchema = [3, n0, 
 export var GetManagedScalingPolicyInput$: StaticStructureSchema = [3, n0, _GMSPI,
   0,
   [_CI],
-  [0]
+  [0], 1
 ];
 export var GetManagedScalingPolicyOutput$: StaticStructureSchema = [3, n0, _GMSPO,
   0,
@@ -1021,7 +1021,7 @@ export var GetManagedScalingPolicyOutput$: StaticStructureSchema = [3, n0, _GMSP
 export var GetOnClusterAppUIPresignedURLInput$: StaticStructureSchema = [3, n0, _GOCAUIPURLI,
   0,
   [_CI, _OCAUIT, _AIp, _DR, _ERA],
-  [0, 0, 0, 2, 0]
+  [0, 0, 0, 2, 0], 1
 ];
 export var GetOnClusterAppUIPresignedURLOutput$: StaticStructureSchema = [3, n0, _GOCAUIPURLO,
   0,
@@ -1031,7 +1031,7 @@ export var GetOnClusterAppUIPresignedURLOutput$: StaticStructureSchema = [3, n0,
 export var GetPersistentAppUIPresignedURLInput$: StaticStructureSchema = [3, n0, _GPAUIPURLI,
   0,
   [_PAUII, _PAUIT, _AIp, _APC, _ERA],
-  [0, 0, 0, 2, 0]
+  [0, 0, 0, 2, 0], 1
 ];
 export var GetPersistentAppUIPresignedURLOutput$: StaticStructureSchema = [3, n0, _GPAUIPURLO,
   0,
@@ -1040,8 +1040,8 @@ export var GetPersistentAppUIPresignedURLOutput$: StaticStructureSchema = [3, n0
 ];
 export var GetStudioSessionMappingInput$: StaticStructureSchema = [3, n0, _GSSMI,
   0,
-  [_SItu, _II, _IN, _ITd],
-  [0, 0, 0, 0]
+  [_SItu, _ITd, _II, _IN],
+  [0, 0, 0, 0], 2
 ];
 export var GetStudioSessionMappingOutput$: StaticStructureSchema = [3, n0, _GSSMO,
   0,
@@ -1050,8 +1050,8 @@ export var GetStudioSessionMappingOutput$: StaticStructureSchema = [3, n0, _GSSM
 ];
 export var HadoopJarStepConfig$: StaticStructureSchema = [3, n0, _HJSC,
   0,
-  [_P, _J, _MCa, _Ar],
-  [() => KeyValueList, 0, 0, 64 | 0]
+  [_J, _P, _MCa, _Ar],
+  [0, () => KeyValueList, 0, 64 | 0], 1
 ];
 export var HadoopStepConfig$: StaticStructureSchema = [3, n0, _HSC,
   0,
@@ -1070,13 +1070,13 @@ export var InstanceFleet$: StaticStructureSchema = [3, n0, _IF,
 ];
 export var InstanceFleetConfig$: StaticStructureSchema = [3, n0, _IFC,
   0,
-  [_N, _IFT, _TODC, _TSC, _ITC, _LS, _RS, _Cont],
-  [0, 0, 1, 1, () => InstanceTypeConfigList, () => InstanceFleetProvisioningSpecifications$, () => InstanceFleetResizingSpecifications$, 0]
+  [_IFT, _N, _TODC, _TSC, _ITC, _LS, _RS, _Cont],
+  [0, 0, 1, 1, () => InstanceTypeConfigList, () => InstanceFleetProvisioningSpecifications$, () => InstanceFleetResizingSpecifications$, 0], 1
 ];
 export var InstanceFleetModifyConfig$: StaticStructureSchema = [3, n0, _IFMC,
   0,
   [_IFI, _TODC, _TSC, _RS, _ITC, _Cont],
-  [0, 1, 1, () => InstanceFleetResizingSpecifications$, () => InstanceTypeConfigList, 0]
+  [0, 1, 1, () => InstanceFleetResizingSpecifications$, () => InstanceTypeConfigList, 0], 1
 ];
 export var InstanceFleetProvisioningSpecifications$: StaticStructureSchema = [3, n0, _IFPS,
   0,
@@ -1110,18 +1110,18 @@ export var InstanceGroup$: StaticStructureSchema = [3, n0, _IGn,
 ];
 export var InstanceGroupConfig$: StaticStructureSchema = [3, n0, _IGC,
   0,
-  [_N, _Ma, _IR, _BP, _ITn, _IC, _Con, _EC, _ASP, _CAI],
-  [0, 0, 0, 0, 0, 1, () => ConfigurationList, () => EbsConfiguration$, () => AutoScalingPolicy$, 0]
+  [_IR, _ITn, _IC, _N, _Ma, _BP, _Con, _EC, _ASP, _CAI],
+  [0, 0, 1, 0, 0, 0, () => ConfigurationList, () => EbsConfiguration$, () => AutoScalingPolicy$, 0], 3
 ];
 export var InstanceGroupDetail$: StaticStructureSchema = [3, n0, _IGD,
   0,
-  [_IGIn, _N, _Ma, _IR, _BP, _ITn, _IRC, _IRCn, _Sta, _LSCR, _CDT, _SDT, _RDT, _EDT, _CAI],
-  [0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 4, 4, 4, 4, 0]
+  [_Ma, _IR, _ITn, _IRC, _IRCn, _Sta, _CDT, _IGIn, _N, _BP, _LSCR, _SDT, _RDT, _EDT, _CAI],
+  [0, 0, 0, 1, 1, 0, 4, 0, 0, 0, 0, 4, 4, 4, 0], 7
 ];
 export var InstanceGroupModifyConfig$: StaticStructureSchema = [3, n0, _IGMC,
   0,
   [_IGIn, _IC, _ECIITT, _SPh, _RT, _Con],
-  [0, 1, 64 | 0, () => ShrinkPolicy$, 0, () => ConfigurationList]
+  [0, 1, 64 | 0, () => ShrinkPolicy$, 0, () => ConfigurationList], 1
 ];
 export var InstanceGroupStateChangeReason$: StaticStructureSchema = [3, n0, _IGSCR,
   0,
@@ -1161,7 +1161,7 @@ export var InstanceTimeline$: StaticStructureSchema = [3, n0, _ITns,
 export var InstanceTypeConfig$: StaticStructureSchema = [3, n0, _ITCn,
   0,
   [_ITn, _WC, _BP, _BPAPOODP, _EC, _Con, _CAI, _Pr],
-  [0, 1, 0, 1, () => EbsConfiguration$, () => ConfigurationList, 0, 1]
+  [0, 1, 0, 1, () => EbsConfiguration$, () => ConfigurationList, 0, 1], 1
 ];
 export var InstanceTypeSpecification$: StaticStructureSchema = [3, n0, _ITSn,
   0,
@@ -1188,13 +1188,13 @@ export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
 TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var JobFlowDetail$: StaticStructureSchema = [3, n0, _JFD,
   0,
-  [_JFI, _N, _LU, _LEKKI, _AV, _ESD, _Ins, _S, _BA, _SPu, _VTAU, _JFR, _SR, _ASR, _SDB],
-  [0, 0, 0, 0, 0, () => JobFlowExecutionStatusDetail$, () => JobFlowInstancesDetail$, () => StepDetailList, () => BootstrapActionDetailList, 64 | 0, 2, 0, 0, 0, 0]
+  [_JFI, _N, _ESD, _Ins, _LU, _LEKKI, _AV, _S, _BA, _SPu, _VTAU, _JFR, _SR, _ASR, _SDB],
+  [0, 0, () => JobFlowExecutionStatusDetail$, () => JobFlowInstancesDetail$, 0, 0, 0, () => StepDetailList, () => BootstrapActionDetailList, 64 | 0, 2, 0, 0, 0, 0], 4
 ];
 export var JobFlowExecutionStatusDetail$: StaticStructureSchema = [3, n0, _JFESD,
   0,
   [_Sta, _CDT, _SDT, _RDT, _EDT, _LSCR],
-  [0, 4, 4, 4, 4, 0]
+  [0, 4, 4, 4, 4, 0], 2
 ];
 export var JobFlowInstancesConfig$: StaticStructureSchema = [3, n0, _JFIC,
   0,
@@ -1203,13 +1203,13 @@ export var JobFlowInstancesConfig$: StaticStructureSchema = [3, n0, _JFIC,
 ];
 export var JobFlowInstancesDetail$: StaticStructureSchema = [3, n0, _JFID,
   0,
-  [_MIT, _MPDN, _MII, _SIT, _IC, _IG, _NIH, _EKN, _ESI, _Pl, _KJFAWNS, _TP, _UNR, _HV],
-  [0, 0, 0, 0, 1, () => InstanceGroupDetailList, 1, 0, 0, () => PlacementType$, 2, 2, 2, 0]
+  [_MIT, _SIT, _IC, _MPDN, _MII, _IG, _NIH, _EKN, _ESI, _Pl, _KJFAWNS, _TP, _UNR, _HV],
+  [0, 0, 1, 0, 0, () => InstanceGroupDetailList, 1, 0, 0, () => PlacementType$, 2, 2, 2, 0], 3
 ];
 export var KerberosAttributes$: StaticStructureSchema = [3, n0, _KA,
   0,
   [_Rea, _KAP, _CRTPP, _ADDJU, _ADDJP],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 2
 ];
 export var KeyValue$: StaticStructureSchema = [3, n0, _KV,
   0,
@@ -1219,7 +1219,7 @@ export var KeyValue$: StaticStructureSchema = [3, n0, _KV,
 export var ListBootstrapActionsInput$: StaticStructureSchema = [3, n0, _LBAI,
   0,
   [_CI, _Mar],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListBootstrapActionsOutput$: StaticStructureSchema = [3, n0, _LBAO,
   0,
@@ -1239,7 +1239,7 @@ export var ListClustersOutput$: StaticStructureSchema = [3, n0, _LCO,
 export var ListInstanceFleetsInput$: StaticStructureSchema = [3, n0, _LIFI,
   0,
   [_CI, _Mar],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListInstanceFleetsOutput$: StaticStructureSchema = [3, n0, _LIFO,
   0,
@@ -1249,7 +1249,7 @@ export var ListInstanceFleetsOutput$: StaticStructureSchema = [3, n0, _LIFO,
 export var ListInstanceGroupsInput$: StaticStructureSchema = [3, n0, _LIGI,
   0,
   [_CI, _Mar],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListInstanceGroupsOutput$: StaticStructureSchema = [3, n0, _LIGO,
   0,
@@ -1259,7 +1259,7 @@ export var ListInstanceGroupsOutput$: StaticStructureSchema = [3, n0, _LIGO,
 export var ListInstancesInput$: StaticStructureSchema = [3, n0, _LII,
   0,
   [_CI, _IGIn, _IGTns, _IFI, _IFT, _ISn, _Mar],
-  [0, 0, 64 | 0, 0, 0, 64 | 0, 0]
+  [0, 0, 64 | 0, 0, 0, 64 | 0, 0], 1
 ];
 export var ListInstancesOutput$: StaticStructureSchema = [3, n0, _LIO,
   0,
@@ -1299,7 +1299,7 @@ export var ListSecurityConfigurationsOutput$: StaticStructureSchema = [3, n0, _L
 export var ListStepsInput$: StaticStructureSchema = [3, n0, _LSI,
   0,
   [_CI, _SSt, _SI, _Mar],
-  [0, 64 | 0, 64 | 0, 0]
+  [0, 64 | 0, 64 | 0, 0], 1
 ];
 export var ListStepsOutput$: StaticStructureSchema = [3, n0, _LSO,
   0,
@@ -1329,7 +1329,7 @@ export var ListStudiosOutput$: StaticStructureSchema = [3, n0, _LSOi,
 export var ListSupportedInstanceTypesInput$: StaticStructureSchema = [3, n0, _LSITI,
   0,
   [_RL, _Mar],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListSupportedInstanceTypesOutput$: StaticStructureSchema = [3, n0, _LSITO,
   0,
@@ -1349,7 +1349,7 @@ export var MetricDimension$: StaticStructureSchema = [3, n0, _MD,
 export var ModifyClusterInput$: StaticStructureSchema = [3, n0, _MCI,
   0,
   [_CI, _SCL, _ES],
-  [0, 1, 2]
+  [0, 1, 2], 1
 ];
 export var ModifyClusterOutput$: StaticStructureSchema = [3, n0, _MCO,
   0,
@@ -1359,7 +1359,7 @@ export var ModifyClusterOutput$: StaticStructureSchema = [3, n0, _MCO,
 export var ModifyInstanceFleetInput$: StaticStructureSchema = [3, n0, _MIFI,
   0,
   [_CI, _IF],
-  [0, () => InstanceFleetModifyConfig$]
+  [0, () => InstanceFleetModifyConfig$], 2
 ];
 export var ModifyInstanceGroupsInput$: StaticStructureSchema = [3, n0, _MIGI,
   0,
@@ -1399,7 +1399,7 @@ export var OnDemandCapacityReservationOptions$: StaticStructureSchema = [3, n0, 
 export var OnDemandProvisioningSpecification$: StaticStructureSchema = [3, n0, _ODPS,
   0,
   [_AS, _CRO],
-  [0, () => OnDemandCapacityReservationOptions$]
+  [0, () => OnDemandCapacityReservationOptions$], 1
 ];
 export var OnDemandResizingSpecification$: StaticStructureSchema = [3, n0, _ODRSn,
   0,
@@ -1429,7 +1429,7 @@ export var PersistentAppUI$: StaticStructureSchema = [3, n0, _PAUI,
 export var PlacementGroupConfig$: StaticStructureSchema = [3, n0, _PGC,
   0,
   [_IR, _PS],
-  [0, 0]
+  [0, 0], 1
 ];
 export var PlacementType$: StaticStructureSchema = [3, n0, _PTl,
   0,
@@ -1439,12 +1439,12 @@ export var PlacementType$: StaticStructureSchema = [3, n0, _PTl,
 export var PortRange$: StaticStructureSchema = [3, n0, _PR,
   0,
   [_MRi, _MRa],
-  [1, 1]
+  [1, 1], 1
 ];
 export var PutAutoScalingPolicyInput$: StaticStructureSchema = [3, n0, _PASPI,
   0,
   [_CI, _IGIn, _ASP],
-  [0, 0, () => AutoScalingPolicy$]
+  [0, 0, () => AutoScalingPolicy$], 3
 ];
 export var PutAutoScalingPolicyOutput$: StaticStructureSchema = [3, n0, _PASPO,
   0,
@@ -1454,7 +1454,7 @@ export var PutAutoScalingPolicyOutput$: StaticStructureSchema = [3, n0, _PASPO,
 export var PutAutoTerminationPolicyInput$: StaticStructureSchema = [3, n0, _PATPI,
   0,
   [_CI, _ATP],
-  [0, () => AutoTerminationPolicy$]
+  [0, () => AutoTerminationPolicy$], 1
 ];
 export var PutAutoTerminationPolicyOutput$: StaticStructureSchema = [3, n0, _PATPO,
   0,
@@ -1464,7 +1464,7 @@ export var PutAutoTerminationPolicyOutput$: StaticStructureSchema = [3, n0, _PAT
 export var PutBlockPublicAccessConfigurationInput$: StaticStructureSchema = [3, n0, _PBPACI,
   0,
   [_BPAC],
-  [() => BlockPublicAccessConfiguration$]
+  [() => BlockPublicAccessConfiguration$], 1
 ];
 export var PutBlockPublicAccessConfigurationOutput$: StaticStructureSchema = [3, n0, _PBPACO,
   0,
@@ -1474,7 +1474,7 @@ export var PutBlockPublicAccessConfigurationOutput$: StaticStructureSchema = [3,
 export var PutManagedScalingPolicyInput$: StaticStructureSchema = [3, n0, _PMSPI,
   0,
   [_CI, _MSP],
-  [0, () => ManagedScalingPolicy$]
+  [0, () => ManagedScalingPolicy$], 2
 ];
 export var PutManagedScalingPolicyOutput$: StaticStructureSchema = [3, n0, _PMSPO,
   0,
@@ -1489,7 +1489,7 @@ export var ReleaseLabelFilter$: StaticStructureSchema = [3, n0, _RLF,
 export var RemoveAutoScalingPolicyInput$: StaticStructureSchema = [3, n0, _RASPI,
   0,
   [_CI, _IGIn],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RemoveAutoScalingPolicyOutput$: StaticStructureSchema = [3, n0, _RASPO,
   0,
@@ -1499,7 +1499,7 @@ export var RemoveAutoScalingPolicyOutput$: StaticStructureSchema = [3, n0, _RASP
 export var RemoveAutoTerminationPolicyInput$: StaticStructureSchema = [3, n0, _RATPI,
   0,
   [_CI],
-  [0]
+  [0], 1
 ];
 export var RemoveAutoTerminationPolicyOutput$: StaticStructureSchema = [3, n0, _RATPO,
   0,
@@ -1509,7 +1509,7 @@ export var RemoveAutoTerminationPolicyOutput$: StaticStructureSchema = [3, n0, _
 export var RemoveManagedScalingPolicyInput$: StaticStructureSchema = [3, n0, _RMSPI,
   0,
   [_CI],
-  [0]
+  [0], 1
 ];
 export var RemoveManagedScalingPolicyOutput$: StaticStructureSchema = [3, n0, _RMSPO,
   0,
@@ -1519,7 +1519,7 @@ export var RemoveManagedScalingPolicyOutput$: StaticStructureSchema = [3, n0, _R
 export var RemoveTagsInput$: StaticStructureSchema = [3, n0, _RTI,
   0,
   [_RI, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var RemoveTagsOutput$: StaticStructureSchema = [3, n0, _RTO,
   0,
@@ -1528,8 +1528,8 @@ export var RemoveTagsOutput$: StaticStructureSchema = [3, n0, _RTO,
 ];
 export var RunJobFlowInput$: StaticStructureSchema = [3, n0, _RJFI,
   0,
-  [_N, _LU, _LEKKI, _AI, _AV, _RL, _Ins, _S, _BA, _SPu, _NSP, _Ap, _Con, _VTAU, _JFR, _SR, _T, _SC, _ASR, _SDB, _CAI, _ERVS, _RUOB, _KA, _SCL, _MSP, _PGCl, _ATP, _OSRL, _ERVI, _ERVT, _ES, _MC],
-  [0, 0, 0, 0, 0, 0, () => JobFlowInstancesConfig$, () => StepConfigList, () => BootstrapActionConfigList, 64 | 0, () => NewSupportedProductsList, () => ApplicationList, () => ConfigurationList, 2, 0, 0, () => TagList, 0, 0, 0, 0, 1, 0, () => KerberosAttributes$, 1, () => ManagedScalingPolicy$, () => PlacementGroupConfigList, () => AutoTerminationPolicy$, 0, 1, 1, 2, () => MonitoringConfiguration$]
+  [_N, _Ins, _LU, _LEKKI, _AI, _AV, _RL, _S, _BA, _SPu, _NSP, _Ap, _Con, _VTAU, _JFR, _SR, _T, _SC, _ASR, _SDB, _CAI, _ERVS, _RUOB, _KA, _SCL, _MSP, _PGCl, _ATP, _OSRL, _ERVI, _ERVT, _ES, _MC],
+  [0, () => JobFlowInstancesConfig$, 0, 0, 0, 0, 0, () => StepConfigList, () => BootstrapActionConfigList, 64 | 0, () => NewSupportedProductsList, () => ApplicationList, () => ConfigurationList, 2, 0, 0, () => TagList, 0, 0, 0, 0, 1, 0, () => KerberosAttributes$, 1, () => ManagedScalingPolicy$, () => PlacementGroupConfigList, () => AutoTerminationPolicy$, 0, 1, 1, 2, () => MonitoringConfiguration$], 2
 ];
 export var RunJobFlowOutput$: StaticStructureSchema = [3, n0, _RJFO,
   0,
@@ -1543,28 +1543,28 @@ export var S3MonitoringConfiguration$: StaticStructureSchema = [3, n0, _SMC,
 ];
 export var ScalingAction$: StaticStructureSchema = [3, n0, _SA,
   0,
-  [_Ma, _SSPC],
-  [0, () => SimpleScalingPolicyConfiguration$]
+  [_SSPC, _Ma],
+  [() => SimpleScalingPolicyConfiguration$, 0], 1
 ];
 export var ScalingConstraints$: StaticStructureSchema = [3, n0, _SCc,
   0,
   [_MCi, _MCax],
-  [1, 1]
+  [1, 1], 2
 ];
 export var ScalingRule$: StaticStructureSchema = [3, n0, _SRc,
   0,
-  [_N, _De, _Ac, _Tr],
-  [0, 0, () => ScalingAction$, () => ScalingTrigger$]
+  [_N, _Ac, _Tr, _De],
+  [0, () => ScalingAction$, () => ScalingTrigger$, 0], 3
 ];
 export var ScalingTrigger$: StaticStructureSchema = [3, n0, _STc,
   0,
   [_CWAD],
-  [() => CloudWatchAlarmDefinition$]
+  [() => CloudWatchAlarmDefinition$], 1
 ];
 export var ScriptBootstrapActionConfig$: StaticStructureSchema = [3, n0, _SBAC,
   0,
   [_Pa, _Ar],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var SecurityConfigurationSummary$: StaticStructureSchema = [3, n0, _SCS,
   0,
@@ -1584,22 +1584,22 @@ export var SessionMappingSummary$: StaticStructureSchema = [3, n0, _SMS,
 export var SetKeepJobFlowAliveWhenNoStepsInput$: StaticStructureSchema = [3, n0, _SKJFAWNSI,
   0,
   [_JFIo, _KJFAWNS],
-  [64 | 0, 2]
+  [64 | 0, 2], 2
 ];
 export var SetTerminationProtectionInput$: StaticStructureSchema = [3, n0, _STPI,
   0,
   [_JFIo, _TP],
-  [64 | 0, 2]
+  [64 | 0, 2], 2
 ];
 export var SetUnhealthyNodeReplacementInput$: StaticStructureSchema = [3, n0, _SUNRI,
   0,
   [_JFIo, _UNR],
-  [64 | 0, 2]
+  [64 | 0, 2], 2
 ];
 export var SetVisibleToAllUsersInput$: StaticStructureSchema = [3, n0, _SVTAUI,
   0,
   [_JFIo, _VTAU],
-  [64 | 0, 2]
+  [64 | 0, 2], 2
 ];
 export var ShrinkPolicy$: StaticStructureSchema = [3, n0, _SPh,
   0,
@@ -1608,8 +1608,8 @@ export var ShrinkPolicy$: StaticStructureSchema = [3, n0, _SPh,
 ];
 export var SimpleScalingPolicyConfiguration$: StaticStructureSchema = [3, n0, _SSPC,
   0,
-  [_ATd, _SAc, _CD],
-  [0, 1, 1]
+  [_SAc, _ATd, _CD],
+  [1, 0, 1], 1
 ];
 export var SimplifiedApplication$: StaticStructureSchema = [3, n0, _SAi,
   0,
@@ -1619,7 +1619,7 @@ export var SimplifiedApplication$: StaticStructureSchema = [3, n0, _SAi,
 export var SpotProvisioningSpecification$: StaticStructureSchema = [3, n0, _SPS,
   0,
   [_TDM, _TA, _BDM, _AS],
-  [1, 0, 1, 0]
+  [1, 0, 1, 0], 2
 ];
 export var SpotResizingSpecification$: StaticStructureSchema = [3, n0, _SRSp,
   0,
@@ -1628,8 +1628,8 @@ export var SpotResizingSpecification$: StaticStructureSchema = [3, n0, _SRSp,
 ];
 export var StartNotebookExecutionInput$: StaticStructureSchema = [3, n0, _SNEI,
   0,
-  [_EI, _RP, _NEN, _NP, _EE, _SR, _NISGI, _T, _NSL, _ONSL, _ONF, _EVn],
-  [0, 0, 0, 0, () => ExecutionEngineConfig$, 0, 0, () => TagList, () => NotebookS3LocationFromInput$, () => OutputNotebookS3LocationFromInput$, 0, 128 | 0]
+  [_EE, _SR, _EI, _RP, _NEN, _NP, _NISGI, _T, _NSL, _ONSL, _ONF, _EVn],
+  [() => ExecutionEngineConfig$, 0, 0, 0, 0, 0, 0, () => TagList, () => NotebookS3LocationFromInput$, () => OutputNotebookS3LocationFromInput$, 0, 128 | 0], 2
 ];
 export var StartNotebookExecutionOutput$: StaticStructureSchema = [3, n0, _SNEO,
   0,
@@ -1643,18 +1643,18 @@ export var Step$: StaticStructureSchema = [3, n0, _Ste,
 ];
 export var StepConfig$: StaticStructureSchema = [3, n0, _SCt,
   0,
-  [_N, _AOF, _HJS, _SMCt],
-  [0, 0, () => HadoopJarStepConfig$, () => StepMonitoringConfiguration$]
+  [_N, _HJS, _AOF, _SMCt],
+  [0, () => HadoopJarStepConfig$, 0, () => StepMonitoringConfiguration$], 2
 ];
 export var StepDetail$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_SCt, _ESD],
-  [() => StepConfig$, () => StepExecutionStatusDetail$]
+  [() => StepConfig$, () => StepExecutionStatusDetail$], 2
 ];
 export var StepExecutionStatusDetail$: StaticStructureSchema = [3, n0, _SESD,
   0,
   [_Sta, _CDT, _SDT, _EDT, _LSCR],
-  [0, 4, 4, 4, 0]
+  [0, 4, 4, 4, 0], 2
 ];
 export var StepMonitoringConfiguration$: StaticStructureSchema = [3, n0, _SMCt,
   0,
@@ -1684,7 +1684,7 @@ export var StepTimeline$: StaticStructureSchema = [3, n0, _STt,
 export var StopNotebookExecutionInput$: StaticStructureSchema = [3, n0, _SNEIt,
   0,
   [_NEI],
-  [0]
+  [0], 1
 ];
 export var Studio$: StaticStructureSchema = [3, n0, _Stu,
   0,
@@ -1714,17 +1714,17 @@ export var Tag$: StaticStructureSchema = [3, n0, _Ta,
 export var TerminateJobFlowsInput$: StaticStructureSchema = [3, n0, _TJFI,
   0,
   [_JFIo],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var UpdateStudioInput$: StaticStructureSchema = [3, n0, _USI,
   0,
   [_SItu, _N, _De, _SIu, _DSL, _EKA],
-  [0, 0, 0, 64 | 0, 0, 0]
+  [0, 0, 0, 64 | 0, 0, 0], 1
 ];
 export var UpdateStudioSessionMappingInput$: StaticStructureSchema = [3, n0, _USSMI,
   0,
-  [_SItu, _II, _IN, _ITd, _SPA],
-  [0, 0, 0, 0, 0]
+  [_SItu, _ITd, _SPA, _II, _IN],
+  [0, 0, 0, 0, 0], 3
 ];
 export var UsernamePassword$: StaticStructureSchema = [3, n0, _UP,
   8,
@@ -1733,8 +1733,8 @@ export var UsernamePassword$: StaticStructureSchema = [3, n0, _UP,
 ];
 export var VolumeSpecification$: StaticStructureSchema = [3, n0, _VS,
   0,
-  [_VT, _Io, _SIGB, _Thr],
-  [0, 1, 1, 1]
+  [_VT, _SIGB, _Io, _Thr],
+  [0, 1, 1, 1], 2
 ];
 var __Unit = "unit" as const;
 export var EMRServiceException$: StaticErrorSchema = [-3, _sm, "EMRServiceException", 0, [], []];

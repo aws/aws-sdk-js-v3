@@ -921,7 +921,7 @@ export var ActionGroupInvocationOutput$: StaticStructureSchema = [3, n0, _AGIO,
 export var AgentActionGroup$: StaticStructureSchema = [3, n0, _AAG,
   0,
   [_aGN, _d, _pAGS, _aGE, _aS, _fS, _pAGSP],
-  [[() => ResourceName, 0], [() => ResourceDescription, 0], 0, () => ActionGroupExecutor$, [() => APISchema$, 0], [() => FunctionSchema$, 0], 128 | 0]
+  [[() => ResourceName, 0], [() => ResourceDescription, 0], 0, () => ActionGroupExecutor$, [() => APISchema$, 0], [() => FunctionSchema$, 0], 128 | 0], 1
 ];
 export var AgentCollaboratorInputPayload$: StaticStructureSchema = [3, n0, _ACIP,
   0,
@@ -951,7 +951,7 @@ export var AnalyzePromptEvent$: StaticStructureSchema = [3, n0, _APE,
 export var ApiInvocationInput$: StaticStructureSchema = [3, n0, _AII,
   0,
   [_aG, _hM, _aP, _p, _rB, _aIT, _aI, _cN],
-  [0, 0, [() => ApiPath, 0], () => ApiParameters, () => ApiRequestBody$, 0, 0, [() => Name, 0]]
+  [0, 0, [() => ApiPath, 0], () => ApiParameters, () => ApiRequestBody$, 0, 0, [() => Name, 0]], 1
 ];
 export var ApiParameter$: StaticStructureSchema = [3, n0, _APp,
   0,
@@ -966,7 +966,7 @@ export var ApiRequestBody$: StaticStructureSchema = [3, n0, _ARB,
 export var ApiResult$: StaticStructureSchema = [3, n0, _AR,
   0,
   [_aG, _hM, _aP, _cS, _rS, _hSC, _rBe, _aI],
-  [0, 0, [() => ApiPath, 0], 0, 0, 1, () => ResponseBody, 0]
+  [0, 0, [() => ApiPath, 0], 0, 0, 1, () => ResponseBody, 0], 1
 ];
 export var Attribution$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -976,7 +976,7 @@ export var Attribution$: StaticStructureSchema = [3, n0, _A,
 export var AudioSegment$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_sU, _tr],
-  [0, 0]
+  [0, 0], 1
 ];
 export var BadGatewayException$: StaticErrorSchema = [-3, n0, _BGE,
   { [_e]: _s, [_hE]: 502 },
@@ -991,23 +991,23 @@ export var BedrockModelConfigurations$: StaticStructureSchema = [3, n0, _BMC,
 ];
 export var BedrockRerankingConfiguration$: StaticStructureSchema = [3, n0, _BRC,
   0,
-  [_nOR, _mC],
-  [1, () => BedrockRerankingModelConfiguration$]
+  [_mC, _nOR],
+  [() => BedrockRerankingModelConfiguration$, 1], 1
 ];
 export var BedrockRerankingModelConfiguration$: StaticStructureSchema = [3, n0, _BRMC,
   0,
   [_mA, _aMRF],
-  [0, 128 | 15]
+  [0, 128 | 15], 1
 ];
 export var ByteContentDoc$: StaticStructureSchema = [3, n0, _BCD,
   0,
   [_id, _cT, _da],
-  [[() => Identifier, 0], 0, [() => ByteContentBlob, 0]]
+  [[() => Identifier, 0], 0, [() => ByteContentBlob, 0]], 3
 ];
 export var ByteContentFile$: StaticStructureSchema = [3, n0, _BCF,
   0,
   [_mT, _da],
-  [0, [() => ByteContentBlob, 0]]
+  [0, [() => ByteContentBlob, 0]], 2
 ];
 export var Citation$: StaticStructureSchema = [3, n0, _C,
   0,
@@ -1031,18 +1031,18 @@ export var CodeInterpreterInvocationOutput$: StaticStructureSchema = [3, n0, _CI
 ];
 export var Collaborator$: StaticStructureSchema = [3, n0, _Co,
   0,
-  [_cEKA, _fM, _in, _iSTTLIS, _aGc, _kB, _gC, _pOC, _aC, _cC, _aN],
-  [0, 0, [() => Instruction, 0], 1, [() => AgentActionGroups, 0], [() => KnowledgeBases, 0], () => GuardrailConfigurationWithArn$, [() => PromptOverrideConfiguration$, 0], 0, [() => CollaboratorConfigurations, 0], [() => Name, 0]]
+  [_fM, _in, _cEKA, _iSTTLIS, _aGc, _kB, _gC, _pOC, _aC, _cC, _aN],
+  [0, [() => Instruction, 0], 0, 1, [() => AgentActionGroups, 0], [() => KnowledgeBases, 0], () => GuardrailConfigurationWithArn$, [() => PromptOverrideConfiguration$, 0], 0, [() => CollaboratorConfigurations, 0], [() => Name, 0]], 2
 ];
 export var CollaboratorConfiguration$: StaticStructureSchema = [3, n0, _CC,
   0,
   [_cN, _cI, _aAA, _rCH],
-  [[() => Name, 0], [() => CollaborationInstruction, 0], 0, 0]
+  [[() => Name, 0], [() => CollaborationInstruction, 0], 0, 0], 2
 ];
 export var ConditionResultEvent$: StaticStructureSchema = [3, n0, _CRE,
   8,
   [_nN, _ti, _sC],
-  [0, 5, [() => SatisfiedConditions, 0]]
+  [0, 5, [() => SatisfiedConditions, 0]], 3
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
   { [_e]: _c, [_hE]: 409 },
@@ -1062,13 +1062,13 @@ export var ConversationHistory$: StaticStructureSchema = [3, n0, _CH,
 ];
 export var CreateInvocationRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
-  [_iI, _d, _sI],
-  [0, 0, [0, 1]]
+  [_sI, _iI, _d],
+  [[0, 1], 0, 0], 1
 ];
 export var CreateInvocationResponse$: StaticStructureSchema = [3, n0, _CIRr,
   0,
   [_sIe, _iI, _cA],
-  [0, 0, 5]
+  [0, 0, 5], 3
 ];
 export var CreateSessionRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
@@ -1078,7 +1078,7 @@ export var CreateSessionRequest$: StaticStructureSchema = [3, n0, _CSR,
 export var CreateSessionResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
   [_sIe, _sA, _sS, _cA],
-  [0, 0, 0, 5]
+  [0, 0, 0, 5], 4
 ];
 export var CustomOrchestration$: StaticStructureSchema = [3, n0, _CO,
   0,
@@ -1098,7 +1098,7 @@ export var CustomOrchestrationTraceEvent$: StaticStructureSchema = [3, n0, _COTE
 export var DeleteAgentMemoryRequest$: StaticStructureSchema = [3, n0, _DAMR,
   0,
   [_aI, _aAI, _mI, _sIe],
-  [[0, 1], [0, 1], [0, { [_hQ]: _mI }], [0, { [_hQ]: _sIe }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _mI }], [0, { [_hQ]: _sIe }]], 2
 ];
 export var DeleteAgentMemoryResponse$: StaticStructureSchema = [3, n0, _DAMRe,
   0,
@@ -1108,7 +1108,7 @@ export var DeleteAgentMemoryResponse$: StaticStructureSchema = [3, n0, _DAMRe,
 export var DeleteSessionRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_sI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteSessionResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
@@ -1124,17 +1124,17 @@ TypeRegistry.for(n0).registerError(DependencyFailedException$, DependencyFailedE
 export var EndSessionRequest$: StaticStructureSchema = [3, n0, _ESR,
   0,
   [_sI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var EndSessionResponse$: StaticStructureSchema = [3, n0, _ESRn,
   0,
   [_sIe, _sA, _sS],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ExternalSource$: StaticStructureSchema = [3, n0, _ES,
   0,
   [_sT, _sL, _bC],
-  [0, () => S3ObjectDoc$, [() => ByteContentDoc$, 0]]
+  [0, () => S3ObjectDoc$, [() => ByteContentDoc$, 0]], 1
 ];
 export var ExternalSourcesGenerationConfiguration$: StaticStructureSchema = [3, n0, _ESGC,
   0,
@@ -1144,7 +1144,7 @@ export var ExternalSourcesGenerationConfiguration$: StaticStructureSchema = [3, 
 export var ExternalSourcesRetrieveAndGenerateConfiguration$: StaticStructureSchema = [3, n0, _ESRAGC,
   0,
   [_mA, _so, _gCe],
-  [0, [() => ExternalSources, 0], [() => ExternalSourcesGenerationConfiguration$, 0]]
+  [0, [() => ExternalSources, 0], [() => ExternalSourcesGenerationConfiguration$, 0]], 2
 ];
 export var FailureTrace$: StaticStructureSchema = [3, n0, _FT,
   8,
@@ -1154,7 +1154,7 @@ export var FailureTrace$: StaticStructureSchema = [3, n0, _FT,
 export var FieldForReranking$: StaticStructureSchema = [3, n0, _FFR,
   0,
   [_fN],
-  [0]
+  [0], 1
 ];
 export var FilePart$: StaticStructureSchema = [3, n0, _FP,
   0,
@@ -1164,12 +1164,12 @@ export var FilePart$: StaticStructureSchema = [3, n0, _FP,
 export var FileSource$: StaticStructureSchema = [3, n0, _FS,
   0,
   [_sT, _sL, _bC],
-  [0, () => S3ObjectFile$, [() => ByteContentFile$, 0]]
+  [0, () => S3ObjectFile$, [() => ByteContentFile$, 0]], 1
 ];
 export var FilterAttribute$: StaticStructureSchema = [3, n0, _FA,
   0,
   [_k, _va],
-  [0, 15]
+  [0, 15], 2
 ];
 export var FinalResponse$: StaticStructureSchema = [3, n0, _FR,
   0,
@@ -1179,7 +1179,7 @@ export var FinalResponse$: StaticStructureSchema = [3, n0, _FR,
 export var FlowCompletionEvent$: StaticStructureSchema = [3, n0, _FCE,
   8,
   [_cR],
-  [0]
+  [0], 1
 ];
 export var FlowExecutionError$: StaticStructureSchema = [3, n0, _FEE,
   0,
@@ -1189,117 +1189,117 @@ export var FlowExecutionError$: StaticStructureSchema = [3, n0, _FEE,
 export var FlowExecutionInputEvent$: StaticStructureSchema = [3, n0, _FEIE,
   8,
   [_nN, _ti, _fie],
-  [0, 5, [() => FlowInputFields, 0]]
+  [0, 5, [() => FlowInputFields, 0]], 3
 ];
 export var FlowExecutionOutputEvent$: StaticStructureSchema = [3, n0, _FEOE,
   8,
   [_nN, _ti, _fie],
-  [0, 5, [() => FlowOutputFields, 0]]
+  [0, 5, [() => FlowOutputFields, 0]], 3
 ];
 export var FlowExecutionSummary$: StaticStructureSchema = [3, n0, _FES,
   0,
   [_eA, _fAI, _fI, _fV, _st, _cA, _eAn],
-  [0, 0, 0, 0, 0, 5, 5]
+  [0, 0, 0, 0, 0, 5, 5], 6
 ];
 export var FlowFailureEvent$: StaticStructureSchema = [3, n0, _FFE,
   8,
   [_ti, _eC, _eM],
-  [5, 0, 0]
+  [5, 0, 0], 3
 ];
 export var FlowInput$: StaticStructureSchema = [3, n0, _FI,
   0,
-  [_nN, _nON, _co, _nIN],
-  [0, 0, [() => FlowInputContent$, 0], 0]
+  [_nN, _co, _nON, _nIN],
+  [0, [() => FlowInputContent$, 0], 0, 0], 2
 ];
 export var FlowInputField$: StaticStructureSchema = [3, n0, _FIF,
   8,
   [_n, _co],
-  [0, [() => FlowExecutionContent$, 0]]
+  [0, [() => FlowExecutionContent$, 0]], 2
 ];
 export var FlowMultiTurnInputRequestEvent$: StaticStructureSchema = [3, n0, _FMTIRE,
   8,
   [_nN, _nT, _co],
-  [0, 0, () => FlowMultiTurnInputContent$]
+  [0, 0, () => FlowMultiTurnInputContent$], 3
 ];
 export var FlowOutputEvent$: StaticStructureSchema = [3, n0, _FOE,
   8,
   [_nN, _nT, _co],
-  [0, 0, () => FlowOutputContent$]
+  [0, 0, () => FlowOutputContent$], 3
 ];
 export var FlowOutputField$: StaticStructureSchema = [3, n0, _FOF,
   8,
   [_n, _co],
-  [0, [() => FlowExecutionContent$, 0]]
+  [0, [() => FlowExecutionContent$, 0]], 2
 ];
 export var FlowTraceCondition$: StaticStructureSchema = [3, n0, _FTC,
   8,
   [_cNo],
-  [0]
+  [0], 1
 ];
 export var FlowTraceConditionNodeResultEvent$: StaticStructureSchema = [3, n0, _FTCNRE,
   8,
   [_nN, _ti, _sC],
-  [0, 5, [() => FlowTraceConditions, 0]]
+  [0, 5, [() => FlowTraceConditions, 0]], 3
 ];
 export var FlowTraceDependencyEvent$: StaticStructureSchema = [3, n0, _FTDE,
   8,
   [_nN, _ti, _tE],
-  [0, 5, [() => TraceElements$, 0]]
+  [0, 5, [() => TraceElements$, 0]], 3
 ];
 export var FlowTraceEvent$: StaticStructureSchema = [3, n0, _FTE,
   0,
   [_tra],
-  [[() => FlowTrace$, 0]]
+  [[() => FlowTrace$, 0]], 1
 ];
 export var FlowTraceNodeActionEvent$: StaticStructureSchema = [3, n0, _FTNAE,
   8,
   [_nN, _ti, _rI, _sN, _oN, _oR, _oRp],
-  [0, 5, 0, 0, 0, 15, 15]
+  [0, 5, 0, 0, 0, 15, 15], 5
 ];
 export var FlowTraceNodeInputEvent$: StaticStructureSchema = [3, n0, _FTNIE,
   8,
   [_nN, _ti, _fie],
-  [0, 5, [() => FlowTraceNodeInputFields, 0]]
+  [0, 5, [() => FlowTraceNodeInputFields, 0]], 3
 ];
 export var FlowTraceNodeInputExecutionChainItem$: StaticStructureSchema = [3, n0, _FTNIECI,
   8,
-  [_nN, _ind, _ty],
-  [0, 1, 0]
+  [_nN, _ty, _ind],
+  [0, 0, 1], 2
 ];
 export var FlowTraceNodeInputField$: StaticStructureSchema = [3, n0, _FTNIF,
   8,
   [_nIN, _co, _sou, _ty, _ca, _eCx],
-  [0, [() => FlowTraceNodeInputContent$, 0], [() => FlowTraceNodeInputSource$, 0], 0, 0, [() => FlowTraceNodeInputExecutionChain, 0]]
+  [0, [() => FlowTraceNodeInputContent$, 0], [() => FlowTraceNodeInputSource$, 0], 0, 0, [() => FlowTraceNodeInputExecutionChain, 0]], 2
 ];
 export var FlowTraceNodeInputSource$: StaticStructureSchema = [3, n0, _FTNIS,
   8,
   [_nN, _oFN, _exp],
-  [0, 0, [() => FlowNodeInputExpression, 0]]
+  [0, 0, [() => FlowNodeInputExpression, 0]], 3
 ];
 export var FlowTraceNodeOutputEvent$: StaticStructureSchema = [3, n0, _FTNOE,
   8,
   [_nN, _ti, _fie],
-  [0, 5, [() => FlowTraceNodeOutputFields, 0]]
+  [0, 5, [() => FlowTraceNodeOutputFields, 0]], 3
 ];
 export var FlowTraceNodeOutputField$: StaticStructureSchema = [3, n0, _FTNOF,
   8,
   [_nON, _co, _ne, _ty],
-  [0, () => FlowTraceNodeOutputContent$, [() => FlowTraceNodeOutputNextList, 0], 0]
+  [0, () => FlowTraceNodeOutputContent$, [() => FlowTraceNodeOutputNextList, 0], 0], 2
 ];
 export var FlowTraceNodeOutputNext$: StaticStructureSchema = [3, n0, _FTNON,
   8,
   [_nN, _iFN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var FunctionDefinition$: StaticStructureSchema = [3, n0, _FD,
   0,
   [_n, _d, _p, _rC],
-  [[() => ResourceName, 0], 0, () => ParameterMap, 0]
+  [[() => ResourceName, 0], 0, () => ParameterMap, 0], 1
 ];
 export var FunctionInvocationInput$: StaticStructureSchema = [3, n0, _FII,
   0,
   [_aG, _p, _f, _aIT, _aI, _cN],
-  [0, () => FunctionParameters, 0, 0, 0, [() => Name, 0]]
+  [0, () => FunctionParameters, 0, 0, 0, [() => Name, 0]], 1
 ];
 export var FunctionParameter$: StaticStructureSchema = [3, n0, _FPu,
   0,
@@ -1309,7 +1309,7 @@ export var FunctionParameter$: StaticStructureSchema = [3, n0, _FPu,
 export var FunctionResult$: StaticStructureSchema = [3, n0, _FRu,
   0,
   [_aG, _cS, _f, _rBe, _rS, _aI],
-  [0, 0, 0, () => ResponseBody, 0, 0]
+  [0, 0, 0, () => ResponseBody, 0, 0], 1
 ];
 export var GeneratedQuery$: StaticStructureSchema = [3, n0, _GQ,
   8,
@@ -1324,7 +1324,7 @@ export var GeneratedResponsePart$: StaticStructureSchema = [3, n0, _GRP,
 export var GenerateQueryRequest$: StaticStructureSchema = [3, n0, _GQR,
   0,
   [_qGI, _tC],
-  [[() => QueryGenerationInput$, 0], () => TransformationConfiguration$]
+  [[() => QueryGenerationInput$, 0], () => TransformationConfiguration$], 2
 ];
 export var GenerateQueryResponse$: StaticStructureSchema = [3, n0, _GQRe,
   0,
@@ -1338,8 +1338,8 @@ export var GenerationConfiguration$: StaticStructureSchema = [3, n0, _GC,
 ];
 export var GetAgentMemoryRequest$: StaticStructureSchema = [3, n0, _GAMR,
   0,
-  [_nTe, _mIa, _aI, _aAI, _mTe, _mI],
-  [[0, { [_hQ]: _nTe }], [1, { [_hQ]: _mIa }], [0, 1], [0, 1], [0, { [_hQ]: _mTe }], [0, { [_hQ]: _mI }]]
+  [_aI, _aAI, _mTe, _mI, _nTe, _mIa],
+  [[0, 1], [0, 1], [0, { [_hQ]: _mTe }], [0, { [_hQ]: _mI }], [0, { [_hQ]: _nTe }], [1, { [_hQ]: _mIa }]], 4
 ];
 export var GetAgentMemoryResponse$: StaticStructureSchema = [3, n0, _GAMRe,
   0,
@@ -1349,42 +1349,42 @@ export var GetAgentMemoryResponse$: StaticStructureSchema = [3, n0, _GAMRe,
 export var GetExecutionFlowSnapshotRequest$: StaticStructureSchema = [3, n0, _GEFSR,
   0,
   [_fI, _fAI, _eI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetExecutionFlowSnapshotResponse$: StaticStructureSchema = [3, n0, _GEFSRe,
   0,
   [_fI, _fAI, _fV, _eRA, _de, _cEKA],
-  [0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0], 5
 ];
 export var GetFlowExecutionRequest$: StaticStructureSchema = [3, n0, _GFER,
   0,
   [_fI, _fAI, _eI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetFlowExecutionResponse$: StaticStructureSchema = [3, n0, _GFERe,
   0,
-  [_eA, _st, _sAt, _eAn, _er, _fAI, _fI, _fV],
-  [0, 0, 5, 5, () => FlowExecutionErrors, 0, 0, 0]
+  [_eA, _st, _sAt, _fAI, _fI, _fV, _eAn, _er],
+  [0, 0, 5, 0, 0, 0, 5, () => FlowExecutionErrors], 6
 ];
 export var GetInvocationStepRequest$: StaticStructureSchema = [3, n0, _GISR,
   0,
   [_iIn, _iSI, _sI],
-  [0, [0, 1], [0, 1]]
+  [0, [0, 1], [0, 1]], 3
 ];
 export var GetInvocationStepResponse$: StaticStructureSchema = [3, n0, _GISRe,
   0,
   [_iS],
-  [[() => InvocationStep$, 0]]
+  [[() => InvocationStep$, 0]], 1
 ];
 export var GetSessionRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_sI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSessionResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
   [_sIe, _sA, _sS, _cA, _lUA, _sM, _eKA],
-  [0, 0, 0, 5, 5, 128 | 0, 0]
+  [0, 0, 0, 5, 5, 128 | 0, 0], 5
 ];
 export var GuardrailAssessment$: StaticStructureSchema = [3, n0, _GA,
   8,
@@ -1394,12 +1394,12 @@ export var GuardrailAssessment$: StaticStructureSchema = [3, n0, _GA,
 export var GuardrailConfiguration$: StaticStructureSchema = [3, n0, _GCu,
   0,
   [_gI, _gV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GuardrailConfigurationWithArn$: StaticStructureSchema = [3, n0, _GCWA,
   0,
   [_gIu, _gV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GuardrailContentFilter$: StaticStructureSchema = [3, n0, _GCF,
   8,
@@ -1464,17 +1464,17 @@ export var GuardrailWordPolicyAssessment$: StaticStructureSchema = [3, n0, _GWPA
 export var ImageBlock$: StaticStructureSchema = [3, n0, _IB,
   0,
   [_fo, _sou],
-  [0, () => ImageSource$]
+  [0, () => ImageSource$], 2
 ];
 export var ImageInput$: StaticStructureSchema = [3, n0, _II,
   0,
   [_fo, _sou],
-  [0, () => ImageInputSource$]
+  [0, () => ImageInputSource$], 2
 ];
 export var ImplicitFilterConfiguration$: StaticStructureSchema = [3, n0, _IFC,
   0,
   [_mAe, _mA],
-  [[() => MetadataAttributeSchemaList, 0], 0]
+  [[() => MetadataAttributeSchemaList, 0], 0], 2
 ];
 export var InferenceConfig$: StaticStructureSchema = [3, n0, _IC,
   0,
@@ -1519,12 +1519,12 @@ export var InlineSessionState$: StaticStructureSchema = [3, n0, _ISS,
 export var InputFile$: StaticStructureSchema = [3, n0, _IF,
   0,
   [_n, _sou, _uC],
-  [0, [() => FileSource$, 0], 0]
+  [0, [() => FileSource$, 0], 0], 3
 ];
 export var InputImage$: StaticStructureSchema = [3, n0, _IIn,
   0,
   [_fo, _iCn],
-  [0, [() => ByteContentBlob, 0]]
+  [0, [() => ByteContentBlob, 0]], 2
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
@@ -1540,57 +1540,57 @@ export var InvocationInput$: StaticStructureSchema = [3, n0, _IInv,
 export var InvocationStep$: StaticStructureSchema = [3, n0, _IS,
   0,
   [_sIe, _iI, _iSI, _iST, _pa],
-  [0, 0, 0, 5, [() => InvocationStepPayload$, 0]]
+  [0, 0, 0, 5, [() => InvocationStepPayload$, 0]], 5
 ];
 export var InvocationStepSummary$: StaticStructureSchema = [3, n0, _ISSn,
   0,
   [_sIe, _iI, _iSI, _iST],
-  [0, 0, 0, 5]
+  [0, 0, 0, 5], 4
 ];
 export var InvocationSummary$: StaticStructureSchema = [3, n0, _ISn,
   0,
   [_sIe, _iI, _cA],
-  [0, 0, 5]
+  [0, 0, 5], 3
 ];
 export var InvokeAgentRequest$: StaticStructureSchema = [3, n0, _IAR,
   0,
-  [_sSe, _aI, _aAI, _sIe, _eS, _eTn, _iTn, _mI, _bMC, _sCt, _pCC, _sAo],
-  [[() => SessionState$, 0], [0, 1], [0, 1], [0, 1], 2, 2, [() => InputText, 0], 0, () => BedrockModelConfigurations$, () => StreamingConfigurations$, () => PromptCreationConfigurations$, [0, { [_hH]: _xasa }]]
+  [_aI, _aAI, _sIe, _sSe, _eS, _eTn, _iTn, _mI, _bMC, _sCt, _pCC, _sAo],
+  [[0, 1], [0, 1], [0, 1], [() => SessionState$, 0], 2, 2, [() => InputText, 0], 0, () => BedrockModelConfigurations$, () => StreamingConfigurations$, () => PromptCreationConfigurations$, [0, { [_hH]: _xasa }]], 3
 ];
 export var InvokeAgentResponse$: StaticStructureSchema = [3, n0, _IARn,
   0,
   [_com, _cT, _sIe, _mI],
-  [[() => ResponseStream$, 16], [0, { [_hH]: _xabact }], [0, { [_hH]: _xabasi }], [0, { [_hH]: _xabami }]]
+  [[() => ResponseStream$, 16], [0, { [_hH]: _xabact }], [0, { [_hH]: _xabasi }], [0, { [_hH]: _xabami }]], 3
 ];
 export var InvokeFlowRequest$: StaticStructureSchema = [3, n0, _IFR,
   0,
   [_fI, _fAI, _inp, _eTn, _mPC, _eIx],
-  [[0, 1], [0, 1], [() => FlowInputs, 0], 2, () => ModelPerformanceConfiguration$, 0]
+  [[0, 1], [0, 1], [() => FlowInputs, 0], 2, () => ModelPerformanceConfiguration$, 0], 3
 ];
 export var InvokeFlowResponse$: StaticStructureSchema = [3, n0, _IFRn,
   0,
   [_rSe, _eIx],
-  [[() => FlowResponseStream$, 16], [0, { [_hH]: _xabfei }]]
+  [[() => FlowResponseStream$, 16], [0, { [_hH]: _xabfei }]], 1
 ];
 export var InvokeInlineAgentRequest$: StaticStructureSchema = [3, n0, _IIAR,
   0,
-  [_cEKA, _fM, _in, _iSTTLIS, _aGc, _kB, _gC, _pOC, _aC, _cC, _aN, _sIe, _eS, _eTn, _iTn, _sCt, _pCC, _iSS, _col, _bMC, _oT, _cO],
-  [0, 0, [() => Instruction, 0], 1, [() => AgentActionGroups, 0], [() => KnowledgeBases, 0], () => GuardrailConfigurationWithArn$, [() => PromptOverrideConfiguration$, 0], 0, [() => CollaboratorConfigurations, 0], [() => Name, 0], [0, 1], 2, 2, [() => InputText, 0], () => StreamingConfigurations$, () => PromptCreationConfigurations$, [() => InlineSessionState$, 0], [() => Collaborators, 0], () => InlineBedrockModelConfigurations$, 0, () => CustomOrchestration$]
+  [_fM, _in, _sIe, _cEKA, _iSTTLIS, _aGc, _kB, _gC, _pOC, _aC, _cC, _aN, _eS, _eTn, _iTn, _sCt, _pCC, _iSS, _col, _bMC, _oT, _cO],
+  [0, [() => Instruction, 0], [0, 1], 0, 1, [() => AgentActionGroups, 0], [() => KnowledgeBases, 0], () => GuardrailConfigurationWithArn$, [() => PromptOverrideConfiguration$, 0], 0, [() => CollaboratorConfigurations, 0], [() => Name, 0], 2, 2, [() => InputText, 0], () => StreamingConfigurations$, () => PromptCreationConfigurations$, [() => InlineSessionState$, 0], [() => Collaborators, 0], () => InlineBedrockModelConfigurations$, 0, () => CustomOrchestration$], 3
 ];
 export var InvokeInlineAgentResponse$: StaticStructureSchema = [3, n0, _IIARn,
   0,
   [_com, _cT, _sIe],
-  [[() => InlineAgentResponseStream$, 16], [0, { [_hH]: _xabact }], [0, { [_hH]: _xabasi }]]
+  [[() => InlineAgentResponseStream$, 16], [0, { [_hH]: _xabact }], [0, { [_hH]: _xabasi }]], 3
 ];
 export var KnowledgeBase$: StaticStructureSchema = [3, n0, _KB,
   0,
   [_kBI, _d, _rCe],
-  [0, [() => ResourceDescription, 0], [() => KnowledgeBaseRetrievalConfiguration$, 0]]
+  [0, [() => ResourceDescription, 0], [() => KnowledgeBaseRetrievalConfiguration$, 0]], 2
 ];
 export var KnowledgeBaseConfiguration$: StaticStructureSchema = [3, n0, _KBC,
   0,
   [_kBI, _rCe],
-  [0, [() => KnowledgeBaseRetrievalConfiguration$, 0]]
+  [0, [() => KnowledgeBaseRetrievalConfiguration$, 0]], 2
 ];
 export var KnowledgeBaseLookupInput$: StaticStructureSchema = [3, n0, _KBLI,
   0,
@@ -1610,17 +1610,17 @@ export var KnowledgeBaseQuery$: StaticStructureSchema = [3, n0, _KBQ,
 export var KnowledgeBaseRetrievalConfiguration$: StaticStructureSchema = [3, n0, _KBRC,
   0,
   [_vSC],
-  [[() => KnowledgeBaseVectorSearchConfiguration$, 0]]
+  [[() => KnowledgeBaseVectorSearchConfiguration$, 0]], 1
 ];
 export var KnowledgeBaseRetrievalResult$: StaticStructureSchema = [3, n0, _KBRR,
   0,
   [_co, _l, _sc, _me],
-  [[() => RetrievalResultContent$, 0], [() => RetrievalResultLocation$, 0], 1, [() => RetrievalResultMetadata, 0]]
+  [[() => RetrievalResultContent$, 0], [() => RetrievalResultLocation$, 0], 1, [() => RetrievalResultMetadata, 0]], 1
 ];
 export var KnowledgeBaseRetrieveAndGenerateConfiguration$: StaticStructureSchema = [3, n0, _KBRAGC,
   0,
   [_kBI, _mA, _rCe, _gCe, _oC],
-  [0, 0, [() => KnowledgeBaseRetrievalConfiguration$, 0], [() => GenerationConfiguration$, 0], [() => OrchestrationConfiguration$, 0]]
+  [0, 0, [() => KnowledgeBaseRetrievalConfiguration$, 0], [() => GenerationConfiguration$, 0], [() => OrchestrationConfiguration$, 0]], 2
 ];
 export var KnowledgeBaseVectorSearchConfiguration$: StaticStructureSchema = [3, n0, _KBVSC,
   0,
@@ -1629,43 +1629,43 @@ export var KnowledgeBaseVectorSearchConfiguration$: StaticStructureSchema = [3, 
 ];
 export var ListFlowExecutionEventsRequest$: StaticStructureSchema = [3, n0, _LFEER,
   0,
-  [_fI, _fAI, _eI, _mR, _nTe, _eTve],
-  [[0, 1], [0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }], [0, { [_hQ]: _eTve }]]
+  [_fI, _fAI, _eI, _eTve, _mR, _nTe],
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _eTve }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }]], 4
 ];
 export var ListFlowExecutionEventsResponse$: StaticStructureSchema = [3, n0, _LFEERi,
   0,
   [_fEE, _nTe],
-  [[() => FlowExecutionEvents, 0], 0]
+  [[() => FlowExecutionEvents, 0], 0], 1
 ];
 export var ListFlowExecutionsRequest$: StaticStructureSchema = [3, n0, _LFER,
   0,
   [_fI, _fAI, _mR, _nTe],
-  [[0, 1], [0, { [_hQ]: _fAI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }]]
+  [[0, 1], [0, { [_hQ]: _fAI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }]], 1
 ];
 export var ListFlowExecutionsResponse$: StaticStructureSchema = [3, n0, _LFERi,
   0,
   [_fES, _nTe],
-  [() => FlowExecutionSummaries, 0]
+  [() => FlowExecutionSummaries, 0], 1
 ];
 export var ListInvocationsRequest$: StaticStructureSchema = [3, n0, _LIR,
   0,
-  [_nTe, _mR, _sI],
-  [[0, { [_hQ]: _nTe }], [1, { [_hQ]: _mR }], [0, 1]]
+  [_sI, _nTe, _mR],
+  [[0, 1], [0, { [_hQ]: _nTe }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListInvocationsResponse$: StaticStructureSchema = [3, n0, _LIRi,
   0,
   [_iSn, _nTe],
-  [() => InvocationSummaries, 0]
+  [() => InvocationSummaries, 0], 1
 ];
 export var ListInvocationStepsRequest$: StaticStructureSchema = [3, n0, _LISR,
   0,
-  [_iIn, _nTe, _mR, _sI],
-  [0, [0, { [_hQ]: _nTe }], [1, { [_hQ]: _mR }], [0, 1]]
+  [_sI, _iIn, _nTe, _mR],
+  [[0, 1], 0, [0, { [_hQ]: _nTe }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListInvocationStepsResponse$: StaticStructureSchema = [3, n0, _LISRi,
   0,
   [_iSSn, _nTe],
-  [() => InvocationStepSummaries, 0]
+  [() => InvocationStepSummaries, 0], 1
 ];
 export var ListSessionsRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
@@ -1675,12 +1675,12 @@ export var ListSessionsRequest$: StaticStructureSchema = [3, n0, _LSR,
 export var ListSessionsResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
   [_sSes, _nTe],
-  [() => SessionSummaries, 0]
+  [() => SessionSummaries, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1695,7 +1695,7 @@ export var MemorySessionSummary$: StaticStructureSchema = [3, n0, _MSS,
 export var Message$: StaticStructureSchema = [3, n0, _M,
   0,
   [_ro, _co],
-  [0, [() => ContentBlocks, 0]]
+  [0, [() => ContentBlocks, 0]], 2
 ];
 export var Metadata$: StaticStructureSchema = [3, n0, _Me,
   8,
@@ -1705,12 +1705,12 @@ export var Metadata$: StaticStructureSchema = [3, n0, _Me,
 export var MetadataAttributeSchema$: StaticStructureSchema = [3, n0, _MAS,
   8,
   [_k, _ty, _d],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var MetadataConfigurationForReranking$: StaticStructureSchema = [3, n0, _MCFR,
   0,
   [_sMe, _sMC],
-  [0, [() => RerankingMetadataSelectiveModeConfiguration$, 0]]
+  [0, [() => RerankingMetadataSelectiveModeConfiguration$, 0]], 1
 ];
 export var ModelInvocationInput$: StaticStructureSchema = [3, n0, _MII,
   8,
@@ -1731,52 +1731,52 @@ export var ModelPerformanceConfiguration$: StaticStructureSchema = [3, n0, _MPC,
 export var NodeActionEvent$: StaticStructureSchema = [3, n0, _NAE,
   8,
   [_nN, _ti, _rI, _sN, _oN, _oR, _oRp],
-  [0, 5, 0, 0, 0, 15, 15]
+  [0, 5, 0, 0, 0, 15, 15], 5
 ];
 export var NodeDependencyEvent$: StaticStructureSchema = [3, n0, _NDE,
   8,
   [_nN, _ti, _tE],
-  [0, 5, [() => NodeTraceElements$, 0]]
+  [0, 5, [() => NodeTraceElements$, 0]], 3
 ];
 export var NodeFailureEvent$: StaticStructureSchema = [3, n0, _NFE,
   8,
   [_nN, _ti, _eC, _eM],
-  [0, 5, 0, 0]
+  [0, 5, 0, 0], 4
 ];
 export var NodeInputEvent$: StaticStructureSchema = [3, n0, _NIE,
   8,
   [_nN, _ti, _fie],
-  [0, 5, [() => NodeInputFields, 0]]
+  [0, 5, [() => NodeInputFields, 0]], 3
 ];
 export var NodeInputExecutionChainItem$: StaticStructureSchema = [3, n0, _NIECI,
   0,
-  [_nN, _ind, _ty],
-  [0, 1, 0]
+  [_nN, _ty, _ind],
+  [0, 0, 1], 2
 ];
 export var NodeInputField$: StaticStructureSchema = [3, n0, _NIF,
   8,
   [_n, _co, _sou, _ty, _ca, _eCx],
-  [0, [() => NodeExecutionContent$, 0], [() => NodeInputSource$, 0], 0, 0, () => NodeInputExecutionChain]
+  [0, [() => NodeExecutionContent$, 0], [() => NodeInputSource$, 0], 0, 0, () => NodeInputExecutionChain], 2
 ];
 export var NodeInputSource$: StaticStructureSchema = [3, n0, _NIS,
   0,
   [_nN, _oFN, _exp],
-  [0, 0, [() => FlowNodeInputExpression, 0]]
+  [0, 0, [() => FlowNodeInputExpression, 0]], 3
 ];
 export var NodeOutputEvent$: StaticStructureSchema = [3, n0, _NOE,
   8,
   [_nN, _ti, _fie],
-  [0, 5, [() => NodeOutputFields, 0]]
+  [0, 5, [() => NodeOutputFields, 0]], 3
 ];
 export var NodeOutputField$: StaticStructureSchema = [3, n0, _NOF,
   8,
   [_n, _co, _ne, _ty],
-  [0, [() => NodeExecutionContent$, 0], [() => NodeOutputNextList, 0], 0]
+  [0, [() => NodeExecutionContent$, 0], [() => NodeOutputNextList, 0], 0], 2
 ];
 export var NodeOutputNext$: StaticStructureSchema = [3, n0, _NON,
   8,
   [_nN, _iFN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Observation$: StaticStructureSchema = [3, n0, _O,
   8,
@@ -1791,12 +1791,12 @@ export var OptimizedPromptEvent$: StaticStructureSchema = [3, n0, _OPE,
 export var OptimizePromptRequest$: StaticStructureSchema = [3, n0, _OPR,
   0,
   [_i, _tMI],
-  [[() => InputPrompt$, 0], 0]
+  [[() => InputPrompt$, 0], 0], 2
 ];
 export var OptimizePromptResponse$: StaticStructureSchema = [3, n0, _OPRp,
   0,
   [_oP],
-  [[() => OptimizedPromptStream$, 16]]
+  [[() => OptimizedPromptStream$, 16]], 1
 ];
 export var OrchestrationConfiguration$: StaticStructureSchema = [3, n0, _OC,
   0,
@@ -1820,8 +1820,8 @@ export var Parameter$: StaticStructureSchema = [3, n0, _Pa,
 ];
 export var ParameterDetail$: StaticStructureSchema = [3, n0, _PD,
   0,
-  [_d, _ty, _req],
-  [0, 0, 2]
+  [_ty, _d, _req],
+  [0, 0, 2], 1
 ];
 export var PayloadPart$: StaticStructureSchema = [3, n0, _PP,
   8,
@@ -1866,7 +1866,7 @@ export var PromptCreationConfigurations$: StaticStructureSchema = [3, n0, _PCC,
 export var PromptOverrideConfiguration$: StaticStructureSchema = [3, n0, _POC,
   8,
   [_pCr, _oL],
-  [[() => PromptConfigurations, 0], 0]
+  [[() => PromptConfigurations, 0], 0], 1
 ];
 export var PromptTemplate$: StaticStructureSchema = [3, n0, _PTr,
   0,
@@ -1881,22 +1881,22 @@ export var PropertyParameters$: StaticStructureSchema = [3, n0, _PPr,
 export var PutInvocationStepRequest$: StaticStructureSchema = [3, n0, _PISR,
   0,
   [_sI, _iIn, _iST, _pa, _iSI],
-  [[0, 1], 0, 5, [() => InvocationStepPayload$, 0], 0]
+  [[0, 1], 0, 5, [() => InvocationStepPayload$, 0], 0], 4
 ];
 export var PutInvocationStepResponse$: StaticStructureSchema = [3, n0, _PISRu,
   0,
   [_iSI],
-  [0]
+  [0], 1
 ];
 export var QueryGenerationInput$: StaticStructureSchema = [3, n0, _QGI,
   8,
   [_ty, _t],
-  [0, 0]
+  [0, 0], 2
 ];
 export var QueryTransformationConfiguration$: StaticStructureSchema = [3, n0, _QTC,
   0,
   [_ty],
-  [0]
+  [0], 1
 ];
 export var Rationale$: StaticStructureSchema = [3, n0, _R,
   8,
@@ -1911,7 +1911,7 @@ export var RawResponse$: StaticStructureSchema = [3, n0, _RR,
 export var ReasoningTextBlock$: StaticStructureSchema = [3, n0, _RTB,
   8,
   [_t, _si],
-  [0, 0]
+  [0, 0], 1
 ];
 export var RepromptResponse$: StaticStructureSchema = [3, n0, _RRe,
   8,
@@ -1926,37 +1926,37 @@ export var RequestBody$: StaticStructureSchema = [3, n0, _RB,
 export var RerankDocument$: StaticStructureSchema = [3, n0, _RDe,
   8,
   [_ty, _tD, _jD],
-  [0, [() => RerankTextDocument$, 0], 15]
+  [0, [() => RerankTextDocument$, 0], 15], 1
 ];
 export var RerankingConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_ty, _bRC],
-  [0, () => BedrockRerankingConfiguration$]
+  [0, () => BedrockRerankingConfiguration$], 2
 ];
 export var RerankQuery$: StaticStructureSchema = [3, n0, _RQ,
   8,
   [_ty, _tQ],
-  [0, [() => RerankTextDocument$, 0]]
+  [0, [() => RerankTextDocument$, 0]], 2
 ];
 export var RerankRequest$: StaticStructureSchema = [3, n0, _RRer,
   0,
   [_q, _so, _rCer, _nTe],
-  [[() => RerankQueriesList, 0], [() => RerankSourcesList, 0], () => RerankingConfiguration$, 0]
+  [[() => RerankQueriesList, 0], [() => RerankSourcesList, 0], () => RerankingConfiguration$, 0], 3
 ];
 export var RerankResponse$: StaticStructureSchema = [3, n0, _RRera,
   0,
   [_res, _nTe],
-  [[() => RerankResultsList, 0], 0]
+  [[() => RerankResultsList, 0], 0], 1
 ];
 export var RerankResult$: StaticStructureSchema = [3, n0, _RReran,
   0,
   [_ind, _rSel, _do],
-  [1, 1, [() => RerankDocument$, 0]]
+  [1, 1, [() => RerankDocument$, 0]], 2
 ];
 export var RerankSource$: StaticStructureSchema = [3, n0, _RSe,
   8,
   [_ty, _iDS],
-  [0, [() => RerankDocument$, 0]]
+  [0, [() => RerankDocument$, 0]], 2
 ];
 export var RerankTextDocument$: StaticStructureSchema = [3, n0, _RTD,
   8,
@@ -1997,7 +1997,7 @@ export var RetrievalResultKendraDocumentLocation$: StaticStructureSchema = [3, n
 export var RetrievalResultLocation$: StaticStructureSchema = [3, n0, _RRL,
   8,
   [_ty, _sL, _wL, _cL, _sLa, _sPL, _cDL, _kDL, _sLq],
-  [0, () => RetrievalResultS3Location$, () => RetrievalResultWebLocation$, () => RetrievalResultConfluenceLocation$, () => RetrievalResultSalesforceLocation$, () => RetrievalResultSharePointLocation$, () => RetrievalResultCustomDocumentLocation$, () => RetrievalResultKendraDocumentLocation$, () => RetrievalResultSqlLocation$]
+  [0, () => RetrievalResultS3Location$, () => RetrievalResultWebLocation$, () => RetrievalResultConfluenceLocation$, () => RetrievalResultSalesforceLocation$, () => RetrievalResultSharePointLocation$, () => RetrievalResultCustomDocumentLocation$, () => RetrievalResultKendraDocumentLocation$, () => RetrievalResultSqlLocation$], 1
 ];
 export var RetrievalResultS3Location$: StaticStructureSchema = [3, n0, _RRSL,
   0,
@@ -2027,47 +2027,47 @@ export var RetrievalResultWebLocation$: StaticStructureSchema = [3, n0, _RRWL,
 export var RetrieveAndGenerateConfiguration$: StaticStructureSchema = [3, n0, _RAGC,
   0,
   [_ty, _kBC, _eSC],
-  [0, [() => KnowledgeBaseRetrieveAndGenerateConfiguration$, 0], [() => ExternalSourcesRetrieveAndGenerateConfiguration$, 0]]
+  [0, [() => KnowledgeBaseRetrieveAndGenerateConfiguration$, 0], [() => ExternalSourcesRetrieveAndGenerateConfiguration$, 0]], 1
 ];
 export var RetrieveAndGenerateInput$: StaticStructureSchema = [3, n0, _RAGI,
   8,
   [_t],
-  [0]
+  [0], 1
 ];
 export var RetrieveAndGenerateOutput$: StaticStructureSchema = [3, n0, _RAGO,
   8,
   [_t],
-  [0]
+  [0], 1
 ];
 export var RetrieveAndGenerateOutputEvent$: StaticStructureSchema = [3, n0, _RAGOE,
   8,
   [_t],
-  [0]
+  [0], 1
 ];
 export var RetrieveAndGenerateRequest$: StaticStructureSchema = [3, n0, _RAGR,
   0,
-  [_sIe, _i, _rAGC, _sCe],
-  [0, [() => RetrieveAndGenerateInput$, 0], [() => RetrieveAndGenerateConfiguration$, 0], () => RetrieveAndGenerateSessionConfiguration$]
+  [_i, _sIe, _rAGC, _sCe],
+  [[() => RetrieveAndGenerateInput$, 0], 0, [() => RetrieveAndGenerateConfiguration$, 0], () => RetrieveAndGenerateSessionConfiguration$], 1
 ];
 export var RetrieveAndGenerateResponse$: StaticStructureSchema = [3, n0, _RAGRe,
   0,
   [_sIe, _o, _ci, _gA],
-  [0, [() => RetrieveAndGenerateOutput$, 0], [() => Citations, 0], 0]
+  [0, [() => RetrieveAndGenerateOutput$, 0], [() => Citations, 0], 0], 2
 ];
 export var RetrieveAndGenerateSessionConfiguration$: StaticStructureSchema = [3, n0, _RAGSC,
   0,
   [_kKA],
-  [0]
+  [0], 1
 ];
 export var RetrieveAndGenerateStreamRequest$: StaticStructureSchema = [3, n0, _RAGSR,
   0,
-  [_sIe, _i, _rAGC, _sCe],
-  [0, [() => RetrieveAndGenerateInput$, 0], [() => RetrieveAndGenerateConfiguration$, 0], () => RetrieveAndGenerateSessionConfiguration$]
+  [_i, _sIe, _rAGC, _sCe],
+  [[() => RetrieveAndGenerateInput$, 0], 0, [() => RetrieveAndGenerateConfiguration$, 0], () => RetrieveAndGenerateSessionConfiguration$], 1
 ];
 export var RetrieveAndGenerateStreamResponse$: StaticStructureSchema = [3, n0, _RAGSRe,
   0,
   [_str, _sIe],
-  [[() => RetrieveAndGenerateStreamResponseOutput$, 16], [0, { [_hH]: _xabkbsi }]]
+  [[() => RetrieveAndGenerateStreamResponseOutput$, 16], [0, { [_hH]: _xabkbsi }]], 2
 ];
 export var RetrievedReference$: StaticStructureSchema = [3, n0, _RRet,
   0,
@@ -2077,12 +2077,12 @@ export var RetrievedReference$: StaticStructureSchema = [3, n0, _RRet,
 export var RetrieveRequest$: StaticStructureSchema = [3, n0, _RRetr,
   0,
   [_kBI, _rQ, _rCe, _gC, _nTe],
-  [[0, 1], [() => KnowledgeBaseQuery$, 0], [() => KnowledgeBaseRetrievalConfiguration$, 0], () => GuardrailConfiguration$, 0]
+  [[0, 1], [() => KnowledgeBaseQuery$, 0], [() => KnowledgeBaseRetrievalConfiguration$, 0], () => GuardrailConfiguration$, 0], 2
 ];
 export var RetrieveResponse$: StaticStructureSchema = [3, n0, _RRetri,
   0,
   [_rRet, _gA, _nTe],
-  [[() => KnowledgeBaseRetrievalResults, 0], 0, 0]
+  [[() => KnowledgeBaseRetrievalResults, 0], 0, 0], 1
 ];
 export var ReturnControlPayload$: StaticStructureSchema = [3, n0, _RCP,
   8,
@@ -2107,22 +2107,22 @@ export var S3Identifier$: StaticStructureSchema = [3, n0, _SI,
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_uri],
-  [0]
+  [0], 1
 ];
 export var S3ObjectDoc$: StaticStructureSchema = [3, n0, _SOD,
   0,
   [_uri],
-  [0]
+  [0], 1
 ];
 export var S3ObjectFile$: StaticStructureSchema = [3, n0, _SOF,
   0,
   [_uri],
-  [0]
+  [0], 1
 ];
 export var SatisfiedCondition$: StaticStructureSchema = [3, n0, _SC,
   8,
   [_cNo],
-  [0]
+  [0], 1
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 400 },
@@ -2138,7 +2138,7 @@ export var SessionState$: StaticStructureSchema = [3, n0, _SS,
 export var SessionSummary$: StaticStructureSchema = [3, n0, _SSe,
   0,
   [_sIe, _sA, _sS, _cA, _lUA],
-  [0, 0, 0, 5, 5]
+  [0, 0, 0, 5, 5], 5
 ];
 export var Span$: StaticStructureSchema = [3, n0, _Sp,
   0,
@@ -2147,8 +2147,8 @@ export var Span$: StaticStructureSchema = [3, n0, _Sp,
 ];
 export var StartFlowExecutionRequest$: StaticStructureSchema = [3, n0, _SFER,
   0,
-  [_fI, _fAI, _fEN, _inp, _mPC],
-  [[0, 1], [0, 1], 0, [() => FlowInputs, 0], () => ModelPerformanceConfiguration$]
+  [_fI, _fAI, _inp, _fEN, _mPC],
+  [[0, 1], [0, 1], [() => FlowInputs, 0], 0, () => ModelPerformanceConfiguration$], 3
 ];
 export var StartFlowExecutionResponse$: StaticStructureSchema = [3, n0, _SFERt,
   0,
@@ -2158,12 +2158,12 @@ export var StartFlowExecutionResponse$: StaticStructureSchema = [3, n0, _SFERt,
 export var StopFlowExecutionRequest$: StaticStructureSchema = [3, n0, _SFERto,
   0,
   [_fI, _fAI, _eI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var StopFlowExecutionResponse$: StaticStructureSchema = [3, n0, _SFERtop,
   0,
-  [_eA, _st],
-  [0, 0]
+  [_st, _eA],
+  [0, 0], 1
 ];
 export var StreamingConfigurations$: StaticStructureSchema = [3, n0, _SCt,
   0,
@@ -2173,7 +2173,7 @@ export var StreamingConfigurations$: StaticStructureSchema = [3, n0, _SCt,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _ta],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -2188,7 +2188,7 @@ export var TextInferenceConfig$: StaticStructureSchema = [3, n0, _TIC,
 export var TextPrompt$: StaticStructureSchema = [3, n0, _TP,
   8,
   [_t],
-  [0]
+  [0], 1
 ];
 export var TextResponsePart$: StaticStructureSchema = [3, n0, _TRP,
   8,
@@ -2198,12 +2198,12 @@ export var TextResponsePart$: StaticStructureSchema = [3, n0, _TRP,
 export var TextToSqlConfiguration$: StaticStructureSchema = [3, n0, _TTSC,
   0,
   [_ty, _kBC],
-  [0, () => TextToSqlKnowledgeBaseConfiguration$]
+  [0, () => TextToSqlKnowledgeBaseConfiguration$], 1
 ];
 export var TextToSqlKnowledgeBaseConfiguration$: StaticStructureSchema = [3, n0, _TTSKBC,
   0,
   [_kBA],
-  [0]
+  [0], 1
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
@@ -2219,12 +2219,12 @@ export var TracePart$: StaticStructureSchema = [3, n0, _TPr,
 export var TransformationConfiguration$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_mo, _tTSC],
-  [0, () => TextToSqlConfiguration$]
+  [0, () => TextToSqlConfiguration$], 1
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tKa],
-  [[0, 1], [64 | 0, { [_hQ]: _tKa }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tKa }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -2233,13 +2233,13 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateSessionRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_sM, _sI],
-  [128 | 0, [0, 1]]
+  [_sI, _sM],
+  [[0, 1], 128 | 0], 1
 ];
 export var UpdateSessionResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
   [_sIe, _sA, _sS, _cA, _lUA],
-  [0, 0, 0, 5, 5]
+  [0, 0, 0, 5, 5], 5
 ];
 export var Usage$: StaticStructureSchema = [3, n0, _U,
   8,
@@ -2255,22 +2255,22 @@ TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VectorSearchBedrockRerankingConfiguration$: StaticStructureSchema = [3, n0, _VSBRC,
   0,
   [_mC, _nORR, _mCet],
-  [() => VectorSearchBedrockRerankingModelConfiguration$, 1, [() => MetadataConfigurationForReranking$, 0]]
+  [() => VectorSearchBedrockRerankingModelConfiguration$, 1, [() => MetadataConfigurationForReranking$, 0]], 1
 ];
 export var VectorSearchBedrockRerankingModelConfiguration$: StaticStructureSchema = [3, n0, _VSBRMC,
   0,
   [_mA, _aMRF],
-  [0, 128 | 15]
+  [0, 128 | 15], 1
 ];
 export var VectorSearchRerankingConfiguration$: StaticStructureSchema = [3, n0, _VSRC,
   0,
   [_ty, _bRC],
-  [0, [() => VectorSearchBedrockRerankingConfiguration$, 0]]
+  [0, [() => VectorSearchBedrockRerankingConfiguration$, 0]], 1
 ];
 export var VideoSegment$: StaticStructureSchema = [3, n0, _VS,
   0,
   [_sU, _su],
-  [0, 0]
+  [0, 0], 1
 ];
 export var BedrockAgentRuntimeServiceException$: StaticErrorSchema = [-3, _sm, "BedrockAgentRuntimeServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BedrockAgentRuntimeServiceException$, BedrockAgentRuntimeServiceException);

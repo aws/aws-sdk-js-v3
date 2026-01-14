@@ -288,7 +288,7 @@ export var ChannelRetentionSettings$: StaticStructureSchema = [3, n0, _CRS,
 export var Configuration$: StaticStructureSchema = [3, n0, _C,
   0,
   [_L],
-  [() => LexConfiguration$]
+  [() => LexConfiguration$], 1
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -299,7 +299,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAppInstanceAdminRequest$: StaticStructureSchema = [3, n0, _CAIAR,
   0,
   [_AIAA, _AIA],
-  [0, [0, 1]]
+  [0, [0, 1]], 2
 ];
 export var CreateAppInstanceAdminResponse$: StaticStructureSchema = [3, n0, _CAIARr,
   0,
@@ -308,8 +308,8 @@ export var CreateAppInstanceAdminResponse$: StaticStructureSchema = [3, n0, _CAI
 ];
 export var CreateAppInstanceBotRequest$: StaticStructureSchema = [3, n0, _CAIBR,
   0,
-  [_AIA, _N, _M, _CRT, _Ta, _C],
-  [0, [() => ResourceName, 0], [() => Metadata, 0], [0, 4], [() => TagList, 0], () => Configuration$]
+  [_AIA, _C, _N, _M, _CRT, _Ta],
+  [0, () => Configuration$, [() => ResourceName, 0], [() => Metadata, 0], [0, 4], [() => TagList, 0]], 2
 ];
 export var CreateAppInstanceBotResponse$: StaticStructureSchema = [3, n0, _CAIBRr,
   0,
@@ -319,7 +319,7 @@ export var CreateAppInstanceBotResponse$: StaticStructureSchema = [3, n0, _CAIBR
 export var CreateAppInstanceRequest$: StaticStructureSchema = [3, n0, _CAIR,
   0,
   [_N, _M, _CRT, _Ta],
-  [[() => NonEmptyResourceName, 0], [() => Metadata, 0], [0, 4], [() => TagList, 0]]
+  [[() => NonEmptyResourceName, 0], [() => Metadata, 0], [0, 4], [() => TagList, 0]], 1
 ];
 export var CreateAppInstanceResponse$: StaticStructureSchema = [3, n0, _CAIRr,
   0,
@@ -329,7 +329,7 @@ export var CreateAppInstanceResponse$: StaticStructureSchema = [3, n0, _CAIRr,
 export var CreateAppInstanceUserRequest$: StaticStructureSchema = [3, n0, _CAIUR,
   0,
   [_AIA, _AIUI, _N, _M, _CRT, _Ta, _ES],
-  [0, [() => UserId, 0], [() => UserName, 0], [() => Metadata, 0], [0, 4], [() => TagList, 0], () => ExpirationSettings$]
+  [0, [() => UserId, 0], [() => UserName, 0], [() => Metadata, 0], [0, 4], [() => TagList, 0], () => ExpirationSettings$], 3
 ];
 export var CreateAppInstanceUserResponse$: StaticStructureSchema = [3, n0, _CAIURr,
   0,
@@ -339,32 +339,32 @@ export var CreateAppInstanceUserResponse$: StaticStructureSchema = [3, n0, _CAIU
 export var DeleteAppInstanceAdminRequest$: StaticStructureSchema = [3, n0, _DAIAR,
   0,
   [_AIAA, _AIA],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteAppInstanceBotRequest$: StaticStructureSchema = [3, n0, _DAIBR,
   0,
   [_AIBA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteAppInstanceRequest$: StaticStructureSchema = [3, n0, _DAIR,
   0,
   [_AIA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteAppInstanceUserRequest$: StaticStructureSchema = [3, n0, _DAIUR,
   0,
   [_AIUA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeregisterAppInstanceUserEndpointRequest$: StaticStructureSchema = [3, n0, _DAIUER,
   0,
   [_AIUA, _EI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribeAppInstanceAdminRequest$: StaticStructureSchema = [3, n0, _DAIARe,
   0,
   [_AIAA, _AIA],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribeAppInstanceAdminResponse$: StaticStructureSchema = [3, n0, _DAIARes,
   0,
@@ -374,7 +374,7 @@ export var DescribeAppInstanceAdminResponse$: StaticStructureSchema = [3, n0, _D
 export var DescribeAppInstanceBotRequest$: StaticStructureSchema = [3, n0, _DAIBRe,
   0,
   [_AIBA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeAppInstanceBotResponse$: StaticStructureSchema = [3, n0, _DAIBRes,
   0,
@@ -384,7 +384,7 @@ export var DescribeAppInstanceBotResponse$: StaticStructureSchema = [3, n0, _DAI
 export var DescribeAppInstanceRequest$: StaticStructureSchema = [3, n0, _DAIRe,
   0,
   [_AIA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeAppInstanceResponse$: StaticStructureSchema = [3, n0, _DAIRes,
   0,
@@ -394,7 +394,7 @@ export var DescribeAppInstanceResponse$: StaticStructureSchema = [3, n0, _DAIRes
 export var DescribeAppInstanceUserEndpointRequest$: StaticStructureSchema = [3, n0, _DAIUERe,
   0,
   [_AIUA, _EI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribeAppInstanceUserEndpointResponse$: StaticStructureSchema = [3, n0, _DAIUERes,
   0,
@@ -404,7 +404,7 @@ export var DescribeAppInstanceUserEndpointResponse$: StaticStructureSchema = [3,
 export var DescribeAppInstanceUserRequest$: StaticStructureSchema = [3, n0, _DAIURe,
   0,
   [_AIUA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeAppInstanceUserResponse$: StaticStructureSchema = [3, n0, _DAIURes,
   0,
@@ -414,17 +414,17 @@ export var DescribeAppInstanceUserResponse$: StaticStructureSchema = [3, n0, _DA
 export var EndpointAttributes$: StaticStructureSchema = [3, n0, _EA,
   0,
   [_DT, _VDT],
-  [[() => NonEmptySensitiveString1600, 0], [() => NonEmptySensitiveString1600, 0]]
+  [[() => NonEmptySensitiveString1600, 0], [() => NonEmptySensitiveString1600, 0]], 1
 ];
 export var EndpointState$: StaticStructureSchema = [3, n0, _ESn,
   0,
   [_S, _SR],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ExpirationSettings$: StaticStructureSchema = [3, n0, _ES,
   0,
   [_ED, _EC],
-  [1, 0]
+  [1, 0], 2
 ];
 export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
   { [_e]: _c, [_hE]: 403 },
@@ -435,7 +435,7 @@ TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GetAppInstanceRetentionSettingsRequest$: StaticStructureSchema = [3, n0, _GAIRSR,
   0,
   [_AIA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetAppInstanceRetentionSettingsResponse$: StaticStructureSchema = [3, n0, _GAIRSRe,
   0,
@@ -450,17 +450,17 @@ export var Identity$: StaticStructureSchema = [3, n0, _I,
 export var InvokedBy$: StaticStructureSchema = [3, n0, _IB,
   0,
   [_SM, _TM],
-  [0, 0]
+  [0, 0], 2
 ];
 export var LexConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
-  [_RT, _IB, _LBAA, _LI, _WI],
-  [0, () => InvokedBy$, 0, 0, 0]
+  [_LBAA, _LI, _RT, _IB, _WI],
+  [0, 0, 0, () => InvokedBy$, 0], 2
 ];
 export var ListAppInstanceAdminsRequest$: StaticStructureSchema = [3, n0, _LAIAR,
   0,
   [_AIA, _MR, _NT],
-  [[0, 1], [1, { [_hQ]: _mr }], [() => NextToken, { [_hQ]: _nt }]]
+  [[0, 1], [1, { [_hQ]: _mr }], [() => NextToken, { [_hQ]: _nt }]], 1
 ];
 export var ListAppInstanceAdminsResponse$: StaticStructureSchema = [3, n0, _LAIARi,
   0,
@@ -470,7 +470,7 @@ export var ListAppInstanceAdminsResponse$: StaticStructureSchema = [3, n0, _LAIA
 export var ListAppInstanceBotsRequest$: StaticStructureSchema = [3, n0, _LAIBR,
   0,
   [_AIA, _MR, _NT],
-  [[0, { [_hQ]: _aia }], [1, { [_hQ]: _mr }], [() => NextToken, { [_hQ]: _nt }]]
+  [[0, { [_hQ]: _aia }], [1, { [_hQ]: _mr }], [() => NextToken, { [_hQ]: _nt }]], 1
 ];
 export var ListAppInstanceBotsResponse$: StaticStructureSchema = [3, n0, _LAIBRi,
   0,
@@ -490,7 +490,7 @@ export var ListAppInstancesResponse$: StaticStructureSchema = [3, n0, _LAIRi,
 export var ListAppInstanceUserEndpointsRequest$: StaticStructureSchema = [3, n0, _LAIUER,
   0,
   [_AIUA, _MR, _NT],
-  [[() => SensitiveChimeArn, 1], [1, { [_hQ]: _mr }], [() => NextToken, { [_hQ]: _nt }]]
+  [[() => SensitiveChimeArn, 1], [1, { [_hQ]: _mr }], [() => NextToken, { [_hQ]: _nt }]], 1
 ];
 export var ListAppInstanceUserEndpointsResponse$: StaticStructureSchema = [3, n0, _LAIUERi,
   0,
@@ -500,7 +500,7 @@ export var ListAppInstanceUserEndpointsResponse$: StaticStructureSchema = [3, n0
 export var ListAppInstanceUsersRequest$: StaticStructureSchema = [3, n0, _LAIUR,
   0,
   [_AIA, _MR, _NT],
-  [[0, { [_hQ]: _aia }], [1, { [_hQ]: _mr }], [() => NextToken, { [_hQ]: _nt }]]
+  [[0, { [_hQ]: _aia }], [1, { [_hQ]: _mr }], [() => NextToken, { [_hQ]: _nt }]], 1
 ];
 export var ListAppInstanceUsersResponse$: StaticStructureSchema = [3, n0, _LAIURi,
   0,
@@ -510,7 +510,7 @@ export var ListAppInstanceUsersResponse$: StaticStructureSchema = [3, n0, _LAIUR
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [[0, { [_hQ]: _a }]]
+  [[0, { [_hQ]: _a }]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -526,7 +526,7 @@ TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PutAppInstanceRetentionSettingsRequest$: StaticStructureSchema = [3, n0, _PAIRSR,
   0,
   [_AIA, _AIRS],
-  [[0, 1], () => AppInstanceRetentionSettings$]
+  [[0, 1], () => AppInstanceRetentionSettings$], 2
 ];
 export var PutAppInstanceRetentionSettingsResponse$: StaticStructureSchema = [3, n0, _PAIRSRu,
   0,
@@ -536,7 +536,7 @@ export var PutAppInstanceRetentionSettingsResponse$: StaticStructureSchema = [3,
 export var PutAppInstanceUserExpirationSettingsRequest$: StaticStructureSchema = [3, n0, _PAIUESR,
   0,
   [_AIUA, _ES],
-  [[0, 1], () => ExpirationSettings$]
+  [[0, 1], () => ExpirationSettings$], 1
 ];
 export var PutAppInstanceUserExpirationSettingsResponse$: StaticStructureSchema = [3, n0, _PAIUESRu,
   0,
@@ -545,8 +545,8 @@ export var PutAppInstanceUserExpirationSettingsResponse$: StaticStructureSchema 
 ];
 export var RegisterAppInstanceUserEndpointRequest$: StaticStructureSchema = [3, n0, _RAIUER,
   0,
-  [_AIUA, _N, _T, _RA, _EA, _CRT, _AM],
-  [[() => SensitiveChimeArn, 1], [() => SensitiveString1600, 0], 0, 0, [() => EndpointAttributes$, 0], [0, 4], 0]
+  [_AIUA, _T, _RA, _EA, _N, _CRT, _AM],
+  [[() => SensitiveChimeArn, 1], 0, 0, [() => EndpointAttributes$, 0], [() => SensitiveString1600, 0], [0, 4], 0], 4
 ];
 export var RegisterAppInstanceUserEndpointResponse$: StaticStructureSchema = [3, n0, _RAIUERe,
   0,
@@ -574,12 +574,12 @@ TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavaila
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [[() => TagKey, 0], [() => TagValue, 0]]
+  [[() => TagKey, 0], [() => TagValue, 0]], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _Ta],
-  [0, [() => TagList, 0]]
+  [0, [() => TagList, 0]], 2
 ];
 export var ThrottledClientException$: StaticErrorSchema = [-3, n0, _TCE,
   { [_e]: _c, [_hE]: 429 },
@@ -596,12 +596,12 @@ TypeRegistry.for(n0).registerError(UnauthorizedClientException$, UnauthorizedCli
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TKa],
-  [0, [() => TagKeyList, 0]]
+  [0, [() => TagKeyList, 0]], 2
 ];
 export var UpdateAppInstanceBotRequest$: StaticStructureSchema = [3, n0, _UAIBR,
   0,
   [_AIBA, _N, _M, _C],
-  [[0, 1], [() => ResourceName, 0], [() => Metadata, 0], () => Configuration$]
+  [[0, 1], [() => ResourceName, 0], [() => Metadata, 0], () => Configuration$], 3
 ];
 export var UpdateAppInstanceBotResponse$: StaticStructureSchema = [3, n0, _UAIBRp,
   0,
@@ -611,7 +611,7 @@ export var UpdateAppInstanceBotResponse$: StaticStructureSchema = [3, n0, _UAIBR
 export var UpdateAppInstanceRequest$: StaticStructureSchema = [3, n0, _UAIR,
   0,
   [_AIA, _N, _M],
-  [[0, 1], [() => NonEmptyResourceName, 0], [() => Metadata, 0]]
+  [[0, 1], [() => NonEmptyResourceName, 0], [() => Metadata, 0]], 3
 ];
 export var UpdateAppInstanceResponse$: StaticStructureSchema = [3, n0, _UAIRp,
   0,
@@ -621,7 +621,7 @@ export var UpdateAppInstanceResponse$: StaticStructureSchema = [3, n0, _UAIRp,
 export var UpdateAppInstanceUserEndpointRequest$: StaticStructureSchema = [3, n0, _UAIUER,
   0,
   [_AIUA, _EI, _N, _AM],
-  [[0, 1], [0, 1], [() => SensitiveString1600, 0], 0]
+  [[0, 1], [0, 1], [() => SensitiveString1600, 0], 0], 2
 ];
 export var UpdateAppInstanceUserEndpointResponse$: StaticStructureSchema = [3, n0, _UAIUERp,
   0,
@@ -631,7 +631,7 @@ export var UpdateAppInstanceUserEndpointResponse$: StaticStructureSchema = [3, n
 export var UpdateAppInstanceUserRequest$: StaticStructureSchema = [3, n0, _UAIUR,
   0,
   [_AIUA, _N, _M],
-  [[0, 1], [() => UserName, 0], [() => Metadata, 0]]
+  [[0, 1], [() => UserName, 0], [() => Metadata, 0]], 3
 ];
 export var UpdateAppInstanceUserResponse$: StaticStructureSchema = [3, n0, _UAIURp,
   0,

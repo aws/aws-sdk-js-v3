@@ -1060,7 +1060,7 @@ export var AbortMultipartUploadOutput$: StaticStructureSchema = [3, n0, _AMUO,
 export var AbortMultipartUploadRequest$: StaticStructureSchema = [3, n0, _AMUR,
   0,
   [_B, _K, _UI, _RP, _EBO, _IMIT],
-  [[0, 1], [0, 1], [0, { [_hQ]: _uI }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }], [6, { [_hH]: _xaimit }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _uI }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }], [6, { [_hH]: _xaimit }]], 3
 ];
 export var AccelerateConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
@@ -1075,7 +1075,7 @@ export var AccessControlPolicy$: StaticStructureSchema = [3, n0, _ACP,
 export var AccessControlTranslation$: StaticStructureSchema = [3, n0, _ACT,
   0,
   [_O],
-  [0]
+  [0], 1
 ];
 export var AnalyticsAndOperator$: StaticStructureSchema = [3, n0, _AAO,
   0,
@@ -1084,18 +1084,18 @@ export var AnalyticsAndOperator$: StaticStructureSchema = [3, n0, _AAO,
 ];
 export var AnalyticsConfiguration$: StaticStructureSchema = [3, n0, _ACn,
   0,
-  [_I, _F, _SCA],
-  [0, [() => AnalyticsFilter$, 0], () => StorageClassAnalysis$]
+  [_I, _SCA, _F],
+  [0, () => StorageClassAnalysis$, [() => AnalyticsFilter$, 0]], 2
 ];
 export var AnalyticsExportDestination$: StaticStructureSchema = [3, n0, _AED,
   0,
   [_SBD],
-  [() => AnalyticsS3BucketDestination$]
+  [() => AnalyticsS3BucketDestination$], 1
 ];
 export var AnalyticsS3BucketDestination$: StaticStructureSchema = [3, n0, _ASBD,
   0,
-  [_Fo, _BAI, _B, _P],
-  [0, 0, 0, 0]
+  [_Fo, _B, _BAI, _P],
+  [0, 0, 0, 0], 2
 ];
 export var BlockedEncryptionTypes$: StaticStructureSchema = [3, n0, _BET,
   0,
@@ -1127,7 +1127,7 @@ export var BucketInfo$: StaticStructureSchema = [3, n0, _BI,
 export var BucketLifecycleConfiguration$: StaticStructureSchema = [3, n0, _BLC,
   0,
   [_R],
-  [[() => LifecycleRules, { [_xF]: 1, [_xN]: _Ru }]]
+  [[() => LifecycleRules, { [_xF]: 1, [_xN]: _Ru }]], 1
 ];
 export var BucketLoggingStatus$: StaticStructureSchema = [3, n0, _BLS,
   0,
@@ -1161,8 +1161,8 @@ export var CompleteMultipartUploadOutput$: StaticStructureSchema = [3, n0, _CMUO
 ];
 export var CompleteMultipartUploadRequest$: StaticStructureSchema = [3, n0, _CMURo,
   0,
-  [_B, _K, _MU, _UI, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh, _CT, _MOS, _RP, _EBO, _IM, _INM, _SSECA, _SSECK, _SSECKMD],
-  [[0, 1], [0, 1], [() => CompletedMultipartUpload$, { [_hP]: 1, [_xN]: _CMUo }], [0, { [_hQ]: _uI }], [0, { [_hH]: _xacc }], [0, { [_hH]: _xacc_ }], [0, { [_hH]: _xacc__ }], [0, { [_hH]: _xacs }], [0, { [_hH]: _xacs_ }], [0, { [_hH]: _xact }], [1, { [_hH]: _xamos }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _IM_ }], [0, { [_hH]: _INM_ }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }]]
+  [_B, _K, _UI, _MU, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh, _CT, _MOS, _RP, _EBO, _IM, _INM, _SSECA, _SSECK, _SSECKMD],
+  [[0, 1], [0, 1], [0, { [_hQ]: _uI }], [() => CompletedMultipartUpload$, { [_hP]: 1, [_xN]: _CMUo }], [0, { [_hH]: _xacc }], [0, { [_hH]: _xacc_ }], [0, { [_hH]: _xacc__ }], [0, { [_hH]: _xacs }], [0, { [_hH]: _xacs_ }], [0, { [_hH]: _xact }], [1, { [_hH]: _xamos }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _IM_ }], [0, { [_hH]: _INM_ }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }]], 3
 ];
 export var Condition$: StaticStructureSchema = [3, n0, _Co,
   0,
@@ -1181,8 +1181,8 @@ export var CopyObjectOutput$: StaticStructureSchema = [3, n0, _COO,
 ];
 export var CopyObjectRequest$: StaticStructureSchema = [3, n0, _CORo,
   0,
-  [_ACL_, _B, _CC, _CA, _CDo, _CEo, _CL, _CTo, _CS, _CSIM, _CSIMS, _CSINM, _CSIUS, _Ex, _GFC, _GR, _GRACP, _GWACP, _IM, _INM, _K, _M, _MD, _TD, _SSE, _SC, _WRL, _SSECA, _SSECK, _SSECKMD, _SSEKMSKI, _SSEKMSEC, _BKE, _CSSSECA, _CSSSECK, _CSSSECKMD, _RP, _Tag, _OLM, _OLRUD, _OLLHS, _EBO, _ESBO],
-  [[0, { [_hH]: _xaa }], [0, 1], [0, { [_hH]: _CC_ }], [0, { [_hH]: _xaca }], [0, { [_hH]: _CD_ }], [0, { [_hH]: _CE_ }], [0, { [_hH]: _CL_ }], [0, { [_hH]: _CT_ }], [0, { [_hH]: _xacs__ }], [0, { [_hH]: _xacsim }], [4, { [_hH]: _xacsims }], [0, { [_hH]: _xacsinm }], [4, { [_hH]: _xacsius }], [4, { [_hH]: _Ex }], [0, { [_hH]: _xagfc }], [0, { [_hH]: _xagr }], [0, { [_hH]: _xagra }], [0, { [_hH]: _xagwa }], [0, { [_hH]: _IM_ }], [0, { [_hH]: _INM_ }], [0, 1], [128 | 0, { [_hPH]: _xam }], [0, { [_hH]: _xamd }], [0, { [_hH]: _xatd }], [0, { [_hH]: _xasse }], [0, { [_hH]: _xasc }], [0, { [_hH]: _xawrl }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], [() => SSEKMSKeyId, { [_hH]: _xasseakki }], [() => SSEKMSEncryptionContext, { [_hH]: _xassec }], [2, { [_hH]: _xassebke }], [0, { [_hH]: _xacssseca }], [() => CopySourceSSECustomerKey, { [_hH]: _xacssseck }], [0, { [_hH]: _xacssseckM }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xat }], [0, { [_hH]: _xaolm }], [5, { [_hH]: _xaolrud }], [0, { [_hH]: _xaollh }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xasebo }]]
+  [_B, _CS, _K, _ACL_, _CC, _CA, _CDo, _CEo, _CL, _CTo, _CSIM, _CSIMS, _CSINM, _CSIUS, _Ex, _GFC, _GR, _GRACP, _GWACP, _IM, _INM, _M, _MD, _TD, _SSE, _SC, _WRL, _SSECA, _SSECK, _SSECKMD, _SSEKMSKI, _SSEKMSEC, _BKE, _CSSSECA, _CSSSECK, _CSSSECKMD, _RP, _Tag, _OLM, _OLRUD, _OLLHS, _EBO, _ESBO],
+  [[0, 1], [0, { [_hH]: _xacs__ }], [0, 1], [0, { [_hH]: _xaa }], [0, { [_hH]: _CC_ }], [0, { [_hH]: _xaca }], [0, { [_hH]: _CD_ }], [0, { [_hH]: _CE_ }], [0, { [_hH]: _CL_ }], [0, { [_hH]: _CT_ }], [0, { [_hH]: _xacsim }], [4, { [_hH]: _xacsims }], [0, { [_hH]: _xacsinm }], [4, { [_hH]: _xacsius }], [4, { [_hH]: _Ex }], [0, { [_hH]: _xagfc }], [0, { [_hH]: _xagr }], [0, { [_hH]: _xagra }], [0, { [_hH]: _xagwa }], [0, { [_hH]: _IM_ }], [0, { [_hH]: _INM_ }], [128 | 0, { [_hPH]: _xam }], [0, { [_hH]: _xamd }], [0, { [_hH]: _xatd }], [0, { [_hH]: _xasse }], [0, { [_hH]: _xasc }], [0, { [_hH]: _xawrl }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], [() => SSEKMSKeyId, { [_hH]: _xasseakki }], [() => SSEKMSEncryptionContext, { [_hH]: _xassec }], [2, { [_hH]: _xassebke }], [0, { [_hH]: _xacssseca }], [() => CopySourceSSECustomerKey, { [_hH]: _xacssseck }], [0, { [_hH]: _xacssseckM }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xat }], [0, { [_hH]: _xaolm }], [5, { [_hH]: _xaolrud }], [0, { [_hH]: _xaollh }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xasebo }]], 3
 ];
 export var CopyObjectResult$: StaticStructureSchema = [3, n0, _COR,
   0,
@@ -1197,12 +1197,12 @@ export var CopyPartResult$: StaticStructureSchema = [3, n0, _CPR,
 export var CORSConfiguration$: StaticStructureSchema = [3, n0, _CORSC,
   0,
   [_CORSR],
-  [[() => CORSRules, { [_xF]: 1, [_xN]: _CORSRu }]]
+  [[() => CORSRules, { [_xF]: 1, [_xN]: _CORSRu }]], 1
 ];
 export var CORSRule$: StaticStructureSchema = [3, n0, _CORSRu,
   0,
-  [_ID, _AH, _AM, _AO, _EH, _MAS],
-  [0, [64 | 0, { [_xF]: 1, [_xN]: _AHl }], [64 | 0, { [_xF]: 1, [_xN]: _AMl }], [64 | 0, { [_xF]: 1, [_xN]: _AOl }], [64 | 0, { [_xF]: 1, [_xN]: _EHx }], 1]
+  [_AM, _AO, _ID, _AH, _EH, _MAS],
+  [[64 | 0, { [_xF]: 1, [_xN]: _AMl }], [64 | 0, { [_xF]: 1, [_xN]: _AOl }], 0, [64 | 0, { [_xF]: 1, [_xN]: _AHl }], [64 | 0, { [_xF]: 1, [_xN]: _EHx }], 1], 2
 ];
 export var CreateBucketConfiguration$: StaticStructureSchema = [3, n0, _CBC,
   0,
@@ -1211,13 +1211,13 @@ export var CreateBucketConfiguration$: StaticStructureSchema = [3, n0, _CBC,
 ];
 export var CreateBucketMetadataConfigurationRequest$: StaticStructureSchema = [3, n0, _CBMCR,
   0,
-  [_B, _CMD, _CA, _MC, _EBO],
-  [[0, 1], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [() => MetadataConfiguration$, { [_hP]: 1, [_xN]: _MC }], [0, { [_hH]: _xaebo }]]
+  [_B, _MC, _CMD, _CA, _EBO],
+  [[0, 1], [() => MetadataConfiguration$, { [_hP]: 1, [_xN]: _MC }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var CreateBucketMetadataTableConfigurationRequest$: StaticStructureSchema = [3, n0, _CBMTCR,
   0,
-  [_B, _CMD, _CA, _MTC, _EBO],
-  [[0, 1], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [() => MetadataTableConfiguration$, { [_hP]: 1, [_xN]: _MTC }], [0, { [_hH]: _xaebo }]]
+  [_B, _MTC, _CMD, _CA, _EBO],
+  [[0, 1], [() => MetadataTableConfiguration$, { [_hP]: 1, [_xN]: _MTC }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var CreateBucketOutput$: StaticStructureSchema = [3, n0, _CBO,
   0,
@@ -1226,8 +1226,8 @@ export var CreateBucketOutput$: StaticStructureSchema = [3, n0, _CBO,
 ];
 export var CreateBucketRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
-  [_ACL_, _B, _CBC, _GFC, _GR, _GRACP, _GW, _GWACP, _OLEFB, _OO],
-  [[0, { [_hH]: _xaa }], [0, 1], [() => CreateBucketConfiguration$, { [_hP]: 1, [_xN]: _CBC }], [0, { [_hH]: _xagfc }], [0, { [_hH]: _xagr }], [0, { [_hH]: _xagra }], [0, { [_hH]: _xagw }], [0, { [_hH]: _xagwa }], [2, { [_hH]: _xabole }], [0, { [_hH]: _xaoo }]]
+  [_B, _ACL_, _CBC, _GFC, _GR, _GRACP, _GW, _GWACP, _OLEFB, _OO],
+  [[0, 1], [0, { [_hH]: _xaa }], [() => CreateBucketConfiguration$, { [_hP]: 1, [_xN]: _CBC }], [0, { [_hH]: _xagfc }], [0, { [_hH]: _xagr }], [0, { [_hH]: _xagra }], [0, { [_hH]: _xagw }], [0, { [_hH]: _xagwa }], [2, { [_hH]: _xabole }], [0, { [_hH]: _xaoo }]], 1
 ];
 export var CreateMultipartUploadOutput$: StaticStructureSchema = [3, n0, _CMUOr,
   { [_xN]: _IMUR },
@@ -1236,18 +1236,18 @@ export var CreateMultipartUploadOutput$: StaticStructureSchema = [3, n0, _CMUOr,
 ];
 export var CreateMultipartUploadRequest$: StaticStructureSchema = [3, n0, _CMURr,
   0,
-  [_ACL_, _B, _CC, _CDo, _CEo, _CL, _CTo, _Ex, _GFC, _GR, _GRACP, _GWACP, _K, _M, _SSE, _SC, _WRL, _SSECA, _SSECK, _SSECKMD, _SSEKMSKI, _SSEKMSEC, _BKE, _RP, _Tag, _OLM, _OLRUD, _OLLHS, _EBO, _CA, _CT],
-  [[0, { [_hH]: _xaa }], [0, 1], [0, { [_hH]: _CC_ }], [0, { [_hH]: _CD_ }], [0, { [_hH]: _CE_ }], [0, { [_hH]: _CL_ }], [0, { [_hH]: _CT_ }], [4, { [_hH]: _Ex }], [0, { [_hH]: _xagfc }], [0, { [_hH]: _xagr }], [0, { [_hH]: _xagra }], [0, { [_hH]: _xagwa }], [0, 1], [128 | 0, { [_hPH]: _xam }], [0, { [_hH]: _xasse }], [0, { [_hH]: _xasc }], [0, { [_hH]: _xawrl }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], [() => SSEKMSKeyId, { [_hH]: _xasseakki }], [() => SSEKMSEncryptionContext, { [_hH]: _xassec }], [2, { [_hH]: _xassebke }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xat }], [0, { [_hH]: _xaolm }], [5, { [_hH]: _xaolrud }], [0, { [_hH]: _xaollh }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xaca }], [0, { [_hH]: _xact }]]
+  [_B, _K, _ACL_, _CC, _CDo, _CEo, _CL, _CTo, _Ex, _GFC, _GR, _GRACP, _GWACP, _M, _SSE, _SC, _WRL, _SSECA, _SSECK, _SSECKMD, _SSEKMSKI, _SSEKMSEC, _BKE, _RP, _Tag, _OLM, _OLRUD, _OLLHS, _EBO, _CA, _CT],
+  [[0, 1], [0, 1], [0, { [_hH]: _xaa }], [0, { [_hH]: _CC_ }], [0, { [_hH]: _CD_ }], [0, { [_hH]: _CE_ }], [0, { [_hH]: _CL_ }], [0, { [_hH]: _CT_ }], [4, { [_hH]: _Ex }], [0, { [_hH]: _xagfc }], [0, { [_hH]: _xagr }], [0, { [_hH]: _xagra }], [0, { [_hH]: _xagwa }], [128 | 0, { [_hPH]: _xam }], [0, { [_hH]: _xasse }], [0, { [_hH]: _xasc }], [0, { [_hH]: _xawrl }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], [() => SSEKMSKeyId, { [_hH]: _xasseakki }], [() => SSEKMSEncryptionContext, { [_hH]: _xassec }], [2, { [_hH]: _xassebke }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xat }], [0, { [_hH]: _xaolm }], [5, { [_hH]: _xaolrud }], [0, { [_hH]: _xaollh }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xaca }], [0, { [_hH]: _xact }]], 2
 ];
 export var CreateSessionOutput$: StaticStructureSchema = [3, n0, _CSO,
   { [_xN]: _CSR },
-  [_SSE, _SSEKMSKI, _SSEKMSEC, _BKE, _Cr],
-  [[0, { [_hH]: _xasse }], [() => SSEKMSKeyId, { [_hH]: _xasseakki }], [() => SSEKMSEncryptionContext, { [_hH]: _xassec }], [2, { [_hH]: _xassebke }], [() => SessionCredentials$, { [_xN]: _Cr }]]
+  [_Cr, _SSE, _SSEKMSKI, _SSEKMSEC, _BKE],
+  [[() => SessionCredentials$, { [_xN]: _Cr }], [0, { [_hH]: _xasse }], [() => SSEKMSKeyId, { [_hH]: _xasseakki }], [() => SSEKMSEncryptionContext, { [_hH]: _xassec }], [2, { [_hH]: _xassebke }]], 1
 ];
 export var CreateSessionRequest$: StaticStructureSchema = [3, n0, _CSRr,
   0,
-  [_SM, _B, _SSE, _SSEKMSKI, _SSEKMSEC, _BKE],
-  [[0, { [_hH]: _xacsm }], [0, 1], [0, { [_hH]: _xasse }], [() => SSEKMSKeyId, { [_hH]: _xasseakki }], [() => SSEKMSEncryptionContext, { [_hH]: _xassec }], [2, { [_hH]: _xassebke }]]
+  [_B, _SM, _SSE, _SSEKMSKI, _SSEKMSEC, _BKE],
+  [[0, 1], [0, { [_hH]: _xacsm }], [0, { [_hH]: _xasse }], [() => SSEKMSKeyId, { [_hH]: _xasseakki }], [() => SSEKMSEncryptionContext, { [_hH]: _xassec }], [2, { [_hH]: _xassebke }]], 1
 ];
 export var CSVInput$: StaticStructureSchema = [3, n0, _CSVIn,
   0,
@@ -1267,82 +1267,82 @@ export var DefaultRetention$: StaticStructureSchema = [3, n0, _DRe,
 export var Delete$: StaticStructureSchema = [3, n0, _De,
   0,
   [_Ob, _Q],
-  [[() => ObjectIdentifierList, { [_xF]: 1, [_xN]: _Obj }], 2]
+  [[() => ObjectIdentifierList, { [_xF]: 1, [_xN]: _Obj }], 2], 1
 ];
 export var DeleteBucketAnalyticsConfigurationRequest$: StaticStructureSchema = [3, n0, _DBACR,
   0,
   [_B, _I, _EBO],
-  [[0, 1], [0, { [_hQ]: _i }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hQ]: _i }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var DeleteBucketCorsRequest$: StaticStructureSchema = [3, n0, _DBCR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var DeleteBucketEncryptionRequest$: StaticStructureSchema = [3, n0, _DBER,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var DeleteBucketIntelligentTieringConfigurationRequest$: StaticStructureSchema = [3, n0, _DBITCR,
   0,
   [_B, _I, _EBO],
-  [[0, 1], [0, { [_hQ]: _i }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hQ]: _i }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var DeleteBucketInventoryConfigurationRequest$: StaticStructureSchema = [3, n0, _DBICR,
   0,
   [_B, _I, _EBO],
-  [[0, 1], [0, { [_hQ]: _i }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hQ]: _i }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var DeleteBucketLifecycleRequest$: StaticStructureSchema = [3, n0, _DBLR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var DeleteBucketMetadataConfigurationRequest$: StaticStructureSchema = [3, n0, _DBMCR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var DeleteBucketMetadataTableConfigurationRequest$: StaticStructureSchema = [3, n0, _DBMTCR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var DeleteBucketMetricsConfigurationRequest$: StaticStructureSchema = [3, n0, _DBMCRe,
   0,
   [_B, _I, _EBO],
-  [[0, 1], [0, { [_hQ]: _i }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hQ]: _i }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var DeleteBucketOwnershipControlsRequest$: StaticStructureSchema = [3, n0, _DBOCR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var DeleteBucketPolicyRequest$: StaticStructureSchema = [3, n0, _DBPR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var DeleteBucketReplicationRequest$: StaticStructureSchema = [3, n0, _DBRR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var DeleteBucketRequest$: StaticStructureSchema = [3, n0, _DBR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var DeleteBucketTaggingRequest$: StaticStructureSchema = [3, n0, _DBTR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var DeleteBucketWebsiteRequest$: StaticStructureSchema = [3, n0, _DBWR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var DeletedObject$: StaticStructureSchema = [3, n0, _DO,
   0,
@@ -1367,7 +1367,7 @@ export var DeleteObjectOutput$: StaticStructureSchema = [3, n0, _DOO,
 export var DeleteObjectRequest$: StaticStructureSchema = [3, n0, _DOR,
   0,
   [_B, _K, _MFA, _VI, _RP, _BGR, _EBO, _IM, _IMLMT, _IMS],
-  [[0, 1], [0, 1], [0, { [_hH]: _xam_ }], [0, { [_hQ]: _vI }], [0, { [_hH]: _xarp }], [2, { [_hH]: _xabgr }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _IM_ }], [6, { [_hH]: _xaimlmt }], [1, { [_hH]: _xaims }]]
+  [[0, 1], [0, 1], [0, { [_hH]: _xam_ }], [0, { [_hQ]: _vI }], [0, { [_hH]: _xarp }], [2, { [_hH]: _xabgr }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _IM_ }], [6, { [_hH]: _xaimlmt }], [1, { [_hH]: _xaims }]], 2
 ];
 export var DeleteObjectsOutput$: StaticStructureSchema = [3, n0, _DOOe,
   { [_xN]: _DRel },
@@ -1377,7 +1377,7 @@ export var DeleteObjectsOutput$: StaticStructureSchema = [3, n0, _DOOe,
 export var DeleteObjectsRequest$: StaticStructureSchema = [3, n0, _DORe,
   0,
   [_B, _De, _MFA, _RP, _BGR, _EBO, _CA],
-  [[0, 1], [() => Delete$, { [_hP]: 1, [_xN]: _De }], [0, { [_hH]: _xam_ }], [0, { [_hH]: _xarp }], [2, { [_hH]: _xabgr }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xasca }]]
+  [[0, 1], [() => Delete$, { [_hP]: 1, [_xN]: _De }], [0, { [_hH]: _xam_ }], [0, { [_hH]: _xarp }], [2, { [_hH]: _xabgr }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xasca }]], 2
 ];
 export var DeleteObjectTaggingOutput$: StaticStructureSchema = [3, n0, _DOTO,
   0,
@@ -1387,17 +1387,17 @@ export var DeleteObjectTaggingOutput$: StaticStructureSchema = [3, n0, _DOTO,
 export var DeleteObjectTaggingRequest$: StaticStructureSchema = [3, n0, _DOTR,
   0,
   [_B, _K, _VI, _EBO],
-  [[0, 1], [0, 1], [0, { [_hQ]: _vI }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _vI }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var DeletePublicAccessBlockRequest$: StaticStructureSchema = [3, n0, _DPABR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var Destination$: StaticStructureSchema = [3, n0, _Des,
   0,
   [_B, _A, _SC, _ACT, _EC, _RT, _Me],
-  [0, 0, 0, () => AccessControlTranslation$, () => EncryptionConfiguration$, () => ReplicationTime$, () => Metrics$]
+  [0, 0, 0, () => AccessControlTranslation$, () => EncryptionConfiguration$, () => ReplicationTime$, () => Metrics$], 1
 ];
 export var DestinationResult$: StaticStructureSchema = [3, n0, _DRes,
   0,
@@ -1407,7 +1407,7 @@ export var DestinationResult$: StaticStructureSchema = [3, n0, _DRes,
 export var Encryption$: StaticStructureSchema = [3, n0, _En,
   0,
   [_ET, _KMSKI, _KMSC],
-  [0, [() => SSEKMSKeyId, 0], 0]
+  [0, [() => SSEKMSKeyId, 0], 0], 1
 ];
 export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
@@ -1438,7 +1438,7 @@ export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED,
 export var ErrorDocument$: StaticStructureSchema = [3, n0, _EDr,
   0,
   [_K],
-  [0]
+  [0], 1
 ];
 export var EventBridgeConfiguration$: StaticStructureSchema = [3, n0, _EBC,
   0,
@@ -1448,7 +1448,7 @@ export var EventBridgeConfiguration$: StaticStructureSchema = [3, n0, _EBC,
 export var ExistingObjectReplication$: StaticStructureSchema = [3, n0, _EOR,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var FilterRule$: StaticStructureSchema = [3, n0, _FR,
   0,
@@ -1463,7 +1463,7 @@ export var GetBucketAbacOutput$: StaticStructureSchema = [3, n0, _GBAO,
 export var GetBucketAbacRequest$: StaticStructureSchema = [3, n0, _GBAR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GetBucketAccelerateConfigurationOutput$: StaticStructureSchema = [3, n0, _GBACO,
   { [_xN]: _AC },
@@ -1473,7 +1473,7 @@ export var GetBucketAccelerateConfigurationOutput$: StaticStructureSchema = [3, 
 export var GetBucketAccelerateConfigurationRequest$: StaticStructureSchema = [3, n0, _GBACR,
   0,
   [_B, _EBO, _RP],
-  [[0, 1], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xarp }]]
+  [[0, 1], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xarp }]], 1
 ];
 export var GetBucketAclOutput$: StaticStructureSchema = [3, n0, _GBAOe,
   { [_xN]: _ACP },
@@ -1483,7 +1483,7 @@ export var GetBucketAclOutput$: StaticStructureSchema = [3, n0, _GBAOe,
 export var GetBucketAclRequest$: StaticStructureSchema = [3, n0, _GBARe,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GetBucketAnalyticsConfigurationOutput$: StaticStructureSchema = [3, n0, _GBACOe,
   0,
@@ -1493,7 +1493,7 @@ export var GetBucketAnalyticsConfigurationOutput$: StaticStructureSchema = [3, n
 export var GetBucketAnalyticsConfigurationRequest$: StaticStructureSchema = [3, n0, _GBACRe,
   0,
   [_B, _I, _EBO],
-  [[0, 1], [0, { [_hQ]: _i }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hQ]: _i }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var GetBucketCorsOutput$: StaticStructureSchema = [3, n0, _GBCO,
   { [_xN]: _CORSC },
@@ -1503,7 +1503,7 @@ export var GetBucketCorsOutput$: StaticStructureSchema = [3, n0, _GBCO,
 export var GetBucketCorsRequest$: StaticStructureSchema = [3, n0, _GBCR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GetBucketEncryptionOutput$: StaticStructureSchema = [3, n0, _GBEO,
   0,
@@ -1513,7 +1513,7 @@ export var GetBucketEncryptionOutput$: StaticStructureSchema = [3, n0, _GBEO,
 export var GetBucketEncryptionRequest$: StaticStructureSchema = [3, n0, _GBER,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GetBucketIntelligentTieringConfigurationOutput$: StaticStructureSchema = [3, n0, _GBITCO,
   0,
@@ -1523,7 +1523,7 @@ export var GetBucketIntelligentTieringConfigurationOutput$: StaticStructureSchem
 export var GetBucketIntelligentTieringConfigurationRequest$: StaticStructureSchema = [3, n0, _GBITCR,
   0,
   [_B, _I, _EBO],
-  [[0, 1], [0, { [_hQ]: _i }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hQ]: _i }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var GetBucketInventoryConfigurationOutput$: StaticStructureSchema = [3, n0, _GBICO,
   0,
@@ -1533,7 +1533,7 @@ export var GetBucketInventoryConfigurationOutput$: StaticStructureSchema = [3, n
 export var GetBucketInventoryConfigurationRequest$: StaticStructureSchema = [3, n0, _GBICR,
   0,
   [_B, _I, _EBO],
-  [[0, 1], [0, { [_hQ]: _i }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hQ]: _i }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var GetBucketLifecycleConfigurationOutput$: StaticStructureSchema = [3, n0, _GBLCO,
   { [_xN]: _LCi },
@@ -1543,7 +1543,7 @@ export var GetBucketLifecycleConfigurationOutput$: StaticStructureSchema = [3, n
 export var GetBucketLifecycleConfigurationRequest$: StaticStructureSchema = [3, n0, _GBLCR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GetBucketLocationOutput$: StaticStructureSchema = [3, n0, _GBLO,
   { [_xN]: _LC },
@@ -1553,7 +1553,7 @@ export var GetBucketLocationOutput$: StaticStructureSchema = [3, n0, _GBLO,
 export var GetBucketLocationRequest$: StaticStructureSchema = [3, n0, _GBLR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GetBucketLoggingOutput$: StaticStructureSchema = [3, n0, _GBLOe,
   { [_xN]: _BLS },
@@ -1563,7 +1563,7 @@ export var GetBucketLoggingOutput$: StaticStructureSchema = [3, n0, _GBLOe,
 export var GetBucketLoggingRequest$: StaticStructureSchema = [3, n0, _GBLRe,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GetBucketMetadataConfigurationOutput$: StaticStructureSchema = [3, n0, _GBMCO,
   0,
@@ -1573,12 +1573,12 @@ export var GetBucketMetadataConfigurationOutput$: StaticStructureSchema = [3, n0
 export var GetBucketMetadataConfigurationRequest$: StaticStructureSchema = [3, n0, _GBMCRe,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GetBucketMetadataConfigurationResult$: StaticStructureSchema = [3, n0, _GBMCR,
   0,
   [_MCR],
-  [() => MetadataConfigurationResult$]
+  [() => MetadataConfigurationResult$], 1
 ];
 export var GetBucketMetadataTableConfigurationOutput$: StaticStructureSchema = [3, n0, _GBMTCO,
   0,
@@ -1588,12 +1588,12 @@ export var GetBucketMetadataTableConfigurationOutput$: StaticStructureSchema = [
 export var GetBucketMetadataTableConfigurationRequest$: StaticStructureSchema = [3, n0, _GBMTCRe,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GetBucketMetadataTableConfigurationResult$: StaticStructureSchema = [3, n0, _GBMTCR,
   0,
   [_MTCR, _S, _Err],
-  [() => MetadataTableConfigurationResult$, 0, () => ErrorDetails$]
+  [() => MetadataTableConfigurationResult$, 0, () => ErrorDetails$], 2
 ];
 export var GetBucketMetricsConfigurationOutput$: StaticStructureSchema = [3, n0, _GBMCOe,
   0,
@@ -1603,12 +1603,12 @@ export var GetBucketMetricsConfigurationOutput$: StaticStructureSchema = [3, n0,
 export var GetBucketMetricsConfigurationRequest$: StaticStructureSchema = [3, n0, _GBMCRet,
   0,
   [_B, _I, _EBO],
-  [[0, 1], [0, { [_hQ]: _i }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hQ]: _i }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var GetBucketNotificationConfigurationRequest$: StaticStructureSchema = [3, n0, _GBNCR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GetBucketOwnershipControlsOutput$: StaticStructureSchema = [3, n0, _GBOCO,
   0,
@@ -1618,7 +1618,7 @@ export var GetBucketOwnershipControlsOutput$: StaticStructureSchema = [3, n0, _G
 export var GetBucketOwnershipControlsRequest$: StaticStructureSchema = [3, n0, _GBOCR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GetBucketPolicyOutput$: StaticStructureSchema = [3, n0, _GBPO,
   0,
@@ -1628,7 +1628,7 @@ export var GetBucketPolicyOutput$: StaticStructureSchema = [3, n0, _GBPO,
 export var GetBucketPolicyRequest$: StaticStructureSchema = [3, n0, _GBPR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GetBucketPolicyStatusOutput$: StaticStructureSchema = [3, n0, _GBPSO,
   0,
@@ -1638,7 +1638,7 @@ export var GetBucketPolicyStatusOutput$: StaticStructureSchema = [3, n0, _GBPSO,
 export var GetBucketPolicyStatusRequest$: StaticStructureSchema = [3, n0, _GBPSR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GetBucketReplicationOutput$: StaticStructureSchema = [3, n0, _GBRO,
   0,
@@ -1648,7 +1648,7 @@ export var GetBucketReplicationOutput$: StaticStructureSchema = [3, n0, _GBRO,
 export var GetBucketReplicationRequest$: StaticStructureSchema = [3, n0, _GBRR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GetBucketRequestPaymentOutput$: StaticStructureSchema = [3, n0, _GBRPO,
   { [_xN]: _RPC },
@@ -1658,17 +1658,17 @@ export var GetBucketRequestPaymentOutput$: StaticStructureSchema = [3, n0, _GBRP
 export var GetBucketRequestPaymentRequest$: StaticStructureSchema = [3, n0, _GBRPR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GetBucketTaggingOutput$: StaticStructureSchema = [3, n0, _GBTO,
   { [_xN]: _Tag },
   [_TS],
-  [[() => TagSet, 0]]
+  [[() => TagSet, 0]], 1
 ];
 export var GetBucketTaggingRequest$: StaticStructureSchema = [3, n0, _GBTR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GetBucketVersioningOutput$: StaticStructureSchema = [3, n0, _GBVO,
   { [_xN]: _VC },
@@ -1678,7 +1678,7 @@ export var GetBucketVersioningOutput$: StaticStructureSchema = [3, n0, _GBVO,
 export var GetBucketVersioningRequest$: StaticStructureSchema = [3, n0, _GBVR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GetBucketWebsiteOutput$: StaticStructureSchema = [3, n0, _GBWO,
   { [_xN]: _WC },
@@ -1688,7 +1688,7 @@ export var GetBucketWebsiteOutput$: StaticStructureSchema = [3, n0, _GBWO,
 export var GetBucketWebsiteRequest$: StaticStructureSchema = [3, n0, _GBWR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GetObjectAclOutput$: StaticStructureSchema = [3, n0, _GOAO,
   { [_xN]: _ACP },
@@ -1698,7 +1698,7 @@ export var GetObjectAclOutput$: StaticStructureSchema = [3, n0, _GOAO,
 export var GetObjectAclRequest$: StaticStructureSchema = [3, n0, _GOAR,
   0,
   [_B, _K, _VI, _RP, _EBO],
-  [[0, 1], [0, 1], [0, { [_hQ]: _vI }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _vI }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var GetObjectAttributesOutput$: StaticStructureSchema = [3, n0, _GOAOe,
   { [_xN]: _GOARe },
@@ -1712,8 +1712,8 @@ export var GetObjectAttributesParts$: StaticStructureSchema = [3, n0, _GOAP,
 ];
 export var GetObjectAttributesRequest$: StaticStructureSchema = [3, n0, _GOARet,
   0,
-  [_B, _K, _VI, _MP, _PNM, _SSECA, _SSECK, _SSECKMD, _RP, _EBO, _OA],
-  [[0, 1], [0, 1], [0, { [_hQ]: _vI }], [1, { [_hH]: _xamp }], [0, { [_hH]: _xapnm }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }], [64 | 0, { [_hH]: _xaoa }]]
+  [_B, _K, _OA, _VI, _MP, _PNM, _SSECA, _SSECK, _SSECKMD, _RP, _EBO],
+  [[0, 1], [0, 1], [64 | 0, { [_hH]: _xaoa }], [0, { [_hQ]: _vI }], [1, { [_hH]: _xamp }], [0, { [_hH]: _xapnm }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }]], 3
 ];
 export var GetObjectLegalHoldOutput$: StaticStructureSchema = [3, n0, _GOLHO,
   0,
@@ -1723,7 +1723,7 @@ export var GetObjectLegalHoldOutput$: StaticStructureSchema = [3, n0, _GOLHO,
 export var GetObjectLegalHoldRequest$: StaticStructureSchema = [3, n0, _GOLHR,
   0,
   [_B, _K, _VI, _RP, _EBO],
-  [[0, 1], [0, 1], [0, { [_hQ]: _vI }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _vI }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var GetObjectLockConfigurationOutput$: StaticStructureSchema = [3, n0, _GOLCO,
   0,
@@ -1733,7 +1733,7 @@ export var GetObjectLockConfigurationOutput$: StaticStructureSchema = [3, n0, _G
 export var GetObjectLockConfigurationRequest$: StaticStructureSchema = [3, n0, _GOLCR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GetObjectOutput$: StaticStructureSchema = [3, n0, _GOO,
   0,
@@ -1742,8 +1742,8 @@ export var GetObjectOutput$: StaticStructureSchema = [3, n0, _GOO,
 ];
 export var GetObjectRequest$: StaticStructureSchema = [3, n0, _GOR,
   0,
-  [_B, _IM, _IMSf, _INM, _IUS, _K, _Ra, _RCC, _RCD, _RCE, _RCL, _RCT, _RE, _VI, _SSECA, _SSECK, _SSECKMD, _RP, _PN, _EBO, _CMh],
-  [[0, 1], [0, { [_hH]: _IM_ }], [4, { [_hH]: _IMS_ }], [0, { [_hH]: _INM_ }], [4, { [_hH]: _IUS_ }], [0, 1], [0, { [_hH]: _Ra }], [0, { [_hQ]: _rcc }], [0, { [_hQ]: _rcd }], [0, { [_hQ]: _rce }], [0, { [_hQ]: _rcl }], [0, { [_hQ]: _rct }], [6, { [_hQ]: _re }], [0, { [_hQ]: _vI }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], [0, { [_hH]: _xarp }], [1, { [_hQ]: _pN }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xacm }]]
+  [_B, _K, _IM, _IMSf, _INM, _IUS, _Ra, _RCC, _RCD, _RCE, _RCL, _RCT, _RE, _VI, _SSECA, _SSECK, _SSECKMD, _RP, _PN, _EBO, _CMh],
+  [[0, 1], [0, 1], [0, { [_hH]: _IM_ }], [4, { [_hH]: _IMS_ }], [0, { [_hH]: _INM_ }], [4, { [_hH]: _IUS_ }], [0, { [_hH]: _Ra }], [0, { [_hQ]: _rcc }], [0, { [_hQ]: _rcd }], [0, { [_hQ]: _rce }], [0, { [_hQ]: _rcl }], [0, { [_hQ]: _rct }], [6, { [_hQ]: _re }], [0, { [_hQ]: _vI }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], [0, { [_hH]: _xarp }], [1, { [_hQ]: _pN }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xacm }]], 2
 ];
 export var GetObjectRetentionOutput$: StaticStructureSchema = [3, n0, _GORO,
   0,
@@ -1753,17 +1753,17 @@ export var GetObjectRetentionOutput$: StaticStructureSchema = [3, n0, _GORO,
 export var GetObjectRetentionRequest$: StaticStructureSchema = [3, n0, _GORR,
   0,
   [_B, _K, _VI, _RP, _EBO],
-  [[0, 1], [0, 1], [0, { [_hQ]: _vI }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _vI }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var GetObjectTaggingOutput$: StaticStructureSchema = [3, n0, _GOTO,
   { [_xN]: _Tag },
-  [_VI, _TS],
-  [[0, { [_hH]: _xavi }], [() => TagSet, 0]]
+  [_TS, _VI],
+  [[() => TagSet, 0], [0, { [_hH]: _xavi }]], 1
 ];
 export var GetObjectTaggingRequest$: StaticStructureSchema = [3, n0, _GOTR,
   0,
   [_B, _K, _VI, _EBO, _RP],
-  [[0, 1], [0, 1], [0, { [_hQ]: _vI }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xarp }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _vI }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xarp }]], 2
 ];
 export var GetObjectTorrentOutput$: StaticStructureSchema = [3, n0, _GOTOe,
   0,
@@ -1773,7 +1773,7 @@ export var GetObjectTorrentOutput$: StaticStructureSchema = [3, n0, _GOTOe,
 export var GetObjectTorrentRequest$: StaticStructureSchema = [3, n0, _GOTRe,
   0,
   [_B, _K, _RP, _EBO],
-  [[0, 1], [0, 1], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, 1], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var GetPublicAccessBlockOutput$: StaticStructureSchema = [3, n0, _GPABO,
   0,
@@ -1783,12 +1783,12 @@ export var GetPublicAccessBlockOutput$: StaticStructureSchema = [3, n0, _GPABO,
 export var GetPublicAccessBlockRequest$: StaticStructureSchema = [3, n0, _GPABR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var GlacierJobParameters$: StaticStructureSchema = [3, n0, _GJP,
   0,
   [_Ti],
-  [0]
+  [0], 1
 ];
 export var Grant$: StaticStructureSchema = [3, n0, _Gr,
   0,
@@ -1797,8 +1797,8 @@ export var Grant$: StaticStructureSchema = [3, n0, _Gr,
 ];
 export var Grantee$: StaticStructureSchema = [3, n0, _Gra,
   0,
-  [_DN, _EA, _ID, _URI, _Ty],
-  [0, 0, 0, 0, [0, { [_xA]: 1, [_xN]: _xs }]]
+  [_Ty, _DN, _EA, _ID, _URI],
+  [[0, { [_xA]: 1, [_xN]: _xs }], 0, 0, 0, 0], 1
 ];
 export var HeadBucketOutput$: StaticStructureSchema = [3, n0, _HBO,
   0,
@@ -1808,7 +1808,7 @@ export var HeadBucketOutput$: StaticStructureSchema = [3, n0, _HBO,
 export var HeadBucketRequest$: StaticStructureSchema = [3, n0, _HBR,
   0,
   [_B, _EBO],
-  [[0, 1], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hH]: _xaebo }]], 1
 ];
 export var HeadObjectOutput$: StaticStructureSchema = [3, n0, _HOO,
   0,
@@ -1817,8 +1817,8 @@ export var HeadObjectOutput$: StaticStructureSchema = [3, n0, _HOO,
 ];
 export var HeadObjectRequest$: StaticStructureSchema = [3, n0, _HOR,
   0,
-  [_B, _IM, _IMSf, _INM, _IUS, _K, _Ra, _RCC, _RCD, _RCE, _RCL, _RCT, _RE, _VI, _SSECA, _SSECK, _SSECKMD, _RP, _PN, _EBO, _CMh],
-  [[0, 1], [0, { [_hH]: _IM_ }], [4, { [_hH]: _IMS_ }], [0, { [_hH]: _INM_ }], [4, { [_hH]: _IUS_ }], [0, 1], [0, { [_hH]: _Ra }], [0, { [_hQ]: _rcc }], [0, { [_hQ]: _rcd }], [0, { [_hQ]: _rce }], [0, { [_hQ]: _rcl }], [0, { [_hQ]: _rct }], [6, { [_hQ]: _re }], [0, { [_hQ]: _vI }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], [0, { [_hH]: _xarp }], [1, { [_hQ]: _pN }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xacm }]]
+  [_B, _K, _IM, _IMSf, _INM, _IUS, _Ra, _RCC, _RCD, _RCE, _RCL, _RCT, _RE, _VI, _SSECA, _SSECK, _SSECKMD, _RP, _PN, _EBO, _CMh],
+  [[0, 1], [0, 1], [0, { [_hH]: _IM_ }], [4, { [_hH]: _IMS_ }], [0, { [_hH]: _INM_ }], [4, { [_hH]: _IUS_ }], [0, { [_hH]: _Ra }], [0, { [_hQ]: _rcc }], [0, { [_hQ]: _rcd }], [0, { [_hQ]: _rce }], [0, { [_hQ]: _rcl }], [0, { [_hQ]: _rct }], [6, { [_hQ]: _re }], [0, { [_hQ]: _vI }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], [0, { [_hH]: _xarp }], [1, { [_hQ]: _pN }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xacm }]], 2
 ];
 export var IdempotencyParameterMismatch$: StaticErrorSchema = [-3, n0, _IPM,
   { [_e]: _c, [_hE]: 400 },
@@ -1829,7 +1829,7 @@ TypeRegistry.for(n0).registerError(IdempotencyParameterMismatch$, IdempotencyPar
 export var IndexDocument$: StaticStructureSchema = [3, n0, _IDn,
   0,
   [_Su],
-  [0]
+  [0], 1
 ];
 export var Initiator$: StaticStructureSchema = [3, n0, _In,
   0,
@@ -1848,8 +1848,8 @@ export var IntelligentTieringAndOperator$: StaticStructureSchema = [3, n0, _ITAO
 ];
 export var IntelligentTieringConfiguration$: StaticStructureSchema = [3, n0, _ITC,
   0,
-  [_I, _F, _S, _Tie],
-  [0, [() => IntelligentTieringFilter$, 0], 0, [() => TieringList, { [_xF]: 1, [_xN]: _Tier }]]
+  [_I, _S, _Tie, _F],
+  [0, 0, [() => TieringList, { [_xF]: 1, [_xN]: _Tier }], [() => IntelligentTieringFilter$, 0]], 3
 ];
 export var IntelligentTieringFilter$: StaticStructureSchema = [3, n0, _ITF,
   0,
@@ -1876,13 +1876,13 @@ export var InvalidWriteOffset$: StaticErrorSchema = [-3, n0, _IWO,
 TypeRegistry.for(n0).registerError(InvalidWriteOffset$, InvalidWriteOffset);
 export var InventoryConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
-  [_Des, _IE, _F, _I, _IOV, _OF, _Sc],
-  [[() => InventoryDestination$, 0], 2, () => InventoryFilter$, 0, 0, [() => InventoryOptionalFields, 0], () => InventorySchedule$]
+  [_Des, _IE, _I, _IOV, _Sc, _F, _OF],
+  [[() => InventoryDestination$, 0], 2, 0, 0, () => InventorySchedule$, () => InventoryFilter$, [() => InventoryOptionalFields, 0]], 5
 ];
 export var InventoryDestination$: StaticStructureSchema = [3, n0, _IDnv,
   0,
   [_SBD],
-  [[() => InventoryS3BucketDestination$, 0]]
+  [[() => InventoryS3BucketDestination$, 0]], 1
 ];
 export var InventoryEncryption$: StaticStructureSchema = [3, n0, _IEn,
   0,
@@ -1892,47 +1892,47 @@ export var InventoryEncryption$: StaticStructureSchema = [3, n0, _IEn,
 export var InventoryFilter$: StaticStructureSchema = [3, n0, _IF,
   0,
   [_P],
-  [0]
+  [0], 1
 ];
 export var InventoryS3BucketDestination$: StaticStructureSchema = [3, n0, _ISBD,
   0,
-  [_AI, _B, _Fo, _P, _En],
-  [0, 0, 0, 0, [() => InventoryEncryption$, 0]]
+  [_B, _Fo, _AI, _P, _En],
+  [0, 0, 0, 0, [() => InventoryEncryption$, 0]], 2
 ];
 export var InventorySchedule$: StaticStructureSchema = [3, n0, _ISn,
   0,
   [_Fr],
-  [0]
+  [0], 1
 ];
 export var InventoryTableConfiguration$: StaticStructureSchema = [3, n0, _ITCn,
   0,
   [_CSo, _EC],
-  [0, () => MetadataTableEncryptionConfiguration$]
+  [0, () => MetadataTableEncryptionConfiguration$], 1
 ];
 export var InventoryTableConfigurationResult$: StaticStructureSchema = [3, n0, _ITCR,
   0,
   [_CSo, _TSa, _Err, _TNa, _TA],
-  [0, 0, () => ErrorDetails$, 0, 0]
+  [0, 0, () => ErrorDetails$, 0, 0], 1
 ];
 export var InventoryTableConfigurationUpdates$: StaticStructureSchema = [3, n0, _ITCU,
   0,
   [_CSo, _EC],
-  [0, () => MetadataTableEncryptionConfiguration$]
+  [0, () => MetadataTableEncryptionConfiguration$], 1
 ];
 export var JournalTableConfiguration$: StaticStructureSchema = [3, n0, _JTC,
   0,
   [_REe, _EC],
-  [() => RecordExpiration$, () => MetadataTableEncryptionConfiguration$]
+  [() => RecordExpiration$, () => MetadataTableEncryptionConfiguration$], 1
 ];
 export var JournalTableConfigurationResult$: StaticStructureSchema = [3, n0, _JTCR,
   0,
-  [_TSa, _Err, _TNa, _TA, _REe],
-  [0, () => ErrorDetails$, 0, 0, () => RecordExpiration$]
+  [_TSa, _TNa, _REe, _Err, _TA],
+  [0, 0, () => RecordExpiration$, () => ErrorDetails$, 0], 3
 ];
 export var JournalTableConfigurationUpdates$: StaticStructureSchema = [3, n0, _JTCU,
   0,
   [_REe],
-  [() => RecordExpiration$]
+  [() => RecordExpiration$], 1
 ];
 export var JSONInput$: StaticStructureSchema = [3, n0, _JSONI,
   0,
@@ -1946,8 +1946,8 @@ export var JSONOutput$: StaticStructureSchema = [3, n0, _JSONO,
 ];
 export var LambdaFunctionConfiguration$: StaticStructureSchema = [3, n0, _LFC,
   0,
-  [_I, _LFA, _Ev, _F],
-  [0, [0, { [_xN]: _CF }], [64 | 0, { [_xF]: 1, [_xN]: _Eve }], [() => NotificationConfigurationFilter$, 0]]
+  [_LFA, _Ev, _I, _F],
+  [[0, { [_xN]: _CF }], [64 | 0, { [_xF]: 1, [_xN]: _Eve }], 0, [() => NotificationConfigurationFilter$, 0]], 2
 ];
 export var LifecycleExpiration$: StaticStructureSchema = [3, n0, _LEi,
   0,
@@ -1956,8 +1956,8 @@ export var LifecycleExpiration$: StaticStructureSchema = [3, n0, _LEi,
 ];
 export var LifecycleRule$: StaticStructureSchema = [3, n0, _LR,
   0,
-  [_E, _ID, _P, _F, _S, _Tr, _NVT, _NVE, _AIMU],
-  [() => LifecycleExpiration$, 0, 0, [() => LifecycleRuleFilter$, 0], 0, [() => TransitionList, { [_xF]: 1, [_xN]: _Tra }], [() => NoncurrentVersionTransitionList, { [_xF]: 1, [_xN]: _NVTo }], () => NoncurrentVersionExpiration$, () => AbortIncompleteMultipartUpload$]
+  [_S, _E, _ID, _P, _F, _Tr, _NVT, _NVE, _AIMU],
+  [0, () => LifecycleExpiration$, 0, 0, [() => LifecycleRuleFilter$, 0], [() => TransitionList, { [_xF]: 1, [_xN]: _Tra }], [() => NoncurrentVersionTransitionList, { [_xF]: 1, [_xN]: _NVTo }], () => NoncurrentVersionExpiration$, () => AbortIncompleteMultipartUpload$], 1
 ];
 export var LifecycleRuleAndOperator$: StaticStructureSchema = [3, n0, _LRAO,
   0,
@@ -1977,7 +1977,7 @@ export var ListBucketAnalyticsConfigurationsOutput$: StaticStructureSchema = [3,
 export var ListBucketAnalyticsConfigurationsRequest$: StaticStructureSchema = [3, n0, _LBACRi,
   0,
   [_B, _CTon, _EBO],
-  [[0, 1], [0, { [_hQ]: _ct }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hQ]: _ct }], [0, { [_hH]: _xaebo }]], 1
 ];
 export var ListBucketIntelligentTieringConfigurationsOutput$: StaticStructureSchema = [3, n0, _LBITCO,
   0,
@@ -1987,7 +1987,7 @@ export var ListBucketIntelligentTieringConfigurationsOutput$: StaticStructureSch
 export var ListBucketIntelligentTieringConfigurationsRequest$: StaticStructureSchema = [3, n0, _LBITCR,
   0,
   [_B, _CTon, _EBO],
-  [[0, 1], [0, { [_hQ]: _ct }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hQ]: _ct }], [0, { [_hH]: _xaebo }]], 1
 ];
 export var ListBucketInventoryConfigurationsOutput$: StaticStructureSchema = [3, n0, _LBICO,
   { [_xN]: _LICR },
@@ -1997,7 +1997,7 @@ export var ListBucketInventoryConfigurationsOutput$: StaticStructureSchema = [3,
 export var ListBucketInventoryConfigurationsRequest$: StaticStructureSchema = [3, n0, _LBICR,
   0,
   [_B, _CTon, _EBO],
-  [[0, 1], [0, { [_hQ]: _ct }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hQ]: _ct }], [0, { [_hH]: _xaebo }]], 1
 ];
 export var ListBucketMetricsConfigurationsOutput$: StaticStructureSchema = [3, n0, _LBMCO,
   { [_xN]: _LMCR },
@@ -2007,7 +2007,7 @@ export var ListBucketMetricsConfigurationsOutput$: StaticStructureSchema = [3, n
 export var ListBucketMetricsConfigurationsRequest$: StaticStructureSchema = [3, n0, _LBMCR,
   0,
   [_B, _CTon, _EBO],
-  [[0, 1], [0, { [_hQ]: _ct }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hQ]: _ct }], [0, { [_hH]: _xaebo }]], 1
 ];
 export var ListBucketsOutput$: StaticStructureSchema = [3, n0, _LBO,
   { [_xN]: _LAMBR },
@@ -2037,7 +2037,7 @@ export var ListMultipartUploadsOutput$: StaticStructureSchema = [3, n0, _LMUO,
 export var ListMultipartUploadsRequest$: StaticStructureSchema = [3, n0, _LMURi,
   0,
   [_B, _Deli, _ETn, _KM, _MUa, _P, _UIM, _EBO, _RP],
-  [[0, 1], [0, { [_hQ]: _d }], [0, { [_hQ]: _et }], [0, { [_hQ]: _km }], [1, { [_hQ]: _mu }], [0, { [_hQ]: _p }], [0, { [_hQ]: _uim }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xarp }]]
+  [[0, 1], [0, { [_hQ]: _d }], [0, { [_hQ]: _et }], [0, { [_hQ]: _km }], [1, { [_hQ]: _mu }], [0, { [_hQ]: _p }], [0, { [_hQ]: _uim }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xarp }]], 1
 ];
 export var ListObjectsOutput$: StaticStructureSchema = [3, n0, _LOO,
   { [_xN]: _LBRi },
@@ -2047,7 +2047,7 @@ export var ListObjectsOutput$: StaticStructureSchema = [3, n0, _LOO,
 export var ListObjectsRequest$: StaticStructureSchema = [3, n0, _LOR,
   0,
   [_B, _Deli, _ETn, _Ma, _MK, _P, _RP, _EBO, _OOA],
-  [[0, 1], [0, { [_hQ]: _d }], [0, { [_hQ]: _et }], [0, { [_hQ]: _m }], [1, { [_hQ]: _mk }], [0, { [_hQ]: _p }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }], [64 | 0, { [_hH]: _xaooa }]]
+  [[0, 1], [0, { [_hQ]: _d }], [0, { [_hQ]: _et }], [0, { [_hQ]: _m }], [1, { [_hQ]: _mk }], [0, { [_hQ]: _p }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }], [64 | 0, { [_hH]: _xaooa }]], 1
 ];
 export var ListObjectsV2Output$: StaticStructureSchema = [3, n0, _LOVO,
   { [_xN]: _LBRi },
@@ -2057,7 +2057,7 @@ export var ListObjectsV2Output$: StaticStructureSchema = [3, n0, _LOVO,
 export var ListObjectsV2Request$: StaticStructureSchema = [3, n0, _LOVR,
   0,
   [_B, _Deli, _ETn, _MK, _P, _CTon, _FO, _SA, _RP, _EBO, _OOA],
-  [[0, 1], [0, { [_hQ]: _d }], [0, { [_hQ]: _et }], [1, { [_hQ]: _mk }], [0, { [_hQ]: _p }], [0, { [_hQ]: _ct }], [2, { [_hQ]: _fo }], [0, { [_hQ]: _sa }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }], [64 | 0, { [_hH]: _xaooa }]]
+  [[0, 1], [0, { [_hQ]: _d }], [0, { [_hQ]: _et }], [1, { [_hQ]: _mk }], [0, { [_hQ]: _p }], [0, { [_hQ]: _ct }], [2, { [_hQ]: _fo }], [0, { [_hQ]: _sa }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }], [64 | 0, { [_hH]: _xaooa }]], 1
 ];
 export var ListObjectVersionsOutput$: StaticStructureSchema = [3, n0, _LOVOi,
   { [_xN]: _LVR },
@@ -2067,7 +2067,7 @@ export var ListObjectVersionsOutput$: StaticStructureSchema = [3, n0, _LOVOi,
 export var ListObjectVersionsRequest$: StaticStructureSchema = [3, n0, _LOVRi,
   0,
   [_B, _Deli, _ETn, _KM, _MK, _P, _VIM, _EBO, _RP, _OOA],
-  [[0, 1], [0, { [_hQ]: _d }], [0, { [_hQ]: _et }], [0, { [_hQ]: _km }], [1, { [_hQ]: _mk }], [0, { [_hQ]: _p }], [0, { [_hQ]: _vim }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xarp }], [64 | 0, { [_hH]: _xaooa }]]
+  [[0, 1], [0, { [_hQ]: _d }], [0, { [_hQ]: _et }], [0, { [_hQ]: _km }], [1, { [_hQ]: _mk }], [0, { [_hQ]: _p }], [0, { [_hQ]: _vim }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xarp }], [64 | 0, { [_hH]: _xaooa }]], 1
 ];
 export var ListPartsOutput$: StaticStructureSchema = [3, n0, _LPO,
   { [_xN]: _LPR },
@@ -2076,8 +2076,8 @@ export var ListPartsOutput$: StaticStructureSchema = [3, n0, _LPO,
 ];
 export var ListPartsRequest$: StaticStructureSchema = [3, n0, _LPRi,
   0,
-  [_B, _K, _MP, _PNM, _UI, _RP, _EBO, _SSECA, _SSECK, _SSECKMD],
-  [[0, 1], [0, 1], [1, { [_hQ]: _mp }], [0, { [_hQ]: _pnm }], [0, { [_hQ]: _uI }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }]]
+  [_B, _K, _UI, _MP, _PNM, _RP, _EBO, _SSECA, _SSECK, _SSECKMD],
+  [[0, 1], [0, 1], [0, { [_hQ]: _uI }], [1, { [_hQ]: _mp }], [0, { [_hQ]: _pnm }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }]], 3
 ];
 export var LocationInfo$: StaticStructureSchema = [3, n0, _LI,
   0,
@@ -2086,18 +2086,18 @@ export var LocationInfo$: StaticStructureSchema = [3, n0, _LI,
 ];
 export var LoggingEnabled$: StaticStructureSchema = [3, n0, _LE,
   0,
-  [_TB, _TG, _TP, _TOKF],
-  [0, [() => TargetGrants, 0], 0, [() => TargetObjectKeyFormat$, 0]]
+  [_TB, _TP, _TG, _TOKF],
+  [0, 0, [() => TargetGrants, 0], [() => TargetObjectKeyFormat$, 0]], 2
 ];
 export var MetadataConfiguration$: StaticStructureSchema = [3, n0, _MC,
   0,
   [_JTC, _ITCn],
-  [() => JournalTableConfiguration$, () => InventoryTableConfiguration$]
+  [() => JournalTableConfiguration$, () => InventoryTableConfiguration$], 1
 ];
 export var MetadataConfigurationResult$: StaticStructureSchema = [3, n0, _MCR,
   0,
   [_DRes, _JTCR, _ITCR],
-  [() => DestinationResult$, () => JournalTableConfigurationResult$, () => InventoryTableConfigurationResult$]
+  [() => DestinationResult$, () => JournalTableConfigurationResult$, () => InventoryTableConfigurationResult$], 1
 ];
 export var MetadataEntry$: StaticStructureSchema = [3, n0, _ME,
   0,
@@ -2107,22 +2107,22 @@ export var MetadataEntry$: StaticStructureSchema = [3, n0, _ME,
 export var MetadataTableConfiguration$: StaticStructureSchema = [3, n0, _MTC,
   0,
   [_STD],
-  [() => S3TablesDestination$]
+  [() => S3TablesDestination$], 1
 ];
 export var MetadataTableConfigurationResult$: StaticStructureSchema = [3, n0, _MTCR,
   0,
   [_STDR],
-  [() => S3TablesDestinationResult$]
+  [() => S3TablesDestinationResult$], 1
 ];
 export var MetadataTableEncryptionConfiguration$: StaticStructureSchema = [3, n0, _MTEC,
   0,
   [_SAs, _KKA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var Metrics$: StaticStructureSchema = [3, n0, _Me,
   0,
   [_S, _ETv],
-  [0, () => ReplicationTimeValue$]
+  [0, () => ReplicationTimeValue$], 1
 ];
 export var MetricsAndOperator$: StaticStructureSchema = [3, n0, _MAO,
   0,
@@ -2132,7 +2132,7 @@ export var MetricsAndOperator$: StaticStructureSchema = [3, n0, _MAO,
 export var MetricsConfiguration$: StaticStructureSchema = [3, n0, _MCe,
   0,
   [_I, _F],
-  [0, [() => MetricsFilter$, 0]]
+  [0, [() => MetricsFilter$, 0]], 1
 ];
 export var MultipartUpload$: StaticStructureSchema = [3, n0, _MU,
   0,
@@ -2197,7 +2197,7 @@ TypeRegistry.for(n0).registerError(ObjectAlreadyInActiveTierError$, ObjectAlread
 export var ObjectIdentifier$: StaticStructureSchema = [3, n0, _OI,
   0,
   [_K, _VI, _ETa, _LMT, _Si],
-  [0, 0, 0, 6, 1]
+  [0, 0, 0, 6, 1], 1
 ];
 export var ObjectLockConfiguration$: StaticStructureSchema = [3, n0, _OLC,
   0,
@@ -2253,12 +2253,12 @@ export var Owner$: StaticStructureSchema = [3, n0, _O,
 export var OwnershipControls$: StaticStructureSchema = [3, n0, _OC,
   0,
   [_R],
-  [[() => OwnershipControlsRules, { [_xF]: 1, [_xN]: _Ru }]]
+  [[() => OwnershipControlsRules, { [_xF]: 1, [_xN]: _Ru }]], 1
 ];
 export var OwnershipControlsRule$: StaticStructureSchema = [3, n0, _OCR,
   0,
   [_OO],
-  [0]
+  [0], 1
 ];
 export var ParquetInput$: StaticStructureSchema = [3, n0, _PI,
   0,
@@ -2297,43 +2297,43 @@ export var PublicAccessBlockConfiguration$: StaticStructureSchema = [3, n0, _PAB
 ];
 export var PutBucketAbacRequest$: StaticStructureSchema = [3, n0, _PBAR,
   0,
-  [_B, _CMD, _CA, _EBO, _AS],
-  [[0, 1], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }], [() => AbacStatus$, { [_hP]: 1, [_xN]: _AS }]]
+  [_B, _AS, _CMD, _CA, _EBO],
+  [[0, 1], [() => AbacStatus$, { [_hP]: 1, [_xN]: _AS }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var PutBucketAccelerateConfigurationRequest$: StaticStructureSchema = [3, n0, _PBACR,
   0,
   [_B, _AC, _EBO, _CA],
-  [[0, 1], [() => AccelerateConfiguration$, { [_hP]: 1, [_xN]: _AC }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xasca }]]
+  [[0, 1], [() => AccelerateConfiguration$, { [_hP]: 1, [_xN]: _AC }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xasca }]], 2
 ];
 export var PutBucketAclRequest$: StaticStructureSchema = [3, n0, _PBARu,
   0,
-  [_ACL_, _ACP, _B, _CMD, _CA, _GFC, _GR, _GRACP, _GW, _GWACP, _EBO],
-  [[0, { [_hH]: _xaa }], [() => AccessControlPolicy$, { [_hP]: 1, [_xN]: _ACP }], [0, 1], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xagfc }], [0, { [_hH]: _xagr }], [0, { [_hH]: _xagra }], [0, { [_hH]: _xagw }], [0, { [_hH]: _xagwa }], [0, { [_hH]: _xaebo }]]
+  [_B, _ACL_, _ACP, _CMD, _CA, _GFC, _GR, _GRACP, _GW, _GWACP, _EBO],
+  [[0, 1], [0, { [_hH]: _xaa }], [() => AccessControlPolicy$, { [_hP]: 1, [_xN]: _ACP }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xagfc }], [0, { [_hH]: _xagr }], [0, { [_hH]: _xagra }], [0, { [_hH]: _xagw }], [0, { [_hH]: _xagwa }], [0, { [_hH]: _xaebo }]], 1
 ];
 export var PutBucketAnalyticsConfigurationRequest$: StaticStructureSchema = [3, n0, _PBACRu,
   0,
   [_B, _I, _ACn, _EBO],
-  [[0, 1], [0, { [_hQ]: _i }], [() => AnalyticsConfiguration$, { [_hP]: 1, [_xN]: _ACn }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hQ]: _i }], [() => AnalyticsConfiguration$, { [_hP]: 1, [_xN]: _ACn }], [0, { [_hH]: _xaebo }]], 3
 ];
 export var PutBucketCorsRequest$: StaticStructureSchema = [3, n0, _PBCR,
   0,
   [_B, _CORSC, _CMD, _CA, _EBO],
-  [[0, 1], [() => CORSConfiguration$, { [_hP]: 1, [_xN]: _CORSC }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [() => CORSConfiguration$, { [_hP]: 1, [_xN]: _CORSC }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var PutBucketEncryptionRequest$: StaticStructureSchema = [3, n0, _PBER,
   0,
-  [_B, _CMD, _CA, _SSEC, _EBO],
-  [[0, 1], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [() => ServerSideEncryptionConfiguration$, { [_hP]: 1, [_xN]: _SSEC }], [0, { [_hH]: _xaebo }]]
+  [_B, _SSEC, _CMD, _CA, _EBO],
+  [[0, 1], [() => ServerSideEncryptionConfiguration$, { [_hP]: 1, [_xN]: _SSEC }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var PutBucketIntelligentTieringConfigurationRequest$: StaticStructureSchema = [3, n0, _PBITCR,
   0,
-  [_B, _I, _EBO, _ITC],
-  [[0, 1], [0, { [_hQ]: _i }], [0, { [_hH]: _xaebo }], [() => IntelligentTieringConfiguration$, { [_hP]: 1, [_xN]: _ITC }]]
+  [_B, _I, _ITC, _EBO],
+  [[0, 1], [0, { [_hQ]: _i }], [() => IntelligentTieringConfiguration$, { [_hP]: 1, [_xN]: _ITC }], [0, { [_hH]: _xaebo }]], 3
 ];
 export var PutBucketInventoryConfigurationRequest$: StaticStructureSchema = [3, n0, _PBICR,
   0,
   [_B, _I, _IC, _EBO],
-  [[0, 1], [0, { [_hQ]: _i }], [() => InventoryConfiguration$, { [_hP]: 1, [_xN]: _IC }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hQ]: _i }], [() => InventoryConfiguration$, { [_hP]: 1, [_xN]: _IC }], [0, { [_hH]: _xaebo }]], 3
 ];
 export var PutBucketLifecycleConfigurationOutput$: StaticStructureSchema = [3, n0, _PBLCO,
   0,
@@ -2343,57 +2343,57 @@ export var PutBucketLifecycleConfigurationOutput$: StaticStructureSchema = [3, n
 export var PutBucketLifecycleConfigurationRequest$: StaticStructureSchema = [3, n0, _PBLCR,
   0,
   [_B, _CA, _LCi, _EBO, _TDMOS],
-  [[0, 1], [0, { [_hH]: _xasca }], [() => BucketLifecycleConfiguration$, { [_hP]: 1, [_xN]: _LCi }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xatdmos }]]
+  [[0, 1], [0, { [_hH]: _xasca }], [() => BucketLifecycleConfiguration$, { [_hP]: 1, [_xN]: _LCi }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xatdmos }]], 1
 ];
 export var PutBucketLoggingRequest$: StaticStructureSchema = [3, n0, _PBLR,
   0,
   [_B, _BLS, _CMD, _CA, _EBO],
-  [[0, 1], [() => BucketLoggingStatus$, { [_hP]: 1, [_xN]: _BLS }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [() => BucketLoggingStatus$, { [_hP]: 1, [_xN]: _BLS }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var PutBucketMetricsConfigurationRequest$: StaticStructureSchema = [3, n0, _PBMCR,
   0,
   [_B, _I, _MCe, _EBO],
-  [[0, 1], [0, { [_hQ]: _i }], [() => MetricsConfiguration$, { [_hP]: 1, [_xN]: _MCe }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, { [_hQ]: _i }], [() => MetricsConfiguration$, { [_hP]: 1, [_xN]: _MCe }], [0, { [_hH]: _xaebo }]], 3
 ];
 export var PutBucketNotificationConfigurationRequest$: StaticStructureSchema = [3, n0, _PBNCR,
   0,
   [_B, _NC, _EBO, _SDV],
-  [[0, 1], [() => NotificationConfiguration$, { [_hP]: 1, [_xN]: _NC }], [0, { [_hH]: _xaebo }], [2, { [_hH]: _xasdv }]]
+  [[0, 1], [() => NotificationConfiguration$, { [_hP]: 1, [_xN]: _NC }], [0, { [_hH]: _xaebo }], [2, { [_hH]: _xasdv }]], 2
 ];
 export var PutBucketOwnershipControlsRequest$: StaticStructureSchema = [3, n0, _PBOCR,
   0,
-  [_B, _CMD, _EBO, _OC, _CA],
-  [[0, 1], [0, { [_hH]: _CM }], [0, { [_hH]: _xaebo }], [() => OwnershipControls$, { [_hP]: 1, [_xN]: _OC }], [0, { [_hH]: _xasca }]]
+  [_B, _OC, _CMD, _EBO, _CA],
+  [[0, 1], [() => OwnershipControls$, { [_hP]: 1, [_xN]: _OC }], [0, { [_hH]: _CM }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xasca }]], 2
 ];
 export var PutBucketPolicyRequest$: StaticStructureSchema = [3, n0, _PBPR,
   0,
-  [_B, _CMD, _CA, _CRSBA, _Po, _EBO],
-  [[0, 1], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [2, { [_hH]: _xacrsba }], [0, 16], [0, { [_hH]: _xaebo }]]
+  [_B, _Po, _CMD, _CA, _CRSBA, _EBO],
+  [[0, 1], [0, 16], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [2, { [_hH]: _xacrsba }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var PutBucketReplicationRequest$: StaticStructureSchema = [3, n0, _PBRR,
   0,
-  [_B, _CMD, _CA, _RCe, _To, _EBO],
-  [[0, 1], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [() => ReplicationConfiguration$, { [_hP]: 1, [_xN]: _RCe }], [0, { [_hH]: _xabolt }], [0, { [_hH]: _xaebo }]]
+  [_B, _RCe, _CMD, _CA, _To, _EBO],
+  [[0, 1], [() => ReplicationConfiguration$, { [_hP]: 1, [_xN]: _RCe }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xabolt }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var PutBucketRequestPaymentRequest$: StaticStructureSchema = [3, n0, _PBRPR,
   0,
-  [_B, _CMD, _CA, _RPC, _EBO],
-  [[0, 1], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [() => RequestPaymentConfiguration$, { [_hP]: 1, [_xN]: _RPC }], [0, { [_hH]: _xaebo }]]
+  [_B, _RPC, _CMD, _CA, _EBO],
+  [[0, 1], [() => RequestPaymentConfiguration$, { [_hP]: 1, [_xN]: _RPC }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var PutBucketTaggingRequest$: StaticStructureSchema = [3, n0, _PBTR,
   0,
-  [_B, _CMD, _CA, _Tag, _EBO],
-  [[0, 1], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [() => Tagging$, { [_hP]: 1, [_xN]: _Tag }], [0, { [_hH]: _xaebo }]]
+  [_B, _Tag, _CMD, _CA, _EBO],
+  [[0, 1], [() => Tagging$, { [_hP]: 1, [_xN]: _Tag }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var PutBucketVersioningRequest$: StaticStructureSchema = [3, n0, _PBVR,
   0,
-  [_B, _CMD, _CA, _MFA, _VC, _EBO],
-  [[0, 1], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xam_ }], [() => VersioningConfiguration$, { [_hP]: 1, [_xN]: _VC }], [0, { [_hH]: _xaebo }]]
+  [_B, _VC, _CMD, _CA, _MFA, _EBO],
+  [[0, 1], [() => VersioningConfiguration$, { [_hP]: 1, [_xN]: _VC }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xam_ }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var PutBucketWebsiteRequest$: StaticStructureSchema = [3, n0, _PBWR,
   0,
-  [_B, _CMD, _CA, _WC, _EBO],
-  [[0, 1], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [() => WebsiteConfiguration$, { [_hP]: 1, [_xN]: _WC }], [0, { [_hH]: _xaebo }]]
+  [_B, _WC, _CMD, _CA, _EBO],
+  [[0, 1], [() => WebsiteConfiguration$, { [_hP]: 1, [_xN]: _WC }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var PutObjectAclOutput$: StaticStructureSchema = [3, n0, _POAO,
   0,
@@ -2402,8 +2402,8 @@ export var PutObjectAclOutput$: StaticStructureSchema = [3, n0, _POAO,
 ];
 export var PutObjectAclRequest$: StaticStructureSchema = [3, n0, _POAR,
   0,
-  [_ACL_, _ACP, _B, _CMD, _CA, _GFC, _GR, _GRACP, _GW, _GWACP, _K, _RP, _VI, _EBO],
-  [[0, { [_hH]: _xaa }], [() => AccessControlPolicy$, { [_hP]: 1, [_xN]: _ACP }], [0, 1], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xagfc }], [0, { [_hH]: _xagr }], [0, { [_hH]: _xagra }], [0, { [_hH]: _xagw }], [0, { [_hH]: _xagwa }], [0, 1], [0, { [_hH]: _xarp }], [0, { [_hQ]: _vI }], [0, { [_hH]: _xaebo }]]
+  [_B, _K, _ACL_, _ACP, _CMD, _CA, _GFC, _GR, _GRACP, _GW, _GWACP, _RP, _VI, _EBO],
+  [[0, 1], [0, 1], [0, { [_hH]: _xaa }], [() => AccessControlPolicy$, { [_hP]: 1, [_xN]: _ACP }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xagfc }], [0, { [_hH]: _xagr }], [0, { [_hH]: _xagra }], [0, { [_hH]: _xagw }], [0, { [_hH]: _xagwa }], [0, { [_hH]: _xarp }], [0, { [_hQ]: _vI }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var PutObjectLegalHoldOutput$: StaticStructureSchema = [3, n0, _POLHO,
   0,
@@ -2413,7 +2413,7 @@ export var PutObjectLegalHoldOutput$: StaticStructureSchema = [3, n0, _POLHO,
 export var PutObjectLegalHoldRequest$: StaticStructureSchema = [3, n0, _POLHR,
   0,
   [_B, _K, _LH, _RP, _VI, _CMD, _CA, _EBO],
-  [[0, 1], [0, 1], [() => ObjectLockLegalHold$, { [_hP]: 1, [_xN]: _LH }], [0, { [_hH]: _xarp }], [0, { [_hQ]: _vI }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, 1], [() => ObjectLockLegalHold$, { [_hP]: 1, [_xN]: _LH }], [0, { [_hH]: _xarp }], [0, { [_hQ]: _vI }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var PutObjectLockConfigurationOutput$: StaticStructureSchema = [3, n0, _POLCO,
   0,
@@ -2423,7 +2423,7 @@ export var PutObjectLockConfigurationOutput$: StaticStructureSchema = [3, n0, _P
 export var PutObjectLockConfigurationRequest$: StaticStructureSchema = [3, n0, _POLCR,
   0,
   [_B, _OLC, _RP, _To, _CMD, _CA, _EBO],
-  [[0, 1], [() => ObjectLockConfiguration$, { [_hP]: 1, [_xN]: _OLC }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xabolt }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [() => ObjectLockConfiguration$, { [_hP]: 1, [_xN]: _OLC }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xabolt }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]], 1
 ];
 export var PutObjectOutput$: StaticStructureSchema = [3, n0, _POO,
   0,
@@ -2432,8 +2432,8 @@ export var PutObjectOutput$: StaticStructureSchema = [3, n0, _POO,
 ];
 export var PutObjectRequest$: StaticStructureSchema = [3, n0, _POR,
   0,
-  [_ACL_, _Bo, _B, _CC, _CDo, _CEo, _CL, _CLo, _CMD, _CTo, _CA, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh, _Ex, _IM, _INM, _GFC, _GR, _GRACP, _GWACP, _K, _WOB, _M, _SSE, _SC, _WRL, _SSECA, _SSECK, _SSECKMD, _SSEKMSKI, _SSEKMSEC, _BKE, _RP, _Tag, _OLM, _OLRUD, _OLLHS, _EBO],
-  [[0, { [_hH]: _xaa }], [() => StreamingBlob, 16], [0, 1], [0, { [_hH]: _CC_ }], [0, { [_hH]: _CD_ }], [0, { [_hH]: _CE_ }], [0, { [_hH]: _CL_ }], [1, { [_hH]: _CL__ }], [0, { [_hH]: _CM }], [0, { [_hH]: _CT_ }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xacc }], [0, { [_hH]: _xacc_ }], [0, { [_hH]: _xacc__ }], [0, { [_hH]: _xacs }], [0, { [_hH]: _xacs_ }], [4, { [_hH]: _Ex }], [0, { [_hH]: _IM_ }], [0, { [_hH]: _INM_ }], [0, { [_hH]: _xagfc }], [0, { [_hH]: _xagr }], [0, { [_hH]: _xagra }], [0, { [_hH]: _xagwa }], [0, 1], [1, { [_hH]: _xawob }], [128 | 0, { [_hPH]: _xam }], [0, { [_hH]: _xasse }], [0, { [_hH]: _xasc }], [0, { [_hH]: _xawrl }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], [() => SSEKMSKeyId, { [_hH]: _xasseakki }], [() => SSEKMSEncryptionContext, { [_hH]: _xassec }], [2, { [_hH]: _xassebke }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xat }], [0, { [_hH]: _xaolm }], [5, { [_hH]: _xaolrud }], [0, { [_hH]: _xaollh }], [0, { [_hH]: _xaebo }]]
+  [_B, _K, _ACL_, _Bo, _CC, _CDo, _CEo, _CL, _CLo, _CMD, _CTo, _CA, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh, _Ex, _IM, _INM, _GFC, _GR, _GRACP, _GWACP, _WOB, _M, _SSE, _SC, _WRL, _SSECA, _SSECK, _SSECKMD, _SSEKMSKI, _SSEKMSEC, _BKE, _RP, _Tag, _OLM, _OLRUD, _OLLHS, _EBO],
+  [[0, 1], [0, 1], [0, { [_hH]: _xaa }], [() => StreamingBlob, 16], [0, { [_hH]: _CC_ }], [0, { [_hH]: _CD_ }], [0, { [_hH]: _CE_ }], [0, { [_hH]: _CL_ }], [1, { [_hH]: _CL__ }], [0, { [_hH]: _CM }], [0, { [_hH]: _CT_ }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xacc }], [0, { [_hH]: _xacc_ }], [0, { [_hH]: _xacc__ }], [0, { [_hH]: _xacs }], [0, { [_hH]: _xacs_ }], [4, { [_hH]: _Ex }], [0, { [_hH]: _IM_ }], [0, { [_hH]: _INM_ }], [0, { [_hH]: _xagfc }], [0, { [_hH]: _xagr }], [0, { [_hH]: _xagra }], [0, { [_hH]: _xagwa }], [1, { [_hH]: _xawob }], [128 | 0, { [_hPH]: _xam }], [0, { [_hH]: _xasse }], [0, { [_hH]: _xasc }], [0, { [_hH]: _xawrl }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], [() => SSEKMSKeyId, { [_hH]: _xasseakki }], [() => SSEKMSEncryptionContext, { [_hH]: _xassec }], [2, { [_hH]: _xassebke }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xat }], [0, { [_hH]: _xaolm }], [5, { [_hH]: _xaolrud }], [0, { [_hH]: _xaollh }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var PutObjectRetentionOutput$: StaticStructureSchema = [3, n0, _PORO,
   0,
@@ -2443,7 +2443,7 @@ export var PutObjectRetentionOutput$: StaticStructureSchema = [3, n0, _PORO,
 export var PutObjectRetentionRequest$: StaticStructureSchema = [3, n0, _PORR,
   0,
   [_B, _K, _Ret, _RP, _VI, _BGR, _CMD, _CA, _EBO],
-  [[0, 1], [0, 1], [() => ObjectLockRetention$, { [_hP]: 1, [_xN]: _Ret }], [0, { [_hH]: _xarp }], [0, { [_hQ]: _vI }], [2, { [_hH]: _xabgr }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, 1], [() => ObjectLockRetention$, { [_hP]: 1, [_xN]: _Ret }], [0, { [_hH]: _xarp }], [0, { [_hQ]: _vI }], [2, { [_hH]: _xabgr }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var PutObjectTaggingOutput$: StaticStructureSchema = [3, n0, _POTO,
   0,
@@ -2452,23 +2452,23 @@ export var PutObjectTaggingOutput$: StaticStructureSchema = [3, n0, _POTO,
 ];
 export var PutObjectTaggingRequest$: StaticStructureSchema = [3, n0, _POTR,
   0,
-  [_B, _K, _VI, _CMD, _CA, _Tag, _EBO, _RP],
-  [[0, 1], [0, 1], [0, { [_hQ]: _vI }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [() => Tagging$, { [_hP]: 1, [_xN]: _Tag }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xarp }]]
+  [_B, _K, _Tag, _VI, _CMD, _CA, _EBO, _RP],
+  [[0, 1], [0, 1], [() => Tagging$, { [_hP]: 1, [_xN]: _Tag }], [0, { [_hQ]: _vI }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xarp }]], 3
 ];
 export var PutPublicAccessBlockRequest$: StaticStructureSchema = [3, n0, _PPABR,
   0,
-  [_B, _CMD, _CA, _PABC, _EBO],
-  [[0, 1], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [() => PublicAccessBlockConfiguration$, { [_hP]: 1, [_xN]: _PABC }], [0, { [_hH]: _xaebo }]]
+  [_B, _PABC, _CMD, _CA, _EBO],
+  [[0, 1], [() => PublicAccessBlockConfiguration$, { [_hP]: 1, [_xN]: _PABC }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var QueueConfiguration$: StaticStructureSchema = [3, n0, _QCue,
   0,
-  [_I, _QA, _Ev, _F],
-  [0, [0, { [_xN]: _Qu }], [64 | 0, { [_xF]: 1, [_xN]: _Eve }], [() => NotificationConfigurationFilter$, 0]]
+  [_QA, _Ev, _I, _F],
+  [[0, { [_xN]: _Qu }], [64 | 0, { [_xF]: 1, [_xN]: _Eve }], 0, [() => NotificationConfigurationFilter$, 0]], 2
 ];
 export var RecordExpiration$: StaticStructureSchema = [3, n0, _REe,
   0,
   [_E, _D],
-  [0, 1]
+  [0, 1], 1
 ];
 export var RecordsEvent$: StaticStructureSchema = [3, n0, _REec,
   0,
@@ -2483,7 +2483,7 @@ export var Redirect$: StaticStructureSchema = [3, n0, _Red,
 export var RedirectAllRequestsTo$: StaticStructureSchema = [3, n0, _RART,
   0,
   [_HN, _Pro],
-  [0, 0]
+  [0, 0], 1
 ];
 export var RenameObjectOutput$: StaticStructureSchema = [3, n0, _ROO,
   0,
@@ -2493,22 +2493,22 @@ export var RenameObjectOutput$: StaticStructureSchema = [3, n0, _ROO,
 export var RenameObjectRequest$: StaticStructureSchema = [3, n0, _ROR,
   0,
   [_B, _K, _RSen, _DIM, _DINM, _DIMS, _DIUS, _SIM, _SINM, _SIMS, _SIUS, _CTl],
-  [[0, 1], [0, 1], [0, { [_hH]: _xars_ }], [0, { [_hH]: _IM_ }], [0, { [_hH]: _INM_ }], [4, { [_hH]: _IMS_ }], [4, { [_hH]: _IUS_ }], [0, { [_hH]: _xarsim }], [0, { [_hH]: _xarsinm }], [6, { [_hH]: _xarsims }], [6, { [_hH]: _xarsius }], [0, { [_hH]: _xact_, [_iT]: 1 }]]
+  [[0, 1], [0, 1], [0, { [_hH]: _xars_ }], [0, { [_hH]: _IM_ }], [0, { [_hH]: _INM_ }], [4, { [_hH]: _IMS_ }], [4, { [_hH]: _IUS_ }], [0, { [_hH]: _xarsim }], [0, { [_hH]: _xarsinm }], [6, { [_hH]: _xarsims }], [6, { [_hH]: _xarsius }], [0, { [_hH]: _xact_, [_iT]: 1 }]], 3
 ];
 export var ReplicaModifications$: StaticStructureSchema = [3, n0, _RM,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var ReplicationConfiguration$: StaticStructureSchema = [3, n0, _RCe,
   0,
   [_Ro, _R],
-  [0, [() => ReplicationRules, { [_xF]: 1, [_xN]: _Ru }]]
+  [0, [() => ReplicationRules, { [_xF]: 1, [_xN]: _Ru }]], 2
 ];
 export var ReplicationRule$: StaticStructureSchema = [3, n0, _RRe,
   0,
-  [_ID, _Pri, _P, _F, _S, _SSC, _EOR, _Des, _DMR],
-  [0, 1, 0, [() => ReplicationRuleFilter$, 0], 0, () => SourceSelectionCriteria$, () => ExistingObjectReplication$, () => Destination$, () => DeleteMarkerReplication$]
+  [_S, _Des, _ID, _Pri, _P, _F, _SSC, _EOR, _DMR],
+  [0, () => Destination$, 0, 1, 0, [() => ReplicationRuleFilter$, 0], () => SourceSelectionCriteria$, () => ExistingObjectReplication$, () => DeleteMarkerReplication$], 2
 ];
 export var ReplicationRuleAndOperator$: StaticStructureSchema = [3, n0, _RRAO,
   0,
@@ -2523,7 +2523,7 @@ export var ReplicationRuleFilter$: StaticStructureSchema = [3, n0, _RRF,
 export var ReplicationTime$: StaticStructureSchema = [3, n0, _RT,
   0,
   [_S, _Tim],
-  [0, () => ReplicationTimeValue$]
+  [0, () => ReplicationTimeValue$], 2
 ];
 export var ReplicationTimeValue$: StaticStructureSchema = [3, n0, _RTV,
   0,
@@ -2533,7 +2533,7 @@ export var ReplicationTimeValue$: StaticStructureSchema = [3, n0, _RTV,
 export var RequestPaymentConfiguration$: StaticStructureSchema = [3, n0, _RPC,
   0,
   [_Pay],
-  [0]
+  [0], 1
 ];
 export var RequestProgress$: StaticStructureSchema = [3, n0, _RPe,
   0,
@@ -2548,7 +2548,7 @@ export var RestoreObjectOutput$: StaticStructureSchema = [3, n0, _ROOe,
 export var RestoreObjectRequest$: StaticStructureSchema = [3, n0, _RORe,
   0,
   [_B, _K, _VI, _RRes, _RP, _CA, _EBO],
-  [[0, 1], [0, 1], [0, { [_hQ]: _vI }], [() => RestoreRequest$, { [_hP]: 1, [_xN]: _RRes }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _vI }], [() => RestoreRequest$, { [_hP]: 1, [_xN]: _RRes }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var RestoreRequest$: StaticStructureSchema = [3, n0, _RRes,
   0,
@@ -2562,8 +2562,8 @@ export var RestoreStatus$: StaticStructureSchema = [3, n0, _RSe,
 ];
 export var RoutingRule$: StaticStructureSchema = [3, n0, _RRo,
   0,
-  [_Co, _Red],
-  [() => Condition$, () => Redirect$]
+  [_Red, _Co],
+  [() => Redirect$, () => Condition$], 1
 ];
 export var S3KeyFilter$: StaticStructureSchema = [3, n0, _SKF,
   0,
@@ -2573,17 +2573,17 @@ export var S3KeyFilter$: StaticStructureSchema = [3, n0, _SKF,
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_BN, _P, _En, _CACL, _ACL, _Tag, _UM, _SC],
-  [0, 0, [() => Encryption$, 0], 0, [() => Grants, 0], [() => Tagging$, 0], [() => UserMetadata, 0], 0]
+  [0, 0, [() => Encryption$, 0], 0, [() => Grants, 0], [() => Tagging$, 0], [() => UserMetadata, 0], 0], 2
 ];
 export var S3TablesDestination$: StaticStructureSchema = [3, n0, _STD,
   0,
   [_TBA, _TNa],
-  [0, 0]
+  [0, 0], 2
 ];
 export var S3TablesDestinationResult$: StaticStructureSchema = [3, n0, _STDR,
   0,
   [_TBA, _TNa, _TA, _TN],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var ScanRange$: StaticStructureSchema = [3, n0, _SR,
   0,
@@ -2597,23 +2597,23 @@ export var SelectObjectContentOutput$: StaticStructureSchema = [3, n0, _SOCO,
 ];
 export var SelectObjectContentRequest$: StaticStructureSchema = [3, n0, _SOCR,
   0,
-  [_B, _K, _SSECA, _SSECK, _SSECKMD, _Exp, _ETx, _RPe, _IS, _OSu, _SR, _EBO],
-  [[0, 1], [0, 1], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], 0, 0, () => RequestProgress$, () => InputSerialization$, () => OutputSerialization$, () => ScanRange$, [0, { [_hH]: _xaebo }]]
+  [_B, _K, _Exp, _ETx, _IS, _OSu, _SSECA, _SSECK, _SSECKMD, _RPe, _SR, _EBO],
+  [[0, 1], [0, 1], 0, 0, () => InputSerialization$, () => OutputSerialization$, [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], () => RequestProgress$, () => ScanRange$, [0, { [_hH]: _xaebo }]], 6
 ];
 export var SelectParameters$: StaticStructureSchema = [3, n0, _SP,
   0,
   [_IS, _ETx, _Exp, _OSu],
-  [() => InputSerialization$, 0, 0, () => OutputSerialization$]
+  [() => InputSerialization$, 0, 0, () => OutputSerialization$], 4
 ];
 export var ServerSideEncryptionByDefault$: StaticStructureSchema = [3, n0, _SSEBD,
   0,
   [_SSEA, _KMSMKID],
-  [0, [() => SSEKMSKeyId, 0]]
+  [0, [() => SSEKMSKeyId, 0]], 1
 ];
 export var ServerSideEncryptionConfiguration$: StaticStructureSchema = [3, n0, _SSEC,
   0,
   [_R],
-  [[() => ServerSideEncryptionRules, { [_xF]: 1, [_xN]: _Ru }]]
+  [[() => ServerSideEncryptionRules, { [_xF]: 1, [_xN]: _Ru }]], 1
 ];
 export var ServerSideEncryptionRule$: StaticStructureSchema = [3, n0, _SSER,
   0,
@@ -2623,7 +2623,7 @@ export var ServerSideEncryptionRule$: StaticStructureSchema = [3, n0, _SSER,
 export var SessionCredentials$: StaticStructureSchema = [3, n0, _SCe,
   0,
   [_AKI, _SAK, _ST, _E],
-  [[0, { [_xN]: _AKI }], [() => SessionCredentialValue, { [_xN]: _SAK }], [() => SessionCredentialValue, { [_xN]: _ST }], [4, { [_xN]: _E }]]
+  [[0, { [_xN]: _AKI }], [() => SessionCredentialValue, { [_xN]: _SAK }], [() => SessionCredentialValue, { [_xN]: _ST }], [4, { [_xN]: _E }]], 4
 ];
 export var SimplePrefix$: StaticStructureSchema = [3, n0, _SPi,
   { [_xN]: _SPi },
@@ -2638,12 +2638,12 @@ export var SourceSelectionCriteria$: StaticStructureSchema = [3, n0, _SSC,
 export var SSEKMS$: StaticStructureSchema = [3, n0, _SSEKMS,
   { [_xN]: _SK },
   [_KI],
-  [[() => SSEKMSKeyId, 0]]
+  [[() => SSEKMSKeyId, 0]], 1
 ];
 export var SseKmsEncryptedObjects$: StaticStructureSchema = [3, n0, _SKEO,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var SSES3$: StaticStructureSchema = [3, n0, _SSES,
   { [_xN]: _SS },
@@ -2668,17 +2668,17 @@ export var StorageClassAnalysis$: StaticStructureSchema = [3, n0, _SCA,
 export var StorageClassAnalysisDataExport$: StaticStructureSchema = [3, n0, _SCADE,
   0,
   [_OSV, _Des],
-  [0, () => AnalyticsExportDestination$]
+  [0, () => AnalyticsExportDestination$], 2
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Tagging$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_TS],
-  [[() => TagSet, 0]]
+  [[() => TagSet, 0]], 1
 ];
 export var TargetGrant$: StaticStructureSchema = [3, n0, _TGa,
   0,
@@ -2693,7 +2693,7 @@ export var TargetObjectKeyFormat$: StaticStructureSchema = [3, n0, _TOKF,
 export var Tiering$: StaticStructureSchema = [3, n0, _Tier,
   0,
   [_D, _AT],
-  [1, 0]
+  [1, 0], 2
 ];
 export var TooManyParts$: StaticErrorSchema = [-3, n0, _TMP,
   { [_e]: _c, [_hE]: 400 },
@@ -2703,8 +2703,8 @@ export var TooManyParts$: StaticErrorSchema = [-3, n0, _TMP,
 TypeRegistry.for(n0).registerError(TooManyParts$, TooManyParts);
 export var TopicConfiguration$: StaticStructureSchema = [3, n0, _TCop,
   0,
-  [_I, _TAo, _Ev, _F],
-  [0, [0, { [_xN]: _Top }], [64 | 0, { [_xF]: 1, [_xN]: _Eve }], [() => NotificationConfigurationFilter$, 0]]
+  [_TAo, _Ev, _I, _F],
+  [[0, { [_xN]: _Top }], [64 | 0, { [_xF]: 1, [_xN]: _Eve }], 0, [() => NotificationConfigurationFilter$, 0]], 2
 ];
 export var Transition$: StaticStructureSchema = [3, n0, _Tra,
   0,
@@ -2713,13 +2713,13 @@ export var Transition$: StaticStructureSchema = [3, n0, _Tra,
 ];
 export var UpdateBucketMetadataInventoryTableConfigurationRequest$: StaticStructureSchema = [3, n0, _UBMITCR,
   0,
-  [_B, _CMD, _CA, _ITCn, _EBO],
-  [[0, 1], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [() => InventoryTableConfigurationUpdates$, { [_hP]: 1, [_xN]: _ITCn }], [0, { [_hH]: _xaebo }]]
+  [_B, _ITCn, _CMD, _CA, _EBO],
+  [[0, 1], [() => InventoryTableConfigurationUpdates$, { [_hP]: 1, [_xN]: _ITCn }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var UpdateBucketMetadataJournalTableConfigurationRequest$: StaticStructureSchema = [3, n0, _UBMJTCR,
   0,
-  [_B, _CMD, _CA, _JTC, _EBO],
-  [[0, 1], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [() => JournalTableConfigurationUpdates$, { [_hP]: 1, [_xN]: _JTC }], [0, { [_hH]: _xaebo }]]
+  [_B, _JTC, _CMD, _CA, _EBO],
+  [[0, 1], [() => JournalTableConfigurationUpdates$, { [_hP]: 1, [_xN]: _JTC }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]], 2
 ];
 export var UploadPartCopyOutput$: StaticStructureSchema = [3, n0, _UPCO,
   0,
@@ -2728,8 +2728,8 @@ export var UploadPartCopyOutput$: StaticStructureSchema = [3, n0, _UPCO,
 ];
 export var UploadPartCopyRequest$: StaticStructureSchema = [3, n0, _UPCR,
   0,
-  [_B, _CS, _CSIM, _CSIMS, _CSINM, _CSIUS, _CSRo, _K, _PN, _UI, _SSECA, _SSECK, _SSECKMD, _CSSSECA, _CSSSECK, _CSSSECKMD, _RP, _EBO, _ESBO],
-  [[0, 1], [0, { [_hH]: _xacs__ }], [0, { [_hH]: _xacsim }], [4, { [_hH]: _xacsims }], [0, { [_hH]: _xacsinm }], [4, { [_hH]: _xacsius }], [0, { [_hH]: _xacsr }], [0, 1], [1, { [_hQ]: _pN }], [0, { [_hQ]: _uI }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], [0, { [_hH]: _xacssseca }], [() => CopySourceSSECustomerKey, { [_hH]: _xacssseck }], [0, { [_hH]: _xacssseckM }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xasebo }]]
+  [_B, _CS, _K, _PN, _UI, _CSIM, _CSIMS, _CSINM, _CSIUS, _CSRo, _SSECA, _SSECK, _SSECKMD, _CSSSECA, _CSSSECK, _CSSSECKMD, _RP, _EBO, _ESBO],
+  [[0, 1], [0, { [_hH]: _xacs__ }], [0, 1], [1, { [_hQ]: _pN }], [0, { [_hQ]: _uI }], [0, { [_hH]: _xacsim }], [4, { [_hH]: _xacsims }], [0, { [_hH]: _xacsinm }], [4, { [_hH]: _xacsius }], [0, { [_hH]: _xacsr }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], [0, { [_hH]: _xacssseca }], [() => CopySourceSSECustomerKey, { [_hH]: _xacssseck }], [0, { [_hH]: _xacssseckM }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xasebo }]], 5
 ];
 export var UploadPartOutput$: StaticStructureSchema = [3, n0, _UPO,
   0,
@@ -2738,8 +2738,8 @@ export var UploadPartOutput$: StaticStructureSchema = [3, n0, _UPO,
 ];
 export var UploadPartRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
-  [_Bo, _B, _CLo, _CMD, _CA, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh, _K, _PN, _UI, _SSECA, _SSECK, _SSECKMD, _RP, _EBO],
-  [[() => StreamingBlob, 16], [0, 1], [1, { [_hH]: _CL__ }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xacc }], [0, { [_hH]: _xacc_ }], [0, { [_hH]: _xacc__ }], [0, { [_hH]: _xacs }], [0, { [_hH]: _xacs_ }], [0, 1], [1, { [_hQ]: _pN }], [0, { [_hQ]: _uI }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }]]
+  [_B, _K, _PN, _UI, _Bo, _CLo, _CMD, _CA, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh, _SSECA, _SSECK, _SSECKMD, _RP, _EBO],
+  [[0, 1], [0, 1], [1, { [_hQ]: _pN }], [0, { [_hQ]: _uI }], [() => StreamingBlob, 16], [1, { [_hH]: _CL__ }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xacc }], [0, { [_hH]: _xacc_ }], [0, { [_hH]: _xacc__ }], [0, { [_hH]: _xacs }], [0, { [_hH]: _xacs_ }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }]], 4
 ];
 export var VersioningConfiguration$: StaticStructureSchema = [3, n0, _VC,
   0,
@@ -2754,7 +2754,7 @@ export var WebsiteConfiguration$: StaticStructureSchema = [3, n0, _WC,
 export var WriteGetObjectResponseRequest$: StaticStructureSchema = [3, n0, _WGORR,
   0,
   [_RReq, _RTe, _Bo, _SCt, _ECr, _EM, _AR, _CC, _CDo, _CEo, _CL, _CLo, _CR, _CTo, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh, _DM, _ETa, _Ex, _E, _LM, _MM, _M, _OLM, _OLLHS, _OLRUD, _PC, _RS, _RC, _Re, _SSE, _SSECA, _SSEKMSKI, _SSECKMD, _SC, _TC, _VI, _BKE],
-  [[0, { [_hL]: 1, [_hH]: _xarr }], [0, { [_hH]: _xart }], [() => StreamingBlob, 16], [1, { [_hH]: _xafs }], [0, { [_hH]: _xafec }], [0, { [_hH]: _xafem }], [0, { [_hH]: _xafhar }], [0, { [_hH]: _xafhCC }], [0, { [_hH]: _xafhCD }], [0, { [_hH]: _xafhCE }], [0, { [_hH]: _xafhCL }], [1, { [_hH]: _CL__ }], [0, { [_hH]: _xafhCR }], [0, { [_hH]: _xafhCT }], [0, { [_hH]: _xafhxacc }], [0, { [_hH]: _xafhxacc_ }], [0, { [_hH]: _xafhxacc__ }], [0, { [_hH]: _xafhxacs }], [0, { [_hH]: _xafhxacs_ }], [2, { [_hH]: _xafhxadm }], [0, { [_hH]: _xafhE }], [4, { [_hH]: _xafhE_ }], [0, { [_hH]: _xafhxae }], [4, { [_hH]: _xafhLM }], [1, { [_hH]: _xafhxamm }], [128 | 0, { [_hPH]: _xam }], [0, { [_hH]: _xafhxaolm }], [0, { [_hH]: _xafhxaollh }], [5, { [_hH]: _xafhxaolrud }], [1, { [_hH]: _xafhxampc }], [0, { [_hH]: _xafhxars }], [0, { [_hH]: _xafhxarc }], [0, { [_hH]: _xafhxar }], [0, { [_hH]: _xafhxasse }], [0, { [_hH]: _xafhxasseca }], [() => SSEKMSKeyId, { [_hH]: _xafhxasseakki }], [0, { [_hH]: _xafhxasseckM }], [0, { [_hH]: _xafhxasc }], [1, { [_hH]: _xafhxatc }], [0, { [_hH]: _xafhxavi }], [2, { [_hH]: _xafhxassebke }]]
+  [[0, { [_hL]: 1, [_hH]: _xarr }], [0, { [_hH]: _xart }], [() => StreamingBlob, 16], [1, { [_hH]: _xafs }], [0, { [_hH]: _xafec }], [0, { [_hH]: _xafem }], [0, { [_hH]: _xafhar }], [0, { [_hH]: _xafhCC }], [0, { [_hH]: _xafhCD }], [0, { [_hH]: _xafhCE }], [0, { [_hH]: _xafhCL }], [1, { [_hH]: _CL__ }], [0, { [_hH]: _xafhCR }], [0, { [_hH]: _xafhCT }], [0, { [_hH]: _xafhxacc }], [0, { [_hH]: _xafhxacc_ }], [0, { [_hH]: _xafhxacc__ }], [0, { [_hH]: _xafhxacs }], [0, { [_hH]: _xafhxacs_ }], [2, { [_hH]: _xafhxadm }], [0, { [_hH]: _xafhE }], [4, { [_hH]: _xafhE_ }], [0, { [_hH]: _xafhxae }], [4, { [_hH]: _xafhLM }], [1, { [_hH]: _xafhxamm }], [128 | 0, { [_hPH]: _xam }], [0, { [_hH]: _xafhxaolm }], [0, { [_hH]: _xafhxaollh }], [5, { [_hH]: _xafhxaolrud }], [1, { [_hH]: _xafhxampc }], [0, { [_hH]: _xafhxars }], [0, { [_hH]: _xafhxarc }], [0, { [_hH]: _xafhxar }], [0, { [_hH]: _xafhxasse }], [0, { [_hH]: _xafhxasseca }], [() => SSEKMSKeyId, { [_hH]: _xafhxasseakki }], [0, { [_hH]: _xafhxasseckM }], [0, { [_hH]: _xafhxasc }], [1, { [_hH]: _xafhxatc }], [0, { [_hH]: _xafhxavi }], [2, { [_hH]: _xafhxassebke }]], 2
 ];
 var __Unit = "unit" as const;
 export var S3ServiceException$: StaticErrorSchema = [-3, _sm, "S3ServiceException", 0, [], []];

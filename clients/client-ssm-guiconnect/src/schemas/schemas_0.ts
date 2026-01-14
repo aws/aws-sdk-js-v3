@@ -49,19 +49,19 @@ import { SSMGuiConnectServiceException } from "../models/SSMGuiConnectServiceExc
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectionRecordingPreferences$: StaticStructureSchema = [3, n0, _CRP,
   0,
   [_RD, _KMSKA],
-  [() => RecordingDestinations$, 0]
+  [() => RecordingDestinations$, 0], 2
 ];
 export var DeleteConnectionRecordingPreferencesRequest$: StaticStructureSchema = [3, n0, _DCRPR,
   0,
@@ -81,41 +81,41 @@ export var GetConnectionRecordingPreferencesResponse$: StaticStructureSchema = [
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var RecordingDestinations$: StaticStructureSchema = [3, n0, _RD,
   0,
   [_SB],
-  [() => S3Buckets]
+  [() => S3Buckets], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3Bucket$: StaticStructureSchema = [3, n0, _SBu,
   0,
   [_BO, _BN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UpdateConnectionRecordingPreferencesRequest$: StaticStructureSchema = [3, n0, _UCRPR,
   0,
   [_CRP, _CT],
-  [() => ConnectionRecordingPreferences$, [0, 4]]
+  [() => ConnectionRecordingPreferences$, [0, 4]], 1
 ];
 export var UpdateConnectionRecordingPreferencesResponse$: StaticStructureSchema = [3, n0, _UCRPRp,
   0,
@@ -125,7 +125,7 @@ export var UpdateConnectionRecordingPreferencesResponse$: StaticStructureSchema 
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;

@@ -201,23 +201,23 @@ var Text: StaticSimpleSchema = [0, n0, _T, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var ActiveContext$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_n, _tTL, _cA],
-  [0, () => ActiveContextTimeToLive$, [() => ActiveContextParametersMap, 0]]
+  [0, () => ActiveContextTimeToLive$, [() => ActiveContextParametersMap, 0]], 3
 ];
 export var ActiveContextTimeToLive$: StaticStructureSchema = [3, n0, _ACTTL,
   0,
   [_tTLIS, _tTLu],
-  [1, 1]
+  [1, 1], 2
 ];
 export var AudioInputEvent$: StaticStructureSchema = [3, n0, _AIE,
   0,
-  [_aC, _cT, _eI, _cTM],
-  [21, 0, 0, 1]
+  [_cT, _aC, _eI, _cTM],
+  [0, 21, 0, 1], 1
 ];
 export var AudioResponseEvent$: StaticStructureSchema = [3, n0, _ARE,
   0,
@@ -227,13 +227,13 @@ export var AudioResponseEvent$: StaticStructureSchema = [3, n0, _ARE,
 export var BadGatewayException$: StaticErrorSchema = [-3, n0, _BGE,
   { [_e]: _se, [_hE]: 502 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(BadGatewayException$, BadGatewayException);
 export var Button$: StaticStructureSchema = [3, n0, _B,
   0,
   [_t, _v],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ConfidenceScore$: StaticStructureSchema = [3, n0, _CS,
   0,
@@ -242,19 +242,19 @@ export var ConfidenceScore$: StaticStructureSchema = [3, n0, _CS,
 ];
 export var ConfigurationEvent$: StaticStructureSchema = [3, n0, _CE,
   0,
-  [_rA, _rCT, _sS, _wM, _dP, _eI, _cTM],
-  [128 | 0, 0, [() => SessionState$, 0], [() => Messages, 0], 2, 0, 1]
+  [_rCT, _rA, _sS, _wM, _dP, _eI, _cTM],
+  [0, 128 | 0, [() => SessionState$, 0], [() => Messages, 0], 2, 0, 1], 1
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
   { [_e]: _c, [_hE]: 409 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var DeleteSessionRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_bI, _bAI, _lI, _sI],
-  [[0, 1], [0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1], [0, 1]], 4
 ];
 export var DeleteSessionResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
@@ -264,13 +264,13 @@ export var DeleteSessionResponse$: StaticStructureSchema = [3, n0, _DSRe,
 export var DependencyFailedException$: StaticErrorSchema = [-3, n0, _DFE,
   { [_e]: _c, [_hE]: 424 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(DependencyFailedException$, DependencyFailedException);
 export var DialogAction$: StaticStructureSchema = [3, n0, _DA,
   0,
   [_ty, _sTE, _sES, _sSTE],
-  [0, 0, 0, () => ElicitSubSlot$]
+  [0, 0, 0, () => ElicitSubSlot$], 1
 ];
 export var DisconnectionEvent$: StaticStructureSchema = [3, n0, _DE,
   0,
@@ -280,17 +280,17 @@ export var DisconnectionEvent$: StaticStructureSchema = [3, n0, _DE,
 export var DTMFInputEvent$: StaticStructureSchema = [3, n0, _DTMFIE,
   0,
   [_iC, _eI, _cTM],
-  [[() => DTMFRegex, 0], 0, 1]
+  [[() => DTMFRegex, 0], 0, 1], 1
 ];
 export var ElicitSubSlot$: StaticStructureSchema = [3, n0, _ESS,
   0,
   [_n, _sSTE],
-  [0, () => ElicitSubSlot$]
+  [0, () => ElicitSubSlot$], 1
 ];
 export var GetSessionRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_bI, _bAI, _lI, _sI],
-  [[0, 1], [0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1], [0, 1]], 4
 ];
 export var GetSessionResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
@@ -305,12 +305,12 @@ export var HeartbeatEvent$: StaticStructureSchema = [3, n0, _HE,
 export var ImageResponseCard$: StaticStructureSchema = [3, n0, _IRC,
   0,
   [_ti, _su, _iU, _b],
-  [0, 0, 0, () => ButtonsList]
+  [0, 0, 0, () => ButtonsList], 1
 ];
 export var Intent$: StaticStructureSchema = [3, n0, _I,
   0,
   [_n, _sl, _st, _cS],
-  [0, () => Slots, 0, 0]
+  [0, () => Slots, 0, 0], 1
 ];
 export var IntentResultEvent$: StaticStructureSchema = [3, n0, _IRE,
   0,
@@ -320,7 +320,7 @@ export var IntentResultEvent$: StaticStructureSchema = [3, n0, _IRE,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var Interpretation$: StaticStructureSchema = [3, n0, _In,
@@ -330,8 +330,8 @@ export var Interpretation$: StaticStructureSchema = [3, n0, _In,
 ];
 export var Message$: StaticStructureSchema = [3, n0, _M,
   0,
-  [_co, _cT, _iRC],
-  [[() => Text, 0], 0, () => ImageResponseCard$]
+  [_cT, _co, _iRC],
+  [0, [() => Text, 0], () => ImageResponseCard$], 1
 ];
 export var PlaybackCompletionEvent$: StaticStructureSchema = [3, n0, _PCE,
   0,
@@ -345,8 +345,8 @@ export var PlaybackInterruptionEvent$: StaticStructureSchema = [3, n0, _PIE,
 ];
 export var PutSessionRequest$: StaticStructureSchema = [3, n0, _PSR,
   0,
-  [_bI, _bAI, _lI, _sI, _me, _sS, _rA, _rCT],
-  [[0, 1], [0, 1], [0, 1], [0, 1], [() => Messages, 0], [() => SessionState$, 0], 128 | 0, [0, { [_hH]: _RCT }]]
+  [_bI, _bAI, _lI, _sI, _sS, _me, _rA, _rCT],
+  [[0, 1], [0, 1], [0, 1], [0, 1], [() => SessionState$, 0], [() => Messages, 0], 128 | 0, [0, { [_hH]: _RCT }]], 5
 ];
 export var PutSessionResponse$: StaticStructureSchema = [3, n0, _PSRu,
   0,
@@ -356,12 +356,12 @@ export var PutSessionResponse$: StaticStructureSchema = [3, n0, _PSRu,
 export var RecognizedBotMember$: StaticStructureSchema = [3, n0, _RBM,
   0,
   [_bI, _bN],
-  [0, 0]
+  [0, 0], 1
 ];
 export var RecognizeTextRequest$: StaticStructureSchema = [3, n0, _RTR,
   0,
   [_bI, _bAI, _lI, _sI, _t, _sS, _rA],
-  [[0, 1], [0, 1], [0, 1], [0, 1], [() => Text, 0], [() => SessionState$, 0], 128 | 0]
+  [[0, 1], [0, 1], [0, 1], [0, 1], [() => Text, 0], [() => SessionState$, 0], 128 | 0], 5
 ];
 export var RecognizeTextResponse$: StaticStructureSchema = [3, n0, _RTRe,
   0,
@@ -370,8 +370,8 @@ export var RecognizeTextResponse$: StaticStructureSchema = [3, n0, _RTRe,
 ];
 export var RecognizeUtteranceRequest$: StaticStructureSchema = [3, n0, _RUR,
   0,
-  [_bI, _bAI, _lI, _sI, _sS, _rA, _rCTe, _rCT, _iSn],
-  [[0, 1], [0, 1], [0, 1], [0, 1], [() => SensitiveNonEmptyString, { [_hH]: _xalss }], [() => SensitiveNonEmptyString, { [_hH]: _xalra }], [0, { [_hH]: _CT }], [0, { [_hH]: _RCT_ }], [() => BlobStream, 16]]
+  [_bI, _bAI, _lI, _sI, _rCTe, _sS, _rA, _rCT, _iSn],
+  [[0, 1], [0, 1], [0, 1], [0, 1], [0, { [_hH]: _CT }], [() => SensitiveNonEmptyString, { [_hH]: _xalss }], [() => SensitiveNonEmptyString, { [_hH]: _xalra }], [0, { [_hH]: _RCT_ }], [() => BlobStream, 16]], 5
 ];
 export var RecognizeUtteranceResponse$: StaticStructureSchema = [3, n0, _RURe,
   0,
@@ -381,7 +381,7 @@ export var RecognizeUtteranceResponse$: StaticStructureSchema = [3, n0, _RURe,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RuntimeHintDetails$: StaticStructureSchema = [3, n0, _RHD,
@@ -397,7 +397,7 @@ export var RuntimeHints$: StaticStructureSchema = [3, n0, _RH,
 export var RuntimeHintValue$: StaticStructureSchema = [3, n0, _RHV,
   0,
   [_p],
-  [0]
+  [0], 1
 ];
 export var SentimentResponse$: StaticStructureSchema = [3, n0, _SR,
   0,
@@ -421,8 +421,8 @@ export var Slot$: StaticStructureSchema = [3, n0, _S,
 ];
 export var StartConversationRequest$: StaticStructureSchema = [3, n0, _SCR,
   0,
-  [_bI, _bAI, _lI, _sI, _cM, _rES],
-  [[0, 1], [0, 1], [0, 1], [0, 1], [0, { [_hH]: _xalcm }], [() => StartConversationRequestEventStream$, 16]]
+  [_bI, _bAI, _lI, _sI, _rES, _cM],
+  [[0, 1], [0, 1], [0, 1], [0, 1], [() => StartConversationRequestEventStream$, 16], [0, { [_hH]: _xalcm }]], 5
 ];
 export var StartConversationResponse$: StaticStructureSchema = [3, n0, _SCRt,
   0,
@@ -432,7 +432,7 @@ export var StartConversationResponse$: StaticStructureSchema = [3, n0, _SCRt,
 export var TextInputEvent$: StaticStructureSchema = [3, n0, _TIE,
   0,
   [_t, _eI, _cTM],
-  [[() => Text, 0], 0, 1]
+  [[() => Text, 0], 0, 1], 1
 ];
 export var TextResponseEvent$: StaticStructureSchema = [3, n0, _TRE,
   0,
@@ -442,7 +442,7 @@ export var TextResponseEvent$: StaticStructureSchema = [3, n0, _TRE,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TranscriptEvent$: StaticStructureSchema = [3, n0, _TEr,
@@ -453,13 +453,13 @@ export var TranscriptEvent$: StaticStructureSchema = [3, n0, _TEr,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var Value$: StaticStructureSchema = [3, n0, _V,
   0,
-  [_oV, _iV, _rV],
-  [0, 0, 64 | 0]
+  [_iV, _oV, _rV],
+  [0, 0, 64 | 0], 1
 ];
 export var LexRuntimeV2ServiceException$: StaticErrorSchema = [-3, _sm, "LexRuntimeV2ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(LexRuntimeV2ServiceException$, LexRuntimeV2ServiceException);

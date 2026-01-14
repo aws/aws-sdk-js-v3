@@ -625,12 +625,12 @@ TypeRegistry.for(n0).registerError(ActiveInstanceRefreshNotFoundFault$, ActiveIn
 export var ActivitiesType$: StaticStructureSchema = [3, n0, _AT,
   0,
   [_A, _NT],
-  [() => Activities, 0]
+  [() => Activities, 0], 1
 ];
 export var Activity$: StaticStructureSchema = [3, n0, _Ac,
   0,
-  [_AI, _ASGN, _D, _C, _ST, _ET, _SC, _SM, _P, _De, _ASGS, _ASGARN],
-  [0, 0, 0, 0, 4, 4, 0, 0, 1, 0, 0, 0]
+  [_AI, _ASGN, _C, _ST, _SC, _D, _ET, _SM, _P, _De, _ASGS, _ASGARN],
+  [0, 0, 0, 4, 0, 0, 4, 0, 1, 0, 0, 0], 5
 ];
 export var ActivityType$: StaticStructureSchema = [3, n0, _ATc,
   0,
@@ -660,8 +660,8 @@ export var AlreadyExistsFault$: StaticErrorSchema = [-3, n0, _AEF,
 TypeRegistry.for(n0).registerError(AlreadyExistsFault$, AlreadyExistsFault);
 export var AttachInstancesQuery$: StaticStructureSchema = [3, n0, _AIQ,
   0,
-  [_II, _ASGN],
-  [64 | 0, 0]
+  [_ASGN, _II],
+  [0, 64 | 0], 1
 ];
 export var AttachLoadBalancersResultType$: StaticStructureSchema = [3, n0, _ALBRT,
   0,
@@ -671,7 +671,7 @@ export var AttachLoadBalancersResultType$: StaticStructureSchema = [3, n0, _ALBR
 export var AttachLoadBalancersType$: StaticStructureSchema = [3, n0, _ALBT,
   0,
   [_ASGN, _LBN],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var AttachLoadBalancerTargetGroupsResultType$: StaticStructureSchema = [3, n0, _ALBTGRT,
   0,
@@ -681,7 +681,7 @@ export var AttachLoadBalancerTargetGroupsResultType$: StaticStructureSchema = [3
 export var AttachLoadBalancerTargetGroupsType$: StaticStructureSchema = [3, n0, _ALBTGT,
   0,
   [_ASGN, _TGARN],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var AttachTrafficSourcesResultType$: StaticStructureSchema = [3, n0, _ATSRT,
   0,
@@ -691,12 +691,12 @@ export var AttachTrafficSourcesResultType$: StaticStructureSchema = [3, n0, _ATS
 export var AttachTrafficSourcesType$: StaticStructureSchema = [3, n0, _ATST,
   0,
   [_ASGN, _TS, _SZSV],
-  [0, () => TrafficSources, 2]
+  [0, () => TrafficSources, 2], 2
 ];
 export var AutoScalingGroup$: StaticStructureSchema = [3, n0, _ASG,
   0,
-  [_ASGN, _ASGARN, _LCN, _LT, _MIP, _MS, _MSa, _DC, _PC, _DCe, _AZ, _LBN, _TGARN, _HCT, _HCGP, _I, _CT, _SP, _PG, _VPCZI, _EM, _S, _T, _TP, _NIPFSI, _SLRARN, _MIL, _CR, _WPC, _WPS, _Co, _DCT, _DIW, _TS, _IMP, _AZD, _AZIP, _CRS, _ILP],
-  [0, 0, 0, () => LaunchTemplateSpecification$, [() => MixedInstancesPolicy$, 0], 1, 1, 1, 1, 1, 64 | 0, 64 | 0, 64 | 0, 0, 1, () => Instances, 4, () => SuspendedProcesses, 0, 0, () => EnabledMetrics, 0, () => TagDescriptionList, 64 | 0, 2, 0, 1, 2, () => WarmPoolConfiguration$, 1, 0, 0, 1, () => TrafficSources, () => InstanceMaintenancePolicy$, () => AvailabilityZoneDistribution$, () => AvailabilityZoneImpairmentPolicy$, () => CapacityReservationSpecification$, () => InstanceLifecyclePolicy$]
+  [_ASGN, _MS, _MSa, _DC, _DCe, _AZ, _HCT, _CT, _ASGARN, _LCN, _LT, _MIP, _PC, _LBN, _TGARN, _HCGP, _I, _SP, _PG, _VPCZI, _EM, _S, _T, _TP, _NIPFSI, _SLRARN, _MIL, _CR, _WPC, _WPS, _Co, _DCT, _DIW, _TS, _IMP, _AZD, _AZIP, _CRS, _ILP],
+  [0, 1, 1, 1, 1, 64 | 0, 0, 4, 0, 0, () => LaunchTemplateSpecification$, [() => MixedInstancesPolicy$, 0], 1, 64 | 0, 64 | 0, 1, () => Instances, () => SuspendedProcesses, 0, 0, () => EnabledMetrics, 0, () => TagDescriptionList, 64 | 0, 2, 0, 1, 2, () => WarmPoolConfiguration$, 1, 0, 0, 1, () => TrafficSources, () => InstanceMaintenancePolicy$, () => AvailabilityZoneDistribution$, () => AvailabilityZoneImpairmentPolicy$, () => CapacityReservationSpecification$, () => InstanceLifecyclePolicy$], 8
 ];
 export var AutoScalingGroupNamesType$: StaticStructureSchema = [3, n0, _ASGNT,
   0,
@@ -706,12 +706,12 @@ export var AutoScalingGroupNamesType$: StaticStructureSchema = [3, n0, _ASGNT,
 export var AutoScalingGroupsType$: StaticStructureSchema = [3, n0, _ASGT,
   0,
   [_ASGu, _NT],
-  [[() => AutoScalingGroups, 0], 0]
+  [[() => AutoScalingGroups, 0], 0], 1
 ];
 export var AutoScalingInstanceDetails$: StaticStructureSchema = [3, n0, _ASID,
   0,
-  [_IIns, _IT, _ASGN, _AZv, _LS, _HS, _LCN, _LT, _IIm, _PFSI, _WC],
-  [0, 0, 0, 0, 0, 0, 0, () => LaunchTemplateSpecification$, 0, 2, 0]
+  [_IIns, _ASGN, _AZv, _LS, _HS, _PFSI, _IT, _LCN, _LT, _IIm, _WC],
+  [0, 0, 0, 0, 0, 2, 0, 0, () => LaunchTemplateSpecification$, 0, 0], 6
 ];
 export var AutoScalingInstancesType$: StaticStructureSchema = [3, n0, _ASIT,
   0,
@@ -746,7 +746,7 @@ export var BatchDeleteScheduledActionAnswer$: StaticStructureSchema = [3, n0, _B
 export var BatchDeleteScheduledActionType$: StaticStructureSchema = [3, n0, _BDSAT,
   0,
   [_ASGN, _SAN],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var BatchPutScheduledUpdateGroupActionAnswer$: StaticStructureSchema = [3, n0, _BPSUGAA,
   0,
@@ -756,12 +756,12 @@ export var BatchPutScheduledUpdateGroupActionAnswer$: StaticStructureSchema = [3
 export var BatchPutScheduledUpdateGroupActionType$: StaticStructureSchema = [3, n0, _BPSUGAT,
   0,
   [_ASGN, _SUGA],
-  [0, () => ScheduledUpdateGroupActionRequests]
+  [0, () => ScheduledUpdateGroupActionRequests], 2
 ];
 export var BlockDeviceMapping$: StaticStructureSchema = [3, n0, _BDM,
   0,
-  [_VN, _DN, _E, _ND],
-  [0, 0, () => Ebs$, 2]
+  [_DN, _VN, _E, _ND],
+  [0, 0, () => Ebs$, 2], 1
 ];
 export var CancelInstanceRefreshAnswer$: StaticStructureSchema = [3, n0, _CIRA,
   0,
@@ -771,12 +771,12 @@ export var CancelInstanceRefreshAnswer$: StaticStructureSchema = [3, n0, _CIRA,
 export var CancelInstanceRefreshType$: StaticStructureSchema = [3, n0, _CIRT,
   0,
   [_ASGN, _WFTI],
-  [0, 2]
+  [0, 2], 1
 ];
 export var CapacityForecast$: StaticStructureSchema = [3, n0, _CF,
   0,
   [_Ti, _V],
-  [64 | 4, 64 | 1]
+  [64 | 4, 64 | 1], 2
 ];
 export var CapacityReservationSpecification$: StaticStructureSchema = [3, n0, _CRS,
   0,
@@ -795,8 +795,8 @@ export var CompleteLifecycleActionAnswer$: StaticStructureSchema = [3, n0, _CLAA
 ];
 export var CompleteLifecycleActionType$: StaticStructureSchema = [3, n0, _CLAT,
   0,
-  [_LHN, _ASGN, _LAT, _LAR, _IIns],
-  [0, 0, 0, 0, 0]
+  [_LHN, _ASGN, _LAR, _LAT, _IIns],
+  [0, 0, 0, 0, 0], 3
 ];
 export var CpuPerformanceFactorRequest$: StaticStructureSchema = [3, n0, _CPFR,
   0,
@@ -805,18 +805,18 @@ export var CpuPerformanceFactorRequest$: StaticStructureSchema = [3, n0, _CPFR,
 ];
 export var CreateAutoScalingGroupType$: StaticStructureSchema = [3, n0, _CASGT,
   0,
-  [_ASGN, _LCN, _LT, _MIP, _IIns, _MS, _MSa, _DC, _DCe, _AZ, _LBN, _TGARN, _HCT, _HCGP, _PG, _VPCZI, _TP, _NIPFSI, _CR, _LHSL, _T, _SLRARN, _MIL, _Co, _DCT, _DIW, _TS, _IMP, _AZD, _AZIP, _SZSV, _CRS, _ILP],
-  [0, 0, () => LaunchTemplateSpecification$, [() => MixedInstancesPolicy$, 0], 0, 1, 1, 1, 1, 64 | 0, 64 | 0, 64 | 0, 0, 1, 0, 0, 64 | 0, 2, 2, () => LifecycleHookSpecifications, () => Tags, 0, 1, 0, 0, 1, () => TrafficSources, () => InstanceMaintenancePolicy$, () => AvailabilityZoneDistribution$, () => AvailabilityZoneImpairmentPolicy$, 2, () => CapacityReservationSpecification$, () => InstanceLifecyclePolicy$]
+  [_ASGN, _MS, _MSa, _LCN, _LT, _MIP, _IIns, _DC, _DCe, _AZ, _LBN, _TGARN, _HCT, _HCGP, _PG, _VPCZI, _TP, _NIPFSI, _CR, _LHSL, _T, _SLRARN, _MIL, _Co, _DCT, _DIW, _TS, _IMP, _AZD, _AZIP, _SZSV, _CRS, _ILP],
+  [0, 1, 1, 0, () => LaunchTemplateSpecification$, [() => MixedInstancesPolicy$, 0], 0, 1, 1, 64 | 0, 64 | 0, 64 | 0, 0, 1, 0, 0, 64 | 0, 2, 2, () => LifecycleHookSpecifications, () => Tags, 0, 1, 0, 0, 1, () => TrafficSources, () => InstanceMaintenancePolicy$, () => AvailabilityZoneDistribution$, () => AvailabilityZoneImpairmentPolicy$, 2, () => CapacityReservationSpecification$, () => InstanceLifecyclePolicy$], 3
 ];
 export var CreateLaunchConfigurationType$: StaticStructureSchema = [3, n0, _CLCT,
   0,
   [_LCN, _IIm, _KN, _SG, _CLVPCI, _CLVPCSG, _UD, _IIns, _IT, _KI, _RI, _BDMl, _IM, _SPp, _IIP, _EO, _APIA, _PT, _MO],
-  [0, 0, 0, 64 | 0, 0, 64 | 0, 0, 0, 0, 0, 0, () => BlockDeviceMappings, () => InstanceMonitoring$, 0, 0, 2, 2, 0, () => InstanceMetadataOptions$]
+  [0, 0, 0, 64 | 0, 0, 64 | 0, 0, 0, 0, 0, 0, () => BlockDeviceMappings, () => InstanceMonitoring$, 0, 0, 2, 2, 0, () => InstanceMetadataOptions$], 1
 ];
 export var CreateOrUpdateTagsType$: StaticStructureSchema = [3, n0, _COUTT,
   0,
   [_T],
-  [() => Tags]
+  [() => Tags], 1
 ];
 export var CustomizedMetricSpecification$: StaticStructureSchema = [3, n0, _CMS,
   0,
@@ -826,7 +826,7 @@ export var CustomizedMetricSpecification$: StaticStructureSchema = [3, n0, _CMS,
 export var DeleteAutoScalingGroupType$: StaticStructureSchema = [3, n0, _DASGT,
   0,
   [_ASGN, _FD],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteLifecycleHookAnswer$: StaticStructureSchema = [3, n0, _DLHA,
   0,
@@ -836,27 +836,27 @@ export var DeleteLifecycleHookAnswer$: StaticStructureSchema = [3, n0, _DLHA,
 export var DeleteLifecycleHookType$: StaticStructureSchema = [3, n0, _DLHT,
   0,
   [_LHN, _ASGN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteNotificationConfigurationType$: StaticStructureSchema = [3, n0, _DNCT,
   0,
   [_ASGN, _TARN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeletePolicyType$: StaticStructureSchema = [3, n0, _DPT,
   0,
-  [_ASGN, _PN],
-  [0, 0]
+  [_PN, _ASGN],
+  [0, 0], 1
 ];
 export var DeleteScheduledActionType$: StaticStructureSchema = [3, n0, _DSAT,
   0,
   [_ASGN, _SANc],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteTagsType$: StaticStructureSchema = [3, n0, _DTT,
   0,
   [_T],
-  [() => Tags]
+  [() => Tags], 1
 ];
 export var DeleteWarmPoolAnswer$: StaticStructureSchema = [3, n0, _DWPA,
   0,
@@ -866,7 +866,7 @@ export var DeleteWarmPoolAnswer$: StaticStructureSchema = [3, n0, _DWPA,
 export var DeleteWarmPoolType$: StaticStructureSchema = [3, n0, _DWPT,
   0,
   [_ASGN, _FD],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DescribeAccountLimitsAnswer$: StaticStructureSchema = [3, n0, _DALA,
   0,
@@ -896,7 +896,7 @@ export var DescribeInstanceRefreshesAnswer$: StaticStructureSchema = [3, n0, _DI
 export var DescribeInstanceRefreshesType$: StaticStructureSchema = [3, n0, _DIRT,
   0,
   [_ASGN, _IRIn, _NT, _MR],
-  [0, 64 | 0, 0, 1]
+  [0, 64 | 0, 0, 1], 1
 ];
 export var DescribeLifecycleHooksAnswer$: StaticStructureSchema = [3, n0, _DLHAe,
   0,
@@ -906,7 +906,7 @@ export var DescribeLifecycleHooksAnswer$: StaticStructureSchema = [3, n0, _DLHAe
 export var DescribeLifecycleHooksType$: StaticStructureSchema = [3, n0, _DLHTe,
   0,
   [_ASGN, _LHNi],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var DescribeLifecycleHookTypesAnswer$: StaticStructureSchema = [3, n0, _DLHTA,
   0,
@@ -916,7 +916,7 @@ export var DescribeLifecycleHookTypesAnswer$: StaticStructureSchema = [3, n0, _D
 export var DescribeLoadBalancersRequest$: StaticStructureSchema = [3, n0, _DLBR,
   0,
   [_ASGN, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var DescribeLoadBalancersResponse$: StaticStructureSchema = [3, n0, _DLBRe,
   0,
@@ -926,7 +926,7 @@ export var DescribeLoadBalancersResponse$: StaticStructureSchema = [3, n0, _DLBR
 export var DescribeLoadBalancerTargetGroupsRequest$: StaticStructureSchema = [3, n0, _DLBTGR,
   0,
   [_ASGN, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var DescribeLoadBalancerTargetGroupsResponse$: StaticStructureSchema = [3, n0, _DLBTGRe,
   0,
@@ -941,7 +941,7 @@ export var DescribeMetricCollectionTypesAnswer$: StaticStructureSchema = [3, n0,
 export var DescribeNotificationConfigurationsAnswer$: StaticStructureSchema = [3, n0, _DNCA,
   0,
   [_NC, _NT],
-  [() => NotificationConfigurations, 0]
+  [() => NotificationConfigurations, 0], 1
 ];
 export var DescribeNotificationConfigurationsType$: StaticStructureSchema = [3, n0, _DNCTe,
   0,
@@ -976,7 +976,7 @@ export var DescribeTerminationPolicyTypesAnswer$: StaticStructureSchema = [3, n0
 export var DescribeTrafficSourcesRequest$: StaticStructureSchema = [3, n0, _DTSR,
   0,
   [_ASGN, _TST, _NT, _MR],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 1
 ];
 export var DescribeTrafficSourcesResponse$: StaticStructureSchema = [3, n0, _DTSRe,
   0,
@@ -991,7 +991,7 @@ export var DescribeWarmPoolAnswer$: StaticStructureSchema = [3, n0, _DWPAe,
 export var DescribeWarmPoolType$: StaticStructureSchema = [3, n0, _DWPTe,
   0,
   [_ASGN, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var DesiredConfiguration$: StaticStructureSchema = [3, n0, _DCes,
   0,
@@ -1005,8 +1005,8 @@ export var DetachInstancesAnswer$: StaticStructureSchema = [3, n0, _DIA,
 ];
 export var DetachInstancesQuery$: StaticStructureSchema = [3, n0, _DIQ,
   0,
-  [_II, _ASGN, _SDDC],
-  [64 | 0, 0, 2]
+  [_ASGN, _SDDC, _II],
+  [0, 2, 64 | 0], 2
 ];
 export var DetachLoadBalancersResultType$: StaticStructureSchema = [3, n0, _DLBRT,
   0,
@@ -1016,7 +1016,7 @@ export var DetachLoadBalancersResultType$: StaticStructureSchema = [3, n0, _DLBR
 export var DetachLoadBalancersType$: StaticStructureSchema = [3, n0, _DLBT,
   0,
   [_ASGN, _LBN],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DetachLoadBalancerTargetGroupsResultType$: StaticStructureSchema = [3, n0, _DLBTGRT,
   0,
@@ -1026,7 +1026,7 @@ export var DetachLoadBalancerTargetGroupsResultType$: StaticStructureSchema = [3
 export var DetachLoadBalancerTargetGroupsType$: StaticStructureSchema = [3, n0, _DLBTGT,
   0,
   [_ASGN, _TGARN],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DetachTrafficSourcesResultType$: StaticStructureSchema = [3, n0, _DTSRT,
   0,
@@ -1036,12 +1036,12 @@ export var DetachTrafficSourcesResultType$: StaticStructureSchema = [3, n0, _DTS
 export var DetachTrafficSourcesType$: StaticStructureSchema = [3, n0, _DTST,
   0,
   [_ASGN, _TS],
-  [0, () => TrafficSources]
+  [0, () => TrafficSources], 2
 ];
 export var DisableMetricsCollectionQuery$: StaticStructureSchema = [3, n0, _DMCQ,
   0,
   [_ASGN, _Me],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var Ebs$: StaticStructureSchema = [3, n0, _E,
   0,
@@ -1055,8 +1055,8 @@ export var EnabledMetric$: StaticStructureSchema = [3, n0, _EMn,
 ];
 export var EnableMetricsCollectionQuery$: StaticStructureSchema = [3, n0, _EMCQ,
   0,
-  [_ASGN, _Me, _Gr],
-  [0, 64 | 0, 0]
+  [_ASGN, _Gr, _Me],
+  [0, 0, 64 | 0], 2
 ];
 export var EnterStandbyAnswer$: StaticStructureSchema = [3, n0, _ESA,
   0,
@@ -1065,13 +1065,13 @@ export var EnterStandbyAnswer$: StaticStructureSchema = [3, n0, _ESA,
 ];
 export var EnterStandbyQuery$: StaticStructureSchema = [3, n0, _ESQ,
   0,
-  [_II, _ASGN, _SDDC],
-  [64 | 0, 0, 2]
+  [_ASGN, _SDDC, _II],
+  [0, 2, 64 | 0], 2
 ];
 export var ExecutePolicyType$: StaticStructureSchema = [3, n0, _EPT,
   0,
-  [_ASGN, _PN, _HC, _MV, _BT],
-  [0, 0, 2, 1, 1]
+  [_PN, _ASGN, _HC, _MV, _BT],
+  [0, 0, 2, 1, 1], 1
 ];
 export var ExitStandbyAnswer$: StaticStructureSchema = [3, n0, _ESAx,
   0,
@@ -1080,13 +1080,13 @@ export var ExitStandbyAnswer$: StaticStructureSchema = [3, n0, _ESAx,
 ];
 export var ExitStandbyQuery$: StaticStructureSchema = [3, n0, _ESQx,
   0,
-  [_II, _ASGN],
-  [64 | 0, 0]
+  [_ASGN, _II],
+  [0, 64 | 0], 1
 ];
 export var FailedScheduledUpdateGroupActionRequest$: StaticStructureSchema = [3, n0, _FSUGAR,
   0,
   [_SANc, _EC, _EMr],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _Fi,
   0,
@@ -1096,12 +1096,12 @@ export var Filter$: StaticStructureSchema = [3, n0, _Fi,
 export var GetPredictiveScalingForecastAnswer$: StaticStructureSchema = [3, n0, _GPSFA,
   0,
   [_LF, _CF, _UT],
-  [() => LoadForecasts, () => CapacityForecast$, 4]
+  [() => LoadForecasts, () => CapacityForecast$, 4], 3
 ];
 export var GetPredictiveScalingForecastType$: StaticStructureSchema = [3, n0, _GPSFT,
   0,
   [_ASGN, _PN, _ST, _ET],
-  [0, 0, 4, 4]
+  [0, 0, 4, 4], 4
 ];
 export var IdempotentParameterMismatchError$: StaticErrorSchema = [-3, n0, _IPME,
   { [_aQE]: [`IdempotentParameterMismatch`, 400], [_e]: _c, [_hE]: 400 },
@@ -1111,8 +1111,8 @@ export var IdempotentParameterMismatchError$: StaticErrorSchema = [-3, n0, _IPME
 TypeRegistry.for(n0).registerError(IdempotentParameterMismatchError$, IdempotentParameterMismatchError);
 export var Instance$: StaticStructureSchema = [3, n0, _In,
   0,
-  [_IIns, _IT, _AZv, _LS, _HS, _LCN, _LT, _IIm, _PFSI, _WC],
-  [0, 0, 0, 0, 0, 0, () => LaunchTemplateSpecification$, 0, 2, 0]
+  [_IIns, _AZv, _LS, _HS, _PFSI, _IT, _LCN, _LT, _IIm, _WC],
+  [0, 0, 0, 0, 2, 0, 0, () => LaunchTemplateSpecification$, 0, 0], 5
 ];
 export var InstanceCollection$: StaticStructureSchema = [3, n0, _IC,
   0,
@@ -1168,7 +1168,7 @@ export var InstanceRefreshWarmPoolProgress$: StaticStructureSchema = [3, n0, _IR
 export var InstanceRequirements$: StaticStructureSchema = [3, n0, _IRns,
   0,
   [_VCC, _MMB, _CM, _MGBPVC, _EIT, _IG, _SMPPOLP, _MSPAPOOODP, _ODMPPOLP, _BM, _BP, _RHS, _NIC, _LSo, _LST, _TLSGB, _BEBM, _ATcc, _AC, _AM, _ANc, _ATMMB, _NBG, _AIT, _BPF],
-  [() => VCpuCountRequest$, () => MemoryMiBRequest$, 64 | 0, () => MemoryGiBPerVCpuRequest$, 64 | 0, 64 | 0, 1, 1, 1, 0, 0, 2, () => NetworkInterfaceCountRequest$, 0, 64 | 0, () => TotalLocalStorageGBRequest$, () => BaselineEbsBandwidthMbpsRequest$, 64 | 0, () => AcceleratorCountRequest$, 64 | 0, 64 | 0, () => AcceleratorTotalMemoryMiBRequest$, () => NetworkBandwidthGbpsRequest$, 64 | 0, [() => BaselinePerformanceFactorsRequest$, 0]]
+  [() => VCpuCountRequest$, () => MemoryMiBRequest$, 64 | 0, () => MemoryGiBPerVCpuRequest$, 64 | 0, 64 | 0, 1, 1, 1, 0, 0, 2, () => NetworkInterfaceCountRequest$, 0, 64 | 0, () => TotalLocalStorageGBRequest$, () => BaselineEbsBandwidthMbpsRequest$, 64 | 0, () => AcceleratorCountRequest$, 64 | 0, 64 | 0, () => AcceleratorTotalMemoryMiBRequest$, () => NetworkBandwidthGbpsRequest$, 64 | 0, [() => BaselinePerformanceFactorsRequest$, 0]], 2
 ];
 export var InstanceReusePolicy$: StaticStructureSchema = [3, n0, _IRP,
   0,
@@ -1194,8 +1194,8 @@ export var IrreversibleInstanceRefreshFault$: StaticErrorSchema = [-3, n0, _IIRF
 TypeRegistry.for(n0).registerError(IrreversibleInstanceRefreshFault$, IrreversibleInstanceRefreshFault);
 export var LaunchConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
-  [_LCN, _LCARN, _IIm, _KN, _SG, _CLVPCI, _CLVPCSG, _UD, _IT, _KI, _RI, _BDMl, _IM, _SPp, _IIP, _CT, _EO, _APIA, _PT, _MO],
-  [0, 0, 0, 0, 64 | 0, 0, 64 | 0, 0, 0, 0, 0, () => BlockDeviceMappings, () => InstanceMonitoring$, 0, 0, 4, 2, 2, 0, () => InstanceMetadataOptions$]
+  [_LCN, _IIm, _IT, _CT, _LCARN, _KN, _SG, _CLVPCI, _CLVPCSG, _UD, _KI, _RI, _BDMl, _IM, _SPp, _IIP, _EO, _APIA, _PT, _MO],
+  [0, 0, 0, 4, 0, 0, 64 | 0, 0, 64 | 0, 0, 0, 0, () => BlockDeviceMappings, () => InstanceMonitoring$, 0, 0, 2, 2, 0, () => InstanceMetadataOptions$], 4
 ];
 export var LaunchConfigurationNamesType$: StaticStructureSchema = [3, n0, _LCNT,
   0,
@@ -1205,12 +1205,12 @@ export var LaunchConfigurationNamesType$: StaticStructureSchema = [3, n0, _LCNT,
 export var LaunchConfigurationNameType$: StaticStructureSchema = [3, n0, _LCNTa,
   0,
   [_LCN],
-  [0]
+  [0], 1
 ];
 export var LaunchConfigurationsType$: StaticStructureSchema = [3, n0, _LCT,
   0,
   [_LCa, _NT],
-  [() => LaunchConfigurations, 0]
+  [() => LaunchConfigurations, 0], 1
 ];
 export var LaunchInstancesError$: StaticStructureSchema = [3, n0, _LIE,
   0,
@@ -1220,7 +1220,7 @@ export var LaunchInstancesError$: StaticStructureSchema = [3, n0, _LIE,
 export var LaunchInstancesRequest$: StaticStructureSchema = [3, n0, _LIR,
   0,
   [_ASGN, _RC, _CTl, _AZ, _AZIv, _SIub, _RS],
-  [0, 1, [0, 4], 64 | 0, 64 | 0, 64 | 0, 0]
+  [0, 1, [0, 4], 64 | 0, 64 | 0, 64 | 0, 0], 2
 ];
 export var LaunchInstancesResult$: StaticStructureSchema = [3, n0, _LIRa,
   0,
@@ -1250,7 +1250,7 @@ export var LifecycleHook$: StaticStructureSchema = [3, n0, _LHi,
 export var LifecycleHookSpecification$: StaticStructureSchema = [3, n0, _LHS,
   0,
   [_LHN, _LTi, _NM, _HTe, _DR, _NTARN, _RARN],
-  [0, 0, 0, 1, 0, 0, 0]
+  [0, 0, 0, 1, 0, 0, 0], 2
 ];
 export var LimitExceededFault$: StaticErrorSchema = [-3, n0, _LEF,
   { [_aQE]: [`LimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
@@ -1271,7 +1271,7 @@ export var LoadBalancerTargetGroupState$: StaticStructureSchema = [3, n0, _LBTGS
 export var LoadForecast$: StaticStructureSchema = [3, n0, _LF,
   0,
   [_Ti, _V, _MSe],
-  [64 | 4, 64 | 1, () => PredictiveScalingMetricSpecification$]
+  [64 | 4, 64 | 1, () => PredictiveScalingMetricSpecification$], 3
 ];
 export var MemoryGiBPerVCpuRequest$: StaticStructureSchema = [3, n0, _MGBPVCR,
   0,
@@ -1281,12 +1281,12 @@ export var MemoryGiBPerVCpuRequest$: StaticStructureSchema = [3, n0, _MGBPVCR,
 export var MemoryMiBRequest$: StaticStructureSchema = [3, n0, _MMBR,
   0,
   [_M, _Ma],
-  [1, 1]
+  [1, 1], 1
 ];
 export var Metric$: StaticStructureSchema = [3, n0, _Met,
   0,
   [_N, _MN, _Di],
-  [0, 0, () => MetricDimensions]
+  [0, 0, () => MetricDimensions], 2
 ];
 export var MetricCollectionType$: StaticStructureSchema = [3, n0, _MCT,
   0,
@@ -1296,12 +1296,12 @@ export var MetricCollectionType$: StaticStructureSchema = [3, n0, _MCT,
 export var MetricDataQuery$: StaticStructureSchema = [3, n0, _MDQ,
   0,
   [_Id, _Ex, _MSet, _L, _RDe],
-  [0, 0, () => MetricStat$, 0, 2]
+  [0, 0, () => MetricStat$, 0, 2], 1
 ];
 export var MetricDimension$: StaticStructureSchema = [3, n0, _MD,
   0,
   [_Na, _Va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var MetricGranularityType$: StaticStructureSchema = [3, n0, _MGT,
   0,
@@ -1311,7 +1311,7 @@ export var MetricGranularityType$: StaticStructureSchema = [3, n0, _MGT,
 export var MetricStat$: StaticStructureSchema = [3, n0, _MSet,
   0,
   [_Met, _Stat, _U],
-  [() => Metric$, 0, 0]
+  [() => Metric$, 0, 0], 2
 ];
 export var MixedInstancesPolicy$: StaticStructureSchema = [3, n0, _MIP,
   0,
@@ -1351,47 +1351,47 @@ export var PolicyARNType$: StaticStructureSchema = [3, n0, _PARNT,
 export var PredefinedMetricSpecification$: StaticStructureSchema = [3, n0, _PMS,
   0,
   [_PMT, _RL],
-  [0, 0]
+  [0, 0], 1
 ];
 export var PredictiveScalingConfiguration$: StaticStructureSchema = [3, n0, _PSC,
   0,
   [_MSetr, _Mo, _SBT, _MCBB, _MCB],
-  [() => PredictiveScalingMetricSpecifications, 0, 1, 0, 1]
+  [() => PredictiveScalingMetricSpecifications, 0, 1, 0, 1], 1
 ];
 export var PredictiveScalingCustomizedCapacityMetric$: StaticStructureSchema = [3, n0, _PSCCM,
   0,
   [_MDQe],
-  [() => MetricDataQueries]
+  [() => MetricDataQueries], 1
 ];
 export var PredictiveScalingCustomizedLoadMetric$: StaticStructureSchema = [3, n0, _PSCLM,
   0,
   [_MDQe],
-  [() => MetricDataQueries]
+  [() => MetricDataQueries], 1
 ];
 export var PredictiveScalingCustomizedScalingMetric$: StaticStructureSchema = [3, n0, _PSCSM,
   0,
   [_MDQe],
-  [() => MetricDataQueries]
+  [() => MetricDataQueries], 1
 ];
 export var PredictiveScalingMetricSpecification$: StaticStructureSchema = [3, n0, _PSMS,
   0,
   [_TV, _PMPS, _PSMSr, _PLMS, _CSMS, _CLMS, _CCMS],
-  [1, () => PredictiveScalingPredefinedMetricPair$, () => PredictiveScalingPredefinedScalingMetric$, () => PredictiveScalingPredefinedLoadMetric$, () => PredictiveScalingCustomizedScalingMetric$, () => PredictiveScalingCustomizedLoadMetric$, () => PredictiveScalingCustomizedCapacityMetric$]
+  [1, () => PredictiveScalingPredefinedMetricPair$, () => PredictiveScalingPredefinedScalingMetric$, () => PredictiveScalingPredefinedLoadMetric$, () => PredictiveScalingCustomizedScalingMetric$, () => PredictiveScalingCustomizedLoadMetric$, () => PredictiveScalingCustomizedCapacityMetric$], 1
 ];
 export var PredictiveScalingPredefinedLoadMetric$: StaticStructureSchema = [3, n0, _PSPLM,
   0,
   [_PMT, _RL],
-  [0, 0]
+  [0, 0], 1
 ];
 export var PredictiveScalingPredefinedMetricPair$: StaticStructureSchema = [3, n0, _PSPMP,
   0,
   [_PMT, _RL],
-  [0, 0]
+  [0, 0], 1
 ];
 export var PredictiveScalingPredefinedScalingMetric$: StaticStructureSchema = [3, n0, _PSPSM,
   0,
   [_PMT, _RL],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ProcessesType$: StaticStructureSchema = [3, n0, _PTr,
   0,
@@ -1401,7 +1401,7 @@ export var ProcessesType$: StaticStructureSchema = [3, n0, _PTr,
 export var ProcessType$: StaticStructureSchema = [3, n0, _PTro,
   0,
   [_PNr],
-  [0]
+  [0], 1
 ];
 export var PutLifecycleHookAnswer$: StaticStructureSchema = [3, n0, _PLHA,
   0,
@@ -1411,22 +1411,22 @@ export var PutLifecycleHookAnswer$: StaticStructureSchema = [3, n0, _PLHA,
 export var PutLifecycleHookType$: StaticStructureSchema = [3, n0, _PLHT,
   0,
   [_LHN, _ASGN, _LTi, _RARN, _NTARN, _NM, _HTe, _DR],
-  [0, 0, 0, 0, 0, 0, 1, 0]
+  [0, 0, 0, 0, 0, 0, 1, 0], 2
 ];
 export var PutNotificationConfigurationType$: StaticStructureSchema = [3, n0, _PNCT,
   0,
   [_ASGN, _TARN, _NTot],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 3
 ];
 export var PutScalingPolicyType$: StaticStructureSchema = [3, n0, _PSPT,
   0,
   [_ASGN, _PN, _PToli, _ATd, _MAS, _MAM, _SA, _Coo, _MAT, _SAt, _EIW, _TTC, _Ena, _PSC],
-  [0, 0, 0, 0, 1, 1, 1, 1, 0, () => StepAdjustments, 1, () => TargetTrackingConfiguration$, 2, () => PredictiveScalingConfiguration$]
+  [0, 0, 0, 0, 1, 1, 1, 1, 0, () => StepAdjustments, 1, () => TargetTrackingConfiguration$, 2, () => PredictiveScalingConfiguration$], 2
 ];
 export var PutScheduledUpdateGroupActionType$: StaticStructureSchema = [3, n0, _PSUGAT,
   0,
   [_ASGN, _SANc, _Tim, _ST, _ET, _Rec, _MS, _MSa, _DC, _TZ],
-  [0, 0, 4, 4, 4, 0, 1, 1, 1, 0]
+  [0, 0, 4, 4, 4, 0, 1, 1, 1, 0], 2
 ];
 export var PutWarmPoolAnswer$: StaticStructureSchema = [3, n0, _PWPA,
   0,
@@ -1436,7 +1436,7 @@ export var PutWarmPoolAnswer$: StaticStructureSchema = [3, n0, _PWPA,
 export var PutWarmPoolType$: StaticStructureSchema = [3, n0, _PWPT,
   0,
   [_ASGN, _MGPC, _MS, _PS, _IRP],
-  [0, 1, 1, 0, () => InstanceReusePolicy$]
+  [0, 1, 1, 0, () => InstanceReusePolicy$], 1
 ];
 export var RecordLifecycleActionHeartbeatAnswer$: StaticStructureSchema = [3, n0, _RLAHA,
   0,
@@ -1446,7 +1446,7 @@ export var RecordLifecycleActionHeartbeatAnswer$: StaticStructureSchema = [3, n0
 export var RecordLifecycleActionHeartbeatType$: StaticStructureSchema = [3, n0, _RLAHT,
   0,
   [_LHN, _ASGN, _LAT, _IIns],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var RefreshPreferences$: StaticStructureSchema = [3, n0, _RP,
   0,
@@ -1483,7 +1483,7 @@ export var RollbackInstanceRefreshAnswer$: StaticStructureSchema = [3, n0, _RIRA
 export var RollbackInstanceRefreshType$: StaticStructureSchema = [3, n0, _RIRT,
   0,
   [_ASGN],
-  [0]
+  [0], 1
 ];
 export var ScalingActivityInProgressFault$: StaticErrorSchema = [-3, n0, _SAIPF,
   { [_aQE]: [`ScalingActivityInProgress`, 400], [_e]: _c, [_hE]: 400 },
@@ -1499,7 +1499,7 @@ export var ScalingPolicy$: StaticStructureSchema = [3, n0, _SPca,
 export var ScalingProcessQuery$: StaticStructureSchema = [3, n0, _SPQ,
   0,
   [_ASGN, _SPcal],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var ScheduledActionsType$: StaticStructureSchema = [3, n0, _SAT,
   0,
@@ -1514,7 +1514,7 @@ export var ScheduledUpdateGroupAction$: StaticStructureSchema = [3, n0, _SUGAc,
 export var ScheduledUpdateGroupActionRequest$: StaticStructureSchema = [3, n0, _SUGAR,
   0,
   [_SANc, _ST, _ET, _Rec, _MS, _MSa, _DC, _TZ],
-  [0, 4, 4, 0, 1, 1, 1, 0]
+  [0, 4, 4, 0, 1, 1, 1, 0], 1
 ];
 export var ServiceLinkedRoleFailure$: StaticErrorSchema = [-3, n0, _SLRF,
   { [_aQE]: [`ServiceLinkedRoleFailure`, 500], [_e]: _s, [_hE]: 500 },
@@ -1525,12 +1525,12 @@ TypeRegistry.for(n0).registerError(ServiceLinkedRoleFailure$, ServiceLinkedRoleF
 export var SetDesiredCapacityType$: StaticStructureSchema = [3, n0, _SDCT,
   0,
   [_ASGN, _DC, _HC],
-  [0, 1, 2]
+  [0, 1, 2], 2
 ];
 export var SetInstanceHealthQuery$: StaticStructureSchema = [3, n0, _SIHQ,
   0,
   [_IIns, _HS, _SRGP],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var SetInstanceProtectionAnswer$: StaticStructureSchema = [3, n0, _SIPA,
   0,
@@ -1540,7 +1540,7 @@ export var SetInstanceProtectionAnswer$: StaticStructureSchema = [3, n0, _SIPA,
 export var SetInstanceProtectionQuery$: StaticStructureSchema = [3, n0, _SIPQ,
   0,
   [_II, _ASGN, _PFSI],
-  [64 | 0, 0, 2]
+  [64 | 0, 0, 2], 3
 ];
 export var StartInstanceRefreshAnswer$: StaticStructureSchema = [3, n0, _SIRA,
   0,
@@ -1550,12 +1550,12 @@ export var StartInstanceRefreshAnswer$: StaticStructureSchema = [3, n0, _SIRA,
 export var StartInstanceRefreshType$: StaticStructureSchema = [3, n0, _SIRT,
   0,
   [_ASGN, _Str, _DCes, _Pr],
-  [0, 0, [() => DesiredConfiguration$, 0], () => RefreshPreferences$]
+  [0, 0, [() => DesiredConfiguration$, 0], () => RefreshPreferences$], 1
 ];
 export var StepAdjustment$: StaticStructureSchema = [3, n0, _SAte,
   0,
-  [_MILB, _MIUB, _SA],
-  [1, 1, 1]
+  [_SA, _MILB, _MIUB],
+  [1, 1, 1], 1
 ];
 export var SuspendedProcess$: StaticStructureSchema = [3, n0, _SPu,
   0,
@@ -1564,8 +1564,8 @@ export var SuspendedProcess$: StaticStructureSchema = [3, n0, _SPu,
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
-  [_RIe, _RTe, _K, _Va, _PAL],
-  [0, 0, 0, 0, 2]
+  [_K, _RIe, _RTe, _Va, _PAL],
+  [0, 0, 0, 0, 2], 1
 ];
 export var TagDescription$: StaticStructureSchema = [3, n0, _TD,
   0,
@@ -1579,23 +1579,23 @@ export var TagsType$: StaticStructureSchema = [3, n0, _TT,
 ];
 export var TargetTrackingConfiguration$: StaticStructureSchema = [3, n0, _TTC,
   0,
-  [_PMS, _CMS, _TV, _DSI],
-  [() => PredefinedMetricSpecification$, () => CustomizedMetricSpecification$, 1, 2]
+  [_TV, _PMS, _CMS, _DSI],
+  [1, () => PredefinedMetricSpecification$, () => CustomizedMetricSpecification$, 2], 1
 ];
 export var TargetTrackingMetricDataQuery$: StaticStructureSchema = [3, n0, _TTMDQ,
   0,
   [_Id, _Ex, _MSet, _L, _Pe, _RDe],
-  [0, 0, () => TargetTrackingMetricStat$, 0, 1, 2]
+  [0, 0, () => TargetTrackingMetricStat$, 0, 1, 2], 1
 ];
 export var TargetTrackingMetricStat$: StaticStructureSchema = [3, n0, _TTMS,
   0,
   [_Met, _Stat, _U, _Pe],
-  [() => Metric$, 0, 0, 1]
+  [() => Metric$, 0, 0, 1], 2
 ];
 export var TerminateInstanceInAutoScalingGroupType$: StaticStructureSchema = [3, n0, _TIIASGT,
   0,
   [_IIns, _SDDC],
-  [0, 2]
+  [0, 2], 2
 ];
 export var TotalLocalStorageGBRequest$: StaticStructureSchema = [3, n0, _TLSGBR,
   0,
@@ -1605,7 +1605,7 @@ export var TotalLocalStorageGBRequest$: StaticStructureSchema = [3, n0, _TLSGBR,
 export var TrafficSourceIdentifier$: StaticStructureSchema = [3, n0, _TSI,
   0,
   [_Ide, _Ty],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TrafficSourceState$: StaticStructureSchema = [3, n0, _TSS,
   0,
@@ -1615,12 +1615,12 @@ export var TrafficSourceState$: StaticStructureSchema = [3, n0, _TSS,
 export var UpdateAutoScalingGroupType$: StaticStructureSchema = [3, n0, _UASGT,
   0,
   [_ASGN, _LCN, _LT, _MIP, _MS, _MSa, _DC, _DCe, _AZ, _HCT, _HCGP, _PG, _VPCZI, _TP, _NIPFSI, _SLRARN, _MIL, _CR, _Co, _DCT, _DIW, _IMP, _AZD, _AZIP, _SZSV, _CRS, _ILP],
-  [0, 0, () => LaunchTemplateSpecification$, [() => MixedInstancesPolicy$, 0], 1, 1, 1, 1, 64 | 0, 0, 1, 0, 0, 64 | 0, 2, 0, 1, 2, 0, 0, 1, () => InstanceMaintenancePolicy$, () => AvailabilityZoneDistribution$, () => AvailabilityZoneImpairmentPolicy$, 2, () => CapacityReservationSpecification$, () => InstanceLifecyclePolicy$]
+  [0, 0, () => LaunchTemplateSpecification$, [() => MixedInstancesPolicy$, 0], 1, 1, 1, 1, 64 | 0, 0, 1, 0, 0, 64 | 0, 2, 0, 1, 2, 0, 0, 1, () => InstanceMaintenancePolicy$, () => AvailabilityZoneDistribution$, () => AvailabilityZoneImpairmentPolicy$, 2, () => CapacityReservationSpecification$, () => InstanceLifecyclePolicy$], 1
 ];
 export var VCpuCountRequest$: StaticStructureSchema = [3, n0, _VCCR,
   0,
   [_M, _Ma],
-  [1, 1]
+  [1, 1], 1
 ];
 export var WarmPoolConfiguration$: StaticStructureSchema = [3, n0, _WPC,
   0,

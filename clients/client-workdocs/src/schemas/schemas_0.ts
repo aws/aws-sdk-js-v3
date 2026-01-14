@@ -417,13 +417,13 @@ var UserAttributeValueType: StaticSimpleSchema = [0, n0, _UAVT, 8, 0];
 var UsernameType: StaticSimpleSchema = [0, n0, _UTs, 8, 0];
 export var AbortDocumentVersionUploadRequest$: StaticStructureSchema = [3, n0, _ADVUR,
   0,
-  [_AT, _DI, _VI],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [0, 1]]
+  [_DI, _VI, _AT],
+  [[0, 1], [0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }]], 2
 ];
 export var ActivateUserRequest$: StaticStructureSchema = [3, n0, _AUR,
   0,
   [_UI, _AT],
-  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }]]
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }]], 1
 ];
 export var ActivateUserResponse$: StaticStructureSchema = [3, n0, _AURc,
   0,
@@ -437,8 +437,8 @@ export var Activity$: StaticStructureSchema = [3, n0, _Ac,
 ];
 export var AddResourcePermissionsRequest$: StaticStructureSchema = [3, n0, _ARPR,
   0,
-  [_AT, _RI, _Pr, _NO],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], () => SharePrincipalList, [() => NotificationOptions$, 0]]
+  [_RI, _Pr, _AT, _NO],
+  [[0, 1], () => SharePrincipalList, [() => AuthenticationHeaderType, { [_hH]: _A }], [() => NotificationOptions$, 0]], 2
 ];
 export var AddResourcePermissionsResponse$: StaticStructureSchema = [3, n0, _ARPRd,
   0,
@@ -448,7 +448,7 @@ export var AddResourcePermissionsResponse$: StaticStructureSchema = [3, n0, _ARP
 export var Comment$: StaticStructureSchema = [3, n0, _C,
   0,
   [_CI, _PI, _TI, _Te, _Co, _CT, _S, _V, _RIe],
-  [0, 0, 0, [() => CommentTextType, 0], [() => User$, 0], 4, 0, 0, 0]
+  [0, 0, 0, [() => CommentTextType, 0], [() => User$, 0], 4, 0, 0, 0], 1
 ];
 export var CommentMetadata$: StaticStructureSchema = [3, n0, _CM,
   0,
@@ -469,8 +469,8 @@ export var ConflictingOperationException$: StaticErrorSchema = [-3, n0, _COE,
 TypeRegistry.for(n0).registerError(ConflictingOperationException$, ConflictingOperationException);
 export var CreateCommentRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_AT, _DI, _VI, _PI, _TI, _Te, _V, _NC],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [0, 1], 0, 0, [() => CommentTextType, 0], 0, 2]
+  [_DI, _VI, _Te, _AT, _PI, _TI, _V, _NC],
+  [[0, 1], [0, 1], [() => CommentTextType, 0], [() => AuthenticationHeaderType, { [_hH]: _A }], 0, 0, 0, 2], 3
 ];
 export var CreateCommentResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -479,8 +479,8 @@ export var CreateCommentResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreateCustomMetadataRequest$: StaticStructureSchema = [3, n0, _CCMR,
   0,
-  [_AT, _RI, _VI, _CMu],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [0, { [_hQ]: _v }], 128 | 0]
+  [_RI, _CMu, _AT, _VI],
+  [[0, 1], 128 | 0, [() => AuthenticationHeaderType, { [_hH]: _A }], [0, { [_hQ]: _v }]], 2
 ];
 export var CreateCustomMetadataResponse$: StaticStructureSchema = [3, n0, _CCMRr,
   0,
@@ -489,8 +489,8 @@ export var CreateCustomMetadataResponse$: StaticStructureSchema = [3, n0, _CCMRr
 ];
 export var CreateFolderRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_AT, _N, _PFI],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [() => ResourceNameType, 0], 0]
+  [_PFI, _AT, _N],
+  [0, [() => AuthenticationHeaderType, { [_hH]: _A }], [() => ResourceNameType, 0]], 1
 ];
 export var CreateFolderResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
@@ -500,7 +500,7 @@ export var CreateFolderResponse$: StaticStructureSchema = [3, n0, _CFRr,
 export var CreateLabelsRequest$: StaticStructureSchema = [3, n0, _CLR,
   0,
   [_RI, _L, _AT],
-  [[0, 1], 64 | 0, [() => AuthenticationHeaderType, { [_hH]: _A }]]
+  [[0, 1], 64 | 0, [() => AuthenticationHeaderType, { [_hH]: _A }]], 2
 ];
 export var CreateLabelsResponse$: StaticStructureSchema = [3, n0, _CLRr,
   0,
@@ -510,7 +510,7 @@ export var CreateLabelsResponse$: StaticStructureSchema = [3, n0, _CLRr,
 export var CreateNotificationSubscriptionRequest$: StaticStructureSchema = [3, n0, _CNSR,
   0,
   [_OI, _E, _Pro, _ST],
-  [[0, 1], 0, 0, 0]
+  [[0, 1], 0, 0, 0], 4
 ];
 export var CreateNotificationSubscriptionResponse$: StaticStructureSchema = [3, n0, _CNSRr,
   0,
@@ -519,8 +519,8 @@ export var CreateNotificationSubscriptionResponse$: StaticStructureSchema = [3, 
 ];
 export var CreateUserRequest$: StaticStructureSchema = [3, n0, _CUR,
   0,
-  [_OI, _Us, _EA, _GN, _Sur, _Pa, _TZI, _SRt, _AT],
-  [0, [() => UsernameType, 0], [() => EmailAddressType, 0], [() => UserAttributeValueType, 0], [() => UserAttributeValueType, 0], [() => PasswordType, 0], 0, () => StorageRuleType$, [() => AuthenticationHeaderType, { [_hH]: _A }]]
+  [_Us, _GN, _Sur, _Pa, _OI, _EA, _TZI, _SRt, _AT],
+  [[() => UsernameType, 0], [() => UserAttributeValueType, 0], [() => UserAttributeValueType, 0], [() => PasswordType, 0], 0, [() => EmailAddressType, 0], 0, () => StorageRuleType$, [() => AuthenticationHeaderType, { [_hH]: _A }]], 4
 ];
 export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr,
   0,
@@ -541,7 +541,7 @@ export var DateRangeType$: StaticStructureSchema = [3, n0, _DRT,
 export var DeactivateUserRequest$: StaticStructureSchema = [3, n0, _DUR,
   0,
   [_UI, _AT],
-  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }]]
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }]], 1
 ];
 export var DeactivatingLastSystemUserException$: StaticErrorSchema = [-3, n0, _DLSUE,
   { [_e]: _c, [_hE]: 409 },
@@ -551,13 +551,13 @@ export var DeactivatingLastSystemUserException$: StaticErrorSchema = [-3, n0, _D
 TypeRegistry.for(n0).registerError(DeactivatingLastSystemUserException$, DeactivatingLastSystemUserException);
 export var DeleteCommentRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
-  [_AT, _DI, _VI, _CI],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [0, 1], [0, 1]]
+  [_DI, _VI, _CI, _AT],
+  [[0, 1], [0, 1], [0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }]], 3
 ];
 export var DeleteCustomMetadataRequest$: StaticStructureSchema = [3, n0, _DCMR,
   0,
-  [_AT, _RI, _VI, _K, _DA],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [0, { [_hQ]: _vI }], [64 | 0, { [_hQ]: _k }], [2, { [_hQ]: _dA }]]
+  [_RI, _AT, _VI, _K, _DA],
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], [0, { [_hQ]: _vI }], [64 | 0, { [_hQ]: _k }], [2, { [_hQ]: _dA }]], 1
 ];
 export var DeleteCustomMetadataResponse$: StaticStructureSchema = [3, n0, _DCMRe,
   0,
@@ -566,28 +566,28 @@ export var DeleteCustomMetadataResponse$: StaticStructureSchema = [3, n0, _DCMRe
 ];
 export var DeleteDocumentRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
-  [_AT, _DI],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1]]
+  [_DI, _AT],
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }]], 1
 ];
 export var DeleteDocumentVersionRequest$: StaticStructureSchema = [3, n0, _DDVR,
   0,
-  [_AT, _DI, _VI, _DPV],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [0, 1], [2, { [_hQ]: _dPV }]]
+  [_DI, _VI, _DPV, _AT],
+  [[0, 1], [0, 1], [2, { [_hQ]: _dPV }], [() => AuthenticationHeaderType, { [_hH]: _A }]], 3
 ];
 export var DeleteFolderContentsRequest$: StaticStructureSchema = [3, n0, _DFCR,
   0,
-  [_AT, _FI],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1]]
+  [_FI, _AT],
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }]], 1
 ];
 export var DeleteFolderRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
-  [_AT, _FI],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1]]
+  [_FI, _AT],
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }]], 1
 ];
 export var DeleteLabelsRequest$: StaticStructureSchema = [3, n0, _DLR,
   0,
   [_RI, _AT, _L, _DA],
-  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], [64 | 0, { [_hQ]: _l }], [2, { [_hQ]: _dA }]]
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], [64 | 0, { [_hQ]: _l }], [2, { [_hQ]: _dA }]], 1
 ];
 export var DeleteLabelsResponse$: StaticStructureSchema = [3, n0, _DLRe,
   0,
@@ -597,12 +597,12 @@ export var DeleteLabelsResponse$: StaticStructureSchema = [3, n0, _DLRe,
 export var DeleteNotificationSubscriptionRequest$: StaticStructureSchema = [3, n0, _DNSR,
   0,
   [_SI, _OI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteUserRequest$: StaticStructureSchema = [3, n0, _DURe,
   0,
-  [_AT, _UI],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1]]
+  [_UI, _AT],
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }]], 1
 ];
 export var DescribeActivitiesRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
@@ -616,8 +616,8 @@ export var DescribeActivitiesResponse$: StaticStructureSchema = [3, n0, _DARe,
 ];
 export var DescribeCommentsRequest$: StaticStructureSchema = [3, n0, _DCRe,
   0,
-  [_AT, _DI, _VI, _Li, _Ma],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [0, 1], [1, { [_hQ]: _li }], [0, { [_hQ]: _m }]]
+  [_DI, _VI, _AT, _Li, _Ma],
+  [[0, 1], [0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], [1, { [_hQ]: _li }], [0, { [_hQ]: _m }]], 2
 ];
 export var DescribeCommentsResponse$: StaticStructureSchema = [3, n0, _DCRes,
   0,
@@ -626,8 +626,8 @@ export var DescribeCommentsResponse$: StaticStructureSchema = [3, n0, _DCRes,
 ];
 export var DescribeDocumentVersionsRequest$: StaticStructureSchema = [3, n0, _DDVRe,
   0,
-  [_AT, _DI, _Ma, _Li, _In, _F],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [0, { [_hQ]: _m }], [1, { [_hQ]: _li }], [0, { [_hQ]: _i }], [0, { [_hQ]: _f }]]
+  [_DI, _AT, _Ma, _Li, _In, _F],
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], [0, { [_hQ]: _m }], [1, { [_hQ]: _li }], [0, { [_hQ]: _i }], [0, { [_hQ]: _f }]], 1
 ];
 export var DescribeDocumentVersionsResponse$: StaticStructureSchema = [3, n0, _DDVRes,
   0,
@@ -636,8 +636,8 @@ export var DescribeDocumentVersionsResponse$: StaticStructureSchema = [3, n0, _D
 ];
 export var DescribeFolderContentsRequest$: StaticStructureSchema = [3, n0, _DFCRe,
   0,
-  [_AT, _FI, _So, _O, _Li, _Ma, _T, _In],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [0, { [_hQ]: _s }], [0, { [_hQ]: _o }], [1, { [_hQ]: _li }], [0, { [_hQ]: _m }], [0, { [_hQ]: _t }], [0, { [_hQ]: _i }]]
+  [_FI, _AT, _So, _O, _Li, _Ma, _T, _In],
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], [0, { [_hQ]: _s }], [0, { [_hQ]: _o }], [1, { [_hQ]: _li }], [0, { [_hQ]: _m }], [0, { [_hQ]: _t }], [0, { [_hQ]: _i }]], 1
 ];
 export var DescribeFolderContentsResponse$: StaticStructureSchema = [3, n0, _DFCRes,
   0,
@@ -646,8 +646,8 @@ export var DescribeFolderContentsResponse$: StaticStructureSchema = [3, n0, _DFC
 ];
 export var DescribeGroupsRequest$: StaticStructureSchema = [3, n0, _DGR,
   0,
-  [_AT, _SQ, _OI, _Ma, _Li],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [() => SearchQueryType, { [_hQ]: _sQ }], [0, { [_hQ]: _oI }], [0, { [_hQ]: _m }], [1, { [_hQ]: _li }]]
+  [_SQ, _AT, _OI, _Ma, _Li],
+  [[() => SearchQueryType, { [_hQ]: _sQ }], [() => AuthenticationHeaderType, { [_hH]: _A }], [0, { [_hQ]: _oI }], [0, { [_hQ]: _m }], [1, { [_hQ]: _li }]], 1
 ];
 export var DescribeGroupsResponse$: StaticStructureSchema = [3, n0, _DGRe,
   0,
@@ -657,7 +657,7 @@ export var DescribeGroupsResponse$: StaticStructureSchema = [3, n0, _DGRe,
 export var DescribeNotificationSubscriptionsRequest$: StaticStructureSchema = [3, n0, _DNSRe,
   0,
   [_OI, _Ma, _Li],
-  [[0, 1], [0, { [_hQ]: _m }], [1, { [_hQ]: _li }]]
+  [[0, 1], [0, { [_hQ]: _m }], [1, { [_hQ]: _li }]], 1
 ];
 export var DescribeNotificationSubscriptionsResponse$: StaticStructureSchema = [3, n0, _DNSRes,
   0,
@@ -666,8 +666,8 @@ export var DescribeNotificationSubscriptionsResponse$: StaticStructureSchema = [
 ];
 export var DescribeResourcePermissionsRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
-  [_AT, _RI, _PIr, _Li, _Ma],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [0, { [_hQ]: _pI }], [1, { [_hQ]: _li }], [0, { [_hQ]: _m }]]
+  [_RI, _AT, _PIr, _Li, _Ma],
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], [0, { [_hQ]: _pI }], [1, { [_hQ]: _li }], [0, { [_hQ]: _m }]], 1
 ];
 export var DescribeResourcePermissionsResponse$: StaticStructureSchema = [3, n0, _DRPRe,
   0,
@@ -677,7 +677,7 @@ export var DescribeResourcePermissionsResponse$: StaticStructureSchema = [3, n0,
 export var DescribeRootFoldersRequest$: StaticStructureSchema = [3, n0, _DRFR,
   0,
   [_AT, _Li, _Ma],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [1, { [_hQ]: _li }], [0, { [_hQ]: _m }]]
+  [[() => AuthenticationHeaderType, { [_hH]: _A }], [1, { [_hQ]: _li }], [0, { [_hQ]: _m }]], 1
 ];
 export var DescribeRootFoldersResponse$: StaticStructureSchema = [3, n0, _DRFRe,
   0,
@@ -747,7 +747,7 @@ export var FolderMetadata$: StaticStructureSchema = [3, n0, _FM,
 export var GetCurrentUserRequest$: StaticStructureSchema = [3, n0, _GCUR,
   0,
   [_AT],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }]]
+  [[() => AuthenticationHeaderType, { [_hH]: _A }]], 1
 ];
 export var GetCurrentUserResponse$: StaticStructureSchema = [3, n0, _GCURe,
   0,
@@ -756,8 +756,8 @@ export var GetCurrentUserResponse$: StaticStructureSchema = [3, n0, _GCURe,
 ];
 export var GetDocumentPathRequest$: StaticStructureSchema = [3, n0, _GDPR,
   0,
-  [_AT, _DI, _Li, _F, _Ma],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [1, { [_hQ]: _li }], [0, { [_hQ]: _f }], [0, { [_hQ]: _m }]]
+  [_DI, _AT, _Li, _F, _Ma],
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], [1, { [_hQ]: _li }], [0, { [_hQ]: _f }], [0, { [_hQ]: _m }]], 1
 ];
 export var GetDocumentPathResponse$: StaticStructureSchema = [3, n0, _GDPRe,
   0,
@@ -766,8 +766,8 @@ export var GetDocumentPathResponse$: StaticStructureSchema = [3, n0, _GDPRe,
 ];
 export var GetDocumentRequest$: StaticStructureSchema = [3, n0, _GDR,
   0,
-  [_AT, _DI, _ICM],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [2, { [_hQ]: _iCM }]]
+  [_DI, _AT, _ICM],
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], [2, { [_hQ]: _iCM }]], 1
 ];
 export var GetDocumentResponse$: StaticStructureSchema = [3, n0, _GDRe,
   0,
@@ -776,8 +776,8 @@ export var GetDocumentResponse$: StaticStructureSchema = [3, n0, _GDRe,
 ];
 export var GetDocumentVersionRequest$: StaticStructureSchema = [3, n0, _GDVR,
   0,
-  [_AT, _DI, _VI, _F, _ICM],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [0, 1], [0, { [_hQ]: _f }], [2, { [_hQ]: _iCM }]]
+  [_DI, _VI, _AT, _F, _ICM],
+  [[0, 1], [0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], [0, { [_hQ]: _f }], [2, { [_hQ]: _iCM }]], 2
 ];
 export var GetDocumentVersionResponse$: StaticStructureSchema = [3, n0, _GDVRe,
   0,
@@ -786,8 +786,8 @@ export var GetDocumentVersionResponse$: StaticStructureSchema = [3, n0, _GDVRe,
 ];
 export var GetFolderPathRequest$: StaticStructureSchema = [3, n0, _GFPR,
   0,
-  [_AT, _FI, _Li, _F, _Ma],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [1, { [_hQ]: _li }], [0, { [_hQ]: _f }], [0, { [_hQ]: _m }]]
+  [_FI, _AT, _Li, _F, _Ma],
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], [1, { [_hQ]: _li }], [0, { [_hQ]: _f }], [0, { [_hQ]: _m }]], 1
 ];
 export var GetFolderPathResponse$: StaticStructureSchema = [3, n0, _GFPRe,
   0,
@@ -796,8 +796,8 @@ export var GetFolderPathResponse$: StaticStructureSchema = [3, n0, _GFPRe,
 ];
 export var GetFolderRequest$: StaticStructureSchema = [3, n0, _GFR,
   0,
-  [_AT, _FI, _ICM],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [2, { [_hQ]: _iCM }]]
+  [_FI, _AT, _ICM],
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], [2, { [_hQ]: _iCM }]], 1
 ];
 export var GetFolderResponse$: StaticStructureSchema = [3, n0, _GFRe,
   0,
@@ -898,13 +898,13 @@ export var ProhibitedStateException$: StaticErrorSchema = [-3, n0, _PSE,
 TypeRegistry.for(n0).registerError(ProhibitedStateException$, ProhibitedStateException);
 export var RemoveAllResourcePermissionsRequest$: StaticStructureSchema = [3, n0, _RARPR,
   0,
-  [_AT, _RI],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1]]
+  [_RI, _AT],
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }]], 1
 ];
 export var RemoveResourcePermissionRequest$: StaticStructureSchema = [3, n0, _RRPR,
   0,
-  [_AT, _RI, _PIr, _PTr],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [0, 1], [0, { [_hQ]: _t }]]
+  [_RI, _PIr, _AT, _PTr],
+  [[0, 1], [0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], [0, { [_hQ]: _t }]], 2
 ];
 export var RequestedEntityTooLargeException$: StaticErrorSchema = [-3, n0, _RETLE,
   { [_e]: _c, [_hE]: 413 },
@@ -940,13 +940,13 @@ export var ResponseItem$: StaticStructureSchema = [3, n0, _RIes,
 ];
 export var RestoreDocumentVersionsRequest$: StaticStructureSchema = [3, n0, _RDVR,
   0,
-  [_AT, _DI],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1]]
+  [_DI, _AT],
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }]], 1
 ];
 export var SearchPrincipalType$: StaticStructureSchema = [3, n0, _SPT,
   0,
   [_Id, _Ro],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var SearchResourcesRequest$: StaticStructureSchema = [3, n0, _SRR,
   0,
@@ -972,7 +972,7 @@ TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavaila
 export var SharePrincipal$: StaticStructureSchema = [3, n0, _SP,
   0,
   [_Id, _T, _R],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ShareResult$: StaticStructureSchema = [3, n0, _SRh,
   0,
@@ -1027,23 +1027,23 @@ export var UnauthorizedResourceAccessException$: StaticErrorSchema = [-3, n0, _U
 TypeRegistry.for(n0).registerError(UnauthorizedResourceAccessException$, UnauthorizedResourceAccessException);
 export var UpdateDocumentRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
-  [_AT, _DI, _N, _PFI, _RS],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [() => ResourceNameType, 0], 0, 0]
+  [_DI, _AT, _N, _PFI, _RS],
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], [() => ResourceNameType, 0], 0, 0], 1
 ];
 export var UpdateDocumentVersionRequest$: StaticStructureSchema = [3, n0, _UDVR,
   0,
-  [_AT, _DI, _VI, _VS],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [0, 1], 0]
+  [_DI, _VI, _AT, _VS],
+  [[0, 1], [0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], 0], 2
 ];
 export var UpdateFolderRequest$: StaticStructureSchema = [3, n0, _UFR,
   0,
-  [_AT, _FI, _N, _PFI, _RS],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [() => ResourceNameType, 0], 0, 0]
+  [_FI, _AT, _N, _PFI, _RS],
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], [() => ResourceNameType, 0], 0, 0], 1
 ];
 export var UpdateUserRequest$: StaticStructureSchema = [3, n0, _UUR,
   0,
-  [_AT, _UI, _GN, _Sur, _T, _SRt, _TZI, _Lo, _GPP],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, 1], [() => UserAttributeValueType, 0], [() => UserAttributeValueType, 0], 0, () => StorageRuleType$, 0, 0, 0]
+  [_UI, _AT, _GN, _Sur, _T, _SRt, _TZI, _Lo, _GPP],
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], [() => UserAttributeValueType, 0], [() => UserAttributeValueType, 0], 0, () => StorageRuleType$, 0, 0, 0], 1
 ];
 export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp,
   0,

@@ -143,7 +143,7 @@ var WebsiteUrl: StaticSimpleSchema = [0, n0, _WU, 8, 0];
 export var AcceptPrimaryEmailUpdateRequest$: StaticStructureSchema = [3, n0, _APEUR,
   0,
   [_AI, _PE, _O],
-  [0, [() => PrimaryEmailAddress, 0], [() => Otp, 0]]
+  [0, [() => PrimaryEmailAddress, 0], [() => Otp, 0]], 3
 ];
 export var AcceptPrimaryEmailUpdateResponse$: StaticStructureSchema = [3, n0, _APEURc,
   0,
@@ -153,7 +153,7 @@ export var AcceptPrimaryEmailUpdateResponse$: StaticStructureSchema = [3, n0, _A
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m, _eT],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AlternateContact$: StaticStructureSchema = [3, n0, _AC,
@@ -164,28 +164,28 @@ export var AlternateContact$: StaticStructureSchema = [3, n0, _AC,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m, _eT],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContactInformation$: StaticStructureSchema = [3, n0, _CI,
   0,
-  [_FN, _ALd, _ALdd, _ALddr, _C, _SOR, _DOC, _PC, _CC, _PN, _CN, _WU],
-  [[() => FullName, 0], [() => AddressLine, 0], [() => AddressLine, 0], [() => AddressLine, 0], [() => City, 0], [() => StateOrRegion, 0], [() => DistrictOrCounty, 0], [() => PostalCode, 0], [() => CountryCode, 0], [() => ContactInformationPhoneNumber, 0], [() => CompanyName, 0], [() => WebsiteUrl, 0]]
+  [_FN, _ALd, _C, _PC, _CC, _PN, _ALdd, _ALddr, _SOR, _DOC, _CN, _WU],
+  [[() => FullName, 0], [() => AddressLine, 0], [() => City, 0], [() => PostalCode, 0], [() => CountryCode, 0], [() => ContactInformationPhoneNumber, 0], [() => AddressLine, 0], [() => AddressLine, 0], [() => StateOrRegion, 0], [() => DistrictOrCounty, 0], [() => CompanyName, 0], [() => WebsiteUrl, 0]], 6
 ];
 export var DeleteAlternateContactRequest$: StaticStructureSchema = [3, n0, _DACR,
   0,
   [_ACT, _AI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DisableRegionRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
-  [_AI, _RN],
-  [0, 0]
+  [_RN, _AI],
+  [0, 0], 1
 ];
 export var EnableRegionRequest$: StaticStructureSchema = [3, n0, _ERR,
   0,
-  [_AI, _RN],
-  [0, 0]
+  [_RN, _AI],
+  [0, 0], 1
 ];
 export var GetAccountInformationRequest$: StaticStructureSchema = [3, n0, _GAIR,
   0,
@@ -200,7 +200,7 @@ export var GetAccountInformationResponse$: StaticStructureSchema = [3, n0, _GAIR
 export var GetAlternateContactRequest$: StaticStructureSchema = [3, n0, _GACR,
   0,
   [_ACT, _AI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetAlternateContactResponse$: StaticStructureSchema = [3, n0, _GACRe,
   0,
@@ -225,12 +225,12 @@ export var GetGovCloudAccountInformationRequest$: StaticStructureSchema = [3, n0
 export var GetGovCloudAccountInformationResponse$: StaticStructureSchema = [3, n0, _GGCAIRe,
   0,
   [_GCAI, _AS],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetPrimaryEmailRequest$: StaticStructureSchema = [3, n0, _GPER,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var GetPrimaryEmailResponse$: StaticStructureSchema = [3, n0, _GPERe,
   0,
@@ -239,8 +239,8 @@ export var GetPrimaryEmailResponse$: StaticStructureSchema = [3, n0, _GPERe,
 ];
 export var GetRegionOptStatusRequest$: StaticStructureSchema = [3, n0, _GROSR,
   0,
-  [_AI, _RN],
-  [0, 0]
+  [_RN, _AI],
+  [0, 0], 1
 ];
 export var GetRegionOptStatusResponse$: StaticStructureSchema = [3, n0, _GROSRe,
   0,
@@ -250,7 +250,7 @@ export var GetRegionOptStatusResponse$: StaticStructureSchema = [3, n0, _GROSRe,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_m, _eT],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListRegionsRequest$: StaticStructureSchema = [3, n0, _LRR,
@@ -266,17 +266,17 @@ export var ListRegionsResponse$: StaticStructureSchema = [3, n0, _LRRi,
 export var PutAccountNameRequest$: StaticStructureSchema = [3, n0, _PANR,
   0,
   [_AN, _AI],
-  [[() => AccountName, 0], 0]
+  [[() => AccountName, 0], 0], 1
 ];
 export var PutAlternateContactRequest$: StaticStructureSchema = [3, n0, _PACR,
   0,
   [_N, _T, _EA, _PN, _ACT, _AI],
-  [[() => Name, 0], [() => Title, 0], [() => EmailAddress, 0], [() => PhoneNumber, 0], 0, 0]
+  [[() => Name, 0], [() => Title, 0], [() => EmailAddress, 0], [() => PhoneNumber, 0], 0, 0], 5
 ];
 export var PutContactInformationRequest$: StaticStructureSchema = [3, n0, _PCIR,
   0,
   [_CI, _AI],
-  [[() => ContactInformation$, 0], 0]
+  [[() => ContactInformation$, 0], 0], 1
 ];
 export var Region$: StaticStructureSchema = [3, n0, _Re,
   0,
@@ -286,19 +286,19 @@ export var Region$: StaticStructureSchema = [3, n0, _Re,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _eT],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
   { [_e]: _c, [_hE]: 424 },
   [_m, _eT],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceUnavailableException$, ResourceUnavailableException);
 export var StartPrimaryEmailUpdateRequest$: StaticStructureSchema = [3, n0, _SPEUR,
   0,
   [_AI, _PE],
-  [0, [() => PrimaryEmailAddress, 0]]
+  [0, [() => PrimaryEmailAddress, 0]], 2
 ];
 export var StartPrimaryEmailUpdateResponse$: StaticStructureSchema = [3, n0, _SPEURt,
   0,
@@ -308,19 +308,19 @@ export var StartPrimaryEmailUpdateResponse$: StaticStructureSchema = [3, n0, _SP
 export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _eT],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
-  [[() => SensitiveString, 0], 0, [() => ValidationExceptionFieldList, 0]]
+  [[() => SensitiveString, 0], 0, [() => ValidationExceptionFieldList, 0]], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
-  [0, [() => SensitiveString, 0]]
+  [0, [() => SensitiveString, 0]], 2
 ];
 var __Unit = "unit" as const;
 export var AccountServiceException$: StaticErrorSchema = [-3, _sm, "AccountServiceException", 0, [], []];

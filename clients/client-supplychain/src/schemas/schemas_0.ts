@@ -269,7 +269,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var BillOfMaterialsImportJob$: StaticStructureSchema = [3, n0, _BOMIJ,
   0,
   [_iI, _jI, _s, _su, _m],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 4
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -280,42 +280,42 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateBillOfMaterialsImportJobRequest$: StaticStructureSchema = [3, n0, _CBOMIJR,
   0,
   [_iI, _su, _cT],
-  [[0, 1], 0, [0, 4]]
+  [[0, 1], 0, [0, 4]], 2
 ];
 export var CreateBillOfMaterialsImportJobResponse$: StaticStructureSchema = [3, n0, _CBOMIJRr,
   0,
   [_jI],
-  [0]
+  [0], 1
 ];
 export var CreateDataIntegrationFlowRequest$: StaticStructureSchema = [3, n0, _CDIFR,
   0,
   [_iI, _n, _so, _t, _ta, _tag],
-  [[0, 1], [0, 1], () => DataIntegrationFlowSourceList, [() => DataIntegrationFlowTransformation$, 0], () => DataIntegrationFlowTarget$, 128 | 0]
+  [[0, 1], [0, 1], () => DataIntegrationFlowSourceList, [() => DataIntegrationFlowTransformation$, 0], () => DataIntegrationFlowTarget$, 128 | 0], 5
 ];
 export var CreateDataIntegrationFlowResponse$: StaticStructureSchema = [3, n0, _CDIFRr,
   0,
   [_iI, _n],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateDataLakeDatasetRequest$: StaticStructureSchema = [3, n0, _CDLDR,
   0,
   [_iI, _na, _n, _sc, _d, _pS, _tag],
-  [[0, 1], [0, 1], [0, 1], () => DataLakeDatasetSchema$, 0, () => DataLakeDatasetPartitionSpec$, 128 | 0]
+  [[0, 1], [0, 1], [0, 1], () => DataLakeDatasetSchema$, 0, () => DataLakeDatasetPartitionSpec$, 128 | 0], 3
 ];
 export var CreateDataLakeDatasetResponse$: StaticStructureSchema = [3, n0, _CDLDRr,
   0,
   [_da],
-  [() => DataLakeDataset$]
+  [() => DataLakeDataset$], 1
 ];
 export var CreateDataLakeNamespaceRequest$: StaticStructureSchema = [3, n0, _CDLNR,
   0,
   [_iI, _n, _d, _tag],
-  [[0, 1], [0, 1], 0, 128 | 0]
+  [[0, 1], [0, 1], 0, 128 | 0], 2
 ];
 export var CreateDataLakeNamespaceResponse$: StaticStructureSchema = [3, n0, _CDLNRr,
   0,
   [_na],
-  [() => DataLakeNamespace$]
+  [() => DataLakeNamespace$], 1
 ];
 export var CreateInstanceRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
@@ -325,32 +325,32 @@ export var CreateInstanceRequest$: StaticStructureSchema = [3, n0, _CIR,
 export var CreateInstanceResponse$: StaticStructureSchema = [3, n0, _CIRr,
   0,
   [_i],
-  [() => Instance$]
+  [() => Instance$], 1
 ];
 export var DataIntegrationEvent$: StaticStructureSchema = [3, n0, _DIE,
   0,
   [_iI, _eI, _eT, _eGI, _eTv, _dTD],
-  [0, 0, 0, 0, 4, () => DataIntegrationEventDatasetTargetDetails$]
+  [0, 0, 0, 0, 4, () => DataIntegrationEventDatasetTargetDetails$], 5
 ];
 export var DataIntegrationEventDatasetLoadExecutionDetails$: StaticStructureSchema = [3, n0, _DIEDLED,
   0,
   [_s, _m],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DataIntegrationEventDatasetTargetConfiguration$: StaticStructureSchema = [3, n0, _DIEDTC,
   0,
   [_dI, _oT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DataIntegrationEventDatasetTargetDetails$: StaticStructureSchema = [3, n0, _DIEDTD,
   0,
   [_dI, _oT, _dLE],
-  [0, 0, () => DataIntegrationEventDatasetLoadExecutionDetails$]
+  [0, 0, () => DataIntegrationEventDatasetLoadExecutionDetails$], 3
 ];
 export var DataIntegrationFlow$: StaticStructureSchema = [3, n0, _DIF,
   0,
   [_iI, _n, _so, _t, _ta, _cTr, _lMT],
-  [0, 0, () => DataIntegrationFlowSourceList, [() => DataIntegrationFlowTransformation$, 0], () => DataIntegrationFlowTarget$, 4, 4]
+  [0, 0, () => DataIntegrationFlowSourceList, [() => DataIntegrationFlowTransformation$, 0], () => DataIntegrationFlowTarget$, 4, 4], 7
 ];
 export var DataIntegrationFlowDatasetOptions$: StaticStructureSchema = [3, n0, _DIFDO,
   0,
@@ -360,27 +360,27 @@ export var DataIntegrationFlowDatasetOptions$: StaticStructureSchema = [3, n0, _
 export var DataIntegrationFlowDatasetSource$: StaticStructureSchema = [3, n0, _DIFDS,
   0,
   [_dI],
-  [0]
+  [0], 1
 ];
 export var DataIntegrationFlowDatasetSourceConfiguration$: StaticStructureSchema = [3, n0, _DIFDSC,
   0,
   [_dI, _o],
-  [0, () => DataIntegrationFlowDatasetOptions$]
+  [0, () => DataIntegrationFlowDatasetOptions$], 1
 ];
 export var DataIntegrationFlowDatasetTargetConfiguration$: StaticStructureSchema = [3, n0, _DIFDTC,
   0,
   [_dI, _o],
-  [0, () => DataIntegrationFlowDatasetOptions$]
+  [0, () => DataIntegrationFlowDatasetOptions$], 1
 ];
 export var DataIntegrationFlowDedupeStrategy$: StaticStructureSchema = [3, n0, _DIFDSa,
   0,
   [_ty, _fP],
-  [0, () => DataIntegrationFlowFieldPriorityDedupeStrategyConfiguration$]
+  [0, () => DataIntegrationFlowFieldPriorityDedupeStrategyConfiguration$], 1
 ];
 export var DataIntegrationFlowExecution$: StaticStructureSchema = [3, n0, _DIFE,
   0,
   [_iI, _fN, _eIx, _s, _sI, _m, _sT, _eTn, _oM],
-  [0, 0, 0, 0, () => DataIntegrationFlowExecutionSourceInfo$, 0, 4, 4, () => DataIntegrationFlowExecutionOutputMetadata$]
+  [0, 0, 0, 0, () => DataIntegrationFlowExecutionSourceInfo$, 0, 4, 4, () => DataIntegrationFlowExecutionOutputMetadata$], 3
 ];
 export var DataIntegrationFlowExecutionOutputMetadata$: StaticStructureSchema = [3, n0, _DIFEOM,
   0,
@@ -390,17 +390,17 @@ export var DataIntegrationFlowExecutionOutputMetadata$: StaticStructureSchema = 
 export var DataIntegrationFlowExecutionSourceInfo$: StaticStructureSchema = [3, n0, _DIFESI,
   0,
   [_sTo, _sS, _dSa],
-  [0, () => DataIntegrationFlowS3Source$, () => DataIntegrationFlowDatasetSource$]
+  [0, () => DataIntegrationFlowS3Source$, () => DataIntegrationFlowDatasetSource$], 1
 ];
 export var DataIntegrationFlowFieldPriorityDedupeField$: StaticStructureSchema = [3, n0, _DIFFPDF,
   0,
   [_n, _sO],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DataIntegrationFlowFieldPriorityDedupeStrategyConfiguration$: StaticStructureSchema = [3, n0, _DIFFPDSC,
   0,
   [_f],
-  [() => DataIntegrationFlowFieldPriorityDedupeFieldList]
+  [() => DataIntegrationFlowFieldPriorityDedupeFieldList], 1
 ];
 export var DataIntegrationFlowS3Options$: StaticStructureSchema = [3, n0, _DIFSO,
   0,
@@ -410,192 +410,192 @@ export var DataIntegrationFlowS3Options$: StaticStructureSchema = [3, n0, _DIFSO
 export var DataIntegrationFlowS3Source$: StaticStructureSchema = [3, n0, _DIFSS,
   0,
   [_bN, _k],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DataIntegrationFlowS3SourceConfiguration$: StaticStructureSchema = [3, n0, _DIFSSC,
   0,
   [_bN, _p, _o],
-  [0, 0, () => DataIntegrationFlowS3Options$]
+  [0, 0, () => DataIntegrationFlowS3Options$], 2
 ];
 export var DataIntegrationFlowS3TargetConfiguration$: StaticStructureSchema = [3, n0, _DIFSTC,
   0,
   [_bN, _p, _o],
-  [0, 0, () => DataIntegrationFlowS3Options$]
+  [0, 0, () => DataIntegrationFlowS3Options$], 2
 ];
 export var DataIntegrationFlowSource$: StaticStructureSchema = [3, n0, _DIFS,
   0,
   [_sTo, _sN, _sS, _dSa],
-  [0, 0, () => DataIntegrationFlowS3SourceConfiguration$, () => DataIntegrationFlowDatasetSourceConfiguration$]
+  [0, 0, () => DataIntegrationFlowS3SourceConfiguration$, () => DataIntegrationFlowDatasetSourceConfiguration$], 2
 ];
 export var DataIntegrationFlowSQLTransformationConfiguration$: StaticStructureSchema = [3, n0, _DIFSQLTC,
   0,
   [_q],
-  [[() => DataIntegrationFlowSQLQuery, 0]]
+  [[() => DataIntegrationFlowSQLQuery, 0]], 1
 ];
 export var DataIntegrationFlowTarget$: StaticStructureSchema = [3, n0, _DIFT,
   0,
   [_tT, _sTa, _dT],
-  [0, () => DataIntegrationFlowS3TargetConfiguration$, () => DataIntegrationFlowDatasetTargetConfiguration$]
+  [0, () => DataIntegrationFlowS3TargetConfiguration$, () => DataIntegrationFlowDatasetTargetConfiguration$], 1
 ];
 export var DataIntegrationFlowTransformation$: StaticStructureSchema = [3, n0, _DIFTa,
   0,
   [_tTr, _sTq],
-  [0, [() => DataIntegrationFlowSQLTransformationConfiguration$, 0]]
+  [0, [() => DataIntegrationFlowSQLTransformationConfiguration$, 0]], 1
 ];
 export var DataLakeDataset$: StaticStructureSchema = [3, n0, _DLD,
   0,
-  [_iI, _na, _n, _a, _sc, _d, _pS, _cTr, _lMT],
-  [0, 0, 0, 0, () => DataLakeDatasetSchema$, 0, () => DataLakeDatasetPartitionSpec$, 4, 4]
+  [_iI, _na, _n, _a, _sc, _cTr, _lMT, _d, _pS],
+  [0, 0, 0, 0, () => DataLakeDatasetSchema$, 4, 4, 0, () => DataLakeDatasetPartitionSpec$], 7
 ];
 export var DataLakeDatasetPartitionField$: StaticStructureSchema = [3, n0, _DLDPF,
   0,
   [_n, _tr],
-  [0, () => DataLakeDatasetPartitionFieldTransform$]
+  [0, () => DataLakeDatasetPartitionFieldTransform$], 2
 ];
 export var DataLakeDatasetPartitionFieldTransform$: StaticStructureSchema = [3, n0, _DLDPFT,
   0,
   [_ty],
-  [0]
+  [0], 1
 ];
 export var DataLakeDatasetPartitionSpec$: StaticStructureSchema = [3, n0, _DLDPS,
   0,
   [_f],
-  [() => DataLakeDatasetPartitionFieldList]
+  [() => DataLakeDatasetPartitionFieldList], 1
 ];
 export var DataLakeDatasetPrimaryKeyField$: StaticStructureSchema = [3, n0, _DLDPKF,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var DataLakeDatasetSchema$: StaticStructureSchema = [3, n0, _DLDS,
   0,
   [_n, _f, _pK],
-  [0, () => DataLakeDatasetSchemaFieldList, () => DataLakeDatasetPrimaryKeyFieldList]
+  [0, () => DataLakeDatasetSchemaFieldList, () => DataLakeDatasetPrimaryKeyFieldList], 2
 ];
 export var DataLakeDatasetSchemaField$: StaticStructureSchema = [3, n0, _DLDSF,
   0,
   [_n, _ty, _iR],
-  [0, 0, 2]
+  [0, 0, 2], 3
 ];
 export var DataLakeNamespace$: StaticStructureSchema = [3, n0, _DLN,
   0,
-  [_iI, _n, _a, _d, _cTr, _lMT],
-  [0, 0, 0, 0, 4, 4]
+  [_iI, _n, _a, _cTr, _lMT, _d],
+  [0, 0, 0, 4, 4, 0], 5
 ];
 export var DeleteDataIntegrationFlowRequest$: StaticStructureSchema = [3, n0, _DDIFR,
   0,
   [_iI, _n],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteDataIntegrationFlowResponse$: StaticStructureSchema = [3, n0, _DDIFRe,
   0,
   [_iI, _n],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteDataLakeDatasetRequest$: StaticStructureSchema = [3, n0, _DDLDR,
   0,
   [_iI, _na, _n],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteDataLakeDatasetResponse$: StaticStructureSchema = [3, n0, _DDLDRe,
   0,
   [_iI, _na, _n],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DeleteDataLakeNamespaceRequest$: StaticStructureSchema = [3, n0, _DDLNR,
   0,
   [_iI, _n],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteDataLakeNamespaceResponse$: StaticStructureSchema = [3, n0, _DDLNRe,
   0,
   [_iI, _n],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteInstanceRequest$: StaticStructureSchema = [3, n0, _DIR,
   0,
   [_iI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteInstanceResponse$: StaticStructureSchema = [3, n0, _DIRe,
   0,
   [_i],
-  [() => Instance$]
+  [() => Instance$], 1
 ];
 export var GetBillOfMaterialsImportJobRequest$: StaticStructureSchema = [3, n0, _GBOMIJR,
   0,
   [_iI, _jI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetBillOfMaterialsImportJobResponse$: StaticStructureSchema = [3, n0, _GBOMIJRe,
   0,
   [_j],
-  [() => BillOfMaterialsImportJob$]
+  [() => BillOfMaterialsImportJob$], 1
 ];
 export var GetDataIntegrationEventRequest$: StaticStructureSchema = [3, n0, _GDIER,
   0,
   [_iI, _eI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetDataIntegrationEventResponse$: StaticStructureSchema = [3, n0, _GDIERe,
   0,
   [_ev],
-  [() => DataIntegrationEvent$]
+  [() => DataIntegrationEvent$], 1
 ];
 export var GetDataIntegrationFlowExecutionRequest$: StaticStructureSchema = [3, n0, _GDIFER,
   0,
   [_iI, _fN, _eIx],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetDataIntegrationFlowExecutionResponse$: StaticStructureSchema = [3, n0, _GDIFERe,
   0,
   [_fE],
-  [() => DataIntegrationFlowExecution$]
+  [() => DataIntegrationFlowExecution$], 1
 ];
 export var GetDataIntegrationFlowRequest$: StaticStructureSchema = [3, n0, _GDIFR,
   0,
   [_iI, _n],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetDataIntegrationFlowResponse$: StaticStructureSchema = [3, n0, _GDIFRe,
   0,
   [_fl],
-  [[() => DataIntegrationFlow$, 0]]
+  [[() => DataIntegrationFlow$, 0]], 1
 ];
 export var GetDataLakeDatasetRequest$: StaticStructureSchema = [3, n0, _GDLDR,
   0,
   [_iI, _na, _n],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetDataLakeDatasetResponse$: StaticStructureSchema = [3, n0, _GDLDRe,
   0,
   [_da],
-  [() => DataLakeDataset$]
+  [() => DataLakeDataset$], 1
 ];
 export var GetDataLakeNamespaceRequest$: StaticStructureSchema = [3, n0, _GDLNR,
   0,
   [_iI, _n],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetDataLakeNamespaceResponse$: StaticStructureSchema = [3, n0, _GDLNRe,
   0,
   [_na],
-  [() => DataLakeNamespace$]
+  [() => DataLakeNamespace$], 1
 ];
 export var GetInstanceRequest$: StaticStructureSchema = [3, n0, _GIR,
   0,
   [_iI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetInstanceResponse$: StaticStructureSchema = [3, n0, _GIRe,
   0,
   [_i],
-  [() => Instance$]
+  [() => Instance$], 1
 ];
 export var Instance$: StaticStructureSchema = [3, n0, _I,
   0,
   [_iI, _aAI, _st, _eM, _wADD, _cTr, _lMT, _iN, _iD, _kKA, _vN],
-  [0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 1]
+  [0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 1], 3
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
@@ -606,52 +606,52 @@ TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerExcep
 export var ListDataIntegrationEventsRequest$: StaticStructureSchema = [3, n0, _LDIER,
   0,
   [_iI, _eT, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _eT }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _eT }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListDataIntegrationEventsResponse$: StaticStructureSchema = [3, n0, _LDIERi,
   0,
   [_eve, _nT],
-  [() => DataIntegrationEventList, 0]
+  [() => DataIntegrationEventList, 0], 1
 ];
 export var ListDataIntegrationFlowExecutionsRequest$: StaticStructureSchema = [3, n0, _LDIFER,
   0,
   [_iI, _fN, _nT, _mR],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var ListDataIntegrationFlowExecutionsResponse$: StaticStructureSchema = [3, n0, _LDIFERi,
   0,
   [_fEl, _nT],
-  [() => DataIntegrationFlowExecutionList, 0]
+  [() => DataIntegrationFlowExecutionList, 0], 1
 ];
 export var ListDataIntegrationFlowsRequest$: StaticStructureSchema = [3, n0, _LDIFR,
   0,
   [_iI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListDataIntegrationFlowsResponse$: StaticStructureSchema = [3, n0, _LDIFRi,
   0,
   [_flo, _nT],
-  [[() => DataIntegrationFlowList, 0], 0]
+  [[() => DataIntegrationFlowList, 0], 0], 1
 ];
 export var ListDataLakeDatasetsRequest$: StaticStructureSchema = [3, n0, _LDLDR,
   0,
   [_iI, _na, _nT, _mR],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var ListDataLakeDatasetsResponse$: StaticStructureSchema = [3, n0, _LDLDRi,
   0,
   [_dat, _nT],
-  [() => DataLakeDatasetList, 0]
+  [() => DataLakeDatasetList, 0], 1
 ];
 export var ListDataLakeNamespacesRequest$: StaticStructureSchema = [3, n0, _LDLNR,
   0,
   [_iI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListDataLakeNamespacesResponse$: StaticStructureSchema = [3, n0, _LDLNRi,
   0,
   [_nam, _nT],
-  [() => DataLakeNamespaceList, 0]
+  [() => DataLakeNamespaceList, 0], 1
 ];
 export var ListInstancesRequest$: StaticStructureSchema = [3, n0, _LIR,
   0,
@@ -661,17 +661,17 @@ export var ListInstancesRequest$: StaticStructureSchema = [3, n0, _LIR,
 export var ListInstancesResponse$: StaticStructureSchema = [3, n0, _LIRi,
   0,
   [_in, _nT],
-  [() => InstanceList, 0]
+  [() => InstanceList, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
   [_tag],
-  [128 | 0]
+  [128 | 0], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -682,12 +682,12 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var SendDataIntegrationEventRequest$: StaticStructureSchema = [3, n0, _SDIER,
   0,
   [_iI, _eT, _data, _eGI, _eTv, _cT, _dT],
-  [[0, 1], 0, [() => DataIntegrationEventData, 0], 0, 7, [0, 4], () => DataIntegrationEventDatasetTargetConfiguration$]
+  [[0, 1], 0, [() => DataIntegrationEventData, 0], 0, 7, [0, 4], () => DataIntegrationEventDatasetTargetConfiguration$], 4
 ];
 export var SendDataIntegrationEventResponse$: StaticStructureSchema = [3, n0, _SDIERe,
   0,
   [_eI],
-  [0]
+  [0], 1
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
@@ -698,7 +698,7 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _tag],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -714,7 +714,7 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -724,42 +724,42 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateDataIntegrationFlowRequest$: StaticStructureSchema = [3, n0, _UDIFR,
   0,
   [_iI, _n, _so, _t, _ta],
-  [[0, 1], [0, 1], () => DataIntegrationFlowSourceList, [() => DataIntegrationFlowTransformation$, 0], () => DataIntegrationFlowTarget$]
+  [[0, 1], [0, 1], () => DataIntegrationFlowSourceList, [() => DataIntegrationFlowTransformation$, 0], () => DataIntegrationFlowTarget$], 2
 ];
 export var UpdateDataIntegrationFlowResponse$: StaticStructureSchema = [3, n0, _UDIFRp,
   0,
   [_fl],
-  [[() => DataIntegrationFlow$, 0]]
+  [[() => DataIntegrationFlow$, 0]], 1
 ];
 export var UpdateDataLakeDatasetRequest$: StaticStructureSchema = [3, n0, _UDLDR,
   0,
   [_iI, _na, _n, _d],
-  [[0, 1], [0, 1], [0, 1], 0]
+  [[0, 1], [0, 1], [0, 1], 0], 3
 ];
 export var UpdateDataLakeDatasetResponse$: StaticStructureSchema = [3, n0, _UDLDRp,
   0,
   [_da],
-  [() => DataLakeDataset$]
+  [() => DataLakeDataset$], 1
 ];
 export var UpdateDataLakeNamespaceRequest$: StaticStructureSchema = [3, n0, _UDLNR,
   0,
   [_iI, _n, _d],
-  [[0, 1], [0, 1], 0]
+  [[0, 1], [0, 1], 0], 2
 ];
 export var UpdateDataLakeNamespaceResponse$: StaticStructureSchema = [3, n0, _UDLNRp,
   0,
   [_na],
-  [() => DataLakeNamespace$]
+  [() => DataLakeNamespace$], 1
 ];
 export var UpdateInstanceRequest$: StaticStructureSchema = [3, n0, _UIR,
   0,
   [_iI, _iN, _iD],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 1
 ];
 export var UpdateInstanceResponse$: StaticStructureSchema = [3, n0, _UIRp,
   0,
   [_i],
-  [() => Instance$]
+  [() => Instance$], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },

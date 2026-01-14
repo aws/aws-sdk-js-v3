@@ -192,8 +192,8 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateEnvironmentRequest$: StaticStructureSchema = [3, n0, _CER,
   0,
-  [_n, _dA, _dE, _sSUS, _mW, _sSUM, _dSSI, _kKA, _cT, _t, _dCT],
-  [[() => EnvironmentName, 0], 0, [() => DesktopEndpoint, 0], 0, () => MaintenanceWindow$, 0, 0, 0, [0, 4], [() => TagsMap, 0], [() => DeviceCreationTagsMap, 0]]
+  [_dA, _n, _dE, _sSUS, _mW, _sSUM, _dSSI, _kKA, _cT, _t, _dCT],
+  [0, [() => EnvironmentName, 0], [() => DesktopEndpoint, 0], 0, () => MaintenanceWindow$, 0, 0, 0, [0, 4], [() => TagsMap, 0], [() => DeviceCreationTagsMap, 0]], 1
 ];
 export var CreateEnvironmentResponse$: StaticStructureSchema = [3, n0, _CERr,
   0,
@@ -203,7 +203,7 @@ export var CreateEnvironmentResponse$: StaticStructureSchema = [3, n0, _CERr,
 export var DeleteDeviceRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_i, _cT],
-  [[0, 1], [0, { [_hQ]: _cT, [_iT]: 1 }]]
+  [[0, 1], [0, { [_hQ]: _cT, [_iT]: 1 }]], 1
 ];
 export var DeleteDeviceResponse$: StaticStructureSchema = [3, n0, _DDRe,
   0,
@@ -213,7 +213,7 @@ export var DeleteDeviceResponse$: StaticStructureSchema = [3, n0, _DDRe,
 export var DeleteEnvironmentRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_i, _cT],
-  [[0, 1], [0, { [_hQ]: _cT, [_iT]: 1 }]]
+  [[0, 1], [0, { [_hQ]: _cT, [_iT]: 1 }]], 1
 ];
 export var DeleteEnvironmentResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
@@ -223,7 +223,7 @@ export var DeleteEnvironmentResponse$: StaticStructureSchema = [3, n0, _DERe,
 export var DeregisterDeviceRequest$: StaticStructureSchema = [3, n0, _DDRer,
   0,
   [_i, _tDS, _cT],
-  [[0, 1], 0, [0, 4]]
+  [[0, 1], 0, [0, 4]], 1
 ];
 export var DeregisterDeviceResponse$: StaticStructureSchema = [3, n0, _DDRere,
   0,
@@ -253,7 +253,7 @@ export var EnvironmentSummary$: StaticStructureSchema = [3, n0, _ES,
 export var GetDeviceRequest$: StaticStructureSchema = [3, n0, _GDR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDeviceResponse$: StaticStructureSchema = [3, n0, _GDRe,
   0,
@@ -263,7 +263,7 @@ export var GetDeviceResponse$: StaticStructureSchema = [3, n0, _GDRe,
 export var GetEnvironmentRequest$: StaticStructureSchema = [3, n0, _GER,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetEnvironmentResponse$: StaticStructureSchema = [3, n0, _GERe,
   0,
@@ -273,7 +273,7 @@ export var GetEnvironmentResponse$: StaticStructureSchema = [3, n0, _GERe,
 export var GetSoftwareSetRequest$: StaticStructureSchema = [3, n0, _GSSR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSoftwareSetResponse$: StaticStructureSchema = [3, n0, _GSSRe,
   0,
@@ -319,7 +319,7 @@ export var ListSoftwareSetsResponse$: StaticStructureSchema = [3, n0, _LSSRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -329,7 +329,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var MaintenanceWindow$: StaticStructureSchema = [3, n0, _MW,
   0,
   [_ty, _sTH, _sTM, _eTH, _eTM, _dOTW, _aTO],
-  [0, 1, 1, 1, 1, 64 | 0, 0]
+  [0, 1, 1, 1, 1, 64 | 0, 0], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -361,7 +361,7 @@ export var SoftwareSetSummary$: StaticStructureSchema = [3, n0, _SSS,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [[0, 1], [() => TagsMap, 0]]
+  [[0, 1], [() => TagsMap, 0]], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -377,7 +377,7 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [() => TagKeys, { [_hQ]: _tK }]]
+  [[0, 1], [() => TagKeys, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -387,7 +387,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateDeviceRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
   [_i, _n, _dSSI, _sSUS],
-  [[0, 1], [() => DeviceName, 0], 0, 0]
+  [[0, 1], [() => DeviceName, 0], 0, 0], 1
 ];
 export var UpdateDeviceResponse$: StaticStructureSchema = [3, n0, _UDRp,
   0,
@@ -397,7 +397,7 @@ export var UpdateDeviceResponse$: StaticStructureSchema = [3, n0, _UDRp,
 export var UpdateEnvironmentRequest$: StaticStructureSchema = [3, n0, _UER,
   0,
   [_i, _n, _dA, _dE, _sSUS, _mW, _sSUM, _dSSI, _dCT],
-  [[0, 1], [() => EnvironmentName, 0], 0, [() => DesktopEndpoint, 0], 0, () => MaintenanceWindow$, 0, 0, [() => DeviceCreationTagsMap, 0]]
+  [[0, 1], [() => EnvironmentName, 0], 0, [() => DesktopEndpoint, 0], 0, () => MaintenanceWindow$, 0, 0, [() => DeviceCreationTagsMap, 0]], 1
 ];
 export var UpdateEnvironmentResponse$: StaticStructureSchema = [3, n0, _UERp,
   0,
@@ -407,7 +407,7 @@ export var UpdateEnvironmentResponse$: StaticStructureSchema = [3, n0, _UERp,
 export var UpdateSoftwareSetRequest$: StaticStructureSchema = [3, n0, _USSR,
   0,
   [_i, _vS],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var UpdateSoftwareSetResponse$: StaticStructureSchema = [3, n0, _USSRp,
   0,
@@ -423,7 +423,7 @@ TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var WorkSpacesThinClientServiceException$: StaticErrorSchema = [-3, _sm, "WorkSpacesThinClientServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(WorkSpacesThinClientServiceException$, WorkSpacesThinClientServiceException);

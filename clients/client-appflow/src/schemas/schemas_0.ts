@@ -625,7 +625,7 @@ export var AggregationConfig$: StaticStructureSchema = [3, n0, _AC,
 export var AmplitudeConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _ACPC,
   0,
   [_aK, _sK],
-  [[() => ApiKey, 0], [() => SecretKey, 0]]
+  [[() => ApiKey, 0], [() => SecretKey, 0]], 2
 ];
 export var AmplitudeConnectorProfileProperties$: StaticStructureSchema = [3, n0, _ACPP,
   0,
@@ -640,12 +640,12 @@ export var AmplitudeMetadata$: StaticStructureSchema = [3, n0, _AM,
 export var AmplitudeSourceProperties$: StaticStructureSchema = [3, n0, _ASP,
   0,
   [_o],
-  [0]
+  [0], 1
 ];
 export var ApiKeyCredentials$: StaticStructureSchema = [3, n0, _AKC,
   0,
   [_aK, _aSK],
-  [[() => ApiKey, 0], [() => ApiSecretKey, 0]]
+  [[() => ApiKey, 0], [() => ApiSecretKey, 0]], 1
 ];
 export var AuthenticationConfig$: StaticStructureSchema = [3, n0, _ACu,
   0,
@@ -660,12 +660,12 @@ export var AuthParameter$: StaticStructureSchema = [3, n0, _AP,
 export var BasicAuthCredentials$: StaticStructureSchema = [3, n0, _BAC,
   0,
   [_u, _p],
-  [0, [() => Password, 0]]
+  [0, [() => Password, 0]], 2
 ];
 export var CancelFlowExecutionsRequest$: StaticStructureSchema = [3, n0, _CFER,
   0,
   [_fN, _eI],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var CancelFlowExecutionsResponse$: StaticStructureSchema = [3, n0, _CFERa,
   0,
@@ -697,12 +697,12 @@ export var ConnectorDetail$: StaticStructureSchema = [3, n0, _CD,
 export var ConnectorEntity$: StaticStructureSchema = [3, n0, _CEo,
   0,
   [_n, _l, _hNE],
-  [0, 0, 2]
+  [0, 0, 2], 1
 ];
 export var ConnectorEntityField$: StaticStructureSchema = [3, n0, _CEF,
   0,
   [_i, _pI, _l, _iPK, _dV, _iD, _sFTD, _d, _sP, _dP, _cP],
-  [0, 0, 0, 2, 0, 2, () => SupportedFieldTypeDetails$, 0, () => SourceFieldProperties$, () => DestinationFieldProperties$, 128 | 0]
+  [0, 0, 0, 2, 0, 2, () => SupportedFieldTypeDetails$, 0, () => SourceFieldProperties$, () => DestinationFieldProperties$, 128 | 0], 1
 ];
 export var ConnectorMetadata$: StaticStructureSchema = [3, n0, _CM,
   0,
@@ -727,7 +727,7 @@ export var ConnectorProfile$: StaticStructureSchema = [3, n0, _CPo,
 export var ConnectorProfileConfig$: StaticStructureSchema = [3, n0, _CPC,
   0,
   [_cPP, _cPCo],
-  [() => ConnectorProfileProperties$, [() => ConnectorProfileCredentials$, 0]]
+  [() => ConnectorProfileProperties$, [() => ConnectorProfileCredentials$, 0]], 1
 ];
 export var ConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _CPCo,
   0,
@@ -757,8 +757,8 @@ export var ConnectorServerException$: StaticErrorSchema = [-3, n0, _CSE,
 TypeRegistry.for(n0).registerError(ConnectorServerException$, ConnectorServerException);
 export var CreateConnectorProfileRequest$: StaticStructureSchema = [3, n0, _CCPR,
   0,
-  [_cPN, _kA, _cT, _cL, _cMon, _cPCon, _cTl],
-  [0, 0, 0, 0, 0, [() => ConnectorProfileConfig$, 0], [0, 4]]
+  [_cPN, _cT, _cMon, _cPCon, _kA, _cL, _cTl],
+  [0, 0, 0, [() => ConnectorProfileConfig$, 0], 0, 0, [0, 4]], 4
 ];
 export var CreateConnectorProfileResponse$: StaticStructureSchema = [3, n0, _CCPRr,
   0,
@@ -767,8 +767,8 @@ export var CreateConnectorProfileResponse$: StaticStructureSchema = [3, n0, _CCP
 ];
 export var CreateFlowRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_fN, _d, _kA, _tC, _sFC, _dFCL, _t, _ta, _mCC, _cTl],
-  [0, 0, 0, () => TriggerConfig$, () => SourceFlowConfig$, () => DestinationFlowConfigList, () => Tasks, 128 | 0, () => MetadataCatalogConfig$, [0, 4]]
+  [_fN, _tC, _sFC, _dFCL, _t, _d, _kA, _ta, _mCC, _cTl],
+  [0, () => TriggerConfig$, () => SourceFlowConfig$, () => DestinationFlowConfigList, () => Tasks, 0, 0, 128 | 0, () => MetadataCatalogConfig$, [0, 4]], 5
 ];
 export var CreateFlowResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
@@ -783,17 +783,17 @@ export var CustomAuthConfig$: StaticStructureSchema = [3, n0, _CAC,
 export var CustomAuthCredentials$: StaticStructureSchema = [3, n0, _CACu,
   0,
   [_cAT, _cMr],
-  [0, [() => CredentialsMap, 0]]
+  [0, [() => CredentialsMap, 0]], 1
 ];
 export var CustomConnectorDestinationProperties$: StaticStructureSchema = [3, n0, _CCDP,
   0,
   [_eN, _eHC, _wOT, _iFN, _cP],
-  [0, () => ErrorHandlingConfig$, 0, 64 | 0, 128 | 0]
+  [0, () => ErrorHandlingConfig$, 0, 64 | 0, 128 | 0], 1
 ];
 export var CustomConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _CCPC,
   0,
   [_aTu, _b, _oa, _aK, _cu],
-  [0, [() => BasicAuthCredentials$, 0], [() => OAuth2Credentials$, 0], [() => ApiKeyCredentials$, 0], [() => CustomAuthCredentials$, 0]]
+  [0, [() => BasicAuthCredentials$, 0], [() => OAuth2Credentials$, 0], [() => ApiKeyCredentials$, 0], [() => CustomAuthCredentials$, 0]], 1
 ];
 export var CustomConnectorProfileProperties$: StaticStructureSchema = [3, n0, _CCPP,
   0,
@@ -803,12 +803,12 @@ export var CustomConnectorProfileProperties$: StaticStructureSchema = [3, n0, _C
 export var CustomConnectorSourceProperties$: StaticStructureSchema = [3, n0, _CCSP,
   0,
   [_eN, _cP, _dTA],
-  [0, 128 | 0, () => DataTransferApi$]
+  [0, 128 | 0, () => DataTransferApi$], 1
 ];
 export var CustomerProfilesDestinationProperties$: StaticStructureSchema = [3, n0, _CPDP,
   0,
   [_dN, _oTN],
-  [0, 0]
+  [0, 0], 1
 ];
 export var CustomerProfilesMetadata$: StaticStructureSchema = [3, n0, _CPM,
   0,
@@ -818,12 +818,12 @@ export var CustomerProfilesMetadata$: StaticStructureSchema = [3, n0, _CPM,
 export var DatadogConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _DCPC,
   0,
   [_aK, _aKp],
-  [[() => ApiKey, 0], 0]
+  [[() => ApiKey, 0], 0], 2
 ];
 export var DatadogConnectorProfileProperties$: StaticStructureSchema = [3, n0, _DCPP,
   0,
   [_iU],
-  [0]
+  [0], 1
 ];
 export var DatadogMetadata$: StaticStructureSchema = [3, n0, _DM,
   0,
@@ -833,7 +833,7 @@ export var DatadogMetadata$: StaticStructureSchema = [3, n0, _DM,
 export var DatadogSourceProperties$: StaticStructureSchema = [3, n0, _DSP,
   0,
   [_o],
-  [0]
+  [0], 1
 ];
 export var DataTransferApi$: StaticStructureSchema = [3, n0, _DTA,
   0,
@@ -843,7 +843,7 @@ export var DataTransferApi$: StaticStructureSchema = [3, n0, _DTA,
 export var DeleteConnectorProfileRequest$: StaticStructureSchema = [3, n0, _DCPR,
   0,
   [_cPN, _fD],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteConnectorProfileResponse$: StaticStructureSchema = [3, n0, _DCPRe,
   0,
@@ -853,7 +853,7 @@ export var DeleteConnectorProfileResponse$: StaticStructureSchema = [3, n0, _DCP
 export var DeleteFlowRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
   [_fN, _fD],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteFlowResponse$: StaticStructureSchema = [3, n0, _DFRe,
   0,
@@ -863,12 +863,12 @@ export var DeleteFlowResponse$: StaticStructureSchema = [3, n0, _DFRe,
 export var DescribeConnectorEntityRequest$: StaticStructureSchema = [3, n0, _DCER,
   0,
   [_cEN, _cT, _cPN, _aV],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var DescribeConnectorEntityResponse$: StaticStructureSchema = [3, n0, _DCERe,
   0,
   [_cEF],
-  [() => ConnectorEntityFieldList]
+  [() => ConnectorEntityFieldList], 1
 ];
 export var DescribeConnectorProfilesRequest$: StaticStructureSchema = [3, n0, _DCPRes,
   0,
@@ -883,7 +883,7 @@ export var DescribeConnectorProfilesResponse$: StaticStructureSchema = [3, n0, _
 export var DescribeConnectorRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_cT, _cL],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DescribeConnectorResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -903,7 +903,7 @@ export var DescribeConnectorsResponse$: StaticStructureSchema = [3, n0, _DCResc,
 export var DescribeFlowExecutionRecordsRequest$: StaticStructureSchema = [3, n0, _DFERR,
   0,
   [_fN, _mR, _nT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var DescribeFlowExecutionRecordsResponse$: StaticStructureSchema = [3, n0, _DFERRe,
   0,
@@ -913,7 +913,7 @@ export var DescribeFlowExecutionRecordsResponse$: StaticStructureSchema = [3, n0
 export var DescribeFlowRequest$: StaticStructureSchema = [3, n0, _DFRes,
   0,
   [_fN],
-  [0]
+  [0], 1
 ];
 export var DescribeFlowResponse$: StaticStructureSchema = [3, n0, _DFResc,
   0,
@@ -932,18 +932,18 @@ export var DestinationFieldProperties$: StaticStructureSchema = [3, n0, _DFP,
 ];
 export var DestinationFlowConfig$: StaticStructureSchema = [3, n0, _DFC,
   0,
-  [_cT, _aV, _cPN, _dCP],
-  [0, 0, 0, () => DestinationConnectorProperties$]
+  [_cT, _dCP, _aV, _cPN],
+  [0, () => DestinationConnectorProperties$, 0, 0], 2
 ];
 export var DynatraceConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _DCPCy,
   0,
   [_aTpi],
-  [0]
+  [0], 1
 ];
 export var DynatraceConnectorProfileProperties$: StaticStructureSchema = [3, n0, _DCPPy,
   0,
   [_iU],
-  [0]
+  [0], 1
 ];
 export var DynatraceMetadata$: StaticStructureSchema = [3, n0, _DMy,
   0,
@@ -953,7 +953,7 @@ export var DynatraceMetadata$: StaticStructureSchema = [3, n0, _DMy,
 export var DynatraceSourceProperties$: StaticStructureSchema = [3, n0, _DSPy,
   0,
   [_o],
-  [0]
+  [0], 1
 ];
 export var ErrorHandlingConfig$: StaticStructureSchema = [3, n0, _EHC,
   0,
@@ -968,7 +968,7 @@ export var ErrorInfo$: StaticStructureSchema = [3, n0, _EI,
 export var EventBridgeDestinationProperties$: StaticStructureSchema = [3, n0, _EBDP,
   0,
   [_o, _eHC],
-  [0, () => ErrorHandlingConfig$]
+  [0, () => ErrorHandlingConfig$], 1
 ];
 export var EventBridgeMetadata$: StaticStructureSchema = [3, n0, _EBM,
   0,
@@ -993,7 +993,7 @@ export var ExecutionResult$: StaticStructureSchema = [3, n0, _ERx,
 export var FieldTypeDetails$: StaticStructureSchema = [3, n0, _FTD,
   0,
   [_fT, _fO, _sVu, _vRP, _sDF, _fVR, _fLR],
-  [0, 64 | 0, 64 | 0, 0, 0, () => Range$, () => Range$]
+  [0, 64 | 0, 64 | 0, 0, 0, () => Range$, () => Range$], 2
 ];
 export var FlowDefinition$: StaticStructureSchema = [3, n0, _FD,
   0,
@@ -1003,12 +1003,12 @@ export var FlowDefinition$: StaticStructureSchema = [3, n0, _FD,
 export var GlueDataCatalogConfig$: StaticStructureSchema = [3, n0, _GDCC,
   0,
   [_rAo, _dNa, _tP],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GoogleAnalyticsConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _GACPC,
   0,
   [_cI, _cS, _aTc, _rT, _oAR],
-  [0, [() => ClientSecret, 0], [() => AccessToken, 0], 0, () => ConnectorOAuthRequest$]
+  [0, [() => ClientSecret, 0], [() => AccessToken, 0], 0, () => ConnectorOAuthRequest$], 2
 ];
 export var GoogleAnalyticsConnectorProfileProperties$: StaticStructureSchema = [3, n0, _GACPP,
   0,
@@ -1023,7 +1023,7 @@ export var GoogleAnalyticsMetadata$: StaticStructureSchema = [3, n0, _GAM,
 export var GoogleAnalyticsSourceProperties$: StaticStructureSchema = [3, n0, _GASP,
   0,
   [_o],
-  [0]
+  [0], 1
 ];
 export var HoneycodeConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _HCPC,
   0,
@@ -1038,7 +1038,7 @@ export var HoneycodeConnectorProfileProperties$: StaticStructureSchema = [3, n0,
 export var HoneycodeDestinationProperties$: StaticStructureSchema = [3, n0, _HDP,
   0,
   [_o, _eHC],
-  [0, () => ErrorHandlingConfig$]
+  [0, () => ErrorHandlingConfig$], 1
 ];
 export var HoneycodeMetadata$: StaticStructureSchema = [3, n0, _HM,
   0,
@@ -1053,12 +1053,12 @@ export var IncrementalPullConfig$: StaticStructureSchema = [3, n0, _IPC,
 export var InforNexusConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _INCPC,
   0,
   [_aKI, _uI, _sAK, _da],
-  [[() => AccessKeyId, 0], 0, 0, 0]
+  [[() => AccessKeyId, 0], 0, 0, 0], 4
 ];
 export var InforNexusConnectorProfileProperties$: StaticStructureSchema = [3, n0, _INCPP,
   0,
   [_iU],
-  [0]
+  [0], 1
 ];
 export var InforNexusMetadata$: StaticStructureSchema = [3, n0, _INM,
   0,
@@ -1068,7 +1068,7 @@ export var InforNexusMetadata$: StaticStructureSchema = [3, n0, _INM,
 export var InforNexusSourceProperties$: StaticStructureSchema = [3, n0, _INSP,
   0,
   [_o],
-  [0]
+  [0], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
@@ -1079,7 +1079,7 @@ TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerExcep
 export var LambdaConnectorProvisioningConfig$: StaticStructureSchema = [3, n0, _LCPC,
   0,
   [_lA],
-  [0]
+  [0], 1
 ];
 export var ListConnectorEntitiesRequest$: StaticStructureSchema = [3, n0, _LCER,
   0,
@@ -1089,7 +1089,7 @@ export var ListConnectorEntitiesRequest$: StaticStructureSchema = [3, n0, _LCER,
 export var ListConnectorEntitiesResponse$: StaticStructureSchema = [3, n0, _LCERi,
   0,
   [_cEM, _nT],
-  [() => ConnectorEntityMap, 0]
+  [() => ConnectorEntityMap, 0], 1
 ];
 export var ListConnectorsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
@@ -1114,7 +1114,7 @@ export var ListFlowsResponse$: StaticStructureSchema = [3, n0, _LFRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rAe],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1129,17 +1129,17 @@ export var LookoutMetricsDestinationProperties$: StaticStructureSchema = [3, n0,
 export var MarketoConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _MCPC,
   0,
   [_cI, _cS, _aTc, _oAR],
-  [0, [() => ClientSecret, 0], [() => AccessToken, 0], () => ConnectorOAuthRequest$]
+  [0, [() => ClientSecret, 0], [() => AccessToken, 0], () => ConnectorOAuthRequest$], 2
 ];
 export var MarketoConnectorProfileProperties$: StaticStructureSchema = [3, n0, _MCPP,
   0,
   [_iU],
-  [0]
+  [0], 1
 ];
 export var MarketoDestinationProperties$: StaticStructureSchema = [3, n0, _MDP,
   0,
   [_o, _eHC],
-  [0, () => ErrorHandlingConfig$]
+  [0, () => ErrorHandlingConfig$], 1
 ];
 export var MarketoMetadata$: StaticStructureSchema = [3, n0, _MM,
   0,
@@ -1149,7 +1149,7 @@ export var MarketoMetadata$: StaticStructureSchema = [3, n0, _MM,
 export var MarketoSourceProperties$: StaticStructureSchema = [3, n0, _MSP,
   0,
   [_o],
-  [0]
+  [0], 1
 ];
 export var MetadataCatalogConfig$: StaticStructureSchema = [3, n0, _MCC,
   0,
@@ -1179,17 +1179,17 @@ export var OAuth2Defaults$: StaticStructureSchema = [3, n0, _OAD,
 export var OAuth2Properties$: StaticStructureSchema = [3, n0, _OAP,
   0,
   [_tUo, _oAGT, _tUCP],
-  [0, 0, 128 | 0]
+  [0, 0, 128 | 0], 2
 ];
 export var OAuthCredentials$: StaticStructureSchema = [3, n0, _OACu,
   0,
   [_cI, _cS, _aTc, _rT, _oAR],
-  [0, [() => ClientSecret, 0], [() => AccessToken, 0], 0, () => ConnectorOAuthRequest$]
+  [0, [() => ClientSecret, 0], [() => AccessToken, 0], 0, () => ConnectorOAuthRequest$], 2
 ];
 export var OAuthProperties$: StaticStructureSchema = [3, n0, _OAPu,
   0,
   [_tUo, _aCUu, _oAS],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 3
 ];
 export var PardotConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _PCPC,
   0,
@@ -1209,7 +1209,7 @@ export var PardotMetadata$: StaticStructureSchema = [3, n0, _PM,
 export var PardotSourceProperties$: StaticStructureSchema = [3, n0, _PSP,
   0,
   [_o],
-  [0]
+  [0], 1
 ];
 export var PrefixConfig$: StaticStructureSchema = [3, n0, _PC,
   0,
@@ -1233,13 +1233,13 @@ export var RedshiftConnectorProfileCredentials$: StaticStructureSchema = [3, n0,
 ];
 export var RedshiftConnectorProfileProperties$: StaticStructureSchema = [3, n0, _RCPP,
   0,
-  [_dU, _bN, _bP, _rAo, _dARA, _iRS, _cIl, _wN, _dNa],
-  [0, 0, 0, 0, 0, 2, 0, 0, 0]
+  [_bN, _rAo, _dU, _bP, _dARA, _iRS, _cIl, _wN, _dNa],
+  [0, 0, 0, 0, 0, 2, 0, 0, 0], 2
 ];
 export var RedshiftDestinationProperties$: StaticStructureSchema = [3, n0, _RDP,
   0,
   [_o, _iBN, _bP, _eHC],
-  [0, 0, 0, () => ErrorHandlingConfig$]
+  [0, 0, 0, () => ErrorHandlingConfig$], 2
 ];
 export var RedshiftMetadata$: StaticStructureSchema = [3, n0, _RM,
   0,
@@ -1280,7 +1280,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var S3DestinationProperties$: StaticStructureSchema = [3, n0, _SDP,
   0,
   [_bN, _bP, _sOFC],
-  [0, 0, () => S3OutputFormatConfig$]
+  [0, 0, () => S3OutputFormatConfig$], 1
 ];
 export var S3InputFormatConfig$: StaticStructureSchema = [3, n0, _SIFC,
   0,
@@ -1300,7 +1300,7 @@ export var S3OutputFormatConfig$: StaticStructureSchema = [3, n0, _SOFC,
 export var S3SourceProperties$: StaticStructureSchema = [3, n0, _SSP,
   0,
   [_bN, _bP, _sIFC],
-  [0, 0, () => S3InputFormatConfig$]
+  [0, 0, () => S3InputFormatConfig$], 1
 ];
 export var SalesforceConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _SCPC,
   0,
@@ -1315,7 +1315,7 @@ export var SalesforceConnectorProfileProperties$: StaticStructureSchema = [3, n0
 export var SalesforceDestinationProperties$: StaticStructureSchema = [3, n0, _SDPa,
   0,
   [_o, _iFN, _eHC, _wOT, _dTA],
-  [0, 64 | 0, () => ErrorHandlingConfig$, 0, 0]
+  [0, 64 | 0, () => ErrorHandlingConfig$, 0, 0], 1
 ];
 export var SalesforceMetadata$: StaticStructureSchema = [3, n0, _SMa,
   0,
@@ -1325,7 +1325,7 @@ export var SalesforceMetadata$: StaticStructureSchema = [3, n0, _SMa,
 export var SalesforceSourceProperties$: StaticStructureSchema = [3, n0, _SSPa,
   0,
   [_o, _eDFU, _iDR, _dTA],
-  [0, 2, 2, 0]
+  [0, 2, 2, 0], 1
 ];
 export var SAPODataConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _SAPODCPC,
   0,
@@ -1335,12 +1335,12 @@ export var SAPODataConnectorProfileCredentials$: StaticStructureSchema = [3, n0,
 export var SAPODataConnectorProfileProperties$: StaticStructureSchema = [3, n0, _SAPODCPP,
   0,
   [_aHU, _aSP, _pN, _cNl, _lL, _pLSN, _oAPu, _dSSO],
-  [0, 0, 1, 0, 0, 0, () => OAuthProperties$, 2]
+  [0, 0, 1, 0, 0, 0, () => OAuthProperties$, 2], 4
 ];
 export var SAPODataDestinationProperties$: StaticStructureSchema = [3, n0, _SAPODDP,
   0,
   [_oP, _sRHC, _iFN, _eHC, _wOT],
-  [0, () => SuccessResponseHandlingConfig$, 64 | 0, () => ErrorHandlingConfig$, 0]
+  [0, () => SuccessResponseHandlingConfig$, 64 | 0, () => ErrorHandlingConfig$, 0], 1
 ];
 export var SAPODataMetadata$: StaticStructureSchema = [3, n0, _SAPODM,
   0,
@@ -1350,12 +1350,12 @@ export var SAPODataMetadata$: StaticStructureSchema = [3, n0, _SAPODM,
 export var SAPODataPaginationConfig$: StaticStructureSchema = [3, n0, _SAPODPC,
   0,
   [_mPS],
-  [1]
+  [1], 1
 ];
 export var SAPODataParallelismConfig$: StaticStructureSchema = [3, n0, _SAPODPCa,
   0,
   [_mP],
-  [1]
+  [1], 1
 ];
 export var SAPODataSourceProperties$: StaticStructureSchema = [3, n0, _SAPODSP,
   0,
@@ -1365,7 +1365,7 @@ export var SAPODataSourceProperties$: StaticStructureSchema = [3, n0, _SAPODSP,
 export var ScheduledTriggerProperties$: StaticStructureSchema = [3, n0, _STP,
   0,
   [_sE, _dPM, _sST, _sET, _ti, _sOc, _fEF, _fEDT],
-  [0, 0, 4, 4, 0, 1, 4, 1]
+  [0, 0, 4, 4, 0, 1, 4, 1], 1
 ];
 export var ServiceNowConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _SNCPC,
   0,
@@ -1375,7 +1375,7 @@ export var ServiceNowConnectorProfileCredentials$: StaticStructureSchema = [3, n
 export var ServiceNowConnectorProfileProperties$: StaticStructureSchema = [3, n0, _SNCPP,
   0,
   [_iU],
-  [0]
+  [0], 1
 ];
 export var ServiceNowMetadata$: StaticStructureSchema = [3, n0, _SNM,
   0,
@@ -1385,7 +1385,7 @@ export var ServiceNowMetadata$: StaticStructureSchema = [3, n0, _SNM,
 export var ServiceNowSourceProperties$: StaticStructureSchema = [3, n0, _SNSP,
   0,
   [_o],
-  [0]
+  [0], 1
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
@@ -1396,7 +1396,7 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var SingularConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _SCPCi,
   0,
   [_aK],
-  [[() => ApiKey, 0]]
+  [[() => ApiKey, 0]], 1
 ];
 export var SingularConnectorProfileProperties$: StaticStructureSchema = [3, n0, _SCPPi,
   0,
@@ -1411,17 +1411,17 @@ export var SingularMetadata$: StaticStructureSchema = [3, n0, _SMi,
 export var SingularSourceProperties$: StaticStructureSchema = [3, n0, _SSPi,
   0,
   [_o],
-  [0]
+  [0], 1
 ];
 export var SlackConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _SCPCl,
   0,
   [_cI, _cS, _aTc, _oAR],
-  [0, [() => ClientSecret, 0], [() => AccessToken, 0], () => ConnectorOAuthRequest$]
+  [0, [() => ClientSecret, 0], [() => AccessToken, 0], () => ConnectorOAuthRequest$], 2
 ];
 export var SlackConnectorProfileProperties$: StaticStructureSchema = [3, n0, _SCPPl,
   0,
   [_iU],
-  [0]
+  [0], 1
 ];
 export var SlackMetadata$: StaticStructureSchema = [3, n0, _SMl,
   0,
@@ -1431,22 +1431,22 @@ export var SlackMetadata$: StaticStructureSchema = [3, n0, _SMl,
 export var SlackSourceProperties$: StaticStructureSchema = [3, n0, _SSPl,
   0,
   [_o],
-  [0]
+  [0], 1
 ];
 export var SnowflakeConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _SCPCn,
   0,
   [_u, _p],
-  [0, [() => Password, 0]]
+  [0, [() => Password, 0]], 2
 ];
 export var SnowflakeConnectorProfileProperties$: StaticStructureSchema = [3, n0, _SCPPn,
   0,
   [_w, _sta, _bN, _bP, _pLSN, _aN, _re],
-  [0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0], 3
 ];
 export var SnowflakeDestinationProperties$: StaticStructureSchema = [3, n0, _SDPn,
   0,
   [_o, _iBN, _bP, _eHC],
-  [0, 0, 0, () => ErrorHandlingConfig$]
+  [0, 0, 0, () => ErrorHandlingConfig$], 2
 ];
 export var SnowflakeMetadata$: StaticStructureSchema = [3, n0, _SMn,
   0,
@@ -1465,13 +1465,13 @@ export var SourceFieldProperties$: StaticStructureSchema = [3, n0, _SFP,
 ];
 export var SourceFlowConfig$: StaticStructureSchema = [3, n0, _SFC,
   0,
-  [_cT, _aV, _cPN, _sCP, _iPC],
-  [0, 0, 0, () => SourceConnectorProperties$, () => IncrementalPullConfig$]
+  [_cT, _sCP, _aV, _cPN, _iPC],
+  [0, () => SourceConnectorProperties$, 0, 0, () => IncrementalPullConfig$], 2
 ];
 export var StartFlowRequest$: StaticStructureSchema = [3, n0, _SFR,
   0,
   [_fN, _cTl],
-  [0, [0, 4]]
+  [0, [0, 4]], 1
 ];
 export var StartFlowResponse$: StaticStructureSchema = [3, n0, _SFRt,
   0,
@@ -1481,7 +1481,7 @@ export var StartFlowResponse$: StaticStructureSchema = [3, n0, _SFRt,
 export var StopFlowRequest$: StaticStructureSchema = [3, n0, _SFRto,
   0,
   [_fN],
-  [0]
+  [0], 1
 ];
 export var StopFlowResponse$: StaticStructureSchema = [3, n0, _SFRtop,
   0,
@@ -1496,12 +1496,12 @@ export var SuccessResponseHandlingConfig$: StaticStructureSchema = [3, n0, _SRHC
 export var SupportedFieldTypeDetails$: StaticStructureSchema = [3, n0, _SFTD,
   0,
   [_v],
-  [() => FieldTypeDetails$]
+  [() => FieldTypeDetails$], 1
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rAe, _ta],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1510,8 +1510,8 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var Task$: StaticStructureSchema = [3, n0, _Ta,
   0,
-  [_sF, _cOo, _dF, _tTa, _tPa],
-  [64 | 0, () => ConnectorOperator$, 0, 0, 128 | 0]
+  [_sF, _tTa, _cOo, _dF, _tPa],
+  [64 | 0, 0, () => ConnectorOperator$, 0, 128 | 0], 2
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
@@ -1522,7 +1522,7 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TrendmicroConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _TCPC,
   0,
   [_aSK],
-  [[() => ApiSecretKey, 0]]
+  [[() => ApiSecretKey, 0]], 1
 ];
 export var TrendmicroConnectorProfileProperties$: StaticStructureSchema = [3, n0, _TCPP,
   0,
@@ -1537,12 +1537,12 @@ export var TrendmicroMetadata$: StaticStructureSchema = [3, n0, _TM,
 export var TrendmicroSourceProperties$: StaticStructureSchema = [3, n0, _TSP,
   0,
   [_o],
-  [0]
+  [0], 1
 ];
 export var TriggerConfig$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_tT, _tPr],
-  [0, () => TriggerProperties$]
+  [0, () => TriggerProperties$], 1
 ];
 export var TriggerProperties$: StaticStructureSchema = [3, n0, _TP,
   0,
@@ -1552,7 +1552,7 @@ export var TriggerProperties$: StaticStructureSchema = [3, n0, _TP,
 export var UnregisterConnectorRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_cL, _fD],
-  [0, 2]
+  [0, 2], 1
 ];
 export var UnregisterConnectorResponse$: StaticStructureSchema = [3, n0, _UCRn,
   0,
@@ -1568,7 +1568,7 @@ TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOp
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1578,7 +1578,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateConnectorProfileRequest$: StaticStructureSchema = [3, n0, _UCPR,
   0,
   [_cPN, _cMon, _cPCon, _cTl],
-  [0, 0, [() => ConnectorProfileConfig$, 0], [0, 4]]
+  [0, 0, [() => ConnectorProfileConfig$, 0], [0, 4]], 3
 ];
 export var UpdateConnectorProfileResponse$: StaticStructureSchema = [3, n0, _UCPRp,
   0,
@@ -1588,7 +1588,7 @@ export var UpdateConnectorProfileResponse$: StaticStructureSchema = [3, n0, _UCP
 export var UpdateConnectorRegistrationRequest$: StaticStructureSchema = [3, n0, _UCRR,
   0,
   [_cL, _d, _cPC, _cTl],
-  [0, 0, () => ConnectorProvisioningConfig$, [0, 4]]
+  [0, 0, () => ConnectorProvisioningConfig$, [0, 4]], 1
 ];
 export var UpdateConnectorRegistrationResponse$: StaticStructureSchema = [3, n0, _UCRRp,
   0,
@@ -1597,8 +1597,8 @@ export var UpdateConnectorRegistrationResponse$: StaticStructureSchema = [3, n0,
 ];
 export var UpdateFlowRequest$: StaticStructureSchema = [3, n0, _UFR,
   0,
-  [_fN, _d, _tC, _sFC, _dFCL, _t, _mCC, _cTl],
-  [0, 0, () => TriggerConfig$, () => SourceFlowConfig$, () => DestinationFlowConfigList, () => Tasks, () => MetadataCatalogConfig$, [0, 4]]
+  [_fN, _tC, _sFC, _dFCL, _t, _d, _mCC, _cTl],
+  [0, () => TriggerConfig$, () => SourceFlowConfig$, () => DestinationFlowConfigList, () => Tasks, 0, () => MetadataCatalogConfig$, [0, 4]], 5
 ];
 export var UpdateFlowResponse$: StaticStructureSchema = [3, n0, _UFRp,
   0,
@@ -1607,8 +1607,8 @@ export var UpdateFlowResponse$: StaticStructureSchema = [3, n0, _UFRp,
 ];
 export var UpsolverDestinationProperties$: StaticStructureSchema = [3, n0, _UDP,
   0,
-  [_bN, _bP, _sOFC],
-  [0, 0, () => UpsolverS3OutputFormatConfig$]
+  [_bN, _sOFC, _bP],
+  [0, () => UpsolverS3OutputFormatConfig$, 0], 2
 ];
 export var UpsolverMetadata$: StaticStructureSchema = [3, n0, _UM,
   0,
@@ -1617,8 +1617,8 @@ export var UpsolverMetadata$: StaticStructureSchema = [3, n0, _UM,
 ];
 export var UpsolverS3OutputFormatConfig$: StaticStructureSchema = [3, n0, _USOFC,
   0,
-  [_fTi, _pC, _aCg],
-  [0, () => PrefixConfig$, () => AggregationConfig$]
+  [_pC, _fTi, _aCg],
+  [() => PrefixConfig$, 0, () => AggregationConfig$], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
@@ -1629,12 +1629,12 @@ TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VeevaConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _VCPC,
   0,
   [_u, _p],
-  [0, [() => Password, 0]]
+  [0, [() => Password, 0]], 2
 ];
 export var VeevaConnectorProfileProperties$: StaticStructureSchema = [3, n0, _VCPP,
   0,
   [_iU],
-  [0]
+  [0], 1
 ];
 export var VeevaMetadata$: StaticStructureSchema = [3, n0, _VM,
   0,
@@ -1644,22 +1644,22 @@ export var VeevaMetadata$: StaticStructureSchema = [3, n0, _VM,
 export var VeevaSourceProperties$: StaticStructureSchema = [3, n0, _VSP,
   0,
   [_o, _dTo, _iSFn, _iRn, _iAV],
-  [0, 0, 2, 2, 2]
+  [0, 0, 2, 2, 2], 1
 ];
 export var ZendeskConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _ZCPC,
   0,
   [_cI, _cS, _aTc, _oAR],
-  [0, [() => ClientSecret, 0], [() => AccessToken, 0], () => ConnectorOAuthRequest$]
+  [0, [() => ClientSecret, 0], [() => AccessToken, 0], () => ConnectorOAuthRequest$], 2
 ];
 export var ZendeskConnectorProfileProperties$: StaticStructureSchema = [3, n0, _ZCPP,
   0,
   [_iU],
-  [0]
+  [0], 1
 ];
 export var ZendeskDestinationProperties$: StaticStructureSchema = [3, n0, _ZDP,
   0,
   [_o, _iFN, _eHC, _wOT],
-  [0, 64 | 0, () => ErrorHandlingConfig$, 0]
+  [0, 64 | 0, () => ErrorHandlingConfig$, 0], 1
 ];
 export var ZendeskMetadata$: StaticStructureSchema = [3, n0, _ZM,
   0,
@@ -1669,7 +1669,7 @@ export var ZendeskMetadata$: StaticStructureSchema = [3, n0, _ZM,
 export var ZendeskSourceProperties$: StaticStructureSchema = [3, n0, _ZSP,
   0,
   [_o],
-  [0]
+  [0], 1
 ];
 export var AppflowServiceException$: StaticErrorSchema = [-3, _sm, "AppflowServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AppflowServiceException$, AppflowServiceException);

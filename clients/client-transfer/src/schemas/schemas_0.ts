@@ -564,18 +564,18 @@ export var As2ConnectorConfig$: StaticStructureSchema = [3, n0, _ACC,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectorFileTransferResult$: StaticStructureSchema = [3, n0, _CFTR,
   0,
   [_FP, _SC, _FC, _FM],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var ConnectorVpcLatticeEgressConfig$: StaticStructureSchema = [3, n0, _CVLEC,
   0,
   [_RCA, _PN],
-  [0, 1]
+  [0, 1], 1
 ];
 export var CopyStepDetails$: StaticStructureSchema = [3, n0, _CSD,
   0,
@@ -584,43 +584,43 @@ export var CopyStepDetails$: StaticStructureSchema = [3, n0, _CSD,
 ];
 export var CreateAccessRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
-  [_HD, _HDT, _HDM, _P, _PP, _R, _SI, _EI],
-  [0, 0, () => HomeDirectoryMappings, 0, () => PosixProfile$, 0, 0, 0]
+  [_R, _SI, _EI, _HD, _HDT, _HDM, _P, _PP],
+  [0, 0, 0, 0, 0, () => HomeDirectoryMappings, 0, () => PosixProfile$], 3
 ];
 export var CreateAccessResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
   [_SI, _EI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateAgreementRequest$: StaticStructureSchema = [3, n0, _CARre,
   0,
-  [_D, _SI, _LPI, _PPI, _BD, _AR, _S, _T, _PF, _EMS, _CD],
-  [0, 0, 0, 0, 0, 0, 0, () => Tags, 0, 0, () => CustomDirectoriesType$]
+  [_SI, _LPI, _PPI, _AR, _D, _BD, _S, _T, _PF, _EMS, _CD],
+  [0, 0, 0, 0, 0, 0, 0, () => Tags, 0, 0, () => CustomDirectoriesType$], 4
 ];
 export var CreateAgreementResponse$: StaticStructureSchema = [3, n0, _CARrea,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var CreateConnectorRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_U, _AC, _AR, _LR, _T, _SCf, _SPN, _EC],
-  [0, () => As2ConnectorConfig$, 0, 0, () => Tags, () => SftpConnectorConfig$, 0, () => ConnectorEgressConfig$]
+  [_AR, _U, _AC, _LR, _T, _SCf, _SPN, _EC],
+  [0, 0, () => As2ConnectorConfig$, 0, () => Tags, () => SftpConnectorConfig$, 0, () => ConnectorEgressConfig$], 1
 ];
 export var CreateConnectorResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
   [_CI],
-  [0]
+  [0], 1
 ];
 export var CreateProfileRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
   [_AIs, _PT, _CIe, _T],
-  [0, 0, 64 | 0, () => Tags]
+  [0, 0, 64 | 0, () => Tags], 2
 ];
 export var CreateProfileResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
   [_PI],
-  [0]
+  [0], 1
 ];
 export var CreateServerRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
@@ -630,42 +630,42 @@ export var CreateServerRequest$: StaticStructureSchema = [3, n0, _CSR,
 export var CreateServerResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var CreateUserRequest$: StaticStructureSchema = [3, n0, _CUR,
   0,
-  [_HD, _HDT, _HDM, _P, _PP, _R, _SI, _SPKB, _T, _UN],
-  [0, 0, () => HomeDirectoryMappings, 0, () => PosixProfile$, 0, 0, 0, () => Tags, 0]
+  [_R, _SI, _UN, _HD, _HDT, _HDM, _P, _PP, _SPKB, _T],
+  [0, 0, 0, 0, 0, () => HomeDirectoryMappings, 0, () => PosixProfile$, 0, () => Tags], 3
 ];
 export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr,
   0,
   [_SI, _UN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateWebAppRequest$: StaticStructureSchema = [3, n0, _CWAR,
   0,
   [_IPD, _AE, _WAU, _T, _WAEP, _ED],
-  [() => WebAppIdentityProviderDetails$, 0, () => WebAppUnits$, () => Tags, 0, () => WebAppEndpointDetails$]
+  [() => WebAppIdentityProviderDetails$, 0, () => WebAppUnits$, () => Tags, 0, () => WebAppEndpointDetails$], 1
 ];
 export var CreateWebAppResponse$: StaticStructureSchema = [3, n0, _CWARr,
   0,
   [_WAI],
-  [0]
+  [0], 1
 ];
 export var CreateWorkflowRequest$: StaticStructureSchema = [3, n0, _CWR,
   0,
-  [_D, _St, _OES, _T],
-  [0, () => WorkflowSteps, () => WorkflowSteps, () => Tags]
+  [_St, _D, _OES, _T],
+  [() => WorkflowSteps, 0, () => WorkflowSteps, () => Tags], 1
 ];
 export var CreateWorkflowResponse$: StaticStructureSchema = [3, n0, _CWRr,
   0,
   [_WI],
-  [0]
+  [0], 1
 ];
 export var CustomDirectoriesType$: StaticStructureSchema = [3, n0, _CDT,
   0,
   [_FFD, _MFD, _PFD, _SFD, _TFD],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 export var CustomStepDetails$: StaticStructureSchema = [3, n0, _CSDu,
   0,
@@ -674,48 +674,48 @@ export var CustomStepDetails$: StaticStructureSchema = [3, n0, _CSDu,
 ];
 export var DecryptStepDetails$: StaticStructureSchema = [3, n0, _DSD,
   0,
-  [_N, _Ty, _SFL, _OE, _DFL],
-  [0, 0, 0, 0, () => InputFileLocation$]
+  [_Ty, _DFL, _N, _SFL, _OE],
+  [0, () => InputFileLocation$, 0, 0, 0], 2
 ];
 export var DeleteAccessRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_SI, _EI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteAgreementRequest$: StaticStructureSchema = [3, n0, _DARe,
   0,
   [_AI, _SI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteCertificateRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_CIer],
-  [0]
+  [0], 1
 ];
 export var DeleteConnectorRequest$: StaticStructureSchema = [3, n0, _DCRe,
   0,
   [_CI],
-  [0]
+  [0], 1
 ];
 export var DeleteHostKeyRequest$: StaticStructureSchema = [3, n0, _DHKR,
   0,
   [_SI, _HKI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteProfileRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_PI],
-  [0]
+  [0], 1
 ];
 export var DeleteServerRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var DeleteSshPublicKeyRequest$: StaticStructureSchema = [3, n0, _DSPKR,
   0,
   [_SI, _SPKI, _UN],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DeleteStepDetails$: StaticStructureSchema = [3, n0, _DSDe,
   0,
@@ -725,62 +725,62 @@ export var DeleteStepDetails$: StaticStructureSchema = [3, n0, _DSDe,
 export var DeleteUserRequest$: StaticStructureSchema = [3, n0, _DUR,
   0,
   [_SI, _UN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteWebAppCustomizationRequest$: StaticStructureSchema = [3, n0, _DWACR,
   0,
   [_WAI],
-  [0]
+  [0], 1
 ];
 export var DeleteWebAppRequest$: StaticStructureSchema = [3, n0, _DWAR,
   0,
   [_WAI],
-  [0]
+  [0], 1
 ];
 export var DeleteWorkflowRequest$: StaticStructureSchema = [3, n0, _DWR,
   0,
   [_WI],
-  [0]
+  [0], 1
 ];
 export var DescribeAccessRequest$: StaticStructureSchema = [3, n0, _DARes,
   0,
   [_SI, _EI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeAccessResponse$: StaticStructureSchema = [3, n0, _DAResc,
   0,
   [_SI, _A],
-  [0, () => DescribedAccess$]
+  [0, () => DescribedAccess$], 2
 ];
 export var DescribeAgreementRequest$: StaticStructureSchema = [3, n0, _DARescr,
   0,
   [_AI, _SI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeAgreementResponse$: StaticStructureSchema = [3, n0, _DARescri,
   0,
   [_Ag],
-  [() => DescribedAgreement$]
+  [() => DescribedAgreement$], 1
 ];
 export var DescribeCertificateRequest$: StaticStructureSchema = [3, n0, _DCRes,
   0,
   [_CIer],
-  [0]
+  [0], 1
 ];
 export var DescribeCertificateResponse$: StaticStructureSchema = [3, n0, _DCResc,
   0,
   [_Ce],
-  [[() => DescribedCertificate$, 0]]
+  [[() => DescribedCertificate$, 0]], 1
 ];
 export var DescribeConnectorRequest$: StaticStructureSchema = [3, n0, _DCRescr,
   0,
   [_CI],
-  [0]
+  [0], 1
 ];
 export var DescribeConnectorResponse$: StaticStructureSchema = [3, n0, _DCRescri,
   0,
   [_Co],
-  [() => DescribedConnector$]
+  [() => DescribedConnector$], 1
 ];
 export var DescribedAccess$: StaticStructureSchema = [3, n0, _DA,
   0,
@@ -790,22 +790,22 @@ export var DescribedAccess$: StaticStructureSchema = [3, n0, _DA,
 export var DescribedAgreement$: StaticStructureSchema = [3, n0, _DAe,
   0,
   [_Ar, _AI, _D, _S, _SI, _LPI, _PPI, _BD, _AR, _T, _PF, _EMS, _CD],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => Tags, 0, 0, () => CustomDirectoriesType$]
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => Tags, 0, 0, () => CustomDirectoriesType$], 1
 ];
 export var DescribedCertificate$: StaticStructureSchema = [3, n0, _DC,
   0,
   [_Ar, _CIer, _Us, _S, _Ce, _CC, _AD, _ID, _Se, _NBD, _NAD, _Ty, _D, _T],
-  [0, 0, 0, 0, [() => CertificateBodyType, 0], [() => CertificateChainType, 0], 4, 4, 0, 4, 4, 0, 0, () => Tags]
+  [0, 0, 0, 0, [() => CertificateBodyType, 0], [() => CertificateChainType, 0], 4, 4, 0, 4, 4, 0, 0, () => Tags], 1
 ];
 export var DescribedConnector$: StaticStructureSchema = [3, n0, _DCe,
   0,
-  [_Ar, _CI, _U, _AC, _AR, _LR, _T, _SCf, _SMEIA, _SPN, _EC, _ETg, _EM, _S],
-  [0, 0, 0, () => As2ConnectorConfig$, 0, 0, () => Tags, () => SftpConnectorConfig$, 64 | 0, 0, () => DescribedConnectorEgressConfig$, 0, 0, 0]
+  [_Ar, _ETg, _S, _CI, _U, _AC, _AR, _LR, _T, _SCf, _SMEIA, _SPN, _EC, _EM],
+  [0, 0, 0, 0, 0, () => As2ConnectorConfig$, 0, 0, () => Tags, () => SftpConnectorConfig$, 64 | 0, 0, () => DescribedConnectorEgressConfig$, 0], 3
 ];
 export var DescribedConnectorVpcLatticeEgressConfig$: StaticStructureSchema = [3, n0, _DCVLEC,
   0,
   [_RCA, _PN],
-  [0, 1]
+  [0, 1], 1
 ];
 export var DescribedExecution$: StaticStructureSchema = [3, n0, _DE,
   0,
@@ -815,7 +815,7 @@ export var DescribedExecution$: StaticStructureSchema = [3, n0, _DE,
 export var DescribedHostKey$: StaticStructureSchema = [3, n0, _DHK,
   0,
   [_Ar, _HKI, _HKF, _D, _Ty, _DI, _T],
-  [0, 0, 0, 0, 0, 4, () => Tags]
+  [0, 0, 0, 0, 0, 4, () => Tags], 1
 ];
 export var DescribedIdentityCenterConfig$: StaticStructureSchema = [3, n0, _DICC,
   0,
@@ -825,32 +825,32 @@ export var DescribedIdentityCenterConfig$: StaticStructureSchema = [3, n0, _DICC
 export var DescribedProfile$: StaticStructureSchema = [3, n0, _DP,
   0,
   [_Ar, _PI, _PT, _AIs, _CIe, _T],
-  [0, 0, 0, 0, 64 | 0, () => Tags]
+  [0, 0, 0, 0, 64 | 0, () => Tags], 1
 ];
 export var DescribedSecurityPolicy$: StaticStructureSchema = [3, n0, _DSP,
   0,
-  [_F, _SPN, _SCs, _SK, _SMs, _TC, _SHKA, _Ty, _Pr],
-  [2, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 64 | 0]
+  [_SPN, _F, _SCs, _SK, _SMs, _TC, _SHKA, _Ty, _Pr],
+  [0, 2, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 64 | 0], 1
 ];
 export var DescribedServer$: StaticStructureSchema = [3, n0, _DS,
   0,
   [_Ar, _Ce, _PD, _Do, _ED, _ET, _HKF, _IPD, _IPT, _LR, _PALB, _PALBr, _Pr, _SPN, _SI, _Sta, _T, _UC, _WD, _SLD, _SSO, _ASMEIA, _IAT],
-  [0, 0, () => ProtocolDetails$, 0, () => EndpointDetails$, 0, 0, () => IdentityProviderDetails$, 0, 0, 0, 0, 64 | 0, 0, 0, 0, () => Tags, 1, () => WorkflowDetails$, 64 | 0, () => S3StorageOptions$, 64 | 0, 0]
+  [0, 0, () => ProtocolDetails$, 0, () => EndpointDetails$, 0, 0, () => IdentityProviderDetails$, 0, 0, 0, 0, 64 | 0, 0, 0, 0, () => Tags, 1, () => WorkflowDetails$, 64 | 0, () => S3StorageOptions$, 64 | 0, 0], 1
 ];
 export var DescribedUser$: StaticStructureSchema = [3, n0, _DU,
   0,
   [_Ar, _HD, _HDM, _HDT, _P, _PP, _R, _SPK, _T, _UN],
-  [0, 0, () => HomeDirectoryMappings, 0, 0, () => PosixProfile$, 0, () => SshPublicKeys, () => Tags, 0]
+  [0, 0, () => HomeDirectoryMappings, 0, 0, () => PosixProfile$, 0, () => SshPublicKeys, () => Tags, 0], 1
 ];
 export var DescribedWebApp$: StaticStructureSchema = [3, n0, _DWA,
   0,
   [_Ar, _WAI, _DIPD, _AE, _WAE, _WAU, _T, _WAEP, _ET, _DED],
-  [0, 0, () => DescribedWebAppIdentityProviderDetails$, 0, 0, () => WebAppUnits$, () => Tags, 0, 0, () => DescribedWebAppEndpointDetails$]
+  [0, 0, () => DescribedWebAppIdentityProviderDetails$, 0, 0, () => WebAppUnits$, () => Tags, 0, 0, () => DescribedWebAppEndpointDetails$], 2
 ];
 export var DescribedWebAppCustomization$: StaticStructureSchema = [3, n0, _DWAC,
   0,
   [_Ar, _WAI, _Ti, _LF, _FF],
-  [0, 0, 0, [() => WebAppLogoFile, 0], [() => WebAppFaviconFile, 0]]
+  [0, 0, 0, [() => WebAppLogoFile, 0], [() => WebAppFaviconFile, 0]], 2
 ];
 export var DescribedWebAppVpcConfig$: StaticStructureSchema = [3, n0, _DWAVC,
   0,
@@ -860,97 +860,97 @@ export var DescribedWebAppVpcConfig$: StaticStructureSchema = [3, n0, _DWAVC,
 export var DescribedWorkflow$: StaticStructureSchema = [3, n0, _DW,
   0,
   [_Ar, _D, _St, _OES, _WI, _T],
-  [0, 0, () => WorkflowSteps, () => WorkflowSteps, 0, () => Tags]
+  [0, 0, () => WorkflowSteps, () => WorkflowSteps, 0, () => Tags], 1
 ];
 export var DescribeExecutionRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_EIx, _WI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeExecutionResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
   [_WI, _E],
-  [0, () => DescribedExecution$]
+  [0, () => DescribedExecution$], 2
 ];
 export var DescribeHostKeyRequest$: StaticStructureSchema = [3, n0, _DHKRe,
   0,
   [_SI, _HKI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeHostKeyResponse$: StaticStructureSchema = [3, n0, _DHKRes,
   0,
   [_HK],
-  [() => DescribedHostKey$]
+  [() => DescribedHostKey$], 1
 ];
 export var DescribeProfileRequest$: StaticStructureSchema = [3, n0, _DPRe,
   0,
   [_PI],
-  [0]
+  [0], 1
 ];
 export var DescribeProfileResponse$: StaticStructureSchema = [3, n0, _DPRes,
   0,
   [_Pro],
-  [() => DescribedProfile$]
+  [() => DescribedProfile$], 1
 ];
 export var DescribeSecurityPolicyRequest$: StaticStructureSchema = [3, n0, _DSPR,
   0,
   [_SPN],
-  [0]
+  [0], 1
 ];
 export var DescribeSecurityPolicyResponse$: StaticStructureSchema = [3, n0, _DSPRe,
   0,
   [_SP],
-  [() => DescribedSecurityPolicy$]
+  [() => DescribedSecurityPolicy$], 1
 ];
 export var DescribeServerRequest$: StaticStructureSchema = [3, n0, _DSRe,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var DescribeServerResponse$: StaticStructureSchema = [3, n0, _DSRes,
   0,
   [_Ser],
-  [() => DescribedServer$]
+  [() => DescribedServer$], 1
 ];
 export var DescribeUserRequest$: StaticStructureSchema = [3, n0, _DURe,
   0,
   [_SI, _UN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeUserResponse$: StaticStructureSchema = [3, n0, _DURes,
   0,
   [_SI, _Use],
-  [0, () => DescribedUser$]
+  [0, () => DescribedUser$], 2
 ];
 export var DescribeWebAppCustomizationRequest$: StaticStructureSchema = [3, n0, _DWACRe,
   0,
   [_WAI],
-  [0]
+  [0], 1
 ];
 export var DescribeWebAppCustomizationResponse$: StaticStructureSchema = [3, n0, _DWACRes,
   0,
   [_WAC],
-  [[() => DescribedWebAppCustomization$, 0]]
+  [[() => DescribedWebAppCustomization$, 0]], 1
 ];
 export var DescribeWebAppRequest$: StaticStructureSchema = [3, n0, _DWARe,
   0,
   [_WAI],
-  [0]
+  [0], 1
 ];
 export var DescribeWebAppResponse$: StaticStructureSchema = [3, n0, _DWARes,
   0,
   [_WA],
-  [() => DescribedWebApp$]
+  [() => DescribedWebApp$], 1
 ];
 export var DescribeWorkflowRequest$: StaticStructureSchema = [3, n0, _DWRe,
   0,
   [_WI],
-  [0]
+  [0], 1
 ];
 export var DescribeWorkflowResponse$: StaticStructureSchema = [3, n0, _DWRes,
   0,
   [_W],
-  [() => DescribedWorkflow$]
+  [() => DescribedWorkflow$], 1
 ];
 export var EfsFileLocation$: StaticStructureSchema = [3, n0, _EFL,
   0,
@@ -965,7 +965,7 @@ export var EndpointDetails$: StaticStructureSchema = [3, n0, _ED,
 export var ExecutionError$: StaticStructureSchema = [3, n0, _EE,
   0,
   [_Ty, _M],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ExecutionResults$: StaticStructureSchema = [3, n0, _ERx,
   0,
@@ -985,7 +985,7 @@ export var FileLocation$: StaticStructureSchema = [3, n0, _FL,
 export var HomeDirectoryMapEntry$: StaticStructureSchema = [3, n0, _HDME,
   0,
   [_En, _Ta, _Ty],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var IdentityCenterConfig$: StaticStructureSchema = [3, n0, _ICC,
   0,
@@ -1000,32 +1000,32 @@ export var IdentityProviderDetails$: StaticStructureSchema = [3, n0, _IPD,
 export var ImportCertificateRequest$: StaticStructureSchema = [3, n0, _ICR,
   0,
   [_Us, _Ce, _CC, _PK, _AD, _ID, _D, _T],
-  [0, [() => CertificateBodyType, 0], [() => CertificateChainType, 0], [() => PrivateKeyType, 0], 4, 4, 0, () => Tags]
+  [0, [() => CertificateBodyType, 0], [() => CertificateChainType, 0], [() => PrivateKeyType, 0], 4, 4, 0, () => Tags], 2
 ];
 export var ImportCertificateResponse$: StaticStructureSchema = [3, n0, _ICRm,
   0,
   [_CIer],
-  [0]
+  [0], 1
 ];
 export var ImportHostKeyRequest$: StaticStructureSchema = [3, n0, _IHKR,
   0,
   [_SI, _HKB, _D, _T],
-  [0, [() => HostKey, 0], 0, () => Tags]
+  [0, [() => HostKey, 0], 0, () => Tags], 2
 ];
 export var ImportHostKeyResponse$: StaticStructureSchema = [3, n0, _IHKRm,
   0,
   [_SI, _HKI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ImportSshPublicKeyRequest$: StaticStructureSchema = [3, n0, _ISPKR,
   0,
   [_SI, _SPKB, _UN],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ImportSshPublicKeyResponse$: StaticStructureSchema = [3, n0, _ISPKRm,
   0,
   [_SI, _SPKI, _UN],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var InputFileLocation$: StaticStructureSchema = [3, n0, _IFLn,
   0,
@@ -1035,40 +1035,40 @@ export var InputFileLocation$: StaticStructureSchema = [3, n0, _IFLn,
 export var InternalServiceError$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 503 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServiceError$, InternalServiceError);
 export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
 export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var ListAccessesRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
-  [_MRa, _NT, _SI],
-  [1, 0, 0]
+  [_SI, _MRa, _NT],
+  [0, 1, 0], 1
 ];
 export var ListAccessesResponse$: StaticStructureSchema = [3, n0, _LARi,
   0,
-  [_NT, _SI, _Ac],
-  [0, 0, () => ListedAccesses]
+  [_SI, _Ac, _NT],
+  [0, () => ListedAccesses, 0], 2
 ];
 export var ListAgreementsRequest$: StaticStructureSchema = [3, n0, _LARis,
   0,
-  [_MRa, _NT, _SI],
-  [1, 0, 0]
+  [_SI, _MRa, _NT],
+  [0, 1, 0], 1
 ];
 export var ListAgreementsResponse$: StaticStructureSchema = [3, n0, _LARist,
   0,
-  [_NT, _Agr],
-  [0, () => ListedAgreements]
+  [_Agr, _NT],
+  [() => ListedAgreements, 0], 1
 ];
 export var ListCertificatesRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
@@ -1077,8 +1077,8 @@ export var ListCertificatesRequest$: StaticStructureSchema = [3, n0, _LCR,
 ];
 export var ListCertificatesResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
-  [_NT, _Cer],
-  [0, () => ListedCertificates]
+  [_Cer, _NT],
+  [() => ListedCertificates, 0], 1
 ];
 export var ListConnectorsRequest$: StaticStructureSchema = [3, n0, _LCRis,
   0,
@@ -1087,8 +1087,8 @@ export var ListConnectorsRequest$: StaticStructureSchema = [3, n0, _LCRis,
 ];
 export var ListConnectorsResponse$: StaticStructureSchema = [3, n0, _LCRist,
   0,
-  [_NT, _Con],
-  [0, () => ListedConnectors]
+  [_Con, _NT],
+  [() => ListedConnectors, 0], 1
 ];
 export var ListedAccess$: StaticStructureSchema = [3, n0, _LA,
   0,
@@ -1118,7 +1118,7 @@ export var ListedExecution$: StaticStructureSchema = [3, n0, _LE,
 export var ListedHostKey$: StaticStructureSchema = [3, n0, _LHK,
   0,
   [_Ar, _HKI, _Fi, _D, _Ty, _DI],
-  [0, 0, 0, 0, 0, 4]
+  [0, 0, 0, 0, 0, 4], 1
 ];
 export var ListedProfile$: StaticStructureSchema = [3, n0, _LP,
   0,
@@ -1128,17 +1128,17 @@ export var ListedProfile$: StaticStructureSchema = [3, n0, _LP,
 export var ListedServer$: StaticStructureSchema = [3, n0, _LS,
   0,
   [_Ar, _Do, _IPT, _ET, _LR, _SI, _Sta, _UC],
-  [0, 0, 0, 0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 0, 0, 0, 1], 1
 ];
 export var ListedUser$: StaticStructureSchema = [3, n0, _LU,
   0,
   [_Ar, _HD, _HDT, _R, _SPKC, _UN],
-  [0, 0, 0, 0, 1, 0]
+  [0, 0, 0, 0, 1, 0], 1
 ];
 export var ListedWebApp$: StaticStructureSchema = [3, n0, _LWA,
   0,
   [_Ar, _WAI, _AE, _WAE, _ET],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 2
 ];
 export var ListedWorkflow$: StaticStructureSchema = [3, n0, _LW,
   0,
@@ -1147,33 +1147,33 @@ export var ListedWorkflow$: StaticStructureSchema = [3, n0, _LW,
 ];
 export var ListExecutionsRequest$: StaticStructureSchema = [3, n0, _LER,
   0,
-  [_MRa, _NT, _WI],
-  [1, 0, 0]
+  [_WI, _MRa, _NT],
+  [0, 1, 0], 1
 ];
 export var ListExecutionsResponse$: StaticStructureSchema = [3, n0, _LERi,
   0,
-  [_NT, _WI, _Ex],
-  [0, 0, () => ListedExecutions]
+  [_WI, _Ex, _NT],
+  [0, () => ListedExecutions, 0], 2
 ];
 export var ListFileTransferResultsRequest$: StaticStructureSchema = [3, n0, _LFTRR,
   0,
   [_CI, _TI, _NT, _MRa],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ListFileTransferResultsResponse$: StaticStructureSchema = [3, n0, _LFTRRi,
   0,
   [_FTR, _NT],
-  [() => ConnectorFileTransferResults, 0]
+  [() => ConnectorFileTransferResults, 0], 1
 ];
 export var ListHostKeysRequest$: StaticStructureSchema = [3, n0, _LHKR,
   0,
-  [_MRa, _NT, _SI],
-  [1, 0, 0]
+  [_SI, _MRa, _NT],
+  [0, 1, 0], 1
 ];
 export var ListHostKeysResponse$: StaticStructureSchema = [3, n0, _LHKRi,
   0,
-  [_NT, _SI, _HKo],
-  [0, 0, () => ListedHostKeys]
+  [_SI, _HKo, _NT],
+  [0, () => ListedHostKeys, 0], 2
 ];
 export var ListProfilesRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
@@ -1182,8 +1182,8 @@ export var ListProfilesRequest$: StaticStructureSchema = [3, n0, _LPR,
 ];
 export var ListProfilesResponse$: StaticStructureSchema = [3, n0, _LPRi,
   0,
-  [_NT, _Prof],
-  [0, () => ListedProfiles]
+  [_Prof, _NT],
+  [() => ListedProfiles, 0], 1
 ];
 export var ListSecurityPoliciesRequest$: StaticStructureSchema = [3, n0, _LSPR,
   0,
@@ -1192,8 +1192,8 @@ export var ListSecurityPoliciesRequest$: StaticStructureSchema = [3, n0, _LSPR,
 ];
 export var ListSecurityPoliciesResponse$: StaticStructureSchema = [3, n0, _LSPRi,
   0,
-  [_NT, _SPNe],
-  [0, 64 | 0]
+  [_SPNe, _NT],
+  [64 | 0, 0], 1
 ];
 export var ListServersRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
@@ -1202,13 +1202,13 @@ export var ListServersRequest$: StaticStructureSchema = [3, n0, _LSR,
 ];
 export var ListServersResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
-  [_NT, _Serv],
-  [0, () => ListedServers]
+  [_Serv, _NT],
+  [() => ListedServers, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_Ar, _MRa, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1217,13 +1217,13 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var ListUsersRequest$: StaticStructureSchema = [3, n0, _LUR,
   0,
-  [_MRa, _NT, _SI],
-  [1, 0, 0]
+  [_SI, _MRa, _NT],
+  [0, 1, 0], 1
 ];
 export var ListUsersResponse$: StaticStructureSchema = [3, n0, _LURi,
   0,
-  [_NT, _SI, _User],
-  [0, 0, () => ListedUsers]
+  [_SI, _User, _NT],
+  [0, () => ListedUsers, 0], 2
 ];
 export var ListWebAppsRequest$: StaticStructureSchema = [3, n0, _LWAR,
   0,
@@ -1232,8 +1232,8 @@ export var ListWebAppsRequest$: StaticStructureSchema = [3, n0, _LWAR,
 ];
 export var ListWebAppsResponse$: StaticStructureSchema = [3, n0, _LWARi,
   0,
-  [_NT, _WAe],
-  [0, () => ListedWebApps]
+  [_WAe, _NT],
+  [() => ListedWebApps, 0], 1
 ];
 export var ListWorkflowsRequest$: StaticStructureSchema = [3, n0, _LWR,
   0,
@@ -1242,8 +1242,8 @@ export var ListWorkflowsRequest$: StaticStructureSchema = [3, n0, _LWR,
 ];
 export var ListWorkflowsResponse$: StaticStructureSchema = [3, n0, _LWRi,
   0,
-  [_NT, _Wo],
-  [0, () => ListedWorkflows]
+  [_Wo, _NT],
+  [() => ListedWorkflows, 0], 1
 ];
 export var LoggingConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
@@ -1253,7 +1253,7 @@ export var LoggingConfiguration$: StaticStructureSchema = [3, n0, _LC,
 export var PosixProfile$: StaticStructureSchema = [3, n0, _PP,
   0,
   [_Ui, _G, _SG],
-  [1, 1, 64 | 1]
+  [1, 1, 64 | 1], 2
 ];
 export var ProtocolDetails$: StaticStructureSchema = [3, n0, _PD,
   0,
@@ -1263,13 +1263,13 @@ export var ProtocolDetails$: StaticStructureSchema = [3, n0, _PD,
 export var ResourceExistsException$: StaticErrorSchema = [-3, n0, _REE,
   { [_e]: _c, [_hE]: 409 },
   [_M, _Res, _RT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceExistsException$, ResourceExistsException);
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_M, _Res, _RT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3FileLocation$: StaticStructureSchema = [3, n0, _SFLi,
@@ -1290,12 +1290,12 @@ export var S3StorageOptions$: StaticStructureSchema = [3, n0, _SSO,
 export var S3Tag$: StaticStructureSchema = [3, n0, _STa,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SendWorkflowStepStateRequest$: StaticStructureSchema = [3, n0, _SWSSR,
   0,
   [_WI, _EIx, _To, _S],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var SendWorkflowStepStateResponse$: StaticStructureSchema = [3, n0, _SWSSRe,
   0,
@@ -1305,7 +1305,7 @@ export var SendWorkflowStepStateResponse$: StaticStructureSchema = [3, n0, _SWSS
 export var ServiceMetadata$: StaticStructureSchema = [3, n0, _SM,
   0,
   [_UD],
-  [() => UserDetails$]
+  [() => UserDetails$], 1
 ];
 export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
   { [_aQE]: [`ServiceUnavailable`, 503], [_e]: _s, [_hE]: 503 },
@@ -1326,67 +1326,67 @@ export var SftpConnectorConnectionDetails$: StaticStructureSchema = [3, n0, _SCC
 export var SshPublicKey$: StaticStructureSchema = [3, n0, _SPKs,
   0,
   [_DI, _SPKB, _SPKI],
-  [4, 0, 0]
+  [4, 0, 0], 3
 ];
 export var StartDirectoryListingRequest$: StaticStructureSchema = [3, n0, _SDLR,
   0,
-  [_CI, _RDP, _MI, _ODP],
-  [0, 0, 1, 0]
+  [_CI, _RDP, _ODP, _MI],
+  [0, 0, 0, 1], 3
 ];
 export var StartDirectoryListingResponse$: StaticStructureSchema = [3, n0, _SDLRt,
   0,
   [_LI, _OFN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StartFileTransferRequest$: StaticStructureSchema = [3, n0, _SFTR,
   0,
   [_CI, _SFP, _RFP, _LDP, _RDP],
-  [0, 64 | 0, 64 | 0, 0, 0]
+  [0, 64 | 0, 64 | 0, 0, 0], 1
 ];
 export var StartFileTransferResponse$: StaticStructureSchema = [3, n0, _SFTRt,
   0,
   [_TI],
-  [0]
+  [0], 1
 ];
 export var StartRemoteDeleteRequest$: StaticStructureSchema = [3, n0, _SRDR,
   0,
   [_CI, _DPe],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StartRemoteDeleteResponse$: StaticStructureSchema = [3, n0, _SRDRt,
   0,
   [_DIe],
-  [0]
+  [0], 1
 ];
 export var StartRemoteMoveRequest$: StaticStructureSchema = [3, n0, _SRMR,
   0,
   [_CI, _SPo, _TP],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var StartRemoteMoveResponse$: StaticStructureSchema = [3, n0, _SRMRt,
   0,
   [_MIo],
-  [0]
+  [0], 1
 ];
 export var StartServerRequest$: StaticStructureSchema = [3, n0, _SSR,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var StopServerRequest$: StaticStructureSchema = [3, n0, _SSRt,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_Ar, _T],
-  [0, () => Tags]
+  [0, () => Tags], 2
 ];
 export var TagStepDetails$: StaticStructureSchema = [3, n0, _TSD,
   0,
@@ -1396,7 +1396,7 @@ export var TagStepDetails$: StaticStructureSchema = [3, n0, _TSD,
 export var TestConnectionRequest$: StaticStructureSchema = [3, n0, _TCR,
   0,
   [_CI],
-  [0]
+  [0], 1
 ];
 export var TestConnectionResponse$: StaticStructureSchema = [3, n0, _TCRe,
   0,
@@ -1405,13 +1405,13 @@ export var TestConnectionResponse$: StaticStructureSchema = [3, n0, _TCRe,
 ];
 export var TestIdentityProviderRequest$: StaticStructureSchema = [3, n0, _TIPR,
   0,
-  [_SI, _SPe, _SIo, _UN, _UP],
-  [0, 0, 0, 0, [() => UserPassword, 0]]
+  [_SI, _UN, _SPe, _SIo, _UP],
+  [0, 0, 0, 0, [() => UserPassword, 0]], 2
 ];
 export var TestIdentityProviderResponse$: StaticStructureSchema = [3, n0, _TIPRe,
   0,
-  [_Resp, _SC, _M, _U],
-  [0, 1, 0, 0]
+  [_SC, _U, _Resp, _M],
+  [1, 0, 0, 0], 2
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
@@ -1422,47 +1422,47 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_Ar, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UpdateAccessRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
-  [_HD, _HDT, _HDM, _P, _PP, _R, _SI, _EI],
-  [0, 0, () => HomeDirectoryMappings, 0, () => PosixProfile$, 0, 0, 0]
+  [_SI, _EI, _HD, _HDT, _HDM, _P, _PP, _R],
+  [0, 0, 0, 0, () => HomeDirectoryMappings, 0, () => PosixProfile$, 0], 2
 ];
 export var UpdateAccessResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
   [_SI, _EI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateAgreementRequest$: StaticStructureSchema = [3, n0, _UARpd,
   0,
   [_AI, _SI, _D, _S, _LPI, _PPI, _BD, _AR, _PF, _EMS, _CD],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => CustomDirectoriesType$]
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => CustomDirectoriesType$], 2
 ];
 export var UpdateAgreementResponse$: StaticStructureSchema = [3, n0, _UARpda,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var UpdateCertificateRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_CIer, _AD, _ID, _D],
-  [0, 4, 4, 0]
+  [0, 4, 4, 0], 1
 ];
 export var UpdateCertificateResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
   [_CIer],
-  [0]
+  [0], 1
 ];
 export var UpdateConnectorRequest$: StaticStructureSchema = [3, n0, _UCRpd,
   0,
   [_CI, _U, _AC, _AR, _LR, _SCf, _SPN, _EC],
-  [0, 0, () => As2ConnectorConfig$, 0, 0, () => SftpConnectorConfig$, 0, () => UpdateConnectorEgressConfig$]
+  [0, 0, () => As2ConnectorConfig$, 0, 0, () => SftpConnectorConfig$, 0, () => UpdateConnectorEgressConfig$], 1
 ];
 export var UpdateConnectorResponse$: StaticStructureSchema = [3, n0, _UCRpda,
   0,
   [_CI],
-  [0]
+  [0], 1
 ];
 export var UpdateConnectorVpcLatticeEgressConfig$: StaticStructureSchema = [3, n0, _UCVLEC,
   0,
@@ -1472,52 +1472,52 @@ export var UpdateConnectorVpcLatticeEgressConfig$: StaticStructureSchema = [3, n
 export var UpdateHostKeyRequest$: StaticStructureSchema = [3, n0, _UHKR,
   0,
   [_SI, _HKI, _D],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var UpdateHostKeyResponse$: StaticStructureSchema = [3, n0, _UHKRp,
   0,
   [_SI, _HKI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateProfileRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
   [_PI, _CIe],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var UpdateProfileResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
   [_PI],
-  [0]
+  [0], 1
 ];
 export var UpdateServerRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_Ce, _PD, _ED, _ET, _HK, _IPD, _LR, _PALB, _PALBr, _Pr, _SPN, _SI, _WD, _SLD, _SSO, _IAT, _IPT],
-  [0, () => ProtocolDetails$, () => EndpointDetails$, 0, [() => HostKey, 0], () => IdentityProviderDetails$, 0, 0, 0, 64 | 0, 0, 0, () => WorkflowDetails$, 64 | 0, () => S3StorageOptions$, 0, 0]
+  [_SI, _Ce, _PD, _ED, _ET, _HK, _IPD, _LR, _PALB, _PALBr, _Pr, _SPN, _WD, _SLD, _SSO, _IAT, _IPT],
+  [0, 0, () => ProtocolDetails$, () => EndpointDetails$, 0, [() => HostKey, 0], () => IdentityProviderDetails$, 0, 0, 0, 64 | 0, 0, () => WorkflowDetails$, 64 | 0, () => S3StorageOptions$, 0, 0], 1
 ];
 export var UpdateServerResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var UpdateUserRequest$: StaticStructureSchema = [3, n0, _UUR,
   0,
-  [_HD, _HDT, _HDM, _P, _PP, _R, _SI, _UN],
-  [0, 0, () => HomeDirectoryMappings, 0, () => PosixProfile$, 0, 0, 0]
+  [_SI, _UN, _HD, _HDT, _HDM, _P, _PP, _R],
+  [0, 0, 0, 0, () => HomeDirectoryMappings, 0, () => PosixProfile$, 0], 2
 ];
 export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp,
   0,
   [_SI, _UN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateWebAppCustomizationRequest$: StaticStructureSchema = [3, n0, _UWACR,
   0,
   [_WAI, _Ti, _LF, _FF],
-  [0, 0, [() => WebAppLogoFile, 0], [() => WebAppFaviconFile, 0]]
+  [0, 0, [() => WebAppLogoFile, 0], [() => WebAppFaviconFile, 0]], 1
 ];
 export var UpdateWebAppCustomizationResponse$: StaticStructureSchema = [3, n0, _UWACRp,
   0,
   [_WAI],
-  [0]
+  [0], 1
 ];
 export var UpdateWebAppIdentityCenterConfig$: StaticStructureSchema = [3, n0, _UWAICC,
   0,
@@ -1527,12 +1527,12 @@ export var UpdateWebAppIdentityCenterConfig$: StaticStructureSchema = [3, n0, _U
 export var UpdateWebAppRequest$: StaticStructureSchema = [3, n0, _UWAR,
   0,
   [_WAI, _IPD, _AE, _WAU, _ED],
-  [0, () => UpdateWebAppIdentityProviderDetails$, 0, () => WebAppUnits$, () => UpdateWebAppEndpointDetails$]
+  [0, () => UpdateWebAppIdentityProviderDetails$, 0, () => WebAppUnits$, () => UpdateWebAppEndpointDetails$], 1
 ];
 export var UpdateWebAppResponse$: StaticStructureSchema = [3, n0, _UWARp,
   0,
   [_WAI],
-  [0]
+  [0], 1
 ];
 export var UpdateWebAppVpcConfig$: StaticStructureSchema = [3, n0, _UWAVC,
   0,
@@ -1542,7 +1542,7 @@ export var UpdateWebAppVpcConfig$: StaticStructureSchema = [3, n0, _UWAVC,
 export var UserDetails$: StaticStructureSchema = [3, n0, _UD,
   0,
   [_UN, _SI, _SIe],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var WebAppVpcConfig$: StaticStructureSchema = [3, n0, _WAVC,
   0,
@@ -1552,7 +1552,7 @@ export var WebAppVpcConfig$: StaticStructureSchema = [3, n0, _WAVC,
 export var WorkflowDetail$: StaticStructureSchema = [3, n0, _WDo,
   0,
   [_WI, _ER],
-  [0, 0]
+  [0, 0], 2
 ];
 export var WorkflowDetails$: StaticStructureSchema = [3, n0, _WD,
   0,

@@ -1026,7 +1026,7 @@ import { PinpointServiceException } from "../models/PinpointServiceException";
 export var ActivitiesResponse$: StaticStructureSchema = [3, n0, _AR,
   0,
   [_I, _NT],
-  [() => ListOfActivityResponse, 0]
+  [() => ListOfActivityResponse, 0], 1
 ];
 export var Activity$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -1035,8 +1035,8 @@ export var Activity$: StaticStructureSchema = [3, n0, _A,
 ];
 export var ActivityResponse$: StaticStructureSchema = [3, n0, _ARc,
   0,
-  [_AI, _CI, _E, _Id, _R, _SS, _S, _St, _SEC, _TCC, _TTC, _TEC, _TI, _EM],
-  [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 128 | 0]
+  [_AI, _CI, _Id, _E, _R, _SS, _S, _St, _SEC, _TCC, _TTC, _TEC, _TI, _EM],
+  [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 128 | 0], 3
 ];
 export var AddressConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
@@ -1046,12 +1046,12 @@ export var AddressConfiguration$: StaticStructureSchema = [3, n0, _AC,
 export var ADMChannelRequest$: StaticStructureSchema = [3, n0, _ADMCR,
   0,
   [_CIl, _CSl, _En],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var ADMChannelResponse$: StaticStructureSchema = [3, n0, _ADMCRh,
   0,
-  [_AI, _CD, _En, _HC, _Id, _IA, _LMB, _LMD, _P, _V],
-  [0, 0, 2, 2, 0, 2, 0, 0, 0, 1]
+  [_P, _AI, _CD, _En, _HC, _Id, _IA, _LMB, _LMD, _V],
+  [0, 0, 0, 2, 2, 0, 2, 0, 0, 1], 1
 ];
 export var ADMMessage$: StaticStructureSchema = [3, n0, _ADMM,
   0,
@@ -1070,8 +1070,8 @@ export var APNSChannelRequest$: StaticStructureSchema = [3, n0, _APNSCR,
 ];
 export var APNSChannelResponse$: StaticStructureSchema = [3, n0, _APNSCRh,
   0,
-  [_AI, _CD, _DAM, _En, _HC, _HTK, _Id, _IA, _LMB, _LMD, _P, _V],
-  [0, 0, 0, 2, 2, 2, 0, 2, 0, 0, 0, 1]
+  [_P, _AI, _CD, _DAM, _En, _HC, _HTK, _Id, _IA, _LMB, _LMD, _V],
+  [0, 0, 0, 0, 2, 2, 2, 0, 2, 0, 0, 1], 1
 ];
 export var APNSMessage$: StaticStructureSchema = [3, n0, _APNSM,
   0,
@@ -1090,8 +1090,8 @@ export var APNSSandboxChannelRequest$: StaticStructureSchema = [3, n0, _APNSSCR,
 ];
 export var APNSSandboxChannelResponse$: StaticStructureSchema = [3, n0, _APNSSCRa,
   0,
-  [_AI, _CD, _DAM, _En, _HC, _HTK, _Id, _IA, _LMB, _LMD, _P, _V],
-  [0, 0, 0, 2, 2, 2, 0, 2, 0, 0, 0, 1]
+  [_P, _AI, _CD, _DAM, _En, _HC, _HTK, _Id, _IA, _LMB, _LMD, _V],
+  [0, 0, 0, 0, 2, 2, 2, 0, 2, 0, 0, 1], 1
 ];
 export var APNSVoipChannelRequest$: StaticStructureSchema = [3, n0, _APNSVCR,
   0,
@@ -1100,8 +1100,8 @@ export var APNSVoipChannelRequest$: StaticStructureSchema = [3, n0, _APNSVCR,
 ];
 export var APNSVoipChannelResponse$: StaticStructureSchema = [3, n0, _APNSVCRo,
   0,
-  [_AI, _CD, _DAM, _En, _HC, _HTK, _Id, _IA, _LMB, _LMD, _P, _V],
-  [0, 0, 0, 2, 2, 2, 0, 2, 0, 0, 0, 1]
+  [_P, _AI, _CD, _DAM, _En, _HC, _HTK, _Id, _IA, _LMB, _LMD, _V],
+  [0, 0, 0, 0, 2, 2, 2, 0, 2, 0, 0, 1], 1
 ];
 export var APNSVoipSandboxChannelRequest$: StaticStructureSchema = [3, n0, _APNSVSCR,
   0,
@@ -1110,18 +1110,18 @@ export var APNSVoipSandboxChannelRequest$: StaticStructureSchema = [3, n0, _APNS
 ];
 export var APNSVoipSandboxChannelResponse$: StaticStructureSchema = [3, n0, _APNSVSCRo,
   0,
-  [_AI, _CD, _DAM, _En, _HC, _HTK, _Id, _IA, _LMB, _LMD, _P, _V],
-  [0, 0, 0, 2, 2, 2, 0, 2, 0, 0, 0, 1]
+  [_P, _AI, _CD, _DAM, _En, _HC, _HTK, _Id, _IA, _LMB, _LMD, _V],
+  [0, 0, 0, 0, 2, 2, 2, 0, 2, 0, 0, 1], 1
 ];
 export var ApplicationDateRangeKpiResponse$: StaticStructureSchema = [3, n0, _ADRKR,
   0,
-  [_AI, _ET, _KN, _KR, _NT, _ST],
-  [0, 5, 0, () => BaseKpiResult$, 0, 5]
+  [_AI, _ET, _KN, _KR, _ST, _NT],
+  [0, 5, 0, () => BaseKpiResult$, 5, 0], 5
 ];
 export var ApplicationResponse$: StaticStructureSchema = [3, n0, _ARp,
   0,
   [_Ar, _Id, _N, _t, _CD],
-  [0, 0, 0, [128 | 0, { [_jN]: _t }], 0]
+  [0, 0, 0, [128 | 0, { [_jN]: _t }], 0], 3
 ];
 export var ApplicationSettingsJourneyLimits$: StaticStructureSchema = [3, n0, _ASJL,
   0,
@@ -1131,7 +1131,7 @@ export var ApplicationSettingsJourneyLimits$: StaticStructureSchema = [3, n0, _A
 export var ApplicationSettingsResource$: StaticStructureSchema = [3, n0, _ASR,
   0,
   [_AI, _CH, _LMD, _L, _QT, _JL],
-  [0, () => CampaignHook$, 0, () => CampaignLimits$, () => QuietTime$, () => ApplicationSettingsJourneyLimits$]
+  [0, () => CampaignHook$, 0, () => CampaignLimits$, () => QuietTime$, () => ApplicationSettingsJourneyLimits$], 1
 ];
 export var ApplicationsResponse$: StaticStructureSchema = [3, n0, _ARpp,
   0,
@@ -1140,13 +1140,13 @@ export var ApplicationsResponse$: StaticStructureSchema = [3, n0, _ARpp,
 ];
 export var AttributeDimension$: StaticStructureSchema = [3, n0, _AD,
   0,
-  [_AT, _Va],
-  [0, 64 | 0]
+  [_Va, _AT],
+  [64 | 0, 0], 1
 ];
 export var AttributesResource$: StaticStructureSchema = [3, n0, _ARt,
   0,
   [_AI, _AT, _At],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 2
 ];
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
@@ -1156,13 +1156,13 @@ export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
 TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var BaiduChannelRequest$: StaticStructureSchema = [3, n0, _BCR,
   0,
-  [_AK, _En, _SK],
-  [0, 2, 0]
+  [_AK, _SK, _En],
+  [0, 0, 2], 2
 ];
 export var BaiduChannelResponse$: StaticStructureSchema = [3, n0, _BCRa,
   0,
-  [_AI, _CD, _Cr, _En, _HC, _Id, _IA, _LMB, _LMD, _P, _V],
-  [0, 0, 0, 2, 2, 0, 2, 0, 0, 0, 1]
+  [_Cr, _P, _AI, _CD, _En, _HC, _Id, _IA, _LMB, _LMD, _V],
+  [0, 0, 0, 0, 2, 2, 0, 2, 0, 0, 1], 2
 ];
 export var BaiduMessage$: StaticStructureSchema = [3, n0, _BM,
   0,
@@ -1172,7 +1172,7 @@ export var BaiduMessage$: StaticStructureSchema = [3, n0, _BM,
 export var BaseKpiResult$: StaticStructureSchema = [3, n0, _BKR,
   0,
   [_Ro],
-  [() => ListOfResultRow]
+  [() => ListOfResultRow], 1
 ];
 export var CampaignCustomMessage$: StaticStructureSchema = [3, n0, _CCM,
   0,
@@ -1181,8 +1181,8 @@ export var CampaignCustomMessage$: StaticStructureSchema = [3, n0, _CCM,
 ];
 export var CampaignDateRangeKpiResponse$: StaticStructureSchema = [3, n0, _CDRKR,
   0,
-  [_AI, _CI, _ET, _KN, _KR, _NT, _ST],
-  [0, 0, 5, 0, () => BaseKpiResult$, 0, 5]
+  [_AI, _CI, _ET, _KN, _KR, _ST, _NT],
+  [0, 0, 5, 0, () => BaseKpiResult$, 5, 0], 6
 ];
 export var CampaignEmailMessage$: StaticStructureSchema = [3, n0, _CEM,
   0,
@@ -1192,7 +1192,7 @@ export var CampaignEmailMessage$: StaticStructureSchema = [3, n0, _CEM,
 export var CampaignEventFilter$: StaticStructureSchema = [3, n0, _CEF,
   0,
   [_Di, _FT],
-  [() => EventDimensions$, 0]
+  [() => EventDimensions$, 0], 2
 ];
 export var CampaignHook$: StaticStructureSchema = [3, n0, _CH,
   0,
@@ -1211,8 +1211,8 @@ export var CampaignLimits$: StaticStructureSchema = [3, n0, _CL,
 ];
 export var CampaignResponse$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_ATd, _AI, _Ar, _CD, _CDC, _DS, _D, _HP, _Ho, _Id, _IP, _LMD, _L, _MCe, _N, _Sc, _SI, _SV, _St, _t, _TCe, _TD, _TN, _V, _Pr],
-  [() => ListOfTreatmentResource, 0, 0, 0, () => CustomDeliveryConfiguration$, () => CampaignState$, 0, 1, () => CampaignHook$, 0, 2, 0, () => CampaignLimits$, () => MessageConfiguration$, 0, () => Schedule$, 0, 1, () => CampaignState$, [128 | 0, { [_jN]: _t }], () => TemplateConfiguration$, 0, 0, 1, 1]
+  [_AI, _Ar, _CD, _Id, _LMD, _SI, _SV, _ATd, _CDC, _DS, _D, _HP, _Ho, _IP, _L, _MCe, _N, _Sc, _St, _t, _TCe, _TD, _TN, _V, _Pr],
+  [0, 0, 0, 0, 0, 0, 1, () => ListOfTreatmentResource, () => CustomDeliveryConfiguration$, () => CampaignState$, 0, 1, () => CampaignHook$, 2, () => CampaignLimits$, () => MessageConfiguration$, 0, () => Schedule$, () => CampaignState$, [128 | 0, { [_jN]: _t }], () => TemplateConfiguration$, 0, 0, 1, 1], 7
 ];
 export var CampaignSmsMessage$: StaticStructureSchema = [3, n0, _CSM,
   0,
@@ -1222,7 +1222,7 @@ export var CampaignSmsMessage$: StaticStructureSchema = [3, n0, _CSM,
 export var CampaignsResponse$: StaticStructureSchema = [3, n0, _CRa,
   0,
   [_I, _NT],
-  [[() => ListOfCampaignResponse, 0], 0]
+  [[() => ListOfCampaignResponse, 0], 0], 1
 ];
 export var CampaignState$: StaticStructureSchema = [3, n0, _CSa,
   0,
@@ -1237,7 +1237,7 @@ export var ChannelResponse$: StaticStructureSchema = [3, n0, _CRh,
 export var ChannelsResponse$: StaticStructureSchema = [3, n0, _CRha,
   0,
   [_Ch],
-  [() => MapOfChannelResponse]
+  [() => MapOfChannelResponse], 1
 ];
 export var ClosedDays$: StaticStructureSchema = [3, n0, _CDl,
   0,
@@ -1273,122 +1273,122 @@ export var ContactCenterActivity$: StaticStructureSchema = [3, n0, _CCA,
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_N, _t],
-  [0, [128 | 0, { [_jN]: _t }]]
+  [0, [128 | 0, { [_jN]: _t }]], 1
 ];
 export var CreateAppRequest$: StaticStructureSchema = [3, n0, _CARr,
   0,
   [_CAR],
-  [[() => CreateApplicationRequest$, 16]]
+  [[() => CreateApplicationRequest$, 16]], 1
 ];
 export var CreateAppResponse$: StaticStructureSchema = [3, n0, _CARre,
   0,
   [_ARp],
-  [[() => ApplicationResponse$, 16]]
+  [[() => ApplicationResponse$, 16]], 1
 ];
 export var CreateCampaignRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_AI, _WCR],
-  [[0, 1], [() => WriteCampaignRequest$, 16]]
+  [[0, 1], [() => WriteCampaignRequest$, 16]], 2
 ];
 export var CreateCampaignResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
   [_CR],
-  [[() => CampaignResponse$, 16]]
+  [[() => CampaignResponse$, 16]], 1
 ];
 export var CreateEmailTemplateRequest$: StaticStructureSchema = [3, n0, _CETR,
   0,
   [_ETR, _TNe],
-  [[() => EmailTemplateRequest$, 16], [0, 1]]
+  [[() => EmailTemplateRequest$, 16], [0, 1]], 2
 ];
 export var CreateEmailTemplateResponse$: StaticStructureSchema = [3, n0, _CETRr,
   0,
   [_CTMB],
-  [[() => CreateTemplateMessageBody$, 16]]
+  [[() => CreateTemplateMessageBody$, 16]], 1
 ];
 export var CreateExportJobRequest$: StaticStructureSchema = [3, n0, _CEJR,
   0,
   [_AI, _EJR],
-  [[0, 1], [() => ExportJobRequest$, 16]]
+  [[0, 1], [() => ExportJobRequest$, 16]], 2
 ];
 export var CreateExportJobResponse$: StaticStructureSchema = [3, n0, _CEJRr,
   0,
   [_EJRx],
-  [[() => ExportJobResponse$, 16]]
+  [[() => ExportJobResponse$, 16]], 1
 ];
 export var CreateImportJobRequest$: StaticStructureSchema = [3, n0, _CIJR,
   0,
   [_AI, _IJR],
-  [[0, 1], [() => ImportJobRequest$, 16]]
+  [[0, 1], [() => ImportJobRequest$, 16]], 2
 ];
 export var CreateImportJobResponse$: StaticStructureSchema = [3, n0, _CIJRr,
   0,
   [_IJRm],
-  [[() => ImportJobResponse$, 16]]
+  [[() => ImportJobResponse$, 16]], 1
 ];
 export var CreateInAppTemplateRequest$: StaticStructureSchema = [3, n0, _CIATR,
   0,
   [_IATR, _TNe],
-  [[() => InAppTemplateRequest$, 16], [0, 1]]
+  [[() => InAppTemplateRequest$, 16], [0, 1]], 2
 ];
 export var CreateInAppTemplateResponse$: StaticStructureSchema = [3, n0, _CIATRr,
   0,
   [_TCMB],
-  [[() => TemplateCreateMessageBody$, 16]]
+  [[() => TemplateCreateMessageBody$, 16]], 1
 ];
 export var CreateJourneyRequest$: StaticStructureSchema = [3, n0, _CJR,
   0,
   [_AI, _WJR],
-  [[0, 1], [() => WriteJourneyRequest$, 16]]
+  [[0, 1], [() => WriteJourneyRequest$, 16]], 2
 ];
 export var CreateJourneyResponse$: StaticStructureSchema = [3, n0, _CJRr,
   0,
   [_JR],
-  [[() => JourneyResponse$, 16]]
+  [[() => JourneyResponse$, 16]], 1
 ];
 export var CreatePushTemplateRequest$: StaticStructureSchema = [3, n0, _CPTR,
   0,
   [_PNTR, _TNe],
-  [[() => PushNotificationTemplateRequest$, 16], [0, 1]]
+  [[() => PushNotificationTemplateRequest$, 16], [0, 1]], 2
 ];
 export var CreatePushTemplateResponse$: StaticStructureSchema = [3, n0, _CPTRr,
   0,
   [_CTMB],
-  [[() => CreateTemplateMessageBody$, 16]]
+  [[() => CreateTemplateMessageBody$, 16]], 1
 ];
 export var CreateRecommenderConfigurationRequest$: StaticStructureSchema = [3, n0, _CRCR,
   0,
   [_CRC],
-  [[() => CreateRecommenderConfigurationShape$, 16]]
+  [[() => CreateRecommenderConfigurationShape$, 16]], 1
 ];
 export var CreateRecommenderConfigurationResponse$: StaticStructureSchema = [3, n0, _CRCRr,
   0,
   [_RCR],
-  [[() => RecommenderConfigurationResponse$, 16]]
+  [[() => RecommenderConfigurationResponse$, 16]], 1
 ];
 export var CreateRecommenderConfigurationShape$: StaticStructureSchema = [3, n0, _CRCS,
   0,
-  [_At, _D, _N, _RPIT, _RPRA, _RPU, _RTU, _RDN, _RPM],
-  [128 | 0, 0, 0, 0, 0, 0, 0, 0, 1]
+  [_RPRA, _RPU, _At, _D, _N, _RPIT, _RTU, _RDN, _RPM],
+  [0, 0, 128 | 0, 0, 0, 0, 0, 0, 1], 2
 ];
 export var CreateSegmentRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
   [_AI, _WSR],
-  [[0, 1], [() => WriteSegmentRequest$, 16]]
+  [[0, 1], [() => WriteSegmentRequest$, 16]], 2
 ];
 export var CreateSegmentResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
   [_SR],
-  [[() => SegmentResponse$, 16]]
+  [[() => SegmentResponse$, 16]], 1
 ];
 export var CreateSmsTemplateRequest$: StaticStructureSchema = [3, n0, _CSTR,
   0,
   [_SMSTR, _TNe],
-  [[() => SMSTemplateRequest$, 16], [0, 1]]
+  [[() => SMSTemplateRequest$, 16], [0, 1]], 2
 ];
 export var CreateSmsTemplateResponse$: StaticStructureSchema = [3, n0, _CSTRr,
   0,
   [_CTMB],
-  [[() => CreateTemplateMessageBody$, 16]]
+  [[() => CreateTemplateMessageBody$, 16]], 1
 ];
 export var CreateTemplateMessageBody$: StaticStructureSchema = [3, n0, _CTMB,
   0,
@@ -1398,17 +1398,17 @@ export var CreateTemplateMessageBody$: StaticStructureSchema = [3, n0, _CTMB,
 export var CreateVoiceTemplateRequest$: StaticStructureSchema = [3, n0, _CVTR,
   0,
   [_TNe, _VTR],
-  [[0, 1], [() => VoiceTemplateRequest$, 16]]
+  [[0, 1], [() => VoiceTemplateRequest$, 16]], 2
 ];
 export var CreateVoiceTemplateResponse$: StaticStructureSchema = [3, n0, _CVTRr,
   0,
   [_CTMB],
-  [[() => CreateTemplateMessageBody$, 16]]
+  [[() => CreateTemplateMessageBody$, 16]], 1
 ];
 export var CustomDeliveryConfiguration$: StaticStructureSchema = [3, n0, _CDC,
   0,
   [_DU, _ETn],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var CustomMessageActivity$: StaticStructureSchema = [3, n0, _CMA,
   0,
@@ -1417,8 +1417,8 @@ export var CustomMessageActivity$: StaticStructureSchema = [3, n0, _CMA,
 ];
 export var DefaultButtonConfiguration$: StaticStructureSchema = [3, n0, _DBC,
   0,
-  [_BC, _BR, _BA, _Li, _Te, _TCex],
-  [0, 1, 0, 0, 0, 0]
+  [_BA, _Te, _BC, _BR, _Li, _TCex],
+  [0, 0, 0, 1, 0, 0], 2
 ];
 export var DefaultMessage$: StaticStructureSchema = [3, n0, _DM,
   0,
@@ -1438,232 +1438,232 @@ export var DefaultPushNotificationTemplate$: StaticStructureSchema = [3, n0, _DP
 export var DeleteAdmChannelRequest$: StaticStructureSchema = [3, n0, _DACR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteAdmChannelResponse$: StaticStructureSchema = [3, n0, _DACRe,
   0,
   [_ADMCRh],
-  [[() => ADMChannelResponse$, 16]]
+  [[() => ADMChannelResponse$, 16]], 1
 ];
 export var DeleteApnsChannelRequest$: StaticStructureSchema = [3, n0, _DACRel,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteApnsChannelResponse$: StaticStructureSchema = [3, n0, _DACRele,
   0,
   [_APNSCRh],
-  [[() => APNSChannelResponse$, 16]]
+  [[() => APNSChannelResponse$, 16]], 1
 ];
 export var DeleteApnsSandboxChannelRequest$: StaticStructureSchema = [3, n0, _DASCR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteApnsSandboxChannelResponse$: StaticStructureSchema = [3, n0, _DASCRe,
   0,
   [_APNSSCRa],
-  [[() => APNSSandboxChannelResponse$, 16]]
+  [[() => APNSSandboxChannelResponse$, 16]], 1
 ];
 export var DeleteApnsVoipChannelRequest$: StaticStructureSchema = [3, n0, _DAVCR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteApnsVoipChannelResponse$: StaticStructureSchema = [3, n0, _DAVCRe,
   0,
   [_APNSVCRo],
-  [[() => APNSVoipChannelResponse$, 16]]
+  [[() => APNSVoipChannelResponse$, 16]], 1
 ];
 export var DeleteApnsVoipSandboxChannelRequest$: StaticStructureSchema = [3, n0, _DAVSCR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteApnsVoipSandboxChannelResponse$: StaticStructureSchema = [3, n0, _DAVSCRe,
   0,
   [_APNSVSCRo],
-  [[() => APNSVoipSandboxChannelResponse$, 16]]
+  [[() => APNSVoipSandboxChannelResponse$, 16]], 1
 ];
 export var DeleteAppRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteAppResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
   [_ARp],
-  [[() => ApplicationResponse$, 16]]
+  [[() => ApplicationResponse$, 16]], 1
 ];
 export var DeleteBaiduChannelRequest$: StaticStructureSchema = [3, n0, _DBCR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteBaiduChannelResponse$: StaticStructureSchema = [3, n0, _DBCRe,
   0,
   [_BCRa],
-  [[() => BaiduChannelResponse$, 16]]
+  [[() => BaiduChannelResponse$, 16]], 1
 ];
 export var DeleteCampaignRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_AI, _CI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteCampaignResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
   [_CR],
-  [[() => CampaignResponse$, 16]]
+  [[() => CampaignResponse$, 16]], 1
 ];
 export var DeleteEmailChannelRequest$: StaticStructureSchema = [3, n0, _DECR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteEmailChannelResponse$: StaticStructureSchema = [3, n0, _DECRe,
   0,
   [_ECR],
-  [[() => EmailChannelResponse$, 16]]
+  [[() => EmailChannelResponse$, 16]], 1
 ];
 export var DeleteEmailTemplateRequest$: StaticStructureSchema = [3, n0, _DETR,
   0,
   [_TNe, _V],
-  [[0, 1], [0, { [_hQ]: _v }]]
+  [[0, 1], [0, { [_hQ]: _v }]], 1
 ];
 export var DeleteEmailTemplateResponse$: StaticStructureSchema = [3, n0, _DETRe,
   0,
   [_MB],
-  [[() => MessageBody$, 16]]
+  [[() => MessageBody$, 16]], 1
 ];
 export var DeleteEndpointRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_AI, _EIn],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteEndpointResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
   [_ER],
-  [[() => EndpointResponse$, 16]]
+  [[() => EndpointResponse$, 16]], 1
 ];
 export var DeleteEventStreamRequest$: StaticStructureSchema = [3, n0, _DESR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteEventStreamResponse$: StaticStructureSchema = [3, n0, _DESRe,
   0,
   [_ES],
-  [[() => EventStream$, 16]]
+  [[() => EventStream$, 16]], 1
 ];
 export var DeleteGcmChannelRequest$: StaticStructureSchema = [3, n0, _DGCR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteGcmChannelResponse$: StaticStructureSchema = [3, n0, _DGCRe,
   0,
   [_GCMCR],
-  [[() => GCMChannelResponse$, 16]]
+  [[() => GCMChannelResponse$, 16]], 1
 ];
 export var DeleteInAppTemplateRequest$: StaticStructureSchema = [3, n0, _DIATR,
   0,
   [_TNe, _V],
-  [[0, 1], [0, { [_hQ]: _v }]]
+  [[0, 1], [0, { [_hQ]: _v }]], 1
 ];
 export var DeleteInAppTemplateResponse$: StaticStructureSchema = [3, n0, _DIATRe,
   0,
   [_MB],
-  [[() => MessageBody$, 16]]
+  [[() => MessageBody$, 16]], 1
 ];
 export var DeleteJourneyRequest$: StaticStructureSchema = [3, n0, _DJR,
   0,
   [_AI, _JI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteJourneyResponse$: StaticStructureSchema = [3, n0, _DJRe,
   0,
   [_JR],
-  [[() => JourneyResponse$, 16]]
+  [[() => JourneyResponse$, 16]], 1
 ];
 export var DeletePushTemplateRequest$: StaticStructureSchema = [3, n0, _DPTR,
   0,
   [_TNe, _V],
-  [[0, 1], [0, { [_hQ]: _v }]]
+  [[0, 1], [0, { [_hQ]: _v }]], 1
 ];
 export var DeletePushTemplateResponse$: StaticStructureSchema = [3, n0, _DPTRe,
   0,
   [_MB],
-  [[() => MessageBody$, 16]]
+  [[() => MessageBody$, 16]], 1
 ];
 export var DeleteRecommenderConfigurationRequest$: StaticStructureSchema = [3, n0, _DRCR,
   0,
   [_RI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteRecommenderConfigurationResponse$: StaticStructureSchema = [3, n0, _DRCRe,
   0,
   [_RCR],
-  [[() => RecommenderConfigurationResponse$, 16]]
+  [[() => RecommenderConfigurationResponse$, 16]], 1
 ];
 export var DeleteSegmentRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_AI, _SI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteSegmentResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
   [_SR],
-  [[() => SegmentResponse$, 16]]
+  [[() => SegmentResponse$, 16]], 1
 ];
 export var DeleteSmsChannelRequest$: StaticStructureSchema = [3, n0, _DSCR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteSmsChannelResponse$: StaticStructureSchema = [3, n0, _DSCRe,
   0,
   [_SMSCR],
-  [[() => SMSChannelResponse$, 16]]
+  [[() => SMSChannelResponse$, 16]], 1
 ];
 export var DeleteSmsTemplateRequest$: StaticStructureSchema = [3, n0, _DSTR,
   0,
   [_TNe, _V],
-  [[0, 1], [0, { [_hQ]: _v }]]
+  [[0, 1], [0, { [_hQ]: _v }]], 1
 ];
 export var DeleteSmsTemplateResponse$: StaticStructureSchema = [3, n0, _DSTRe,
   0,
   [_MB],
-  [[() => MessageBody$, 16]]
+  [[() => MessageBody$, 16]], 1
 ];
 export var DeleteUserEndpointsRequest$: StaticStructureSchema = [3, n0, _DUER,
   0,
   [_AI, _UI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteUserEndpointsResponse$: StaticStructureSchema = [3, n0, _DUERe,
   0,
   [_ERn],
-  [[() => EndpointsResponse$, 16]]
+  [[() => EndpointsResponse$, 16]], 1
 ];
 export var DeleteVoiceChannelRequest$: StaticStructureSchema = [3, n0, _DVCR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteVoiceChannelResponse$: StaticStructureSchema = [3, n0, _DVCRe,
   0,
   [_VCR],
-  [[() => VoiceChannelResponse$, 16]]
+  [[() => VoiceChannelResponse$, 16]], 1
 ];
 export var DeleteVoiceTemplateRequest$: StaticStructureSchema = [3, n0, _DVTR,
   0,
   [_TNe, _V],
-  [[0, 1], [0, { [_hQ]: _v }]]
+  [[0, 1], [0, { [_hQ]: _v }]], 1
 ];
 export var DeleteVoiceTemplateResponse$: StaticStructureSchema = [3, n0, _DVTRe,
   0,
   [_MB],
-  [[() => MessageBody$, 16]]
+  [[() => MessageBody$, 16]], 1
 ];
 export var DirectMessageConfiguration$: StaticStructureSchema = [3, n0, _DMC,
   0,
@@ -1672,13 +1672,13 @@ export var DirectMessageConfiguration$: StaticStructureSchema = [3, n0, _DMC,
 ];
 export var EmailChannelRequest$: StaticStructureSchema = [3, n0, _ECRm,
   0,
-  [_CSo, _En, _FA, _Ide, _RA, _OSRA],
-  [0, 2, 0, 0, 0, 0]
+  [_FA, _Ide, _CSo, _En, _RA, _OSRA],
+  [0, 0, 0, 2, 0, 0], 2
 ];
 export var EmailChannelResponse$: StaticStructureSchema = [3, n0, _ECR,
   0,
-  [_AI, _CSo, _CD, _En, _FA, _HC, _Id, _Ide, _IA, _LMB, _LMD, _MPS, _P, _RA, _OSRA, _V],
-  [0, 0, 0, 2, 0, 2, 0, 0, 2, 0, 0, 1, 0, 0, 0, 1]
+  [_P, _AI, _CSo, _CD, _En, _FA, _HC, _Id, _Ide, _IA, _LMB, _LMD, _MPS, _RA, _OSRA, _V],
+  [0, 0, 0, 0, 2, 0, 2, 0, 0, 2, 0, 0, 1, 0, 0, 1], 1
 ];
 export var EmailMessage$: StaticStructureSchema = [3, n0, _EMm,
   0,
@@ -1697,8 +1697,8 @@ export var EmailTemplateRequest$: StaticStructureSchema = [3, n0, _ETR,
 ];
 export var EmailTemplateResponse$: StaticStructureSchema = [3, n0, _ETRm,
   0,
-  [_Ar, _CD, _DSe, _HPt, _LMD, _RI, _Sub, _He, _t, _TDe, _TNe, _TT, _TP, _V],
-  [0, 0, 0, 0, 0, 0, 0, () => ListOfMessageHeader, [128 | 0, { [_jN]: _t }], 0, 0, 0, 0, 0]
+  [_CD, _LMD, _TNe, _TT, _Ar, _DSe, _HPt, _RI, _Sub, _He, _t, _TDe, _TP, _V],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => ListOfMessageHeader, [128 | 0, { [_jN]: _t }], 0, 0, 0], 4
 ];
 export var EndpointBatchItem$: StaticStructureSchema = [3, n0, _EBI,
   0,
@@ -1708,7 +1708,7 @@ export var EndpointBatchItem$: StaticStructureSchema = [3, n0, _EBI,
 export var EndpointBatchRequest$: StaticStructureSchema = [3, n0, _EBR,
   0,
   [_I],
-  [() => ListOfEndpointBatchItem]
+  [() => ListOfEndpointBatchItem], 1
 ];
 export var EndpointDemographic$: StaticStructureSchema = [3, n0, _EDn,
   0,
@@ -1727,8 +1727,8 @@ export var EndpointLocation$: StaticStructureSchema = [3, n0, _EL,
 ];
 export var EndpointMessageResult$: StaticStructureSchema = [3, n0, _EMR,
   0,
-  [_Ad, _DSel, _MI, _SC, _SM, _UT],
-  [0, 0, 0, 1, 0, 0]
+  [_DSel, _SC, _Ad, _MI, _SM, _UT],
+  [0, 1, 0, 0, 0, 0], 2
 ];
 export var EndpointRequest$: StaticStructureSchema = [3, n0, _ERnd,
   0,
@@ -1748,7 +1748,7 @@ export var EndpointSendConfiguration$: StaticStructureSchema = [3, n0, _ESC,
 export var EndpointsResponse$: StaticStructureSchema = [3, n0, _ERn,
   0,
   [_I],
-  [() => ListOfEndpointResponse]
+  [() => ListOfEndpointResponse], 1
 ];
 export var EndpointUser$: StaticStructureSchema = [3, n0, _EU,
   0,
@@ -1757,8 +1757,8 @@ export var EndpointUser$: StaticStructureSchema = [3, n0, _EU,
 ];
 export var Event$: StaticStructureSchema = [3, n0, _Ev,
   0,
-  [_APN, _ATp, _AVC, _At, _CSV, _ETv, _Me, _SN, _Se, _Tim],
-  [0, 0, 0, 128 | 0, 0, 0, 128 | 1, 0, () => Session$, 0]
+  [_ETv, _Tim, _APN, _ATp, _AVC, _At, _CSV, _Me, _SN, _Se],
+  [0, 0, 0, 0, 0, 128 | 0, 0, 128 | 1, 0, () => Session$], 2
 ];
 export var EventCondition$: StaticStructureSchema = [3, n0, _EC,
   0,
@@ -1773,7 +1773,7 @@ export var EventDimensions$: StaticStructureSchema = [3, n0, _EDv,
 export var EventFilter$: StaticStructureSchema = [3, n0, _EF,
   0,
   [_Di, _FT],
-  [() => EventDimensions$, 0]
+  [() => EventDimensions$, 0], 2
 ];
 export var EventItemResponse$: StaticStructureSchema = [3, n0, _EIRv,
   0,
@@ -1783,12 +1783,12 @@ export var EventItemResponse$: StaticStructureSchema = [3, n0, _EIRv,
 export var EventsBatch$: StaticStructureSchema = [3, n0, _EB,
   0,
   [_End, _Eve],
-  [() => PublicEndpoint$, () => MapOfEvent]
+  [() => PublicEndpoint$, () => MapOfEvent], 2
 ];
 export var EventsRequest$: StaticStructureSchema = [3, n0, _ERv,
   0,
   [_BIa],
-  [() => MapOfEventsBatch]
+  [() => MapOfEventsBatch], 1
 ];
 export var EventsResponse$: StaticStructureSchema = [3, n0, _ERve,
   0,
@@ -1802,28 +1802,28 @@ export var EventStartCondition$: StaticStructureSchema = [3, n0, _ESCv,
 ];
 export var EventStream$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_AI, _DSA, _EIx, _LMD, _LUB, _RA],
-  [0, 0, 0, 0, 0, 0]
+  [_AI, _DSA, _RA, _EIx, _LMD, _LUB],
+  [0, 0, 0, 0, 0, 0], 3
 ];
 export var ExportJobRequest$: StaticStructureSchema = [3, n0, _EJR,
   0,
   [_RA, _SUP, _SI, _SV],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ExportJobResource$: StaticStructureSchema = [3, n0, _EJRxp,
   0,
   [_RA, _SUP, _SI, _SV],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ExportJobResponse$: StaticStructureSchema = [3, n0, _EJRx,
   0,
-  [_AI, _CP, _CDo, _CD, _Def, _FP, _F, _Id, _JS, _TF, _TPo, _TPot, _Ty],
-  [0, 1, 0, 0, () => ExportJobResource$, 1, 64 | 0, 0, 0, 1, 1, 1, 0]
+  [_AI, _CD, _Def, _Id, _JS, _Ty, _CP, _CDo, _FP, _F, _TF, _TPo, _TPot],
+  [0, 0, () => ExportJobResource$, 0, 0, 0, 1, 0, 1, 64 | 0, 1, 1, 1], 6
 ];
 export var ExportJobsResponse$: StaticStructureSchema = [3, n0, _EJRxpo,
   0,
   [_I, _NT],
-  [() => ListOfExportJobResponse, 0]
+  [() => ListOfExportJobResponse, 0], 1
 ];
 export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
   { [_e]: _c, [_hE]: 403 },
@@ -1838,8 +1838,8 @@ export var GCMChannelRequest$: StaticStructureSchema = [3, n0, _GCMCRh,
 ];
 export var GCMChannelResponse$: StaticStructureSchema = [3, n0, _GCMCR,
   0,
-  [_AI, _CD, _Cr, _DAM, _En, _HC, _HFSC, _Id, _IA, _LMB, _LMD, _P, _V],
-  [0, 0, 0, 0, 2, 2, 2, 0, 2, 0, 0, 0, 1]
+  [_P, _AI, _CD, _Cr, _DAM, _En, _HC, _HFSC, _Id, _IA, _LMB, _LMD, _V],
+  [0, 0, 0, 0, 0, 2, 2, 2, 0, 2, 0, 0, 1], 1
 ];
 export var GCMMessage$: StaticStructureSchema = [3, n0, _GCMM,
   0,
@@ -1849,82 +1849,82 @@ export var GCMMessage$: StaticStructureSchema = [3, n0, _GCMM,
 export var GetAdmChannelRequest$: StaticStructureSchema = [3, n0, _GACR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetAdmChannelResponse$: StaticStructureSchema = [3, n0, _GACRe,
   0,
   [_ADMCRh],
-  [[() => ADMChannelResponse$, 16]]
+  [[() => ADMChannelResponse$, 16]], 1
 ];
 export var GetApnsChannelRequest$: StaticStructureSchema = [3, n0, _GACRet,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetApnsChannelResponse$: StaticStructureSchema = [3, n0, _GACRetp,
   0,
   [_APNSCRh],
-  [[() => APNSChannelResponse$, 16]]
+  [[() => APNSChannelResponse$, 16]], 1
 ];
 export var GetApnsSandboxChannelRequest$: StaticStructureSchema = [3, n0, _GASCR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetApnsSandboxChannelResponse$: StaticStructureSchema = [3, n0, _GASCRe,
   0,
   [_APNSSCRa],
-  [[() => APNSSandboxChannelResponse$, 16]]
+  [[() => APNSSandboxChannelResponse$, 16]], 1
 ];
 export var GetApnsVoipChannelRequest$: StaticStructureSchema = [3, n0, _GAVCR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetApnsVoipChannelResponse$: StaticStructureSchema = [3, n0, _GAVCRe,
   0,
   [_APNSVCRo],
-  [[() => APNSVoipChannelResponse$, 16]]
+  [[() => APNSVoipChannelResponse$, 16]], 1
 ];
 export var GetApnsVoipSandboxChannelRequest$: StaticStructureSchema = [3, n0, _GAVSCR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetApnsVoipSandboxChannelResponse$: StaticStructureSchema = [3, n0, _GAVSCRe,
   0,
   [_APNSVSCRo],
-  [[() => APNSVoipSandboxChannelResponse$, 16]]
+  [[() => APNSVoipSandboxChannelResponse$, 16]], 1
 ];
 export var GetApplicationDateRangeKpiRequest$: StaticStructureSchema = [3, n0, _GADRKR,
   0,
-  [_AI, _ET, _KN, _NT, _PS, _ST],
-  [[0, 1], [5, { [_hQ]: _et }], [0, 1], [0, { [_hQ]: _nt }], [0, { [_hQ]: _ps }], [5, { [_hQ]: _st }]]
+  [_AI, _KN, _ET, _NT, _PS, _ST],
+  [[0, 1], [0, 1], [5, { [_hQ]: _et }], [0, { [_hQ]: _nt }], [0, { [_hQ]: _ps }], [5, { [_hQ]: _st }]], 2
 ];
 export var GetApplicationDateRangeKpiResponse$: StaticStructureSchema = [3, n0, _GADRKRe,
   0,
   [_ADRKR],
-  [[() => ApplicationDateRangeKpiResponse$, 16]]
+  [[() => ApplicationDateRangeKpiResponse$, 16]], 1
 ];
 export var GetApplicationSettingsRequest$: StaticStructureSchema = [3, n0, _GASR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetApplicationSettingsResponse$: StaticStructureSchema = [3, n0, _GASRe,
   0,
   [_ASR],
-  [[() => ApplicationSettingsResource$, 16]]
+  [[() => ApplicationSettingsResource$, 16]], 1
 ];
 export var GetAppRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetAppResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
   [_ARp],
-  [[() => ApplicationResponse$, 16]]
+  [[() => ApplicationResponse$, 16]], 1
 ];
 export var GetAppsRequest$: StaticStructureSchema = [3, n0, _GARet,
   0,
@@ -1934,287 +1934,287 @@ export var GetAppsRequest$: StaticStructureSchema = [3, n0, _GARet,
 export var GetAppsResponse$: StaticStructureSchema = [3, n0, _GARetp,
   0,
   [_ARpp],
-  [[() => ApplicationsResponse$, 16]]
+  [[() => ApplicationsResponse$, 16]], 1
 ];
 export var GetBaiduChannelRequest$: StaticStructureSchema = [3, n0, _GBCR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetBaiduChannelResponse$: StaticStructureSchema = [3, n0, _GBCRe,
   0,
   [_BCRa],
-  [[() => BaiduChannelResponse$, 16]]
+  [[() => BaiduChannelResponse$, 16]], 1
 ];
 export var GetCampaignActivitiesRequest$: StaticStructureSchema = [3, n0, _GCAR,
   0,
   [_AI, _CI, _PS, _Tok],
-  [[0, 1], [0, 1], [0, { [_hQ]: _ps }], [0, { [_hQ]: _to }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _ps }], [0, { [_hQ]: _to }]], 2
 ];
 export var GetCampaignActivitiesResponse$: StaticStructureSchema = [3, n0, _GCARe,
   0,
   [_AR],
-  [[() => ActivitiesResponse$, 16]]
+  [[() => ActivitiesResponse$, 16]], 1
 ];
 export var GetCampaignDateRangeKpiRequest$: StaticStructureSchema = [3, n0, _GCDRKR,
   0,
-  [_AI, _CI, _ET, _KN, _NT, _PS, _ST],
-  [[0, 1], [0, 1], [5, { [_hQ]: _et }], [0, 1], [0, { [_hQ]: _nt }], [0, { [_hQ]: _ps }], [5, { [_hQ]: _st }]]
+  [_AI, _CI, _KN, _ET, _NT, _PS, _ST],
+  [[0, 1], [0, 1], [0, 1], [5, { [_hQ]: _et }], [0, { [_hQ]: _nt }], [0, { [_hQ]: _ps }], [5, { [_hQ]: _st }]], 3
 ];
 export var GetCampaignDateRangeKpiResponse$: StaticStructureSchema = [3, n0, _GCDRKRe,
   0,
   [_CDRKR],
-  [[() => CampaignDateRangeKpiResponse$, 16]]
+  [[() => CampaignDateRangeKpiResponse$, 16]], 1
 ];
 export var GetCampaignRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_AI, _CI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetCampaignResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
   [_CR],
-  [[() => CampaignResponse$, 16]]
+  [[() => CampaignResponse$, 16]], 1
 ];
 export var GetCampaignsRequest$: StaticStructureSchema = [3, n0, _GCRet,
   0,
   [_AI, _PS, _Tok],
-  [[0, 1], [0, { [_hQ]: _ps }], [0, { [_hQ]: _to }]]
+  [[0, 1], [0, { [_hQ]: _ps }], [0, { [_hQ]: _to }]], 1
 ];
 export var GetCampaignsResponse$: StaticStructureSchema = [3, n0, _GCReta,
   0,
   [_CRa],
-  [[() => CampaignsResponse$, 16]]
+  [[() => CampaignsResponse$, 16]], 1
 ];
 export var GetCampaignVersionRequest$: StaticStructureSchema = [3, n0, _GCVR,
   0,
   [_AI, _CI, _V],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetCampaignVersionResponse$: StaticStructureSchema = [3, n0, _GCVRe,
   0,
   [_CR],
-  [[() => CampaignResponse$, 16]]
+  [[() => CampaignResponse$, 16]], 1
 ];
 export var GetCampaignVersionsRequest$: StaticStructureSchema = [3, n0, _GCVRet,
   0,
   [_AI, _CI, _PS, _Tok],
-  [[0, 1], [0, 1], [0, { [_hQ]: _ps }], [0, { [_hQ]: _to }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _ps }], [0, { [_hQ]: _to }]], 2
 ];
 export var GetCampaignVersionsResponse$: StaticStructureSchema = [3, n0, _GCVReta,
   0,
   [_CRa],
-  [[() => CampaignsResponse$, 16]]
+  [[() => CampaignsResponse$, 16]], 1
 ];
 export var GetChannelsRequest$: StaticStructureSchema = [3, n0, _GCReth,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetChannelsResponse$: StaticStructureSchema = [3, n0, _GCRetha,
   0,
   [_CRha],
-  [[() => ChannelsResponse$, 16]]
+  [[() => ChannelsResponse$, 16]], 1
 ];
 export var GetEmailChannelRequest$: StaticStructureSchema = [3, n0, _GECR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetEmailChannelResponse$: StaticStructureSchema = [3, n0, _GECRe,
   0,
   [_ECR],
-  [[() => EmailChannelResponse$, 16]]
+  [[() => EmailChannelResponse$, 16]], 1
 ];
 export var GetEmailTemplateRequest$: StaticStructureSchema = [3, n0, _GETR,
   0,
   [_TNe, _V],
-  [[0, 1], [0, { [_hQ]: _v }]]
+  [[0, 1], [0, { [_hQ]: _v }]], 1
 ];
 export var GetEmailTemplateResponse$: StaticStructureSchema = [3, n0, _GETRe,
   0,
   [_ETRm],
-  [[() => EmailTemplateResponse$, 16]]
+  [[() => EmailTemplateResponse$, 16]], 1
 ];
 export var GetEndpointRequest$: StaticStructureSchema = [3, n0, _GER,
   0,
   [_AI, _EIn],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetEndpointResponse$: StaticStructureSchema = [3, n0, _GERe,
   0,
   [_ER],
-  [[() => EndpointResponse$, 16]]
+  [[() => EndpointResponse$, 16]], 1
 ];
 export var GetEventStreamRequest$: StaticStructureSchema = [3, n0, _GESR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetEventStreamResponse$: StaticStructureSchema = [3, n0, _GESRe,
   0,
   [_ES],
-  [[() => EventStream$, 16]]
+  [[() => EventStream$, 16]], 1
 ];
 export var GetExportJobRequest$: StaticStructureSchema = [3, n0, _GEJR,
   0,
   [_AI, _JIo],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetExportJobResponse$: StaticStructureSchema = [3, n0, _GEJRe,
   0,
   [_EJRx],
-  [[() => ExportJobResponse$, 16]]
+  [[() => ExportJobResponse$, 16]], 1
 ];
 export var GetExportJobsRequest$: StaticStructureSchema = [3, n0, _GEJRet,
   0,
   [_AI, _PS, _Tok],
-  [[0, 1], [0, { [_hQ]: _ps }], [0, { [_hQ]: _to }]]
+  [[0, 1], [0, { [_hQ]: _ps }], [0, { [_hQ]: _to }]], 1
 ];
 export var GetExportJobsResponse$: StaticStructureSchema = [3, n0, _GEJRetx,
   0,
   [_EJRxpo],
-  [[() => ExportJobsResponse$, 16]]
+  [[() => ExportJobsResponse$, 16]], 1
 ];
 export var GetGcmChannelRequest$: StaticStructureSchema = [3, n0, _GGCR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetGcmChannelResponse$: StaticStructureSchema = [3, n0, _GGCRe,
   0,
   [_GCMCR],
-  [[() => GCMChannelResponse$, 16]]
+  [[() => GCMChannelResponse$, 16]], 1
 ];
 export var GetImportJobRequest$: StaticStructureSchema = [3, n0, _GIJR,
   0,
   [_AI, _JIo],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetImportJobResponse$: StaticStructureSchema = [3, n0, _GIJRe,
   0,
   [_IJRm],
-  [[() => ImportJobResponse$, 16]]
+  [[() => ImportJobResponse$, 16]], 1
 ];
 export var GetImportJobsRequest$: StaticStructureSchema = [3, n0, _GIJRet,
   0,
   [_AI, _PS, _Tok],
-  [[0, 1], [0, { [_hQ]: _ps }], [0, { [_hQ]: _to }]]
+  [[0, 1], [0, { [_hQ]: _ps }], [0, { [_hQ]: _to }]], 1
 ];
 export var GetImportJobsResponse$: StaticStructureSchema = [3, n0, _GIJRetm,
   0,
   [_IJRmp],
-  [[() => ImportJobsResponse$, 16]]
+  [[() => ImportJobsResponse$, 16]], 1
 ];
 export var GetInAppMessagesRequest$: StaticStructureSchema = [3, n0, _GIAMR,
   0,
   [_AI, _EIn],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetInAppMessagesResponse$: StaticStructureSchema = [3, n0, _GIAMRe,
   0,
   [_IAMR],
-  [[() => InAppMessagesResponse$, 16]]
+  [[() => InAppMessagesResponse$, 16]], 1
 ];
 export var GetInAppTemplateRequest$: StaticStructureSchema = [3, n0, _GIATR,
   0,
   [_TNe, _V],
-  [[0, 1], [0, { [_hQ]: _v }]]
+  [[0, 1], [0, { [_hQ]: _v }]], 1
 ];
 export var GetInAppTemplateResponse$: StaticStructureSchema = [3, n0, _GIATRe,
   0,
   [_IATRn],
-  [[() => InAppTemplateResponse$, 16]]
+  [[() => InAppTemplateResponse$, 16]], 1
 ];
 export var GetJourneyDateRangeKpiRequest$: StaticStructureSchema = [3, n0, _GJDRKR,
   0,
-  [_AI, _ET, _JI, _KN, _NT, _PS, _ST],
-  [[0, 1], [5, { [_hQ]: _et }], [0, 1], [0, 1], [0, { [_hQ]: _nt }], [0, { [_hQ]: _ps }], [5, { [_hQ]: _st }]]
+  [_AI, _JI, _KN, _ET, _NT, _PS, _ST],
+  [[0, 1], [0, 1], [0, 1], [5, { [_hQ]: _et }], [0, { [_hQ]: _nt }], [0, { [_hQ]: _ps }], [5, { [_hQ]: _st }]], 3
 ];
 export var GetJourneyDateRangeKpiResponse$: StaticStructureSchema = [3, n0, _GJDRKRe,
   0,
   [_JDRKR],
-  [[() => JourneyDateRangeKpiResponse$, 16]]
+  [[() => JourneyDateRangeKpiResponse$, 16]], 1
 ];
 export var GetJourneyExecutionActivityMetricsRequest$: StaticStructureSchema = [3, n0, _GJEAMR,
   0,
   [_AI, _JAI, _JI, _NT, _PS],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nt }], [0, { [_hQ]: _ps }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nt }], [0, { [_hQ]: _ps }]], 3
 ];
 export var GetJourneyExecutionActivityMetricsResponse$: StaticStructureSchema = [3, n0, _GJEAMRe,
   0,
   [_JEAMR],
-  [[() => JourneyExecutionActivityMetricsResponse$, 16]]
+  [[() => JourneyExecutionActivityMetricsResponse$, 16]], 1
 ];
 export var GetJourneyExecutionMetricsRequest$: StaticStructureSchema = [3, n0, _GJEMR,
   0,
   [_AI, _JI, _NT, _PS],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nt }], [0, { [_hQ]: _ps }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nt }], [0, { [_hQ]: _ps }]], 2
 ];
 export var GetJourneyExecutionMetricsResponse$: StaticStructureSchema = [3, n0, _GJEMRe,
   0,
   [_JEMR],
-  [[() => JourneyExecutionMetricsResponse$, 16]]
+  [[() => JourneyExecutionMetricsResponse$, 16]], 1
 ];
 export var GetJourneyRequest$: StaticStructureSchema = [3, n0, _GJR,
   0,
   [_AI, _JI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetJourneyResponse$: StaticStructureSchema = [3, n0, _GJRe,
   0,
   [_JR],
-  [[() => JourneyResponse$, 16]]
+  [[() => JourneyResponse$, 16]], 1
 ];
 export var GetJourneyRunExecutionActivityMetricsRequest$: StaticStructureSchema = [3, n0, _GJREAMR,
   0,
-  [_AI, _JAI, _JI, _NT, _PS, _RIu],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nt }], [0, { [_hQ]: _ps }], [0, 1]]
+  [_AI, _JAI, _JI, _RIu, _NT, _PS],
+  [[0, 1], [0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nt }], [0, { [_hQ]: _ps }]], 4
 ];
 export var GetJourneyRunExecutionActivityMetricsResponse$: StaticStructureSchema = [3, n0, _GJREAMRe,
   0,
   [_JREAMR],
-  [[() => JourneyRunExecutionActivityMetricsResponse$, 16]]
+  [[() => JourneyRunExecutionActivityMetricsResponse$, 16]], 1
 ];
 export var GetJourneyRunExecutionMetricsRequest$: StaticStructureSchema = [3, n0, _GJREMR,
   0,
-  [_AI, _JI, _NT, _PS, _RIu],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nt }], [0, { [_hQ]: _ps }], [0, 1]]
+  [_AI, _JI, _RIu, _NT, _PS],
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nt }], [0, { [_hQ]: _ps }]], 3
 ];
 export var GetJourneyRunExecutionMetricsResponse$: StaticStructureSchema = [3, n0, _GJREMRe,
   0,
   [_JREMR],
-  [[() => JourneyRunExecutionMetricsResponse$, 16]]
+  [[() => JourneyRunExecutionMetricsResponse$, 16]], 1
 ];
 export var GetJourneyRunsRequest$: StaticStructureSchema = [3, n0, _GJRR,
   0,
   [_AI, _JI, _PS, _Tok],
-  [[0, 1], [0, 1], [0, { [_hQ]: _ps }], [0, { [_hQ]: _to }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _ps }], [0, { [_hQ]: _to }]], 2
 ];
 export var GetJourneyRunsResponse$: StaticStructureSchema = [3, n0, _GJRRe,
   0,
   [_JRR],
-  [[() => JourneyRunsResponse$, 16]]
+  [[() => JourneyRunsResponse$, 16]], 1
 ];
 export var GetPushTemplateRequest$: StaticStructureSchema = [3, n0, _GPTR,
   0,
   [_TNe, _V],
-  [[0, 1], [0, { [_hQ]: _v }]]
+  [[0, 1], [0, { [_hQ]: _v }]], 1
 ];
 export var GetPushTemplateResponse$: StaticStructureSchema = [3, n0, _GPTRe,
   0,
   [_PNTRu],
-  [[() => PushNotificationTemplateResponse$, 16]]
+  [[() => PushNotificationTemplateResponse$, 16]], 1
 ];
 export var GetRecommenderConfigurationRequest$: StaticStructureSchema = [3, n0, _GRCR,
   0,
   [_RI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetRecommenderConfigurationResponse$: StaticStructureSchema = [3, n0, _GRCRe,
   0,
   [_RCR],
-  [[() => RecommenderConfigurationResponse$, 16]]
+  [[() => RecommenderConfigurationResponse$, 16]], 1
 ];
 export var GetRecommenderConfigurationsRequest$: StaticStructureSchema = [3, n0, _GRCRet,
   0,
@@ -2224,152 +2224,152 @@ export var GetRecommenderConfigurationsRequest$: StaticStructureSchema = [3, n0,
 export var GetRecommenderConfigurationsResponse$: StaticStructureSchema = [3, n0, _GRCRete,
   0,
   [_LRCR],
-  [[() => ListRecommenderConfigurationsResponse$, 16]]
+  [[() => ListRecommenderConfigurationsResponse$, 16]], 1
 ];
 export var GetSegmentExportJobsRequest$: StaticStructureSchema = [3, n0, _GSEJR,
   0,
-  [_AI, _PS, _SI, _Tok],
-  [[0, 1], [0, { [_hQ]: _ps }], [0, 1], [0, { [_hQ]: _to }]]
+  [_AI, _SI, _PS, _Tok],
+  [[0, 1], [0, 1], [0, { [_hQ]: _ps }], [0, { [_hQ]: _to }]], 2
 ];
 export var GetSegmentExportJobsResponse$: StaticStructureSchema = [3, n0, _GSEJRe,
   0,
   [_EJRxpo],
-  [[() => ExportJobsResponse$, 16]]
+  [[() => ExportJobsResponse$, 16]], 1
 ];
 export var GetSegmentImportJobsRequest$: StaticStructureSchema = [3, n0, _GSIJR,
   0,
-  [_AI, _PS, _SI, _Tok],
-  [[0, 1], [0, { [_hQ]: _ps }], [0, 1], [0, { [_hQ]: _to }]]
+  [_AI, _SI, _PS, _Tok],
+  [[0, 1], [0, 1], [0, { [_hQ]: _ps }], [0, { [_hQ]: _to }]], 2
 ];
 export var GetSegmentImportJobsResponse$: StaticStructureSchema = [3, n0, _GSIJRe,
   0,
   [_IJRmp],
-  [[() => ImportJobsResponse$, 16]]
+  [[() => ImportJobsResponse$, 16]], 1
 ];
 export var GetSegmentRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_AI, _SI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetSegmentResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
   [_SR],
-  [[() => SegmentResponse$, 16]]
+  [[() => SegmentResponse$, 16]], 1
 ];
 export var GetSegmentsRequest$: StaticStructureSchema = [3, n0, _GSRet,
   0,
   [_AI, _PS, _Tok],
-  [[0, 1], [0, { [_hQ]: _ps }], [0, { [_hQ]: _to }]]
+  [[0, 1], [0, { [_hQ]: _ps }], [0, { [_hQ]: _to }]], 1
 ];
 export var GetSegmentsResponse$: StaticStructureSchema = [3, n0, _GSRete,
   0,
   [_SRe],
-  [[() => SegmentsResponse$, 16]]
+  [[() => SegmentsResponse$, 16]], 1
 ];
 export var GetSegmentVersionRequest$: StaticStructureSchema = [3, n0, _GSVR,
   0,
   [_AI, _SI, _V],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetSegmentVersionResponse$: StaticStructureSchema = [3, n0, _GSVRe,
   0,
   [_SR],
-  [[() => SegmentResponse$, 16]]
+  [[() => SegmentResponse$, 16]], 1
 ];
 export var GetSegmentVersionsRequest$: StaticStructureSchema = [3, n0, _GSVRet,
   0,
-  [_AI, _PS, _SI, _Tok],
-  [[0, 1], [0, { [_hQ]: _ps }], [0, 1], [0, { [_hQ]: _to }]]
+  [_AI, _SI, _PS, _Tok],
+  [[0, 1], [0, 1], [0, { [_hQ]: _ps }], [0, { [_hQ]: _to }]], 2
 ];
 export var GetSegmentVersionsResponse$: StaticStructureSchema = [3, n0, _GSVRete,
   0,
   [_SRe],
-  [[() => SegmentsResponse$, 16]]
+  [[() => SegmentsResponse$, 16]], 1
 ];
 export var GetSmsChannelRequest$: StaticStructureSchema = [3, n0, _GSCR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSmsChannelResponse$: StaticStructureSchema = [3, n0, _GSCRe,
   0,
   [_SMSCR],
-  [[() => SMSChannelResponse$, 16]]
+  [[() => SMSChannelResponse$, 16]], 1
 ];
 export var GetSmsTemplateRequest$: StaticStructureSchema = [3, n0, _GSTR,
   0,
   [_TNe, _V],
-  [[0, 1], [0, { [_hQ]: _v }]]
+  [[0, 1], [0, { [_hQ]: _v }]], 1
 ];
 export var GetSmsTemplateResponse$: StaticStructureSchema = [3, n0, _GSTRe,
   0,
   [_SMSTRe],
-  [[() => SMSTemplateResponse$, 16]]
+  [[() => SMSTemplateResponse$, 16]], 1
 ];
 export var GetUserEndpointsRequest$: StaticStructureSchema = [3, n0, _GUER,
   0,
   [_AI, _UI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetUserEndpointsResponse$: StaticStructureSchema = [3, n0, _GUERe,
   0,
   [_ERn],
-  [[() => EndpointsResponse$, 16]]
+  [[() => EndpointsResponse$, 16]], 1
 ];
 export var GetVoiceChannelRequest$: StaticStructureSchema = [3, n0, _GVCR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetVoiceChannelResponse$: StaticStructureSchema = [3, n0, _GVCRe,
   0,
   [_VCR],
-  [[() => VoiceChannelResponse$, 16]]
+  [[() => VoiceChannelResponse$, 16]], 1
 ];
 export var GetVoiceTemplateRequest$: StaticStructureSchema = [3, n0, _GVTR,
   0,
   [_TNe, _V],
-  [[0, 1], [0, { [_hQ]: _v }]]
+  [[0, 1], [0, { [_hQ]: _v }]], 1
 ];
 export var GetVoiceTemplateResponse$: StaticStructureSchema = [3, n0, _GVTRe,
   0,
   [_VTRo],
-  [[() => VoiceTemplateResponse$, 16]]
+  [[() => VoiceTemplateResponse$, 16]], 1
 ];
 export var GPSCoordinates$: StaticStructureSchema = [3, n0, _GPSC,
   0,
   [_Lat, _Lon],
-  [1, 1]
+  [1, 1], 2
 ];
 export var GPSPointDimension$: StaticStructureSchema = [3, n0, _GPSPD,
   0,
   [_Coo, _RIK],
-  [() => GPSCoordinates$, 1]
+  [() => GPSCoordinates$, 1], 1
 ];
 export var HoldoutActivity$: StaticStructureSchema = [3, n0, _HA,
   0,
-  [_NA, _Pe],
-  [0, 1]
+  [_Pe, _NA],
+  [1, 0], 1
 ];
 export var ImportJobRequest$: StaticStructureSchema = [3, n0, _IJR,
   0,
-  [_DSef, _EIx, _Fo, _REe, _RA, _SU, _SI, _SNe],
-  [2, 0, 0, 2, 0, 0, 0, 0]
+  [_Fo, _RA, _SU, _DSef, _EIx, _REe, _SI, _SNe],
+  [0, 0, 0, 2, 0, 2, 0, 0], 3
 ];
 export var ImportJobResource$: StaticStructureSchema = [3, n0, _IJRmpo,
   0,
-  [_DSef, _EIx, _Fo, _REe, _RA, _SU, _SI, _SNe],
-  [2, 0, 0, 2, 0, 0, 0, 0]
+  [_Fo, _RA, _SU, _DSef, _EIx, _REe, _SI, _SNe],
+  [0, 0, 0, 2, 0, 2, 0, 0], 3
 ];
 export var ImportJobResponse$: StaticStructureSchema = [3, n0, _IJRm,
   0,
-  [_AI, _CP, _CDo, _CD, _Def, _FP, _F, _Id, _JS, _TF, _TPo, _TPot, _Ty],
-  [0, 1, 0, 0, () => ImportJobResource$, 1, 64 | 0, 0, 0, 1, 1, 1, 0]
+  [_AI, _CD, _Def, _Id, _JS, _Ty, _CP, _CDo, _FP, _F, _TF, _TPo, _TPot],
+  [0, 0, () => ImportJobResource$, 0, 0, 0, 1, 0, 1, 64 | 0, 1, 1, 1], 6
 ];
 export var ImportJobsResponse$: StaticStructureSchema = [3, n0, _IJRmp,
   0,
   [_I, _NT],
-  [() => ListOfImportJobResponse, 0]
+  [() => ListOfImportJobResponse, 0], 1
 ];
 export var InAppCampaignSchedule$: StaticStructureSchema = [3, n0, _IACS,
   0,
@@ -2384,7 +2384,7 @@ export var InAppMessage$: StaticStructureSchema = [3, n0, _IAM,
 export var InAppMessageBodyConfig$: StaticStructureSchema = [3, n0, _IAMBC,
   0,
   [_Al, _B, _TCex],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var InAppMessageButton$: StaticStructureSchema = [3, n0, _IAMB,
   0,
@@ -2404,7 +2404,7 @@ export var InAppMessageContent$: StaticStructureSchema = [3, n0, _IAMCn,
 export var InAppMessageHeaderConfig$: StaticStructureSchema = [3, n0, _IAMHC,
   0,
   [_Al, _Hea, _TCex],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var InAppMessagesResponse$: StaticStructureSchema = [3, n0, _IAMR,
   0,
@@ -2418,8 +2418,8 @@ export var InAppTemplateRequest$: StaticStructureSchema = [3, n0, _IATR,
 ];
 export var InAppTemplateResponse$: StaticStructureSchema = [3, n0, _IATRn,
   0,
-  [_Ar, _Co, _CD, _CCu, _LMD, _La, _t, _TDe, _TNe, _TT, _V],
-  [0, () => ListOfInAppMessageContent, 0, 128 | 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, 0, 0]
+  [_CD, _LMD, _TNe, _TT, _Ar, _Co, _CCu, _La, _t, _TDe, _V],
+  [0, 0, 0, 0, 0, () => ListOfInAppMessageContent, 128 | 0, 0, [128 | 0, { [_jN]: _t }], 0, 0], 4
 ];
 export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
   { [_e]: _s, [_hE]: 500 },
@@ -2444,8 +2444,8 @@ export var JourneyCustomMessage$: StaticStructureSchema = [3, n0, _JCM,
 ];
 export var JourneyDateRangeKpiResponse$: StaticStructureSchema = [3, n0, _JDRKR,
   0,
-  [_AI, _ET, _JI, _KN, _KR, _NT, _ST],
-  [0, 5, 0, 0, () => BaseKpiResult$, 0, 5]
+  [_AI, _ET, _JI, _KN, _KR, _ST, _NT],
+  [0, 5, 0, 0, () => BaseKpiResult$, 5, 0], 6
 ];
 export var JourneyEmailMessage$: StaticStructureSchema = [3, n0, _JEM,
   0,
@@ -2455,12 +2455,12 @@ export var JourneyEmailMessage$: StaticStructureSchema = [3, n0, _JEM,
 export var JourneyExecutionActivityMetricsResponse$: StaticStructureSchema = [3, n0, _JEAMR,
   0,
   [_ATc, _AI, _JAI, _JI, _LET, _Me],
-  [0, 0, 0, 0, 0, 128 | 0]
+  [0, 0, 0, 0, 0, 128 | 0], 6
 ];
 export var JourneyExecutionMetricsResponse$: StaticStructureSchema = [3, n0, _JEMR,
   0,
   [_AI, _JI, _LET, _Me],
-  [0, 0, 0, 128 | 0]
+  [0, 0, 0, 128 | 0], 4
 ];
 export var JourneyLimits$: StaticStructureSchema = [3, n0, _JL,
   0,
@@ -2474,28 +2474,28 @@ export var JourneyPushMessage$: StaticStructureSchema = [3, n0, _JPM,
 ];
 export var JourneyResponse$: StaticStructureSchema = [3, n0, _JR,
   0,
-  [_Act, _AI, _CD, _Id, _LMD, _L, _LT, _N, _QT, _RF, _Sc, _SA, _SCt, _St, _t, _WFQT, _ROSU, _JCS, _SSe, _OH, _CDl, _TEM],
-  [[() => MapOfActivity, 0], 0, 0, 0, 0, () => JourneyLimits$, 2, 0, () => QuietTime$, 0, () => JourneySchedule$, 0, () => StartCondition$, 0, [128 | 0, { [_jN]: _t }], 2, 2, () => JourneyChannelSettings$, 2, () => OpenHours$, () => ClosedDays$, 64 | 0]
+  [_AI, _Id, _N, _Act, _CD, _LMD, _L, _LT, _QT, _RF, _Sc, _SA, _SCt, _St, _t, _WFQT, _ROSU, _JCS, _SSe, _OH, _CDl, _TEM],
+  [0, 0, 0, [() => MapOfActivity, 0], 0, 0, () => JourneyLimits$, 2, () => QuietTime$, 0, () => JourneySchedule$, 0, () => StartCondition$, 0, [128 | 0, { [_jN]: _t }], 2, 2, () => JourneyChannelSettings$, 2, () => OpenHours$, () => ClosedDays$, 64 | 0], 3
 ];
 export var JourneyRunExecutionActivityMetricsResponse$: StaticStructureSchema = [3, n0, _JREAMR,
   0,
   [_ATc, _AI, _JAI, _JI, _LET, _Me, _RIu],
-  [0, 0, 0, 0, 0, 128 | 0, 0]
+  [0, 0, 0, 0, 0, 128 | 0, 0], 7
 ];
 export var JourneyRunExecutionMetricsResponse$: StaticStructureSchema = [3, n0, _JREMR,
   0,
   [_AI, _JI, _LET, _Me, _RIu],
-  [0, 0, 0, 128 | 0, 0]
+  [0, 0, 0, 128 | 0, 0], 5
 ];
 export var JourneyRunResponse$: StaticStructureSchema = [3, n0, _JRRo,
   0,
   [_CTr, _LUT, _RIu, _Sta],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var JourneyRunsResponse$: StaticStructureSchema = [3, n0, _JRR,
   0,
   [_I, _NT],
-  [() => ListOfJourneyRunResponse, 0]
+  [() => ListOfJourneyRunResponse, 0], 1
 ];
 export var JourneySchedule$: StaticStructureSchema = [3, n0, _JSo,
   0,
@@ -2510,7 +2510,7 @@ export var JourneySMSMessage$: StaticStructureSchema = [3, n0, _JSMSM,
 export var JourneysResponse$: StaticStructureSchema = [3, n0, _JRo,
   0,
   [_I, _NT],
-  [[() => ListOfJourneyResponse, 0], 0]
+  [[() => ListOfJourneyResponse, 0], 0], 1
 ];
 export var JourneyStateRequest$: StaticStructureSchema = [3, n0, _JSR,
   0,
@@ -2525,27 +2525,27 @@ export var JourneyTimeframeCap$: StaticStructureSchema = [3, n0, _JTC,
 export var ListJourneysRequest$: StaticStructureSchema = [3, n0, _LJR,
   0,
   [_AI, _PS, _Tok],
-  [[0, 1], [0, { [_hQ]: _ps }], [0, { [_hQ]: _to }]]
+  [[0, 1], [0, { [_hQ]: _ps }], [0, { [_hQ]: _to }]], 1
 ];
 export var ListJourneysResponse$: StaticStructureSchema = [3, n0, _LJRi,
   0,
   [_JRo],
-  [[() => JourneysResponse$, 16]]
+  [[() => JourneysResponse$, 16]], 1
 ];
 export var ListRecommenderConfigurationsResponse$: StaticStructureSchema = [3, n0, _LRCR,
   0,
   [_I, _NT],
-  [() => ListOfRecommenderConfigurationResponse, 0]
+  [() => ListOfRecommenderConfigurationResponse, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RAe],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
   [_TM],
-  [[() => TagsModel$, 16]]
+  [[() => TagsModel$, 16]], 1
 ];
 export var ListTemplatesRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
@@ -2555,17 +2555,17 @@ export var ListTemplatesRequest$: StaticStructureSchema = [3, n0, _LTR,
 export var ListTemplatesResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
   [_TR],
-  [[() => TemplatesResponse$, 16]]
+  [[() => TemplatesResponse$, 16]], 1
 ];
 export var ListTemplateVersionsRequest$: StaticStructureSchema = [3, n0, _LTVR,
   0,
-  [_NT, _PS, _TNe, _TT],
-  [[0, { [_hQ]: _nt }], [0, { [_hQ]: _ps }], [0, 1], [0, 1]]
+  [_TNe, _TT, _NT, _PS],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nt }], [0, { [_hQ]: _ps }]], 2
 ];
 export var ListTemplateVersionsResponse$: StaticStructureSchema = [3, n0, _LTVRi,
   0,
   [_TVR],
-  [[() => TemplateVersionsResponse$, 16]]
+  [[() => TemplateVersionsResponse$, 16]], 1
 ];
 export var Message$: StaticStructureSchema = [3, n0, _M,
   0,
@@ -2589,18 +2589,18 @@ export var MessageHeader$: StaticStructureSchema = [3, n0, _MH,
 ];
 export var MessageRequest$: StaticStructureSchema = [3, n0, _MR,
   0,
-  [_Add, _C, _Endp, _MCe, _TCe, _TIr],
-  [() => MapOfAddressConfiguration, 128 | 0, () => MapOfEndpointSendConfiguration, () => DirectMessageConfiguration$, () => TemplateConfiguration$, 0]
+  [_MCe, _Add, _C, _Endp, _TCe, _TIr],
+  [() => DirectMessageConfiguration$, () => MapOfAddressConfiguration, 128 | 0, () => MapOfEndpointSendConfiguration, () => TemplateConfiguration$, 0], 1
 ];
 export var MessageResponse$: StaticStructureSchema = [3, n0, _MRe,
   0,
   [_AI, _ERndp, _RIe, _R],
-  [0, () => MapOfEndpointMessageResult, 0, () => MapOfMessageResult]
+  [0, () => MapOfEndpointMessageResult, 0, () => MapOfMessageResult], 1
 ];
 export var MessageResult$: StaticStructureSchema = [3, n0, _MRes,
   0,
-  [_DSel, _MI, _SC, _SM, _UT],
-  [0, 0, 1, 0, 0]
+  [_DSel, _SC, _MI, _SM, _UT],
+  [0, 1, 0, 0, 0], 2
 ];
 export var MethodNotAllowedException$: StaticErrorSchema = [-3, n0, _MNAE,
   { [_e]: _c, [_hE]: 405 },
@@ -2611,7 +2611,7 @@ TypeRegistry.for(n0).registerError(MethodNotAllowedException$, MethodNotAllowedE
 export var MetricDimension$: StaticStructureSchema = [3, n0, _MDe,
   0,
   [_CO, _Val],
-  [0, 1]
+  [0, 1], 2
 ];
 export var MultiConditionalBranch$: StaticStructureSchema = [3, n0, _MCB,
   0,
@@ -2652,7 +2652,7 @@ export var OpenHoursRule$: StaticStructureSchema = [3, n0, _OHR,
 export var OverrideButtonConfiguration$: StaticStructureSchema = [3, n0, _OBC,
   0,
   [_BA, _Li],
-  [0, 0]
+  [0, 0], 1
 ];
 export var PayloadTooLargeException$: StaticErrorSchema = [-3, n0, _PTLE,
   { [_e]: _c, [_hE]: 413 },
@@ -2663,12 +2663,12 @@ TypeRegistry.for(n0).registerError(PayloadTooLargeException$, PayloadTooLargeExc
 export var PhoneNumberValidateRequest$: StaticStructureSchema = [3, n0, _PNVR,
   0,
   [_NVR],
-  [[() => NumberValidateRequest$, 16]]
+  [[() => NumberValidateRequest$, 16]], 1
 ];
 export var PhoneNumberValidateResponse$: StaticStructureSchema = [3, n0, _PNVRh,
   0,
   [_NVRu],
-  [[() => NumberValidateResponse$, 16]]
+  [[() => NumberValidateResponse$, 16]], 1
 ];
 export var PublicEndpoint$: StaticStructureSchema = [3, n0, _PE,
   0,
@@ -2687,28 +2687,28 @@ export var PushNotificationTemplateRequest$: StaticStructureSchema = [3, n0, _PN
 ];
 export var PushNotificationTemplateResponse$: StaticStructureSchema = [3, n0, _PNTRu,
   0,
-  [_ADM, _APNS, _Ar, _Bai, _CD, _Defa, _DSe, _GCM, _LMD, _RI, _t, _TDe, _TNe, _TT, _V],
-  [() => AndroidPushNotificationTemplate$, () => APNSPushNotificationTemplate$, 0, () => AndroidPushNotificationTemplate$, 0, () => DefaultPushNotificationTemplate$, 0, () => AndroidPushNotificationTemplate$, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, 0, 0]
+  [_CD, _LMD, _TNe, _TT, _ADM, _APNS, _Ar, _Bai, _Defa, _DSe, _GCM, _RI, _t, _TDe, _V],
+  [0, 0, 0, 0, () => AndroidPushNotificationTemplate$, () => APNSPushNotificationTemplate$, 0, () => AndroidPushNotificationTemplate$, () => DefaultPushNotificationTemplate$, 0, () => AndroidPushNotificationTemplate$, 0, [128 | 0, { [_jN]: _t }], 0, 0], 4
 ];
 export var PutEventsRequest$: StaticStructureSchema = [3, n0, _PER,
   0,
   [_AI, _ERv],
-  [[0, 1], [() => EventsRequest$, 16]]
+  [[0, 1], [() => EventsRequest$, 16]], 2
 ];
 export var PutEventsResponse$: StaticStructureSchema = [3, n0, _PERu,
   0,
   [_ERve],
-  [[() => EventsResponse$, 16]]
+  [[() => EventsResponse$, 16]], 1
 ];
 export var PutEventStreamRequest$: StaticStructureSchema = [3, n0, _PESR,
   0,
   [_AI, _WES],
-  [[0, 1], [() => WriteEventStream$, 16]]
+  [[0, 1], [() => WriteEventStream$, 16]], 2
 ];
 export var PutEventStreamResponse$: StaticStructureSchema = [3, n0, _PESRu,
   0,
   [_ES],
-  [[() => EventStream$, 16]]
+  [[() => EventStream$, 16]], 1
 ];
 export var QuietTime$: StaticStructureSchema = [3, n0, _QT,
   0,
@@ -2733,37 +2733,37 @@ export var RawEmail$: StaticStructureSchema = [3, n0, _RE,
 export var RecencyDimension$: StaticStructureSchema = [3, n0, _RD,
   0,
   [_Du, _RT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RecommenderConfigurationResponse$: StaticStructureSchema = [3, n0, _RCR,
   0,
-  [_At, _CD, _D, _Id, _LMD, _N, _RPIT, _RPRA, _RPU, _RTU, _RDN, _RPM],
-  [128 | 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+  [_CD, _Id, _LMD, _RPRA, _RPU, _At, _D, _N, _RPIT, _RTU, _RDN, _RPM],
+  [0, 0, 0, 0, 0, 128 | 0, 0, 0, 0, 0, 0, 1], 5
 ];
 export var RemoveAttributesRequest$: StaticStructureSchema = [3, n0, _RAR,
   0,
   [_AI, _AT, _UAR],
-  [[0, 1], [0, 1], [() => UpdateAttributesRequest$, 16]]
+  [[0, 1], [0, 1], [() => UpdateAttributesRequest$, 16]], 3
 ];
 export var RemoveAttributesResponse$: StaticStructureSchema = [3, n0, _RARe,
   0,
   [_ARt],
-  [[() => AttributesResource$, 16]]
+  [[() => AttributesResource$, 16]], 1
 ];
 export var ResultRow$: StaticStructureSchema = [3, n0, _RR,
   0,
   [_GB, _Va],
-  [() => ListOfResultRowValue, () => ListOfResultRowValue]
+  [() => ListOfResultRowValue, () => ListOfResultRowValue], 2
 ];
 export var ResultRowValue$: StaticStructureSchema = [3, n0, _RRV,
   0,
   [_K, _Ty, _Val],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var Schedule$: StaticStructureSchema = [3, n0, _Sc,
   0,
-  [_ET, _EF, _Fr, _ILT, _QT, _ST, _Ti],
-  [0, () => CampaignEventFilter$, 0, 2, () => QuietTime$, 0, 0]
+  [_ST, _ET, _EF, _Fr, _ILT, _QT, _Ti],
+  [0, 0, () => CampaignEventFilter$, 0, 2, () => QuietTime$, 0], 1
 ];
 export var SegmentBehaviors$: StaticStructureSchema = [3, n0, _SBe,
   0,
@@ -2773,7 +2773,7 @@ export var SegmentBehaviors$: StaticStructureSchema = [3, n0, _SBe,
 export var SegmentCondition$: StaticStructureSchema = [3, n0, _SCeg,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var SegmentDemographics$: StaticStructureSchema = [3, n0, _SD,
   0,
@@ -2797,8 +2797,8 @@ export var SegmentGroupList$: StaticStructureSchema = [3, n0, _SGL,
 ];
 export var SegmentImportResource$: StaticStructureSchema = [3, n0, _SIR,
   0,
-  [_CCh, _EIx, _Fo, _RA, _SU, _Si],
-  [128 | 1, 0, 0, 0, 0, 1]
+  [_EIx, _Fo, _RA, _SU, _Si, _CCh],
+  [0, 0, 0, 0, 1, 128 | 1], 5
 ];
 export var SegmentLocation$: StaticStructureSchema = [3, n0, _SL,
   0,
@@ -2808,72 +2808,72 @@ export var SegmentLocation$: StaticStructureSchema = [3, n0, _SL,
 export var SegmentReference$: StaticStructureSchema = [3, n0, _SReg,
   0,
   [_Id, _V],
-  [0, 1]
+  [0, 1], 1
 ];
 export var SegmentResponse$: StaticStructureSchema = [3, n0, _SR,
   0,
-  [_AI, _Ar, _CD, _Di, _Id, _ID, _LMD, _N, _SGe, _STe, _t, _V],
-  [0, 0, 0, () => SegmentDimensions$, 0, () => SegmentImportResource$, 0, 0, () => SegmentGroupList$, 0, [128 | 0, { [_jN]: _t }], 1]
+  [_AI, _Ar, _CD, _Id, _STe, _Di, _ID, _LMD, _N, _SGe, _t, _V],
+  [0, 0, 0, 0, 0, () => SegmentDimensions$, () => SegmentImportResource$, 0, 0, () => SegmentGroupList$, [128 | 0, { [_jN]: _t }], 1], 5
 ];
 export var SegmentsResponse$: StaticStructureSchema = [3, n0, _SRe,
   0,
   [_I, _NT],
-  [[() => ListOfSegmentResponse, 0], 0]
+  [[() => ListOfSegmentResponse, 0], 0], 1
 ];
 export var SendMessagesRequest$: StaticStructureSchema = [3, n0, _SMR,
   0,
   [_AI, _MR],
-  [[0, 1], [() => MessageRequest$, 16]]
+  [[0, 1], [() => MessageRequest$, 16]], 2
 ];
 export var SendMessagesResponse$: StaticStructureSchema = [3, n0, _SMRe,
   0,
   [_MRe],
-  [[() => MessageResponse$, 16]]
+  [[() => MessageResponse$, 16]], 1
 ];
 export var SendOTPMessageRequest$: StaticStructureSchema = [3, n0, _SOTPMR,
   0,
   [_AI, _SOTPMRP],
-  [[0, 1], [() => SendOTPMessageRequestParameters$, 16]]
+  [[0, 1], [() => SendOTPMessageRequestParameters$, 16]], 2
 ];
 export var SendOTPMessageRequestParameters$: StaticStructureSchema = [3, n0, _SOTPMRP,
   0,
-  [_AA, _BN, _Cha, _CLo, _DI, _EI, _Lan, _OI, _RIef, _TIem, _VP],
-  [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1]
+  [_BN, _Cha, _DI, _OI, _RIef, _AA, _CLo, _EI, _Lan, _TIem, _VP],
+  [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1], 5
 ];
 export var SendOTPMessageResponse$: StaticStructureSchema = [3, n0, _SOTPMRe,
   0,
   [_MRe],
-  [[() => MessageResponse$, 16]]
+  [[() => MessageResponse$, 16]], 1
 ];
 export var SendUsersMessageRequest$: StaticStructureSchema = [3, n0, _SUMR,
   0,
-  [_C, _MCe, _TCe, _TIr, _Use],
-  [128 | 0, () => DirectMessageConfiguration$, () => TemplateConfiguration$, 0, () => MapOfEndpointSendConfiguration]
+  [_MCe, _Use, _C, _TCe, _TIr],
+  [() => DirectMessageConfiguration$, () => MapOfEndpointSendConfiguration, 128 | 0, () => TemplateConfiguration$, 0], 2
 ];
 export var SendUsersMessageResponse$: StaticStructureSchema = [3, n0, _SUMRe,
   0,
   [_AI, _RIe, _R],
-  [0, 0, () => MapOfMapOfEndpointMessageResult]
+  [0, 0, () => MapOfMapOfEndpointMessageResult], 1
 ];
 export var SendUsersMessagesRequest$: StaticStructureSchema = [3, n0, _SUMRen,
   0,
   [_AI, _SUMR],
-  [[0, 1], [() => SendUsersMessageRequest$, 16]]
+  [[0, 1], [() => SendUsersMessageRequest$, 16]], 2
 ];
 export var SendUsersMessagesResponse$: StaticStructureSchema = [3, n0, _SUMRend,
   0,
   [_SUMRe],
-  [[() => SendUsersMessageResponse$, 16]]
+  [[() => SendUsersMessageResponse$, 16]], 1
 ];
 export var Session$: StaticStructureSchema = [3, n0, _Se,
   0,
-  [_Du, _Id, _STt, _STto],
-  [1, 0, 0, 0]
+  [_Id, _STt, _Du, _STto],
+  [0, 0, 1, 0], 2
 ];
 export var SetDimension$: StaticStructureSchema = [3, n0, _SDet,
   0,
-  [_DTi, _Va],
-  [0, 64 | 0]
+  [_Va, _DTi],
+  [64 | 0, 0], 1
 ];
 export var SimpleCondition$: StaticStructureSchema = [3, n0, _SCi,
   0,
@@ -2897,8 +2897,8 @@ export var SMSChannelRequest$: StaticStructureSchema = [3, n0, _SMSCRh,
 ];
 export var SMSChannelResponse$: StaticStructureSchema = [3, n0, _SMSCR,
   0,
-  [_AI, _CD, _En, _HC, _Id, _IA, _LMB, _LMD, _P, _PMPS, _SIe, _SCh, _TMPS, _V],
-  [0, 0, 2, 2, 0, 2, 0, 0, 0, 1, 0, 0, 1, 1]
+  [_P, _AI, _CD, _En, _HC, _Id, _IA, _LMB, _LMD, _PMPS, _SIe, _SCh, _TMPS, _V],
+  [0, 0, 0, 2, 2, 0, 2, 0, 0, 1, 0, 0, 1, 1], 1
 ];
 export var SMSMessage$: StaticStructureSchema = [3, n0, _SMSM,
   0,
@@ -2917,8 +2917,8 @@ export var SMSTemplateRequest$: StaticStructureSchema = [3, n0, _SMSTR,
 ];
 export var SMSTemplateResponse$: StaticStructureSchema = [3, n0, _SMSTRe,
   0,
-  [_Ar, _B, _CD, _DSe, _LMD, _RI, _t, _TDe, _TNe, _TT, _V],
-  [0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, 0, 0]
+  [_CD, _LMD, _TNe, _TT, _Ar, _B, _DSe, _RI, _t, _TDe, _V],
+  [0, 0, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0], 4
 ];
 export var StartCondition$: StaticStructureSchema = [3, n0, _SCt,
   0,
@@ -2928,12 +2928,12 @@ export var StartCondition$: StaticStructureSchema = [3, n0, _SCt,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAe, _TM],
-  [[0, 1], [() => TagsModel$, 16]]
+  [[0, 1], [() => TagsModel$, 16]], 2
 ];
 export var TagsModel$: StaticStructureSchema = [3, n0, _TM,
   0,
   [_t],
-  [[128 | 0, { [_jN]: _t }]]
+  [[128 | 0, { [_jN]: _t }]], 1
 ];
 export var Template$: StaticStructureSchema = [3, n0, _Tem,
   0,
@@ -2957,23 +2957,23 @@ export var TemplateCreateMessageBody$: StaticStructureSchema = [3, n0, _TCMB,
 ];
 export var TemplateResponse$: StaticStructureSchema = [3, n0, _TRe,
   0,
-  [_Ar, _CD, _DSe, _LMD, _t, _TDe, _TNe, _TT, _V],
-  [0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, 0, 0]
+  [_CD, _LMD, _TNe, _TT, _Ar, _DSe, _t, _TDe, _V],
+  [0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0], 4
 ];
 export var TemplatesResponse$: StaticStructureSchema = [3, n0, _TR,
   0,
   [_I, _NT],
-  [[() => ListOfTemplateResponse, 0], 0]
+  [[() => ListOfTemplateResponse, 0], 0], 1
 ];
 export var TemplateVersionResponse$: StaticStructureSchema = [3, n0, _TVRe,
   0,
-  [_CD, _DSe, _LMD, _TDe, _TNe, _TT, _V],
-  [0, 0, 0, 0, 0, 0, 0]
+  [_CD, _LMD, _TNe, _TT, _DSe, _TDe, _V],
+  [0, 0, 0, 0, 0, 0, 0], 4
 ];
 export var TemplateVersionsResponse$: StaticStructureSchema = [3, n0, _TVR,
   0,
   [_I, _M, _NT, _RID],
-  [() => ListOfTemplateVersionResponse, 0, 0, 0]
+  [() => ListOfTemplateVersionResponse, 0, 0, 0], 1
 ];
 export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
   { [_e]: _c, [_hE]: 429 },
@@ -2983,73 +2983,73 @@ export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
 TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var TreatmentResource$: StaticStructureSchema = [3, n0, _TRr,
   0,
-  [_CDC, _Id, _MCe, _Sc, _SPi, _St, _TCe, _TD, _TN],
-  [() => CustomDeliveryConfiguration$, 0, () => MessageConfiguration$, () => Schedule$, 1, () => CampaignState$, () => TemplateConfiguration$, 0, 0]
+  [_Id, _SPi, _CDC, _MCe, _Sc, _St, _TCe, _TD, _TN],
+  [0, 1, () => CustomDeliveryConfiguration$, () => MessageConfiguration$, () => Schedule$, () => CampaignState$, () => TemplateConfiguration$, 0, 0], 2
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _TKa],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UpdateAdmChannelRequest$: StaticStructureSchema = [3, n0, _UACR,
   0,
   [_ADMCR, _AI],
-  [[() => ADMChannelRequest$, 16], [0, 1]]
+  [[() => ADMChannelRequest$, 16], [0, 1]], 2
 ];
 export var UpdateAdmChannelResponse$: StaticStructureSchema = [3, n0, _UACRp,
   0,
   [_ADMCRh],
-  [[() => ADMChannelResponse$, 16]]
+  [[() => ADMChannelResponse$, 16]], 1
 ];
 export var UpdateApnsChannelRequest$: StaticStructureSchema = [3, n0, _UACRpd,
   0,
   [_APNSCR, _AI],
-  [[() => APNSChannelRequest$, 16], [0, 1]]
+  [[() => APNSChannelRequest$, 16], [0, 1]], 2
 ];
 export var UpdateApnsChannelResponse$: StaticStructureSchema = [3, n0, _UACRpda,
   0,
   [_APNSCRh],
-  [[() => APNSChannelResponse$, 16]]
+  [[() => APNSChannelResponse$, 16]], 1
 ];
 export var UpdateApnsSandboxChannelRequest$: StaticStructureSchema = [3, n0, _UASCR,
   0,
   [_APNSSCR, _AI],
-  [[() => APNSSandboxChannelRequest$, 16], [0, 1]]
+  [[() => APNSSandboxChannelRequest$, 16], [0, 1]], 2
 ];
 export var UpdateApnsSandboxChannelResponse$: StaticStructureSchema = [3, n0, _UASCRp,
   0,
   [_APNSSCRa],
-  [[() => APNSSandboxChannelResponse$, 16]]
+  [[() => APNSSandboxChannelResponse$, 16]], 1
 ];
 export var UpdateApnsVoipChannelRequest$: StaticStructureSchema = [3, n0, _UAVCR,
   0,
   [_APNSVCR, _AI],
-  [[() => APNSVoipChannelRequest$, 16], [0, 1]]
+  [[() => APNSVoipChannelRequest$, 16], [0, 1]], 2
 ];
 export var UpdateApnsVoipChannelResponse$: StaticStructureSchema = [3, n0, _UAVCRp,
   0,
   [_APNSVCRo],
-  [[() => APNSVoipChannelResponse$, 16]]
+  [[() => APNSVoipChannelResponse$, 16]], 1
 ];
 export var UpdateApnsVoipSandboxChannelRequest$: StaticStructureSchema = [3, n0, _UAVSCR,
   0,
   [_APNSVSCR, _AI],
-  [[() => APNSVoipSandboxChannelRequest$, 16], [0, 1]]
+  [[() => APNSVoipSandboxChannelRequest$, 16], [0, 1]], 2
 ];
 export var UpdateApnsVoipSandboxChannelResponse$: StaticStructureSchema = [3, n0, _UAVSCRp,
   0,
   [_APNSVSCRo],
-  [[() => APNSVoipSandboxChannelResponse$, 16]]
+  [[() => APNSVoipSandboxChannelResponse$, 16]], 1
 ];
 export var UpdateApplicationSettingsRequest$: StaticStructureSchema = [3, n0, _UASR,
   0,
   [_AI, _WASR],
-  [[0, 1], [() => WriteApplicationSettingsRequest$, 16]]
+  [[0, 1], [() => WriteApplicationSettingsRequest$, 16]], 2
 ];
 export var UpdateApplicationSettingsResponse$: StaticStructureSchema = [3, n0, _UASRp,
   0,
   [_ASR],
-  [[() => ApplicationSettingsResource$, 16]]
+  [[() => ApplicationSettingsResource$, 16]], 1
 ];
 export var UpdateAttributesRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
@@ -3059,187 +3059,187 @@ export var UpdateAttributesRequest$: StaticStructureSchema = [3, n0, _UAR,
 export var UpdateBaiduChannelRequest$: StaticStructureSchema = [3, n0, _UBCR,
   0,
   [_AI, _BCR],
-  [[0, 1], [() => BaiduChannelRequest$, 16]]
+  [[0, 1], [() => BaiduChannelRequest$, 16]], 2
 ];
 export var UpdateBaiduChannelResponse$: StaticStructureSchema = [3, n0, _UBCRp,
   0,
   [_BCRa],
-  [[() => BaiduChannelResponse$, 16]]
+  [[() => BaiduChannelResponse$, 16]], 1
 ];
 export var UpdateCampaignRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_AI, _CI, _WCR],
-  [[0, 1], [0, 1], [() => WriteCampaignRequest$, 16]]
+  [[0, 1], [0, 1], [() => WriteCampaignRequest$, 16]], 3
 ];
 export var UpdateCampaignResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
   [_CR],
-  [[() => CampaignResponse$, 16]]
+  [[() => CampaignResponse$, 16]], 1
 ];
 export var UpdateEmailChannelRequest$: StaticStructureSchema = [3, n0, _UECR,
   0,
   [_AI, _ECRm],
-  [[0, 1], [() => EmailChannelRequest$, 16]]
+  [[0, 1], [() => EmailChannelRequest$, 16]], 2
 ];
 export var UpdateEmailChannelResponse$: StaticStructureSchema = [3, n0, _UECRp,
   0,
   [_ECR],
-  [[() => EmailChannelResponse$, 16]]
+  [[() => EmailChannelResponse$, 16]], 1
 ];
 export var UpdateEmailTemplateRequest$: StaticStructureSchema = [3, n0, _UETR,
   0,
-  [_CNV, _ETR, _TNe, _V],
-  [[2, { [_hQ]: _cnv }], [() => EmailTemplateRequest$, 16], [0, 1], [0, { [_hQ]: _v }]]
+  [_ETR, _TNe, _CNV, _V],
+  [[() => EmailTemplateRequest$, 16], [0, 1], [2, { [_hQ]: _cnv }], [0, { [_hQ]: _v }]], 2
 ];
 export var UpdateEmailTemplateResponse$: StaticStructureSchema = [3, n0, _UETRp,
   0,
   [_MB],
-  [[() => MessageBody$, 16]]
+  [[() => MessageBody$, 16]], 1
 ];
 export var UpdateEndpointRequest$: StaticStructureSchema = [3, n0, _UER,
   0,
   [_AI, _EIn, _ERnd],
-  [[0, 1], [0, 1], [() => EndpointRequest$, 16]]
+  [[0, 1], [0, 1], [() => EndpointRequest$, 16]], 3
 ];
 export var UpdateEndpointResponse$: StaticStructureSchema = [3, n0, _UERp,
   0,
   [_MB],
-  [[() => MessageBody$, 16]]
+  [[() => MessageBody$, 16]], 1
 ];
 export var UpdateEndpointsBatchRequest$: StaticStructureSchema = [3, n0, _UEBR,
   0,
   [_AI, _EBR],
-  [[0, 1], [() => EndpointBatchRequest$, 16]]
+  [[0, 1], [() => EndpointBatchRequest$, 16]], 2
 ];
 export var UpdateEndpointsBatchResponse$: StaticStructureSchema = [3, n0, _UEBRp,
   0,
   [_MB],
-  [[() => MessageBody$, 16]]
+  [[() => MessageBody$, 16]], 1
 ];
 export var UpdateGcmChannelRequest$: StaticStructureSchema = [3, n0, _UGCR,
   0,
   [_AI, _GCMCRh],
-  [[0, 1], [() => GCMChannelRequest$, 16]]
+  [[0, 1], [() => GCMChannelRequest$, 16]], 2
 ];
 export var UpdateGcmChannelResponse$: StaticStructureSchema = [3, n0, _UGCRp,
   0,
   [_GCMCR],
-  [[() => GCMChannelResponse$, 16]]
+  [[() => GCMChannelResponse$, 16]], 1
 ];
 export var UpdateInAppTemplateRequest$: StaticStructureSchema = [3, n0, _UIATR,
   0,
-  [_CNV, _IATR, _TNe, _V],
-  [[2, { [_hQ]: _cnv }], [() => InAppTemplateRequest$, 16], [0, 1], [0, { [_hQ]: _v }]]
+  [_IATR, _TNe, _CNV, _V],
+  [[() => InAppTemplateRequest$, 16], [0, 1], [2, { [_hQ]: _cnv }], [0, { [_hQ]: _v }]], 2
 ];
 export var UpdateInAppTemplateResponse$: StaticStructureSchema = [3, n0, _UIATRp,
   0,
   [_MB],
-  [[() => MessageBody$, 16]]
+  [[() => MessageBody$, 16]], 1
 ];
 export var UpdateJourneyRequest$: StaticStructureSchema = [3, n0, _UJR,
   0,
   [_AI, _JI, _WJR],
-  [[0, 1], [0, 1], [() => WriteJourneyRequest$, 16]]
+  [[0, 1], [0, 1], [() => WriteJourneyRequest$, 16]], 3
 ];
 export var UpdateJourneyResponse$: StaticStructureSchema = [3, n0, _UJRp,
   0,
   [_JR],
-  [[() => JourneyResponse$, 16]]
+  [[() => JourneyResponse$, 16]], 1
 ];
 export var UpdateJourneyStateRequest$: StaticStructureSchema = [3, n0, _UJSR,
   0,
   [_AI, _JI, _JSR],
-  [[0, 1], [0, 1], [() => JourneyStateRequest$, 16]]
+  [[0, 1], [0, 1], [() => JourneyStateRequest$, 16]], 3
 ];
 export var UpdateJourneyStateResponse$: StaticStructureSchema = [3, n0, _UJSRp,
   0,
   [_JR],
-  [[() => JourneyResponse$, 16]]
+  [[() => JourneyResponse$, 16]], 1
 ];
 export var UpdatePushTemplateRequest$: StaticStructureSchema = [3, n0, _UPTR,
   0,
-  [_CNV, _PNTR, _TNe, _V],
-  [[2, { [_hQ]: _cnv }], [() => PushNotificationTemplateRequest$, 16], [0, 1], [0, { [_hQ]: _v }]]
+  [_PNTR, _TNe, _CNV, _V],
+  [[() => PushNotificationTemplateRequest$, 16], [0, 1], [2, { [_hQ]: _cnv }], [0, { [_hQ]: _v }]], 2
 ];
 export var UpdatePushTemplateResponse$: StaticStructureSchema = [3, n0, _UPTRp,
   0,
   [_MB],
-  [[() => MessageBody$, 16]]
+  [[() => MessageBody$, 16]], 1
 ];
 export var UpdateRecommenderConfigurationRequest$: StaticStructureSchema = [3, n0, _URCR,
   0,
   [_RI, _URC],
-  [[0, 1], [() => UpdateRecommenderConfigurationShape$, 16]]
+  [[0, 1], [() => UpdateRecommenderConfigurationShape$, 16]], 2
 ];
 export var UpdateRecommenderConfigurationResponse$: StaticStructureSchema = [3, n0, _URCRp,
   0,
   [_RCR],
-  [[() => RecommenderConfigurationResponse$, 16]]
+  [[() => RecommenderConfigurationResponse$, 16]], 1
 ];
 export var UpdateRecommenderConfigurationShape$: StaticStructureSchema = [3, n0, _URCS,
   0,
-  [_At, _D, _N, _RPIT, _RPRA, _RPU, _RTU, _RDN, _RPM],
-  [128 | 0, 0, 0, 0, 0, 0, 0, 0, 1]
+  [_RPRA, _RPU, _At, _D, _N, _RPIT, _RTU, _RDN, _RPM],
+  [0, 0, 128 | 0, 0, 0, 0, 0, 0, 1], 2
 ];
 export var UpdateSegmentRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
   [_AI, _SI, _WSR],
-  [[0, 1], [0, 1], [() => WriteSegmentRequest$, 16]]
+  [[0, 1], [0, 1], [() => WriteSegmentRequest$, 16]], 3
 ];
 export var UpdateSegmentResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
   [_SR],
-  [[() => SegmentResponse$, 16]]
+  [[() => SegmentResponse$, 16]], 1
 ];
 export var UpdateSmsChannelRequest$: StaticStructureSchema = [3, n0, _USCR,
   0,
   [_AI, _SMSCRh],
-  [[0, 1], [() => SMSChannelRequest$, 16]]
+  [[0, 1], [() => SMSChannelRequest$, 16]], 2
 ];
 export var UpdateSmsChannelResponse$: StaticStructureSchema = [3, n0, _USCRp,
   0,
   [_SMSCR],
-  [[() => SMSChannelResponse$, 16]]
+  [[() => SMSChannelResponse$, 16]], 1
 ];
 export var UpdateSmsTemplateRequest$: StaticStructureSchema = [3, n0, _USTR,
   0,
-  [_CNV, _SMSTR, _TNe, _V],
-  [[2, { [_hQ]: _cnv }], [() => SMSTemplateRequest$, 16], [0, 1], [0, { [_hQ]: _v }]]
+  [_SMSTR, _TNe, _CNV, _V],
+  [[() => SMSTemplateRequest$, 16], [0, 1], [2, { [_hQ]: _cnv }], [0, { [_hQ]: _v }]], 2
 ];
 export var UpdateSmsTemplateResponse$: StaticStructureSchema = [3, n0, _USTRp,
   0,
   [_MB],
-  [[() => MessageBody$, 16]]
+  [[() => MessageBody$, 16]], 1
 ];
 export var UpdateTemplateActiveVersionRequest$: StaticStructureSchema = [3, n0, _UTAVR,
   0,
   [_TAVR, _TNe, _TT],
-  [[() => TemplateActiveVersionRequest$, 16], [0, 1], [0, 1]]
+  [[() => TemplateActiveVersionRequest$, 16], [0, 1], [0, 1]], 3
 ];
 export var UpdateTemplateActiveVersionResponse$: StaticStructureSchema = [3, n0, _UTAVRp,
   0,
   [_MB],
-  [[() => MessageBody$, 16]]
+  [[() => MessageBody$, 16]], 1
 ];
 export var UpdateVoiceChannelRequest$: StaticStructureSchema = [3, n0, _UVCR,
   0,
   [_AI, _VCRo],
-  [[0, 1], [() => VoiceChannelRequest$, 16]]
+  [[0, 1], [() => VoiceChannelRequest$, 16]], 2
 ];
 export var UpdateVoiceChannelResponse$: StaticStructureSchema = [3, n0, _UVCRp,
   0,
   [_VCR],
-  [[() => VoiceChannelResponse$, 16]]
+  [[() => VoiceChannelResponse$, 16]], 1
 ];
 export var UpdateVoiceTemplateRequest$: StaticStructureSchema = [3, n0, _UVTR,
   0,
-  [_CNV, _TNe, _V, _VTR],
-  [[2, { [_hQ]: _cnv }], [0, 1], [0, { [_hQ]: _v }], [() => VoiceTemplateRequest$, 16]]
+  [_TNe, _VTR, _CNV, _V],
+  [[0, 1], [() => VoiceTemplateRequest$, 16], [2, { [_hQ]: _cnv }], [0, { [_hQ]: _v }]], 2
 ];
 export var UpdateVoiceTemplateResponse$: StaticStructureSchema = [3, n0, _UVTRp,
   0,
   [_MB],
-  [[() => MessageBody$, 16]]
+  [[() => MessageBody$, 16]], 1
 ];
 export var VerificationResponse$: StaticStructureSchema = [3, n0, _VR,
   0,
@@ -3249,17 +3249,17 @@ export var VerificationResponse$: StaticStructureSchema = [3, n0, _VR,
 export var VerifyOTPMessageRequest$: StaticStructureSchema = [3, n0, _VOTPMR,
   0,
   [_AI, _VOTPMRP],
-  [[0, 1], [() => VerifyOTPMessageRequestParameters$, 16]]
+  [[0, 1], [() => VerifyOTPMessageRequestParameters$, 16]], 2
 ];
 export var VerifyOTPMessageRequestParameters$: StaticStructureSchema = [3, n0, _VOTPMRP,
   0,
   [_DI, _Ot, _RIef],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var VerifyOTPMessageResponse$: StaticStructureSchema = [3, n0, _VOTPMRe,
   0,
   [_VR],
-  [[() => VerificationResponse$, 16]]
+  [[() => VerificationResponse$, 16]], 1
 ];
 export var VoiceChannelRequest$: StaticStructureSchema = [3, n0, _VCRo,
   0,
@@ -3268,8 +3268,8 @@ export var VoiceChannelRequest$: StaticStructureSchema = [3, n0, _VCRo,
 ];
 export var VoiceChannelResponse$: StaticStructureSchema = [3, n0, _VCR,
   0,
-  [_AI, _CD, _En, _HC, _Id, _IA, _LMB, _LMD, _P, _V],
-  [0, 0, 2, 2, 0, 2, 0, 0, 0, 1]
+  [_P, _AI, _CD, _En, _HC, _Id, _IA, _LMB, _LMD, _V],
+  [0, 0, 0, 2, 2, 0, 2, 0, 0, 1], 1
 ];
 export var VoiceMessage$: StaticStructureSchema = [3, n0, _VM,
   0,
@@ -3283,8 +3283,8 @@ export var VoiceTemplateRequest$: StaticStructureSchema = [3, n0, _VTR,
 ];
 export var VoiceTemplateResponse$: StaticStructureSchema = [3, n0, _VTRo,
   0,
-  [_Ar, _B, _CD, _DSe, _LC, _LMD, _t, _TDe, _TNe, _TT, _V, _VI],
-  [0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, 0, 0, 0]
+  [_CD, _LMD, _TNe, _TT, _Ar, _B, _DSe, _LC, _t, _TDe, _V, _VI],
+  [0, 0, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, 0], 4
 ];
 export var WaitActivity$: StaticStructureSchema = [3, n0, _WA,
   0,
@@ -3309,12 +3309,12 @@ export var WriteCampaignRequest$: StaticStructureSchema = [3, n0, _WCR,
 export var WriteEventStream$: StaticStructureSchema = [3, n0, _WES,
   0,
   [_DSA, _RA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var WriteJourneyRequest$: StaticStructureSchema = [3, n0, _WJR,
   0,
-  [_Act, _CD, _LMD, _L, _LT, _N, _QT, _RF, _Sc, _SA, _SCt, _St, _WFQT, _ROSU, _JCS, _SSe, _OH, _CDl, _TEM],
-  [[() => MapOfActivity, 0], 0, 0, () => JourneyLimits$, 2, 0, () => QuietTime$, 0, () => JourneySchedule$, 0, () => StartCondition$, 0, 2, 2, () => JourneyChannelSettings$, 2, () => OpenHours$, () => ClosedDays$, 64 | 0]
+  [_N, _Act, _CD, _LMD, _L, _LT, _QT, _RF, _Sc, _SA, _SCt, _St, _WFQT, _ROSU, _JCS, _SSe, _OH, _CDl, _TEM],
+  [0, [() => MapOfActivity, 0], 0, 0, () => JourneyLimits$, 2, () => QuietTime$, 0, () => JourneySchedule$, 0, () => StartCondition$, 0, 2, 2, () => JourneyChannelSettings$, 2, () => OpenHours$, () => ClosedDays$, 64 | 0], 1
 ];
 export var WriteSegmentRequest$: StaticStructureSchema = [3, n0, _WSR,
   0,
@@ -3323,8 +3323,8 @@ export var WriteSegmentRequest$: StaticStructureSchema = [3, n0, _WSR,
 ];
 export var WriteTreatmentResource$: StaticStructureSchema = [3, n0, _WTR,
   0,
-  [_CDC, _MCe, _Sc, _SPi, _TCe, _TD, _TN],
-  [() => CustomDeliveryConfiguration$, () => MessageConfiguration$, () => Schedule$, 1, () => TemplateConfiguration$, 0, 0]
+  [_SPi, _CDC, _MCe, _Sc, _TCe, _TD, _TN],
+  [1, () => CustomDeliveryConfiguration$, () => MessageConfiguration$, () => Schedule$, () => TemplateConfiguration$, 0, 0], 1
 ];
 var __Unit = "unit" as const;
 export var PinpointServiceException$: StaticErrorSchema = [-3, _sm, "PinpointServiceException", 0, [], []];

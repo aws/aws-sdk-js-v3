@@ -147,8 +147,8 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateEnvironmentEC2Request$: StaticStructureSchema = [3, n0, _CEECR,
   0,
-  [_n, _d, _cRT, _iT, _sI, _iI, _aSTM, _oA, _t, _cT, _dR],
-  [0, [() => EnvironmentDescription, 0], 0, 0, 0, 0, 1, 0, [() => TagList, 0], 0, 2]
+  [_n, _iT, _iI, _d, _cRT, _sI, _aSTM, _oA, _t, _cT, _dR],
+  [0, 0, 0, [() => EnvironmentDescription, 0], 0, 0, 1, 0, [() => TagList, 0], 0, 2], 3
 ];
 export var CreateEnvironmentEC2Result$: StaticStructureSchema = [3, n0, _CEECRr,
   0,
@@ -158,17 +158,17 @@ export var CreateEnvironmentEC2Result$: StaticStructureSchema = [3, n0, _CEECRr,
 export var CreateEnvironmentMembershipRequest$: StaticStructureSchema = [3, n0, _CEMR,
   0,
   [_eI, _uA, _p],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var CreateEnvironmentMembershipResult$: StaticStructureSchema = [3, n0, _CEMRr,
   0,
   [_me],
-  [() => EnvironmentMember$]
+  [() => EnvironmentMember$], 1
 ];
 export var DeleteEnvironmentMembershipRequest$: StaticStructureSchema = [3, n0, _DEMR,
   0,
   [_eI, _uA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteEnvironmentMembershipResult$: StaticStructureSchema = [3, n0, _DEMRe,
   0,
@@ -178,7 +178,7 @@ export var DeleteEnvironmentMembershipResult$: StaticStructureSchema = [3, n0, _
 export var DeleteEnvironmentRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_eI],
-  [0]
+  [0], 1
 ];
 export var DeleteEnvironmentResult$: StaticStructureSchema = [3, n0, _DERe,
   0,
@@ -198,7 +198,7 @@ export var DescribeEnvironmentMembershipsResult$: StaticStructureSchema = [3, n0
 export var DescribeEnvironmentsRequest$: StaticStructureSchema = [3, n0, _DERes,
   0,
   [_eIn],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DescribeEnvironmentsResult$: StaticStructureSchema = [3, n0, _DEResc,
   0,
@@ -208,17 +208,17 @@ export var DescribeEnvironmentsResult$: StaticStructureSchema = [3, n0, _DEResc,
 export var DescribeEnvironmentStatusRequest$: StaticStructureSchema = [3, n0, _DESR,
   0,
   [_eI],
-  [0]
+  [0], 1
 ];
 export var DescribeEnvironmentStatusResult$: StaticStructureSchema = [3, n0, _DESRe,
   0,
   [_s, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Environment$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_i, _n, _d, _ty, _cT, _a, _oA, _l, _mCS],
-  [0, 0, [() => EnvironmentDescription, 0], 0, 0, 0, 0, () => EnvironmentLifecycle$, 0]
+  [_ty, _a, _oA, _i, _n, _d, _cT, _l, _mCS],
+  [0, 0, 0, 0, 0, [() => EnvironmentDescription, 0], 0, () => EnvironmentLifecycle$, 0], 3
 ];
 export var EnvironmentLifecycle$: StaticStructureSchema = [3, n0, _EL,
   0,
@@ -228,7 +228,7 @@ export var EnvironmentLifecycle$: StaticStructureSchema = [3, n0, _EL,
 export var EnvironmentMember$: StaticStructureSchema = [3, n0, _EM,
   0,
   [_p, _uI, _uA, _eI, _lA],
-  [0, 0, 0, 0, 4]
+  [0, 0, 0, 0, 4], 4
 ];
 export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
   { [_e]: _c },
@@ -261,7 +261,7 @@ export var ListEnvironmentsResult$: StaticStructureSchema = [3, n0, _LERi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -277,12 +277,12 @@ TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   8,
   [_K, _V],
-  [[() => TagKey, 0], [() => TagValue, 0]]
+  [[() => TagKey, 0], [() => TagValue, 0]], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _T],
-  [0, [() => TagList, 0]]
+  [0, [() => TagList, 0]], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -298,7 +298,7 @@ TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsExc
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TKa],
-  [0, [() => TagKeyList, 0]]
+  [0, [() => TagKeyList, 0]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -308,7 +308,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateEnvironmentMembershipRequest$: StaticStructureSchema = [3, n0, _UEMR,
   0,
   [_eI, _uA, _p],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var UpdateEnvironmentMembershipResult$: StaticStructureSchema = [3, n0, _UEMRp,
   0,
@@ -318,7 +318,7 @@ export var UpdateEnvironmentMembershipResult$: StaticStructureSchema = [3, n0, _
 export var UpdateEnvironmentRequest$: StaticStructureSchema = [3, n0, _UER,
   0,
   [_eI, _n, _d, _mCA],
-  [0, 0, [() => EnvironmentDescription, 0], 0]
+  [0, 0, [() => EnvironmentDescription, 0], 0], 1
 ];
 export var UpdateEnvironmentResult$: StaticStructureSchema = [3, n0, _UERp,
   0,

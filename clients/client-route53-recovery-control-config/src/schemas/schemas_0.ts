@@ -171,18 +171,18 @@ import { Route53RecoveryControlConfigServiceException } from "../models/Route53R
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
-  [[0, { [_jN]: _m }]]
+  [[0, { [_jN]: _m }]], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AssertionRule$: StaticStructureSchema = [3, n0, _AR,
   0,
   [_AC, _CPA, _N, _RC, _SRA, _S, _WPM, _O],
-  [64 | 0, 0, 0, () => RuleConfig$, 0, 0, 1, 0]
+  [64 | 0, 0, 0, () => RuleConfig$, 0, 0, 1, 0], 7
 ];
 export var AssertionRuleUpdate$: StaticStructureSchema = [3, n0, _ARU,
   0,
   [_N, _SRA, _WPM],
-  [0, 0, 1]
+  [0, 0, 1], 3
 ];
 export var Cluster$: StaticStructureSchema = [3, n0, _C,
   0,
@@ -197,7 +197,7 @@ export var ClusterEndpoint$: StaticStructureSchema = [3, n0, _CEl,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
   { [_e]: _c, [_hE]: 409 },
   [_M],
-  [[0, { [_jN]: _m }]]
+  [[0, { [_jN]: _m }]], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ControlPanel$: StaticStructureSchema = [3, n0, _CP,
@@ -207,8 +207,8 @@ export var ControlPanel$: StaticStructureSchema = [3, n0, _CP,
 ];
 export var CreateClusterRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_CT, _CN, _T, _NT],
-  [[0, 4], 0, 128 | 0, 0]
+  [_CN, _CT, _T, _NT],
+  [0, [0, 4], 128 | 0, 0], 1
 ];
 export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -217,8 +217,8 @@ export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreateControlPanelRequest$: StaticStructureSchema = [3, n0, _CCPR,
   0,
-  [_CT, _CA, _CPN, _T],
-  [[0, 4], 0, 0, 128 | 0]
+  [_CA, _CPN, _CT, _T],
+  [0, 0, [0, 4], 128 | 0], 2
 ];
 export var CreateControlPanelResponse$: StaticStructureSchema = [3, n0, _CCPRr,
   0,
@@ -227,8 +227,8 @@ export var CreateControlPanelResponse$: StaticStructureSchema = [3, n0, _CCPRr,
 ];
 export var CreateRoutingControlRequest$: StaticStructureSchema = [3, n0, _CRCR,
   0,
-  [_CT, _CA, _CPA, _RCN],
-  [[0, 4], 0, 0, 0]
+  [_CA, _RCN, _CT, _CPA],
+  [0, 0, [0, 4], 0], 2
 ];
 export var CreateRoutingControlResponse$: StaticStructureSchema = [3, n0, _CRCRr,
   0,
@@ -248,7 +248,7 @@ export var CreateSafetyRuleResponse$: StaticStructureSchema = [3, n0, _CSRRr,
 export var DeleteClusterRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_CA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteClusterResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -258,7 +258,7 @@ export var DeleteClusterResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteControlPanelRequest$: StaticStructureSchema = [3, n0, _DCPR,
   0,
   [_CPA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteControlPanelResponse$: StaticStructureSchema = [3, n0, _DCPRe,
   0,
@@ -268,7 +268,7 @@ export var DeleteControlPanelResponse$: StaticStructureSchema = [3, n0, _DCPRe,
 export var DeleteRoutingControlRequest$: StaticStructureSchema = [3, n0, _DRCR,
   0,
   [_RCA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteRoutingControlResponse$: StaticStructureSchema = [3, n0, _DRCRe,
   0,
@@ -278,7 +278,7 @@ export var DeleteRoutingControlResponse$: StaticStructureSchema = [3, n0, _DRCRe
 export var DeleteSafetyRuleRequest$: StaticStructureSchema = [3, n0, _DSRR,
   0,
   [_SRA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteSafetyRuleResponse$: StaticStructureSchema = [3, n0, _DSRRe,
   0,
@@ -288,7 +288,7 @@ export var DeleteSafetyRuleResponse$: StaticStructureSchema = [3, n0, _DSRRe,
 export var DescribeClusterRequest$: StaticStructureSchema = [3, n0, _DCRes,
   0,
   [_CA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeClusterResponse$: StaticStructureSchema = [3, n0, _DCResc,
   0,
@@ -298,7 +298,7 @@ export var DescribeClusterResponse$: StaticStructureSchema = [3, n0, _DCResc,
 export var DescribeControlPanelRequest$: StaticStructureSchema = [3, n0, _DCPRes,
   0,
   [_CPA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeControlPanelResponse$: StaticStructureSchema = [3, n0, _DCPResc,
   0,
@@ -308,7 +308,7 @@ export var DescribeControlPanelResponse$: StaticStructureSchema = [3, n0, _DCPRe
 export var DescribeRoutingControlRequest$: StaticStructureSchema = [3, n0, _DRCRes,
   0,
   [_RCA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeRoutingControlResponse$: StaticStructureSchema = [3, n0, _DRCResc,
   0,
@@ -318,7 +318,7 @@ export var DescribeRoutingControlResponse$: StaticStructureSchema = [3, n0, _DRC
 export var DescribeSafetyRuleRequest$: StaticStructureSchema = [3, n0, _DSRRes,
   0,
   [_SRA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeSafetyRuleResponse$: StaticStructureSchema = [3, n0, _DSRResc,
   0,
@@ -328,17 +328,17 @@ export var DescribeSafetyRuleResponse$: StaticStructureSchema = [3, n0, _DSRResc
 export var GatingRule$: StaticStructureSchema = [3, n0, _GR,
   0,
   [_CPA, _GC, _N, _RC, _SRA, _S, _TC, _WPM, _O],
-  [0, 64 | 0, 0, () => RuleConfig$, 0, 0, 64 | 0, 1, 0]
+  [0, 64 | 0, 0, () => RuleConfig$, 0, 0, 64 | 0, 1, 0], 8
 ];
 export var GatingRuleUpdate$: StaticStructureSchema = [3, n0, _GRU,
   0,
   [_N, _SRA, _WPM],
-  [0, 0, 1]
+  [0, 0, 1], 3
 ];
 export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   0,
@@ -348,13 +348,13 @@ export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_M],
-  [[0, { [_jN]: _m }]]
+  [[0, { [_jN]: _m }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListAssociatedRoute53HealthChecksRequest$: StaticStructureSchema = [3, n0, _LARHCR,
   0,
-  [_MR, _NTe, _RCA],
-  [[1, { [_hQ]: _MR }], [0, { [_hQ]: _NTe }], [0, 1]]
+  [_RCA, _MR, _NTe],
+  [[0, 1], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NTe }]], 1
 ];
 export var ListAssociatedRoute53HealthChecksResponse$: StaticStructureSchema = [3, n0, _LARHCRi,
   0,
@@ -384,7 +384,7 @@ export var ListControlPanelsResponse$: StaticStructureSchema = [3, n0, _LCPRi,
 export var ListRoutingControlsRequest$: StaticStructureSchema = [3, n0, _LRCR,
   0,
   [_CPA, _MR, _NTe],
-  [[0, 1], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NTe }]]
+  [[0, 1], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NTe }]], 1
 ];
 export var ListRoutingControlsResponse$: StaticStructureSchema = [3, n0, _LRCRi,
   0,
@@ -394,7 +394,7 @@ export var ListRoutingControlsResponse$: StaticStructureSchema = [3, n0, _LRCRi,
 export var ListSafetyRulesRequest$: StaticStructureSchema = [3, n0, _LSRR,
   0,
   [_CPA, _MR, _NTe],
-  [[0, 1], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NTe }]]
+  [[0, 1], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NTe }]], 1
 ];
 export var ListSafetyRulesResponse$: StaticStructureSchema = [3, n0, _LSRRi,
   0,
@@ -404,7 +404,7 @@ export var ListSafetyRulesResponse$: StaticStructureSchema = [3, n0, _LSRRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -414,17 +414,17 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var NewAssertionRule$: StaticStructureSchema = [3, n0, _NAR,
   0,
   [_AC, _CPA, _N, _RC, _WPM],
-  [64 | 0, 0, 0, () => RuleConfig$, 1]
+  [64 | 0, 0, 0, () => RuleConfig$, 1], 5
 ];
 export var NewGatingRule$: StaticStructureSchema = [3, n0, _NGR,
   0,
   [_CPA, _GC, _N, _RC, _TC, _WPM],
-  [0, 64 | 0, 0, () => RuleConfig$, 64 | 0, 1]
+  [0, 64 | 0, 0, () => RuleConfig$, 64 | 0, 1], 6
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_M],
-  [[0, { [_jN]: _m }]]
+  [[0, { [_jN]: _m }]], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RoutingControl$: StaticStructureSchema = [3, n0, _RCo,
@@ -440,18 +440,18 @@ export var Rule$: StaticStructureSchema = [3, n0, _Ru,
 export var RuleConfig$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_I, _Th, _Ty],
-  [2, 1, 0]
+  [2, 1, 0], 3
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_M],
-  [[0, { [_jN]: _m }]]
+  [[0, { [_jN]: _m }]], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _T],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -461,13 +461,13 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M],
-  [[0, { [_jN]: _m }]]
+  [[0, { [_jN]: _m }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _TK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _TK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -477,7 +477,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateClusterRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_CA, _NT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateClusterResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -487,7 +487,7 @@ export var UpdateClusterResponse$: StaticStructureSchema = [3, n0, _UCRp,
 export var UpdateControlPanelRequest$: StaticStructureSchema = [3, n0, _UCPR,
   0,
   [_CPA, _CPN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateControlPanelResponse$: StaticStructureSchema = [3, n0, _UCPRp,
   0,
@@ -497,7 +497,7 @@ export var UpdateControlPanelResponse$: StaticStructureSchema = [3, n0, _UCPRp,
 export var UpdateRoutingControlRequest$: StaticStructureSchema = [3, n0, _URCR,
   0,
   [_RCA, _RCN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateRoutingControlResponse$: StaticStructureSchema = [3, n0, _URCRp,
   0,
@@ -517,7 +517,7 @@ export var UpdateSafetyRuleResponse$: StaticStructureSchema = [3, n0, _USRRp,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
-  [[0, { [_jN]: _m }]]
+  [[0, { [_jN]: _m }]], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var Route53RecoveryControlConfigServiceException$: StaticErrorSchema = [-3, _sm, "Route53RecoveryControlConfigServiceException", 0, [], []];

@@ -646,7 +646,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AccountAssociationItem$: StaticStructureSchema = [3, n0, _AAI,
   0,
   [_AAIc, _AS, _EM, _CDIo, _N, _D, _Ar],
-  [0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0], 2
 ];
 export var AuthConfig$: StaticStructureSchema = [3, n0, _AC,
   0,
@@ -661,37 +661,37 @@ export var AuthConfigUpdate$: StaticStructureSchema = [3, n0, _ACU,
 export var CapabilityAction$: StaticStructureSchema = [3, n0, _CA,
   0,
   [_n, _r, _aTI, _p],
-  [0, 0, 0, [() => CapabilityProperties, 0]]
+  [0, 0, 0, [() => CapabilityProperties, 0]], 1
 ];
 export var CapabilityReport$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_v, _nI, _en],
-  [0, 0, () => CapabilityReportEndpoints]
+  [_v, _en, _nI],
+  [0, () => CapabilityReportEndpoints, 0], 2
 ];
 export var CapabilityReportCapability$: StaticStructureSchema = [3, n0, _CRC,
   0,
   [_i, _n, _v, _pr, _a, _ev],
-  [0, 0, 0, 64 | 0, 64 | 0, 64 | 0]
+  [0, 0, 0, 64 | 0, 64 | 0, 64 | 0], 6
 ];
 export var CapabilityReportEndpoint$: StaticStructureSchema = [3, n0, _CRE,
   0,
   [_i, _dT, _ca],
-  [0, 64 | 0, () => CapabilityReportCapabilities]
+  [0, 64 | 0, () => CapabilityReportCapabilities], 3
 ];
 export var CapabilitySchemaItem$: StaticStructureSchema = [3, n0, _CSI,
   0,
   [_F, _CI, _EI, _EV, _S],
-  [0, 0, 0, 1, 15]
+  [0, 0, 0, 1, 15], 5
 ];
 export var CommandCapability$: StaticStructureSchema = [3, n0, _CCo,
   0,
   [_i, _n, _v, _a],
-  [0, 0, 0, [() => CapabilityActions, 0]]
+  [0, 0, 0, [() => CapabilityActions, 0]], 4
 ];
 export var CommandEndpoint$: StaticStructureSchema = [3, n0, _CE,
   0,
   [_eI, _ca],
-  [0, [() => CommandCapabilities, 0]]
+  [0, [() => CommandCapabilities, 0]], 2
 ];
 export var ConfigurationError$: StaticStructureSchema = [3, n0, _CEo,
   0,
@@ -700,8 +700,8 @@ export var ConfigurationError$: StaticStructureSchema = [3, n0, _CEo,
 ];
 export var ConfigurationStatus$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_e, _s],
-  [() => ConfigurationError$, 0]
+  [_s, _e],
+  [0, () => ConfigurationError$], 1
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CEon,
   { [_e]: _c, [_hE]: 409 },
@@ -717,22 +717,22 @@ export var ConnectorDestinationSummary$: StaticStructureSchema = [3, n0, _CDS,
 export var ConnectorItem$: StaticStructureSchema = [3, n0, _CIo,
   0,
   [_N, _EC, _D, _ET, _I, _T],
-  [0, () => EndpointConfig$, 0, 0, 0, 0]
+  [0, () => EndpointConfig$, 0, 0, 0, 0], 2
 ];
 export var CreateAccountAssociationRequest$: StaticStructureSchema = [3, n0, _CAAR,
   0,
-  [_CT, _CDIo, _N, _D, _Ta],
-  [[0, 4], 0, 0, 0, [() => TagsMap, 0]]
+  [_CDIo, _CT, _N, _D, _Ta],
+  [0, [0, 4], 0, 0, [() => TagsMap, 0]], 1
 ];
 export var CreateAccountAssociationResponse$: StaticStructureSchema = [3, n0, _CAARr,
   0,
   [_OAAU, _AAIc, _AS, _Ar],
-  [[() => OAuthAuthorizationUrl, 0], 0, 0, 0]
+  [[() => OAuthAuthorizationUrl, 0], 0, 0, 0], 3
 ];
 export var CreateCloudConnectorRequest$: StaticStructureSchema = [3, n0, _CCCR,
   0,
   [_N, _EC, _D, _ET, _CT],
-  [0, () => EndpointConfig$, 0, 0, [0, 4]]
+  [0, () => EndpointConfig$, 0, 0, [0, 4]], 2
 ];
 export var CreateCloudConnectorResponse$: StaticStructureSchema = [3, n0, _CCCRr,
   0,
@@ -741,8 +741,8 @@ export var CreateCloudConnectorResponse$: StaticStructureSchema = [3, n0, _CCCRr
 ];
 export var CreateConnectorDestinationRequest$: StaticStructureSchema = [3, n0, _CCDR,
   0,
-  [_N, _D, _CCI, _AT, _AC, _SM, _CT],
-  [0, 0, 0, 0, () => AuthConfig$, () => SecretsManager$, [0, 4]]
+  [_CCI, _AT, _AC, _SM, _N, _D, _CT],
+  [0, 0, () => AuthConfig$, () => SecretsManager$, 0, 0, [0, 4]], 4
 ];
 export var CreateConnectorDestinationResponse$: StaticStructureSchema = [3, n0, _CCDRr,
   0,
@@ -762,7 +762,7 @@ export var CreateCredentialLockerResponse$: StaticStructureSchema = [3, n0, _CCL
 export var CreateDestinationRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_DDA, _DDT, _N, _RA, _CT, _D, _Ta],
-  [0, 0, 0, 0, [0, 4], 0, [() => TagsMap, 0]]
+  [0, 0, 0, 0, [0, 4], 0, [() => TagsMap, 0]], 4
 ];
 export var CreateDestinationResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -771,8 +771,8 @@ export var CreateDestinationResponse$: StaticStructureSchema = [3, n0, _CDRr,
 ];
 export var CreateEventLogConfigurationRequest$: StaticStructureSchema = [3, n0, _CELCR,
   0,
-  [_RT, _RI, _ELL, _CT],
-  [0, 0, 0, [0, 4]]
+  [_RT, _ELL, _RI, _CT],
+  [0, 0, 0, [0, 4]], 2
 ];
 export var CreateEventLogConfigurationResponse$: StaticStructureSchema = [3, n0, _CELCRr,
   0,
@@ -781,8 +781,8 @@ export var CreateEventLogConfigurationResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CreateManagedThingRequest$: StaticStructureSchema = [3, n0, _CMTR,
   0,
-  [_R, _O, _CLI, _AM, _AMT, _WFSSC, _SN, _B, _M, _N, _CR, _CSa, _Ca, _CT, _C, _Ta, _MD],
-  [0, [() => Owner, 0], 0, [() => AuthMaterialString, 0], 0, () => WiFiSimpleSetupConfiguration$, [() => SerialNumber, 0], [() => Brand, 0], [() => Model, 0], 0, () => CapabilityReport$, () => CapabilitySchemas, 0, [0, 4], [() => Classification, 0], [() => TagsMap, 0], 128 | 0]
+  [_R, _AM, _AMT, _O, _CLI, _WFSSC, _SN, _B, _M, _N, _CR, _CSa, _Ca, _CT, _C, _Ta, _MD],
+  [0, [() => AuthMaterialString, 0], 0, [() => Owner, 0], 0, () => WiFiSimpleSetupConfiguration$, [() => SerialNumber, 0], [() => Brand, 0], [() => Model, 0], 0, () => CapabilityReport$, () => CapabilitySchemas, 0, [0, 4], [() => Classification, 0], [() => TagsMap, 0], 128 | 0], 3
 ];
 export var CreateManagedThingResponse$: StaticStructureSchema = [3, n0, _CMTRr,
   0,
@@ -792,7 +792,7 @@ export var CreateManagedThingResponse$: StaticStructureSchema = [3, n0, _CMTRr,
 export var CreateNotificationConfigurationRequest$: StaticStructureSchema = [3, n0, _CNCR,
   0,
   [_ETv, _DN, _CT, _Ta],
-  [0, 0, [0, 4], [() => TagsMap, 0]]
+  [0, 0, [0, 4], [() => TagsMap, 0]], 2
 ];
 export var CreateNotificationConfigurationResponse$: StaticStructureSchema = [3, n0, _CNCRr,
   0,
@@ -811,8 +811,8 @@ export var CreateOtaTaskConfigurationResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateOtaTaskRequest$: StaticStructureSchema = [3, n0, _COTR,
   0,
-  [_D, _SU, _P, _Tar, _TCI, _OM, _OT, _OTQS, _CT, _OSC, _OTERC, _Ta],
-  [0, 0, 0, 64 | 0, 0, 0, 0, 0, [0, 4], () => OtaTaskSchedulingConfig$, () => OtaTaskExecutionRetryConfig$, [() => TagsMap, 0]]
+  [_SU, _OT, _D, _P, _Tar, _TCI, _OM, _OTQS, _CT, _OSC, _OTERC, _Ta],
+  [0, 0, 0, 0, 64 | 0, 0, 0, 0, [0, 4], () => OtaTaskSchedulingConfig$, () => OtaTaskExecutionRetryConfig$, [() => TagsMap, 0]], 2
 ];
 export var CreateOtaTaskResponse$: StaticStructureSchema = [3, n0, _COTRr,
   0,
@@ -822,7 +822,7 @@ export var CreateOtaTaskResponse$: StaticStructureSchema = [3, n0, _COTRr,
 export var CreateProvisioningProfileRequest$: StaticStructureSchema = [3, n0, _CPPR,
   0,
   [_PT, _CC, _N, _CT, _Ta],
-  [0, [() => CaCertificate, 0], 0, [0, 4], [() => TagsMap, 0]]
+  [0, [() => CaCertificate, 0], 0, [0, 4], [() => TagsMap, 0]], 1
 ];
 export var CreateProvisioningProfileResponse$: StaticStructureSchema = [3, n0, _CPPRr,
   0,
@@ -837,62 +837,62 @@ export var CredentialLockerSummary$: StaticStructureSchema = [3, n0, _CLS,
 export var DeleteAccountAssociationRequest$: StaticStructureSchema = [3, n0, _DAAR,
   0,
   [_AAIc],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteCloudConnectorRequest$: StaticStructureSchema = [3, n0, _DCCR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteConnectorDestinationRequest$: StaticStructureSchema = [3, n0, _DCDR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteCredentialLockerRequest$: StaticStructureSchema = [3, n0, _DCLR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteDestinationRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteEventLogConfigurationRequest$: StaticStructureSchema = [3, n0, _DELCR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteManagedThingRequest$: StaticStructureSchema = [3, n0, _DMTR,
   0,
   [_Id, _Fo],
-  [[0, 1], [2, { [_hQ]: _Fo }]]
+  [[0, 1], [2, { [_hQ]: _Fo }]], 1
 ];
 export var DeleteNotificationConfigurationRequest$: StaticStructureSchema = [3, n0, _DNCR,
   0,
   [_ETv],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteOtaTaskConfigurationRequest$: StaticStructureSchema = [3, n0, _DOTCR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteOtaTaskRequest$: StaticStructureSchema = [3, n0, _DOTR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteProvisioningProfileRequest$: StaticStructureSchema = [3, n0, _DPPR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeregisterAccountAssociationRequest$: StaticStructureSchema = [3, n0, _DAARe,
   0,
   [_MTI, _AAIc],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DestinationSummary$: StaticStructureSchema = [3, n0, _DS,
   0,
@@ -901,8 +901,8 @@ export var DestinationSummary$: StaticStructureSchema = [3, n0, _DS,
 ];
 export var Device$: StaticStructureSchema = [3, n0, _De,
   0,
-  [_CDI, _CDN, _CR, _CSa, _DM],
-  [[() => ConnectorDeviceId, 0], [() => ConnectorDeviceName, 0], () => MatterCapabilityReport$, () => CapabilitySchemas, 15]
+  [_CDI, _CR, _CDN, _CSa, _DM],
+  [[() => ConnectorDeviceId, 0], () => MatterCapabilityReport$, [() => ConnectorDeviceName, 0], () => CapabilitySchemas, 15], 2
 ];
 export var DeviceDiscoverySummary$: StaticStructureSchema = [3, n0, _DDS,
   0,
@@ -932,27 +932,27 @@ export var ExponentialRolloutRate$: StaticStructureSchema = [3, n0, _ERR,
 export var GetAccountAssociationRequest$: StaticStructureSchema = [3, n0, _GAAR,
   0,
   [_AAIc],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetAccountAssociationResponse$: StaticStructureSchema = [3, n0, _GAARe,
   0,
-  [_AAIc, _AS, _EM, _CDIo, _N, _D, _Ar, _OAAU, _Ta],
-  [0, 0, 0, 0, 0, 0, 0, [() => OAuthAuthorizationUrl, 0], [() => TagsMap, 0]]
+  [_AAIc, _AS, _OAAU, _EM, _CDIo, _N, _D, _Ar, _Ta],
+  [0, 0, [() => OAuthAuthorizationUrl, 0], 0, 0, 0, 0, 0, [() => TagsMap, 0]], 3
 ];
 export var GetCloudConnectorRequest$: StaticStructureSchema = [3, n0, _GCCR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetCloudConnectorResponse$: StaticStructureSchema = [3, n0, _GCCRe,
   0,
   [_N, _EC, _D, _ET, _I, _T],
-  [0, () => EndpointConfig$, 0, 0, 0, 0]
+  [0, () => EndpointConfig$, 0, 0, 0, 0], 2
 ];
 export var GetConnectorDestinationRequest$: StaticStructureSchema = [3, n0, _GCDR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetConnectorDestinationResponse$: StaticStructureSchema = [3, n0, _GCDRe,
   0,
@@ -962,7 +962,7 @@ export var GetConnectorDestinationResponse$: StaticStructureSchema = [3, n0, _GC
 export var GetCredentialLockerRequest$: StaticStructureSchema = [3, n0, _GCLR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetCredentialLockerResponse$: StaticStructureSchema = [3, n0, _GCLRe,
   0,
@@ -977,7 +977,7 @@ export var GetCustomEndpointRequest$: StaticStructureSchema = [3, n0, _GCER,
 export var GetCustomEndpointResponse$: StaticStructureSchema = [3, n0, _GCERe,
   0,
   [_EA],
-  [0]
+  [0], 1
 ];
 export var GetDefaultEncryptionConfigurationRequest$: StaticStructureSchema = [3, n0, _GDECR,
   0,
@@ -987,12 +987,12 @@ export var GetDefaultEncryptionConfigurationRequest$: StaticStructureSchema = [3
 export var GetDefaultEncryptionConfigurationResponse$: StaticStructureSchema = [3, n0, _GDECRe,
   0,
   [_cS, _eT, _kKA],
-  [() => ConfigurationStatus$, 0, 0]
+  [() => ConfigurationStatus$, 0, 0], 2
 ];
 export var GetDestinationRequest$: StaticStructureSchema = [3, n0, _GDR,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDestinationResponse$: StaticStructureSchema = [3, n0, _GDRe,
   0,
@@ -1002,17 +1002,17 @@ export var GetDestinationResponse$: StaticStructureSchema = [3, n0, _GDRe,
 export var GetDeviceDiscoveryRequest$: StaticStructureSchema = [3, n0, _GDDR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDeviceDiscoveryResponse$: StaticStructureSchema = [3, n0, _GDDRe,
   0,
   [_I, _Ar, _DT, _St, _SA, _CIon, _CAI, _AAIc, _FA, _Ta],
-  [0, 0, 0, 0, 4, 0, 0, 0, 4, [() => TagsMap, 0]]
+  [0, 0, 0, 0, 4, 0, 0, 0, 4, [() => TagsMap, 0]], 5
 ];
 export var GetEventLogConfigurationRequest$: StaticStructureSchema = [3, n0, _GELCR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetEventLogConfigurationResponse$: StaticStructureSchema = [3, n0, _GELCRe,
   0,
@@ -1032,7 +1032,7 @@ export var GetHubConfigurationResponse$: StaticStructureSchema = [3, n0, _GHCRe,
 export var GetManagedThingCapabilitiesRequest$: StaticStructureSchema = [3, n0, _GMTCR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetManagedThingCapabilitiesResponse$: StaticStructureSchema = [3, n0, _GMTCRe,
   0,
@@ -1042,7 +1042,7 @@ export var GetManagedThingCapabilitiesResponse$: StaticStructureSchema = [3, n0,
 export var GetManagedThingCertificateRequest$: StaticStructureSchema = [3, n0, _GMTCRet,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetManagedThingCertificateResponse$: StaticStructureSchema = [3, n0, _GMTCReta,
   0,
@@ -1052,7 +1052,7 @@ export var GetManagedThingCertificateResponse$: StaticStructureSchema = [3, n0, 
 export var GetManagedThingConnectivityDataRequest$: StaticStructureSchema = [3, n0, _GMTCDR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetManagedThingConnectivityDataResponse$: StaticStructureSchema = [3, n0, _GMTCDRe,
   0,
@@ -1062,7 +1062,7 @@ export var GetManagedThingConnectivityDataResponse$: StaticStructureSchema = [3,
 export var GetManagedThingMetaDataRequest$: StaticStructureSchema = [3, n0, _GMTMDR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetManagedThingMetaDataResponse$: StaticStructureSchema = [3, n0, _GMTMDRe,
   0,
@@ -1072,7 +1072,7 @@ export var GetManagedThingMetaDataResponse$: StaticStructureSchema = [3, n0, _GM
 export var GetManagedThingRequest$: StaticStructureSchema = [3, n0, _GMTR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetManagedThingResponse$: StaticStructureSchema = [3, n0, _GMTRe,
   0,
@@ -1082,17 +1082,17 @@ export var GetManagedThingResponse$: StaticStructureSchema = [3, n0, _GMTRe,
 export var GetManagedThingStateRequest$: StaticStructureSchema = [3, n0, _GMTSR,
   0,
   [_MTI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetManagedThingStateResponse$: StaticStructureSchema = [3, n0, _GMTSRe,
   0,
   [_E],
-  [[() => StateEndpoints, 0]]
+  [[() => StateEndpoints, 0]], 1
 ];
 export var GetNotificationConfigurationRequest$: StaticStructureSchema = [3, n0, _GNCR,
   0,
   [_ETv],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetNotificationConfigurationResponse$: StaticStructureSchema = [3, n0, _GNCRe,
   0,
@@ -1102,7 +1102,7 @@ export var GetNotificationConfigurationResponse$: StaticStructureSchema = [3, n0
 export var GetOtaTaskConfigurationRequest$: StaticStructureSchema = [3, n0, _GOTCR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetOtaTaskConfigurationResponse$: StaticStructureSchema = [3, n0, _GOTCRe,
   0,
@@ -1112,7 +1112,7 @@ export var GetOtaTaskConfigurationResponse$: StaticStructureSchema = [3, n0, _GO
 export var GetOtaTaskRequest$: StaticStructureSchema = [3, n0, _GOTR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetOtaTaskResponse$: StaticStructureSchema = [3, n0, _GOTRe,
   0,
@@ -1122,7 +1122,7 @@ export var GetOtaTaskResponse$: StaticStructureSchema = [3, n0, _GOTRe,
 export var GetProvisioningProfileRequest$: StaticStructureSchema = [3, n0, _GPPR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetProvisioningProfileResponse$: StaticStructureSchema = [3, n0, _GPPRe,
   0,
@@ -1132,7 +1132,7 @@ export var GetProvisioningProfileResponse$: StaticStructureSchema = [3, n0, _GPP
 export var GetRuntimeLogConfigurationRequest$: StaticStructureSchema = [3, n0, _GRLCR,
   0,
   [_MTI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetRuntimeLogConfigurationResponse$: StaticStructureSchema = [3, n0, _GRLCRe,
   0,
@@ -1142,7 +1142,7 @@ export var GetRuntimeLogConfigurationResponse$: StaticStructureSchema = [3, n0, 
 export var GetSchemaVersionRequest$: StaticStructureSchema = [3, n0, _GSVR,
   0,
   [_T, _SVI, _F],
-  [[0, 1], [0, 1], [0, { [_hQ]: _F }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _F }]], 2
 ];
 export var GetSchemaVersionResponse$: StaticStructureSchema = [3, n0, _GSVRe,
   0,
@@ -1170,7 +1170,7 @@ TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestExcep
 export var LambdaConfig$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_ar],
-  [0]
+  [0], 1
 ];
 export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
   { [_e]: _c, [_hE]: 410 },
@@ -1241,7 +1241,7 @@ export var ListDeviceDiscoveriesResponse$: StaticStructureSchema = [3, n0, _LDDR
 export var ListDiscoveredDevicesRequest$: StaticStructureSchema = [3, n0, _LDDRis,
   0,
   [_Id, _NT, _MR],
-  [[0, 1], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]]
+  [[0, 1], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]], 1
 ];
 export var ListDiscoveredDevicesResponse$: StaticStructureSchema = [3, n0, _LDDRist,
   0,
@@ -1271,7 +1271,7 @@ export var ListManagedThingAccountAssociationsResponse$: StaticStructureSchema =
 export var ListManagedThingSchemasRequest$: StaticStructureSchema = [3, n0, _LMTSR,
   0,
   [_Id, _EIF, _CIF, _NT, _MR],
-  [[0, 1], [0, { [_hQ]: _EIF }], [0, { [_hQ]: _CIF }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]]
+  [[0, 1], [0, { [_hQ]: _EIF }], [0, { [_hQ]: _CIF }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]], 1
 ];
 export var ListManagedThingSchemasResponse$: StaticStructureSchema = [3, n0, _LMTSRi,
   0,
@@ -1311,7 +1311,7 @@ export var ListOtaTaskConfigurationsResponse$: StaticStructureSchema = [3, n0, _
 export var ListOtaTaskExecutionsRequest$: StaticStructureSchema = [3, n0, _LOTER,
   0,
   [_Id, _NT, _MR],
-  [[0, 1], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]]
+  [[0, 1], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]], 1
 ];
 export var ListOtaTaskExecutionsResponse$: StaticStructureSchema = [3, n0, _LOTERi,
   0,
@@ -1341,7 +1341,7 @@ export var ListProvisioningProfilesResponse$: StaticStructureSchema = [3, n0, _L
 export var ListSchemaVersionsRequest$: StaticStructureSchema = [3, n0, _LSVR,
   0,
   [_T, _MR, _NT, _SI, _Na, _V, _SV],
-  [[0, 1], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], [0, { [_hQ]: _SIF }], [0, { [_hQ]: _NF }], [0, { [_hQ]: _VF }], [0, { [_hQ]: _SVF }]]
+  [[0, 1], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], [0, { [_hQ]: _SIF }], [0, { [_hQ]: _NF }], [0, { [_hQ]: _VF }], [0, { [_hQ]: _SVF }]], 1
 ];
 export var ListSchemaVersionsResponse$: StaticStructureSchema = [3, n0, _LSVRi,
   0,
@@ -1351,7 +1351,7 @@ export var ListSchemaVersionsResponse$: StaticStructureSchema = [3, n0, _LSVRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RAe],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1375,8 +1375,8 @@ export var ManagedThingSummary$: StaticStructureSchema = [3, n0, _MTS,
 ];
 export var MatterCapabilityReport$: StaticStructureSchema = [3, n0, _MCR,
   0,
-  [_v, _nI, _en],
-  [0, 0, () => MatterCapabilityReportEndpoints]
+  [_v, _en, _nI],
+  [0, () => MatterCapabilityReportEndpoints, 0], 2
 ];
 export var MatterCapabilityReportAttribute$: StaticStructureSchema = [3, n0, _MCRA,
   0,
@@ -1386,12 +1386,12 @@ export var MatterCapabilityReportAttribute$: StaticStructureSchema = [3, n0, _MC
 export var MatterCapabilityReportCluster$: StaticStructureSchema = [3, n0, _MCRC,
   0,
   [_i, _re, _pI, _n, _sV, _at, _com, _ev, _fM, _gC, _fI],
-  [0, 1, 0, 0, 0, () => MatterCapabilityReportAttributes, 64 | 0, 64 | 0, 1, 64 | 0, 1]
+  [0, 1, 0, 0, 0, () => MatterCapabilityReportAttributes, 64 | 0, 64 | 0, 1, 64 | 0, 1], 2
 ];
 export var MatterCapabilityReportEndpoint$: StaticStructureSchema = [3, n0, _MCRE,
   0,
   [_i, _dT, _cl, _pa, _sT, _cC],
-  [0, 64 | 0, () => MatterCapabilityReportClusters, 64 | 0, 64 | 0, 64 | 0]
+  [0, 64 | 0, () => MatterCapabilityReportClusters, 64 | 0, 64 | 0, 64 | 0], 3
 ];
 export var MatterCluster$: StaticStructureSchema = [3, n0, _MC,
   0,
@@ -1410,8 +1410,8 @@ export var NotificationConfigurationSummary$: StaticStructureSchema = [3, n0, _N
 ];
 export var OAuthConfig$: StaticStructureSchema = [3, n0, _OAC,
   0,
-  [_aU, _tU, _sc, _tEAS, _oACRU, _pRTR],
-  [0, 0, 0, 0, 0, () => ProactiveRefreshTokenRenewal$]
+  [_aU, _tU, _tEAS, _sc, _oACRU, _pRTR],
+  [0, 0, 0, 0, 0, () => ProactiveRefreshTokenRenewal$], 3
 ];
 export var OAuthUpdate$: StaticStructureSchema = [3, n0, _OAU,
   0,
@@ -1481,17 +1481,17 @@ export var PushConfig$: StaticStructureSchema = [3, n0, _PC,
 export var PutDefaultEncryptionConfigurationRequest$: StaticStructureSchema = [3, n0, _PDECR,
   0,
   [_eT, _kKA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var PutDefaultEncryptionConfigurationResponse$: StaticStructureSchema = [3, n0, _PDECRu,
   0,
   [_cS, _eT, _kKA],
-  [() => ConfigurationStatus$, 0, 0]
+  [() => ConfigurationStatus$, 0, 0], 2
 ];
 export var PutHubConfigurationRequest$: StaticStructureSchema = [3, n0, _PHCR,
   0,
   [_HTTESIS],
-  [1]
+  [1], 1
 ];
 export var PutHubConfigurationResponse$: StaticStructureSchema = [3, n0, _PHCRu,
   0,
@@ -1501,12 +1501,12 @@ export var PutHubConfigurationResponse$: StaticStructureSchema = [3, n0, _PHCRu,
 export var PutRuntimeLogConfigurationRequest$: StaticStructureSchema = [3, n0, _PRLCR,
   0,
   [_MTI, _RLC],
-  [[0, 1], () => RuntimeLogConfigurations$]
+  [[0, 1], () => RuntimeLogConfigurations$], 2
 ];
 export var RegisterAccountAssociationRequest$: StaticStructureSchema = [3, n0, _RAAR,
   0,
   [_MTI, _AAIc, _DDI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var RegisterAccountAssociationResponse$: StaticStructureSchema = [3, n0, _RAARe,
   0,
@@ -1521,12 +1521,12 @@ export var RegisterCustomEndpointRequest$: StaticStructureSchema = [3, n0, _RCER
 export var RegisterCustomEndpointResponse$: StaticStructureSchema = [3, n0, _RCERe,
   0,
   [_EA],
-  [0]
+  [0], 1
 ];
 export var ResetRuntimeLogConfigurationRequest$: StaticStructureSchema = [3, n0, _RRLCR,
   0,
   [_MTI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -1562,22 +1562,22 @@ export var SchemaVersionListItem$: StaticStructureSchema = [3, n0, _SVLI,
 export var SecretsManager$: StaticStructureSchema = [3, n0, _SM,
   0,
   [_ar, _vI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SendConnectorEventRequest$: StaticStructureSchema = [3, n0, _SCER,
   0,
-  [_CIonn, _UI, _Op, _OV, _SC, _Me, _DDI, _CDI, _TIr, _Dev, _ME],
-  [[0, 1], [() => ThirdPartyUserId, 0], 0, [() => ConnectorEventOperationVersion, 0], [() => ConnectorEventStatusCode, 0], [() => ConnectorEventMessage, 0], 0, [() => ConnectorDeviceId, 0], 0, [() => Devices, 0], [() => MatterEndpoint$, 0]]
+  [_CIonn, _Op, _UI, _OV, _SC, _Me, _DDI, _CDI, _TIr, _Dev, _ME],
+  [[0, 1], 0, [() => ThirdPartyUserId, 0], [() => ConnectorEventOperationVersion, 0], [() => ConnectorEventStatusCode, 0], [() => ConnectorEventMessage, 0], 0, [() => ConnectorDeviceId, 0], 0, [() => Devices, 0], [() => MatterEndpoint$, 0]], 2
 ];
 export var SendConnectorEventResponse$: StaticStructureSchema = [3, n0, _SCERe,
   0,
   [_CIonn],
-  [0]
+  [0], 1
 ];
 export var SendManagedThingCommandRequest$: StaticStructureSchema = [3, n0, _SMTCR,
   0,
   [_MTI, _E, _CAI, _AAIc],
-  [[0, 1], [() => CommandEndpoints, 0], 0, 0]
+  [[0, 1], [() => CommandEndpoints, 0], 0, 0], 2
 ];
 export var SendManagedThingCommandResponse$: StaticStructureSchema = [3, n0, _SMTCRe,
   0,
@@ -1599,17 +1599,17 @@ TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavaila
 export var StartAccountAssociationRefreshRequest$: StaticStructureSchema = [3, n0, _SAARR,
   0,
   [_AAIc],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var StartAccountAssociationRefreshResponse$: StaticStructureSchema = [3, n0, _SAARRt,
   0,
   [_OAAU],
-  [[() => OAuthAuthorizationUrl, 0]]
+  [[() => OAuthAuthorizationUrl, 0]], 1
 ];
 export var StartDeviceDiscoveryRequest$: StaticStructureSchema = [3, n0, _SDDR,
   0,
   [_DT, _CPD, _CIont, _CAIo, _AAIc, _AM, _AMT, _CT, _Ta, _P, _EDI],
-  [0, 128 | 0, 0, 0, 0, [() => DiscoveryAuthMaterialString, 0], 0, 0, [() => TagsMap, 0], 0, 0]
+  [0, 128 | 0, 0, 0, 0, [() => DiscoveryAuthMaterialString, 0], 0, 0, [() => TagsMap, 0], 0, 0], 1
 ];
 export var StartDeviceDiscoveryResponse$: StaticStructureSchema = [3, n0, _SDDRt,
   0,
@@ -1619,17 +1619,17 @@ export var StartDeviceDiscoveryResponse$: StaticStructureSchema = [3, n0, _SDDRt
 export var StateCapability$: StaticStructureSchema = [3, n0, _SCt,
   0,
   [_i, _n, _v, _pr],
-  [0, 0, 0, [() => CapabilityProperties, 0]]
+  [0, 0, 0, [() => CapabilityProperties, 0]], 3
 ];
 export var StateEndpoint$: StaticStructureSchema = [3, n0, _SE,
   0,
   [_eI, _ca],
-  [0, [() => StateCapabilities, 0]]
+  [0, [() => StateCapabilities, 0]], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAe, _Ta],
-  [[0, 1], [() => TagsMap, 0]]
+  [[0, 1], [() => TagsMap, 0]], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1656,7 +1656,7 @@ TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1666,42 +1666,42 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateAccountAssociationRequest$: StaticStructureSchema = [3, n0, _UAAR,
   0,
   [_AAIc, _N, _D],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 1
 ];
 export var UpdateCloudConnectorRequest$: StaticStructureSchema = [3, n0, _UCCR,
   0,
   [_Id, _N, _D],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 1
 ];
 export var UpdateConnectorDestinationRequest$: StaticStructureSchema = [3, n0, _UCDR,
   0,
   [_Id, _D, _N, _AT, _AC, _SM],
-  [[0, 1], 0, 0, 0, () => AuthConfigUpdate$, () => SecretsManager$]
+  [[0, 1], 0, 0, 0, () => AuthConfigUpdate$, () => SecretsManager$], 1
 ];
 export var UpdateDestinationRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
   [_N, _DDA, _DDT, _RA, _D],
-  [[0, 1], 0, 0, 0, 0]
+  [[0, 1], 0, 0, 0, 0], 1
 ];
 export var UpdateEventLogConfigurationRequest$: StaticStructureSchema = [3, n0, _UELCR,
   0,
   [_I, _ELL],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var UpdateManagedThingRequest$: StaticStructureSchema = [3, n0, _UMTR,
   0,
   [_Id, _O, _CLI, _SN, _WFSSC, _B, _M, _N, _CR, _CSa, _Ca, _C, _HNM, _MD],
-  [[0, 1], [() => Owner, 0], 0, [() => SerialNumber, 0], () => WiFiSimpleSetupConfiguration$, [() => Brand, 0], [() => Model, 0], 0, () => CapabilityReport$, () => CapabilitySchemas, 0, [() => Classification, 0], 0, 128 | 0]
+  [[0, 1], [() => Owner, 0], 0, [() => SerialNumber, 0], () => WiFiSimpleSetupConfiguration$, [() => Brand, 0], [() => Model, 0], 0, () => CapabilityReport$, () => CapabilitySchemas, 0, [() => Classification, 0], 0, 128 | 0], 1
 ];
 export var UpdateNotificationConfigurationRequest$: StaticStructureSchema = [3, n0, _UNCR,
   0,
   [_ETv, _DN],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var UpdateOtaTaskRequest$: StaticStructureSchema = [3, n0, _UOTR,
   0,
   [_Id, _D, _TCI],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },

@@ -156,7 +156,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateSuiteDefinitionRequest$: StaticStructureSchema = [3, n0, _CSDR,
   0,
   [_sDC, _t, _cT],
-  [() => SuiteDefinitionConfiguration$, 128 | 0, [0, 4]]
+  [() => SuiteDefinitionConfiguration$, 128 | 0, [0, 4]], 1
 ];
 export var CreateSuiteDefinitionResponse$: StaticStructureSchema = [3, n0, _CSDRr,
   0,
@@ -166,7 +166,7 @@ export var CreateSuiteDefinitionResponse$: StaticStructureSchema = [3, n0, _CSDR
 export var DeleteSuiteDefinitionRequest$: StaticStructureSchema = [3, n0, _DSDR,
   0,
   [_sDI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteSuiteDefinitionResponse$: StaticStructureSchema = [3, n0, _DSDRe,
   0,
@@ -191,7 +191,7 @@ export var GetEndpointResponse$: StaticStructureSchema = [3, n0, _GERe,
 export var GetSuiteDefinitionRequest$: StaticStructureSchema = [3, n0, _GSDR,
   0,
   [_sDI, _sDV],
-  [[0, 1], [0, { [_hQ]: _sDV }]]
+  [[0, 1], [0, { [_hQ]: _sDV }]], 1
 ];
 export var GetSuiteDefinitionResponse$: StaticStructureSchema = [3, n0, _GSDRe,
   0,
@@ -201,7 +201,7 @@ export var GetSuiteDefinitionResponse$: StaticStructureSchema = [3, n0, _GSDRe,
 export var GetSuiteRunReportRequest$: StaticStructureSchema = [3, n0, _GSRRR,
   0,
   [_sDI, _sRI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetSuiteRunReportResponse$: StaticStructureSchema = [3, n0, _GSRRRe,
   0,
@@ -211,7 +211,7 @@ export var GetSuiteRunReportResponse$: StaticStructureSchema = [3, n0, _GSRRRe,
 export var GetSuiteRunRequest$: StaticStructureSchema = [3, n0, _GSRR,
   0,
   [_sDI, _sRI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetSuiteRunResponse$: StaticStructureSchema = [3, n0, _GSRRe,
   0,
@@ -252,7 +252,7 @@ export var ListSuiteRunsResponse$: StaticStructureSchema = [3, n0, _LSRRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -267,8 +267,8 @@ export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var StartSuiteRunRequest$: StaticStructureSchema = [3, n0, _SSRR,
   0,
-  [_sDI, _sDV, _sRC, _t],
-  [[0, 1], 0, () => SuiteRunConfiguration$, 128 | 0]
+  [_sDI, _sRC, _sDV, _t],
+  [[0, 1], () => SuiteRunConfiguration$, 0, 128 | 0], 2
 ];
 export var StartSuiteRunResponse$: StaticStructureSchema = [3, n0, _SSRRt,
   0,
@@ -278,7 +278,7 @@ export var StartSuiteRunResponse$: StaticStructureSchema = [3, n0, _SSRRt,
 export var StopSuiteRunRequest$: StaticStructureSchema = [3, n0, _SSRRto,
   0,
   [_sDI, _sRI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var StopSuiteRunResponse$: StaticStructureSchema = [3, n0, _SSRRtop,
   0,
@@ -287,8 +287,8 @@ export var StopSuiteRunResponse$: StaticStructureSchema = [3, n0, _SSRRtop,
 ];
 export var SuiteDefinitionConfiguration$: StaticStructureSchema = [3, n0, _SDC,
   0,
-  [_sDN, _d, _iFQ, _iLDT, _rG, _dPRA, _p],
-  [0, () => DeviceUnderTestList, 2, 2, 0, 0, 0]
+  [_sDN, _rG, _dPRA, _d, _iFQ, _iLDT, _p],
+  [0, 0, 0, () => DeviceUnderTestList, 2, 2, 0], 3
 ];
 export var SuiteDefinitionInformation$: StaticStructureSchema = [3, n0, _SDI,
   0,
@@ -298,7 +298,7 @@ export var SuiteDefinitionInformation$: StaticStructureSchema = [3, n0, _SDI,
 export var SuiteRunConfiguration$: StaticStructureSchema = [3, n0, _SRC,
   0,
   [_pD, _sTL, _pR],
-  [() => DeviceUnderTest$, 64 | 0, 2]
+  [() => DeviceUnderTest$, 64 | 0, 2], 1
 ];
 export var SuiteRunInformation$: StaticStructureSchema = [3, n0, _SRI,
   0,
@@ -308,7 +308,7 @@ export var SuiteRunInformation$: StaticStructureSchema = [3, n0, _SRI,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -333,7 +333,7 @@ export var TestResult$: StaticStructureSchema = [3, n0, _TR,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -343,7 +343,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateSuiteDefinitionRequest$: StaticStructureSchema = [3, n0, _USDR,
   0,
   [_sDI, _sDC],
-  [[0, 1], () => SuiteDefinitionConfiguration$]
+  [[0, 1], () => SuiteDefinitionConfiguration$], 2
 ];
 export var UpdateSuiteDefinitionResponse$: StaticStructureSchema = [3, n0, _USDRp,
   0,

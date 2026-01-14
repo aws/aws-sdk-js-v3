@@ -231,7 +231,7 @@ import {
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var BaselineOperation$: StaticStructureSchema = [3, n0, _BO,
@@ -242,12 +242,12 @@ export var BaselineOperation$: StaticStructureSchema = [3, n0, _BO,
 export var BaselineSummary$: StaticStructureSchema = [3, n0, _BS,
   0,
   [_a, _n, _d],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ControlOperation$: StaticStructureSchema = [3, n0, _CO,
@@ -268,32 +268,32 @@ export var ControlOperationSummary$: StaticStructureSchema = [3, n0, _COS,
 export var CreateLandingZoneInput$: StaticStructureSchema = [3, n0, _CLZI,
   0,
   [_v, _rT, _t, _ma],
-  [0, 64 | 0, 128 | 0, 15]
+  [0, 64 | 0, 128 | 0, 15], 1
 ];
 export var CreateLandingZoneOutput$: StaticStructureSchema = [3, n0, _CLZO,
   0,
   [_a, _oI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteLandingZoneInput$: StaticStructureSchema = [3, n0, _DLZI,
   0,
   [_lZI],
-  [0]
+  [0], 1
 ];
 export var DeleteLandingZoneOutput$: StaticStructureSchema = [3, n0, _DLZO,
   0,
   [_oI],
-  [0]
+  [0], 1
 ];
 export var DisableBaselineInput$: StaticStructureSchema = [3, n0, _DBI,
   0,
   [_eBI],
-  [0]
+  [0], 1
 ];
 export var DisableBaselineOutput$: StaticStructureSchema = [3, n0, _DBO,
   0,
   [_oI],
-  [0]
+  [0], 1
 ];
 export var DisableControlInput$: StaticStructureSchema = [3, n0, _DCI,
   0,
@@ -303,7 +303,7 @@ export var DisableControlInput$: StaticStructureSchema = [3, n0, _DCI,
 export var DisableControlOutput$: StaticStructureSchema = [3, n0, _DCO,
   0,
   [_oI],
-  [0]
+  [0], 1
 ];
 export var DriftStatusSummary$: StaticStructureSchema = [3, n0, _DSS,
   0,
@@ -312,28 +312,28 @@ export var DriftStatusSummary$: StaticStructureSchema = [3, n0, _DSS,
 ];
 export var EnableBaselineInput$: StaticStructureSchema = [3, n0, _EBI,
   0,
-  [_bV, _p, _bI, _tI, _t],
-  [0, () => EnabledBaselineParameters, 0, 0, 128 | 0]
+  [_bV, _bI, _tI, _p, _t],
+  [0, 0, 0, () => EnabledBaselineParameters, 128 | 0], 3
 ];
 export var EnableBaselineOutput$: StaticStructureSchema = [3, n0, _EBO,
   0,
   [_oI, _a],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EnableControlInput$: StaticStructureSchema = [3, n0, _ECI,
   0,
   [_cI, _tI, _t, _p],
-  [0, 0, 128 | 0, () => EnabledControlParameters]
+  [0, 0, 128 | 0, () => EnabledControlParameters], 2
 ];
 export var EnableControlOutput$: StaticStructureSchema = [3, n0, _ECO,
   0,
   [_oI, _a],
-  [0, 0]
+  [0, 0], 1
 ];
 export var EnabledBaselineDetails$: StaticStructureSchema = [3, n0, _EBD,
   0,
-  [_a, _bI, _bV, _dSS, _tI, _pI, _sS, _p],
-  [0, 0, 0, () => EnabledBaselineDriftStatusSummary$, 0, 0, () => EnablementStatusSummary$, () => EnabledBaselineParameterSummaries]
+  [_a, _bI, _tI, _sS, _bV, _dSS, _pI, _p],
+  [0, 0, 0, () => EnablementStatusSummary$, 0, () => EnabledBaselineDriftStatusSummary$, 0, () => EnabledBaselineParameterSummaries], 4
 ];
 export var EnabledBaselineDriftStatusSummary$: StaticStructureSchema = [3, n0, _EBDSS,
   0,
@@ -358,17 +358,17 @@ export var EnabledBaselineInheritanceDrift$: StaticStructureSchema = [3, n0, _EB
 export var EnabledBaselineParameter$: StaticStructureSchema = [3, n0, _EBP,
   0,
   [_k, _va],
-  [0, 15]
+  [0, 15], 2
 ];
 export var EnabledBaselineParameterSummary$: StaticStructureSchema = [3, n0, _EBPS,
   0,
   [_k, _va],
-  [0, 15]
+  [0, 15], 2
 ];
 export var EnabledBaselineSummary$: StaticStructureSchema = [3, n0, _EBS,
   0,
-  [_a, _bI, _bV, _dSS, _tI, _pI, _sS],
-  [0, 0, 0, () => EnabledBaselineDriftStatusSummary$, 0, 0, () => EnablementStatusSummary$]
+  [_a, _bI, _tI, _sS, _bV, _dSS, _pI],
+  [0, 0, 0, () => EnablementStatusSummary$, 0, () => EnabledBaselineDriftStatusSummary$, 0], 4
 ];
 export var EnabledControlDetails$: StaticStructureSchema = [3, n0, _ECD,
   0,
@@ -393,12 +393,12 @@ export var EnabledControlInheritanceDrift$: StaticStructureSchema = [3, n0, _ECI
 export var EnabledControlParameter$: StaticStructureSchema = [3, n0, _ECP,
   0,
   [_k, _va],
-  [0, 15]
+  [0, 15], 2
 ];
 export var EnabledControlParameterSummary$: StaticStructureSchema = [3, n0, _ECPS,
   0,
   [_k, _va],
-  [0, 15]
+  [0, 15], 2
 ];
 export var EnabledControlResourceDrift$: StaticStructureSchema = [3, n0, _ECRD,
   0,
@@ -418,37 +418,37 @@ export var EnablementStatusSummary$: StaticStructureSchema = [3, n0, _ESS,
 export var GetBaselineInput$: StaticStructureSchema = [3, n0, _GBI,
   0,
   [_bI],
-  [0]
+  [0], 1
 ];
 export var GetBaselineOperationInput$: StaticStructureSchema = [3, n0, _GBOI,
   0,
   [_oI],
-  [0]
+  [0], 1
 ];
 export var GetBaselineOperationOutput$: StaticStructureSchema = [3, n0, _GBOO,
   0,
   [_bO],
-  [() => BaselineOperation$]
+  [() => BaselineOperation$], 1
 ];
 export var GetBaselineOutput$: StaticStructureSchema = [3, n0, _GBO,
   0,
   [_a, _n, _d],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var GetControlOperationInput$: StaticStructureSchema = [3, n0, _GCOI,
   0,
   [_oI],
-  [0]
+  [0], 1
 ];
 export var GetControlOperationOutput$: StaticStructureSchema = [3, n0, _GCOO,
   0,
   [_cO],
-  [() => ControlOperation$]
+  [() => ControlOperation$], 1
 ];
 export var GetEnabledBaselineInput$: StaticStructureSchema = [3, n0, _GEBI,
   0,
   [_eBI],
-  [0]
+  [0], 1
 ];
 export var GetEnabledBaselineOutput$: StaticStructureSchema = [3, n0, _GEBO,
   0,
@@ -458,43 +458,43 @@ export var GetEnabledBaselineOutput$: StaticStructureSchema = [3, n0, _GEBO,
 export var GetEnabledControlInput$: StaticStructureSchema = [3, n0, _GECI,
   0,
   [_eCI],
-  [0]
+  [0], 1
 ];
 export var GetEnabledControlOutput$: StaticStructureSchema = [3, n0, _GECO,
   0,
   [_eCD],
-  [() => EnabledControlDetails$]
+  [() => EnabledControlDetails$], 1
 ];
 export var GetLandingZoneInput$: StaticStructureSchema = [3, n0, _GLZI,
   0,
   [_lZI],
-  [0]
+  [0], 1
 ];
 export var GetLandingZoneOperationInput$: StaticStructureSchema = [3, n0, _GLZOI,
   0,
   [_oI],
-  [0]
+  [0], 1
 ];
 export var GetLandingZoneOperationOutput$: StaticStructureSchema = [3, n0, _GLZOO,
   0,
   [_oD],
-  [() => LandingZoneOperationDetail$]
+  [() => LandingZoneOperationDetail$], 1
 ];
 export var GetLandingZoneOutput$: StaticStructureSchema = [3, n0, _GLZO,
   0,
   [_lZ],
-  [() => LandingZoneDetail$]
+  [() => LandingZoneDetail$], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LandingZoneDetail$: StaticStructureSchema = [3, n0, _LZD,
   0,
-  [_v, _rT, _a, _s, _lAV, _dS, _ma],
-  [0, 64 | 0, 0, 0, 0, () => LandingZoneDriftStatusSummary$, 15]
+  [_v, _ma, _rT, _a, _s, _lAV, _dS],
+  [0, 15, 64 | 0, 0, 0, 0, () => LandingZoneDriftStatusSummary$], 2
 ];
 export var LandingZoneDriftStatusSummary$: StaticStructureSchema = [3, n0, _LZDSS,
   0,
@@ -529,7 +529,7 @@ export var ListBaselinesInput$: StaticStructureSchema = [3, n0, _LBI,
 export var ListBaselinesOutput$: StaticStructureSchema = [3, n0, _LBO,
   0,
   [_b, _nT],
-  [() => Baselines, 0]
+  [() => Baselines, 0], 1
 ];
 export var ListControlOperationsInput$: StaticStructureSchema = [3, n0, _LCOI,
   0,
@@ -539,7 +539,7 @@ export var ListControlOperationsInput$: StaticStructureSchema = [3, n0, _LCOI,
 export var ListControlOperationsOutput$: StaticStructureSchema = [3, n0, _LCOO,
   0,
   [_cOo, _nT],
-  [() => ControlOperations, 0]
+  [() => ControlOperations, 0], 1
 ];
 export var ListEnabledBaselinesInput$: StaticStructureSchema = [3, n0, _LEBI,
   0,
@@ -549,7 +549,7 @@ export var ListEnabledBaselinesInput$: StaticStructureSchema = [3, n0, _LEBI,
 export var ListEnabledBaselinesOutput$: StaticStructureSchema = [3, n0, _LEBO,
   0,
   [_eB, _nT],
-  [() => EnabledBaselines, 0]
+  [() => EnabledBaselines, 0], 1
 ];
 export var ListEnabledControlsInput$: StaticStructureSchema = [3, n0, _LECI,
   0,
@@ -559,7 +559,7 @@ export var ListEnabledControlsInput$: StaticStructureSchema = [3, n0, _LECI,
 export var ListEnabledControlsOutput$: StaticStructureSchema = [3, n0, _LECO,
   0,
   [_eC, _nT],
-  [() => EnabledControls, 0]
+  [() => EnabledControls, 0], 1
 ];
 export var ListLandingZoneOperationsInput$: StaticStructureSchema = [3, n0, _LLZOI,
   0,
@@ -569,7 +569,7 @@ export var ListLandingZoneOperationsInput$: StaticStructureSchema = [3, n0, _LLZ
 export var ListLandingZoneOperationsOutput$: StaticStructureSchema = [3, n0, _LLZOO,
   0,
   [_lZO, _nT],
-  [() => LandingZoneOperations, 0]
+  [() => LandingZoneOperations, 0], 1
 ];
 export var ListLandingZonesInput$: StaticStructureSchema = [3, n0, _LLZI,
   0,
@@ -579,17 +579,17 @@ export var ListLandingZonesInput$: StaticStructureSchema = [3, n0, _LLZI,
 export var ListLandingZonesOutput$: StaticStructureSchema = [3, n0, _LLZO,
   0,
   [_lZa, _nT],
-  [() => LandingZoneSummaries, 0]
+  [() => LandingZoneSummaries, 0], 1
 ];
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
   [_t],
-  [128 | 0]
+  [128 | 0], 1
 ];
 export var Region$: StaticStructureSchema = [3, n0, _R,
   0,
@@ -599,49 +599,49 @@ export var Region$: StaticStructureSchema = [3, n0, _R,
 export var ResetEnabledBaselineInput$: StaticStructureSchema = [3, n0, _REBI,
   0,
   [_eBI],
-  [0]
+  [0], 1
 ];
 export var ResetEnabledBaselineOutput$: StaticStructureSchema = [3, n0, _REBO,
   0,
   [_oI],
-  [0]
+  [0], 1
 ];
 export var ResetEnabledControlInput$: StaticStructureSchema = [3, n0, _RECI,
   0,
   [_eCI],
-  [0]
+  [0], 1
 ];
 export var ResetEnabledControlOutput$: StaticStructureSchema = [3, n0, _RECO,
   0,
   [_oI],
-  [0]
+  [0], 1
 ];
 export var ResetLandingZoneInput$: StaticStructureSchema = [3, n0, _RLZI,
   0,
   [_lZI],
-  [0]
+  [0], 1
 ];
 export var ResetLandingZoneOutput$: StaticStructureSchema = [3, n0, _RLZO,
   0,
   [_oI],
-  [0]
+  [0], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rA, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -651,13 +651,13 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]]
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -666,38 +666,38 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 ];
 export var UpdateEnabledBaselineInput$: StaticStructureSchema = [3, n0, _UEBI,
   0,
-  [_bV, _p, _eBI],
-  [0, () => EnabledBaselineParameters, 0]
+  [_bV, _eBI, _p],
+  [0, 0, () => EnabledBaselineParameters], 2
 ];
 export var UpdateEnabledBaselineOutput$: StaticStructureSchema = [3, n0, _UEBO,
   0,
   [_oI],
-  [0]
+  [0], 1
 ];
 export var UpdateEnabledControlInput$: StaticStructureSchema = [3, n0, _UECI,
   0,
   [_p, _eCI],
-  [() => EnabledControlParameters, 0]
+  [() => EnabledControlParameters, 0], 2
 ];
 export var UpdateEnabledControlOutput$: StaticStructureSchema = [3, n0, _UECO,
   0,
   [_oI],
-  [0]
+  [0], 1
 ];
 export var UpdateLandingZoneInput$: StaticStructureSchema = [3, n0, _ULZI,
   0,
-  [_v, _rT, _lZI, _ma],
-  [0, 64 | 0, 0, 15]
+  [_v, _lZI, _rT, _ma],
+  [0, 0, 64 | 0, 15], 2
 ];
 export var UpdateLandingZoneOutput$: StaticStructureSchema = [3, n0, _ULZO,
   0,
   [_oI],
-  [0]
+  [0], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ControlTowerServiceException$: StaticErrorSchema = [-3, _sm, "ControlTowerServiceException", 0, [], []];

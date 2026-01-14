@@ -114,7 +114,7 @@ import {
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountSettings$: StaticStructureSchema = [3, n0, _AS,
@@ -125,7 +125,7 @@ export var AccountSettings$: StaticStructureSchema = [3, n0, _AS,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CustomerAgreementSummary$: StaticStructureSchema = [3, n0, _CAS,
@@ -146,7 +146,7 @@ export var GetAccountSettingsResponse$: StaticStructureSchema = [3, n0, _GASRe,
 export var GetReportMetadataRequest$: StaticStructureSchema = [3, n0, _GRMR,
   0,
   [_rIe, _rV],
-  [[0, { [_hQ]: _rIe }], [1, { [_hQ]: _rV }]]
+  [[0, { [_hQ]: _rIe }], [1, { [_hQ]: _rV }]], 1
 ];
 export var GetReportMetadataResponse$: StaticStructureSchema = [3, n0, _GRMRe,
   0,
@@ -155,8 +155,8 @@ export var GetReportMetadataResponse$: StaticStructureSchema = [3, n0, _GRMRe,
 ];
 export var GetReportRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
-  [_rIe, _rV, _tTe],
-  [[0, { [_hQ]: _rIe }], [1, { [_hQ]: _rV }], [0, { [_hQ]: _tTe }]]
+  [_rIe, _tTe, _rV],
+  [[0, { [_hQ]: _rIe }], [0, { [_hQ]: _tTe }], [1, { [_hQ]: _rV }]], 2
 ];
 export var GetReportResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
@@ -166,7 +166,7 @@ export var GetReportResponse$: StaticStructureSchema = [3, n0, _GRRe,
 export var GetTermForReportRequest$: StaticStructureSchema = [3, n0, _GTFRR,
   0,
   [_rIe, _rV],
-  [[0, { [_hQ]: _rIe }], [1, { [_hQ]: _rV }]]
+  [[0, { [_hQ]: _rIe }], [1, { [_hQ]: _rV }]], 1
 ];
 export var GetTermForReportResponse$: StaticStructureSchema = [3, n0, _GTFRRe,
   0,
@@ -176,7 +176,7 @@ export var GetTermForReportResponse$: StaticStructureSchema = [3, n0, _GTFRRe,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]]
+  [0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListCustomerAgreementsRequest$: StaticStructureSchema = [3, n0, _LCAR,
@@ -187,7 +187,7 @@ export var ListCustomerAgreementsRequest$: StaticStructureSchema = [3, n0, _LCAR
 export var ListCustomerAgreementsResponse$: StaticStructureSchema = [3, n0, _LCARi,
   0,
   [_cA, _nT],
-  [() => CustomerAgreementList, 0]
+  [() => CustomerAgreementList, 0], 1
 ];
 export var ListReportsRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
@@ -202,12 +202,12 @@ export var ListReportsResponse$: StaticStructureSchema = [3, n0, _LRRi,
 export var ListReportVersionsRequest$: StaticStructureSchema = [3, n0, _LRVR,
   0,
   [_rIe, _mR, _nT],
-  [[0, { [_hQ]: _rIe }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, { [_hQ]: _rIe }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListReportVersionsResponse$: StaticStructureSchema = [3, n0, _LRVRi,
   0,
   [_r, _nT],
-  [() => ReportsList, 0]
+  [() => ReportsList, 0], 1
 ];
 export var PutAccountSettingsRequest$: StaticStructureSchema = [3, n0, _PASR,
   0,
@@ -232,31 +232,31 @@ export var ReportSummary$: StaticStructureSchema = [3, n0, _RS,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]]
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _re, _fL],
-  [0, 0, () => ValidationExceptionFieldList]
+  [0, 0, () => ValidationExceptionFieldList], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ArtifactServiceException$: StaticErrorSchema = [-3, _sm, "ArtifactServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ArtifactServiceException$, ArtifactServiceException);

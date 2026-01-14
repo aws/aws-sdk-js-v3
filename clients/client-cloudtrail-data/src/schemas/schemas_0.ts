@@ -50,12 +50,12 @@ import {
 export var AuditEvent$: StaticStructureSchema = [3, n0, _AE,
   0,
   [_i, _eD, _eDC],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var AuditEventResultEntry$: StaticStructureSchema = [3, n0, _AERE,
   0,
   [_i, _eID],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ChannelInsufficientPermission$: StaticErrorSchema = [-3, n0, _CIP,
   { [_e]: _c },
@@ -90,17 +90,17 @@ TypeRegistry.for(n0).registerError(InvalidChannelARN$, InvalidChannelARN);
 export var PutAuditEventsRequest$: StaticStructureSchema = [3, n0, _PAER,
   0,
   [_aE, _cA, _eI],
-  [() => AuditEvents, [0, { [_hQ]: _cA }], [0, { [_hQ]: _eI }]]
+  [() => AuditEvents, [0, { [_hQ]: _cA }], [0, { [_hQ]: _eI }]], 2
 ];
 export var PutAuditEventsResponse$: StaticStructureSchema = [3, n0, _PAERu,
   0,
   [_s, _f],
-  [() => AuditEventResultEntries, () => ResultErrorEntries]
+  [() => AuditEventResultEntries, () => ResultErrorEntries], 2
 ];
 export var ResultErrorEntry$: StaticStructureSchema = [3, n0, _REE,
   0,
   [_i, _eC, _eM],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
   { [_e]: _c },
