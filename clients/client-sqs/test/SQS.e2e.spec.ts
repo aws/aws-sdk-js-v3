@@ -20,8 +20,9 @@ describe(SQS.name, () => {
         },
         { step: "build" }
       );
-      await client.listQueues({ MaxResults: 1 });
-      expect.assertions(2);
+      const response = await client.listQueues({ MaxResults: 1 });
+      expect(response.$metadata.httpStatusCode).toEqual(200);
+      expect.assertions(3);
     }
   );
 });
