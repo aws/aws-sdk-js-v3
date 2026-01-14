@@ -299,6 +299,7 @@ const _dS = "durationSeconds";
 const _dU = "dbUser";
 const _e = "error";
 const _eA = "endpointArn";
+const _eCFAO = "extraComputeForAutomaticOptimization";
 const _eCT = "endpointCreateTime";
 const _eD = "endDate";
 const _eN = "endpointName";
@@ -599,8 +600,8 @@ export var CreateUsageLimitResponse$: StaticStructureSchema = [3, n0, _CULRr,
 ];
 export var CreateWorkgroupRequest$: StaticStructureSchema = [3, n0, _CWR,
   0,
-  [_wN, _nN, _bC, _eVR, _cP, _sGI, _sI, _pA, _t, _po, _mC, _pPT, _iAT, _tN],
-  [0, 0, 1, 2, () => ConfigParameterList, 64 | 0, 64 | 0, 2, () => TagList, 1, 1, () => PerformanceTarget$, 0, 0], 2
+  [_wN, _nN, _bC, _eVR, _cP, _sGI, _sI, _pA, _t, _po, _mC, _pPT, _iAT, _tN, _eCFAO],
+  [0, 0, 1, 2, () => ConfigParameterList, 64 | 0, 64 | 0, 2, () => TagList, 1, 1, () => PerformanceTarget$, 0, 0, 2], 2
 ];
 export var CreateWorkgroupResponse$: StaticStructureSchema = [3, n0, _CWRr,
   0,
@@ -1293,8 +1294,8 @@ export var UpdateUsageLimitResponse$: StaticStructureSchema = [3, n0, _UULRp,
 ];
 export var UpdateWorkgroupRequest$: StaticStructureSchema = [3, n0, _UWR,
   0,
-  [_wN, _bC, _eVR, _cP, _pA, _sI, _sGI, _po, _mC, _iAT, _pPT, _tN],
-  [0, 1, 2, () => ConfigParameterList, 2, 64 | 0, 64 | 0, 1, 1, 0, () => PerformanceTarget$, 0], 1
+  [_wN, _bC, _eVR, _cP, _pA, _sI, _sGI, _po, _mC, _iAT, _pPT, _tN, _eCFAO],
+  [0, 1, 2, () => ConfigParameterList, 2, 64 | 0, 64 | 0, 1, 1, 0, () => PerformanceTarget$, 0, 2], 1
 ];
 export var UpdateWorkgroupResponse$: StaticStructureSchema = [3, n0, _UWRp,
   0,
@@ -1324,8 +1325,8 @@ export var VpcSecurityGroupMembership$: StaticStructureSchema = [3, n0, _VSGM,
 ];
 export var Workgroup$: StaticStructureSchema = [3, n0, _W,
   0,
-  [_wI, _wA, _wN, _nN, _bC, _eVR, _cP, _sGI, _sI, _st, _en, _pA, _cD, _po, _cDN, _cDCA, _cDCET, _wV, _pVa, _mC, _cAV, _iAT, _pPT, _tN, _pTN],
-  [0, 0, 0, 0, 1, 2, () => ConfigParameterList, 64 | 0, 64 | 0, 0, () => Endpoint$, 2, 5, 1, 0, 0, 5, 0, 0, 1, 64 | 0, 0, () => PerformanceTarget$, 0, 0]
+  [_wI, _wA, _wN, _nN, _bC, _eVR, _cP, _sGI, _sI, _st, _en, _pA, _cD, _po, _cDN, _cDCA, _cDCET, _wV, _pVa, _mC, _cAV, _iAT, _pPT, _tN, _pTN, _eCFAO],
+  [0, 0, 0, 0, 1, 2, () => ConfigParameterList, 64 | 0, 64 | 0, 0, () => Endpoint$, 2, 5, 1, 0, 0, 5, 0, 0, 1, 64 | 0, 0, () => PerformanceTarget$, 0, 0, 2]
 ];
 export var RedshiftServerlessServiceException$: StaticErrorSchema = [-3, _sm, "RedshiftServerlessServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(RedshiftServerlessServiceException$, RedshiftServerlessServiceException);

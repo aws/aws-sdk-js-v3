@@ -104,6 +104,7 @@ export interface GetWorkgroupCommandOutput extends GetWorkgroupResponse, __Metad
  * //     },
  * //     trackName: "STRING_VALUE",
  * //     pendingTrackName: "STRING_VALUE",
+ * //     extraComputeForAutomaticOptimization: true || false,
  * //   },
  * // };
  *

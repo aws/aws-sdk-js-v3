@@ -108,6 +108,7 @@ export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __M
  * //       },
  * //       trackName: "STRING_VALUE",
  * //       pendingTrackName: "STRING_VALUE",
+ * //       extraComputeForAutomaticOptimization: true || false,
  * //     },
  * //   ],
  * // };
